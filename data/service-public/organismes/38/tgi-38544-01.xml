@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="38544" dateMiseAJour="2021-12-14" id="tgi-38544-01" idPresta="4cac9e87293594648a004cc8" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Vienne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>16 PLACE CHARLES DE GAULLE</Ligne>
+        <CodePostal>38209</CodePostal>
+        <NomCommune>VIENNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.52589</Latitude>
+            <Longitude>4.874075</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>16 PLACE CHARLES DE GAULLE</Ligne>
+        <CodePostal>38209</CodePostal>
+        <NomCommune>VIENNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 74 78 81 81</Téléphone>
+        <Télécopie>04 74 78 81 69</Télécopie>
+        <Email>mailto:accueil.tj-vienne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

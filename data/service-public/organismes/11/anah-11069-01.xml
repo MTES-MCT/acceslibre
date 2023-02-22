@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-11069-01" codeInsee="11069" dateMiseAJour="2021-07-13"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale des territoires et de la mer</Ligne>
+      <Ligne>105 boulevard Barbès</Ligne>
+      <Ligne>CS 4001</Ligne>
+      <CodePostal>11838</CodePostal>
+      <NomCommune>Carcassonne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.2103979</Latitude>
+         <Longitude>2.346155</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 71 76 57</Téléphone>
+      <Télécopie>04 68 71 24 46</Télécopie>
+      <Email>ddtm-shbd-uflru-delegation-locale-de-l-anah@aude.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="11:45:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous. Accueil téléphonique du lundi au vendredi de 9h à 11h45.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:15:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

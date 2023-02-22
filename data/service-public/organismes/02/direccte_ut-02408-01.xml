@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-02408-01" codeInsee="02408" dateMiseAJour="2021-10-18"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <CodePostal>02016</CodePostal>
+      <NomCommune>Laon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.564627</Latitude>
+         <Longitude>3.63003</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 26 35 00</Téléphone>
+      <Email>ddets-directeur@aisne.gouv.fr</Email>
+      <Url>https://www.aisne.gouv.fr/Services-de-l-Etat/Presentation-des-services/Direction-departementale-de-l-emploi-du-travail-et-des-solidarites-DDETS</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

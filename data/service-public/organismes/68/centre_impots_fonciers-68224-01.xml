@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-68224-01" codeInsee="68224"
+           dateMiseAJour="2021-12-30"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Service départemental des impôts foncier (SDIF) Haut-Rhin - Mulhouse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment C</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>12 rue Coehorn</Ligne>
+      <CodePostal>68085</CodePostal>
+      <NomCommune>Mulhouse Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.08423</Latitude>
+         <Longitude>7.35999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 33 32 06</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Egalement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

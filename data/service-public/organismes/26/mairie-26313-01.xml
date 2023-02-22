@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26313-01" codeInsee="26313" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Marcel-lès-Valence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>BP 4</Ligne>
+      <CodePostal>26320</CodePostal>
+      <NomCommune>Saint-Marcel-lès-Valence</NomCommune>
+      <Localisation>
+         <Latitude>44.9714012146</Latitude>
+         <Longitude>4.95469999313</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 58 70 03</Téléphone>
+      <Télécopie>04 75 58 74 34</Télécopie>
+      <Email>contact.mairie@saint-marcel-les-valence.fr</Email>
+      <Url>http://www.mairiesmlv.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin de 9h à 12h et l'après-midi sur rendez-vous pour le service urbanisme.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin de 9h à 12h et l'après-midi sur rendez-vous pour le service urbanisme.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="15:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin de 9h à 12h et l'après-midi sur rendez-vous pour le service urbanisme.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10268-01" codeInsee="10268" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nogent-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 Grand'rue Saint-Laurent</Ligne>
+      <CodePostal>10400</CodePostal>
+      <NomCommune>Nogent-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.4925994873</Latitude>
+         <Longitude>3.49783992767</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 39 42 00</Téléphone>
+      <Télécopie>03 25 39 98 74</Télécopie>
+      <Email>communication@ville-nogent-sur-seine.fr</Email>
+      <Url>http://www.nogentsurseine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

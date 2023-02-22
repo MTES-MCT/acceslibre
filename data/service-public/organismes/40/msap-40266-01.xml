@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-40266-01" codeInsee="40266" dateMiseAJour="2020-12-15"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Saint-Julien-en-Born</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Route des Lacs</Ligne>
+      <CodePostal>40170</CodePostal>
+      <NomCommune>Saint-Julien-en-Born</NomCommune>
+      <Localisation>
+         <Latitude>44.066222</Latitude>
+         <Longitude>-1.227922</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.saint-julien-en-born@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/saint-julien-en-born-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

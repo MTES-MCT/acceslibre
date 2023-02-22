@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_region-75115-01" codeInsee="75115" dateMiseAJour="2019-01-25"
+           pivotLocal="prefecture_region">
+   <Nom>Préfecture de région - Île-de-France et Paris</Nom>
+   <EditeurSource>la Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Leblanc</Ligne>
+      <CodePostal>75911</CodePostal>
+      <NomCommune>Paris Cedex 15</NomCommune>
+      <Localisation>
+         <Latitude>48.8401046</Latitude>
+         <Longitude>2.2723935</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 82 52 40 00</Téléphone>
+      <Email>http://prefectures-regions.gouv.fr/ile-de-france/Outils/Nous-contacter</Email>
+      <Url>http://www.prefectures-regions.gouv.fr/ile-de-france</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

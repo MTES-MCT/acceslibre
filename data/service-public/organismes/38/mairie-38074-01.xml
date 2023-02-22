@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38074-01" codeInsee="38074" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chantesse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>42 place du 19-Mars-1962</Ligne>
+      <CodePostal>38470</CodePostal>
+      <NomCommune>Chantesse</NomCommune>
+      <Localisation>
+         <Latitude>45.2437515259</Latitude>
+         <Longitude>5.44488286972</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 73 94</Téléphone>
+      <Email>mairie.chantesse@wanadoo.fr</Email>
+      <Url>http://www.chantesse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Ouvert seulement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-44069-01" codeInsee="44069" dateMiseAJour="2020-02-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Guérande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Eclair'âge</Ligne>
+      <Ligne>26 bis faubourg Saint-Michel</Ligne>
+      <CodePostal>44350</CodePostal>
+      <NomCommune>Guérande</NomCommune>
+      <Localisation>
+         <Latitude>47.326336</Latitude>
+         <Longitude>-2.4246</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 62 64 64</Téléphone>
+      <Télécopie>02 40 62 64 66</Télécopie>
+      <Email>eclair-age@wanadoo.fr</Email>
+      <Url>http://www.cliceclairage.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous les après-midis.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous les après-midis.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>accueil sur rendez-vous les après-midi.</Commentaire>
+</Organisme>

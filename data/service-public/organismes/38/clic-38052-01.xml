@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-38052-01" codeInsee="38052" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Le Bourg-d'Oisans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>L'Oisans</Ligne>
+      <Ligne>Service autonomie</Ligne>
+      <Ligne>200 avenue de la Gare</Ligne>
+      <CodePostal>38520</CodePostal>
+      <NomCommune>Le Bourg-d'Oisans</NomCommune>
+      <Localisation>
+         <Latitude>45.059378</Latitude>
+         <Longitude>6.027726</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 80 03 48</Téléphone>
+      <Télécopie>04 76 11 07 89</Télécopie>
+      <Email>toi.solidarite@isere.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

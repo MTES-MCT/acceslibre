@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26087-01" codeInsee="26087" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châtillon-Saint-Jean</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>120 A rue d'Octavéon</Ligne>
+      <CodePostal>26750</CodePostal>
+      <NomCommune>Châtillon-Saint-Jean</NomCommune>
+      <Localisation>
+         <Latitude>45.0884341</Latitude>
+         <Longitude>5.1316605</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 45 31 15</Téléphone>
+      <Email>mairie@chatillonsaintjean.fr</Email>
+      <Url>http://www.chatillonsaintjean.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert 3 samedis par mois, consulter l'affichage en mairie.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -4,9 +4,9 @@ from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
+from erp.imports.mapper import SkippedRecord
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
-from erp.imports.mapper import SkippedRecord
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
@@ -170,9 +170,9 @@ class VaccinationMapper:
         "Vérification des autres raisons d'écartement"
 
         for (test, raison) in self.TESTS_ECARTEMENT.items():
-            if text.contains_sequence(
-                test, self.props.get("c_nom")
-            ) or text.contains_sequence(test, self.props.get("c_rdv_modalites")):
+            if text.contains_sequence(test, self.props.get("c_nom")) or text.contains_sequence(
+                test, self.props.get("c_rdv_modalites")
+            ):
                 return raison
 
         if self.props.get("c_reserve_professionels_sante") is True:
@@ -193,9 +193,7 @@ class VaccinationMapper:
 
     def _fetch_or_create_erp(self):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
-        erp = Erp.objects.find_by_source_id(
-            Erp.SOURCE_VACCINATION, self.source_id
-        ).first()
+        erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, self.source_id).first()
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_VACCINATION,
@@ -224,17 +222,11 @@ class VaccinationMapper:
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
 
         if not commune_ext:
             raise RuntimeError(

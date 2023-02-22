@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34038-01" codeInsee="34038" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Bousquet-d'Orb</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Pierre-Masse</Ligne>
+      <CodePostal>34260</CodePostal>
+      <NomCommune>Le Bousquet-d'Orb</NomCommune>
+      <Localisation>
+         <Latitude>43.7000007629</Latitude>
+         <Longitude>3.166670084</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 23 80 89</Téléphone>
+      <Email>mairie.bousquetdorb@orange.fr</Email>
+      <Url>http://www.lebousquetdorb.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé le samedi en juillet et en août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

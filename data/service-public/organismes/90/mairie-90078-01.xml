@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90078-01" codeInsee="90078" dateMiseAJour="2020-07-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Petitefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue des Marronniers</Ligne>
+      <CodePostal>90360</CodePostal>
+      <NomCommune>Petitefontaine</NomCommune>
+      <Localisation>
+         <Latitude>47.7210725</Latitude>
+         <Longitude>7.0073969</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 64 08 19 00</Téléphone>
+      <Email>mairie.petitefontaine@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

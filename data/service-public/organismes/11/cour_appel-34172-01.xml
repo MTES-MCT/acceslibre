@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="34172" dateMiseAJour="2021-12-14" id="cour_appel-34172-01" idPresta="4cac9e5e293594648a00010b" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Montpellier</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE DU MARECHAL FOCH</Ligne>
+        <CodePostal>34023</CodePostal>
+        <NomCommune>MONTPELLIER CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>43.612199</Latitude>
+            <Longitude>3.872841</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE DU MARECHAL FOCH</Ligne>
+        <CodePostal>34023</CodePostal>
+        <NomCommune>MONTPELLIER CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 34 08 80 80</Téléphone>
+        <Télécopie>04 34 08 82 87</Télécopie>
+        <Url>https://www.cours-appel.justice.fr/montpellier</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

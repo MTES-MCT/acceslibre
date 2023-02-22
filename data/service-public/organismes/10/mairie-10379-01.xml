@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10379-01" codeInsee="10379" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Torcy-le-Grand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Chauffour</Ligne>
+      <CodePostal>10700</CodePostal>
+      <NomCommune>Torcy-le-Grand</NomCommune>
+      <Localisation>
+         <Latitude>48.5335998535</Latitude>
+         <Longitude>4.17423009872</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 01 20</Téléphone>
+      <Télécopie>03 25 37 01 20</Télécopie>
+      <Email>mairie.torcy-le-grand@wanadoo.fr</Email>
+      <Url>http://www.torcy-le-grand-aube.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:15:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

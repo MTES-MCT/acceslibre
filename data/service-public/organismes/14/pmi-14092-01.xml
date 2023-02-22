@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-14092-01" codeInsee="14092" dateMiseAJour="2021-04-19" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Bourguébus</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico social</Ligne>
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>Pôle accueil sud</Ligne>
+      <CodePostal>14540</CodePostal>
+      <NomCommune>Bourguébus</NomCommune>
+      <Localisation>
+         <Latitude>49.1212005</Latitude>
+         <Longitude>-0.295738</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 23 11 95</Téléphone>
+      <Télécopie>02 31 39 56 76</Télécopie>
+      <Url>http://www.calvados.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

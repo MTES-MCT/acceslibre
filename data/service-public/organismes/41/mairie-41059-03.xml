@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41059-03" codeInsee="41059" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Fougères-sur-Bièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Fougères-sur-Bièvre</Ligne>
+      <Ligne>2 rue de l'Église</Ligne>
+      <CodePostal>41120</CodePostal>
+      <NomCommune>Controis-en-Sologne</NomCommune>
+      <Localisation>
+         <Latitude>47.4468337</Latitude>
+         <Longitude>1.3440764</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 20 26 50</Téléphone>
+      <Télécopie>02 54 20 23 30</Télécopie>
+      <Email>commune.fougeres@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

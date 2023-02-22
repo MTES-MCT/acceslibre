@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26264-01" codeInsee="26264" dateMiseAJour="2021-05-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rémuzat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17-19 quai de l'Oule</Ligne>
+      <CodePostal>26510</CodePostal>
+      <NomCommune>Rémuzat</NomCommune>
+      <Localisation>
+         <Latitude>44.414276</Latitude>
+         <Longitude>5.356103</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 27 85 78</Téléphone>
+      <Télécopie>04 75 27 82 71</Télécopie>
+      <Email>mairie@remuzat.fr</Email>
+      <Url>https://www.remuzat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

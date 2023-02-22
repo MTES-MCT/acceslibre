@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-24037-01" codeInsee="24037" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Bergeracoise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Domaine de la Tour</Ligne>
+      <Ligne>La Tour Est</Ligne>
+      <Ligne>CS 40012</Ligne>
+      <CodePostal>24112</CodePostal>
+      <NomCommune>Bergerac Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.851919</Latitude>
+         <Longitude>0.5208512</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 23 43 95</Téléphone>
+      <Télécopie>05 53 23 27 41</Télécopie>
+      <Email>contact@la-cab.fr</Email>
+      <Url>http://www.la-cab.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73231-01" codeInsee="73231" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-de-Cuines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Viard</Ligne>
+      <CodePostal>73130</CodePostal>
+      <NomCommune>Saint-Étienne-de-Cuines</NomCommune>
+      <Localisation>
+         <Latitude>45.3417015076</Latitude>
+         <Longitude>6.29337978363</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 56 22 38</Téléphone>
+      <Télécopie>04 79 59 49 95</Télécopie>
+      <Email>mairie@st-etienne-cuines.fr</Email>
+      <Url>http://www.st-etienne-cuines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert de 13h à 17h du 1er avril au 30 septembre les lundis et mercredis.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

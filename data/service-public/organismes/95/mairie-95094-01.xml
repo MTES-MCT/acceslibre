@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95094-01" codeInsee="95094" dateMiseAJour="2018-04-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bouqueval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Eugène-Süe</Ligne>
+      <CodePostal>95720</CodePostal>
+      <NomCommune>Bouqueval</NomCommune>
+      <Localisation>
+         <Latitude>49.0245018005</Latitude>
+         <Longitude>2.42445993423</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 92 84 98</Téléphone>
+      <Télécopie>01 30 18 03 92</Télécopie>
+      <Email>mairiebouqueval@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-11069-04" codeInsee="11069" dateMiseAJour="2019-10-10" pivotLocal="cij">
+   <Nom>Point information jeunesse - Carcassonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social Max-Savy</Ligne>
+      <Ligne>1 rue du Moulin-de-la-Seigne</Ligne>
+      <CodePostal>11000</CodePostal>
+      <NomCommune>Carcassonne</NomCommune>
+      <Localisation>
+         <Latitude>43.2252088</Latitude>
+         <Longitude>2.3508423</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 71 14 32</Téléphone>
+      <Télécopie>04 68 71 14 32</Télécopie>
+      <Email>pij.max-savy@carcassonne-agglo-solidarite.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

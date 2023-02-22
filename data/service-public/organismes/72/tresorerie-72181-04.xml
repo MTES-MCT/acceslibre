@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-72181-04" codeInsee="72181" dateMiseAJour="2021-04-08"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie hospitalière du Mans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>192 avenue Rubillard</Ligne>
+      <Ligne>BP 21072</Ligne>
+      <CodePostal>72001</CodePostal>
+      <NomCommune>Le Mans Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.012775</Latitude>
+         <Longitude>0.17857</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 43 43 28</Téléphone>
+      <Email>t072034@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

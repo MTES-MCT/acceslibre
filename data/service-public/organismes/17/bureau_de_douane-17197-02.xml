@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-17197-02" codeInsee="17197" dateMiseAJour="2019-01-04"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane (viticulture) - Jonzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue Paul Bert</Ligne>
+      <Ligne>BP 79</Ligne>
+      <CodePostal>17502</CodePostal>
+      <NomCommune>Jonzac</NomCommune>
+      <Localisation>
+         <Latitude>45.446754</Latitude>
+         <Longitude>-0.436567</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 51 86</Téléphone>
+      <Télécopie>05 46 48 57 89</Télécopie>
+      <Email>cvc-jonzac@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Après midi sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

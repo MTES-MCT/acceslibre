@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-95219-01" codeInsee="95219" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Soisy-sous-Montmorency</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Association gérontologique vallée de Montmorency - rives-de-Seine</Ligne>
+      <Ligne>55 avenue de Paris</Ligne>
+      <CodePostal>95230</CodePostal>
+      <NomCommune>Soisy-sous-Montmorency</NomCommune>
+      <Localisation>
+         <Latitude>48.988669</Latitude>
+         <Longitude>2.292537</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 15 09 62</Téléphone>
+      <Télécopie>01 34 15 28 91</Télécopie>
+      <Email>secretariat@agvmrs95.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

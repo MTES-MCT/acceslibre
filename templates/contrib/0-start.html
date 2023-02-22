@@ -1,21 +1,59 @@
 {% extends "contrib/base.html" %}
 
 
-{% load a4a %}
+{% load a4a static %}
 
 {% block page_title %}Ajouter un établissement{% endblock%}
+{% block contrib_title %}Partager les données d'accessibilité d'un établissement{% endblock %}
+{% block contrib_step %}<small>Étape 1 sur 7</small>{% endblock %}
+{% block contrib_subtitle %}L'établissement{% endblock %}
+
+
+{% block navbar %}{% endblock %}
+{% block search %}col-md-12{% endblock %}
 
 {% block contrib_content %}
-  <h2 class="h3">Ajouter un établissement recevant du public</h2>
-  <p><small class="text-muted">
-    <i aria-hidden="true" class="icon icon-info-circled"></i>
-    Les champs marqués d'une astérisque (<code>*</code>) sont obligatoires.
-  </small></p>
-  {% include "contrib/forms/global_form.html" %}
-  <p class="text-center text-muted my-4">ou</p>
-  <p class="text-center mb-4">
-    <a class="btn btn-outline-primary btn-lg w-100" href="{% url "contrib_admin_infos" %}">
-      Saisir les données manuellement
-    </a>
-  </p>
+  <div class="mt-5">
+    {% include "search/form.html" with search_action="." %}
+    <div class="mt-1 pr-4">
+      Je souhaite <a class="fr-link" href="{% url "contrib_admin_infos" %}">ajouter manuellement un établissement.</a>
+    </div>
+  </div>
+  <div class="fr-grid-row fr-mb-2v fr-mt-3v ">
+      <div class="fr-col-12 pr-0">
+          <div class="fr-card bg-alt-blue-france-975 fr-card--no-arrow">
+           <div class="fr-card__body">
+               <h3 class="fr-h4 fr-card__title">
+                   La charte du contributeur
+               </h3>
+              <div class="row mt-3">
+                <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
+                  <img class="d-none d-sm-block" style="max-width:100%;padding:18%;height:200px;" src="{% static 'img/contrib/ampoule.png' %}" />
+                  <h4 class="mt-3 mt-sm-0 h5" style="font-weight: bold !important">N'aie pas peur</h4>
+                  <p>tu en sais plus que ce que tu penses</p>
+                </div>
+                <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
+                  <img class="d-none d-sm-block" style="max-width:100%;padding:17%;height:200px;" src="{% static 'img/contrib/balance.png' %}" />
+                  <h4 class="mt-3 mt-sm-0 h5" style="font-weight: bold !important">Le mieux est l'ennemi du bien</h4>
+                  <p>ne jamais enjoliver la situation afin de ne pas créer de faux espoirs</p>
+                </div>
+                <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
+                  <img class="d-none d-sm-block" style="max-width:100%;height:200px;" src="{% static 'img/contrib/colibri.png' %}" />
+                  <h4 class="mt-3 mt-sm-0 h5" style="font-weight: bold !important">Chaque information est précieuse</h4>
+                  <p>
+                    n'hésite pas à publier une fiche même si elle est incomplète ... La force du collaboratif
+                    prendra le relais et quelqu'un pourra compléter après toi
+                  </p>
+                </div>
+                <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
+                  <img class="d-none d-sm-block" style="max-width:100%;height:200px;" src="{% static 'img/contrib/sablier.png' %}" />
+                  <h4 class="mt-3 mt-sm-0 h5" style="font-weight: bold !important">5 minutes de ton temps</h4>
+                  <p>1 nouveau lieu à visiter pour 12 millions de personnes</p>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div>
+
+  </div>
 {% endblock %}

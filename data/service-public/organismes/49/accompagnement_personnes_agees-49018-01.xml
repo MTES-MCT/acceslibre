@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-49018-01" codeInsee="49018"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Baugé-en-Anjou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accord'Ages</Ligne>
+      <Ligne>11 rue du Docteur-Zamenhof</Ligne>
+      <CodePostal>49150</CodePostal>
+      <NomCommune>Baugé-en-Anjou</NomCommune>
+      <Localisation>
+         <Latitude>47.544</Latitude>
+         <Longitude>-0.098602</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 89 55 10</Téléphone>
+      <Email>coordination@accord-ages.fr</Email>
+      <Url>http://www.accord-ages.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

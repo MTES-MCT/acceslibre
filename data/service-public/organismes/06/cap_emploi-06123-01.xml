@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-06123-01" codeInsee="06123" dateMiseAJour="2021-05-04"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Alpes-Maritimes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Cap Var C1</Ligne>
+      <Ligne>148 Avenue Guynemer</Ligne>
+      <Ligne>Cap emploi 06</Ligne>
+      <CodePostal>06700</CodePostal>
+      <NomCommune>Saint-Laurent-du-Var</NomCommune>
+      <Localisation>
+         <Latitude>43.661819</Latitude>
+         <Longitude>7.196265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 19 30 80</Téléphone>
+      <Télécopie>04 93 19 30 89</Télécopie>
+      <Email>accueil.sl@capemploi06.com</Email>
+      <Url>https://www.capemploi-06.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

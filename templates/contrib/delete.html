@@ -6,7 +6,6 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<main role="main" id="content">
   <h2 class="h3 mb-3">Supprimer un établissement</h2>
 
   <p class="text-danger">
@@ -38,11 +37,11 @@
     </div>
   </div>
 
-  <form action="" method="POST" class="a4a-form">
+  <form action="" method="POST" class="a4a-form" novalidate>
     {% csrf_token %}
 
     {% if form.non_field_errors %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
@@ -59,5 +58,4 @@
 
     <button class="btn btn-danger">Supprimer l'établissement</button>
   </form>
-</main>
 {% endblock %}

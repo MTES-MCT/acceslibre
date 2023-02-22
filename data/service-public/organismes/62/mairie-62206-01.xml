@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62206-01" codeInsee="62206" dateMiseAJour="2019-09-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Campigneulles-les-Grandes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 Grand'rue</Ligne>
+      <CodePostal>62170</CodePostal>
+      <NomCommune>Campigneulles-les-Grandes</NomCommune>
+      <Localisation>
+         <Latitude>50.434627</Latitude>
+         <Longitude>1.716095</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 06 11 79</Téléphone>
+      <Télécopie>03 21 06 11 79</Télécopie>
+      <Email>mairie.206@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

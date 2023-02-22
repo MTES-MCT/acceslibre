@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62184-01" codeInsee="62184" dateMiseAJour="2019-12-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Buissy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 Grand'rue</Ligne>
+      <CodePostal>62860</CodePostal>
+      <NomCommune>Buissy</NomCommune>
+      <Localisation>
+         <Latitude>50.2104988098</Latitude>
+         <Longitude>3.08508992195</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 24 23 28</Téléphone>
+      <Télécopie>03 21 24 97 10</Télécopie>
+      <Email>communedebuissy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-80021-03" codeInsee="80021" dateMiseAJour="2021-10-28"
+           pivotLocal="msap">
+   <Nom>France Services - Amiens - Etouvie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du Pays d'Auge</Ligne>
+      <Ligne>Les Coursives</Ligne>
+      <CodePostal>80000</CodePostal>
+      <NomCommune>Amiens</NomCommune>
+      <Localisation>
+         <Latitude>49.91372</Latitude>
+         <Longitude>2.25294</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 97 15 82</Téléphone>
+      <Email>msapamiensetouvie@amiens-metropole.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

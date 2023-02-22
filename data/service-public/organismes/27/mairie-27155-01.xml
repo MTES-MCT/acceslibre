@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27155-01" codeInsee="27155" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chennebrun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8-10 place du Marché</Ligne>
+      <CodePostal>27820</CodePostal>
+      <NomCommune>Chennebrun</NomCommune>
+      <Localisation>
+         <Latitude>48.6797103882</Latitude>
+         <Longitude>0.782878994942</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 32 08 81</Téléphone>
+      <Télécopie>02 32 37 19 40</Télécopie>
+      <Email>chennebrun.mairie@wanadoo.fr</Email>
+      <Url>https://www.chennebrun.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

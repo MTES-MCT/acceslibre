@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-45203-01" codeInsee="45203" dateMiseAJour="2021-05-27"
+           pivotLocal="msap">
+   <Nom>France Services - Meung-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Saint-Jean</Ligne>
+      <CodePostal>45130</CodePostal>
+      <NomCommune>Meung-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>47.826884</Latitude>
+         <Longitude>1.700249</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 46 69 20</Téléphone>
+      <Email>ccas@meung-sur-loire.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

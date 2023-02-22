@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42308-01" codeInsee="42308" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Terrasse-sur-Dorlay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>42 place des Artisans-Boulangers</Ligne>
+      <CodePostal>42740</CodePostal>
+      <NomCommune>La Terrasse-sur-Dorlay</NomCommune>
+      <Localisation>
+         <Latitude>45.447486</Latitude>
+         <Longitude>4.589925</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 20 95 59</Téléphone>
+      <Télécopie>04 77 20 90 57</Télécopie>
+      <Email>mairie@laterrassesurdorlay.fr</Email>
+      <Url>http://www.la-terrasse-sur-dorlay.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34169-01" codeInsee="34169" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montferrier-sur-Lez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 impasse du Château</Ligne>
+      <CodePostal>34980</CodePostal>
+      <NomCommune>Montferrier-sur-Lez</NomCommune>
+      <Localisation>
+         <Latitude>43.6667311</Latitude>
+         <Longitude>3.8610343</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 59 81 34</Téléphone>
+      <Télécopie>04 67 59 96 26</Télécopie>
+      <Email>mairie-montferrier@wanadoo.fr</Email>
+      <Url>http://www.ville-montferrier-sur-lez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

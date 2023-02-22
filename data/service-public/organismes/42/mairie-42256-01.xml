@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42256-01" codeInsee="42256" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Marcellin-en-Forez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue Carles-de-Mazenod</Ligne>
+      <Ligne>BP 13</Ligne>
+      <CodePostal>42680</CodePostal>
+      <NomCommune>Saint-Marcellin-en-Forez</NomCommune>
+      <Localisation>
+         <Latitude>45.4976005554</Latitude>
+         <Longitude>4.16581010818</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 36 10 90</Téléphone>
+      <Télécopie>04 77 52 91 33</Télécopie>
+      <Email>mairie@saintmarcellinenforez.fr</Email>
+      <Url>http://www.saintmarcellinenforez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-02691-01" codeInsee="02691" dateMiseAJour="2021-11-19"
+           pivotLocal="greta">
+   <Nom>Greta Aisne - Agence de Saint-Quentin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Scolaire Condorcet</Ligne>
+      <Ligne>17 rue Henri-Hertz</Ligne>
+      <CodePostal>02100</CodePostal>
+      <NomCommune>Saint-Quentin</NomCommune>
+      <Localisation>
+         <Latitude>49.861713</Latitude>
+         <Longitude>3.293589</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 08 44 20</Téléphone>
+      <Télécopie>03 23 08 44 49</Télécopie>
+      <Email>greta.aisne@ac-amiens.fr</Email>
+      <Url>http://greta.ac-amiens.fr/aisne/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

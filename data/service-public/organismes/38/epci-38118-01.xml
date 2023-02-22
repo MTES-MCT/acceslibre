@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-38118-01" codeInsee="38118" dateMiseAJour="2019-11-13"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Bièvre Est</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc d'activité Bièvre-Dauphine</Ligne>
+      <Ligne>1352 rue Augustin-Blanchet</Ligne>
+      <CodePostal>38690</CodePostal>
+      <NomCommune>Colombe</NomCommune>
+      <Localisation>
+         <Latitude>45.398865</Latitude>
+         <Longitude>5.454838</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 06 10 94</Téléphone>
+      <Télécopie>04 76 06 40 98</Télécopie>
+      <Email>contact@cc-bievre-est.fr</Email>
+      <Url>http://www.cc-bievre-est.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

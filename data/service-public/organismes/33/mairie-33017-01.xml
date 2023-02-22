@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33017-01" codeInsee="33017" dateMiseAJour="2021-01-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aubiac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Pré de la Hount</Ligne>
+      <CodePostal>33430</CodePostal>
+      <NomCommune>Aubiac</NomCommune>
+      <Localisation>
+         <Latitude>44.46953</Latitude>
+         <Longitude>-0.24152</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 25 29 29</Téléphone>
+      <Télécopie>05 56 25 92 80</Télécopie>
+      <Email>mairie.aubiac@orange.fr</Email>
+      <Url>http://www.aubiac33.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89123-01" codeInsee="89123" dateMiseAJour="2019-04-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Courgis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 Grande rue Nicolas-Droin</Ligne>
+      <CodePostal>89800</CodePostal>
+      <NomCommune>Courgis</NomCommune>
+      <Localisation>
+         <Latitude>47.774797</Latitude>
+         <Longitude>3.755348</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 41 45 49</Téléphone>
+      <Email>mairie-courgis@wanadoo.fr</Email>
+      <Url>https://www.mairie-courgis-89.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

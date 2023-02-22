@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-45004-01" codeInsee="45004" dateMiseAJour="2020-10-27" pivotLocal="cij">
+   <Nom>Point information jeunesse - Amilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>213 rue de la Gare</Ligne>
+      <CodePostal>45200</CodePostal>
+      <NomCommune>Amilly</NomCommune>
+      <Localisation>
+         <Latitude>47.975465</Latitude>
+         <Longitude>2.772287</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 28 76 63</Téléphone>
+      <Email>jeunesse@amilly45.fr</Email>
+      <Url>http://www.amilly.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-12202-01" codeInsee="12202" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Agglomération - Rodez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Adrien-Rozier</Ligne>
+      <Ligne>CS 53531</Ligne>
+      <CodePostal>12035</CodePostal>
+      <NomCommune>Rodez Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>44.350551</Latitude>
+         <Longitude>2.5740183</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 73 83 00</Téléphone>
+      <Télécopie>05 65 73 83 10</Télécopie>
+      <Email>rodezagglomeration@rodezagglo.fr</Email>
+      <Url>https://www.rodezagglo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="12:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

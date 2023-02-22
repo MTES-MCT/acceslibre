@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-83055-01" codeInsee="83055" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Fayence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mas-de-Tassy</Ligne>
+      <Ligne>1849 route départementale 19</Ligne>
+      <CodePostal>83440</CodePostal>
+      <NomCommune>Tourrettes</NomCommune>
+      <Localisation>
+         <Latitude>43.624076</Latitude>
+         <Longitude>6.694103</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 76 02 03</Téléphone>
+      <Email>contact@cc-paysdefayence.fr</Email>
+      <Url>http://www.cc-paysdefayence.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

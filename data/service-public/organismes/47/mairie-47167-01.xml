@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47167-01" codeInsee="47167" dateMiseAJour="2021-12-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mézin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11Place du Club</Ligne>
+      <CodePostal>47170</CodePostal>
+      <NomCommune>Mézin</NomCommune>
+      <Localisation>
+         <Latitude>44.056192</Latitude>
+         <Longitude>0.25648</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 65 70 01</Téléphone>
+      <Télécopie>05 53 65 33 03</Télécopie>
+      <Email>mezinmairie@orange.fr</Email>
+      <Url>https://ville-mezin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

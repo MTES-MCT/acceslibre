@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14748-01" codeInsee="14748" dateMiseAJour="2021-02-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vieux-Bourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de Honfleur</Ligne>
+      <CodePostal>14130</CodePostal>
+      <NomCommune>Vieux-Bourg</NomCommune>
+      <Localisation>
+         <Latitude>49.3119</Latitude>
+         <Longitude>0.2503</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 50 43 39 68</Téléphone>
+      <Télécopie>09 50 43 39 68</Télécopie>
+      <Email>mairievieuxbourg@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

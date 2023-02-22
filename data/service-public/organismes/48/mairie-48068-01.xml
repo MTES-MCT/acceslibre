@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48068-01" codeInsee="48068" dateMiseAJour="2019-08-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gabrias</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Goudard</Ligne>
+      <CodePostal>48100</CodePostal>
+      <NomCommune>Gabrias</NomCommune>
+      <Localisation>
+         <Latitude>44.544795</Latitude>
+         <Longitude>3.372998</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 32 14 93</Téléphone>
+      <Email>gabrias.mairie@wanadoo.fr</Email>
+      <Url>http://www.gabrias.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

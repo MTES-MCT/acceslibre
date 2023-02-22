@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30287-01" codeInsee="30287" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Michel-d'Euzet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>30200</CodePostal>
+      <NomCommune>Saint-Michel-d'Euzet</NomCommune>
+      <Localisation>
+         <Latitude>44.2013805</Latitude>
+         <Longitude>4.54236309999999</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied, rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 82 73 03</Téléphone>
+      <Télécopie>04 66 82 76 67</Télécopie>
+      <Email>saint.michel.deuzet@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre l'accueil est ouvert uniquement le lundi matin, le mardi après-midi et le jeudi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

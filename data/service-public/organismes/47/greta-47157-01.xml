@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-47157-01" codeInsee="47157" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta CFA Aquitaine - Agence du Lot-et-Garonne - Marmande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Ejéa-de-Los-Caballeros</Ligne>
+      <Ligne>Lycée Val-de-Garonne</Ligne>
+      <Ligne>BP 307</Ligne>
+      <CodePostal>47207</CodePostal>
+      <NomCommune>Marmande Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.500484</Latitude>
+         <Longitude>0.159869</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 76 02 54</Téléphone>
+      <Télécopie>05 53 76 02 58</Télécopie>
+      <Email>agence-marmande@greta-cfa-aquitaine.fr</Email>
+      <Url>https://greta-cfa-aquitaine.fr/decouvrir-le-reseau-des-greta-en-aquitaine/agence-du-lot-et-garonne/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

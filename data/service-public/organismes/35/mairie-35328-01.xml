@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35328-01" codeInsee="35328" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sixt-sur-Aff</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Onffroy-de-la-Rosière</Ligne>
+      <CodePostal>35550</CodePostal>
+      <NomCommune>Sixt-sur-Aff</NomCommune>
+      <Localisation>
+         <Latitude>47.7760009766</Latitude>
+         <Longitude>-2.08014011383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 70 01 88</Téléphone>
+      <Télécopie>02 99 70 08 10</Télécopie>
+      <Email>mairie@sixt-sur-aff.fr</Email>
+      <Url>http://www.sixt-sur-aff.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

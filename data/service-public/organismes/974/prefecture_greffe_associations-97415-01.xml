@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-97415-01" codeInsee="97415"
+           dateMiseAJour="2019-04-26"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - La Réunion (Saint-Paul)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Saint-Paul</Ligne>
+      <Ligne>Bureau des associations</Ligne>
+      <Ligne>5 rue Évariste-de-Parny</Ligne>
+      <Ligne>CS 71044</Ligne>
+      <CodePostal>97864</CodePostal>
+      <NomCommune>Saint-Paul Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-21.0084059</Latitude>
+         <Longitude>55.2706839</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 35 89 50</Téléphone>
+      <Email>associations@reunion.pref.gouv.fr</Email>
+      <Url>http://www.service-public-asso.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil physique uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

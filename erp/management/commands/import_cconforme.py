@@ -7,7 +7,6 @@ from django.core.management.base import BaseCommand
 
 from erp.models import Activite, Erp
 
-
 VILLES_CIBLES = [r"^Lyon$", r"^Clichy$"]
 VALEURS_VIDES = [
     "nr",
@@ -21,15 +20,7 @@ VALEURS_VIDES = [
 def clean(string):
     if string in VALEURS_VIDES:
         return ""
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -123,9 +114,7 @@ class Command(BaseCommand):
         return erp
 
     def get_csv_path(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",
@@ -148,7 +137,7 @@ class Command(BaseCommand):
                         to_import.append(erp)
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-        if len(to_import) == 0:
+        if not to_import:
             print("Rien à importer.")
             exit(0)
         Erp.objects.bulk_create(to_import)

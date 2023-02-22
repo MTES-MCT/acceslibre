@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-68231-01" codeInsee="68231" dateMiseAJour="2021-12-30"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Neuf-Brisach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Caserne Mahon</Ligne>
+      <Ligne>4 rue des Vosges</Ligne>
+      <Ligne>BP 47</Ligne>
+      <CodePostal>68600</CodePostal>
+      <NomCommune>Neuf-Brisach</NomCommune>
+      <Localisation>
+         <Latitude>48.0191439</Latitude>
+         <Longitude>7.5272859</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 72 54 35</Téléphone>
+      <Email>t068014@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

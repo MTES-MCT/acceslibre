@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08053-03" codeInsee="08053" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Villers-Cernay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Villers-Cernay</Ligne>
+      <Ligne>7 place de l'Église</Ligne>
+      <CodePostal>08140</CodePostal>
+      <NomCommune>Bazeilles</NomCommune>
+      <Localisation>
+         <Latitude>49.6888999939</Latitude>
+         <Longitude>4.95993995667</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 26 43 92</Téléphone>
+      <Télécopie>03 24 57 09 31</Télécopie>
+      <Email>villers.cernay@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

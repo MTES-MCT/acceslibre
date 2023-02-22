@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ta-97411-01" codeInsee="97411" dateMiseAJour="2021-12-02" pivotLocal="ta">
+   <Nom>Tribunal administratif - La Réunion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 rue Félix-Guyon</Ligne>
+      <Ligne>CS 61107</Ligne>
+      <CodePostal>97404</CodePostal>
+      <NomCommune>Saint-Denis Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.8811648</Latitude>
+         <Longitude>55.4496774</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 92 43 60</Téléphone>
+      <Télécopie>+262 2 62 92 43 62</Télécopie>
+      <Email>greffe.ta-reunion@juradm.fr</Email>
+      <Url>http://la-reunion.tribunal-administratif.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

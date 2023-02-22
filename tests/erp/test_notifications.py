@@ -1,8 +1,6 @@
-import pytest
-
 from datetime import timedelta
-from requests import Response
 
+import pytest
 from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
@@ -10,9 +8,10 @@ from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 from django.utils import timezone
+from requests import Response
 
 from erp.management.commands.notify_unpublished_erps import Command
-from erp.models import Erp, Accessibilite, Activite
+from erp.models import Accessibilite, Activite, Erp
 
 
 @pytest.fixture
@@ -56,13 +55,7 @@ def test_get_notification_after7days(unpublished_erp, data):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS + 3)
     notifs = Command(now=futur).get_notifications()
 
-    assert len(notifs) == 0
-
-
-def test_get_notification_after14days(unpublished_erp, data):
-    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS * 2)
-    notifs = Command(now=futur).get_notifications()
-
+    assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
     assert notifs[0]["erps"] == [unpublished_erp]
@@ -79,10 +72,7 @@ def test_notification_unpublished_erp_command(unpublished_erp, data):
     assert "Des établissements sont en attente de publication" in mail.outbox[0].subject
     assert "Boulangerie: Croissants chauds, Jacou (34)" in mail.outbox[0].body
     assert reverse("mes_preferences") in mail.outbox[0].body
-    assert (
-        reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug})
-        in mail.outbox[0].body
-    )
+    assert reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug}) in mail.outbox[0].body
 
 
 def test_notifications_default_settings(data):

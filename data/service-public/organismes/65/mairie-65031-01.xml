@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65031-01" codeInsee="65031" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arreau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>65240</CodePostal>
+      <NomCommune>Arreau</NomCommune>
+      <Localisation>
+         <Latitude>42.9047012329</Latitude>
+         <Longitude>0.359320998192</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 40 75 60</Téléphone>
+      <Email>mairie-arreau@orange.fr</Email>
+      <Url>http://www.mairie-arreau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous les après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

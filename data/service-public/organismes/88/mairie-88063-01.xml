@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88063-01" codeInsee="88063" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bocquegney</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>148 rue du Lavoir</Ligne>
+      <CodePostal>88270</CodePostal>
+      <NomCommune>Bocquegney</NomCommune>
+      <Localisation>
+         <Latitude>48.2196998596</Latitude>
+         <Longitude>6.30626010895</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 36 51 66</Téléphone>
+      <Email>mairie.bocquegney@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:15:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

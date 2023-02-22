@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contact', '0001_initial'),
+        ("contact", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='message',
-            name='sent_ok',
-            field=models.BooleanField(default=False, verbose_name='Envoi OK'),
+            model_name="message",
+            name="sent_ok",
+            field=models.BooleanField(default=False, verbose_name="Envoi OK"),
         ),
     ]

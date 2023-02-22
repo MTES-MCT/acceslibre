@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-71230-01" codeInsee="71230" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Gueugnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des solidarités</Ligne>
+      <Ligne>15 rue Jean-Bouveri</Ligne>
+      <CodePostal>71130</CodePostal>
+      <NomCommune>Gueugnon</NomCommune>
+      <Localisation>
+         <Latitude>46.599638</Latitude>
+         <Longitude>4.055883</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 85 80 20</Téléphone>
+      <Télécopie>03 85 85 35 82</Télécopie>
+      <Email>mds.gueugnon@saoneetloire71.fr</Email>
+      <Url>http://www.saoneetloire71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

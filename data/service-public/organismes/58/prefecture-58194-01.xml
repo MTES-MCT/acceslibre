@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-58194-01" codeInsee="58194" dateMiseAJour="2021-02-24"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Nièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40, rue de la Préfecture</Ligne>
+      <CodePostal>58026</CodePostal>
+      <NomCommune>Nevers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.9933607</Latitude>
+         <Longitude>3.1628419</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 60 70 80</Téléphone>
+      <Télécopie>+33 3 86 36 12 54</Télécopie>
+      <Email>courrier@nievre.pref.gouv.fr</Email>
+      <Url>http://www.nievre.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

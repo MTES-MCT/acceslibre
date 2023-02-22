@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80781-01" codeInsee="80781" dateMiseAJour="2016-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vauvillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place Publique</Ligne>
+      <CodePostal>80131</CodePostal>
+      <NomCommune>Vauvillers</NomCommune>
+      <Localisation>
+         <Latitude>49.849155426</Latitude>
+         <Longitude>2.70426011086</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 85 18 70</Téléphone>
+      <Télécopie>03 22 85 18 70</Télécopie>
+      <Email>mairiedevauvillers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

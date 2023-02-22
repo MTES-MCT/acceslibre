@@ -1,20 +1,16 @@
-from rest_framework import viewsets
-from rest_framework import permissions
+from django.conf import settings
+from django.contrib.gis.geos import Point
+from rest_framework import permissions, viewsets
 from rest_framework.decorators import action
+from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
-from rest_framework.filters import BaseFilterBackend
 
-from django.conf import settings
-from erp.provider import geocoder
+from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpSerializer
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
-from .serializers import (
-    AccessibiliteSerializer,
-    ActiviteWithCountSerializer,
-    ErpSerializer,
-)
+from erp.provider import geocoder
 
 # Useful docs
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
@@ -36,9 +32,14 @@ Le point d'entrée racine de l'API est accessible à l'adresse
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
-#### Quelques exemples d'utilisation
+## Limitation
 
-##### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
+Afin de garantir la disponibilité du site pour tous, un nombre maximum de requêtes par seconde est défini.
+Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence de vos requêtes.
+
+## Quelques exemples d'utilisation
+
+### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
@@ -48,17 +49,17 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 
 ---
 
-##### Récupérer les détails d'un établissement particulier
+### Récupérer les détails d'un établissement particulier
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
 ```
 
-Notez la présence de la clé `accessbilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
+Notez la présence de la clé `accessibilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
 
 ---
 
-##### Récupérer les détails d'accessibilité pour cet ERP
+### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json"
@@ -66,7 +67,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: applica
 
 ---
 
-##### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
+### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json"
@@ -126,6 +127,8 @@ class AccessibiliteSchema(A4aAutoSchema):
 
 class AccessibilitePagination(PageNumberPagination):
     page_size = 20
+    page_size_query_param = "page_size"
+    max_page_size = 1000
 
 
 class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
@@ -141,11 +144,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     d'un objet *Erp*.**
     """
 
-    queryset = (
-        Accessibilite.objects.select_related("erp")
-        .filter(erp__published=True)
-        .order_by("-updated_at")
-    )
+    queryset = Accessibilite.objects.select_related("erp").filter(erp__published=True).order_by("-updated_at")
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
@@ -222,11 +221,25 @@ class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
 
 class ErpPagination(PageNumberPagination):
     page_size = 20
+    page_size_query_param = "page_size"
+    max_page_size = 1000
+
+    def get_paginated_response(self, data):
+        return Response(
+            {
+                "count": self.page.paginator.count,
+                "page_size": self.get_page_size(self.request),
+                "next": self.get_next_link(),
+                "previous": self.get_previous_link(),
+                "results": data,
+            }
+        )
 
 
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
-    def filter_queryset(self, request, queryset, view):  # noqa
+    def filter_queryset(self, request, queryset, view):
+        use_distinct = False
         # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
@@ -235,9 +248,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Code postal
         code_postal = request.query_params.get("code_postal", None)
         if code_postal is not None:
-            queryset = queryset.filter(
-                commune_ext__code_postaux__contains=[code_postal]
-            )
+            queryset = queryset.filter(commune_ext__code_postaux__contains=[code_postal])
 
         # Code INSEE
         code_insee = request.query_params.get("code_insee", None)
@@ -257,6 +268,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Search
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
+            use_distinct = False
             queryset = queryset.search_what(search_terms)
 
         # Source Externe
@@ -269,6 +281,17 @@ class ErpFilterBackend(BaseFilterBackend):
         if source_id is not None:
             queryset = queryset.filter(source_id__iexact=source_id)
 
+        # ASP Id
+        asp_id = request.query_params.get("asp_id", None)
+        if asp_id is not None:
+            queryset = queryset.filter(asp_id__iexact=asp_id)
+
+        # ASP ID is not null
+        asp_id_not_null = request.query_params.get("asp_id_not_null", None)
+        if asp_id_not_null is not None:
+            asp_id_not_null = asp_id_not_null == "true"
+            queryset = queryset.filter(asp_id__isnull=not asp_id_not_null)
+
         # UUID
         uuid = request.query_params.get("uuid", None)
         if uuid is not None:
@@ -277,8 +300,12 @@ class ErpFilterBackend(BaseFilterBackend):
         # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))
         if around is not None:
-            queryset = queryset.nearest(around)
+            lat, lon = around
+            queryset = queryset.nearest(Point(lon, lat, srid=4326))
+            use_distinct = False
 
+        if use_distinct:
+            queryset = queryset.distinct("id", "nom")
         return queryset
 
 
@@ -372,6 +399,28 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "string"},
             },
         },
+        "asp_id": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "asp_id",
+                "in": "query",
+                "required": False,
+                "description": "ID ASP unique fourni par Service Public",
+                "schema": {"type": "string"},
+            },
+        },
+        "asp_id_not_null": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "asp_id_not_null",
+                "in": "query",
+                "required": False,
+                "description": "ID ASP fournit",
+                "schema": {"type": "boolean"},
+            },
+        },
         "uuid": {
             "paths": ["/erps/"],
             "methods": ["GET"],
@@ -390,8 +439,30 @@ class ErpSchema(A4aAutoSchema):
                 "name": "around",
                 "in": "query",
                 "required": False,
-                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=43.22,3.83`)",
+                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=45.76,4.83`)",
                 "schema": {"type": "string"},
+            },
+        },
+        "clean": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "clean",
+                "in": "query",
+                "required": False,
+                "description": "Écarter les valeurs nulles ou non-renseignées",
+                "schema": {"type": "boolean"},
+            },
+        },
+        "readable": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "readable",
+                "in": "query",
+                "required": False,
+                "description": "Formater les données d'accessibilité pour une lecture humaine",
+                "schema": {"type": "boolean"},
             },
         },
     }
@@ -413,6 +484,8 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
       au choix les champs `code_postal` ou `code_insee`.
     - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
       par source et identifiant dans la source.
+    - `?source=sp&asp_id=00033429-1b83-46b4-9101-3a2ad178af79` permet de rechercher un enregistrement
+      pour la source Service Public et identifiant ASP de la source.
     - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` permet de rechercher un enregistrement
       par son [identifiant unique OpenData](https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html#propri%C3%A9t%C3%A9-id).
 
@@ -422,11 +495,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     (*slug*).
     """
 
-    queryset = (
-        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user")
-        .published()
-        .order_by("nom")
-    )
+    queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     serializer_class = ErpSerializer
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     lookup_field = "slug"

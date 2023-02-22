@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-92050-01" codeInsee="92050"
+           dateMiseAJour="2021-04-02"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation -  Hauts-de-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>Direction régionale et interdepartementale de l'hébergement et du logement</Ligne>
+      <Ligne>167-177 avenue Joliot Curie</Ligne>
+      <Ligne>BP 102</Ligne>
+      <CodePostal>92013</CodePostal>
+      <NomCommune>Nanterre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.895999</Latitude>
+         <Longitude>2.2159501</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 40 97 28 14</Téléphone>
+      <Télécopie>01 40 97 28 22</Télécopie>
+      <Email>cdc.udhl92@developpement-durable.gouv.fr</Email>
+      <Url>http://www.drihl.ile-de-france.developement-durable.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-54304-01" codeInsee="54304" dateMiseAJour="2020-10-27" pivotLocal="cij">
+   <Nom>Kiosque information jeunesse - Laxou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la vie associative et du temps libre</Ligne>
+      <Ligne>15 rue du 8 Mai 1945</Ligne>
+      <CodePostal>54526</CodePostal>
+      <NomCommune>Laxou cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.68111</Latitude>
+         <Longitude>6.153523</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 90 54 88</Téléphone>
+      <Télécopie>03 83 90 19 66</Télécopie>
+      <Email>scj@laxou.fr</Email>
+      <Url>http://www.crijlorraine.org/fr/meurthe-et-moselle.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

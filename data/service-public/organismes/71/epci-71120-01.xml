@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-71120-01" codeInsee="71120" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - La Clayette Chauffailles en Brionnais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Elie-Maurette</Ligne>
+      <CodePostal>71170</CodePostal>
+      <NomCommune>Chauffailles</NomCommune>
+      <Localisation>
+         <Latitude>46.2068543</Latitude>
+         <Longitude>4.3394494</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 26 52 20</Téléphone>
+      <Télécopie>03 85 26 52 21</Télécopie>
+      <Email>cc@cclccb.fr</Email>
+      <Url>http://cc-laclayette-chauffailles-en-brionnais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-57097-01" codeInsee="57097" dateMiseAJour="2020-02-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Boulay-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle autonomie Forbach - Saint-Avold</Ligne>
+      <Ligne>Maison du département</Ligne>
+      <Ligne>6 rue Robert-Schuman</Ligne>
+      <CodePostal>57220</CodePostal>
+      <NomCommune>Boulay-Moselle</NomCommune>
+      <Localisation>
+         <Latitude>49.185011</Latitude>
+         <Longitude>6.49216</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 21 98 87</Téléphone>
+      <Télécopie>03 87 21 98 89</Télécopie>
+      <Email>poleautonomieforbach-stavold@moselle.fr</Email>
+      <Url>http://www.mosellesenior.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

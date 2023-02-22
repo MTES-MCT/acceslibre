@@ -7,7 +7,7 @@
 
 {% block compte_content %}
   <div class="row mb-3">
-    <h3 class="col-sm-6">Mes établissements</h3>
+    <h1 class="h3 col-sm-6">Mes établissements</h1>
     <div class="col-sm-6 text-right">
       <a class="btn btn-primary mb-1" href="{% url "contrib_start" %}">
         <i aria-hidden="true" class="icon icon-plus-circle"></i>
@@ -15,6 +15,14 @@
       </a>
     </div>
   </div>
+
+  <form action="{% url 'mes_erps' %}" class="form-inline" method="get">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="q" class="sr-only">Recherche dans mes ERPs</label>
+      <input name="q" type="" class="form-control" id="" placeholder="Nom" value="{{ q }}">
+    </div>
+    <button type="submit" class="btn btn-success btn-lg mb-2">Rechercher</button>
+  </form>
 
   {% if erp_total_count > 0 %}
   <nav class="nav nav-tabs nav-fill">
@@ -54,11 +62,6 @@
         <div>
           <address class="mb-0"><small class="text-muted">{{ erp.adresse }}</small></address>
         </div>
-        {% if erp.siret %}
-          <div>
-            <small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
-          </div>
-        {% endif %}
         <div>
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
           <small class="text-secondary">
@@ -79,7 +82,7 @@
         {% endif %}
       </div>
       <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
-        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_localisation" erp_slug=erp.slug %}">Modifier</a>
+        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Modifier</a>
         {% if user.is_staff %}
           <a class="btn btn-sm btn-outline-primary" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
         {% endif %}

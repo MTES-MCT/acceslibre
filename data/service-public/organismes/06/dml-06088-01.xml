@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dml-06088-01" codeInsee="06088" dateMiseAJour="2019-06-17" pivotLocal="dml">
+   <Nom>Délégation à la mer et au littoral - Alpes-Maritimes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Pôle activité maritime</Ligne>
+      <Ligne>22 quai Lunel</Ligne>
+      <CodePostal>06300</CodePostal>
+      <NomCommune>Nice</NomCommune>
+      <Localisation>
+         <Latitude>43.695643</Latitude>
+         <Longitude>7.283183</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Direction départementale des territoires et de la Mer</Ligne>
+      <Ligne>Services de l'état dans les Alpes-Maritimes</Ligne>
+      <Ligne>147 boulevard du Mercantour</Ligne>
+      <CodePostal>06286</CodePostal>
+      <NomCommune>Nice Cedex 3</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 72 72 72</Téléphone>
+      <Url>http://www.alpes-maritimes.equipement-agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

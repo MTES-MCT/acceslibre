@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-44116-01" codeInsee="44116" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saint-Brevin-les-Pins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>GUIPA-CLIC</Ligne>
+      <Ligne>Centre local d'information et de coordination du Sud-Estuaire</Ligne>
+      <Ligne>28 rue Jules-Verne</Ligne>
+      <CodePostal>44250</CodePostal>
+      <NomCommune>Saint-Brevin-les-Pins</NomCommune>
+      <Localisation>
+         <Latitude>47.2468756</Latitude>
+         <Longitude>-2.168791</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 27 75 12</Téléphone>
+      <Télécopie>02 40 82 09 95</Télécopie>
+      <Email>guipa.clic@cc-sudestuaire.fr</Email>
+      <Url>http://cc-sudestuaire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

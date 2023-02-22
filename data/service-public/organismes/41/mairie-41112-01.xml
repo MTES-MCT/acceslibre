@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41112-01" codeInsee="41112" dateMiseAJour="2020-07-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lassay-sur-Croisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de Romorantin</Ligne>
+      <CodePostal>41230</CodePostal>
+      <NomCommune>Lassay-sur-Croisne</NomCommune>
+      <Localisation>
+         <Latitude>47.374008</Latitude>
+         <Longitude>1.62219</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accueil par la salle des fêtes</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 83 86 22</Téléphone>
+      <Télécopie>02 54 83 94 11</Télécopie>
+      <Email>https://www.lassay-sur-croisne.fr/contact/</Email>
+      <Url>http://lassay-sur-croisne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

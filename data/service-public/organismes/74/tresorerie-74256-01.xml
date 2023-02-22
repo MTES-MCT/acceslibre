@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-74256-01" codeInsee="74256" dateMiseAJour="2021-08-24"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Sallanches</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 70136</Ligne>
+      <Ligne>1259 route du Rosay</Ligne>
+      <CodePostal>74706</CodePostal>
+      <NomCommune>Sallanches Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9502499</Latitude>
+         <Longitude>6.6292502</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 58 40 99</Téléphone>
+      <Email>t074035@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique de 8h30 à 12h30 et 13h30 à 16h30</Commentaire>
+</Organisme>

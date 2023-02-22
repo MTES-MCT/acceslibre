@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77178-01" codeInsee="77178" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Faÿ-lès-Nemours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue Grande</Ligne>
+      <CodePostal>77167</CodePostal>
+      <NomCommune>Faÿ-lès-Nemours</NomCommune>
+      <Localisation>
+         <Latitude>48.2309259</Latitude>
+         <Longitude>2.673781</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 28 10 76</Téléphone>
+      <Télécopie>01 64 78 03 92</Télécopie>
+      <Email>mairie-de-fay-les-nemours@wanadoo.fr</Email>
+      <Url>http://www.fay-les-nemours.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

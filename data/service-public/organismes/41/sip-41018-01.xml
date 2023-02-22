@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-41018-01" codeInsee="41018" dateMiseAJour="2020-08-25" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Blois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 50001</Ligne>
+      <Ligne>10 rue Louis-Bodin</Ligne>
+      <CodePostal>41026</CodePostal>
+      <NomCommune>Blois Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.5934428</Latitude>
+         <Longitude>1.3355221</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">L'accès aux personnes à mobilité réduite s'effectue par un ascenseur extérieur. Un interphone à l'entrée du parking rue Louis Bodin leur permet de signaler leur présence pour avoir accès au parking privé du centre.</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 55 70 80</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Accueil fermé le mercredi après-midi et le vendredi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80147-01" codeInsee="80147" dateMiseAJour="2021-10-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Buigny L'Abbé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 grande rue</Ligne>
+      <CodePostal>80132</CodePostal>
+      <NomCommune>Buigny-l'Abbé</NomCommune>
+      <Localisation>
+         <Latitude>50.097743</Latitude>
+         <Longitude>1.936558</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 28 01 56</Téléphone>
+      <Télécopie>03 22 28 01 56</Télécopie>
+      <Email>mairie.buigny-labbe@laposte.net</Email>
+      <Url>http://buignylabbe.free.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

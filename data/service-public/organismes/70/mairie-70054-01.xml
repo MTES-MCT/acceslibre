@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70054-01" codeInsee="70054" dateMiseAJour="2021-05-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Battrans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>117 Grande rue</Ligne>
+      <CodePostal>70100</CodePostal>
+      <NomCommune>Battrans</NomCommune>
+      <Localisation>
+         <Latitude>47.430055</Latitude>
+         <Longitude>5.639213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 64 87 58</Téléphone>
+      <Télécopie>03 84 64 87 58</Télécopie>
+      <Email>mairie-battrans@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Pendant la crise sanitaire, accueil ouvert uniquement de 11h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

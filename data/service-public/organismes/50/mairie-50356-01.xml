@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50356-01" codeInsee="50356" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moon-sur-Elle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Pomme-d'Or</Ligne>
+      <CodePostal>50680</CodePostal>
+      <NomCommune>Moon-sur-Elle</NomCommune>
+      <Localisation>
+         <Latitude>49.2088012695</Latitude>
+         <Longitude>-1.04422998428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 05 85 78</Téléphone>
+      <Télécopie>02 33 05 85 58</Télécopie>
+      <Email>mairie.moon-sur-elle@wanadoo.fr</Email>
+      <Url>http://www.mairie-moon-sur-elle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

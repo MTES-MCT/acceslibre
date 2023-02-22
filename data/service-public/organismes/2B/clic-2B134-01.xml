@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-2B134-01" codeInsee="2B134" dateMiseAJour="2020-02-20"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - L'Ile-Rousse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de services sociaux</Ligne>
+      <Ligne>Route de Monticello</Ligne>
+      <CodePostal>20220</CodePostal>
+      <NomCommune>L'Ile-Rousse</NomCommune>
+      <Localisation>
+         <Latitude>42.6322435</Latitude>
+         <Longitude>8.9385832</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 60 81 81</Téléphone>
+      <Télécopie>04 95 60 81 84</Télécopie>
+      <Email>amlucciani@cg2b.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-45146-01" codeInsee="45146" dateMiseAJour="2021-11-15"
+           pivotLocal="msap">
+   <Nom>France Services - La Ferté-Saint-Aubin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>105 rue du Général-Leclerc</Ligne>
+      <CodePostal>45240</CodePostal>
+      <NomCommune>La Ferté-Saint-Aubin</NomCommune>
+      <Localisation>
+         <Latitude>47.7190222</Latitude>
+         <Longitude>1.9414921</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 14 43 27</Téléphone>
+      <Email>msap.la-ferte-saint-aubin@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:15:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

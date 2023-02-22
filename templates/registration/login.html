@@ -7,8 +7,29 @@
 {% block page_title %}Connexion{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
+{% block top_fluid_content %}
+  {% if 'contrib/publication/' in next  %}
+
+<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+    <div class="container">
+      <div class="fr-container">
+        <div class="fr-follow__newsletter">
+            <div>
+                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp next %}</h5>
+                <p class="fr-text--md">Publication</p>
+            </div>
+            <div>
+                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="Retour à la fiche">
+                    <i class="icon-arrow-left"></i>&nbsp;Retour
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+  {% endif %}
+{% endblock %}
 {% block editorial_content %}
-<main role="main" id="content">
   {% if user.is_authenticated %}
   <p class="alert alert-warning">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
@@ -17,46 +38,46 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h2 class="h3 text-center mb-4">Je me connecte</h2>
-  <div class="row justify-content-md-center">
-    <form action="." method="POST" class="login-form col-md-6 col-lg-5 mb-4">
-      <input type="hidden" name="next" value="{{ next }}">
-      {% csrf_token %}
+  <div class="row">
+    <div class="fr-col-12 fr-col-md-6">
+      <form action="." method="POST" novalidate class="login-form">
+        <input type="hidden" name="next" value="{{ next }}">
+        {% csrf_token %}
+        <h1 class="h3 text-left mb-4">Je me connecte</h1>
 
-      <p><small class="text-muted">
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Les champs marqué d'une astérique (*) sont obligatoires.
-      </small></p>
+        {% for error in form.non_field_errors %}
+          <p class="form-text text-danger" role="alert">{{ error }}</p>
+        {% endfor %}
 
-      {% for error in form.non_field_errors %}
-        <p class="form-text text-danger">{{ error }}</p>
-      {% endfor %}
+          {{ form.username|as_crispy_field }}
+          {{ form.password|as_crispy_field }}
 
-        {{ form.username|as_crispy_field }}
-        {{ form.password|as_crispy_field }}
+          <div class="text-center mb-5">
+            <a class="small" href="{% url "password_reset" %}">Mot de passe oublié ?</a>
+          </div>
 
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Connexion</button>
-        </div>
+          <div class="form-group">
+            <button type="submit" class="btn fr-btn fr-btns-group--center btn-block text-center">
+              Se connecter
+            </button>
+            <div class="text-center m-4">
+              ou
+            </div>
+            <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}" class="btn fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
+            S'inscrire
+          </a>
+          </div>
 
-        <div class="text-center">
-          <a href="{% url "password_reset" %}">J'ai oublié mon mot de passe !</a>
-        </div>
-    </form>
-    <div class="col-md-6 col-lg-5">
-      <div class="card p-4">
-        <h3 class="h5">
-          <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Pourquoi créer un compte&nbsp;?
-        </h3>
-        <p>Créer son compte ne prend que quelques minutes et vous <strong>permet de contribuer au site</strong>.</p>
-        <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-primary btn-block">
-          <i aria-hidden="true" class="icon icon-user"></i>
-          Je crée mon compte
-        </a>
-      </div>
+
+      </form>
+    </div>
+    <div class="fr-col-5 fr-col-offset-1 mt-10">
+      <figure class="fr-content-media d-none d-sm-block">
+          <div class="fr-content-media__img ">
+              <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+          </div>
+      </figure>
     </div>
   </div>
   {% endif %}
-</main>
 {% endblock %}

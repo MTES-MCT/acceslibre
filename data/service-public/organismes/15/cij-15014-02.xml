@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-15014-02" codeInsee="15014" dateMiseAJour="2021-11-19" pivotLocal="cij">
+   <Nom>Point information jeunesse - Aurillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Médiathèque du Bassin d'Aurillac</Ligne>
+      <Ligne>Rue du 139e-Régiment-d'Infanterie</Ligne>
+      <CodePostal>15000</CodePostal>
+      <NomCommune>Aurillac</NomCommune>
+      <Localisation>
+         <Latitude>44.9246976</Latitude>
+         <Longitude>2.4432969</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 46 86 20</Téléphone>
+      <Email>pij@caba.fr</Email>
+      <Url>https://mediatheque.caba.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil sur rendez-vous pour l'accès aux ordinateurs.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>RDV sur Facebook : https://mediatheque.caba.fr</Commentaire>
+</Organisme>

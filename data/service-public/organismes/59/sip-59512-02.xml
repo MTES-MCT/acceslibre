@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-59512-02" codeInsee="59512" dateMiseAJour="2020-05-15" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Roubaix Sud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 avenue Charles-Fourier</Ligne>
+      <CodePostal>59066</CodePostal>
+      <NomCommune>Roubaix Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>50.672628</Latitude>
+         <Longitude>3.184321</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 99 51 51</Téléphone>
+      <Email>sip.roubaix-nord@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Accueil uniquement sur rendez-vous de 13h30 à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>COVID 19 : Accueil uniquement sur rendez-vous du lundi au vendredi 8H30-12H -
+13H30-16H00. Le rendez-vous doit être pris en allant dans votre espace
+particulier ou sur la page contact sur le site impot.gouv.fr :
+https://www.impots.gouv.fr/portail. Ou sur rendez-vous.
+
+Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

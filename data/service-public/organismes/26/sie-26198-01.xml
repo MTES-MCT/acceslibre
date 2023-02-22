@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-26198-01" codeInsee="26198" dateMiseAJour="2019-10-31" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Montélimar</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Rodolphe-Bringer</Ligne>
+      <Ligne>BP 257</Ligne>
+      <CodePostal>26206</CodePostal>
+      <NomCommune>Montélimar Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.5600479</Latitude>
+         <Longitude>4.7434196</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 00 38 17</Téléphone>
+      <Télécopie>04 75 00 38 02</Télécopie>
+      <Email>sie.montelimar@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermeture le mercredi après-midi et le vendredi après-midi.</Commentaire>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-66210-01" codeInsee="66210" dateMiseAJour="2021-12-30"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie spécialisée hospitalière de Thuir</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>BP 24</Ligne>
+      <CodePostal>66302</CodePostal>
+      <NomCommune>Thuir Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.6324472</Latitude>
+         <Longitude>2.7562992</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 53 40 80</Téléphone>
+      <Email>th.thuir@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

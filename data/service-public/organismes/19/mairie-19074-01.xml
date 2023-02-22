@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19074-01" codeInsee="19074" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Église-aux-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19170</CodePostal>
+      <NomCommune>L'Église-aux-Bois</NomCommune>
+      <Localisation>
+         <Latitude>45.6479951</Latitude>
+         <Longitude>1.8021126</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 95 59 09</Téléphone>
+      <Télécopie>05 55 94 14 07</Télécopie>
+      <Email>mairie.legliseauxbois@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

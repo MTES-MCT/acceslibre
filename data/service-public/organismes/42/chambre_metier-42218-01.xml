@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-42218-01" codeInsee="42218" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de l'Artisanat-et-du-Concept</Ligne>
+      <Ligne>BP 724</Ligne>
+      <CodePostal>42951</CodePostal>
+      <NomCommune>Saint-Étienne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>45.46900177</Latitude>
+         <Longitude>4.367000103</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 92 38 00</Téléphone>
+      <Télécopie>04 77 92 38 17</Télécopie>
+      <Email>contact@cma-auvergnerhonealpes.fr</Email>
+      <Url>http://www.cma-loire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

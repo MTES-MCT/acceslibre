@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-36141-01" codeInsee="36141" dateMiseAJour="2021-03-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuvy-Saint-Sépulchre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Clemenceau</Ligne>
+      <CodePostal>36230</CodePostal>
+      <NomCommune>Neuvy-Saint-Sépulchre</NomCommune>
+      <Localisation>
+         <Latitude>46.5960806</Latitude>
+         <Longitude>1.8071535</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">les personnes à mobilité réduite sont invitées à téléphoner avant de se rendre sur place</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 30 80 27</Téléphone>
+      <Télécopie>02 54 30 88 94</Télécopie>
+      <Email>mairie.neuvysaintsepulchre@wanadoo.fr</Email>
+      <Url>https://neuvysaintsepulchre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

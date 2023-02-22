@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="39198" dateMiseAJour="2021-10-29" id="prudhommes-39198-01" idPresta="4cac9ed6293594648a00ed68" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Dole</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>13-15 COURS CLEMENCEAU</Ligne>
+        <Ligne>CS 40038</Ligne>
+        <CodePostal>39108</CodePostal>
+        <NomCommune>DOLE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.091155</Latitude>
+            <Longitude>5.487816</Longitude>
+            <Précision>4</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>13-15 COURS CLEMENCEAU</Ligne>
+        <Ligne>CS 40038</Ligne>
+        <CodePostal>39108</CodePostal>
+        <NomCommune>DOLE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 84 79 42 00</Téléphone>
+        <Email>mailto:accueil-dole@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

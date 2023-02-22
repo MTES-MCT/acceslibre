@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcspp-87085-01" codeInsee="87085" dateMiseAJour="2021-04-13"
+           pivotLocal="ddcspp">
+   <Nom>Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations (DDETSPP) (ex DDCSPP) - Haute-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 avenue de la Libération</Ligne>
+      <Ligne>CS 33918</Ligne>
+      <CodePostal>87039</CodePostal>
+      <NomCommune>Limoges Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.8316283</Latitude>
+         <Longitude>1.2670595</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 19 76 12 00</Téléphone>
+      <Télécopie>05 19 76 12 31</Télécopie>
+      <Email>ddcspp@haute-vienne.gouv.fr</Email>
+      <Url>https://www.haute-vienne.gouv.fr/Services-de-l-Etat/Agriculture-environnement-amenagement-et-logement/Dir.-departementale-de-l-Emploi-du-Travail-des-Solidarites-et-de-la-Protection-des-populations</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

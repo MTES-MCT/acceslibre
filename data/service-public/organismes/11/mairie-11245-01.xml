@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11245-01" codeInsee="11245" dateMiseAJour="2015-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montgaillard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue des Tilleuls</Ligne>
+      <CodePostal>11330</CodePostal>
+      <NomCommune>Montgaillard</NomCommune>
+      <Localisation>
+         <Latitude>42.9102239</Latitude>
+         <Longitude>2.6242954</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 71 21 27 84</Téléphone>
+      <Télécopie>04 68 45 41 77</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

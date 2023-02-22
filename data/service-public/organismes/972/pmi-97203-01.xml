@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-97203-01" codeInsee="97203" dateMiseAJour="2021-04-19" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Basse-Pointe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Haut-du-Morne</Ligne>
+      <Ligne>35 Rue Jules Roussel</Ligne>
+      <CodePostal>97218</CodePostal>
+      <NomCommune>Basse-Pointe</NomCommune>
+      <Localisation>
+         <Latitude>14.8665698</Latitude>
+         <Longitude>-61.0994575</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 59 67 85</Téléphone>
+      <Télécopie>+596 5 96 52 80 79</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42123-01" codeInsee="42123" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lorette</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du IIIe-Millénaire</Ligne>
+      <CodePostal>42420</CodePostal>
+      <NomCommune>Lorette</NomCommune>
+      <Localisation>
+         <Latitude>45.5105018616</Latitude>
+         <Longitude>4.58304977417</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 73 30 44</Téléphone>
+      <Télécopie>04 77 73 40 33</Télécopie>
+      <Email>mairie@ville-lorette.fr</Email>
+      <Url>http://www.ville-lorette.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

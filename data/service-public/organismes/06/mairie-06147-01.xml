@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06147-01" codeInsee="06147" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tourrette-Levens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>70 place du Docteur-Paul-Simon</Ligne>
+      <CodePostal>06690</CodePostal>
+      <NomCommune>Tourrette-Levens</NomCommune>
+      <Localisation>
+         <Latitude>43.787214</Latitude>
+         <Longitude>7.276181</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès salle des mariages plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 91 00 16</Téléphone>
+      <Email>mairie@tourrette-levens.fr</Email>
+      <Url>http://www.tourrette-levens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="12:45:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63047-01" codeInsee="63047" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Bourboule</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 place de la République</Ligne>
+      <Ligne>BP 81</Ligne>
+      <CodePostal>63150</CodePostal>
+      <NomCommune>La Bourboule</NomCommune>
+      <Localisation>
+         <Latitude>45.5876749</Latitude>
+         <Longitude>2.7383973</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès côté poste</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 81 31 00</Téléphone>
+      <Email>ville-labourboule@wanadoo.fr</Email>
+      <Url>http://www.ville-labourboule.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

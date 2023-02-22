@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30005-01" codeInsee="30005" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aiguèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du Jeu-de-Paume</Ligne>
+      <CodePostal>30760</CodePostal>
+      <NomCommune>Aiguèze</NomCommune>
+      <Localisation>
+         <Latitude>44.3029632568</Latitude>
+         <Longitude>4.55661821365</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 82 14 77</Téléphone>
+      <Email>mairie.aigueze@orange.fr</Email>
+      <Url>http://www.aigueze.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

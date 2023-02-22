@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="56121" dateMiseAJour="2021-12-14" id="tgi-56121-01" idPresta="4cac9e6a293594648a0017aa" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Lorient</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE MAITRE ESVELIN</Ligne>
+        <Ligne>CS 90240</Ligne>
+        <CodePostal>56325</CodePostal>
+        <NomCommune>LORIENT CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.74539</Latitude>
+            <Longitude>-3.363281</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE MAITRE ESVELIN</Ligne>
+        <Ligne>CS 90240</Ligne>
+        <CodePostal>56325</CodePostal>
+        <NomCommune>LORIENT CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 97 84 12 50</Téléphone>
+        <Télécopie>02 97 84 84 70</Télécopie>
+        <Email>mailto:tj-lorient@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

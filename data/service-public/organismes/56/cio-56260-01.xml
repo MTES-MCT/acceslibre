@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-56260-01" codeInsee="56260" dateMiseAJour="2021-02-09" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Vannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 allée du Général Le troadec</Ligne>
+      <Ligne>CS 72506</Ligne>
+      <CodePostal>56019</CodePostal>
+      <NomCommune>Vannes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.667525</Latitude>
+         <Longitude>-2.741806</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 01 86 21</Téléphone>
+      <Email>cio.vannes@ac-rennes.fr</Email>
+      <Url>http://www.ac-rennes.fr/ac-rennes/cid104620/cio-de-vannes.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires du lundi au vendredi de 9h à 12h et de 13h30 à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

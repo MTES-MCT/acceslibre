@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69029-01" codeInsee="69029"
+           dateMiseAJour="2021-03-24"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - Bron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Paul Pic</Ligne>
+      <CodePostal>69500</CodePostal>
+      <NomCommune>Bron</NomCommune>
+      <Localisation>
+         <Latitude>45.72958004</Latitude>
+         <Longitude>4.90221999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 28 67 12 00</Téléphone>
+      <Télécopie>04 26 99 31 42</Télécopie>
+      <Email>maisonsmedicale.com/medecin-de-garde-Lyon/</Email>
+      <Url>https://www.maisonsmedicale.com/medecin-de-garde-Lyon/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé le mardi matin et le vendredi à partir de 16h30</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

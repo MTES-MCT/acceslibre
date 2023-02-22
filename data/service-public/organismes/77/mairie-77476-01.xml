@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77476-01" codeInsee="77476" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trocy-en-Multien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>77440</CodePostal>
+      <NomCommune>Trocy-en-Multien</NomCommune>
+      <Localisation>
+         <Latitude>49.042301178</Latitude>
+         <Longitude>2.9621899128</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 44 71 96</Téléphone>
+      <Email>mairie.trocy77@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Fermeture à 17h45 pendant la période de couvre-feu.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Fermeture à 17h45 pendant la période de couvre-feu.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-92040-01" codeInsee="92040" dateMiseAJour="2021-12-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques d'Issy-les-Moulineaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place d'Alembert</Ligne>
+      <CodePostal>92131</CodePostal>
+      <NomCommune>Issy-les-Moulineaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8215561</Latitude>
+         <Longitude>2.2766874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 09 63 50</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Uniquement sur rendez-vous les mardis et jeudis</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour prendre rendez-vous :
+- impots.gouv.fr, dans votre espace particulier ou rubrique « contact »
+- par téléphone
+
+Si vous souhaitez contacter ce service par courriel : utilisez votre
+messagerie sécurisée disponible dans votre espace particulier sur le site
+impots.gouv.fr.</Commentaire>
+</Organisme>

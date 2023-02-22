@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-97103-01" codeInsee="97103" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Guadeloupe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace régional agricole de Convenance</Ligne>
+      <Ligne>BP 35</Ligne>
+      <CodePostal>97122</CodePostal>
+      <NomCommune>Baie-Mahault</NomCommune>
+      <Localisation>
+         <Latitude>16.241508</Latitude>
+         <Longitude>-61.594607</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 90 25 17 17</Téléphone>
+      <Télécopie>05 90 26 07 22</Télécopie>
+      <Email>cda_direction@guadeloupe.chambagri.fr</Email>
+      <Url>https://guadeloupe.chambre-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

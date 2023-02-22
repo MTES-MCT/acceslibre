@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80774-01" codeInsee="80774" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vaire-sous-Corbie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>80800</CodePostal>
+      <NomCommune>Vaire-sous-Corbie</NomCommune>
+      <Localisation>
+         <Latitude>49.8485984802</Latitude>
+         <Longitude>2.57330989838</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 48 10 72</Téléphone>
+      <Email>mairie.vaire.sous.corbie@wanadoo.fr</Email>
+      <Url>http://www.vaire-sous-corbie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

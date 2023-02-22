@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-92020-01" codeInsee="92020" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Châtillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Coordination gérontologique de Châtillon</Ligne>
+      <Ligne>13 rue Henri-Gatinot</Ligne>
+      <CodePostal>92320</CodePostal>
+      <NomCommune>Châtillon</NomCommune>
+      <Localisation>
+         <Latitude>48.8057864</Latitude>
+         <Longitude>2.2946521</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 46 55 46 46</Téléphone>
+      <Email>seniors.info@chatillon92.fr</Email>
+      <Url>http://www.hauts-de-seine.frsolidarites/personnes-agees/maintien-a-domicile/adresses-des-clic-et-coordinations-gerontologiques</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

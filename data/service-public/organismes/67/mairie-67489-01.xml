@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67489-01" codeInsee="67489" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thal-Marmoutier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Mosselbach</Ligne>
+      <CodePostal>67440</CodePostal>
+      <NomCommune>Thal-Marmoutier</NomCommune>
+      <Localisation>
+         <Latitude>48.7210998535</Latitude>
+         <Longitude>7.3640999794</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">possibilité d'être reçu sur rendez-vous dans une salle</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 91 20 87</Téléphone>
+      <Email>mairie.thal.marmoutier@wanadoo.fr</Email>
+      <Url>http://www.thal-marmoutier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83078-01" codeInsee="83078" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moissac-Bellevue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 le Cours</Ligne>
+      <CodePostal>83630</CodePostal>
+      <NomCommune>Moissac-Bellevue</NomCommune>
+      <Localisation>
+         <Latitude>43.653301239</Latitude>
+         <Longitude>6.16680002213</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 70 16 21</Téléphone>
+      <Télécopie>04 94 70 52 51</Télécopie>
+      <Email>mairiemoissac83@orange.fr</Email>
+      <Url>http://www.moissac-bellevue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

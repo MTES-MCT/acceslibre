@@ -1,11 +1,9 @@
 import pytest
-
 from django.contrib.gis.geos import Point
 
 from erp import forms
+from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Commune, Erp
-from erp.provider import geocoder
-
 
 POINT = Point((0, 0))
 
@@ -23,6 +21,9 @@ def form_data(data):
         "lieu_dit": "blah",
         "code_postal": "75002",
         "commune": "Paris",
+        "lat": 43.657028,
+        "lon": 2.6754,
+        "asp_id": 1234,
     }
 
 
@@ -46,19 +47,15 @@ def paris_commune():
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_get_adresse_query(
-    form_data, mocker, geocoder_result_ok, paris_commune
-):
+def test_BaseErpForm_get_adresse_query(form_data, mocker, geocoder_result_ok, paris_commune):
     mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     form.is_valid()  # populates cleaned_data
-    assert form.get_adresse_query() == "4 Rue de la Paix, Paris"
+    assert get_address_query_to_geocode(form.cleaned_data) == "4 Rue de la Paix, Paris"
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_geocode_adresse(
-    form_data, mocker, geocoder_result_ok, paris_commune
-):
+def test_BaseErpForm_geocode_adresse(form_data, mocker, geocoder_result_ok, paris_commune):
     mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     form.is_valid()
@@ -98,6 +95,8 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "Jacou",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is False
@@ -132,6 +131,8 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
             "lieu_dit": "",
             "code_postal": "75002",
             "commune": "Paris",
+            "lat": 44.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is False
@@ -166,6 +167,8 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "Jacou",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is True
@@ -182,30 +185,13 @@ def test_BaseErpForm_invalid_on_empty_geocode_results(form_data, mocker):
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_valid_on_geocoded_results(
-    form_data, mocker, geocoder_result_ok, paris_commune
-):
+def test_BaseErpForm_valid_on_geocoded_results(form_data, mocker, geocoder_result_ok, paris_commune):
     mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     assert form.is_valid() is True
 
 
-def test_BaseErpForm_retrieve_code_insee_from_manual_input(
-    data, mocker, geocoder_result_ok
-):
-    mocker.patch(
-        "erp.provider.geocoder.geocode",
-        return_value={
-            "geom": POINT,
-            "numero": "12",
-            "voie": "Grand Rue",
-            "lieu_dit": None,
-            "code_postal": "34830",
-            "commune": "Jacou",
-            "code_insee": "34120",
-        },
-    )
-    geocode = mocker.spy(geocoder, "geocode")
+def test_BaseErpForm_retrieve_code_insee_from_manual_input(mock_geocode, data):
     form = forms.PublicErpAdminInfosForm(
         {
             "source": Erp.SOURCE_PUBLIC,
@@ -221,7 +207,9 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(
             "contact_email": "",
             "site_internet": "",
             "telephone": "",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
-    assert form.is_valid() is True
-    geocode.assert_called_with("12 grand rue, jacou", citycode="34120")
+    assert form.is_valid() is True, form.errors
+    assert form.cleaned_data["geom"] == Point(2.6754, 43.657028, srid=4326), "geom should have by built from lat & lon"

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drac-59350-01" codeInsee="59350" dateMiseAJour="2018-05-25"
+           pivotLocal="drac">
+   <Nom>Direction régionale des affaires culturelles (DRAC) - Hauts-de-France</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel Scrive</Ligne>
+      <Ligne>3 rue du Lombard</Ligne>
+      <CodePostal>59800</CodePostal>
+      <NomCommune>Lille</NomCommune>
+      <Localisation>
+         <Latitude>50.638242</Latitude>
+         <Longitude>3.069403</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 06 87 58</Téléphone>
+      <Télécopie>03 28 36 62 23</Télécopie>
+      <Email>contact.drac.nord-pas-de-calais-picardie@culture.gouv.fr</Email>
+      <Url>http://www.culturecommunication.gouv.fr/Regions/Drac-Hauts-de-France</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

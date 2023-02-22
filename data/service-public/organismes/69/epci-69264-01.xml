@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-69264-01" codeInsee="69264" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Villefranche Beaujolais Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>115 rue Paul-Bert</Ligne>
+      <Ligne>CS 70290</Ligne>
+      <CodePostal>69665</CodePostal>
+      <NomCommune>Villefranche-sur-Saône Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9902830718</Latitude>
+         <Longitude>4.71759796143</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 68 23 08</Téléphone>
+      <Télécopie>04 74 68 45 61</Télécopie>
+      <Email>contact@agglo-villefranche.fr</Email>
+      <Url>http://www.agglo-villefranche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

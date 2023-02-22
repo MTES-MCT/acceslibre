@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-74042-01" codeInsee="74042" dateMiseAJour="2021-08-25" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Bonneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue du Manet</Ligne>
+      <Ligne>Eco-quartier des Sires du Faucigny</Ligne>
+      <Ligne>CS 40144</Ligne>
+      <CodePostal>74137</CodePostal>
+      <NomCommune>Bonneville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.080508998384545</Latitude>
+         <Longitude>6.4059765036446805</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique de 8h30 à 12h30 et 13h30 à 16h30 les lundis, mardis et jeudis après-midis, accueil personnalisé sur rendez-vous.">04 50 25 29 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

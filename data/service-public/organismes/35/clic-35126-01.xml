@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35126-01" codeInsee="35126" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Guichen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination des Quatre-Rivières</Ligne>
+      <Ligne>26 rue du Commandant-Charcot</Ligne>
+      <CodePostal>35580</CodePostal>
+      <NomCommune>Guichen</NomCommune>
+      <Localisation>
+         <Latitude>47.964894</Latitude>
+         <Longitude>-1.79654</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 52 01 59</Téléphone>
+      <Email>clic.4rivieres@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert de préférence sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert de préférence sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

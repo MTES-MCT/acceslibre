@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56007-01" codeInsee="56007" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>100 place de la République</Ligne>
+      <CodePostal>56400</CodePostal>
+      <NomCommune>Auray</NomCommune>
+      <Localisation>
+         <Latitude>47.6665725708</Latitude>
+         <Longitude>-2.98384189606</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 24 01 23</Téléphone>
+      <Télécopie>02 97 24 16 56</Télécopie>
+      <Email>courrier.mairie@ville-auray.fr</Email>
+      <Url>http://www.auray.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement pour les renseignements généraux et permanence de l'état civil, pendant le crise sanitaire retrait des pièces d'identité sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

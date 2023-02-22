@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-58145-01" codeInsee="58145" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Lormes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Henri-Bachelin</Ligne>
+      <CodePostal>58140</CodePostal>
+      <NomCommune>Lormes</NomCommune>
+      <Localisation>
+         <Latitude>47.2900406</Latitude>
+         <Longitude>3.8217111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 22 85 47</Téléphone>
+      <Email>centre.social.lormes@wanadoo.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

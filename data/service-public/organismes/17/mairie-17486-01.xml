@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17486-01" codeInsee="17486" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Brée-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la République</Ligne>
+      <CodePostal>17840</CodePostal>
+      <NomCommune>La Brée-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>46.0134010315</Latitude>
+         <Longitude>-1.34526002407</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 47 83 11</Téléphone>
+      <Télécopie>05 46 75 90 74</Télécopie>
+      <Email>labreelesbains@wanadoo.fr</Email>
+      <Url>http://www.labreelesbains.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

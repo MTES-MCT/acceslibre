@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09129-01" codeInsee="09129" dateMiseAJour="2021-11-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Galey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Village</Ligne>
+      <CodePostal>09800</CodePostal>
+      <NomCommune>Galey</NomCommune>
+      <Localisation>
+         <Latitude>42.935631</Latitude>
+         <Longitude>0.914615</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 04 71 83</Téléphone>
+      <Email>commune.galey@orange.fr</Email>
+      <Url>http://www.galey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

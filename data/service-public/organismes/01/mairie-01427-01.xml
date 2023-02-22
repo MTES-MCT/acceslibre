@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01427-01" codeInsee="01427" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trévoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Terrasse</Ligne>
+      <Ligne>BP 604</Ligne>
+      <CodePostal>01606</CodePostal>
+      <NomCommune>Trévoux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9403222</Latitude>
+         <Longitude>4.7767069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée, ascenseur, borne personne mal entendante</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 08 73 73</Téléphone>
+      <Télécopie>04 74 08 73 82</Télécopie>
+      <Email>contact@mairie-trevoux.fr</Email>
+      <Url>http://www.mairie-trevoux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

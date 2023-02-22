@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02066-01" codeInsee="02066" dateMiseAJour="2018-03-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Benay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue d' Hinacourt</Ligne>
+      <CodePostal>02440</CodePostal>
+      <NomCommune>Benay</NomCommune>
+      <Localisation>
+         <Latitude>49.7615966797</Latitude>
+         <Longitude>3.30506205559</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 07 85 73</Téléphone>
+      <Télécopie>03 23 07 85 73</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:15:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

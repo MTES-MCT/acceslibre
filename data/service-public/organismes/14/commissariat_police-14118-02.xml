@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-14118-02" codeInsee="14118" dateMiseAJour="2017-11-06"
+           pivotLocal="commissariat_police">
+   <Nom>Bureau de police de Caen - Jacobins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 rue des Jacobins</Ligne>
+      <CodePostal>14000</CodePostal>
+      <NomCommune>Caen</NomCommune>
+      <Localisation>
+         <Latitude>49.178861</Latitude>
+         <Longitude>-0.360615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">02 31 15 63 60</Téléphone>
+      <Email>ddsp14-csec-jacobins@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

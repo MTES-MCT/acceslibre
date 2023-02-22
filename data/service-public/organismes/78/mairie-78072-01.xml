@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78072-01" codeInsee="78072" dateMiseAJour="2020-06-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boinvilliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 avenue du Vieux-Château</Ligne>
+      <CodePostal>78200</CodePostal>
+      <NomCommune>Boinvilliers</NomCommune>
+      <Localisation>
+         <Latitude>48.917932</Latitude>
+         <Longitude>1.660761</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="01 34 76 30 94">01 34 76 30 94</Téléphone>
+      <Email>http://www.boinvilliers.fr/fr/contactez-nous</Email>
+      <Url>http://www.boinvilliers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

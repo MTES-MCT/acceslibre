@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-11069-01" codeInsee="11069" dateMiseAJour="2021-11-04"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie des établissements hospitaliers de Carcassonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>90 avenue Pierre-Sémard</Ligne>
+      <Ligne>CS 90071</Ligne>
+      <CodePostal>11890</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.21531</Latitude>
+         <Longitude>2.34121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 10 26 50</Téléphone>
+      <Email>t011041@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Fermeture au public tous les après-midi, sauf le lundi 13h30 à 16h00 (accueil sur RDV exclusif)</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception au guichet et sur rendez-vous.</Commentaire>
+</Organisme>

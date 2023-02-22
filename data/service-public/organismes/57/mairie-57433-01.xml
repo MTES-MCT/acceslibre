@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57433-01" codeInsee="57433" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maizières-lès-Metz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand'rue</Ligne>
+      <Ligne>BP 30240</Ligne>
+      <CodePostal>57282</CodePostal>
+      <NomCommune>Maizières-lès-Metz Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.2099990845</Latitude>
+         <Longitude>6.16097021103</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 80 44 31</Téléphone>
+      <Télécopie>03 87 51 77 16</Télécopie>
+      <Email>mairie@maizieres-les-metz.fr</Email>
+      <Url>http://www.ville-maizieres-les-metz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

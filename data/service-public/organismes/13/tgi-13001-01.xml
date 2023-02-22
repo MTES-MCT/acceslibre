@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="13001" dateMiseAJour="2021-11-22" id="tgi-13001-01" idPresta="4cac9ed7293594648a00edfa" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire d'Aix-en-Provence</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>40 BOULEVARD CARNOT</Ligne>
+        <CodePostal>13616</CodePostal>
+        <NomCommune>AIX EN PROVENCE CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>43.527333</Latitude>
+            <Longitude>5.455982</Longitude>
+            <Précision>4</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>40 BOULEVARD CARNOT</Ligne>
+        <CodePostal>13616</CodePostal>
+        <NomCommune>AIX EN PROVENCE CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 65 86 10 00</Téléphone>
+        <Email>mailto:accueil-aix-en-provence@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:15:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

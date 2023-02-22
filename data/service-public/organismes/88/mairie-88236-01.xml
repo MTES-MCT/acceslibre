@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88236-01" codeInsee="88236" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Haye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 Grande rue</Ligne>
+      <CodePostal>88240</CodePostal>
+      <NomCommune>La Haye</NomCommune>
+      <Localisation>
+         <Latitude>48.0638999939</Latitude>
+         <Longitude>6.22588014603</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 30 94 49</Téléphone>
+      <Email>mairielahayevosges@orange.fr</Email>
+      <Url>https://lahaye.jimdofree.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

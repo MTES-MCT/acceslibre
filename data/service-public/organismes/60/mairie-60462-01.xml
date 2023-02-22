@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60462-01" codeInsee="60462" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Noailles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Paris</Ligne>
+      <Ligne>BP 6025</Ligne>
+      <CodePostal>60430</CodePostal>
+      <NomCommune>Noailles</NomCommune>
+      <Localisation>
+         <Latitude>49.3287652</Latitude>
+         <Longitude>2.200407</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 03 30 61</Téléphone>
+      <Télécopie>03 44 03 51 30</Télécopie>
+      <Email>mairie.accueil@noailles60.fr</Email>
+      <Url>http://www.noailles60.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

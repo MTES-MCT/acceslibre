@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18251-01" codeInsee="18251" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sévry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue des Lilas</Ligne>
+      <CodePostal>18140</CodePostal>
+      <NomCommune>Sévry</NomCommune>
+      <Localisation>
+         <Latitude>47.133026123</Latitude>
+         <Longitude>2.80702400208</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 72 76 05</Téléphone>
+      <Email>mairie.sevry@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:15:00" fin="16:45:00"/>
+         <Note>En cas d'urgence contacter le maire 06.67.47.81.67.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="12:45:00" fin="17:45:00"/>
+         <Note>En cas d'urgence contacter le maire 06.67.47.81.67.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+         <Note>En cas d'urgence contacter le maire 06.67.47.81.67.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

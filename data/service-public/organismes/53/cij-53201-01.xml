@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-53201-01" codeInsee="53201" dateMiseAJour="2020-11-03" pivotLocal="cij">
+   <Nom>Point information jeunesse - Montsûrs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Maximilien de Sully</Ligne>
+      <Ligne>Maison des jeunes</Ligne>
+      <CodePostal>53940</CodePostal>
+      <NomCommune>saint-Berthevin</NomCommune>
+      <Localisation>
+         <Latitude>48.075885</Latitude>
+         <Longitude>-0.828183</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 26 03 87</Téléphone>
+      <Email>maison.des.jeunes@ville-saint-berthevin.fr</Email>
+      <Url>https://www.saint-berthevin.fr/commune_enfance-jeunesse_jeunesse_point-information-jeunesse.phtml</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="22:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="31555" dateMiseAJour="2021-12-14" id="prudhommes-31555-01" idPresta="4cac9ed6293594648a00ed65" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Toulouse</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE ANTOINE DEVILLE</Ligne>
+        <CodePostal>31080</CodePostal>
+        <NomCommune>TOULOUSE CEDEX 6</NomCommune>
+        <Localisation>
+            <Latitude>43.60587</Latitude>
+            <Longitude>1.439252</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE ANTOINE DEVILLE</Ligne>
+        <CodePostal>31080</CodePostal>
+        <NomCommune>TOULOUSE CEDEX 6</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 62 30 55 70</Téléphone>
+        <Télécopie>05 62 30 81 17</Télécopie>
+        <Email>mailto:cph-toulouse@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+            <Note>(susceptibles de modifications)</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

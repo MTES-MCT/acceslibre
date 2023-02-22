@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-30189-01" codeInsee="30189" dateMiseAJour="2020-11-23" pivotLocal="cij">
+   <Nom>Point information jeunesse - Nîmes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de la Trésorerie</Ligne>
+      <Ligne>Accueil Service Jeunesse</Ligne>
+      <CodePostal>30000</CodePostal>
+      <NomCommune>Nîmes</NomCommune>
+      <Localisation>
+         <Latitude>43.83665</Latitude>
+         <Longitude>4.35989</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 27 76 86</Téléphone>
+      <Url>https://www.nimes.fr/index.php?id=jeunesse</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

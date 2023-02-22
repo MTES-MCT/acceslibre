@@ -1,6 +1,6 @@
-import dj_database_url
 import os
 
+import dj_database_url
 from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
 
@@ -12,13 +12,12 @@ def get_env_variable(var_name, required=True, type=str):
         except TypeError:
             raise ImproperlyConfigured(f"Unable to cast '{var_name}' to {type}.")
         except KeyError:
-            raise ImproperlyConfigured(
-                f"The '{var_name}' environment variable must be set."
-            )
+            raise ImproperlyConfigured(f"The '{var_name}' environment variable must be set.")
     else:
         return os.environ.get(var_name)
 
 
+TEST = False
 STAGING = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
@@ -26,7 +25,10 @@ SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
-DATAGOUV_DATASET_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
+DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
+# NOTE: to retrieve resources id: https://demo.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
+DATAGOUV_RESOURCES_ID = "993e8f0f-07fe-4b44-8fba-cca4ce102c0c"
+DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
@@ -35,8 +37,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 # Mapbox
-# Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
-MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
+# NOTE: this is NOT a sensitive information, as this token is exposed on the frontend anyway
+MAPBOX_TOKEN = "pk.eyJ1IjoiemVudHV4IiwiYSI6ImNrOG96dGh1eTA3MTUzcHFwYmM1b3ViMDEifQ.Hg-DxcNWCapv8PhApQLf8g"
 
 # Notifications
 # number of days to send a ping notification after an erp is created but not published
@@ -74,12 +76,12 @@ MESSAGE_TAGS = {
 INSTALLED_APPS = [
     "admin_auto_filters",
     "django_extensions",
-    "nested_admin",
     "import_export",
     "reset_migrations",
     "django_admin_listfilter_dropdown",
     "compte.apps.CompteConfig",
     "erp.apps.ErpConfig",
+    "stats.apps.StatsConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
     "django.contrib.admin",
@@ -92,23 +94,17 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "django.contrib.sitemaps",
     "django.contrib.sites",
+    "django.contrib.humanize",
     "corsheaders",
     "logentry_admin",
     "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
     "rest_framework",
     "rest_framework_gis",
     "crispy_forms",
+    "waffle",
     "reversion",
+    "maintenance_mode",
 ]
-
-
-def floc_middleware(get_response):
-    def middleware(request):
-        response = get_response(request)
-        response["Referrer-Policy"] = "same-origin"
-        return response
-
-    return middleware
 
 
 MIDDLEWARE = [
@@ -120,7 +116,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "core.settings.floc_middleware",
+    "waffle.middleware.WaffleMiddleware",
+    "stats.middleware.TrackStatsWidget",
+    "maintenance_mode.middleware.MaintenanceModeMiddleware",
 ]
 
 SITE_ID = 1
@@ -130,6 +128,14 @@ CORS_ORIGIN_ALLOW_ALL = True
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 50,
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "10/second",
+        "user": "10/second",
+    },
 }
 
 ROOT_URLCONF = "core.urls"
@@ -178,9 +184,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # see https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # see https://doc.scalingo.com/languages/python/django/start#configure-the-database-access
 # see https://pypi.org/project/dj-database-url/ for options management
-database_url = os.environ.get(
-    "DATABASE_URL", "postgres://access4all:access4all@localhost/access4all"
-)
+database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
 DATABASES = {"default": dj_database_url.config()}
 DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
@@ -193,18 +197,25 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.environ.get("SCALINGO_REDIS_URL"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+CELERY_BROKER_URL = os.environ.get("SCALINGO_REDIS_URL")
+CELERY_RESULT_BACKEND = os.environ.get("SCALINGO_REDIS_URL")
 
 # Cookie security
 CSRF_COOKIE_SECURE = True
@@ -225,6 +236,7 @@ USE_TZ = True
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Email configuration (production uses Mailjet - see README)
+SEND_IN_BLUE_API_KEY = get_env_variable("SEND_IN_BLUE_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True

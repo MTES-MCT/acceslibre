@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69010-01" codeInsee="69010" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Arbresle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Pierre-Marie-Durand</Ligne>
+      <Ligne>CS 90005</Ligne>
+      <CodePostal>69592</CodePostal>
+      <NomCommune>L'Arbresle Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.8354988098</Latitude>
+         <Longitude>4.61509990692</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 71 00 00</Téléphone>
+      <Télécopie>04 74 71 00 10</Télécopie>
+      <Email>contactmairie@mairie-larbresle.fr</Email>
+      <Url>http://www.mairie-larbresle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Fermeture de l'état civil le jeudi matin.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

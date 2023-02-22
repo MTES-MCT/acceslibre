@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24376-01" codeInsee="24376" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aulaye-Puymangou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du Docteur-Lacroix</Ligne>
+      <CodePostal>24410</CodePostal>
+      <NomCommune>Saint-Aulaye-Puymangou</NomCommune>
+      <Localisation>
+         <Latitude>45.2036923</Latitude>
+         <Longitude>0.1381777</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 90 81 33</Téléphone>
+      <Email>staulaye.mairie@gmail.com</Email>
+      <Url>http://www.saint-aulaye.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

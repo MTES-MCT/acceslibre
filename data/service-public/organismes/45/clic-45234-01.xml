@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-45234-01" codeInsee="45234" dateMiseAJour="2020-01-08"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Orléans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Orléans - Val-de-Loire</Ligne>
+      <Ligne>69 rue Bannier</Ligne>
+      <CodePostal>45000</CodePostal>
+      <NomCommune>Orléans</NomCommune>
+      <Localisation>
+         <Latitude>47.90495</Latitude>
+         <Longitude>1.902568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 68 46 36</Téléphone>
+      <Email>clic-orleans@ville-orleans.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

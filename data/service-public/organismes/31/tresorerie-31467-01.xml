@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-31467-01" codeInsee="31467" dateMiseAJour="2021-09-09"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Alban</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>1 rue Salgareda</Ligne>
+      <CodePostal>31141</CodePostal>
+      <NomCommune>Saint-Alban</NomCommune>
+      <Localisation>
+         <Latitude>43.688496</Latitude>
+         <Longitude>1.416287</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>CS 70015</Ligne>
+      <CodePostal>31141</CodePostal>
+      <NomCommune>Saint-Alban Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 75 35 27</Téléphone>
+      <Email>t031042@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>exclusivement sur rdv de 13h30 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>exclusivement sur rdv de 13h30 à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

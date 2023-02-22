@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-62100-01" codeInsee="62100" dateMiseAJour="2021-11-03"
+           pivotLocal="msap">
+   <Nom>France Services - Beaurainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>17 rue de la Poste</Ligne>
+      <CodePostal>62990</CodePostal>
+      <NomCommune>Beaurainville</NomCommune>
+      <Localisation>
+         <Latitude>50.423783</Latitude>
+         <Longitude>1.901307</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 06 63 62</Téléphone>
+      <Email>beaurainville@france-services.gouv.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/beaurainville-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

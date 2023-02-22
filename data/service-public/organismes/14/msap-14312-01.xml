@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14312-01" codeInsee="14312" dateMiseAJour="2020-12-04"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Grandcamp-Maisy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de Poste</Ligne>
+      <Ligne>93 rue Aristide Briand</Ligne>
+      <CodePostal>14450</CodePostal>
+      <NomCommune>Grandcamp-Maisy</NomCommune>
+      <Localisation>
+         <Latitude>49.387606</Latitude>
+         <Longitude>-1.044653</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 16 20 91</Téléphone>
+      <Email>msap.grandcamp-maisy@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/grandcamp-maisy-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60702-01" codeInsee="60702" dateMiseAJour="2018-04-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Welles-Pérennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22, Grande rue</Ligne>
+      <CodePostal>60420</CodePostal>
+      <NomCommune>Welles-Pérennes</NomCommune>
+      <Localisation>
+         <Latitude>49.5895996094</Latitude>
+         <Longitude>2.51752996445</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 70 66</Téléphone>
+      <Télécopie>03 44 51 70 66</Télécopie>
+      <Email>mairie.welles-perennes@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

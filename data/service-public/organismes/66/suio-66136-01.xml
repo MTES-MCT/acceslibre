@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-66136-01" codeInsee="66136" dateMiseAJour="2021-06-07"
+           pivotLocal="suio">
+   <Nom>Université Perpignan - Bureau d'accueil information et d'orientation (BAIO)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment B</Ligne>
+      <Ligne>52 avenue Paul Alduy</Ligne>
+      <CodePostal>66860</CodePostal>
+      <NomCommune>Perpignan Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>42.6795667</Latitude>
+         <Longitude>2.9033931</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 66 20 46</Téléphone>
+      <Email>baio@univ-perp.fr</Email>
+      <Url>https://www.univ-perp.fr/fr/je-moriente</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

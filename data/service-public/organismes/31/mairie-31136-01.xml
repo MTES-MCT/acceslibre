@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31136-01" codeInsee="31136" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cépet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l’Église</Ligne>
+      <CodePostal>31620</CodePostal>
+      <NomCommune>Cépet</NomCommune>
+      <Localisation>
+         <Latitude>43.751441955566406</Latitude>
+         <Longitude>1.4312454462051392</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 09 53 76</Téléphone>
+      <Télécopie>05 61 35 98 33</Télécopie>
+      <Email>mairie@cepet.fr</Email>
+      <Url>http://www.cepet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous les après-midis, sauf le mercredi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

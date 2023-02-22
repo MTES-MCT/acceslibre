@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73135-03" codeInsee="73135" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Le Châtel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>543 route du Chaussy</Ligne>
+      <CodePostal>73300</CodePostal>
+      <NomCommune>La Tour-en-Maurienne</NomCommune>
+      <Localisation>
+         <Latitude>45.311508</Latitude>
+         <Longitude>6.353303</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 64 24 80</Téléphone>
+      <Email>secretariat@le-chatel.com</Email>
+      <Url>http://www.latourenmaurienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le mardi de 10h à 12h et de 16h30 à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

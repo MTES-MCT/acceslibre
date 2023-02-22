@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-58194-01" codeInsee="58194" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Nièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 boulevard Léon-Blum</Ligne>
+      <Ligne>CS 40080</Ligne>
+      <CodePostal>58028</CodePostal>
+      <NomCommune>Nevers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0230326</Latitude>
+         <Longitude>3.141657</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 93 40 00</Téléphone>
+      <Email>accueil@nievre.chambagri.fr</Email>
+      <Url>https://bourgognefranchecomte.chambres-agriculture.frnievre</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

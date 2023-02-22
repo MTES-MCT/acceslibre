@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-41295-01" codeInsee="41295" dateMiseAJour="2021-05-07"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Loir-et-Cher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>260 rue Jacquard</Ligne>
+      <Ligne>Cap emploi 41</Ligne>
+      <Ligne>Prométhée Loir et Cher</Ligne>
+      <CodePostal>41350</CodePostal>
+      <NomCommune>Vineuil</NomCommune>
+      <Localisation>
+         <Latitude>47.565856</Latitude>
+         <Longitude>1.380739</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 57 21 50</Téléphone>
+      <Email>contact@capemploi41.org</Email>
+      <Url>https://www.capemploi-41.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

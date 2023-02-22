@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07296-01" codeInsee="07296" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sernin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 chemin de l'Ardèche</Ligne>
+      <CodePostal>07200</CodePostal>
+      <NomCommune>Saint-Sernin</NomCommune>
+      <Localisation>
+         <Latitude>44.5583151</Latitude>
+         <Longitude>4.4024375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 35 03 10</Téléphone>
+      <Télécopie>04 75 93 40 28</Télécopie>
+      <Email>mairie@saint-sernin.fr</Email>
+      <Url>http://www.saint-sernin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

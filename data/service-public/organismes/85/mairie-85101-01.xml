@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85101-01" codeInsee="85101" dateMiseAJour="2021-09-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Givre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du Centre</Ligne>
+      <CodePostal>85540</CodePostal>
+      <NomCommune>Le Givre</NomCommune>
+      <Localisation>
+         <Latitude>46.4624276</Latitude>
+         <Longitude>-1.3996539</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 30 83 08</Téléphone>
+      <Télécopie>02 51 30 89 73</Télécopie>
+      <Email>mairie@legivre.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

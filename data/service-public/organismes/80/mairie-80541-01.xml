@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80541-01" codeInsee="80541" dateMiseAJour="2019-10-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mesnil-Saint-Georges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Saint-Pierre</Ligne>
+      <CodePostal>80500</CodePostal>
+      <NomCommune>Mesnil-Saint-Georges</NomCommune>
+      <Localisation>
+         <Latitude>49.639989</Latitude>
+         <Longitude>2.523</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 60 34 61 95</Téléphone>
+      <Email>mesnilstgeorges.mairiede@sfr.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:15:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

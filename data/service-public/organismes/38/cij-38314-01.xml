@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-38314-01" codeInsee="38314" dateMiseAJour="2021-11-22" pivotLocal="cij">
+   <Nom>Point information jeunesse - Pontcharra</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de Jeunes</Ligne>
+      <Ligne>Rue du 19 mars 1962</Ligne>
+      <CodePostal>38530</CodePostal>
+      <NomCommune>Pontcharra</NomCommune>
+      <Localisation>
+         <Latitude>45.435206</Latitude>
+         <Longitude>6.014116</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 71 97 26</Téléphone>
+      <Email>arnaud.terracol@leolagrange.org</Email>
+      <Url>https://isere.info-jeunes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

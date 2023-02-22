@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27188-01" codeInsee="27188" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Criquebeuf-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>815 rue du Village</Ligne>
+      <CodePostal>27340</CodePostal>
+      <NomCommune>Criquebeuf-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>49.3058013916</Latitude>
+         <Longitude>1.0986700058</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 81 63 96</Téléphone>
+      <Télécopie>02 35 81 67 86</Télécopie>
+      <Email>mairie@criquebeuf-seine.fr</Email>
+      <Url>http://www.criquebeuf-seine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

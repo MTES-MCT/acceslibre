@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70397-01" codeInsee="70397" dateMiseAJour="2018-04-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ormenans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6, rue de Loulans</Ligne>
+      <CodePostal>70230</CodePostal>
+      <NomCommune>Ormenans</NomCommune>
+      <Localisation>
+         <Latitude>47.4534703</Latitude>
+         <Longitude>6.2039601</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 68 31 94</Téléphone>
+      <Télécopie>03 84 68 31 94</Télécopie>
+      <Email>mairie.ormenans@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

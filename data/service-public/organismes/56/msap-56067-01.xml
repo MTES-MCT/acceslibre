@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-56067-01" codeInsee="56067" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Grand-Champ</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Loc'h info services</Ligne>
+      <Ligne>67 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>56390</CodePostal>
+      <NomCommune>Grand-Champ</NomCommune>
+      <Localisation>
+         <Latitude>47.759854</Latitude>
+         <Longitude>-2.852977</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 61 40 16</Téléphone>
+      <Email>lochinfoservices@gmvagglo.bzh</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement les jeudi et vendredi matins.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-56178-01" codeInsee="56178"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Morbihan (Pontivy)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Service des associations</Ligne>
+      <Ligne>8 rue François-Mitterrand</Ligne>
+      <CodePostal>56306</CodePostal>
+      <NomCommune>Pontivy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.0650445</Latitude>
+         <Longitude>-2.967869</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 27 67 68</Téléphone>
+      <Email>pref-associations@morbihan.gouv.fr</Email>
+      <Url>http://www.morbihan.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique le lundi, mardi, jeudi et vendredi de 14h à 16h au 02 97 27 67 68.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

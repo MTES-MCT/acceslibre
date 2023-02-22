@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-03102-01" codeInsee="03102" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Dompierre-sur-Besbre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Boudeville</Ligne>
+      <CodePostal>03290</CodePostal>
+      <NomCommune>Dompierre-sur-Besbre</NomCommune>
+      <Localisation>
+         <Latitude>46.51842</Latitude>
+         <Longitude>3.683862</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 48 21 10</Téléphone>
+      <Email>cecile.moreau@interco-abl.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

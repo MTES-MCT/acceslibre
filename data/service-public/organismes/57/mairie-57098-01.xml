@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57098-01" codeInsee="57098" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bourgaltroff</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Carousse</Ligne>
+      <CodePostal>57260</CodePostal>
+      <NomCommune>Bourgaltroff</NomCommune>
+      <Localisation>
+         <Latitude>48.8682975769</Latitude>
+         <Longitude>6.75773382187</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 01 50 91</Téléphone>
+      <Télécopie>03 87 01 07 05</Télécopie>
+      <Email>mairie.bourgaltroff@orange.fr</Email>
+      <Url>http://www.cc-saulnois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

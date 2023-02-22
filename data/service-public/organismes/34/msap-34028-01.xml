@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34028-01" codeInsee="34028" dateMiseAJour="2021-08-20"
+           pivotLocal="msap">
+   <Nom>France Services - Bédarieux</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Auguste Cot</Ligne>
+      <CodePostal>34600</CodePostal>
+      <NomCommune>Bédarieux</NomCommune>
+      <Localisation>
+         <Latitude>43.61421</Latitude>
+         <Longitude>3.15874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 97 19 11</Téléphone>
+      <Email>bedarieux@france-services.gouvv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

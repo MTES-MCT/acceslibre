@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-06088-05" codeInsee="06088" dateMiseAJour="2021-06-04"
+           pivotLocal="msap">
+   <Nom>France Services - Nice (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>181 Avenue du Maréchal Lyautey</Ligne>
+      <CodePostal>06000</CodePostal>
+      <NomCommune>Nice</NomCommune>
+      <Localisation>
+         <Latitude>43.722692</Latitude>
+         <Longitude>7.286916</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 16 07 26</Téléphone>
+      <Email>faouzi.lachelak@asso-paje.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:15:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

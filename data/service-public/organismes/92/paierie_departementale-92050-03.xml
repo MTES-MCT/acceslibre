@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-92050-03" codeInsee="92050"
+           dateMiseAJour="2021-07-06"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie départementale - Hauts-de-Seine - Nanterre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 rue des Longues Raies</Ligne>
+      <Ligne>Hôtel du département</Ligne>
+      <CodePostal>92000</CodePostal>
+      <NomCommune>Nanterre</NomCommune>
+      <Localisation>
+         <Latitude>48.89554</Latitude>
+         <Longitude>2.230556</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 47 29 30 31</Téléphone>
+      <Email>t092090@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception avec ou sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vous pouvez prendre rendez-vous par courriel ou par téléphone</Commentaire>
+</Organisme>

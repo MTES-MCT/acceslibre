@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89145-01" codeInsee="89145" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Domecy-sur-Cure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Saint-Antoine-Cure</Ligne>
+      <CodePostal>89450</CodePostal>
+      <NomCommune>Domecy-sur-Cure</NomCommune>
+      <Localisation>
+         <Latitude>47.4081001282</Latitude>
+         <Longitude>3.79943990707</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 32 31 79</Téléphone>
+      <Télécopie>09 70 62 98 06</Télécopie>
+      <Email>mairie-dom-cure@wanadoo.fr</Email>
+      <Url>http://www.domecy-sur-cure.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

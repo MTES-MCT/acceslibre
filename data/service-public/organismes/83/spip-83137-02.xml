@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="83137" dateMiseAJour="2021-12-14" id="spip-83137-02" idPresta="4d2575682935941a92000093" pivotLocal="spip">
+    <Nom>service pénitentiaire d'insertion et de probation du Var</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>146 avenue du Maréchal Foch</Ligne>
+        <CodePostal>83000</CodePostal>
+        <NomCommune>TOULON</NomCommune>
+        <Localisation>
+            <Latitude>43.12707</Latitude>
+            <Longitude>5.921008</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>146 avenue du Maréchal Foch</Ligne>
+        <CodePostal>83000</CodePostal>
+        <NomCommune>TOULON</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 94 92 41 20</Téléphone>
+        <Télécopie>04 94 92 41 21</Télécopie>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

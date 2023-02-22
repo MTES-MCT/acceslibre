@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71388-01" codeInsee="71388" dateMiseAJour="2021-02-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aubin-en-Charollais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>71430</CodePostal>
+      <NomCommune>Saint-Aubin-en-Charollais</NomCommune>
+      <Localisation>
+         <Latitude>46.49683</Latitude>
+         <Longitude>4.216074</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 70 42 94</Téléphone>
+      <Email>mairie.staubincharollais@wanadoo.fr</Email>
+      <Url>https://mairiestaubincharo.wixsite.com/le-saint-aubinois</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

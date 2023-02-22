@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-68297-01" codeInsee="68297" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées  - Saint-Louis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle gérontologique</Ligne>
+      <Ligne>80 rue de Mulhouse</Ligne>
+      <CodePostal>68300</CodePostal>
+      <NomCommune>Saint-Louis</NomCommune>
+      <Localisation>
+         <Latitude>47.590611</Latitude>
+         <Longitude>7.55838</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 89 71 00</Téléphone>
+      <Email>gerontostlouis@haut-rhin.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique du mardi au vendredi de 13h30 à 17h00.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62688-01" codeInsee="62688" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rang-du-Fliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>158 rue de l'Église</Ligne>
+      <CodePostal>62180</CodePostal>
+      <NomCommune>Rang-du-Fliers</NomCommune>
+      <Localisation>
+         <Latitude>50.4196014404</Latitude>
+         <Longitude>1.63722002506</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 84 23 65</Téléphone>
+      <Télécopie>03 21 84 58 26</Télécopie>
+      <Email>mairie@rang-du-fliers.com</Email>
+      <Url>https://www.villerangdufliers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

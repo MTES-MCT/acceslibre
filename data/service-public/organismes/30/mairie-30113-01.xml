@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30113-01" codeInsee="30113" dateMiseAJour="2021-08-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fons-sur-Lussan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place des Écoles</Ligne>
+      <CodePostal>30580</CodePostal>
+      <NomCommune>Fons-sur-Lussan</NomCommune>
+      <Localisation>
+         <Latitude>44.1850809</Latitude>
+         <Longitude>4.329907</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 72 94 69</Téléphone>
+      <Email>mairie.fonsurlussan@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

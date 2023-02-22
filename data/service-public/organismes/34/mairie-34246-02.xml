@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34246-02" codeInsee="34246" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Vérargues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Vérargues</Ligne>
+      <CodePostal>34400</CodePostal>
+      <NomCommune>Entre-Vignes</NomCommune>
+      <Localisation>
+         <Latitude>43.7165985107</Latitude>
+         <Longitude>4.100689888</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 86 00 50</Téléphone>
+      <Télécopie>04 67 86 44 42</Télécopie>
+      <Email>mairie@entre-vignes.fr</Email>
+      <Url>http://www.entre-vignes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

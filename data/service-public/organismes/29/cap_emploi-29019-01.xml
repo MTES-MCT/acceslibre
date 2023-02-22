@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-29019-01" codeInsee="29019" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Finistère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 29</Ligne>
+      <Ligne>7 rue de Kervézennec</Ligne>
+      <Ligne>Ohé Prométhée Finistère</Ligne>
+      <CodePostal>29200</CodePostal>
+      <NomCommune>Brest</NomCommune>
+      <Localisation>
+         <Latitude>48.418504</Latitude>
+         <Longitude>-4.46067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 80 81 00</Téléphone>
+      <Télécopie>02 98 80 81 17</Télécopie>
+      <Email>accueil.brest@capemploi29.com</Email>
+      <Url>https://www.capemploi-29.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

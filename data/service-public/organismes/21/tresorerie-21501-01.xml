@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-21501-01" codeInsee="21501" dateMiseAJour="2022-01-04"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable de Pouilly-en-Auxois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue de la République</Ligne>
+      <CodePostal>21320</CodePostal>
+      <NomCommune>Pouilly-en-Auxois</NomCommune>
+      <Localisation>
+         <Latitude>47.2617904</Latitude>
+         <Longitude>4.5568687</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une personne peut ouvrir la porte</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 45 43 81 50</Téléphone>
+      <Email>sgc.pouilly-en-auxois@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous le Vendredi matin</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

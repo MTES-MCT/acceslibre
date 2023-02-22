@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26250-01" codeInsee="26250" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pont-de-l'Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>26600</CodePostal>
+      <NomCommune>Pont-de-l'Isère</NomCommune>
+      <Localisation>
+         <Latitude>45.0041375</Latitude>
+         <Longitude>4.8715549</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 84 60 13</Téléphone>
+      <Télécopie>04 75 84 75 52</Télécopie>
+      <Email>mairie-de-pont-de-lisere@mairiedepontdelisere.fr</Email>
+      <Url>http://www.mairiedepontdelisere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

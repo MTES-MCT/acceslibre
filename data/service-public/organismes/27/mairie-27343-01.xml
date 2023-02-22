@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27343-01" codeInsee="27343" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Houlbec-Cocherel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 bis rue des Écoles</Ligne>
+      <CodePostal>27120</CodePostal>
+      <NomCommune>Houlbec-Cocherel</NomCommune>
+      <Localisation>
+         <Latitude>49.074759</Latitude>
+         <Longitude>1.361897</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 36 67 04</Téléphone>
+      <Email>secretariat@houlbec-cocherel.fr</Email>
+      <Url>http://www.houlbec-cocherel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+         <Note>Le maire reçoit sur rendez-vous à prendre auprès du secrétariat au 02 32 37 67 04 ou par mail : secretariat@houlbec-cocherel.fr.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-93066-01" codeInsee="93066" dateMiseAJour="2018-12-03"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Saint-Denis (93)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>87 rue Gabriel Péri</Ligne>
+      <CodePostal>93200</CodePostal>
+      <NomCommune>Saint-Denis</NomCommune>
+      <Localisation>
+         <Latitude>48.935687</Latitude>
+         <Longitude>2.355821</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 55 87 97 50</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-de-saint-denis</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>et de 17h00 à 18h00 sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="15:00:00"/>
+         <Note>et de 15h à 16h30 sur rendez-vous. Ouvert également un samedi matin par mois de 9h00 à 12h00 sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

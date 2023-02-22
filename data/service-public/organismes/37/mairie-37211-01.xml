@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37211-01" codeInsee="37211" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Branchs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 rue du Commerce</Ligne>
+      <CodePostal>37320</CodePostal>
+      <NomCommune>Saint-Branchs</NomCommune>
+      <Localisation>
+         <Latitude>47.2273321</Latitude>
+         <Longitude>0.7721471</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 26 30 15</Téléphone>
+      <Télécopie>02 47 26 33 53</Télécopie>
+      <Email>mairie.saintbranchs@orange.fr</Email>
+      <Url>http://www.saint-branchs.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Contacter l'accueil pour s'assurer qu'il n'y ait pas de fermeture exceptionnelle le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

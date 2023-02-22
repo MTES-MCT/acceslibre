@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87081-01" codeInsee="87081" dateMiseAJour="2021-04-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jourgnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 place Thérèse-Menot</Ligne>
+      <CodePostal>87800</CodePostal>
+      <NomCommune>Jourgnac</NomCommune>
+      <Localisation>
+         <Latitude>45.718914</Latitude>
+         <Longitude>1.213842</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 58 11 41</Téléphone>
+      <Télécopie>05 55 58 17 78</Télécopie>
+      <Email>mairie@jourgnac.fr</Email>
+      <Url>http://www.mairie-jourgnac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-73248-01" codeInsee="73248" dateMiseAJour="2021-02-19"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture - Saint-Jean-de-Maurienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Sous-Préfecture</Ligne>
+      <Ligne>BP106</Ligne>
+      <CodePostal>73300</CodePostal>
+      <NomCommune>Saint-Jean-de-Maurienne</NomCommune>
+      <Localisation>
+         <Latitude>45.2759170532</Latitude>
+         <Longitude>6.34544801712</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 64 07 00</Téléphone>
+      <Télécopie>+33 4 79 59 95 27</Télécopie>
+      <Email>sp-st-jean-de-mne@savoie.gouv.fr</Email>
+      <Url>http://www.savoie.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

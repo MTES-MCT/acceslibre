@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37274-01" codeInsee="37274" dateMiseAJour="2020-09-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villebourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du 14 Juillet</Ligne>
+      <CodePostal>37370</CodePostal>
+      <NomCommune>Villebourg</NomCommune>
+      <Localisation>
+         <Latitude>47.6490579</Latitude>
+         <Longitude>0.52906</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 24 44 25</Téléphone>
+      <Télécopie>02 47 24 44 25</Télécopie>
+      <Email>mairie.villebourg@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

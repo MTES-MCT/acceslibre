@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17360-01" codeInsee="17360" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Marie-de-Ré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue de la République</Ligne>
+      <Ligne>CS 20010</Ligne>
+      <CodePostal>17740</CodePostal>
+      <NomCommune>Sainte-Marie-de-Ré</NomCommune>
+      <Localisation>
+         <Latitude>46.1506685</Latitude>
+         <Longitude>-1.3122504</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 30 21 24</Téléphone>
+      <Télécopie>05 46 30 15 64</Télécopie>
+      <Email>info@saintemariedere.fr</Email>
+      <Url>http://sainte-marie-de-re.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-46138-01" codeInsee="46138" dateMiseAJour="2021-08-30"
+           pivotLocal="msap">
+   <Nom>France Services - Coeur de Causse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison communautaire à Labastide-Murat</Ligne>
+      <Ligne>8 Grande rue du Causse</Ligne>
+      <CodePostal>46240</CodePostal>
+      <NomCommune>Coeur de Causse</NomCommune>
+      <Localisation>
+         <Latitude>44.6477011</Latitude>
+         <Longitude>1.5678708</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 20 38 62</Téléphone>
+      <Email>franceservices@cc-labastide-murat.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -3,91 +3,35 @@
 {% load a4a %}
 
 {% block page_title %}Rechercher un établissement{% endblock%}
+{% block contrib_title %}Ajouter les données d'accessibilité d'un établissement{% endblock %}
+{% block contrib_subtitle %}L'établissement{% endblock %}
+
+{% block navbar %}{% endblock %}
 
 {% block contrib_content %}
-  <h2 class="h3">Ajouter un établissement recevant du public</h2>
-  <div class="card mb-4">
-    <div class="card-header">
-      <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
-    </div>
-    <div class="card-body">
-      <h4 class="h6">Votre recherche</h4>
-      <p class="h4">{{ search|capfirst }} / {{ commune_search}}</p>
-    </div>
-  </div>
-  {% for result in results %}
-  <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-lg-6 a4a-result-map"
-        {% if result.coordonnees %}
-          style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')"
-        {% endif %}></div>
-      <div class="col-lg-6">
-        <div class="card-body">
-          <h3 class="h6 card-title font-weight-bold">
-            {% if result.exists and result.exists.is_online %}
-            <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener noreferrer">{{ result.nom }}</a>
-            {% else %}
-            {{ result.nom }}
-            {% endif %}
-            {% if result.exists %}
-              {% if result.exists.is_online %}
-                {% if result.exists.user == user %}
-                <span class="badge badge-success">
-                  <i aria-hidden="true" class="icon icon-info-circled"></i>
-                  Vous avez créé cette fiche
-                </span>
-                {% else %}
-                <span class="badge badge-danger">Existe déjà dans la base</span>
-                {% endif %}
-              {% else %}
-                <span class="badge badge-warning">
-                  {% if result.exists.user == user %}
-                    Existe dans vos brouillons
-                  {% else %}
-                    Existe à l'état de brouillon
-                  {% endif %}
-                </span>
-              {% endif %}
-            {% endif %}
-          </h3>
-          <p class="card-text">
-            <small>
-              Source: {{ result.source|format_source:"Inconnue" }}<br>
-              {% if result.siret %}SIRET: {{ result.siret }}<br>{% endif %}
-              {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
-              {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-              {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-              {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-            </small>
-          </p>
-          <p class="card-text mb-0">
-            {% if result.exists and result.exists.user == user %}
-              <a class="btn btn-success btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
-              {% if result.exists.published %}Modifier cet établissement{% else %}Reprendre votre brouillon{% endif %}
-              </a>
-            {% elif result.exists %}
-              <a class="btn btn-primary btn-block" href="{{ result.exists.get_absolute_url }}">
-                Voir cet établissement
-              </a>
-            {% else %}
-              <a class="btn btn-primary btn-block"
-                href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
-                Sélectionner cet établissement
-              </a>
-            {% endif %}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
+  {% include "search/form.html" with search_action="."%}
+  <h3 class="mt-3 mb-2">
+    <small class="text-muted">Votre recherche</small><br>
+    {% if what %}{{ what|capfirst }}{% endif %}
+    {% if commune_search and what %}<small class="text-muted">/</small>{% endif %}
+    {{ commune_search }} ({{ results_global_count }} résultat{{ results_global_count|pluralize }})
+  </h1>
 
+    {% if results_bdd %}
+  <div class="pt-3 pb-3">
+     {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
+  </div>
+    {% endif %}
+  {% if results %}
+<div class="pt-3 pb-3">
+    {% include "contrib/includes/result_search_erps.html" with results=results light=True %}
+</div>
+  {% endif %}
   <div class="">
     {% if results %}
     <hr>
-    <h3 class="h5 mt-3 mb-3">
-      <b>L'établissement que je souhaite ajouter n'est pas dans la liste.</b>
+    <h3 class="h5 mt-5 mb-3">
+      <b>L'établissement ne figure pas dans la liste.</b>
     </h3>
     {% else %}
     <h3 class="h5">
@@ -95,11 +39,11 @@
     </h3>
     {% endif %}
     <div class="row mb-3">
-      <div class="col-12 col-md-6 mt-1 pr-md-0 pr-4">
-        <a class="btn btn-primary btn-lg w-100" href="{% url "contrib_admin_infos" %}">Saisir les données manuellement</a>
+      <div class="mt-1 pr-4">
+        <a class="fr-btn btn-lg" href="{% url "contrib_admin_infos" %}">Ajouter un établissement</a>
       </div>
-      <div class="col-12 col-md-6 mt-1 pr-4">
-        <a class="btn btn-outline-primary btn-lg w-100" href="{% url "contrib_start" %}">Nouvelle recherche</a>
+      <div class="ml-3 mt-1 pr-4">
+        <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "contrib_start" %}">Nouvelle recherche</a>
       </div>
     </div>
 

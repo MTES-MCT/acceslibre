@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-22113-01" codeInsee="22113" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté - Lannion - Trégor</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Monge</Ligne>
+      <Ligne>CS 10761</Ligne>
+      <CodePostal>22307</CodePostal>
+      <NomCommune>Lannion Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7542619</Latitude>
+         <Longitude>-3.4506873</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 05 09 00</Téléphone>
+      <Télécopie>02 96 05 09 01</Télécopie>
+      <Email>contact@lannion-tregor.com</Email>
+      <Url>http://www.lannion-tregor.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

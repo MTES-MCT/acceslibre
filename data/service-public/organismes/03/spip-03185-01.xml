@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="03185" dateMiseAJour="2021-12-14" id="spip-03185-01" idPresta="51b08cbab473e41478000be8" pivotLocal="spip">
+    <Nom>Antenne de Montluçon du service Pénitentiaire d'Insertion et de Probation de l'Allier</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>12 rue Joseph Chantemille</Ligne>
+        <CodePostal>03100</CodePostal>
+        <NomCommune>MONTLUCON</NomCommune>
+        <Localisation>
+            <Latitude>46.340229</Latitude>
+            <Longitude>2.598283</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>12 rue Joseph Chantemille</Ligne>
+        <CodePostal>03100</CodePostal>
+        <NomCommune>MONTLUCON</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 70 02 27 77</Téléphone>
+        <Télécopie>04 70 09 97 08</Télécopie>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

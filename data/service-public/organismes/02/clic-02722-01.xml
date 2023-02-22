@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-02722-01" codeInsee="02722" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Soissons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - Le Soissonnais</Ligne>
+      <Ligne>31 rue Anne-Morgan</Ligne>
+      <CodePostal>02200</CodePostal>
+      <NomCommune>Soissons</NomCommune>
+      <Localisation>
+         <Latitude>49.372777</Latitude>
+         <Longitude>3.320963</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 73 49 51</Téléphone>
+      <Télécopie>03 23 75 51 19</Télécopie>
+      <Email>clic.soissons@amsam.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-13028-01" codeInsee="13028" dateMiseAJour="2019-12-20"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Ciotat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle infos seniors Garlaban-Calanques</Ligne>
+      <Ligne>Maison des seniors de La Ciotat</Ligne>
+      <Ligne>Espace Romain-Rolland</Ligne>
+      <Ligne>Rue Bouronne</Ligne>
+      <CodePostal>13600</CodePostal>
+      <NomCommune>La Ciotat</NomCommune>
+      <Localisation>
+         <Latitude>43.173653</Latitude>
+         <Longitude>5.605155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 08 88 39</Téléphone>
+      <Email>accueil.maisondesseniors@mairie-laciotat.fr</Email>
+      <Url>https://www.laciotat.com/mes-demarches/maison-des-seniors/1020-presentation-de-la-maison-des-seniors-2</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le jeudi après-midi.</Commentaire>
+</Organisme>

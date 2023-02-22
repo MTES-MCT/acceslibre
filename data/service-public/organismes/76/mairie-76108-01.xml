@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76108-01" codeInsee="76108" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bois-Guillaume</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 place de la Libération</Ligne>
+      <Ligne>BP 40</Ligne>
+      <CodePostal>76230</CodePostal>
+      <NomCommune>Bois-Guillaume</NomCommune>
+      <Localisation>
+         <Latitude>49.4701004028</Latitude>
+         <Longitude>1.11921000481</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 12 24 40</Téléphone>
+      <Télécopie>02 35 12 24 90</Télécopie>
+      <Email>contact@ville-bois-guillaume.fr</Email>
+      <Url>http://www.ville-bois-guillaume.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et les formalités courantes.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

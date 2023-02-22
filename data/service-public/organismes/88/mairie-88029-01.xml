@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88029-01" codeInsee="88029" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Vôge-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bains-les-Bains</Ligne>
+      <Ligne>1 place du Docteur-André-Leroy</Ligne>
+      <CodePostal>88240</CodePostal>
+      <NomCommune>La Vôge-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>48.001499176</Latitude>
+         <Longitude>6.26418018341</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 36 34 29</Téléphone>
+      <Email>mairie.la.voge.les.bains@orange.fr</Email>
+      <Url>http://www.lavogelesbains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

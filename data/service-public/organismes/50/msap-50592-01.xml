@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-50592-01" codeInsee="50592" dateMiseAJour="2021-01-08"
+           pivotLocal="msap">
+   <Nom>France Services - Tessy-Bocage</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Jean-Claude Lemoine</Ligne>
+      <CodePostal>50420</CodePostal>
+      <NomCommune>Tessy-Bocage</NomCommune>
+      <Localisation>
+         <Latitude>4.97317</Latitude>
+         <Longitude>-1.05951</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 61 67 78 57</Téléphone>
+      <Email>franceservices.solidarites@tessybocage.</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le matin, accueil physique, l’après-midi, accueil sur rendez-vous</Commentaire>
+</Organisme>

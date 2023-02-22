@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07264-01" codeInsee="07264" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Marcel-d'Ardèche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>4 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>07700</CodePostal>
+      <NomCommune>Saint-Marcel-d'Ardèche</NomCommune>
+      <Localisation>
+         <Latitude>44.3275849</Latitude>
+         <Longitude>4.6177159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 97 26 10</Téléphone>
+      <Télécopie>04 75 98 67 12</Télécopie>
+      <Email>mairie.saintmarceldardeche@wanadoo.fr</Email>
+      <Url>http://www.saintmarceldardeche.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

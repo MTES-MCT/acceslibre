@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68063-01" codeInsee="68063" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cernay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue James-Barbier</Ligne>
+      <Ligne>BP 153</Ligne>
+      <CodePostal>68704</CodePostal>
+      <NomCommune>Cernay Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.8088317</Latitude>
+         <Longitude>7.1783111</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 75 54 10</Téléphone>
+      <Télécopie>03 89 75 72 16</Télécopie>
+      <Email>cernay@ville-cernay.fr</Email>
+      <Url>http://www.ville-cernay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

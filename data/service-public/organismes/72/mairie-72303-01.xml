@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72303-01" codeInsee="72303" dateMiseAJour="2021-08-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Michel-de-Chavaignes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Gare</Ligne>
+      <CodePostal>72440</CodePostal>
+      <NomCommune>Saint-Michel-de-Chavaignes</NomCommune>
+      <Localisation>
+         <Latitude>48.0187988281</Latitude>
+         <Longitude>0.567502975464</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par la salle du conseil</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 35 45 11</Téléphone>
+      <Télécopie>02 43 63 36 19</Télécopie>
+      <Email>mairie.stmicheldechavaignes@wanadoo.fr</Email>
+      <Url>http://www.cc-gesnoisbilurien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

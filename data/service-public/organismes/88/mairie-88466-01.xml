@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88466-01" codeInsee="88466" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - They-sous-Montfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue de l'École</Ligne>
+      <CodePostal>88800</CodePostal>
+      <NomCommune>They-sous-Montfort</NomCommune>
+      <Localisation>
+         <Latitude>48.2318992615</Latitude>
+         <Longitude>5.97468996048</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 08 00 14</Téléphone>
+      <Email>theysousmontfort@wanadoo.fr</Email>
+      <Url>http://www.theysousmontfort.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

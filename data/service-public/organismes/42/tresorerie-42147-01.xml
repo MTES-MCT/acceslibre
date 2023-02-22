@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-42147-01" codeInsee="42147" dateMiseAJour="2021-08-26"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Montbrison</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 bis Boulevard Lachèze</Ligne>
+      <Ligne>CS 20201</Ligne>
+      <CodePostal>42608</CodePostal>
+      <NomCommune>Montbrison Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.604641</Latitude>
+         <Longitude>4.066893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 96 84 35</Téléphone>
+      <Email>sgc.montbrison@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

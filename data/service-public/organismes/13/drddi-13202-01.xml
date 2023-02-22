@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-13202-01" codeInsee="13202" dateMiseAJour="2018-07-03"
+           pivotLocal="drddi">
+   <Nom>Direction interrégionale des douanes - Provence-Alpes-Côte d'Azur - Corse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>48 avenue Robert-Schuman</Ligne>
+      <CodePostal>13224</CodePostal>
+      <NomCommune>Marseille Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.303673</Latitude>
+         <Longitude>5.366812</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 83 09</Téléphone>
+      <Télécopie>04 91 56 26 60</Télécopie>
+      <Email>di-marseille@douane.finances.gouv.fr</Email>
+      <Url>http://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

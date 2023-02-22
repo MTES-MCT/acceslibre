@@ -25,6 +25,7 @@ urlpatterns = [
         views.mes_contributions_recues,
         name="mes_contributions_recues",
     ),
+    path("challenges/", views.mes_challenges, name="mes_challenges"),
     path(
         "suppression/",
         views.delete_account,

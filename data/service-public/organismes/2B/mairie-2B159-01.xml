@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B159-01" codeInsee="2B159" dateMiseAJour="2021-06-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Meria</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>20287</CodePostal>
+      <NomCommune>Meria</NomCommune>
+      <Localisation>
+         <Latitude>42.926234</Latitude>
+         <Longitude>9.451238</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">salle à disposition</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 35 42 97</Téléphone>
+      <Télécopie>04 95 31 78 69</Télécopie>
+      <Email>mairie.meria@orange.fr</Email>
+      <Url>http://www.destination-cap-corse.corsica</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

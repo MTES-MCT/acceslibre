@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39495-01" codeInsee="39495" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Thiébaud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>39110</CodePostal>
+      <NomCommune>Saint-Thiébaud</NomCommune>
+      <Localisation>
+         <Latitude>46.973327</Latitude>
+         <Longitude>5.86515</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 37 95 70</Téléphone>
+      <Email>contact@saint-thiebaud.fr</Email>
+      <Url>http://www.saint-thiebaud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert également sur rendez vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-02037-01" codeInsee="02037" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Pays de Laon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>60 rue de Chambry</Ligne>
+      <CodePostal>02000</CodePostal>
+      <NomCommune>Aulnois-sous-Laon</NomCommune>
+      <Localisation>
+         <Latitude>49.6121559419</Latitude>
+         <Longitude>3.61124038696</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 22 31 00</Téléphone>
+      <Télécopie>03 23 22 31 04</Télécopie>
+      <Email>contact@ca-paysdelaon.fr</Email>
+      <Url>http://www.ca-paysdelaon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="67180" dateMiseAJour="2021-12-14" id="prudhommes-67180-01" idPresta="4cac9e5f293594648a0002db" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Haguenau</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>41 RUE DE LA REDOUTE</Ligne>
+        <CodePostal>67500</CodePostal>
+        <NomCommune>HAGUENAU</NomCommune>
+        <Localisation>
+            <Latitude>48.810307</Latitude>
+            <Longitude>7.787103</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>41 RUE DE LA REDOUTE</Ligne>
+        <CodePostal>67500</CodePostal>
+        <NomCommune>HAGUENAU</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 69 16 50 00</Téléphone>
+        <Télécopie>03 69 16 50 03</Télécopie>
+        <Email>mailto:cph-haguenau@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

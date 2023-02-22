@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80156-01" codeInsee="80156" dateMiseAJour="2021-02-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bussy-lès-Daours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'Église</Ligne>
+      <CodePostal>80800</CodePostal>
+      <NomCommune>Bussy-lès-Daours</NomCommune>
+      <Localisation>
+         <Latitude>49.909227</Latitude>
+         <Longitude>2.433779</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 50 10 88</Téléphone>
+      <Télécopie>03 22 40 10 88</Télécopie>
+      <Email>mairie.bussy.les.daours@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

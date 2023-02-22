@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26063-01" codeInsee="26063" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Buis-les-Baronnies</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 boulevard Aristide-Briand</Ligne>
+      <CodePostal>26170</CodePostal>
+      <NomCommune>Buis-les-Baronnies</NomCommune>
+      <Localisation>
+         <Latitude>44.2765007019</Latitude>
+         <Longitude>5.27328014374</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 28 07 34</Téléphone>
+      <Télécopie>04 75 28 20 50</Télécopie>
+      <Email>mairie@buislesbaronnies.fr</Email>
+      <Url>http://www.buislesbaronnies.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

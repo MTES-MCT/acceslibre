@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27658-01" codeInsee="27658" dateMiseAJour="2018-02-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Tremblay-Omonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>place de la Mairie</Ligne>
+      <CodePostal>27110</CodePostal>
+      <NomCommune>Le Tremblay-Omonville</NomCommune>
+      <Localisation>
+         <Latitude>49.119114</Latitude>
+         <Longitude>0.910297</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 35 95 14</Téléphone>
+      <Télécopie>02 32 35 95 14</Télécopie>
+      <Email>mairietremblayomonville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

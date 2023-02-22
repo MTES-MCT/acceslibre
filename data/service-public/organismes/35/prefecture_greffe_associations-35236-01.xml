@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-35236-01" codeInsee="35236"
+           dateMiseAJour="2017-02-21"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Ille-et-Vilaine (Redon)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Redon</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <Ligne>BP 90307</Ligne>
+      <CodePostal>35603</CodePostal>
+      <NomCommune>Redon Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>47.6522366</Latitude>
+         <Longitude>-2.0831132</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service payant + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">08 21 80 30 35</Téléphone>
+      <Télécopie>02 99 72 72 59</Télécopie>
+      <Email>chantal.theou@ille-et-vilaine.gouv.fr</Email>
+      <Url>http://www.ille-et-vilaine.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

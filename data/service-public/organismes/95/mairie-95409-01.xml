@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95409-01" codeInsee="95409" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moisselles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Moutier</Ligne>
+      <CodePostal>95570</CodePostal>
+      <NomCommune>Moisselles</NomCommune>
+      <Localisation>
+         <Latitude>49.0479011536</Latitude>
+         <Longitude>2.33717989922</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès sur l'arrière de la mairie par la cour de l'école</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 91 05 72</Téléphone>
+      <Télécopie>01 39 35 15 09</Télécopie>
+      <Email>secretariat@mairie-moisselles.fr</Email>
+      <Url>http://www.mairie-moisselles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

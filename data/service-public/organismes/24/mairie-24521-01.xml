@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24521-01" codeInsee="24521" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sarliac-sur-l'Isle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 avenue de l'Isle</Ligne>
+      <CodePostal>24420</CodePostal>
+      <NomCommune>Sarliac-sur-l'Isle</NomCommune>
+      <Localisation>
+         <Latitude>45.2375538</Latitude>
+         <Longitude>0.8744209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 07 82 32</Téléphone>
+      <Télécopie>05 53 08 89 85</Télécopie>
+      <Email>mairie.sarliac@orange.fr</Email>
+      <Url>http://www.sarliac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

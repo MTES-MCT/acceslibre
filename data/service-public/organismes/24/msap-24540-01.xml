@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-24540-01" codeInsee="24540" dateMiseAJour="2021-11-23"
+           pivotLocal="msap">
+   <Nom>France Services - Sorges-et-Ligueux en Périgord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>43 impasse des Artistes</Ligne>
+      <CodePostal>24460</CodePostal>
+      <NomCommune>Sorges-et-Ligueux en Périgord</NomCommune>
+      <Localisation>
+         <Latitude>45.30726</Latitude>
+         <Longitude>0.877189</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Ligueux au 05 53 06 09 70">05 53 06 09 70</Téléphone>
+      <Email>mfssorgesetligueux@gmail.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>(La poste) A Ligueux le mardi et jeudi après-midi de 13h30h à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <Note>(La Poste) Uniquement réservé à la prise de rendez-vous et au libre-accès internet.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>A Ligueux</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>(A la mairie de Sorges)</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Présence d'un conseiller numérique à Ligueux.</Commentaire>
+</Organisme>

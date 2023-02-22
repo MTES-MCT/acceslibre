@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-10317-01" codeInsee="10317" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Les Riceys</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>46 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>10340</CodePostal>
+      <NomCommune>Riceys</NomCommune>
+      <Localisation>
+         <Latitude>47.992488</Latitude>
+         <Longitude>4.368659</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 29 04 00</Téléphone>
+      <Télécopie>03 25 29 04 02</Télécopie>
+      <Email>msap.les-riceys@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/les-riceys-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

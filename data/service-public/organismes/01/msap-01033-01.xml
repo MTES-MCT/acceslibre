@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-01033-01" codeInsee="01033" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Valserhône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'emploi de l'économie et de la formation</Ligne>
+      <Ligne>5-9 rue des Papetiers</Ligne>
+      <CodePostal>01200</CodePostal>
+      <NomCommune>Valserhône</NomCommune>
+      <Localisation>
+         <Latitude>46.105973</Latitude>
+         <Longitude>5.825621</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 56 87 49</Téléphone>
+      <Email>meef@ccpb01.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous pour l'accès aux postes informatique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

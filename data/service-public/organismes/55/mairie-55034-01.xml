@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55034-01" codeInsee="55034" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bazeilles-sur-Othain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Sous-l'Église</Ligne>
+      <CodePostal>55600</CodePostal>
+      <NomCommune>Bazeilles-sur-Othain</NomCommune>
+      <Localisation>
+         <Latitude>49.4969277</Latitude>
+         <Longitude>5.429728799999999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 80 20 66</Téléphone>
+      <Télécopie>03 29 80 20 66</Télécopie>
+      <Email>mairie-bazeilles@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:15:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

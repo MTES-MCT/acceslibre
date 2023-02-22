@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-74282-01" codeInsee="74282" dateMiseAJour="2021-05-20"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Haute-Savoie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Martin-Bellevue</Ligne>
+      <Ligne>2092 route des Diacquenods</Ligne>
+      <CodePostal>74370</CodePostal>
+      <NomCommune>Fillière</NomCommune>
+      <Localisation>
+         <Latitude>45.946498</Latitude>
+         <Longitude>6.1527805</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 46 87 55</Téléphone>
+      <Email>info@pechehautesavoie.com</Email>
+      <Url>http://www.pechehautesavoie.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

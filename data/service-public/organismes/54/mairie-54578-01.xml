@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54578-01" codeInsee="54578" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-lès-Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard des Aiguillettes</Ligne>
+      <Ligne>BP 80028</Ligne>
+      <CodePostal>54600</CodePostal>
+      <NomCommune>Villers-lès-Nancy</NomCommune>
+      <Localisation>
+         <Latitude>48.6733389</Latitude>
+         <Longitude>6.1531678</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 92 12 12</Téléphone>
+      <Télécopie>03 83 92 12 00</Télécopie>
+      <Email>webmestre@villerslesnancy.fr</Email>
+      <Url>http://www.villerslesnancy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

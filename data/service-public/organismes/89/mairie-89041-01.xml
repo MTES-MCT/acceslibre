@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89041-01" codeInsee="89041" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beugnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue d'En-Haut</Ligne>
+      <CodePostal>89570</CodePostal>
+      <NomCommune>Beugnon</NomCommune>
+      <Localisation>
+         <Latitude>48.0220985413</Latitude>
+         <Longitude>3.80623006821</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 56 30 03</Téléphone>
+      <Télécopie>03 59 62 06 62</Télécopie>
+      <Email>mairie.beugnon@wanadoo.fr</Email>
+      <Url>http://www.mairie-beugnon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

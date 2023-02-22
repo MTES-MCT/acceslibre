@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41093-01" codeInsee="41093" dateMiseAJour="2021-07-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Françay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du Perche</Ligne>
+      <CodePostal>41190</CodePostal>
+      <NomCommune>Françay</NomCommune>
+      <Localisation>
+         <Latitude>47.6068000793</Latitude>
+         <Longitude>1.13692998886</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 46 17 59</Téléphone>
+      <Télécopie>02 54 46 20 65</Télécopie>
+      <Email>mairie.francay@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

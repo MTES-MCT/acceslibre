@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51104-01" codeInsee="51104" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cernay-en-Dormois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Église</Ligne>
+      <CodePostal>51800</CodePostal>
+      <NomCommune>Cernay-en-Dormois</NomCommune>
+      <Localisation>
+         <Latitude>49.2258489</Latitude>
+         <Longitude>4.764084</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 60 11 24</Téléphone>
+      <Télécopie>03 26 60 11 24</Télécopie>
+      <Email>commune-cernay-en-dormois@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:15:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

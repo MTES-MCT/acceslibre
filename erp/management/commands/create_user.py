@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group, User
 from django.core.management.base import BaseCommand
 
 from core.lib import text
@@ -7,7 +7,6 @@ from core.lib import text
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("email", help="Adresse email de la personne")
-        pass
 
     def generate_username(self, email):
         a, *_ = email.split("@")

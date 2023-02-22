@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="draf-31555-01" codeInsee="31555" dateMiseAJour="2018-07-25"
+           pivotLocal="draf">
+   <Nom>Direction régionale de l'alimentation, de l'agriculture et de la forêt (DRAAF) - Occitanie - Siège de Toulouse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Boulevard Armand-Duportal</Ligne>
+      <Ligne>Bâtiment E</Ligne>
+      <CodePostal>31000</CodePostal>
+      <NomCommune>Toulouse</NomCommune>
+      <Localisation>
+         <Latitude>43.608585</Latitude>
+         <Longitude>1.435448</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 10 61 10</Téléphone>
+      <Email>draaf-occitanie@agriculture.gouv.fr</Email>
+      <Url>http://draaf.occitanie.agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

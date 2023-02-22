@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38527-01" codeInsee="38527" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vaujany</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 route de la Cour-Basse</Ligne>
+      <CodePostal>38114</CodePostal>
+      <NomCommune>Vaujany</NomCommune>
+      <Localisation>
+         <Latitude>45.15738</Latitude>
+         <Longitude>6.073805</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 80 70 95</Téléphone>
+      <Télécopie>04 76 80 78 37</Télécopie>
+      <Email>secretariat@mairie-de-vaujany.fr</Email>
+      <Url>http://www.mairie-de-vaujany.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil les après-midis uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

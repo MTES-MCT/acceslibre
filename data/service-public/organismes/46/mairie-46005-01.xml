@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-46005-01" codeInsee="46005" dateMiseAJour="2021-11-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Anglars-Juillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tourondels</Ligne>
+      <CodePostal>46140</CodePostal>
+      <NomCommune>Anglars-Juillac</NomCommune>
+      <Localisation>
+         <Latitude>44.4872093201</Latitude>
+         <Longitude>1.19870495796</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 36 21 70</Téléphone>
+      <Télécopie>05 65 36 21 70</Télécopie>
+      <Email>mairieanglarsjuillac@wanadoo.fr</Email>
+      <Url>http://www.anglars-juillac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

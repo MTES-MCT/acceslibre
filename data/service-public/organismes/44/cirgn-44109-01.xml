@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirgn-44109-01" codeInsee="44109" dateMiseAJour="2021-12-16"
+           pivotLocal="cirgn"
+           idPresta="1007294">
+   <Nom>Centre d'information et de recrutement (CIR) de la gendarmerie nationale - Nantes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue d’Allonville</Ligne>
+      <Ligne>Caserne Lamoricière</Ligne>
+      <CodePostal>44000</CodePostal>
+      <NomCommune>Nantes</NomCommune>
+      <Localisation>
+         <Latitude>47.223462</Latitude>
+         <Longitude>-1.53346</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="numéro d'appel et courriel uniquement destinés à l'information sur le recrutement - Pour toute urgence, composez le 17">02 40 20 24 24</Téléphone>
+      <Email>https://www.lagendarmerierecrute.fr/Contacts</Email>
+      <Url>https://www.lagendarmerierecrute.fr/Pres-de-chez-vous/NANTES</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

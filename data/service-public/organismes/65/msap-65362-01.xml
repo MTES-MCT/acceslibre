@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-65362-01" codeInsee="65362" dateMiseAJour="2021-05-20"
+           pivotLocal="msap">
+   <Nom>France Services - Pierrefitte-Nestalas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Place Jean-Jaurès</Ligne>
+      <CodePostal>65260</CodePostal>
+      <NomCommune>Pierrefitte-Nestalas</NomCommune>
+      <Localisation>
+         <Latitude>42.961201</Latitude>
+         <Longitude>-0.074139</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 31 41 43</Téléphone>
+      <Email>pierrefitte-nestalas@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

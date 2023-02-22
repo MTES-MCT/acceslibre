@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67005-01" codeInsee="67005" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alteckendorf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 rue Principale</Ligne>
+      <CodePostal>67270</CodePostal>
+      <NomCommune>Alteckendorf</NomCommune>
+      <Localisation>
+         <Latitude>48.792563</Latitude>
+         <Longitude>7.5949218</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 51 60 38</Téléphone>
+      <Télécopie>03 88 51 55 24</Télécopie>
+      <Email>mairie.alteckendorf@payszorn.com</Email>
+      <Url>http://www.payszorn.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:15:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:15:00" fin="11:45:00"/>
+         <PlageH début="15:15:00" fin="19:00:00"/>
+         <Note>Permanence du maire de 18h à 19h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

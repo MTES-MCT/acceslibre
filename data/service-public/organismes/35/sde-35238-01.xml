@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sde-35238-01" codeInsee="35238" dateMiseAJour="2021-09-01" pivotLocal="sde">
+   <Nom>Service départemental de l'enregistrement - Ille-et-Vilaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>BP 12301</Ligne>
+      <Ligne>2 boulevard Magenta - Bât B</Ligne>
+      <Ligne>Centre des Finances publiques</Ligne>
+      <CodePostal>35023</CodePostal>
+      <NomCommune>Rennes Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>48.106947</Latitude>
+         <Longitude>-1.674835</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique : du lundi au vendredi de 9h00 à 12h00 et de 13h30 à 16h30">02 99 29 23 23</Téléphone>
+      <Email>sde.rennes@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil physique : sans rendez-vous du lundi au vendredi de 8h45 à 12h00, sur rendez-vous les lundi, mardi et jeudi de 13h30 à 16h00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

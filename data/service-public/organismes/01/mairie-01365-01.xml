@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01365-01" codeInsee="01365" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-sur-Veyle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 impasse des Bords-de-Veyle</Ligne>
+      <CodePostal>01290</CodePostal>
+      <NomCommune>Saint-Jean-sur-Veyle</NomCommune>
+      <Localisation>
+         <Latitude>46.2774009705</Latitude>
+         <Longitude>4.89145994186</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 36 27 12</Téléphone>
+      <Télécopie>03 85 36 20 46</Télécopie>
+      <Email>mairie-saintjean@wanadoo.fr</Email>
+      <Url>http://mairie-saintjeansurveyle.over-blog.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

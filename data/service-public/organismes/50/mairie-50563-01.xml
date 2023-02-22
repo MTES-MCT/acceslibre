@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50563-01" codeInsee="50563" dateMiseAJour="2021-06-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vigor-des-Monts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>50420</CodePostal>
+      <NomCommune>Saint-Vigor-des-Monts</NomCommune>
+      <Localisation>
+         <Latitude>48.8971178</Latitude>
+         <Longitude>-1.0576056</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 61 95 37</Téléphone>
+      <Télécopie>02 33 61 95 37</Télécopie>
+      <Email>mairie.saintvigor50@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

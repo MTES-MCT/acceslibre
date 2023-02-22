@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paris_mairie-75056-01" codeInsee="75056" dateMiseAJour="2018-03-08"
+           pivotLocal="paris_mairie">
+   <Nom>Mairie - Paris - Hôtel-de-Ville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>75196</CodePostal>
+      <NomCommune>Paris Cedex 4</NomCommune>
+      <Localisation>
+         <Latitude>48.856803894</Latitude>
+         <Longitude>2.35105609894</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 42 76 40 40</Téléphone>
+      <Url>http://www.paris.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

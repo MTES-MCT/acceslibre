@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-04018-01" codeInsee="04018" dateMiseAJour="2021-11-03"
+           pivotLocal="msap">
+   <Nom>France Services - Banon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>81 Place de la République</Ligne>
+      <CodePostal>04150</CodePostal>
+      <NomCommune>Banon</NomCommune>
+      <Localisation>
+         <Latitude>44.038182</Latitude>
+         <Longitude>5.627929</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 73 40 73</Téléphone>
+      <Email>france-services.banon@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14200-02" codeInsee="14200" dateMiseAJour="2020-10-06"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Gabriel-Brécy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Gabriel-Brécy</Ligne>
+      <Ligne>Route de Villiers</Ligne>
+      <CodePostal>14480</CodePostal>
+      <NomCommune>Creully sur Seulles</NomCommune>
+      <Localisation>
+         <Latitude>49.267466</Latitude>
+         <Longitude>-0.572716</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 80 18 04</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>permanences les samedis matins de 11h à 12h (hors vacances scolaires)</Commentaire>
+</Organisme>

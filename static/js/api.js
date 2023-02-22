@@ -117,6 +117,11 @@ async function searchLocation(q, loc) {
   }
 }
 
+async function getCoordinate(q) {
+  let response = await searchLocation(q);
+  return response
+}
+
 export default {
   hasPermission,
   getUserLocation,
@@ -124,4 +129,5 @@ export default {
   reverseGeocode,
   saveUserLocation,
   searchLocation,
+  getCoordinate
 };

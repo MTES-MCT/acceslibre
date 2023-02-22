@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-59350-01" codeInsee="59350" dateMiseAJour="2021-03-15" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires et de la mer (DDTM) - Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 90007</Ligne>
+      <Ligne>62 boulevard de Belfort</Ligne>
+      <CodePostal>59042</CodePostal>
+      <NomCommune>Lille Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.6183291</Latitude>
+         <Longitude>3.0736016</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 03 83 00</Téléphone>
+      <Télécopie>03 28 03 84 22</Télécopie>
+      <Email>ddtm@nord.gouv.fr</Email>
+      <Url>https://www.nord.gouv.fr/Services-de-l-Etat/Agriculture-foret-et-developpement-rural/Direction-departementale-des-territoires-et-de-la-mer-DDTM</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

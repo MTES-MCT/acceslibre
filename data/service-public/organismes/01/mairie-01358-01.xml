@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01358-01" codeInsee="01358" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Germain-les-Paroisses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 place de la Cure</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Saint-Germain-les-Paroisses</NomCommune>
+      <Localisation>
+         <Latitude>45.77387</Latitude>
+         <Longitude>5.61937</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 81 31 61</Téléphone>
+      <Email>mairie-st-germain-les-paroisses@wanadoo.fr</Email>
+      <Url>http://www.saintgermainlesparoisses.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

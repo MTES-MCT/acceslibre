@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-06023-01" codeInsee="06023" dateMiseAJour="2019-12-20"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Breil-sur-Roya</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle infos séniors Roya - Bevera</Ligne>
+      <Ligne>2 rue Cordier</Ligne>
+      <CodePostal>06540</CodePostal>
+      <NomCommune>Breil-sur-Roya</NomCommune>
+      <Localisation>
+         <Latitude>43.944664</Latitude>
+         <Longitude>7.514113</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 04 37 93</Téléphone>
+      <Télécopie>04 93 04 37 37</Télécopie>
+      <Email>poleinfosseniors@hopital-breil-roya.com</Email>
+      <Url>http://www.hopital-breil-roya.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert de préférence sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

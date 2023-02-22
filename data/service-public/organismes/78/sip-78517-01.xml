@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-78517-01" codeInsee="78517" dateMiseAJour="2021-09-17" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Rambouillet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2, rue Pasteur</Ligne>
+      <CodePostal>78514</CodePostal>
+      <NomCommune>Rambouillet Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6484147</Latitude>
+         <Longitude>1.8238183</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique: du lundi au vendredi 8h30-12h30 / 14h-16h">01 34 94 16 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

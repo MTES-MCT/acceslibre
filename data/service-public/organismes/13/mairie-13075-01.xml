@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13075-01" codeInsee="13075" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plan-de-Cuques</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 avenue Frédéric-Chevillon</Ligne>
+      <Ligne>BP 46</Ligne>
+      <CodePostal>13380</CodePostal>
+      <NomCommune>Plan-de-Cuques Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.345989</Latitude>
+         <Longitude>5.462092</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 10 40 40</Téléphone>
+      <Télécopie>04 91 05 34 57</Télécopie>
+      <Email>cabinetdumaire@plandecuques.fr</Email>
+      <Url>http://www.plandecuques.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

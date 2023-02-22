@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-26252-01" codeInsee="26252" dateMiseAJour="2019-01-09"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Valence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>245 rue Louis Saillant</Ligne>
+      <Ligne>BP 4</Ligne>
+      <Ligne>ZI Port Fluvial</Ligne>
+      <CodePostal>26801</CodePostal>
+      <NomCommune>Portes-lès-valence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.884237</Latitude>
+         <Longitude>4.863972</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 29 24</Téléphone>
+      <Télécopie>04 75 57 83 18</Télécopie>
+      <Email>r-valence@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

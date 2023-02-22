@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62071-01" codeInsee="62071" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bailleul-lès-Pernes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de Pernes</Ligne>
+      <CodePostal>62550</CodePostal>
+      <NomCommune>Bailleul-lès-Pernes</NomCommune>
+      <Localisation>
+         <Latitude>50.5063018799</Latitude>
+         <Longitude>2.39012002945</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 04 71 84</Téléphone>
+      <Télécopie>03 21 03 70 45</Télécopie>
+      <Email>communebailleullespernes@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:15:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:15:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

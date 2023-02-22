@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07034-01" codeInsee="07034" dateMiseAJour="2020-02-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bidon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>07700</CodePostal>
+      <NomCommune>Bidon</NomCommune>
+      <Localisation>
+         <Latitude>44.302411</Latitude>
+         <Longitude>4.565689</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 04 28 01</Téléphone>
+      <Email>ma-bidon@orange.fr</Email>
+      <Url>http://www.bidon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous du lundi au mercredi et le vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

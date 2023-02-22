@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26203-01" codeInsee="26203" dateMiseAJour="2020-02-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montjoyer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>26230</CodePostal>
+      <NomCommune>Montjoyer</NomCommune>
+      <Localisation>
+         <Latitude>44.477476</Latitude>
+         <Longitude>4.853365</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 98 53 24</Téléphone>
+      <Télécopie>04 75 98 59 46</Télécopie>
+      <Email>mairie.montjoyer@wanadoo.fr</Email>
+      <Url>http://mairiemontjoyer.wixsite.com/mairie-de-montjoyer</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

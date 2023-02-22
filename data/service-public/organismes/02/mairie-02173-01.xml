@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02173-01" codeInsee="02173" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chauny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville-Charles-de-Gaulle</Ligne>
+      <Ligne>BP 60053</Ligne>
+      <CodePostal>02302</CodePostal>
+      <NomCommune>Chauny Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.6157989502</Latitude>
+         <Longitude>3.21905994415</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 38 70 70</Téléphone>
+      <Télécopie>03 23 38 70 46</Télécopie>
+      <Email>mairie@ville-chauny.fr</Email>
+      <Url>http://www.ville-chauny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

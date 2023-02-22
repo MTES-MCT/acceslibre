@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34070-01" codeInsee="34070" dateMiseAJour="2021-09-13"
+           pivotLocal="msap">
+   <Nom>France Services - Sud-Hérault (itinérant) - Cébazan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 avenue de Béziers</Ligne>
+      <CodePostal>34360</CodePostal>
+      <NomCommune>Cébazan</NomCommune>
+      <Localisation>
+         <Latitude>43.4065197</Latitude>
+         <Longitude>2.9690331</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 43 95 11 95</Téléphone>
+      <Email>franceservicesitinerante@cc-sud-herault.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>1er et 3eme lundi du mois</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

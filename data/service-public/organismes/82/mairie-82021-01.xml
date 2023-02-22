@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82021-01" codeInsee="82021" dateMiseAJour="2020-10-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bouloc-en-Quercy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>82110</CodePostal>
+      <NomCommune>Bouloc-en-Quercy</NomCommune>
+      <Localisation>
+         <Latitude>44.299711</Latitude>
+         <Longitude>1.127577</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 94 67 97</Téléphone>
+      <Email>mairie-bouloc@info82.com</Email>
+      <Url>http://www.bouloc-en-quercy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+         <Note>Permanence du maire mardi matin de 10h à 12h30.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:15:00" fin="19:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

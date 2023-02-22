@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02141-01" codeInsee="02141" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Capelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>02260</CodePostal>
+      <NomCommune>La Capelle</NomCommune>
+      <Localisation>
+         <Latitude>49.9692001343</Latitude>
+         <Longitude>3.83881998062</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 97 52 00</Téléphone>
+      <Télécopie>03 23 97 80 47</Télécopie>
+      <Email>mairie@villedelacapelle.fr</Email>
+      <Url>http://www.lacapelle02.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="05061" dateMiseAJour="2021-12-14" id="te-05061-01" idPresta="4cac9e86293594648a004ca5" pivotLocal="te">
+    <Nom>Tribunal pour enfants de Gap</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE SAINT-ARNOUX</Ligne>
+        <CodePostal>05007</CodePostal>
+        <NomCommune>GAP CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>44.557754</Latitude>
+            <Longitude>6.077422</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE SAINT-ARNOUX</Ligne>
+        <CodePostal>05007</CodePostal>
+        <NomCommune>GAP CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 92 40 70 00</Téléphone>
+        <Télécopie>04 92 40 70 29</Télécopie>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+            <Note>Audiences du TPE (hors période de vacation : du 10 juillet au 27 août, vacances de noël et de Pâques):
+Audiences civiles :
+Audiences d&#39;assistance éducative sur convocation du Juge des enfants
+
+Audiences pénales :
+- Tribunal pour enfants (TPE) : 1 mercredi par mois
+- Audiences de Cabinet (mise en examen et jugement) : 3 jeudis matin par mois
+</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

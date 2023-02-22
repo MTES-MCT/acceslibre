@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64459-01" codeInsee="64459" dateMiseAJour="2021-10-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Prechacq-Navarrenx</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 Carrèra</Ligne>
+      <CodePostal>64190</CodePostal>
+      <NomCommune>Prechacq-Navarrenx</NomCommune>
+      <Localisation>
+         <Latitude>43.2871055603</Latitude>
+         <Longitude>-0.658032000065</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 34 33 60</Téléphone>
+      <Email>mairie.prechacq-navarrenx@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

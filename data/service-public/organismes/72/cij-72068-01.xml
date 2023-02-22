@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-72068-01" codeInsee="72068" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - La Chartre-sur-le-Loir</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social Val-du-Loir</Ligne>
+      <Ligne>36 rue Gervais-Chevallier</Ligne>
+      <CodePostal>72340</CodePostal>
+      <NomCommune>La Chartre-sur-le-Loir</NomCommune>
+      <Localisation>
+         <Latitude>47.7307043</Latitude>
+         <Longitude>0.571373</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 44 40 97</Téléphone>
+      <Email>jeunesse@centresocial-valduloir.fr</Email>
+      <Url>http://www.centresocial-valduloir.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

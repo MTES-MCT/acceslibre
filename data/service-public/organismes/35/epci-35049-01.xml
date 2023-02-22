@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-35049-01" codeInsee="35049" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Pays de Saint-Malo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Ville-Jégu</Ligne>
+      <Ligne>BP 11</Ligne>
+      <CodePostal>35260</CodePostal>
+      <NomCommune>Cancale</NomCommune>
+      <Localisation>
+         <Latitude>48.675660253</Latitude>
+         <Longitude>-1.85600280762</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 15 10 85</Téléphone>
+      <Télécopie>02 23 15 10 86</Télécopie>
+      <Email>accueil@stmalo-agglomeration.fr</Email>
+      <Url>http://www.stmalo-agglomeration.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -19,6 +19,19 @@ function LocalisationMap(root) {
     hiddenLat.value = coords.lat;
     hiddenLon.value = coords.lng;
   });
+
+  let numero = document.getElementById("id_numero");
+  let voie = document.getElementById("id_voie");
+  let lieu_dit = document.getElementById("id_lieu_dit");
+  let code_postal = document.getElementById("id_code_postal");
+  let ville = document.getElementById("id_commune");
+
+  document.querySelectorAll("input").forEach(
+    (elem) => elem.addEventListener("change", function (event) {
+      let query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
+      geo.update_map(query, map);
+    })
+ )
 }
 
 export default LocalisationMap;

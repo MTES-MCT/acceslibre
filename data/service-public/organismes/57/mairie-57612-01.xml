@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57612-01" codeInsee="57612" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Hubert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue Principale</Ligne>
+      <CodePostal>57640</CodePostal>
+      <NomCommune>Saint-Hubert</NomCommune>
+      <Localisation>
+         <Latitude>49.2592010498</Latitude>
+         <Longitude>6.43373012543</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 77 01 33</Téléphone>
+      <Télécopie>03 87 77 02 32</Télécopie>
+      <Email>mairiesthubert57@wanadoo.fr</Email>
+      <Url>http://www.mairiesthubert57.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

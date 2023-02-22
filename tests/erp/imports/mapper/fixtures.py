@@ -1,7 +1,7 @@
 import copy
 import json
-import pytest
 
+import pytest
 from django.contrib.gis.geos import Point
 
 from erp.imports.fetcher import Fetcher
@@ -19,6 +19,48 @@ def neufchateau(db):
         population=6639,
         geom=Point(5.6962, 48.3568),
         code_postaux=["88300"],
+    )
+
+
+@pytest.fixture
+def jacou():
+    return Commune.objects.create(
+        nom="Jacou",
+        slug="34-jacou",
+        code_postaux=["34830"],
+        code_insee="34830",
+        departement="34",
+        superficie=2380,
+        population=6639,
+        geom=Point(5.6962, 48.3568),
+    )
+
+
+@pytest.fixture
+def paris():
+    return Commune.objects.create(
+        nom="Paris",
+        slug="75-paris",
+        code_postaux=["75002"],
+        code_insee="75111",
+        departement="75",
+        superficie=2380,
+        population=6639,
+        geom=Point(5.6962, 48.3568),
+    )
+
+
+@pytest.fixture
+def vallorcine(db):
+    return Commune.objects.create(
+        nom="Vallorcine",
+        slug="74-vallorcine",
+        departement="74",
+        code_insee="74660",
+        superficie=2380,
+        population=6639,
+        geom=Point(6.93822479248, 46.0415725708),
+        code_postaux=["74660"],
     )
 
 

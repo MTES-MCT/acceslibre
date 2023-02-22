@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82033-01" codeInsee="82033" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Castelsarrasin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de la Liberté</Ligne>
+      <Ligne>BP 80084</Ligne>
+      <CodePostal>82103</CodePostal>
+      <NomCommune>Castelsarrasin Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.0396995544</Latitude>
+         <Longitude>1.1074899435</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 32 75 00</Téléphone>
+      <Télécopie>05 63 32 75 01</Télécopie>
+      <Email>mairie@ville-castelsarrasin.fr</Email>
+      <Url>http://www.ville-castelsarrasin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

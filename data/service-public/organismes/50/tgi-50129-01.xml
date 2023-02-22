@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="50129" dateMiseAJour="2021-12-14" id="tgi-50129-01" idPresta="4cac9e6a293594648a0017a4" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Cherbourg-en-Cotentin</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>15 RUE DES TRIBUNAUX</Ligne>
+        <Ligne>CS 60740</Ligne>
+        <CodePostal>50107</CodePostal>
+        <NomCommune>CHERBOURG OCTEVILLE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.637882</Latitude>
+            <Longitude>-1.623579</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>15 RUE DES TRIBUNAUX</Ligne>
+        <Ligne>CS 60740</Ligne>
+        <CodePostal>50107</CodePostal>
+        <NomCommune>CHERBOURG OCTEVILLE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 33 01 61 61</Téléphone>
+        <Télécopie>02 33 01 97 45</Télécopie>
+        <Email>mailto:tj2-cherbourg@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

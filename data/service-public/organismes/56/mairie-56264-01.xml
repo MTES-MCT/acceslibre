@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56264-01" codeInsee="56264" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Kernascléden</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de Brissac</Ligne>
+      <CodePostal>56540</CodePostal>
+      <NomCommune>Kernascléden</NomCommune>
+      <Localisation>
+         <Latitude>48.0055999756</Latitude>
+         <Longitude>-3.32031989098</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 51 61 16</Téléphone>
+      <Télécopie>02 97 51 63 11</Télécopie>
+      <Email>mairie.kernascleden@wanadoo.fr</Email>
+      <Url>http://www.kernascleden.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+         <Note>Accueil possible sur rendez-vous le jeudi après midi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="13:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

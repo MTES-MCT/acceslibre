@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76507-01" codeInsee="76507" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ponts-et-Marais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Legout-Lesage</Ligne>
+      <CodePostal>76260</CodePostal>
+      <NomCommune>Ponts-et-Marais</NomCommune>
+      <Localisation>
+         <Latitude>50.0409603</Latitude>
+         <Longitude>1.442947</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 86 04 14</Téléphone>
+      <Télécopie>02 35 50 07 42</Télécopie>
+      <Email>mairiepontsetmarais@orange.fr</Email>
+      <Url>http://www.pontsetmarais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Accueil fermé le lundi en juillet-août, permanence téléphonique le mercredi de 9h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

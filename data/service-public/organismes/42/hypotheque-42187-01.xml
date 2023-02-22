@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-42187-01" codeInsee="42187" dateMiseAJour="2021-07-05"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Roanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du Champ de Foire</Ligne>
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>CS 52803</Ligne>
+      <CodePostal>42328</CodePostal>
+      <NomCommune>Roanne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.046408</Latitude>
+         <Longitude>4.071847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Service enregistrement : 04 77 44 01 57">04 77 44 01 75</Téléphone>
+      <Email>spf.roanne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

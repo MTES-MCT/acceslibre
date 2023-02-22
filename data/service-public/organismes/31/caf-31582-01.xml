@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-31582-01" codeInsee="31582" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Haute-Garonne - accueil de Villefranche-de-Lauragais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Pôle Social</Ligne>
+      <Ligne>134 rue de la République</Ligne>
+      <CodePostal>31290</CodePostal>
+      <NomCommune>Villefranche-de-Lauragais</NomCommune>
+      <Localisation>
+         <Latitude>43.4009598</Latitude>
+         <Longitude>1.71437339</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Haute-Garonne</Ligne>
+      <Ligne>24 rue Riquet</Ligne>
+      <CodePostal>31046</CodePostal>
+      <NomCommune>Toulouse Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

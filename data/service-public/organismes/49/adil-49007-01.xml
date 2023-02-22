@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-49007-01" codeInsee="49007" dateMiseAJour="2021-04-15"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Maine-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'architecture</Ligne>
+      <Ligne>312 avenue René Gasnier</Ligne>
+      <CodePostal>49100</CodePostal>
+      <NomCommune>Angers</NomCommune>
+      <Localisation>
+         <Latitude>47.4862653</Latitude>
+         <Longitude>-0.5725698</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 81 89 40</Téléphone>
+      <Télécopie>02 41 32 97 11</Télécopie>
+      <Email>https://www.adil49.org/contact/</Email>
+      <Url>http://www.adil49.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

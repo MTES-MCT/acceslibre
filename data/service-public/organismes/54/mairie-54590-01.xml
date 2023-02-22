@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54590-01" codeInsee="54590" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Viviers-sur-Chiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue du Gai-Coteau</Ligne>
+      <CodePostal>54260</CodePostal>
+      <NomCommune>Viviers-sur-Chiers</NomCommune>
+      <Localisation>
+         <Latitude>49.4726691</Latitude>
+         <Longitude>5.63310799999999</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 26 52 59</Téléphone>
+      <Télécopie>03 82 39 36 28</Télécopie>
+      <Email>viviers.chiers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>En raison du contexte sanitaire et jusqu'à nouvel ordre l'accueil est ouvert les lundi et jeudi de 10h à 12h ainsi que les mardi et vendredi de 15h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

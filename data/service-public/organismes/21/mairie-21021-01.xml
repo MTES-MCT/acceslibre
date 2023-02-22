@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21021-01" codeInsee="21021" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arc-sur-Tille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue de la Mairie</Ligne>
+      <CodePostal>21560</CodePostal>
+      <NomCommune>Arc-sur-Tille</NomCommune>
+      <Localisation>
+         <Latitude>47.3427009583</Latitude>
+         <Longitude>5.19089984894</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 37 00 16</Téléphone>
+      <Télécopie>03 80 37 23 44</Télécopie>
+      <Email>mairie@arc-sur-tille.fr</Email>
+      <Url>http://www.arc-sur-tille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

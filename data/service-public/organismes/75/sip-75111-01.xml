@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-75111-01" codeInsee="75111" dateMiseAJour="2021-07-01" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Paris 11e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 rue Godefroy-Cavaignac</Ligne>
+      <CodePostal>75536</CodePostal>
+      <NomCommune>Paris Cedex 11</NomCommune>
+      <Localisation>
+         <Latitude>48.8563424</Latitude>
+         <Longitude>2.3803482</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="0809 401 401 : service gratuit + prix de l'appel">01 44 64 42 00</Téléphone>
+      <Email>sip.paris-11e@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Egalement sur rendez-vous. Pour prendre rendez-vous, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

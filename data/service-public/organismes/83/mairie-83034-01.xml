@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83034-01" codeInsee="83034" dateMiseAJour="2021-07-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carqueiranne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la République</Ligne>
+      <CodePostal>83320</CodePostal>
+      <NomCommune>Carqueiranne</NomCommune>
+      <Localisation>
+         <Latitude>43.09489</Latitude>
+         <Longitude>6.074489</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 01 40 40</Téléphone>
+      <Télécopie>04 94 01 57 84</Télécopie>
+      <Email>secretariatdeselus@carqueiranne.fr</Email>
+      <Url>http://www.carqueiranne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

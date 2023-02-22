@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35070-01" codeInsee="35070" dateMiseAJour="2021-01-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châteauneuf-d'Ille-et-Vilaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue du Pavé Saint Charles</Ligne>
+      <CodePostal>35430</CodePostal>
+      <NomCommune>Châteauneuf-d'Ille-et-Vilaine</NomCommune>
+      <Localisation>
+         <Latitude>48.56155</Latitude>
+         <Longitude>-1.92867</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 58 41 32</Téléphone>
+      <Télécopie>02 99 58 34 13</Télécopie>
+      <Email>mairie@ville-chateauneuf35.fr</Email>
+      <Url>http://www.chateauneuf-d-illeetvilaine.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38120-01" codeInsee="38120" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Combe-de-Lancey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Chapelle</Ligne>
+      <Ligne>56 place du Boÿs</Ligne>
+      <CodePostal>38190</CodePostal>
+      <NomCommune>La Combe-de-Lancey</NomCommune>
+      <Localisation>
+         <Latitude>45.225583</Latitude>
+         <Longitude>5.898657</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 71 40 96</Téléphone>
+      <Email>mairie@lacombedelancey.fr</Email>
+      <Url>http://www.mairiedelacombedelancey.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous du lundi au vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

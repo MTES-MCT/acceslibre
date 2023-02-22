@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-59067-01" codeInsee="59067" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bergues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination des Moulins de Flandre</Ligne>
+      <Ligne>3 rue du Cimetière</Ligne>
+      <CodePostal>59492</CodePostal>
+      <NomCommune>Hoymille</NomCommune>
+      <Localisation>
+         <Latitude>50.97526</Latitude>
+         <Longitude>2.449267</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 62 83 68</Téléphone>
+      <Email>clicdesmoulinsdeflandre@apahm-asso.fr</Email>
+      <Url>http://www.apahm.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,7 +1,7 @@
 from functools import reduce
 
 from django import forms
-from django.conf import settings
+from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
@@ -9,12 +9,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from erp import schema
-from erp.models import (
-    Activite,
-    Accessibilite,
-    Commune,
-    Erp,
-)
+from erp.imports.utils import get_address_query_to_geocode
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
 
@@ -27,17 +23,17 @@ def get_widgets_for_accessibilite():
     return dict([(f, bool_radios()) for f in field_names])
 
 
-class AdminAccessibiliteForm(forms.ModelForm):
+class ContribAccessibiliteForm(forms.ModelForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
 
-    class Meta:
-        model = Accessibilite
-        exclude = ("pk",)
-        widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels()
-        help_texts = schema.get_help_texts()
-
+    accueil_audiodescription = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.AUDIODESCRIPTION_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_audiodescription"),
+        help_text=schema.get_help_text("accueil_audiodescription"),
+    )
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
         choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -47,6 +43,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
     )
     entree_porte_presence = forms.ChoiceField(
         required=False,
+        initial=True,
         label=schema.get_label("entree_porte_presence"),
         help_text=schema.get_help_text("entree_porte_presence"),
         choices=[(True, "Oui"), (False, "Non")],
@@ -73,36 +70,77 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label=schema.get_label("labels"),
         help_text=schema.get_help_text("labels"),
     )
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels()
+        help_texts = schema.get_help_texts()
+        required = schema.get_required_fields()
+
+    def clean_accueil_equipements_malentendants(self):
+        if (
+            "accueil_equipements_malentendants_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_equipements_malentendants_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_equipements_malentendants"]
+
+    def clean_accueil_audiodescription(self):
+        if (
+            "accueil_audiodescription_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_audiodescription_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_audiodescription"]
+
+
+class AdminAccessibiliteForm(ContribAccessibiliteForm):
+    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
+    # fields, hence why we set them up manually for each fields.
+
     sanitaires_adaptes = forms.ChoiceField(
         required=False,
         label=schema.get_label("sanitaires_adaptes"),
         help_text=schema.get_help_text("sanitaires_adaptes"),
-        choices=schema.NULLABLE_BOOL_NUM_CHOICES,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
         widget=forms.RadioSelect(attrs={"class": "inline"}),
     )
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
         obj = kwargs.get("instance")
+
         # Nombre de sanitaires
-        if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes > 1:
-            initial["sanitaires_adaptes"] = 1
+        if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes is True:
+            initial["sanitaires_adaptes"] = True
         # Valeur par défaut présence d'une porte à l'entrée
         if obj and (
             obj.entree_porte_presence is None
-            or (
-                obj.entree_porte_manoeuvre is not None
-                or obj.entree_porte_type is not None
-            )
+            or (obj.entree_porte_manoeuvre is not None or obj.entree_porte_type is not None)
         ):
             initial["entree_porte_presence"] = True
         kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
 
+    def clean_accueil_equipements_malentendants(self):
+        if (
+            "accueil_equipements_malentendants_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_equipements_malentendants_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_equipements_malentendants"]
+
+    def clean_accueil_audiodescription(self):
+        if (
+            "accueil_audiodescription_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_audiodescription_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_audiodescription"]
+
     def clean_sanitaires_adaptes(self):
-        # Specific case where we want to map nullable bool choices
-        # to 0 and 1 integers, hence why we use NULLABLE_BOOL_NUM_CHOICES
-        # as choices.
         value = self.cleaned_data["sanitaires_adaptes"]
         if value == "":
             return None
@@ -121,6 +159,14 @@ class AdminActiviteForm(forms.ModelForm):
         required=False,
         help_text="Un mots-clé par ligne",
     )
+
+    def save(self, commit=True):
+        m = super(AdminActiviteForm, self).save(commit=False)
+        m.nom = m.nom.capitalize()
+        m.save()
+        Activite.reorder()
+        m.refresh_from_db()
+        return m
 
 
 class AdminCommuneForm(forms.ModelForm):
@@ -154,21 +200,21 @@ class BaseErpForm(forms.ModelForm):
         except KeyError:
             return True
 
-    def get_adresse_query(self):
+    def _get_address_query(self, obj):
         parts = [
-            self.cleaned_data.get("numero") or "",
-            self.cleaned_data.get("voie") or "",
+            obj.get("numero") or "",
+            obj.get("voie") or "",
         ]
         voie_ville = " ".join([p for p in parts if p != ""]).strip()
         adresse_parts = [
             voie_ville,
-            self.cleaned_data.get("lieu_dit") or "",
-            self.cleaned_data.get("commune") or "",
+            obj.get("lieu_dit") or "",
+            obj.get("commune") or "",
         ]
         return ", ".join([p for p in adresse_parts if p != ""])
 
     def format_error(self, message):
-        signalement_url = reverse("contact_topic", kwargs={"topic": "support"})
+        signalement_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
             f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" target="_blank">signaler une erreur</a>.'
         )
@@ -177,33 +223,23 @@ class BaseErpForm(forms.ModelForm):
         raise ValidationError({field: self.format_error(message)})
 
     def geocode(self):
-        adresse = self.get_adresse_query()
+        adresse = get_address_query_to_geocode(self.cleaned_data)
         code_postal = self.cleaned_data.get("code_postal", "").strip() or None
         departement = code_postal[:2] if code_postal and len(code_postal) == 5 else None
         commune_input = self.cleaned_data.get("commune")
-        commune = Commune.objects.search_by_nom_code_postal(
-            commune_input, code_postal
-        ).first()
+        commune = Commune.objects.search_by_nom_code_postal(commune_input, code_postal).first()
         locdata = None
         try:
-            locdata = self.do_geocode(
-                adresse, citycode=commune.code_insee if commune else None
-            )
+            locdata = self.do_geocode(adresse, citycode=commune.code_insee if commune else None)
         except RuntimeError as err:
             raise ValidationError(err)
 
         # Check for geocoded results
         if not locdata or locdata.get("geom") is None:
-            self.raise_validation_error(
-                "voie", f"Adresse non localisable : {adresse} ({code_postal})"
-            )
+            self.raise_validation_error("voie", f"Adresse non localisable : {adresse} ({code_postal})")
 
         # Ensure picking the right postcode
-        if (
-            code_postal
-            and locdata["code_postal"]
-            and code_postal != locdata["code_postal"]
-        ):
+        if code_postal and locdata["code_postal"] and code_postal != locdata["code_postal"]:
             dpt_result = locdata["code_postal"][:2]
             if departement != dpt_result:
                 # Different departement, too risky to consider it valid; raise an error
@@ -216,10 +252,7 @@ class BaseErpForm(forms.ModelForm):
                 )
 
         # Validate code insee
-        if (
-            self.cleaned_data.get("code_insee")
-            and self.cleaned_data["code_insee"] != locdata["code_insee"]
-        ):
+        if self.cleaned_data.get("code_insee") and self.cleaned_data["code_insee"] != locdata["code_insee"]:
             self.raise_validation_error(
                 "code_insee",
                 f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
@@ -256,7 +289,7 @@ class AdminErpForm(BaseErpForm):
             self.geocode()
 
 
-class ViewAccessibiliteForm(forms.ModelForm):
+class ViewAccessibiliteForm(AdminAccessibiliteForm):
     """This form is used to render Accessibilite data in Erp details pages, and is
     probably one of the most hairy piece of code and logic from the whole app. This
     is due to the inherent complexity of the professional accessibility domain
@@ -265,7 +298,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     class Meta:
         model = Accessibilite
-        exclude = ("pk", "erp")
+        exclude = (
+            "pk",
+            "erp",
+        )
 
     fieldsets = schema.get_form_fieldsets()
 
@@ -299,21 +335,15 @@ class ViewAccessibiliteForm(forms.ModelForm):
                         "value": field_value,
                         "values": values,
                         "warning": warning,
-                        "is_comment": field.field.widget.template_name.endswith(
-                            "textarea.html"
-                        ),
+                        "is_comment": field.field.widget.template_name.endswith("textarea.html"),
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(
-                self[f["id"]].value() in [None, "", []] for f in section_fields
-            )
+            empty_section = all(self[f["id"]].value() in [None, "", []] for f in section_fields)
             if empty_section:
                 data.pop(section)
         if flatten:
-            return reduce(
-                lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), []
-            )
+            return reduce(lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), [])
         else:
             return data
 
@@ -326,10 +356,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
         elif name == "cheminement_ext_devers" and value == schema.DEVERS_AUCUN:
             label = schema.get_help_text_ui_neg(name)
             values = []
-        elif name == "sanitaires_adaptes" and value == 0:
+        elif name == "sanitaires_adaptes" and value is False:
             label = schema.get_help_text_ui_neg(name)
             values = []
-        elif name == "sanitaires_adaptes" and value is not None and value > 0:
+        elif name == "sanitaires_adaptes" and value is not None and value is True:
             label = schema.get_help_text_ui(name)
             values = []
         elif (
@@ -381,6 +411,11 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
 
 class BasePublicErpInfosForm(BaseErpForm):
+    lat = forms.DecimalField(widget=forms.HiddenInput)
+    lon = forms.DecimalField(widget=forms.HiddenInput)
+    activite = forms.ModelChoiceField(label="Activité", queryset=Activite.objects.order_by("position"))
+    nouvelle_activite = forms.CharField(widget=forms.TextInput)
+
     class Meta:
         model = Erp
         fields = (
@@ -422,59 +457,63 @@ class BasePublicErpInfosForm(BaseErpForm):
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
             "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
-            "contact_email": forms.EmailInput(
-                attrs={"placeholder": "ex: nom@domain.tld"}
-            ),
-            "site_internet": forms.URLInput(
-                attrs={"placeholder": "ex: http://etablissement.com"}
-            ),
+            "contact_email": forms.EmailInput(attrs={"placeholder": "ex: nom@domain.tld"}),
+            "site_internet": forms.URLInput(attrs={"placeholder": "ex: http://etablissement.com"}),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
-            "contact_url": forms.URLInput(
-                attrs={
-                    "placeholder": "https://mon-etablissement.fr/contactez-nous.html"
-                }
-            ),
+            "contact_url": forms.URLInput(attrs={"placeholder": "https://mon-etablissement.fr/contactez-nous.html"}),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
-        self.fields[
-            "activite"
-        ].help_text = "Domaine d'activité de l'établissement recevant du public"
-
-        # Source id non requis
+        self.fields["nouvelle_activite"].required = False
+        self.fields["activite"].help_text = "<a href='#' id='no_activite'>Je ne trouve pas l'activité</a>"
         self.fields["source_id"].required = False
+
+    def clean_nouvelle_activite(self):
+        new_activity = self.cleaned_data["nouvelle_activite"]
+        if not self.cleaned_data.get("activite"):
+            return new_activity
+
+        if self.cleaned_data["activite"].nom.lower() == "autre" and not new_activity:
+            raise ValidationError(mark_safe("Vous devez suggérer un nom d'activité pour l'établissement."))
+        return new_activity
 
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
+    ignore_duplicate_check = False
+
+    def __init__(self, *args, **kwargs):
+        self.ignore_duplicate_check = kwargs.pop("ignore_duplicate_check", False)
+        super().__init__(*args, **kwargs)
+
     def clean(self):
-        # geom
-        if not self.cleaned_data["geom"]:
+        if self.cleaned_data["geom"] is None or self.adresse_changed():
             self.geocode()
 
-        # Unicité du nom et de l'adresse
-        nom = self.cleaned_data.get("nom")
-        adresse = self.get_adresse_query()
-        existing = Erp.objects.find_similar(
-            nom=self.cleaned_data.get("nom"),
-            voie=self.cleaned_data.get("voie"),
-            lieu_dit=self.cleaned_data.get("lieu_dit"),
-            commune=self.cleaned_data.get("commune"),
-        ).first()
-        if existing:
-            if existing.is_online():
-                erp_display = (
-                    f'<a href="{existing.get_absolute_url()}">{nom} - {adresse}</a>'
+        if self.cleaned_data["lat"] and self.cleaned_data["lon"]:
+            self.cleaned_data["geom"] = Point(float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"]))
+
+        # Unicity is made on activity + address
+        activite = self.cleaned_data.get("activite")
+        adresse = get_address_query_to_geocode(self.cleaned_data)
+        if activite and adresse and not self.ignore_duplicate_check:
+            existing = Erp.objects.find_duplicate(
+                numero=self.cleaned_data.get("numero"),
+                commune=self.cleaned_data.get("commune"),
+                activite=self.cleaned_data.get("activite"),
+                voie=self.cleaned_data.get("voie"),
+                lieu_dit=self.cleaned_data.get("lieu_dit"),
+            ).first()
+
+            if existing:
+                if existing.published:
+                    erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
+                else:
+                    erp_display = f"{activite} - {adresse}"
+                raise ValidationError(
+                    mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
                 )
-            else:
-                erp_display = f"{nom} - {adresse}"
-            raise ValidationError(
-                mark_safe(
-                    f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
-                )
-            )
 
 
 class PublicErpDeleteForm(forms.Form):
@@ -486,9 +525,7 @@ class PublicErpDeleteForm(forms.Form):
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError(
-                "Vous devez confirmer la suppression pour la rendre effective."
-            )
+            raise ValidationError("Vous devez confirmer la suppression pour la rendre effective.")
         return confirm
 
 
@@ -496,24 +533,26 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # En édition publique d'un ERP, on ne met à jour la localisation que si
         # elle est absente ou que l'adresse a été modifiée
+        if self.cleaned_data["geom"] != Point(
+            float(self.cleaned_data.get("lon")),
+            float(self.cleaned_data.get("lat")),
+            srid=4326,
+        ):
+            self.cleaned_data["geom"] = Point(
+                float(self.cleaned_data.get("lon")),
+                float(self.cleaned_data.get("lat")),
+                srid=4326,
+            )
+
         if self.cleaned_data["geom"] is None or self.adresse_changed():
             self.geocode()
 
 
-class PublicLocalisationForm(forms.Form):
-    lat = forms.DecimalField(widget=forms.HiddenInput)
-    lon = forms.DecimalField(widget=forms.HiddenInput)
-
-    def clean(self):
-        try:
-            self.cleaned_data["lat"] = float(self.cleaned_data["lat"])
-            self.cleaned_data["lon"] = float(self.cleaned_data["lon"])
-        except (TypeError, ValueError):
-            raise ValidationError("Données de localisation invalides.")
-
-
 class ProviderGlobalSearchForm(forms.Form):
-    search = forms.CharField(
+    lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
+    lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
+    code = forms.CharField(required=True, widget=forms.HiddenInput)
+    what = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
             """Recherche sur le nom d'une administration publique, d'une entreprise, un
@@ -522,33 +561,34 @@ class ProviderGlobalSearchForm(forms.Form):
             <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
         ),
         required=True,
-        widget=forms.TextInput(
-            attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}
-        ),
+        widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
     )
-    commune_search = forms.CharField(widget=forms.HiddenInput)
-    code_insee = forms.CharField(
+    where = forms.CharField(
         label="Commune",
-        required=True,
-        widget=forms.Select(),
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Rechercher une commune",
+                "autocomplete": "off",
+                "class": "autocomplete-input form-control",
+            }
+        ),
     )
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
-        code_insee = initial.get("code_insee")
-        if code_insee:
-            commune = Commune.objects.filter(code_insee=code_insee).first()
+        code = initial.get("code")
+        if code:
+            commune = Commune.objects.filter(code_insee=code).first()
             if commune:
                 nom_departement = departements.DEPARTEMENTS[commune.departement]["nom"]
-                commune_search = (
-                    f"{commune.nom} ({commune.departement} - {nom_departement})"
-                )
+                commune_search = f"{commune.nom} ({commune.departement} - {nom_departement})"
                 initial["commune_search"] = commune_search
-                initial["code_insee"] = code_insee
+                initial["code_insee"] = code
         super().__init__(*args, **kwargs)
 
 
-class PublicPublicationForm(forms.ModelForm):
+class PublicAProposForm(forms.ModelForm):
     class Meta:
         model = Accessibilite
         fields = (
@@ -559,12 +599,11 @@ class PublicPublicationForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     user_type = forms.ChoiceField(
-        label="Mon profil",
-        help_text="À quel titre contribuez vous les informations pour cet établissement ?",
+        label="Vous êtes ?",
         choices=[
             (
                 Erp.USER_ROLE_PUBLIC,
-                "Je fréquente cet établissement",
+                "Je suis simple contributeur",
             ),
             (
                 Erp.USER_ROLE_GESTIONNAIRE,
@@ -572,18 +611,17 @@ class PublicPublicationForm(forms.ModelForm):
             ),
             (
                 Erp.USER_ROLE_ADMIN,
-                "Je représente une administration publique",
+                "Je représente la fonction publique",
             ),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=True,
     )
+
     registre_url = forms.URLField(
         label="Registre d'accessibilité",
         help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(
-            attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}
-        ),
+        widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}),
         required=False,
     )
     conformite = forms.ChoiceField(
@@ -593,27 +631,20 @@ class PublicPublicationForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=False,
     )
+
+
+class PublicPublicationForm(forms.ModelForm):
+    class Meta:
+        model = Erp
+        fields = ("published",)
+        help_texts = schema.get_help_texts()
+
     published = forms.BooleanField(
         label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
-        required=False,
+        required=True,
         initial=True,
         widget=forms.CheckboxInput(attrs={"checked": "checked"}),
     )
-    subscribe = forms.BooleanField(
-        label="Je souhaite recevoir des notifications par email lorsque cette fiche est mise à jour par d'autres contributeurs",
-        required=False,
-    )
-    certif = forms.BooleanField(
-        label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",
-        required=True,
-    )
-
-    def clean_certif(self):
-        if not self.cleaned_data.get("certif", False):
-            raise ValidationError(
-                "Publication impossible sans ces garanties de votre part"
-            )
-        return True
 
 
 class PublicClaimForm(forms.Form):
@@ -621,3 +652,15 @@ class PublicClaimForm(forms.Form):
         required=True,
         label="Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement.",
     )
+
+
+FORM_FIELDS = {
+    "user_type": {"label": PublicAProposForm.declared_fields["user_type"].label},
+}
+
+
+def get_label(field, default=""):
+    try:
+        return FORM_FIELDS[field].get("label", default)
+    except KeyError:
+        return default

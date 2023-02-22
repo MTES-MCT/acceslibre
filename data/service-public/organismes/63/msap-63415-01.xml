@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-63415-01" codeInsee="63415" dateMiseAJour="2021-01-12"
+           pivotLocal="msap">
+   <Nom>France Services - Sauxillanges</Nom>
+   <EditeurSource>La Direction de l'Information Légales et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Verdun</Ligne>
+      <Ligne>Agglo Pays d'Issoire</Ligne>
+      <CodePostal>63500</CodePostal>
+      <NomCommune>Sauxillanges</NomCommune>
+      <Localisation>
+         <Latitude>45.5516</Latitude>
+         <Longitude>3.37369</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 96 37 62</Téléphone>
+      <Email>mds.sauxillanges@capissoire.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:15:00" fin="12:45:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:45:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

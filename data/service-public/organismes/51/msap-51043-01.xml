@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-51043-01" codeInsee="51043" dateMiseAJour="2021-10-22"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Bazancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>83 rue Jean-Jaurès</Ligne>
+      <CodePostal>51110</CodePostal>
+      <NomCommune>Bazancourt</NomCommune>
+      <Localisation>
+         <Latitude>49.363498</Latitude>
+         <Longitude>4.166884</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 91 41 72</Téléphone>
+      <Email>msap.bazancourt@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/bazancourt-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

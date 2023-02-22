@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03016-01" codeInsee="03016" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barberier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route d'Étroussat</Ligne>
+      <CodePostal>03140</CodePostal>
+      <NomCommune>Barberier</NomCommune>
+      <Localisation>
+         <Latitude>46.217491149902344</Latitude>
+         <Longitude>3.240575075149536</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 56 72 30</Téléphone>
+      <Télécopie>04 70 56 72 30</Télécopie>
+      <Email>mairie.barberier@wanadoo.fr</Email>
+      <Url>http://www.barberier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

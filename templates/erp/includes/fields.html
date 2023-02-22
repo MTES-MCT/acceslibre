@@ -4,10 +4,11 @@
 {% if fields %}
 <ul class="p-0 m-0">
   {% for field in fields %}
-  {% if field.value != "" and field.value is not None %}
+    {% render_field field.value as field_value %}
+  {% if field_value %}
   <li class="a11y-field border-bottom">
     <!-- {{ field.name }} -->
-    <h3 class="h6 m-0 p-0 font-weight-normal">
+    <p class="h6 m-0 p-0 font-weight-normal">
       {% if field.is_comment %}
       <i aria-hidden="true" class="icon icon-bubble"></i>
       {% endif %}
@@ -24,7 +25,7 @@
         {% endif %}
         {% endfor %}
       {% endif %}
-    </h3>
+    </p>
     {% if field.is_comment %}
     <blockquote class="a4a-comment-block mb-0 my-1">
       {{ field.value|urlizetrunc:25|linebreaks }}
@@ -35,5 +36,5 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>Aucune information.</p>
+<h3>Aucune information.</h3>
 {% endif %}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-04070-01" codeInsee="04070" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Alpes-de-Haute-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>66 boulevard Gassendi</Ligne>
+      <Ligne>CS 90117</Ligne>
+      <CodePostal>04995</CodePostal>
+      <NomCommune>Digne-les-Bains Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>44.0940877</Latitude>
+         <Longitude>6.238205</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 30 57 57</Téléphone>
+      <Email>accueil@ahp.chambagri.fr</Email>
+      <Url>http://www.ahp.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

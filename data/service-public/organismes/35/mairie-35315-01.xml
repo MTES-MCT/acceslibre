@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35315-01" codeInsee="35315" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sulpice-la-Forêt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de l'Abbaye</Ligne>
+      <CodePostal>35250</CodePostal>
+      <NomCommune>Saint-Sulpice-la-Forêt</NomCommune>
+      <Localisation>
+         <Latitude>48.2191009521</Latitude>
+         <Longitude>-1.57690000534</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">salle annexe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 66 23 63</Téléphone>
+      <Email>secretariat.mairie@saint-sulpice-la-foret.fr</Email>
+      <Url>http://www.saint-sulpice-la-foret.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le samedi uniquement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

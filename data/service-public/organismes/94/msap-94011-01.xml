@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-94011-01" codeInsee="94011" dateMiseAJour="2021-03-08"
+           pivotLocal="msap">
+   <Nom>France Services - Bonneuil-sur-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue d'Estienne d'Orves</Ligne>
+      <CodePostal>94380</CodePostal>
+      <NomCommune>Bonneuil-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>48.77459854611209</Latitude>
+         <Longitude>2.4877208116636256</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 94 10 57</Téléphone>
+      <Email>bonneuil-sur-marne@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

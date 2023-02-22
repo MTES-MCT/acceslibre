@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30216-01" codeInsee="30216" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Robiac-Rochessadoule</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <CodePostal>30160</CodePostal>
+      <NomCommune>Robiac-Rochessadoule</NomCommune>
+      <Localisation>
+         <Latitude>44.2747297</Latitude>
+         <Longitude>4.1225024</Longitude>
+         <Précision>5</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 25 00 81</Téléphone>
+      <Télécopie>04 66 25 20 15</Télécopie>
+      <Email>robiac-rochessadoule@orange.fr</Email>
+      <Url>http://www.mairierobiacrochessadoule.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,3 +1,4 @@
+from django.apps import apps
 from django.utils.safestring import mark_safe
 
 from core.lib import text
@@ -6,6 +7,12 @@ from core.lib import text
 
 UNKNOWN = "Inconnu"
 UNKNOWN_OR_NA = "Inconnu ou sans objet"
+
+BOOLEAN_CHOICES = (
+    (True, "Oui"),
+    (False, "Non"),
+)
+
 
 NULLABLE_BOOLEAN_CHOICES = (
     (True, "Oui"),
@@ -17,14 +24,6 @@ NULLABLE_OR_NA_BOOLEAN_CHOICES = (
     (True, "Oui"),
     (False, "Non"),
     (None, UNKNOWN_OR_NA),
-)
-
-# Specific case where we want to map nullable bool choices
-# to 0 and 1 integers (see sanitaires_adaptes field)
-NULLABLE_BOOL_NUM_CHOICES = (
-    (1, "Oui"),
-    (0, "Non"),
-    (None, UNKNOWN),
 )
 
 DEVERS_AUCUN = "aucun"
@@ -44,12 +43,12 @@ EQUIPEMENT_MALENTENDANT_LSF = "lsf"
 EQUIPEMENT_MALENTENDANT_STS = "sts"
 EQUIPEMENT_MALENTENDANT_LPC = "lpc"
 EQUIPEMENT_MALENTENDANT_CHOICES = [
-    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique fixe"),
-    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "Boucle à induction magnétique portative"),
-    (EQUIPEMENT_MALENTENDANT_LSF, "Langue des signes française"),
-    (EQUIPEMENT_MALENTENDANT_LPC, "Langue Française Parlée Complétée (LFPC)"),
-    (EQUIPEMENT_MALENTENDANT_STS, "Sous-Titrage ou Transcription Simultanée"),
-    (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
+    (EQUIPEMENT_MALENTENDANT_BIM, "boucle à induction magnétique fixe"),
+    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "boucle à induction magnétique portative"),
+    (EQUIPEMENT_MALENTENDANT_LSF, "langue des signes française (LSF)"),
+    (EQUIPEMENT_MALENTENDANT_LPC, "langue française parlée complétée (LFPC)"),
+    (EQUIPEMENT_MALENTENDANT_STS, "sous-titrage ou transcription simultanée"),
+    (EQUIPEMENT_MALENTENDANT_AUTRES, "autres"),
 ]
 
 EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
@@ -120,6 +119,41 @@ PERSONNELS_CHOICES = [
     (None, UNKNOWN),
 ]
 
+AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT = "avec_équipement_permanent"
+AUDIODESCRIPTION_AVEC_APP = "avec_app"
+AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL = "avec_équipement_occasionnel"
+AUDIODESCRIPTION_SANS_EQUIPEMENT = "sans_équipement"
+AUDIODESCRIPTION_CHOICES = [
+    (
+        AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+        "avec équipement permanent, casques et boîtiers disponibles à l’accueil",
+    ),
+    (
+        AUDIODESCRIPTION_AVEC_APP,
+        "avec équipement permanent nécessitant le téléchargement d'une application sur smartphone",
+    ),
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "avec équipement occasionnel selon la programmation"),
+    (
+        AUDIODESCRIPTION_SANS_EQUIPEMENT,
+        "sans équipement, audiodescription audible par toute la salle (selon la programmation)",
+    ),
+]
+AUDIODESCRIPTION_DESCRIPTIONS = [
+    (
+        AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+        "Avec équipement permanent, casques et boîtiers disponibles à l’accueil",
+    ),
+    (
+        AUDIODESCRIPTION_AVEC_APP,
+        "Avec équipement permanent nécessitant le téléchargement d'une application sur smartphone",
+    ),
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "Avec équipement occasionnel selon la programmation"),
+    (
+        AUDIODESCRIPTION_SANS_EQUIPEMENT,
+        "Sans équipement, audiodescription audible par toute la salle (selon la programmation)",
+    ),
+]
+
 PORTE_TYPE_MANUELLE = "manuelle"
 PORTE_TYPE_AUTOMATIQUE = "automatique"
 PORTE_TYPE_CHOICES = [
@@ -159,7 +193,9 @@ ESCALIER_SENS = [
     (None, UNKNOWN),
 ]
 
-REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
+REGISTRE_INFO_URL = (
+    "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
+)
 
 PARTENAIRES = {
     "DGE": {
@@ -169,14 +205,6 @@ PARTENAIRES = {
         "short_description": "Direction Générale des Entreprises",
         "template": "editorial/partenaires/dge.html",
         "url": "https://www.entreprises.gouv.fr/fr",
-    },
-    "JACCEDE": {
-        "avatar": "jaccede_avatar.png",
-        "logo": "img/partenaires/jaccede.png",
-        "name": "Jaccede",
-        "short_description": "Trouvez les lieux qui vous sont accessibles",
-        "template": "editorial/partenaires/jaccede.html",
-        "url": "https://jaccede.com/",
     },
     "LUCIE": {
         "avatar": "lucie_avatar.png",
@@ -206,40 +234,78 @@ PARTENAIRES = {
         "avatar": "accesmetrie_avatar.png",
         "logo": "img/partenaires/accesmetrie.jpg",
         "name": "AccèsMétrie",
-        "short_description": "Expert en données d'accessibilité",
+        "short_description": "Bureau d'étude accessibilité",
         "template": "editorial/partenaires/accesmetrie.html",
         "url": "http://www.accesmetrie.com",
     },
+    "ONECOMPAGNON": {
+        "avatar": "onecompagnon_avatar.jpg",
+        "logo": "img/partenaires/onecompagnon.png",
+        "name": "One Compagnon",
+        "short_description": "L'assistant accessible à tous",
+        "template": "editorial/partenaires/onecompagnon.html",
+        "url": "https://www.onecompagnon.com",
+    },
+    "SORTIRAPARIS": {
+        "avatar": "sortir-a-paris_avatar.png",
+        "logo": "img/partenaires/sap.png",
+        "name": "Sortir À Paris",
+        "short_description": "Premier média d'actualité Sorties en France",
+        "template": "editorial/partenaires/sortiraparis.html",
+        "url": "https://www.sortiraparis.com",
+    },
+    "NESTENN": {
+        "avatar": "nestenn_avatar.png",
+        "logo": "img/partenaires/nestenn.png",
+        "name": "Nestenn",
+        "short_description": "Groupe d'agences immobilières",
+        "template": "editorial/partenaires/nestenn.html",
+        "url": "https://nestenn.com/groupe-immobilier-nestenn",
+    },
+    "ANDRE_DE_CABO": {
+        "avatar": "andre_cabo_avatar.jpg",
+        "logo": "img/partenaires/andre_cabo.jpg",
+        "name": "André de CABO",
+        "short_description": "Notre vocation est de vous conseiller et de vous accompagner",
+        "template": "editorial/partenaires/andre_de_cabo.html",
+        "url": "https://andredecabo.fr/",
+    },
+    "CFPSAA": {
+        "avatar": "cfpsaa_avatar.png",
+        "logo": "img/partenaires/cfpsaa.png",
+        "name": "Confédération Française pour la Promotion Sociale des Aveugles et Amblyopes",
+        "short_description": "Confédération regroupant une vingtaine des principales associations de déficients visuels",
+        "template": "editorial/partenaires/cfpsaa.html",
+        "url": "https://www.cfpsaa.fr/",
+        "weight": 100,
+    },
+    "AVH": {
+        "avatar": "avh_avatar.png",
+        "logo": "img/partenaires/avh.png",
+        "name": "Association Valentin Haüy",
+        "short_description": "association d'aide aux personnes déficientes visuelles",
+        "template": "editorial/partenaires/avh.html",
+        "url": "https://www.avh.asso.fr/",
+        "weight": 100,
+    },
 }
 
+SECTION_A_PROPOS = "a_propos"
 SECTION_TRANSPORT = "transport"
-SECTION_STATIONNEMENT = "stationnement"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"
 SECTION_ENTREE = "entree"
 SECTION_ACCUEIL = "accueil"
-SECTION_SANITAIRES = "sanitaires"
 SECTION_LABELS = "labels"
 SECTION_REGISTRE = "registre"
 SECTION_CONFORMITE = "conformite"
+SECTION_ACTIVITE = "activite"
 SECTION_COMMENTAIRE = "commentaire"
 SECTIONS = {
-    SECTION_LABELS: {
-        "icon": "trophy",
-        "label": "Marques ou labels",
-        "description": "Marques ou labels d'accessibilité",
-        "edit_route": "contrib_labellisation",
-    },
     SECTION_TRANSPORT: {
         "icon": "bus",
-        "label": "Transports en commun",
+        "label": "Accès",
         "description": "à proximité",
         "edit_route": "contrib_transport",
-    },
-    SECTION_STATIONNEMENT: {
-        "icon": "car",
-        "label": "Stationnement",
-        "description": "aux abords de l'établissement",
-        "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
         "icon": "road",
@@ -258,12 +324,6 @@ SECTIONS = {
         "label": "Accueil",
         "description": "et prestations",
         "edit_route": "contrib_accueil",
-    },
-    SECTION_SANITAIRES: {
-        "icon": "male-female",
-        "label": "Sanitaires",
-        "description": "Toilettes, WC",
-        "edit_route": "contrib_sanitaires",
     },
     SECTION_REGISTRE: {
         "icon": "registre",
@@ -286,6 +346,9 @@ SECTIONS = {
 }
 
 FIELDS = {
+    # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
+    #      In the UI, the sub fields are visible only if the root field has given value.
+    #      Default is False if not provided.
     # Transport
     "transport_station_presence": {
         "type": "boolean",
@@ -301,6 +364,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "transport_information": {
         "type": "string",
@@ -317,6 +381,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "example": "Ligne n4",
+        "root": False,
     },
     # Stationnement
     "stationnement_presence": {
@@ -330,9 +395,10 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "stationnement_pmr": {
         "type": "boolean",
@@ -345,9 +411,10 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "stationnement_ext_presence": {
         "type": "boolean",
@@ -360,9 +427,10 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "stationnement_ext_pmr": {
         "type": "boolean",
@@ -375,9 +443,10 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
@@ -394,8 +463,9 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
+        "root": True,
     },
-    "cheminement_ext_terrain_accidente": {
+    "cheminement_ext_terrain_stable": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
@@ -409,6 +479,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "cheminement_ext_plain_pied": {
         "type": "boolean",
@@ -425,6 +496,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "cheminement_ext_ascenseur": {
         "type": "boolean",
@@ -439,6 +511,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "description": "Existe-t-il un ascenseur ou un élévateur&nbsp;?",
+        "root": False,
     },
     "cheminement_ext_nombre_marches": {
         "type": "number",
@@ -454,15 +527,14 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
         "description": "Combien y'a t'il de marches&nbsp;?",
+        "root": False,
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -490,9 +562,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -505,9 +575,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -551,8 +619,7 @@ FIELDS = {
         "choices": PENTE_LENGTH_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None
-        and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
+        "warn_if": lambda x, i: x is not None and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
     },
     "cheminement_ext_devers": {
         "type": "string",
@@ -614,21 +681,22 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_porte_presence": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Y a-t-il une porte ?",
-        "help_text": mark_safe(
-            "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"),
         "help_text_ui": "Présence d'une porte à l'entrée de l'établissement",
         "help_text_ui_neg": "Pas de porte à l'entrée de l'établissement",
-        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices": BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
-        "nullable_bool": False,
+        "nullable_bool": True,
         "warn_if": None,
+        "required": True,
+        "root": True,
     },
     "entree_porte_manoeuvre": {
         "type": "string",
@@ -698,6 +766,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_ascenseur": {
         "type": "boolean",
@@ -731,9 +800,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -761,9 +828,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -776,9 +841,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -800,15 +863,14 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_dispositif_appel_type": {
         "type": "array",
         "nullable": True,
         "is_a11y": True,
         "label": "Type de dispositif d'appel à l'entrée",
-        "help_text": mark_safe(
-            "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"),
         "help_text_ui": "Dispositifs d'appels présents",
         "help_text_ui_neg": "Dispositifs d'appels présents",
         "choices": DISPOSITIFS_APPEL_CHOICES,
@@ -830,21 +892,21 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_aide_humaine": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Aide humaine",
-        "help_text": mark_safe(
-            "Présence ou possibilité d'une aide humaine au déplacement"
-        ),
+        "help_text": mark_safe("Présence ou possibilité d'une aide humaine au déplacement"),
         "help_text_ui": "Possibilité d'une aide humaine au déplacement",
         "help_text_ui_neg": "Pas de possibilité d'aide humaine au déplacement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_largeur_mini": {
         "type": "number",
@@ -861,6 +923,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
+        "root": True,
     },
     "entree_pmr": {
         "type": "boolean",
@@ -876,15 +939,14 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_pmr_informations": {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
         "label": "Informations complémentaires concernant l'entrée PMR",
-        "help_text": mark_safe(
-            "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
-        ),
+        "help_text": mark_safe("Précisions sur les modalités d'accès de l'entrée spécifique PMR"),
         "help_text_ui": "Précisions sur les modalités d'accès de l'entrée spécifique PMR",
         "help_text_ui_neg": "Précisions sur les modalités d'accès de l'entrée spécifique PMR",
         "choices": None,
@@ -908,6 +970,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_cheminement_plain_pied": {
         "type": "boolean",
@@ -925,6 +988,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_cheminement_ascenseur": {
         "type": "boolean",
@@ -958,9 +1022,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -988,9 +1050,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -999,13 +1059,11 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_rampe": {
-        "type": "boolean",
+        "type": "string",
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -1027,6 +1085,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "root": True,
     },
     "accueil_personnels": {
         "type": "string",
@@ -1047,6 +1106,33 @@ FIELDS = {
             PERSONNELS_NON_FORMES,
             PERSONNELS_AUCUN,
         ],
+        "root": True,
+    },
+    "accueil_audiodescription_presence": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Audiodescription",
+        "help_text": mark_safe("L'établissement propose-t-il de l’audiodescription&nbsp?"),
+        "help_text_ui": "L'établissement propose l'audiodescription.",
+        "help_text_ui_neg": "L'établissement ne propose pas l’audiodescription",
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "root": True,
+    },
+    "accueil_audiodescription": {
+        "type": "array",
+        "nullable": False,
+        "is_a11y": True,
+        "label": "Type d'équipements pour l'audiodescription",
+        "help_text_ui": "Équipements disponibles",
+        "help_text_ui_neg": "Équipements disponibles",
+        "choices": AUDIODESCRIPTION_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": lambda x, i: x is not None and len(x) == 0,
     },
     "accueil_equipements_malentendants_presence": {
         "type": "boolean",
@@ -1062,6 +1148,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_equipements_malentendants": {
         "type": "array",
@@ -1084,31 +1171,27 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires",
-        "help_text": mark_safe(
-            "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il des sanitaires mis à disposition du public&nbsp;?"),
         "help_text_ui": "Des sanitaires sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Pas de sanitaires mis à disposition dans l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_SANITAIRES,
+        "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "sanitaires_adaptes": {
-        "type": "number",
+        "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires adaptés",
-        "help_text": mark_safe(
-            "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"),
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Aucun sanitaire adapté mis à disposition dans l'établissement",
-        "choices": None,
-        "unit": "sanitaire",
-        "section": SECTION_SANITAIRES,
-        "nullable_bool": False,
-        "warn_if": lambda x, i: x is not None and x < 1,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
     },
     # Labels
     "labels": {
@@ -1122,22 +1205,21 @@ FIELDS = {
         "help_text_ui": "Marque(s) ou label(s) obtenus par l'établissement",
         "help_text_ui_neg": "Marque(s) ou label(s) obtenus par l'établissement",
         "choices": LABEL_CHOICES,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "root": True,
     },
     "labels_familles_handicap": {
         "type": "array",
         "nullable": False,
         "is_a11y": True,
         "label": "Famille(s) de handicap concernées(s)",
-        "help_text": mark_safe(
-            "Quelle(s) famille(s) de handicap sont couvertes par ces marques et labels&nbsp;?"
-        ),
+        "help_text": mark_safe("Quelle(s) famille(s) de handicap sont couvertes par ces marques et labels&nbsp;?"),
         "help_text_ui": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "help_text_ui_neg": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "choices": HANDICAP_CHOICES,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
     },
@@ -1150,7 +1232,7 @@ FIELDS = {
         "help_text_ui": "Autre marque ou label obtenus",
         "help_text_ui_neg": "Autre marque ou label obtenus",
         "choices": None,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
         "example": "HandiLabel",
@@ -1160,10 +1242,9 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": "Informations complémentaires et prestations spécifiques",
+        "label": mark_safe("<strong>Informations complémentaires et prestations spécifiques</strong>"),
         "help_text": mark_safe(
             "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
-            "<br><strong>Note&nbsp;:</strong> ces informations seront affichées sur la fiche publique de l'établissement."
         ),
         "help_text_ui": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",
         "help_text_ui_neg": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",
@@ -1172,6 +1253,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "example": "Propose des places gratuites",
+        "root": True,
     },
     # Registre
     "registre_url": {
@@ -1197,15 +1279,27 @@ FIELDS = {
         "nullable": True,
         "is_a11y": False,
         "label": "Conformité",
-        "help_text": mark_safe(
-            "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
-        ),
-        "help_text_ui": "Statut réglementaire de conformité de l'établissement",
-        "help_text_ui_neg": "Statut réglementaire de conformité de l'établissement",
+        "help_text": mark_safe("L'établissement est-il déclaré conforme ? (réservé à l'administration)"),
+        "help_text_ui": "L'établissement a été déclaré conforme à la réglementation",
+        "help_text_ui_neg": "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CONFORMITE,
         "nullable_bool": True,
         "warn_if": False,
+    },
+    # Activité
+    "activite": {
+        "type": "string",
+        "nullable": False,
+        "is_a11y": False,
+        "label": "Activité",
+        "help_text": mark_safe("Domaine d'activité de l'ERP"),
+        "help_text_ui": "Domaine d'activité de l'ERP",
+        "help_text_ui_neg": "Domaine d'activité de l'ERP",
+        "app_model": ("erp", "Activite"),
+        "attribute": "nom",
+        "nullable_bool": True,
+        "section": SECTION_ACTIVITE,
     },
 }
 
@@ -1298,6 +1392,14 @@ def get_a11y_fields():
     return [key for (key, val) in FIELDS.items() if val.get("is_a11y") is True]
 
 
+def get_bdd_values(field):
+    try:
+        field = FIELDS.get(field)
+        return apps.get_model(*field.get("app_model")).objects.all().values_list(field.get("attribute"), flat=True)
+    except AttributeError:
+        return None
+
+
 def get_field_choices(field):
     try:
         return FIELDS.get(field).get("choices")
@@ -1348,8 +1450,16 @@ def get_help_text_ui_neg(field):
         return get_help_text_ui(field)
 
 
+def get_nullable(field):
+    return FIELDS[field].get("nullable")
+
+
 def get_nullable_bool_fields():
     return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]
+
+
+def get_required_fields():
+    return [k for (k, v) in FIELDS.items() if "required" in v and v["required"] is True]
 
 
 def get_section_fields(section_id):

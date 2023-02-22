@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-95277-02" codeInsee="95277" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Gonesse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des finances publiques</Ligne>
+      <Ligne>1-3 rue Furmanek</Ligne>
+      <Ligne>BP 80058</Ligne>
+      <CodePostal>95503</CodePostal>
+      <NomCommune>Gonesse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.986367</Latitude>
+         <Longitude>2.450634</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 87 32 22</Téléphone>
+      <Email>t095103@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous les Lundi, Mardi, Vendredi de 13h00 à 16h00 et Mercredi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

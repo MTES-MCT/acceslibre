@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62427-01" codeInsee="62427" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hénin-Beaumont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Jean-Jaurès</Ligne>
+      <CodePostal>62110</CodePostal>
+      <NomCommune>Hénin-Beaumont</NomCommune>
+      <Localisation>
+         <Latitude>50.4198760986</Latitude>
+         <Longitude>2.94727706909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 74 87 00</Téléphone>
+      <Télécopie>03 21 74 87 46</Télécopie>
+      <Email>contact@mairie-heninbeaumont.fr</Email>
+      <Url>http://www.mairie-heninbeaumont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert de 8h30 à 12h et de 14h à 17h30 pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

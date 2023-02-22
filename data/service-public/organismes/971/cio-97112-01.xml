@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-97112-01" codeInsee="97112" dateMiseAJour="2021-02-18" pivotLocal="cio">
+   <Nom>Centre d'information et d'orientation (CIO) - Marie-Galante</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des services publics</Ligne>
+      <Ligne>Place Schoelcher</Ligne>
+      <CodePostal>97112</CodePostal>
+      <NomCommune>Grand-Bourg</NomCommune>
+      <Localisation>
+         <Latitude>15.8821129</Latitude>
+         <Longitude>-61.3147403</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+590 590 97 20 91</Téléphone>
+      <Email>cio-mg@ac-guadeloupe.fr</Email>
+      <Url>http://www.ac-guadeloupe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

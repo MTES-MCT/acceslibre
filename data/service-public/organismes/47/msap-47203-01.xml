@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-47203-01" codeInsee="47203" dateMiseAJour="2021-09-07"
+           pivotLocal="msap">
+   <Nom>France Services - Penne-d'Agenais</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue des écoles</Ligne>
+      <CodePostal>47140</CodePostal>
+      <NomCommune>Penne-d'Agenais</NomCommune>
+      <Localisation>
+         <Latitude>44.393005</Latitude>
+         <Longitude>0.808591</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 36 25 25</Téléphone>
+      <Email>mairie@ville-pennedagenais.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

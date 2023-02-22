@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-73011-01" codeInsee="73011" dateMiseAJour="2020-03-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Albertville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination d'Albertville</Ligne>
+      <Ligne>Hall 3</Ligne>
+      <Ligne>45 avenue Jean-Jaurès</Ligne>
+      <CodePostal>73200</CodePostal>
+      <NomCommune>Albertville</NomCommune>
+      <Localisation>
+         <Latitude>45.669452</Latitude>
+         <Longitude>6.389615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 89 57 03</Téléphone>
+      <Email>dvs-pds-albertville@savoie.fr</Email>
+      <Url>http://www.savoie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

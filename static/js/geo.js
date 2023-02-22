@@ -266,10 +266,37 @@ function zoomTo(lat, lon) {
   map.setView([lat, lon], 18);
 }
 
+function update_map(query, map){
+  var mapDomEl = document.querySelector(".a4a-localisation-map");
+  var btnSubmit = document.querySelector('[name="contribute"]');
+  btnSubmit.setAttribute('disabled', '');
+  mapDomEl.style.opacity = 0.3;
+  api.getCoordinate(query).then(function(response){
+    var result = response.results[0];
+    if (result !== undefined) {
+      map.setView(
+        {
+          lat: result.lat,
+          lon: result.lon,
+        },
+        18
+      );
+    } else {
+
+    }
+
+
+  }).then(function(response){
+    mapDomEl.style.opacity = 1;
+    btnSubmit.removeAttribute('disabled');
+  });
+};
+
 export default {
   AppMap,
   createMap,
   openMarkerPopup,
   recalculateMapSize,
+  update_map,
   zoomTo,
 };

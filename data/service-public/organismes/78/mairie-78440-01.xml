@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78440-01" codeInsee="78440" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Mureaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Libération</Ligne>
+      <Ligne>BP 2053</Ligne>
+      <CodePostal>78135</CodePostal>
+      <NomCommune>Les Mureaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9934005737</Latitude>
+         <Longitude>1.91033995152</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 91 37 37</Téléphone>
+      <Télécopie>01 30 91 45 67</Télécopie>
+      <Email>e-servicecourrier@mairie-lesmureaux.fr</Email>
+      <Url>http://www.lesmureaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil, la régie et la scolarité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

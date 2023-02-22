@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64491-01" codeInsee="64491" dateMiseAJour="2021-02-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Médard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>350 route de Casteide Candau</Ligne>
+      <CodePostal>64370</CodePostal>
+      <NomCommune>Saint-Médard</NomCommune>
+      <Localisation>
+         <Latitude>43.5294742</Latitude>
+         <Longitude>-0.5859868</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 67 56 14</Téléphone>
+      <Télécopie>05 59 67 56 14</Télécopie>
+      <Email>saint-medard.mairie@wanadoo.fr</Email>
+      <Url>https://www.cc-lacqorthez.fr/ma-communaute-de-communes/notre-territoire/commune/saint-medard</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47161-01" codeInsee="47161" dateMiseAJour="2021-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Massels</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Roudes</Ligne>
+      <CodePostal>47140</CodePostal>
+      <NomCommune>Massels</NomCommune>
+      <Localisation>
+         <Latitude>44.31713</Latitude>
+         <Longitude>0.851996</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 95 40 79</Téléphone>
+      <Télécopie>05 53 95 40 79</Télécopie>
+      <Email>mairie.massels@wanadoo.fr</Email>
+      <Url>http://www.massels.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

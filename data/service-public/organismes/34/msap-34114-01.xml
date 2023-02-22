@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34114-01" codeInsee="34114" dateMiseAJour="2021-07-05"
+           pivotLocal="msap">
+   <Nom>France Services - Gignac</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>place Auguste Ducornot</Ligne>
+      <CodePostal>34150</CodePostal>
+      <NomCommune>Gignac</NomCommune>
+      <Localisation>
+         <Latitude>43.65311</Latitude>
+         <Longitude>3.55114</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 48 18 33 10</Téléphone>
+      <Email>gignac@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous le mardi matin et le jeudi après midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

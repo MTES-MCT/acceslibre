@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27466-01" codeInsee="27466" dateMiseAJour="2021-07-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Plessis-Sainte-Opportune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>27170</CodePostal>
+      <NomCommune>Le Plessis-Sainte-Opportune</NomCommune>
+      <Localisation>
+         <Latitude>49.070859</Latitude>
+         <Longitude>0.863373</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 35 43 26</Téléphone>
+      <Email>mairieleplessisstopportune@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

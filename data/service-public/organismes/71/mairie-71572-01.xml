@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71572-01" codeInsee="71572" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Saint-Félix</Ligne>
+      <CodePostal>71240</CodePostal>
+      <NomCommune>Vers</NomCommune>
+      <Localisation>
+         <Latitude>46.5833299</Latitude>
+         <Longitude>4.856901</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 51 00 19</Téléphone>
+      <Email>mairie.vers@wanadoo.fr</Email>
+      <Url>http://www.communedevers.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil l'après-midi uniquement sur rendez-vous de 14h à 17h et permanence téléphonique de 9h à 12h et de 14h à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil l'après-midi uniquement sur rendez-vous de 14h à 17h et permanence téléphonique de 9h à 12h et de 14h à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

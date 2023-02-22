@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="79191" dateMiseAJour="2021-09-02" id="aav-79191-01" idPresta="51b08cdcb473e41478001352" pivotLocal="aav">
+    <Nom>France victimes 79 - Niort</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>7A rue Max Linder</Ligne>
+        <CodePostal>79000</CodePostal>
+        <NomCommune>NIORT</NomCommune>
+        <Localisation>
+            <Latitude>46.325938</Latitude>
+            <Longitude>-0.482499</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>7A rue Max Linder</Ligne>
+        <CodePostal>79000</CodePostal>
+        <NomCommune>NIORT</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 49 26 04 04</Téléphone>
+        <Télécopie>05 49 26 10 68</Télécopie>
+        <Email>mailto:francevictimes79@orange.fr</Email>
+        <Url>http://www.francevictimes79.fr</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

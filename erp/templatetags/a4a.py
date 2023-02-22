@@ -1,17 +1,15 @@
 import json
-import phonenumbers
 import random
-
 from datetime import datetime
 from urllib.parse import quote
 
+import phonenumbers
 from django import template
 from django.conf import settings
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-from erp import schema
-from erp import serializers
+from erp import forms, schema, serializers
 from erp.models import Erp
 from erp.provider import arrondissements, naf, sirene
 
@@ -31,6 +29,7 @@ def active_compte_section(path, test):
             test == "mon_identifiant" and path == "/compte/identifiant/",
             test == "mon_email" and path.startswith("/compte/email/"),
             test == "mes_contributions" and path.startswith("/compte/contributions/"),
+            test == "mes_challenges" and path.startswith("/compte/challenges/"),
             test == "mes_abonnements" and path.startswith("/compte/abonnements/"),
             test == "mes_preferences" and path.startswith("/compte/preferences/"),
             test == "mot_de_passe"
@@ -88,18 +87,12 @@ def format_distance(value):
     if value.m == 0:
         return "Au même endroit"
     elif value.m < 1500:
-        return mark_safe(
-            f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>'
-        )
+        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>')
     elif value.m < 10000:
         formatted = f"{value.km:.2f}".replace(".", ",")
-        return mark_safe(
-            f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
-        )
+        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
     else:
-        return mark_safe(
-            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
-        )
+        return mark_safe(f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
 
 
 @register.filter(name="format_isodate")
@@ -180,9 +173,9 @@ def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
 
 
-@register.filter(name="get_schema_label")
-def get_schema_label(value):
-    return schema.get_label(value)
+@register.filter(name="get_field_label")
+def get_field_label(value):
+    return schema.get_label(value) or forms.get_label(value)
 
 
 @register.filter("isemptylist")
@@ -195,6 +188,13 @@ def isnonemptylist(value):
     return isinstance(value, list) and len(value) > 0
 
 
+@register.simple_tag
+def render_field(value):
+    return (isinstance(value, list) and len(value) > 0) or (
+        not isinstance(value, list) and value != "" and value is not None
+    )
+
+
 @register.filter("preposition_nom")
 def preposition_nom(value):
     value = str(value)
@@ -205,9 +205,18 @@ def preposition_nom(value):
 
 
 @register.simple_tag
-def result_map_img(
-    coordonnees, size="500x300", zoom=16, style="streets-v11", marker=True
-):
+def retrieve_erp(value):
+    if "/contrib/publication" in value:
+        erp_slug = value.split("/contrib/publication/")[1].split("/")[0].strip("/")
+        try:
+            return Erp.objects.get(slug=erp_slug).nom
+        except Erp.DoesNotExist:
+            return None
+    return None
+
+
+@register.simple_tag
+def result_map_img(coordonnees, size="500x300", zoom=16, style="streets-v11", marker=True):
     base = f"https://api.mapbox.com/styles/v1/mapbox/{style}/static/"
     lat = coordonnees[1]
     lon = coordonnees[0]
@@ -230,7 +239,7 @@ def safe_username(value):
 @register.filter
 def shuffle(arg):
     tmp = list(arg)[:]
-    random.shuffle(tmp)
+    tmp.sort(key=lambda item: random.randint(0, 99) + item[1].get("weight", 0), reverse=True)
     return tmp
 
 

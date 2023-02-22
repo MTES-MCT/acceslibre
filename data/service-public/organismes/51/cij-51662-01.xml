@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-51662-01" codeInsee="51662" dateMiseAJour="2020-11-27" pivotLocal="cij">
+   <Nom>Point information jeunesse - Witry-lès-Reims</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 boulevard du Chemin-de-Fer</Ligne>
+      <CodePostal>51420</CodePostal>
+      <NomCommune>Witry-lès-Reims</NomCommune>
+      <Localisation>
+         <Latitude>49.294253</Latitude>
+         <Longitude>4.1177016</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 07 86 48</Téléphone>
+      <Email>cecile.fitrzyk@escal-witry.fr</Email>
+      <Url>http://www.escal-witry.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

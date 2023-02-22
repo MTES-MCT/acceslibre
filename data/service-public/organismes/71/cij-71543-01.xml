@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-71543-01" codeInsee="71543" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Tournus</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Chanay</Ligne>
+      <Ligne>1 rue Chanay</Ligne>
+      <CodePostal>71700</CodePostal>
+      <NomCommune>Tournus</NomCommune>
+      <Localisation>
+         <Latitude>46.560242</Latitude>
+         <Longitude>4.908381</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 27 04 46</Téléphone>
+      <Email>pij_tournus@ijbourgogne.com</Email>
+      <Url>http://www.tournus.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Contacter l'accueil avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

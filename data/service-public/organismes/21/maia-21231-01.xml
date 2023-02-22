@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maia-21231-01" codeInsee="21231" dateMiseAJour="2021-10-05"
+           pivotLocal="maia">
+   <Nom>Mission d'accueil et d'information des associations (MAIA) - Côte-d'Or</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 G rue du Général Delaborde</Ligne>
+      <Ligne>BP 81921</Ligne>
+      <Ligne>Direction des services départementaux de l’éducation nationale de la Côte-d'Or</Ligne>
+      <Ligne>Service départemental jeunesse, engagement et sports de la Côte-d'Or</Ligne>
+      <CodePostal>21019</CodePostal>
+      <NomCommune>Dijon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.330377</Latitude>
+         <Longitude>5.052573</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 45 62 75 80</Téléphone>
+      <Url>http://www.associations.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

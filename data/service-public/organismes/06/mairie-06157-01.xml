@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06157-01" codeInsee="06157" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Georges-Clemenceau</Ligne>
+      <Ligne>BP 9</Ligne>
+      <CodePostal>06141</CodePostal>
+      <NomCommune>Vence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.7226982117</Latitude>
+         <Longitude>7.11346006393</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 58 41 00</Téléphone>
+      <Télécopie>04 93 58 41 12</Télécopie>
+      <Email>mairie@ville-vence.fr</Email>
+      <Url>http://www.vence.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour les passeports et les cartes d'identité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

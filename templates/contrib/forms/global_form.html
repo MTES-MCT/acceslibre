@@ -1,18 +1,31 @@
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-<form action="{% url "contrib_global_search" %}#content" method="get" class="card mb-4">
+<form action="{% url "contrib_start" %}" id="search-form" method="get" novalidate class="card mb-4">
   <div class="card-header">
-    <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
+    <h2 class="h6 mb-0 text-center">Saisie automatique</h2>
   </div>
   <div class="card-body">
     {% if error %}
-      <div class="alert alert-danger">{{ error }}</div>
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
     {% endif %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-primary w-100">
-      <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-      Trouver l'établissement
-    </button>
+    {{ form.search|as_crispy_field }}
+  <div class="search-where-field" style="position:inherit !important">
+    {{ form.where|as_crispy_field }}
+      <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
+      <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
+      <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
+      <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
+      <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+        Autoriser l'obtention de ma localisation géographique
+      </button>
+
+      <button type="submit" class="btn btn-primary mt-2 w-100">
+        <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+        Trouver l'établissement
+      </button>
+    </div>
+
+
   </div>
 </form>

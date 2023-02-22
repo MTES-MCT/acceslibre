@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="62041" dateMiseAJour="2021-12-14" id="prudhommes-62041-01" idPresta="4cac9e61293594648a0005cd" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Arras</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>31 RUE SAINT-MICHEL</Ligne>
+        <CodePostal>62000</CodePostal>
+        <NomCommune>ARRAS</NomCommune>
+        <Localisation>
+            <Latitude>50.289488</Latitude>
+            <Longitude>2.784932</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>31 RUE SAINT-MICHEL</Ligne>
+        <CodePostal>62000</CodePostal>
+        <NomCommune>ARRAS</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 21 60 32 80</Téléphone>
+        <Télécopie>03 21 60 32 89</Télécopie>
+        <Email>mailto:cph-arras@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:45:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:15:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:30:00" fin="17:30:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:15:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

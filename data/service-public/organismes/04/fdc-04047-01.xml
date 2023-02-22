@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-04047-01" codeInsee="04047" dateMiseAJour="2021-05-17" pivotLocal="fdc">
+   <Nom>Fédération départementale des chasseurs - Alpes-de-Haute-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2000 route de Digne</Ligne>
+      <CodePostal>04660</CodePostal>
+      <NomCommune>Champtercier</NomCommune>
+      <Localisation>
+         <Latitude>44.0960067</Latitude>
+         <Longitude>6.162026</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 31 02 43</Téléphone>
+      <Télécopie>04 92 32 28 39</Télécopie>
+      <Email>fdc04@chasseurdefrance.com</Email>
+      <Url>http://www.fdc04.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

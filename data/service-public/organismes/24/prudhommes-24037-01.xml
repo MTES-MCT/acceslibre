@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="24037" dateMiseAJour="2021-12-14" id="prudhommes-24037-01" idPresta="4cac9ed6293594648a00ed60" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bergerac</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>24100</CodePostal>
+        <NomCommune>BERGERAC</NomCommune>
+        <Localisation>
+            <Latitude>44.846979</Latitude>
+            <Longitude>0.482004</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>24100</CodePostal>
+        <NomCommune>BERGERAC</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 53 57 68 25</Téléphone>
+        <Télécopie>05 53 24 69 66</Télécopie>
+        <Email>mailto:cph-bergerac@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-13206-01" codeInsee="13206" dateMiseAJour="2021-04-26" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Marseille - 5e, 6e et 7e arrondissements</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la solidarité</Ligne>
+      <Ligne>66 A rue Saint-Sébastien</Ligne>
+      <CodePostal>13006</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.283428</Latitude>
+         <Longitude>5.38378</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 13 31 72 72</Téléphone>
+      <Télécopie>04 13 31 44 66</Télécopie>
+      <Url>https://www.departement13.fr/nos-actions/enfance-famille/les-dispositifs/la-protection-maternelle-et-infantile/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

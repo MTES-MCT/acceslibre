@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-77379-01" codeInsee="77379" dateMiseAJour="2021-03-29"
+           pivotLocal="msap">
+   <Nom>France Services - Provins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Sainte-Croix</Ligne>
+      <CodePostal>77160</CodePostal>
+      <NomCommune>Provins</NomCommune>
+      <Localisation>
+         <Latitude>48.561768</Latitude>
+         <Longitude>3.298005</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 58 57 75</Téléphone>
+      <Email>sp-provins-france-services@seine-et-marne.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

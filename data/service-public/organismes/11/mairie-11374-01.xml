@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11374-01" codeInsee="11374" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Salza</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Mairie</Ligne>
+      <CodePostal>11330</CodePostal>
+      <NomCommune>Salza</NomCommune>
+      <Localisation>
+         <Latitude>42.983669281</Latitude>
+         <Longitude>2.49690890312</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 70 04 26</Téléphone>
+      <Email>mairie.salza@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous les mardis et mercredis de 9h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

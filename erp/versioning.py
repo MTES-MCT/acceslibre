@@ -3,7 +3,6 @@ from datetime import timedelta
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
 from django.utils import timezone
-
 from reversion.models import Version
 
 from .models import Accessibilite, Erp
@@ -15,12 +14,8 @@ def extract_online_erp(version):
     """
     if not hasattr(version, "content_type"):
         return None
-    erp = (
-        version.object
-        if version.content_type == ContentType.objects.get_for_model(Erp)
-        else version.object.erp
-    )
-    if erp and erp.is_online():
+    erp = version.object if version.content_type == ContentType.objects.get_for_model(Erp) else version.object.erp
+    if erp and erp.published:
         return erp
     else:
         return None
@@ -30,9 +25,7 @@ def get_user_contributions(user):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
     user_erps = [f["id"] for f in Erp.objects.filter(user=user).values("id")]
-    user_accesses = [
-        f["id"] for f in Accessibilite.objects.filter(erp__user=user).values("id")
-    ]
+    user_accesses = [f["id"] for f in Accessibilite.objects.filter(erp__user=user).values("id")]
     return (
         Version.objects.select_related("revision", "revision__user")
         .exclude(content_type=erp_type, object_id__in=user_erps)
@@ -49,9 +42,7 @@ def get_user_contributions_recues(user):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
     user_erps = [f["id"] for f in Erp.objects.filter(user=user).values("id")]
-    user_accesses = [
-        f["id"] for f in Accessibilite.objects.filter(erp__user=user).values("id")
-    ]
+    user_accesses = [f["id"] for f in Accessibilite.objects.filter(erp__user=user).values("id")]
     return (
         Version.objects.select_related("revision", "revision__user")
         .exclude(Q(revision__user=user) | Q(revision__user__isnull=True))

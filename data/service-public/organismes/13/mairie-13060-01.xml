@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13060-01" codeInsee="13060" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Meyreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Allée des Platanes</Ligne>
+      <CodePostal>13590</CodePostal>
+      <NomCommune>Meyreuil</NomCommune>
+      <Localisation>
+         <Latitude>43.4858016968</Latitude>
+         <Longitude>5.49531984329</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 65 90 65</Téléphone>
+      <Télécopie>04 42 65 90 33</Télécopie>
+      <Email>info@ville-meyreuil.fr</Email>
+      <Url>http://www.ville-meyreuil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé durant les vacances scolaires et jours fériés.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-44131-01" codeInsee="44131" dateMiseAJour="2021-03-16" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Pornic</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3, rue Jean-Sarment</Ligne>
+      <Ligne>BP 1419</Ligne>
+      <CodePostal>44214</CodePostal>
+      <NomCommune>Pornic Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.1243406</Latitude>
+         <Longitude>-2.111641</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 82 88 86</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous de 13h30 à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Depuis votre espace particulier sur le site impots.gouv.fr vous pouvez prendre rendez-vous et communiquer par courriel avec la messagerie sécurisée Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

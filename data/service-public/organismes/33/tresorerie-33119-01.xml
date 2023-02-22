@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-33119-01" codeInsee="33119" dateMiseAJour="2019-04-19"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Cenon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue Pasteur</Ligne>
+      <Ligne>CS 70029</Ligne>
+      <CodePostal>33152</CodePostal>
+      <NomCommune>Cenon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.8509813</Latitude>
+         <Longitude>-0.5182581</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 86 15 19</Téléphone>
+      <Télécopie>05 57 80 21 47</Télécopie>
+      <Email>t033029@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

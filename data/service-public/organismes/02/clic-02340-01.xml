@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-02340-01" codeInsee="02340" dateMiseAJour="2019-12-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Gauchy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 allée Claude Mairesse</Ligne>
+      <CodePostal>02430</CodePostal>
+      <NomCommune>Gauchy</NomCommune>
+      <Localisation>
+         <Latitude>49.829496</Latitude>
+         <Longitude>3.276056</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 64 80 40</Téléphone>
+      <Email>clic.gauchy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

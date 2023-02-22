@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-97101-01" codeInsee="97101" dateMiseAJour="2021-06-24" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Grande-Terre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des finances publiques de Morne Caruel</Ligne>
+      <Ligne>Rue des Finances Publiques</Ligne>
+      <CodePostal>97139</CodePostal>
+      <NomCommune>Les Abymes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>16.27395</Latitude>
+         <Longitude>-61.502615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="ou 08 09 40 14 01(coût d'un appel local)">05 90 82 45 30</Téléphone>
+      <Email>sip.grande-terre@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <Note>également sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

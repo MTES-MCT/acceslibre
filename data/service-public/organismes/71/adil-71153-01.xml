@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-71153-01" codeInsee="71153" dateMiseAJour="2021-04-16"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Saône-et-Loire - Le Creusot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Foyer des jeunes travailleurs</Ligne>
+      <Ligne>28 rue des Chanzy</Ligne>
+      <CodePostal>71200</CodePostal>
+      <NomCommune>Le Creusot</NomCommune>
+      <Localisation>
+         <Latitude>46.8061631</Latitude>
+         <Longitude>4.4428589</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'usager est invité à appeler avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 39 30 70</Téléphone>
+      <Télécopie>03 85 56 01 10</Télécopie>
+      <Email>adil71@adil71.org</Email>
+      <Url>http://www.adil71.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.Pendant la crise sanitaire pas d'accueil du public.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

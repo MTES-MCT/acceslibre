@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-09332-01" codeInsee="09332" dateMiseAJour="2021-05-17"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Ariège</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>336 rue Antoine de saint Exupéry</Ligne>
+      <Ligne>Parc technologique Delta Sud</Ligne>
+      <CodePostal>09340</CodePostal>
+      <NomCommune>Verniolle</NomCommune>
+      <Localisation>
+         <Latitude>42.9639816284</Latitude>
+         <Longitude>1.60708105564</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 60 07 00</Téléphone>
+      <Email>federation@peche-ariege.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

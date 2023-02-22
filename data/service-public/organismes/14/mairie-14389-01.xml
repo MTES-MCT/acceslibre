@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14389-01" codeInsee="14389" dateMiseAJour="2021-10-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maisoncelles-Pelvey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 route du Pont Cagnard</Ligne>
+      <CodePostal>14310</CodePostal>
+      <NomCommune>Maisoncelles-Pelvey</NomCommune>
+      <Localisation>
+         <Latitude>49.057214</Latitude>
+         <Longitude>-0.672948</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 77 09 01</Téléphone>
+      <Email>mairie.maisoncellespelvey@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

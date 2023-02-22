@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33380-01" codeInsee="33380" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Val-de-Livenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Caprais-de-Blaye</Ligne>
+      <Ligne>58 rue Léonce-Planteur</Ligne>
+      <CodePostal>33820</CodePostal>
+      <NomCommune>Val-de-Livenne</NomCommune>
+      <Localisation>
+         <Latitude>45.2852667</Latitude>
+         <Longitude>-0.5607556</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 32 62 12</Téléphone>
+      <Email>mairie.stcaprais@valdelivenne.fr</Email>
+      <Url>http://www.saint-caprais-de-blaye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

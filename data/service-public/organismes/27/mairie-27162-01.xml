@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27162-01" codeInsee="27162" dateMiseAJour="2020-05-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Collandres-Quincarnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Beau-Marcée</Ligne>
+      <CodePostal>27190</CodePostal>
+      <NomCommune>Collandres-Quincarnon</NomCommune>
+      <Localisation>
+         <Latitude>48.99600179</Latitude>
+         <Longitude>0.8526209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 30 09 47</Téléphone>
+      <Télécopie>02 32 30 09 47</Télécopie>
+      <Email>collandres.quincarnon@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

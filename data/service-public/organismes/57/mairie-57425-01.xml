@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57425-01" codeInsee="57425" dateMiseAJour="2020-05-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Luppy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Principale</Ligne>
+      <CodePostal>57580</CodePostal>
+      <NomCommune>Luppy</NomCommune>
+      <Localisation>
+         <Latitude>48.981598</Latitude>
+         <Longitude>6.346473</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 57 71 93</Téléphone>
+      <Email>mairie-luppy@wanadoo.fr</Email>
+      <Url>http://www.luppy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

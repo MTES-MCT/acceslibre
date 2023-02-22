@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-33058-02" codeInsee="33058" dateMiseAJour="2019-01-07"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane (viticulture) - Blaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue des Maçons</Ligne>
+      <Ligne>BP 145</Ligne>
+      <CodePostal>33394</CodePostal>
+      <NomCommune>Blaye Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.132237</Latitude>
+         <Longitude>-0.657051</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 56 90</Téléphone>
+      <Télécopie>05 57 68 30 01</Télécopie>
+      <Email>viti-blaye@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

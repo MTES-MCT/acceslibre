@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80691-01" codeInsee="80691" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saigneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Place</Ligne>
+      <CodePostal>80230</CodePostal>
+      <NomCommune>Saigneville</NomCommune>
+      <Localisation>
+         <Latitude>50.1099014282</Latitude>
+         <Longitude>1.79297995567</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 05 44 13</Téléphone>
+      <Email>mairie.saigneville@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:15:00" fin="19:15:00"/>
+         <Note>Accueil ouvert de mars à octobre uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

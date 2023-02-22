@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A295-01" codeInsee="2A295" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sant'Andréa-d'Orcino</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Ancienne École</Ligne>
+      <Ligne>Route Départementale</Ligne>
+      <CodePostal>20151</CodePostal>
+      <NomCommune>Sant'Andréa-d'Orcino</NomCommune>
+      <Localisation>
+         <Latitude>42.047303</Latitude>
+         <Longitude>8.800703</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 64 35 26 22</Téléphone>
+      <Télécopie>09 71 70 63 22</Télécopie>
+      <Email>mairie.santandreadorcino@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="11:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

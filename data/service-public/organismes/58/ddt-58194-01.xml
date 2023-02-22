@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-58194-01" codeInsee="58194" dateMiseAJour="2021-03-15" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Nièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Pâtis</Ligne>
+      <Ligne>BP 30069</Ligne>
+      <CodePostal>58020</CodePostal>
+      <NomCommune>Nevers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.9868029</Latitude>
+         <Longitude>3.1622331</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 71 71 71</Téléphone>
+      <Télécopie>03 86 71 71 69</Télécopie>
+      <Email>ddt@nievre.gouv.fr</Email>
+      <Url>http://www.nievre.gouv.fr/la-direction-departementale-des-territoires-ddt-r308.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Le Service Economie Agricole est joignable par téléphone uniquement le matin, l’après-midi est réservé aux rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Le service Économie agricole n’est joignable que les matins et reçoit les personnes qui le désireraient l’après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

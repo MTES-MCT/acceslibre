@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69244-01" codeInsee="69244" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tassin-la-Demi-Lune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Hippolyte-Péragut</Ligne>
+      <Ligne>BP 58</Ligne>
+      <CodePostal>69812</CodePostal>
+      <NomCommune>Tassin-la-Demi-Lune Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.761100769</Latitude>
+         <Longitude>4.77800989151</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 59 22 11</Téléphone>
+      <Télécopie>04 72 59 22 12</Télécopie>
+      <Email>accueil@villetassinlademilune.fr</Email>
+      <Url>http://www.tassinlademilune.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

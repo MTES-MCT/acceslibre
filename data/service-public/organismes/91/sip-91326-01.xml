@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-91326-01" codeInsee="91326" dateMiseAJour="2021-06-10" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Juvisy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10, avenue de Savigny</Ligne>
+      <CodePostal>91268</CodePostal>
+      <NomCommune>Juvisy-sur-Orge Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6893231</Latitude>
+         <Longitude>2.3699628</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 12 53 00</Téléphone>
+      <Télécopie>01 69 12 54 10</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Ou sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Ou sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

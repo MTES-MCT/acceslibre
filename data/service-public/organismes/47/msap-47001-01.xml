@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-47001-01" codeInsee="47001" dateMiseAJour="2021-06-07"
+           pivotLocal="msap">
+   <Nom>France Services - Agen</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>159 avenue Léon Blum</Ligne>
+      <CodePostal>47000</CodePostal>
+      <NomCommune>Agen</NomCommune>
+      <Localisation>
+         <Latitude>44.20927</Latitude>
+         <Longitude>0.64247</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 77 78 30</Téléphone>
+      <Email>agen-leon-blum@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

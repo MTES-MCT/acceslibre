@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-69149-01" codeInsee="69149" dateMiseAJour="2021-02-11" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Oullins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 boulevard Émile-Zola</Ligne>
+      <CodePostal>69600</CodePostal>
+      <NomCommune>Oullins</NomCommune>
+      <Localisation>
+         <Latitude>45.719952</Latitude>
+         <Longitude>4.803185</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">accès par l'entrée située 27 rue Ferrer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 50 17 40</Téléphone>
+      <Télécopie>04 72 39 26 65</Télécopie>
+      <Email>cio-oullins@ac-lyon.fr</Email>
+      <Url>https://oullins.cio.ac-lyon.fr/spip/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous sauf le mardi et le jeudi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

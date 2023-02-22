@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27576-01" codeInsee="27576" dateMiseAJour="2020-06-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Opportune-du-Bosc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>27110</CodePostal>
+      <NomCommune>Sainte-Opportune-du-Bosc</NomCommune>
+      <Localisation>
+         <Latitude>49.161948</Latitude>
+         <Longitude>0.837446</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 35 58 55</Téléphone>
+      <Télécopie>02 32 35 58 55</Télécopie>
+      <Email>mairie.steopportunedubosc@wanadoo.fr</Email>
+      <Url>http://www.sainte-opportune-du-bosc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

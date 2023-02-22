@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30098-01" codeInsee="30098" dateMiseAJour="2021-07-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Crespian</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin de Vielle</Ligne>
+      <CodePostal>30260</CodePostal>
+      <NomCommune>Crespian</NomCommune>
+      <Localisation>
+         <Latitude>43.8813175</Latitude>
+         <Longitude>4.0983054</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 77 68 51</Téléphone>
+      <Email>mairiedecrespian@gmail.com</Email>
+      <Url>https://www.mairie-crespian.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Heures de présence de la secrétaire :
+lundi de 7 h à 16 h
+mardi de 7 h à 18 h
+jeudi de 7 h à 15 h
+vendredi de 7 h à 13 h</Commentaire>
+</Organisme>

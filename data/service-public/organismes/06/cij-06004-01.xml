@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-06004-01" codeInsee="06004" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Antibes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18-20 boulevard Foch</Ligne>
+      <CodePostal>06600</CodePostal>
+      <NomCommune>Antibes</NomCommune>
+      <Localisation>
+         <Latitude>43.5780342</Latitude>
+         <Longitude>7.121365</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 90 52 38</Téléphone>
+      <Email>accueil.bij@ville-antibes.fr</Email>
+      <Url>http://www.antibes-juanlespins.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Kiosque Information Jeunesse 21 boulevard Chancel ouvert le samedi de 13h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

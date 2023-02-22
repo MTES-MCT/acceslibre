@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-69149-01" codeInsee="69149" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie d'Oullins - Secteur public local</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue Narcisse-Bertholey</Ligne>
+      <Ligne>BP 82</Ligne>
+      <CodePostal>69923</CodePostal>
+      <NomCommune>Oullins Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.716535</Latitude>
+         <Longitude>4.807566</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 66 31 90</Téléphone>
+      <Email>t069026@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil uniquement sur rendez-vous.</Commentaire>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-18087-01" codeInsee="18087" dateMiseAJour="2021-07-28"
+           pivotLocal="msap">
+   <Nom>France services - Dun-sur-Auron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Heurtault-de-Lammerville</Ligne>
+      <CodePostal>18130</CodePostal>
+      <NomCommune>Dun-sur-Auron</NomCommune>
+      <Localisation>
+         <Latitude>46.884195</Latitude>
+         <Longitude>2.559797</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 64 28 13</Téléphone>
+      <Email>msapdudunois@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

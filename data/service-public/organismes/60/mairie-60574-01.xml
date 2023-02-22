@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60574-01" codeInsee="60574" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Felix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue de Fay-sous-Bois</Ligne>
+      <CodePostal>60370</CodePostal>
+      <NomCommune>Saint-Félix</NomCommune>
+      <Localisation>
+         <Latitude>49.35021</Latitude>
+         <Longitude>2.28164</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 66 81 51 84</Téléphone>
+      <Télécopie>03 44 07 51 84</Télécopie>
+      <Email>mairie.st.felixoise@wanadoo.fr</Email>
+      <Url>http://www.saint-felix-notre-village.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

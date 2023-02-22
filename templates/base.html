@@ -1,6 +1,7 @@
 {% load static %}
+{% load waffle_tags %}
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-fr-scheme="light">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +18,26 @@
     {% block stylesheet_extras %}{% endblock %}
     <script src="{% static "dist/main.js" %}"></script>
     {% block javascript_extras %}{% endblock %}
-    <meta name="google-site-verification" content="iBstxzAU71oINQgMSrxoHh9rzedpj_49A953H788D5I">
+    <meta name="google-site-verification" content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
+    {% switch 'USE_MATOMO' %}
+    <!-- Matomo Tag Manager -->
+    <script>
+      var _mtm = window._mtm = window._mtm || [];
+      _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src='https://analytics.zentux.net/js/container_60PXt0c2.js'; s.parentNode.insertBefore(g,s);
+    </script>
+    <!-- End Matomo Tag Manager -->
+    {% endswitch %}
   </head>
 
-  <body class="a4a">
-    <a class="skippy sr-only sr-only-focusable" href="#content">
-      <span class="skippy-text">Aller au contenu principal</span>
-    </a>
+  <body class="a4a" tabindex="0">
     {% block skiplinks %}{% endblock %}
     {% include "common/notifications.html" %}
     {% block content %}{% endblock %}
-    {% include "common/matomo.html" %}
+    {% switch 'USE_MATOMO' %}
+      {% include "common/matomo.html" %}
+    {% endswitch %}
     {% include "common/sentry.html" %}
     {% if STAGING %}
     <div class="a4a-staging-notice">

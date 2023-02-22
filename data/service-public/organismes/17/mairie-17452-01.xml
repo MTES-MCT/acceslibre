@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17452-01" codeInsee="17452" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Tremblade</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue de la Seudre</Ligne>
+      <CodePostal>17390</CodePostal>
+      <NomCommune>La Tremblade</NomCommune>
+      <Localisation>
+         <Latitude>45.7715988159</Latitude>
+         <Longitude>-1.13960003853</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 36 99 00</Téléphone>
+      <Télécopie>05 46 36 33 78</Télécopie>
+      <Email>mairie@la-tremblade.com</Email>
+      <Url>http://www.la-tremblade.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

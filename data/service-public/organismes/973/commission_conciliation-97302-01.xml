@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-97302-01" codeInsee="97302"
+           dateMiseAJour="2021-04-02"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Guyane</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction de l'environnement, de l'aménagement et du logement</Ligne>
+      <Ligne>Secrétariat de la cdc</Ligne>
+      <Ligne>Rue du Vieux Port</Ligne>
+      <Ligne>BP 6003</Ligne>
+      <CodePostal>97300</CodePostal>
+      <NomCommune>Cayenne</NomCommune>
+      <Localisation>
+         <Latitude>4.9366073</Latitude>
+         <Longitude>-52.337231</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+594 594 39 80 00</Téléphone>
+      <Télécopie>+594 594 31 74 20</Télécopie>
+      <Url>http://www.guyane.developpement-durable.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

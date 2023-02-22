@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08338-01" codeInsee="08338" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pauvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route de Coulommes</Ligne>
+      <CodePostal>08310</CodePostal>
+      <NomCommune>Pauvres</NomCommune>
+      <Localisation>
+         <Latitude>49.4117777</Latitude>
+         <Longitude>4.4940518</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 30 32 23</Téléphone>
+      <Email>08310pauvres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Pendant la crise sanitaire pas d'accueil du public mais une réponse aux courriels est assurée.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+         <Note>Pendant la crise sanitaire pas d'accueil du public mais une réponse aux courriels est assurée.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

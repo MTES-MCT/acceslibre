@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04135-01" codeInsee="04135" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moustiers-Sainte-Marie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Seigneur-de-la-Clue</Ligne>
+      <Ligne>BP 13</Ligne>
+      <CodePostal>04360</CodePostal>
+      <NomCommune>Moustiers-Sainte-Marie</NomCommune>
+      <Localisation>
+         <Latitude>43.8466835022</Latitude>
+         <Longitude>6.22184801102</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'usager est invité à se rendre à l'accueil de la police municipale où un agent peut l'y rejoindre pour traiter sa demande</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 74 66 19</Téléphone>
+      <Email>mairie-moustiers@wanadoo.fr</Email>
+      <Url>http://www.ville-moustiers-sainte-marie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement le matin.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15226-01" codeInsee="15226" dateMiseAJour="2019-08-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sénezergues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Chourlie</Ligne>
+      <CodePostal>15340</CodePostal>
+      <NomCommune>Sénezergues</NomCommune>
+      <Localisation>
+         <Latitude>44.711529</Latitude>
+         <Longitude>2.404087</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 49 95 43</Téléphone>
+      <Email>mairiesenezergues@wanadoo.fr</Email>
+      <Url>https://www.senezergues.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

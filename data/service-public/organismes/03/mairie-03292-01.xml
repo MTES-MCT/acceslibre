@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03292-01" codeInsee="03292" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tronget</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 passage de la Mairie</Ligne>
+      <CodePostal>03240</CodePostal>
+      <NomCommune>Tronget</NomCommune>
+      <Localisation>
+         <Latitude>46.420863</Latitude>
+         <Longitude>3.066684</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 47 12 02</Téléphone>
+      <Télécopie>04 70 47 10 79</Télécopie>
+      <Email>mairie.tronget@wanadoo.fr</Email>
+      <Url>http://www.tronget.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

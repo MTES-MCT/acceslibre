@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-22278-01" codeInsee="22278" dateMiseAJour="2021-11-24"
+           pivotLocal="greta">
+   <Nom>Greta Côtes-d'Armor - Saint-Brieuc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 bis boulevard Lamartine</Ligne>
+      <CodePostal>22000</CodePostal>
+      <NomCommune>Saint-Brieuc</NomCommune>
+      <Localisation>
+         <Latitude>48.51908</Latitude>
+         <Longitude>-2.760641</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 61 48 54</Téléphone>
+      <Email>greta.cotesarmor@ac-rennes.fr</Email>
+      <Url>https://greta-bretagne.ac-rennes.fr/portail/web/greta-des-cotes-d-armor/greta-cotes-darmor</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62175-01" codeInsee="62175" dateMiseAJour="2017-06-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brévillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 rue de Crécy</Ligne>
+      <CodePostal>62140</CodePostal>
+      <NomCommune>Brévillers</NomCommune>
+      <Localisation>
+         <Latitude>50.3377990723</Latitude>
+         <Longitude>1.99609994888</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 81 02 22</Téléphone>
+      <Télécopie>09 72 62 18 98</Télécopie>
+      <Email>commune.de.brevillers@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

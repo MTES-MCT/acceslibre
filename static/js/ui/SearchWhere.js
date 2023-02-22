@@ -13,13 +13,26 @@ async function getCommonResults(loc) {
 }
 
 function SearchWhere(root) {
-  const input = root.querySelector("input[type=search]");
+  const input = root.querySelector("input[name=where]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
   const hiddens = {
     lat: root.querySelector("input[name=lat]"),
     lon: root.querySelector("input[name=lon]"),
     code: root.querySelector("input[name=code]"),
   };
+  input.addEventListener('input', activate_submit_btn, false);
+  activate_submit_btn(event=false, force=false)
+
+
+
+  function activate_submit_btn(event, force=false){
+    if(hiddens.code.value.length == 0){
+        input.form.querySelector("button[type=submit]").setAttribute('disabled', '');
+    };
+    if(force || hiddens.code.value){
+      input.form.querySelector("button[type=submit]").removeAttribute('disabled');
+    };
+  }
 
   function setSearchData(loc) {
     hiddens.lat.value = loc?.lat || "";
@@ -52,7 +65,7 @@ function SearchWhere(root) {
       if (!result) {
         return;
       }
-
+      activate_submit_btn(event=false, force=true);
       if (result.lat && result.lon) {
         setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
@@ -83,7 +96,7 @@ function SearchWhere(root) {
         <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
           ${icon ? `<i aria-hidden="true" class="icon icon-${icon}"></i>` : ""}
           ${text}
-          ${context ? `<small class="text-muted text-truncate">${context}</small>` : ""}
+          ${context ? `<small class="text-truncate">${context}</small>` : ""}
         </li>
       `;
     },
@@ -95,12 +108,18 @@ function SearchWhere(root) {
         return commonResults;
       }
       const { results } = await api.searchLocation(input, loc);
-      return commonResults.concat(results);
+      return results;
     },
   });
 
   // Invalidate lat/lon on every key stroke in the search input, except when user tabs
   // out of the field or selects and entry by pressing the Enter key.
+  autocomplete.input.addEventListener("keydown", (event) => {
+    if (event.key != "Tab" && event.key != "Enter") {
+      setSearchData(null);
+    }
+  });
+
   autocomplete.input.addEventListener("keydown", (event) => {
     if (event.key != "Tab" && event.key != "Enter") {
       setSearchData(null);

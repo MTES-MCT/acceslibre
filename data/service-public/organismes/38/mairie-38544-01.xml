@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38544-01" codeInsee="38544" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 126</Ligne>
+      <CodePostal>38209</CodePostal>
+      <NomCommune>Vienne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.5256004333</Latitude>
+         <Longitude>4.87523984909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">pente</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 78 30 00</Téléphone>
+      <Email>accueil@mairie-vienne.fr</Email>
+      <Url>http://www.vienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

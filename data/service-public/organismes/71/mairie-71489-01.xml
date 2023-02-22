@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71489-01" codeInsee="71489" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vincent-en-Bresse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>129 rue du Bourg</Ligne>
+      <CodePostal>71440</CodePostal>
+      <NomCommune>Saint-Vincent-en-Bresse</NomCommune>
+      <Localisation>
+         <Latitude>46.6601475</Latitude>
+         <Longitude>5.0546633</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 76 51 24</Téléphone>
+      <Télécopie>03 85 76 51 37</Télécopie>
+      <Email>mairiestvincentenbresse@wanadoo.fr</Email>
+      <Url>http://www.saint-vincent-en-bresse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

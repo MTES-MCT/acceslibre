@@ -5,9 +5,7 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<main role="main" id="content">
   <p><a href="{% url "stats_home" %}">&laquo; Retour aux statistiques générales</a></p>
-  <h2 class="my-3">Principaux territoires couverts</h2>
+  <h1 class="my-3">Principaux territoires couverts</h1>
   {% include "stats/includes/territoires_table.html" %}
-</main>
 {% endblock  %}

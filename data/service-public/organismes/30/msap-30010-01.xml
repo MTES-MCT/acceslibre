@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-30010-01" codeInsee="30010" dateMiseAJour="2020-12-23"
+           pivotLocal="msap">
+   <Nom>France Services - Anduze</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue du Luxembourg</Ligne>
+      <Ligne>Les jardins de la flature</Ligne>
+      <CodePostal>30140</CodePostal>
+      <NomCommune>Anduze</NomCommune>
+      <Localisation>
+         <Latitude>44.05112</Latitude>
+         <Longitude>3.98716</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 24 12 77</Téléphone>
+      <Email>ricochetsanduze@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

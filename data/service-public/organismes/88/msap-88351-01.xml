@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-88351-01" codeInsee="88351" dateMiseAJour="2021-03-02"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Plombières-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Beaumarchais</Ligne>
+      <CodePostal>88370</CodePostal>
+      <NomCommune>Plombières-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>47.9666761</Latitude>
+         <Longitude>6.4634853</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 66 00 24</Téléphone>
+      <Email>jantoine@pays-epinal.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/plombieres-les-bains</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

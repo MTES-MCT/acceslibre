@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-83119-01" codeInsee="83119" dateMiseAJour="2020-11-27" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Saint-Tropez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>1, avenue Augustin Grangeon</Ligne>
+      <CodePostal>83990</CodePostal>
+      <NomCommune>Saint-Tropez</NomCommune>
+      <Localisation>
+         <Latitude>43.26931</Latitude>
+         <Longitude>6.640929</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 97 81 57</Téléphone>
+      <Email>bij@ville-sainttropez.fr</Email>
+      <Url>https://www.saint-tropez.fr/espace-residents/jeunesse/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

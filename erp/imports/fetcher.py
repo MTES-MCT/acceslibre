@@ -1,8 +1,12 @@
 import csv
 import io
 import json
+import os
+import tarfile
 
+import ijson
 import requests
+from django.conf import settings
 
 
 class Fetcher:
@@ -29,6 +33,34 @@ class JsonFetcher(Fetcher):
             raise RuntimeError(f"Erreur de récupération des données JSON:\n  {err}")
 
 
+class JsonCompressedFetcher(Fetcher):
+    def __init__(self, hook=lambda x: x):
+        self.hook = hook
+
+    def fetch(self, url):
+        try:
+            # Allow to reuse our previous download when settings.DEBUG is True
+            if not (settings.DEBUG and os.path.exists("sp.bz2")):
+                print(f"Récupération des données sur {url}")
+                res = super().fetch(url)
+                open("sp.bz2", "wb").write(res.content)
+                print("Récupération des données => [OK]")
+            with tarfile.open("sp.bz2", "r:bz2") as tar:
+                for tarinfo in tar:
+                    if tarinfo.isreg() and "-data.gouv_local.json" in tarinfo.name:
+                        print(f"Extraction des données sur le fichier {tarinfo}")
+                        f = tar.extractfile(tarinfo)
+                        print("Extraction des données => [OK]")
+                        for item in ijson.items(f, "service.item"):
+                            yield item
+        except KeyError as err:
+            raise RuntimeError(f"Erreur de clé JSON: {err}")
+        except json.JSONDecodeError as err:
+            raise RuntimeError(f"Erreur de décodage des données JSON:\n  {err}")
+        except requests.exceptions.RequestException as err:
+            raise RuntimeError(f"Erreur de récupération des données JSON:\n  {err}")
+
+
 class CsvFetcher(Fetcher):
     def __init__(self, delimiter=",", fieldnames=None):
         self.delimiter = delimiter
@@ -45,6 +77,17 @@ class CsvFetcher(Fetcher):
         except csv.Error as err:
             raise RuntimeError(f"Erreur de lecture des données CSV:\n  {err}")
         except requests.exceptions.RequestException as err:
-            raise RuntimeError(
-                f"Erreur de récupération des données CSV: {url}:\n  {err}"
+            raise RuntimeError(f"Erreur de récupération des données CSV: {url}:\n  {err}")
+
+
+class CsvFileFetcher(CsvFetcher):
+    def fetch(self, url):
+        try:
+            csv_contents = open(url, "r", encoding="utf-8-sig").read()
+            return csv.DictReader(
+                io.StringIO(csv_contents),
+                delimiter=self.delimiter,
+                fieldnames=self.fieldnames,
             )
+        except csv.Error as err:
+            raise RuntimeError(f"Erreur de lecture des données CSV:\n  {err}")

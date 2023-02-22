@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80514-01" codeInsee="80514" dateMiseAJour="2016-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>16 rue Charles-Bourcheron</Ligne>
+      <CodePostal>80560</CodePostal>
+      <NomCommune>Marieux</NomCommune>
+      <Localisation>
+         <Latitude>50.106453</Latitude>
+         <Longitude>2.443674</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 76 54 15</Téléphone>
+      <Email>communedemarieux@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

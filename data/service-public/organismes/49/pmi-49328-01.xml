@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-49328-01" codeInsee="49328" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saumur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des solidarités</Ligne>
+      <Ligne>25 bis rue Seigneur</Ligne>
+      <CodePostal>49400</CodePostal>
+      <NomCommune>Saumur</NomCommune>
+      <Localisation>
+         <Latitude>47.254901886</Latitude>
+         <Longitude>-0.0784419998527</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 53 02 30</Téléphone>
+      <Email>aio.grand.saumurois@maine-et-loire.fr</Email>
+      <Url>http://www.maine-et-loire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé à 17h lors des vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

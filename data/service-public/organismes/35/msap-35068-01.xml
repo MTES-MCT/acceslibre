@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-35068-01" codeInsee="35068" dateMiseAJour="2021-05-27"
+           pivotLocal="msap">
+   <Nom>France Services - Châteaubourg</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Pasteur</Ligne>
+      <CodePostal>35220</CodePostal>
+      <NomCommune>Châteaubourg</NomCommune>
+      <Localisation>
+         <Latitude>48.108712</Latitude>
+         <Longitude>-1.406714</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 00 87 63</Téléphone>
+      <Email>ccas@chateaubourg.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

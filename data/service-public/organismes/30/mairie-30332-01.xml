@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30332-01" codeInsee="30332" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trèves</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>30750</CodePostal>
+      <NomCommune>Trèves</NomCommune>
+      <Localisation>
+         <Latitude>44.1026113</Latitude>
+         <Longitude>3.39937510000004</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 82 72 90</Téléphone>
+      <Télécopie>04 67 82 74 31</Télécopie>
+      <Email>mairie.treves@wanadoo.fr</Email>
+      <Url>http://www.mairie-treves.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Pendant la période de confinement, la mairie recevra les administrés uniquement sur rendez vous et uniquement pour des demandes ou dossiers urgents ne pouvant pas être décalés. Vous êtes tenus de contacter la mairie au 04.67.82.72.90 ou par mail à mairie.treves@wanadoo.fr pour fixer un rendez vous pour votre venue.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

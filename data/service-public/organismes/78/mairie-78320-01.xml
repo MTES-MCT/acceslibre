@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78320-01" codeInsee="78320" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Notre-Dame-de-la-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hameau de la Haie-de-l'Ecu</Ligne>
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>78270</CodePostal>
+      <NomCommune>Notre-Dame-de-la-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.037477</Latitude>
+         <Longitude>1.528043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 93 06 16</Téléphone>
+      <Télécopie>01 30 42 28 29</Télécopie>
+      <Email>secretariat@ndlm78.fr</Email>
+      <Url>http://www.notre-dame-de-la-mer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

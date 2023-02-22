@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31476-01" codeInsee="31476" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Élix-le-Château</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Écoliers</Ligne>
+      <CodePostal>31430</CodePostal>
+      <NomCommune>Saint-Élix-le-Château</NomCommune>
+      <Localisation>
+         <Latitude>43.2796922</Latitude>
+         <Longitude>1.1393723</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 87 63 13</Téléphone>
+      <Télécopie>05 61 87 67 59</Télécopie>
+      <Email>accueil.mairie@stelixlechateau.fr</Email>
+      <Url>http://www.stelixlechateau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

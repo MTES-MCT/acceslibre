@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31323-01" codeInsee="31323" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Martres-de-Rivière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 chemin de Lussan</Ligne>
+      <CodePostal>31210</CodePostal>
+      <NomCommune>Martres-de-Rivière</NomCommune>
+      <Localisation>
+         <Latitude>43.1226005554</Latitude>
+         <Longitude>0.665291011333</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 95 98 45</Téléphone>
+      <Télécopie>05 61 88 64 03</Télécopie>
+      <Email>mairie@martresderiviere.fr</Email>
+      <Url>http://www.martres-de-riviere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

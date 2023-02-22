@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-64410-01" codeInsee="64410" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Lacq Orthez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rond-point des Chênes</Ligne>
+      <Ligne>BP 73</Ligne>
+      <CodePostal>64150</CodePostal>
+      <NomCommune>Mourenx</NomCommune>
+      <Localisation>
+         <Latitude>43.368262</Latitude>
+         <Longitude>-0.620552</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 60 03 46</Téléphone>
+      <Télécopie>05 59 60 06 93</Télécopie>
+      <Email>contact@cc-lacqorthez.fr</Email>
+      <Url>http://www.cc-lacqorthez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre, les horaires sont du lundi au vendredi de 9h à 12h et de 13h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

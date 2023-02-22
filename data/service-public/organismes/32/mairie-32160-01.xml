@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32160-01" codeInsee="32160" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Isle-Jourdain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>32600</CodePostal>
+      <NomCommune>L'Isle-Jourdain</NomCommune>
+      <Localisation>
+         <Latitude>43.6131852</Latitude>
+         <Longitude>1.0818495</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 07 32 50</Téléphone>
+      <Télécopie>05 62 07 12 89</Télécopie>
+      <Email>accueil@mairie-islejourdain.fr</Email>
+      <Url>http://www.mairie-islejourdain.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60466-01" codeInsee="60466" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Noroy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>342 rue Saint-Jean-des-Pleurs</Ligne>
+      <CodePostal>60130</CodePostal>
+      <NomCommune>Noroy</NomCommune>
+      <Localisation>
+         <Latitude>49.4435997009</Latitude>
+         <Longitude>2.51057004929</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">contacter l'accueil avant de vous déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 49 55</Téléphone>
+      <Télécopie>03 44 51 49 55</Télécopie>
+      <Email>mairienoroy@wanadoo.fr</Email>
+      <Url>http://communedenoroy.canalblog.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

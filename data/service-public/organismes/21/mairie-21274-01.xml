@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21274-01" codeInsee="21274" dateMiseAJour="2021-03-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Foissy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Croix-du-Moulin-à-Vent</Ligne>
+      <CodePostal>21230</CodePostal>
+      <NomCommune>Foissy</NomCommune>
+      <Localisation>
+         <Latitude>47.1531562805</Latitude>
+         <Longitude>4.44771385193</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 84 21 50</Téléphone>
+      <Email>mairie.foissy21@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

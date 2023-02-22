@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-12200-01" codeInsee="12200" dateMiseAJour="2021-08-23"
+           pivotLocal="msap">
+   <Nom>France Services - Rivière-sur-Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 Route de Fontaneilles</Ligne>
+      <CodePostal>12640</CodePostal>
+      <NomCommune>Rivière-sur-Tarn</NomCommune>
+      <Localisation>
+         <Latitude>44.188906</Latitude>
+         <Longitude>3.130107</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 32 52 99 03</Téléphone>
+      <Email>mfsrivieresurtarn@gmail.com</Email>
+      <Url>https://www.rivieresurtarn.fr/vie-locale/services/administration/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="18:30:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

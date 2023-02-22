@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from compte.tasks import sync_user_attributes
+
 
 class EmailToken(models.Model):
     class Meta:
@@ -46,3 +48,24 @@ class UserPreferences(models.Model):
         if created:
             user_prefs = UserPreferences(user=instance)
             user_prefs.save()
+
+        sync_user_attributes.delay(instance.pk)
+
+
+class UserStats(models.Model):
+    class Meta:
+        verbose_name = "UserStats"
+        verbose_name_plural = "UsersStats"
+
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Utilisateur",
+        on_delete=models.CASCADE,
+        related_name="stats",
+    )
+    nb_erp_created = models.IntegerField(default=0)
+    nb_erp_edited = models.IntegerField(default=0)
+    nb_erp_attributed = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"

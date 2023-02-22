@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-56098-01" codeInsee="56098" dateMiseAJour="2020-02-17"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Lanester</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Relais gérontologique le Point Bleu</Ligne>
+      <Ligne>54 avenue François-Billoux</Ligne>
+      <CodePostal>56600</CodePostal>
+      <NomCommune>Lanester</NomCommune>
+      <Localisation>
+         <Latitude>47.76182</Latitude>
+         <Longitude>-3.347396</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 76 79 20</Téléphone>
+      <Email>mairie@ville-lanester.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

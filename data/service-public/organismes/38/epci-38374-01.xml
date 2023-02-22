@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-38374-01" codeInsee="38374" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Les Balcons du Dauphiné</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Plaine-du-Vers</Ligne>
+      <Ligne>3553 route de Chamont</Ligne>
+      <Ligne>BP 1</Ligne>
+      <CodePostal>38890</CodePostal>
+      <NomCommune>Saint-Chef</NomCommune>
+      <Localisation>
+         <Latitude>45.6610628</Latitude>
+         <Longitude>5.3252754</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 90 39 10</Téléphone>
+      <Email>contact@balconsdudauphine.fr</Email>
+      <Url>http://www.balconsdudauphine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

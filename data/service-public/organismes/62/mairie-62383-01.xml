@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62383-01" codeInsee="62383" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gouy-sous-Bellonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue d'Éstrées</Ligne>
+      <CodePostal>62112</CodePostal>
+      <NomCommune>Gouy-sous-Bellonne</NomCommune>
+      <Localisation>
+         <Latitude>50.3121986389</Latitude>
+         <Longitude>3.05554008484</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 50 16 36</Téléphone>
+      <Télécopie>03 21 50 49 30</Télécopie>
+      <Email>mairie@gouysousbellonne.fr</Email>
+      <Url>http://www.gouysousbellonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé l’après-midi en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

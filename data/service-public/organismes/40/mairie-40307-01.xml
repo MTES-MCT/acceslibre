@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40307-01" codeInsee="40307" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sore</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>339 rue Broustra</Ligne>
+      <CodePostal>40430</CodePostal>
+      <NomCommune>Sore</NomCommune>
+      <Localisation>
+         <Latitude>44.3234587</Latitude>
+         <Longitude>-0.5812271</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 07 60 06</Téléphone>
+      <Télécopie>05 58 07 64 72</Télécopie>
+      <Email>mairie@sore.fr</Email>
+      <Url>http://www.sore.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique uniquement de 13h30 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

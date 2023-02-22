@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83131-01" codeInsee="83131" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Solliès-Toucas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Clément-Balestra</Ligne>
+      <CodePostal>83210</CodePostal>
+      <NomCommune>Solliès-Toucas</NomCommune>
+      <Localisation>
+         <Latitude>43.2062683105</Latitude>
+         <Longitude>6.02454376221</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 28 90 47</Téléphone>
+      <Télécopie>04 94 33 35 32</Télécopie>
+      <Email>stoucas.mairie@wanadoo.fr</Email>
+      <Url>http://www.ville-solliestoucas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

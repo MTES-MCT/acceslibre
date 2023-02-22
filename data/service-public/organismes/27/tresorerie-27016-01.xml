@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-27016-01" codeInsee="27016" dateMiseAJour="2021-06-01"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) des Andelys</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 avenue de la République</Ligne>
+      <Ligne>BP 502</Ligne>
+      <CodePostal>27705</CodePostal>
+      <NomCommune>Les Andelys Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.246039</Latitude>
+         <Longitude>1.412272</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 54 02 33</Téléphone>
+      <Télécopie>02 32 54 01 87</Télécopie>
+      <Email>t027016@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi, fermé le Mardi et Jeudi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

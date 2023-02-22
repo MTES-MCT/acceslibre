@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78417-01" codeInsee="78417" dateMiseAJour="2019-02-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montchauvet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la Mairie</Ligne>
+      <CodePostal>78790</CodePostal>
+      <NomCommune>Montchauvet</NomCommune>
+      <Localisation>
+         <Latitude>48.8916015625</Latitude>
+         <Longitude>1.63058996201</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 93 43 59</Téléphone>
+      <Télécopie>09 57 00 49 30</Télécopie>
+      <Url>https://www.lescommunes.com/commune-montchauvet-78417.fr.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59507-01" codeInsee="59507" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ronchin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>650 avenue Jean-Jaurès</Ligne>
+      <CodePostal>59790</CodePostal>
+      <NomCommune>Ronchin</NomCommune>
+      <Localisation>
+         <Latitude>50.5996017</Latitude>
+         <Longitude>3.0805299</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 16 60 00</Téléphone>
+      <Télécopie>03 20 16 60 38</Télécopie>
+      <Email>cabinet@ville-ronchin.fr</Email>
+      <Url>http://www.ville-ronchin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

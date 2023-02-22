@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33372-01" codeInsee="33372" dateMiseAJour="2021-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Antoine-du-Queyret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>33790</CodePostal>
+      <NomCommune>Saint-Antoine-du-Queyret</NomCommune>
+      <Localisation>
+         <Latitude>44.763153</Latitude>
+         <Longitude>0.0092339</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 40 54 28</Téléphone>
+      <Télécopie>05 57 40 69 74</Télécopie>
+      <Email>saint.antoine.du.queyret@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

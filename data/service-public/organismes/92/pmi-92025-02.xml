@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-92025-02" codeInsee="92025" dateMiseAJour="2021-04-20" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Colombes - Jean-Jacques-Rousseau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24-34 rue Jean Jacques Rousseau</Ligne>
+      <CodePostal>92700</CodePostal>
+      <NomCommune>Colombes</NomCommune>
+      <Localisation>
+         <Latitude>48.932098</Latitude>
+         <Longitude>2.262589</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 06 00 00 92</Téléphone>
+      <Email>cpmi7@hauts-de-seine.fr</Email>
+      <Url>https://www.78-92.fr/annuaire/aides-et-services/detail/pmi92</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

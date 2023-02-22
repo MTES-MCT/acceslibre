@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77266-01" codeInsee="77266" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Machault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue des Trois-Maillets</Ligne>
+      <CodePostal>77133</CodePostal>
+      <NomCommune>Machault</NomCommune>
+      <Localisation>
+         <Latitude>48.455157</Latitude>
+         <Longitude>2.829031</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 23 85 76</Téléphone>
+      <Télécopie>01 64 23 65 47</Télécopie>
+      <Email>secretariat@mairie-machault77.fr</Email>
+      <Url>http://www.mairie-machault77.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires et durant la crise sanitaire le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

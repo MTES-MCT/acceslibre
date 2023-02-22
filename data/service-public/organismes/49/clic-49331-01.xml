@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-49331-01" codeInsee="49331" dateMiseAJour="2018-12-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Segré-en-Anjou Bleu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de l'Anjou-Bleu</Ligne>
+      <Ligne>Route d'Aviré</Ligne>
+      <CodePostal>49500</CodePostal>
+      <NomCommune>Segré-en-Anjou Bleu</NomCommune>
+      <Localisation>
+         <Latitude>47.692711</Latitude>
+         <Longitude>-0.856467</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 61 29 91</Téléphone>
+      <Email>clic@anjoubleu.com</Email>
+      <Url>http://www.anjoubleu.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

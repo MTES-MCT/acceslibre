@@ -32,15 +32,12 @@ class Message(models.Model):
             models.Index(fields=["topic"]),
         ]
 
-    topic = models.CharField(
-        max_length=50, verbose_name="Sujet", choices=TOPICS, default=TOPIC_CONTACT
-    )
-    name = models.CharField(
-        max_length=255, verbose_name="Votre nom", null=True, blank=True
-    )
+    topic = models.CharField(max_length=50, verbose_name="Sujet", choices=TOPICS, default=TOPIC_CONTACT)
+    name = models.CharField(max_length=255, verbose_name="Votre nom", null=True, blank=True)
     email = models.EmailField(
         max_length=255,
         verbose_name="Adresse email",
+        error_messages={"invalid": ""},
     )
     body = models.TextField(
         max_length=5000,
@@ -57,9 +54,5 @@ class Message(models.Model):
     sent_ok = models.BooleanField(verbose_name="Envoi OK", default=False)
 
     # Datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")

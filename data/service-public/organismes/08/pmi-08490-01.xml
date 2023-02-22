@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-08490-01" codeInsee="08490" dateMiseAJour="2021-08-23" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Vouziers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des solidarités</Ligne>
+      <Ligne>16 rue Henrionnet</Ligne>
+      <CodePostal>08400</CodePostal>
+      <NomCommune>Vouziers</NomCommune>
+      <Localisation>
+         <Latitude>49.395198822</Latitude>
+         <Longitude>4.70212984085</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 71 75 07</Téléphone>
+      <Email>puerpmi.sa@cd08.fr</Email>
+      <Url>http://www.cd08.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-72181-01" codeInsee="72181" dateMiseAJour="2019-01-11"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Le Mans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>96 rue de l'Angevinière</Ligne>
+      <Ligne>BP 21054</Ligne>
+      <CodePostal>72001</CodePostal>
+      <NomCommune>Le Mans Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.986786</Latitude>
+         <Longitude>0.182267</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 51 31</Téléphone>
+      <Télécopie>02 43 80 76 36</Télécopie>
+      <Email>r-le-mans@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

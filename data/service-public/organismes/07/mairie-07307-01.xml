@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07307-01" codeInsee="07307" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sanilhac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 rue de l'Église</Ligne>
+      <CodePostal>07110</CodePostal>
+      <NomCommune>Sanilhac</NomCommune>
+      <Localisation>
+         <Latitude>44.535863</Latitude>
+         <Longitude>4.250049</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 39 11 78</Téléphone>
+      <Email>mairie.sanilhac530@orange.fr</Email>
+      <Url>http://www.mairiedesanilhac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le lundi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le lundi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

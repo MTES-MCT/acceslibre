@@ -1,12 +1,12 @@
+import logging
 from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
-from django.core.management.base import BaseCommand, CommandError
-from django.db import DatabaseError
+from django.core.management.base import BaseCommand
 from django.db.models import Count
 from django.utils import timezone
 
-from core import mattermost
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -24,11 +24,6 @@ class Command(BaseCommand):
             type=str,
             help="Date de référence au format ISO (ex. 2021-01-01)",
         )
-        parser.add_argument(
-            "--verbose",
-            action="store_true",
-            help="Afficher les erreurs",
-        )
 
     def handle(self, *args, **options):
         if options["today"]:
@@ -44,12 +39,5 @@ class Command(BaseCommand):
                 erps_count=0,
             )
         )
-        try:
-            nb_deleted, _ = outdated_qs.delete()
-            if nb_deleted > 0:
-                mattermost.send(
-                    f"{nb_deleted} comptes utilisateur obsolètes supprimés.",
-                    tags=[__name__],
-                )
-        except DatabaseError as err:
-            raise CommandError(f"Erreur lors de la purge des comptes obslètes: {err}")
+        nb_deleted, _ = outdated_qs.delete()
+        logger.info(f"[CRON] {nb_deleted} user account deleted.")

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-06159-01" codeInsee="06159" dateMiseAJour="2021-01-05"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Villefranche-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>9 avenue du Général-Gallieni</Ligne>
+      <CodePostal>06230</CodePostal>
+      <NomCommune>Villefranche-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>43.7053759</Latitude>
+         <Longitude>7.3099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">04 93 76 30 80</Téléphone>
+      <Télécopie>04 93 76 30 84</Télécopie>
+      <Email>police-villefranche-sur-mer@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

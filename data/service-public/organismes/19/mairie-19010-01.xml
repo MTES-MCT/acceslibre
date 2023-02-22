@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19010-01" codeInsee="19010" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Argentat-sur-Dordogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Pasteur</Ligne>
+      <CodePostal>19400</CodePostal>
+      <NomCommune>Argentat-sur-Dordogne</NomCommune>
+      <Localisation>
+         <Latitude>45.0933990479</Latitude>
+         <Longitude>1.93599998951</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès côté jardin</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 28 10 91</Téléphone>
+      <Télécopie>05 55 28 81 26</Télécopie>
+      <Email>mairie@argentat-sur-dordogne.fr</Email>
+      <Url>http://www.argentat-sur-dordogne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

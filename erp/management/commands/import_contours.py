@@ -1,14 +1,12 @@
 import json
-import requests
 
+import requests
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import BaseCommand, CommandError
-
 from progress import bar
 
 from core.lib import geo
 from erp.models import Commune, Erp
-
 
 # Standard (Polygon)
 # https://geo.api.gouv.fr/communes/34120?fields=contour&format=json&geometry=contour
@@ -91,9 +89,7 @@ class Command(BaseCommand):
 
     def get_contour(self, code_insee):
         try:
-            res = requests.get(
-                f"https://geo.api.gouv.fr/communes/{code_insee}?fields=contour&format=json"
-            )
+            res = requests.get(f"https://geo.api.gouv.fr/communes/{code_insee}?fields=contour&format=json")
             res.raise_for_status()
             return res.json()["contour"]
         except (KeyError, json.JSONDecodeError):
@@ -109,9 +105,7 @@ class Command(BaseCommand):
 
     def print_report(self):
         self.print_report_section("Non-existent", self.report[TYPE_OBSOLETE])
-        self.print_report_section(
-            "Non-existent with ERPs attached", self.report[TYPE_OBSOLETE_NONEMPTY]
-        )
+        self.print_report_section("Non-existent with ERPs attached", self.report[TYPE_OBSOLETE_NONEMPTY])
         self.print_report_section("Errors", self.report[TYPE_ERROR])
         print("\nDone.")
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-93050-01" codeInsee="93050" dateMiseAJour="2020-12-17" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Neuilly-sur-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue des Martyrs-de-la-Déportation</Ligne>
+      <CodePostal>93331</CodePostal>
+      <NomCommune>Neuilly-sur-Marne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8564068</Latitude>
+         <Longitude>2.5263115</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49
+44 21 00</Téléphone>
+      <Email>sie.neuilly-sur-marne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

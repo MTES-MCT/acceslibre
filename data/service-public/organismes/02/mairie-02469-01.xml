@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02469-01" codeInsee="02469" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marly-Gomont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de la Poterie</Ligne>
+      <CodePostal>02120</CodePostal>
+      <NomCommune>Marly-Gomont</NomCommune>
+      <Localisation>
+         <Latitude>49.9057006836</Latitude>
+         <Longitude>3.79134988785</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 60 21 85</Téléphone>
+      <Télécopie>03 23 60 21 85</Télécopie>
+      <Email>mairie.marlygomont@wanadoo.fr</Email>
+      <Url>http://marlygomont.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

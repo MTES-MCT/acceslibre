@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-22113-01" codeInsee="22113" dateMiseAJour="2018-07-19"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Lannion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département de Lannion</Ligne>
+      <Ligne>Centre local d'information et de coordination ouest</Ligne>
+      <Ligne>13 boulevard Louis-Guilloux</Ligne>
+      <Ligne>CS 40728</Ligne>
+      <CodePostal>22304</CodePostal>
+      <NomCommune>Lannion Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.727607</Latitude>
+         <Longitude>-3.457347</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 04 01 61</Téléphone>
+      <Télécopie>02 96 04 01 05</Télécopie>
+      <Email>clic-lannion@cotesdarmor.fr</Email>
+      <Url>http://www.cotesdarmor.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil physique sur rendez-vous</Commentaire>
+</Organisme>

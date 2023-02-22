@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34052-01" codeInsee="34052" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Capestang</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Danton-Cabrol</Ligne>
+      <CodePostal>34310</CodePostal>
+      <NomCommune>Capestang</NomCommune>
+      <Localisation>
+         <Latitude>43.3283004761</Latitude>
+         <Longitude>3.04299998283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 49 85 95</Téléphone>
+      <Télécopie>04 67 93 38 62</Télécopie>
+      <Email>mairie@ville-capestang.fr</Email>
+      <Url>http://www.ville-capestang.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement pour les cartes d'identité et les passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

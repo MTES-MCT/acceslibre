@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-73181-01" codeInsee="73181" dateMiseAJour="2022-01-05" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises de Moûtiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>71, rue de Gascogne</Ligne>
+      <Ligne>BP 17</Ligne>
+      <CodePostal>73604</CodePostal>
+      <NomCommune>Moûtiers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.4844204</Latitude>
+         <Longitude>6.5263209</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 22 84 55</Téléphone>
+      <Email>sie.moutiers@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

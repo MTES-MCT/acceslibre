@@ -1,5 +1,4 @@
-import nested_admin
-
+from admin_auto_filters.filters import AutocompleteFilterFactory
 from django import forms
 from django.conf import settings
 from django.contrib import admin
@@ -10,34 +9,29 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-
-from admin_auto_filters.filters import AutocompleteFilterFactory
+from import_export.admin import ExportMixin
 from reversion.admin import VersionAdmin
 
-from erp.provider.departements import DEPARTEMENTS
-from erp.forms import (
-    AdminActiviteForm,
-    AdminAccessibiliteForm,
-    AdminCommuneForm,
-    AdminErpForm,
-)
+from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneForm, AdminErpForm
+from erp.resources import ErpAdminResource
 
-from .models import (
-    Accessibilite,
-    Activite,
-    Commune,
-    Erp,
-    Vote,
-)
 from . import schema
+from .models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 
 
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
     form = AdminActiviteForm
-    list_display = ("icon_img", "nom", "erp_count", "created_at", "updated_at")
+    list_display = (
+        "icon_img",
+        "nom",
+        "position",
+        "erp_count",
+        "created_at",
+        "updated_at",
+    )
     list_display_links = ("nom",)
-    ordering = ("nom",)
+    ordering = ("position",)
     search_fields = ("nom",)
 
     def get_queryset(self, request):
@@ -55,6 +49,21 @@ class ActiviteAdmin(admin.ModelAdmin):
         return mark_safe(
             f'<img src="/static/img/mapicons.svg#{icon}" style="width:16px;height:16px;background:#075ea2;padding:3px;border-radius:25%">'
         )
+
+
+@admin.register(ActivitySuggestion)
+class ActivitySuggestionAdmin(admin.ModelAdmin):
+    title = "Suggestions d'activités"
+    list_display = (
+        "name",
+        "mapped_activity",
+    )
+    readonly_fields = ("erp", "name", "user")
+    list_filter = (("mapped_activity", admin.EmptyFieldListFilter), "erp__published")
+    search_fields = ("name",)
+
+    def has_add_permission(self, request, obj=None):
+        return False
 
 
 class HavingErpsFilter(admin.SimpleListFilter):
@@ -81,10 +90,7 @@ class DepartementFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         values = Commune.objects.distinct("departement").order_by("departement")
-        return (
-            (v.departement, f"{v.departement} - {DEPARTEMENTS[v.departement]['nom']}")
-            for v in values
-        )
+        return ((v.departement, f"{v.departement}") for v in values)
 
     def queryset(self, request, queryset):
         if self.value() is None:
@@ -141,10 +147,15 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     voir_les_erps.short_description = "Action"
 
 
-class AccessibiliteInline(nested_admin.NestedStackedInline):
+@admin.register(Accessibilite)
+class AccessibiliteAdmin(VersionAdmin):
     model = Accessibilite
     form = AdminAccessibiliteForm
-    fieldsets = schema.get_admin_fieldsets()
+    readonly_fields = (
+        "erp",
+        "completion_rate",
+    )
+    fieldsets = [("ERP", {"fields": ["erp"]})] + schema.get_admin_fieldsets()
 
 
 class ErpOnlineFilter(admin.SimpleListFilter):
@@ -178,11 +189,14 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
 
 
 @admin.register(Erp)
-class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
+class ErpAdmin(
+    ExportMixin,
+    OSMGeoAdmin,
+    VersionAdmin,
+):
     form = AdminErpForm
-
+    resource_class = ErpAdminResource
     actions = ["assign_activite", "assign_user", "publish", "unpublish"]
-    inlines = [AccessibiliteInline]
     list_display = (
         "get_nom",
         "published",
@@ -191,6 +205,8 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         "user",
         "user_type",
         "source",
+        "source_id",
+        "asp_id",
         "created_at",
         "updated_at",
         "view_search",
@@ -228,13 +244,22 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         "user",
         "user_type",
     )
-    view_on_site = True
+
+    def view_on_site(self, obj):
+        # Do not use default `view_on_site` because it is based on Site model.
+        # As we frequently restore prod db on localhost without editing the Site,
+        # it is here to prevent from being redirected to prod from the localhost admin
+        return f"{settings.SITE_ROOT_URL}{obj.get_absolute_url()}"
+
+    readonly_fields = ["source_id", "asp_id", "commune_ext", "accessibilite"]
 
     fieldsets = [
         (
             None,
             {
                 "fields": [
+                    "source_id",
+                    "asp_id",
                     "activite",
                     "nom",
                     "siret",
@@ -253,7 +278,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
                     "lieu_dit",
                     "code_postal",
                     "commune",
-                    # "commune_ext", # note: this field is handled on model clean()
+                    "commune_ext",  # note: this field is handled on model clean()
                     "code_insee",
                     "geom",
                 ]
@@ -262,7 +287,13 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         (
             "Contact",
             {
-                "fields": ["telephone", "site_internet", "contact_email"],
+                "fields": ["telephone", "site_internet", "contact_email", "import_email"],
+            },
+        ),
+        (
+            "Données d'accessibilité",
+            {
+                "fields": ["accessibilite"],
             },
         ),
     ]
@@ -274,9 +305,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
                 f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} &raquo;'
             )
         edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
-        return mark_safe(
-            f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>'
-        )
+        return mark_safe(f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>')
 
     get_nom.short_description = "Établissement"
 
@@ -338,6 +367,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
             form.base_fields["activite"].widget.can_change_related = False
             form.base_fields["activite"].widget.can_delete_related = False
         if "user" in form.base_fields:
+            form.base_fields["user"].required = False
             form.base_fields["user"].widget.can_add_related = False
             form.base_fields["user"].widget.can_change_related = False
             form.base_fields["user"].widget.can_delete_related = False
@@ -397,9 +427,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
 
     def view_search(self, obj):
         terms = f"{obj.nom} {obj.voie} {obj.commune}"
-        return mark_safe(
-            f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>'
-        )
+        return mark_safe(f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>')
 
     view_search.short_description = ""
 
@@ -420,7 +448,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
-        # "__str__",
         "get_erp_nom",
         "get_erp_activite",
         "get_erp_commune",
@@ -457,9 +484,7 @@ class VoteAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.select_related("erp__activite", "user").prefetch_related(
-            "erp", "erp__commune_ext"
-        )
+        queryset = queryset.select_related("erp__activite", "user").prefetch_related("erp", "erp__commune_ext")
         return queryset
 
     def get_bool_vote(self, obj):

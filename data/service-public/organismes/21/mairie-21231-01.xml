@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21231-01" codeInsee="21231" dateMiseAJour="2021-10-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dijon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Libération</Ligne>
+      <Ligne>CS 73310</Ligne>
+      <CodePostal>21033</CodePostal>
+      <NomCommune>Dijon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.321028</Latitude>
+         <Longitude>5.041266</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 74 51 51</Téléphone>
+      <Email>contact@ville-dijon.fr</Email>
+      <Url>https://www.dijon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="13:30:00"/>
+         <Note>uniquement en mairie centrale</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil principal (passage du Logis du Roy) :
+du lundi au vendredi de 8h30 à 12h00 et de 13h30 à 17h30, le samedi de 9h00
+à 12h00 et de 13h30 à 17h30. Service des cartes d'identités - passeports uniquement sur rendez-vous</Commentaire>
+</Organisme>

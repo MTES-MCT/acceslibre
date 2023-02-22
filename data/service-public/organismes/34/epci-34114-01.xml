@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-34114-01" codeInsee="34114" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Vallée de l'Hérault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 parc d'activités de Camalcé</Ligne>
+      <Ligne>BP 15</Ligne>
+      <CodePostal>34150</CodePostal>
+      <NomCommune>Gignac</NomCommune>
+      <Localisation>
+         <Latitude>43.6536729</Latitude>
+         <Longitude>3.5514502</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 57 04 50</Téléphone>
+      <Télécopie>04 67 57 04 51</Télécopie>
+      <Email>contact@cc-vallee-herault.fr</Email>
+      <Url>http://www.cc-vallee-herault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

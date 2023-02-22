@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62616-01" codeInsee="62616" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nœux-lès-Auxi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place de la Mairie</Ligne>
+      <CodePostal>62390</CodePostal>
+      <NomCommune>Nœux-lès-Auxi</NomCommune>
+      <Localisation>
+         <Latitude>50.234500885</Latitude>
+         <Longitude>2.17504000664</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par la cour de l'école qui rejoint l'entrée de la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 04 02 66</Téléphone>
+      <Télécopie>03 21 04 02 66</Télécopie>
+      <Email>mairie.noeuxlesauxi@wanadoo.fr</Email>
+      <Url>http://www.noeux-les-auxi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

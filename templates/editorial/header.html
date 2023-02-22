@@ -1,32 +1,51 @@
 {% load static %}
 
-<header role="banner" class="container-fluid p-0 m-0" style="border-bottom: 1px solid #ccc">
-  <div class="container py-3">
-    <nav class="row">
-      <div class="col-md-5 col-lg-6 col-xl-7 my-1">
-        <h1 class="h3 m-0 p-0">
-          <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}">
-            <img src="{% static "img/logo-acceslibre.svg" %}" alt="Accès Libre, République Française" height="75">
-          </a>
-        </h1>
-      </div>
-      <div class="col-md-7 col-lg-6 col-xl-5 my-1 d-flex justify-content-end align-items-center">
-        {% if user.is_authenticated %}
-          <span>
-            <span class="d-none d-sm-inline-block">Bonjour</span>
-            <strong>{{ user.username }}</strong>
-          </span>
-          <a class="btn btn-link mx-1" href="{% url "mon_compte" %}">
-            Mon compte
-          </a>
-          <a class="btn btn-light" href="{% url "logout" %}">Déconnexion</a>
-        {% else %}
-          <div class="text-right">
-            <a class="btn btn-link" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
-            <a class="btn btn-primary" href="{% url "django_registration_register" %}">Créez un compte</a>
-          </div>
-        {% endif %}
-      </div>
-    </nav>
-  </div>
+<header role="banner" class="fr-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}" style="margin-bottom: 10px;">
+                              <img src="{% static "img/logo-acceslibre.svg" %}" alt="acceslibre, République Française" height="75">
+                            </a>
+                            <a class="skippy sr-only sr-only-focusable" href="#content" style="position:relative !important">
+                              <span class="skippy-text">Aller au contenu principal</span>
+                            </a>
+                        </div>
+                        <div class="fr-header__navbar" style="justify-content: right;">
+                            <a href="{% url "mon_compte" %}" class="m-4" >
+                              <i aria-hidden="true" class="icon icon-unlock"></i> Mon compte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-header__tools">
+                    <div class="fr-header__tools-links">
+                      <ul class="fr-links-group">
+                        {% if user.is_authenticated %}
+                            <li>
+                                Bonjour <strong>{{ user.username }}</strong>
+                            </li>
+                        {% endif %}
+                          <li>
+                              <a class="fr-link fr-fi-search-line" href="/#block_search_form">Rechercher</a>
+                          </li>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a class="fr-link fr-fi-lock-line" href="{% url "mon_compte" %}?next={{ request.path }}">Mon compte</a>
+                            </li>
+                        {% else %}
+                            <li>
+                              <a class="fr-link fr-fi-lock-line" href="{% url "login" %}?next={{ request.path }}">Se connecter</a>
+                          </li>
+                        {% endif %}
+
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>

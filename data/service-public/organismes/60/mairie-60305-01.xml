@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60305-01" codeInsee="60305" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hautefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Chelles</Ligne>
+      <CodePostal>60350</CodePostal>
+      <NomCommune>Hautefontaine</NomCommune>
+      <Localisation>
+         <Latitude>49.3834991455</Latitude>
+         <Longitude>3.03962993622</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 42 90 99</Téléphone>
+      <Télécopie>03 44 42 90 99</Télécopie>
+      <Email>mairie-de-hautefontaine@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

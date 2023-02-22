@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maia-89024-01" codeInsee="89024" dateMiseAJour="2013-11-27"
+           pivotLocal="maia">
+   <Nom>Mission d'accueil et d'information des associations (MAIA) - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale et de la protection des populations</Ligne>
+      <Ligne>3, rue Jehan-Pinard</Ligne>
+      <Ligne>BP 19</Ligne>
+      <CodePostal>89010</CodePostal>
+      <NomCommune>Auxerre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.7927131</Latitude>
+         <Longitude>3.5725621</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 72 69 00</Téléphone>
+      <Télécopie>03 86 72 69 71</Télécopie>
+      <Email>ddcspp-associations@yonne.gouv.fr</Email>
+      <Url>http://www.associations.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

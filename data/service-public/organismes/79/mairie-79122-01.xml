@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79122-01" codeInsee="79122" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontenille-Saint-Martin-d'Entraigues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 route de Niort</Ligne>
+      <CodePostal>79110</CodePostal>
+      <NomCommune>Fontenille-St-Martin-Entraigues</NomCommune>
+      <Localisation>
+         <Latitude>46.1206550598</Latitude>
+         <Longitude>-0.132109001279</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 29 75 85</Téléphone>
+      <Email>mairie-fontenille@paysmellois.org</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil fermé du 9 au 20 août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

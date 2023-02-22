@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="31555" dateMiseAJour="2021-12-14" id="bav-31555-01" idPresta="4d5e775f2935941fe9000048" pivotLocal="bav">
+    <Nom>Bureau d'aide aux victimes du tribunal judiciaire de Toulouse</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 ALLEE JULES GUESDE</Ligne>
+        <Ligne>BP 7015</Ligne>
+        <CodePostal>31068</CodePostal>
+        <NomCommune>TOULOUSE CEDEX 7</NomCommune>
+        <Localisation>
+            <Latitude>43.594266</Latitude>
+            <Longitude>1.447969</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 61 33 70 70</Téléphone>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dreal_ut-35238-01" codeInsee="35238" dateMiseAJour="2018-05-25"
+           pivotLocal="dreal_ut">
+   <Nom>Direction régionale de l'environnement, de l'aménagement et du logement (DREAL) - Bretagne - Unité départementale Ille-et-Vilaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Maurice-Fabre</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+      <Localisation>
+         <Latitude>48.117657</Latitude>
+         <Longitude>-1.716807</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 33 45 55</Téléphone>
+      <Télécopie>02 99 33 44 33</Télécopie>
+      <Email>ud35.dreal-bretagne@developpement-durable.gouv.fr</Email>
+      <Url>http://www.bretagne.developpement-durable.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

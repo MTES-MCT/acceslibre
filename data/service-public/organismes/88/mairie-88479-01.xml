@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88479-01" codeInsee="88479" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trémonzey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 place du Centre</Ligne>
+      <CodePostal>88240</CodePostal>
+      <NomCommune>Trémonzey</NomCommune>
+      <Localisation>
+         <Latitude>47.972983</Latitude>
+         <Longitude>6.2377229</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 36 34 42</Téléphone>
+      <Télécopie>03 29 36 32 23</Télécopie>
+      <Email>mairie.tremonzey@akeonet.com</Email>
+      <Url>http://www.tremonzey.jimdo.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

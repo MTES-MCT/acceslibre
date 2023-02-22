@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52130-01" codeInsee="52130" dateMiseAJour="2021-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cirfontaines-en-Azois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>52370</CodePostal>
+      <NomCommune>Cirfontaines-en-Azois</NomCommune>
+      <Localisation>
+         <Latitude>48.110322</Latitude>
+         <Longitude>4.872601</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 83 01 93 75</Téléphone>
+      <Email>mairie-cirfontaines-en-azois@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-80001-01" codeInsee="80001" dateMiseAJour="2021-11-25"
+           pivotLocal="greta">
+   <Nom>Greta Somme - Agence d'Abbeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée Boucher de Perthes</Ligne>
+      <Ligne>1 rue Paul Delique</Ligne>
+      <CodePostal>80100</CodePostal>
+      <NomCommune>Abbeville</NomCommune>
+      <Localisation>
+         <Latitude>50.102649</Latitude>
+         <Longitude>1.84372</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 25 41 01</Téléphone>
+      <Email>greta.somme@ac-amiens.fr</Email>
+      <Url>https://greta.ac-amiens.fr/somme/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

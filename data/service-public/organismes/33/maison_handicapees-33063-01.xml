@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-33063-01" codeInsee="33063" dateMiseAJour="2021-08-06"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Gironde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 51914</Ligne>
+      <Ligne>Esplanade Charles de Gaulle</Ligne>
+      <Ligne>MDPH 33</Ligne>
+      <CodePostal>33074</CodePostal>
+      <NomCommune>Bordeaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.837518</Latitude>
+         <Longitude>-0.58375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="du lundi au jeudi de 9h00 à 17h15 et Vendredi: de 9h00 à 13h30">05 56 99 66 99</Téléphone>
+      <Email>accueil-autonomie@gironde.fr</Email>
+      <Url>http://www.mdph33.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:15:00"/>
+         <Note>Uniquement pour les résidents Bordelais (pas les personnes issues de la Métropole)</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

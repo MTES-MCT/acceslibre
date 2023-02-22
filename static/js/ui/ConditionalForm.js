@@ -26,7 +26,7 @@ const rules = [
     source: "cheminement_ext_presence",
     values: ["True"],
     targets: [
-      "cheminement_ext_terrain_accidente",
+      "cheminement_ext_terrain_stable",
       "cheminement_ext_plain_pied",
       "cheminement_ext_nombre_marches",
       "cheminement_ext_reperage_marches",
@@ -101,6 +101,12 @@ const rules = [
   },
 
   // Accueil
+  {
+    source: "accueil_audiodescription_presence",
+    values: ["True"],
+    targets: ["accueil_audiodescription"],
+    indent: 1,
+  },
   {
     source: "accueil_equipements_malentendants_presence",
     values: ["True"],
@@ -198,9 +204,11 @@ function processTargets(root, rule, value) {
     }
     if (rule.values.indexOf(value) !== -1) {
       el.classList.add("indented" + rule.indent);
+      el.setAttribute("aria-label", el.children[0].children[0].innerHTML);
       el.classList.remove("hidden");
     } else {
       el.classList.add("hidden");
+      el.removeAttribute("aria-label");
       resetField(el);
     }
   });

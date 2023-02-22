@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54557-02" codeInsee="54557" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Sexey-les-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sexey-les-Bois</Ligne>
+      <Ligne>50 Grande rue</Ligne>
+      <CodePostal>54840</CodePostal>
+      <NomCommune>Bois-de-Haye</NomCommune>
+      <Localisation>
+         <Latitude>48.7513008118</Latitude>
+         <Longitude>6.06281995773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 23 22 29</Téléphone>
+      <Email>mairie.sexey-les-bois@orange.fr</Email>
+      <Url>http://www.sexeylesbois.mairie.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

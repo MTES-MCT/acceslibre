@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54378-01" codeInsee="54378" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigny-sur-Chiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Albert-Iehlen</Ligne>
+      <CodePostal>54870</CodePostal>
+      <NomCommune>Montigny-sur-Chiers</NomCommune>
+      <Localisation>
+         <Latitude>49.4785003662</Latitude>
+         <Longitude>5.66901016235</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 44 92 06</Téléphone>
+      <Email>mairie.montigny-chiers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires, pendant la crise sanitaire contact par mail ou téléphone de préférence.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

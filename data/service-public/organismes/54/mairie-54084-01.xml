@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54084-01" codeInsee="54084" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mont-Bonvillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la République</Ligne>
+      <CodePostal>54111</CodePostal>
+      <NomCommune>Mont-Bonvillers</NomCommune>
+      <Localisation>
+         <Latitude>49.327999115</Latitude>
+         <Longitude>5.8338599205</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 21 80 09</Téléphone>
+      <Email>mairie.mt.bon@ozone.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Fermeture le mercredi après-midi en semaine paire.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Fermeture le mercredi après-midi et le samedi en semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

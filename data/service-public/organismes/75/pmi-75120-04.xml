@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-75120-04" codeInsee="75120" dateMiseAJour="2021-10-27" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Paris 20e arrondissement - Haxo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>93 rue Haxo</Ligne>
+      <CodePostal>75020</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.8749539</Latitude>
+         <Longitude>2.4029659</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et sonnette si besoin</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 43 61 56 47</Téléphone>
+      <Email>pi.paris20@croix-rouge.fr</Email>
+      <Url>https://www.paris.fr/pages/sante-de-l-enfant-2298</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

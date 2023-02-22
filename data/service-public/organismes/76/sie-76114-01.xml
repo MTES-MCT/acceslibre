@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-76114-01" codeInsee="76114" dateMiseAJour="2021-12-13" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Bolbec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>412 avenue du Maréchal-Joffre</Ligne>
+      <Ligne>BP 70063</Ligne>
+      <CodePostal>76210</CodePostal>
+      <NomCommune>Bolbec</NomCommune>
+      <Localisation>
+         <Latitude>49.5698099</Latitude>
+         <Longitude>0.4837896</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 84 10 88</Téléphone>
+      <Email>sie.bolbec@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>L'ouverture au public se fait seulement sur rendez-vous. Professionnels, la réception se fait uniquement sur rendez-vous. Pensez à prendre rendez-vous sur impots.gouv.fr, rubrique "Contact", ou par téléphone.</Commentaire>
+</Organisme>

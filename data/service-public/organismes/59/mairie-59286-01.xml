@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59286-01" codeInsee="59286" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Haubourdin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Sadi-Carnot</Ligne>
+      <Ligne>CS 70159</Ligne>
+      <CodePostal>59482</CodePostal>
+      <NomCommune>Haubourdin Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.6106872559</Latitude>
+         <Longitude>2.98306798935</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 44 02 90</Téléphone>
+      <Télécopie>03 20 44 02 50</Télécopie>
+      <Email>mairie@haubourdin.fr</Email>
+      <Url>http://www.haubourdin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires de 9h à 12h et de 13h30 à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31270-01" codeInsee="31270" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Landorthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Maurice-Romain</Ligne>
+      <CodePostal>31800</CodePostal>
+      <NomCommune>Landorthe</NomCommune>
+      <Localisation>
+         <Latitude>43.1322288513</Latitude>
+         <Longitude>0.781544983387</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 89 07 19</Téléphone>
+      <Télécopie>05 61 89 02 56</Télécopie>
+      <Email>contactmairie@landorthe.com</Email>
+      <Url>http://www.mairie-landorthe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Permanence des élus tous les matins.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

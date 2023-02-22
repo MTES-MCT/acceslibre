@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-68162-01" codeInsee="68162" dateMiseAJour="2021-09-30"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Kaysersberg Vignoble</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Saint-Jacques</Ligne>
+      <Ligne>Sigolsheim</Ligne>
+      <CodePostal>68240</CodePostal>
+      <NomCommune>Kaysersberg Vignoble</NomCommune>
+      <Localisation>
+         <Latitude>48.13671</Latitude>
+         <Longitude>7.297803</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 78 24 32</Téléphone>
+      <Email>sgc.kaysersberg-vignoble@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="27056" dateMiseAJour="2021-12-14" id="prudhommes-27056-01" idPresta="4cac9ed6293594648a00ed63" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bernay</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE GUSTAVE HEON</Ligne>
+        <CodePostal>27307</CodePostal>
+        <NomCommune>BERNAY CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.089424</Latitude>
+            <Longitude>0.597734</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE GUSTAVE HEON</Ligne>
+        <CodePostal>27307</CodePostal>
+        <NomCommune>BERNAY CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 32 43 41 96</Téléphone>
+        <Télécopie>02 32 46 06 18</Télécopie>
+        <Email>mailto:cph-bernay@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-88468-01" codeInsee="88468" dateMiseAJour="2021-07-28"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie Le Thillot</Nom>
+   <EditeurSource>La direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 rue Charles de Gaulle</Ligne>
+      <Ligne>BP 49</Ligne>
+      <CodePostal>88162</CodePostal>
+      <NomCommune>Le Thillot Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.87845</Latitude>
+         <Longitude>6.76695</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 25 01 29</Téléphone>
+      <Email>t088041@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Avec ou sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47314-01" codeInsee="47314" dateMiseAJour="2021-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trémons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>910 route de Dausse</Ligne>
+      <CodePostal>47140</CodePostal>
+      <NomCommune>Trémons</NomCommune>
+      <Localisation>
+         <Latitude>44.410259</Latitude>
+         <Longitude>0.89958</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 41 26 93</Téléphone>
+      <Email>mairie.tremons@wanadoo.fr</Email>
+      <Url>https://mairie-tremons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

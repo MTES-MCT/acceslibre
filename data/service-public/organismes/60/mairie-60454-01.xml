@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60454-01" codeInsee="60454" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Neuville-en-Hez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du 8-Mai-1945</Ligne>
+      <CodePostal>60510</CodePostal>
+      <NomCommune>La Neuville-en-Hez</NomCommune>
+      <Localisation>
+         <Latitude>49.4031982422</Latitude>
+         <Longitude>2.32736992836</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 78 95 43</Téléphone>
+      <Télécopie>03 44 78 01 20</Télécopie>
+      <Email>mairie.laneuvilleenhez@wanadoo.fr</Email>
+      <Url>http://www.laneuvilleenhez.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

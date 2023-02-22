@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29089-01" codeInsee="29089" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Kergloff</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Saint-Trémeur</Ligne>
+      <CodePostal>29270</CodePostal>
+      <NomCommune>Kergloff</NomCommune>
+      <Localisation>
+         <Latitude>48.274536</Latitude>
+         <Longitude>-3.619251</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 93 40 43</Téléphone>
+      <Email>mairie@kergloff.fr</Email>
+      <Url>http://www.kergloff.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique lundi, mardi, jeudi et vendredi de 9h à 12h et de 13h30 à 16h30 et le mercredi de 9h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

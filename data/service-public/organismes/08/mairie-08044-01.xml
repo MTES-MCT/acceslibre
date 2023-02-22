@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08044-01" codeInsee="08044" dateMiseAJour="2019-07-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Balham</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 bis rue Dubois-Crancé</Ligne>
+      <CodePostal>08190</CodePostal>
+      <NomCommune>Balham</NomCommune>
+      <Localisation>
+         <Latitude>49.491421</Latitude>
+         <Longitude>4.160615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 57 79</Téléphone>
+      <Email>commune.de.balham@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

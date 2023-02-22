@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-80021-02" codeInsee="80021" dateMiseAJour="2021-01-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du Grand Amiens et Amendes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1-3 rue Pierre Rollin</Ligne>
+      <Ligne>CS 12301</Ligne>
+      <CodePostal>80023</CodePostal>
+      <NomCommune>Amiens Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.879527</Latitude>
+         <Longitude>2.312265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 46 83 83</Téléphone>
+      <Email>ddfip80.amiens.amendes@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr/tai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

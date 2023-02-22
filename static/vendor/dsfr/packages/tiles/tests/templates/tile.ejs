@@ -1,0 +1,37 @@
+<%#
+# paramètres tile
+
+* title (string, required) : titre
+
+* description (string, optionnal) : tuile description
+
+* horizontal (bool, optionnal) : tuile horizontale
+
+%>
+
+<%
+ let classes = locals.classes || [];
+
+ classes.push(prefix + '-tile');
+
+ if (locals.horizontal !== undefined) {
+   classes.push(prefix +'-tile--horizontal');
+ } else {
+   classes.push(prefix +'-tile--img');
+ }
+
+ %>
+
+<div <%- includeClasses(classes)%>>
+  <div class="<%= prefix %>-tile__img-wrap">
+    <div class="<%= prefix %>-tile__img">
+      <img src="https://place-hold.it/80" titre="test" alt="test"/>
+    </div>
+  </div>
+  <div class="<%= prefix %>-tile__body">
+    <h4 class="<%= prefix %>-tile__title"><a class="<%= prefix %>-tile__link" href><%- title %></a></h4>
+    <% if(locals.description !== undefined) { %>
+      <p class="<%= prefix %>-tile__desc"><%= description %></p>
+    <% } %>
+  </div>
+</div>

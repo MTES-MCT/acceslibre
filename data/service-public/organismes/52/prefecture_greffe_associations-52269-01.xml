@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-52269-01" codeInsee="52269"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Haute-Marne (Langres)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de lbétat</Ligne>
+      <Ligne>Sous-préfecture de Langres</Ligne>
+      <Ligne>8 rue Tassel</Ligne>
+      <Ligne>BP 219</Ligne>
+      <CodePostal>52208</CodePostal>
+      <NomCommune>Langres Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.8674905</Latitude>
+         <Longitude>5.3341106</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 87 07 57</Téléphone>
+      <Télécopie>03 25 87 93 34</Télécopie>
+      <Email>sous-prefecture-de-langres@haute-marne.gouv.fr</Email>
+      <Url>http://www.haute-marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-46042-01" codeInsee="46042"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Lot (Cahors)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Chapou</Ligne>
+      <CodePostal>46000</CodePostal>
+      <NomCommune>Cahors</NomCommune>
+      <Localisation>
+         <Latitude>44.451385</Latitude>
+         <Longitude>1.4389088</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur et plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 23 11 65</Téléphone>
+      <Email>christelle.raffy@lot.gouv.fr</Email>
+      <Url>http://www.lot.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:15:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

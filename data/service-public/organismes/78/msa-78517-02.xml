@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-78517-02" codeInsee="78517" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Île-de-France - accueil de Rambouillet - accueil pour les entreprises</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>92 rue d'Angiviller</Ligne>
+      <CodePostal>78120</CodePostal>
+      <NomCommune>Rambouillet</NomCommune>
+      <Localisation>
+         <Latitude>48.6432123</Latitude>
+         <Longitude>1.8289665</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Île-de-France</Ligne>
+      <Ligne>BP 137</Ligne>
+      <CodePostal>75664</CodePostal>
+      <NomCommune>Paris Cedex 14</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 63 88 90</Téléphone>
+      <Url>http://www.msa-idf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 8h30 à 12h30 et de 14h à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert exclusivement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

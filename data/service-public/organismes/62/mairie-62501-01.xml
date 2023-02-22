@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62501-01" codeInsee="62501" dateMiseAJour="2017-06-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lespinoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 route Nationale</Ligne>
+      <CodePostal>62990</CodePostal>
+      <NomCommune>Lespinoy</NomCommune>
+      <Localisation>
+         <Latitude>50.427147</Latitude>
+         <Longitude>1.878413</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 90 32 11</Téléphone>
+      <Télécopie>03 21 90 32 11</Télécopie>
+      <Email>lespinoy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

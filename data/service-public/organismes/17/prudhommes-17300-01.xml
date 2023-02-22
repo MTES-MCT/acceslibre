@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="17300" dateMiseAJour="2021-12-14" id="prudhommes-17300-01" idPresta="4cac9e5f293594648a00020d" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de La Rochelle</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE EUGENE THOMAS</Ligne>
+        <CodePostal>17011</CodePostal>
+        <NomCommune>LA ROCHELLE CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>46.156034</Latitude>
+            <Longitude>-1.145661</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE EUGENE THOMAS</Ligne>
+        <CodePostal>17011</CodePostal>
+        <NomCommune>LA ROCHELLE CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 46 41 21 16</Téléphone>
+        <Télécopie>05 46 41 41 86</Télécopie>
+        <Email>mailto:cph-la rochelle@justice.fr</Email>
+        <Url>http://www.prudhommes.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

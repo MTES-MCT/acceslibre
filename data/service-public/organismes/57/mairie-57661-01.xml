@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57661-01" codeInsee="57661" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sturzelbronn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de l'Abbaye</Ligne>
+      <CodePostal>57230</CodePostal>
+      <NomCommune>Sturzelbronn</NomCommune>
+      <Localisation>
+         <Latitude>49.0569136</Latitude>
+         <Longitude>7.5849978</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 72 29 01 51</Téléphone>
+      <Télécopie>03 72 29 32 70</Télécopie>
+      <Email>mairie.sturzelbronn@tubeo.eu</Email>
+      <Url>http://www.sturzelbronn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

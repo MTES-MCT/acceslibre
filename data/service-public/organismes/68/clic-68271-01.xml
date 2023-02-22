@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-68271-01" codeInsee="68271" dateMiseAJour="2020-01-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Riedisheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle gérontologique du conseil départemental</Ligne>
+      <Ligne>3 rue de l'École</Ligne>
+      <CodePostal>68400</CodePostal>
+      <NomCommune>Riedisheim</NomCommune>
+      <Localisation>
+         <Latitude>47.748827</Latitude>
+         <Longitude>7.368128</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">passage par le CCAS</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 65 04 95</Téléphone>
+      <Télécopie>03 89 65 92 89</Télécopie>
+      <Email>gerontoriedisheim@haut-rhin.fr</Email>
+      <Url>http://haut-rhin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique les après-midis de 13h30 à 17h sauf les lundis et jeudis.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

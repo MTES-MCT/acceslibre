@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-31454-01" codeInsee="31454" dateMiseAJour="2019-05-02"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Rieumes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Foirail</Ligne>
+      <CodePostal>31370</CodePostal>
+      <NomCommune>Rieumes</NomCommune>
+      <Localisation>
+         <Latitude>43.4132141</Latitude>
+         <Longitude>1.117508</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 91 84 78</Téléphone>
+      <Email>t031060@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>et sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

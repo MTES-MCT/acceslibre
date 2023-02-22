@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26061-01" codeInsee="26061" dateMiseAJour="2021-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bren</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Forge</Ligne>
+      <CodePostal>26260</CodePostal>
+      <NomCommune>Bren</NomCommune>
+      <Localisation>
+         <Latitude>45.135261</Latitude>
+         <Longitude>4.947985</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 45 10 69</Téléphone>
+      <Email>mairiedebren@orange.fr</Email>
+      <Url>http://www.mairie-bren.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

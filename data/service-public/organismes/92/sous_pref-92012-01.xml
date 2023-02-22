@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-92012-01" codeInsee="92012" dateMiseAJour="2021-12-28"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Boulogne-Billancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 bis rue Damiens</Ligne>
+      <CodePostal>92100</CodePostal>
+      <NomCommune>Boulogne-Billancourt</NomCommune>
+      <Localisation>
+         <Latitude>48.826212</Latitude>
+         <Longitude>2.244725</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 86 37 00</Téléphone>
+      <Télécopie>01 46 03 12 08</Télécopie>
+      <Email>sp-boulogne@hauts-de-seine.gouv.fr</Email>
+      <Url>http://www.hauts-de-seine.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

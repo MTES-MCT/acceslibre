@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42304-01" codeInsee="42304" dateMiseAJour="2020-05-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sury-le-Comtal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 47</Ligne>
+      <CodePostal>42450</CodePostal>
+      <NomCommune>Sury-le-Comtal</NomCommune>
+      <Localisation>
+         <Latitude>45.5373686</Latitude>
+         <Longitude>4.1828379</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 50 52 50</Téléphone>
+      <Télécopie>04 77 50 52 68</Télécopie>
+      <Email>accueil@ville-surylecomtal.fr</Email>
+      <Url>http://www.ville-surylecomtal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

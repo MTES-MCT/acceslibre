@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13074-01" codeInsee="13074" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Peyrolles-en-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>13860</CodePostal>
+      <NomCommune>Peyrolles-en-Provence</NomCommune>
+      <Localisation>
+         <Latitude>43.6463241577</Latitude>
+         <Longitude>5.58333778381</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 57 80 05</Téléphone>
+      <Télécopie>04 42 67 05 19</Télécopie>
+      <Email>contact@mairie-peyrollesenprovence.fr</Email>
+      <Url>http://www.peyrolles-en-provence.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

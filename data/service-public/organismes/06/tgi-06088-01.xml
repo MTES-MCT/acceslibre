@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="06088" dateMiseAJour="2021-12-14" id="tgi-06088-01" idPresta="4cac9e61293594648a00053e" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Nice</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS DE JUSTICE</Ligne>
+        <CodePostal>06357</CodePostal>
+        <NomCommune>NICE CEDEX 4</NomCommune>
+        <Localisation>
+            <Latitude>43.696596</Latitude>
+            <Longitude>7.273863</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS</Ligne>
+        <CodePostal>06357</CodePostal>
+        <NomCommune>NICE CEDEX 4</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 92 17 70 00</Téléphone>
+        <Télécopie>04 92 17 70 96</Télécopie>
+        <Email>mailto:accueil-nice@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06105-01" codeInsee="06105" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roquefort-les-Pins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Antoine-Merle</Ligne>
+      <CodePostal>06330</CodePostal>
+      <NomCommune>Roquefort-les-Pins</NomCommune>
+      <Localisation>
+         <Latitude>43.6658432</Latitude>
+         <Longitude>7.0508704</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 60 35 00</Téléphone>
+      <Télécopie>04 92 60 35 01</Télécopie>
+      <Email>mairie@ville-roquefort-les-pins.fr</Email>
+      <Url>http://www.ville-roquefort-les-pins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermeture des services les mardi et jeudi après-midis, permanence de l'accueil uniquement, pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58258-01" codeInsee="58258" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Ouen-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>80 route de Genève</Ligne>
+      <CodePostal>58160</CodePostal>
+      <NomCommune>Saint-Ouen-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>46.8916376</Latitude>
+         <Longitude>3.3025529</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 50 11 01</Téléphone>
+      <Télécopie>03 86 50 13 63</Télécopie>
+      <Email>mairie-st-ouen-sur-loire58@wanadoo.fr</Email>
+      <Url>http://www.saint-ouen-sur-loire.a3w.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,10 +1,9 @@
 import logging
-import requests
 
+import requests
 from django.contrib.gis.geos import Point
 
 from core.lib import geo
-
 
 logger = logging.getLogger(__name__)
 
@@ -27,9 +26,7 @@ def autocomplete(q, limit=1):
 
 def geocode(adresse, postcode=None, citycode=None):
     try:
-        data = query(
-            {"q": adresse, "postcode": postcode, "citycode": citycode, "limit": 1}
-        )
+        data = query({"q": adresse, "postcode": postcode, "citycode": citycode, "limit": 1})
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]
@@ -66,9 +63,7 @@ def query(params, timeout=8):
         res = requests.get(GEOCODER_URL, params, timeout=timeout)
         logger.info(f"Geocoder call: {res.url}")
         if res.status_code != 200:
-            raise RuntimeError(
-                f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse."
-            )
+            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse.")
         return res.json()
     except (requests.exceptions.RequestException, requests.exceptions.Timeout):
         raise RuntimeError("Serveur de géocodage indisponible.")

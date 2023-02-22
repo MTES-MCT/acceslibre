@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cidf-81004-01" codeInsee="81004" dateMiseAJour="2021-06-07"
+           pivotLocal="cidf">
+   <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Tarn - Castres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 rue Milhau-Ducommun</Ligne>
+      <CodePostal>81100</CodePostal>
+      <NomCommune>Castres</NomCommune>
+      <Localisation>
+         <Latitude>43.606214</Latitude>
+         <Longitude>2.241295</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 72 15 00</Téléphone>
+      <Télécopie>05 63 72 19 38</Télécopie>
+      <Email>cidffcastres@wanadoo.fr</Email>
+      <Url>http://www.cidff.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

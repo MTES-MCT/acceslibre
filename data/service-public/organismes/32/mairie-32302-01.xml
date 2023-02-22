@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32302-01" codeInsee="32302" dateMiseAJour="2020-11-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ornézan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Au Village</Ligne>
+      <CodePostal>32260</CodePostal>
+      <NomCommune>Ornézan</NomCommune>
+      <Localisation>
+         <Latitude>43.510286</Latitude>
+         <Longitude>0.601422</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 66 23 90</Téléphone>
+      <Email>mairie.ornezan@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Uniquement 3 semaines dans le mois.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Uniquement 3 semaines dans le mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

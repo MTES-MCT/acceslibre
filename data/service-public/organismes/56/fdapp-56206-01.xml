@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-56206-01" codeInsee="56206" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Morbihan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Marcel Dassault</Ligne>
+      <Ligne>BP 10079</Ligne>
+      <CodePostal>56892</CodePostal>
+      <NomCommune>Saint-Avé Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.6794629</Latitude>
+         <Longitude>-2.7349207</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 44 54 55</Téléphone>
+      <Email>acceuil@fedepeche56.com</Email>
+      <Url>http://morbihan.federationpeche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

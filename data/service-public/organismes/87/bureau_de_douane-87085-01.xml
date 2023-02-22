@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-87085-01" codeInsee="87085" dateMiseAJour="2019-01-14"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Limoges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>49 rue des Cambuses</Ligne>
+      <Ligne>ZI Nord</Ligne>
+      <CodePostal>87280</CodePostal>
+      <NomCommune>Limoges</NomCommune>
+      <Localisation>
+         <Latitude>45.889461</Latitude>
+         <Longitude>1.271607</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 51 73</Téléphone>
+      <Télécopie>05 55 77 83 20</Télécopie>
+      <Email>r-limoges@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-60159-01" codeInsee="60159" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Compiègne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale de la solidarité de Compiègne</Ligne>
+      <Ligne>8 bis rue Clément-Bayard</Ligne>
+      <CodePostal>60200</CodePostal>
+      <NomCommune>Compiègne</NomCommune>
+      <Localisation>
+         <Latitude>49.41053</Latitude>
+         <Longitude>2.804631</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 10 43 30</Téléphone>
+      <Télécopie>03 44 40 97 45</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

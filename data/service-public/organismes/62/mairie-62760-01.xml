@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62760-01" codeInsee="62760" dateMiseAJour="2020-06-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-d'Hardinghem</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de l'Église</Ligne>
+      <CodePostal>62560</CodePostal>
+      <NomCommune>Saint-Martin-d'Hardinghem</NomCommune>
+      <Localisation>
+         <Latitude>50.604645</Latitude>
+         <Longitude>2.09528</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 39 52 68</Téléphone>
+      <Email>mairiedesaintmartindhardinghem@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

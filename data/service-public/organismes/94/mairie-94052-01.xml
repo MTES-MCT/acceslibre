@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-94052-01" codeInsee="94052" dateMiseAJour="2019-12-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nogent-sur-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Roland-Nungesser</Ligne>
+      <CodePostal>94130</CodePostal>
+      <NomCommune>Nogent-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>48.8371009827</Latitude>
+         <Longitude>2.48797011375</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 43 24 62 00</Téléphone>
+      <Télécopie>01 43 24 33 91</Télécopie>
+      <Email>maire@ville-nogentsurmarne.fr</Email>
+      <Url>https://ville-nogentsurmarne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour les services des élections, de l'état civil et des affaires générales. Permanence pour les affaires de la famille le 1er samedi de chaque mois.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

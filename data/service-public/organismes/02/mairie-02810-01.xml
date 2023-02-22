@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02810-01" codeInsee="02810" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-Cotterêts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>02600</CodePostal>
+      <NomCommune>Villers-Cotterêts</NomCommune>
+      <Localisation>
+         <Latitude>49.254817</Latitude>
+         <Longitude>3.091451</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 96 55 00</Téléphone>
+      <Télécopie>03 23 96 06 25</Télécopie>
+      <Email>accueil-association@mairie-villerscotterets.fr</Email>
+      <Url>http://www.mairie-villerscotterets.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

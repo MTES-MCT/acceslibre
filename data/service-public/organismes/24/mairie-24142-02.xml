@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24142-02" codeInsee="24142" dateMiseAJour="2021-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mouzens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Coux et Bigaroque</Ligne>
+      <CodePostal>24220</CodePostal>
+      <NomCommune>Mouzens</NomCommune>
+      <Localisation>
+         <Latitude>44.844888</Latitude>
+         <Longitude>1.015069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 31 61 07</Téléphone>
+      <Télécopie>05 53 31 62 15</Télécopie>
+      <Email>contact@couxetbigaroque-mouzens.fr</Email>
+      <Url>https://www.couxetbigaroque-mouzens.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Et sur rendez-vous de 14 h à 17 h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Et sur rendez-vous le jeudi et vendredi de 14 h à 17 h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

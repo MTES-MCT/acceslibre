@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27589-01" codeInsee="27589" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pierre-de-Bailleul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de la Grâce</Ligne>
+      <CodePostal>27920</CodePostal>
+      <NomCommune>Saint-Pierre-de-Bailleul</NomCommune>
+      <Localisation>
+         <Latitude>49.1226005554</Latitude>
+         <Longitude>1.3905800581</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 52 52 19</Téléphone>
+      <Télécopie>02 32 53 51 24</Télécopie>
+      <Email>mairie.bailleul@wanadoo.fr</Email>
+      <Url>http://www.saint-pierre-de-bailleul.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil le mercredi, possibilité de prendre rendez-vous à d'autres horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

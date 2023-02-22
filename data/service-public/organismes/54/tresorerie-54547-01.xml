@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-54547-01" codeInsee="54547" dateMiseAJour="2021-09-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Vandœuvre-lès-Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Kehl</Ligne>
+      <Ligne>BP 50070</Ligne>
+      <CodePostal>54502</CodePostal>
+      <NomCommune>Vandoeuvre-lès-Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6613563</Latitude>
+         <Longitude>6.1770725</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 50 27 30</Téléphone>
+      <Email>t054028@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sauf le mercredi.
+Et sur rendez-vous les lundi, mardi et jeudi après-midi</Commentaire>
+</Organisme>

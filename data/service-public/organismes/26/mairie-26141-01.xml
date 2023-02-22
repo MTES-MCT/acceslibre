@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26141-01" codeInsee="26141" dateMiseAJour="2021-10-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gigors-et-Lozeron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hameau de Gigors</Ligne>
+      <Ligne>68 rue Bellevue</Ligne>
+      <CodePostal>26400</CodePostal>
+      <NomCommune>Gigors-et-Lozeron</NomCommune>
+      <Localisation>
+         <Latitude>44.7644004822</Latitude>
+         <Longitude>5.07921981812</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 76 41 39</Téléphone>
+      <Email>mairie.gigorsetlozeron@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

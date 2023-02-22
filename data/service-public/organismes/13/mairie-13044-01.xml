@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13044-01" codeInsee="13044" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Victor-Jauffret</Ligne>
+      <CodePostal>13450</CodePostal>
+      <NomCommune>Grans</NomCommune>
+      <Localisation>
+         <Latitude>43.6091995239</Latitude>
+         <Longitude>5.06517982483</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 55 99 70</Téléphone>
+      <Télécopie>04 90 55 86 27</Télécopie>
+      <Email>accueil@grans.fr</Email>
+      <Url>http://www.grans.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence uniquement un samedi par mois, indication sur le site internet.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

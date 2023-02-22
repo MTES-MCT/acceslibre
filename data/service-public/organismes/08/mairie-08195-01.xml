@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08195-01" codeInsee="08195" dateMiseAJour="2019-01-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gomont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André-Charlier</Ligne>
+      <CodePostal>08190</CodePostal>
+      <NomCommune>Gomont</NomCommune>
+      <Localisation>
+         <Latitude>49.49987</Latitude>
+         <Longitude>4.161159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 76 64</Téléphone>
+      <Télécopie>03 24 72 76 64</Télécopie>
+      <Email>mairie.gomont@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

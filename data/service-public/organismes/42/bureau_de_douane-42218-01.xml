@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-42218-01" codeInsee="42218" dateMiseAJour="2019-01-09"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Saint-Etienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Necker</Ligne>
+      <Ligne>BP 657</Ligne>
+      <CodePostal>42042</CodePostal>
+      <NomCommune>Saint-Etienne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.453571</Latitude>
+         <Longitude>4.408316</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 28 75</Téléphone>
+      <Télécopie>04 77 47 61 87</Télécopie>
+      <Email>r-saint-etienne@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

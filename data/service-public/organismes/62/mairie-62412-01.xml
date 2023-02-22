@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62412-01" codeInsee="62412" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hardinghen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Église</Ligne>
+      <CodePostal>62132</CodePostal>
+      <NomCommune>Hardinghen</NomCommune>
+      <Localisation>
+         <Latitude>50.8004705</Latitude>
+         <Longitude>1.8209148</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 85 01 29</Téléphone>
+      <Télécopie>03 21 82 61 24</Télécopie>
+      <Email>mairie-hardinghem@nordnet.fr</Email>
+      <Url>http://www.hardinghen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

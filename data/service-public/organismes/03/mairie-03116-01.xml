@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03116-01" codeInsee="03116" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fourilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 passage de la Mairie</Ligne>
+      <CodePostal>03140</CodePostal>
+      <NomCommune>Fourilles</NomCommune>
+      <Localisation>
+         <Latitude>46.2196464539</Latitude>
+         <Longitude>3.22139906883</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 56 93 61</Téléphone>
+      <Télécopie>04 70 56 95 34</Télécopie>
+      <Email>mairiefourilles@orange.fr</Email>
+      <Url>http://www.fourilles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

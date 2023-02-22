@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.utils.safestring import mark_safe
 
 from erp.models import Erp
+
 from .models import Message
 
 
@@ -15,21 +16,23 @@ class ContactForm(forms.ModelForm):
             "updated_at",
             "sent_ok",
         )
+        widgets = {
+            "email": forms.TextInput(attrs={"autocomplete": "email"}),
+            "name": forms.TextInput(attrs={"autocomplete": "family-name"}),
+        }
 
     # hide relations
-    user = forms.ModelChoiceField(
-        queryset=get_user_model().objects, widget=forms.HiddenInput, required=False
-    )
-    erp = forms.ModelChoiceField(
-        queryset=Erp.objects, widget=forms.HiddenInput, required=False
-    )
+    user = forms.ModelChoiceField(queryset=get_user_model().objects, widget=forms.HiddenInput, required=False)
+    erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput, required=False)
+
+    email = forms.EmailField(error_messages={"invalid": "Format de l'email attendu : nom@domaine.tld"})
 
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
     robot = forms.BooleanField(
-        label="Je suis un robot",
-        help_text="Merci de décocher cette case pour envoyer votre message",
-        initial=True,
+        label="Je ne suis pas un robot",
+        help_text="Merci de cocher cette case pour envoyer votre message",
+        initial=False,
         required=False,
     )
 
@@ -40,7 +43,7 @@ class ContactForm(forms.ModelForm):
         # prefill initial form data
         user = request.user
         if user.is_authenticated:
-            initial["name"] = f"{user.first_name} {user.last_name}".strip()
+            initial["name"] = f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
             initial["email"] = user.email
             initial["user"] = user
 
@@ -50,8 +53,6 @@ class ContactForm(forms.ModelForm):
 
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
-        if robot is True:
-            raise ValidationError(
-                mark_safe("Décochez cette case pour soumettre le formulaire.")
-            )
+        if not robot:
+            raise ValidationError(mark_safe("Cochez cette case pour soumettre le formulaire."))
         return robot

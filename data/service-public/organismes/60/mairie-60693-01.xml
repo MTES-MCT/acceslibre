@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60693-01" codeInsee="60693" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeselve</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>661 rue de l'Église</Ligne>
+      <CodePostal>60640</CodePostal>
+      <NomCommune>Villeselve</NomCommune>
+      <Localisation>
+         <Latitude>49.6977212</Latitude>
+         <Longitude>3.1117692</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 43 30 75</Téléphone>
+      <Télécopie>03 44 43 77 12</Télécopie>
+      <Email>villeselve.mairie@wanadoo.fr</Email>
+      <Url>http://www.villeselve.jimdo.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

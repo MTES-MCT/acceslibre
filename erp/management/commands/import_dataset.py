@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from core import mattermost
 from erp.imports import importer
 
 
@@ -13,6 +12,7 @@ class Command(BaseCommand):
             type=str,
             help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
         )
+
         parser.add_argument(
             "--verbose",
             action="store_true",
@@ -29,6 +29,14 @@ class Command(BaseCommand):
             results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "vaccination":
             results = importer.import_vaccination(verbose=verbose)
+        elif dataset == "nestenn":
+            results = importer.import_nestenn(verbose=verbose)
+        elif dataset == "generic":
+            results = importer.import_generic(
+                verbose=verbose,
+            )
+        elif dataset == "service_public":
+            results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
@@ -37,18 +45,8 @@ class Command(BaseCommand):
         if verbose:
             print(detailed_report + "\n\n" + summary)
 
-        mattermost.send(
-            summary,
-            attachements=[
-                {
-                    "pretext": "Détail des erreurs",
-                    "text": to_text_list(results["errors"])
-                    if results["errors"]
-                    else "Aucune erreur rencontrée",
-                }
-            ],
-            tags=[__name__],
-        )
+        print(summary)
+        print(to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée")
 
 
 def to_text_list(items):
@@ -70,7 +68,11 @@ def build_detailed_report(results):
 
 Erreurs rencontrées
 
-{to_text_list(results["errors"])}"""
+{to_text_list(results["errors"])}
+
+Activités non mappées
+
+{to_text_list(results["activites_not_found"])}"""
 
 
 def build_summary(dataset, results):
@@ -79,4 +81,5 @@ def build_summary(dataset, results):
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
 - Dépubliés: {len(results['unpublished'])}
-- Erreurs: {len(results['errors'])}"""
+- Erreurs: {len(results['errors'])}
+- Activités: {len(results['activites_not_found'])}"""

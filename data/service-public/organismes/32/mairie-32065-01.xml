@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32065-01" codeInsee="32065" dateMiseAJour="2021-08-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Brouilh-Monbert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Vivier</Ligne>
+      <CodePostal>32350</CodePostal>
+      <NomCommune>Le Brouilh-Monbert</NomCommune>
+      <Localisation>
+         <Latitude>43.665959</Latitude>
+         <Longitude>0.393196</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 64 61 35</Téléphone>
+      <Email>de-brouilh.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

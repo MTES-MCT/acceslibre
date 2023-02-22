@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-52265-01" codeInsee="52265" dateMiseAJour="2020-12-01"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Bayard-sur-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre commercial</Ligne>
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Rue de la Gare</Ligne>
+      <CodePostal>52170</CodePostal>
+      <NomCommune>Bayard-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>48.550857</Latitude>
+         <Longitude>5.074742</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 58 87 57</Téléphone>
+      <Email>msap.bayard-sur-marne@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

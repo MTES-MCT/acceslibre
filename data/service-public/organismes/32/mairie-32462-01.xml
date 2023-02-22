@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32462-01" codeInsee="32462" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vic-Fezensac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cours Delom</Ligne>
+      <CodePostal>32190</CodePostal>
+      <NomCommune>Vic-Fezensac</NomCommune>
+      <Localisation>
+         <Latitude>43.7582168</Latitude>
+         <Longitude>0.3035888</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 64 47 00</Téléphone>
+      <Télécopie>05 62 64 47 13</Télécopie>
+      <Email>mairie@ville-vicfezensac.fr</Email>
+      <Url>https://www.ville-vicfezensac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

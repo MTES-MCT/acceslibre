@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-71306-01" codeInsee="71306" dateMiseAJour="2021-12-31" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Montceau-les-Mines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 boulevard de Lattre-de-Tassigny</Ligne>
+      <Ligne>BP 194</Ligne>
+      <CodePostal>71307</CodePostal>
+      <NomCommune>Montceau-les-Mines</NomCommune>
+      <Localisation>
+         <Latitude>46.6764396</Latitude>
+         <Longitude>4.3711213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 67 42 00</Téléphone>
+      <Email>sie.montceau-les-mines@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>"Professionnels : accueil au service des impôts des entreprises uniquement sur rendez-vous, pensez à prendre RDV sur impots.gouv.fr, rubrique "contact" ou par téléphone."</Commentaire>
+</Organisme>

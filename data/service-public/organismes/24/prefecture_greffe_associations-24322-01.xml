@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-24322-01" codeInsee="24322"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Dordogne (Périgueux)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture</Ligne>
+      <Ligne>DDCSPP de la Dordogne</Ligne>
+      <Ligne>Service jeunesse sport et vie associative</Ligne>
+      <Ligne>Cité administrative-Bât.H</Ligne>
+      <CodePostal>24024</CodePostal>
+      <NomCommune>Périgueux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.180498</Latitude>
+         <Longitude>0.709478</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 03 66 35</Téléphone>
+      <Télécopie>05 53 08 00 73</Télécopie>
+      <Email>ddcspp@dordogne.gouv.fr</Email>
+      <Url>http://www.dordogne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

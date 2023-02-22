@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62734-01" codeInsee="62734" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sailly-en-Ostrevent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Pont</Ligne>
+      <CodePostal>62490</CodePostal>
+      <NomCommune>Sailly-en-Ostrevent</NomCommune>
+      <Localisation>
+         <Latitude>50.3258018494</Latitude>
+         <Longitude>2.98138999939</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 50 08 63</Téléphone>
+      <Télécopie>03 21 50 01 95</Télécopie>
+      <Email>mairie@saillyenostrevent.fr</Email>
+      <Url>http://www.saillyenostrevent.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,32 +1,42 @@
 import logging
-
+import os
 from datetime import datetime
 
-from django.db import DataError, DatabaseError, transaction
+from django.db import DatabaseError, DataError, transaction
 from django.db.transaction import TransactionManagementError
 
 from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
+from erp.imports.mapper.generic import GenericMapper
+from erp.imports.mapper.nestenn import NestennMapper
+from erp.imports.mapper.service_public import ServicePublicMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
-
 from erp.models import Accessibilite, Activite
 
-
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
-
 
 logger = logging.getLogger(__name__)
 
 
 class Importer:
-    def __init__(self, id, fetcher, mapper, activite=None, verbose=False, today=None):
+    def __init__(
+        self,
+        id,
+        fetcher,
+        mapper,
+        activite=None,
+        verbose=False,
+        today=None,
+        filepath=None,
+    ):
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
         self.activite = activite
         self.verbose = verbose
         self.today = today if today is not None else datetime.today()
+        self.filepath = filepath
 
     def print_char(self, msg):
         if self.verbose:
@@ -38,9 +48,15 @@ class Importer:
             "skipped": [],
             "unpublished": [],
             "errors": [],
+            "activites_not_found": [],
         }
-
-        for record in self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}"):
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", ".."))
+        resource_path = (
+            os.path.join(os.path.dirname(here), "data", self.filepath)
+            if self.filepath
+            else f"{ROOT_DATASETS_URL}/{self.id}"
+        )
+        for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
                 mapper = self.mapper(record, self.activite, self.today)
@@ -55,7 +71,7 @@ class Importer:
 
                     # Attach an Accessibilite to newly created Erps
                     if not erp.has_accessibilite():
-                        accessibilite = Accessibilite(erp=erp)
+                        accessibilite = Accessibilite(erp=erp, entree_porte_presence=True)
                         accessibilite.save()
                     else:
                         erp.accessibilite.save()
@@ -76,6 +92,10 @@ class Importer:
                 logger.error(f"Database error while importing dataset: {err}")
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
+            except Exception as e:
+
+                if str(e) not in results["activites_not_found"]:
+                    results["activites_not_found"].append(str(e))
 
         return results
 
@@ -101,5 +121,35 @@ def import_vaccination(verbose=False):
         fetcher.JsonFetcher(hook=lambda x: x["features"]),
         VaccinationMapper,
         Activite.objects.get(slug="centre-de-vaccination"),
+        verbose=verbose,
+    ).process()
+
+
+def import_nestenn(verbose=False):
+    return Importer(
+        "d0566522-604d-4af6-be44-a26eefa01756",
+        fetcher.CsvFileFetcher(delimiter=";"),
+        NestennMapper,
+        Activite.objects.get(slug="agence-immobiliere"),
+        verbose=verbose,
+        filepath="nestenn.csv",
+    ).process()
+
+
+def import_generic(verbose=False):
+    return Importer(
+        "d0566522-604d-4af6-be44-a26eefa01756",
+        fetcher.CsvFileFetcher(delimiter=";"),
+        GenericMapper,
+        verbose=verbose,
+        filepath="import_generic.csv",
+    ).process()
+
+
+def import_service_public(verbose=False):
+    return Importer(
+        "73302880-e4df-4d4c-8676-1a61bb997f3d",
+        fetcher.JsonCompressedFetcher(hook=lambda x: x["service"]),
+        ServicePublicMapper,
         verbose=verbose,
     ).process()

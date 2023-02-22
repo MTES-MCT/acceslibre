@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-30032-01" codeInsee="30032" dateMiseAJour="2021-04-01"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Beaucaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue de la Croix-Blanche</Ligne>
+      <Ligne>BP 65</Ligne>
+      <CodePostal>30301</CodePostal>
+      <NomCommune>Beaucaire Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.8083081</Latitude>
+         <Longitude>4.6291503</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 59 14 35</Téléphone>
+      <Télécopie>04 66 59 14 36</Télécopie>
+      <Email>t030005@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,14 +1,13 @@
 import logging
-
 from datetime import datetime
-from django.conf import settings
-from django.utils import timezone
-from django.core.management.base import BaseCommand
 
-from core import mailer, mattermost
+from django.conf import settings
+from django.core.management.base import BaseCommand
+from django.utils import timezone
+
+from core.mailer import get_mailer
 from erp import versioning
 from subscription.models import ErpSubscription
-
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +35,7 @@ class Command(BaseCommand):
 
     def send_notification(self, notification):
         recipient = notification["user"]
-        return mailer.send_email(
+        return get_mailer().send_email(
             [recipient.email],
             f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
             "mail/changed_erp_notification.txt",
@@ -55,12 +54,12 @@ class Command(BaseCommand):
             if not erp:
                 continue
             subscribers = [sub.user for sub in ErpSubscription.objects.subscribers(erp)]
-            if len(subscribers) == 0:
+            if not subscribers:
                 continue
             for user in subscribers:
                 # retrieve history for this erp, excluding current subscriber
                 changes_by_others = erp.get_history(exclude_changes_from=user)
-                if len(changes_by_others) == 0:
+                if not changes_by_others:
                     continue
                 # expose changes_by_others to be used in template
                 erp.changes_by_others = changes_by_others
@@ -77,13 +76,8 @@ class Command(BaseCommand):
         else:
             now = timezone.now()
         notifications = self.get_notifications(options["hours"], now=now).values()
-        total = len(notifications)
         sent_ok = 0
         for notification in notifications:
             sent_ok += 1 if self.send_notification(notification) else 0
-        if total > 0:
-            plural = "s" if total > 1 else ""
-            mattermost.send(
-                f"{sent_ok}/{total} notification{plural} de souscription envoyée{plural}",
-                tags=[__name__],
-            )
+        if notifications:
+            logger.info(f"[CRON] {sent_ok}/{len(notifications)} notification(s) de souscription envoyée(s)")

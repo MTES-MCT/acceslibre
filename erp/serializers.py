@@ -2,9 +2,7 @@ import base64
 import json
 import logging
 
-from django.contrib.gis.geos import Point
 from django.contrib.gis.serializers import geojson
-
 
 logger = logging.getLogger(__name__)
 
@@ -40,15 +38,22 @@ class SpecialErpSerializer(geojson.Serializer):
 
 def decode_provider_data(data):
     try:
-        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
-        if "coordonnees" in decoded:
-            decoded["geom"] = Point(decoded["coordonnees"])
+        if data:
+            decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+            del decoded["activite"]
+            if "coordonnees" in decoded:
+                decoded["lat"] = decoded["coordonnees"][1]
+                decoded["lon"] = decoded["coordonnees"][0]
+        else:
+            decoded = dict()
+            # On prend les coordonnées de la Défense en paramètre
+            decoded["lat"] = 48.892598
+            decoded["lon"] = 2.236112
+
         return decoded
     except Exception as err:
-        logger.error(f"decode_provider_data error: {err}")
-        raise RuntimeError(
-            "Impossible de décoder les informations du fournisseur de données"
-        )
+        logger.error("decode_provider_data error", err)
+        raise RuntimeError("Impossible de décoder les informations du fournisseur de données")
 
 
 def encode_provider_data(data):
@@ -58,6 +63,4 @@ def encode_provider_data(data):
         return base64.urlsafe_b64encode(json.dumps(data).encode()).decode("utf-8")
     except Exception as err:
         logger.error(f"encode_provider_data error: {err}")
-        raise RuntimeError(
-            "Impossible d'encoder les informations du fournisseur de données"
-        )
+        raise RuntimeError("Impossible d'encoder les informations du fournisseur de données")

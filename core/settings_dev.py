@@ -1,10 +1,9 @@
 # flake8: noqa
 from .settings import *
 
-
 DEBUG = True
 
-SITE_HOST = "localhost"
+SITE_HOST = "127.0.0.1"
 SITE_ROOT_URL = f"http://{SITE_HOST}:8000"
 
 ALLOWED_HOSTS = [
@@ -22,22 +21,8 @@ INSTALLED_APPS.append("debug_toolbar")
 
 MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
-    }
-}
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-#         "LOCATION": "cache_acceslibre",
-#     }
-# }
-
 TEMPLATES[0]["OPTIONS"]["debug"] = True
-TEMPLATES[0]["OPTIONS"]["context_processors"].insert(
-    0, "django.template.context_processors.debug"
-)
+TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context_processors.debug")
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
@@ -55,3 +40,12 @@ LOGGING = {
         "level": "INFO",
     },
 }
+
+
+SEND_IN_BLUE_TEMPLATE_IDS = {
+    "draft_deleted": 4,
+}
+
+
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_STORE_EAGER_RESULT = True

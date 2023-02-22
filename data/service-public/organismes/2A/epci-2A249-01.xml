@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-2A249-01" codeInsee="2A249" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Sartenais Valinco Taravo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des douaniers</Ligne>
+      <Ligne>BP 40</Ligne>
+      <CodePostal>20110</CodePostal>
+      <NomCommune>Propriano</NomCommune>
+      <Localisation>
+         <Latitude>41.6753257</Latitude>
+         <Longitude>8.8989865</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">uniquement au rez-de-chaussée, pas d'accès à l'étage</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 20 06 34</Téléphone>
+      <Télécopie>04 95 22 13 75</Télécopie>
+      <Email>contact@sartenaisvalinco.fr</Email>
+      <Url>http://sartenaisvalinco.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

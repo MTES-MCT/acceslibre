@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-16015-01" codeInsee="16015" dateMiseAJour="2019-04-19"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>43 boulevard du Docteur-Charles-Duroselle</Ligne>
+      <CodePostal>16000</CodePostal>
+      <NomCommune>Angoulème</NomCommune>
+      <Localisation>
+         <Latitude>45.645917</Latitude>
+         <Longitude>0.1637152</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 17 17 38 29</Téléphone>
+      <Email>ddt-anah@charente.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

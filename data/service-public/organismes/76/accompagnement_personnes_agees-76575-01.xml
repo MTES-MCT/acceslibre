@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-76575-01" codeInsee="76575"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Saint-Étienne-du-Rouvray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>EHPAD Michel-Grandpierre</Ligne>
+      <Ligne>1 bis avenue du Val-l'Abbé</Ligne>
+      <CodePostal>76800</CodePostal>
+      <NomCommune>Saint-Étienne-du-Rouvray</NomCommune>
+      <Localisation>
+         <Latitude>49.378106</Latitude>
+         <Longitude>1.101028</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 19 00 10</Téléphone>
+      <Télécopie>02 35 66 73 78</Télécopie>
+      <Email>grandpierre@mutuelle-mbv.fr</Email>
+      <Url>http://www.mutuelle-mbv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

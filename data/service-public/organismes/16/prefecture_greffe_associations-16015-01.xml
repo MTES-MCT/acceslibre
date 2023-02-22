@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-16015-01" codeInsee="16015"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Charente (Angoulême)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Direction départementale de la cohésion sociale et de la protection des populations</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Bâtiment A</Ligne>
+      <Ligne>Rue Raymond-Poincaré</Ligne>
+      <CodePostal>16000</CodePostal>
+      <NomCommune>Angoulème</NomCommune>
+      <Localisation>
+         <Latitude>45.6491546</Latitude>
+         <Longitude>0.1628209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>DDCSPP</Ligne>
+      <Ligne>4 rue Raymond-Poincaré</Ligne>
+      <Ligne>BP 71016</Ligne>
+      <CodePostal>16001</CodePostal>
+      <NomCommune>Angoulème Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 16 16 62 19</Téléphone>
+      <Télécopie>05 16 16 62 77</Télécopie>
+      <Email>ddcspp@charente.gouv.fr</Email>
+      <Url>http://www.charente.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

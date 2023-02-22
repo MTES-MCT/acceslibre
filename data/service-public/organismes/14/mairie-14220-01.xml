@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14220-01" codeInsee="14220" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Deauville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue Robert-Fossorier</Ligne>
+      <Ligne>BP 31600</Ligne>
+      <CodePostal>14800</CodePostal>
+      <NomCommune>Deauville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.3583984375</Latitude>
+         <Longitude>0.0755449980497</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 14 02 02</Téléphone>
+      <Email>mairie@deauville.fr</Email>
+      <Url>https://www.mairie-deauville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Fermeture des différents services à 17h, seul l'accueil est ouvert jusqu'à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

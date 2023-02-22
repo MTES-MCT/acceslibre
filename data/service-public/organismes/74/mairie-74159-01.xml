@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74159-01" codeInsee="74159" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Magland</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1021 rue Nationale</Ligne>
+      <Ligne>BP 14</Ligne>
+      <CodePostal>74308</CodePostal>
+      <NomCommune>Magland</NomCommune>
+      <Localisation>
+         <Latitude>46.0211139</Latitude>
+         <Longitude>6.6212335</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 89 48 10</Téléphone>
+      <Télécopie>04 50 89 48 19</Télécopie>
+      <Email>mairie@magland.fr</Email>
+      <Url>http://www.magland.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80295-01" codeInsee="80295" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Étinehem-Méricourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grande rue</Ligne>
+      <CodePostal>80340</CodePostal>
+      <NomCommune>Étinehem-Méricourt</NomCommune>
+      <Localisation>
+         <Latitude>49.9276657104</Latitude>
+         <Longitude>2.68990302086</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 76 02 75</Téléphone>
+      <Email>etinehem-mericourt@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+         <Note>Permanence d'Étinehem uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:15:00" fin="18:30:00"/>
+         <Note>Permanence de Méricourt uniquement, joignable au 03 22 76 14 64.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <Note>Permanence d'Étinehem uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <Note>Permanence d'Étinehem uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

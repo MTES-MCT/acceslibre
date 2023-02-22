@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-54431-01" codeInsee="54431" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) de Meurthe-et-Moselle - accueil de Pont-à-Mousson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>708 rue du Bois-le-Prêtre</Ligne>
+      <CodePostal>54700</CodePostal>
+      <NomCommune>Pont-à-Mousson</NomCommune>
+      <Localisation>
+         <Latitude>48.9120728</Latitude>
+         <Longitude>6.054868</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie de Meurthe-et-Moselle</Ligne>
+      <Ligne>9 boulevard Joffre</Ligne>
+      <Ligne>CS 10908</Ligne>
+      <CodePostal>54047</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique lundi au vendredi de 8h30 à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

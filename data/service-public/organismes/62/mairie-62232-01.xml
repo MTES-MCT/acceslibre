@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62232-01" codeInsee="62232" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Comté</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue du Moulin</Ligne>
+      <CodePostal>62150</CodePostal>
+      <NomCommune>La Comté</NomCommune>
+      <Localisation>
+         <Latitude>50.4274121</Latitude>
+         <Longitude>2.5031394</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 41 50 15</Téléphone>
+      <Email>mairiedelacomte@wanadoo.fr</Email>
+      <Url>https://www.mairie-lacomte.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

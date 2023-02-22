@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-86194-01" codeInsee="86194" dateMiseAJour="2021-11-25"
+           pivotLocal="greta">
+   <Nom>Greta Poitou Charentes - Agence de Poitiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue de la Fraternité</Ligne>
+      <CodePostal>86000</CodePostal>
+      <NomCommune>Poitiers</NomCommune>
+      <Localisation>
+         <Latitude>46.589418</Latitude>
+         <Longitude>0.383583</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 88 22 66</Téléphone>
+      <Email>commercial.greta.agence-poitiers@ac-poitiers.fr</Email>
+      <Url>http://www.greta-poitou-charentes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

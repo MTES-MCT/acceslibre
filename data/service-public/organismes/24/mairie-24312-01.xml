@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24312-01" codeInsee="24312" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sanilhac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Notre-Dame-de-Sanilhac</Ligne>
+      <Ligne>CS 10133</Ligne>
+      <CodePostal>24051</CodePostal>
+      <NomCommune>Périgueux Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>45.176229</Latitude>
+         <Longitude>0.725505</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 53 31 12</Téléphone>
+      <Télécopie>05 53 09 43 16</Télécopie>
+      <Email>mairie@ndsanilhac.fr</Email>
+      <Url>http://www.sanilhac-perigord.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

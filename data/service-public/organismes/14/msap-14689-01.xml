@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14689-01" codeInsee="14689" dateMiseAJour="2021-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Le Hom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point info 14</Ligne>
+      <Ligne>4 rue du Docteur-Gourdin</Ligne>
+      <CodePostal>14220</CodePostal>
+      <NomCommune>Le Hom</NomCommune>
+      <Localisation>
+         <Latitude>48.986688</Latitude>
+         <Longitude>-0.472799</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 79 27 77</Téléphone>
+      <Email>pointinfo14@cingal-suissenormande.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous le vendredi après-midi pour le service passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

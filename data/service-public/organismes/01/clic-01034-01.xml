@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-01034-01" codeInsee="01034" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Belley</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du Pays du Bugey</Ligne>
+      <Ligne>55 Grande rue</Ligne>
+      <Ligne>BP 77</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Belley</NomCommune>
+      <Localisation>
+         <Latitude>45.759372</Latitude>
+         <Longitude>5.689221</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 87 24 23</Téléphone>
+      <Email>clic@paysdubugey.fr</Email>
+      <Url>https://www.pour-les-personnes-agees.gouv.fr/qui-sadresser/points-dinformation-de-proximite/les-points-dinformation-locaux-dedies-aux-personnes</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

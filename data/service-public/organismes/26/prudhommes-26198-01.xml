@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="26198" dateMiseAJour="2021-12-14" id="prudhommes-26198-01" idPresta="4cac9e5f293594648a000229" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Montélimar</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE EMILE LOUBET</Ligne>
+        <CodePostal>26207</CodePostal>
+        <NomCommune>MONTELIMAR CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>44.557095</Latitude>
+            <Longitude>4.749479</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE EMILE LOUBET</Ligne>
+        <CodePostal>26207</CodePostal>
+        <NomCommune>MONTELIMAR CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 75 00 66 40</Téléphone>
+        <Télécopie>04 75 90 99 91</Télécopie>
+        <Email>mailto:cph-montelimar@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:15:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

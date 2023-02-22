@@ -11,7 +11,6 @@ def get_erp_counts_histogram():
             date,
             count(a.id) filter (
                 where e.created_at <= date + interval '1 day'
-                and e.geom is not null
                 and e.published
             ) as total
         from
@@ -30,7 +29,7 @@ def get_erp_counts_histogram():
     }
 
 
-def get_stats_territoires(sort="completude", max=10):
+def get_stats_territoires(sort="completude", max=50):
     sort_field = "erps_commune" if sort == "count" else "pourcentage_completude"
     return sql.run_sql(
         f"""--sql
@@ -44,9 +43,7 @@ def get_stats_territoires(sort="completude", max=10):
                         c.departement,
                         (c.population / 45) as total_erps_commune,
                         COUNT(e.id) filter (
-                            where e.geom is not null
-                            and e.published
-                            and a.id is not null
+                            where e.published
                         ) as erps_commune
                     from
                         erp_commune c
@@ -70,39 +67,33 @@ def get_stats_territoires(sort="completude", max=10):
 
 def get_count_active_contributors():
     """Retourne le nombre de contributeurs ayant apporté, modifié au moins une info publiée"""
-    return (
-        get_user_model()
-        .objects.filter(
-            Q(
-                erp__published=True,
-                erp__accessibilite__isnull=False,
-                erp__geom__isnull=False,
-            )
-        )
-        .distinct()
-        .count()
-    )
+    return get_user_model().objects.filter(erp__published=True).distinct().count()
 
 
 def get_top_contributors():
     return (
         get_user_model()
         .objects.annotate(
-            erp_count_published=Count(
-                "erp",
-                filter=Q(
-                    erp__published=True,
-                    erp__accessibilite__isnull=False,
-                    erp__geom__isnull=False,
-                ),
-                distinct=True,
-            ),
-            erp_count_total=Count(
-                "erp",
-                distinct=True,
-            ),
+            erp_count_published=Count("erp", filter=Q(erp__published=True), distinct=True),
+            erp_count_total=Count("erp", distinct=True),
         )
-        .filter(erp__accessibilite__isnull=False)
         .order_by("-erp_count_published")[:10]
         .values("username", "erp_count_published", "erp_count_total")
     )
+
+
+def get_count_challenge(start_date, stop_date, emails_players_list):
+    filters = Q(
+        erp__published=True,
+        erp__user__email__in=emails_players_list,
+        erp__created_at__gte=start_date,
+        erp__created_at__lt=stop_date,
+    )
+    challengers = get_user_model().objects.filter(email__in=emails_players_list)
+    top_contribs = (
+        challengers.annotate(erp_count_published=Count("erp", filter=filters, distinct=True))
+        .filter(erp_count_published__gt=0)
+        .order_by("-erp_count_published")
+    )
+    total_contributions = sum([c.erp_count_published for c in top_contribs])
+    return top_contribs, total_contributions

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78455-01" codeInsee="78455" dateMiseAJour="2021-08-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Noisy-le-Roi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 rue André-le-Bourblanc</Ligne>
+      <Ligne>CS 70032</Ligne>
+      <CodePostal>78592</CodePostal>
+      <NomCommune>Noisy-le-Roi Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.84400177</Latitude>
+         <Longitude>2.06461000443</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 80 08 30</Téléphone>
+      <Télécopie>01 34 62 02 74</Télécopie>
+      <Email>mairie@noisyleroi.fr</Email>
+      <Url>https://www.noisyleroi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

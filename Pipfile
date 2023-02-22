@@ -7,32 +7,33 @@ verify_ssl = true
 black = "*"
 flake8 = "*"
 ipdb = "*"
+pre-commit = "*"
 pylint = "*"
 pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
 pytest-circleci-parallelized = "*"
+django-debug-toolbar = "*"
+pytest-xdist = "*"
 
 [packages]
 coreapi = "*"
-Django = "==3.2.5"
+Django = "==3.2.18"
 django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
 django-better-admin-arrayfield = "*"
 django-cors-headers = "*"
-django-crispy-forms = "*"
-django-debug-toolbar = "*"
+django-crispy-forms = "==1.14.0"  # FIXME: not compatible with 2.0.0 TemplateNotFound launching tests
 django-extensions = "*"
 django-import-export = "*"
 django-logentry-admin = "*"
-django-nested-admin = "*"
 django-registration = "*"
 django-reset-migrations = "*"
 django-rest-framework = "*"
-django-reversion = "*"
-django-toolbelt = "*"
+django-reversion = "==5.0.4"
 djangorestframework-gis = "*"
-frictionless = "*"
+django-waffle = "*"
+frictionless = "==4.40.8"  # Tests are not compatible with 5.x.x versions
 fuzzywuzzy = "*"
 ipython = "*"
 Markdown = "*"
@@ -40,9 +41,6 @@ phonenumbers = "*"
 progress = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
-pydot = "*"
-Pygments = "*"
-pyparsing = "*"
 pytest-django = "*"
 python-levenshtein = "*"
 python-stdnum = "*"
@@ -50,11 +48,24 @@ PyYAML = "*"
 requests = "*"
 schedule = "*"
 sentry-sdk = "*"
-uritemplate = "*"
 uuid = "*"
+ijson = "*"
+gunicorn = "*"
+dj-database-url = "*"
+dj-static = "*"
+qrcode = "*"
+image = "*"
+redis = "*"
+sib-api-v3-sdk = "*"
+celery = "*"
+# NOTE: redis cache is built in in django4
+django-redis = "*"
+# END NOTE
+pandas = "*"
+django-maintenance-mode = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.10"   # can be upgraded to 3.11 once supported by scalingo https://doc.scalingo.com/languages/python/start#supported-versions
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases = false

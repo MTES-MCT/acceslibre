@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-76540-02" codeInsee="76540" dateMiseAJour="2021-02-12" pivotLocal="cio">
+   <Nom>Centre d'information et d'orientation (CIO) - Rouen Sud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>106 avenue de Bretagne</Ligne>
+      <CodePostal>76100</CodePostal>
+      <NomCommune>Rouen</NomCommune>
+      <Localisation>
+         <Latitude>49.4313688</Latitude>
+         <Longitude>1.0811074</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 08 98 20</Téléphone>
+      <Email>cio-rouen-sud@ac-rouen.fr</Email>
+      <Url>https://www.ac-normandie.fr/centre-d-information-et-d-orientation-de-rouen-sud-121623</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>En période de vacances scolaires : ouvert du lundi au vendredi de 9H30 à 12H30 et de 14H00 à 17H00</Commentaire>
+</Organisme>

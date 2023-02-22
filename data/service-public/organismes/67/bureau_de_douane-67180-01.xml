@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-67180-01" codeInsee="67180" dateMiseAJour="2020-12-07"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Haguenau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>90 route de Bischwiller</Ligne>
+      <Ligne>CS 90257</Ligne>
+      <CodePostal>67504</CodePostal>
+      <NomCommune>Hagueneau Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.800438</Latitude>
+         <Longitude>7.81372</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 81 80</Téléphone>
+      <Télécopie>03 88 93 28 99</Télécopie>
+      <Email>r-haguenau@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

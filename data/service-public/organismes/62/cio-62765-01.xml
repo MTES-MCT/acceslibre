@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-62765-01" codeInsee="62765" dateMiseAJour="2021-02-10" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Saint-Omer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de Longueville</Ligne>
+      <CodePostal>62500</CodePostal>
+      <NomCommune>Saint-Omer</NomCommune>
+      <Localisation>
+         <Latitude>50.7453849</Latitude>
+         <Longitude>2.2524541</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 38 07 64</Téléphone>
+      <Email>cio.saintomer@ac-lille.fr</Email>
+      <Url>http://www1.ac-lille.fr/cid85608/cio-saint-omer.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Hors période scolaire :
+
+Du lundi au vendredi de 9h00 à 12h00 et de 13h30 à 16h30</Commentaire>
+</Organisme>

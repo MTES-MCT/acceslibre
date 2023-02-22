@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27025-01" codeInsee="27025" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Autheuil-Authouillet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue Yves-Montand</Ligne>
+      <CodePostal>27490</CodePostal>
+      <NomCommune>Autheuil-Authouillet</NomCommune>
+      <Localisation>
+         <Latitude>49.0914993286</Latitude>
+         <Longitude>1.28623998165</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 34 67 64</Téléphone>
+      <Télécopie>02 32 34 67 39</Télécopie>
+      <Email>mairie-autheuil-authouillet@wanadoo.fr</Email>
+      <Url>http://www.autheuil-authouillet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

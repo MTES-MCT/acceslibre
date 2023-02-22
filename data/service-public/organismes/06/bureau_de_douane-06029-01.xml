@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-06029-01" codeInsee="06029" dateMiseAJour="2021-03-30"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Cannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 80047</Ligne>
+      <Ligne>Jetée Albert Edouard</Ligne>
+      <CodePostal>06414</CodePostal>
+      <NomCommune>Cannes</NomCommune>
+      <Localisation>
+         <Latitude>43.551316</Latitude>
+         <Longitude>7.016383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 88 45</Téléphone>
+      <Télécopie>04 93 39 22 07</Télécopie>
+      <Email>r-cannes@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

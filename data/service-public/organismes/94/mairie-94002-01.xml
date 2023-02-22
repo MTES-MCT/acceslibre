@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-94002-01" codeInsee="94002" dateMiseAJour="2022-01-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alfortville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place François-Mitterrand</Ligne>
+      <Ligne>BP 75</Ligne>
+      <CodePostal>94142</CodePostal>
+      <NomCommune>Alfortville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8054058</Latitude>
+         <Longitude>2.4195177</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 58 73 29 00</Téléphone>
+      <Télécopie>01 43 78 94 37</Télécopie>
+      <Url>http://www.alfortville.fr</Url>
+      <Sve>https://mon.alfortville.fr/saisine-electronique/</Sve>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Permanence des services de gestion relation usager et des affaires générales le jeudi de 17h30 à 19h30 hors congés scolaires et le samedi de 9h30 à 12h hors congés scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="15:30:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence des services à la population (hors vacances scolaires) :
+Le jeudi de 17h30 à 19h30
+Le samedi de 9h30 à 12h</Commentaire>
+</Organisme>

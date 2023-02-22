@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14342-03" codeInsee="14342" dateMiseAJour="2021-05-03"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Les Oubeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Oubeaux</Ligne>
+      <Ligne>503 rue du Guerrier</Ligne>
+      <CodePostal>14230</CodePostal>
+      <NomCommune>Isigny-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.287039</Latitude>
+         <Longitude>-1.067762</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 22 86 12</Téléphone>
+      <Email>mairie.lesoubeaux@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

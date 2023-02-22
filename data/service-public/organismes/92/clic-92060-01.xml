@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-92060-01" codeInsee="92060" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Le Plessis-Robinson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>Coordination gérontologique du Plessis-Robinson</Ligne>
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>92350</CodePostal>
+      <NomCommune>Le Plessis-Robinson</NomCommune>
+      <Localisation>
+         <Latitude>48.782325</Latitude>
+         <Longitude>2.262225</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 46 01 43 21</Téléphone>
+      <Email>ccas@plessis-robinson.com</Email>
+      <Url>http://www.plessis-robinson.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

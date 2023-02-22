@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89373-01" codeInsee="89373" dateMiseAJour="2017-04-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saligny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>61 Grande rue</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Saligny</NomCommune>
+      <Localisation>
+         <Latitude>48.214133</Latitude>
+         <Longitude>3.3518315</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 97 84 71</Téléphone>
+      <Télécopie>03 86 97 83 40</Télécopie>
+      <Email>salignymairie@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

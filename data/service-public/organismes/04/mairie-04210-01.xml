@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04210-01" codeInsee="04210" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Soleilhas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Clastre</Ligne>
+      <CodePostal>04120</CodePostal>
+      <NomCommune>Soleilhas</NomCommune>
+      <Localisation>
+         <Latitude>43.8569908142</Latitude>
+         <Longitude>6.64974308014</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 60 42 87</Téléphone>
+      <Email>contact@mairiesoleilhas.fr</Email>
+      <Url>http://www.soleilhas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

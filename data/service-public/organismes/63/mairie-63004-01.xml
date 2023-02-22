@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63004-01" codeInsee="63004" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Ancizes-Comps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue du Plan-d'Eau</Ligne>
+      <CodePostal>63770</CodePostal>
+      <NomCommune>Les Ancizes-Comps</NomCommune>
+      <Localisation>
+         <Latitude>45.9128032</Latitude>
+         <Longitude>2.7933211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 86 80 14</Téléphone>
+      <Télécopie>04 73 86 96 44</Télécopie>
+      <Email>mairie.ancizes@wanadoo.fr</Email>
+      <Url>http://www.ancizes-comps.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

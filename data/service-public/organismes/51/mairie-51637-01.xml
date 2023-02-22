@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51637-01" codeInsee="51637" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-sous-Châtillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Aristide-Briand</Ligne>
+      <CodePostal>51700</CodePostal>
+      <NomCommune>Villers-sous-Châtillon</NomCommune>
+      <Localisation>
+         <Latitude>49.0858001709</Latitude>
+         <Longitude>3.82953000069</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 58 33 04</Téléphone>
+      <Télécopie>03 26 59 07 61</Télécopie>
+      <Email>mairie.villers.sous.chatillon@wanadoo.fr</Email>
+      <Url>http://www.villerssouschatillon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

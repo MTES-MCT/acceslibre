@@ -1,8 +1,8 @@
 # flake8: noqa
 from .settings import *
 
-
 DEBUG = True
+TEST = True
 
 SITE_HOST = "localhost"
 SITE_ROOT_URL = f"http://testserver"
@@ -25,9 +25,10 @@ CACHES = {
 }
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
-TEMPLATES[0]["OPTIONS"]["context_processors"].insert(
-    0, "django.template.context_processors.debug"
-)
+TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context_processors.debug")
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
+
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_STORE_EAGER_RESULT = True

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-95428-01" codeInsee="95428" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Montmorency</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue des Moulins</Ligne>
+      <CodePostal>95160</CodePostal>
+      <NomCommune>Montmorency</NomCommune>
+      <Localisation>
+         <Latitude>48.990822</Latitude>
+         <Longitude>2.317383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 64 27 76</Téléphone>
+      <Email>sgc.montmorency@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Le lundi : Sur rendez-vous de 9h à 12h30 et de 13h30 à 16h. le mardi : Sans rendez-vous de 9h à 12h30 et sur rendez-vous de 13h30 à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Le mercredi: Uniquement sur rendez-vous de 9h à 12h30. Le jeudi : Sans rendez-vous de 9h à 12h30</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

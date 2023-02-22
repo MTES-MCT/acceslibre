@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-25056-01" codeInsee="25056" dateMiseAJour="2018-02-14"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Doubs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale des territoires</Ligne>
+      <Ligne>6 rue du Roussillon</Ligne>
+      <Ligne>BP 1169</Ligne>
+      <CodePostal>25003</CodePostal>
+      <NomCommune>Besançon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.2397447</Latitude>
+         <Longitude>6.0036412</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 65 62 62</Téléphone>
+      <Télécopie>03 81 65 62 01</Télécopie>
+      <Email>ddt-hcv@doubs.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:15:00" fin="11:15:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors des horaires d'ouverture.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

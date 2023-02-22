@@ -4,10 +4,11 @@
 /docs
 /graphs
 /*.csv
-/static/css/*.css
+/static/scss/*.css
 /staticfiles
 
 .cache/
+.parcel-cache/
 coverage/
 dist/*
 static/dist/
@@ -26,7 +27,13 @@ node_modules/
 ehthumbs.db
 Thumbs.db
 
-# Dump bdd
+# Dump db
 *.pgsql
 *.tar.gz
 *.tar
+dump.rdb
+
+# IDE
+.vscode
+
+core/maintenance_mode_state.txt

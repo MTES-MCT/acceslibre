@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-24520-01" codeInsee="24520" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Sarlat-la-Canéda</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département en sarladais</Ligne>
+      <Ligne>23 rue Jean-Leclaire</Ligne>
+      <Ligne>BP 91</Ligne>
+      <CodePostal>24203</CodePostal>
+      <NomCommune>Sarlat Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.8977781</Latitude>
+         <Longitude>1.2162808</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 02 07 77</Téléphone>
+      <Email>dgasp-utsarlat@dordogne.fr</Email>
+      <Url>http://www.dordogne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

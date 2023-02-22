@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-73248-01" codeInsee="73248" dateMiseAJour="2022-01-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Saint-Jean-de-Maurienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>422 rue de la République</Ligne>
+      <CodePostal>73300</CodePostal>
+      <NomCommune>Saint-Jean-de-Maurienne</NomCommune>
+      <Localisation>
+         <Latitude>45.274766</Latitude>
+         <Longitude>6.347057</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 83 25 50</Téléphone>
+      <Email>sip.st-jean-de-maurienne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous les Mercredi et Vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil sur RDV pour vos questions complexes sur impôts.gouv.fr rubrique « contact »</Commentaire>
+</Organisme>

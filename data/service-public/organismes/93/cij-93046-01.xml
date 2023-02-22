@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-93046-01" codeInsee="93046" dateMiseAJour="2020-11-03" pivotLocal="cij">
+   <Nom>Point information jeunesse - Livry-Gargan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2, avenue Winston-Churchill</Ligne>
+      <CodePostal>93190</CodePostal>
+      <NomCommune>Livry-Gargan</NomCommune>
+      <Localisation>
+         <Latitude>48.9169961</Latitude>
+         <Longitude>2.53249099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 70 18 20</Téléphone>
+      <Email>sai.cherifa@livry-gargan.fr</Email>
+      <Url>https://www.livry-gargan.fr/mes-demarches/developpement-economique-et-emploi/emploi-et-insertion-1359.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

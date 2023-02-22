@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-92012-01" codeInsee="92012" dateMiseAJour="2021-12-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Boulogne-Billancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>115 boulevard Jean-Jaurès</Ligne>
+      <CodePostal>92104</CodePostal>
+      <NomCommune>Boulogne-Billancourt Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8372765</Latitude>
+         <Longitude>2.2415653</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 55 38 14 20</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Uniquement sur rendez-vous les mardis et jeudis</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour prendre rendez-vous :
+- impots.gouv.fr, dans votre espace particulier ou rubrique « contact »
+- par téléphone
+
+Si vous souhaitez contacter ce service par courriel : utilisez votre
+messagerie sécurisée disponible dans votre espace particulier sur le site</Commentaire>
+</Organisme>

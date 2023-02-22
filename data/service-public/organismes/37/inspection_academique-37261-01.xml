@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-37261-01" codeInsee="37261"
+           dateMiseAJour="2019-05-28"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Indre-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>267 rue Giraudeau</Ligne>
+      <CodePostal>37000</CodePostal>
+      <NomCommune>Tours</NomCommune>
+      <Localisation>
+         <Latitude>47.377951</Latitude>
+         <Longitude>0.676689</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible au rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 60 77 60</Téléphone>
+      <Télécopie>02 47 60 77 79</Télécopie>
+      <Email>ce.ia37@ac-orleans-tours.fr</Email>
+      <Url>https://www.ac-orleans-tours.fr/dsden37</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

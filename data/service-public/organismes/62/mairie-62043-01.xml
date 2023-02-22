@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62043-01" codeInsee="62043" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Attaques</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1047 route Nationale</Ligne>
+      <CodePostal>62730</CodePostal>
+      <NomCommune>Les Attaques</NomCommune>
+      <Localisation>
+         <Latitude>50.9087832</Latitude>
+         <Longitude>1.9332827</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 82 29 76</Téléphone>
+      <Télécopie>03 21 82 02 67</Télécopie>
+      <Email>mairie.@lesattaques.fr</Email>
+      <Url>http://www.lesattaques.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

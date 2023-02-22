@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-38553-01" codeInsee="38553" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Villefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place Jean-Jaurès</Ligne>
+      <CodePostal>38090</CodePostal>
+      <NomCommune>Villefontaine</NomCommune>
+      <Localisation>
+         <Latitude>45.611657</Latitude>
+         <Longitude>5.157111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 37 05 03 69</Téléphone>
+      <Email>villefontaine@pimms.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="16:45:00"/>
+         <Note>Accueil ouvert sur rendez vous uniquement de 9h à 12h pour les démarches de naturalisation.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert sur rendez vous uniquement de 13h à 16h45 pour les démarches de naturalisation.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

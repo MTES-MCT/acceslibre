@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57224-01" codeInsee="57224" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Folschviller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue d'Usson-du-Poitou</Ligne>
+      <Ligne>BP 100</Ligne>
+      <CodePostal>57730</CodePostal>
+      <NomCommune>Folschviller</NomCommune>
+      <Localisation>
+         <Latitude>49.0769996643</Latitude>
+         <Longitude>6.68592977524</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 29 32 90</Téléphone>
+      <Télécopie>03 87 91 23 04</Télécopie>
+      <Email>maire.folschviller@orange.fr</Email>
+      <Url>http://www.folschviller.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-30210-01" codeInsee="30210" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Piémont Cévenol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 bis rue du Docteur-Rocheblave</Ligne>
+      <CodePostal>30260</CodePostal>
+      <NomCommune>Quissac</NomCommune>
+      <Localisation>
+         <Latitude>45.205626</Latitude>
+         <Longitude>3.516234</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 93 06 12</Téléphone>
+      <Télécopie>04 66 80 59 23</Télécopie>
+      <Email>contact@piemont-cevenol.fr</Email>
+      <Url>http://www.piemont-cevenol.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

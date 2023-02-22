@@ -1,26 +1,28 @@
-import math
 import json
+import math
 import uuid
-import reversion
 
+import reversion
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.db.models.functions import Lower
-from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core.lib import calc, diff as diffutils, geo
+from core.lib import calc
+from core.lib import diff as diffutils
+from core.lib import geo
 from erp import managers, schema
-from erp.provider import sirene
+from erp.provider import geocoder, sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
 
@@ -39,40 +41,48 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     history = []
     current_fields_dict = {}
     for version in versions:
-        diff = diffutils.dict_diff_keys(current_fields_dict, version.field_dict)
+        try:
+            fields = version.field_dict
+        except Exception:
+            continue
+        else:
+            diff = diffutils.dict_diff_keys(current_fields_dict, fields)
         final_diff = []
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
             try:
-                entry["old"] = schema.get_human_readable_value(
-                    entry["field"], entry["old"]
-                )
-                entry["new"] = schema.get_human_readable_value(
-                    entry["field"], entry["new"]
-                )
+                entry["old"] = schema.get_human_readable_value(entry["field"], entry["old"])
+                entry["new"] = schema.get_human_readable_value(entry["field"], entry["new"])
             except NotImplementedError:
                 continue
             if entry["old"] != entry["new"]:
                 final_diff.append(entry)
         if final_diff:
-            history.insert(
-                0,
-                {
-                    "user": version.revision.user,
-                    "date": version.revision.date_created,
-                    "comment": version.revision.get_comment(),
-                    "diff": [
-                        entry
-                        for entry in final_diff
-                        if entry["field"] not in exclude_fields
-                    ],
-                },
-            )
-        current_fields_dict = version.field_dict
+            if version.revision.user:
+                history.insert(
+                    0,
+                    {
+                        "user": version.revision.user,
+                        "date": version.revision.date_created,
+                        "comment": version.revision.get_comment(),
+                        "diff": [entry for entry in final_diff if entry["field"] not in exclude_fields],
+                    },
+                )
+        current_fields_dict = fields
     history = list(filter(lambda x: x["diff"] != [], history))
     if exclude_changes_from:
         history = [entry for entry in history if entry["user"] != exclude_changes_from]
     return history
+
+
+def get_last_position():
+    qs = Activite.objects.order_by("position").exclude(nom="Autre")
+    if qs.exists():
+        try:
+            return qs.last().position + 1
+        except Exception:
+            return 1
+    return 1
 
 
 class Activite(models.Model):
@@ -118,22 +128,54 @@ class Activite(models.Model):
         blank=True,
         default="building",
         verbose_name="Icône vectorielle",
-        help_text=mark_safe(
-            "Nom de l'icône dans "
-            '<a href="/mapicons" target="_blank">le catalogue</a>.'
-        ),
+        help_text=mark_safe("Nom de l'icône dans " '<a href="/mapicons" target="_blank">le catalogue</a>.'),
+    )
+    position = models.PositiveSmallIntegerField(
+        default=get_last_position,
+        verbose_name="Position dans la liste",
     )
 
     # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
 
     def __str__(self):
         return self.nom
+
+    @classmethod
+    def reorder(cls):
+        position = 1
+        for act in cls.objects.all().order_by("nom").exclude(nom="Autre"):
+            act.position = position
+            position += 1
+            act.save()
+
+
+class ActivitySuggestion(models.Model):
+    erp = models.ForeignKey("Erp", verbose_name="Établissement", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, help_text="Nom suggéré pour l'activité")
+    mapped_activity = models.ForeignKey(
+        "Activite", verbose_name="Activité attribuée", on_delete=models.CASCADE, blank=True, null=True
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE, blank=True, null=True
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+
+    def __str__(self):
+        return f"Suggestion d'activité : {self.name}"
+
+    class Meta:
+        verbose_name = "Suggestion d'activité"
+        verbose_name_plural = "Suggestions d'activités"
+
+    def save(self, *args, **kwargs):
+        if self.mapped_activity and self.erp.activite and self.erp.activite.nom.lower() == "autre":
+            self.erp.activite = self.mapped_activity
+            self.erp.save()
+
+        return super().save(*args, **kwargs)
 
 
 def generate_commune_slug(instance):
@@ -221,14 +263,17 @@ class Commune(models.Model):
     def clean(self):
         if self.arrondissement is True and self.departement not in ["13", "69", "75"]:
             raise ValidationError(
-                {
-                    "arrondissement": "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"
-                }
+                {"arrondissement": "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"}
             )
 
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
         return f"{nom} ({self.departement})"
+
+    def in_contour(self, geopoint):
+        if not self.contour:
+            return False
+        return True if self.contour.contains(geopoint) else False
 
     def expand_contour(self, max_distance_meters=None):
         """Expand commune contour by a given distance expressed in meters. If no
@@ -239,18 +284,13 @@ class Commune(models.Model):
         if not max_distance_meters and self.superficie:
             max_distance_meters = calc.clamp(
                 500,
-                round(  # note: superficie is in hectares
-                    math.sqrt(self.superficie * 10000) / 5
-                ),
+                round(math.sqrt(self.superficie * 10000) / 5),  # note: superficie is in hectares
                 3000,
             )
         else:
             max_distance_meters = 3000
         buffer = (  # see https://stackoverflow.com/a/31945883/330911
-            max_distance_meters
-            / 40000000.0
-            * 360.0
-            / math.cos(self.geom.y / 360.0 * math.pi)
+            max_distance_meters / 40000000.0 * 360.0 / math.cos(self.geom.y / 360.0 * math.pi)
         )
         return self.contour.buffer(buffer) if self.contour else self.geom.buffer(buffer)
 
@@ -270,9 +310,7 @@ class Commune(models.Model):
                 "nom": self.nom,
                 "slug": self.slug,
                 "center": geo.lonlat_to_latlon(self.geom.coords),
-                "contour": geo.lonlat_to_latlon(self.contour.coords)
-                if self.contour
-                else None,
+                "contour": geo.lonlat_to_latlon(self.contour.coords) if self.contour else None,
                 "zoom": self.get_zoom(),
             }
         )
@@ -309,12 +347,8 @@ class Vote(models.Model):
         verbose_name="Commentaire",
     )
     # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
 
     def __str__(self):
         return f"Vote {self.value} de {self.user.username} pour {self.erp.nom}"
@@ -327,37 +361,53 @@ class Vote(models.Model):
         "uuid",
         "source",
         "source_id",
-        "created_at",
-        "updated_at",
         "search_vector",
     ],
 )
 class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
 
+    SOURCE_ACCESLIBRE = "acceslibre"
+    SOURCE_ACCEO = "acceo"
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
     SOURCE_API_ENTREPRISE = "entreprise_api"
     SOURCE_CCONFORME = "cconforme"
     SOURCE_GENDARMERIE = "gendarmerie"
+    SOURCE_LORIENT = "lorient"
+    SOURCE_NESTENN = "nestenn"
     SOURCE_ODS = "opendatasoft"
     SOURCE_PUBLIC = "public"
     SOURCE_PUBLIC_ERP = "public_erp"
+    SOURCE_SAP = "sap"
+    SOURCE_SERVICE_PUBLIC = "service_public"
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
+    SOURCE_TYPEFORM = "typeform"
+    SOURCE_TYPEFORM_MUSEE = "typeform_musee"
     SOURCE_VACCINATION = "centres-vaccination"
+    SOURCE_DELL = "dell"
     SOURCE_CHOICES = (
+        (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
+        (SOURCE_ACCEO, "Acceo"),
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
         (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
         (SOURCE_CCONFORME, "cconforme"),
         (SOURCE_GENDARMERIE, "Gendarmerie"),
+        (SOURCE_LORIENT, "Lorient"),
+        (SOURCE_NESTENN, "Nestenn"),
         (SOURCE_ODS, "API OpenDataSoft"),
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
+        (SOURCE_SAP, "Sortir À Pair"),
+        (SOURCE_SERVICE_PUBLIC, "Service Public"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
+        (SOURCE_TYPEFORM, "Questionnaires Typeform"),
+        (SOURCE_TYPEFORM_MUSEE, "Questionnaires Typeform Musée"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
+        (SOURCE_DELL, "Dell"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
@@ -375,11 +425,13 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
+            models.Index(fields=["nom"]),
             models.Index(fields=["source", "source_id"]),
             models.Index(fields=["slug"]),
             models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
             models.Index(fields=["user_type"]),
+            models.Index(fields=["published", "geom"]),  # used in many managers
             GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
             GinIndex(fields=["metadata"], name="gin_metadata"),
@@ -403,6 +455,12 @@ class Erp(models.Model):
         verbose_name="Source ID",
         help_text="Identifiant de l'ERP dans la source initiale de données",
     )
+    asp_id = models.CharField(
+        max_length=255,
+        null=True,
+        verbose_name="ASP ID",
+        help_text="Identifiant de l'ERP dans la base Service Public",
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
@@ -424,9 +482,7 @@ class Erp(models.Model):
         help_text="La commune de cet établissement",
         on_delete=models.SET_NULL,
     )
-    nom = models.CharField(
-        max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
-    )
+    nom = models.CharField(max_length=255, help_text="Nom de l'établissement ou de l'enseigne")
     slug = AutoSlugField(
         default="",
         unique=True,
@@ -497,9 +553,7 @@ class Erp(models.Model):
         help_text="Numéro dans la voie, incluant le complément (BIS, TER, etc.)",
     )
     voie = models.CharField(max_length=255, null=True, blank=True, help_text="Voie")
-    lieu_dit = models.CharField(
-        max_length=255, null=True, blank=True, help_text="Lieu dit"
-    )
+    lieu_dit = models.CharField(max_length=255, null=True, blank=True, help_text="Lieu dit")
     code_postal = models.CharField(max_length=5, help_text="Code postal")
     commune = models.CharField(max_length=255, help_text="Nom de la commune")
     code_insee = models.CharField(
@@ -523,15 +577,19 @@ class Erp(models.Model):
     metadata = models.JSONField(default=dict)
 
     # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
 
     # search vector
     search_vector = SearchVectorField("Search vector", null=True)
+
+    import_email = models.EmailField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Email lié à l'import",
+        help_text="Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP",
+    )
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
@@ -548,6 +606,11 @@ class Erp(models.Model):
             return self.activite.vector_icon
         return default
 
+    def get_first_user(self):
+        user_list = [version["user"] for version in self.get_history() if version["user"] is not None]
+        if user_list:
+            return user_list[-1]
+
     def get_history(self, exclude_changes_from=None):
         "Combines erp and related accessibilite histories."
         erp_history = _get_history(
@@ -560,9 +623,7 @@ class Erp(models.Model):
             ),
             exclude_changes_from=exclude_changes_from,
         )
-        accessibilite_history = self.accessibilite.get_history(
-            exclude_changes_from=exclude_changes_from
-        )
+        accessibilite_history = self.accessibilite.get_history(exclude_changes_from=exclude_changes_from)
         global_history = erp_history + accessibilite_history
         global_history.sort(key=lambda x: x["date"], reverse=True)
         return global_history
@@ -598,11 +659,14 @@ class Erp(models.Model):
             return False
         return True
 
+    def get_absolute_uri(self):
+        return f"{settings.SITE_ROOT_URL}{self.get_absolute_url()}"
+
+    def get_success_url(self):
+        return f"{self.get_absolute_url()}?success=true"
+
     def get_absolute_url(self):
-        if self.commune_ext:
-            commune_slug = self.commune_ext.slug
-        else:
-            commune_slug = slugify(f"{self.departement}-{self.commune}")
+        commune_slug = slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
                 "commune_erp",
@@ -619,18 +683,16 @@ class Erp(models.Model):
             )
 
     def get_admin_url(self):
-        return (
-            reverse("admin:erp_erp_change", kwargs={"object_id": self.pk})
-            if self.pk
-            else None
-        )
+        return reverse("admin:erp_erp_change", kwargs={"object_id": self.pk}) if self.pk else None
 
     def get_global_timestamps(self):
         (created_at, updated_at) = (self.created_at, self.updated_at)
         if self.has_accessibilite():
             (a_created_at, a_updated_at) = (
                 self.accessibilite.created_at,
-                self.accessibilite.updated_at,
+                self.accessibilite.get_history()[0]["date"]
+                if self.accessibilite.get_history()
+                else self.accessibilite.created_at,
             )
             (created_at, updated_at) = (
                 a_created_at if a_created_at > created_at else created_at,
@@ -644,11 +706,33 @@ class Erp(models.Model):
     def has_accessibilite(self):
         return hasattr(self, "accessibilite") and self.accessibilite is not None
 
-    def is_online(self):
-        return self.published and self.has_accessibilite() and self.geom is not None
-
     def is_subscribed_by(self, user):
         return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
+
+    def has_doublons(self):
+        return (
+            self.__class__.objects.filter(
+                numero=self.numero,
+                voie__iexact=self.voie,
+                code_postal=self.code_postal,
+                commune__iexact=self.commune,
+                activite=self.activite,
+            )
+            .exclude(pk=self.pk, nom__iexact=self.nom)
+            .exists()
+        )
+
+    def get_doublons(self, ids_exclude=None):
+        qs = self.__class__.objects.filter(
+            numero=self.numero,
+            voie__iexact=self.voie,
+            code_postal=self.code_postal,
+            commune__iexact=self.commune,
+            activite=self.activite,
+        )
+        if ids_exclude:
+            qs = qs.exclude(pk__in=ids_exclude)
+        return qs
 
     @property
     def adresse(self):
@@ -659,7 +743,7 @@ class Erp(models.Model):
                 self.voie,
                 self.lieu_dit,
                 self.code_postal,
-                self.commune_ext.nom if self.commune_ext else self.commune,
+                self.commune,
             ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
@@ -678,14 +762,36 @@ class Erp(models.Model):
 
     @property
     def departement(self):
+        if self.code_postal[:3] in ("971", "972", "973", "974", "975", "976", "978", "986", "987", "988"):
+            return self.code_postal[:3]
+
         return self.code_postal[:2]
+
+    @classmethod
+    def update_coordinates(cls):
+        counter = 0
+        erp_updates = 0
+        for e in cls.objects.filter(commune_ext__isnull=False):
+            if not e.commune_ext.in_contour(Point(e.geom.x, e.geom.y)):
+                print(f"Erp concerné : {e.nom}; {e.code_postal}; {e.commune}")
+                counter += 1
+                try:
+                    coordinates = geocoder.geocode(e.short_adresse, citycode=e.commune_ext.code_insee)
+                except Exception as error:
+                    print(error)
+                else:
+                    if coordinates:
+                        e.geom = Point(coordinates["geom"][0], coordinates["geom"][1])
+                        e.save()
+                        erp_updates += 1
+                    else:
+                        print("No Coordinates")
+        print(f"{erp_updates} erps mis à jour sur {counter}")
 
     def clean(self):  # Fix me : move to form (abstract)
         # Code postal
         if self.code_postal and len(self.code_postal) != 5:
-            raise ValidationError(
-                {"code_postal": "Le code postal doit faire 5 caractères"}
-            )
+            raise ValidationError({"code_postal": "Le code postal doit faire 5 caractères"})
 
         # Voie OU lieu-dit sont requis
         if self.voie is None and self.lieu_dit is None:
@@ -699,9 +805,7 @@ class Erp(models.Model):
                 code_postaux__contains=[self.code_postal],
             )
             if len(matches) == 0:
-                matches = Commune.objects.filter(
-                    code_postaux__contains=[self.code_postal]
-                )
+                matches = Commune.objects.filter(code_postaux__contains=[self.code_postal])
             if len(matches) == 0:
                 matches = Commune.objects.filter(code_insee=self.code_insee)
             if len(matches) == 0:
@@ -710,9 +814,7 @@ class Erp(models.Model):
                 )
             if len(matches) == 0:
                 raise ValidationError(
-                    {
-                        "commune": f"Commune {self.commune} introuvable, veuillez vérifier votre saisie."
-                    }
+                    {"commune": f"Commune {self.commune} introuvable, veuillez vérifier votre saisie."}
                 )
             else:
                 self.commune_ext = matches[0]
@@ -729,9 +831,7 @@ class Erp(models.Model):
         if votes.count() > 0:
             vote = votes.first()
             # check for vote cancellation
-            if (action == "UP" and vote.value == 1) or (
-                action == "DOWN" and vote.value == -1 and not comment
-            ):
+            if (action == "UP" and vote.value == 1) or (action == "DOWN" and vote.value == -1 and not comment):
                 vote.delete()
                 return None
         else:
@@ -771,7 +871,11 @@ class Erp(models.Model):
 
 @reversion.register(
     ignore_duplicates=True,
-    exclude=["id", "erp_id", "created_at", "updated_at"],
+    exclude=[
+        "id",
+        "erp_id",
+        "completion_rate",
+    ],
 )
 class Accessibilite(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25
@@ -855,10 +959,10 @@ class Accessibilite(models.Model):
         verbose_name="Cheminement de plain-pied",
     )
     # Terrain meuble ou accidenté
-    cheminement_ext_terrain_accidente = models.BooleanField(
+    cheminement_ext_terrain_stable = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("cheminement_ext_terrain_accidente"),
+        choices=schema.get_field_choices("cheminement_ext_terrain_stable"),
         verbose_name="Terrain meuble ou accidenté",
     )
     # Nombre de marches – nombre entre 0 et >10
@@ -1063,9 +1167,7 @@ class Accessibilite(models.Model):
         verbose_name="Dispositif d'appel",
     )
     entree_dispositif_appel_type = ArrayField(
-        models.CharField(
-            max_length=255, blank=True, choices=schema.DISPOSITIFS_APPEL_CHOICES
-        ),
+        models.CharField(max_length=255, blank=True, choices=schema.DISPOSITIFS_APPEL_CHOICES),
         verbose_name="Dispositifs d'appel disponibles",
         default=list,
         null=True,
@@ -1127,6 +1229,21 @@ class Accessibilite(models.Model):
         verbose_name="Personnel d'accueil",
     )
 
+    # Audiodescription
+    accueil_audiodescription_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_audiodescription_presence"),
+        verbose_name="Audiodescription",
+    )
+    accueil_audiodescription = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.AUDIODESCRIPTION_CHOICES),
+        verbose_name="Équipement(s) audiodescription",
+        default=list,
+        null=True,
+        blank=True,
+    )
+
     # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants_presence = models.BooleanField(
         null=True,
@@ -1137,9 +1254,7 @@ class Accessibilite(models.Model):
 
     # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants = ArrayField(
-        models.CharField(
-            max_length=255, blank=True, choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES
-        ),
+        models.CharField(max_length=255, blank=True, choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES),
         verbose_name="Équipement(s) sourd/malentendant",
         default=list,
         null=True,
@@ -1214,9 +1329,11 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("sanitaires_presence"),
         verbose_name="Sanitaires",
     )
-    sanitaires_adaptes = models.PositiveSmallIntegerField(
+
+    sanitaires_adaptes = models.BooleanField(
         null=True,
         blank=True,
+        choices=schema.get_field_choices("sanitaires_adaptes"),
         verbose_name="Nombre de sanitaires adaptés",
     )
 
@@ -1274,13 +1391,11 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("conformite"),
     )
 
+    completion_rate = models.PositiveIntegerField(default=0)
+
     # Datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
 
     def __str__(self):
         if self.erp:
@@ -1288,10 +1403,18 @@ class Accessibilite(models.Model):
         else:
             return "Caractéristiques d'accessibilité de cet ERP"
 
+    def __eq__(self, other):
+        for field_name in schema.get_a11y_fields():
+            if getattr(self, field_name, None) != getattr(other, field_name, None):
+                return False
+        return True
+
+    # NOTE: a class overriding `__eq__` MUST also override `__hash__`
+    def __hash__(self):
+        return super().__hash__()
+
     def get_history(self, exclude_changes_from=None):
-        return _get_history(
-            self.get_versions(), exclude_changes_from=exclude_changes_from
-        )
+        return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
 
     def get_versions(self):
         # take the last n revisions
@@ -1306,20 +1429,6 @@ class Accessibilite(models.Model):
         # reorder the slice by date_created ASC
         versions.reverse()
         return versions
-
-    def to_debug(self):
-        cleaned = dict(
-            [
-                (k, v)
-                for (k, v) in model_to_dict(self).copy().items()
-                if v is not None and v != "" and v != []
-            ]
-        )
-        return json.dumps(cleaned, indent=2)
-
-    def has_cheminement_ext(self):
-        fields = schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT)
-        return any(getattr(f) is not None for f in fields)
 
     def has_data(self):
         # count the number of filled fields to provide more validation

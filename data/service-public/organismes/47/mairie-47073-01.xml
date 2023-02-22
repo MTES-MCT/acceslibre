@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47073-01" codeInsee="47073" dateMiseAJour="2021-02-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'église</Ligne>
+      <CodePostal>47360</CodePostal>
+      <NomCommune>Cours</NomCommune>
+      <Localisation>
+         <Latitude>44.322482</Latitude>
+         <Longitude>0.589531</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 68 84 47</Téléphone>
+      <Télécopie>05 53 95 75 93</Télécopie>
+      <Email>mairie.cours@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

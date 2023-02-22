@@ -3,7 +3,6 @@ from datetime import datetime, timedelta, timezone
 import pytest
 from django.conf import settings
 from django.core import mail, management
-
 from django.test import Client
 from django.urls import reverse
 
@@ -86,9 +85,7 @@ def test_user_validate_email_change_e2e(db, client, data):
 
     email_token = EmailToken.objects.all().first()
     response = client.get(
-        reverse(
-            "change_email", kwargs={"activation_token": email_token.activation_token}
-        ),
+        reverse("change_email", kwargs={"activation_token": email_token.activation_token}),
         follow=True,
     )
 
@@ -109,9 +106,7 @@ def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
 
     client.logout()
     response = client.get(
-        reverse(
-            "change_email", kwargs={"activation_token": email_token.activation_token}
-        ),
+        reverse("change_email", kwargs={"activation_token": email_token.activation_token}),
         follow=True,
     )
 
@@ -125,9 +120,7 @@ def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
 
 def test_deleting_unused_tokens(data):
     activation_token = "a603ae0a-4188-4098-99ca-3b853642c1c7"
-    last_week = datetime.now(timezone.utc) - timedelta(
-        days=settings.EMAIL_ACTIVATION_DAYS + 1
-    )
+    last_week = datetime.now(timezone.utc) - timedelta(days=settings.EMAIL_ACTIVATION_DAYS + 1)
     create_token(data.niko, "newemail@gmail.com", activation_token, today=last_week)
     email_tokens = EmailToken.objects.all()
     assert len(email_tokens) == 1

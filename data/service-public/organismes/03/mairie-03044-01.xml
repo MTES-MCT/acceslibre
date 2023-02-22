@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03044-01" codeInsee="03044" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brugheas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue de l'Église</Ligne>
+      <CodePostal>03700</CodePostal>
+      <NomCommune>Brugheas</NomCommune>
+      <Localisation>
+         <Latitude>46.0760993958</Latitude>
+         <Longitude>3.36774992943</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 32 33 37</Téléphone>
+      <Télécopie>04 70 32 76 77</Télécopie>
+      <Email>mairie.brugheas@wanadoo.fr</Email>
+      <Url>http://www.brugheas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

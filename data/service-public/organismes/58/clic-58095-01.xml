@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-58095-01" codeInsee="58095" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Decize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Site d'action médico-sociale</Ligne>
+      <Ligne>4 boulevard Galvaing</Ligne>
+      <Ligne>CS 10001</Ligne>
+      <CodePostal>58302</CodePostal>
+      <NomCommune>Decize Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.809791</Latitude>
+         <Longitude>3.412252</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 93 57 50</Téléphone>
+      <Télécopie>03 86 93 18 90</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

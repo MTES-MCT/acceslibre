@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-42187-01" codeInsee="42187" dateMiseAJour="2021-11-26" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Roanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 avenue Carnot</Ligne>
+      <CodePostal>42300</CodePostal>
+      <NomCommune>Roanne</NomCommune>
+      <Localisation>
+         <Latitude>46.0349456</Latitude>
+         <Longitude>4.0988538</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 71 30 69</Téléphone>
+      <Email>cio-roanne@ac-lyon.fr</Email>
+      <Url>https://roanne.cio.ac-lyon.fr/spip/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la période scolaire.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Du Lundi au Vendredi : de 08h30 à 12h00 de 13h30 à 17h00 (vacances
+scolaires) Pas de conseillers disponibles le lundi matin et accueil uniquement sur rendez-vous du lundi au vendredi.</Commentaire>
+</Organisme>

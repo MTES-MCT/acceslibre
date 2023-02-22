@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-18018-01" codeInsee="18018" dateMiseAJour="2020-12-22"
+           pivotLocal="msap">
+   <Nom>France Services - Avord</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 Ter rue Saint-Exupéry</Ligne>
+      <Ligne>La Septaine</Ligne>
+      <CodePostal>18520</CodePostal>
+      <NomCommune>Avord</NomCommune>
+      <Localisation>
+         <Latitude>47.03681</Latitude>
+         <Longitude>2.64457</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 16 10 23</Téléphone>
+      <Email>msap@cc-laseptaine.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

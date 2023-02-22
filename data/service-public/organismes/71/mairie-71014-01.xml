@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71014-01" codeInsee="71014" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Autun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Champ-de-Mars</Ligne>
+      <Ligne>BP 133</Ligne>
+      <CodePostal>71403</CodePostal>
+      <NomCommune>Autun Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.9501701</Latitude>
+         <Longitude>4.2987595</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 86 80 00</Téléphone>
+      <Télécopie>03 85 86 80 28</Télécopie>
+      <Email>autun@autun.com</Email>
+      <Url>http://www.autun.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

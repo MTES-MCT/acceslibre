@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48009-03" codeInsee="48009" dateMiseAJour="2019-07-11"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Fau-de-Peyre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Fau-de-Peyre</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>48130</CodePostal>
+      <NomCommune>Peyre en Aubrac</NomCommune>
+      <Localisation>
+         <Latitude>44.7482757568</Latitude>
+         <Longitude>3.22254490852</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 31 11 07</Téléphone>
+      <Email>mairie.faudepeyre@wanadoo.fr</Email>
+      <Url>http://www.faudepeyre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26190-01" codeInsee="26190" dateMiseAJour="2020-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montaulieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>26110</CodePostal>
+      <NomCommune>Montaulieu</NomCommune>
+      <Localisation>
+         <Latitude>44.3580291</Latitude>
+         <Longitude>5.2246826</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 27 40 67</Téléphone>
+      <Email>mairie.montaulieu@orange.fr</Email>
+      <Url>http://www.montaulieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

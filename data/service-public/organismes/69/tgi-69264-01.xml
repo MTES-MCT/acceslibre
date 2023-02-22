@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="69264" dateMiseAJour="2021-12-14" id="tgi-69264-01" idPresta="4cac9e61293594648a0005be" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Villefranche-sur-Saône</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>350 BOULEVARD GAMBETTA</Ligne>
+        <Ligne>BP 474</Ligne>
+        <CodePostal>69665</CodePostal>
+        <NomCommune>VILLEFRANCHE SUR SAONE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.992992</Latitude>
+            <Longitude>4.715227</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>350 BOULEVARD GAMBETTA</Ligne>
+        <Ligne>BP 474</Ligne>
+        <CodePostal>69665</CodePostal>
+        <NomCommune>VILLEFRANCHE SUR SAONE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 74 65 63 63</Téléphone>
+        <Télécopie>04 74 60 61 12</Télécopie>
+        <Email>mailto:tj-villefranche-sur-saone@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

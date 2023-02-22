@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-36044-01" codeInsee="36044"
+           dateMiseAJour="2021-03-30"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Indre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDCS</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>Cité administrative - Bâtiment A</Ligne>
+      <Ligne>Boulevard George-Sand - BP 613</Ligne>
+      <CodePostal>36020</CodePostal>
+      <NomCommune>Châteauroux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.807073</Latitude>
+         <Longitude>1.687618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 53 82 24</Téléphone>
+      <Télécopie>02 54 53 82 17</Télécopie>
+      <Url>http://www.indre.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27058-01" codeInsee="27058" dateMiseAJour="2021-10-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Trois lacs (Venables - Tosny - Bernières-sur-Seine)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de la Roseraie</Ligne>
+      <Ligne>Bernières</Ligne>
+      <CodePostal>27700</CodePostal>
+      <NomCommune>Les Trois lacs</NomCommune>
+      <Localisation>
+         <Latitude>49.2006340027</Latitude>
+         <Longitude>1.29766499996</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 52 20 51</Téléphone>
+      <Email>mairie@lestroislacs.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

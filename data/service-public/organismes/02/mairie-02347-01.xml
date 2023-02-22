@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02347-01" codeInsee="02347" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gland</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue de Château-Thierry</Ligne>
+      <CodePostal>02400</CodePostal>
+      <NomCommune>Gland</NomCommune>
+      <Localisation>
+         <Latitude>49.0472984314</Latitude>
+         <Longitude>3.46233010292</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 69 24 56</Téléphone>
+      <Télécopie>03 23 83 62 96</Télécopie>
+      <Email>commune-de-gland@wanadoo.fr</Email>
+      <Url>http://www.mairiedegland02.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-24322-01" codeInsee="24322" dateMiseAJour="2021-05-18" pivotLocal="fdc">
+   <Nom>Fédération départementale des chasseurs - Dordogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>5 rue Henri-Jacquement</Ligne>
+      <CodePostal>24430</CodePostal>
+      <NomCommune>Marsac-sur-l'Isle</NomCommune>
+      <Localisation>
+         <Latitude>45.1966484</Latitude>
+         <Longitude>0.6695296</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>BP 232</Ligne>
+      <CodePostal>24052</CodePostal>
+      <NomCommune>Périgueux Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 35 85 00</Téléphone>
+      <Télécopie>05 53 09 34 74</Télécopie>
+      <Email>http://www.chasseurs24.com/nous-contacter</Email>
+      <Url>http://www.chasseurs24.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>fermé le Jeudi matin</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

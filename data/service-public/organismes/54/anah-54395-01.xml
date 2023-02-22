@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-54395-01" codeInsee="54395" dateMiseAJour="2020-06-10"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Meurthe-et-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place des Ducs-de-Bar</Ligne>
+      <CodePostal>54035</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6834163</Latitude>
+         <Longitude>6.1626535</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 91 40 25</Téléphone>
+      <Télécopie>03 83 28 04 23</Télécopie>
+      <Email>ddt-hcd-anah@meurthe-et-moselle.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique uniquement de 9h à 12h, accueil sur rendez-vous uniquement pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique uniquement de 9h à 12h.Accueil sur rendez-vous uniquement pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

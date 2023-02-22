@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="59036" dateMiseAJour="2021-12-14" id="tgi-59036-01" idPresta="4cac9e61293594648a0005a5" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire d'Avesnes-sur-Helpe</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE DU MARECHAL JOFFRE</Ligne>
+        <Ligne>BP 60205</Ligne>
+        <CodePostal>59440</CodePostal>
+        <NomCommune>AVESNES SUR HELPE</NomCommune>
+        <Localisation>
+            <Latitude>50.121707</Latitude>
+            <Longitude>3.928771</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE DU MARECHAL JOFFRE</Ligne>
+        <Ligne>BP 60205</Ligne>
+        <CodePostal>59440</CodePostal>
+        <NomCommune>AVESNES SUR HELPE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 27 57 78 00</Téléphone>
+        <Email>mailto:tj1-avesnes-sur-helpe@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

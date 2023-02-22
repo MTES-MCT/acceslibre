@@ -1,12 +1,12 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import path
 
 from core.cache import cache_per_user
 from erp import schema, views
 
-APP_CACHE_TTL = 60 * 5
-EDITORIAL_CACHE_TTL = 60 * 60
-
+MINUTES = 60
+APP_CACHE_TTL = 5 * MINUTES
+EDITORIAL_CACHE_TTL = 60 * MINUTES
 
 handler403 = views.handler403
 handler404 = views.handler404
@@ -48,24 +48,38 @@ urlpatterns = [
     ),
     path(
         "partenaires",
-        cache_editorial_page(
-            "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}
-        ),
+        cache_editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
         name="partenaires",
     ),
-    # Challenge DDT feb 2021
-    path("challenge/ddt/2021/02/", views.challenge_ddt, name="challenge-ddt"),
+    # Challenge DDT mars 2022
+    path("challenges/", views.challenges, name="challenges"),
+    path("challenge/ddt/2022/03/", views.challenge_ddt, name="challenge-ddt"),
+    path(
+        "challenge/<str:challenge_slug>/",
+        views.challenge_detail,
+        name="challenge-detail",
+    ),
+    path(
+        "challenge/<str:challenge_slug>/inscription/",
+        views.challenge_inscription,
+        name="challenge-inscription",
+    ),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
     path(
         "communes/",
-        cache_user_page(views.communes),
+        views.communes,  # cached in template side
         name="communes",
     ),
     path(
         "recherche/",
         cache_user_page(views.search),
         name="search",
+    ),
+    path(
+        "global/",
+        cache_user_page(views.global_map),
+        name="global_map",
     ),
     path(
         "recherche/<str:commune_slug>/",
@@ -84,6 +98,7 @@ urlpatterns = [
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
     path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
+    path("uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"),
     ############################################################################
     # Ajout ERP
     ############################################################################
@@ -101,25 +116,21 @@ urlpatterns = [
     ),
     path("contrib/claim/<str:erp_slug>/", views.contrib_claim, name="contrib_claim"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
+    # NOTE: The next 8 URLs should not be renamed (at least without any back compatibility), used by Service Public.
     path(
         "contrib/edit-infos/<str:erp_slug>/",
         views.contrib_edit_infos,
         name="contrib_edit_infos",
     ),
     path(
-        "contrib/localisation/<str:erp_slug>/",
-        views.contrib_localisation,
-        name="contrib_localisation",
+        "contrib/a-propos/<str:erp_slug>/",
+        views.contrib_a_propos,
+        name="contrib_a_propos",
     ),
     path(
         "contrib/transport/<str:erp_slug>/",
         views.contrib_transport,
         name="contrib_transport",
-    ),
-    path(
-        "contrib/stationnement/<str:erp_slug>/",
-        views.contrib_stationnement,
-        name="contrib_stationnement",
     ),
     path(
         "contrib/exterieur/<str:erp_slug>/",
@@ -135,16 +146,6 @@ urlpatterns = [
         "contrib/accueil/<str:erp_slug>/",
         views.contrib_accueil,
         name="contrib_accueil",
-    ),
-    path(
-        "contrib/sanitaires/<str:erp_slug>/",
-        views.contrib_sanitaires,
-        name="contrib_sanitaires",
-    ),
-    path(
-        "contrib/labellisation/<str:erp_slug>/",
-        views.contrib_labellisation,
-        name="contrib_labellisation",
     ),
     path(
         "contrib/commentaire/<str:erp_slug>/",
@@ -179,5 +180,4 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name="admin_password_reset_complete",
     ),
-    path("nested_admin/", include("nested_admin.urls")),
 ]

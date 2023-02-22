@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-28051-01" codeInsee="28051" dateMiseAJour="2020-12-01"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Bonneval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>3 rue Saint-Michel</Ligne>
+      <CodePostal>28800</CodePostal>
+      <NomCommune>Bonneval</NomCommune>
+      <Localisation>
+         <Latitude>48.182178</Latitude>
+         <Longitude>1.384582</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.bonneval@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/bonneval-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

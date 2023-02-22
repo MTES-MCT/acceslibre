@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-57209-01" codeInsee="57209" dateMiseAJour="2021-09-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Faulquemont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>57380</CodePostal>
+      <NomCommune>Faulquemont</NomCommune>
+      <Localisation>
+         <Latitude>49.060637</Latitude>
+         <Longitude>6.580443</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="La reception téléphonique désormais applicable est : du lundi au vendredi de 8h30 à 12h et de 13h 30 à 16h">03 87 00 47 00</Téléphone>
+      <Télécopie>03 87 91 49 15</Télécopie>
+      <Email>t057105@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>fermée le mercredi et le vendredi après midi</Commentaire>
+</Organisme>

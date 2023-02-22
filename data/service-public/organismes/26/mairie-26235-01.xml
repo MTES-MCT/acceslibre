@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26235-01" codeInsee="26235" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pierrelatte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Jean-Perrin</Ligne>
+      <Ligne>CS 30139</Ligne>
+      <CodePostal>26702</CodePostal>
+      <NomCommune>Pierrelatte Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.3771018982</Latitude>
+         <Longitude>4.69959020615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 96 97 00</Téléphone>
+      <Télécopie>04 75 98 47 57</Télécopie>
+      <Email>mairie@ville-pierrelatte.fr</Email>
+      <Url>http://www.ville-pierrelatte.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et seulement un samedi sur deux, voir les dates sur le site internet de la mairie.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

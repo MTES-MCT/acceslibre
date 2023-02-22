@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-70310-01" codeInsee="70310" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Haute-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CMAI de Franche-Comté</Ligne>
+      <Ligne>6 rue Victor-Hugo</Ligne>
+      <CodePostal>70200</CodePostal>
+      <NomCommune>Lure</NomCommune>
+      <Localisation>
+         <Latitude>47.6876983643</Latitude>
+         <Longitude>6.49990987778</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 30 59 08</Téléphone>
+      <Télécopie>03 84 62 85 84</Télécopie>
+      <Email>n.giboulet@artisanat-bfc.fr</Email>
+      <Url>http://www.artisanat-bfc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

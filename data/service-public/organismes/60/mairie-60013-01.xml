@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60013-01" codeInsee="60013" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Angicourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 rue de l'Église</Ligne>
+      <CodePostal>60940</CodePostal>
+      <NomCommune>Angicourt</NomCommune>
+      <Localisation>
+         <Latitude>49.3193016052</Latitude>
+         <Longitude>2.55086994171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 70 71 40</Téléphone>
+      <Télécopie>03 44 70 71 44</Télécopie>
+      <Email>mairie@angicourt.fr</Email>
+      <Url>http://www.angicourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+         <Note>Accueil fermé le matin pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+         <Note>Accueil fermé le matin pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

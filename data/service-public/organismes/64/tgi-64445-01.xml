@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="64445" dateMiseAJour="2021-12-14" id="tgi-64445-01" idPresta="4cac9e6a293594648a0017af" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Pau</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DE LA LIBERATION</Ligne>
+        <CodePostal>64034</CodePostal>
+        <NomCommune>PAU CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>43.297865</Latitude>
+            <Longitude>-0.371559</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DE LA LIBERATION</Ligne>
+        <CodePostal>64034</CodePostal>
+        <NomCommune>PAU CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 47 05 35 00</Téléphone>
+        <Télécopie>05 59 82 46 64</Télécopie>
+        <Email>mailto:tj-pau@justice.fr</Email>
+        <Url>http://www.ca-pau.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

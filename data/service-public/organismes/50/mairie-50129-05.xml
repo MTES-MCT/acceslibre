@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50129-05" codeInsee="50129" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Querqueville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Querqueville</Ligne>
+      <Ligne>3 avenue de Couville</Ligne>
+      <CodePostal>50100</CodePostal>
+      <NomCommune>Cherbourg-en-Cotentin</NomCommune>
+      <Localisation>
+         <Latitude>49.643177</Latitude>
+         <Longitude>-1.625003</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 01 65 00</Téléphone>
+      <Télécopie>02 33 03 25 56</Télécopie>
+      <Email>population.50460@cherbourg.fr</Email>
+      <Url>http://www.cherbourg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement pour le service population sauf en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

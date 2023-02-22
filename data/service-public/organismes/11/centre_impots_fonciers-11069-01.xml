@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-11069-01" codeInsee="11069"
+           dateMiseAJour="2021-04-26"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Carcassonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Place Gaston-Jourdanne</Ligne>
+      <CodePostal>11807</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.2104546</Latitude>
+         <Longitude>2.3603637</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 77 43 73</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Fermé au public tous les après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception exclusivement sur rendez-vous.</Commentaire>
+</Organisme>

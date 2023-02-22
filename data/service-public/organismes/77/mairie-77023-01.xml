@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77023-01" codeInsee="77023" dateMiseAJour="2018-04-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barcy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 ruelle du Curé</Ligne>
+      <CodePostal>77910</CodePostal>
+      <NomCommune>Barcy</NomCommune>
+      <Localisation>
+         <Latitude>49.0174703</Latitude>
+         <Longitude>2.8814248</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 75 40 71 40</Téléphone>
+      <Télécopie>01 60 44 70 16</Télécopie>
+      <Email>mairie-barcy@orange.fr</Email>
+      <Url>http://www.barcy77.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

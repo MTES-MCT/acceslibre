@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="85191" dateMiseAJour="2021-08-27" id="tgi-85191-01" idPresta="4cac9e61293594648a0005fc" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de La Roche-sur-Yon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>55 BOULEVARD ARISTIDE BRIAND</Ligne>
+        <Ligne>BP 833</Ligne>
+        <CodePostal>85021</CodePostal>
+        <NomCommune>LA ROCHE SUR YON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.671222</Latitude>
+            <Longitude>-1.432146</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>55 BOULEVARD ARISTIDE BRIAND</Ligne>
+        <Ligne>BP 833</Ligne>
+        <CodePostal>85021</CodePostal>
+        <NomCommune>LA ROCHE SUR YON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 44 40 86 00</Téléphone>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

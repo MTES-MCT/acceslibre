@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-93051-02" codeInsee="93051" dateMiseAJour="2020-07-10" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises étrangères (SIEE)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue du Centre</Ligne>
+      <Ligne>TSA 20011</Ligne>
+      <CodePostal>93465</CodePostal>
+      <NomCommune>Noisy-le Grand Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8382664</Latitude>
+         <Longitude>2.5451564</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+33 (0)1 72 95 20 31</Téléphone>
+      <Email>siee.dinr@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>ou sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-62119-01" codeInsee="62119" dateMiseAJour="2021-02-10" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Béthune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>143-157 rue Louis-Blanc</Ligne>
+      <CodePostal>62400</CodePostal>
+      <NomCommune>Béthune</NomCommune>
+      <Localisation>
+         <Latitude>50.5324089</Latitude>
+         <Longitude>2.6377837</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 57 64 20</Téléphone>
+      <Email>cio.bethune@ac-lille.fr</Email>
+      <Url>http://www1.ac-lille.fr/cid85529/cio-bethune.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant les congés scolaires du lundi au vendredi de 9h à 12h et de 13h30 à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

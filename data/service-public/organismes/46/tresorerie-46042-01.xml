@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-46042-01" codeInsee="46042" dateMiseAJour="2021-09-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Cahors</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>83 rue Victor-Hugo</Ligne>
+      <CodePostal>46003</CodePostal>
+      <NomCommune>Cahors Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.4436135</Latitude>
+         <Longitude>1.440941</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 35 09 94</Téléphone>
+      <Télécopie>05 65 53 03 04</Télécopie>
+      <Email>t046003@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <Note>Uniquement sur rendez-vous le mardi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

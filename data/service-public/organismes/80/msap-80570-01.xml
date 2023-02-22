@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-80570-01" codeInsee="80570" dateMiseAJour="2021-01-14"
+           pivotLocal="msap">
+   <Nom>France Services - Moreuil</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue Maurice Garin</Ligne>
+      <Ligne>Avre Luce Noye</Ligne>
+      <CodePostal>80110</CodePostal>
+      <NomCommune>Moreuil</NomCommune>
+      <Localisation>
+         <Latitude>49.77147</Latitude>
+         <Longitude>2.48874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 60 12 28 10</Téléphone>
+      <Email>espacefranceservice@avrelucenoye.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

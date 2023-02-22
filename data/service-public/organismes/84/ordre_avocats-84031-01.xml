@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-84031-01" codeInsee="84031" dateMiseAJour="2019-03-07"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Carpentras</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'Avocat</Ligne>
+      <Ligne>16 impasse Sainte Anne</Ligne>
+      <CodePostal>84200</CodePostal>
+      <NomCommune>Carpentras</NomCommune>
+      <Localisation>
+         <Latitude>44.059575</Latitude>
+         <Longitude>5.128565</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 67 13 60</Téléphone>
+      <Télécopie>04 90 67 12 66</Télécopie>
+      <Url>www.barreaudecarpentras.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

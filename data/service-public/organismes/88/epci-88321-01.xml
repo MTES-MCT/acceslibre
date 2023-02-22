@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-88321-01" codeInsee="88321" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Ouest Vosgien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 bis avenue François-de-Neufchâteau</Ligne>
+      <CodePostal>88300</CodePostal>
+      <NomCommune>Neufchâteau</NomCommune>
+      <Localisation>
+         <Latitude>48.3502299</Latitude>
+         <Longitude>5.6933819</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 94 08 77</Téléphone>
+      <Télécopie>03 29 06 19 59</Télécopie>
+      <Email>contact@ccov.fr</Email>
+      <Url>http://www.ccov.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

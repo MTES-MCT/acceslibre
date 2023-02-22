@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-71270-01" codeInsee="71270" dateMiseAJour="2021-08-06" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 71 - Saône-et-Loire - Bureau de Mâcon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Gérard Genevès</Ligne>
+      <CodePostal>71010</CodePostal>
+      <NomCommune>Mâcon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.306324</Latitude>
+         <Longitude>4.8291874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">170 rue Branly Provisoirement pendant la durée des travaux</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 21 53 00</Téléphone>
+      <Email>contact.macon@cci71.fr</Email>
+      <Url>http://www.cci71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>170 rue Branly Provisoirement pendant la durée des travaux</Commentaire>
+</Organisme>

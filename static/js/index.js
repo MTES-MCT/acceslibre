@@ -20,6 +20,9 @@ import "leaflet.locatecontrol";
 import "leaflet-center-cross";
 import "chart.js";
 
+// Bootstrap
+import * as bootstrap from 'bootstrap';
+
 // Sentry
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
@@ -30,6 +33,7 @@ window.SentryIntegrations = Integrations;
 import dom from "./dom";
 import geo from "./geo";
 import ui from "./ui";
+import api from "./api"
 
 // Initializations
 dom.ready(() => {
@@ -48,4 +52,31 @@ dom.ready(() => {
 window.a4a = {
   dom,
   geo,
+};
+
+window.onload = function() {
+    var src = document.getElementById("id_email"),
+        dst = document.getElementById("id_username");
+
+    if (src && dst) {
+    src.addEventListener('input', function() {
+        dst.value = src.value.split('@')[0];
+    });
+    }
+
+    var loader = document.querySelector(".loader-api");
+    if(loader){
+      loader.addEventListener("click", function (e) {
+        wait_screen();
+      });
+      loader.addEventListener("submit", function () {
+        wait_screen();
+      })
+    }
+
+    function wait_screen(){
+      document.querySelector("#content").classList.add('blur');
+      document.querySelector("#spinner_container").style.display = "block";
+    }
+
 };

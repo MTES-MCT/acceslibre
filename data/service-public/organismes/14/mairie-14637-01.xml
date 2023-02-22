@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14637-01" codeInsee="14637" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Ouen-du-Mesnil-Oger</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Sieur-de-Saint-Côme</Ligne>
+      <CodePostal>14670</CodePostal>
+      <NomCommune>Saint-Ouen-du-Mesnil-Oger</NomCommune>
+      <Localisation>
+         <Latitude>49.155977</Latitude>
+         <Longitude>-0.121603</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 23 07 51</Téléphone>
+      <Télécopie>02 31 23 07 51</Télécopie>
+      <Email>mairiestouenmo@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

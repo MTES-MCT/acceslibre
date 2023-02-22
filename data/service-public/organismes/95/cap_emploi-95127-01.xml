@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-95127-01" codeInsee="95127" dateMiseAJour="2021-05-11"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Val-d'Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue des Béguines</Ligne>
+      <Ligne>CS 58384</Ligne>
+      <Ligne>Cap emploi 95</Ligne>
+      <Ligne>Ressources Carrières &amp; Handicaps 95</Ligne>
+      <CodePostal>95805</CodePostal>
+      <NomCommune>Cergy Pontoise Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.05022</Latitude>
+         <Longitude>2.03695</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 72 75 12 13</Téléphone>
+      <Email>accueil@capemploi95.org</Email>
+      <Url>https://www.capemploi-95.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10305-01" codeInsee="10305" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Premierfait</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Voie-Creuse</Ligne>
+      <CodePostal>10170</CodePostal>
+      <NomCommune>Premierfait</NomCommune>
+      <Localisation>
+         <Latitude>48.5004997253</Latitude>
+         <Longitude>4.02856016159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 61 88</Téléphone>
+      <Email>mairiedepremierfait@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

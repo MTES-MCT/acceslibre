@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80571-01" codeInsee="80571" dateMiseAJour="2020-09-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Morisel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Publique</Ligne>
+      <CodePostal>80110</CodePostal>
+      <NomCommune>Morisel</NomCommune>
+      <Localisation>
+         <Latitude>49.768263</Latitude>
+         <Longitude>2.476775</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 09 99 70</Téléphone>
+      <Télécopie>03 22 09 99 70</Télécopie>
+      <Email>mairie.morisel@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Le 2ème samedi de chaque mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

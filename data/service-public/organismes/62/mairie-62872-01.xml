@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62872-01" codeInsee="62872" dateMiseAJour="2021-11-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wamin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Maréchal</Ligne>
+      <CodePostal>62770</CodePostal>
+      <NomCommune>Wamin</NomCommune>
+      <Localisation>
+         <Latitude>50.4123816</Latitude>
+         <Longitude>2.0571991</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">deux entrées dont une est accessible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 03 42 04</Téléphone>
+      <Télécopie>03 21 03 42 04</Télécopie>
+      <Email>commune-wamin@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

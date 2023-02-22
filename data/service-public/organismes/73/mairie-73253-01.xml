@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73253-01" codeInsee="73253" dateMiseAJour="2020-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Marcel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pomblière</Ligne>
+      <Ligne>84 rue de la Mairie</Ligne>
+      <CodePostal>73600</CodePostal>
+      <NomCommune>Saint-Marcel</NomCommune>
+      <Localisation>
+         <Latitude>45.4830946</Latitude>
+         <Longitude>6.5309915</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 24 04 24</Téléphone>
+      <Télécopie>04 79 24 46 81</Télécopie>
+      <Email>contact@mairie-st-marcel.fr</Email>
+      <Url>http://www.pombliere-saint-marcel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67043-01" codeInsee="67043" dateMiseAJour="2020-02-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bischheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 route de Bischwiller</Ligne>
+      <Ligne>BP 34</Ligne>
+      <CodePostal>67801</CodePostal>
+      <NomCommune>Bischheim Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6153182983</Latitude>
+         <Longitude>7.75303316116</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 20 83 83</Téléphone>
+      <Email>guichet-unique@ville-bischheim.fr</Email>
+      <Url>http://www.bischheim.alsace.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="11:15:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Service population et citoyenneté du lundi au vendredi de 8h à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

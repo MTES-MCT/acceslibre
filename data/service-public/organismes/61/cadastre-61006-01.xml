@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cadastre-61006-01" codeInsee="61006" dateMiseAJour="2021-09-24"
+           pivotLocal="cadastre">
+   <Nom>Service départemental des impôts fonciers (SDIF) de l'OrnePôle de topographie et de gestion cadastrale (PTGC) - Argentan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de l'Entrepôt</Ligne>
+      <Ligne>CS 70204</Ligne>
+      <CodePostal>61200</CodePostal>
+      <NomCommune>Argentan</NomCommune>
+      <Localisation>
+         <Latitude>48.7379992</Latitude>
+         <Longitude>-0.0135832</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 12 26 82</Téléphone>
+      <Email>sdif.orne@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.cadastre.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous l'après-midi</Commentaire>
+</Organisme>

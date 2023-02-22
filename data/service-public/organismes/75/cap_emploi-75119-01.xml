@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-75119-01" codeInsee="75119" dateMiseAJour="2021-05-10"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 75</Ligne>
+      <Ligne>Unirh 75</Ligne>
+      <Ligne>43 bis rue d'Hautpoul</Ligne>
+      <CodePostal>75019</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.883843</Latitude>
+         <Longitude>2.387579</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 44 52 40 60</Téléphone>
+      <Télécopie>01 44 52 40 61</Télécopie>
+      <Email>contact@capemploi75.org</Email>
+      <Url>https://www.capemploi-75.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

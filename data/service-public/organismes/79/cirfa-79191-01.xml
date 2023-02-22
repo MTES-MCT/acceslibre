@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-79191-01" codeInsee="79191" dateMiseAJour="2018-11-28"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Niort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Denfert Rochereau</Ligne>
+      <Ligne>Quartier Du Guesclin</Ligne>
+      <Ligne>rue du Vieux Fourneau</Ligne>
+      <CodePostal>79000</CodePostal>
+      <NomCommune>Niort</NomCommune>
+      <Localisation>
+         <Latitude>46.32962</Latitude>
+         <Longitude>-0.459847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 77 16 91</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-de-niort</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>Fermeture à 16h30 le vendredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

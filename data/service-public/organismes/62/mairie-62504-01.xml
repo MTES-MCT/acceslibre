@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62504-01" codeInsee="62504" dateMiseAJour="2018-04-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Leulinghem</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6, rue de l'École</Ligne>
+      <CodePostal>62500</CodePostal>
+      <NomCommune>Leulinghem</NomCommune>
+      <Localisation>
+         <Latitude>50.7122993469</Latitude>
+         <Longitude>2.15772008896</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 93 19 89</Téléphone>
+      <Télécopie>03 21 93 19 89</Télécopie>
+      <Email>mairie.leulinghem62@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:15:00" fin="19:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

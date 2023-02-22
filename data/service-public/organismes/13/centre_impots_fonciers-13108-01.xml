@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-13108-01" codeInsee="13108"
+           dateMiseAJour="2020-10-22"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Tarascon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Pierre-Semard</Ligne>
+      <CodePostal>13158</CodePostal>
+      <NomCommune>Tarascon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.8018989563</Latitude>
+         <Longitude>4.6582198143</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 99 12 00</Téléphone>
+      <Email>cdif.tarascon@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

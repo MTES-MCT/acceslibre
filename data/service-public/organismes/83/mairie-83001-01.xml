@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83001-01" codeInsee="83001" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Adrets-de-l'Estérel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route du Violon</Ligne>
+      <CodePostal>83600</CodePostal>
+      <NomCommune>Les Adrets-de-l'Estérel</NomCommune>
+      <Localisation>
+         <Latitude>43.525662</Latitude>
+         <Longitude>6.814437</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 19 36 66</Téléphone>
+      <Télécopie>04 94 19 36 69</Télécopie>
+      <Email>accueil@mairie-adrets-esterel.fr</Email>
+      <Url>https://www.lesadretsdelesterel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous téléphonique le mardi de 10h à 12h et le jeudi de 9h à 12h uniquement pour le service urbanisme.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

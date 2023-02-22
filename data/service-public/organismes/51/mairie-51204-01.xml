@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51204-01" codeInsee="51204" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Damery</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>78 rue Paul-Douce</Ligne>
+      <Ligne>BP 51</Ligne>
+      <CodePostal>51480</CodePostal>
+      <NomCommune>Damery</NomCommune>
+      <Localisation>
+         <Latitude>49.0735015869</Latitude>
+         <Longitude>3.87787008286</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 58 41 66</Téléphone>
+      <Télécopie>03 26 57 61 99</Télécopie>
+      <Email>mairiededamery@wanadoo.fr</Email>
+      <Url>http://www.damery51.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Le maire reçoit sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

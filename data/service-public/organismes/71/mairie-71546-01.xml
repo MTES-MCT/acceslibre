@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71546-01" codeInsee="71546" dateMiseAJour="2021-09-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trambly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Mairie</Ligne>
+      <CodePostal>71520</CodePostal>
+      <NomCommune>Trambly</NomCommune>
+      <Localisation>
+         <Latitude>46.30627</Latitude>
+         <Longitude>4.481909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 50 46 98</Téléphone>
+      <Télécopie>03 85 50 40 88</Télécopie>
+      <Email>trambly@wanadoo.fr</Email>
+      <Url>http://www.trambly.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

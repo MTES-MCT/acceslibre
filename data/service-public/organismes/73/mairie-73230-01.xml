@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73230-01" codeInsee="73230" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Colomban-des-Villards</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chef-lieu</Ligne>
+      <CodePostal>73130</CodePostal>
+      <NomCommune>Saint-Colomban-des-Villards</NomCommune>
+      <Localisation>
+         <Latitude>45.2941894531</Latitude>
+         <Longitude>6.22663116455</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 56 35 72</Téléphone>
+      <Télécopie>04 79 59 42 81</Télécopie>
+      <Email>mairie-st.col@wanadoo.fr</Email>
+      <Url>http://www.st-colomban-des-villards.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil également de 15h à 18h pour la période juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

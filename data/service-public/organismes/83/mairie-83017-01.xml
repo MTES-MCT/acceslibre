@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83017-01" codeInsee="83017" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Belgentier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue du 8-Mai-1945</Ligne>
+      <CodePostal>83210</CodePostal>
+      <NomCommune>Belgentier</NomCommune>
+      <Localisation>
+         <Latitude>43.243849</Latitude>
+         <Longitude>6.001002</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 33 13 00</Téléphone>
+      <Télécopie>04 94 48 94 37</Télécopie>
+      <Email>mairie.belgentier@wanadoo.fr</Email>
+      <Url>http://www.belgentier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

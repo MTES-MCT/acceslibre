@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-35238-01" codeInsee="35238" dateMiseAJour="2019-02-20"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Rennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des Avocats</Ligne>
+      <Ligne>6 rue Hoche</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+      <Localisation>
+         <Latitude>48.105248</Latitude>
+         <Longitude>-1.687193</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 20 90 00</Téléphone>
+      <Télécopie>02 99 31 16 66</Télécopie>
+      <Email>info@ordre-avocats-rennes.com</Email>
+      <Url>http://www.ordre-avocats-rennes.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-88304-01" codeInsee="88304" dateMiseAJour="2021-08-30"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Mirecourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Laberté-et-Magnié</Ligne>
+      <Ligne>BP 79</Ligne>
+      <CodePostal>88502</CodePostal>
+      <NomCommune>Mirecourt Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.29732</Latitude>
+         <Longitude>6.132582</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 37 04 21</Téléphone>
+      <Email>sgc.mirecourt@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

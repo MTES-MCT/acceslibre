@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-01093-01" codeInsee="01093" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Châtillon-sur-Chalaronne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre départementale de la solidarité</Ligne>
+      <Ligne>289 B avenue Dubanchet</Ligne>
+      <CodePostal>01400</CodePostal>
+      <NomCommune>Châtillon-sur-Chalaronne</NomCommune>
+      <Localisation>
+         <Latitude>46.1233631</Latitude>
+         <Longitude>4.9540295</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Direction générale adjointe de la Solidarité</Ligne>
+      <Ligne>13 avenue de la Victoire</Ligne>
+      <Ligne>BP 50415</Ligne>
+      <CodePostal>01012</CodePostal>
+      <NomCommune>Bourg-en-Bresse Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 55 36 70</Téléphone>
+      <Télécopie>04 74 55 20 35</Télécopie>
+      <Email>cds.chatillon-sur-chalaronne@ain.fr</Email>
+      <Url>http://www.ain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

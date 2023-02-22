@@ -1,15 +1,13 @@
-import pytest
-
 from datetime import date
 
+import pytest
 from django.contrib.auth.models import User
 from django.core import mail
 from django.test import Client
 from django.urls import reverse
 
-from erp.models import Erp
 from contact.models import Message
-
+from erp.models import Erp
 
 TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
@@ -27,6 +25,7 @@ def test_contact(data, client):
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
+            "robot": "on",
         },
     )
 
@@ -61,7 +60,6 @@ def test_contact_antispam(data, client):
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
-            "robot": "on",
         },
     )
 
@@ -86,6 +84,7 @@ def test_contact_authenticated(data, client):
             "email": TEST_EMAIL,
             "body": TEST_BODY,
             "user": str(data.erp.user.pk),
+            "robot": "on",
         },
     )
 
@@ -118,6 +117,7 @@ def test_contact_topic(data, client):
             "email": TEST_EMAIL,
             "topic": "api",
             "body": TEST_BODY,
+            "robot": "on",
         },
     )
 
@@ -156,6 +156,7 @@ def test_contact_topic_erp(data, client):
             "email": TEST_EMAIL,
             "body": TEST_BODY,
             "erp": str(data.erp.pk),
+            "robot": "on",
         },
     )
 

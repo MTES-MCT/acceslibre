@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-53186-01" codeInsee="53186" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Quelaines-Saint-Gault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de la Mairie</Ligne>
+      <CodePostal>53360</CodePostal>
+      <NomCommune>Quelaines-Saint-Gault</NomCommune>
+      <Localisation>
+         <Latitude>47.9227999</Latitude>
+         <Longitude>-0.8025113</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 98 82 08</Téléphone>
+      <Télécopie>02 43 98 90 52</Télécopie>
+      <Email>mairie.quelaines@wanadoo.fr</Email>
+      <Url>http://www.quelaines-saint-gault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil fermé le lundi et mercredi après-midi, du 19 juillet au 31 août.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Accueil fermé le samedi, du 19 juillet au 28 août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

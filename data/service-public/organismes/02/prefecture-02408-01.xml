@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-02408-01" codeInsee="02408" dateMiseAJour="2021-02-12"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2, rue Paul-Doumer</Ligne>
+      <CodePostal>02010</CodePostal>
+      <NomCommune>Laon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.564231</Latitude>
+         <Longitude>3.621034</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 21 82 82</Téléphone>
+      <Télécopie>03 23 20 69 58</Télécopie>
+      <Email>prefecture@aisne.gouv.fr</Email>
+      <Url>http://www.aisne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="17:30:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

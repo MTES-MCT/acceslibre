@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-02810-01" codeInsee="02810" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Retz en Valois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Marx-Dormoy</Ligne>
+      <Ligne>BP 133</Ligne>
+      <CodePostal>02603</CodePostal>
+      <NomCommune>Villers-Cotterêts Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.2604653</Latitude>
+         <Longitude>3.0999628</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 96 13 01</Téléphone>
+      <Télécopie>03 23 96 28 24</Télécopie>
+      <Email>communautedecommunes@retzenvalois.fr</Email>
+      <Url>http://www.cc-villers-cotterets.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

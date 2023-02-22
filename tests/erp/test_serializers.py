@@ -1,5 +1,4 @@
 import pytest
-
 from django.contrib.gis.geos import Point
 
 from erp import serializers
@@ -32,6 +31,10 @@ def test_serializers(sample_result):
     decoded = serializers.decode_provider_data(encoded)
 
     for key, value in sample_result.items():
+        if key == "activite":
+            continue
         assert decoded[key] == value
 
-    assert decoded["geom"] == Point([3.913557, 43.657028])
+    assert "activite" not in decoded
+    assert decoded["lon"] == 3.913557
+    assert decoded["lat"] == 43.657028

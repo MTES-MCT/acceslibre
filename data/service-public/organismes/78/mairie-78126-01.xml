@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78126-01" codeInsee="78126" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Celle-Saint-Cloud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 E avenue Charles-de-Gaulle</Ligne>
+      <CodePostal>78170</CodePostal>
+      <NomCommune>La Celle-Saint-Cloud</NomCommune>
+      <Localisation>
+         <Latitude>48.8480987549</Latitude>
+         <Longitude>2.13683009148</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 78 10 00</Téléphone>
+      <Télécopie>01 30 82 06 86</Télécopie>
+      <Email>elus@ville-lacellesaintcloud.fr</Email>
+      <Url>http://www.lacellesaintcloud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>accueil ouvert uniquement pour l'état-civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-05010-01" codeInsee="05010" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Aspres-sur-Buëch</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre intercommunal d'action sociale</Ligne>
+      <Ligne>272 Grande rue</Ligne>
+      <CodePostal>05140</CodePostal>
+      <NomCommune>Aspres-sur-Buëch</NomCommune>
+      <Localisation>
+         <Latitude>44.52296</Latitude>
+         <Longitude>5.750167</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 58 66 36</Téléphone>
+      <Email>accueil.cias@ccbd.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

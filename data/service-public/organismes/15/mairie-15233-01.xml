@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15233-01" codeInsee="15233" dateMiseAJour="2020-11-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Teissières-de-Cornet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route du Meyrou</Ligne>
+      <CodePostal>15250</CodePostal>
+      <NomCommune>Teissières-de-Cornet</NomCommune>
+      <Localisation>
+         <Latitude>44.9698867798</Latitude>
+         <Longitude>2.35610890388</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 47 24 57</Téléphone>
+      <Email>teissieresdecornet@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

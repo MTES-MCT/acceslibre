@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64206-01" codeInsee="64206" dateMiseAJour="2021-01-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Escot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue de Labuchoa</Ligne>
+      <CodePostal>64490</CodePostal>
+      <NomCommune>Escot</NomCommune>
+      <Localisation>
+         <Latitude>43.077378</Latitude>
+         <Longitude>-0.607028</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 34 48 57</Téléphone>
+      <Email>mairie.escot@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

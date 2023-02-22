@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26071-01" codeInsee="26071" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chanos-Curson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la République</Ligne>
+      <CodePostal>26600</CodePostal>
+      <NomCommune>Chanos-Curson</NomCommune>
+      <Localisation>
+         <Latitude>45.060851</Latitude>
+         <Longitude>4.913321</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 07 33 07</Téléphone>
+      <Télécopie>04 75 07 32 99</Télécopie>
+      <Email>secretariat.mairiechanoscurson@orange.fr</Email>
+      <Url>http://mairie-chanoscurson.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <Note>Pendant la crise sanitaire pas d'accueil le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12198-01" codeInsee="12198" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rieupeyroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue de la Mairie</Ligne>
+      <CodePostal>12240</CodePostal>
+      <NomCommune>Rieupeyroux</NomCommune>
+      <Localisation>
+         <Latitude>44.306098938</Latitude>
+         <Longitude>2.2365899086</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 65 51 12</Téléphone>
+      <Télécopie>05 65 65 63 11</Télécopie>
+      <Email>mairie-rieupeyroux@orange.fr</Email>
+      <Url>https://www.rieupeyroux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil sur rendez-vous uniquement pour les cartes d'identités et passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

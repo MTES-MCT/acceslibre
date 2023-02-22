@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-49007-01" codeInsee="49007" dateMiseAJour="2021-08-05"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Angers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination d'Angers</Ligne>
+      <Ligne>Plateforme gérontologique Pass'Age Angers agglo</Ligne>
+      <Ligne>16 bis avenue Jean-XXIII</Ligne>
+      <CodePostal>49000</CodePostal>
+      <NomCommune>Angers</NomCommune>
+      <Localisation>
+         <Latitude>47.448585</Latitude>
+         <Longitude>-0.564376</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits">08 00 25 08 00</Téléphone>
+      <Email>secretariat@plateformepassage.fr</Email>
+      <Url>http://www.plateformepassage.com/fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

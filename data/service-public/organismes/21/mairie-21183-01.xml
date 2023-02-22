@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21183-01" codeInsee="21183" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Collonges-et-Premières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Collonges-lès-Premières</Ligne>
+      <Ligne>1 rue de Beire-le-Fort</Ligne>
+      <CodePostal>21110</CodePostal>
+      <NomCommune>Collonges-et-Premières</NomCommune>
+      <Localisation>
+         <Latitude>47.223906</Latitude>
+         <Longitude>5.267232</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 31 28 14</Téléphone>
+      <Email>collonges.mairie@wanadoo.fr</Email>
+      <Url>https://www.collonges-et-premieres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22278-01" codeInsee="22278" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Brieuc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>1 place du Général-de-Gaulle</Ligne>
+      <Ligne>CS 72365</Ligne>
+      <CodePostal>22023</CodePostal>
+      <NomCommune>Saint-Brieuc Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.5143165588</Latitude>
+         <Longitude>-2.76456809044</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 62 54 00</Téléphone>
+      <Télécopie>02 96 61 34 28</Télécopie>
+      <Email>contact@saint-brieuc.fr</Email>
+      <Url>http://www.saint-brieuc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

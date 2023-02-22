@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19203-01" codeInsee="19203" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Fortunade</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route du Château-Comtal</Ligne>
+      <CodePostal>19490</CodePostal>
+      <NomCommune>Sainte-Fortunade</NomCommune>
+      <Localisation>
+         <Latitude>45.2355384827</Latitude>
+         <Longitude>1.69889605045</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 27 14 19</Téléphone>
+      <Télécopie>05 55 27 32 96</Télécopie>
+      <Email>mairie.ste-fortunade@wanadoo.fr</Email>
+      <Url>http://www.ste-fortunade.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

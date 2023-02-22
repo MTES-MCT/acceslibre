@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59009-01" codeInsee="59009" dateMiseAJour="2021-11-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeneuve-d'Ascq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Salvador-Allende</Ligne>
+      <CodePostal>59652</CodePostal>
+      <NomCommune>Villeneuve-d'Ascq Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.6189002991</Latitude>
+         <Longitude>3.13076996803</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 43 50 50</Téléphone>
+      <Télécopie>03 20 05 18 23</Télécopie>
+      <Email>https://mesdemarches.villeneuvedascq.fr</Email>
+      <Url>https://www.villeneuvedascq.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

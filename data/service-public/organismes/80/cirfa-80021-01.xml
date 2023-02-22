@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-80021-01" codeInsee="80021" dateMiseAJour="2018-11-26"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Amiens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue Ernest Cauvin</Ligne>
+      <CodePostal>80000</CodePostal>
+      <NomCommune>Amiens</NomCommune>
+      <Localisation>
+         <Latitude>49.89174</Latitude>
+         <Longitude>2.299953</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 33 83 44</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-damiens</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+         <Note>Le samedi matin, sur rendez-vous uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

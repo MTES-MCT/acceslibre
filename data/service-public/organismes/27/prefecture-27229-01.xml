@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-27229-01" codeInsee="27229" dateMiseAJour="2021-08-18"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Eure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Georges-Chauvin</Ligne>
+      <CodePostal>27022</CodePostal>
+      <NomCommune>Evreux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0254898071</Latitude>
+         <Longitude>1.14307999611</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 78 27 27</Téléphone>
+      <Email>courrier-web@eure.gouv.fr</Email>
+      <Url>http://www.seine-maritime.gouv.fr/Outils/Horaires-et-coordonnees/Prefecture-de-l-Eure</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

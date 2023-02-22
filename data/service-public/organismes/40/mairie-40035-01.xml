@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40035-01" codeInsee="40035" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bénesse-lès-Dax</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>237 avenue Auguste-Duhau</Ligne>
+      <CodePostal>40180</CodePostal>
+      <NomCommune>Bénesse-lès-Dax</NomCommune>
+      <Localisation>
+         <Latitude>43.6432187</Latitude>
+         <Longitude>-1.037526</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 98 74 38</Téléphone>
+      <Télécopie>05 58 98 73 05</Télécopie>
+      <Email>mairie@benesse-les-dax.fr</Email>
+      <Url>https://www.benesse-les-dax.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre l'accueil est ouvert les lundi, mardi, jeudi et vendredi de 16h à 18h30.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Le samedi permanence du maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

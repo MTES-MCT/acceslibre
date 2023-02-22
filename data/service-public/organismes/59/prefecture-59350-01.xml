@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-59350-01" codeInsee="59350" dateMiseAJour="2021-02-24"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 20003</Ligne>
+      <Ligne>12, rue Jean-Sans-Peur</Ligne>
+      <CodePostal>59039</CodePostal>
+      <NomCommune>Lille Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.6324005127</Latitude>
+         <Longitude>3.0581600666</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 30 59 59</Téléphone>
+      <Télécopie>+33 3 20 57 08 02</Télécopie>
+      <Email>http://www.nord.gouv.fr/Contactez-nous</Email>
+      <Url>http://www.nord.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

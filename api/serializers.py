@@ -1,13 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-
 from erp import schema
-from erp.models import (
-    Activite,
-    Erp,
-    Accessibilite,
-)
+from erp.models import Accessibilite, Activite, Erp
 
 # Useful docs:
 # - extra fields: https://stackoverflow.com/a/36697562/330911
@@ -31,23 +26,22 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.HyperlinkedRelatedField(
-        lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
-    )
+    erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
-    def _readable_value(self, source, instance, repr, field):
+    def _readable_value(self, source, instance, repr, field, section):
         repr["readable_fields"].append(field)
         if schema.get_type(field) == "boolean":
-            if source[field]:
-                repr["datas"][field] = schema.get_help_text_ui(field)
+            if source[field] is True:
+                repr["datas"][section][field] = schema.get_help_text_ui(field)
+            elif source[field] is False:
+                repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
             else:
-                repr["datas"][field] = schema.get_help_text_ui_neg(field)
+                repr["datas"][section][field] = None
         else:
-            repr["datas"][field] = "{} : {}".format(
+            repr["datas"][section][field] = "{} : {}".format(
                 schema.get_help_text_ui(field),
                 schema.get_human_readable_value(field, getattr(instance, field)),
             )
-        return repr
 
     def to_representation(self, instance):
         request = self.context.get("request")
@@ -61,28 +55,33 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             repr["readable_fields"] = []
             repr["datas"] = {}
         for section, data in schema.get_api_fieldsets().items():
-            repr[section] = {}
+            if readable:
+                repr["datas"][section] = {}
+            else:
+                repr[section] = {}
             for field in data["fields"]:
                 # clean up empty fields
-                if clean and (
-                    source[field] is None or source[field] == [] or source[field] == ""
-                ):
+                if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
-                    repr = self._readable_value(source, instance, repr, field)
+                    self._readable_value(source, instance, repr, field, section)
                 else:
                     repr[section][field] = source[field]
-        try:
-            repr["commentaire"] = repr["commentaire"]["commentaire"]
-        except KeyError:
-            del repr["commentaire"]
-        # remove section if entirely empty
-        if clean:
-            return dict(
-                (key, section) for (key, section) in repr.items() if section != {}
-            )
+
+        if "commentaire" in repr:
+            comm_field = repr["commentaire"]
         else:
-            return repr
+            comm_field = repr["datas"]["commentaire"]
+        try:
+            comm_field = comm_field["commentaire"]
+        except KeyError:
+            del comm_field
+        # remove section if entirely empty
+        if readable and clean:
+            repr["datas"] = dict((key, section) for key, section in repr["datas"].items() if section != {})
+        if clean:
+            return dict((key, section) for key, section in repr.items() if section != {})
+        return repr
 
 
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
@@ -116,6 +115,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "adresse",
             "commune",
             "code_insee",
+            "code_postal",
             "geom",
             "siret",
             "telephone",
@@ -126,6 +126,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "accessibilite",
             "distance",
             "source_id",
+            "asp_id",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
@@ -133,25 +134,12 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     activite = ActiviteSerializer(many=False, read_only=True)
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
-    commune = serializers.SerializerMethodField()
-    code_insee = serializers.SerializerMethodField()
     web_url = serializers.SerializerMethodField()
+    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
 
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
             return obj.distance.m
-
-    def get_commune(self, obj):
-        if obj.commune_ext:
-            return obj.commune_ext.nom
-        else:
-            return obj.commune
-
-    def get_code_insee(self, obj):
-        if obj.commune_ext:
-            return obj.commune_ext.code_insee
-        else:
-            return obj.code_insee
 
     def get_web_url(self, obj):
         return self.context["request"].build_absolute_uri(obj.get_absolute_url())

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-88160-01" codeInsee="88160" dateMiseAJour="2020-11-02" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des sports et de la jeunesse</Ligne>
+      <Ligne>12 rue Général-Leclerc</Ligne>
+      <CodePostal>88000</CodePostal>
+      <NomCommune>Épinal</NomCommune>
+      <Localisation>
+         <Latitude>48.175226</Latitude>
+         <Longitude>6.450605</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 68 51 29</Téléphone>
+      <Télécopie>03 29 68 51 39</Télécopie>
+      <Email>bij@epinal.fr</Email>
+      <Url>https://www.epinal.fr/bureau-information-jeunesse</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

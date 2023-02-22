@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-02304-01" codeInsee="02304" dateMiseAJour="2021-04-23" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - La Fère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Europe</Ligne>
+      <CodePostal>02800</CodePostal>
+      <NomCommune>La Fère</NomCommune>
+      <Localisation>
+         <Latitude>49.658699</Latitude>
+         <Longitude>3.3803409</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 56 60 20</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

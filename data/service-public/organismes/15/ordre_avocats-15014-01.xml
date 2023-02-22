@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-15014-01" codeInsee="15014" dateMiseAJour="2019-02-18"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau d'Aurillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 place du Square</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>15000</CodePostal>
+      <NomCommune>Aurillac</NomCommune>
+      <Localisation>
+         <Latitude>44.929073</Latitude>
+         <Longitude>2.442495</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 64 36 95</Téléphone>
+      <Télécopie>04 71 48 98 90</Télécopie>
+      <Email>ordre-avocats15@orange.fr</Email>
+      <Url>http://www.avocat-cantal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

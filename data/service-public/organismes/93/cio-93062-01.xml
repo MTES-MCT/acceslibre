@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-93062-01" codeInsee="93062" dateMiseAJour="2021-02-17" pivotLocal="cio">
+   <Nom>Centre d'information et d'orientation (CIO) - Clichy-sous-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 bis boulevard Gagarine</Ligne>
+      <CodePostal>93390</CodePostal>
+      <NomCommune>Clichy-sous-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.8978634</Latitude>
+         <Longitude>2.5212912</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 43 81 34 72</Téléphone>
+      <Télécopie>01 43 08 61 20</Télécopie>
+      <Email>ce.0931236n@ac-creteil.fr</Email>
+      <Url>http://orientation.ac-creteil.fr/cio-clichy</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vacances scolaires : du lundi au vendredi de 9h à 16h30</Commentaire>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50359-02" codeInsee="50359" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Jean-du-Corail</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Jean-du-Corail</Ligne>
+      <Ligne>13 route de Mortain</Ligne>
+      <CodePostal>50140</CodePostal>
+      <NomCommune>Mortain-Bocage</NomCommune>
+      <Localisation>
+         <Latitude>48.5573228</Latitude>
+         <Longitude>-0.8798207</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 59 13 63</Téléphone>
+      <Email>mairie.saintjeanducorail@mortain-bocage.fr</Email>
+      <Url>http://www.mortain-bocage.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

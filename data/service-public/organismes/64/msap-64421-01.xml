@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-64421-01" codeInsee="64421" dateMiseAJour="2020-12-10"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Ogeu-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>1 rue du Pont-de-Taule</Ligne>
+      <CodePostal>64680</CodePostal>
+      <NomCommune>Ogeu-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>43.146666</Latitude>
+         <Longitude>-0.505711</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.ogeu-les-bains@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/ogeu-les-bains-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

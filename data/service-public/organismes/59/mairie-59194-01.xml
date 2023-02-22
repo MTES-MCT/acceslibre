@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59194-01" codeInsee="59194" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Englefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Eugène-Thomas</Ligne>
+      <CodePostal>59530</CodePostal>
+      <NomCommune>Englefontaine</NomCommune>
+      <Localisation>
+         <Latitude>50.1903586</Latitude>
+         <Longitude>3.6434241</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 27 50 22</Téléphone>
+      <Télécopie>03 27 27 58 61</Télécopie>
+      <Email>secretariat@englefontaine.fr</Email>
+      <Url>http://www.englefontaine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

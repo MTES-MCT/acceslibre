@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54523-01" codeInsee="54523" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thuilley-aux-Groseilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Germiny</Ligne>
+      <CodePostal>54170</CodePostal>
+      <NomCommune>Thuilley-aux-Groseilles</NomCommune>
+      <Localisation>
+         <Latitude>48.5732002258</Latitude>
+         <Longitude>5.9736700058</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 52 70 70</Téléphone>
+      <Email>contact.thuilley@wanadoo.fr</Email>
+      <Url>http://www.thuilley-aux-groseilles.mairie54.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

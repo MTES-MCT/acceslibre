@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71252-01" codeInsee="71252" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lalheue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 route de la Chapelle</Ligne>
+      <CodePostal>71240</CodePostal>
+      <NomCommune>Lalheue</NomCommune>
+      <Localisation>
+         <Latitude>46.6447451</Latitude>
+         <Longitude>4.7851265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 44 83 59</Téléphone>
+      <Email>mairie.lalheue@wanadoo.fr</Email>
+      <Url>http://www.mairie-lalheue.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+         <Note>Permanence de M. le maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

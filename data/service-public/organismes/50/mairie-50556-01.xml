@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50556-01" codeInsee="50556" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Suzanne-sur-Vire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de Mairie</Ligne>
+      <CodePostal>50750</CodePostal>
+      <NomCommune>Sainte-Suzanne-sur-Vire</NomCommune>
+      <Localisation>
+         <Latitude>49.0621417</Latitude>
+         <Longitude>-1.0602372</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 56 52 30</Téléphone>
+      <Email>mairiestesuzannesur-vire@wanadoo.fr</Email>
+      <Url>http://www.sainte-suzanne-sur-vire.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous les mardis et les lundis et jeudis en dehors des horaires d'ouverture.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

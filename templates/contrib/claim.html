@@ -7,21 +7,21 @@
 
 {% block editorial_content %}
 <main>
-  <h2 class="h3 mb-3">Revendiquer un établissement</h2>
+  <h1 class="h3 mb-3">Revendiquer un établissement</h1>
 
   <p class="font-weight-bold">Vous déclarez être gestionnaire de l'établissement suivant&nbsp;:</p>
 
   <div class="card shadow-m mb-3">
     <div class="card-header">
-      <h3 class="h5 mb-0">
+      <h2 class="h5 mb-0">
         {{ erp.nom }}
         {% if erp.activite %}<small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
-      </h3>
+      </h2>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-sm-6">
-          <h4 class="h6">Adresse&nbsp;:</h4>
+          <h3 class="h6">Adresse&nbsp;:</h3>
           <address class="mb-2 font-italic">{{ erp.adresse }}</adresse>
         </div>
         <div class="col-sm-6">
@@ -42,11 +42,11 @@
       </script>
   </div>
 
-  <form action="" method="POST" class="a4a-form">
+  <form action="" method="POST" class="a4a-form" novalidate>
     {% csrf_token %}
 
     {% if form.non_field_errors %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">

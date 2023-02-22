@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-80368-01" codeInsee="80368" dateMiseAJour="2021-12-02"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de la Baie de Somme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>154 rue Henri Barbusse</Ligne>
+      <CodePostal>80130</CodePostal>
+      <NomCommune>Friville-Escarbotin</NomCommune>
+      <Localisation>
+         <Latitude>50.0910341</Latitude>
+         <Longitude>1.545075</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 30 20 69</Téléphone>
+      <Email>sgc.baie-de-somme@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

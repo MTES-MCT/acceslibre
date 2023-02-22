@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34189-01" codeInsee="34189" dateMiseAJour="2021-10-04"
+           pivotLocal="msap">
+   <Nom>France Services - Olonzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 route d'Oupia</Ligne>
+      <CodePostal>34210</CodePostal>
+      <NomCommune>Olonzac</NomCommune>
+      <Localisation>
+         <Latitude>43.2852854</Latitude>
+         <Longitude>2.7410958</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 45 23 07</Téléphone>
+      <Email>franceservices.olonzac@cdcmc.fr</Email>
+      <Url>https://www.cc-minervois-caroux.fr/franceservices.aspx</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

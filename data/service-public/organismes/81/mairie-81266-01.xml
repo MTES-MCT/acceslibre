@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81266-01" codeInsee="81266" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Paul-Cap-de-Joux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Philippe-Pinel</Ligne>
+      <CodePostal>81220</CodePostal>
+      <NomCommune>Saint-Paul-Cap-de-Joux</NomCommune>
+      <Localisation>
+         <Latitude>43.648002</Latitude>
+         <Longitude>1.973851</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 70 60 18</Téléphone>
+      <Email>mairiesaintpaul@wanadoo.fr</Email>
+      <Url>http://www.saintpaulcapdejoux.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

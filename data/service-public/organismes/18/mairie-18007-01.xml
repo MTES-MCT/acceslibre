@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18007-01" codeInsee="18007" dateMiseAJour="2021-04-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Apremont-sur-Allier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>18150</CodePostal>
+      <NomCommune>Apremont-sur-Allier</NomCommune>
+      <Localisation>
+         <Latitude>46.906479</Latitude>
+         <Longitude>3.047802</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 80 40 17</Téléphone>
+      <Email>mairiedapremont@wanadoo.fr</Email>
+      <Url>http://www.mairie-apremontsurallier.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

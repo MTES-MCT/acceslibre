@@ -4,7 +4,7 @@
 
 {% block editorial_content %}
 <div class="row">
-  <main class="col-md-8 col-lg-9 order-last" id="content">
+  <main class="col-md-8 col-lg-9 order-last">
     {% block compte_content %}{% endblock %}
   </main>
   <nav class="col-md-4 col-lg-3 mb-4">
@@ -34,6 +34,13 @@
           href="{% url "mes_contributions" %}">
           <i aria-hidden="true" class="icon icon-users mr-1"></i>
           Mes contributions
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_challenges" }}"
+          href="{% url "mes_challenges" %}">
+          <i aria-hidden="true" class="icon icon-trophy mr-1"></i>
+          Mes challenges
         </a>
       </li>
       <li class="nav-item">

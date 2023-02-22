@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60118-01" codeInsee="60118" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Caisnes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Miss-Thompson</Ligne>
+      <CodePostal>60400</CodePostal>
+      <NomCommune>Caisnes</NomCommune>
+      <Localisation>
+         <Latitude>49.519733429</Latitude>
+         <Longitude>3.06857705116</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 09 71 72</Téléphone>
+      <Email>caisnes@paysnoyonnais.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>De 18h à 19h permanence du maire et des adjoints uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

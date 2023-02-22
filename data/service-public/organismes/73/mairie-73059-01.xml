@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73059-01" codeInsee="73059" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brison-Saint-Innocent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin du Parc-Despine</Ligne>
+      <CodePostal>73100</CodePostal>
+      <NomCommune>Brison-Saint-Innocent</NomCommune>
+      <Localisation>
+         <Latitude>45.7210998535</Latitude>
+         <Longitude>5.88725996017</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 54 33 60</Téléphone>
+      <Email>accueil@brison-st-innocent.fr</Email>
+      <Url>http://www.brison-st-innocent.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique du lundi au vendredi de 9h à 12h et de 13h30 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

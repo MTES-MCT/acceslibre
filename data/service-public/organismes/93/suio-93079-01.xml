@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-93079-01" codeInsee="93079" dateMiseAJour="2021-06-11"
+           pivotLocal="suio">
+   <Nom>Université Paris 13 Sorbonne - Villetaneuse - Valorisation orientation et insertion professionnelle de l’étudiant (VOIE)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand Hall</Ligne>
+      <Ligne>Sous les amphis 5,6,7</Ligne>
+      <Ligne>99 avenue Jean Baptiste Clément</Ligne>
+      <CodePostal>93430</CodePostal>
+      <NomCommune>Villetaneuse</NomCommune>
+      <Localisation>
+         <Latitude>48.955902</Latitude>
+         <Longitude>2.3388238</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 40 40 11</Téléphone>
+      <Email>info.voie@univ-paris13.fr</Email>
+      <Url>https://www.univ-paris13.fr/orientation/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

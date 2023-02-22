@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62671-01" codeInsee="62671" dateMiseAJour="2021-06-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pronville-en-Artois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Jean-Moulin</Ligne>
+      <CodePostal>62860</CodePostal>
+      <NomCommune>Pronville-en-Artois</NomCommune>
+      <Localisation>
+         <Latitude>50.2228012085</Latitude>
+         <Longitude>3.00831007957</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 24 00 42</Téléphone>
+      <Email>mairie.pronville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

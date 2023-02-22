@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67521-01" codeInsee="67521" dateMiseAJour="2021-03-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Weinbourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>67340</CodePostal>
+      <NomCommune>Weinbourg</NomCommune>
+      <Localisation>
+         <Latitude>48.87153</Latitude>
+         <Longitude>7.439875</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette à l'arrière</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 89 42 50</Téléphone>
+      <Télécopie>03 88 89 21 67</Télécopie>
+      <Email>mairie.weinbourg@gmail.com</Email>
+      <Url>https://weinbourg.hanau-lapetitepierre.alsace</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous. Veuillez contacter le secrétariat.</Commentaire>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97418-01" codeInsee="97418" dateMiseAJour="2020-10-27" pivotLocal="cij">
+   <Nom>Centre information jeunesse - Sainte-Marie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission locale nord antenne de Sainte-Marie</Ligne>
+      <Ligne>16 rue Auguste Panon</Ligne>
+      <CodePostal>97438</CodePostal>
+      <NomCommune>Sainte-Marie</NomCommune>
+      <Localisation>
+         <Latitude>-20.897624</Latitude>
+         <Longitude>55.552198</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 53 07 00</Téléphone>
+      <Télécopie>+262 2 62 53 40 04</Télécopie>
+      <Email>https://missionlocalenord.re/nous-contacter/contacter-une-personne/contacter-antenne-sainte-marie</Email>
+      <Url>https://missionlocalenord.re/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

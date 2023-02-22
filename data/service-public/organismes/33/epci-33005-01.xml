@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-33005-01" codeInsee="33005" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Bassin d'Arcachon Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>46 avenue des Colonies</Ligne>
+      <CodePostal>33510</CodePostal>
+      <NomCommune>Andernos-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>44.7439253</Latitude>
+         <Longitude>-1.0865087</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 76 17 17</Téléphone>
+      <Télécopie>05 57 76 58 03</Télécopie>
+      <Email>contact@coban-atlantique.fr</Email>
+      <Url>http://www.coban-atlantique.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

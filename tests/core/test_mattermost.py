@@ -1,8 +1,7 @@
-import pytest
-import requests
-
 from datetime import datetime
 
+import pytest
+import requests
 from django.conf import settings
 
 from core import mattermost

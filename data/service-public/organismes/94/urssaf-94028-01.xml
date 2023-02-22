@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-94028-01" codeInsee="94028" dateMiseAJour="2021-09-23"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Île-de-France - site du Val-de-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>36 cours des Juilliottes</Ligne>
+      <CodePostal>94700</CodePostal>
+      <NomCommune>Maisons-Alfort</NomCommune>
+      <Localisation>
+         <Latitude>48.8026</Latitude>
+         <Longitude>2.4435</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf Île-de-France</Ligne>
+      <Ligne>Siège social</Ligne>
+      <CodePostal>93518</CodePostal>
+      <NomCommune>Montreuil Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel). Renseignements téléphoniques du lundi au vendredi de 9h à 17h.">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr/categorie.do</Email>
+      <Url>https://www.urssaf.fr/portail/home/votre-urssaf/urssaf-ile-de-france.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Exclusivement sur rendez-vous. Pour prendre un rendez-vous avec un conseiller (par téléphone, en visioconférence ou dans nos locaux) : https://www.contact.urssaf.fr/mosaic/categorie.do</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

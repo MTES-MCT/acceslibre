@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30193-01" codeInsee="30193" dateMiseAJour="2021-07-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parignargues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Louis-Bousquet</Ligne>
+      <CodePostal>30730</CodePostal>
+      <NomCommune>Parignargues</NomCommune>
+      <Localisation>
+         <Latitude>43.8737564087</Latitude>
+         <Longitude>4.20764398575</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès par la bibliothèque contacter au préalable</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 81 13 50</Téléphone>
+      <Télécopie>04 66 81 13 50</Télécopie>
+      <Email>mairie.parignargues@wanadoo.fr</Email>
+      <Url>http://www.parignargues.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi</Commentaire>
+</Organisme>

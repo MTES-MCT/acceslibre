@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27115-01" codeInsee="27115" dateMiseAJour="2021-12-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Breux-sur-Avre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>10 ancienne route du Mans</Ligne>
+      <CodePostal>27570</CodePostal>
+      <NomCommune>Breux-sur-Avre</NomCommune>
+      <Localisation>
+         <Latitude>48.76231</Latitude>
+         <Longitude>1.081901</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 32 50 76</Téléphone>
+      <Email>mairie@breux-sur-avre.fr</Email>
+      <Url>https://www.breux-sur-avre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

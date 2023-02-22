@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from core import mailer
+from core.mailer import get_mailer
 from erp.models import Erp
 
 from .forms import ContactForm
@@ -26,7 +26,7 @@ def get_erp_contact_infos(erp):
 
 
 def send_receipt(message):
-    return mailer.send_email(
+    return get_mailer().send_email(
         [message.email],
         f"[{settings.SITE_NAME}] Suite à votre demande d'aide [{message.get_topic_display()}]",
         "mail/contact_form_receipt.txt",
@@ -36,10 +36,7 @@ def send_receipt(message):
             "erp": message.erp,
             "contact_infos": get_erp_contact_infos(message.erp),
             "is_vaccination": message.topic == Message.TOPIC_VACCINATION
-            or (
-                message.erp
-                and message.erp.metadata.get("centre_vaccination") is not None
-            ),
+            or (message.erp and message.erp.metadata.get("centre_vaccination") is not None),
             "SITE_NAME": settings.SITE_NAME,
             "SITE_ROOT_URL": settings.SITE_ROOT_URL,
         },
@@ -56,7 +53,7 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
             message = form.save()
             subject = f"[{message.topic}] {message.get_topic_display()}"
             subject += f" ({erp.nom})" if erp else ""
-            sent_ok = mailer.mail_admins(
+            sent_ok = get_mailer().mail_admins(
                 subject,
                 "mail/contact_email.txt",
                 {"message": message},

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78283-01" codeInsee="78283" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grandchamp</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 route de Nogent</Ligne>
+      <CodePostal>78113</CodePostal>
+      <NomCommune>Grandchamp</NomCommune>
+      <Localisation>
+         <Latitude>48.7363014221</Latitude>
+         <Longitude>1.64666998386</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 85 06 03</Téléphone>
+      <Télécopie>01 34 85 07 65</Télécopie>
+      <Email>gr78113@orange.fr</Email>
+      <Url>http://www.mairie-grandchamp78.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

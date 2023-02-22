@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-19031-01" codeInsee="19031" dateMiseAJour="2020-01-02" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Brive-la-Gaillarde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>50 boulevard Gontran-Royer</Ligne>
+      <Ligne>CS 10403</Ligne>
+      <CodePostal>19119</CodePostal>
+      <NomCommune>Brive-la-Gaillarde Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.1674036</Latitude>
+         <Longitude>1.5268357</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 18 31 35</Téléphone>
+      <Télécopie>05 55 18 31 21</Télécopie>
+      <Email>sie.brive-la-gaillarde@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Professionnels, la réception se fait uniquement sur rendez-vous.                                       Pensez à prendre RDV sur impots.gouv.fr, rubrique « Contact », ou par téléphone.</Commentaire>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05006-01" codeInsee="05006" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Argentière-la-Bessée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 avenue Charles-de-Gaulle</Ligne>
+      <Ligne>BP 14</Ligne>
+      <CodePostal>05120</CodePostal>
+      <NomCommune>L'Argentière-la-Bessée</NomCommune>
+      <Localisation>
+         <Latitude>44.7930584</Latitude>
+         <Longitude>6.5588729</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 23 10 03</Téléphone>
+      <Télécopie>04 92 23 02 99</Télécopie>
+      <Email>info@ville-argentiere.fr</Email>
+      <Url>http://www.ville-argentiere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement pour les cartes d'identité et passeports (dépôt et remise) et maximum deux personnes en même temps à l'accueil.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

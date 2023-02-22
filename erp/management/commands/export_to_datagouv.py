@@ -1,5 +1,6 @@
 import logging
 
+import pandas as pd
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
@@ -33,20 +34,32 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.verbose = options.get("verbose", False)
-        skip_upload = options.get("skip-upload", False)
+        skip_upload = options.get("skip_upload", False)
 
         csv_path = "acceslibre.csv"
+        csv_path_with_url = "acceslibre-with-web-url.csv"
         self.log("Starting export")
         try:
-            erps = Erp.objects.published().having_a11y_data()
-            export_schema_to_csv(csv_path, erps, EtalabMapper)
-            self.log("Local export successful: 'acceslibre.csv'")
+            self.log("Récupération des ERPs")
+            erps = Erp.objects.published()
+            self.log(f"{erps.count()} ERP(s) trouvé(s)")
+            export_schema_to_csv(csv_path_with_url, erps, EtalabMapper, logger=self.log)
+            self.log(f"Local export successful: '{csv_path_with_url}'")
+
+            df = pd.read_csv(csv_path_with_url)
+            df.pop("web_url")
+            df.to_csv(csv_path, index=False)
+
+            self.log(f"Local export successful: '{csv_path}'")
+
             if skip_upload:
+                self.log("Upload skipped.")
                 return
-            res = upload_to_datagouv(csv_path)
-            if res:
-                ping_mattermost(len(erps))
-                self.log("Dataset uploaded")
+
+            upload_to_datagouv(csv_path, resources_id=settings.DATAGOUV_RESOURCES_ID)
+            upload_to_datagouv(csv_path_with_url, resources_id=settings.DATAGOUV_RESOURCES_WITH_URL_ID)
+            self.log("Datasets uploaded")
+
         except RuntimeError as err:
             raise CommandError(f"Impossible de publier le dataset: {err}")
 

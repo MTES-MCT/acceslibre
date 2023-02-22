@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-97502-02" codeInsee="97502" dateMiseAJour="2018-01-11"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du centre hospitalier de Saint-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre hospitalier de Saint-Pierre</Ligne>
+      <Ligne>BP 393</Ligne>
+      <CodePostal>97458</CodePostal>
+      <NomCommune>Saint-Pierre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-21.34633</Latitude>
+         <Longitude>55.493434</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 35 94 64</Téléphone>
+      <Télécopie>+262 2 62 35 94 61</Télécopie>
+      <Email>t104014@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10123-01" codeInsee="10123" dateMiseAJour="2019-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dienville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>10500</CodePostal>
+      <NomCommune>Dienville</NomCommune>
+      <Localisation>
+         <Latitude>48.3489952087</Latitude>
+         <Longitude>4.53118419647</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">porte à l'arrière avec une rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 92 21 29</Téléphone>
+      <Télécopie>03 25 92 79 77</Télécopie>
+      <Email>communededienville@orange.fr</Email>
+      <Url>http://www.commune-de-dienville.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

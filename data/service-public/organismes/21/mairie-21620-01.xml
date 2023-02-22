@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21620-01" codeInsee="21620" dateMiseAJour="2018-06-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tarsul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de Courtivron</Ligne>
+      <CodePostal>21120</CodePostal>
+      <NomCommune>Tarsul</NomCommune>
+      <Localisation>
+         <Latitude>47.533011</Latitude>
+         <Longitude>4.984409</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 75 10 60</Téléphone>
+      <Email>mairiedetarsul@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

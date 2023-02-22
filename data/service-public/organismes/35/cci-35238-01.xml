@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-35238-01" codeInsee="35238" dateMiseAJour="2021-08-02" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 35 - Ille-et-Vilaine - Siège de Rennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue de la Préfecture</Ligne>
+      <CodePostal>35042</CodePostal>
+      <NomCommune>Rennes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.126741</Latitude>
+         <Longitude>-1.692618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 33 66 66</Téléphone>
+      <Télécopie>02 99 33 24 28</Télécopie>
+      <Email>infoplus@ille-et-vilaine.cci.fr</Email>
+      <Url>https://www.ille-et-vilaine.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

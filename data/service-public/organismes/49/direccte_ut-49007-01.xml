@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-49007-01" codeInsee="49007" dateMiseAJour="2021-12-01"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Maine-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 23607</Ligne>
+      <Ligne>12 rue Papiau-de-la-Verrie</Ligne>
+      <CodePostal>49036</CodePostal>
+      <NomCommune>Angers Cedex 01</NomCommune>
+      <Localisation>
+         <Latitude>47.444607</Latitude>
+         <Longitude>-0.54505</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 54 53 52</Téléphone>
+      <Email>ddets@maine-et-loire.gouv.fr</Email>
+      <Url>https://pays-de-la-loire.dreets.gouv.fr/La-DDETS-de-Maine-et-Loire-Direction-departementale-de-l-emploi-du-travail-et</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

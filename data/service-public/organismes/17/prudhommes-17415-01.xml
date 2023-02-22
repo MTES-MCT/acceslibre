@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="17415" dateMiseAJour="2021-12-14" id="prudhommes-17415-01" idPresta="4cac9e61293594648a0005ca" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Saintes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DES ROCHERS</Ligne>
+        <CodePostal>17100</CodePostal>
+        <NomCommune>SAINTES</NomCommune>
+        <Localisation>
+            <Latitude>45.741697</Latitude>
+            <Longitude>-0.643238</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DES ROCHERS</Ligne>
+        <CodePostal>17100</CodePostal>
+        <NomCommune>SAINTES</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 46 74 28 17</Téléphone>
+        <Télécopie>05 46 74 18 77</Télécopie>
+        <Email>mailto:cph-saintes@justice.fr</Email>
+        <Url>http://www.prudhomme.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="17:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mercredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="08:30:00" fin="17:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+            <Note>pendant les vacances scolaires :
+H.O du lundi au vendredi de 9h à 12h et de 13h30 à 16h30</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

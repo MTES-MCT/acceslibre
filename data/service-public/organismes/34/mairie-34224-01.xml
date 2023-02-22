@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34224-01" codeInsee="34224" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puissalicon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Barbacane</Ligne>
+      <CodePostal>34480</CodePostal>
+      <NomCommune>Puissalicon</NomCommune>
+      <Localisation>
+         <Latitude>43.4585990906</Latitude>
+         <Longitude>3.23585009575</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 36 69 50</Téléphone>
+      <Télécopie>04 67 36 65 24</Télécopie>
+      <Email>secretariat@puissalicon.fr</Email>
+      <Url>http://www.puissalicon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous après 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-13206-01" codeInsee="13206" dateMiseAJour="2022-01-04" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Marseille PRADO</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>183, avenue du Prado</Ligne>
+      <Ligne>CS 50006</Ligne>
+      <CodePostal>13265</CodePostal>
+      <NomCommune>Marseille Cedex 08</NomCommune>
+      <Localisation>
+         <Latitude>43.27761</Latitude>
+         <Longitude>5.3841578</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 17 96 03</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>ou sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vous pouvez prendre rendez-vous sur impôts.gouv.fr rubrique "contact" ou par téléphone. Si vous souhaitez contacter ce service par courriel : utilisez votre messagerie sécurisée disponible dans votre espace particuliers sur le site impôts.gouv.fr</Commentaire>
+</Organisme>

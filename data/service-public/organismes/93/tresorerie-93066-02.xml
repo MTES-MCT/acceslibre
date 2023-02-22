@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-93066-02" codeInsee="93066" dateMiseAJour="2021-07-05"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du centre hospitalier de Saint-Denis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Delafontaine</Ligne>
+      <Ligne>BP 275</Ligne>
+      <CodePostal>93205</CodePostal>
+      <NomCommune>Saint-Denis Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.935837</Latitude>
+         <Longitude>2.374168</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 42 35 38 13</Téléphone>
+      <Email>t093108@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sans rendez-vous les jours d'ouverture et sur rendez-vous pris par mail ou par téléphone.</Commentaire>
+</Organisme>

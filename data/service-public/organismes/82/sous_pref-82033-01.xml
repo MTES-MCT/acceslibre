@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-82033-01" codeInsee="82033" dateMiseAJour="2021-12-16"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Castelsarrasin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue de la Fraternité</Ligne>
+      <Ligne>BP 73</Ligne>
+      <CodePostal>82101</CodePostal>
+      <NomCommune>Castelsarrasin Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.0413198</Latitude>
+         <Longitude>1.1059337</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Uniquement sur rendez-vous">05 63 22 82 00</Téléphone>
+      <Email>sp-spref@tarn-et-garonne.gouv.fr</Email>
+      <Url>https://www.tarn-et-garonne.gouv.fr/Services-de-l-Etat/Prefecture-et-sous-prefecture/La-sous-prefecture-de-Castelsarrasin-Maison-de-l-Etat-de-Castelsarrasin</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

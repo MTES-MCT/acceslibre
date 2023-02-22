@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03080-01" codeInsee="03080" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cognat-Lyonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 route de Lyonne</Ligne>
+      <CodePostal>03110</CodePostal>
+      <NomCommune>Cognat-Lyonne</NomCommune>
+      <Localisation>
+         <Latitude>46.1077003479</Latitude>
+         <Longitude>3.30610990524</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 56 50 43</Téléphone>
+      <Télécopie>04 70 56 15 35</Télécopie>
+      <Email>mairie.cognat-lyonne@wanadoo.fr</Email>
+      <Url>http://www.cognat-lyonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

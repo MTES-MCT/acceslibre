@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79083-04" codeInsee="79083" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Tillou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tillou</Ligne>
+      <Ligne>1 place de l'Église</Ligne>
+      <CodePostal>79110</CodePostal>
+      <NomCommune>Chef-Boutonne</NomCommune>
+      <Localisation>
+         <Latitude>46.1083984375</Latitude>
+         <Longitude>-0.0802849978209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 29 33 23</Téléphone>
+      <Email>mairie-tillou@paysmellois.org</Email>
+      <Url>https://www.chef-boutonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

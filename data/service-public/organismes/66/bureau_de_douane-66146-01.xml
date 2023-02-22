@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-66146-01" codeInsee="66146" dateMiseAJour="2019-01-11"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Porta</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>RN 22</Ligne>
+      <CodePostal>66760</CodePostal>
+      <NomCommune>Porta</NomCommune>
+      <Localisation>
+         <Latitude>42.559496</Latitude>
+         <Longitude>1.756613</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 73 65</Téléphone>
+      <Télécopie>0561052208</Télécopie>
+      <Email>r-porta@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

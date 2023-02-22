@@ -1,14 +1,12 @@
-import re
 import logging
-
+import re
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 
-from erp.models import Erp, Commune, Accessibilite
+from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
-
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +28,7 @@ class GendarmerieMapper:
 
     def __init__(self, record, activite=None, today=None):
         self.record = record
-        self.today = today if today is not None else datetime.today()
+        self.today = today or datetime.today()
         self.activite = activite
 
     def process(self):
@@ -41,9 +39,7 @@ class GendarmerieMapper:
 
         # already imported erps
         if not erp:
-            erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
-            ).first()
+            erp = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]).first()
 
         # new erp
         if not erp:
@@ -124,14 +120,12 @@ class GendarmerieMapper:
                 "numero": numero,
                 "voie": voie,
                 "geom": self._import_coordinates(record),
-                "site_internet": record["url"],
+                "site_internet": record["url"].replace('"', ""),
                 "nom": record["service"],
                 "contact_url": "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr",
             }
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
@@ -140,17 +134,11 @@ class GendarmerieMapper:
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
 
         if not commune_ext:
             raise RuntimeError(
@@ -163,7 +151,7 @@ class GendarmerieMapper:
 
     def _populate_accessibilite(self, record):
         if not self.erp.has_accessibilite():
-            accessibilite = Accessibilite(erp=self.erp)
+            accessibilite = Accessibilite(erp=self.erp, entree_porte_presence=True)
             self.erp.accessibilite = accessibilite
         self.erp.accessibilite.commentaire = self._build_comment(record)
 
@@ -173,11 +161,8 @@ class GendarmerieMapper:
             f"Ces informations ont été importées depuis data.gouv.fr le {date} "
             "https://www.data.gouv.fr/fr/datasets/liste-des-unites-de-gendarmerie-accueillant-du-public-comprenant-leur-geolocalisation-et-leurs-horaires-douverture/"
         )
-        horaires = [
-            s.strip()
-            for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())
-        ]
-        if len(horaires) > 0:
+        horaires = [s.strip() for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())]
+        if horaires:
             comment += "\n\nHoraires d'accueil: \n"
             for horaire in horaires:
                 comment += horaire + "\n"

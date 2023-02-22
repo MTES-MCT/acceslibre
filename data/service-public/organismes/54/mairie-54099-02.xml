@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54099-02" codeInsee="54099" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Mance</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mance</Ligne>
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>54150</CodePostal>
+      <NomCommune>Val de Briey</NomCommune>
+      <Localisation>
+         <Latitude>49.275100708</Latitude>
+         <Longitude>5.86725997925</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 46 31 40</Téléphone>
+      <Télécopie>03 82 46 26 84</Télécopie>
+      <Email>mairie.mance@valdebriey.fr</Email>
+      <Url>http://www.ville-briey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

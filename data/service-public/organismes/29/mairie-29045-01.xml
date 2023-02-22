@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29045-01" codeInsee="29045" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dirinon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de l'Église</Ligne>
+      <CodePostal>29460</CodePostal>
+      <NomCommune>Dirinon</NomCommune>
+      <Localisation>
+         <Latitude>48.3981914</Latitude>
+         <Longitude>-4.2685428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 07 01 33</Téléphone>
+      <Télécopie>02 98 07 01 03</Télécopie>
+      <Email>accueil@dirinon.fr</Email>
+      <Url>http://www.dirinon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>En juillet-août accueil fermé le mercredi après-midi et fermeture à 16h30 le vendredi.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le samedi uniquement pour l'état civil, fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

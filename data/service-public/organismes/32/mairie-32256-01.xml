@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32256-01" codeInsee="32256" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mirande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Clemenceau</Ligne>
+      <Ligne>BP 53</Ligne>
+      <CodePostal>32300</CodePostal>
+      <NomCommune>Mirande</NomCommune>
+      <Localisation>
+         <Latitude>43.5136985779</Latitude>
+         <Longitude>0.40170699358</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 66 52 87</Téléphone>
+      <Télécopie>05 62 66 86 30</Télécopie>
+      <Email>contact@mirande.fr</Email>
+      <Url>http://www.mirande.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

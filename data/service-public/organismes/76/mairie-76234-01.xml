@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76234-01" codeInsee="76234" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Émanville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>169 route de Sainte-Austreberthe</Ligne>
+      <CodePostal>76570</CodePostal>
+      <NomCommune>Émanville</NomCommune>
+      <Localisation>
+         <Latitude>49.5892982483</Latitude>
+         <Longitude>0.967522025108</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 91 28 07</Téléphone>
+      <Télécopie>02 35 92 28 35</Télécopie>
+      <Email>mairie.emanville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:45:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:45:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

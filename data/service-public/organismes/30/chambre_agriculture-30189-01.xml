@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-30189-01" codeInsee="30189" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mas de l'agriculture</Ligne>
+      <Ligne>1120 route de Saint-Gilles</Ligne>
+      <Ligne>CS 38283</Ligne>
+      <CodePostal>30942</CodePostal>
+      <NomCommune>Nîmes Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.8126382</Latitude>
+         <Longitude>4.3705342</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 04 50 60</Téléphone>
+      <Email>accueil@gard.chambagri.fr</Email>
+      <Url>http://www.gard.chambre-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

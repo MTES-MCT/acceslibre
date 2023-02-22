@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-77108-01" codeInsee="77108" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Chelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 allée Alexis-Legrand</Ligne>
+      <CodePostal>77500</CodePostal>
+      <NomCommune>Chelles</NomCommune>
+      <Localisation>
+         <Latitude>48.877535</Latitude>
+         <Longitude>2.59016</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 26 61 50</Téléphone>
+      <Email>laboussole@chelles.fr</Email>
+      <Url>https://www.chelles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Sur rendez-vous le matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

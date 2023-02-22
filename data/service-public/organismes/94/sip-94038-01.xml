@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-94038-01" codeInsee="94038" dateMiseAJour="2021-04-06" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de L'Haÿ-Les-Roses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Dispan</Ligne>
+      <CodePostal>94246</CodePostal>
+      <NomCommune>L'Haÿ-Les-Roses Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7791734</Latitude>
+         <Longitude>2.3387691</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 08 88 44</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous l’après-midi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Uniquement sur rendez-vous l’après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous le Mardi et Jeudi.
+Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

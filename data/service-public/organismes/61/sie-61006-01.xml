@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-61006-01" codeInsee="61006" dateMiseAJour="2022-01-03" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises de l'Orne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 70204</Ligne>
+      <Ligne>12, rue de l'Entrepôt</Ligne>
+      <CodePostal>61200</CodePostal>
+      <NomCommune>Argentan</NomCommune>
+      <Localisation>
+         <Latitude>48.7379992</Latitude>
+         <Longitude>-0.0135832</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 12 45 83</Téléphone>
+      <Email>sip-sie.argentan@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous. Fermé le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

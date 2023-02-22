@@ -5,16 +5,15 @@ import requests
 from django.db import DataError
 
 from erp.imports.fetcher import JsonFetcher
-from erp.imports.importer import Importer, ROOT_DATASETS_URL
+from erp.imports.importer import ROOT_DATASETS_URL, Importer
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
-from tests.erp.imports.mapper.fixtures import FakeJsonFetcher
-
 from tests.erp.imports.mapper.fixtures import (
+    FakeJsonFetcher,
     neufchateau,
-    sample_record_ok,
     record_invalid_cp,
     record_skippable,
+    sample_record_ok,
 )
 
 
@@ -62,9 +61,7 @@ def test_unpublish_closed_erp(neufchateau, sample_record_ok, activite_cdv):
     assert erp.published is False
 
 
-def test_import_invalid_erp(
-    sample_record_ok, record_skippable, record_invalid_cp, activite_cdv, neufchateau
-):
+def test_import_invalid_erp(sample_record_ok, record_skippable, record_invalid_cp, activite_cdv, neufchateau):
     fetcher = FakeJsonFetcher([sample_record_ok, record_skippable, record_invalid_cp])
     today = datetime(2021, 1, 1)
     mapper = VaccinationMapper
@@ -86,6 +83,7 @@ def test_import_invalid_erp(
     assert record_invalid_cp["properties"]["c_com_insee"] in results["errors"][0]
 
 
+@pytest.mark.skip("TODO Mock for this test")
 def test_dataset_reachable():
     response = requests.get(ROOT_DATASETS_URL + "/061a5736-8fc2-4388-9e55-8cc31be87fa0")
     assert response.status_code == 200

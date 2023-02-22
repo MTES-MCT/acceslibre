@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69243-01" codeInsee="69243" dateMiseAJour="2019-12-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Tarare</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône du canton de Tarare</Ligne>
+      <Ligne>6 rue du Pigeonnier</Ligne>
+      <CodePostal>69170</CodePostal>
+      <NomCommune>Tarare</NomCommune>
+      <Localisation>
+         <Latitude>45.899601</Latitude>
+         <Longitude>4.4329</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 05 36 20</Téléphone>
+      <Télécopie>04 74 63 44 85</Télécopie>
+      <Email>mdr.tarare@rhone.fr</Email>
+      <Url>http://www.rhone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

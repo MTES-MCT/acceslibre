@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-34172-03" codeInsee="34172" dateMiseAJour="2020-11-20" pivotLocal="cij">
+   <Nom>Point information jeunesse - Montpellier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>139 rue de Bari</Ligne>
+      <Ligne>Association IPEICC</Ligne>
+      <CodePostal>34080</CodePostal>
+      <NomCommune>Montpellier</NomCommune>
+      <Localisation>
+         <Latitude>43.628202</Latitude>
+         <Longitude>3.820417</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 41 24 93</Téléphone>
+      <Email>i-peicc@orange.fr</Email>
+      <Url>http://www.ipeicc.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

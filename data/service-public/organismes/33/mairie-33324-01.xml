@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33324-01" codeInsee="33324" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pineuilh</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 avenue Jean-Raymond-Guyon</Ligne>
+      <Ligne>BP 72</Ligne>
+      <CodePostal>33220</CodePostal>
+      <NomCommune>Pineuilh</NomCommune>
+      <Localisation>
+         <Latitude>44.82970047</Latitude>
+         <Longitude>0.227320998907</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 46 03 07</Téléphone>
+      <Télécopie>05 57 46 25 11</Télécopie>
+      <Email>mairie@pineuilh.fr</Email>
+      <Url>http://www.pineuilh.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

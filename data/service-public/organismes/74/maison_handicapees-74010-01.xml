@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-74010-01" codeInsee="74010" dateMiseAJour="2021-08-06"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Haute-Savoie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 avenue de Chevêne</Ligne>
+      <Ligne>CS 20123</Ligne>
+      <CodePostal>74003</CodePostal>
+      <NomCommune>Annecy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9009478</Latitude>
+         <Longitude>6.1172458</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 33 22 50</Téléphone>
+      <Télécopie>04 50 33 22 54</Télécopie>
+      <Email>mdph@mdph74.fr</Email>
+      <Url>http://www.mdph74.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+         <Note>Accueil téléphonique fermé les mercredis et vendredis après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26339-01" codeInsee="26339" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Savasse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2020 route départementale 165</Ligne>
+      <CodePostal>26740</CodePostal>
+      <NomCommune>Savasse</NomCommune>
+      <Localisation>
+         <Latitude>44.6057</Latitude>
+         <Longitude>4.77643</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 01 11 73</Téléphone>
+      <Télécopie>04 75 90 52 56</Télécopie>
+      <Email>mairie@savasse.fr</Email>
+      <Url>http://www.savasse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil fermé jusqu'à nouvel ordre en raison du contexte sanitaire accueil possible sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="15:30:00"/>
+         <Note>Accueil fermé jusqu'à nouvel ordre en raison du contexte sanitaire, accueil possible sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09173-01" codeInsee="09173" dateMiseAJour="2021-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Loubens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>145 rue Principale</Ligne>
+      <CodePostal>09120</CodePostal>
+      <NomCommune>Loubens</NomCommune>
+      <Localisation>
+         <Latitude>43.0450897</Latitude>
+         <Longitude>1.5446714</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 05 33 18</Téléphone>
+      <Email>commune.loubens@orange.fr</Email>
+      <Url>http://www.mairie-loubens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

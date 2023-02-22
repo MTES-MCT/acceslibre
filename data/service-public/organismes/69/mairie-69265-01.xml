@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69265-01" codeInsee="69265" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ville-sur-Jarnioux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 rue de la Mairie</Ligne>
+      <CodePostal>69640</CodePostal>
+      <NomCommune>Ville-sur-Jarnioux</NomCommune>
+      <Localisation>
+         <Latitude>45.9481010437</Latitude>
+         <Longitude>4.58153009415</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 03 81 87</Téléphone>
+      <Télécopie>04 74 03 88 63</Télécopie>
+      <Email>secretariat@ville-sur-jarnioux.fr</Email>
+      <Url>http://www.ville-sur-jarnioux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

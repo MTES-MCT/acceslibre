@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62842-01" codeInsee="62842" dateMiseAJour="2021-10-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vendin-le-Vieil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 place Jean-Jaurès</Ligne>
+      <CodePostal>62880</CodePostal>
+      <NomCommune>Vendin-le-Vieil</NomCommune>
+      <Localisation>
+         <Latitude>50.4752998352</Latitude>
+         <Longitude>2.86713004112</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 77 37 00</Téléphone>
+      <Télécopie>03 21 77 37 09</Télécopie>
+      <Email>contact@vendinlevieil.fr</Email>
+      <Url>http://www.vendin-le-vieil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

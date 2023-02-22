@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="51108" dateMiseAJour="2021-12-14" id="prudhommes-51108-01" idPresta="4cac9e5f293594648a000280" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Châlons-en-Champagne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>RUE PERROT D&#39;ABLANCOURT</Ligne>
+        <CodePostal>51000</CodePostal>
+        <NomCommune>CHALONS EN CHAMPAGNE</NomCommune>
+        <Localisation>
+            <Latitude>48.958811</Latitude>
+            <Longitude>4.361766</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 quai Eugène PERRIER</Ligne>
+        <CodePostal>51000</CodePostal>
+        <NomCommune>CHALONS EN CHAMPAGNE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 26 65 00 70</Téléphone>
+        <Télécopie>03 26 21 04 36</Télécopie>
+        <Email>mailto:cph-chalons-en-champagne@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

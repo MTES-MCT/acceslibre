@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-21231-01" codeInsee="21231" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Métropole - Dijon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 avenue du Drapeau</Ligne>
+      <Ligne>CS 17510</Ligne>
+      <CodePostal>21075</CodePostal>
+      <NomCommune>Dijon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.332582</Latitude>
+         <Longitude>5.0439316</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 50 35 35</Téléphone>
+      <Email>contact@metropole-dijon.fr</Email>
+      <Url>http://www.metropole-dijon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-80620-02" codeInsee="80620" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Moreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Docteur-Sauveur-Lemaître</Ligne>
+      <CodePostal>80110</CodePostal>
+      <NomCommune>Moreuil</NomCommune>
+      <Localisation>
+         <Latitude>49.8193</Latitude>
+         <Longitude>2.4835</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 09 70 88</Téléphone>
+      <Email>t080032@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+         <Note>Ouverture à 13h40 l'après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+         <Note>Ouverture à 13h40 l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

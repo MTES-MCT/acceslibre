@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30346-01" codeInsee="30346" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vers-Pont-du-Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Grand-du-Bourg</Ligne>
+      <CodePostal>30210</CodePostal>
+      <NomCommune>Vers-Pont-du-Gard</NomCommune>
+      <Localisation>
+         <Latitude>43.96708</Latitude>
+         <Longitude>4.52406</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 22 80 55</Téléphone>
+      <Email>contact@vers-pontdugard.fr</Email>
+      <Url>http://www.vers-pont-du-gard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Service urbanisme ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

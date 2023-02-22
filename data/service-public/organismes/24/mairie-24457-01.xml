@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24457-01" codeInsee="24457" dateMiseAJour="2021-02-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-l'Astier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24400</CodePostal>
+      <NomCommune>Saint-Martin-l'Astier</NomCommune>
+      <Localisation>
+         <Latitude>45.0964141</Latitude>
+         <Longitude>0.3753737</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 81 06 40</Téléphone>
+      <Télécopie>05 53 80 45 61</Télécopie>
+      <Email>mairie.st-martin-lastier@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

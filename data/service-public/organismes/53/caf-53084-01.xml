@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-53084-01" codeInsee="53084" dateMiseAJour="2021-10-29" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de la Mayenne - accueil de Craon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Espace France services Pays de Craon</Ligne>
+      <Ligne>29 rue de la Libération</Ligne>
+      <CodePostal>53400</CodePostal>
+      <NomCommune>Craon</NomCommune>
+      <Localisation>
+         <Latitude>47.849337</Latitude>
+         <Longitude>-0.955696</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>11 quai Paul Boudet</Ligne>
+      <Ligne>Caf de la Mayenne</Ligne>
+      <Ligne>Service Allocataires</Ligne>
+      <CodePostal>53088</CodePostal>
+      <NomCommune>Laval cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Contact avec un conseiller Caf en accueil Visio à distance le vendredi de 9h à 11h30, prendre rendez-vous au 02 43 09 09 65, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-22050-01" codeInsee="22050" dateMiseAJour="2018-03-29" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Dinan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Salle-Gourdine</Ligne>
+      <Ligne>BP 21058</Ligne>
+      <CodePostal>22101</CodePostal>
+      <NomCommune>Dinan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4544162</Latitude>
+         <Longitude>-2.0535994</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 87 40 14</Téléphone>
+      <Télécopie>02 96 87 30 50</Télécopie>
+      <Email>sie.dinan@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

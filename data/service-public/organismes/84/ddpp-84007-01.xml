@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddpp-84007-01" codeInsee="84007" dateMiseAJour="2021-04-12"
+           pivotLocal="ddpp">
+   <Nom>Direction départementale de la protection des populations (DDPP) - Vaucluse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Bat 1 - Porte A</Ligne>
+      <Ligne>Avenue du Septième Génie</Ligne>
+      <CodePostal>84000</CodePostal>
+      <NomCommune>Avignon</NomCommune>
+      <Localisation>
+         <Latitude>43.9427352</Latitude>
+         <Longitude>4.8074857</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Services de l’État de Vaucluse - DDPP</Ligne>
+      <CodePostal>84905</CodePostal>
+      <NomCommune>Avignon Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 88 17 88 00</Téléphone>
+      <Télécopie>04 88 17 88 99</Télécopie>
+      <Email>ddpp@vaucluse.gouv.fr</Email>
+      <Url>http://www.vaucluse.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Une Permanence consommation accueille le mercredi uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

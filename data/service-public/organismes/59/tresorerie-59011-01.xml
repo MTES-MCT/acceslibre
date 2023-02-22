@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-59011-01" codeInsee="59011" dateMiseAJour="2020-06-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie d'Annoeullin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Bouvaque</Ligne>
+      <Ligne>BP 50059</Ligne>
+      <CodePostal>59112</CodePostal>
+      <NomCommune>Annoeullin</NomCommune>
+      <Localisation>
+         <Latitude>50.5297685</Latitude>
+         <Longitude>2.9319498</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une personne de la trésorerie peut se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 85 56 77</Téléphone>
+      <Email>t059002@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

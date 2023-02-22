@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-77146-01" codeInsee="77146" dateMiseAJour="2019-01-11"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Marne-La-Vallée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 boulevard Georges Bidault</Ligne>
+      <Ligne>Batiment G2</Ligne>
+      <Ligne>ZAC de Paris Est</Ligne>
+      <CodePostal>77183</CodePostal>
+      <NomCommune>Croissy-Beaubourg</NomCommune>
+      <Localisation>
+         <Latitude>48.830521</Latitude>
+         <Longitude>2.648137</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 23 30</Téléphone>
+      <Télécopie>01 64 62 03 63</Télécopie>
+      <Email>r-marne-la-vallee@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

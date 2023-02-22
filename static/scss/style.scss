@@ -24,6 +24,86 @@ $viewport-xl: 1200px;
 @import "~bootstrap/scss/bootstrap";
 // App specific styles
 
+.btn-search {
+  max-width: 7% !important;
+  @media screen and (max-width: $viewport-md) {
+        max-width: 15%!important;
+      }
+}
+
+.blur {
+    background-color: white;
+    opacity: 0.3;
+}
+
+#spinner_container {
+    z-index:9999;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#spinner   {
+  color: $primary;
+  width: 10rem;
+  height: 10rem;
+  left: 50%;
+  top: 50%;
+  position:absolute;
+}
+
+#qrcode {
+  display: flex;
+  @media screen and (max-width: $viewport-sm) {
+    // on mobile we don't want to display qrcode
+    display: none;
+  }
+}
+
+// SPACING
+.mt-10,
+.my-10 {
+  margin-top: 9rem !important;
+}
+
+.mt-20,
+.my-20 {
+  margin-top: 15rem !important;
+}
+
+iframe{
+  border: 0px;
+  margin:0px;
+}
+
+.icon-difference{
+  max-height: 130px;
+  width:auto;
+}
+
+button.fr-btn:focus, button.fr-btn:hover{
+  background-color: white;
+  color: rgba(41, 41, 255, 0.5);
+  background-image: none !important;
+  --color-hover: rgba(41, 41, 255, 0.5);
+  --color-active: rgba(41, 41, 255, 0.5);
+  border: 2px solid rgba(41, 41, 255, 0.5);
+}
+
+#home-latest-erps-list {
+  & ul{
+    padding-left: 0px;
+  }
+  & li {
+    list-style-type: none;
+  }
+}
+.fr-header__brand-top{
+  display:block !important;
+}
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
@@ -50,6 +130,14 @@ $viewport-xl: 1200px;
     z-index: 9999;
   }
 
+  .bold{
+    font-weight: bold;
+  }
+
+  .focus-img:focus img {
+    border: 2px solid white;
+    padding:2px;
+  }
   &-comment-block {
     p {
       margin: 0;
@@ -334,12 +422,16 @@ $viewport-xl: 1200px;
     outline: none;
   }
 
+  .no-list {
+    list-style-type: none;
+  }
+
   .text-bigger {
     font-size: 2em;
   }
 
   .text-count {
-    font-size: 4.5em;
+    font-size: 4.5em !important;
   }
 
   .text-overlay {
@@ -543,6 +635,16 @@ $viewport-xl: 1200px;
   &-search-map-area {
     position: relative;
     min-height: 400px; // desktop
+
+    @media only screen and (max-width: $viewport-sm) {
+      min-height: 200px; // mobile
+      order: -1; // on mobile the map is on top of results
+    }
+  }
+
+  &-search-map-area-global {
+    position: relative;
+    min-height: 800px; // desktop
 
     @media only screen and (max-width: $viewport-sm) {
       min-height: 200px; // mobile
@@ -835,20 +937,9 @@ $viewport-xl: 1200px;
     list-style: none;
   }
 
-  .StepProgress::before {
-    display: inline-block;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 15px;
-    width: 10px;
-    height: 100%;
-    border-left: 2px solid #ccc;
-  }
 
   .StepProgress-item {
     position: relative;
-    counter-increment: list;
     padding-top: 4px;
   }
 
@@ -860,46 +951,16 @@ $viewport-xl: 1200px;
     display: inline-block;
     content: "";
     position: absolute;
-    left: -30px;
-    height: 100%;
+    left: -15px;
+    height: 50%;
     width: 10px;
   }
 
-  .StepProgress-item::after {
-    background-color: $white;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    color: #999;
-    content: counter(list);
-    display: inline-block;
-    font-size: 18px;
-    font-weight: bold;
-    height: 32px;
-    left: -45px;
-    line-height: 28px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 32px;
-  }
 
   .StepProgress-item.is-done::before {
-    border-left: 2px solid $success;
-  }
-
-  .StepProgress-item.is-done::after {
-    background-color: $success;
-    border: 2px solid $success;
-    color: $white;
-    content: "\e904";
-    font-family: "icomoon", sans-serif !important;
-    font-style: normal !important;
-    font-variant: normal !important;
-    font-weight: normal !important;
-    text-align: center;
-    text-transform: none !important;
-    vertical-align: middle;
+    color: limegreen;
+    left:-25px;
+    content:"✔"
   }
 
   .StepProgress-item.current {
@@ -907,7 +968,7 @@ $viewport-xl: 1200px;
   }
 
   .StepProgress-item.current::before {
-    border-left: 2px solid $success;
+    border-left: 2px solid $primary;
   }
 
   .StepProgress-item.current::after {

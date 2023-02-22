@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19229-01" codeInsee="19229" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pantaléon-de-Larche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-Couloumy</Ligne>
+      <CodePostal>19600</CodePostal>
+      <NomCommune>Saint-Pantaléon-de-Larche</NomCommune>
+      <Localisation>
+         <Latitude>45.1409988403</Latitude>
+         <Longitude>1.44679999352</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 86 83 51</Téléphone>
+      <Télécopie>05 55 87 59 12</Télécopie>
+      <Email>mairie.st.pantaleon@orange.fr</Email>
+      <Url>http://www.st-pantaleon-larche.correze.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-01034-01" codeInsee="01034" dateMiseAJour="2020-06-04" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Belley</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Lieutenant André-Argenton</Ligne>
+      <Ligne>CS 70141</Ligne>
+      <CodePostal>01306</CodePostal>
+      <NomCommune>Belley Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.756435</Latitude>
+         <Longitude>5.6833023</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 81 65 40</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Accueil personnalisé sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

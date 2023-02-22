@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-76351-01" codeInsee="76351" dateMiseAJour="2021-05-11"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Seine-Maritime - Le Havre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 76 Le Havre</Ligne>
+      <Ligne>58 rue Général Chanzy</Ligne>
+      <Ligne>La ligue havraise pour l'aide aux personnes handicapées</Ligne>
+      <CodePostal>76600</CodePostal>
+      <NomCommune>Le Havre</NomCommune>
+      <Localisation>
+         <Latitude>49.485135</Latitude>
+         <Longitude>0.141431</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 22 71 21</Téléphone>
+      <Télécopie>02 35 43 52 81</Télécopie>
+      <Email>secretariat@capemploi76lehavre.com</Email>
+      <Url>https://www.capemploi-76lehavre.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74119-01" codeInsee="74119" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Évian-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Clermont</Ligne>
+      <Ligne>CS 80098</Ligne>
+      <CodePostal>74502</CodePostal>
+      <NomCommune>Évian-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.4006996155</Latitude>
+         <Longitude>6.59106016159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 83 10 00</Téléphone>
+      <Télécopie>04 50 83 10 03</Télécopie>
+      <Email>courrier@ville-evian.fr</Email>
+      <Url>http://www.ville-evian.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Permanence du service population le mercredi jusqu'à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

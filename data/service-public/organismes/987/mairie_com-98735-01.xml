@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie_com-98735-01" codeInsee="98735" dateMiseAJour="2021-06-22"
+           pivotLocal="mairie_com">
+   <Nom>Mairie - Papeete Tahiti</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Îles-du-Vent</Ligne>
+      <Ligne>Rue Gauguin</Ligne>
+      <Ligne>BP 106</Ligne>
+      <CodePostal>98714</CodePostal>
+      <NomCommune>Papeete</NomCommune>
+      <Localisation>
+         <Latitude>-17.5602465033</Latitude>
+         <Longitude>-149.569244385</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>info@villedepapeete.pf</Email>
+      <Url>http://www.ville-papeete.pf</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-32410-01" codeInsee="32410" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Samatan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Place des Cordeliers</Ligne>
+      <CodePostal>32130</CodePostal>
+      <NomCommune>Samatan</NomCommune>
+      <Localisation>
+         <Latitude>43.491933</Latitude>
+         <Longitude>0.930806</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mairie</Ligne>
+      <Ligne>2 place de la Fontaine</Ligne>
+      <CodePostal>32130</CodePostal>
+      <NomCommune>Samatan</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 62 51 90</Téléphone>
+      <Email>pij@samatan-gers.com</Email>
+      <Url>https://www.samatan-gers.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

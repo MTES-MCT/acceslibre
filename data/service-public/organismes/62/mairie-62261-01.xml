@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62261-01" codeInsee="62261" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cucq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue des Sports</Ligne>
+      <Ligne>BP 33</Ligne>
+      <CodePostal>62780</CodePostal>
+      <NomCommune>Cucq</NomCommune>
+      <Localisation>
+         <Latitude>50.485991</Latitude>
+         <Longitude>1.625421</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 94 36 66</Téléphone>
+      <Télécopie>03 21 84 66 87</Télécopie>
+      <Email>mairiedecucq@orange.fr</Email>
+      <Url>http://www.cucq.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

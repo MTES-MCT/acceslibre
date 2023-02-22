@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14191-01" codeInsee="14191" dateMiseAJour="2021-08-27"
+           pivotLocal="msap">
+   <Nom>France Services - Courseulles-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre Social</Ligne>
+      <Ligne>4 rue Arthur-Leduc</Ligne>
+      <CodePostal>14470</CodePostal>
+      <NomCommune>Courseulles-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.334049</Latitude>
+         <Longitude>-0.456813</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 36 17 57</Téléphone>
+      <Email>point-info-14@ville-courseulles.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

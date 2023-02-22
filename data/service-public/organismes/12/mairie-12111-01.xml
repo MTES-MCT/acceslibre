@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12111-01" codeInsee="12111" dateMiseAJour="2021-11-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Goutrens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>12390</CodePostal>
+      <NomCommune>Goutrens</NomCommune>
+      <Localisation>
+         <Latitude>44.442599</Latitude>
+         <Longitude>2.370342</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 72 71 24</Téléphone>
+      <Email>mairie-goutrens@wanadoo.fr</Email>
+      <Url>http://www.goutrens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-67110-01" codeInsee="67110" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Sauer Pechelbronn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des services et des associations</Ligne>
+      <Ligne>1 rue de l'Obermatt</Ligne>
+      <CodePostal>67360</CodePostal>
+      <NomCommune>Durrenbach</NomCommune>
+      <Localisation>
+         <Latitude>48.909556</Latitude>
+         <Longitude>7.750471</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 90 77 60</Téléphone>
+      <Email>info@sauer-pechelbronn.fr</Email>
+      <Url>http://www.sauer-pechelbronn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

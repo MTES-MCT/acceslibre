@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60286-01" codeInsee="60286" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grandvilliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Barbier</Ligne>
+      <Ligne>BP 24</Ligne>
+      <CodePostal>60210</CodePostal>
+      <NomCommune>Grandvilliers</NomCommune>
+      <Localisation>
+         <Latitude>49.6656990051</Latitude>
+         <Longitude>1.94064998627</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 76 48</Téléphone>
+      <Télécopie>03 44 46 47 45</Télécopie>
+      <Email>contact@grandvilliers.fr</Email>
+      <Url>http://www.grandvilliers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil le samedi pour le service passeport et pièce d'identité, uniquement sur rendez-vous, fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87188-01" codeInsee="87188" dateMiseAJour="2019-05-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Yrieix-sous-Aixe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>87700</CodePostal>
+      <NomCommune>Saint-Yrieix-sous-Aixe</NomCommune>
+      <Localisation>
+         <Latitude>45.858693</Latitude>
+         <Longitude>1.077816</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 03 81 86</Téléphone>
+      <Email>mairie.saint-yrieix-sous-aixe@wanadoo.fr</Email>
+      <Url>http://saint-yrieix-sous-aixe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

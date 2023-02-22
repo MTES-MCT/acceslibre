@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-40184-01" codeInsee="40184" dateMiseAJour="2021-04-07"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Mimizan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 avenue de Bordeaux</Ligne>
+      <CodePostal>40200</CodePostal>
+      <NomCommune>Mimizan</NomCommune>
+      <Localisation>
+         <Latitude>44.2027575</Latitude>
+         <Longitude>-1.2275202</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 09 04 65</Téléphone>
+      <Email>t040007@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <Note>Sans rendez-vous le matin et uniquement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

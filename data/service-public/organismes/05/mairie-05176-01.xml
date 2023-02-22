@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05176-01" codeInsee="05176" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valserres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>69 Grand'rue</Ligne>
+      <CodePostal>05130</CodePostal>
+      <NomCommune>Valserres</NomCommune>
+      <Localisation>
+         <Latitude>44.48876526</Latitude>
+         <Longitude>6.137719728</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 54 30 01</Téléphone>
+      <Email>mairie.valserres@wanadoo.fr</Email>
+      <Url>http://www.cc-serreponconvaldavance.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Permanence téléphonique du lundi au vendredi de 9h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

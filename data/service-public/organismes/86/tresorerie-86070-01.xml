@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-86070-01" codeInsee="86070" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Chauvigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Vassalour</Ligne>
+      <Ligne>BP 70035</Ligne>
+      <CodePostal>86300</CodePostal>
+      <NomCommune>Chauvigny</NomCommune>
+      <Localisation>
+         <Latitude>46.5675976</Latitude>
+         <Longitude>0.6448339</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de déplacer pour qu'un agent sorte</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 46 31 43</Téléphone>
+      <Email>t086004@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil uniquement sur rendez-vous à prendre par téléphone.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil uniquement sur rendez-vous à prendre par téléphone.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

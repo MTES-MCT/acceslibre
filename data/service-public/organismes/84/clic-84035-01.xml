@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-84035-01" codeInsee="84035" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Cavaillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre local d'information et de coordination AGEC</Ligne>
+      <Ligne>Résidence autonomie Saint-Martin</Ligne>
+      <Ligne>358 cours Sadi-Carnot</Ligne>
+      <CodePostal>84300</CodePostal>
+      <NomCommune>Cavaillon</NomCommune>
+      <Localisation>
+         <Latitude>43.838425</Latitude>
+         <Longitude>5.036112</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Centre hospitalier intercommunal de Cavaillon - Lauris</Ligne>
+      <Ligne>117 avenue Georges-Clemenceau</Ligne>
+      <Ligne>BP 157</Ligne>
+      <CodePostal>84304</CodePostal>
+      <NomCommune>Cavaillon</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 30 24 72 32</Téléphone>
+      <Email>clic.agec@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

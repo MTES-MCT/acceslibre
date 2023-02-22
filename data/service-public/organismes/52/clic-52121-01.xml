@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-52121-01" codeInsee="52121" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Chaumont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Service autonomie insertion et logement</Ligne>
+      <Ligne>Direction de la solidarité départementale</Ligne>
+      <Ligne>7 rue Eugène-Issartel</Ligne>
+      <CodePostal>52000</CodePostal>
+      <NomCommune>Chaumont</NomCommune>
+      <Localisation>
+         <Latitude>48.101318</Latitude>
+         <Longitude>5.147128</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 00 11 44 20</Téléphone>
+      <Télécopie>03 25 02 89 01</Télécopie>
+      <Email>apa@haute-marne.fr</Email>
+      <Url>http://www.haute-marne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

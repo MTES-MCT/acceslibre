@@ -1,9 +1,16 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.utils.functional import lazy
+from django.utils.html import format_html
+from django.utils.translation import gettext as _
+from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
+from six import text_type
 
 from compte.models import UserPreferences
 
@@ -12,16 +19,12 @@ USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », 
 
 def validate_username_whitelisted(value):
     if value.lower() in settings.USERNAME_BLACKLIST:
-        raise ValidationError(
-            "Ce nom d'utilisateur est réservé", params={"value": value}
-        )
+        raise ValidationError("Ce nom d'utilisateur est réservé", params={"value": value})
 
 
 def define_username_field():
     return forms.CharField(
         max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}. "
-        "Note : ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.",
         required=True,
         label="Nom d’utilisateur",
         validators=[
@@ -39,35 +42,76 @@ def define_email_field(label="Email"):
     )
 
 
+def _custom_password_validators_help_text_html(password_validators=None):
+    """
+    Return an HTML string with all help texts of all configured validators
+    in an <ul>.
+    """
+    help_texts = password_validators_help_texts(password_validators)
+    help_items = [format_html("<span>* {}</span><br>", help_text) for help_text in help_texts]
+    # <------------- append your hint here in help_items  ------------->
+    return "%s" % "".join(help_items) if help_items else ""
+
+
+custom_password_validators_help_text_html = custom_validators_help_text_html = lazy(
+    _custom_password_validators_help_text_html, text_type
+)
+
+
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = get_user_model()
         fields = [
-            "first_name",
-            "last_name",
             "username",
             "email",
             "password1",
             "password2",
             "next",
-            "robot",
         ]
+        widgets = {
+            "email": forms.TextInput(attrs={"autocomplete": "email", "autofocus": True}),
+            "username": forms.TextInput(attrs={"autocomplete": "username"}),
+        }
 
+    email = forms.EmailField(
+        error_messages={
+            "invalid": "Format de l'email attendu : nom@domaine.tld",
+            "unique": "Cet email est déja utilisé. Merci de fournir un email différent.",
+        },
+    )
+    password1 = forms.CharField(
+        label=_("Password"),
+        required=True,
+        widget=forms.PasswordInput,
+        strip=False,
+        help_text=custom_validators_help_text_html(),
+    )
+    password2 = forms.CharField(
+        label=_("Confirmation du mot de passe"),
+        required=True,
+        widget=forms.PasswordInput,
+        strip=False,
+    )
     username = define_username_field()
     next = forms.CharField(required=False)
+
     robot = forms.BooleanField(
-        label="Je suis un robot",
-        help_text="Merci de décocher cette case avant de soumettre le formulaire",
-        initial=True,
+        label="Je ne suis pas un robot",
+        initial=False,
         required=False,
     )
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        email_field = get_user_model().get_email_field_name()
+        self.fields[email_field].validators = (
+            validators.CaseInsensitiveUnique(get_user_model(), email_field, validators.DUPLICATE_EMAIL),
+        )
+
     def clean_robot(self):
         robot = self.cleaned_data["robot"]
-        if robot:
-            raise ValidationError(
-                "Vous devez décocher cette case pour soumettre le formulaire"
-            )
+        if not robot:
+            raise ValidationError("Vous devez cocher cette case pour soumettre le formulaire")
         return robot
 
 
@@ -101,10 +145,7 @@ class EmailChangeForm(forms.Form):
             raise ValidationError("Les emails ne correspondent pas")
 
         if get_user_model().objects.filter(email__iexact=email1).count() > 0:
-            raise ValidationError(
-                "Cette adresse email existe déjà, "
-                "veuillez choisir une adresse email différente"
-            )
+            raise ValidationError("Cette adresse email existe déjà, " "veuillez choisir une adresse email différente")
 
         return email1
 
@@ -118,9 +159,7 @@ class AccountDeleteForm(forms.Form):
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError(
-                "Vous devez confirmer la suppression pour la rendre effective."
-            )
+            raise ValidationError("Vous devez confirmer la suppression pour la rendre effective.")
         return confirm
 
 
@@ -128,3 +167,7 @@ class PreferencesForm(forms.ModelForm):
     class Meta:
         model = UserPreferences
         fields = ["notify_on_unpublished_erps"]
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = UsernameField(label="Adresse e-mail", widget=forms.TextInput(attrs={"autofocus": True}))

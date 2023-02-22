@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38558-01" codeInsee="38558" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villette-de-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>272 route de Marennes</Ligne>
+      <CodePostal>38200</CodePostal>
+      <NomCommune>Villette-de-Vienne</NomCommune>
+      <Localisation>
+         <Latitude>45.5994987488</Latitude>
+         <Longitude>4.91763019562</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 57 98 09</Téléphone>
+      <Télécopie>04 74 57 09 13</Télécopie>
+      <Email>mairie@mairie-villettedevienne.fr</Email>
+      <Url>http://www.villettedevienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

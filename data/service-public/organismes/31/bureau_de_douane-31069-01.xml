@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-31069-01" codeInsee="31069" dateMiseAJour="2019-01-15"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Toulouse-Blagnac - Aéroport</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Aéroport Zone de fret</Ligne>
+      <Ligne>Batiment H</Ligne>
+      <CodePostal>31700</CodePostal>
+      <NomCommune>Blagnac</NomCommune>
+      <Localisation>
+         <Latitude>43.626225</Latitude>
+         <Longitude>1.37946</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 62 00</Téléphone>
+      <Télécopie>05 61 15 78 26</Télécopie>
+      <Email>r-blagnac@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

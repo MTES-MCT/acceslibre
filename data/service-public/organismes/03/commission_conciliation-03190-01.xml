@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-03190-01" codeInsee="03190"
+           dateMiseAJour="2021-03-19"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Allier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDT de l'Allier</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>51, boulevard Saint-Exupéry</Ligne>
+      <Ligne>CS 30110</Ligne>
+      <CodePostal>03403</CodePostal>
+      <NomCommune>Yzeure Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.5617848</Latitude>
+         <Longitude>3.3519384</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 48 79 64</Téléphone>
+      <Télécopie>04 70 48 79 20</Télécopie>
+      <Email>ddt-slcd-ah@allier.gouv.fr</Email>
+      <Url>http://www.allier.gouv.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

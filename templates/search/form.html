@@ -1,46 +1,63 @@
 {% load static %}
-
-<form class="a4a-search-form" id="search-form" action="{% url "search" %}">
-  <div class="row no-gutters">
-    <div class="what-field col-xl-5 py-1">
-      <label for="what-input">
-        <span class="sr-only">Saisir vos termes de recherche, par exemple un type de service</span>
-        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Quoi</strong>
-        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(activité, enseigne)</span>
-      </label>
-      <div class="input-group">
+<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% if search_action %}{{ search_action }}{% else %}{% url "search" %}{% endif %}">
+  <div class="fr-col-12 no-gutters">
+    <div class="what-field py-1">
+      <div class="fr-col-12 fr-col-sm-5 input-group input-form text-left">
+        <label for="what-input">
+          <span class="larger-font{% if dark %} text-light{% endif %}"><strong>Quoi </strong> (activité, enseigne)</span><br>
+        </label>
         <input type="search" id="what-input" name="what"
-          class="form-control" placeholder="Exemple: mairie, café…"
-          aria-label="Rechercher un établissement, une activité" autocomplete="off"
-          value="{{ what|default_if_none:"" }}">
+          class="fr-input " placeholder="Mairie, café…"
+          aria-label="Rechercher un établissement, une activité. Exemple : Mairie, Café" autocomplete="off"
+          {% if "what" in request.GET %}
+          value="{{ what|default:request.GET.what }}"
+          {% else %}
+           value="{{ what }}"
+          {% endif %}
+      >
       </div>
-    </div>
-    <div class="where-field col-xl-7 py-1">
-      <label for="where-input">
-        <span class="sr-only">Saisir une adresse ou une localité, puis sélectionner une entrée dans la liste</span>
-        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
-        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(adresse, ville)</span>
-      </label>
-      <div class="search-where-field" style="z-index:9999">
-        <div class="input-group">
-          <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
-            spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
-            name="where" placeholder="Exemple: 12 rue des prés, Nantes">
-          <div class="input-group-append">
-            <button type="submit" class="btn {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
-              <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-              <span class="sr-only">Rechercher</span>
-            </button>
-          </div>
-        </div>
+      <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field text-left" style="z-index:9999">
+        <label for="where-input">
+          <span class="larger-font{% if dark %} text-light{% endif %}"><strong>Où</strong> (adresse, ville)</span><br>
+          <span class="sr-only">Commencer la saisie puis sélectionner dans la liste</span>
+        </label>
+        <input id="where-input" class="autocomplete-input fr-input" type="search" dir="ltr"
+            spellcheck=false autocomplete="off" autocapitalize="off"
+         {% if "where" in request.GET %}
+          value="{{ where|default:request.GET.where }}"
+          {% else %}
+           value="{{ where }}"
+          {% endif %}
+            name="where" placeholder="12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-        <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
-        <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
-        <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
-        <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-          Autoriser l'obtention de ma localisation géographique
-        </button>
+        <input type="hidden" name="lat"
+               {% if "lat" in request.GET %}
+                value="{{ lat|default:request.GET.lat }}"
+                {% else %}
+                 value="{{ lat }}"
+                {% endif %}>
+        <input type="hidden" name="lon"
+                {% if "lon" in request.GET %}
+                value="{{ lon|default:request.GET.lon }}"
+                {% else %}
+                 value="{{ lon }}"
+                {% endif %}>
+        <input type="hidden" name="code"
+                {% if "code" in request.GET %}
+                value="{{ code|default:request.GET.code }}"
+                {% else %}
+                 value="{{ code }}"
+                {% endif %}>
+
       </div>
+
+      <button type="submit" {% if 'contrib' in request.path %}disabled{% endif %} class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}" title="Rechercher">
+        <span class="sr-only">Rechercher</span>
+      </button>
+      <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+        Autoriser l'obtention de ma localisation géographique
+      </button>
     </div>
+
   </div>
 </form>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33472-01" codeInsee="33472" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sauveur-de-Puynormand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Maine-du-Pont</Ligne>
+      <CodePostal>33660</CodePostal>
+      <NomCommune>Saint-Sauveur-de-Puynormand</NomCommune>
+      <Localisation>
+         <Latitude>44.9914433</Latitude>
+         <Longitude>-0.0266763</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 69 62 63</Téléphone>
+      <Télécopie>05 57 69 77 71</Télécopie>
+      <Email>mairiesaintsauveurdepuynormand@gmail.com</Email>
+      <Url>http://www.saintsauveurdepuynormand.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

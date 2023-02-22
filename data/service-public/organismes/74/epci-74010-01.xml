@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-74010-01" codeInsee="74010" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Grand Annecy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>46 avenue des Îles</Ligne>
+      <Ligne>BP 90270</Ligne>
+      <CodePostal>74007</CodePostal>
+      <NomCommune>Annecy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9007605737</Latitude>
+         <Longitude>6.1284828186</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 63 48 48</Téléphone>
+      <Email>agglo@grandannecy.fr</Email>
+      <Url>http://www.grandannecy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

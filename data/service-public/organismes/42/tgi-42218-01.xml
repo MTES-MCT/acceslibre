@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="42218" dateMiseAJour="2021-12-14" id="tgi-42218-01" idPresta="4cac9e61293594648a000581" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Saint-Etienne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS DE JUSTICE</Ligne>
+        <CodePostal>42022</CodePostal>
+        <NomCommune>ST ETIENNE CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>45.437455</Latitude>
+            <Longitude>4.384365</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS DE JUSTICE</Ligne>
+        <CodePostal>42022</CodePostal>
+        <NomCommune>ST ETIENNE CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 77 43 33 00</Téléphone>
+        <Télécopie>04 77 43 33 77</Télécopie>
+        <Email>mailto:accueil-saint-etienne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+            <Note>Du 9 juillet au 7 septembre les horaires sont les suivants :
+09h 00 - 12h 00 / 13h00 - 16h</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

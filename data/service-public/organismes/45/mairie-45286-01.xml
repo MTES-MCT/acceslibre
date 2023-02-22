@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45286-01" codeInsee="45286" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-le-Blanc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Église</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>45655</CodePostal>
+      <NomCommune>Saint-Jean-le-Blanc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.8927001</Latitude>
+         <Longitude>1.9160599</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 66 39 61</Téléphone>
+      <Télécopie>02 38 56 62 94</Télécopie>
+      <Email>accueilmairie@saintjeanleblanc.com</Email>
+      <Url>http://www.saintjeanleblanc.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Permanence les jeudis de 17h30 à 19h urbanisme, accueil, état civil et scolaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

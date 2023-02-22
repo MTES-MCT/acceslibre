@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55374-01" codeInsee="55374" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nant-le-Petit</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Petite rue</Ligne>
+      <CodePostal>55500</CodePostal>
+      <NomCommune>Nant-le-Petit</NomCommune>
+      <Localisation>
+         <Latitude>48.6535987854</Latitude>
+         <Longitude>5.21114015579</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 78 61 20</Téléphone>
+      <Email>mairienantlepetit@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="19:00:00"/>
+         <Note>Permanence du maire de 16h à 19h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

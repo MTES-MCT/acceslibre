@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01295-01" codeInsee="01295" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Peyzieux-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 route du Beaujolais</Ligne>
+      <CodePostal>01140</CodePostal>
+      <NomCommune>Peyzieux-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>46.1284009</Latitude>
+         <Longitude>4.816487</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 04 00 42</Téléphone>
+      <Télécopie>04 74 65 26 99</Télécopie>
+      <Email>mairie.peyzieux@wanadoo.fr</Email>
+      <Url>http://www.peyzieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

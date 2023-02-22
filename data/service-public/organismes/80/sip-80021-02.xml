@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-80021-02" codeInsee="80021" dateMiseAJour="2019-11-28" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques d'Amiens Sud-Ouest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 12301</Ligne>
+      <Ligne>1-3 rue Pierre-Rollin</Ligne>
+      <CodePostal>80023</CodePostal>
+      <NomCommune>Amiens Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.8791693</Latitude>
+         <Longitude>2.3118565</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 46 83 83</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

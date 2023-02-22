@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B246-01" codeInsee="2B246" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Porta</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>20237</CodePostal>
+      <NomCommune>La Porta</NomCommune>
+      <Localisation>
+         <Latitude>42.4131929</Latitude>
+         <Longitude>9.3562094</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 39 21 48</Téléphone>
+      <Télécopie>04 95 39 29 79</Télécopie>
+      <Email>mairielaporta@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

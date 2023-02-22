@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10081-01" codeInsee="10081" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Saint-Luc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Maréchal-Leclerc</Ligne>
+      <Ligne>BP 10082</Ligne>
+      <CodePostal>10602</CodePostal>
+      <NomCommune>La Chapelle-Saint-Luc</NomCommune>
+      <Localisation>
+         <Latitude>48.3122808</Latitude>
+         <Longitude>4.0489627</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 71 34 34</Téléphone>
+      <Télécopie>03 25 49 98 88</Télécopie>
+      <Email>com.site@la-chapelle-st-luc.eu</Email>
+      <Url>http://www.ville-la-chapelle-st-luc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert de 8h45 à 12h et sur rendez-vous de 13h30 à 17h15, horaires susceptibles d'évoluer.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert de 8h45 à 12h et sur rendez-vous de 13h30 à 17h15, horaires susceptibles d'évoluer.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert de 8h45 à 12h et sur rendez-vous de 13h30 à 17h15, horaires susceptibles d'évoluer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97424-01" codeInsee="97424" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cilaos</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>66 rue du Père-Boiteau</Ligne>
+      <Ligne>BP 1</Ligne>
+      <CodePostal>97413</CodePostal>
+      <NomCommune>Cilaos</NomCommune>
+      <Localisation>
+         <Latitude>-21.136617</Latitude>
+         <Longitude>55.463134</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 31 89 89</Téléphone>
+      <Télécopie>+262 2 62 31 73 03</Télécopie>
+      <Email>cabinet.maire.cilaos@ville-cilaos.fr</Email>
+      <Url>http://www.ville-cilaos.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="12:45:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

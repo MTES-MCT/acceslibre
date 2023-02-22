@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-03095-01" codeInsee="03095" dateMiseAJour="2021-11-22"
+           pivotLocal="greta">
+   <Nom>Greta Bassin Dore Allier - Cusset</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment G1</Ligne>
+      <Ligne>Lycée Albert-Londres</Ligne>
+      <Ligne>Boulevard du 8-Mai-1945</Ligne>
+      <CodePostal>03300</CodePostal>
+      <NomCommune>Cusset</NomCommune>
+      <Localisation>
+         <Latitude>46.131694</Latitude>
+         <Longitude>3.442323</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 31 44 55</Téléphone>
+      <Email>contact@greta-doreallier.fr</Email>
+      <Url>http://www.greta-doreallier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

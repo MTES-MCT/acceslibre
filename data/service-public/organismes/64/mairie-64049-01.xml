@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64049-01" codeInsee="64049" dateMiseAJour="2021-01-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aroue-Ithorots-Olhaïby</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Maison Arruberia</Ligne>
+      <CodePostal>64120</CodePostal>
+      <NomCommune>Aroue-Ithorots-Olhaïby</NomCommune>
+      <Localisation>
+         <Latitude>43.318238</Latitude>
+         <Longitude>-0.919151</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 65 91 34</Téléphone>
+      <Email>mairie.aroue@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La mairie est ouverte le 1er samedi du mois de 9 h à 12 h.</Commentaire>
+</Organisme>

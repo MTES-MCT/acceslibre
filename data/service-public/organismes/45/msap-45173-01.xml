@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-45173-01" codeInsee="45173" dateMiseAJour="2020-11-24"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Jargeau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département de l'Est-Orléanais</Ligne>
+      <Ligne>1 A rue des Maraichers</Ligne>
+      <CodePostal>45150</CodePostal>
+      <NomCommune>Jargeau</NomCommune>
+      <Localisation>
+         <Latitude>47.860728</Latitude>
+         <Longitude>2.112449</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 25 69 69</Téléphone>
+      <Email>mdd.est.orleanais@loiret.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/maison-du-departement-jargeau</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous tous les après-midis du lundi au vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

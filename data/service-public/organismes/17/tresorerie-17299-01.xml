@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-17299-01" codeInsee="17299" dateMiseAJour="2021-08-31"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Rochefort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>42 avenue Wilson</Ligne>
+      <CodePostal>17307</CodePostal>
+      <NomCommune>Rochefort Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.945696</Latitude>
+         <Longitude>-0.963191</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 87 80 60</Téléphone>
+      <Email>sgc.rochefort@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Egalement sur rendez-vous</Commentaire>
+</Organisme>

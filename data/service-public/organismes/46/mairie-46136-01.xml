@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-46136-01" codeInsee="46136" dateMiseAJour="2021-11-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Labastide-du-Vert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 place Raoul-Moulé</Ligne>
+      <CodePostal>46150</CodePostal>
+      <NomCommune>Labastide-du-Vert</NomCommune>
+      <Localisation>
+         <Latitude>44.5120620728</Latitude>
+         <Longitude>1.26289999485</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 36 25 96</Téléphone>
+      <Email>mairie.de.labastide.du.vert@wanadoo.fr</Email>
+      <Url>http://www.labastide-du-vert.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Le mairie reçoit sur rendez-vous uniquement les jeudis après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

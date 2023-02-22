@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45019-01" codeInsee="45019" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Baccon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>61 rue de la Planche</Ligne>
+      <CodePostal>45130</CodePostal>
+      <NomCommune>Baccon</NomCommune>
+      <Localisation>
+         <Latitude>47.8916902</Latitude>
+         <Longitude>1.628761</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 46 67 88</Téléphone>
+      <Télécopie>09 70 06 76 39</Télécopie>
+      <Email>mairiebaccon@wanadoo.fr</Email>
+      <Url>http://www.mairiebaccon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire l'accueil au public ferme à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

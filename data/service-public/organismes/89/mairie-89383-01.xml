@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89383-01" codeInsee="89383" dateMiseAJour="2020-10-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sementron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue des Bourguignons</Ligne>
+      <CodePostal>89560</CodePostal>
+      <NomCommune>Sementron</NomCommune>
+      <Localisation>
+         <Latitude>47.6339263916</Latitude>
+         <Longitude>3.35067605972</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 44 24 34</Téléphone>
+      <Email>mairie-sementron@wanadoo.fr</Email>
+      <Url>https://lapagelocale.fr/89560-sementron</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

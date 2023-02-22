@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01152-01" codeInsee="01152" dateMiseAJour="2020-02-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Échallon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Miribel</Ligne>
+      <Ligne>201 route du Haut-Jura</Ligne>
+      <CodePostal>01130</CodePostal>
+      <NomCommune>Échallon</NomCommune>
+      <Localisation>
+         <Latitude>46.210307</Latitude>
+         <Longitude>5.7406262</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 76 48 51</Téléphone>
+      <Télécopie>04 74 76 42 80</Télécopie>
+      <Email>secretariat.mairie@echallon.fr</Email>
+      <Url>http://www.echallon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="60057" dateMiseAJour="2021-12-14" id="prudhommes-60057-01" idPresta="4cac9e5f293594648a0002bb" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Beauvais</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>20 BOULEVARD SAINT-JEAN</Ligne>
+        <CodePostal>60021</CodePostal>
+        <NomCommune>BEAUVAIS CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.429034</Latitude>
+            <Longitude>2.075962</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>20 BOULEVARD SAINT-JEAN</Ligne>
+        <CodePostal>60021</CodePostal>
+        <NomCommune>BEAUVAIS CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 44 79 60 70</Téléphone>
+        <Télécopie>03 44 79 60 79</Télécopie>
+        <Email>mailto:cph-beauvais@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

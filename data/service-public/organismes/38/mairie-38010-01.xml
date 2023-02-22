@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38010-01" codeInsee="38010" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Annoisin-Chatelans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 impasse de la Mairie</Ligne>
+      <CodePostal>38460</CodePostal>
+      <NomCommune>Annoisin-Chatelans</NomCommune>
+      <Localisation>
+         <Latitude>45.7559356689</Latitude>
+         <Longitude>5.2923579216</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sur le coté du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 83 80 76</Téléphone>
+      <Télécopie>04 74 83 80 76</Télécopie>
+      <Email>annoisin-chatelans@wanadoo.fr</Email>
+      <Url>http://www.annoisin-chatelans.wix.com/annoisin-chatelans</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

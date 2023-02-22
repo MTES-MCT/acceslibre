@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-78551-01" codeInsee="78551" dateMiseAJour="2021-12-15"
+           pivotLocal="drddi">
+   <Nom>Direction régionale des douanes - Paris-Ouest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Volta</Ligne>
+      <CodePostal>78105</CodePostal>
+      <NomCommune>Saint-Germain-en-Laye Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9006996155</Latitude>
+         <Longitude>2.07643008232</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 23 45</Téléphone>
+      <Télécopie>01 34 51 30 78</Télécopie>
+      <Email>dr-paris-ouest@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

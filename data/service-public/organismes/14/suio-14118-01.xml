@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-14118-01" codeInsee="14118" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Caen - Normandie - Espace orientation insertion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3e étage – porte DR 364</Ligne>
+      <Ligne>Campus 1 – Bâtiment D</Ligne>
+      <Ligne>Esplanade de la Paix</Ligne>
+      <Ligne>CS 14032</Ligne>
+      <CodePostal>14032</CodePostal>
+      <NomCommune>Caen Cedex 5</NomCommune>
+      <Localisation>
+         <Latitude>49.1881893</Latitude>
+         <Longitude>-0.3638111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 56 55 12</Téléphone>
+      <Email>orientationinsertion@unicaen.fr</Email>
+      <Url>https://www.unicaen.fr/formation/orientation-insertion/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

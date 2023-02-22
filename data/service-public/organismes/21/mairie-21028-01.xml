@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21028-01" codeInsee="21028" dateMiseAJour="2018-06-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Athée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 A rue du Centre</Ligne>
+      <CodePostal>21130</CodePostal>
+      <NomCommune>Athée</NomCommune>
+      <Localisation>
+         <Latitude>47.2304209</Latitude>
+         <Longitude>5.3709007</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 37 35 33</Téléphone>
+      <Email>mairie-d-athee@wanadoo.fr</Email>
+      <Url>http://www.athee-21.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

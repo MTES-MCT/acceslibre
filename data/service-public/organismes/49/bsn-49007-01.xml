@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-49007-01" codeInsee="49007" dateMiseAJour="2020-05-19" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - Angers (pour les départements 37, 49, 72, 85)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Verneau</Ligne>
+      <Ligne>200 avenue René-Gasnier</Ligne>
+      <CodePostal>49041</CodePostal>
+      <NomCommune>Angers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.4919963</Latitude>
+         <Longitude>-0.5770721</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">non accessible au public</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csn-angers.jdc.fct@intradef.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="15:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

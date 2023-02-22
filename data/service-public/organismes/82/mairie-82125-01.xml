@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82125-01" codeInsee="82125" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montech</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>BP 5</Ligne>
+      <CodePostal>82700</CodePostal>
+      <NomCommune>Montech</NomCommune>
+      <Localisation>
+         <Latitude>43.9570007324</Latitude>
+         <Longitude>1.22897005081</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 64 82 44</Téléphone>
+      <Télécopie>05 63 64 87 62</Télécopie>
+      <Email>mairie-montech@info82.com</Email>
+      <Url>https://www.ville-montech.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

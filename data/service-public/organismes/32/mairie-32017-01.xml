@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32017-01" codeInsee="32017" dateMiseAJour="2020-11-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aurensan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin du Moulin</Ligne>
+      <CodePostal>32400</CodePostal>
+      <NomCommune>Aurensan</NomCommune>
+      <Localisation>
+         <Latitude>43.619513</Latitude>
+         <Longitude>-0.203495</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 09 40 57</Téléphone>
+      <Télécopie>05 62 09 40 57</Télécopie>
+      <Email>mairie-aurensan@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

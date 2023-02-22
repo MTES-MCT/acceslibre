@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88035-01" codeInsee="88035" dateMiseAJour="2021-08-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barbey-Seroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de la Grand-Roche</Ligne>
+      <CodePostal>88640</CodePostal>
+      <NomCommune>Barbey-Seroux</NomCommune>
+      <Localisation>
+         <Latitude>48.14226</Latitude>
+         <Longitude>6.839944</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 61 69 63 60</Téléphone>
+      <Email>mairie.barbey-seroux@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

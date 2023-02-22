@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-26058-01" codeInsee="26058" dateMiseAJour="2020-03-04" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Drôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>260 Allée du Toueur</Ligne>
+      <Ligne>Île Girodet</Ligne>
+      <Ligne>BP 1112</Ligne>
+      <CodePostal>26011</CodePostal>
+      <NomCommune>Valence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.944554</Latitude>
+         <Longitude>4.887258</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 82 01 30</Téléphone>
+      <Télécopie>04 75 42 39 40</Télécopie>
+      <Email>contact@cdg26.fr</Email>
+      <Url>http://www.cdg26.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

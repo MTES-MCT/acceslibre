@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-54431-01" codeInsee="54431" dateMiseAJour="2021-02-09" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Pont-à-Mousson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la Poterne</Ligne>
+      <CodePostal>54700</CodePostal>
+      <NomCommune>Pont-à-Mousson</NomCommune>
+      <Localisation>
+         <Latitude>48.9021987915</Latitude>
+         <Longitude>6.056620121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 81 08 02</Téléphone>
+      <Email>ce.cio54-pontamousson@ac-nancy-metz.fr</Email>
+      <Url>http://www4.ac-nancy-metz.fr/cio-pontamousson</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

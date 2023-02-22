@@ -1,11 +1,9 @@
 # flake8: noqa
 import os
+
 import sentry_sdk
 
 from .settings import *
-
-
-DEBUG = False
 
 STAGING = True
 SITE_NAME = "acceslibre (recette)"
@@ -17,15 +15,12 @@ if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
 
     sentry_sdk.init(
-        dsn=SENTRY_DSN, integrations=[DjangoIntegration()], environment="production"
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=0.1,
+        send_default_pii=True,
+        environment="recette",
     )
-
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": "/var/tmp/django_cache",
-    }
-}
 
 # FIXME: removed because of a nasty bug with dist static assets
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
@@ -35,3 +30,7 @@ SECURE_SSL_REDIRECT = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_SECONDS = 3600
+
+SEND_IN_BLUE_TEMPLATE_IDS = {
+    "draft_deleted": 4,
+}

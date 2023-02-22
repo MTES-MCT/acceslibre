@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60703-01" codeInsee="60703" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aux-Marais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du 15-Janvier-1954</Ligne>
+      <CodePostal>60000</CodePostal>
+      <NomCommune>Aux-Marais</NomCommune>
+      <Localisation>
+         <Latitude>49.3968009949</Latitude>
+         <Longitude>2.05834007263</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 48 21 64</Téléphone>
+      <Télécopie>03 44 48 70 74</Télécopie>
+      <Email>mairie.aux.marais@orange.fr</Email>
+      <Url>http://www.auxmarais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

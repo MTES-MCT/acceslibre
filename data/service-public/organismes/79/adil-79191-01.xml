@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-79191-01" codeInsee="79191" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Deux-Sèvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département</Ligne>
+      <Ligne>Mail Lucie-Aubrac</Ligne>
+      <Ligne>CS 58880</Ligne>
+      <CodePostal>79028</CodePostal>
+      <NomCommune>Niort Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.3298225402832</Latitude>
+         <Longitude>-0.45963504910469055</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 28 08 08</Téléphone>
+      <Email>accueil@adil79.fr</Email>
+      <Url>http://www.adil79.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre l'accueil se fait uniquement par téléphone.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

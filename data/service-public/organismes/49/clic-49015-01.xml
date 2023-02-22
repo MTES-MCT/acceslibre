@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-49015-01" codeInsee="49015" dateMiseAJour="2021-08-05"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Avrillé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA du Bocage</Ligne>
+      <Ligne>Centre local d'information et de coordination aînés outre-Maine</Ligne>
+      <Ligne>5 rue René-Hersen</Ligne>
+      <CodePostal>49240</CodePostal>
+      <NomCommune>Avrillé</NomCommune>
+      <Localisation>
+         <Latitude>47.502323</Latitude>
+         <Longitude>-0.582733</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 05 11 08</Téléphone>
+      <Email>clic.ainesoutremaine@wanadoo.fr</Email>
+      <Url>http://www.clic-aom.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Contact par mail ou par téléphone.</Commentaire>
+</Organisme>

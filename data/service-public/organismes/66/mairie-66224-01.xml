@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66224-01" codeInsee="66224" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villelongue-de-la-Salanque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 avenue du Littoral</Ligne>
+      <CodePostal>66410</CodePostal>
+      <NomCommune>Villelongue-de-la-Salanque</NomCommune>
+      <Localisation>
+         <Latitude>42.7271995544</Latitude>
+         <Longitude>2.9851500988</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied, ascenseur, rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 73 95 95</Téléphone>
+      <Télécopie>04 68 73 95 51</Télécopie>
+      <Email>mairie.villelongue.slque@wanadoo.fr</Email>
+      <Url>http://www.villelongue-de-la-salanque.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

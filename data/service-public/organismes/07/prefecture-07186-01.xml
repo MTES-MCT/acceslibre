@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-07186-01" codeInsee="07186" dateMiseAJour="2021-02-18"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Ardèche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4, boulevard de Vernon</Ligne>
+      <CodePostal>07000</CodePostal>
+      <NomCommune>Privas</NomCommune>
+      <Localisation>
+         <Latitude>44.735761</Latitude>
+         <Longitude>4.6005152</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 66 50 00</Téléphone>
+      <Télécopie>+33 4 75 64 03 39</Télécopie>
+      <Email>pref-courrier@ardeche.gouv.fr</Email>
+      <Url>http://www.ardeche.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

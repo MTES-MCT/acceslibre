@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25469-01" codeInsee="25469" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Présentevillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du 28-Octobre-1944</Ligne>
+      <CodePostal>25550</CodePostal>
+      <NomCommune>Présentevillers</NomCommune>
+      <Localisation>
+         <Latitude>47.4995994568</Latitude>
+         <Longitude>6.72940015793</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 92 35 24</Téléphone>
+      <Email>mairie.presentevillers@wanadoo.fr</Email>
+      <Url>http://www.presentevillers.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Permanence des élus de 16h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

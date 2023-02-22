@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65335-01" codeInsee="65335" dateMiseAJour="2021-10-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ordizan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Église</Ligne>
+      <CodePostal>65200</CodePostal>
+      <NomCommune>Ordizan</NomCommune>
+      <Localisation>
+         <Latitude>43.1083984375</Latitude>
+         <Longitude>0.129993</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 95 31 27</Téléphone>
+      <Email>mairie.ordizan@wanadoo.fr</Email>
+      <Url>www.ordizan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence des élus de 18h30 à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

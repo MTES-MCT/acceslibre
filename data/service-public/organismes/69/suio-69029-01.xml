@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-69029-01" codeInsee="69029" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Lyon 2 - Bron - Pôle orientation et réussite</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Campus Porte-des-Alpes</Ligne>
+      <Ligne>5 avenue Pierre-Mendès-France</Ligne>
+      <CodePostal>69676</CodePostal>
+      <NomCommune>Bron Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.720735</Latitude>
+         <Longitude>4.916956</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 77 23 42</Téléphone>
+      <Email>scuio@univ-lyon2.fr</Email>
+      <Url>https://www.univ-lyon2.fr/formation/dispositifs-d-accompagnement/accompagnement-individuel-par-le-scuio-ip</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h30 à 12h30 et de 13h30 à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

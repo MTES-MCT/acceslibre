@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77027-01" codeInsee="77027" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaumont-du-Gâtinais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Montgaudier</Ligne>
+      <CodePostal>77890</CodePostal>
+      <NomCommune>Beaumont-du-Gâtinais</NomCommune>
+      <Localisation>
+         <Latitude>48.13655</Latitude>
+         <Longitude>2.474809</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 29 90 33</Téléphone>
+      <Télécopie>01 64 29 94 88</Télécopie>
+      <Email>mairie.beaumont.du.gatinais@orange.fr</Email>
+      <Url>http://www.beaumont-du-gatinais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé le samedi en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

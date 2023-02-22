@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90098-01" codeInsee="90098" dateMiseAJour="2020-10-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Urcerey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Fernand-Anthony</Ligne>
+      <CodePostal>90800</CodePostal>
+      <NomCommune>Urcerey</NomCommune>
+      <Localisation>
+         <Latitude>47.608005</Latitude>
+         <Longitude>6.8086641</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 28 62 33</Téléphone>
+      <Email>mairie.urcerey@wanadoo.fr</Email>
+      <Url>http://www.urcerey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="09:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

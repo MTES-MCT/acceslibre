@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-22050-02" codeInsee="22050" dateMiseAJour="2021-10-14"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Plancoët</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Lord Kitchener</Ligne>
+      <Ligne>CS 71018</Ligne>
+      <CodePostal>22101</CodePostal>
+      <NomCommune>Dinan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.455405</Latitude>
+         <Longitude>-2.052523</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 39 06 98</Téléphone>
+      <Email>t022030@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

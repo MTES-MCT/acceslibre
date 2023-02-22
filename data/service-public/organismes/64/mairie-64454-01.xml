@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64454-01" codeInsee="64454" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pontiacq-Viellepinte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>379 rue des Écoles</Ligne>
+      <CodePostal>64460</CodePostal>
+      <NomCommune>Pontiacq-Viellepinte</NomCommune>
+      <Localisation>
+         <Latitude>43.364089</Latitude>
+         <Longitude>-0.051683</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 81 93 69</Téléphone>
+      <Email>mairiepontiacq@orange.fr</Email>
+      <Url>https://lapagelocale.fr64460-pontiacq-viellepinte</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

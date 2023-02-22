@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-73118-01" codeInsee="73118" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Savoie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Francin</Ligne>
+      <Ligne>Parc d'activités Alpespace</Ligne>
+      <Ligne>113 voie Albert-Einstein</Ligne>
+      <CodePostal>73800</CodePostal>
+      <NomCommune>Porte-de-Savoie</NomCommune>
+      <Localisation>
+         <Latitude>45.47939</Latitude>
+         <Longitude>6.031048</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 70 22 52</Téléphone>
+      <Télécopie>04 79 70 84 84</Télécopie>
+      <Email>contact@cdg73.fr</Email>
+      <Url>http://www.cdg73.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

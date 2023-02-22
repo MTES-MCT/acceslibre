@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-70310-01" codeInsee="70310" dateMiseAJour="2022-01-03" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises départemental de la Haute-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue de Bourdieu</Ligne>
+      <Ligne>BP 169</Ligne>
+      <CodePostal>70204</CodePostal>
+      <NomCommune>Lure Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.6845723</Latitude>
+         <Longitude>6.4850328</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 62 41 00</Téléphone>
+      <Email>sie.lure@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Le Mardi et Jeudi de 13h30 à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

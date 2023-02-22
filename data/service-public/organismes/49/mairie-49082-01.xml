@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49082-01" codeInsee="49082" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chaudefonds-sur-Layon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Centre</Ligne>
+      <CodePostal>49290</CodePostal>
+      <NomCommune>Chaudefonds-sur-Layon</NomCommune>
+      <Localisation>
+         <Latitude>47.3251991272</Latitude>
+         <Longitude>-0.706845998764</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 78 04 10</Téléphone>
+      <Email>mairie@chaudefonds-sur-layon.fr</Email>
+      <Url>http://www.chaudefonds-sur-layon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines paires le samedi et fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

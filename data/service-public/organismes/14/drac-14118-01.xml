@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drac-14118-01" codeInsee="14118" dateMiseAJour="2016-11-02"
+           pivotLocal="drac">
+   <Nom>Direction régionale des affaires culturelles (DRAC) - Normandie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 bis rue de Saint-Ouen</Ligne>
+      <CodePostal>14052</CodePostal>
+      <NomCommune>Caen Cedex 4</NomCommune>
+      <Localisation>
+         <Latitude>49.1741882</Latitude>
+         <Longitude>-0.3776722</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 38 39 40</Téléphone>
+      <Télécopie>02 31 23 84 65</Télécopie>
+      <Email>drac.normandie@culture.gouv.fr</Email>
+      <Url>http://www.culturecommunication.gouv.frfr/Regionsfr/Drac-Normandie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-53204-01" codeInsee="53204" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Calais-du-Désert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>16 rue de la Mairie</Ligne>
+      <CodePostal>53140</CodePostal>
+      <NomCommune>Saint-Calais-du-Désert</NomCommune>
+      <Localisation>
+         <Latitude>48.4855194092</Latitude>
+         <Longitude>-0.25991499424</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 03 84 36</Téléphone>
+      <Email>mairie.stcalaisdudesert@wanadoo.fr</Email>
+      <Url>http://www.saintcalaisdudesert.mairie53.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

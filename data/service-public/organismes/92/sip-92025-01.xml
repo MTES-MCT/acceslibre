@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-92025-01" codeInsee="92025" dateMiseAJour="2021-12-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Colombes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Bournard</Ligne>
+      <CodePostal>92701</CodePostal>
+      <NomCommune>Colombes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9233055</Latitude>
+         <Longitude>2.2533684</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 46 13 65 99</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Uniquement sur rendez-vous les mardis et jeudis</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour prendre rendez-vous :
+- impots.gouv.fr, dans votre espace particulier ou rubrique « contact »
+- par téléphone
+
+Si vous souhaitez contacter ce service par courriel : utilisez votre
+messagerie sécurisée disponible dans votre espace particulier sur le site
+impots.gouv.fr.</Commentaire>
+</Organisme>

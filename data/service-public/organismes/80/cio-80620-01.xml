@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-80620-01" codeInsee="80620" dateMiseAJour="2021-02-15" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Péronne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 avenue Mac-Orlan</Ligne>
+      <CodePostal>80200</CodePostal>
+      <NomCommune>Péronne</NomCommune>
+      <Localisation>
+         <Latitude>49.9293212891</Latitude>
+         <Longitude>2.93500494957</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 84 07 36</Téléphone>
+      <Email>ce.0800073v@ac-amiens.fr</Email>
+      <Url>http://cio.ac-amiens.fr/029-peronne.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Avec ou sans rendez-vous. Dispositions particulières pour les vacances scolaires : du lundi au vendredi de 9h00 à 12h00 et de 13h30 à 16h00</Commentaire>
+</Organisme>

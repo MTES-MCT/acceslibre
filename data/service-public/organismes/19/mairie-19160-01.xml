@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19160-01" codeInsee="19160" dateMiseAJour="2018-10-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pérols-sur-Vézère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 route de Meymac</Ligne>
+      <CodePostal>19170</CodePostal>
+      <NomCommune>Pérols-sur-Vézère</NomCommune>
+      <Localisation>
+         <Latitude>45.586741</Latitude>
+         <Longitude>1.979401</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 95 57 33</Téléphone>
+      <Télécopie>05 55 95 33 31</Télécopie>
+      <Email>perols-sur-vezere@mairie19.fr</Email>
+      <Url>http://www.perols-sur-vezere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

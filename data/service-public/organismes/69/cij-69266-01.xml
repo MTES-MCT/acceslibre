@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-69266-01" codeInsee="69266" dateMiseAJour="2021-11-03" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Villeurbanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue Michel-Servet</Ligne>
+      <CodePostal>69100</CodePostal>
+      <NomCommune>Villeurbanne</NomCommune>
+      <Localisation>
+         <Latitude>45.768578</Latitude>
+         <Longitude>4.878954</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 65 97 13</Téléphone>
+      <Email>bij@mairie-villeurbanne.fr</Email>
+      <Url>http://www.villeurbanne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="11:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire l'accès à l'espace public numérique est réservé exclusivement aux jeunes jusqu'à 30ans.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>L'accès à l'espace public numérique est réservé exclusivement aux jeunes de moins de 30ans.</Commentaire>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-38185-01" codeInsee="38185" dateMiseAJour="2019-12-04"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Grenoble</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale de l'autonomie</Ligne>
+      <Ligne>15 avenue Doyen-Louis-Weil</Ligne>
+      <CodePostal>38010</CodePostal>
+      <NomCommune>Grenoble Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.192327</Latitude>
+         <Longitude>5.712305</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 38 12 48 48</Téléphone>
+      <Télécopie>04 38 12 48 40</Télécopie>
+      <Email>mda38@isere.fr</Email>
+      <Url>www.isere.fr/mda38</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pour un accueil de niveau approfondi une prise de rendez-vous est obligatoire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

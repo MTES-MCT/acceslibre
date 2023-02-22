@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54040-01" codeInsee="54040" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Badonviller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 A rue du Maréchal-Foch</Ligne>
+      <CodePostal>54540</CodePostal>
+      <NomCommune>Badonviller</NomCommune>
+      <Localisation>
+         <Latitude>48.4977989197</Latitude>
+         <Longitude>6.89437007904</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 42 10 52</Téléphone>
+      <Télécopie>03 83 42 19 47</Télécopie>
+      <Email>secretariat@ville-badonviller.fr</Email>
+      <Url>http://www.ville-badonviller.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

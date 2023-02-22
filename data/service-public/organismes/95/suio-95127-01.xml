@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-95127-01" codeInsee="95127" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Cergy Paris - Direction Orientation insertion professionnelle (DOIP)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tour des Chênes</Ligne>
+      <Ligne>33 boulevard du Port</Ligne>
+      <Ligne>Rez-de-chaussée</Ligne>
+      <CodePostal>95011</CodePostal>
+      <NomCommune>Cergy-Pontoise Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0340132</Latitude>
+         <Longitude>2.0673829</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 25 63 22</Téléphone>
+      <Email>doip@ml.u-cergy.fr</Email>
+      <Url>https://www.cyu.fr/doip-direction-orientation-et-insertion-professionnelle</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

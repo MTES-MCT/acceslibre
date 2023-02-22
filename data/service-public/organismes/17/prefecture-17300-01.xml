@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-17300-01" codeInsee="17300" dateMiseAJour="2021-10-12"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Charente-Maritime</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 70000</Ligne>
+      <Ligne>38, rue Réaumur</Ligne>
+      <CodePostal>17017</CodePostal>
+      <NomCommune>La Rochelle Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>46.15721</Latitude>
+         <Longitude>-1.15743</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 27 43 00</Téléphone>
+      <Email>prefecture@charente-maritime.gouv.fr</Email>
+      <Url>http://www.charente-maritime.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

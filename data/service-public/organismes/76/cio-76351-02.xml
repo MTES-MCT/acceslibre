@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-76351-02" codeInsee="76351" dateMiseAJour="2021-07-01" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Le Havre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 quai de Southampton</Ligne>
+      <CodePostal>76600</CodePostal>
+      <NomCommune>Le Havre</NomCommune>
+      <Localisation>
+         <Latitude>49.4857981</Latitude>
+         <Longitude>0.108283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 08 98 41</Téléphone>
+      <Email>cio.le-havre-sud@ac-rouen.fr</Email>
+      <Url>https://www.ac-normandie.fr/centre-d-information-et-d-orientation-du-havre-121611</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>le mercredi de 9h00 à 12h30 et de 13h30 à 17h30 (accueil libre ou sur rendez-vous en appelant le 02 32 08 98 41)</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil libre ou sur rendez-vous
+En période de vacances scolaires : du lundi au vendredi de 9h00 à 12h30 et de 13h30 à 16h30</Commentaire>
+</Organisme>

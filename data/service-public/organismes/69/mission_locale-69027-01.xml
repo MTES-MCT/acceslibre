@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-69027-01" codeInsee="69027" dateMiseAJour="2017-10-11"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Brignais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue Paul Bovier Lapierre</Ligne>
+      <Ligne>Plateforme emploi cohésion sociale</Ligne>
+      <CodePostal>69530</CodePostal>
+      <NomCommune>Brignais</NomCommune>
+      <Localisation>
+         <Latitude>45.671431</Latitude>
+         <Longitude>4.761118</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 37 57 45 75</Téléphone>
+      <Email>brignais@missionlocale-mlisol.org</Email>
+      <Url>http://www.brignais.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : le jeudi de 13h30 à 16h30</Commentaire>
+</Organisme>
