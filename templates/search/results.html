@@ -73,7 +73,7 @@
       {% switch 'USE_GLOBAL_MAP' %}
         {% if url_params %}
         <div class="col-sm-6 text-right">
-          <a target="_blank" href="{% url 'global_map' %}?{{ url_params }}" class="fr-btn fr-btn--secondary">Afficher la carte globale</a>
+          <a target="_blank" rel="noopener noreferrer" href="{% url 'global_map' %}?{{ url_params }}" class="fr-btn fr-btn--secondary">Afficher la carte globale</a>
         </div>
         {% endif %}
       {% endswitch %}
