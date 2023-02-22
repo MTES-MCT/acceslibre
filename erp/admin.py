@@ -151,6 +151,10 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
 class AccessibiliteAdmin(VersionAdmin):
     model = Accessibilite
     form = AdminAccessibiliteForm
+    list_display = (
+        "__str__",
+        "completion_rate",
+    )
     readonly_fields = (
         "erp",
         "completion_rate",
