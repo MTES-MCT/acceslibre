@@ -3,7 +3,6 @@ import json
 import requests
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import BaseCommand, CommandError
-from progress import bar
 
 from core.lib import geo
 from erp.models import Commune, Erp
@@ -26,14 +25,6 @@ class NotFound(Exception):
 
 class Undecodable(Exception):
     pass
-
-
-class Conan(bar.Bar):
-    suffix = "%(remaining_minutes)d minutes remaining"
-
-    @property
-    def remaining_minutes(self):
-        return self.eta // 60
 
 
 class Command(BaseCommand):
@@ -61,7 +52,7 @@ class Command(BaseCommand):
             obsolete=False,
             contour__isnull=True,
         )
-        for commune in Conan("Processing").iter(communes):
+        for commune in communes.iterator():
             try:
                 raw_contour = self.get_contour(commune.code_insee)
                 commune.contour = geo.geojson_mpoly(raw_contour)
@@ -70,12 +61,8 @@ class Command(BaseCommand):
             except NotFound:
                 # check for existing Erps attached to this obsolete commune
                 count = Erp.objects.filter(commune_ext=commune).count()
-                if count > 0:
-                    self.log(
-                        commune,
-                        TYPE_OBSOLETE_NONEMPTY,
-                        f"is obsolete with {count} erps",
-                    )
+                if count:
+                    self.log(commune, TYPE_OBSOLETE_NONEMPTY, f"is obsolete with {count} erps")
                 else:
                     commune.obsolete = True
                     commune.save()
@@ -111,7 +98,7 @@ class Command(BaseCommand):
 
     def print_report_section(self, title, section):
         print(f"\n{title} ({len(section)} entries):\n")
-        if len(section) > 0:
+        if section:
             [print(f"- {msg}") for msg in section]
         else:
             print("No entries")
