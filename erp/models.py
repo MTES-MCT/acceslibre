@@ -1377,7 +1377,7 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("conformite"),
     )
 
-    completion_rate = models.PositiveIntegerField(default=0)
+    completion_rate = models.PositiveIntegerField(default=0, verbose_name="Taux de complétion")
 
     # Datetimes
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
