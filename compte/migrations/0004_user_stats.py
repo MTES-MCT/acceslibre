@@ -5,12 +5,13 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import migrations, models
 from django.db.models import Count, F
+from reversion.models import Revision
 
 from compte.models import UserStats
 from erp.models import Erp
 
 
-def populate_initial_nb_created(apps, schema_editor):
+def populate_initial_user_stats(apps, schema_editor):
     for data in (
         Erp.objects.filter(user_id__isnull=False)
         .values("user_id")
@@ -26,6 +27,21 @@ def populate_initial_nb_created(apps, schema_editor):
         user_stats.nb_erp_created = F("nb_erp_created") + data["total"]
         user_stats.save()
 
+    for data in (
+        Revision.objects.filter(user_id__isnull=False)
+        .values("user_id")
+        .annotate(total=Count("user_id"))
+        .filter(total__gt=0)
+        .values("user_id", "total")
+    ):
+        try:
+            user = get_user_model().objects.get(pk=data["user_id"])
+        except get_user_model().DoesNotExist:
+            continue
+        user_stats, _ = UserStats.objects.get_or_create(user=user)
+        user_stats.nb_erp_edited = F("nb_erp_edited") + data["total"]
+        user_stats.save()
+
 
 def backwards(*args, **kwargs):
     ...
@@ -35,6 +51,7 @@ class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         migrations.swappable_dependency("erp.Erp"),
+        migrations.swappable_dependency("reversion.Revision"),
         ("compte", "0003_auto_20210701_1337"),
     ]
 
@@ -61,5 +78,5 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "UsersStats",
             },
         ),
-        migrations.RunPython(populate_initial_nb_created, backwards),
+        migrations.RunPython(populate_initial_user_stats, backwards),
     ]
