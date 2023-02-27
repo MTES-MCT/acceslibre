@@ -51,13 +51,13 @@ def login(browser, username, password, next=None):
     button.click()
 
 
-def test_home(data, browser, capsys):
+def test_home(data, browser):
     browser.visit(reverse("home"))
 
     assert browser.title.startswith("acceslibre")
 
 
-def test_communes(data, browser, capsys):
+def test_communes(data, browser):
     browser.visit(reverse("communes"))
 
     assert browser.title.startswith("Communes")
@@ -89,7 +89,7 @@ def test_erp_details(data, browser, erp_domtom):
     assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
 
 
-def test_erp_details_edit_links(data, browser, capsys):
+def test_erp_details_edit_links(data, browser):
     browser.visit(data.erp.get_absolute_url())
 
     assert browser.title.startswith(data.erp.nom)

@@ -20,14 +20,14 @@ def pseudo_random_string(mocker):
     return pseudo_random_string
 
 
-def test_delete_account_anonymize_user(data, pseudo_random_string, capsys):
+def test_delete_account_anonymize_user(data, pseudo_random_string):
     anonymized_user = service.anonymize_user(data.niko)
 
     assert anonymized_user.pk == data.niko.pk
     assert_user_anonymized(data.niko, pseudo_random_string)
 
 
-def test_delete_account_e2e(client, data, pseudo_random_string, capsys):
+def test_delete_account_e2e(client, data, pseudo_random_string):
     client.force_login(data.niko)
 
     response = client.post(

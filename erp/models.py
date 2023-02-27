@@ -6,7 +6,6 @@ import reversion
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
-from django.contrib.gis.geos import Point
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
@@ -22,7 +21,7 @@ from core.lib import calc
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
-from erp.provider import geocoder, sirene
+from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
 
@@ -509,6 +508,14 @@ class Erp(models.Model):
         verbose_name="Localisation",
         help_text="Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)",
     )
+    geoloc_provider = models.CharField(
+        default=None,
+        blank=True,
+        null=True,
+        max_length=50,
+        verbose_name="Fournisseur utilisé pour la géolocalisation",
+        help_text="Indique le fournisseur utilisé pour la géolocalisation de l'adresse de l'ERP.",
+    )
     siret = models.CharField(
         max_length=14,
         null=True,
@@ -766,27 +773,6 @@ class Erp(models.Model):
             return self.code_postal[:3]
 
         return self.code_postal[:2]
-
-    @classmethod
-    def update_coordinates(cls):
-        counter = 0
-        erp_updates = 0
-        for e in cls.objects.filter(commune_ext__isnull=False):
-            if not e.commune_ext.in_contour(Point(e.geom.x, e.geom.y)):
-                print(f"Erp concerné : {e.nom}; {e.code_postal}; {e.commune}")
-                counter += 1
-                try:
-                    coordinates = geocoder.geocode(e.short_adresse, citycode=e.commune_ext.code_insee)
-                except Exception as error:
-                    print(error)
-                else:
-                    if coordinates:
-                        e.geom = Point(coordinates["geom"][0], coordinates["geom"][1])
-                        e.save()
-                        erp_updates += 1
-                    else:
-                        print("No Coordinates")
-        print(f"{erp_updates} erps mis à jour sur {counter}")
 
     def clean(self):  # Fix me : move to form (abstract)
         # Code postal

@@ -255,7 +255,13 @@ class ErpAdmin(
         # it is here to prevent from being redirected to prod from the localhost admin
         return f"{settings.SITE_ROOT_URL}{obj.get_absolute_url()}"
 
-    readonly_fields = ["source_id", "asp_id", "commune_ext", "accessibilite"]
+    readonly_fields = [
+        "source_id",
+        "asp_id",
+        "commune_ext",
+        "accessibilite",
+        "geoloc_provider",
+    ]
 
     fieldsets = [
         (

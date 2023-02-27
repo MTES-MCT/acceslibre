@@ -14,7 +14,6 @@ TEST_PASSWORD = "Abc12345!"
 
 @pytest.fixture(scope="session")
 def django_db_setup(django_db_setup, django_db_blocker):
-    # Vérifie qu'on emploie bien les settings de test
     assert os.environ.get("DJANGO_SETTINGS_MODULE") == "core.settings_test"
 
     # Installe les extensions postgres pour la suite de test pytest
@@ -29,7 +28,11 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 
 @pytest.fixture(autouse=True)
-def mock_geocode(mocker):
+def mock_geocode(request, mocker):
+    """
+    NOTE: use @pytest.mark.disable_geocode_autouse to skip this autoused fixture
+    """
+
     def _result(*args, **kwargs):
         # naive address splitting, could be enhanced
         numero_voie, commune = args[0].split(", ")
@@ -45,9 +48,13 @@ def mock_geocode(mocker):
             "code_postal": kwargs.get("postcode") or "34830",
             "commune": commune,
             "code_insee": kwargs.get("postcode") or "34830",
+            "provider": "ban",
         }
 
-    mocker.patch.object(geocoder, "geocode", side_effect=_result)
+    if "disable_geocode_autouse" in request.keywords:
+        yield
+    else:
+        yield mocker.patch.object(geocoder, "geocode", side_effect=_result)
 
 
 @pytest.fixture(autouse=True)
