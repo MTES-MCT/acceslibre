@@ -108,22 +108,6 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
     )
 
-    def __init__(self, *args, **kwargs):
-        initial = kwargs.get("initial", {})
-        obj = kwargs.get("instance")
-
-        # Nombre de sanitaires
-        if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes is True:
-            initial["sanitaires_adaptes"] = True
-        # Valeur par défaut présence d'une porte à l'entrée
-        if obj and (
-            obj.entree_porte_presence is None
-            or (obj.entree_porte_manoeuvre is not None or obj.entree_porte_type is not None)
-        ):
-            initial["entree_porte_presence"] = True
-        kwargs["initial"] = initial
-        super().__init__(*args, **kwargs)
-
     def clean_accueil_equipements_malentendants(self):
         if (
             "accueil_equipements_malentendants_presence" in self.cleaned_data

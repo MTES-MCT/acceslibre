@@ -1390,7 +1390,7 @@ class Accessibilite(models.Model):
             return "Caractéristiques d'accessibilité de cet ERP"
 
     def __eq__(self, other):
-        for field_name in schema.get_a11y_fields():
+        for field_name in schema.FIELDS:
             if getattr(self, field_name, None) != getattr(other, field_name, None):
                 return False
         return True

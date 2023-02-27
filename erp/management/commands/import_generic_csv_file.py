@@ -104,7 +104,7 @@ class Command(BaseCommand):
         erp.save()
 
         accessibilite = Accessibilite(erp=erp)
-        accessibilite.entree_porte_presence = None
+        accessibilite.entree_porte_presence = True
 
         for field in ("accueil_audiodescription", "accueil_equipements_malentendants"):
             setattr(accessibilite, f"{field}_presence", row[f"{field}_presence"])
