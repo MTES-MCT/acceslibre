@@ -155,7 +155,7 @@ def expose_site_context(request):
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-        "STAGING": settings.STAGING,
+        "STAGING": settings.STAGING or settings.DEBUG,
     }
 
 

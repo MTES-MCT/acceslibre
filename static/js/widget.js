@@ -9,16 +9,16 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
   return response.text();
 })
   .then(function (body) {
-    var _paq = window._paq || [];
+    var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["trackPageView"]);
     _paq.push(["enableLinkTracking"]);
     _paq.push(['enableHeartBeatTimer']);
     _paq.push(['trackGoal', 5]);
     (function() {
-      var u="//stats.data.gouv.fr/";
+      var u="//stats.beta.gouv.fr/";
       _paq.push(["setTrackerUrl", u+"matomo.php"]);
-      _paq.push(["setSiteId", "118"]);
+      _paq.push(["setSiteId", "3"]);
       var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
       g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
     })();
@@ -61,18 +61,17 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     };
 
     const open = function (dialog) {
-      var _paq = window._paq || [];
+      var _paq = window._paq = window._paq || [];
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(["trackPageView"]);
       _paq.push(["enableLinkTracking"]);
       _paq.push(['enableHeartBeatTimer']);
       _paq.push(['trackGoal', 7]);
       (function() {
-        var u="//stats.data.gouv.fr/";
+        var u="//stats.beta.gouv.fr/";
         _paq.push(["setTrackerUrl", u+"matomo.php"]);
-        _paq.push(["setSiteId", "118"]);
+        _paq.push(["setSiteId", "3"]);
       })();
-
       const focusableElements = dialog.querySelectorAll(focusableElementsArray);
       const firstFocusableElement = focusableElements[0];
       const lastFocusableElement = focusableElements[focusableElements.length - 1];
@@ -164,19 +163,11 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
           close(dialog, trigger);
         }
       });
-      btn = document.getElementById('btn_acceslibre')
+      var btn = document.getElementById('btn_acceslibre')
       btn.addEventListener('click', (event) => {
         _paq.push(['trackGoal', 8]);
       });
     });
 
-    function showPopup() {
-      const dialog = document.getElementById();
-      // open dialog
-      trigger.addEventListener('click', (event) => {
-        event.preventDefault();
-        open(dialog);
-      })
-    }
   });
 
