@@ -12,10 +12,9 @@ from erp.models import Erp
 
 
 def populate_initial_user_stats(apps, schema_editor):
-    if settings.PRODUCTION:
-        # NOTE: the following is taking too long and causing a timeout on deploy. Has to be manually launched
-        #       in a detached container
-        return
+    # NOTE: the following is taking too long and causing a timeout on deploy. Has to be manually launched
+    #       in a detached container
+    return
 
     for data in (
         Erp.objects.filter(user_id__isnull=False)
