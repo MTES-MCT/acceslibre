@@ -7,6 +7,7 @@ from .settings import *
 
 DEBUG = False
 
+PRODUCTION = True
 DATAGOUV_DOMAIN = "https://www.data.gouv.fr"
 # NOTE: to retrieve resources id: https://www.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
 DATAGOUV_RESOURCES_ID = "5b0f44f2-e6ea-4a58-874d-6fe364b40342"
