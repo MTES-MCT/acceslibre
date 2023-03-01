@@ -19,6 +19,7 @@ def get_env_variable(var_name, required=True, type=str):
 
 TEST = False
 STAGING = False
+PRODUCTION = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
