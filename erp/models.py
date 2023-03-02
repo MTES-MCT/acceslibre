@@ -1392,6 +1392,7 @@ class Accessibilite(models.Model):
     def __eq__(self, other):
         for field_name in schema.FIELDS:
             if getattr(self, field_name, None) != getattr(other, field_name, None):
+                # FIXME: be able to compare None to []
                 return False
         return True
 
