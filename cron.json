@@ -33,11 +33,11 @@
             "size": "M"
         },
         {
-            "command": "14 30 * * 4 python manage.py notify_unpublished_erps",
+            "command": "30 14 * * 4 python manage.py notify_unpublished_erps",
             "size": "M"
         },
         {
-            "command": "14 30 * * 1 python manage.py notify_activity_suggestions",
+            "command": "30 14 * * 1 python manage.py notify_activity_suggestions",
             "size": "M"
         }
     ]
