@@ -1,0 +1,44 @@
+{
+    "jobs": [
+        {
+            "command": "25 * * * * python manage.py purge_tokens",
+            "size": "M"
+        },
+        {
+            "command": "5 3 * * * python manage.py refresh_global_stats",
+            "size": "M"
+        },
+        {
+            "command": "35 3 * * * python manage.py purge_inactive_accounts",
+            "size": "M"
+        },
+        {
+            "command": "55 3 * * * python manage.py deleterevisions --keep=20 --days=30",
+            "size": "M"
+        },
+        {
+            "command": "10 4 * * * python manage.py import_dataset vaccination",
+            "size": "M"
+        },
+        {
+            "command": "10 5 * * * python manage.py import_dataset gendarmerie",
+            "size": "M"
+        },
+        {
+            "command": "40 0 * * * python manage.py export_to_datagouv",
+            "size": "XL"
+        },
+        {
+            "command": "5 */3 * * * python manage.py notify_changed_erps --hours=3",
+            "size": "M"
+        },
+        {
+            "command": "14 30 * * 4 python manage.py notify_unpublished_erps",
+            "size": "M"
+        },
+        {
+            "command": "14 30 * * 1 python manage.py notify_activity_suggestions",
+            "size": "M"
+        }
+    ]
+}

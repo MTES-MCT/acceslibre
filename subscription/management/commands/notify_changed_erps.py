@@ -71,6 +71,10 @@ class Command(BaseCommand):
         return notifications
 
     def handle(self, *args, **options):
+        if not settings.REAL_USER_NOTIFICATION:
+            print("Launched only if settings.REAL_USER_NOTIFICATION is True.")
+            return
+
         if options["now"]:
             now = datetime.fromisoformat(options["now"])
         else:
