@@ -61,10 +61,14 @@
         <img height="100" src="data:image/png;base64,{{ qrcode_img }}">
       </div>
     </div>
-    <div class="row no-gutters">
-      <div class="col-md-12 a4a-search-map-area-global">
-        {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
-      </div>
+    <div class="flex">
+      <span class="ml-auto mt-2">
+        <i aria-hidden="true" class="icon icon-zoom-in"></i>
+        <a href="" id="map-height-toggle-link">Agrandir la carte</a>
+      </span>
+    </div>
+    <div class="mb-4 mt-2 order-1">
+        {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
     </div>
     {% endif %}
   </section>
