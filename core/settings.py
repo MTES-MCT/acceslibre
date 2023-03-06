@@ -42,6 +42,8 @@ MAP_SEARCH_RADIUS_KM = 10
 MAPBOX_TOKEN = "pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw"
 
 # Notifications
+# Whether we send real email notifications
+REAL_USER_NOTIFICATION = False
 # number of days to send a ping notification after an erp is created but not published
 UNPUBLISHED_ERP_NOTIF_DAYS = 7
 

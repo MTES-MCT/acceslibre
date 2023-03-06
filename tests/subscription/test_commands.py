@@ -1,9 +1,8 @@
 import pytest
 from django.conf import settings
-from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
-from django.test import Client
+from django.test import Client, override_settings
 from django.urls import reverse
 from reversion.models import Version
 
@@ -72,6 +71,7 @@ def niko_create_erp_and_subscribe_updates(client, data):
     return erp
 
 
+@override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_erp(mock_geocode, client, data):
     erp = niko_create_erp_and_subscribe_updates(client, data)
 
@@ -118,6 +118,7 @@ def test_notification_erp(mock_geocode, client, data):
     assert updated_erp.get_absolute_url() in mail.outbox[0].body
 
 
+@override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_accessibilite(client, data, mocker):
     erp = niko_create_erp_and_subscribe_updates(client, data)
 
@@ -149,6 +150,7 @@ def test_notification_accessibilite(client, data, mocker):
     assert updated_acc.erp.get_absolute_url() in mail.outbox[0].body
 
 
+@override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_skip_owner(client, data):
     client.force_login(data.niko)
     response = client.post(

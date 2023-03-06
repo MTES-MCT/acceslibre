@@ -42,3 +42,5 @@ SECURE_HSTS_PRELOAD = True
 SEND_IN_BLUE_TEMPLATE_IDS = {
     "draft_deleted": 16,
 }
+
+REAL_USER_NOTIFICATION = True

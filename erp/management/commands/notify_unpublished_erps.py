@@ -24,6 +24,10 @@ class Command(BaseCommand):
         super().__init__(*args, **kwargs)
 
     def handle(self, *args, **options):
+        if not settings.REAL_USER_NOTIFICATION:
+            print("Launched only if settings.REAL_USER_NOTIFICATION is True.")
+            return
+
         notifications = self.get_notifications()
         sent_ok = 0
         for notification in notifications:

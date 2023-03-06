@@ -5,13 +5,13 @@ from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
-from django.test import Client
+from django.test import Client, override_settings
 from django.urls import reverse
 from django.utils import timezone
 from requests import Response
 
 from erp.management.commands.notify_unpublished_erps import Command
-from erp.models import Accessibilite, Activite, Erp
+from erp.models import Accessibilite, Erp
 
 
 @pytest.fixture
@@ -61,6 +61,7 @@ def test_get_notification_after7days(unpublished_erp, data):
     assert notifs[0]["erps"] == [unpublished_erp]
 
 
+@override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_unpublished_erp_command(unpublished_erp, data):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notify_unpublished_erps = Command(now=futur)

@@ -1,5 +1,6 @@
 import logging
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from core.mailer import get_mailer
@@ -12,6 +13,10 @@ class Command(BaseCommand):
     help = "Notify admins to manage non mapped activity suggestions"
 
     def handle(self, *args, **options):
+        if not settings.REAL_USER_NOTIFICATION:
+            print("Launched only if settings.REAL_USER_NOTIFICATION is True.")
+            return
+
         activity_suggestions = ActivitySuggestion.objects.filter(mapped_activity=None)
         if not activity_suggestions.count():
             return True
