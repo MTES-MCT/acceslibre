@@ -343,6 +343,12 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
+    th_labels = []
+    if schema.LABEL_TH in erp.accessibilite.labels:
+        th_labels = [
+            value for key, value in schema.HANDICAP_CHOICES if key in erp.accessibilite.labels_familles_handicap
+        ]
+
     # NOTE: if the widget code is edited it should be also reflected in metabase
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
 <a href="#" aria-haspopup="dialog" aria-controls="dialog">Accessibilité</a>
@@ -363,6 +369,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
             "user_vote": user_vote,
+            "th_labels": th_labels,
         },
     )
 
