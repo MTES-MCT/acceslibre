@@ -1,33 +1,41 @@
 {% load a4a %}
+{% load static %}
 
 {% if erp.metadata.centre_vaccination %}
-  <section id="vaccination">
-    {% include "erp/includes/vaccination.html" %}
-  </section>
+<section id="vaccination">
+  {% include "erp/includes/vaccination.html" %}
+</section>
 {% endif %}
 
+{% if th_labels %}
+<section id="tourisme_handicap" class="mb-5 row">
+  <div class="col-2 pr-0"><img src="{% static "img/labels/th.jpg" %}" height="80" alt="Tourisme & Handicap"></div>
+  <div class="col-10 pl-0 pt-3">Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap suivantes : {{ th_labels|join:", " }}</div>
+</section>
+
+{% endif %}
 {% for section, info in accessibilite_data.items %}
-  <section id="{{ info.tabid }}" class="mb-5">
+<section id="{{ info.tabid }}" class="mb-5">
   {% if info.fields %}
-    <h2 class="h5 mb-0 pb-1 border-bottom font-weight-bold">
-      <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
-      {{ section }}
-      <small class="text-muted">{{ info.description }}</small>
-    </h2>
-    {% include "erp/includes/fields.html" with fields=info.fields %}
+  <h2 class="h5 mb-0 pb-1 border-bottom font-weight-bold">
+    <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
+    {{ section }}
+    <small class="text-muted">{{ info.description }}</small>
+  </h2>
+  {% include "erp/includes/fields.html" with fields=info.fields %}
   {% elif info.sections %}
-    {% for subsection, subinfo in info.sections.items %}
-    <div class="card mb-3">
-      <div class="card-header border-bottom-0 p-2">
-        <h6 class="m-0">
-          <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
-        </h6>
-      </div>
-      <div class="card-body p-0">
-        {% include "erp/includes/fields.html" with fields=subinfo.fields %}
-      </div>
+  {% for subsection, subinfo in info.sections.items %}
+  <div class="card mb-3">
+    <div class="card-header border-bottom-0 p-2">
+      <h6 class="m-0">
+        <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+      </h6>
     </div>
-    {% endfor %}
+    <div class="card-body p-0">
+      {% include "erp/includes/fields.html" with fields=subinfo.fields %}
+    </div>
+  </div>
+  {% endfor %}
   {% endif %}
-  </section>
+</section>
 {% endfor %}
