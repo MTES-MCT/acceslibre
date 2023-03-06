@@ -48,8 +48,7 @@ def geocode(address, postcode=None, citycode=None, provider=None):
             data = {}
 
         if not data and not provider_provided:
-            provider = Provider.GEOPORTAIL
-            data = query({"q": address, "postcode": postcode, "citycode": citycode, "limit": 1}, provider=provider)
+            return geocode(address, postcode, citycode, provider=Provider.GEOPORTAIL)
 
         if not data:
             return {}

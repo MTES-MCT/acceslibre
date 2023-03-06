@@ -169,7 +169,7 @@ class Command(BaseCommand):
             Q(source=Erp.SOURCE_TH, source_id=fields["source_id"])
             | Q(nom=fields["nom"], voie=fields["voie"], commune=fields["commune"])
         ).count()
-        if count > 0:
+        if count:
             raise ExistError(f"Existe dans la base: {erpstr}")
 
     def import_row(self, row, **kwargs):
