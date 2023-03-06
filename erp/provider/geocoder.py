@@ -42,7 +42,7 @@ def geocode(address, postcode=None, citycode=None, provider=None):
     try:
         try:
             data = query({"q": address, "postcode": postcode, "citycode": citycode, "limit": 1}, provider=provider)
-            if data and data["features"] and data["features"][0]["properties"]["score"] < 0.5:
+            if data and data["features"] and data["features"][0]["properties"]["score"] < 0.4:
                 data = {}
         except RuntimeError:
             data = {}
@@ -57,7 +57,7 @@ def geocode(address, postcode=None, citycode=None, provider=None):
         properties = feature["properties"]
         geometry = feature["geometry"]
         kind = properties["type"]
-        if properties["score"] < 0.5:
+        if properties["score"] < 0.4:
             return {}
 
         voie = None
