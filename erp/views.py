@@ -344,7 +344,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     th_labels = []
-    if schema.LABEL_TH in erp.accessibilite.labels:
+    if schema.LABEL_TH in (erp.accessibilite.labels or []):
         th_labels = [
             value for key, value in schema.HANDICAP_CHOICES if key in erp.accessibilite.labels_familles_handicap
         ]
