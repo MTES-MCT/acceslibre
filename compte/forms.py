@@ -14,12 +14,14 @@ from six import text_type
 
 from compte.models import UserPreferences
 
-USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
+USERNAME_RULES = trans(
+    "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
+)
 
 
 def validate_username_whitelisted(value):
     if value.lower() in settings.USERNAME_BLACKLIST:
-        raise ValidationError("Ce nom d'utilisateur est réservé", params={"value": value})
+        raise ValidationError(trans("Ce nom d'utilisateur est réservé"), params={"value": value})
 
 
 def define_username_field():
@@ -38,7 +40,7 @@ def define_email_field(label="Email"):
     return forms.EmailField(
         required=True,
         label=label,
-        widget=forms.TextInput(attrs={"placeholder": "Exemple: nom@domaine.com"}),
+        widget=forms.TextInput(attrs={"placeholder": trans("Exemple: nom@domaine.com")}),
     )
 
 
@@ -75,8 +77,8 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
 
     email = forms.EmailField(
         error_messages={
-            "invalid": "Format de l'email attendu : nom@domaine.tld",
-            "unique": "Cet email est déja utilisé. Merci de fournir un email différent.",
+            "invalid": trans("Format de l'email attendu : nom@domaine.tld"),
+            "unique": trans("Cet email est déja utilisé. Merci de fournir un email différent."),
         },
     )
     password1 = forms.CharField(
@@ -96,7 +98,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
     next = forms.CharField(required=False)
 
     robot = forms.BooleanField(
-        label="Je ne suis pas un robot",
+        label=trans("Je ne suis pas un robot"),
         initial=False,
         required=False,
     )
@@ -111,7 +113,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
     def clean_robot(self):
         robot = self.cleaned_data["robot"]
         if not robot:
-            raise ValidationError("Vous devez cocher cette case pour soumettre le formulaire")
+            raise ValidationError(trans("Vous devez cocher cette case pour soumettre le formulaire"))
         return robot
 
 
@@ -120,14 +122,14 @@ class UsernameChangeForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        if get_user_model().objects.filter(username__iexact=username).count() > 0:
-            raise ValidationError("Ce nom d'utilisateur est déjà pris.")
+        if get_user_model().objects.filter(username__iexact=username).count():
+            raise ValidationError(trans("Ce nom d'utilisateur est déjà pris."))
         return username
 
 
 class EmailChangeForm(forms.Form):
-    email1 = define_email_field("Nouvelle adresse email")
-    email2 = define_email_field("Confirmation de la nouvelle adresse email")
+    email1 = define_email_field(trans("Nouvelle adresse email"))
+    email2 = define_email_field(trans("Confirmation de la nouvelle adresse email"))
 
     def __init__(self, *args, user=None, **kwargs):
         self.user = user
@@ -139,27 +141,31 @@ class EmailChangeForm(forms.Form):
         email2 = self.cleaned_data.get("email2")
 
         if self.user and email1 == self.user.email:
-            raise ValidationError("Vous n'avez pas modifié votre adresse email")
+            raise ValidationError(trans("Vous n'avez pas modifié votre adresse email"))
 
         if email1 != email2:
-            raise ValidationError("Les emails ne correspondent pas")
+            raise ValidationError(trans("Les emails ne correspondent pas"))
 
-        if get_user_model().objects.filter(email__iexact=email1).count() > 0:
-            raise ValidationError("Cette adresse email existe déjà, " "veuillez choisir une adresse email différente")
+        if get_user_model().objects.filter(email__iexact=email1).count():
+            raise ValidationError(
+                trans("Cette adresse email existe déjà, veuillez choisir une adresse email différente")
+            )
 
         return email1
 
 
 class AccountDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label="Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible.",
+        label=trans(
+            "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
+        ),
         required=True,
     )
 
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError("Vous devez confirmer la suppression pour la rendre effective.")
+            raise ValidationError(trans("Vous devez confirmer la suppression pour la rendre effective."))
         return confirm
 
 
@@ -170,4 +176,4 @@ class PreferencesForm(forms.ModelForm):
 
 
 class CustomAuthenticationForm(AuthenticationForm):
-    username = UsernameField(label="Adresse e-mail", widget=forms.TextInput(attrs={"autofocus": True}))
+    username = UsernameField(label=trans("Adresse e-mail"), widget=forms.TextInput(attrs={"autofocus": True}))

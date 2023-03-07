@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-08 12:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: compte/forms.py:18
+msgid ""
+"Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les "
+"espaces sont interdits)"
+msgstr ""
+
+#: compte/forms.py:24
+msgid "Ce nom d'utilisateur est réservé"
+msgstr ""
+
+#: compte/forms.py:43
+msgid "Exemple: nom@domaine.com"
+msgstr ""
+
+#: compte/forms.py:80
+msgid "Format de l'email attendu : nom@domaine.tld"
+msgstr ""
+
+#: compte/forms.py:81
+msgid "Cet email est déja utilisé. Merci de fournir un email différent."
+msgstr ""
+
+#: compte/forms.py:85
+msgid "Password"
+msgstr "Mot de passe"
+
+#: compte/forms.py:92
+msgid "Confirmation du mot de passe"
+msgstr ""
+
+#: compte/forms.py:101
+msgid "Je ne suis pas un robot"
+msgstr ""
+
+#: compte/forms.py:116
+msgid "Vous devez cocher cette case pour soumettre le formulaire"
+msgstr ""
+
+#: compte/forms.py:126
+msgid "Ce nom d'utilisateur est déjà pris."
+msgstr ""
+
+#: compte/forms.py:131
+msgid "Nouvelle adresse email"
+msgstr ""
+
+#: compte/forms.py:132
+msgid "Confirmation de la nouvelle adresse email"
+msgstr ""
+
+#: compte/forms.py:144
+msgid "Vous n'avez pas modifié votre adresse email"
+msgstr ""
+
+#: compte/forms.py:147
+msgid "Les emails ne correspondent pas"
+msgstr ""
+
+#: compte/forms.py:151
+msgid ""
+"Cette adresse email existe déjà, veuillez choisir une adresse email "
+"différente"
+msgstr ""
+
+#: compte/forms.py:160
+msgid ""
+"Confirmer la suppression de mon compte utilisateur. J'ai bien compris que "
+"cette opération est irréversible."
+msgstr ""
+
+#: compte/forms.py:168
+msgid "Vous devez confirmer la suppression pour la rendre effective."
+msgstr ""
+
+#: compte/forms.py:179
+msgid "Adresse e-mail"
+msgstr ""
+
+#: core/settings.py:235
+msgid "French"
+msgstr ""
+
+#: core/settings.py:236
+msgid "English"
+msgstr ""
+
+#: templates/editorial/header.html:18
+msgid "Aller au contenu principal"
+msgstr ""
+
+#: templates/editorial/header.html:23 templates/editorial/header.html:41
+msgid "Mon compte"
+msgstr ""
+
+#: templates/editorial/header.html:33
+msgid "Bonjour"
+msgstr ""
+
+#: templates/editorial/header.html:37
+msgid "Rechercher"
+msgstr ""
+
+#: templates/editorial/header.html:45
+msgid "Se connecter"
+msgstr ""
+
+#: templates/index.html:20
+msgid "Rendez votre ville plus accessible"
+msgstr ""
+
+#: templates/index.html:22
+msgid ""
+"Partagez les informations indispensables aux déplacements des personnes en "
+"situation de handicap"
+msgstr ""
+
+#: templates/index.html:27
+msgid "Contribuer"
+msgstr ""
+
+#: templates/index.html:32
+msgid "Explorer"
+msgstr ""
+
+#: templates/index.html:52
+msgid "lieux<br> référencés"
+msgstr ""
+
+#: templates/index.html:56
+msgid "contributrices<br> et contributeurs"
+msgstr ""
+
+#: templates/index.html:59
+msgid "12 millions"
+msgstr ""
+
+#: templates/index.html:60
+msgid "de personnes<br> concernées"
+msgstr ""
+
+#: templates/index.html:69
+msgid "Faire une vraie différence"
+msgstr ""

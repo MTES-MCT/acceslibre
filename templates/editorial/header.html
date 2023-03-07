@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <header role="banner" class="fr-header">
     <div class="fr-header__body">
@@ -7,42 +8,62 @@
                 <div class="fr-header__brand">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
-                            <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}" style="margin-bottom: 10px;">
-                              <img src="{% static "img/logo-acceslibre.svg" %}" alt="acceslibre, République Française" height="75">
+                            <a class="d-flex align-items-center text-decoration-none" href="{% url 'home' %}"
+                                style="margin-bottom: 10px;">
+                                <img src="{% static 'img/logo-acceslibre.svg' %}"
+                                    alt="acceslibre, République Française" height="75">
                             </a>
-                            <a class="skippy sr-only sr-only-focusable" href="#content" style="position:relative !important">
-                              <span class="skippy-text">Aller au contenu principal</span>
+                            <a class="skippy sr-only sr-only-focusable" href="#content"
+                                style="position:relative !important">
+                                <span class="skippy-text">{% translate "Aller au contenu principal" %}</span>
                             </a>
                         </div>
                         <div class="fr-header__navbar" style="justify-content: right;">
-                            <a href="{% url "mon_compte" %}" class="m-4" >
-                              <i aria-hidden="true" class="icon icon-unlock"></i> Mon compte
+                            <a href="{% url 'mon_compte' %}" class="m-4">
+                                <i aria-hidden="true" class="icon icon-unlock"></i> {% translate "Mon compte" %}
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="fr-header__tools">
                     <div class="fr-header__tools-links">
-                      <ul class="fr-links-group">
-                        {% if user.is_authenticated %}
+                        <ul class="fr-links-group">
+                            {% if user.is_authenticated %}
                             <li>
-                                Bonjour <strong>{{ user.username }}</strong>
+                                {% translate "Bonjour" %} <strong>{{ user.username }}</strong>
                             </li>
-                        {% endif %}
-                          <li>
-                              <a class="fr-link fr-fi-search-line" href="/#block_search_form">Rechercher</a>
-                          </li>
-                        {% if user.is_authenticated %}
+                            {% endif %}
                             <li>
-                                <a class="fr-link fr-fi-lock-line" href="{% url "mon_compte" %}?next={{ request.path }}">Mon compte</a>
+                                <a class="fr-link fr-fi-search-line" href="/#block_search_form">{% translate "Rechercher" %}</a>
                             </li>
-                        {% else %}
+                            {% if user.is_authenticated %}
                             <li>
-                              <a class="fr-link fr-fi-lock-line" href="{% url "login" %}?next={{ request.path }}">Se connecter</a>
-                          </li>
-                        {% endif %}
-
-                      </ul>
+                                <a class="fr-link fr-fi-lock-line" href="{% url 'mon_compte' %}?next={{ request.path }}">{% translate "Mon compte" %}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a class="fr-link fr-fi-lock-line" href="{% url 'login' %}?next={{ request.path }}">{% translate "Se connecter" %}</a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                {% if request.user and request.user.is_staff %}
+                                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                                    <select name="language">
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as languages %}
+                                        {% for language in languages %}
+                                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                            {{ language.name_local }} ({{ language.code }})
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input type="submit" value="Go">
+                                </form>
+                                {% endif %}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

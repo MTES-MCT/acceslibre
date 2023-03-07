@@ -75,6 +75,7 @@ urlpatterns = [
         name="sitemap",
     ),
     path("maintenance-mode/", include("maintenance_mode.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
     path("robots.txt", robots_txt),
 ]
 
