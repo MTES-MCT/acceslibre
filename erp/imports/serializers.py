@@ -83,27 +83,33 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
-        try:
-            address = get_address_query_to_geocode(obj)
-            locdata = geocoder.geocode(address, postcode=obj["code_postal"])
-            if not locdata:
-                raise RuntimeError
-            self._geom = locdata["geom"]
-            obj["voie"] = locdata["voie"]
-            obj["lieu_dit"] = locdata["lieu_dit"]
-            obj["code_postal"] = locdata["code_postal"]
-            obj["commune"] = locdata["commune"]
-            obj["code_insee"] = locdata["code_insee"]
-            obj["geoloc_provider"] = locdata["provider"]
-            obj.pop("latitude", None)
-            obj.pop("longitude", None)
-        except (RuntimeError, KeyError):
-            if obj.get("latitude") is not None and obj.get("longitude") is not None:
-                self._geom = Point((obj["latitude"], obj["longitude"]))
-                obj.pop("latitude")
-                obj.pop("longitude")
+        for i in range(3):
+            try:
+                address = get_address_query_to_geocode(obj)
+                locdata = geocoder.geocode(address, postcode=obj["code_postal"])
+                if not locdata:
+                    raise RuntimeError
+                self._geom = locdata["geom"]
+                obj["voie"] = locdata["voie"]
+                obj["lieu_dit"] = locdata["lieu_dit"]
+                obj["code_postal"] = locdata["code_postal"]
+                obj["commune"] = locdata["commune"]
+                obj["code_insee"] = locdata["code_insee"]
+                obj["geoloc_provider"] = locdata["provider"]
+                obj.pop("latitude", None)
+                obj.pop("longitude", None)
+                break
+            except (RuntimeError, KeyError):
+                if i < 2:
+                    continue
 
-            raise serializers.ValidationError(f"Adresse non localisable: {address}")
+                if obj.get("latitude") is not None and obj.get("longitude") is not None:
+                    self._geom = Point((obj["latitude"], obj["longitude"]))
+                    obj.pop("latitude")
+                    obj.pop("longitude")
+                    break
+
+                raise serializers.ValidationError(f"Adresse non localisable: {address}")
 
         obj["commune_ext"] = Commune.objects.filter(
             nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
