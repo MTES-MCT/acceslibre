@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.utils.functional import lazy
 from django.utils.html import format_html
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext as trans
 from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
@@ -80,14 +80,14 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         },
     )
     password1 = forms.CharField(
-        label=_("Password"),
+        label=trans("Password"),
         required=True,
         widget=forms.PasswordInput,
         strip=False,
         help_text=custom_validators_help_text_html(),
     )
     password2 = forms.CharField(
-        label=_("Confirmation du mot de passe"),
+        label=trans("Confirmation du mot de passe"),
         required=True,
         widget=forms.PasswordInput,
         strip=False,
