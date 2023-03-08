@@ -3,6 +3,7 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.translation import gettext_lazy as trans
 
 
 def get_env_variable(var_name, required=True, type=str):
@@ -112,6 +113,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -122,6 +124,7 @@ MIDDLEWARE = [
     "stats.middleware.TrackStatsWidget",
     "maintenance_mode.middleware.MaintenanceModeMiddleware",
 ]
+
 
 SITE_ID = 1
 
@@ -173,6 +176,7 @@ TEMPLATES = [
                 "core.settings.expose_site_context",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.i18n",
                 "django.contrib.messages.context_processors.messages",
             ],
         },
@@ -224,13 +228,18 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = "fr"
+LANGUAGES = [
+    ("fr", trans("French")),
+    ("en", trans("English")),
+]
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 TIME_ZONE = "Europe/Paris"
 DATETIME_FORMAT = "Y-m-d, H:i:s"
 USE_I18N = True
-USE_L10N = False
+USE_L10N = True
 USE_TZ = True
 
 # Crispy forms

@@ -17,8 +17,9 @@ def cache_key(request):
     q = getattr(request, request.method)
     q.lists()
     urlencode = q.urlencode(safe="()")
+    language = request.LANGUAGE_CODE
 
-    return "view_cache_%s_%s_%s" % (request.path, user, urlencode)
+    return "view_cache_%s_%s_%s_%s" % (request.path, user, urlencode, language)
 
 
 def cache_per_user(ttl=None, prefix=None, cache_post=False):

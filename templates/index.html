@@ -2,6 +2,7 @@
 
 {% load a4a %}
 {% load static humanize %}
+{% load i18n %}
 
 {% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}
 
@@ -16,19 +17,19 @@
     <div class="fr-container ">
         <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
             <div class="fr-col-12 fr-col-sm-7">
-                <h1 class="blue-fr-500 " tabindex="0">Rendez votre ville plus accessible</h1>
+                <h1 class="blue-fr-500 " tabindex="0">{% translate "Rendez votre ville plus accessible" %}</h1>
                 <p class="fr-mb-3w fr-text--lead">
-                  Partagez les informations indispensables aux déplacements des personnes en situation de handicap
+                  {% translate "Partagez les informations indispensables aux déplacements des personnes en situation de handicap" %}
                 </p>
                 <ul class="fr-mb-5w fr-links-group" style="padding-left: 0px;">
                   <li style="list-style-type: none;display:inline;">
                     <a class="fr-btn" href="{% url "contrib_start" %}">
-                      Contribuer
+                      {% translate "Contribuer" %}
                     </a>
                   </li>
                   <li style="list-style-type: none;display:inline;">
                     <a class="fr-btn fr-btn--secondary" href="#block_search_form">
-                      Explorer
+                      {% translate "Explorer" %}
                     </a>
                   </li>
                 </ul>
@@ -48,15 +49,15 @@
         <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
           <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
             <p class="fr-h1">{{ erp_count|intcomma }}</p>
-            <p class="fr-text--xl fr-text--bold">lieux<br> référencés</p>
+            <p class="fr-text--xl fr-text--bold">{% translate "lieux<br> référencés" %}</p>
           </div>
           <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
             <p class="fr-h1">{{ contributor_count|intcomma }}</p>
-            <p class="fr-text--xl fr-text--bold">contributrices<br> et contributeurs</p>
+            <p class="fr-text--xl fr-text--bold">{% translate "contributrices<br> et contributeurs" %}</p>
           </div>
           <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
-            <p class="fr-h1">12 millions<p>
-            <p class="fr-text--xl fr-text--bold">de personnes<br> concernées</p>
+            <p class="fr-h1">{% translate "12 millions" %}<p>
+            <p class="fr-text--xl fr-text--bold">{% translate "de personnes<br> concernées" %}</p>
           </div>
         </div>
     </div>
@@ -65,7 +66,7 @@
     <div class="fr-container ">
         <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
             <div class="fr-col-12 fr-col-sm-6">
-                <h2 class="fr-h2 fr-mb-5w">Faire une vraie différence</h2>
+                <h2 class="fr-h2 fr-mb-5w">{% translate "Faire une vraie différence" %}</h2>
                 <p class="fr-mt-5v fr-mb-5v">
                   <b>En France, près d'une personne sur 5 est ou sera en situation de handicap au cours de sa vie.</b>
                 </p>
