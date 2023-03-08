@@ -78,6 +78,8 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("robots.txt", robots_txt),
 ]
+if "rosetta" in settings.INSTALLED_APPS:
+    urlpatterns += [path("rosetta/", include("rosetta.urls"))]
 
 if settings.DEBUG:
     import debug_toolbar

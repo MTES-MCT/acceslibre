@@ -1,10 +1,10 @@
 {% extends "editorial/base.html" %}
-
+{% load i18n %}
 {% load a4a %}
 {% load static %}
 {% load cache %}
 
-{% block page_title %}Communes et territoires pilotes{% endblock%}
+{% block page_title %}{% translate "Communes et territoires pilotes" %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=True %}
@@ -13,10 +13,10 @@
 
 {% block editorial_content %}
 {% cache 500 communes %}
-  <h1 class="mb-3">Communes et territoires pilotes</h1>
+  <h1 class="mb-3">{% translate "Communes et territoires pilotes" %}</h1>
   <div class="row">
     <div class="col-md-8">
-      <h2 class="sr-only">Communes renseignées</h2>
+      <h2 class="sr-only">{% translate "Communes renseignées" %}</h2>
       <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
         {% for commune in communes %}
         <div class="col mb-4">
@@ -34,16 +34,16 @@
         {% endfor %}
       </div>
       <p class="text-right">
-        <a href="{% url "annuaire_home" %}">Toutes les communes, par département&nbsp;&raquo;</a>
+        <a href="{% url "annuaire_home" %}">{% translate "Toutes les communes, par département" %}&nbsp;&raquo;</a>
       </p>
     </div>
     <div class="col-md-4">
       <p>
-        <a class="btn btn-block btn-primary" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+        <a class="btn btn-block btn-primary" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
       </p>
       <aside class="card">
         <div class="card-header">
-          <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>
+          <h2 class="h6 m-0 font-weight-normal">{% translate "Derniers établissements renseignés" %}</h2>
         </div>
         {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
         <div class="list-group-flush" id="home-latest-erps-list">

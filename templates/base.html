@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 {% load waffle_tags %}
 <!DOCTYPE html>
 <html lang="fr" data-fr-scheme="light">
@@ -50,13 +51,13 @@
     {% include "common/sentry.html" %}
     {% if STAGING %}
     <div class="a4a-staging-notice">
-      Vous consultez actuellement le serveur de recette acceslibre.
-      <a href="https://acceslibre.beta.gouv.fr/">Aller sur le site officiel</a>
+      {% translate "Vous consultez actuellement le serveur de recette acceslibre." %}
+      <a href="https://acceslibre.beta.gouv.fr/">{% translate "Aller sur le site officiel" %}</a>
     </div>
     {% endif %}
     <!-- New window warning messages -->
     <div style="display: none">
-      <span id="new_target">Ouverture dans un nouvel onglet</span>
+      <span id="new_target">{% translate "Ouverture dans un nouvel onglet" %}</span>
     </div>
   </body>
 </html>
