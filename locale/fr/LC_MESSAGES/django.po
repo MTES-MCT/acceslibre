@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 12:27+0100\n"
+"POT-Creation-Date: 2023-03-08 16:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,6 +104,50 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+#: templates/503.html:6
+msgid "Maintenance"
+msgstr ""
+
+#: templates/503.html:10
+msgid "Le serveur est en maintenance."
+msgstr ""
+
+#: templates/503.html:14
+msgid "Acceslibre est actuellement en maintenance et revient au plus vite."
+msgstr ""
+
+#: templates/base.html:54
+msgid "Vous consultez actuellement le serveur de recette acceslibre."
+msgstr ""
+
+#: templates/base.html:55
+msgid "Aller sur le site officiel"
+msgstr ""
+
+#: templates/base.html:60
+msgid "Ouverture dans un nouvel onglet"
+msgstr ""
+
+#: templates/communes.html:7 templates/communes.html:16
+msgid "Communes et territoires pilotes"
+msgstr ""
+
+#: templates/communes.html:19
+msgid "Communes renseignées"
+msgstr ""
+
+#: templates/communes.html:37
+msgid "Toutes les communes, par département"
+msgstr ""
+
+#: templates/communes.html:42 templates/index.html:224
+msgid "Ajouter un établissement"
+msgstr ""
+
+#: templates/communes.html:46
+msgid "Derniers établissements renseignés"
+msgstr ""
+
 #: templates/editorial/header.html:18
 msgid "Aller au contenu principal"
 msgstr ""
@@ -134,7 +178,7 @@ msgid ""
 "situation de handicap"
 msgstr ""
 
-#: templates/index.html:27
+#: templates/index.html:27 templates/index.html:125
 msgid "Contribuer"
 msgstr ""
 
@@ -160,4 +204,142 @@ msgstr ""
 
 #: templates/index.html:69
 msgid "Faire une vraie différence"
+msgstr ""
+
+#: templates/index.html:71
+msgid ""
+"En France, près d'une personne sur 5 est ou sera en situation de handicap au "
+"cours de sa vie."
+msgstr ""
+
+#: templates/index.html:73
+msgid ""
+"Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu "
+"sera accueillant et adapté."
+msgstr ""
+
+#: templates/index.html:75
+msgid ""
+"« Pour trouver les tarifs et les horaires d’ouverture, pas de souci ! Mais "
+"savoir si je peux rentrer en fauteuil, c'est une vraie galère ! »"
+msgstr ""
+
+#: templates/index.html:77
+msgid "Amélie"
+msgstr ""
+
+#: templates/index.html:90
+msgid "À votre niveau"
+msgstr ""
+
+#: templates/index.html:91
+msgid "Toute information est utile,<br> même partielle"
+msgstr ""
+
+#: templates/index.html:95
+msgid "En quelques secondes"
+msgstr ""
+
+#: templates/index.html:96
+msgid "Enrichir les informations se fait <br>en quelques clics"
+msgstr ""
+
+#: templates/index.html:100
+msgid "Pour le bien de tous"
+msgstr ""
+
+#: templates/index.html:101
+msgid "Les données d’accessibilités<br> sont indispensables"
+msgstr ""
+
+#: templates/index.html:110
+msgid "Partager des connaissances"
+msgstr ""
+
+#: templates/index.html:111
+msgid "1. Explorez"
+msgstr ""
+
+#: templates/index.html:113
+msgid ""
+"Retrouvez de nombreux lieux ouverts au public : cafés, restaurants, "
+"administrations..."
+msgstr ""
+
+#: templates/index.html:115
+msgid "2. Renseignez les informations"
+msgstr ""
+
+#: templates/index.html:117
+msgid ""
+"Répondez à quelques questions : y a-t-il une marche pour entrer ? des places "
+"de parking à proximité ?"
+msgstr ""
+
+#: templates/index.html:119
+msgid "3. Et recommencez"
+msgstr ""
+
+#: templates/index.html:121
+msgid ""
+"Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire "
+"attention !"
+msgstr ""
+
+#: templates/index.html:139
+msgid "Explorer les lieux en France"
+msgstr ""
+
+#: templates/index.html:149
+msgid "Voir les lieux près de chez moi"
+msgstr ""
+
+#: templates/index.html:151
+msgid "Renseignez les informations des lieux que vous connaissez le mieux"
+msgstr ""
+
+#: templates/index.html:159
+msgid "Compléter une fiche incomplète"
+msgstr ""
+
+#: templates/index.html:161
+msgid "Enrichissez les informations des fiches incomplètes"
+msgstr ""
+
+#: templates/index.html:169
+msgid "Référencer un nouveau lieu"
+msgstr ""
+
+#: templates/index.html:171
+msgid "Ajoutez un lieu ouvert au public manquant"
+msgstr ""
+
+#: templates/index.html:183
+msgid "Vous êtes responsable d’un lieu ouvert au public ?"
+msgstr ""
+
+#: templates/index.html:194
+msgid "Facilitez l’accès à votre établissement"
+msgstr ""
+
+#: templates/index.html:195
+msgid "Remplissez votre fiche en quelques clics"
+msgstr ""
+
+#: templates/index.html:205
+msgid "Touchez une plus large clientèle"
+msgstr ""
+
+#: templates/index.html:206
+msgid ""
+"Communiquez sur l'accessibilité de votre établissement grâce au widget "
+"acceslibre"
+msgstr ""
+
+#: templates/index.html:216
+msgid "Suivez les modifications de votre fiche"
+msgstr ""
+
+#: templates/index.html:217
+msgid "Abonnez-vous à votre fiche acceslibre"
 msgstr ""

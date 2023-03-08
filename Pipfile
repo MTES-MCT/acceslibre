@@ -14,6 +14,7 @@ splinter = {extras = [ "django",], version = "*"}
 pytest-circleci-parallelized = "*"
 django-debug-toolbar = "*"
 pytest-xdist = "*"
+django-rosetta = "*"
 
 [packages]
 coreapi = "*"
