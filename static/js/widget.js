@@ -14,7 +14,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     _paq.push(["trackPageView"]);
     _paq.push(["enableLinkTracking"]);
     _paq.push(['enableHeartBeatTimer']);
-    _paq.push(['trackEvent', "widget", "show_widget", "display", true]);
+    _paq.push(['trackEvent', "widget", "display", true]);
     (function () {
       var u = "//stats.beta.gouv.fr/";
       _paq.push(["setTrackerUrl", u + "matomo.php"]);
@@ -66,7 +66,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       _paq.push(["trackPageView"]);
       _paq.push(["enableLinkTracking"]);
       _paq.push(['enableHeartBeatTimer']);
-      _paq.push(['trackEvent', "widget", "show_widget", "open", true]);
+      _paq.push(['trackEvent', "widget", "open", true]);
       (function () {
         var u = "//stats.beta.gouv.fr/";
         _paq.push(["setTrackerUrl", u + "matomo.php"]);
@@ -166,7 +166,13 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       var btn_close = document.getElementById('btn_acceslibre_close')
       btn_close.addEventListener('click', () => {
         var _paq = window._paq = window._paq || [];
-        _paq.push(['trackEvent', "widget", "show_widget", "close", true]);
+        _paq.push(['trackEvent', "widget", "close", true]);
+      });
+
+      var btn_acceslibre_redirect = document.getElementById('btn_acceslibre')
+      btn_acceslibre_redirect.addEventListener('click', () => {
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackEvent', "widget", "redirect", true]);
       });
     });
 
