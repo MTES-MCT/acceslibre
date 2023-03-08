@@ -1,24 +1,24 @@
+{% load i18n %}
 <p>
   Liste des {{ stats_territoires|length }} communes de 5000 habitants ou plus, classées par
   {% if stats_territoires_sort == "count" %}nombre d'établissements renseignés{% else %}taux de complétude{% endif %} décroissant.
   {% if stats_territoires_sort == "count" %}
-    <a href="./#territoires">Classer par taux de couverture</a>
+    <a href="./#territoires">{% translate "Classer par taux de couverture" %}</a>
   {% else %}
-    <a href="./?sort=count#territoires">Classer par nombre d'établissements renseignés</a>
+    <a href="./?sort=count#territoires">{% translate "Classer par nombre d'établissements renseignés" %}</a>
   {% endif %}
   <br>
   <small class="text-muted">
-    <strong>Note&nbsp;:</strong> La donnée étant à ce jour inexistante en France, l'estimation du nombre d'établissements
-    recevant du public se fait sur la base d'1 établissement pour 45 habitants.
+    <strong>{% translate "Note&nbsp;:" %}</strong> {% translate "La donnée étant à ce jour inexistante en France, l'estimation du nombre d'établissements recevant du public se fait sur la base d'1 établissement pour 45 habitants." %}
   </small>
 </p>
 <div class="table-responsive-sm">
   <table class="table table-striped .table-responsive-sm">
     <thead>
-      <th scope="col" >Commune</th>
-      <th class="text-center" scope="col" >Taux de complétude</th>
-      <th class="text-center" scope="col" >Nombre d'ERP estimé</th>
-      <th class="text-center" scope="col" >Nombre d'ERP renseignés</th>
+      <th scope="col">{% translate "Commune" %}</th>
+      <th class="text-center" scope="col" >{% translate "Taux de complétude" %}</th>
+      <th class="text-center" scope="col" >{% translate "Nombre d'ERP estimé" %}</th>
+      <th class="text-center" scope="col" >{% translate "Nombre d'ERP renseignés" %}</th>
     </thead>
     <tbody>
     {% for row in stats_territoires %}

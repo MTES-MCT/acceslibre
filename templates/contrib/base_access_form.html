@@ -8,7 +8,7 @@
 
     {% csrf_token %}
     {% block full_infos %}
-      <h1 class="h3 mb-3" tabindex="0">{% block page_title %}{% endblock%}</h1>
+      <h1 class="h3 mb-3" tabindex="0">{% block page_title %}{% endblock %}</h1>
 
       <h2 class="h5 mb-0">
         {% if erp.published %}<a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>{% else %}{{ erp.nom }}{% endif %}

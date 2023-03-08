@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 16:14+0100\n"
-"PO-Revision-Date: 2023-03-08 16:31+0009\n"
+"POT-Creation-Date: 2023-03-08 17:48+0100\n"
+"PO-Revision-Date: 2023-03-08 17:50+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -68,10 +68,8 @@ msgid "Nouvelle adresse email"
 msgstr "New email address"
 
 #: compte/forms.py:132
-#, fuzzy
-#| msgid "Confirmation du mot de passe"
 msgid "Confirmation de la nouvelle adresse email"
-msgstr "Password confirmation"
+msgstr "Confirmation of the new email address"
 
 #: compte/forms.py:144
 msgid "Vous n'avez pas modifié votre adresse email"
@@ -111,6 +109,53 @@ msgstr "French"
 #: core/settings.py:236
 msgid "English"
 msgstr "English"
+
+#: templates/403.html:6
+msgid "Accès restreint"
+msgstr "Restricted access"
+
+#: templates/403.html:10
+msgid "Accès non autorisé"
+msgstr "Unauthorized access"
+
+#: templates/403.html:13
+#, python-format
+msgid ""
+"Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne devrait pas être le cas,\n"
+"    <a href=\"%(url_contact_bug)s\">contactez-nous</a>."
+msgstr ""
+"You do not have access to this resource. If you feel that this should not be the case,\n"
+"<a href=\"%(url_contact_bug)s\">contact us</a>."
+
+#: templates/404.html:6
+msgid "Page introuvable"
+msgstr "Page not found"
+
+#: templates/404.html:17
+#, python-format
+msgid ""
+"Vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
+"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a> en prenant\n"
+"    soin de préciser l'adresse utilisée."
+msgstr ""
+"You can try to return to <a href=\"%(url_home)s\">home</a>\n"
+"or contact us <a href=\"%(url_contact_bug)s\">specifically about this</a>, taking\n"
+"care to specify the URL used."
+
+#: templates/500.html:10
+msgid "Oups... Le serveur a crashé"
+msgstr "Oops... The server crashed"
+
+#: templates/500.html:21
+#, python-format
+msgid ""
+"En attendant, vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
+"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a>\n"
+"    si vous l'estimez nécessaire."
+msgstr ""
+"In the meantime, you can try returning to <a href=\"%(url_home)s\">home</a>\n"
+"or to <a href=\"%(url_contact_bug)s\">contact us specifically about this</a>\n"
+"if you feel it is necessary."
 
 #: templates/503.html:6
 msgid "Maintenance"
@@ -251,33 +296,31 @@ msgstr "At your level"
 
 #: templates/index.html:91
 msgid "Toute information est utile,<br> même partielle"
-msgstr ""
+msgstr "Any information is useful,<br> even partial"
 
 #: templates/index.html:95
 msgid "En quelques secondes"
-msgstr ""
+msgstr "In a few seconds"
 
 #: templates/index.html:96
 msgid "Enrichir les informations se fait <br>en quelques clics"
-msgstr ""
+msgstr "Enriching the information is done <br>in a few clicks"
 
 #: templates/index.html:100
 msgid "Pour le bien de tous"
-msgstr ""
+msgstr "For the good of all"
 
 #: templates/index.html:101
 msgid "Les données d’accessibilités<br> sont indispensables"
-msgstr ""
+msgstr "Accessibility data is essential"
 
 #: templates/index.html:110
 msgid "Partager des connaissances"
-msgstr ""
+msgstr "Sharing knowledge"
 
 #: templates/index.html:111
-#, fuzzy
-#| msgid "Explorer"
 msgid "1. Explorez"
-msgstr "Explore"
+msgstr "1. Explore"
 
 #: templates/index.html:113
 msgid ""
@@ -367,3 +410,133 @@ msgstr "Follow the modifications of your record"
 #: templates/index.html:217
 msgid "Abonnez-vous à votre fiche acceslibre"
 msgstr "Subscribe to your acceslibre record"
+
+#: templates/stats/includes/territoires_table.html:6
+msgid "Classer par taux de couverture"
+msgstr "Order by coverage rate"
+
+#: templates/stats/includes/territoires_table.html:8
+#| msgid "Derniers établissements renseignés"
+msgid "Classer par nombre d'établissements renseignés"
+msgstr "Order by number of facilities filled out"
+
+#: templates/stats/includes/territoires_table.html:12
+msgid "Note&nbsp;:"
+msgstr "Note:"
+
+#: templates/stats/includes/territoires_table.html:12
+msgid ""
+"La donnée étant à ce jour inexistante en France, l'estimation du nombre "
+"d'établissements recevant du public se fait sur la base d'1 établissement "
+"pour 45 habitants."
+msgstr ""
+"As there is no data available in France, the number of establishments "
+"receiving the public is estimated on the basis of 1 establishment per 45 "
+"inhabitants."
+
+#: templates/stats/includes/territoires_table.html:18
+msgid "Commune"
+msgstr "Municipality"
+
+#: templates/stats/includes/territoires_table.html:19
+msgid "Taux de complétude"
+msgstr "Completion rate"
+
+#: templates/stats/includes/territoires_table.html:20
+msgid "Nombre d'ERP estimé"
+msgstr "Estimated number of ERP"
+
+#: templates/stats/includes/territoires_table.html:21
+#| msgid "Communes renseignées"
+msgid "Nombre d'ERP renseignés"
+msgstr "Number of filled in ERP"
+
+#: templates/stats/index.html:6
+msgid "Statistiques"
+msgstr "Statistics"
+
+#: templates/stats/index.html:11
+msgid "Statistiques <small>- au"
+msgstr "Statistics <small>- at"
+
+#: templates/stats/index.html:19
+msgid "établissement publié"
+msgstr "published establishment"
+
+#: templates/stats/index.html:21
+msgid "établissements publiés"
+msgstr "published establishments"
+
+#: templates/stats/index.html:22 templates/stats/index.html:31
+#, python-format
+msgid "sur %(site)s"
+msgstr "on %(site)s"
+
+#: templates/stats/index.html:31
+msgid "contributeur"
+msgstr "contributor"
+
+#: templates/stats/index.html:39
+msgid "Évolution du nombre d'établissements publiés"
+msgstr "Evolution of the number of published establishments"
+
+#: templates/stats/index.html:42
+msgid "Graphique représentant l'évolution du nombre d'établissements publiés"
+msgstr "Graph showing the evolution of the number of published establishments"
+
+#: templates/stats/index.html:43
+msgid ""
+"Graphique représentant l'évolution du nombre d'établissements publiés sur "
+"l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés."
+msgstr ""
+"Graph showing the evolution of the number of published establishments over "
+"the year. We reach this month {{ nb_published_erps }} published "
+"establishments."
+
+#: templates/stats/index.html:90
+msgid "Challenges"
+msgstr "Challenges"
+
+#: templates/stats/index.html:91
+msgid "Tout savoir"
+msgstr "All about"
+
+#: templates/stats/index.html:91
+msgid "sur les challenges"
+msgstr "the challenges"
+
+#: templates/stats/index.html:98 templates/stats/territoires.html:3
+#: templates/stats/territoires.html:9
+msgid "Principaux territoires couverts"
+msgstr "Main territories covered"
+
+#: templates/stats/index.html:99
+#| msgid "Communes et territoires pilotes"
+msgid "Voir plus de territoires"
+msgstr "See more territories"
+
+#: templates/stats/index.html:109
+msgid "Fréquentation"
+msgstr "Attendance"
+
+#: templates/stats/index.html:109
+msgid "sur les 30 derniers jours"
+msgstr "over the last 30 days"
+
+#: templates/stats/territoires.html:8
+msgid "Retour aux statistiques générales"
+msgstr "Back to general statistics"
+
+#, fuzzy
+#~ msgid "sur {{ SITE_NAME|title }}"
+#~ msgstr "published establishment on %(SITE_NAME|title)s"
+
+#, fuzzy
+#~ msgid "établissements publiés sur {{ SITE_NAME|title }}"
+#~ msgstr ""
+#~ "\n"
+#~ "published establishment on %(SITE_NAME|title)s"
+
+#, fuzzy
+#~ msgid "ou de nous"
+#~ msgstr "For the good of all"

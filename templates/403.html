@@ -1,15 +1,17 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Accès restreint{% endblock%}
+{% block page_title %}{% translate "Accès restreint" %}{% endblock %}
 
 {% block editorial_content %}
 <div class="text-center">
-  <h2>Accès non autorisé</h2>
+  <h2>{% translate "Accès non autorisé" %}</h2>
+  {% url 'contact_topic' topic='bug' as url_contact_bug %}
   <p class="alert alert-warning">
-    Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne devrait pas être le cas,
-    <a href="{% url "contact_topic" topic="bug" %}">contactez-nous</a>.
+    {% blocktranslate %}Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne devrait pas être le cas,
+    <a href="{{ url_contact_bug }}">contactez-nous</a>.{% endblocktranslate %}
   </p>
 </div>
 {% endblock %}
