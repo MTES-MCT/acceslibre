@@ -10,10 +10,37 @@ class TestAccessibility:
     @pytest.mark.parametrize(
         "other, expected",
         (
-            pytest.param({"sanitaires_presence": True, "sanitaires_adaptes": False}, True, id="same"),
-            pytest.param({"sanitaires_presence": True, "sanitaires_adaptes": True}, False, id="not_the_same"),
             pytest.param(
-                {"sanitaires_presence": True, "sanitaires_adaptes": True, "stationnement_presence": True},
+                {
+                    "sanitaires_presence": True,
+                    "sanitaires_adaptes": False,
+                    "commentaire": "foo",
+                    "entree_porte_presence": True,
+                    "entree_reperage": True,
+                },
+                True,
+                id="same",
+            ),
+            pytest.param(
+                {
+                    "sanitaires_presence": True,
+                    "sanitaires_adaptes": True,
+                    "commentaire": "foo",
+                    "entree_porte_presence": True,
+                    "entree_reperage": True,
+                },
+                False,
+                id="not_the_same",
+            ),
+            pytest.param(
+                {
+                    "sanitaires_presence": True,
+                    "sanitaires_adaptes": True,
+                    "commentaire": "foo",
+                    "entree_porte_presence": True,
+                    "entree_reperage": True,
+                    "stationnement_presence": True,
+                },
                 False,
                 id="more_attrs",
             ),

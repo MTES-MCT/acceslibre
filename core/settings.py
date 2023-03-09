@@ -350,3 +350,5 @@ USERNAME_BLACKLIST = [
     "vente",
     "webmestre",
 ]
+
+MIN_COMPLETION_RATE_REQUIRED = 15

@@ -46,6 +46,9 @@ def niko_create_erp_and_subscribe_updates(client, data):
         reverse("contrib_accueil", kwargs={"erp_slug": erp.slug}),
         data={
             "sanitaires_presence": "True",
+            "accueil_visibilite": "True",
+            "accueil_audiodescription_presence": "True",
+            "accueil_retrecissement": "True",
         },
         follow=True,
     )

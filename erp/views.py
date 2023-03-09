@@ -13,6 +13,7 @@ from django.forms import modelform_factory
 from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.translation import gettext as trans
 from django.views.generic import TemplateView
 from reversion.views import create_revision
 from waffle import switch_is_active
@@ -26,6 +27,7 @@ from erp.export.utils import map_list_from_schema
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre, geocoder
 from erp.provider import search as provider_search
+from erp.tasks import compute_access_completion_rate
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -724,7 +726,7 @@ def contrib_admin_infos(request):
                         erp=erp,
                         user=request.user if request.user.is_authenticated else None,
                     )
-                messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
+                messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
         else:
             duplicated = bool("existe déjà" in form.errors.get("__all__", [""])[0])
@@ -794,7 +796,7 @@ def contrib_edit_infos(request, erp_slug):
                     erp=erp,
                     user=request.user if request.user.is_authenticated else None,
                 )
-            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
+            messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
             return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
@@ -838,7 +840,7 @@ def contrib_a_propos(request, erp_slug):
                     ErpSubscription.subscribe(erp, request.user)
 
             erp.save()
-            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
+            messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
         if hasattr(erp, "accessibilite"):
@@ -887,7 +889,9 @@ def process_accessibilite_form(
     redirect_hash=None,
     libelle_step=None,
 ):
-    "Traitement générique des requêtes sur les formulaires d'accessibilité"
+    """
+    Traitement générique des requêtes sur les formulaires d'accessibilité
+    """
 
     erp = get_object_or_404(
         Erp.objects.select_related("accessibilite"),
@@ -919,10 +923,10 @@ def process_accessibilite_form(
             accessibilite.erp.user = request.user
             accessibilite.erp.save()
         form.save_m2m()
-        messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
         if "publier" in request.POST:
             return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
+        messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
         if user_can_access_next_route:
             return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
         else:
@@ -1037,6 +1041,21 @@ def contrib_accueil(request, erp_slug):
     )
 
 
+def ensure_minimal_completion_rate(request, erp):
+    # check completion rate, 4 root answers min.
+    compute_access_completion_rate(erp.accessibilite.pk)
+    erp.accessibilite.refresh_from_db()
+    if erp.accessibilite.completion_rate >= settings.MIN_COMPLETION_RATE_REQUIRED:
+        return None
+
+    messages.add_message(
+        request,
+        messages.ERROR,
+        trans("Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."),
+    )
+    return redirect(reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
+
+
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
@@ -1059,20 +1078,22 @@ def contrib_publication(request, erp_slug):
     if request.method == "POST":
         form = forms.PublicPublicationForm(request.POST, instance=erp)
     else:
-        if request.GET:
-            form = forms.PublicPublicationForm(request.GET, instance=erp)
-        else:
-            form = forms.PublicPublicationForm({"published": True}, instance=erp)
+        form = forms.PublicPublicationForm(request.GET or {"published": True}, instance=erp)
 
     if form.is_valid():
-        if check_authentication(request, erp, form, check_online=False):
-            return check_authentication(request, erp, form, check_online=False)
+        if response := ensure_minimal_completion_rate(request, erp):
+            return response
+
+        if check_auth := check_authentication(request, erp, form, check_online=False):
+            return check_auth
+
         erp = form.save()
         if erp.user is None:
             erp.user = request.user
             erp.save()
+
         ErpSubscription.subscribe(erp, erp.user)
-        messages.add_message(request, messages.SUCCESS, "Les données ont été sauvegardées.")
+        messages.add_message(request, messages.SUCCESS, trans("Les données ont été sauvegardées."))
         if erp.published:
             # Suppress old draft matching this ERP + send email notification
             for draft in Erp.objects.find_duplicate(

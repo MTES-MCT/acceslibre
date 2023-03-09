@@ -634,6 +634,9 @@ def test_ajout_erp_a11y_vide(data, client):
     # empty a11y data
     data.erp.accessibilite.sanitaires_presence = None
     data.erp.accessibilite.sanitaires_adaptes = None
+    data.erp.accessibilite.entree_porte_presence = None
+    data.erp.accessibilite.entree_reperage = None
+    data.erp.accessibilite.commentaire = None
     data.erp.accessibilite.save()
     data.erp.save()
 
@@ -648,8 +651,12 @@ def test_ajout_erp_a11y_vide(data, client):
         follow=True,
     )
 
-    assert_redirect(response, data.erp.get_absolute_url())
+    assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": data.erp.slug}))
     assert response.status_code == 200
+    assert (
+        str(response.context["messages"]._get()[0][0])
+        == "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."
+    )
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.accessibilite.has_data() is False
     assert erp.published is True
