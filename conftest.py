@@ -424,7 +424,15 @@ def data(db):
         published=True,
         user=obj_niko,
     )
-    obj_accessibilite = Accessibilite.objects.create(erp=obj_erp, sanitaires_presence=True, sanitaires_adaptes=False)
+    obj_accessibilite = Accessibilite.objects.create(
+        erp=obj_erp,
+        sanitaires_presence=True,
+        sanitaires_adaptes=False,
+        commentaire="foo",
+        entree_porte_presence=True,
+        entree_reperage=True,
+        # 4 access info min to reach the min required completion rate
+    )
 
     class Data:
         admin = obj_admin

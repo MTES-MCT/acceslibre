@@ -96,11 +96,11 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
 
 def test_erp_update_serializer(data):
     assert data.erp.nom != "Aux bons pains"
-    assert not data.accessibilite.entree_porte_presence
+    assert not data.accessibilite.accueil_equipements_malentendants_presence
 
     serializer = ErpImportSerializer(
         instance=data.erp,
-        data={"accessibilite": {"entree_porte_presence": True}, "nom": "Aux bons pains"},
+        data={"accessibilite": {"accueil_equipements_malentendants_presence": True}, "nom": "Aux bons pains"},
         partial=True,
     )
     assert serializer.is_valid(), serializer.errors
@@ -108,4 +108,4 @@ def test_erp_update_serializer(data):
 
     data.erp.refresh_from_db()
     assert data.erp.nom != "Aux bons pains", "Name should not be editable"
-    assert data.accessibilite.entree_porte_presence is True
+    assert data.accessibilite.accueil_equipements_malentendants_presence is True

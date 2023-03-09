@@ -177,7 +177,7 @@ def test_skip_importing_en_attente(mapper, updates, neufchateau, sample_record_o
         {"c_nom": "XXX", "c_rdv_modalites": "réservé USMP"},
     ],
 )
-def test_skip_importing_etablissements_penitentiares(mapper, updates, neufchateau, sample_record_ok):
+def test_skip_importing_etablissements_penitentiaires(mapper, updates, neufchateau, sample_record_ok):
     sample_en_attente = sample_record_ok.copy()
     sample_en_attente["properties"].update(updates)
 
