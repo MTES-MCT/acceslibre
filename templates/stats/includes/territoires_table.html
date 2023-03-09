@@ -1,7 +1,7 @@
 {% load i18n %}
 <p>
-  Liste des {{ stats_territoires|length }} communes de 5000 habitants ou plus, classées par
-  {% if stats_territoires_sort == "count" %}nombre d'établissements renseignés{% else %}taux de complétude{% endif %} décroissant.
+  {% blocktranslate with nb_territoires=stats_territoires|length %}Liste des {{ nb_territoires }} communes de 5000 habitants ou plus, classées par{% endblocktranslate %}
+  {% if stats_territoires_sort == "count" %} {% translate "nombre d'établissements renseignés décroissant." %}{% else %}{% trans "taux de complétude décroissant." %}{% endif %}
   {% if stats_territoires_sort == "count" %}
     <a href="./#territoires">{% translate "Classer par taux de couverture" %}</a>
   {% else %}

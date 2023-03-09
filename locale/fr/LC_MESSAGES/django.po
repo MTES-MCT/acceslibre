@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 17:48+0100\n"
+"POT-Creation-Date: 2023-03-09 10:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,12 +183,81 @@ msgstr ""
 msgid "Toutes les communes, par département"
 msgstr ""
 
-#: templates/communes.html:42 templates/index.html:224
+#: templates/communes.html:42 templates/index.html:222
 msgid "Ajouter un établissement"
 msgstr ""
 
 #: templates/communes.html:46
 msgid "Derniers établissements renseignés"
+msgstr ""
+
+#: templates/editorial/footer.html:8
+msgid "acceslibre, République Française"
+msgstr ""
+
+#: templates/editorial/footer.html:12
+msgid ""
+"<b>acceslibre</b> a pour objectif de recenser l'accessibilité de tous les "
+"lieux recevant du public et de partager ces informations le plus largement "
+"possible."
+msgstr ""
+
+#: templates/editorial/footer.html:15 templates/editorial/footer.html:18
+#: templates/editorial/footer.html:21 templates/editorial/footer.html:24
+#: templates/editorial/footer.html:67
+msgid "(ouverture dans une nouvelle fenêtre)"
+msgstr ""
+
+#: templates/editorial/footer.html:32
+msgid "Accessibilité : partiellement conforme"
+msgstr ""
+
+#: templates/editorial/footer.html:35
+msgid "Partenaires"
+msgstr ""
+
+#: templates/editorial/footer.html:38 templates/stats/index.html:90
+msgid "Challenges"
+msgstr ""
+
+#: templates/editorial/footer.html:41 templates/stats/index.html:6
+msgid "Statistiques"
+msgstr ""
+
+#: templates/editorial/footer.html:44
+msgid "Jeu de données"
+msgstr ""
+
+#: templates/editorial/footer.html:47
+msgid "Schéma"
+msgstr ""
+
+#: templates/editorial/footer.html:50
+msgid "API"
+msgstr ""
+
+#: templates/editorial/footer.html:53
+msgid "Documentation technique"
+msgstr ""
+
+#: templates/editorial/footer.html:56
+msgid "Code source"
+msgstr ""
+
+#: templates/editorial/footer.html:59
+msgid "CGU"
+msgstr ""
+
+#: templates/editorial/footer.html:62
+msgid "Contactez nous"
+msgstr ""
+
+#: templates/editorial/footer.html:67
+msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
+msgstr ""
+
+#: templates/editorial/footer.html:67
+msgid "licence etalab-2.0"
 msgstr ""
 
 #: templates/editorial/header.html:18
@@ -211,180 +280,402 @@ msgstr ""
 msgid "Se connecter"
 msgstr ""
 
-#: templates/index.html:20
+#: templates/editorial/partenaires.html:7
+#: templates/editorial/partenaires.html:11
+msgid "Nos partenaires"
+msgstr ""
+
+#: templates/editorial/partenaires.html:40
+msgid "Retour à l'accueil"
+msgstr ""
+
+#: templates/editorial/partenaires/accesmetrie.html:3
+msgid ""
+"ACCESMETRIE accompagne les maîtres d’ouvrage dans leurs démarches "
+"d’amélioration de la qualité\n"
+"  d’usage et de mise\n"
+"  en conformité de leurs patrimoines et équipements, avec pour volonté de "
+"répondre aux attentes et besoins des\n"
+"  utilisateurs."
+msgstr ""
+
+#: templates/editorial/partenaires/accesmetrie.html:9
+#: templates/editorial/partenaires/onecompagnon.html:14
+msgid "Nous écrire :"
+msgstr ""
+
+#: templates/editorial/partenaires/accesmetrie.html:10
+msgid "Nous appeler :"
+msgstr ""
+
+#: templates/editorial/partenaires/andre_de_cabo.html:3
+msgid ""
+"\n"
+"    La société André de CABO est un bureau d’études pluridisciplinaires & "
+"d’Architecture.<br>\n"
+"    Notre vocation est de conseiller et d’accompagner les collectivités, les "
+"professionnels et particuliers pour\n"
+"    l’établissement des dossiers administratifs et dossiers spécifiques ERP "
+"(Accessibilité pour les personnes à mobilité\n"
+"    réduite, Sécurité Incendie, divers projets architecturaux, mise en "
+"conformité et solutions des traitements des\n"
+"    gestions d’eaux pluviales).\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/avh.html:3
+msgid ""
+"\n"
+"    Acteur historique de l’aide aux personnes déficientes visuelles, "
+"l’association Valentin Haüy, créée en 1889 par\n"
+"    Maurice de La Sizeranne et reconnue d’utilité publique en 1891, déploie "
+"depuis plus de 130 ans un grand nombre de\n"
+"    services et d’actions à travers toute la France afin de défendre les "
+"droits des déficients visuels, assurer leur\n"
+"    formation et l’accès à l’emploi, promouvoir l’accès à l’écrit, proposer "
+"des activités culturelles, sportives et de\n"
+"    loisirs accessibles.\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/cfpsaa.html:3
+msgid ""
+"\n"
+"    La Confédération Française pour la Promotion Sociale des Aveugles et "
+"Amblyopes est la confédération qui regroupe une\n"
+"    vingtaine des principales associations de déficients visuels qui "
+"coopèrent pour parler d’une seule voix aux pouvoirs\n"
+"    publics et militer en faveur des aveugles et des mal-voyants. Elle "
+"compte en son sein plusieurs commissions ou\n"
+"    groupe de travail où les représentants des associations se retrouvent "
+"pour construire un plaidoyer commun et\n"
+"    travailler de concert pour l’autonomie des déficients visuels. Les "
+"sujets abordés sont variés comme l’emploi,\n"
+"    l’accessibilité physique ou numérique, l’accès au livre ou encore à "
+"l’audio-visuel.\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/dge.html:3
+msgid ""
+"\n"
+"  Dans le cadre de l’action engagée par l’Organisation Mondiale du Tourisme "
+"(OMT) pour promouvoir\n"
+"  l’accessibilité inclusive, la France s’engage en faveur d’un tourisme "
+"accessible pour tous avec\n"
+"  les Marques Nationales du Tourisme (Tourisme & Handicap et Destination "
+"pour tous) portées par\n"
+"  la Direction générale des entreprises (DGE) au sein du Ministère de "
+"l’Économie, des Finances et\n"
+"  de la Relance.\n"
+"  "
+msgstr ""
+
+#: templates/editorial/partenaires/dge.html:13
+msgid ""
+"\n"
+"    Tourisme & Handicap (T&H)&nbsp;: la marque distingue une offre qui "
+"garantit l’accessibilité\n"
+"    des équipements touristiques aux personnes en situation de handicap. "
+"Avec T&H, les personnes\n"
+"    handicapées peuvent choisir leurs vacances et leurs loisirs en toute "
+"liberté, sécurité et\n"
+"    autonomie.\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/dge.html:21
+#, python-format
+msgid ""
+"\n"
+"    Un peu plus de 5 200 sites touristiques sont déjà labellisés dont 52%% "
+"pour les 4 familles\n"
+"    de handicap (auditif, mental, moteur et visuel).\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/dge.html:27
+msgid ""
+"\n"
+"    Destination pour tous (DPT), dans la continuité de T&H, distingue des "
+"territoires (commune,\n"
+"    communauté de communes, département, parc naturel...) garantissant une "
+"offre cohérente et globale\n"
+"    accessible, intégrant à la fois l’accessibilité des sites et des "
+"activités touristiques\n"
+"    (hébergements, restauration...), mais aussi l’accessibilité des autres "
+"services de la vie\n"
+"    quotidienne (commerces, services médicaux...) et celle de l’ensemble de "
+"la chaîne de déplacement\n"
+"    sur le territoire concerné (voirie, transports...).\n"
+"    "
+msgstr ""
+
+#: templates/editorial/partenaires/nestenn.html:3
+msgid ""
+"\n"
+"  Le groupe d’agences immobilières Nestenn a été créé en 2017. Olivier "
+"Alonso en est le président-fondateur.\n"
+"  Aujourd’hui, Nestenn est un groupe national et international disposant "
+"d’un réseau de plus de 450 agences immobilières\n"
+"  ouvertes ou en cours d’ouverture en France et à l’international (Miami "
+"Etats-Unis, Nouvelle-Calédonie, Île Maurice,\n"
+"  Portugal,…) et plus de 2 500 collaborateurs. Son ambition : l’ouverture de "
+"600 agences d’ici fin 2023.\n"
+"  "
+msgstr ""
+
+#: templates/editorial/partenaires/nestenn.html:11
+msgid ""
+"\n"
+"  Nestenn est également membre de la Fédération Française de la Franchise et "
+"du Fichier AMEPI, dont Olivier ALONSO a\n"
+"  assuré la vice-présidence et la présidence durant deux années "
+"consécutives.\n"
+"  "
+msgstr ""
+
+#: templates/editorial/partenaires/nestenn.html:17
+msgid "En savoir plus sur le groupe immobilier Nestenn :"
+msgstr ""
+
+#: templates/editorial/partenaires/onecompagnon.html:3
+msgid ""
+"One Compagnon est un assistant personnel du quotidien qui réalise à votre "
+"place toutes les tâches chronophages que\n"
+"  vous devez gérer. Grâce à notre application, tous les services deviennent "
+"accessibles simplement !\n"
+"  Qu'est-ce que je peux lui demander ?"
+msgstr ""
+
+#: templates/editorial/partenaires/onecompagnon.html:8
+msgid ""
+"Il passe des appels à votre place (contacte votre médecin, un service "
+"client, un prestataire...)."
+msgstr ""
+
+#: templates/editorial/partenaires/onecompagnon.html:9
+msgid ""
+"Il réalise toutes vos recherches pour vous faire gagner du temps : une "
+"activité, un lieu où séjourner, des informations, un produit..."
+msgstr ""
+
+#: templates/editorial/partenaires/onecompagnon.html:10
+msgid ""
+"Il vous fait des suggestions personnalisées selon vos critères, vos "
+"préférences et vos habitudes de vie."
+msgstr ""
+
+#: templates/editorial/partenaires/onecompagnon.html:11
+msgid ""
+"Il est également là pour organiser tous vos déplacements, vérifier "
+"l'accessibilité d'un lieu, le réserver..."
+msgstr ""
+
+#: templates/editorial/partenaires/sortiraparis.html:3
+msgid ""
+"Sortiraparis.com est le 1er média d'actualité Sorties en France, source "
+"Médiamétrie Global."
+msgstr ""
+
+#: templates/editorial/partenaires/sortiraparis.html:4
+msgid ""
+"Nous aidons à bâtir des souvenirs durables entre nos lecteurs et leurs "
+"proches depuis 2002."
+msgstr ""
+
+#: templates/editorial/partenaires/sortiraparis.html:7
+msgid "Nous écrire&nbsp;:"
+msgstr ""
+
+#: templates/index.html:18
 msgid "Rendez votre ville plus accessible"
 msgstr ""
 
-#: templates/index.html:22
+#: templates/index.html:20
 msgid ""
 "Partagez les informations indispensables aux déplacements des personnes en "
 "situation de handicap"
 msgstr ""
 
-#: templates/index.html:27 templates/index.html:125
+#: templates/index.html:25 templates/index.html:123
 msgid "Contribuer"
 msgstr ""
 
-#: templates/index.html:32
+#: templates/index.html:30
 msgid "Explorer"
 msgstr ""
 
-#: templates/index.html:52
+#: templates/index.html:50
 msgid "lieux<br> référencés"
 msgstr ""
 
-#: templates/index.html:56
+#: templates/index.html:54
 msgid "contributrices<br> et contributeurs"
 msgstr ""
 
-#: templates/index.html:59
+#: templates/index.html:57
 msgid "12 millions"
 msgstr ""
 
-#: templates/index.html:60
+#: templates/index.html:58
 msgid "de personnes<br> concernées"
 msgstr ""
 
-#: templates/index.html:69
+#: templates/index.html:67
 msgid "Faire une vraie différence"
 msgstr ""
 
-#: templates/index.html:71
+#: templates/index.html:69
 msgid ""
 "En France, près d'une personne sur 5 est ou sera en situation de handicap au "
 "cours de sa vie."
 msgstr ""
 
-#: templates/index.html:73
+#: templates/index.html:71
 msgid ""
 "Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu "
 "sera accueillant et adapté."
 msgstr ""
 
-#: templates/index.html:75
+#: templates/index.html:73
 msgid ""
 "« Pour trouver les tarifs et les horaires d’ouverture, pas de souci ! Mais "
 "savoir si je peux rentrer en fauteuil, c'est une vraie galère ! »"
 msgstr ""
 
-#: templates/index.html:77
+#: templates/index.html:75
 msgid "Amélie"
 msgstr ""
 
-#: templates/index.html:90
+#: templates/index.html:88
 msgid "À votre niveau"
 msgstr ""
 
-#: templates/index.html:91
+#: templates/index.html:89
 msgid "Toute information est utile,<br> même partielle"
 msgstr ""
 
-#: templates/index.html:95
+#: templates/index.html:93
 msgid "En quelques secondes"
 msgstr ""
 
-#: templates/index.html:96
+#: templates/index.html:94
 msgid "Enrichir les informations se fait <br>en quelques clics"
 msgstr ""
 
-#: templates/index.html:100
+#: templates/index.html:98
 msgid "Pour le bien de tous"
 msgstr ""
 
-#: templates/index.html:101
+#: templates/index.html:99
 msgid "Les données d’accessibilités<br> sont indispensables"
 msgstr ""
 
-#: templates/index.html:110
+#: templates/index.html:108
 msgid "Partager des connaissances"
 msgstr ""
 
-#: templates/index.html:111
+#: templates/index.html:109
 msgid "1. Explorez"
 msgstr ""
 
-#: templates/index.html:113
+#: templates/index.html:111
 msgid ""
 "Retrouvez de nombreux lieux ouverts au public : cafés, restaurants, "
 "administrations..."
 msgstr ""
 
-#: templates/index.html:115
+#: templates/index.html:113
 msgid "2. Renseignez les informations"
 msgstr ""
 
-#: templates/index.html:117
+#: templates/index.html:115
 msgid ""
 "Répondez à quelques questions : y a-t-il une marche pour entrer ? des places "
 "de parking à proximité ?"
 msgstr ""
 
-#: templates/index.html:119
+#: templates/index.html:117
 msgid "3. Et recommencez"
 msgstr ""
 
-#: templates/index.html:121
+#: templates/index.html:119
 msgid ""
 "Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire "
 "attention !"
 msgstr ""
 
-#: templates/index.html:139
+#: templates/index.html:137
 msgid "Explorer les lieux en France"
 msgstr ""
 
-#: templates/index.html:149
+#: templates/index.html:147
 msgid "Voir les lieux près de chez moi"
 msgstr ""
 
-#: templates/index.html:151
+#: templates/index.html:149
 msgid "Renseignez les informations des lieux que vous connaissez le mieux"
 msgstr ""
 
-#: templates/index.html:159
+#: templates/index.html:157
 msgid "Compléter une fiche incomplète"
 msgstr ""
 
-#: templates/index.html:161
+#: templates/index.html:159
 msgid "Enrichissez les informations des fiches incomplètes"
 msgstr ""
 
-#: templates/index.html:169
+#: templates/index.html:167
 msgid "Référencer un nouveau lieu"
 msgstr ""
 
-#: templates/index.html:171
+#: templates/index.html:169
 msgid "Ajoutez un lieu ouvert au public manquant"
 msgstr ""
 
-#: templates/index.html:183
+#: templates/index.html:181
 msgid "Vous êtes responsable d’un lieu ouvert au public ?"
 msgstr ""
 
-#: templates/index.html:194
+#: templates/index.html:192
 msgid "Facilitez l’accès à votre établissement"
 msgstr ""
 
-#: templates/index.html:195
+#: templates/index.html:193
 msgid "Remplissez votre fiche en quelques clics"
 msgstr ""
 
-#: templates/index.html:205
+#: templates/index.html:203
 msgid "Touchez une plus large clientèle"
 msgstr ""
 
-#: templates/index.html:206
+#: templates/index.html:204
 msgid ""
 "Communiquez sur l'accessibilité de votre établissement grâce au widget "
 "acceslibre"
 msgstr ""
 
-#: templates/index.html:216
+#: templates/index.html:214
 msgid "Suivez les modifications de votre fiche"
 msgstr ""
 
-#: templates/index.html:217
+#: templates/index.html:215
 msgid "Abonnez-vous à votre fiche acceslibre"
+msgstr ""
+
+#: templates/stats/includes/territoires_table.html:3
+#, python-format
+msgid ""
+"Liste des %(nb_territoires)s communes de 5000 habitants ou plus, classées par"
+msgstr ""
+
+#: templates/stats/includes/territoires_table.html:4
+msgid "nombre d'établissements renseignés décroissant."
+msgstr ""
+
+#: templates/stats/includes/territoires_table.html:4
+msgid "taux de complétude décroissant."
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:6
@@ -422,10 +713,6 @@ msgstr ""
 msgid "Nombre d'ERP renseignés"
 msgstr ""
 
-#: templates/stats/index.html:6
-msgid "Statistiques"
-msgstr ""
-
 #: templates/stats/index.html:11
 msgid "Statistiques <small>- au"
 msgstr ""
@@ -459,10 +746,6 @@ msgstr ""
 msgid ""
 "Graphique représentant l'évolution du nombre d'établissements publiés sur "
 "l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés."
-msgstr ""
-
-#: templates/stats/index.html:90
-msgid "Challenges"
 msgstr ""
 
 #: templates/stats/index.html:91

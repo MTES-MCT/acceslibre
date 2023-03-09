@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% comment %}Common header (logo and login/logout/account links){% endcomment %}
+  <!-- {% comment %}Common header (logo and login/logout/account links){% endcomment %} -->
   {% block header %}
     {% include "editorial/header.html" with dark=True %}
   {% endblock %}
 
-  {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %}
+  <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
   <main role="main" id="content">
 
   {% block top_fluid_content %}
@@ -17,17 +17,17 @@
     </aside>
   {% endblock %}
 
-  {% comment %}Main content area{% endcomment %}
+  <!-- {% comment %}Main content area{% endcomment %} -->
   <div class="container a4a-editorial my-4">
     <div class="fr-container">
     {% block editorial_content %}{% endblock %}
     </div>
   </div>
 
-  {% comment %}Full-width content available area,empty by default{% endcomment %}
+  <!-- {% comment %}Full-width content available area,empty by default{% endcomment %} -->
   {% block bottom_fluid_content %}{% endblock %}
 
   </main>
-  {% comment %}Common page footer{% endcomment %}
+  <!-- {% comment %}Common page footer{% endcomment %} -->
   {% include "editorial/footer.html" %}
 {% endblock %}
