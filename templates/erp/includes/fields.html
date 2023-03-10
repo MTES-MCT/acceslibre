@@ -1,5 +1,6 @@
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
 {% if fields %}
 <ul class="p-0 m-0">
@@ -13,7 +14,7 @@
       <i aria-hidden="true" class="icon icon-bubble"></i>
       {% endif %}
       {% if field.warning %}
-        <span class="sr-only">Attention :</span>
+        <span class="sr-only">{% translate "Attention :" %}</span>
       {% endif %}
       {{ field.label }}
       {% if field.values and not field.is_comment %}:
@@ -36,5 +37,5 @@
   {% endfor %}
 </ul>
 {% else %}
-<h3>Aucune information.</h3>
+<h3>{% translate "Aucune information." %}</h3>
 {% endif %}

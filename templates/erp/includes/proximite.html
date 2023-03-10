@@ -1,9 +1,10 @@
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
 <h2 class="h4 mb-3">
   <i aria-hidden="true" class="icon icon-map mr-2"></i>
-  À proximité <small class="text-muted">(moins de 20 km)</small>
+  {% translate "À proximité" %} <small class="text-muted">{% translate "(moins de 20 km)" %}</small>
 </h2>
 
 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
@@ -13,7 +14,7 @@
     <div class="h-100">
       <div class="d-flex px-3 py-2">
         <img alt="" class="act-icon act-icon-20 act-icon-black mr-2"
-          src="{% static "img/mapicons.svg" %}#{{ nearest_erp.get_activite_vector_icon }}">
+          src="{% static 'img/mapicons.svg' %}#{{ nearest_erp.get_activite_vector_icon }}">
         <div class="d-flex flex-column m-0 h-100">
           <h3 class="h6">
             <a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a>

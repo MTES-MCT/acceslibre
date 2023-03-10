@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 10:20+0100\n"
+"POT-Creation-Date: 2023-03-10 11:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Rechercher"
 msgstr ""
 
-#: templates/editorial/header.html:45
+#: templates/editorial/header.html:45 templates/registration/login.html:66
 msgid "Se connecter"
 msgstr ""
 
@@ -488,6 +488,312 @@ msgstr ""
 msgid "Nous écrire&nbsp;:"
 msgstr ""
 
+#: templates/erp/includes/accessibilite.html:14
+msgid ""
+"Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap "
+"suivantes :"
+msgstr ""
+
+#: templates/erp/includes/fields.html:17
+msgid "Attention :"
+msgstr ""
+
+#: templates/erp/includes/fields.html:40
+msgid "Aucune information."
+msgstr ""
+
+#: templates/erp/includes/header.html:22
+msgid "Situer sur la carte"
+msgstr ""
+
+#: templates/erp/includes/header.html:29
+msgid ""
+"Cet établissement est centre de vaccination dans le cadre de la campagne "
+"nationale de vaccination contre la COVID-19."
+msgstr ""
+
+#: templates/erp/includes/header.html:38
+msgid "Site internet"
+msgstr ""
+
+#: templates/erp/includes/header.html:50 templates/erp/includes/header.html:55
+msgid "Écrire un message"
+msgstr ""
+
+#: templates/erp/includes/header.html:60
+msgid "Agrandir la carte"
+msgstr ""
+
+#: templates/erp/includes/history.html:4 templates/erp/includes/sidebar.html:86
+msgid "Historique des modifications"
+msgstr ""
+
+#: templates/erp/includes/history.html:15
+msgid "Champ"
+msgstr ""
+
+#: templates/erp/includes/history.html:16
+msgid "Ancienne valeur"
+msgstr ""
+
+#: templates/erp/includes/history.html:17
+msgid "Nouvelle valeur"
+msgstr ""
+
+#: templates/erp/includes/history.html:36
+msgid ""
+"Il n'y a pas encore d'historique de modifications pour les données "
+"d'accessibilité de cet établissement."
+msgstr ""
+
+#: templates/erp/includes/proximite.html:7
+msgid "À proximité"
+msgstr ""
+
+#: templates/erp/includes/proximite.html:7
+msgid "(moins de 20 km)"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:12
+msgid "Contribuez&nbsp;!"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:17
+msgid "Ajoutez un établissement"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:21
+msgid ""
+"Si la description de l'accessibilité de cet établissement est incomplète ou "
+"inexacte, contribuez à l'améliorer."
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:26
+msgid "Améliorez ces informations"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:30
+msgid "Signaler un problème"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:34
+msgid "Je gère cet établissement"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:43
+msgid "Se désabonner des mises à jour"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:47
+msgid ""
+"Ne plus recevoir de notification par email lorsque cet établissement est mis "
+"à jour"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:49
+msgid "S'abonner aux mises à jour"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:58
+msgid "Administrer cette fiche"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:66
+msgid "Informations initialement fournies"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:68
+msgid "par"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:72
+msgid "en tant que gestionnaire de l'établissement"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:74
+msgid "en tant qu'administration"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:76
+msgid "en tant qu'usager de l'établissement"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:79
+msgid "et mises à jour le"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:98
+msgid "Affichez ces informations sur votre site"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:101
+msgid ""
+"En un copier-coller, affichez les informations principales de votre "
+"établissement."
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:104
+msgid "Comment faire ?"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:111
+msgid "Intégrez acceslibre sur votre site !"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:117
+msgid ""
+"Copiez ce code puis collez-le là où vous souhaitez qu'il s'affiche sur votre "
+"site web :"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:123
+msgid "Tester le widget"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:124 templates/erp/widget.html:225
+msgid "Fermer"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:125
+msgid "Copier"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:156
+msgid "Copié avec succès"
+msgstr ""
+
+#: templates/erp/includes/sidebar.html:163
+msgid "Une erreur s\\'est produite lors de la copie."
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:8
+msgid "Vaccination"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:14
+msgid ""
+"Nous ne disposons d'aucune information sur les modalités de vaccination pour "
+"ce centre."
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:20
+msgid "Centre ouvert depuis le"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:26
+msgid "Fermeture prévue à compter du"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:32
+msgid "Modalités particulières :"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:40
+msgid ""
+"L'accès à ce centre de vaccination se fait <strong>sur rendez-vous</strong>"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:46
+msgid ""
+"Ce centre propose également des consultations de <strong>prévaccination</"
+"strong>"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:52
+msgid "Le site s'ouvrira dans une nouvelle fenêtre"
+msgstr ""
+
+#: templates/erp/includes/vaccination.html:52
+msgid "En savoir plus sur les conditions de vaccination"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:3
+msgid "Ces informations sont-elles fiables&nbsp;?"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:8
+msgid "Vous devez vous connecter pour voter"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:8
+msgid "Oui"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:10
+msgid "oui"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:15
+#: templates/erp/includes/vote-form.html:21
+msgid "non"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:26
+msgid "Commentaire"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:28
+msgid ""
+"Veuillez nous expliquer la raison de votre insatisfaction afin que nous "
+"puissions nous améliorer."
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:32
+msgid "Envoyer"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:34
+msgid "Annuler"
+msgstr ""
+
+#: templates/erp/includes/vote-form.html:50
+msgid "Connectez-vous pour pouvoir voter"
+msgstr ""
+
+#: templates/erp/index.html:8 templates/erp/widget.html:230
+msgid "Accessibilité"
+msgstr ""
+
+#: templates/erp/index.html:10
+msgid "Découvrez l'accessibilité de l'établissement"
+msgstr ""
+
+#: templates/erp/index.html:18
+msgid "Aller à la carte"
+msgstr ""
+
+#: templates/erp/index.html:21
+msgid "Aller aux informations d'accessibilité"
+msgstr ""
+
+#: templates/erp/index.html:31
+msgid "Merci !"
+msgstr ""
+
+#: templates/erp/index.html:34
+msgid "La fiche est publiée. Merci pour votre contribution."
+msgstr ""
+
+#: templates/erp/index.html:36
+msgid "Ajoutez un nouvel établissement"
+msgstr ""
+
+#: templates/erp/index.html:55
+#, python-format
+msgid ""
+"Les données d'accessibilité pour cet établissement ne sont pas encore "
+"disponibles,\n"
+"            mais <a href=\"%(url_contrib)s\">vous pouvez les ajouter</a>."
+msgstr ""
+
+#: templates/erp/widget.html:255
+msgid "Voir plus sur"
+msgstr ""
+
+#: templates/fields/boolradio.html:7
+msgid "requis"
+msgstr ""
+
 #: templates/index.html:18
 msgid "Rendez votre ville plus accessible"
 msgstr ""
@@ -662,6 +968,50 @@ msgstr ""
 
 #: templates/index.html:215
 msgid "Abonnez-vous à votre fiche acceslibre"
+msgstr ""
+
+#: templates/registration/login.html:8
+msgid "Connexion"
+msgstr ""
+
+#: templates/registration/login.html:20
+msgid "Publication"
+msgstr ""
+
+#: templates/registration/login.html:23
+msgid "Retour à la fiche"
+msgstr ""
+
+#: templates/registration/login.html:24
+msgid "Retour"
+msgstr ""
+
+#: templates/registration/login.html:38
+#, python-format
+msgid ""
+"\n"
+"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</"
+"strong>,\n"
+"    vous ne pouvez donc pas vous authentifier avec un nouveau compte.\n"
+"    Veuillez <a href=\"%(url_logout)s\">d'abord vous déconnecter</a>\n"
+"    ou revenir à la <a href=\"%(url_home)s\">page d'accueil</a>.\n"
+"    "
+msgstr ""
+
+#: templates/registration/login.html:51
+msgid "Je me connecte"
+msgstr ""
+
+#: templates/registration/login.html:61
+msgid "Mot de passe oublié ?"
+msgstr ""
+
+#: templates/registration/login.html:69
+msgid "ou"
+msgstr ""
+
+#: templates/registration/login.html:72
+msgid "S'inscrire"
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:3

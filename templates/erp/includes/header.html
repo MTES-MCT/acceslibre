@@ -1,5 +1,6 @@
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
 <header id="article-header" class="d-flex">
   {% if activite %}
@@ -18,15 +19,14 @@
     </h1>
     <div>
       <address class="d-inline font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
-      - <a href="#" onclick="a4a.geo.openMarkerPopup({{ erp.pk }}, { highlight: true });return false">Situer sur la carte</a>
+      - <a href="#" onclick="a4a.geo.openMarkerPopup({{ erp.pk }}, { highlight: true });return false">{% translate "Situer sur la carte" %}</a>
     </div>
 
     {% with erp.metadata.centre_vaccination as cv %}
       {% if cv %}
       <div class="alert alert-warning d-flex align-items-center mt-2 mb-1" role="alert" aria-live="assertive" style="font-size:.9em">
         <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
-        Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
-        vaccination contre la COVID-19.
+        {% translate "Cet établissement est centre de vaccination dans le cadre de la campagne nationale de vaccination contre la COVID-19." %}
       </div>
       {% endif %}
     {% endwith %}
@@ -35,7 +35,7 @@
       {% if erp.site_internet %}
       <span class="mr-3 mt-2">
         <i aria-hidden="true" class="icon icon-globe"></i>
-        <a href="{{ erp.site_internet }}" target="_blank" rel="noopener noreferrer">Site internet</a>
+        <a href="{{ erp.site_internet }}" target="_blank" rel="noopener noreferrer">{% translate "Site internet" %}</a>
       </span>
       {% endif %}
       {% if erp.telephone %}
@@ -47,17 +47,17 @@
       {% if erp.contact_url %}
       <span class="mr-3 mt-2">
         <i aria-hidden="true" class="icon icon-mail"></i>
-        <a href="{{ erp.contact_url }}" target="_blank" rel="noopener noreferrer">Écrire un message</a>
+        <a href="{{ erp.contact_url }}" target="_blank" rel="noopener noreferrer">{% translate "Écrire un message" %}</a>
       </span>
       {% elif erp.contact_email %}
       <span class="mr-3 mt-2">
         <i aria-hidden="true" class="icon icon-mail"></i>
-        <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
+        <a href="mailto:{{ erp.contact_email }}">{% translate "Écrire un message" %}</a>
       </span>
       {% endif %}
       <span class="ml-auto mt-2">
         <i aria-hidden="true" class="icon icon-zoom-in"></i>
-        <a href="" id="map-height-toggle-link">Agrandir la carte</a>
+        <a href="" id="map-height-toggle-link">{% translate "Agrandir la carte" %}</a>
       </span>
     </div>
   </div>

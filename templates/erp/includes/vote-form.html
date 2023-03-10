@@ -1,36 +1,37 @@
+{% load i18n %}
 <form class="vote-form my-5" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
-  <h4 class="h5">Ces informations sont-elles fiables&nbsp;?</h4>
+  <h4 class="h5">{% translate "Ces informations sont-elles fiables&nbsp;?" %}</h4>
   <span class="text-nowrap">
     {% csrf_token %}
     <button type="submit" name="action" value="UP" class="btn btn-link font-weight-bolder text-primary"
       data-track-event="vote,up,{{ erp.slug }}"
-      {% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% elif not user_vote %} disabled {% else %}title="Oui"{% endif %}>
+      {% if not user.is_authenticated %} disabled title="{% translate 'Vous devez vous connecter pour voter' %}"{% elif not user_vote %} disabled {% else %}title="{% translate 'Oui' %}"{% endif %}>
       <i aria-hidden="true" class="icon icon-thumbs-up{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
-      {{ erp.count_positives|default_if_none:"0" }} oui
+      {{ erp.count_positives|default_if_none:"0" }} {% translate "oui" %}
     </button>
     {% if user.is_authenticated and user_vote and user_vote.value == -1 %}
     <button type="submit" name="action" value="DOWN" class="btn btn-link font-weight-bolder text-primary" title="Non">
       <i aria-hidden="true" class="icon icon-thumbs-down text-primary"></i>
-      {{ erp.count_negatives|default_if_none:"0" }} non
+      {{ erp.count_negatives|default_if_none:"0" }} {% translate "non" %}
     </button>
     {% else %}
     <button type="button" name="action" value="DOWN" class="btn btn-link btn-vote-no font-weight-bolder text-primary"
       {% if user.is_authenticated and user_vote %}title="Non"{% elif not user_vote %} disabled {% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
       <i aria-hidden="true" class="icon icon-thumbs-down{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
-      {{ erp.count_negatives|default_if_none:"0" }} non
+      {{ erp.count_negatives|default_if_none:"0" }} {% translate "non" %}
     </button>
     {% endif %}
   </span>
   <div class="form-group" id="vote_comment" style="display: none">
-    <label for="vote_comment_input" class="sr-only">Commentaire</label>
+    <label for="vote_comment_input" class="sr-only">{% translate "Commentaire" %}</label>
     <textarea class="form-control mt-2" id="vote_comment_input" name="comment" rows="3"
-      placeholder="Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."></textarea>
+      placeholder="{% translate 'Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer.' %}"></textarea>
     <div class="mt-2">
       <button type="submit" name="action" value="DOWN" class="btn btn-primary"
         data-track-event="vote,down,{{ erp.slug }}">
-        Envoyer
+        {% translate "Envoyer" %}
       </button>
-      <button type="button" class="btn btn-link btn-vote-no-cancel">Annuler</button>
+      <button type="button" class="btn btn-link btn-vote-no-cancel">{% translate "Annuler" %}</button>
     </div>
   </div>
   <script>
@@ -46,7 +47,7 @@
   </script>
   {% if not user.is_authenticated %}
   <p class="d-block text-muted">
-    <a href="{% url "login" %}?next={{ request.path }}">Connectez-vous pour pouvoir voter</a>
+    <a href="{% url "login" %}?next={{ request.path }}">{% translate "Connectez-vous pour pouvoir voter" %}</a>
   </p>
   {% endif %}
 </form>

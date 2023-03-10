@@ -1,5 +1,6 @@
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
 {% if erp.metadata.centre_vaccination %}
 <section id="vaccination">
@@ -10,7 +11,7 @@
 {% if th_labels %}
 <section id="tourisme_handicap" class="mb-5 row">
   <div class="col-2 pr-0"><img src="{% static "img/labels/th.jpg" %}" height="80" alt="Tourisme & Handicap"></div>
-  <div class="col-10 pl-0 pt-3">Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap suivantes : {{ th_labels|join:", " }}</div>
+  <div class="col-10 pl-0 pt-3">{% translate "Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap suivantes :" %}" {{ th_labels|join:", " }}</div>
 </section>
 
 {% endif %}

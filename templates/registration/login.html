@@ -3,8 +3,9 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% load a4a %}
+{% load i18n %}
 
-{% block page_title %}Connexion{% endblock %}
+{% block page_title %}{% translate "Connexion" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block top_fluid_content %}
@@ -16,11 +17,11 @@
         <div class="fr-follow__newsletter">
             <div>
                 <h5 class="fr-h5 fr-follow__title">{% retrieve_erp next %}</h5>
-                <p class="fr-text--md">Publication</p>
+                <p class="fr-text--md">{% translate "Publication" %}</p>
             </div>
             <div>
-                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="Retour à la fiche">
-                    <i class="icon-arrow-left"></i>&nbsp;Retour
+                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="{% translate 'Retour à la fiche' %}">
+                    <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
                 </a>
             </div>
         </div>
@@ -32,10 +33,14 @@
 {% block editorial_content %}
   {% if user.is_authenticated %}
   <p class="alert alert-warning">
+    {% url 'logout' as url_logout %}
+    {% url 'home' as url_home %}
+    {% blocktranslate %}
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
     vous ne pouvez donc pas vous authentifier avec un nouveau compte.
-    Veuillez <a href="{% url "logout" %}">d'abord vous déconnecter</a>
-    ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
+    Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
+    ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
+    {% endblocktranslate %}
   </p>
   {% else %}
   <div class="row">
@@ -43,7 +48,7 @@
       <form action="." method="POST" novalidate class="login-form">
         <input type="hidden" name="next" value="{{ next }}">
         {% csrf_token %}
-        <h1 class="h3 text-left mb-4">Je me connecte</h1>
+        <h1 class="h3 text-left mb-4">{% translate "Je me connecte" %}</h1>
 
         {% for error in form.non_field_errors %}
           <p class="form-text text-danger" role="alert">{{ error }}</p>
@@ -53,18 +58,18 @@
           {{ form.password|as_crispy_field }}
 
           <div class="text-center mb-5">
-            <a class="small" href="{% url "password_reset" %}">Mot de passe oublié ?</a>
+            <a class="small" href="{% url "password_reset" %}">{% translate "Mot de passe oublié ?" %}</a>
           </div>
 
           <div class="form-group">
             <button type="submit" class="btn fr-btn fr-btns-group--center btn-block text-center">
-              Se connecter
+              {% translate "Se connecter" %}
             </button>
             <div class="text-center m-4">
-              ou
+              {% translate "ou" %}
             </div>
             <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}" class="btn fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
-            S'inscrire
+            {% translate "S'inscrire" %}
           </a>
           </div>
 
@@ -74,7 +79,7 @@
     <div class="fr-col-5 fr-col-offset-1 mt-10">
       <figure class="fr-content-media d-none d-sm-block">
           <div class="fr-content-media__img ">
-              <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+              <img class="auto-height" src="{% static 'img/login.jpg' %}" alt="" aria-hidden="true">
           </div>
       </figure>
     </div>
