@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 11:29+0100\n"
+"POT-Creation-Date: 2023-03-10 12:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,135 @@ msgstr ""
 
 #: core/settings.py:236
 msgid "English"
+msgstr ""
+
+#: erp/views.py:120
+msgid "Vous participez déjà à un autre challenge."
+msgstr ""
+
+#: erp/views.py:123
+msgid "Votre inscription a bien été enregistrée."
+msgstr ""
+
+#: erp/views.py:125
+msgid "Vous êtes déjà inscrit au challenge."
+msgstr ""
+
+#: erp/views.py:392
+msgid "Stationnement adapté dans l'établissement"
+msgstr ""
+
+#: erp/views.py:394
+msgid "Stationnement adapté à proximité"
+msgstr ""
+
+#: erp/views.py:396
+msgid "Pas de stationnement adapté à proximité"
+msgstr ""
+
+#: erp/views.py:419
+msgid "Chemin d’accès de plain pied"
+msgstr ""
+
+#: erp/views.py:432
+#, python-format
+msgid "Chemin rendu accessible (%s)"
+msgstr ""
+
+#: erp/views.py:433
+msgid "rampe"
+msgstr ""
+
+#: erp/views.py:433
+msgid "ascenseur"
+msgstr ""
+
+#: erp/views.py:446
+msgid "Difficulté sur le chemin d'accès"
+msgstr ""
+
+#: erp/views.py:453
+msgid "Entrée de plain pied"
+msgstr ""
+
+#: erp/views.py:458
+msgid "Entrée de plain pied mais étroite"
+msgstr ""
+
+#: erp/views.py:466
+msgid "Accès à l'entrée par ascenseur"
+msgstr ""
+
+#: erp/views.py:473
+msgid "Entrée rendue accessible par ascenseur mais étroite"
+msgstr ""
+
+#: erp/views.py:481
+msgid "Entrée rendue accessible par rampe mais étroite"
+msgstr ""
+
+#: erp/views.py:492
+msgid "Accès à l’entrée par une rampe"
+msgstr ""
+
+#: erp/views.py:499
+msgid "L’entrée n’est pas de plain-pied"
+msgstr ""
+
+#: erp/views.py:501
+msgid ""
+"\n"
+" Aide humaine possible"
+msgstr ""
+
+#: erp/views.py:503
+msgid "Entrée spécifique PMR"
+msgstr ""
+
+#: erp/views.py:524
+msgid "Aucun personnel"
+msgstr ""
+
+#: erp/views.py:526
+msgid "Personnel non formé"
+msgstr ""
+
+#: erp/views.py:528
+msgid "Personnel sensibilisé / formé"
+msgstr ""
+
+#: erp/views.py:539
+msgid "Balise sonore"
+msgstr ""
+
+#: erp/views.py:586
+msgid "Sanitaire adapté"
+msgstr ""
+
+#: erp/views.py:588
+msgid "Sanitaire non adapté"
+msgstr ""
+
+#: erp/views.py:609
+msgid "Seuls les utilisateurs actifs peuvent voter."
+msgstr ""
+
+#: erp/views.py:612
+msgid "Vous ne pouvez pas voter sur votre établissement"
+msgstr ""
+
+#: erp/views.py:729 erp/views.py:799 erp/views.py:843 erp/views.py:929
+msgid "Les données ont été enregistrées."
+msgstr ""
+
+#: erp/views.py:1054
+msgid ""
+"Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
+"peut pas être publié."
+msgstr ""
+
+#: erp/views.py:1096
+msgid "Les données ont été sauvegardées."
 msgstr ""
 
 #: templates/403.html:6
@@ -784,6 +913,10 @@ msgid ""
 "Les données d'accessibilité pour cet établissement ne sont pas encore "
 "disponibles,\n"
 "            mais <a href=\"%(url_contrib)s\">vous pouvez les ajouter</a>."
+msgstr ""
+
+#: templates/erp/widget.html:224
+msgid "Fermer la fenêtre"
 msgstr ""
 
 #: templates/erp/widget.html:255

@@ -13,7 +13,7 @@ from django.forms import modelform_factory
 from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.utils.translation import gettext as trans
+from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
 from reversion.views import create_revision
 from waffle import switch_is_active
@@ -117,12 +117,12 @@ def challenge_inscription(request, challenge_slug=None):
         )
     )
     if request.user.email in challenges.values_list("players__email", flat=True):
-        messages.add_message(request, messages.ERROR, "Vous participez déjà à un autre challenge.")
+        messages.add_message(request, messages.ERROR, translate("Vous participez déjà à un autre challenge."))
     elif request.user not in challenge.players.all():
         challenge.players.add(request.user)
-        messages.add_message(request, messages.SUCCESS, "Votre inscription a bien été enregistrée.")
+        messages.add_message(request, messages.SUCCESS, translate("Votre inscription a bien été enregistrée."))
     else:
-        messages.add_message(request, messages.INFO, "Vous êtes déjà inscrit au challenge.")
+        messages.add_message(request, messages.INFO, translate("Vous êtes déjà inscrit au challenge."))
     return redirect("challenges")
 
 
@@ -389,11 +389,11 @@ def widget_from_uuid(request, uuid):  # noqa
     # Conditions Stationnement
     stationnement_label = None
     if access.stationnement_presence and erp.accessibilite.stationnement_pmr:
-        stationnement_label = "Stationnement adapté dans l'établissement"
+        stationnement_label = translate("Stationnement adapté dans l'établissement")
     elif access.stationnement_ext_presence and access.stationnement_ext_pmr:
-        stationnement_label = "Stationnement adapté à proximité"
+        stationnement_label = translate("Stationnement adapté à proximité")
     elif access.stationnement_ext_presence and access.stationnement_ext_pmr is False:
-        stationnement_label = "Pas de stationnement adapté à proximité"
+        stationnement_label = translate("Pas de stationnement adapté à proximité")
 
     if stationnement_label:
         accessibilite_data["stationnement"] = {
@@ -408,7 +408,7 @@ def widget_from_uuid(request, uuid):  # noqa
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is True
-        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))  # TODO : Accidenté à Modifier
+        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
             or (erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE)
@@ -416,7 +416,7 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
         and not erp.accessibilite.cheminement_ext_retrecissement
     ):
-        chemin_ext_label = "Chemin d’accès de plain pied"
+        chemin_ext_label = translate("Chemin d’accès de plain pied")
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is False
@@ -429,8 +429,8 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
         and not erp.accessibilite.cheminement_ext_retrecissement
     ):
-        chemin_ext_label = "Chemin rendu accessible (%s)" % (
-            "rampe" if erp.accessibilite.cheminement_ext_rampe else "ascenseur"
+        chemin_ext_label = translate("Chemin rendu accessible (%s)") % (
+            translate("rampe") if erp.accessibilite.cheminement_ext_rampe else translate("ascenseur")
         )
     elif (
         not erp.accessibilite.cheminement_ext_terrain_stable
@@ -443,19 +443,19 @@ def widget_from_uuid(request, uuid):  # noqa
             and erp.accessibilite.cheminement_ext_plain_pied is False
         )
     ):
-        chemin_ext_label = "Difficulté sur le chemin d'accès"
+        chemin_ext_label = translate("Difficulté sur le chemin d'accès")
 
     # Conditions Entrée
     entree_label = None
     if erp.accessibilite.entree_plain_pied is True and (
         erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80
     ):
-        entree_label = "Entrée de plain pied"
+        entree_label = translate("Entrée de plain pied")
     elif (
         erp.accessibilite.entree_plain_pied is True
         and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini) < 80
     ):
-        entree_label = "Entrée de plain pied mais étroite"
+        entree_label = translate("Entrée de plain pied mais étroite")
 
     elif (
         erp.accessibilite.entree_plain_pied is False
@@ -463,14 +463,14 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.entree_ascenseur
         and (erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80)
     ):
-        entree_label = "Accès à l'entrée par ascenseur"
+        entree_label = translate("Accès à l'entrée par ascenseur")
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
         and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
     ):
-        entree_label = "Entrée rendue accessible par ascenseur mais étroite"
+        entree_label = translate("Entrée rendue accessible par ascenseur mais étroite")
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
@@ -478,7 +478,7 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
     ):
-        entree_label = "Entrée rendue accessible par rampe mais étroite"
+        entree_label = translate("Entrée rendue accessible par rampe mais étroite")
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
@@ -489,18 +489,18 @@ def widget_from_uuid(request, uuid):  # noqa
             or (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini >= 80)
         )
     ):
-        entree_label = "Accès à l’entrée par une rampe"
+        entree_label = translate("Accès à l’entrée par une rampe")
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and not erp.accessibilite.entree_ascenseur
         and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None)
     ):
-        entree_label = "L’entrée n’est pas de plain-pied"
+        entree_label = translate("L’entrée n’est pas de plain-pied")
         if erp.accessibilite.entree_aide_humaine is True:
-            entree_label += "\n Aide humaine possible"
+            entree_label += translate("\n Aide humaine possible")
     elif erp.accessibilite.entree_plain_pied in (False, None) and erp.accessibilite.entree_pmr is True:
-        entree_label = "Entrée spécifique PMR"
+        entree_label = translate("Entrée spécifique PMR")
 
     if chemin_ext_label and entree_label:
         accessibilite_data["accès"] = {
@@ -521,11 +521,11 @@ def widget_from_uuid(request, uuid):  # noqa
     # Conditions présence de personnel
     presence_personnel_label = None
     if erp.accessibilite.accueil_personnels == schema.PERSONNELS_AUCUN:
-        presence_personnel_label = "Aucun personnel"
+        presence_personnel_label = translate("Aucun personnel")
     elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_NON_FORMES:
-        presence_personnel_label = "Personnel non formé"
+        presence_personnel_label = translate("Personnel non formé")
     elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_FORMES:
-        presence_personnel_label = "Personnel sensibilisé / formé"
+        presence_personnel_label = translate("Personnel sensibilisé / formé")
 
     if presence_personnel_label:
         accessibilite_data["personnel"] = {
@@ -536,7 +536,7 @@ def widget_from_uuid(request, uuid):  # noqa
     # Conditions présence d'une balise sonore
     balise_sonore = None
     if erp.accessibilite.entree_balise_sonore:
-        balise_sonore = "Balise sonore"
+        balise_sonore = translate("Balise sonore")
 
     if balise_sonore:
         accessibilite_data["balise sonore"] = {
@@ -583,9 +583,9 @@ def widget_from_uuid(request, uuid):  # noqa
     # Conditions Sanitaire
     presence_sanitaire_label = None
     if erp.accessibilite.sanitaires_presence and erp.accessibilite.sanitaires_adaptes:
-        presence_sanitaire_label = "Sanitaire adapté"
+        presence_sanitaire_label = translate("Sanitaire adapté")
     elif erp.accessibilite.sanitaires_presence and not erp.accessibilite.sanitaires_adaptes:
-        presence_sanitaire_label = "Sanitaire non adapté"
+        presence_sanitaire_label = translate("Sanitaire non adapté")
 
     if presence_sanitaire_label:
         accessibilite_data["sanitaire"] = {
@@ -606,10 +606,10 @@ def widget_from_uuid(request, uuid):  # noqa
 @login_required
 def vote(request, erp_slug):
     if not request.user.is_active:
-        raise Http404("Only active users can vote")
+        raise Http404(translate("Seuls les utilisateurs actifs peuvent voter."))
     erp = get_object_or_404(Erp, slug=erp_slug, published=True)
     if request.user == erp.user:
-        return HttpResponseBadRequest("Vous ne pouvez pas voter sur votre établissement")
+        return HttpResponseBadRequest(translate("Vous ne pouvez pas voter sur votre établissement"))
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
@@ -726,7 +726,7 @@ def contrib_admin_infos(request):
                         erp=erp,
                         user=request.user if request.user.is_authenticated else None,
                     )
-                messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
+                messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
         else:
             duplicated = bool("existe déjà" in form.errors.get("__all__", [""])[0])
@@ -796,7 +796,7 @@ def contrib_edit_infos(request, erp_slug):
                     erp=erp,
                     user=request.user if request.user.is_authenticated else None,
                 )
-            messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
+            messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
             return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
@@ -840,7 +840,7 @@ def contrib_a_propos(request, erp_slug):
                     ErpSubscription.subscribe(erp, request.user)
 
             erp.save()
-            messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
+            messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
         if hasattr(erp, "accessibilite"):
@@ -926,7 +926,7 @@ def process_accessibilite_form(
         if "publier" in request.POST:
             return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
-        messages.add_message(request, messages.SUCCESS, trans("Les données ont été enregistrées."))
+        messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
         if user_can_access_next_route:
             return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
         else:
@@ -1051,7 +1051,7 @@ def ensure_minimal_completion_rate(request, erp):
     messages.add_message(
         request,
         messages.ERROR,
-        trans("Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."),
+        translate("Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."),
     )
     return redirect(reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
 
@@ -1093,7 +1093,7 @@ def contrib_publication(request, erp_slug):
             erp.save()
 
         ErpSubscription.subscribe(erp, erp.user)
-        messages.add_message(request, messages.SUCCESS, trans("Les données ont été sauvegardées."))
+        messages.add_message(request, messages.SUCCESS, translate("Les données ont été sauvegardées."))
         if erp.published:
             # Suppress old draft matching this ERP + send email notification
             for draft in Erp.objects.find_duplicate(
