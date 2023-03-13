@@ -124,6 +124,7 @@ class BaseMapper:
         dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
         dest_fields["nom"] = record.get("nom") or record.get("name")
         dest_fields["code_postal"] = self.handle_5digits_code(record.get("code_postal") or record.get("postal_code"))
+        dest_fields["import_email"] = record.get("email")
         if "source" in record:
             dest_fields["source"] = record["source"]
         return dest_fields

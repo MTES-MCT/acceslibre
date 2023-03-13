@@ -75,7 +75,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate(self, obj):
         if self.instance:
-            # if we are updating an ERP, only accessibility is editable
+            # if we are updating an ERP, only accessibility and import_email are editable
+            self.instance.import_email = obj.get("import_email")
             accessibilite = Accessibilite(**obj["accessibilite"])
             accessibilite.full_clean()
             return model_to_dict(self.instance) | {"accessibilite": model_to_dict(accessibilite)}
@@ -133,6 +134,11 @@ class ErpImportSerializer(serializers.ModelSerializer):
         return obj
 
     def update(self, instance, validated_data, partial=True):
+        # if we are updating an ERP, only accessibility and import_email are editable
+        if validated_data.get("import_email"):
+            instance.import_email = validated_data["import_email"]
+            instance.save(update_fields=["import_email"])
+
         accessibilite = instance.accessibilite
         for attr in ("id", "erp"):
             validated_data["accessibilite"].pop(attr, False)
