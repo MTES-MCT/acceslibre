@@ -345,8 +345,9 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
+    has_th = bool(schema.LABEL_TH in (erp.accessibilite.labels or []))
     th_labels = []
-    if schema.LABEL_TH in (erp.accessibilite.labels or []):
+    if has_th:
         th_labels = [
             value for key, value in schema.HANDICAP_CHOICES if key in erp.accessibilite.labels_familles_handicap
         ]
@@ -372,6 +373,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "user_is_subscribed": user_is_subscribed,
             "user_vote": user_vote,
             "th_labels": th_labels,
+            "has_th": has_th,
         },
     )
 

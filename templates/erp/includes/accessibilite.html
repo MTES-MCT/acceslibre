@@ -8,10 +8,10 @@
 </section>
 {% endif %}
 
-{% if th_labels %}
+{% if has_th %}
 <section id="tourisme_handicap" class="mb-5 row">
   <div class="col-3 pr-0" style="min-width: 120px;"><img src="{% static 'img/labels/th.jpg' %}" width="120" alt="Tourisme & Handicap"></div>
-  <div class="col-8 pl-1 pt-4">{% translate "Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap suivantes :" %} {{ th_labels|join:", " }}</div>
+  <div class="col-8 pl-1 pt-4">{% translate "Ce bâtiment est labellisé Tourisme et handicap" %}{% if th_labels %} {% translate "pour les familles de handicap suivantes :" %} {{ th_labels|join:", " }}{% endif %}.</div>
 </section>
 
 {% endif %}
