@@ -631,6 +631,8 @@ def test_ajout_erp(mock_geocode, data, client):
 def test_ajout_erp_a11y_vide(data, client):
     client.force_login(data.niko)
 
+    data.erp.published = False
+    data.erp.save()
     # empty a11y data
     data.erp.accessibilite.sanitaires_presence = None
     data.erp.accessibilite.sanitaires_adaptes = None
@@ -659,7 +661,7 @@ def test_ajout_erp_a11y_vide(data, client):
     )
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.accessibilite.has_data() is False
-    assert erp.published is True
+    assert erp.published is False
 
 
 def test_add_erp_duplicate(mock_geocode, data, client):

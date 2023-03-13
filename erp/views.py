@@ -1044,18 +1044,21 @@ def contrib_accueil(request, erp_slug):
 
 
 def ensure_minimal_completion_rate(request, erp):
-    # check completion rate, 4 root answers min.
+    if erp.published:
+        return True
+
+    # check completion rate, 4 root answers min, on contrib mode only (not on edit mode).
     compute_access_completion_rate(erp.accessibilite.pk)
     erp.accessibilite.refresh_from_db()
     if erp.accessibilite.completion_rate >= settings.MIN_COMPLETION_RATE_REQUIRED:
-        return None
+        return True
 
     messages.add_message(
         request,
         messages.ERROR,
         translate("Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."),
     )
-    return redirect(reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
+    return False
 
 
 @create_revision(request_creates_revision=lambda x: True)
@@ -1076,6 +1079,8 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not ensure_minimal_completion_rate(request, erp):
+        return redirect(request.META.get("HTTP_REFERER", reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})))
 
     if request.method == "POST":
         form = forms.PublicPublicationForm(request.POST, instance=erp)
@@ -1083,9 +1088,6 @@ def contrib_publication(request, erp_slug):
         form = forms.PublicPublicationForm(request.GET or {"published": True}, instance=erp)
 
     if form.is_valid():
-        if response := ensure_minimal_completion_rate(request, erp):
-            return response
-
         if check_auth := check_authentication(request, erp, form, check_online=False):
             return check_auth
 
