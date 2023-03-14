@@ -1,5 +1,4 @@
 import json
-import math
 import uuid
 
 import reversion
@@ -17,7 +16,6 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core.lib import calc
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
@@ -268,30 +266,6 @@ class Commune(models.Model):
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
         return f"{nom} ({self.departement})"
-
-    def in_contour(self, geopoint):
-        if not self.contour:
-            return False
-        return True if self.contour.contains(geopoint) else False
-
-    def expand_contour(self, max_distance_meters=None):
-        """Expand commune contour by a given distance expressed in meters. If no
-        distance is provided, an automatic value is computed against commune area,
-        so the contour is expanded proportionally, though with a minimum of 500m and a
-        maximum of 3000m.
-        """
-        if not max_distance_meters and self.superficie:
-            max_distance_meters = calc.clamp(
-                500,
-                round(math.sqrt(self.superficie * 10000) / 5),  # note: superficie is in hectares
-                3000,
-            )
-        else:
-            max_distance_meters = 3000
-        buffer = (  # see https://stackoverflow.com/a/31945883/330911
-            max_distance_meters / 40000000.0 * 360.0 / math.cos(self.geom.y / 360.0 * math.pi)
-        )
-        return self.contour.buffer(buffer) if self.contour else self.geom.buffer(buffer)
 
     def get_zoom(self):
         if not self.superficie or self.superficie > 8000:
@@ -601,12 +575,6 @@ class Erp(models.Model):
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
 
-    def get_activite_icon(self):
-        default = "amenity_public_building"
-        if self.activite and self.activite.icon:
-            return self.activite.icon
-        return default
-
     def get_activite_vector_icon(self):
         default = "building"
         if self.activite and self.activite.vector_icon:
@@ -715,31 +683,6 @@ class Erp(models.Model):
 
     def is_subscribed_by(self, user):
         return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
-
-    def has_doublons(self):
-        return (
-            self.__class__.objects.filter(
-                numero=self.numero,
-                voie__iexact=self.voie,
-                code_postal=self.code_postal,
-                commune__iexact=self.commune,
-                activite=self.activite,
-            )
-            .exclude(pk=self.pk, nom__iexact=self.nom)
-            .exists()
-        )
-
-    def get_doublons(self, ids_exclude=None):
-        qs = self.__class__.objects.filter(
-            numero=self.numero,
-            voie__iexact=self.voie,
-            code_postal=self.code_postal,
-            commune__iexact=self.commune,
-            activite=self.activite,
-        )
-        if ids_exclude:
-            qs = qs.exclude(pk__in=ids_exclude)
-        return qs
 
     @property
     def adresse(self):

@@ -3,7 +3,7 @@ from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Case, Count, F, Max, Q, Value, When
+from django.db.models import Count, F, Max, Q
 from django.db.models.functions import Length
 
 from core.lib import text
@@ -141,22 +141,6 @@ class ErpQuerySet(models.QuerySet):
 
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
-
-    def in_and_around_commune(self, point, commune):
-        "Filter erps from within commune expanded contour and order them by distance."
-        return (
-            # erp from within expanded commune contour
-            self.filter(geom__intersects=commune.expand_contour())
-            # compute distance from provided point
-            .annotate(distance=Distance("geom", point))
-            # add more weight if the erp is strictly within commune contour
-            .annotate(
-                strictly_within=Case(
-                    When(geom__intersects=commune.contour, then=Value("1")),
-                    default=Value("0"),
-                ),
-            ).order_by("-strictly_within", "distance")
-        )
 
     def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM, order_it=True):
         """Filter Erps around a given point, which can be either a `Point` instance
