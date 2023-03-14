@@ -1,6 +1,6 @@
 from import_export import resources
 
-from .models import Activite, Erp
+from .models import Erp
 from .schema import get_a11y_fields
 
 VILLES_CIBLES = ["rueil-malmaison", "courbevoie", "lorient"]
@@ -42,25 +42,6 @@ class ErpResource(resources.ModelResource):
         if len(cpost) == 4:
             return "0" + cpost
         return cpost
-
-    def before_import_row(self, row, **kwargs):
-        # siret
-        # adresse
-        if row["cplt"] == "" or row["cplt"] == "NR":
-            cplt = ""
-        else:
-            cplt = row["cplt"]
-        row["numero"] = row["num"] + " " + cplt
-        row["code_postal"] = self.handle_5digits_code(row["cpost"])
-        row["code_insee"] = self.handle_5digits_code(row["code_insee"])
-
-        # activité
-        nom_activite = row["domaine"]
-        try:
-            activite = Activite.objects.get(nom=nom_activite).pk
-        except Activite.DoesNotExist:
-            activite = None
-        row["activite"] = activite
 
     def skip_row(self, instance, original):
         if any(

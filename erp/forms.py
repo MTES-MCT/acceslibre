@@ -184,19 +184,6 @@ class BaseErpForm(forms.ModelForm):
         except KeyError:
             return True
 
-    def _get_address_query(self, obj):
-        parts = [
-            obj.get("numero") or "",
-            obj.get("voie") or "",
-        ]
-        voie_ville = " ".join([p for p in parts if p != ""]).strip()
-        adresse_parts = [
-            voie_ville,
-            obj.get("lieu_dit") or "",
-            obj.get("commune") or "",
-        ]
-        return ", ".join([p for p in adresse_parts if p != ""])
-
     def format_error(self, message):
         signalement_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
