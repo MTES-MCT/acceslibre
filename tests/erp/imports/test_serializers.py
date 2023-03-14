@@ -53,6 +53,8 @@ from tests.erp.imports.mapper.fixtures import jacou, paris
             },
             id="duplicate",
         ),
+        pytest.param({"accessibilite": {"entree_porte_presence": 1}}, True, None, id="boolean_choices"),
+        pytest.param({"accessibilite": {"entree_porte_presence": "faux"}}, True, None, id="boolean_choices"),
     ),
 )
 def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_result, jacou, paris):

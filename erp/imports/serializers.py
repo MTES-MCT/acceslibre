@@ -8,6 +8,18 @@ from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import geocoder, sirene
 
+TRUE_VALUES = ["true", "True", "TRUE", "1", "vrai", "Vrai", "VRAI", "oui", "Oui", "OUI", True]
+FALSE_VALUES = ["false", "False", "FALSE", "0", "faux", "Faux", "FAUX", "non", "Non", "NON", False]
+
+
+class NullBooleanField(serializers.Field):
+    def to_internal_value(self, data):
+        if data in TRUE_VALUES:
+            return True
+        if data in FALSE_VALUES:
+            return False
+        return None
+
 
 class DuplicatedExceptionErp(serializers.ValidationError):
     def __init__(self, *args, **kwargs):
@@ -15,6 +27,46 @@ class DuplicatedExceptionErp(serializers.ValidationError):
 
 
 class AccessibilityImportSerializer(serializers.ModelSerializer):
+    # NOTE: all fields which have choices in BOOLEAN_CHOICES, NULLABLE_BOOLEAN_CHOICES, NULLABLE_OR_NA_BOOLEAN_CHOICES
+    #       maybe dynamiccally declarable.
+    transport_station_presence = NullBooleanField(required=False, allow_null=True)
+    stationnement_presence = NullBooleanField(required=False, allow_null=True)
+    stationnement_pmr = NullBooleanField(required=False, allow_null=True)
+    stationnement_ext_presence = NullBooleanField(required=False, allow_null=True)
+    stationnement_ext_pmr = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_presence = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_terrain_stable = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_plain_pied = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_ascenseur = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_reperage_marches = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_main_courante = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_pente_presence = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_bande_guidage = NullBooleanField(required=False, allow_null=True)
+    cheminement_ext_retrecissement = NullBooleanField(required=False, allow_null=True)
+    entree_reperage = NullBooleanField(required=False, allow_null=True)
+    entree_porte_presence = NullBooleanField(required=False, allow_null=True)
+    entree_vitree = NullBooleanField(required=False, allow_null=True)
+    entree_vitree_vitrophanie = NullBooleanField(required=False, allow_null=True)
+    entree_plain_pied = NullBooleanField(required=False, allow_null=True)
+    entree_ascenseur = NullBooleanField(required=False, allow_null=True)
+    entree_marches_reperage = NullBooleanField(required=False, allow_null=True)
+    entree_marches_main_courante = NullBooleanField(required=False, allow_null=True)
+    entree_dispositif_appel = NullBooleanField(required=False, allow_null=True)
+    entree_balise_sonore = NullBooleanField(required=False, allow_null=True)
+    entree_aide_humaine = NullBooleanField(required=False, allow_null=True)
+    entree_pmr = NullBooleanField(required=False, allow_null=True)
+    accueil_visibilite = NullBooleanField(required=False, allow_null=True)
+    accueil_cheminement_plain_pied = NullBooleanField(required=False, allow_null=True)
+    accueil_cheminement_ascenseur = NullBooleanField(required=False, allow_null=True)
+    accueil_cheminement_reperage_marches = NullBooleanField(required=False, allow_null=True)
+    accueil_cheminement_main_courante = NullBooleanField(required=False, allow_null=True)
+    accueil_retrecissement = NullBooleanField(required=False, allow_null=True)
+    accueil_audiodescription_presence = NullBooleanField(required=False, allow_null=True)
+    accueil_equipements_malentendants_presence = NullBooleanField(required=False, allow_null=True)
+    sanitaires_presence = NullBooleanField(required=False, allow_null=True)
+    sanitaires_adaptes = NullBooleanField(required=False, allow_null=True)
+    conformite = NullBooleanField(required=False, allow_null=True)
+
     class Meta:
         model = Accessibilite
         fields = "__all__"
