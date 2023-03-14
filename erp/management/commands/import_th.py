@@ -1,87 +1,17 @@
 import csv
 import os
-import sys
+import re
+from datetime import datetime
 
 from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand
-from django.core.validators import URLValidator
-from django.db import IntegrityError, transaction
-from django.db.models import Q
-from django.utils.text import slugify
+from rest_framework.exceptions import ValidationError
 
-from erp.geocoder import geocode
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.imports.mapper.base import BaseMapper
+from erp.imports.serializers import ErpImportSerializer
+from erp.models import Activite, Erp
 
 VALEURS_VIDES = ["-", "https://", "http://"]
-
-ACTIVITES_MAP = {
-    "Café, bar, brasserie": "Café, bar, brasserie",
-    "Camping": "Camping caravaning",
-    "Chambre d'hôtes": "Pension, gîte, chambres d'hôtes",
-    "Etablissement de loisir": "Centre de loisirs",
-    "Hébergement collectif": "Hôtel",
-    "Hébergement insolite": "Hôtel",
-    "Hébergement": "Hôtel",
-    "Hôtel": "Hôtel",
-    "Information Touristique": "Information Touristique",
-    "Information touristique": "Information Touristique",
-    "Lieu de visite": "Lieu de visite",
-    "Loisir éducatif": "Sports et loisirs",
-    "Loisir": "Centre de loisirs",
-    "Meublé de tourisme": "Pension, gîte, chambres d'hôtes",
-    "Office de tourisme": "Office du tourisme",
-    "Parc à thème": "Parc d’attraction",
-    "Parc de loisir": "Centre de loisirs",
-    "Piscine": "Piscine",
-    "Résidence de tourisme": "Hôtel",
-    "Restaurant": "Restaurant",
-    "Restauration": "Restaurant",
-    "Sport de nature": "Sports et loisirs",
-    "Sortie nature": "Lieu de visite",
-    "Village de vacances": "Centre de vacances",
-    "Visite d'entreprise": "Lieu de visite",
-    "Visite guidée": "Lieu de visite",
-}
-
-ACTIVITES_MAP_SEARCH = {
-    "bibliotheque": "Bibliothèque médiathèque",
-    "camping": "Camping caravaning",
-    "chambre": "Pension, gîte, chambres d'hôtes",
-    "chambres": "Pension, gîte, chambres d'hôtes",
-    "gite": "Pension, gîte, chambres d'hôtes",
-    "gites": "Pension, gîte, chambres d'hôtes",
-    "hotel": "Hôtel",
-    "mediatheque": "Bibliothèque médiathèque",
-    "meuble": "Pension, gîte, chambres d'hôtes",
-    "meubles": "Pension, gîte, chambres d'hôtes",
-    "musee": "Musée",
-    "musees": "Musée",
-    "piscine": "Piscine",
-    "restaurant": "Restaurant",
-}
-
-FIELDS = {
-    "Nom Commercial": "nom",
-    "Adresse 1": "adresse",
-    "Site Web": "site_internet",
-    "Téléphone": "telephone",
-    "Ville": "commune",
-    "Code Postal": "code_postal",
-    "HANDICAPS": "handicaps",
-}
-
-
-class IncompleteError(Exception):
-    pass
-
-
-class GeoError(Exception):
-    pass
-
-
-class ExistError(Exception):
-    pass
 
 
 def clean(string):
@@ -90,153 +20,138 @@ def clean(string):
     return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
+def clean_activity(string):
+    if string in VALEURS_VIDES:
+        return ""
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace('"', "").strip()
+
+
+def clean_website(url):
+    if url.endswith(";"):
+        url = url[:-1]
+    if url.startswith("www."):
+        return f"http://{url}"
+
+
 class Command(BaseCommand):
     help = "Importe les données Tourisme & Handicap"
 
-    def validate_site_internet(self, site_internet):
-        if not site_internet:
-            return
-        validate = URLValidator()
-        try:
-            validate(clean(site_internet))
-            return site_internet
-        except ValidationError:
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--file",
+            type=str,
+            help="Chemin du fichier à traiter",
+        )
+
+    def get_familles(self, entry: dict):
+        if not entry:
             return None
 
-    def get_familles(self, source):
-        if not source:
-            return None
         handicaps = {
-            "auditif": True if source.get("AUDITIF") == 1 else False,
-            "mental": True if source.get("MENTAL") == 1 else False,
-            "moteur": True if source.get("MOTEUR") == 1 else False,
-            "visuel": True if source.get("VISUEL") == 1 else False,
+            "auditif": True if str(entry.get("auditif")) == "1" else False,
+            "mental": True if str(entry.get("mental")) == "1" else False,
+            "moteur": True if str(entry.get("moteur")) == "1" else False,
+            "visuel": True if str(entry.get("visuel")) == "1" else False,
         }
         return [k for k, v in handicaps.items() if v is True]
 
-    def map_row(self, row):
-        mapped = {}
-        for orig_key, target_key in FIELDS.items():
-            mapped[target_key] = row.get(orig_key).strip()
-        return mapped
+    def get_or_create_erp(self, entry: dict):
+        entry["activite"] = Activite.objects.get(nom=clean_activity(entry.get("activite")))
+        entry["commune"] = entry["ville"]
+        entry["code_postal"] = BaseMapper.handle_5digits_code(entry["code_postal"])
 
-    def compute_source_id(self, fields):
-        parts = [fields["nom"], fields["voie"], fields["code_postal"]]
-        parts = map(lambda x: slugify(x), parts)
-        return "-".join(parts)
+        existing = Erp.objects.find_duplicate(
+            numero=clean(entry.get("numero")),
+            commune=clean(entry.get("ville")),
+            activite=entry["activite"],
+            voie=clean(entry.get("voie")),
+            lieu_dit=clean(entry.get("lieu_dit")),
+        ).first()
 
-    def prepare_fields(self, row):
-        row = self.map_row(row)
-        if not row or not row.get("adresse") or not row.get("code_postal"):
-            raise IncompleteError(f"Données manquantes: {row}")
+        if existing:
+            return existing
 
+        entry["site_internet"] = clean_website(entry["site_internet"])
+
+        entry["accessibilite"] = {"entree_porte_presence": True}
+        serializer = ErpImportSerializer(data=entry)
         try:
-            geo_info = geocode(row["adresse"], postcode=row["code_postal"])
-        except RuntimeError as err:
-            raise GeoError(f"Impossible de localiser cette adresse: {row.get('adresse')}: {err}")
+            serializer.is_valid(raise_exception=True)
+        except ValidationError as err:
+            if "duplicate" in err.get_codes().get("non_field_errors", []):
+                existing = Erp.objects.get(
+                    pk=re.search(
+                        r".*ERP #(\d*)",
+                        err.detail["non_field_errors"][0].__str__(),
+                    ).group(1)
+                )
+                serializer = ErpImportSerializer(instance=existing, data=entry)
+                serializer.is_valid(raise_exception=True)
+            else:
+                raise err
+        return serializer.save()
 
-        if not geo_info:
-            raise GeoError("Données de géolocalisation manquantes ou insatisfaisantes.")
+    def handle(self, *args, **options):
+        self.input_file = options.get("file")
+        # make a backup of previously flagged T&H
+        csv_old_th_filename = f"old_th_{datetime.now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
+        with open(os.path.join(settings.BASE_DIR, csv_old_th_filename), "w") as csvfile:
+            fieldnames = ["ID", "labels", "labels_familles_handicap"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for erp in Erp.objects.filter(accessibilite__labels__contains=["th"]):
+                writer.writerow(
+                    {
+                        "ID": erp.pk,
+                        "labels": erp.accessibilite.labels,
+                        "labels_familles_handicap": erp.accessibilite.labels_familles_handicap,
+                    }
+                )
 
-        code_insee = geo_info.get("code_insee")
+        # create or update
+        errors = []
+        erps = []
+        with open(self.input_file, "r") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for i, row in enumerate(reader):
+                print(f"~ Processing line {i}")
+                try:
+                    erp = self.get_or_create_erp(row)
+                except Activite.DoesNotExist:
+                    row["error"] = "Activité non trouvée"
+                    errors.append(row)
+                    print(f"### Activite not found with name {row['activite']} - line {i+2}")
+                    continue
+                except ValidationError as err:
+                    row["error"] = str(err)
+                    errors.append(row)
+                    print(f"### Validation error while processing {row['nom']}: {err}")
+                    continue
 
-        commune_ext = Commune.objects.filter(code_insee=code_insee).first() if code_insee else None
+                if not erp:
+                    print(f"### Cannot insert {row['nom']} in DB.")
+                    continue
+                erps.append(erp.pk)
+                access = erp.accessibilite
+                access.labels_familles_handicap = self.get_familles(row)
+                if "th" not in access.labels:
+                    access.labels.append("th")
+                access.save()
+                print(f"### Done for {row['nom']}: {access.labels_familles_handicap}")
 
-        fields = {
-            "published": True,
-            "source": Erp.SOURCE_TH,
-            "nom": clean(row["nom"]).replace('"', ""),
-            "numero": geo_info.get("numero"),
-            "voie": geo_info.get("voie"),
-            "lieu_dit": geo_info.get("lieu_dit"),
-            "code_postal": geo_info.get("code_postal"),
-            "commune": geo_info.get("commune"),
-            "code_insee": geo_info.get("code_insee"),
-            "site_internet": self.validate_site_internet(row.get("site_internet")),
-            "telephone": clean(row.get("telephone")) or None,
-            "geom": geo_info.get("geom"),
-            "geoloc_provider": geo_info.get("provider"),
-            "commune_ext": commune_ext,
-        }
-        fields["source_id"] = self.compute_source_id(fields)
-        return fields
+        if errors:
+            csv_error_th_filename = f"error_th_{datetime.now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
+            with open(os.path.join(settings.BASE_DIR, csv_error_th_filename), "w") as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=errors[0].keys())
+                writer.writeheader()
+                for error in errors:
+                    writer.writerow(error)
 
-    def check_existing(self, fields):
-        # FIXME this is not how we have to check duplicates
-        # check doublons
-        erpstr = f"{fields['nom']} {fields['voie']} {fields['commune']}"
-        count = Erp.objects.filter(
-            Q(source=Erp.SOURCE_TH, source_id=fields["source_id"])
-            | Q(nom=fields["nom"], voie=fields["voie"], commune=fields["commune"])
-        ).count()
-        if count:
-            raise ExistError(f"Existe dans la base: {erpstr}")
-
-    def import_row(self, row, **kwargs):
-        familles_handicaps = self.get_familles(row)
-        fields = self.prepare_fields(row)
-        if not fields or self.check_existing(fields):
-            return
-
-        erp = Erp(**fields)
-        erp.save()
-
-        accessibilite = Accessibilite(
-            erp=erp,
-            labels=["th"],
-            labels_familles_handicap=familles_handicaps,
-            commentaire="Ces informations ont été importées.",
-        )
-        accessibilite.save()
-
-        if erp.activite is not None:
-            act = f"\n    {erp.activite.nom}"
-        else:
-            act = ""
-
-        print(f"ADD {erp.nom}{act} - {erp.adresse}")
-        return erp
-
-    def handle(self, *args, **options):  # noqa
-        report = {
-            "imported": 0,
-            "geo_errors": 0,
-            "exists": 0,
-            "incompletes": 0,
-        }
-
-        self.activites = dict([(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP.items()])
-        self.activites_search = dict(
-            [(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP_SEARCH.items()]
-        )
-
-        try:
-            with transaction.atomic():
-                csv_path = os.path.join(settings.BASE_DIR, "data", "th-20220401.csv")
-                self.stdout.write(f"Importation des ERP depuis {csv_path}")
-
-                with open(csv_path, "r") as file:
-                    reader = csv.DictReader(file)
-                    try:
-                        for row in reader:
-                            try:
-                                self.import_row(row)
-                                report["imported"] += 1
-                            except GeoError:
-                                report["geo_errors"] += 1
-                            except ExistError:
-                                report["exists"] += 1
-                            except IncompleteError:
-                                report["incompletes"] += 1
-                    except csv.Error as err:
-                        sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-                print(f"{report['imported']} erps importés.")
-                print(f"{report['geo_errors']} erreurs de géolocalisation.")
-                print(f"{report['exists']} erps déjà existants.")
-                print(f"{report['incompletes']} erps incomplets.")
-        except KeyboardInterrupt:
-            print("\nInterrompu.")
-        except IntegrityError as err:
-            print(f"Erreurs d'intégrité rencontré : {err}")
-        except Exception as err:
-            print(f"Erreurs rencontrées, aucune donnée importée: {err}")
+        # remove 'th' from labels & remove familles handicap
+        to_remove = Erp.objects.filter(accessibilite__labels__contains=["th"]).exclude(pk__in=erps)
+        for erp in to_remove:
+            access = erp.accessibilite
+            access.labels.remove("th")
+            access.labels_familles_handicap = []
+            access.save()
+            print(f"ERP#{erp.pk} has no TH labels anymore nor families")
