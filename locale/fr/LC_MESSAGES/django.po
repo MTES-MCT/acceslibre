@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 11:01+0100\n"
+"POT-Creation-Date: 2023-03-15 15:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -401,7 +401,8 @@ msgstr ""
 msgid "Bonjour"
 msgstr ""
 
-#: templates/editorial/header.html:37
+#: templates/editorial/header.html:37 templates/search/form.html:57
+#: templates/search/form.html:58
 msgid "Rechercher"
 msgstr ""
 
@@ -415,6 +416,7 @@ msgid "Nos partenaires"
 msgstr ""
 
 #: templates/editorial/partenaires.html:40
+#: templates/registration/password_reset_done.html:26
 msgid "Retour à l'accueil"
 msgstr ""
 
@@ -1193,6 +1195,152 @@ msgstr ""
 
 #: templates/registration/password_reset_complete.html:16
 msgid "retournez à l'accueil"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:6
+msgid "Confirmation"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:12
+msgid "Réinitialisation impossible"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:15
+msgid ""
+"La réinitialisation de votre mot de passe est impossible, les paramètres "
+"d'identification ne sont pas cohérents."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:21
+#, python-format
+msgid ""
+"\n"
+"    Il se peut que votre mot de passe ait <strong>déjà été réinitialisé</"
+"strong>&nbsp;auquel cas, pas de panique&nbsp;!\n"
+"    Il suffit de <strong><a href=\"%(url_login)s\">vous identifier</a></"
+"strong> au moyen du mot de passe que\n"
+"    vous avez précédemment redéfini.\n"
+"    "
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:27
+msgid "Si ce n'est pas le cas&nbsp;:"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:34
+msgid ""
+"\n"
+"      Si vous utilisez un client de messagerie susceptible de tronquer ou "
+"modifier les liens hypertextes\n"
+"      d'un courriel, assurez-vous de <strong>désactiver cette "
+"fonctionnalité</strong> ou d'utiliser un\n"
+"      <strong><a href=\"https://fr.wikipedia.org/wiki/"
+"Client_de_messagerie\">client de messagerie alternatif</a></strong>.\n"
+"      "
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:42
+#, python-format
+msgid ""
+"\n"
+"      Si aucune de ces pistes ne solutionnent le problème, <strong><a "
+"href=\"%(url_contact_connection)s\">veuillez nous contacter</a></strong>.\n"
+"      "
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:48
+#: templates/registration/password_reset_done.html:9
+msgid "Réinitialisation de votre mot de passe"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:51
+msgid ""
+"Pour des raisons de sécurité, saisissez votre nouveau mot de passe à deux "
+"reprises afin de vérifier qu’il est correctement saisi."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:70
+msgid "Enregistrer mon nouveau mot de passe"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:5
+msgid "Changement en cours"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:12
+msgid ""
+"\n"
+"    Nous avons envoyé un email à l'adresse que vous avez indiqué, pour peu "
+"que\n"
+"    <strong>celui-ci existe dans notre base de données</strong>, afin de "
+"vous\n"
+"    permettre de modifier le mot de passe du compte qui y est associé.\n"
+"    "
+msgstr ""
+
+#: templates/registration/password_reset_done.html:19
+msgid "Si vous ne recevez pas d'email d'ici quelques minutes :"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:21
+msgid ""
+"Vérifiez votre dossier <em>Spam</em> ou <em>Pourriels</em> dans votre client "
+"de messagerie électronique"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:23
+#, python-format
+msgid ""
+"Si malgré tout vous n'arrivez pas à vous connecter, veuillez <a "
+"href=\"%(url_contact_connection)s\">nous contacter</a>"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:7
+msgid "Réinitialisation de mot de passe"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:11
+msgid "Réinitialisez votre mot de passe"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:23
+msgid "Les champs marqués d'une astérique (*) sont obligatoires."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:32
+#, python-format
+msgid ""
+"Merci de fournir l'adresse email que vous\n"
+"          avez initialement utilisée pour créer votre compte. Si vous ne "
+"vous souvenez\n"
+"          pas de cette adresse, ou qu'elle est devenue inaccessible, merci "
+"de\n"
+"          <a href=\"%(url_contact_connection)s\">prendre contact</a> avec "
+"notre équipe."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:38
+msgid "Réinitialiser mon mot de passe"
+msgstr ""
+
+#: templates/search/form.html:8
+msgid "<strong>Quoi </strong> (activité, enseigne)"
+msgstr ""
+
+#: templates/search/form.html:14
+msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
+msgstr ""
+
+#: templates/search/form.html:24
+msgid "<strong>Où</strong> (adresse, ville)"
+msgstr ""
+
+#: templates/search/form.html:25
+msgid "Commencer la saisie puis sélectionner dans la liste"
+msgstr ""
+
+#: templates/search/form.html:61
+msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:3
