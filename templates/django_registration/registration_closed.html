@@ -1,14 +1,15 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Inscription fermée{% endblock %}
+{% block page_title %}{% translate "Inscriptions fermées" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
 <div class="text-center">
-  <h3 role="status">Les inscriptions sont closes</h3>
-  <p>Il est temporairement impossible de créer un nouveau compte sur la plateforme.</p>
-  <p><a href="{% url "home" %}">Retour à l'accueil</a></p>
+  <h3 role="status">{% translate "Les inscriptions sont closes" %}</h3>
+  <p>{% translate "Il est temporairement impossible de créer un nouveau compte sur la plateforme." %}</p>
+  <p><a href="{% url 'home' %}">{% translate "Retour à l'accueil" %}</a></p>
 </div>
 {% endblock %}

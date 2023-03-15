@@ -1,21 +1,22 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Annuaire{% endblock %}
+{% block page_title %}{% translate "Annuaire" %}{% endblock %}
 
 {% block editorial_content %}
-  <h1 class="mb-3"><a href="{% url "annuaire_home" %}">Annuaire</a></h1>
+  <h1 class="mb-3"><a href="{% url 'annuaire_home' %}">{% translate "Annuaire" %}</a></h1>
   <div class="row">
     <div class="col-md-3">
       <div class="list-group">
       <a class="list-group-item list-group-item-action text-truncate{% if not current_departement.code %} active{% endif %}"
         href="{% url "annuaire_home" %}">
-        Tous les départements
+        {% translate "Tous les départements" %}
       </a>
       {% for code, departement in departements.items %}
         <a class="list-group-item list-group-item-action text-truncate{% if current_departement.code == code %} active{% endif %}"
-          href="{% url "annuaire_departement" departement=code %}">
+          href="{% url 'annuaire_departement' departement=code %}">
           {{ code }} - {{ departement.nom }}
         </a>
       {% endfor %}
@@ -24,22 +25,22 @@
     <div class="col-md-9">
       {% if not current_departement %}
       <p class="alert alert-info">
-        Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés.
+        {% translate "Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés." %}
       </p>
       {% else %}
       <h2 class="mt-2 mb-3">
         {{ current_departement.code }} - {{ current_departement.nom }}
-        <small class="text-muted">{{ current_departement_erp_count }} établissement{{ current_departement_erp_count|pluralize:"s" }}</small>
+        <small class="text-muted">{{ current_departement_erp_count }} {% translate "établissement" %}{{ current_departement_erp_count|pluralize:"s" }}</small>
       </h2>
       {% for commune in communes %}
       <p>
         {{ commune.code_postaux|join:", " }} -
         <a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a>
-        <small class="text-muted">({{ commune.erp_access_count }} établissement{{ commune.erp_access_count|pluralize }})</small>
+        <small class="text-muted">({{ commune.erp_access_count }} {% translate "établissement" %}{{ commune.erp_access_count|pluralize }})</small>
       </p>
       {% empty %}
-      <p>Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département.</p>
-      <p><a class="btn btn-outline-primary" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+      <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
+      <p><a class="btn btn-outline-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
       {% endfor %}
       {% endif %}
     </div>

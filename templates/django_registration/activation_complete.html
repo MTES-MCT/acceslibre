@@ -1,8 +1,9 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Compte activé{% endblock %}
+{% block page_title %}{% translate "Compte activé" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block top_fluid_content %}{% endblock %}
@@ -10,14 +11,14 @@
 <div class="text-left mt-5">
   <div class="row">
     <div class="fr-col-6">
-      <h1 role="status">Bienvenue sur acceslibre !</h1>
-      <p class="mt-5 mb-5">Votre compte est désormais actif.<br>Vous pouvez dès à présent vous connecter.</p>
-      <p><a href="{% url "login" %}?next={{ next }}" class="btn fr-btns-group--center btn-primary fr-btn btn-block">Se connecter</a></p>
+      <h1 role="status">{% translate "Bienvenue sur acceslibre !" %}</h1>
+      <p class="mt-5 mb-5">{% translate "Votre compte est désormais actif.<br>Vous pouvez dès à présent vous connecter." %}</p>
+      <p><a href="{% url 'login' %}?next={{ next }}" class="btn fr-btns-group--center btn-primary fr-btn btn-block">{% translate "Se connecter" %}</a></p>
     </div>
     <div class="fr-col-5 fr-col-offset-1">
       <figure class="fr-content-media d-none d-sm-block">
           <div class="fr-content-media__img ">
-              <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+              <img class="auto-height" src="{% static 'img/login.jpg' %}" alt="" aria-hidden="true">
           </div>
       </figure>
     </div>

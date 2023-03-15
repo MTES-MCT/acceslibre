@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 15:13+0100\n"
+"POT-Creation-Date: 2023-03-15 17:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,6 +288,48 @@ msgstr ""
 msgid "Acceslibre est actuellement en maintenance et revient au plus vite."
 msgstr ""
 
+#: templates/annuaire/base.html:9
+msgid "Menu"
+msgstr ""
+
+#: templates/annuaire/base.html:13
+#: templates/django_registration/registration_closed.html:13
+#: templates/django_registration/registration_complete.html:34
+#: templates/editorial/partenaires.html:40
+#: templates/registration/password_reset_done.html:26
+msgid "Retour à l'accueil"
+msgstr ""
+
+#: templates/annuaire/index.html:6 templates/annuaire/index.html:9
+msgid "Annuaire"
+msgstr ""
+
+#: templates/annuaire/index.html:15
+msgid "Tous les départements"
+msgstr ""
+
+#: templates/annuaire/index.html:28
+msgid ""
+"Sélectionnez un département dans la liste pour en afficher les communes "
+"disposant d'établissements renseignés."
+msgstr ""
+
+#: templates/annuaire/index.html:33 templates/annuaire/index.html:39
+#: templates/search/global_map.html:51 templates/search/results.html:67
+msgid "établissement"
+msgstr ""
+
+#: templates/annuaire/index.html:42
+msgid ""
+"Il n'y a pas encore de commune disposant d'établissements renseignés dans ce "
+"département."
+msgstr ""
+
+#: templates/annuaire/index.html:43 templates/communes.html:42
+#: templates/index.html:222
+msgid "Ajouter un établissement"
+msgstr ""
+
 #: templates/base.html:54
 msgid "Vous consultez actuellement le serveur de recette acceslibre."
 msgstr ""
@@ -312,12 +354,172 @@ msgstr ""
 msgid "Toutes les communes, par département"
 msgstr ""
 
-#: templates/communes.html:42 templates/index.html:222
-msgid "Ajouter un établissement"
-msgstr ""
-
 #: templates/communes.html:46
 msgid "Derniers établissements renseignés"
+msgstr ""
+
+#: templates/django_registration/activation_complete.html:6
+msgid "Compte activé"
+msgstr ""
+
+#: templates/django_registration/activation_complete.html:14
+msgid "Bienvenue sur acceslibre !"
+msgstr ""
+
+#: templates/django_registration/activation_complete.html:15
+msgid ""
+"Votre compte est désormais actif.<br>Vous pouvez dès à présent vous "
+"connecter."
+msgstr ""
+
+#: templates/django_registration/activation_complete.html:16
+#: templates/editorial/header.html:45 templates/registration/login.html:66
+msgid "Se connecter"
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:6
+msgid "Activation échouée"
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:10
+msgid "L'activation de votre compte a échouée"
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:16
+msgid "Votre compte a déjà été activé."
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:17
+msgid "Vous pouvez donc"
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:17
+msgid "vous authentifier"
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:19
+#, python-format
+msgid ""
+"\n"
+"      Nous n'avons pu retrouver le compte associé à cette demande "
+"d'activation.\n"
+"      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
+"      "
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:24
+#, python-format
+msgid ""
+"\n"
+"      Cette demande d'activation de compte a expiré.\n"
+"      Vous pouvez <a href=\"%(url_register)s\">créer un nouveau compte</a>.\n"
+"      "
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:29
+#, python-format
+msgid ""
+"\n"
+"      La clé d'activation est corrompue.\n"
+"      Vous devez <a href=\"%(url_register)s\">créer un nouveau compte</a>.\n"
+"      "
+msgstr ""
+
+#: templates/django_registration/activation_failed.html:38
+#, python-format
+msgid ""
+"\n"
+"      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique "
+"de l'échec d'activation.\n"
+"      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
+"      "
+msgstr ""
+
+#: templates/django_registration/registration_closed.html:6
+#: templates/django_registration/registration_disallowed.html:6
+msgid "Inscriptions fermées"
+msgstr ""
+
+#: templates/django_registration/registration_closed.html:11
+msgid "Les inscriptions sont closes"
+msgstr ""
+
+#: templates/django_registration/registration_closed.html:12
+msgid ""
+"Il est temporairement impossible de créer un nouveau compte sur la "
+"plateforme."
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:6
+msgid "Inscription en cours de finalisation"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:17
+#: templates/django_registration/registration_form.html:19
+#: templates/registration/login.html:20
+msgid "Publication"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:20
+#: templates/django_registration/registration_form.html:22
+#: templates/registration/login.html:23
+msgid "Retour à la fiche"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:21
+#: templates/django_registration/registration_form.html:23
+#: templates/registration/login.html:24
+msgid "Retour"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:32
+msgid "C'est presque fini"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:33
+msgid ""
+"Un email a été envoyé à {{ email }}. Il contient un lien qui permet "
+"d'activer votre compte"
+msgstr ""
+
+#: templates/django_registration/registration_complete.html:33
+msgid "et de publier la fiche"
+msgstr ""
+
+#: templates/django_registration/registration_disallowed.html:11
+msgid "Les inscriptions sont temporairement fermées"
+msgstr ""
+
+#: templates/django_registration/registration_disallowed.html:12
+#, python-format
+msgid ""
+"La possibilité de créer un compte a temporairement été désactivée. Pour plus "
+"d'information,\n"
+"  vous pouvez <a href=\"%(url_contact_connection)s\">nous contacter</a>."
+msgstr ""
+
+#: templates/django_registration/registration_form.html:8
+msgid "Créer un compte"
+msgstr ""
+
+#: templates/django_registration/registration_form.html:39
+#, python-format
+msgid ""
+"\n"
+"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</"
+"strong>,\n"
+"    vous ne pouvez donc pas créer un nouveau compte.\n"
+"    Veuillez <a href=\"%(url_logout)s\">vous déconnecter</a>\n"
+"    ou revenir à la <a href=\"%(url_home)s\">page d'accueil</a>.\n"
+"    "
+msgstr ""
+
+#: templates/django_registration/registration_form.html:53
+msgid "Je crée un compte"
+msgstr ""
+
+#: templates/django_registration/registration_form.html:63
+msgid "Créer mon compte"
 msgstr ""
 
 #: templates/editorial/footer.html:8
@@ -406,18 +608,9 @@ msgstr ""
 msgid "Rechercher"
 msgstr ""
 
-#: templates/editorial/header.html:45 templates/registration/login.html:66
-msgid "Se connecter"
-msgstr ""
-
 #: templates/editorial/partenaires.html:7
 #: templates/editorial/partenaires.html:11
 msgid "Nos partenaires"
-msgstr ""
-
-#: templates/editorial/partenaires.html:40
-#: templates/registration/password_reset_done.html:26
-msgid "Retour à l'accueil"
 msgstr ""
 
 #: templates/editorial/partenaires/accesmetrie.html:3
@@ -619,6 +812,37 @@ msgstr ""
 msgid "Nous écrire&nbsp;:"
 msgstr ""
 
+#: templates/editorial/partenaires/wegoto.html:7
+msgid ""
+"d'être interopérable avec les modèles standardisés, CNIG (Cerema), NeTEx "
+"accessibilité (DMA)"
+msgstr ""
+
+#: templates/editorial/partenaires/wegoto.html:8
+msgid ""
+"de développer des outils métiers pour les systèmes d'information "
+"géographique (SIG),"
+msgstr ""
+
+#: templates/editorial/partenaires/wegoto.html:9
+msgid ""
+"de faire évoluer les calculateurs d'itinéraires et proposer des parcours "
+"accessibles,"
+msgstr ""
+
+#: templates/editorial/partenaires/wegoto.html:10
+msgid ""
+"d'ouvrir les données pour des plateformes collaboratives comme acceslibre."
+msgstr ""
+
+#: templates/editorial/partenaires/wegoto.html:13
+msgid "Contacter Wegoto :"
+msgstr ""
+
+#: templates/editorial/partenaires/wegoto.html:14
+msgid "Site Internet"
+msgstr ""
+
 #: templates/erp/includes/accessibilite.html:14
 msgid "Ce bâtiment est labellisé Tourisme et handicap"
 msgstr ""
@@ -653,7 +877,7 @@ msgstr ""
 msgid "Écrire un message"
 msgstr ""
 
-#: templates/erp/includes/header.html:60
+#: templates/erp/includes/header.html:60 templates/search/global_map.html:68
 msgid "Agrandir la carte"
 msgstr ""
 
@@ -1111,18 +1335,6 @@ msgstr ""
 msgid "Connexion"
 msgstr ""
 
-#: templates/registration/login.html:20
-msgid "Publication"
-msgstr ""
-
-#: templates/registration/login.html:23
-msgid "Retour à la fiche"
-msgstr ""
-
-#: templates/registration/login.html:24
-msgid "Retour"
-msgstr ""
-
 #: templates/registration/login.html:38
 #, python-format
 msgid ""
@@ -1341,6 +1553,115 @@ msgstr ""
 
 #: templates/search/form.html:61
 msgid "Autoriser l'obtention de ma localisation géographique"
+msgstr ""
+
+#: templates/search/global_map.html:9 templates/search/results.html:10
+msgid "Résultats pour"
+msgstr ""
+
+#: templates/search/global_map.html:9 templates/search/global_map.html:55
+#: templates/search/results.html:10 templates/search/results.html:71
+msgid "page"
+msgstr ""
+
+#: templates/search/global_map.html:11 templates/search/results.html:12
+msgid "Aucun résultat"
+msgstr ""
+
+#: templates/search/global_map.html:22 templates/search/results.html:23
+msgid "Localité :"
+msgstr ""
+
+#: templates/search/global_map.html:24 templates/search/results.html:25
+msgid "Activité :"
+msgstr ""
+
+#: templates/search/global_map.html:31 templates/search/results.html:41
+msgid "Il n'y a pas de résultat correspondant à votre recherche"
+msgstr ""
+
+#: templates/search/global_map.html:36 templates/search/results.html:54
+msgid "Vous pouvez cependant :"
+msgstr ""
+
+#: templates/search/global_map.html:40 templates/search/results.html:58
+msgid "Afficher la liste de tous les établissements situés à {{ commune }}"
+msgstr ""
+
+#: templates/search/global_map.html:41
+msgid ""
+"Afficher les établissements situés dans un rayon de "
+"{{ MAP_SEARCH_RADIUS_KM }} kilomètres autour de"
+msgstr ""
+
+#: templates/search/global_map.html:43
+msgid "Ajouter un établissement manquant à {{ commune }}"
+msgstr ""
+
+#: templates/search/global_map.html:43
+msgid "Ajouter un établissement manquant"
+msgstr ""
+
+#: templates/search/global_map.html:44 templates/search/results.html:60
+msgid "Nous contacter pour obtenir de l'aide ou nous signaler un problème"
+msgstr ""
+
+#: templates/search/global_map.html:53 templates/search/results.html:69
+msgid "à moins de {{ MAP_SEARCH_RADIUS_KM }}"
+msgstr ""
+
+#: templates/search/global_map.html:53 templates/search/results.html:69
+msgid "km"
+msgstr ""
+
+#: templates/search/global_map.html:53 templates/search/results.html:69
+msgid "kilomètres"
+msgstr ""
+
+#: templates/search/global_map.html:61
+msgid "Retrouvez l'ensemble de ces établissements via ce QRCode"
+msgstr ""
+
+#: templates/search/results.html:22
+msgid "Votre recherche"
+msgstr ""
+
+#: templates/search/results.html:30
+msgid ""
+"Découvrez l'information d'accessibilité actuellement disponible pour chaque "
+"centre de vaccination (la collecte d'information est en cours)."
+msgstr ""
+
+#: templates/search/results.html:33
+msgid "Si vous gérez un centre de vaccination,"
+msgstr ""
+
+#: templates/search/results.html:34
+msgid "suivez notre guide de contribution"
+msgstr ""
+
+#: templates/search/results.html:48
+msgid "Nouvelle recherche"
+msgstr ""
+
+#: templates/search/results.html:77
+msgid "Afficher la carte globale"
+msgstr ""
+
+#: templates/search/results.html:88
+msgid "Aux alentours"
+msgstr ""
+
+#: templates/search/results.html:108
+msgid "à l'adresse"
+msgstr ""
+
+#: templates/search/results.html:122
+msgid "Localiser sur la carte"
+msgstr ""
+
+#: templates/search/results.html:123
+msgid "Localiser"
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:3
