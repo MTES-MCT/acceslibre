@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 12:21+0100\n"
+"POT-Creation-Date: 2023-03-15 11:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,120 +116,120 @@ msgstr ""
 msgid "Vous êtes déjà inscrit au challenge."
 msgstr ""
 
-#: erp/views.py:392
+#: erp/views.py:394
 msgid "Stationnement adapté dans l'établissement"
 msgstr ""
 
-#: erp/views.py:394
+#: erp/views.py:396
 msgid "Stationnement adapté à proximité"
 msgstr ""
 
-#: erp/views.py:396
+#: erp/views.py:398
 msgid "Pas de stationnement adapté à proximité"
 msgstr ""
 
-#: erp/views.py:419
+#: erp/views.py:421
 msgid "Chemin d’accès de plain pied"
 msgstr ""
 
-#: erp/views.py:432
+#: erp/views.py:434
 #, python-format
 msgid "Chemin rendu accessible (%s)"
 msgstr ""
 
-#: erp/views.py:433
+#: erp/views.py:435
 msgid "rampe"
 msgstr ""
 
-#: erp/views.py:433
+#: erp/views.py:435
 msgid "ascenseur"
 msgstr ""
 
-#: erp/views.py:446
+#: erp/views.py:448
 msgid "Difficulté sur le chemin d'accès"
 msgstr ""
 
-#: erp/views.py:453
+#: erp/views.py:455
 msgid "Entrée de plain pied"
 msgstr ""
 
-#: erp/views.py:458
+#: erp/views.py:460
 msgid "Entrée de plain pied mais étroite"
 msgstr ""
 
-#: erp/views.py:466
+#: erp/views.py:468
 msgid "Accès à l'entrée par ascenseur"
 msgstr ""
 
-#: erp/views.py:473
+#: erp/views.py:475
 msgid "Entrée rendue accessible par ascenseur mais étroite"
 msgstr ""
 
-#: erp/views.py:481
+#: erp/views.py:483
 msgid "Entrée rendue accessible par rampe mais étroite"
 msgstr ""
 
-#: erp/views.py:492
+#: erp/views.py:494
 msgid "Accès à l’entrée par une rampe"
 msgstr ""
 
-#: erp/views.py:499
+#: erp/views.py:501
 msgid "L’entrée n’est pas de plain-pied"
 msgstr ""
 
-#: erp/views.py:501
+#: erp/views.py:503
 msgid ""
 "\n"
 " Aide humaine possible"
 msgstr ""
 
-#: erp/views.py:503
+#: erp/views.py:505
 msgid "Entrée spécifique PMR"
 msgstr ""
 
-#: erp/views.py:524
+#: erp/views.py:526
 msgid "Aucun personnel"
 msgstr ""
 
-#: erp/views.py:526
+#: erp/views.py:528
 msgid "Personnel non formé"
 msgstr ""
 
-#: erp/views.py:528
+#: erp/views.py:530
 msgid "Personnel sensibilisé / formé"
 msgstr ""
 
-#: erp/views.py:539
+#: erp/views.py:541
 msgid "Balise sonore"
 msgstr ""
 
-#: erp/views.py:586
+#: erp/views.py:588
 msgid "Sanitaire adapté"
 msgstr ""
 
-#: erp/views.py:588
+#: erp/views.py:590
 msgid "Sanitaire non adapté"
 msgstr ""
 
-#: erp/views.py:609
+#: erp/views.py:611
 msgid "Seuls les utilisateurs actifs peuvent voter."
 msgstr ""
 
-#: erp/views.py:612
+#: erp/views.py:614
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr ""
 
-#: erp/views.py:729 erp/views.py:799 erp/views.py:843 erp/views.py:929
+#: erp/views.py:731 erp/views.py:801 erp/views.py:845 erp/views.py:931
 msgid "Les données ont été enregistrées."
 msgstr ""
 
-#: erp/views.py:1054
+#: erp/views.py:1059
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
 "peut pas être publié."
 msgstr ""
 
-#: erp/views.py:1096
+#: erp/views.py:1100
 msgid "Les données ont été sauvegardées."
 msgstr ""
 
@@ -618,9 +618,11 @@ msgid "Nous écrire&nbsp;:"
 msgstr ""
 
 #: templates/erp/includes/accessibilite.html:14
-msgid ""
-"Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap "
-"suivantes :"
+msgid "Ce bâtiment est labellisé Tourisme et handicap"
+msgstr ""
+
+#: templates/erp/includes/accessibilite.html:14
+msgid "pour les familles de handicap suivantes :"
 msgstr ""
 
 #: templates/erp/includes/fields.html:17
@@ -1140,11 +1142,57 @@ msgid "Mot de passe oublié ?"
 msgstr ""
 
 #: templates/registration/login.html:69
+#: templates/registration/password_reset_complete.html:15
 msgid "ou"
 msgstr ""
 
 #: templates/registration/login.html:72
 msgid "S'inscrire"
+msgstr ""
+
+#: templates/registration/password_change_done.html:4
+msgid "Changement effectué"
+msgstr ""
+
+#: templates/registration/password_change_done.html:8
+#: templates/registration/password_reset_complete.html:9
+msgid "Votre mot de passe a été modifié"
+msgstr ""
+
+#: templates/registration/password_change_done.html:11
+#: templates/registration/password_reset_complete.html:12
+msgid "La modification de votre mot de passe a bien été prise en compte."
+msgstr ""
+
+#: templates/registration/password_change_form.html:6
+msgid "Mon mot de passe"
+msgstr ""
+
+#: templates/registration/password_change_form.html:10
+msgid "Modifiez votre mot de passe"
+msgstr ""
+
+#: templates/registration/password_change_form.html:12
+msgid ""
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
+"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
+"saisi."
+msgstr ""
+
+#: templates/registration/password_change_form.html:46
+msgid "Modifier mon mot de passe"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:5
+msgid "Réinitialisation effectuée"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:15
+msgid "Identifiez-vous"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:16
+msgid "retournez à l'accueil"
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:3

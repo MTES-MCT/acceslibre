@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-10 12:21+0100\n"
-"PO-Revision-Date: 2023-03-10 12:28+0009\n"
+"POT-Creation-Date: 2023-03-15 11:01+0100\n"
+"PO-Revision-Date: 2023-03-15 11:07+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -122,124 +122,126 @@ msgstr "Your registration has been successfully registered."
 msgid "Vous êtes déjà inscrit au challenge."
 msgstr "You are already registered for the challenge."
 
-#: erp/views.py:392
-#| msgid "en tant qu'usager de l'établissement"
+#: erp/views.py:394
 msgid "Stationnement adapté dans l'établissement"
 msgstr "Adapted parking in the establishment"
 
-#: erp/views.py:394
+#: erp/views.py:396
 msgid "Stationnement adapté à proximité"
 msgstr "Adapted parking nearby"
 
-#: erp/views.py:396
+#: erp/views.py:398
 msgid "Pas de stationnement adapté à proximité"
 msgstr "No adapted parking nearby"
 
-#: erp/views.py:419
+#: erp/views.py:421
 msgid "Chemin d’accès de plain pied"
 msgstr "Level access road"
 
-#: erp/views.py:432
+#: erp/views.py:434
 #, python-format
 msgid "Chemin rendu accessible (%s)"
 msgstr "Path made accessible (%s)"
 
-#: erp/views.py:433
+#: erp/views.py:435
 msgid "rampe"
 msgstr "ramp"
 
-#: erp/views.py:433
+#: erp/views.py:435
 msgid "ascenseur"
 msgstr "elevator"
 
-#: erp/views.py:446
+#: erp/views.py:448
 msgid "Difficulté sur le chemin d'accès"
 msgstr "Difficulty on the access road"
 
-#: erp/views.py:453
+#: erp/views.py:455
 msgid "Entrée de plain pied"
-msgstr ""
+msgstr "Ground level entrance"
 
-#: erp/views.py:458
+#: erp/views.py:460
 msgid "Entrée de plain pied mais étroite"
-msgstr ""
+msgstr "Single level but narrow entrance"
 
-#: erp/views.py:466
+#: erp/views.py:468
 msgid "Accès à l'entrée par ascenseur"
-msgstr ""
+msgstr "Access to the entrance by elevator"
 
-#: erp/views.py:473
+#: erp/views.py:475
 msgid "Entrée rendue accessible par ascenseur mais étroite"
-msgstr ""
+msgstr "Entrance made accessible by elevator but narrow"
 
-#: erp/views.py:481
+#: erp/views.py:483
 msgid "Entrée rendue accessible par rampe mais étroite"
-msgstr ""
+msgstr "Entrance made accessible by ramp but narrow"
 
-#: erp/views.py:492
+#: erp/views.py:494
 msgid "Accès à l’entrée par une rampe"
-msgstr ""
-
-#: erp/views.py:499
-msgid "L’entrée n’est pas de plain-pied"
-msgstr ""
+msgstr "Access to the entrance by a ramp"
 
 #: erp/views.py:501
+msgid "L’entrée n’est pas de plain-pied"
+msgstr "The entrance is not on the same level"
+
+#: erp/views.py:503
 msgid ""
 "\n"
 " Aide humaine possible"
 msgstr ""
+"\n"
+"Human help possible"
 
-#: erp/views.py:503
+#: erp/views.py:505
 msgid "Entrée spécifique PMR"
-msgstr ""
-
-#: erp/views.py:524
-msgid "Aucun personnel"
-msgstr ""
+msgstr "Specific PRM entrance"
 
 #: erp/views.py:526
-msgid "Personnel non formé"
-msgstr ""
+msgid "Aucun personnel"
+msgstr "No staff"
 
 #: erp/views.py:528
+msgid "Personnel non formé"
+msgstr "Untrained staff"
+
+#: erp/views.py:530
 msgid "Personnel sensibilisé / formé"
-msgstr ""
+msgstr "Awared / trained staff"
 
-#: erp/views.py:539
+#: erp/views.py:541
 msgid "Balise sonore"
-msgstr ""
-
-#: erp/views.py:586
-msgid "Sanitaire adapté"
-msgstr ""
+msgstr "Sound beacon"
 
 #: erp/views.py:588
+msgid "Sanitaire adapté"
+msgstr "Adapted sanitary"
+
+#: erp/views.py:590
 msgid "Sanitaire non adapté"
-msgstr ""
+msgstr "Sanitary not adapted"
 
-#: erp/views.py:609
+#: erp/views.py:611
 msgid "Seuls les utilisateurs actifs peuvent voter."
-msgstr ""
+msgstr "Only active users can vote."
 
-#: erp/views.py:612
-#| msgid "Ajoutez un nouvel établissement"
+#: erp/views.py:614
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr "You cannot vote on your establishment"
 
-#: erp/views.py:729 erp/views.py:799 erp/views.py:843 erp/views.py:929
+#: erp/views.py:731 erp/views.py:801 erp/views.py:845 erp/views.py:931
 msgid "Les données ont été enregistrées."
-msgstr ""
+msgstr "The data has been saved."
 
-#: erp/views.py:1054
+#: erp/views.py:1059
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne"
 " peut pas être publié."
 msgstr ""
+"You have not provided enough accessibility information. Your establishment "
+"cannot be published."
 
-#: erp/views.py:1096
+#: erp/views.py:1100
 msgid "Les données ont été sauvegardées."
-msgstr ""
+msgstr "The data has been saved."
 
 #: templates/403.html:6
 msgid "Accès restreint"
@@ -662,12 +664,18 @@ msgid "Nous écrire&nbsp;:"
 msgstr "Contact us:"
 
 #: templates/erp/includes/accessibilite.html:14
-msgid ""
-"Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap"
-" suivantes :"
-msgstr ""
-"This building has been awarded the Tourisme & Handicap label for the "
-"following disability families:"
+#| msgid ""
+#| "Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap"
+#| " suivantes :"
+msgid "Ce bâtiment est labellisé Tourisme et handicap"
+msgstr "This building has been awarded the Tourisme & Handicap label"
+
+#: templates/erp/includes/accessibilite.html:14
+#| msgid ""
+#| "Ce bâtiment est labellisé Tourisme et handicap pour les familles de handicap"
+#| " suivantes :"
+msgid "pour les familles de handicap suivantes :"
+msgstr "for the following disability families:"
 
 #: templates/erp/includes/fields.html:17
 msgid "Attention :"
@@ -978,7 +986,7 @@ msgstr ""
 
 #: templates/erp/widget.html:224
 msgid "Fermer la fenêtre"
-msgstr ""
+msgstr "Close the window"
 
 #: templates/erp/widget.html:255
 msgid "Voir plus sur"
@@ -1217,12 +1225,64 @@ msgid "Mot de passe oublié ?"
 msgstr "Forgot your password?"
 
 #: templates/registration/login.html:69
+#: templates/registration/password_reset_complete.html:15
 msgid "ou"
 msgstr "or"
 
 #: templates/registration/login.html:72
 msgid "S'inscrire"
 msgstr "Sign up"
+
+#: templates/registration/password_change_done.html:4
+msgid "Changement effectué"
+msgstr "Change done"
+
+#: templates/registration/password_change_done.html:8
+#: templates/registration/password_reset_complete.html:9
+msgid "Votre mot de passe a été modifié"
+msgstr "Your password has been changed"
+
+#: templates/registration/password_change_done.html:11
+#: templates/registration/password_reset_complete.html:12
+msgid "La modification de votre mot de passe a bien été prise en compte."
+msgstr "The change of your password has been taken into account."
+
+#: templates/registration/password_change_form.html:6
+#| msgid "Confirmation du mot de passe"
+msgid "Mon mot de passe"
+msgstr "My password"
+
+#: templates/registration/password_change_form.html:10
+#| msgid "Confirmation du mot de passe"
+msgid "Modifiez votre mot de passe"
+msgstr "Change your password"
+
+#: templates/registration/password_change_form.html:12
+msgid ""
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre"
+" nouveau mot de passe à deux reprises afin de vérifier qu’il est "
+"correctement saisi."
+msgstr ""
+"For security reasons, please enter your old password and then your new "
+"password twice to ensure that it is entered correctly."
+
+#: templates/registration/password_change_form.html:46
+#| msgid "Confirmation du mot de passe"
+msgid "Modifier mon mot de passe"
+msgstr "Change my password"
+
+#: templates/registration/password_reset_complete.html:5
+msgid "Réinitialisation effectuée"
+msgstr "Reset performed"
+
+#: templates/registration/password_reset_complete.html:15
+msgid "Identifiez-vous"
+msgstr "Sign in"
+
+#: templates/registration/password_reset_complete.html:16
+#| msgid "Retour à l'accueil"
+msgid "retournez à l'accueil"
+msgstr "back to home"
 
 #: templates/stats/includes/territoires_table.html:3
 #, python-format
