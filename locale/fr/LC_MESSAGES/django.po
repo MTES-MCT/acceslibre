@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 17:22+0100\n"
+"POT-Creation-Date: 2023-03-15 17:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -326,6 +326,7 @@ msgid ""
 msgstr ""
 
 #: templates/annuaire/index.html:43 templates/communes.html:42
+#: templates/contrib/0-start.html:6 templates/contrib/0a-search_results.html:44
 #: templates/index.html:222
 msgid "Ajouter un établissement"
 msgstr ""
@@ -356,6 +357,189 @@ msgstr ""
 
 #: templates/communes.html:46
 msgid "Derniers établissements renseignés"
+msgstr ""
+
+#: templates/contrib/0-start.html:7
+msgid "Partager les données d'accessibilité d'un établissement"
+msgstr ""
+
+#: templates/contrib/0-start.html:8
+msgid "Étape 1 sur 7"
+msgstr ""
+
+#: templates/contrib/0-start.html:9 templates/contrib/0a-search_results.html:8
+msgid "L'établissement"
+msgstr ""
+
+#: templates/contrib/0-start.html:20
+#, python-format
+msgid ""
+"Je souhaite <a class=\"fr-link\" "
+"href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un établissement.</"
+"a>"
+msgstr ""
+
+#: templates/contrib/0-start.html:28
+msgid "La charte du contributeur"
+msgstr ""
+
+#: templates/contrib/0-start.html:33
+msgid "N'aie pas peur"
+msgstr ""
+
+#: templates/contrib/0-start.html:34
+msgid "tu en sais plus que ce que tu penses"
+msgstr ""
+
+#: templates/contrib/0-start.html:38
+msgid "Le mieux est l'ennemi du bien"
+msgstr ""
+
+#: templates/contrib/0-start.html:39
+msgid "ne jamais enjoliver la situation afin de ne pas créer de faux espoirs"
+msgstr ""
+
+#: templates/contrib/0-start.html:43
+msgid "Chaque information est précieuse"
+msgstr ""
+
+#: templates/contrib/0-start.html:45
+msgid ""
+"\n"
+"                    n'hésite pas à publier une fiche même si elle est "
+"incomplète ... La force du collaboratif\n"
+"                    prendra le relais et quelqu'un pourra compléter après "
+"toi\n"
+"                    "
+msgstr ""
+
+#: templates/contrib/0-start.html:53
+msgid "5 minutes de ton temps"
+msgstr ""
+
+#: templates/contrib/0-start.html:54
+msgid "1 nouveau lieu à visiter pour 12 millions de personnes"
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:6
+msgid "Rechercher un établissement"
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:7
+msgid "Ajouter les données d'accessibilité d'un établissement"
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:15 templates/search/results.html:22
+msgid "Votre recherche"
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:18
+msgid "résultat"
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:35
+msgid "L'établissement ne figure pas dans la liste."
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:39
+msgid "Il n'y a pas de résultat correspondant à votre recherche."
+msgstr ""
+
+#: templates/contrib/0a-search_results.html:47 templates/search/results.html:48
+msgid "Nouvelle recherche"
+msgstr ""
+
+#: templates/contrib/forms/global_form.html:7
+msgid "Saisie automatique"
+msgstr ""
+
+#: templates/contrib/forms/global_form.html:21 templates/search/form.html:61
+msgid "Autoriser l'obtention de ma localisation géographique"
+msgstr ""
+
+#: templates/contrib/forms/global_form.html:26
+msgid "Trouver l'établissement"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:4
+msgid "Navigation"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:9 templates/contrib/includes/nav.html:50
+#: templates/contrib/includes/nav.html:52
+msgid "Informations"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:15
+#: templates/contrib/includes/nav.html:59
+#: templates/contrib/includes/nav.html:61
+msgid "À propos"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:21
+#: templates/contrib/includes/nav.html:68
+#: templates/contrib/includes/nav.html:70
+msgid "Accès"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:26
+#: templates/contrib/includes/nav.html:76
+#: templates/contrib/includes/nav.html:78
+msgid "Extérieur"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:31
+#: templates/contrib/includes/nav.html:84
+#: templates/contrib/includes/nav.html:86
+msgid "Entrée"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:36
+#: templates/contrib/includes/nav.html:92
+#: templates/contrib/includes/nav.html:94
+msgid "Accueil"
+msgstr ""
+
+#: templates/contrib/includes/nav.html:41
+#: templates/contrib/includes/nav.html:101
+#: templates/contrib/includes/nav.html:103
+msgid "Informations complémentaires"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:3
+msgid "Parcours de contribution"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:6
+msgid "Précédent"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:9
+msgid "Continuer"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:10
+msgid "Continuez sur l'étape"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:14
+msgid "Publier"
+msgstr ""
+
+#: templates/contrib/includes/prevnext.html:19
+msgid "Revenir à la fiche"
+msgstr ""
+
+#: templates/contrib/includes/result_search_erps.html:43
+msgid "Ajouter cet établissement"
+msgstr ""
+
+#: templates/contrib/includes/result_search_erps.html:47
+msgid "Voir cet établissement"
+msgstr ""
+
+#: templates/contrib/includes/result_search_erps.html:51
+msgid "Cet établissement est pris en charge par un autre contributeur"
 msgstr ""
 
 #: templates/django_registration/activation_complete.html:6
@@ -1551,10 +1735,6 @@ msgstr ""
 msgid "Commencer la saisie puis sélectionner dans la liste"
 msgstr ""
 
-#: templates/search/form.html:61
-msgid "Autoriser l'obtention de ma localisation géographique"
-msgstr ""
-
 #: templates/search/global_map.html:9 templates/search/results.html:10
 msgid "Résultats pour"
 msgstr ""
@@ -1622,10 +1802,6 @@ msgstr ""
 msgid "Retrouvez l'ensemble de ces établissements via ce QRCode"
 msgstr ""
 
-#: templates/search/results.html:22
-msgid "Votre recherche"
-msgstr ""
-
 #: templates/search/results.html:30
 msgid ""
 "Découvrez l'information d'accessibilité actuellement disponible pour chaque "
@@ -1638,10 +1814,6 @@ msgstr ""
 
 #: templates/search/results.html:34
 msgid "suivez notre guide de contribution"
-msgstr ""
-
-#: templates/search/results.html:48
-msgid "Nouvelle recherche"
 msgstr ""
 
 #: templates/search/results.html:77

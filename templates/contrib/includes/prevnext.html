@@ -1,21 +1,22 @@
+{% load i18n %}
 <div class="d-flex flex-column d-lg-block">
-  <nav aria-label="Parcours de contribution" role="navigation">
+  <nav aria-label="{% translate 'Parcours de contribution' %}" role="navigation">
     <ul class="no-list p-0" style="display:flex; flex-wrap: wrap; text-align: center;">
     {% if prev_route %}
-      <li><a class="btn btn-link" href="{{ prev_route }}">&laquo; Précédent</a></li>
+      <li><a class="btn btn-link" href="{{ prev_route }}">&laquo; {% translate "Précédent" %}</a></li>
     {% endif %}
     {%  if libelle_step.next %}
-    <li><input type="submit" class="fr-btn btn btn-primary" name="contribute" value="Continuer"
-            aria-label="Continuez sur l'étape {{ libelle_step.next|capfirst }} ">
+    <li><input type="submit" class="fr-btn btn btn-primary" name="contribute" value="{% translate 'Continuer' %}"
+            aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ libelle_step.next|capfirst }} ">
     </li>
     {% endif %}
     {% if publier_route %}
-      <li><input type="submit" class="{% if libelle_step.next %}btn btn-link {% else %}fr-btn btn btn-primary{% endif %}" name="publier" value="Publier"></li>
+      <li><input type="submit" class="{% if libelle_step.next %}btn btn-link {% else %}fr-btn btn btn-primary{% endif %}" name="publier" value="{% translate 'Publier' %}"></li>
     {% endif %}
 
 
     {% if erp and erp.published %}
-      <li><a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a></li>
+      <li><a class="btn btn-link" href="{{ erp.get_absolute_url }}">{% translate "Revenir à la fiche" %}</a></li>
     {% endif %}
     </ul>
   </nav>
