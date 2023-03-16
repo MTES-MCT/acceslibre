@@ -74,8 +74,8 @@ def test_erp_details(data, browser, erp_domtom):
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
-    assert browser.is_text_present(html.unescape(schema.get_help_text_ui("sanitaires_presence")))
-    assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
+    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui("sanitaires_presence"))))
+    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))))
 
     browser.visit(erp_domtom.get_absolute_url())
 
@@ -85,8 +85,8 @@ def test_erp_details(data, browser, erp_domtom):
     assert browser.is_text_present(erp_domtom.nom)
     assert browser.is_text_present(erp_domtom.activite.nom)
     assert browser.is_text_present(erp_domtom.adresse)
-    assert browser.is_text_present(html.unescape(schema.get_help_text_ui("sanitaires_presence")))
-    assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
+    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui("sanitaires_presence"))))
+    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))))
 
 
 def test_erp_details_edit_links(data, browser):

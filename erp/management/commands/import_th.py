@@ -134,6 +134,7 @@ class Command(BaseCommand):
                 erps.append(erp.pk)
                 access = erp.accessibilite
                 access.labels_familles_handicap = self.get_familles(row)
+                access.labels = access.labels or []
                 if "th" not in access.labels:
                     access.labels.append("th")
                 access.save()

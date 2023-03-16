@@ -14,6 +14,7 @@ from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
+from django.utils.translation import gettext as translate
 from reversion.models import Version
 
 from core.lib import diff as diffutils
@@ -48,8 +49,8 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
             try:
-                entry["old"] = schema.get_human_readable_value(entry["field"], entry["old"])
-                entry["new"] = schema.get_human_readable_value(entry["field"], entry["new"])
+                entry["old"] = str(schema.get_human_readable_value(entry["field"], entry["old"]))
+                entry["new"] = str(schema.get_human_readable_value(entry["field"], entry["new"]))
             except NotImplementedError:
                 continue
             if entry["old"] != entry["new"]:
@@ -85,37 +86,37 @@ def get_last_position():
 class Activite(models.Model):
     class Meta:
         ordering = ("nom",)
-        verbose_name = "Activité"
-        verbose_name_plural = "Activités"
+        verbose_name = translate("Activité")
+        verbose_name_plural = translate("Activités")
         indexes = [
             models.Index(fields=["slug"]),
         ]
 
     objects = managers.ActiviteQuerySet.as_manager()
 
-    nom = models.CharField(max_length=255, unique=True, help_text="Nom de l'activité")
+    nom = models.CharField(max_length=255, unique=True, help_text=translate("Nom de l'activité"))
     slug = AutoSlugField(
         default="",
         unique=True,
         populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
+        help_text=translate("Identifiant d'URL (slug)"),
     )
     mots_cles = ArrayField(
         models.CharField(max_length=40, blank=True),
-        verbose_name="Mots-clés",
+        verbose_name=translate("Mots-clés"),
         default=list,
         null=True,
         blank=True,
-        help_text="Liste de mots-clés apparentés à cette activité",
+        help_text=translate("Liste de mots-clés apparentés à cette activité"),
     )
     icon = models.CharField(
         max_length=120,
         null=True,
         blank=True,
-        verbose_name="Icône",
+        verbose_name=translate("Icône"),
         help_text=mark_safe(
-            "Chemin de l'icône "
-            '<a href="http://www.sjjb.co.uk/mapicons/contactsheet" target="_blank">SSJB</a> '
+            translate("Chemin de l'icône ")
+            + '<a href="http://www.sjjb.co.uk/mapicons/contactsheet" target="_blank">SSJB</a> '
             "(ex. <code>sport_motorracing</code>)"
         ),
     )
@@ -124,17 +125,22 @@ class Activite(models.Model):
         null=True,
         blank=True,
         default="building",
-        verbose_name="Icône vectorielle",
-        help_text=mark_safe("Nom de l'icône dans " '<a href="/mapicons" target="_blank">le catalogue</a>.'),
+        verbose_name=translate("Icône vectorielle"),
+        help_text=mark_safe(
+            translate("Nom de l'icône dans")
+            + '<a href="/mapicons" target="_blank">'
+            + translate("le catalogue")
+            + "</a>."
+        ),
     )
     position = models.PositiveSmallIntegerField(
         default=get_last_position,
-        verbose_name="Position dans la liste",
+        verbose_name=translate("Position dans la liste"),
     )
 
     # datetimes
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de création"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Dernière modification"))
 
     def __str__(self):
         return self.nom
@@ -149,23 +155,23 @@ class Activite(models.Model):
 
 
 class ActivitySuggestion(models.Model):
-    erp = models.ForeignKey("Erp", verbose_name="Établissement", on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, help_text="Nom suggéré pour l'activité")
+    erp = models.ForeignKey("Erp", verbose_name=translate("Établissement"), on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, help_text=translate("Nom suggéré pour l'activité"))
     mapped_activity = models.ForeignKey(
-        "Activite", verbose_name="Activité attribuée", on_delete=models.CASCADE, blank=True, null=True
+        "Activite", verbose_name=translate("Activité attribuée"), on_delete=models.CASCADE, blank=True, null=True
     )
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE, blank=True, null=True
+        settings.AUTH_USER_MODEL, verbose_name=translate("Utilisateur"), on_delete=models.CASCADE, blank=True, null=True
     )
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de création"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Dernière modification"))
 
     def __str__(self):
-        return f"Suggestion d'activité : {self.name}"
+        return translate(f"Suggestion d'activité : {self.name}")
 
     class Meta:
-        verbose_name = "Suggestion d'activité"
-        verbose_name_plural = "Suggestions d'activités"
+        verbose_name = translate("Suggestion d'activité")
+        verbose_name_plural = translate("Suggestions d'activités")
 
     def save(self, *args, **kwargs):
         if self.mapped_activity and self.erp.activite and self.erp.activite.nom.lower() == "autre":
@@ -196,59 +202,59 @@ class Commune(models.Model):
 
     objects = managers.CommuneQuerySet.as_manager()
 
-    nom = models.CharField(max_length=255, help_text="Nom")
+    nom = models.CharField(max_length=255, help_text=translate("Nom"))
     slug = AutoSlugField(
         unique=True,
         populate_from=generate_commune_slug,
         unique_with=["departement", "nom"],
-        help_text="Identifiant d'URL (slug)",
+        help_text=translate("Identifiant d'URL (slug)"),
     )
     departement = models.CharField(
         max_length=3,
-        verbose_name="Département",
-        help_text="Codé sur deux ou trois caractères.",
+        verbose_name=translate("Département"),
+        help_text=translate("Codé sur deux ou trois caractères."),
     )
     code_insee = models.CharField(
         max_length=5,
-        verbose_name="Code INSEE",
-        help_text="Code INSEE de la commune",
+        verbose_name=translate("Code INSEE"),
+        help_text=translate("Code INSEE de la commune"),
     )
     superficie = models.PositiveIntegerField(
         null=True,
         blank=True,
-        verbose_name="Superficie",
-        help_text="Exprimée en hectares (ha)",
+        verbose_name=translate("Superficie"),
+        help_text=translate("Exprimée en hectares (ha)"),
     )
     population = models.PositiveIntegerField(
         null=True,
         blank=True,
-        verbose_name="Population",
-        help_text="Nombre d'habitants estimé",
+        verbose_name=translate("Population"),
+        help_text=translate("Nombre d'habitants estimé"),
     )
     geom = models.PointField(
-        verbose_name="Localisation",
-        help_text="Coordonnées géographique du centre de la commune",
+        verbose_name=translate("Localisation"),
+        help_text=translate("Coordonnées géographique du centre de la commune"),
     )
     contour = models.MultiPolygonField(
-        verbose_name="Contour",
-        help_text="Contour de la commune",
+        verbose_name=translate("Contour"),
+        help_text=translate("Contour de la commune"),
         null=True,
     )
     code_postaux = ArrayField(
         models.CharField(max_length=5),
-        verbose_name="Codes postaux",
+        verbose_name=translate("Codes postaux"),
         default=list,
-        help_text="Liste des codes postaux de cette commune",
+        help_text=translate("Liste des codes postaux de cette commune"),
     )
     arrondissement = models.BooleanField(
-        verbose_name="Arrondissement",
+        verbose_name=translate("Arrondissement"),
         default=False,
-        help_text="Cette commune est un arrondissement (Paris, Lyon, Marseille)",
+        help_text=translate("Cette commune est un arrondissement (Paris, Lyon, Marseille)"),
     )
     obsolete = models.BooleanField(
-        verbose_name="Obsolète",
+        verbose_name=translate("Obsolète"),
         default=False,
-        help_text="La commune est obsolète, par exemple suite à un regroupement ou un rattachement",
+        help_text=translate("La commune est obsolète, par exemple suite à un regroupement ou un rattachement"),
     )
 
     def __str__(self):
@@ -260,7 +266,7 @@ class Commune(models.Model):
     def clean(self):
         if self.arrondissement is True and self.departement not in ["13", "69", "75"]:
             raise ValidationError(
-                {"arrondissement": "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"}
+                {"arrondissement": translate("Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements")}
             )
 
     def departement_nom(self):
@@ -300,16 +306,16 @@ class Vote(models.Model):
 
     erp = models.ForeignKey(
         "Erp",
-        verbose_name="Établissement",
+        verbose_name=translate("Établissement"),
         on_delete=models.CASCADE,
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        verbose_name="Utilisateur",
+        verbose_name=translate("Utilisateur"),
         on_delete=models.CASCADE,
     )
     value = models.SmallIntegerField(
-        verbose_name="Valeur",
+        verbose_name=translate("Valeur"),
         choices=[(-1, "-1"), (1, "+1")],
         default=1,
     )
@@ -317,14 +323,14 @@ class Vote(models.Model):
         max_length=5000,
         null=True,
         blank=True,
-        verbose_name="Commentaire",
+        verbose_name=translate("Commentaire"),
     )
     # datetimes
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de création"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Dernière modification"))
 
     def __str__(self):
-        return f"Vote {self.value} de {self.user.username} pour {self.erp.nom}"
+        return translate(f"Vote {self.value} de {self.user.username} pour {self.erp.nom}")
 
 
 @reversion.register(
@@ -361,42 +367,42 @@ class Erp(models.Model):
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_DELL = "dell"
     SOURCE_CHOICES = (
-        (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
-        (SOURCE_ACCEO, "Acceo"),
-        (SOURCE_ADMIN, "Back-office"),
-        (SOURCE_API, "API"),
-        (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
-        (SOURCE_CCONFORME, "cconforme"),
-        (SOURCE_GENDARMERIE, "Gendarmerie"),
-        (SOURCE_LORIENT, "Lorient"),
-        (SOURCE_NESTENN, "Nestenn"),
-        (SOURCE_ODS, "API OpenDataSoft"),
-        (SOURCE_PUBLIC, "Saisie manuelle publique"),
-        (SOURCE_PUBLIC_ERP, "API des établissements publics"),
-        (SOURCE_SAP, "Sortir À Pair"),
-        (SOURCE_SERVICE_PUBLIC, "Service Public"),
-        (SOURCE_SIRENE, "API Sirene INSEE"),
-        (SOURCE_TH, "Tourisme & Handicap"),
-        (SOURCE_TYPEFORM, "Questionnaires Typeform"),
-        (SOURCE_TYPEFORM_MUSEE, "Questionnaires Typeform Musée"),
-        (SOURCE_VACCINATION, "Centres de vaccination"),
-        (SOURCE_DELL, "Dell"),
+        (SOURCE_ACCESLIBRE, translate("Base de données Acceslibre")),
+        (SOURCE_ACCEO, translate("Acceo")),
+        (SOURCE_ADMIN, translate("Back-office")),
+        (SOURCE_API, translate("API")),
+        (SOURCE_API_ENTREPRISE, translate("API Entreprise (publique)")),
+        (SOURCE_CCONFORME, translate("cconforme")),
+        (SOURCE_GENDARMERIE, translate("Gendarmerie")),
+        (SOURCE_LORIENT, translate("Lorient")),
+        (SOURCE_NESTENN, translate("Nestenn")),
+        (SOURCE_ODS, translate("API OpenDataSoft")),
+        (SOURCE_PUBLIC, translate("Saisie manuelle publique")),
+        (SOURCE_PUBLIC_ERP, translate("API des établissements publics")),
+        (SOURCE_SAP, translate("Sortir À Paris")),
+        (SOURCE_SERVICE_PUBLIC, translate("Service Public")),
+        (SOURCE_SIRENE, translate("API Sirene INSEE")),
+        (SOURCE_TH, translate("Tourisme & Handicap")),
+        (SOURCE_TYPEFORM, translate("Questionnaires Typeform")),
+        (SOURCE_TYPEFORM_MUSEE, translate("Questionnaires Typeform Musée")),
+        (SOURCE_VACCINATION, translate("Centres de vaccination")),
+        (SOURCE_DELL, translate("Dell")),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
     USER_ROLE_PUBLIC = "public"
     USER_ROLE_SYSTEM = "system"
     USER_ROLES = (
-        (USER_ROLE_ADMIN, "Administration"),
-        (USER_ROLE_GESTIONNAIRE, "Gestionnaire"),
-        (USER_ROLE_PUBLIC, "Utilisateur public"),
-        (USER_ROLE_SYSTEM, "Système"),
+        (USER_ROLE_ADMIN, translate("Administration")),
+        (USER_ROLE_GESTIONNAIRE, translate("Gestionnaire")),
+        (USER_ROLE_PUBLIC, translate("Utilisateur public")),
+        (USER_ROLE_SYSTEM, translate("Système")),
     )
 
     class Meta:
         ordering = ("nom",)
-        verbose_name = "Établissement"
-        verbose_name_plural = "Établissements"
+        verbose_name = translate("Établissement")
+        verbose_name_plural = translate("Établissements")
         indexes = [
             models.Index(fields=["nom"]),
             models.Index(fields=["source", "source_id"]),
@@ -417,33 +423,33 @@ class Erp(models.Model):
     source = models.CharField(
         max_length=100,
         null=True,
-        verbose_name="Source",
+        verbose_name=translate("Source"),
         default=SOURCE_PUBLIC,
         choices=SOURCE_CHOICES,
-        help_text="Nom de la source de données dont est issu cet ERP",
+        help_text=translate("Nom de la source de données dont est issu cet ERP"),
     )
     source_id = models.CharField(
         max_length=255,
         null=True,
-        verbose_name="Source ID",
-        help_text="Identifiant de l'ERP dans la source initiale de données",
+        verbose_name=translate("Source ID"),
+        help_text=translate("Identifiant de l'ERP dans la source initiale de données"),
     )
     asp_id = models.CharField(
         max_length=255,
         null=True,
-        verbose_name="ASP ID",
-        help_text="Identifiant de l'ERP dans la base Service Public",
+        verbose_name=translate("ASP ID"),
+        help_text=translate("Identifiant de l'ERP dans la base Service Public"),
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
-        verbose_name="Contributeur",
+        verbose_name=translate("Contributeur"),
         on_delete=models.SET_NULL,
     )
     user_type = models.CharField(
         max_length=50,
         choices=USER_ROLES,
-        verbose_name="Profil de contributeur",
+        verbose_name=translate("Profil de contributeur"),
         default=USER_ROLE_SYSTEM,
     )
 
@@ -451,98 +457,100 @@ class Erp(models.Model):
         Commune,
         null=True,
         blank=True,
-        verbose_name="Commune (relation)",
-        help_text="La commune de cet établissement",
+        verbose_name=translate("Commune (relation)"),
+        help_text=translate("La commune de cet établissement"),
         on_delete=models.SET_NULL,
     )
-    nom = models.CharField(max_length=255, help_text="Nom de l'établissement ou de l'enseigne")
+    nom = models.CharField(max_length=255, help_text=translate("Nom de l'établissement ou de l'enseigne"))
     slug = AutoSlugField(
         default="",
         unique=True,
         populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
+        help_text=translate("Identifiant d'URL (slug)"),
         max_length=255,
     )
     activite = models.ForeignKey(
         Activite,
         null=True,
         blank=True,
-        verbose_name="Activité",
-        help_text="Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées",
+        verbose_name=translate("Activité"),
+        help_text=translate("Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées"),
         on_delete=models.SET_NULL,
     )
     published = models.BooleanField(
         default=True,
-        verbose_name="Publié",
-        help_text="Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement",
+        verbose_name=translate("Publié"),
+        help_text=translate(
+            "Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement"
+        ),
     )
     geom = models.PointField(
         null=True,
         blank=True,
-        verbose_name="Localisation",
-        help_text="Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)",
+        verbose_name=translate("Localisation"),
+        help_text=translate("Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)"),
     )
     geoloc_provider = models.CharField(
         default=None,
         blank=True,
         null=True,
         max_length=50,
-        verbose_name="Fournisseur utilisé pour la géolocalisation",
-        help_text="Indique le fournisseur utilisé pour la géolocalisation de l'adresse de l'ERP.",
+        verbose_name=translate("Fournisseur utilisé pour la géolocalisation"),
+        help_text=translate("Indique le fournisseur utilisé pour la géolocalisation de l'adresse de l'ERP."),
     )
     siret = models.CharField(
         max_length=14,
         null=True,
         blank=True,
-        verbose_name="SIRET",
-        help_text="Numéro SIRET si l'ERP est une entreprise",
+        verbose_name=translate("SIRET"),
+        help_text=translate("Numéro SIRET si l'ERP est une entreprise"),
     )
     # contact
     telephone = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        verbose_name="Téléphone",
-        help_text="Numéro de téléphone de l'ERP",
+        verbose_name=translate("Téléphone"),
+        help_text=translate("Numéro de téléphone de l'ERP"),
     )
     site_internet = models.URLField(
         max_length=255,
         null=True,
         blank=True,
-        help_text="Adresse du site internet de l'ERP",
+        help_text=translate("Adresse du site internet de l'ERP"),
     )
     contact_email = models.EmailField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="Courriel",
-        help_text="Adresse email permettant de contacter l'ERP",
+        verbose_name=translate("Courriel"),
+        help_text=translate("Adresse email permettant de contacter l'ERP"),
     )
     contact_url = models.URLField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="Lien vers outil de contact",
-        help_text="Lien hypertexte permettant de contacter l'établissement (formulaire, chatbot, etc.)",
+        verbose_name=translate("Lien vers outil de contact"),
+        help_text=translate("Lien hypertexte permettant de contacter l'établissement (formulaire, chatbot, etc.)"),
     )
     # adresse
     numero = models.CharField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="Numéro",
-        help_text="Numéro dans la voie, incluant le complément (BIS, TER, etc.)",
+        verbose_name=translate("Numéro"),
+        help_text=translate("Numéro dans la voie, incluant le complément (BIS, TER, etc.)"),
     )
-    voie = models.CharField(max_length=255, null=True, blank=True, help_text="Voie")
-    lieu_dit = models.CharField(max_length=255, null=True, blank=True, help_text="Lieu dit")
-    code_postal = models.CharField(max_length=5, help_text="Code postal")
-    commune = models.CharField(max_length=255, help_text="Nom de la commune")
+    voie = models.CharField(max_length=255, null=True, blank=True, help_text=translate("Voie"))
+    lieu_dit = models.CharField(max_length=255, null=True, blank=True, help_text=translate("Lieu dit"))
+    code_postal = models.CharField(max_length=5, help_text=translate("Code postal"))
+    commune = models.CharField(max_length=255, help_text=translate("Nom de la commune"))
     code_insee = models.CharField(
         max_length=5,
         null=True,
         blank=True,
-        verbose_name="Code INSEE",
-        help_text="Code INSEE de la commune",
+        verbose_name=translate("Code INSEE"),
+        help_text=translate("Code INSEE de la commune"),
     )
 
     # Metadata
@@ -558,18 +566,18 @@ class Erp(models.Model):
     metadata = models.JSONField(default=dict)
 
     # datetimes
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de création"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Dernière modification"))
 
     # search vector
-    search_vector = SearchVectorField("Search vector", null=True)
+    search_vector = SearchVectorField(translate("Search vector"), null=True)
 
     import_email = models.EmailField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="Email lié à l'import",
-        help_text="Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP",
+        verbose_name=translate("Email lié à l'import"),
+        help_text=translate("Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP"),
     )
 
     def __str__(self):
@@ -720,11 +728,11 @@ class Erp(models.Model):
     def clean(self):  # Fix me : move to form (abstract)
         # Code postal
         if self.code_postal and len(self.code_postal) != 5:
-            raise ValidationError({"code_postal": "Le code postal doit faire 5 caractères"})
+            raise ValidationError({"code_postal": translate("Le code postal doit faire 5 caractères")})
 
         # Voie OU lieu-dit sont requis
         if self.voie is None and self.lieu_dit is None:
-            error = "Veuillez entrer une voie ou un lieu-dit"
+            error = translate("Veuillez entrer une voie ou un lieu-dit")
             raise ValidationError({"voie": error, "lieu_dit": error})
 
         # Commune
@@ -743,7 +751,7 @@ class Erp(models.Model):
                 )
             if len(matches) == 0:
                 raise ValidationError(
-                    {"commune": f"Commune {self.commune} introuvable, veuillez vérifier votre saisie."}
+                    {"commune": translate(f"Commune {self.commune} introuvable, veuillez vérifier votre saisie.")}
                 )
             else:
                 self.commune_ext = matches[0]
@@ -752,7 +760,7 @@ class Erp(models.Model):
         if self.siret:
             siret = sirene.validate_siret(self.siret)
             if siret is None:
-                raise ValidationError({"siret": "Ce numéro SIRET est invalide."})
+                raise ValidationError({"siret": translate("Ce numéro SIRET est invalide.")})
             self.siret = siret
 
     def vote(self, user, action, comment=None):
@@ -810,16 +818,16 @@ class Accessibilite(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25
 
     class Meta:
-        verbose_name = "Accessibilité"
-        verbose_name_plural = "Accessibilité"
+        verbose_name = translate("Accessibilité")
+        verbose_name_plural = translate("Accessibilité")
 
     erp = models.OneToOneField(
         Erp,
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        verbose_name="Établissement",
-        help_text="ERP",
+        verbose_name=translate("Établissement"),
+        help_text=translate("ERP"),
     )
 
     ###################################
@@ -830,13 +838,13 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("transport_station_presence"),
-        verbose_name="Desserte par transports en commun",
+        verbose_name=translate("Desserte par transports en commun"),
     )
     transport_information = models.TextField(
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="Informations transports",
+        verbose_name=translate("Informations transports"),
     )
 
     ###################################
@@ -847,13 +855,13 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("stationnement_presence"),
-        verbose_name="Stationnement dans l'ERP",
+        verbose_name=translate("Stationnement dans l'ERP"),
     )
     stationnement_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("stationnement_pmr"),
-        verbose_name="Stationnements PMR dans l'ERP",
+        verbose_name=translate("Stationnements PMR dans l'ERP"),
     )
 
     # Stationnement à proximité
@@ -861,13 +869,13 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("stationnement_ext_presence"),
-        verbose_name="Stationnement à proximité de l'ERP",
+        verbose_name=translate("Stationnement à proximité de l'ERP"),
     )
     stationnement_ext_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("stationnement_ext_pmr"),
-        verbose_name="Stationnements PMR à proximité de l'ERP",
+        verbose_name=translate("Stationnements PMR à proximité de l'ERP"),
     )
 
     ###################################
@@ -877,7 +885,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Espace extérieur",
+        verbose_name=translate("Espace extérieur"),
     )
 
     # Cheminement de plain-pied – oui / non / inconnu
@@ -885,27 +893,27 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_plain_pied"),
-        verbose_name="Cheminement de plain-pied",
+        verbose_name=translate("Cheminement de plain-pied"),
     )
     # Terrain meuble ou accidenté
     cheminement_ext_terrain_stable = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_terrain_stable"),
-        verbose_name="Terrain meuble ou accidenté",
+        verbose_name=translate("Terrain meuble ou accidenté"),
     )
     # Nombre de marches – nombre entre 0 et >10
     cheminement_ext_nombre_marches = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
-        verbose_name="Nombre de marches",
+        verbose_name=translate("Nombre de marches"),
     )
     # Sens des marches de l'escalier
     cheminement_ext_sens_marches = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        verbose_name="Sens de circulation de l'escalier",
+        verbose_name=translate("Sens de circulation de l'escalier"),
         choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
@@ -913,14 +921,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Repérage des marches ou de l’escalier",
+        verbose_name=translate("Repérage des marches ou de l’escalier"),
     )
     # Main courante - oui / non / inconnu / sans objet
     cheminement_ext_main_courante = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Main courante",
+        verbose_name=translate("Main courante"),
     )
     # Rampe – oui / non / inconnu / sans objet
     cheminement_ext_rampe = models.CharField(
@@ -928,14 +936,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.RAMPE_CHOICES,
-        verbose_name="Rampe",
+        verbose_name=translate("Rampe"),
     )
     # Ascenseur / élévateur : oui / non / inconnu / sans objet
     cheminement_ext_ascenseur = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_ascenseur"),
-        verbose_name="Ascenseur/élévateur",
+        verbose_name=translate("Ascenseur/élévateur"),
     )
 
     # Pente - oui / non / inconnu
@@ -943,7 +951,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_pente_presence"),
-        verbose_name="Pente présence",
+        verbose_name=translate("Pente présence"),
     )
 
     # Pente - Aucune, légère, importante, inconnu
@@ -952,7 +960,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.PENTE_CHOICES,
-        verbose_name="Difficulté de la pente",
+        verbose_name=translate("Difficulté de la pente"),
     )
 
     # Pente - Aucune, légère, importante, inconnu
@@ -961,7 +969,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.PENTE_LENGTH_CHOICES,
-        verbose_name="Longueur de la pente",
+        verbose_name=translate("Longueur de la pente"),
     )
 
     # Dévers - Aucun, léger, important, inconnu
@@ -969,7 +977,7 @@ class Accessibilite(models.Model):
         max_length=15,
         null=True,
         blank=True,
-        verbose_name="Dévers",
+        verbose_name=translate("Dévers"),
         choices=schema.DEVERS_CHOICES,
     )
 
@@ -978,7 +986,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_bande_guidage"),
-        verbose_name="Bande de guidage",
+        verbose_name=translate("Bande de guidage"),
     )
 
     # Rétrécissement du cheminement  – oui / non / inconnu
@@ -986,7 +994,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("cheminement_ext_retrecissement"),
-        verbose_name="Rétrécissement du cheminement",
+        verbose_name=translate("Rétrécissement du cheminement"),
     )
 
     ##########
@@ -997,7 +1005,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Entrée facilement repérable",
+        verbose_name=translate("Entrée facilement repérable"),
     )
 
     # Présence d'une porte (oui / non)
@@ -1005,7 +1013,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_porte_presence"),
-        verbose_name="Y a-t-il une porte ?",
+        verbose_name=translate("Y a-t-il une porte ?"),
     )
     # Manoeuvre de la porte (porte battante / porte coulissante / tourniquet / porte tambour / inconnu ou sans objet)
     entree_porte_manoeuvre = models.CharField(
@@ -1013,7 +1021,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.PORTE_MANOEUVRE_CHOICES,
-        verbose_name="Manœuvre de la porte",
+        verbose_name=translate("Manœuvre de la porte"),
     )
     # Type de porte (manuelle / automatique / inconnu)
     entree_porte_type = models.CharField(
@@ -1021,7 +1029,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.PORTE_TYPE_CHOICES,
-        verbose_name="Type de porte",
+        verbose_name=translate("Type de porte"),
     )
 
     # Entrée vitrée
@@ -1029,13 +1037,13 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_vitree"),
-        verbose_name="Entrée vitrée",
+        verbose_name=translate("Entrée vitrée"),
     )
     entree_vitree_vitrophanie = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Vitrophanie",
+        verbose_name=translate("Vitrophanie"),
     )
 
     # Entrée de plain-pied
@@ -1043,20 +1051,20 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_plain_pied"),
-        verbose_name="Entrée de plain-pied",
+        verbose_name=translate("Entrée de plain-pied"),
     )
     # Nombre de marches
     entree_marches = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
-        verbose_name="Marches d'escalier",
+        verbose_name=translate("Marches d'escalier"),
     )
     # Sens des marches de l'escalier
     entree_marches_sens = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        verbose_name="Sens de circulation de l'escalier",
+        verbose_name=translate("Sens de circulation de l'escalier"),
         choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l'escalier
@@ -1064,21 +1072,21 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Repérage de l'escalier",
+        verbose_name=translate("Repérage de l'escalier"),
     )
     # Main courante
     entree_marches_main_courante = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Main courante",
+        verbose_name=translate("Main courante"),
     )
     # Rampe
     entree_marches_rampe = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        verbose_name="Rampe",
+        verbose_name=translate("Rampe"),
         choices=schema.RAMPE_CHOICES,
     )
     # Système de guidage sonore  – oui / non / inconnu
@@ -1086,18 +1094,18 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_balise_sonore"),
-        verbose_name="Présence d'une balise sonore",
+        verbose_name=translate("Présence d'une balise sonore"),
     )
     # Dispositif d’appel
     entree_dispositif_appel = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_dispositif_appel"),
-        verbose_name="Dispositif d'appel",
+        verbose_name=translate("Dispositif d'appel"),
     )
     entree_dispositif_appel_type = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.DISPOSITIFS_APPEL_CHOICES),
-        verbose_name="Dispositifs d'appel disponibles",
+        verbose_name=translate("Dispositifs d'appel disponibles"),
         default=list,
         null=True,
         blank=True,
@@ -1106,20 +1114,20 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_aide_humaine"),
-        verbose_name="Aide humaine",
+        verbose_name=translate("Aide humaine"),
     )
     entree_ascenseur = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_ascenseur"),
-        verbose_name="Ascenseur/élévateur",
+        verbose_name=translate("Ascenseur/élévateur"),
     )
 
     # Largeur minimale
     entree_largeur_mini = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
-        verbose_name="Largeur minimale",
+        verbose_name=translate("Largeur minimale"),
     )
 
     # Entrée spécifique PMR
@@ -1127,7 +1135,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("entree_pmr"),
-        verbose_name="Entrée spécifique PMR",
+        verbose_name=translate("Entrée spécifique PMR"),
     )
 
     # Informations sur l’entrée spécifique
@@ -1135,7 +1143,7 @@ class Accessibilite(models.Model):
         max_length=500,
         null=True,
         blank=True,
-        verbose_name="Infos entrée spécifique PMR",
+        verbose_name=translate("Infos entrée spécifique PMR"),
     )
 
     ###########
@@ -1146,7 +1154,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_visibilite"),
-        verbose_name="Visibilité directe de la zone d'accueil depuis l'entrée",
+        verbose_name=translate("Visibilité directe de la zone d'accueil depuis l'entrée"),
     )
 
     # Personnel d’accueil
@@ -1155,7 +1163,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.PERSONNELS_CHOICES,
-        verbose_name="Personnel d'accueil",
+        verbose_name=translate("Personnel d'accueil"),
     )
 
     # Audiodescription
@@ -1163,11 +1171,11 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_audiodescription_presence"),
-        verbose_name="Audiodescription",
+        verbose_name=translate("Audiodescription"),
     )
     accueil_audiodescription = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.AUDIODESCRIPTION_CHOICES),
-        verbose_name="Équipement(s) audiodescription",
+        verbose_name=translate("Équipement(s) audiodescription"),
         default=list,
         null=True,
         blank=True,
@@ -1178,13 +1186,13 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_equipements_malentendants_presence"),
-        verbose_name="Présence d'équipement(s) sourds/malentendants",
+        verbose_name=translate("Présence d'équipement(s) sourds/malentendants"),
     )
 
     # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES),
-        verbose_name="Équipement(s) sourd/malentendant",
+        verbose_name=translate("Équipement(s) sourd/malentendant"),
         default=list,
         null=True,
         blank=True,
@@ -1195,20 +1203,20 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Cheminement de plain pied",
+        verbose_name=translate("Cheminement de plain pied"),
     )
     # Présence de marches entre l’entrée et l’accueil – nombre entre 0 et >10
     accueil_cheminement_nombre_marches = models.PositiveSmallIntegerField(
         null=True,
         blank=True,
-        verbose_name="Nombre de marches",
+        verbose_name=translate("Nombre de marches"),
     )
     # Sens des marches de l'escalier
     accueil_cheminement_sens_marches = models.CharField(
         max_length=20,
         null=True,
         blank=True,
-        verbose_name="Sens de circulation de l'escalier",
+        verbose_name=translate("Sens de circulation de l'escalier"),
         choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l’escalier
@@ -1216,14 +1224,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_cheminement_reperage_marches"),
-        verbose_name="Repérage des marches ou de l’escalier",
+        verbose_name=translate("Repérage des marches ou de l’escalier"),
     )
     # Main courante
     accueil_cheminement_main_courante = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Main courante",
+        verbose_name=translate("Main courante"),
     )
     # Rampe – aucune / fixe / amovible / inconnu
     accueil_cheminement_rampe = models.CharField(
@@ -1231,14 +1239,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.RAMPE_CHOICES,
-        verbose_name="Rampe",
+        verbose_name=translate("Rampe"),
     )
     # Ascenseur / élévateur
     accueil_cheminement_ascenseur = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_cheminement_ascenseur"),
-        verbose_name="Ascenseur/élévateur",
+        verbose_name=translate("Ascenseur/élévateur"),
     )
 
     # Rétrécissement du cheminement
@@ -1246,7 +1254,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_retrecissement"),
-        verbose_name="Rétrécissement du cheminement",
+        verbose_name=translate("Rétrécissement du cheminement"),
     )
 
     ##############
@@ -1256,14 +1264,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("sanitaires_presence"),
-        verbose_name="Sanitaires",
+        verbose_name=translate("Sanitaires"),
     )
 
     sanitaires_adaptes = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("sanitaires_adaptes"),
-        verbose_name="Nombre de sanitaires adaptés",
+        verbose_name=translate("Nombre de sanitaires adaptés"),
     )
 
     ##########
@@ -1271,14 +1279,14 @@ class Accessibilite(models.Model):
     ##########
     labels = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.LABEL_CHOICES),
-        verbose_name="Marques ou labels",
+        verbose_name=translate("Marques ou labels"),
         default=list,
         null=True,
         blank=True,
     )
     labels_familles_handicap = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.HANDICAP_CHOICES),
-        verbose_name="Famille(s) de handicap concernées(s)",
+        verbose_name=translate("Famille(s) de handicap concernées(s)"),
         default=list,
         null=True,
         blank=True,
@@ -1287,7 +1295,7 @@ class Accessibilite(models.Model):
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="Autre label",
+        verbose_name=translate("Autre label"),
     )
 
     #####################
@@ -1297,7 +1305,7 @@ class Accessibilite(models.Model):
         max_length=1000,
         null=True,
         blank=True,
-        verbose_name="Commentaire libre",
+        verbose_name=translate("Commentaire libre"),
     )
 
     ##########################
@@ -1307,7 +1315,7 @@ class Accessibilite(models.Model):
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="URL du registre",
+        verbose_name=translate("URL du registre"),
     )
 
     ##########################
@@ -1316,21 +1324,21 @@ class Accessibilite(models.Model):
     conformite = models.BooleanField(
         null=True,
         blank=True,
-        verbose_name="Conformité",
+        verbose_name=translate("Conformité"),
         choices=schema.get_field_choices("conformite"),
     )
 
-    completion_rate = models.PositiveIntegerField(default=0, verbose_name="Taux de complétion")
+    completion_rate = models.PositiveIntegerField(default=0, verbose_name=translate("Taux de complétion"))
 
     # Datetimes
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de création"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Dernière modification"))
 
     def __str__(self):
         if self.erp:
-            return f'Accessibilité de l\'établissement "{self.erp.nom}" ({self.erp.code_postal})'
+            return translate(f'Accessibilité de l\'établissement "{self.erp.nom}" ({self.erp.code_postal})')
         else:
-            return "Caractéristiques d'accessibilité de cet ERP"
+            return translate("Caractéristiques d'accessibilité de cet ERP")
 
     def __eq__(self, other):
         for field_name in schema.FIELDS:

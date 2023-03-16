@@ -2,16 +2,17 @@
 
 {% load a4a %}
 {% load crispy_forms_tags static %}
+{% load i18n %}
 
-{% block page_title %}{% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement{% endblock %}
-{% block contrib_title %}Ajouter les données d'accessibilité d'un établissement{% endblock %}
-{% block contrib_step %}<small>Étape 1 sur 7</small>{% endblock %}
-{% block contrib_subtitle %}L'établissement{% endblock %}
+{% block page_title %}{% if erp %}{% translate "Modifier un établissement" %}{% else %}{% translate "Ajouter un établissement" %}{% endif %}{% endblock %}
+{% block contrib_title %}{% translate "Ajouter les données d'accessibilité d'un établissement" %}{% endblock %}
+{% block contrib_step %}<small>{% translate "Étape 1 sur 7" %}</small>{% endblock %}
+{% block contrib_subtitle %}{% translate "L'établissement" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
   <h1 class="h3 mb-3">
-    Adresse de l'établissement
+    {% translate "Adresse de l'établissement" %}
   </h1>
 
   <form action="" method="POST" class="mb-4" novalidate>
@@ -23,7 +24,7 @@
     {% if form.non_field_errors %}
     <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      Attention, des erreurs ont été rencontrées.
+      {% translate "Attention, des erreurs ont été rencontrées." %}
       <ul class="my-1">
         {% for error in form.non_field_errors %}
         <li>{{ error }}</li>
@@ -40,7 +41,7 @@
       <div class="alert alert-warning">
         <p>
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-          Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie.
+          {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
         </p>
       </div>
       {% endif %}
@@ -77,9 +78,9 @@
 
             </div>
             <p class="text-left">
-              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">
+              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
                 <i aria-hidden="true" class="icon icon-pencil"></i>
-                Améliorez ces informations
+                {% translate "Améliorez ces informations" %}
               </a>
             </p>
           {% endfor %}
@@ -91,7 +92,7 @@
         <p class="mb-0">
           <button class="btn btn-primary" type="submit" name="force" value="1">
             <i aria-hidden="true" class="icon icon-pencil"></i>
-            Continuer ma saisie d'un nouvel établissement
+            {% translate "Continuer ma saisie d'un nouvel établissement" %}
           </button>
         </p>
         {% endif %}
@@ -169,13 +170,15 @@
     </div>
     {{ form.contact_url|as_crispy_field }}
 
-    <h3 class="h3 mb-3">Emplacement de l'établissement <span class="sr-only">cette étape de vérification de l'emplacement n'est pas obligatoire</span></h3>
+    <h3 class="h3 mb-3">{% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span></h3>
 
     <div aria-hidden="true" class="alert alert-info">
       <i class="icon icon-info-circled"></i>
+      {% blocktranslate %}
       Merci de bien vérifier la bonne géolocalisation de votre établissement sur
       la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte
       pour faire correspondre le pointeur central sur sa position précise.</strong>
+      {% endblocktranslate %}
     </div>
 
     {% if erp or external_erp %}

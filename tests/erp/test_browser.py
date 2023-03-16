@@ -946,8 +946,8 @@ def test_history_human_readable_diff(data, client):
 
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Vide"
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
-    assert get_entry("labels", a11y_diff)["old"] == "Vide"
-    assert get_entry("labels", a11y_diff)["new"] == "Destination pour Tous, Tourisme & Handicap"
+    assert str(get_entry("labels", a11y_diff)["old"]) == "Vide"
+    assert str(get_entry("labels", a11y_diff)["new"]) == "Destination pour Tous, Tourisme & Handicap"
 
 
 def test_contribution_flow_administrative_data(data, mock_geocode, client):
