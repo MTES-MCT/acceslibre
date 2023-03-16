@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext as translate
 
-from core import mattermost
 from stats.queries import get_count_challenge, get_erp_counts_histogram, get_stats_territoires, get_top_contributors
 
 
@@ -20,8 +20,8 @@ class GlobalStats(models.Model):
     top_contributors = models.JSONField(default=dict)
 
     class Meta:
-        verbose_name = "Statistiques"
-        verbose_name_plural = "Statistiques"
+        verbose_name = translate("Statistiques")
+        verbose_name_plural = translate("Statistiques")
 
     @classmethod
     def refresh_stats(cls):
@@ -42,8 +42,10 @@ class GlobalStats(models.Model):
 class Challenge(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="Créateur", on_delete=models.PROTECT)
-    nom = models.CharField(max_length=255, help_text="Nom du challenge")
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name=translate("Créateur"), on_delete=models.PROTECT
+    )
+    nom = models.CharField(max_length=255, help_text=translate("Nom du challenge"))
     accroche = models.TextField(null=True, blank=True)
     text_reserve = models.TextField(null=True, blank=True)
     objectif = models.TextField(null=True, blank=True)
@@ -51,11 +53,11 @@ class Challenge(models.Model):
         default="",
         unique=True,
         populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
+        help_text=translate("Identifiant d'URL (slug)"),
         max_length=255,
     )
-    start_date = models.DateTimeField(verbose_name="Date de début du challenge")
-    end_date = models.DateTimeField(verbose_name="Date de fin du challenge (inclus)")
+    start_date = models.DateTimeField(verbose_name=translate("Date de début du challenge"))
+    end_date = models.DateTimeField(verbose_name=translate("Date de fin du challenge (inclus)"))
     players = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         through="stats.ChallengePlayer",
@@ -68,8 +70,8 @@ class Challenge(models.Model):
 
     class Meta:
         ordering = ("nom",)
-        verbose_name = "Challenge"
-        verbose_name_plural = "Challenges"
+        verbose_name = translate("Challenge")
+        verbose_name_plural = translate("Challenges")
 
     def __str__(self):
         return self.nom
@@ -185,41 +187,40 @@ class Challenge(models.Model):
 
 
 class ChallengePlayer(models.Model):
-
     player = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        verbose_name="Joueur",
+        verbose_name=translate("Joueur"),
         on_delete=models.PROTECT,
         related_name="inscriptions",
     )
     challenge = models.ForeignKey(
         "stats.Challenge",
-        verbose_name="Challenge",
+        verbose_name=translate("Challenge"),
         on_delete=models.PROTECT,
         related_name="inscriptions",
     )
-    inscription_date = models.DateTimeField(verbose_name="Date d'inscription", auto_now_add=True)
+    inscription_date = models.DateTimeField(verbose_name=translate("Date d'inscription"), auto_now_add=True)
 
     class Meta:
         ordering = ("inscription_date",)
-        verbose_name = "Challenge Player"
-        verbose_name_plural = "Challenges Players"
+        verbose_name = translate("Challenge Player")
+        verbose_name_plural = translate("Challenges Players")
 
     def __str__(self):
         return f"{self.player} - {self.challenge}"
 
 
 class Referer(models.Model):
-    domain = models.URLField(help_text="Domaine du site réutilisateur", unique=True)
+    domain = models.URLField(help_text=translate("Domaine du site réutilisateur"), unique=True)
 
     date_notification_to_mattermost = models.DateTimeField(
-        null=True, verbose_name="Date de notification sur Mattermost ?"
+        null=True, verbose_name=translate("Date de notification sur Mattermost ?")
     )
 
     class Meta:
         ordering = ("-id",)
-        verbose_name = "Site réutilisateur"
-        verbose_name_plural = "Sites réutilisateur"
+        verbose_name = translate("Site réutilisateur")
+        verbose_name_plural = translate("Sites réutilisateur")
         indexes = [
             models.Index(fields=["domain"], name="domain_idx"),
         ]
@@ -227,37 +228,17 @@ class Referer(models.Model):
     def __str__(self):
         return self.domain
 
-    def notif_mattermost(self):
-        if self.date_notification_to_mattermost:
-            return
-        try:
-            mattermost.send(
-                "Nouveau Réutilisateur du Widget",
-                attachements=[
-                    {
-                        "pretext": "Un nouveau domaine a été détecté :thumbsup:",
-                        "text": f"- \n[Lien vers le réutilisateur]({self.domain})",
-                    }
-                ],
-                tags=[__name__],
-            )
-        except Exception as e:
-            raise e
-        else:
-            self.date_notification_to_mattermost = timezone.now()
-            self.save()
-
 
 class Implementation(models.Model):
     referer = models.ForeignKey(Referer, on_delete=models.CASCADE, related_name="implementations")
-    urlpath = models.URLField(help_text="Url complète", unique=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de détection de tracking")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Date de dernier contact")
+    urlpath = models.URLField(help_text=translate("Url complète"), unique=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de détection de tracking"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Date de dernier contact"))
 
     class Meta:
         ordering = ("-updated_at", "urlpath")
-        verbose_name = "Implémentation du Widget"
-        verbose_name_plural = "Implémentations du Widget"
+        verbose_name = translate("Implémentation du Widget")
+        verbose_name_plural = translate("Implémentations du Widget")
         indexes = [
             models.Index(fields=["referer"], name="referer_idx"),
             models.Index(fields=["urlpath"], name="urlpath_idx"),

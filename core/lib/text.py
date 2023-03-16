@@ -26,7 +26,7 @@ def contains_sequence_any(tests, source):
 def _humanize_map_choices(values, choices):
     labels = []
     for value in values:
-        labels.append(choices.get(value) if value in choices else str(value))
+        labels.append(str(choices.get(value)) if value in choices else str(value))
     return labels
 
 

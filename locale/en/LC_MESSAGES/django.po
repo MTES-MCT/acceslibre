@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-15 17:58+0100\n"
-"PO-Revision-Date: 2023-03-15 18:03+0009\n"
+"POT-Creation-Date: 2023-03-16 14:37+0100\n"
+"PO-Revision-Date: 2023-03-16 14:45+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -102,6 +102,110 @@ msgstr "You must confirm the deletion to make it effective."
 msgid "Adresse e-mail"
 msgstr "Email address"
 
+#: compte/models.py:14
+msgid "EmailToken"
+msgstr "EmailToken"
+
+#: compte/models.py:15
+msgid "EmailTokens"
+msgstr "EmailTokens"
+
+#: compte/models.py:23 compte/models.py:38 compte/models.py:63
+#: contact/models.py:49 erp/models.py:159 erp/models.py:309
+#: subscription/models.py:16
+msgid "Utilisateur"
+msgstr "User"
+
+#: compte/models.py:33
+msgid "UserPreferences"
+msgstr "UserPreferences"
+
+#: compte/models.py:34
+msgid "UsersPreferences"
+msgstr "UsersPreferences"
+
+#: compte/models.py:44
+msgid "Recevoir des mails de rappel de publication"
+msgstr "Receive publication reminder emails"
+
+#: compte/models.py:58
+msgid "UserStats"
+msgstr "UserStats"
+
+#: compte/models.py:59
+msgid "UsersStats"
+msgstr "UsersStats"
+
+#: contact/models.py:19
+msgid "Bug technique"
+msgstr "Technical bug"
+
+#: contact/models.py:20
+msgid "Problème de connexion"
+msgstr "Connection problem"
+
+#: contact/models.py:21
+msgid "Adresse non reconnue"
+msgstr "Address not recognized"
+
+#: contact/models.py:22
+msgid "Suppression d'un établissement"
+msgstr "Deletion of an establishment"
+
+#: contact/models.py:23
+#| msgid "Jeu de données"
+msgid "Prise de contact avec Acceslibre"
+msgstr "Contact with Acceslibre"
+
+#: contact/models.py:24 erp/models.py:368 templates/editorial/footer.html:50
+msgid "API"
+msgstr "API"
+
+#: contact/models.py:25
+#| msgid "Signaler un problème"
+msgid "Signaler une malveillance"
+msgstr "Report malicious intent"
+
+#: contact/models.py:26 templates/erp/includes/vaccination.html:8
+msgid "Vaccination"
+msgstr "Vaccination"
+
+#: contact/models.py:27 erp/schema.py:97
+msgid "Autre"
+msgstr "Other"
+
+#: contact/models.py:36
+msgid "Sujet"
+msgstr "Subject"
+
+#: contact/models.py:37
+msgid "Votre nom"
+msgstr "Your name"
+
+#: contact/models.py:40
+#| msgid "Adresse e-mail"
+msgid "Adresse email"
+msgstr "Email address"
+
+#: contact/models.py:45
+msgid "Message"
+msgstr "Message"
+
+#: contact/models.py:55
+msgid "Envoi OK"
+msgstr "Send OK"
+
+#: contact/models.py:58 erp/models.py:137 erp/models.py:161 erp/models.py:324
+#: erp/models.py:562 erp/models.py:1327 subscription/models.py:25
+msgid "Date de création"
+msgstr "Creation date"
+
+#: contact/models.py:59 erp/models.py:138 erp/models.py:162 erp/models.py:325
+#: erp/models.py:563 erp/models.py:1328 subscription/models.py:26
+#| msgid "Historique des modifications"
+msgid "Dernière modification"
+msgstr "Last modification"
+
 #: core/settings.py:235
 msgid "French"
 msgstr "French"
@@ -109,6 +213,1957 @@ msgstr "French"
 #: core/settings.py:236
 msgid "English"
 msgstr "English"
+
+#: erp/models.py:89 erp/models.py:471 erp/schema.py:1460
+#| msgid "Activité :"
+msgid "Activité"
+msgstr "Activity"
+
+#: erp/models.py:90
+#| msgid "Activité :"
+msgid "Activités"
+msgstr "Activities"
+
+#: erp/models.py:97
+#| msgid "Compte activé"
+msgid "Nom de l'activité"
+msgstr "Activity name"
+
+#: erp/models.py:102 erp/models.py:205 erp/models.py:464 stats/models.py:56
+msgid "Identifiant d'URL (slug)"
+msgstr "URL identifier (slug)"
+
+#: erp/models.py:106
+msgid "Mots-clés"
+msgstr "Keywords"
+
+#: erp/models.py:110
+msgid "Liste de mots-clés apparentés à cette activité"
+msgstr "List of keywords related to this activity"
+
+#: erp/models.py:116
+msgid "Icône"
+msgstr "Icon"
+
+#: erp/models.py:118
+msgid "Chemin de l'icône "
+msgstr "Icon path"
+
+#: erp/models.py:128
+msgid "Icône vectorielle"
+msgstr "Vector icon"
+
+#: erp/models.py:129
+msgid "Nom de l'icône dans"
+msgstr "Name of the icon in"
+
+#: erp/models.py:129
+msgid "le catalogue"
+msgstr "the catalog"
+
+#: erp/models.py:133
+msgid "Position dans la liste"
+msgstr "Position in list"
+
+#: erp/models.py:153 erp/models.py:304 erp/models.py:399 erp/models.py:822
+#: subscription/models.py:21
+#| msgid "établissement"
+msgid "Établissement"
+msgstr "Establishment"
+
+#: erp/models.py:154
+msgid "Nom suggéré pour l'activité"
+msgstr "Suggested name for the activity"
+
+#: erp/models.py:156
+#| msgid "Activité :"
+msgid "Activité attribuée"
+msgstr "Attributed activity"
+
+#: erp/models.py:165
+#, python-brace-format
+msgid "Suggestion d'activité : {self.name}"
+msgstr "Activity suggestion: {self.name}"
+
+#: erp/models.py:168
+msgid "Suggestion d'activité"
+msgstr "Activity suggestion"
+
+#: erp/models.py:169
+#| msgid "Compte activé"
+msgid "Suggestions d'activités"
+msgstr "Activities suggestions"
+
+#: erp/models.py:200
+msgid "Nom"
+msgstr "Name"
+
+#: erp/models.py:209
+msgid "Département"
+msgstr "Department"
+
+#: erp/models.py:210
+msgid "Codé sur deux ou trois caractères."
+msgstr "Coded on two or three characters."
+
+#: erp/models.py:214 erp/models.py:545
+msgid "Code INSEE"
+msgstr "INSEE code"
+
+#: erp/models.py:215 erp/models.py:546
+msgid "Code INSEE de la commune"
+msgstr "INSEE code of the commune"
+
+#: erp/models.py:220
+msgid "Superficie"
+msgstr "Area"
+
+#: erp/models.py:221
+msgid "Exprimée en hectares (ha)"
+msgstr "Expressed in hectares (ha)"
+
+#: erp/models.py:226
+msgid "Population"
+msgstr "Population"
+
+#: erp/models.py:227
+msgid "Nombre d'habitants estimé"
+msgstr "Estimated number of inhabitants"
+
+#: erp/models.py:230 erp/models.py:483
+msgid "Localisation"
+msgstr "Localisation"
+
+#: erp/models.py:231
+msgid "Coordonnées géographique du centre de la commune"
+msgstr "Geographical coordinates of the center of the municipality"
+
+#: erp/models.py:234
+msgid "Contour"
+msgstr "Outline"
+
+#: erp/models.py:235
+msgid "Contour de la commune"
+msgstr "Outline of the municipality"
+
+#: erp/models.py:240
+msgid "Codes postaux"
+msgstr "Postal codes"
+
+#: erp/models.py:242
+msgid "Liste des codes postaux de cette commune"
+msgstr "List of postal codes for this town"
+
+#: erp/models.py:245
+msgid "Arrondissement"
+msgstr "District"
+
+#: erp/models.py:247
+msgid "Cette commune est un arrondissement (Paris, Lyon, Marseille)"
+msgstr "This commune is an arrondissement (Paris, Lyon, Marseille)"
+
+#: erp/models.py:250
+msgid "Obsolète"
+msgstr "Obsolete"
+
+#: erp/models.py:252
+msgid ""
+"La commune est obsolète, par exemple suite à un regroupement ou un "
+"rattachement"
+msgstr ""
+"The commune is obsolete, for example following a regrouping or an attachment"
+
+#: erp/models.py:264
+msgid "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"
+msgstr "Only Paris, Lyon and Marseille can have districts"
+
+#: erp/models.py:313
+msgid "Valeur"
+msgstr "Value"
+
+#: erp/models.py:321 erp/schema.py:354
+#: templates/erp/includes/vote-form.html:26
+msgid "Commentaire"
+msgstr "Comment"
+
+#: erp/models.py:328
+#, python-brace-format
+msgid "Vote {self.value} de {self.user.username} pour {self.erp.nom}"
+msgstr "Vote {self.value} by {self.user.username} for {self.erp.nom}"
+
+#: erp/models.py:365
+msgid "Base de données Acceslibre"
+msgstr "Acceslibre database"
+
+#: erp/models.py:366
+msgid "Acceo"
+msgstr "Acceo"
+
+#: erp/models.py:367
+msgid "Back-office"
+msgstr "Back-office"
+
+#: erp/models.py:369
+msgid "API Entreprise (publique)"
+msgstr "API Entreprise (publique)"
+
+#: erp/models.py:370
+msgid "cconforme"
+msgstr "cconforme"
+
+#: erp/models.py:371
+msgid "Gendarmerie"
+msgstr "Gendarmerie"
+
+#: erp/models.py:372
+msgid "Lorient"
+msgstr "Lorient"
+
+#: erp/models.py:373
+msgid "Nestenn"
+msgstr "Nestenn"
+
+#: erp/models.py:374
+msgid "API OpenDataSoft"
+msgstr "API OpenDataSoft"
+
+#: erp/models.py:375
+msgid "Saisie manuelle publique"
+msgstr "Public manual entry"
+
+#: erp/models.py:376
+msgid "API des établissements publics"
+msgstr "API for public institutions"
+
+#: erp/models.py:377
+msgid "Sortir À Paris"
+msgstr "Sortir À Paris"
+
+#: erp/models.py:378
+msgid "Service Public"
+msgstr "Service Public"
+
+#: erp/models.py:379
+msgid "API Sirene INSEE"
+msgstr "INSEE Sirene API"
+
+#: erp/models.py:380 erp/schema.py:100
+msgid "Tourisme & Handicap"
+msgstr "Tourisme & Handicap"
+
+#: erp/models.py:381
+msgid "Questionnaires Typeform"
+msgstr "Typeform Questionnaires"
+
+#: erp/models.py:382
+msgid "Questionnaires Typeform Musée"
+msgstr "Typeform Museum Questionnaires"
+
+#: erp/models.py:383
+msgid "Centres de vaccination"
+msgstr "Vaccination centers"
+
+#: erp/models.py:384
+msgid "Dell"
+msgstr "Dell"
+
+#: erp/models.py:391
+msgid "Administration"
+msgstr "Administration"
+
+#: erp/models.py:392
+msgid "Gestionnaire"
+msgstr "Manager"
+
+#: erp/models.py:393
+msgid "Utilisateur public"
+msgstr "Public user"
+
+#: erp/models.py:394
+msgid "Système"
+msgstr "System"
+
+#: erp/models.py:400
+msgid "Établissements"
+msgstr "Establishments"
+
+#: erp/models.py:421
+msgid "Source"
+msgstr "Source"
+
+#: erp/models.py:424
+msgid "Nom de la source de données dont est issu cet ERP"
+msgstr "Name of the data source from which this ERP is derived"
+
+#: erp/models.py:429
+msgid "Source ID"
+msgstr "Source ID"
+
+#: erp/models.py:430
+msgid "Identifiant de l'ERP dans la source initiale de données"
+msgstr "ERP identifier in the initial data source"
+
+#: erp/models.py:435
+msgid "ASP ID"
+msgstr "ASP ID"
+
+#: erp/models.py:436
+msgid "Identifiant de l'ERP dans la base Service Public"
+msgstr "ERP identifier in the Service Public database"
+
+#: erp/models.py:441
+msgid "Contributeur"
+msgstr "Contributor"
+
+#: erp/models.py:447
+msgid "Profil de contributeur"
+msgstr "Contributor profile"
+
+#: erp/models.py:455
+#| msgid "Communes renseignées"
+msgid "Commune (relation)"
+msgstr "Municipality (relationship)"
+
+#: erp/models.py:456
+msgid "La commune de cet établissement"
+msgstr "The commune of this establishment"
+
+#: erp/models.py:459
+msgid "Nom de l'établissement ou de l'enseigne"
+msgstr "Name of the establishment or sign"
+
+#: erp/models.py:472
+msgid ""
+"Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres"
+" accentuées"
+msgstr ""
+"Field of activity of the ERP. Attention, the search is done on the accented "
+"letters"
+
+#: erp/models.py:477
+msgid "Publié"
+msgstr "Published"
+
+#: erp/models.py:478
+msgid ""
+"Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas"
+" listé publiquement"
+msgstr ""
+"Publication status of this ERP: if the box is unchecked, the ERP will not be"
+" listed publicly"
+
+#: erp/models.py:484
+msgid ""
+"Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)"
+msgstr "Geolocation (map refreshed after saving)"
+
+#: erp/models.py:491
+msgid "Fournisseur utilisé pour la géolocalisation"
+msgstr "Provider used for geolocation"
+
+#: erp/models.py:492
+msgid ""
+"Indique le fournisseur utilisé pour la géolocalisation de l'adresse de "
+"l'ERP."
+msgstr "Indicates the provider used for the geolocation of the ERP address."
+
+#: erp/models.py:498
+msgid "SIRET"
+msgstr "SIRET"
+
+#: erp/models.py:499
+msgid "Numéro SIRET si l'ERP est une entreprise"
+msgstr "SIRET number if the ERP is a company"
+
+#: erp/models.py:506
+msgid "Téléphone"
+msgstr "Phone number"
+
+#: erp/models.py:507
+msgid "Numéro de téléphone de l'ERP"
+msgstr "Phone number of the ERP"
+
+#: erp/models.py:513
+msgid "Adresse du site internet de l'ERP"
+msgstr "Website of the ERP"
+
+#: erp/models.py:519
+msgid "Courriel"
+msgstr "Email"
+
+#: erp/models.py:520
+msgid "Adresse email permettant de contacter l'ERP"
+msgstr "Email address to contact the ERP"
+
+#: erp/models.py:526
+msgid "Lien vers outil de contact"
+msgstr "Link to contact tool"
+
+#: erp/models.py:527
+msgid ""
+"Lien hypertexte permettant de contacter l'établissement (formulaire, "
+"chatbot, etc.)"
+msgstr "Hyperlink allowing to contact the establishment (form, chatbot, etc.)"
+
+#: erp/models.py:534
+msgid "Numéro"
+msgstr "Number"
+
+#: erp/models.py:535
+msgid "Numéro dans la voie, incluant le complément (BIS, TER, etc.)"
+msgstr "Number in the track, including the complement (BIS, TER, etc.)"
+
+#: erp/models.py:537
+msgid "Voie"
+msgstr "Street"
+
+#: erp/models.py:538
+msgid "Lieu dit"
+msgstr "Hamlet"
+
+#: erp/models.py:539
+msgid "Code postal"
+msgstr "Postal code"
+
+#: erp/models.py:540
+msgid "Nom de la commune"
+msgstr "Name of the municipality"
+
+#: erp/models.py:566
+msgid "Search vector"
+msgstr "Search vector"
+
+#: erp/models.py:572
+msgid "Email lié à l'import"
+msgstr "Email linked to the importation"
+
+#: erp/models.py:573
+msgid ""
+"Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP"
+msgstr "Email address to remind the user linked to the ERP import"
+
+#: erp/models.py:724
+msgid "Le code postal doit faire 5 caractères"
+msgstr "The postal code must be 5 characters long"
+
+#: erp/models.py:728
+msgid "Veuillez entrer une voie ou un lieu-dit"
+msgstr "Please enter a street or a hamlet"
+
+#: erp/models.py:747
+#, python-brace-format
+msgid "Commune {self.commune} introuvable, veuillez vérifier votre saisie."
+msgstr "Municipality {self.commune} not found, please check your entry."
+
+#: erp/models.py:756
+msgid "Ce numéro SIRET est invalide."
+msgstr "This SIRET number is invalid."
+
+#: erp/models.py:814 erp/models.py:815 templates/erp/index.html:8
+#: templates/erp/widget.html:230
+msgid "Accessibilité"
+msgstr "Accessibility"
+
+#: erp/models.py:823
+msgid "ERP"
+msgstr "ERP"
+
+#: erp/models.py:834
+msgid "Desserte par transports en commun"
+msgstr "Public transport access"
+
+#: erp/models.py:840
+msgid "Informations transports"
+msgstr "Transport information"
+
+#: erp/models.py:851
+msgid "Stationnement dans l'ERP"
+msgstr "Parking in the ERP"
+
+#: erp/models.py:857
+msgid "Stationnements PMR dans l'ERP"
+msgstr "PRM parking in the ERP"
+
+#: erp/models.py:865
+msgid "Stationnement à proximité de l'ERP"
+msgstr "Parking near the ERP"
+
+#: erp/models.py:871
+msgid "Stationnements PMR à proximité de l'ERP"
+msgstr "PRM parking near the ERP"
+
+#: erp/models.py:881
+msgid "Espace extérieur"
+msgstr "Outdoor space"
+
+#: erp/models.py:889
+msgid "Cheminement de plain-pied"
+msgstr "Level walkway"
+
+#: erp/models.py:896
+msgid "Terrain meuble ou accidenté"
+msgstr "Soft or uneven ground"
+
+#: erp/models.py:902 erp/models.py:1205 erp/schema.py:577 erp/schema.py:881
+#: erp/schema.py:1137
+msgid "Nombre de marches"
+msgstr "Number of steps"
+
+#: erp/models.py:909 erp/models.py:1060 erp/models.py:1212 erp/schema.py:593
+#: erp/schema.py:895 erp/schema.py:1151
+msgid "Sens de circulation de l'escalier"
+msgstr "Direction of the staircase"
+
+#: erp/models.py:917 erp/models.py:1220
+msgid "Repérage des marches ou de l’escalier"
+msgstr "Locating the steps or staircase"
+
+#: erp/models.py:924 erp/models.py:1075 erp/models.py:1227 erp/schema.py:627
+#: erp/schema.py:929 erp/schema.py:1185
+msgid "Main courante"
+msgstr "Handrail"
+
+#: erp/models.py:932 erp/models.py:1082 erp/models.py:1235 erp/schema.py:640
+#: erp/schema.py:942 erp/schema.py:1198
+msgid "Rampe"
+msgstr "Ramp"
+
+#: erp/models.py:939 erp/models.py:1116 erp/models.py:1242 erp/schema.py:562
+#: erp/schema.py:868 erp/schema.py:1124
+msgid "Ascenseur/élévateur"
+msgstr "Elevator"
+
+#: erp/models.py:947
+msgid "Pente présence"
+msgstr "Slope presence"
+
+#: erp/models.py:956 erp/schema.py:670 erp/schema.py:671
+msgid "Difficulté de la pente"
+msgstr "Difficulty of the slope"
+
+#: erp/models.py:965 erp/schema.py:681 erp/schema.py:682 erp/schema.py:683
+msgid "Longueur de la pente"
+msgstr "Length of the slope"
+
+#: erp/models.py:973 erp/schema.py:693
+msgid "Dévers"
+msgstr "Spill"
+
+#: erp/models.py:982 erp/schema.py:710
+msgid "Bande de guidage"
+msgstr "Guide band"
+
+#: erp/models.py:990 erp/models.py:1250
+msgid "Rétrécissement du cheminement"
+msgstr "Narrowing of the path"
+
+#: erp/models.py:1001 erp/schema.py:753
+msgid "Entrée facilement repérable"
+msgstr "Easily identifiable entrance"
+
+#: erp/models.py:1009
+msgid "Y a-t-il une porte ?"
+msgstr "Is there a door?"
+
+#: erp/models.py:1017
+msgid "Manœuvre de la porte"
+msgstr "Door operation"
+
+#: erp/models.py:1025 erp/schema.py:801 erp/schema.py:803 erp/schema.py:804
+msgid "Type de porte"
+msgstr "Type of door"
+
+#: erp/models.py:1033 erp/schema.py:814
+msgid "Entrée vitrée"
+msgstr "Glass entrance"
+
+#: erp/models.py:1039
+msgid "Vitrophanie"
+msgstr "Vitrophanie"
+
+#: erp/models.py:1047 erp/schema.py:848
+msgid "Entrée de plain-pied"
+msgstr "Ground level entrance"
+
+#: erp/models.py:1053
+msgid "Marches d'escalier"
+msgstr "Stair treads"
+
+#: erp/models.py:1068
+msgid "Repérage de l'escalier"
+msgstr "Staircase location"
+
+#: erp/models.py:1090
+msgid "Présence d'une balise sonore"
+msgstr "Presence of a sound beacon"
+
+#: erp/models.py:1097
+msgid "Dispositif d'appel"
+msgstr "Calling device"
+
+#: erp/models.py:1101
+msgid "Dispositifs d'appel disponibles"
+msgstr "Available calling devices"
+
+#: erp/models.py:1110 erp/schema.py:1010
+msgid "Aide humaine"
+msgstr "Human assistance"
+
+#: erp/models.py:1123
+msgid "Largeur minimale"
+msgstr "Minimum width"
+
+#: erp/models.py:1131 erp/schema.py:1043 erp/views.py:505
+msgid "Entrée spécifique PMR"
+msgstr "Specific PRM entrance"
+
+#: erp/models.py:1139
+#| msgid "Entrée spécifique PMR"
+msgid "Infos entrée spécifique PMR"
+msgstr "Information on specific PRM entrance"
+
+#: erp/models.py:1150
+msgid "Visibilité directe de la zone d'accueil depuis l'entrée"
+msgstr "Direct visibility of the reception area from the entrance"
+
+#: erp/models.py:1159 erp/schema.py:1235
+#| msgid "retournez à l'accueil"
+msgid "Personnel d'accueil"
+msgstr "Reception staff"
+
+#: erp/models.py:1167 erp/schema.py:1258
+msgid "Audiodescription"
+msgstr "Audiodescription"
+
+#: erp/models.py:1171
+msgid "Équipement(s) audiodescription"
+msgstr "Audiodescription equipment(s)"
+
+#: erp/models.py:1182
+msgid "Présence d'équipement(s) sourds/malentendants"
+msgstr "Presence of deaf/hard of hearing equipment(s)"
+
+#: erp/models.py:1188
+msgid "Équipement(s) sourd/malentendant"
+msgstr "Deaf/hard of hearing equipment(s)"
+
+#: erp/models.py:1199
+#| msgid "Chemin d’accès de plain pied"
+msgid "Cheminement de plain pied"
+msgstr "Level access road"
+
+#: erp/models.py:1260 erp/schema.py:1324
+#| msgid "Sanitaire adapté"
+msgid "Sanitaires"
+msgstr "Sanitary facilities"
+
+#: erp/models.py:1267
+#| msgid "Sanitaire adapté"
+msgid "Nombre de sanitaires adaptés"
+msgstr "Number of adapted toilets"
+
+#: erp/models.py:1275 erp/schema.py:1352
+msgid "Marques ou labels"
+msgstr "Brands or labels"
+
+#: erp/models.py:1282 erp/schema.py:1370
+msgid "Famille(s) de handicap concernées(s)"
+msgstr "Disability family(ies) concerned"
+
+#: erp/models.py:1291 erp/schema.py:1385
+msgid "Autre label"
+msgstr "Other label"
+
+#: erp/models.py:1301
+msgid "Commentaire libre"
+msgstr "Free comment"
+
+#: erp/models.py:1311
+msgid "URL du registre"
+msgstr "Registry URL"
+
+#: erp/models.py:1320 erp/schema.py:348 erp/schema.py:1442
+#| msgid "Confirmation"
+msgid "Conformité"
+msgstr "Compliance"
+
+#: erp/models.py:1324
+#| msgid "Taux de complétude"
+msgid "Taux de complétion"
+msgstr "Completion rate"
+
+#: erp/models.py:1332
+#, python-brace-format
+msgid ""
+"Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
+msgstr ""
+"Accessibility of the establishment \"{self.erp.nom}\" "
+"({self.erp.code_postal})"
+
+#: erp/models.py:1334
+msgid "Caractéristiques d'accessibilité de cet ERP"
+msgstr "Accessibility details of this ERP"
+
+#: erp/schema.py:9
+msgid "Inconnu"
+msgstr "Unknown"
+
+#: erp/schema.py:10
+msgid "Inconnu ou sans objet"
+msgstr "Unknown or not applicable"
+
+#: erp/schema.py:13 erp/schema.py:19 erp/schema.py:25
+#: templates/erp/includes/vote-form.html:8
+msgid "Oui"
+msgstr "Yes"
+
+#: erp/schema.py:14 erp/schema.py:20 erp/schema.py:26
+#| msgid "Nom"
+msgid "Non"
+msgstr "No"
+
+#: erp/schema.py:34
+msgid "Aucun"
+msgstr "None"
+
+#: erp/schema.py:35
+msgid "Léger"
+msgstr "Slight"
+
+#: erp/schema.py:36
+msgid "Important"
+msgstr "Important"
+
+#: erp/schema.py:47
+msgid "boucle à induction magnétique fixe"
+msgstr "fixed magnetic induction loop"
+
+#: erp/schema.py:48
+msgid "boucle à induction magnétique portative"
+msgstr "portable magnetic induction loop"
+
+#: erp/schema.py:49
+msgid "langue des signes française (LSF)"
+msgstr "French sign language (LSF)"
+
+#: erp/schema.py:50
+msgid "langue française parlée complétée (LFPC)"
+msgstr "Completed spoken French (LFPC)"
+
+#: erp/schema.py:51
+msgid "sous-titrage ou transcription simultanée"
+msgstr "subtitling or simultaneous transcription"
+
+#: erp/schema.py:52
+#| msgid "Autre"
+msgid "autres"
+msgstr "others"
+
+#: erp/schema.py:56
+msgid "Autres équipements non précisés"
+msgstr "Other unspecified equipment"
+
+#: erp/schema.py:58
+msgid ""
+"La boucle à induction magnétique (BIM) permet d'entendre une source sonore "
+"en s'affranchissant de la distance (salles de spectacles), du bruit ambiant "
+"(lieux publics), des phénomènes d'échos ou de réverbérations sonores "
+"(églises, salles aux murs nus), des déformations apportées par les écouteurs"
+" (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma)."
+msgstr ""
+"The magnetic induction loop (MIR) allows you to hear a sound source without "
+"the distance (auditoriums), ambient noise (public places), echoes or sound "
+"reverberations (churches, rooms with bare walls), distortions caused by "
+"headphones (telephones, MP3) or speakers (television, radio, cinema)."
+
+#: erp/schema.py:61
+msgid ""
+"La boucle magnétique portative (BMP) est un système de transmission du son "
+"individuel"
+msgstr ""
+"The portable magnetic loop (PML) is a system of individual sound "
+"transmission"
+
+#: erp/schema.py:64
+msgid ""
+"La langue des signes française (LSF) est la langue des signes utilisée par "
+"une partie des sourds de France et par une partie des sourds de Suisse."
+msgstr ""
+"French Sign Language (LSF) is the sign language used by some of the deaf "
+"people in France and some of the deaf people in Switzerland."
+
+#: erp/schema.py:66
+msgid "Langue Française Parlée Complétée (LFPC)"
+msgstr "Completed French Language (LFPC)"
+
+#: erp/schema.py:68
+msgid ""
+"Service de communication, à distance et en temps réel, entre entendants et "
+"malentendants ou sourds, par sous-titrage ou transcription TIP "
+"(Transcription Instantanée de la Parole)."
+msgstr ""
+"Service of communication, at a distance and in real time, between hearing "
+"and hard of hearing or deaf people, by subtitling or IST transcription "
+"(Instant Speech Transcription)."
+
+#: erp/schema.py:77
+msgid "Handicap auditif"
+msgstr "Hearing disability"
+
+#: erp/schema.py:78
+msgid "Handicap mental"
+msgstr "Mental disability"
+
+#: erp/schema.py:79
+msgid "Handicap moteur"
+msgstr "Motor disability"
+
+#: erp/schema.py:80
+msgid "Handicap visuel"
+msgstr "Visual disability"
+
+#: erp/schema.py:87
+msgid "Bouton d'appel"
+msgstr "Call button"
+
+#: erp/schema.py:88
+msgid "Interphone"
+msgstr "Intercom"
+
+#: erp/schema.py:89
+msgid "Visiophone"
+msgstr "Videophone"
+
+#: erp/schema.py:98
+msgid "Destination pour Tous"
+msgstr "Destination pour Tous"
+
+#: erp/schema.py:99
+msgid "Mobalib"
+msgstr "Mobalib"
+
+#: erp/schema.py:106
+msgid "Légère"
+msgstr "Slight"
+
+#: erp/schema.py:107
+msgid "Importante"
+msgstr "Important"
+
+#: erp/schema.py:115
+msgid "< 0,5 mètres"
+msgstr "< 0.5 meters"
+
+#: erp/schema.py:116
+msgid "entre 0,5 et 2 mètres"
+msgstr "between 0.5 and 2 meters"
+
+#: erp/schema.py:117
+msgid "> 2 mètres"
+msgstr "> 2 meters"
+
+#: erp/schema.py:125 erp/views.py:526
+msgid "Aucun personnel"
+msgstr "No staff"
+
+#: erp/schema.py:126
+#| msgid "Personnel sensibilisé / formé"
+msgid "Personnels sensibilisés ou formés"
+msgstr "Staff sensitized or trained"
+
+#: erp/schema.py:127
+#| msgid "Personnel non formé"
+msgid "Personnels non-formés"
+msgstr "Untrained staff"
+
+#: erp/schema.py:138
+msgid "avec équipement permanent, casques et boîtiers disponibles à l’accueil"
+msgstr ""
+"with permanent equipment, helmets and boxes available at the reception"
+
+#: erp/schema.py:142
+msgid ""
+"avec équipement permanent nécessitant le téléchargement d'une application "
+"sur smartphone"
+msgstr ""
+"with permanent equipment requiring the download of a smartphone application"
+
+#: erp/schema.py:147
+msgid ""
+"sans équipement, audiodescription audible par toute la salle (selon la "
+"programmation)"
+msgstr ""
+"without equipment, audiodescription audible to the whole room (depending on "
+"programming)"
+
+#: erp/schema.py:153
+msgid "Avec équipement permanent, casques et boîtiers disponibles à l’accueil"
+msgstr ""
+"With permanent equipment, helmets and boxes available at the reception"
+
+#: erp/schema.py:157
+msgid ""
+"Avec équipement permanent nécessitant le téléchargement d'une application "
+"sur smartphone"
+msgstr ""
+"With permanent equipment requiring the download of a smartphone application"
+
+#: erp/schema.py:162
+msgid ""
+"Sans équipement, audiodescription audible par toute la salle (selon la "
+"programmation)"
+msgstr ""
+"Without equipment, audiodescription audible to the whole room (depending on "
+"programming)"
+
+#: erp/schema.py:169
+msgid "Manuelle"
+msgstr "Manual"
+
+#: erp/schema.py:170
+#| msgid "Saisie automatique"
+msgid "Automatique"
+msgstr "Automatic"
+
+#: erp/schema.py:179
+msgid "Porte battante"
+msgstr "Swing door"
+
+#: erp/schema.py:180
+#| msgid "Partager des connaissances"
+msgid "Porte coulissante"
+msgstr "Sliding door"
+
+#: erp/schema.py:181
+msgid "Tourniquet"
+msgstr "Turnstile"
+
+#: erp/schema.py:182
+msgid "Porte tambour"
+msgstr "Drum door"
+
+#: erp/schema.py:191
+msgid "Aucune"
+msgstr "None"
+
+#: erp/schema.py:192
+msgid "Fixe"
+msgstr "Fixed"
+
+#: erp/schema.py:193
+msgid "Amovible"
+msgstr "Removable"
+
+#: erp/schema.py:200
+msgid "Montant"
+msgstr "Ascendant"
+
+#: erp/schema.py:201
+msgid "Descendant"
+msgstr "Descendant"
+
+#: erp/schema.py:214
+msgid "Direction Générale des Entreprises"
+msgstr "Direction Générale des Entreprises"
+
+#: erp/schema.py:222
+msgid "La RSE Positive"
+msgstr "Positive CSR"
+
+#: erp/schema.py:230
+msgid "Mobalib, l'expert du handicap"
+msgstr "Mobalib, the disability expert"
+
+#: erp/schema.py:238
+#| msgid "Informations d'accessibilité"
+msgid "Expert en données d'accessibilité"
+msgstr "Accessibility data expert"
+
+#: erp/schema.py:246
+#| msgid "Informations d'accessibilité"
+msgid "Bureau d'étude accessibilité"
+msgstr "Accessibility study office"
+
+#: erp/schema.py:254
+msgid "L'assistant accessible à tous"
+msgstr "The assistant accessible to all"
+
+#: erp/schema.py:262
+#| msgid ""
+#| "Sortiraparis.com est le 1er média d'actualité Sorties en France, source "
+#| "Médiamétrie Global."
+msgid "Premier média d'actualité Sorties en France"
+msgstr "First news media about outing in France"
+
+#: erp/schema.py:270
+msgid "Groupe d'agences immobilières"
+msgstr "Group of real estate agencies"
+
+#: erp/schema.py:278
+msgid "Notre vocation est de vous conseiller et de vous accompagner"
+msgstr "Our vocation is to advise and accompany you"
+
+#: erp/schema.py:287
+msgid ""
+"Confédération regroupant une vingtaine des principales associations de "
+"déficients visuels"
+msgstr ""
+"Confederation of about twenty of the main associations of visually impaired "
+"people"
+
+#: erp/schema.py:297
+msgid "association d'aide aux personnes déficientes visuelles"
+msgstr "association for the visually impaired"
+
+#: erp/schema.py:317 templates/contrib/includes/nav.html:21
+#: templates/contrib/includes/nav.html:68
+#: templates/contrib/includes/nav.html:70
+msgid "Accès"
+msgstr "Access"
+
+#: erp/schema.py:318
+msgid "à proximité"
+msgstr "near"
+
+#: erp/schema.py:323 erp/schema.py:498
+msgid "Chemin extérieur"
+msgstr "Exterior path"
+
+#: erp/schema.py:324
+msgid "depuis la voirie jusqu'à l'entrée"
+msgstr "from the road to the entrance"
+
+#: erp/schema.py:329 templates/contrib/includes/nav.html:31
+#: templates/contrib/includes/nav.html:84
+#: templates/contrib/includes/nav.html:86
+msgid "Entrée"
+msgstr "Entrance"
+
+#: erp/schema.py:330
+msgid "de l'établissement"
+msgstr "of the establishment"
+
+#. Translators: This is for reception, not for home
+#: erp/schema.py:336
+msgid "Accueil - Réception"
+msgstr "Reception"
+
+#: erp/schema.py:337
+msgid "et prestations"
+msgstr "and benefits"
+
+#: erp/schema.py:342 erp/schema.py:1424
+msgid "Registre"
+msgstr "Registry"
+
+#: erp/schema.py:343
+msgid "d'accessibilité de l'établissement"
+msgstr "accessibility of the establishment"
+
+#: erp/schema.py:349
+msgid "à la règlementation"
+msgstr "to the regulation"
+
+#: erp/schema.py:355
+#| msgid "Informations complémentaires"
+msgid "et informations complémentaires"
+msgstr "and additional information"
+
+#: erp/schema.py:369
+#| msgid "Transport en commun"
+msgid "Proximité d'un arrêt de transport en commun"
+msgstr "Proximity to a public transportation stop"
+
+#: erp/schema.py:372
+msgid ""
+"Existe-t-il un arrêt de transport en commun à moins de 200 mètres de "
+"l'établissement&nbsp;?"
+msgstr ""
+"Is there a public transportation stop within 200 meters of the facility?"
+
+#: erp/schema.py:375
+msgid "Arrêt de transport en commun à moins de 200 mètres de l'établissement"
+msgstr "Public transportation stops within 200 meters of the facility"
+
+#: erp/schema.py:377
+msgid ""
+"Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
+msgstr "No public transportation stops within 200 meters of the facility"
+
+#: erp/schema.py:389 templates/contrib/includes/nav.html:41
+#: templates/contrib/includes/nav.html:101
+#: templates/contrib/includes/nav.html:103
+msgid "Informations complémentaires"
+msgstr "Additional information"
+
+#: erp/schema.py:392
+msgid ""
+"Préciser ici les informations supplémentaires sur ces transports (type de "
+"transport, ligne, nom de l'arrêt, etc) et éventuellement des informations "
+"jugées importantes sur le chemin qui relie le point d'arrêt à "
+"l'établissement."
+msgstr ""
+"Specify here additional information about these transports (type of "
+"transport, line, name of the stop, etc.) and possibly information deemed "
+"important about the route from the stop to the facility."
+
+#: erp/schema.py:395 erp/schema.py:396
+#| msgid "Informations d'accessibilité"
+msgid "Informations sur l'accessibilité par les transports en commun"
+msgstr "Information on accessibility by public transport"
+
+#: erp/schema.py:409
+msgid "Stationnement dans l'établissement"
+msgstr "Parking in the establishment"
+
+#: erp/schema.py:412
+msgid ""
+"Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou"
+" au sein de la parcelle de l'établissement&nbsp;?"
+msgstr ""
+"Is there one or more parking spaces in the facility or within the facility "
+"grounds?"
+
+#: erp/schema.py:416
+msgid ""
+"Des places de stationnement sont disponibles au sein de la parcelle de "
+"l'établissement"
+msgstr "Parking is available within the facility's grounds"
+
+#: erp/schema.py:419
+msgid ""
+"Pas de place de stationnement disponible au sein de la parcelle de "
+"l'établissement"
+msgstr "No parking spaces available within the facility's grounds"
+
+#: erp/schema.py:431
+msgid "Stationnements adaptés dans l'établissement"
+msgstr "Adapted parkings in the establishment"
+
+#: erp/schema.py:434
+msgid ""
+"Existe-t-il une ou plusieurs places de stationnement adaptées dans "
+"l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
+msgstr ""
+"Is there one or more adapted parking spaces in the facility or within the "
+"facility grounds?"
+
+#: erp/schema.py:438
+msgid ""
+"Des places de stationnement adaptées sont disponibles au sein de la parcelle"
+" de l'établissement"
+msgstr "Adapted parking spaces are available within the facility's grounds"
+
+#: erp/schema.py:441
+msgid ""
+"Pas de place de stationnement disponible adaptée au sein de la parcelle de "
+"l'établissement"
+msgstr "No suitable parking space available within the facility's grounds"
+
+#: erp/schema.py:453
+msgid "Stationnement à proximité de l'établissement"
+msgstr "Parking near the establishment"
+
+#: erp/schema.py:456
+msgid ""
+"Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking"
+" à moins de 200 mètres de l'établissement&nbsp;?"
+msgstr ""
+"Is there one or more on-street or off-street parking spaces within 200 "
+"meters of the facility?"
+
+#: erp/schema.py:460
+msgid ""
+"Des places de stationnement sont disponibles à moins de 200 mètres de "
+"l'établissement"
+msgstr "Parking is available within 200 meters of the facility"
+
+#: erp/schema.py:463
+msgid ""
+"Pas de place de stationnement disponible à moins de 200 mètres de "
+"l'établissement"
+msgstr "No parking space available within 200 meters of the facility"
+
+#: erp/schema.py:475
+msgid "Stationnements adaptés à proximité de l'établissement"
+msgstr "Adapted parking close to the establishment"
+
+#: erp/schema.py:478
+msgid ""
+"Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou "
+"en parking à moins de 200 mètres de l'établissement&nbsp;?"
+msgstr ""
+"Is there one or more adapted parking spaces on the road or in a parking lot "
+"within 200 meters of the establishment?"
+
+#: erp/schema.py:482
+msgid ""
+"Des places de stationnement adaptées sont disponibles à moins de 200 mètres "
+"de l'établissement"
+msgstr ""
+"Adapted parking spaces are available within 200 meters of the establishment"
+
+#: erp/schema.py:485
+msgid ""
+"Pas de place de stationnement disponible adaptée à moins de 200 mètres de "
+"l'établissement"
+msgstr "No suitable parking space available within 200 meters of the facility"
+
+#: erp/schema.py:501
+msgid ""
+"Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du "
+"bâtiment (exemple&nbsp;: une cour)&nbsp;?"
+msgstr ""
+"Is there an exterior path between the sidewalk and the main entrance of the "
+"building (example: a yard)?"
+
+#: erp/schema.py:504
+msgid "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur"
+msgstr "Access to the entrance from the road is via an outside path"
+
+#: erp/schema.py:506
+msgid ""
+"Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
+msgstr ""
+"No exterior path from the sidewalk to the main entrance of the building"
+
+#: erp/schema.py:518
+msgid "Revêtement extérieur"
+msgstr "Exterior cladding"
+
+#: erp/schema.py:521
+msgid ""
+"Le revêtement du chemin extérieur (entre le trottoir et l'entrée de "
+"l'établissement) est-il stable (sol roulable, absence de pavés ou de "
+"gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
+msgstr ""
+"Is the surface of the outside path (between the sidewalk and the entrance of"
+" the establishment) stable (rollable ground, no paving stones or gravel, no "
+"dirt or grass, etc.)?"
+
+#: erp/schema.py:525
+msgid ""
+"Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable,"
+" ou toute surface non stabilisée)"
+msgstr ""
+"The pavement is stable (no paving stones, gravel, dirt, grass, sand, or any "
+"unstabilized surface)"
+
+#: erp/schema.py:528
+msgid ""
+"Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou "
+"toute surface non stabilisée)"
+msgstr ""
+"The surface is not stable (paving stones, gravel, earth, grass, sand, or any"
+" other non-stabilized surface)"
+
+#: erp/schema.py:540
+msgid "Chemin extérieur de plain-pied"
+msgstr "Exterior walkway on one level"
+
+#: erp/schema.py:543
+msgid ""
+"Le chemin est-il de plain-pied, c'est-à-dire sans marche ni ressaut "
+"supérieur à 2 centimètres&nbsp;? Attention plain-pied ne signifie pas plat "
+"mais sans rupture brutale de niveau."
+msgstr ""
+"Is the path level, i.e. without any step or step greater than 2 centimeters?"
+" Be careful, level does not mean flat, but without a sudden break in level."
+
+#: erp/schema.py:547 erp/schema.py:1109
+msgid ""
+"L'accès à cet espace se fait de plain-pied, c'est à dire sans rupture "
+"brutale de niveau"
+msgstr ""
+"Access to this space is on the same level, i.e. without any sudden change in"
+" level"
+
+#: erp/schema.py:550 erp/schema.py:1112
+msgid ""
+"L'accès à cet espace n'est pas de plain-pied et présente une rupture brutale"
+" de niveau"
+msgstr ""
+"The access to this space is not on the same level and presents a brutal "
+"break in level"
+
+#: erp/schema.py:563 erp/schema.py:570 erp/schema.py:869 erp/schema.py:1125
+msgid "Existe-t-il un ascenseur ou un élévateur&nbsp;?"
+msgstr "Is there an elevator?"
+
+#: erp/schema.py:564 erp/schema.py:1126
+msgid "Présence d'un ascenseur ou un élévateur"
+msgstr "Presence of an elevator"
+
+#: erp/schema.py:565 erp/schema.py:871 erp/schema.py:1127
+msgid "Pas d'ascenseur ou d'élévateur"
+msgstr "No elevator"
+
+#: erp/schema.py:578 erp/schema.py:882 erp/schema.py:1138
+msgid "Indiquer 0 s'il n'y a ni marche ni escalier"
+msgstr "Indicate 0 if there are no steps nor stairs"
+
+#: erp/schema.py:579 erp/schema.py:883 erp/schema.py:1139
+msgid "Nombre de marches de l'escalier"
+msgstr "Number of steps of the staircase"
+
+#: erp/schema.py:580
+msgid "Aucune marche d'escalier"
+msgstr "No stairs"
+
+#: erp/schema.py:586
+msgid "Combien y'a t'il de marches&nbsp;?"
+msgstr "How many steps are there?"
+
+#: erp/schema.py:594 erp/schema.py:896 erp/schema.py:1152
+msgid "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
+msgstr "What is the direction of circulation of the steps or staircase?"
+
+#: erp/schema.py:595 erp/schema.py:596 erp/schema.py:897 erp/schema.py:898
+#: erp/schema.py:1153 erp/schema.py:1154
+msgid "Sens de circulation des marches ou de l'escalier"
+msgstr "Direction of movement of the steps or staircase"
+
+#: erp/schema.py:606
+msgid "Marches ou escalier sécurisé(es)"
+msgstr "Secure steps or staircase"
+
+#: erp/schema.py:609 erp/schema.py:911 erp/schema.py:1167
+msgid ""
+"L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à "
+"la vigilance en haut de l'escalier, première et dernière contremarches "
+"contrastées&nbsp;?"
+msgstr ""
+"Is the staircase safe: contrasting stair nosings, warning strips at the top "
+"of the stairs, contrasting first and last risers?"
+
+#: erp/schema.py:613 erp/schema.py:915
+msgid ""
+"Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en "
+"haut de l'escalier et/ou de première et dernière contremarches contrastées"
+msgstr ""
+"Presence of contrasting stair nosings, a warning strip at the top of the "
+"stairs and/or contrasting first and last risers"
+
+#: erp/schema.py:616 erp/schema.py:918 erp/schema.py:1174
+msgid ""
+"Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de "
+"l'escalier ni de première et dernière contremarches contrastées"
+msgstr ""
+"No contrasting stair nosing, warning strips at the top of the stairs or "
+"contrasting first and last risers"
+
+#: erp/schema.py:628 erp/schema.py:930 erp/schema.py:1186
+msgid "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
+msgstr "Is the staircase equipped with one or more handrails?"
+
+#: erp/schema.py:629 erp/schema.py:931 erp/schema.py:1187
+msgid "L'escalier est équipé d'une ou plusieurs main-courantes"
+msgstr "The staircase is equipped with one or more handrails"
+
+#: erp/schema.py:630 erp/schema.py:932 erp/schema.py:1188
+msgid "L'escalier n'est pas équipé de main-courante"
+msgstr "The staircase is not equipped with a handrail"
+
+#: erp/schema.py:642 erp/schema.py:944 erp/schema.py:1200
+msgid ""
+"S'il existe une rampe ayant une pente douce, est-elle fixe ou "
+"amovible&nbsp;?"
+msgstr "If there is a ramp with a gentle slope, is it fixed or removable?"
+
+#: erp/schema.py:644 erp/schema.py:946 erp/schema.py:1202
+msgid "Présence d'une rampe fixe ou amovible"
+msgstr "Presence of a fixed or removable ramp"
+
+#: erp/schema.py:645 erp/schema.py:947 erp/schema.py:1203
+msgid "Pas de rampe fixe ou amovible"
+msgstr "No fixed or removable ramps"
+
+#: erp/schema.py:655
+msgid "Pente"
+msgstr "Slope"
+
+#: erp/schema.py:656
+msgid "Le chemin est-il en pente&nbsp;?"
+msgstr "Is the path on a slope?"
+
+#: erp/schema.py:657
+msgid "Le chemin est en pente"
+msgstr "The path is on a slope"
+
+#: erp/schema.py:658
+msgid "Le chemin n'est pas en pente"
+msgstr "The path is not on a slope"
+
+#: erp/schema.py:668
+msgid "Degré de difficulté de la pente"
+msgstr "Degree of difficulty of the slope"
+
+#: erp/schema.py:669
+msgid "Quel est son degré de difficulté&nbsp;?"
+msgstr "What is its degree of difficulty?"
+
+#: erp/schema.py:696
+msgid ""
+"Un dévers est une inclinaison transversale du chemin. S'il en existe un, "
+"quel est son degré de difficulté&nbsp;?"
+msgstr ""
+"A slope is a transverse inclination of the path. If there is one, what is "
+"its degree of difficulty?"
+
+#: erp/schema.py:699
+msgid "Dévers ou inclinaison transversale du chemin"
+msgstr "Slope or cross slope of the road"
+
+#: erp/schema.py:700
+msgid "Pas de dévers ou d'inclinaison transversale du chemin"
+msgstr "No slope or cross slope of the path"
+
+#: erp/schema.py:713 erp/schema.py:717
+msgid ""
+"Présence d'une bande de guidage au sol facilitant le déplacement d'une "
+"personne aveugle ou malvoyante"
+msgstr ""
+"Presence of a guiding strip on the ground facilitating the movement of a "
+"blind or visually impaired person"
+
+#: erp/schema.py:720
+msgid ""
+"Pas de bande de guidage au sol facilitant le déplacement d'une personne "
+"aveugle ou malvoyante"
+msgstr ""
+"No guide strip on the floor to facilitate the movement of a blind or "
+"visually impaired person"
+
+#: erp/schema.py:731 erp/schema.py:1213
+msgid "Rétrécissement du chemin"
+msgstr "Narrowing of the path"
+
+#: erp/schema.py:734
+msgid ""
+"Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du "
+"chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
+msgstr ""
+"Is there a narrowing or narrowings (less than 90 centimeters) in the path "
+"used by the public to reach the entrance?"
+
+#: erp/schema.py:738
+msgid ""
+"Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour "
+"atteindre la zone d'accueil"
+msgstr ""
+"One or more narrowings of less than 90 centimeters in the path to the "
+"reception area"
+
+#: erp/schema.py:741 erp/schema.py:1223
+msgid ""
+"Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la"
+" zone d'accueil"
+msgstr ""
+"No narrowing of the path to the reception area by less than 90 centimeters"
+
+#: erp/schema.py:756
+msgid ""
+"Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement "
+"(numéro de rue à proximité, enseigne, végétaux, éléments architecturaux "
+"contrastés, etc)&nbsp;?"
+msgstr ""
+"Are there elements that facilitate the identification of the entrance to the"
+" establishment (street number nearby, sign, vegetation, contrasting "
+"architectural elements, etc.)?"
+
+#: erp/schema.py:759
+msgid "L'entrée de l'établissement est facilement repérable"
+msgstr "The entrance to the facility is easily identifiable"
+
+#: erp/schema.py:761
+msgid ""
+"Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro"
+" de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés,"
+" etc)"
+msgstr ""
+"No elements that facilitate the identification of the entrance to the "
+"establishment (street number nearby, sign, vegetation, contrasting "
+"architectural elements, etc.)"
+
+#: erp/schema.py:773
+msgid "Y a-t-il une porte ?"
+msgstr "Is there a door?"
+
+#: erp/schema.py:774
+msgid "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
+msgstr "Is there a door at the entrance of the establishment?"
+
+#: erp/schema.py:775
+msgid "Présence d'une porte à l'entrée de l'établissement"
+msgstr "Presence of a door at the entrance of the establishment"
+
+#: erp/schema.py:776
+msgid "Pas de porte à l'entrée de l'établissement"
+msgstr "No door at the entrance of the establishment"
+
+#: erp/schema.py:788
+msgid "Manoeuvre de la porte"
+msgstr "Operating the door"
+
+#: erp/schema.py:789
+msgid "Comment s'ouvre la porte&nbsp;?"
+msgstr "How does the door open?"
+
+#: erp/schema.py:790 erp/schema.py:791
+msgid "Mode d'ouverture de la porte"
+msgstr "Door opening mode"
+
+#: erp/schema.py:802
+msgid "Quel est le type de la porte&nbsp;?"
+msgstr "What is the type of door?"
+
+#: erp/schema.py:815
+msgid "La porte d'entrée est-elle vitrée&nbsp;?"
+msgstr "Is the front door glazed?"
+
+#: erp/schema.py:816
+msgid "La porte d'entrée est vitrée"
+msgstr "The front door is glazed"
+
+#: erp/schema.py:817
+msgid "La porte d'entrée n'est pas vitrée"
+msgstr "The front door is not glazed"
+
+#: erp/schema.py:827
+msgid "Repérage de la vitre"
+msgstr "Locating the glass"
+
+#: erp/schema.py:830
+msgid ""
+"Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou "
+"autres) permettant de repérer la porte vitrée&nbsp;?"
+msgstr ""
+"Are there any contrasting elements (stickers, woodwork or other elements) to"
+" identify the glass door?"
+
+#: erp/schema.py:834
+msgid ""
+"Des éléments contrastés permettent de visualiser les parties vitrées de "
+"l'entrée"
+msgstr ""
+"Contrasting elements make it possible to visualize the glass parts of the "
+"entrance"
+
+#: erp/schema.py:837
+msgid ""
+"Pas d'éléments contrastés permettant de visualiser les parties vitrées de "
+"l'entrée"
+msgstr "No contrasting elements to visualize the glass parts of the entrance"
+
+#: erp/schema.py:851
+msgid ""
+"L'entrée est-elle de plain-pied, c'est-à-dire sans marche ni ressaut "
+"supérieur à 2 centimètres&nbsp;?"
+msgstr ""
+"Is the entrance level, i.e. without steps or a step greater than 2 "
+"centimeters?"
+
+#: erp/schema.py:854
+msgid ""
+"L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau"
+msgstr ""
+"The entrance is on the same level, that is to say, without a sudden break in"
+" level"
+
+#: erp/schema.py:856
+msgid ""
+"L'entrée n'est pas de plain-pied et présente une rupture brutale de niveau"
+msgstr ""
+"The entrance is not on the same level and presents a brutal break in level"
+
+#: erp/schema.py:870
+msgid "Présence d'un ascenseur ou d'un élévateur"
+msgstr "Presence of an elevator"
+
+#: erp/schema.py:884 erp/schema.py:1140
+msgid "Pas de marches d'escalier"
+msgstr "No stairs"
+
+#: erp/schema.py:908
+msgid "Repérage des marches"
+msgstr "Marking of the steps"
+
+#: erp/schema.py:957
+msgid "Dispositif d'appel à l'entrée"
+msgstr "Calling device at the entrance"
+
+#: erp/schema.py:960
+msgid ""
+"Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à "
+"l'entrée&nbsp;?"
+msgstr ""
+"Is there a device to allow someone to signal their presence at the entrance?"
+
+#: erp/schema.py:963
+msgid "Présence d'un dispositif comme une sonnette pour signaler sa présence"
+msgstr "Presence of a device such as a bell to signal its presence"
+
+#: erp/schema.py:964
+msgid "Pas de dispositif comme une sonnette pour signaler sa présence"
+msgstr "No device such as a doorbell to signal its presence"
+
+#: erp/schema.py:975
+msgid "Type de dispositif d'appel à l'entrée"
+msgstr "Type of call device at the entrance"
+
+#: erp/schema.py:976
+msgid "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
+msgstr "What type(s) of calling devices are present?"
+
+#: erp/schema.py:977 erp/schema.py:978
+msgid "Dispositifs d'appels présents"
+msgstr "Calling devices present"
+
+#: erp/schema.py:988
+msgid "Balise sonore à l'entrée"
+msgstr "Sound beacon at the entrance"
+
+#: erp/schema.py:991
+msgid ""
+"L'entrée est-elle équipée d'une balise sonore facilitant son repérage par "
+"une personne aveugle ou malvoyante&nbsp;?"
+msgstr ""
+"Is the entrance equipped with an audible beacon to facilitate its location "
+"by a blind or visually impaired person?"
+
+#: erp/schema.py:995
+msgid ""
+"Présence d'une balise sonore facilitant son repérage par une personne "
+"aveugle ou malvoyante"
+msgstr ""
+"Presence of an audible beacon to facilitate its location by a blind or "
+"visually impaired person"
+
+#: erp/schema.py:998
+msgid ""
+"Pas de balise sonore facilitant son repérage par une personne aveugle ou "
+"malvoyante"
+msgstr ""
+"No audible beacon to facilitate its location by a blind or visually impaired"
+" person"
+
+#: erp/schema.py:1011
+msgid "Présence ou possibilité d'une aide humaine au déplacement"
+msgstr "Presence or possibility of a human assistance to move"
+
+#: erp/schema.py:1012
+msgid "Possibilité d'une aide humaine au déplacement"
+msgstr "Possibility of human assistance to move"
+
+#: erp/schema.py:1013
+msgid "Pas de possibilité d'aide humaine au déplacement"
+msgstr "No possibility of human assistance to move"
+
+#: erp/schema.py:1024
+msgid "Largeur de la porte"
+msgstr "Width of the door"
+
+#: erp/schema.py:1027
+msgid ""
+"Si la largeur n'est pas précisément connue, indiquer une valeur minimum. "
+"Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; "
+"indiquer 90."
+msgstr ""
+"If the width is not precisely known, indicate a minimum value. Example: the "
+"width is between 90 and 100 centimeters; indicate 90."
+
+#: erp/schema.py:1030 erp/schema.py:1031
+msgid "Largeur minimale de la porte d'entrée"
+msgstr "Minimum width of the entrance door"
+
+#: erp/schema.py:1046
+msgid ""
+"Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité"
+" réduite&nbsp;?"
+msgstr ""
+"Is there a specific secondary entrance for people with reduced mobility?"
+
+#: erp/schema.py:1050
+msgid ""
+"Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité "
+"réduite"
+msgstr ""
+"Presence of a specific secondary entrance dedicated to people with reduced "
+"mobility"
+
+#: erp/schema.py:1053
+msgid ""
+"Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
+msgstr "No specific secondary entrance for people with reduced mobility"
+
+#: erp/schema.py:1065
+msgid "Informations complémentaires concernant l'entrée PMR"
+msgstr "Additional information about the PRM entrance"
+
+#: erp/schema.py:1066 erp/schema.py:1067 erp/schema.py:1068
+msgid "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
+msgstr "Details on how to access the specific PRM entrance"
+
+#: erp/schema.py:1080
+msgid "Visibilité de la zone d'accueil"
+msgstr "Visibility of the reception area"
+
+#: erp/schema.py:1083
+msgid ""
+"La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle "
+"visible depuis l'entrée du bâtiment&nbsp;?"
+msgstr ""
+"Is the reception area (reception desk, cashier, secretary, etc.) visible "
+"from the building entrance?"
+
+#: erp/schema.py:1087
+msgid ""
+"La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible "
+"depuis l'entrée du bâtiment"
+msgstr ""
+"The reception area (reception desk, cash desk, secretariat, etc.) is visible"
+" from the building entrance"
+
+#: erp/schema.py:1090
+msgid ""
+"La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) n'est pas "
+"visible depuis l'entrée du bâtiment"
+msgstr ""
+"The reception area (reception desk, cash desk, secretariat, etc.) is not "
+"visible from the building entrance"
+
+#: erp/schema.py:1102
+msgid ""
+"Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement"
+msgstr ""
+"Pathway between the main entrance of the building and the reception of the "
+"establishment"
+
+#: erp/schema.py:1105
+msgid ""
+"Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de "
+"l'établissement est t-il de plain-pied, c'est-à-dire sans marche ni ressaut "
+"supérieur à 2 centimètres&nbsp;? (attention, plain-pied ne signifie pas plat"
+" mais sans rupture brutale de niveau)"
+msgstr ""
+"Once you have entered the building, is the path to the reception of the "
+"establishment level, i.e. without any step or step greater than 2 "
+"centimeters? (attention, level does not mean flat, but without a sudden "
+"break in level)"
+
+#: erp/schema.py:1164
+msgid "Repérage des marches ou de l'escalier"
+msgstr "Locating the steps or staircase"
+
+#: erp/schema.py:1171
+msgid ""
+"Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier"
+" et/ou première et dernière contremarches contrastées"
+msgstr ""
+"Contrasting stair nosings, warning strips at the top of the stairs and/or "
+"contrasting first and last risers"
+
+#: erp/schema.py:1216
+msgid ""
+"Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du "
+"chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
+msgstr ""
+"Are there one or more narrowings (less than 90 centimeters) in the path used"
+" by the public to reach the reception area?"
+
+#: erp/schema.py:1220
+msgid ""
+"Présence d'un ou plusieurs rétrécissements inférieurs à 90 centimètres du "
+"chemin pour atteindre la zone d'accueil"
+msgstr ""
+"Presence of one or more narrowings of less than 90 centimeters in the path "
+"to the reception area"
+
+#: erp/schema.py:1238
+msgid ""
+"En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des"
+" personnes handicapées&nbsp;?"
+msgstr ""
+"If the staff is present, are they trained or aware of how to welcome people "
+"with disabilities?"
+
+#: erp/schema.py:1241
+msgid "Personnel à l'accueil des personnes handicapées"
+msgstr "Staff for the reception of disabled people"
+
+#: erp/schema.py:1242
+msgid "Aucun personnel à l'accueil des personnes handicapées"
+msgstr "No staff for the reception of disabled people"
+
+#: erp/schema.py:1259
+msgid "L'établissement propose-t-il de l’audiodescription&nbsp?"
+msgstr "Does the establishment offer audiodescription?"
+
+#: erp/schema.py:1260
+msgid "L'établissement propose l'audiodescription."
+msgstr "The establishment offers audio description."
+
+#: erp/schema.py:1261
+msgid "L'établissement ne propose pas l’audiodescription"
+msgstr "The establishment does not offer audio description"
+
+#: erp/schema.py:1272
+msgid "Type d'équipements pour l'audiodescription"
+msgstr "Type of equipment for audio description"
+
+#: erp/schema.py:1273 erp/schema.py:1274
+msgid "Équipements disponibles"
+msgstr "Available equipment"
+
+#: erp/schema.py:1284
+msgid "Présence d'équipements d'aide à l'audition et à la communication"
+msgstr "Presence of hearing and communication aids"
+
+#: erp/schema.py:1287
+msgid ""
+"L'accueil est-il équipé de produits ou prestations dédiés aux personnes "
+"sourdes ou malentendantes&nbsp?"
+msgstr ""
+"Is the reception area equipped with products or services dedicated to the "
+"deaf or hard of hearing?"
+
+#: erp/schema.py:1291
+msgid ""
+"Présence de produits ou prestations dédiés aux personnes sourdes ou "
+"malentendantes"
+msgstr ""
+"Presence of products or services dedicated to deaf or hard of hearing people"
+
+#: erp/schema.py:1294
+msgid ""
+"Pas de produits ou prestations dédiés aux personnes sourdes ou "
+"malentendantes"
+msgstr "No products or services dedicated to the deaf or hard of hearing"
+
+#: erp/schema.py:1306
+msgid "Liste des équipements d'aide à l'audition et à la communication"
+msgstr "List of hearing and communication aids"
+
+#: erp/schema.py:1309
+msgid ""
+"Sélectionnez les équipements ou prestations disponibles à l'accueil de "
+"l'établissement&nbsp;:"
+msgstr ""
+"Select the equipment or services available at the reception of the "
+"establishment:"
+
+#: erp/schema.py:1312 erp/schema.py:1313
+msgid "Équipements ou prestations disponibles"
+msgstr "Equipment or services available"
+
+#: erp/schema.py:1325
+msgid "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
+msgstr "Are there any sanitary facilities available to the public?"
+
+#: erp/schema.py:1326
+msgid "Des sanitaires sont mis à disposition dans l'établissement"
+msgstr "Sanitary facilities are available in the establishment"
+
+#: erp/schema.py:1327
+msgid "Pas de sanitaires mis à disposition dans l'établissement"
+msgstr "No sanitary facilities provided in the facility"
+
+#: erp/schema.py:1338
+msgid "Sanitaires adaptés"
+msgstr "Adapted sanitary facilities"
+
+#: erp/schema.py:1339
+msgid "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
+msgstr "Are there adapted sanitary facilities available to the public?"
+
+#: erp/schema.py:1340
+msgid "Des sanitaires adaptés sont mis à disposition dans l'établissement"
+msgstr "Adapted sanitary facilities are available in the establishment"
+
+#: erp/schema.py:1341
+msgid "Aucun sanitaire adapté mis à disposition dans l'établissement"
+msgstr "No adapted sanitary facilities available in the establishment"
+
+#: erp/schema.py:1355
+msgid ""
+"Si l'établissement est entré dans une démarche volontaire de labellisation "
+"liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
+msgstr ""
+"If the establishment has entered into a voluntary process of labelling "
+"related to disability, which mark or label has it obtained?"
+
+#: erp/schema.py:1358 erp/schema.py:1359
+msgid "Marque(s) ou label(s) obtenus par l'établissement"
+msgstr "Mark(s) or label(s) obtained by the establishment"
+
+#: erp/schema.py:1372
+msgid ""
+"Quelle(s) famille(s) de handicap sont couvertes par ces marques et "
+"labels&nbsp;?"
+msgstr "Which disability family(ies) are covered by these brands and labels?"
+
+#: erp/schema.py:1374 erp/schema.py:1375
+msgid "Famille(s) de handicap couverte(s) par ces marques ou labels"
+msgstr "Disability family(ies) covered by these brands or labels"
+
+#: erp/schema.py:1386
+msgid "Si autre, préciser le nom du label"
+msgstr "If other, specify the name of the label"
+
+#: erp/schema.py:1387 erp/schema.py:1388
+msgid "Autre marque ou label obtenus"
+msgstr "Other brand or label obtained"
+
+#: erp/schema.py:1403
+msgid ""
+"Ajoutez ici toute information supplémentaire concernant l'accessibilité du "
+"bâtiment ou des prestations spécifiques proposées."
+msgstr ""
+"Add here any additional information regarding the accessibility of the "
+"building or specific services offered."
+
+#: erp/schema.py:1407 erp/schema.py:1410
+msgid ""
+"Informations supplémentaires concernant l'accessibilité du bâtiment ou des "
+"prestations spécifiques proposées"
+msgstr ""
+"Additional information about the accessibility of the building or specific "
+"services offered"
+
+#: erp/schema.py:1427
+#, python-brace-format
+msgid ""
+"Si l'établissement en dispose, adresse internet (URL) à laquelle le <a "
+"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">registre d'accessibilité</a> "
+"de l'établissement est consultable."
+msgstr ""
+"If available, internet address (URL) at which the <a "
+"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">accessibility registry</a> of"
+" the facility is searchable."
+
+#: erp/schema.py:1430 erp/schema.py:1431
+msgid "Adresse internet à laquelle le registre est consultable"
+msgstr "Internet address where the register can be consulted"
+
+#: erp/schema.py:1444
+msgid "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
+msgstr "Is the facility declared compliant (for administration use only)"
+
+#: erp/schema.py:1446
+msgid "L'établissement a été déclaré conforme à la réglementation"
+msgstr "The establishment has been declared compliant with the regulations"
+
+#: erp/schema.py:1448
+msgid ""
+"l'établissement n'a pas été déclaré conforme à la réglementation auprès de "
+"l'administration"
+msgstr ""
+"the establishment has not been declared to the administration as compliant "
+"with the regulations"
+
+#: erp/schema.py:1461 erp/schema.py:1462 erp/schema.py:1463
+msgid "Domaine d'activité de l'ERP"
+msgstr "Field of activity of the ERP"
 
 #: erp/views.py:120
 msgid "Vous participez déjà à un autre challenge."
@@ -191,14 +2246,6 @@ msgstr ""
 "\n"
 "Human help possible"
 
-#: erp/views.py:505
-msgid "Entrée spécifique PMR"
-msgstr "Specific PRM entrance"
-
-#: erp/views.py:526
-msgid "Aucun personnel"
-msgstr "No staff"
-
 #: erp/views.py:528
 msgid "Personnel non formé"
 msgstr "Untrained staff"
@@ -242,6 +2289,88 @@ msgstr ""
 #: erp/views.py:1100
 msgid "Les données ont été sauvegardées."
 msgstr "The data has been saved."
+
+#: stats/models.py:23 stats/models.py:24 templates/editorial/footer.html:41
+#: templates/stats/index.html:6
+msgid "Statistiques"
+msgstr "Statistics"
+
+#: stats/models.py:46
+msgid "Créateur"
+msgstr "Creator"
+
+#: stats/models.py:48
+msgid "Nom du challenge"
+msgstr "Challenge name"
+
+#: stats/models.py:59
+msgid "Date de début du challenge"
+msgstr "Start date of the challenge"
+
+#: stats/models.py:60
+msgid "Date de fin du challenge (inclus)"
+msgstr "End date of the challenge (included)"
+
+#: stats/models.py:73 stats/models.py:199
+msgid "Challenge"
+msgstr "Challenge"
+
+#: stats/models.py:74 templates/editorial/footer.html:38
+#: templates/stats/index.html:90
+msgid "Challenges"
+msgstr "Challenges"
+
+#: stats/models.py:193
+msgid "Joueur"
+msgstr "Player"
+
+#: stats/models.py:203
+msgid "Date d'inscription"
+msgstr "Date of registration"
+
+#: stats/models.py:207
+msgid "Challenge Player"
+msgstr "Challenge Player"
+
+#: stats/models.py:208
+msgid "Challenges Players"
+msgstr "Challenges Players"
+
+#: stats/models.py:215
+msgid "Domaine du site réutilisateur"
+msgstr "Domain of the reusing site"
+
+#: stats/models.py:218
+msgid "Date de notification sur Mattermost ?"
+msgstr "Date of notification on Mattermost ?"
+
+#: stats/models.py:223
+msgid "Site réutilisateur"
+msgstr "Reuse site"
+
+#: stats/models.py:224
+msgid "Sites réutilisateur"
+msgstr "Reuse sites"
+
+#: stats/models.py:235
+msgid "Url complète"
+msgstr "Complete URL"
+
+#: stats/models.py:236
+msgid "Date de détection de tracking"
+msgstr "Date of tracking detection"
+
+#: stats/models.py:237
+msgid "Date de dernier contact"
+msgstr "Date of last contact"
+
+#: stats/models.py:241
+msgid "Implémentation du Widget"
+msgstr "Widget implementation"
+
+#: stats/models.py:242
+msgid "Implémentations du Widget"
+msgstr "Widget implementations"
 
 #: templates/403.html:6
 msgid "Accès restreint"
@@ -347,7 +2476,8 @@ msgstr ""
 
 #: templates/annuaire/index.html:43 templates/communes.html:42
 #: templates/contrib/0-start.html:6
-#: templates/contrib/0a-search_results.html:44 templates/index.html:222
+#: templates/contrib/0a-search_results.html:44
+#: templates/contrib/1-admin-infos.html:7 templates/index.html:222
 msgid "Ajouter un établissement"
 msgstr "Add an establishment"
 
@@ -380,17 +2510,15 @@ msgid "Derniers établissements renseignés"
 msgstr "Latest establishments filled in"
 
 #: templates/contrib/0-start.html:7
-#, fuzzy
-#| msgid "Découvrez l'accessibilité de l'établissement"
 msgid "Partager les données d'accessibilité d'un établissement"
-msgstr "Discover the accessibility of the establishment"
+msgstr "Share accessibility data for a facility"
 
-#: templates/contrib/0-start.html:8
+#: templates/contrib/0-start.html:8 templates/contrib/1-admin-infos.html:9
 msgid "Étape 1 sur 7"
 msgstr "Step 1 of 7"
 
 #: templates/contrib/0-start.html:9 templates/contrib/0a-search_results.html:8
-#| msgid "établissement"
+#: templates/contrib/1-admin-infos.html:10
 msgid "L'établissement"
 msgstr "The establishment"
 
@@ -405,10 +2533,8 @@ msgstr ""
 " add a facility.</a>"
 
 #: templates/contrib/0-start.html:28
-#, fuzzy
-#| msgid "contributeur"
 msgid "La charte du contributeur"
-msgstr "contributor"
+msgstr "The contributor's charter"
 
 #: templates/contrib/0-start.html:33
 msgid "N'aie pas peur"
@@ -450,15 +2576,13 @@ msgid "1 nouveau lieu à visiter pour 12 millions de personnes"
 msgstr "1 new place to visit for 12 million people"
 
 #: templates/contrib/0a-search_results.html:6
-#| msgid "Ajouter un établissement"
 msgid "Rechercher un établissement"
 msgstr "Search for an establishment"
 
 #: templates/contrib/0a-search_results.html:7
-#, fuzzy
-#| msgid "Découvrez l'accessibilité de l'établissement"
+#: templates/contrib/1-admin-infos.html:8
 msgid "Ajouter les données d'accessibilité d'un établissement"
-msgstr "Discover the accessibility of the establishment"
+msgstr "Add accessibility data for an establishment"
 
 #: templates/contrib/0a-search_results.html:15
 #: templates/search/results.html:22
@@ -466,7 +2590,6 @@ msgid "Votre recherche"
 msgstr "Your search"
 
 #: templates/contrib/0a-search_results.html:18
-#| msgid "Aucun résultat"
 msgid "résultat"
 msgstr "result"
 
@@ -475,7 +2598,6 @@ msgid "L'établissement ne figure pas dans la liste."
 msgstr "The institution is not listed."
 
 #: templates/contrib/0a-search_results.html:39
-#| msgid "Il n'y a pas de résultat correspondant à votre recherche"
 msgid "Il n'y a pas de résultat correspondant à votre recherche."
 msgstr "There are no results matching your search"
 
@@ -484,32 +2606,113 @@ msgstr "There are no results matching your search"
 msgid "Nouvelle recherche"
 msgstr "New search"
 
+#: templates/contrib/1-admin-infos.html:7
+msgid "Modifier un établissement"
+msgstr "Edit an establishment"
+
+#: templates/contrib/1-admin-infos.html:15
+msgid "Adresse de l'établissement"
+msgstr "Address of the establishment"
+
+#: templates/contrib/1-admin-infos.html:27
+msgid "Attention, des erreurs ont été rencontrées."
+msgstr "Warning, errors have been encountered."
+
+#: templates/contrib/1-admin-infos.html:44
+msgid ""
+"Des établissements correspondant à votre saisie sont déjà présents sur "
+"acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne "
+"figure pas dans la liste ci-dessous avant de poursuivre la saisie."
+msgstr ""
+"Institutions corresponding to your entry are already present on acceslibre. "
+"Make sure that the school you want to add is not in the list below before "
+"continuing."
+
+#: templates/contrib/1-admin-infos.html:83
+#: templates/erp/includes/sidebar.html:26
+msgid "Améliorez ces informations"
+msgstr "Improve this information"
+
+#: templates/contrib/1-admin-infos.html:95
+msgid "Continuer ma saisie d'un nouvel établissement"
+msgstr "Continue my entry of a new establishment"
+
+#: templates/contrib/1-admin-infos.html:173
+msgid "Emplacement de l'établissement"
+msgstr "Location of the establishment"
+
+#: templates/contrib/1-admin-infos.html:173
+msgid "cette étape de vérification de l'emplacement n'est pas obligatoire"
+msgstr "this location verification step is not mandatory"
+
+#: templates/contrib/1-admin-infos.html:177
+msgid ""
+"\n"
+"      Merci de bien vérifier la bonne géolocalisation de votre établissement sur\n"
+"      la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte\n"
+"      pour faire correspondre le pointeur central sur sa position précise.</strong>\n"
+"      "
+msgstr ""
+"\n"
+"Please check the correct geolocation of your establishment on the\n"
+"the map below. <strong>You can refine the location by moving the map\n"
+"to match the center pointer to its precise location.</strong>"
+
+#: templates/contrib/2-a-propos.html:7 templates/contrib/2-a-propos.html:11
+msgid "A propos de vous"
+msgstr "About you"
+
+#: templates/contrib/2-a-propos.html:7
+msgid "acceslibre"
+msgstr "acceslibre"
+
+#: templates/contrib/2-a-propos.html:9 templates/contrib/3-transport.html:7
+msgid "{{ erp.nom }} de {{ erp.commune_ext }}"
+msgstr "{{ erp.nom }} of {{ erp.commune_ext }}"
+
+#: templates/contrib/2-a-propos.html:10
+msgid "Étape 2 sur 7"
+msgstr "Step 2 of 7"
+
+#: templates/contrib/3-transport.html:5
+msgid "Venir dans l'établissement"
+msgstr "Coming to the establishment"
+
+#: templates/contrib/3-transport.html:8
+msgid "Étape 3 sur 7"
+msgstr "Step 3 of 7"
+
+#: templates/contrib/3-transport.html:9
+msgid "Informations d'accessibilité"
+msgstr "Accessibility information"
+
+#: templates/contrib/3-transport.html:13
+msgid "Transport en commun"
+msgstr "Public transportation"
+
+#: templates/contrib/3-transport.html:16
+msgid "Stationnement"
+msgstr "Parking"
+
 #: templates/contrib/forms/global_form.html:7
-#, fuzzy
-#| msgid "Statistiques"
 msgid "Saisie automatique"
-msgstr "Statistics"
+msgstr "Automatic input"
 
 #: templates/contrib/forms/global_form.html:21 templates/search/form.html:61
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr "Allow me to obtain my geographical location"
 
 #: templates/contrib/forms/global_form.html:26
-#, fuzzy
-#| msgid "Ajouter un établissement"
 msgid "Trouver l'établissement"
-msgstr "Add an establishment"
+msgstr "Find the establishment"
 
 #: templates/contrib/includes/nav.html:4
-#, fuzzy
-#| msgid "Vaccination"
 msgid "Navigation"
-msgstr "Vaccination"
+msgstr "Navigation"
 
 #: templates/contrib/includes/nav.html:9
 #: templates/contrib/includes/nav.html:50
 #: templates/contrib/includes/nav.html:52
-#| msgid "Confirmation"
 msgid "Informations"
 msgstr "Informations"
 
@@ -519,23 +2722,11 @@ msgstr "Informations"
 msgid "À propos"
 msgstr "About"
 
-#: templates/contrib/includes/nav.html:21
-#: templates/contrib/includes/nav.html:68
-#: templates/contrib/includes/nav.html:70
-msgid "Accès"
-msgstr "Access"
-
 #: templates/contrib/includes/nav.html:26
 #: templates/contrib/includes/nav.html:76
 #: templates/contrib/includes/nav.html:78
 msgid "Extérieur"
 msgstr "Exterior"
-
-#: templates/contrib/includes/nav.html:31
-#: templates/contrib/includes/nav.html:84
-#: templates/contrib/includes/nav.html:86
-msgid "Entrée"
-msgstr "Entrance"
 
 #: templates/contrib/includes/nav.html:36
 #: templates/contrib/includes/nav.html:92
@@ -543,26 +2734,15 @@ msgstr "Entrance"
 msgid "Accueil"
 msgstr "Home"
 
-#: templates/contrib/includes/nav.html:41
-#: templates/contrib/includes/nav.html:101
-#: templates/contrib/includes/nav.html:103
-#, fuzzy
-#| msgid "Informations initialement fournies"
-msgid "Informations complémentaires"
-msgstr "Information initially provided"
-
 #: templates/contrib/includes/prevnext.html:3
-#, fuzzy
-#| msgid "suivez notre guide de contribution"
 msgid "Parcours de contribution"
-msgstr "follow our contribution guide"
+msgstr "Contribution path"
 
 #: templates/contrib/includes/prevnext.html:6
 msgid "Précédent"
 msgstr "Previous"
 
 #: templates/contrib/includes/prevnext.html:9
-#| msgid "Contribuer"
 msgid "Continuer"
 msgstr "Continue"
 
@@ -575,17 +2755,14 @@ msgid "Publier"
 msgstr "Publish"
 
 #: templates/contrib/includes/prevnext.html:19
-#| msgid "Retour à la fiche"
 msgid "Revenir à la fiche"
 msgstr "Back to the record"
 
 #: templates/contrib/includes/result_search_erps.html:43
-#| msgid "Ajouter un établissement"
 msgid "Ajouter cet établissement"
 msgstr "Add this establishment"
 
 #: templates/contrib/includes/result_search_erps.html:47
-#| msgid "Je gère cet établissement"
 msgid "Voir cet établissement"
 msgstr "View this establishment"
 
@@ -801,14 +2978,6 @@ msgstr "Accessibility: partially compliant"
 msgid "Partenaires"
 msgstr "Partners"
 
-#: templates/editorial/footer.html:38 templates/stats/index.html:90
-msgid "Challenges"
-msgstr "Challenges"
-
-#: templates/editorial/footer.html:41 templates/stats/index.html:6
-msgid "Statistiques"
-msgstr "Statistics"
-
 #: templates/editorial/footer.html:44
 msgid "Jeu de données"
 msgstr "Data set"
@@ -816,10 +2985,6 @@ msgstr "Data set"
 #: templates/editorial/footer.html:47
 msgid "Schéma"
 msgstr "Schema"
-
-#: templates/editorial/footer.html:50
-msgid "API"
-msgstr "API"
 
 #: templates/editorial/footer.html:53
 msgid "Documentation technique"
@@ -1216,10 +3381,6 @@ msgstr ""
 "If the description of this establishment's accessibility is incomplete or "
 "inaccurate, help improve it."
 
-#: templates/erp/includes/sidebar.html:26
-msgid "Améliorez ces informations"
-msgstr "Improve this information"
-
 #: templates/erp/includes/sidebar.html:30
 msgid "Signaler un problème"
 msgstr "Report a problem"
@@ -1317,10 +3478,6 @@ msgstr "Successfully copied"
 msgid "Une erreur s\\'est produite lors de la copie."
 msgstr "An error occurred while copying."
 
-#: templates/erp/includes/vaccination.html:8
-msgid "Vaccination"
-msgstr "Vaccination"
-
 #: templates/erp/includes/vaccination.html:14
 msgid ""
 "Nous ne disposons d'aucune information sur les modalités de vaccination pour"
@@ -1369,10 +3526,6 @@ msgstr "Is this information reliable?"
 msgid "Vous devez vous connecter pour voter"
 msgstr "You must login to vote"
 
-#: templates/erp/includes/vote-form.html:8
-msgid "Oui"
-msgstr "Yes"
-
 #: templates/erp/includes/vote-form.html:10
 msgid "oui"
 msgstr "yes"
@@ -1381,10 +3534,6 @@ msgstr "yes"
 #: templates/erp/includes/vote-form.html:21
 msgid "non"
 msgstr "no"
-
-#: templates/erp/includes/vote-form.html:26
-msgid "Commentaire"
-msgstr "Comment"
 
 #: templates/erp/includes/vote-form.html:28
 msgid ""
@@ -1404,10 +3553,6 @@ msgstr "Cancel"
 #: templates/erp/includes/vote-form.html:50
 msgid "Connectez-vous pour pouvoir voter"
 msgstr "Log in to vote"
-
-#: templates/erp/index.html:8 templates/erp/widget.html:230
-msgid "Accessibilité"
-msgstr "Accessibility"
 
 #: templates/erp/index.html:10
 msgid "Découvrez l'accessibilité de l'établissement"
@@ -1988,7 +4133,7 @@ msgid ""
 "Liste des %(nb_territoires)s communes de 5000 habitants ou plus, classées "
 "par"
 msgstr ""
-"List of %(nb_territories)s municipalities with 5000 or more inhabitants, "
+"List of %(nb_territoires)s municipalities with 5000 or more inhabitants, "
 "sorted by"
 
 #: templates/stats/includes/territoires_table.html:4
@@ -2113,7 +4258,3 @@ msgstr "Back to general statistics"
 #~ msgstr ""
 #~ "\n"
 #~ "published establishment on %(SITE_NAME|title)s"
-
-#, fuzzy
-#~ msgid "ou de nous"
-#~ msgstr "For the good of all"
