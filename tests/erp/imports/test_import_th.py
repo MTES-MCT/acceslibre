@@ -20,7 +20,7 @@ def test_import_th():
         activite=activite,
     )
     Accessibilite(erp=erp_flagged_to_keep, labels=["th"], labels_familles_handicap=["auditif"]).save()
-    # 1 ERP previously flagged T&H, should loose its flag
+    # 1 ERP previously flagged T&H, should loose its flag and been deleted
     erp_flagged_to_loose = Erp.objects.create(
         nom="Nom",
         numero="2",
@@ -43,15 +43,14 @@ def test_import_th():
     cm = Command()
     call_command(cm, file="data/tests/import_th.csv")
 
-    for erp in (erp_flagged_to_keep, erp_flagged_to_loose, erp_newly_flagged):
+    for erp in (erp_flagged_to_keep, erp_newly_flagged):
         erp.refresh_from_db()
+
+    assert not Erp.objects.filter(pk=erp_flagged_to_loose.pk).exists()
 
     assert erp_flagged_to_keep.accessibilite.labels == ["th"]
     assert len(erp_flagged_to_keep.accessibilite.labels_familles_handicap) == 2
     assert set(erp_flagged_to_keep.accessibilite.labels_familles_handicap) == set(["moteur", "mental"])
-
-    assert erp_flagged_to_loose.accessibilite.labels == ["mobalib"]
-    assert erp_flagged_to_loose.accessibilite.labels_familles_handicap == []
 
     assert len(erp_newly_flagged.accessibilite.labels) == 2
     assert set(erp_newly_flagged.accessibilite.labels) == set(["th", "mobalib"])

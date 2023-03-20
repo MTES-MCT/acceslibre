@@ -93,10 +93,11 @@ class Command(BaseCommand):
                 return serializer.save()
             raise err
 
-        existing = Erp.objects.find_existing_matches(entry["nom"], serializer._geom).first()
-        if existing:
-            print("Found in DB, same name within 200m")
-            return existing
+        if serializer._geom:
+            existing = Erp.objects.find_existing_matches(entry["nom"], serializer._geom).first()
+            if existing:
+                print("Found in DB, same name within 200m")
+                return existing
 
         print("Not found in DB, creating it.")
         return serializer.save()

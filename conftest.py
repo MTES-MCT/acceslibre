@@ -41,7 +41,7 @@ def mock_geocode(request, mocker):
         voie = " ".join(numero_voie[1:])
 
         return {
-            "geom": Point((3, 43)),
+            "geom": Point((3, 43), srid=4326),
             "numero": numero,
             "voie": voie.capitalize(),
             "lieu_dit": None,
