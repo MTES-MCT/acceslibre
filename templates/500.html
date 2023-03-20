@@ -11,10 +11,10 @@
   <div class="my-4">
     <img class="w-50" src="{% static 'img/undraw_server_down.svg' %}" aria-hidden="true">
   </div>
-  <p>{% translate "Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
+  <p>{% blocktranslate %}Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
     requête. L'erreur a vraisemblablement déjà été automatiquement notifiée
     à l'équipe technique, qui s'efforcera de corriger le problème dans les plus
-    brefs délais." %}
+    brefs délais.{% endblocktranslate %}
   </p>
   {% url 'home' as url_home %}
   {% url 'contact_topic' topic='bug' as url_contact_bug %}
