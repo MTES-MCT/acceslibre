@@ -62,6 +62,7 @@ django-redis = "*"
 # END NOTE
 pandas = "*"
 django-maintenance-mode = "*"
+djangorestframework-api-key = "*"
 
 [requires]
 python_version = "3.10"   # can be upgraded to 3.11 once supported by scalingo https://doc.scalingo.com/languages/python/start#supported-versions

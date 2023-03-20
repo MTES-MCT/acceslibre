@@ -102,6 +102,7 @@ INSTALLED_APPS = [
     "logentry_admin",
     "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
     "rest_framework",
+    "rest_framework_api_key",
     "rest_framework_gis",
     "crispy_forms",
     "waffle",
