@@ -116,7 +116,7 @@ jobs:
 
 workflows:
   version: 2
-  worflow:
+  workflow:
     jobs:
       - checks
       - tests
