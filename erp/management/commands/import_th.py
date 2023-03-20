@@ -10,6 +10,7 @@ from rest_framework.exceptions import ValidationError
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Activite, Erp
+from erp.tasks import compute_access_completion_rate
 
 VALEURS_VIDES = ["-", "https://", "http://"]
 
@@ -72,6 +73,7 @@ class Command(BaseCommand):
         ).first()
 
         if existing:
+            print("Found in DB, same activity & address")
             return existing
 
         serializer = ErpImportSerializer(data=entry)
@@ -87,8 +89,16 @@ class Command(BaseCommand):
                 )
                 serializer = ErpImportSerializer(instance=existing, data=entry)
                 serializer.is_valid(raise_exception=True)
-            else:
-                raise err
+                print("Found in DB, duplicated; same activity & address, after normalisation")
+                return serializer.save()
+            raise err
+
+        existing = Erp.objects.find_existing_matches(entry["nom"], serializer._geom).first()
+        if existing:
+            print("Found in DB, same name within 200m")
+            return existing
+
+        print("Not found in DB, creating it.")
         return serializer.save()
 
     def handle(self, *args, **options):
@@ -155,4 +165,10 @@ class Command(BaseCommand):
             access.labels.remove("th")
             access.labels_familles_handicap = []
             access.save()
-            print(f"ERP#{erp.pk} has no TH labels anymore nor families")
+            compute_access_completion_rate(access.pk)
+            access.refresh_from_db()
+            if access.completion_rate <= 4:
+                erp.delete()
+                print(f"ERP#{erp.pk} has been deleted from our DB")
+            else:
+                print(f"ERP#{erp.pk} has no TH labels anymore nor families")
