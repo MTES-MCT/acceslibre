@@ -1,8 +1,9 @@
 {% extends "contrib/base_access_form.html" %}
 
 {% load a4a %}
+{% load i18n %}
 
-{% block page_title %}Labellisation{% endblock %}
+{% block page_title %}{% translate "Labellisation" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block fields_content %}
@@ -30,7 +31,7 @@
 
     function checkDisplay() {
       const checkedLabels = getCheckedLabels();
-      if (checkedLabels.indexOf("autre") !== -1) {
+      if (!(checkedLabels.indexOf("autre") == -1 || checkedLabels.indexOf("other") == -1)) {
         $fieldAutre.show();
         $fieldAutre.find("input[type=text]").attr("required", "required");
       } else {
