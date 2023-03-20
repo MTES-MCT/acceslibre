@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 10:10+0100\n"
+"POT-Creation-Date: 2023-03-20 10:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1167,7 +1167,8 @@ msgstr ""
 msgid "depuis la voirie jusqu'à l'entrée"
 msgstr ""
 
-#: erp/schema.py:329 templates/contrib/includes/nav.html:31
+#: erp/schema.py:329 templates/contrib/5-entree.html:12
+#: templates/contrib/includes/nav.html:31
 #: templates/contrib/includes/nav.html:84
 #: templates/contrib/includes/nav.html:86
 msgid "Entrée"
@@ -1221,7 +1222,8 @@ msgid ""
 "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
 msgstr ""
 
-#: erp/schema.py:389 templates/contrib/includes/nav.html:41
+#: erp/schema.py:389 templates/contrib/7-commentaire.html:15
+#: templates/contrib/includes/nav.html:41
 #: templates/contrib/includes/nav.html:101
 #: templates/contrib/includes/nav.html:103
 msgid "Informations complémentaires"
@@ -2463,6 +2465,8 @@ msgid "acceslibre"
 msgstr ""
 
 #: templates/contrib/2-a-propos.html:9 templates/contrib/3-transport.html:7
+#: templates/contrib/4-exterieur.html:6 templates/contrib/5-entree.html:6
+#: templates/contrib/7-commentaire.html:9
 msgid "{{ erp.nom }} de {{ erp.commune_ext }}"
 msgstr ""
 
@@ -2478,7 +2482,9 @@ msgstr ""
 msgid "Étape 3 sur 7"
 msgstr ""
 
-#: templates/contrib/3-transport.html:9
+#: templates/contrib/3-transport.html:9 templates/contrib/4-exterieur.html:8
+#: templates/contrib/5-entree.html:8 templates/contrib/6-accueil.html:8
+#: templates/contrib/7-commentaire.html:11
 msgid "Informations d'accessibilité"
 msgstr ""
 
@@ -2488,6 +2494,61 @@ msgstr ""
 
 #: templates/contrib/3-transport.html:16
 msgid "Stationnement"
+msgstr ""
+
+#: templates/contrib/4-exterieur.html:4
+msgid "Espace et chemin extérieur"
+msgstr ""
+
+#: templates/contrib/4-exterieur.html:7
+msgid "Étape 4 sur 7"
+msgstr ""
+
+#: templates/contrib/4-exterieur.html:12 templates/contrib/includes/nav.html:26
+#: templates/contrib/includes/nav.html:76
+#: templates/contrib/includes/nav.html:78
+msgid "Extérieur"
+msgstr ""
+
+#: templates/contrib/5-entree.html:4
+msgid "L'entrée de l'établissement"
+msgstr ""
+
+#: templates/contrib/5-entree.html:7
+msgid "Étape 5 sur 7"
+msgstr ""
+
+#: templates/contrib/6-accueil.html:4
+msgid "L'accueil de l'établissement"
+msgstr ""
+
+#: templates/contrib/6-accueil.html:7
+msgid "Étape 6 sur 7"
+msgstr ""
+
+#: templates/contrib/6-accueil.html:12 templates/contrib/includes/nav.html:36
+#: templates/contrib/includes/nav.html:92
+#: templates/contrib/includes/nav.html:94
+msgid "Accueil"
+msgstr ""
+
+#: templates/contrib/7-commentaire.html:7
+msgid "Commentaire et informations complémentaires"
+msgstr ""
+
+#: templates/contrib/7-commentaire.html:10
+msgid "Étape 7 sur 7"
+msgstr ""
+
+#: templates/contrib/8-publication.html:7
+#: templates/django_registration/registration_complete.html:17
+#: templates/django_registration/registration_form.html:19
+#: templates/registration/login.html:20
+msgid "Publication"
+msgstr ""
+
+#: templates/contrib/9-labellisation.html:6
+msgid "Labellisation"
 msgstr ""
 
 #: templates/contrib/forms/global_form.html:7
@@ -2515,18 +2576,6 @@ msgstr ""
 #: templates/contrib/includes/nav.html:59
 #: templates/contrib/includes/nav.html:61
 msgid "À propos"
-msgstr ""
-
-#: templates/contrib/includes/nav.html:26
-#: templates/contrib/includes/nav.html:76
-#: templates/contrib/includes/nav.html:78
-msgid "Extérieur"
-msgstr ""
-
-#: templates/contrib/includes/nav.html:36
-#: templates/contrib/includes/nav.html:92
-#: templates/contrib/includes/nav.html:94
-msgid "Accueil"
 msgstr ""
 
 #: templates/contrib/includes/prevnext.html:3
@@ -2659,12 +2708,6 @@ msgstr ""
 
 #: templates/django_registration/registration_complete.html:6
 msgid "Inscription en cours de finalisation"
-msgstr ""
-
-#: templates/django_registration/registration_complete.html:17
-#: templates/django_registration/registration_form.html:19
-#: templates/registration/login.html:20
-msgid "Publication"
 msgstr ""
 
 #: templates/django_registration/registration_complete.html:20

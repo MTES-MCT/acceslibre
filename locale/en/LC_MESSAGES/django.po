@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 10:10+0100\n"
-"PO-Revision-Date: 2023-03-16 10:00+0009\n"
+"POT-Creation-Date: 2023-03-20 10:20+0100\n"
+"PO-Revision-Date: 2023-03-20 10:22+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,8 +21,8 @@ msgstr ""
 
 #: compte/forms.py:18
 msgid ""
-"Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les "
-"espaces sont interdits)"
+"Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les"
+" espaces sont interdits)"
 msgstr ""
 "Only letters, numbers and the characters \".\", \"-\" and \"_\" (spaces are "
 "not allowed)"
@@ -91,8 +91,8 @@ msgid ""
 "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que "
 "cette opération est irréversible."
 msgstr ""
-"Confirm the deletion of my user account. I understand that this operation is "
-"irreversible."
+"Confirm the deletion of my user account. I understand that this operation is"
+" irreversible."
 
 #: compte/forms.py:168
 msgid "Vous devez confirmer la suppression pour la rendre effective."
@@ -371,7 +371,8 @@ msgstr "Only Paris, Lyon and Marseille can have districts"
 msgid "Valeur"
 msgstr "Value"
 
-#: erp/models.py:326 erp/schema.py:354 templates/erp/includes/vote-form.html:26
+#: erp/models.py:326 erp/schema.py:354
+#: templates/erp/includes/vote-form.html:26
 msgid "Commentaire"
 msgstr "Comment"
 
@@ -522,8 +523,8 @@ msgstr "Name of the establishment or sign"
 
 #: erp/models.py:477
 msgid ""
-"Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres "
-"accentuées"
+"Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres"
+" accentuées"
 msgstr ""
 "Field of activity of the ERP. Attention, the search is done on the accented "
 "letters"
@@ -534,14 +535,15 @@ msgstr "Published"
 
 #: erp/models.py:484
 msgid ""
-"Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas "
-"listé publiquement"
+"Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas"
+" listé publiquement"
 msgstr ""
-"Publication status of this ERP: if the box is unchecked, the ERP will not be "
-"listed publicly"
+"Publication status of this ERP: if the box is unchecked, the ERP will not be"
+" listed publicly"
 
 #: erp/models.py:491
-msgid "Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)"
+msgid ""
+"Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)"
 msgstr "Geolocation (map refreshed after saving)"
 
 #: erp/models.py:498
@@ -550,7 +552,8 @@ msgstr "Provider used for geolocation"
 
 #: erp/models.py:499
 msgid ""
-"Indique le fournisseur utilisé pour la géolocalisation de l'adresse de l'ERP."
+"Indique le fournisseur utilisé pour la géolocalisation de l'adresse de "
+"l'ERP."
 msgstr "Indicates the provider used for the geolocation of the ERP address."
 
 #: erp/models.py:505
@@ -876,8 +879,8 @@ msgstr "Completion rate"
 msgid ""
 "Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
 msgstr ""
-"Accessibility of the establishment \"{self.erp.nom}\" ({self.erp."
-"code_postal})"
+"Accessibility of the establishment \"{self.erp.nom}\" "
+"({self.erp.code_postal})"
 
 #: erp/models.py:1341
 msgid "Caractéristiques d'accessibilité de cet ERP"
@@ -945,8 +948,8 @@ msgid ""
 "La boucle à induction magnétique (BIM) permet d'entendre une source sonore "
 "en s'affranchissant de la distance (salles de spectacles), du bruit ambiant "
 "(lieux publics), des phénomènes d'échos ou de réverbérations sonores "
-"(églises, salles aux murs nus), des déformations apportées par les écouteurs "
-"(téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma)."
+"(églises, salles aux murs nus), des déformations apportées par les écouteurs"
+" (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma)."
 msgstr ""
 "The magnetic induction loop (MIR) allows you to hear a sound source without "
 "the distance (auditoriums), ambient noise (public places), echoes or sound "
@@ -958,7 +961,8 @@ msgid ""
 "La boucle magnétique portative (BMP) est un système de transmission du son "
 "individuel"
 msgstr ""
-"The portable magnetic loop (PML) is a system of individual sound transmission"
+"The portable magnetic loop (PML) is a system of individual sound "
+"transmission"
 
 #: erp/schema.py:64
 msgid ""
@@ -1052,7 +1056,8 @@ msgstr "Untrained staff"
 
 #: erp/schema.py:138
 msgid "avec équipement permanent, casques et boîtiers disponibles à l’accueil"
-msgstr "with permanent equipment, helmets and boxes available at the reception"
+msgstr ""
+"with permanent equipment, helmets and boxes available at the reception"
 
 #: erp/schema.py:142
 msgid ""
@@ -1071,7 +1076,8 @@ msgstr ""
 
 #: erp/schema.py:153
 msgid "Avec équipement permanent, casques et boîtiers disponibles à l’accueil"
-msgstr "With permanent equipment, helmets and boxes available at the reception"
+msgstr ""
+"With permanent equipment, helmets and boxes available at the reception"
 
 #: erp/schema.py:157
 msgid ""
@@ -1198,7 +1204,8 @@ msgstr "Exterior path"
 msgid "depuis la voirie jusqu'à l'entrée"
 msgstr "from the road to the entrance"
 
-#: erp/schema.py:329 templates/contrib/includes/nav.html:31
+#: erp/schema.py:329 templates/contrib/5-entree.html:12
+#: templates/contrib/includes/nav.html:31
 #: templates/contrib/includes/nav.html:84
 #: templates/contrib/includes/nav.html:86
 msgid "Entrée"
@@ -1253,7 +1260,8 @@ msgid ""
 "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
 msgstr "No public transportation stops within 200 meters of the facility"
 
-#: erp/schema.py:389 templates/contrib/includes/nav.html:41
+#: erp/schema.py:389 templates/contrib/7-commentaire.html:15
+#: templates/contrib/includes/nav.html:41
 #: templates/contrib/includes/nav.html:101
 #: templates/contrib/includes/nav.html:103
 msgid "Informations complémentaires"
@@ -1280,8 +1288,8 @@ msgstr "Parking in the establishment"
 
 #: erp/schema.py:412
 msgid ""
-"Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou "
-"au sein de la parcelle de l'établissement&nbsp;?"
+"Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou"
+" au sein de la parcelle de l'établissement&nbsp;?"
 msgstr ""
 "Is there one or more parking spaces in the facility or within the facility "
 "grounds?"
@@ -1312,8 +1320,8 @@ msgstr ""
 
 #: erp/schema.py:438
 msgid ""
-"Des places de stationnement adaptées sont disponibles au sein de la parcelle "
-"de l'établissement"
+"Des places de stationnement adaptées sont disponibles au sein de la parcelle"
+" de l'établissement"
 msgstr "Adapted parking spaces are available within the facility's grounds"
 
 #: erp/schema.py:441
@@ -1328,8 +1336,8 @@ msgstr "Parking near the establishment"
 
 #: erp/schema.py:456
 msgid ""
-"Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking "
-"à moins de 200 mètres de l'établissement&nbsp;?"
+"Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking"
+" à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr ""
 "Is there one or more on-street or off-street parking spaces within 200 "
 "meters of the facility?"
@@ -1399,14 +1407,14 @@ msgid ""
 "l'établissement) est-il stable (sol roulable, absence de pavés ou de "
 "gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
 msgstr ""
-"Is the surface of the outside path (between the sidewalk and the entrance of "
-"the establishment) stable (rollable ground, no paving stones or gravel, no "
+"Is the surface of the outside path (between the sidewalk and the entrance of"
+" the establishment) stable (rollable ground, no paving stones or gravel, no "
 "dirt or grass, etc.)?"
 
 #: erp/schema.py:525
 msgid ""
-"Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, "
-"ou toute surface non stabilisée)"
+"Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable,"
+" ou toute surface non stabilisée)"
 msgstr ""
 "The pavement is stable (no paving stones, gravel, dirt, grass, sand, or any "
 "unstabilized surface)"
@@ -1416,8 +1424,8 @@ msgid ""
 "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou "
 "toute surface non stabilisée)"
 msgstr ""
-"The surface is not stable (paving stones, gravel, earth, grass, sand, or any "
-"other non-stabilized surface)"
+"The surface is not stable (paving stones, gravel, earth, grass, sand, or any"
+" other non-stabilized surface)"
 
 #: erp/schema.py:540
 msgid "Chemin extérieur de plain-pied"
@@ -1429,21 +1437,21 @@ msgid ""
 "supérieur à 2 centimètres&nbsp;? Attention plain-pied ne signifie pas plat "
 "mais sans rupture brutale de niveau."
 msgstr ""
-"Is the path level, i.e. without any step or step greater than 2 centimeters? "
-"Be careful, level does not mean flat, but without a sudden break in level."
+"Is the path level, i.e. without any step or step greater than 2 centimeters?"
+" Be careful, level does not mean flat, but without a sudden break in level."
 
 #: erp/schema.py:547 erp/schema.py:1109
 msgid ""
 "L'accès à cet espace se fait de plain-pied, c'est à dire sans rupture "
 "brutale de niveau"
 msgstr ""
-"Access to this space is on the same level, i.e. without any sudden change in "
-"level"
+"Access to this space is on the same level, i.e. without any sudden change in"
+" level"
 
 #: erp/schema.py:550 erp/schema.py:1112
 msgid ""
-"L'accès à cet espace n'est pas de plain-pied et présente une rupture brutale "
-"de niveau"
+"L'accès à cet espace n'est pas de plain-pied et présente une rupture brutale"
+" de niveau"
 msgstr ""
 "The access to this space is not on the same level and presents a brutal "
 "break in level"
@@ -1528,7 +1536,8 @@ msgstr "The staircase is not equipped with a handrail"
 
 #: erp/schema.py:642 erp/schema.py:944 erp/schema.py:1200
 msgid ""
-"S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
+"S'il existe une rampe ayant une pente douce, est-elle fixe ou "
+"amovible&nbsp;?"
 msgstr "If there is a ramp with a gentle slope, is it fixed or removable?"
 
 #: erp/schema.py:644 erp/schema.py:946 erp/schema.py:1202
@@ -1617,8 +1626,8 @@ msgstr ""
 
 #: erp/schema.py:741 erp/schema.py:1223
 msgid ""
-"Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la "
-"zone d'accueil"
+"Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la"
+" zone d'accueil"
 msgstr ""
 "No narrowing of the path to the reception area by less than 90 centimeters"
 
@@ -1628,8 +1637,8 @@ msgid ""
 "(numéro de rue à proximité, enseigne, végétaux, éléments architecturaux "
 "contrastés, etc)&nbsp;?"
 msgstr ""
-"Are there elements that facilitate the identification of the entrance to the "
-"establishment (street number nearby, sign, vegetation, contrasting "
+"Are there elements that facilitate the identification of the entrance to the"
+" establishment (street number nearby, sign, vegetation, contrasting "
 "architectural elements, etc.)?"
 
 #: erp/schema.py:759
@@ -1638,9 +1647,9 @@ msgstr "The entrance to the facility is easily identifiable"
 
 #: erp/schema.py:761
 msgid ""
-"Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro "
-"de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, "
-"etc)"
+"Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro"
+" de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés,"
+" etc)"
 msgstr ""
 "No elements that facilitate the identification of the entrance to the "
 "establishment (street number nearby, sign, vegetation, contrasting "
@@ -1699,8 +1708,8 @@ msgid ""
 "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou "
 "autres) permettant de repérer la porte vitrée&nbsp;?"
 msgstr ""
-"Are there any contrasting elements (stickers, woodwork or other elements) to "
-"identify the glass door?"
+"Are there any contrasting elements (stickers, woodwork or other elements) to"
+" identify the glass door?"
 
 #: erp/schema.py:834
 msgid ""
@@ -1728,8 +1737,8 @@ msgstr ""
 msgid ""
 "L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau"
 msgstr ""
-"The entrance is on the same level, that is to say, without a sudden break in "
-"level"
+"The entrance is on the same level, that is to say, without a sudden break in"
+" level"
 
 #: erp/schema.py:856
 msgid ""
@@ -1805,8 +1814,8 @@ msgid ""
 "Pas de balise sonore facilitant son repérage par une personne aveugle ou "
 "malvoyante"
 msgstr ""
-"No audible beacon to facilitate its location by a blind or visually impaired "
-"person"
+"No audible beacon to facilitate its location by a blind or visually impaired"
+" person"
 
 #: erp/schema.py:1011
 msgid "Présence ou possibilité d'une aide humaine au déplacement"
@@ -1839,8 +1848,8 @@ msgstr "Minimum width of the entrance door"
 
 #: erp/schema.py:1046
 msgid ""
-"Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité "
-"réduite&nbsp;?"
+"Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité"
+" réduite&nbsp;?"
 msgstr ""
 "Is there a specific secondary entrance for people with reduced mobility?"
 
@@ -1882,8 +1891,8 @@ msgid ""
 "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible "
 "depuis l'entrée du bâtiment"
 msgstr ""
-"The reception area (reception desk, cash desk, secretariat, etc.) is visible "
-"from the building entrance"
+"The reception area (reception desk, cash desk, secretariat, etc.) is visible"
+" from the building entrance"
 
 #: erp/schema.py:1090
 msgid ""
@@ -1904,8 +1913,8 @@ msgstr ""
 msgid ""
 "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de "
 "l'établissement est t-il de plain-pied, c'est-à-dire sans marche ni ressaut "
-"supérieur à 2 centimètres&nbsp;? (attention, plain-pied ne signifie pas plat "
-"mais sans rupture brutale de niveau)"
+"supérieur à 2 centimètres&nbsp;? (attention, plain-pied ne signifie pas plat"
+" mais sans rupture brutale de niveau)"
 msgstr ""
 "Once you have entered the building, is the path to the reception of the "
 "establishment level, i.e. without any step or step greater than 2 "
@@ -1918,8 +1927,8 @@ msgstr "Locating the steps or staircase"
 
 #: erp/schema.py:1171
 msgid ""
-"Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier "
-"et/ou première et dernière contremarches contrastées"
+"Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier"
+" et/ou première et dernière contremarches contrastées"
 msgstr ""
 "Contrasting stair nosings, warning strips at the top of the stairs and/or "
 "contrasting first and last risers"
@@ -1929,8 +1938,8 @@ msgid ""
 "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du "
 "chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
 msgstr ""
-"Are there one or more narrowings (less than 90 centimeters) in the path used "
-"by the public to reach the reception area?"
+"Are there one or more narrowings (less than 90 centimeters) in the path used"
+" by the public to reach the reception area?"
 
 #: erp/schema.py:1220
 msgid ""
@@ -1942,8 +1951,8 @@ msgstr ""
 
 #: erp/schema.py:1238
 msgid ""
-"En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des "
-"personnes handicapées&nbsp;?"
+"En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des"
+" personnes handicapées&nbsp;?"
 msgstr ""
 "If the staff is present, are they trained or aware of how to welcome people "
 "with disabilities?"
@@ -1997,7 +2006,8 @@ msgstr ""
 
 #: erp/schema.py:1294
 msgid ""
-"Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
+"Pas de produits ou prestations dédiés aux personnes sourdes ou "
+"malentendantes"
 msgstr "No products or services dedicated to the deaf or hard of hearing"
 
 #: erp/schema.py:1306
@@ -2098,8 +2108,8 @@ msgid ""
 "de l'établissement est consultable."
 msgstr ""
 "If available, internet address (URL) at which the <a "
-"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">accessibility registry</a> of "
-"the facility is searchable."
+"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">accessibility registry</a> of"
+" the facility is searchable."
 
 #: erp/schema.py:1430 erp/schema.py:1431
 msgid "Adresse internet à laquelle le registre est consultable"
@@ -2240,8 +2250,8 @@ msgstr "The data has been saved."
 
 #: erp/views.py:1059
 msgid ""
-"Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
-"peut pas être publié."
+"Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne"
+" peut pas être publié."
 msgstr ""
 "You have not provided enough accessibility information. Your establishment "
 "cannot be published."
@@ -2343,12 +2353,10 @@ msgstr "Unauthorized access"
 #: templates/403.html:13
 #, python-format
 msgid ""
-"Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne "
-"devrait pas être le cas,\n"
+"Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne devrait pas être le cas,\n"
 "    <a href=\"%(url_contact_bug)s\">contactez-nous</a>."
 msgstr ""
-"You do not have access to this resource. If you feel that this should not be "
-"the case,\n"
+"You do not have access to this resource. If you feel that this should not be the case,\n"
 "<a href=\"%(url_contact_bug)s\">contact us</a>."
 
 #: templates/404.html:6
@@ -2359,13 +2367,11 @@ msgstr "Page not found"
 #, python-format
 msgid ""
 "Vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
-"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à "
-"ce sujet</a> en prenant\n"
+"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a> en prenant\n"
 "    soin de préciser l'adresse utilisée."
 msgstr ""
 "You can try to return to <a href=\"%(url_home)s\">home</a>\n"
-"or contact us <a href=\"%(url_contact_bug)s\">specifically about this</a>, "
-"taking\n"
+"or contact us <a href=\"%(url_contact_bug)s\">specifically about this</a>, taking\n"
 "care to specify the URL used."
 
 #: templates/500.html:10
@@ -2375,15 +2381,12 @@ msgstr "Oops... The server crashed"
 #: templates/500.html:21
 #, python-format
 msgid ""
-"En attendant, vous pouvez tenter de revenir à <a "
-"href=\"%(url_home)s\">l'accueil</a>\n"
-"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à "
-"ce sujet</a>\n"
+"En attendant, vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
+"    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a>\n"
 "    si vous l'estimez nécessaire."
 msgstr ""
 "In the meantime, you can try returning to <a href=\"%(url_home)s\">home</a>\n"
-"or to <a href=\"%(url_contact_bug)s\">contact us specifically about this</"
-"a>\n"
+"or to <a href=\"%(url_contact_bug)s\">contact us specifically about this</a>\n"
 "if you feel it is necessary."
 
 #: templates/503.html:6
@@ -2435,14 +2438,15 @@ msgstr "establishment"
 
 #: templates/annuaire/index.html:42
 msgid ""
-"Il n'y a pas encore de commune disposant d'établissements renseignés dans ce "
-"département."
+"Il n'y a pas encore de commune disposant d'établissements renseignés dans ce"
+" département."
 msgstr ""
-"There are no municipalities with filled in establishments in this department "
-"yet."
+"There are no municipalities with filled in establishments in this department"
+" yet."
 
 #: templates/annuaire/index.html:43 templates/communes.html:42
-#: templates/contrib/0-start.html:6 templates/contrib/0a-search_results.html:44
+#: templates/contrib/0-start.html:6
+#: templates/contrib/0a-search_results.html:44
 #: templates/contrib/1-admin-infos.html:7 templates/index.html:222
 msgid "Ajouter un établissement"
 msgstr "Add an establishment"
@@ -2492,11 +2496,11 @@ msgstr "The establishment"
 #, python-format
 msgid ""
 "Je souhaite <a class=\"fr-link\" "
-"href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un établissement.</"
-"a>"
+"href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un "
+"établissement.</a>"
 msgstr ""
-"I want to <a class=\"en-link\" href=\"%(url_contrib_admin_infos)s\">manually "
-"add a facility.</a>"
+"I want to <a class=\"en-link\" href=\"%(url_contrib_admin_infos)s\">manually"
+" add a facility.</a>"
 
 #: templates/contrib/0-start.html:28
 msgid "La charte du contributeur"
@@ -2525,15 +2529,12 @@ msgstr "Every piece of information is valuable"
 #: templates/contrib/0-start.html:45
 msgid ""
 "\n"
-"                    n'hésite pas à publier une fiche même si elle est "
-"incomplète ... La force du collaboratif\n"
-"                    prendra le relais et quelqu'un pourra compléter après "
-"toi\n"
+"                    n'hésite pas à publier une fiche même si elle est incomplète ... La force du collaboratif\n"
+"                    prendra le relais et quelqu'un pourra compléter après toi\n"
 "                    "
 msgstr ""
 "\n"
-"don't hesitate to publish a file even if it is incomplete... The power of "
-"collaboration\n"
+"don't hesitate to publish a file even if it is incomplete... The power of collaboration\n"
 "will take over and someone will be able to complete it after you"
 
 #: templates/contrib/0-start.html:53
@@ -2553,7 +2554,8 @@ msgstr "Search for an establishment"
 msgid "Ajouter les données d'accessibilité d'un établissement"
 msgstr "Add accessibility data for an establishment"
 
-#: templates/contrib/0a-search_results.html:15 templates/search/results.html:22
+#: templates/contrib/0a-search_results.html:15
+#: templates/search/results.html:22
 msgid "Votre recherche"
 msgstr "Your search"
 
@@ -2569,7 +2571,8 @@ msgstr "The institution is not listed."
 msgid "Il n'y a pas de résultat correspondant à votre recherche."
 msgstr "There are no results matching your search"
 
-#: templates/contrib/0a-search_results.html:47 templates/search/results.html:48
+#: templates/contrib/0a-search_results.html:47
+#: templates/search/results.html:48
 msgid "Nouvelle recherche"
 msgstr "New search"
 
@@ -2615,12 +2618,9 @@ msgstr "this location verification step is not mandatory"
 #: templates/contrib/1-admin-infos.html:177
 msgid ""
 "\n"
-"      Merci de bien vérifier la bonne géolocalisation de votre établissement "
-"sur\n"
-"      la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en "
-"déplaçant la carte\n"
-"      pour faire correspondre le pointeur central sur sa position précise.</"
-"strong>\n"
+"      Merci de bien vérifier la bonne géolocalisation de votre établissement sur\n"
+"      la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte\n"
+"      pour faire correspondre le pointeur central sur sa position précise.</strong>\n"
 "      "
 msgstr ""
 "\n"
@@ -2637,6 +2637,8 @@ msgid "acceslibre"
 msgstr "acceslibre"
 
 #: templates/contrib/2-a-propos.html:9 templates/contrib/3-transport.html:7
+#: templates/contrib/4-exterieur.html:6 templates/contrib/5-entree.html:6
+#: templates/contrib/7-commentaire.html:9
 msgid "{{ erp.nom }} de {{ erp.commune_ext }}"
 msgstr "{{ erp.nom }} of {{ erp.commune_ext }}"
 
@@ -2652,7 +2654,9 @@ msgstr "Coming to the establishment"
 msgid "Étape 3 sur 7"
 msgstr "Step 3 of 7"
 
-#: templates/contrib/3-transport.html:9
+#: templates/contrib/3-transport.html:9 templates/contrib/4-exterieur.html:8
+#: templates/contrib/5-entree.html:8 templates/contrib/6-accueil.html:8
+#: templates/contrib/7-commentaire.html:11
 msgid "Informations d'accessibilité"
 msgstr "Accessibility information"
 
@@ -2663,6 +2667,71 @@ msgstr "Public transportation"
 #: templates/contrib/3-transport.html:16
 msgid "Stationnement"
 msgstr "Parking"
+
+#: templates/contrib/4-exterieur.html:4
+#| msgid "Espace extérieur"
+msgid "Espace et chemin extérieur"
+msgstr "Outdoor space and path"
+
+#: templates/contrib/4-exterieur.html:7
+#| msgid "Étape 1 sur 7"
+msgid "Étape 4 sur 7"
+msgstr "Step 4 of 7"
+
+#: templates/contrib/4-exterieur.html:12
+#: templates/contrib/includes/nav.html:26
+#: templates/contrib/includes/nav.html:76
+#: templates/contrib/includes/nav.html:78
+msgid "Extérieur"
+msgstr "Exterior"
+
+#: templates/contrib/5-entree.html:4
+#| msgid "de l'établissement"
+msgid "L'entrée de l'établissement"
+msgstr "The entrance of the establishment"
+
+#: templates/contrib/5-entree.html:7
+#| msgid "Étape 1 sur 7"
+msgid "Étape 5 sur 7"
+msgstr "Step 5 of 7"
+
+#: templates/contrib/6-accueil.html:4
+#| msgid "d'accessibilité de l'établissement"
+msgid "L'accueil de l'établissement"
+msgstr "The reception of the establishment"
+
+#: templates/contrib/6-accueil.html:7
+#| msgid "Étape 1 sur 7"
+msgid "Étape 6 sur 7"
+msgstr "Step 6 of 7"
+
+#: templates/contrib/6-accueil.html:12 templates/contrib/includes/nav.html:36
+#: templates/contrib/includes/nav.html:92
+#: templates/contrib/includes/nav.html:94
+msgid "Accueil"
+msgstr "Home"
+
+#: templates/contrib/7-commentaire.html:7
+#| msgid "et informations complémentaires"
+msgid "Commentaire et informations complémentaires"
+msgstr "Comments and additional information"
+
+#: templates/contrib/7-commentaire.html:10
+#| msgid "Étape 1 sur 7"
+msgid "Étape 7 sur 7"
+msgstr "Step 7 of 7"
+
+#: templates/contrib/8-publication.html:7
+#: templates/django_registration/registration_complete.html:17
+#: templates/django_registration/registration_form.html:19
+#: templates/registration/login.html:20
+msgid "Publication"
+msgstr "Publication"
+
+#: templates/contrib/9-labellisation.html:6
+#| msgid "Localisation"
+msgid "Labellisation"
+msgstr "Labeling"
 
 #: templates/contrib/forms/global_form.html:7
 msgid "Saisie automatique"
@@ -2680,7 +2749,8 @@ msgstr "Find the establishment"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: templates/contrib/includes/nav.html:9 templates/contrib/includes/nav.html:50
+#: templates/contrib/includes/nav.html:9
+#: templates/contrib/includes/nav.html:50
 #: templates/contrib/includes/nav.html:52
 msgid "Informations"
 msgstr "Informations"
@@ -2690,18 +2760,6 @@ msgstr "Informations"
 #: templates/contrib/includes/nav.html:61
 msgid "À propos"
 msgstr "About"
-
-#: templates/contrib/includes/nav.html:26
-#: templates/contrib/includes/nav.html:76
-#: templates/contrib/includes/nav.html:78
-msgid "Extérieur"
-msgstr "Exterior"
-
-#: templates/contrib/includes/nav.html:36
-#: templates/contrib/includes/nav.html:92
-#: templates/contrib/includes/nav.html:94
-msgid "Accueil"
-msgstr "Home"
 
 #: templates/contrib/includes/prevnext.html:3
 msgid "Parcours de contribution"
@@ -2782,14 +2840,12 @@ msgstr "sign in"
 #, python-format
 msgid ""
 "\n"
-"      Nous n'avons pu retrouver le compte associé à cette demande "
-"d'activation.\n"
+"      Nous n'avons pu retrouver le compte associé à cette demande d'activation.\n"
 "      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
 "      "
 msgstr ""
 "\n"
-"We were unable to locate the account associated with this activation "
-"request.\n"
+"We were unable to locate the account associated with this activation request.\n"
 "Please <a href=\"%(url_contact_connection)s\">contact us</a>."
 
 #: templates/django_registration/activation_failed.html:24
@@ -2820,14 +2876,12 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique "
-"de l'échec d'activation.\n"
+"      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.\n"
 "      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
 "      "
 msgstr ""
 "\n"
-"We are sorry, we were unable to determine the technical cause of the "
-"activation failure.\n"
+"We are sorry, we were unable to determine the technical cause of the activation failure.\n"
 "Please <a href=\"%(url_contact_connection)s\">contact us</a>."
 
 #: templates/django_registration/registration_closed.html:6
@@ -2848,12 +2902,6 @@ msgstr "It is temporarily impossible to create a new account on the platform."
 #: templates/django_registration/registration_complete.html:6
 msgid "Inscription en cours de finalisation"
 msgstr "Registration in the process of being finalized"
-
-#: templates/django_registration/registration_complete.html:17
-#: templates/django_registration/registration_form.html:19
-#: templates/registration/login.html:20
-msgid "Publication"
-msgstr "Publication"
 
 #: templates/django_registration/registration_complete.html:20
 #: templates/django_registration/registration_form.html:22
@@ -2890,12 +2938,10 @@ msgstr "Registrations are temporarily closed"
 #: templates/django_registration/registration_disallowed.html:12
 #, python-format
 msgid ""
-"La possibilité de créer un compte a temporairement été désactivée. Pour plus "
-"d'information,\n"
+"La possibilité de créer un compte a temporairement été désactivée. Pour plus d'information,\n"
 "  vous pouvez <a href=\"%(url_contact_connection)s\">nous contacter</a>."
 msgstr ""
-"The ability to create an account has been temporarily disabled. For more "
-"information,\n"
+"The ability to create an account has been temporarily disabled. For more information,\n"
 "you can <a href=\"%(url_contact_connection)s\">contact us</a>."
 
 #: templates/django_registration/registration_form.html:8
@@ -2906,8 +2952,7 @@ msgstr "Create an account"
 #, python-format
 msgid ""
 "\n"
-"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</"
-"strong>,\n"
+"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</strong>,\n"
 "    vous ne pouvez donc pas créer un nouveau compte.\n"
 "    Veuillez <a href=\"%(url_logout)s\">vous déconnecter</a>\n"
 "    ou revenir à la <a href=\"%(url_home)s\">page d'accueil</a>.\n"
@@ -2937,8 +2982,8 @@ msgid ""
 "lieux recevant du public et de partager ces informations le plus largement "
 "possible."
 msgstr ""
-"<b>acceslibre</b> aims to identify the accessibility of all places receiving "
-"the public and to share this information as widely as possible."
+"<b>acceslibre</b> aims to identify the accessibility of all places receiving"
+" the public and to share this information as widely as possible."
 
 #: templates/editorial/footer.html:15 templates/editorial/footer.html:18
 #: templates/editorial/footer.html:21 templates/editorial/footer.html:24
@@ -3010,18 +3055,14 @@ msgstr "Our partners"
 
 #: templates/editorial/partenaires/accesmetrie.html:3
 msgid ""
-"ACCESMETRIE accompagne les maîtres d’ouvrage dans leurs démarches "
-"d’amélioration de la qualité\n"
+"ACCESMETRIE accompagne les maîtres d’ouvrage dans leurs démarches d’amélioration de la qualité\n"
 "  d’usage et de mise\n"
-"  en conformité de leurs patrimoines et équipements, avec pour volonté de "
-"répondre aux attentes et besoins des\n"
+"  en conformité de leurs patrimoines et équipements, avec pour volonté de répondre aux attentes et besoins des\n"
 "  utilisateurs."
 msgstr ""
-"ACCESMETRIE accompanies the owners in their steps of improvement of the "
-"quality\n"
+"ACCESMETRIE accompanies the owners in their steps of improvement of the quality\n"
 "quality of use and to bring their\n"
-"of their properties and equipments, with the will to answer the expectations "
-"and needs of the users."
+"of their properties and equipments, with the will to answer the expectations and needs of the users."
 
 #: templates/editorial/partenaires/accesmetrie.html:9
 #: templates/editorial/partenaires/onecompagnon.html:14
@@ -3035,210 +3076,142 @@ msgstr "Call us :"
 #: templates/editorial/partenaires/andre_de_cabo.html:3
 msgid ""
 "\n"
-"    La société André de CABO est un bureau d’études pluridisciplinaires & "
-"d’Architecture.<br>\n"
-"    Notre vocation est de conseiller et d’accompagner les collectivités, les "
-"professionnels et particuliers pour\n"
-"    l’établissement des dossiers administratifs et dossiers spécifiques ERP "
-"(Accessibilité pour les personnes à mobilité\n"
-"    réduite, Sécurité Incendie, divers projets architecturaux, mise en "
-"conformité et solutions des traitements des\n"
+"    La société André de CABO est un bureau d’études pluridisciplinaires & d’Architecture.<br>\n"
+"    Notre vocation est de conseiller et d’accompagner les collectivités, les professionnels et particuliers pour\n"
+"    l’établissement des dossiers administratifs et dossiers spécifiques ERP (Accessibilité pour les personnes à mobilité\n"
+"    réduite, Sécurité Incendie, divers projets architecturaux, mise en conformité et solutions des traitements des\n"
 "    gestions d’eaux pluviales).\n"
 "    "
 msgstr ""
 "\n"
-"The company André de CABO is a multidisciplinary design office & "
-"Architecture.<br>\n"
-"Our vocation is to advise and accompany communities, professionals and "
-"individuals for\n"
-"the establishment of administrative files and specific ERP files "
-"(Accessibility for people with reduced mobility, Fire Safety\n"
-"Fire Safety, various architectural projects, compliance and solutions for "
-"the treatment of rainwater\n"
+"The company André de CABO is a multidisciplinary design office & Architecture.<br>\n"
+"Our vocation is to advise and accompany communities, professionals and individuals for\n"
+"the establishment of administrative files and specific ERP files (Accessibility for people with reduced mobility, Fire Safety\n"
+"Fire Safety, various architectural projects, compliance and solutions for the treatment of rainwater\n"
 "management of rainwater)."
 
 #: templates/editorial/partenaires/avh.html:3
 msgid ""
 "\n"
-"    Acteur historique de l’aide aux personnes déficientes visuelles, "
-"l’association Valentin Haüy, créée en 1889 par\n"
-"    Maurice de La Sizeranne et reconnue d’utilité publique en 1891, déploie "
-"depuis plus de 130 ans un grand nombre de\n"
-"    services et d’actions à travers toute la France afin de défendre les "
-"droits des déficients visuels, assurer leur\n"
-"    formation et l’accès à l’emploi, promouvoir l’accès à l’écrit, proposer "
-"des activités culturelles, sportives et de\n"
+"    Acteur historique de l’aide aux personnes déficientes visuelles, l’association Valentin Haüy, créée en 1889 par\n"
+"    Maurice de La Sizeranne et reconnue d’utilité publique en 1891, déploie depuis plus de 130 ans un grand nombre de\n"
+"    services et d’actions à travers toute la France afin de défendre les droits des déficients visuels, assurer leur\n"
+"    formation et l’accès à l’emploi, promouvoir l’accès à l’écrit, proposer des activités culturelles, sportives et de\n"
 "    loisirs accessibles.\n"
 "    "
 msgstr ""
 "\n"
-"Historical actor of the help to visually impaired people, the Valentin Haüy "
-"association, created in 1889 by\n"
-"Maurice de La Sizeranne and recognized as a public utility in 1891, has been "
-"providing a large number of services and actions throughout France for more "
-"than 130 years.\n"
-"services and actions throughout France in order to defend the rights of "
-"visually impaired people, ensure their\n"
-"training and access to employment, promote access to the written word, and "
-"offer accessible cultural, sports and leisure activities."
+"Historical actor of the help to visually impaired people, the Valentin Haüy association, created in 1889 by\n"
+"Maurice de La Sizeranne and recognized as a public utility in 1891, has been providing a large number of services and actions throughout France for more than 130 years.\n"
+"services and actions throughout France in order to defend the rights of visually impaired people, ensure their\n"
+"training and access to employment, promote access to the written word, and offer accessible cultural, sports and leisure activities."
 
 #: templates/editorial/partenaires/cfpsaa.html:3
 msgid ""
 "\n"
-"    La Confédération Française pour la Promotion Sociale des Aveugles et "
-"Amblyopes est la confédération qui regroupe une\n"
-"    vingtaine des principales associations de déficients visuels qui "
-"coopèrent pour parler d’une seule voix aux pouvoirs\n"
-"    publics et militer en faveur des aveugles et des mal-voyants. Elle "
-"compte en son sein plusieurs commissions ou\n"
-"    groupe de travail où les représentants des associations se retrouvent "
-"pour construire un plaidoyer commun et\n"
-"    travailler de concert pour l’autonomie des déficients visuels. Les "
-"sujets abordés sont variés comme l’emploi,\n"
-"    l’accessibilité physique ou numérique, l’accès au livre ou encore à "
-"l’audio-visuel.\n"
+"    La Confédération Française pour la Promotion Sociale des Aveugles et Amblyopes est la confédération qui regroupe une\n"
+"    vingtaine des principales associations de déficients visuels qui coopèrent pour parler d’une seule voix aux pouvoirs\n"
+"    publics et militer en faveur des aveugles et des mal-voyants. Elle compte en son sein plusieurs commissions ou\n"
+"    groupe de travail où les représentants des associations se retrouvent pour construire un plaidoyer commun et\n"
+"    travailler de concert pour l’autonomie des déficients visuels. Les sujets abordés sont variés comme l’emploi,\n"
+"    l’accessibilité physique ou numérique, l’accès au livre ou encore à l’audio-visuel.\n"
 "    "
 msgstr ""
 "\n"
-"The French Confederation for the Social Promotion of the Blind and Amblyopes "
-"is the confederation that gathers about twenty of the main associations for "
-"the visually impaired.\n"
-"twenty or so of the main associations of the visually impaired who cooperate "
-"to speak with one voice to the public authorities\n"
-"authorities and to militate in favor of the blind and visually impaired. It "
-"has several commissions or\n"
-"working groups where the representatives of the associations meet to build a "
-"common advocacy and work together for the autonomy of the blind and visually "
-"impaired.\n"
-"work together for the autonomy of visually impaired people. The subjects "
-"addressed are varied, such as employment,\n"
+"The French Confederation for the Social Promotion of the Blind and Amblyopes is the confederation that gathers about twenty of the main associations for the visually impaired.\n"
+"twenty or so of the main associations of the visually impaired who cooperate to speak with one voice to the public authorities\n"
+"authorities and to militate in favor of the blind and visually impaired. It has several commissions or\n"
+"working groups where the representatives of the associations meet to build a common advocacy and work together for the autonomy of the blind and visually impaired.\n"
+"work together for the autonomy of visually impaired people. The subjects addressed are varied, such as employment,\n"
 "physical or digital accessibility, access to books or audio-visual material."
 
 #: templates/editorial/partenaires/dge.html:3
 msgid ""
 "\n"
-"  Dans le cadre de l’action engagée par l’Organisation Mondiale du Tourisme "
-"(OMT) pour promouvoir\n"
-"  l’accessibilité inclusive, la France s’engage en faveur d’un tourisme "
-"accessible pour tous avec\n"
-"  les Marques Nationales du Tourisme (Tourisme & Handicap et Destination "
-"pour tous) portées par\n"
-"  la Direction générale des entreprises (DGE) au sein du Ministère de "
-"l’Économie, des Finances et\n"
+"  Dans le cadre de l’action engagée par l’Organisation Mondiale du Tourisme (OMT) pour promouvoir\n"
+"  l’accessibilité inclusive, la France s’engage en faveur d’un tourisme accessible pour tous avec\n"
+"  les Marques Nationales du Tourisme (Tourisme & Handicap et Destination pour tous) portées par\n"
+"  la Direction générale des entreprises (DGE) au sein du Ministère de l’Économie, des Finances et\n"
 "  de la Relance.\n"
 "  "
 msgstr ""
 "\n"
-"As part of the action undertaken by the World Tourism Organization (WTO) to "
-"promote\n"
-"inclusive accessibility, France is committed to making tourism accessible to "
-"all with\n"
-"the National Tourism Brands (Tourism & Disability and Destination for All) "
-"supported by\n"
-"the General Directorate of Enterprises (DGE) within the Ministry of the "
-"Economy, Finance and\n"
+"As part of the action undertaken by the World Tourism Organization (WTO) to promote\n"
+"inclusive accessibility, France is committed to making tourism accessible to all with\n"
+"the National Tourism Brands (Tourism & Disability and Destination for All) supported by\n"
+"the General Directorate of Enterprises (DGE) within the Ministry of the Economy, Finance and\n"
 "of the Ministry of the Economy, Finance and Recovery."
 
 #: templates/editorial/partenaires/dge.html:13
 msgid ""
 "\n"
-"    Tourisme & Handicap (T&H)&nbsp;: la marque distingue une offre qui "
-"garantit l’accessibilité\n"
-"    des équipements touristiques aux personnes en situation de handicap. "
-"Avec T&H, les personnes\n"
-"    handicapées peuvent choisir leurs vacances et leurs loisirs en toute "
-"liberté, sécurité et\n"
+"    Tourisme & Handicap (T&H)&nbsp;: la marque distingue une offre qui garantit l’accessibilité\n"
+"    des équipements touristiques aux personnes en situation de handicap. Avec T&H, les personnes\n"
+"    handicapées peuvent choisir leurs vacances et leurs loisirs en toute liberté, sécurité et\n"
 "    autonomie.\n"
 "    "
 msgstr ""
 "\n"
-"Tourisme & Handicap (T&H): the mark distinguishes an offer which guarantees "
-"the accessibility\n"
-"tourist facilities to people with disabilities. With T&H, people with "
-"disabilities can choose their\n"
-"disabled people can choose their vacations and leisure activities in "
-"complete freedom, safety and\n"
+"Tourisme & Handicap (T&H): the mark distinguishes an offer which guarantees the accessibility\n"
+"tourist facilities to people with disabilities. With T&H, people with disabilities can choose their\n"
+"disabled people can choose their vacations and leisure activities in complete freedom, safety and\n"
 "autonomy."
 
 #: templates/editorial/partenaires/dge.html:21
 #, python-format
 msgid ""
 "\n"
-"    Un peu plus de 5 200 sites touristiques sont déjà labellisés dont 52%% "
-"pour les 4 familles\n"
+"    Un peu plus de 5 200 sites touristiques sont déjà labellisés dont 52%% pour les 4 familles\n"
 "    de handicap (auditif, mental, moteur et visuel).\n"
 "    "
 msgstr ""
 "\n"
-"A little more than 5,200 tourist sites have already been awarded the label, "
-"52%% of which are for the 4 families\n"
+"A little more than 5,200 tourist sites have already been awarded the label, 52%% of which are for the 4 families\n"
 "of disabilities (auditory, mental, motor and visual)."
 
 #: templates/editorial/partenaires/dge.html:27
 msgid ""
 "\n"
-"    Destination pour tous (DPT), dans la continuité de T&H, distingue des "
-"territoires (commune,\n"
-"    communauté de communes, département, parc naturel...) garantissant une "
-"offre cohérente et globale\n"
-"    accessible, intégrant à la fois l’accessibilité des sites et des "
-"activités touristiques\n"
-"    (hébergements, restauration...), mais aussi l’accessibilité des autres "
-"services de la vie\n"
-"    quotidienne (commerces, services médicaux...) et celle de l’ensemble de "
-"la chaîne de déplacement\n"
+"    Destination pour tous (DPT), dans la continuité de T&H, distingue des territoires (commune,\n"
+"    communauté de communes, département, parc naturel...) garantissant une offre cohérente et globale\n"
+"    accessible, intégrant à la fois l’accessibilité des sites et des activités touristiques\n"
+"    (hébergements, restauration...), mais aussi l’accessibilité des autres services de la vie\n"
+"    quotidienne (commerces, services médicaux...) et celle de l’ensemble de la chaîne de déplacement\n"
 "    sur le territoire concerné (voirie, transports...).\n"
 "    "
 msgstr ""
 "\n"
-"Destination pour tous (DPT), in the continuity of T&H, distinguishes "
-"territories (commune,\n"
-"community of municipalities, department, natural park...) guaranteeing a "
-"coherent and global offer\n"
-"accessible, integrating both the accessibility of sites and tourist "
-"activities\n"
-"(accommodation, catering, etc.), but also the accessibility of other "
-"everyday services (shops, medical\n"
-"services (shops, medical services, etc.) and the entire travel chain in the "
-"area concerned (roads\n"
+"Destination pour tous (DPT), in the continuity of T&H, distinguishes territories (commune,\n"
+"community of municipalities, department, natural park...) guaranteeing a coherent and global offer\n"
+"accessible, integrating both the accessibility of sites and tourist activities\n"
+"(accommodation, catering, etc.), but also the accessibility of other everyday services (shops, medical\n"
+"services (shops, medical services, etc.) and the entire travel chain in the area concerned (roads\n"
 "on the territory concerned (roads, transport, etc.)."
 
 #: templates/editorial/partenaires/nestenn.html:3
 msgid ""
 "\n"
-"  Le groupe d’agences immobilières Nestenn a été créé en 2017. Olivier "
-"Alonso en est le président-fondateur.\n"
-"  Aujourd’hui, Nestenn est un groupe national et international disposant "
-"d’un réseau de plus de 450 agences immobilières\n"
-"  ouvertes ou en cours d’ouverture en France et à l’international (Miami "
-"Etats-Unis, Nouvelle-Calédonie, Île Maurice,\n"
-"  Portugal,…) et plus de 2 500 collaborateurs. Son ambition : l’ouverture de "
-"600 agences d’ici fin 2023.\n"
+"  Le groupe d’agences immobilières Nestenn a été créé en 2017. Olivier Alonso en est le président-fondateur.\n"
+"  Aujourd’hui, Nestenn est un groupe national et international disposant d’un réseau de plus de 450 agences immobilières\n"
+"  ouvertes ou en cours d’ouverture en France et à l’international (Miami Etats-Unis, Nouvelle-Calédonie, Île Maurice,\n"
+"  Portugal,…) et plus de 2 500 collaborateurs. Son ambition : l’ouverture de 600 agences d’ici fin 2023.\n"
 "  "
 msgstr ""
 "\n"
-"The Nestenn group of real estate agencies was created in 2017. Olivier "
-"Alonso is the president and founder.\n"
-"Today, Nestenn is a national and international group with a network of over "
-"450 real estate agencies\n"
-"opened or in the process of being opened in France and abroad (Miami United "
-"States, New Caledonia, Mauritius,\n"
-"Portugal, etc.) and over 2,500 employees. Its ambition is to open 600 "
-"agencies by the end of 2023."
+"The Nestenn group of real estate agencies was created in 2017. Olivier Alonso is the president and founder.\n"
+"Today, Nestenn is a national and international group with a network of over 450 real estate agencies\n"
+"opened or in the process of being opened in France and abroad (Miami United States, New Caledonia, Mauritius,\n"
+"Portugal, etc.) and over 2,500 employees. Its ambition is to open 600 agencies by the end of 2023."
 
 #: templates/editorial/partenaires/nestenn.html:11
 msgid ""
 "\n"
-"  Nestenn est également membre de la Fédération Française de la Franchise et "
-"du Fichier AMEPI, dont Olivier ALONSO a\n"
-"  assuré la vice-présidence et la présidence durant deux années "
-"consécutives.\n"
+"  Nestenn est également membre de la Fédération Française de la Franchise et du Fichier AMEPI, dont Olivier ALONSO a\n"
+"  assuré la vice-présidence et la présidence durant deux années consécutives.\n"
 "  "
 msgstr ""
 "\n"
-"Nestenn is also a member of the French Franchise Federation and of the AMEPI "
-"file, of which Olivier ALONSO was vice-president and president for two "
-"consecutive years.\n"
+"Nestenn is also a member of the French Franchise Federation and of the AMEPI file, of which Olivier ALONSO was vice-president and president for two consecutive years.\n"
 "Olivier ALONSO was vice-president and president for two consecutive years."
 
 #: templates/editorial/partenaires/nestenn.html:17
@@ -3247,16 +3220,12 @@ msgstr "Learn more about the Nestenn Real Estate Group:"
 
 #: templates/editorial/partenaires/onecompagnon.html:3
 msgid ""
-"One Compagnon est un assistant personnel du quotidien qui réalise à votre "
-"place toutes les tâches chronophages que\n"
-"  vous devez gérer. Grâce à notre application, tous les services deviennent "
-"accessibles simplement !\n"
+"One Compagnon est un assistant personnel du quotidien qui réalise à votre place toutes les tâches chronophages que\n"
+"  vous devez gérer. Grâce à notre application, tous les services deviennent accessibles simplement !\n"
 "  Qu'est-ce que je peux lui demander ?"
 msgstr ""
-"One Compagnon is a personal assistant for your daily life that performs for "
-"you all the time-consuming tasks you have to\n"
-"you have to manage. Thanks to our application, all services become easily "
-"accessible!\n"
+"One Compagnon is a personal assistant for your daily life that performs for you all the time-consuming tasks you have to\n"
+"you have to manage. Thanks to our application, all services become easily accessible!\n"
 "What can I ask him ?"
 
 #: templates/editorial/partenaires/onecompagnon.html:8
@@ -3288,8 +3257,8 @@ msgid ""
 "Il est également là pour organiser tous vos déplacements, vérifier "
 "l'accessibilité d'un lieu, le réserver..."
 msgstr ""
-"It is also there to organize all your travels, to check the accessibility of "
-"a place, to book it..."
+"It is also there to organize all your travels, to check the accessibility of"
+" a place, to book it..."
 
 #: templates/editorial/partenaires/sortiraparis.html:3
 msgid ""
@@ -3304,8 +3273,8 @@ msgid ""
 "Nous aidons à bâtir des souvenirs durables entre nos lecteurs et leurs "
 "proches depuis 2002."
 msgstr ""
-"We have been helping to build lasting memories between our readers and their "
-"loved ones since 2002."
+"We have been helping to build lasting memories between our readers and their"
+" loved ones since 2002."
 
 #: templates/editorial/partenaires/sortiraparis.html:7
 msgid "Nous écrire&nbsp;:"
@@ -3384,7 +3353,8 @@ msgstr "Send a message"
 msgid "Agrandir la carte"
 msgstr "Enlarge the map"
 
-#: templates/erp/includes/history.html:4 templates/erp/includes/sidebar.html:86
+#: templates/erp/includes/history.html:4
+#: templates/erp/includes/sidebar.html:86
 msgid "Historique des modifications"
 msgstr "Changes history"
 
@@ -3446,8 +3416,8 @@ msgstr "Unsubscribe from updates"
 
 #: templates/erp/includes/sidebar.html:47
 msgid ""
-"Ne plus recevoir de notification par email lorsque cet établissement est mis "
-"à jour"
+"Ne plus recevoir de notification par email lorsque cet établissement est mis"
+" à jour"
 msgstr ""
 "No longer receive email notifications when this establishment is updated"
 
@@ -3504,8 +3474,8 @@ msgstr "Integrate acceslibre on your website!"
 
 #: templates/erp/includes/sidebar.html:117
 msgid ""
-"Copiez ce code puis collez-le là où vous souhaitez qu'il s'affiche sur votre "
-"site web :"
+"Copiez ce code puis collez-le là où vous souhaitez qu'il s'affiche sur votre"
+" site web :"
 msgstr ""
 "Copy this code and paste it where you want it to appear on your website:"
 
@@ -3531,10 +3501,11 @@ msgstr "An error occurred while copying."
 
 #: templates/erp/includes/vaccination.html:14
 msgid ""
-"Nous ne disposons d'aucune information sur les modalités de vaccination pour "
-"ce centre."
+"Nous ne disposons d'aucune information sur les modalités de vaccination pour"
+" ce centre."
 msgstr ""
-"We do not have any information on the vaccination modalities for this center."
+"We do not have any information on the vaccination modalities for this "
+"center."
 
 #: templates/erp/includes/vaccination.html:20
 msgid "Centre ouvert depuis le"
@@ -3555,9 +3526,10 @@ msgstr "Access to this vaccination center is <strong>by appointment</strong>."
 
 #: templates/erp/includes/vaccination.html:46
 msgid ""
-"Ce centre propose également des consultations de <strong>prévaccination</"
-"strong>"
-msgstr "This center also offers <strong>prevaccination</strong> consultations."
+"Ce centre propose également des consultations de "
+"<strong>prévaccination</strong>"
+msgstr ""
+"This center also offers <strong>prevaccination</strong> consultations."
 
 #: templates/erp/includes/vaccination.html:52
 msgid "Le site s'ouvrira dans une nouvelle fenêtre"
@@ -3630,8 +3602,7 @@ msgstr "Add a new establishment"
 #: templates/erp/index.html:55
 #, python-format
 msgid ""
-"Les données d'accessibilité pour cet établissement ne sont pas encore "
-"disponibles,\n"
+"Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,\n"
 "            mais <a href=\"%(url_contrib)s\">vous pouvez les ajouter</a>."
 msgstr ""
 "Accessibility data for this establishment is not yet available,\n"
@@ -3690,8 +3661,8 @@ msgstr "Making a real difference"
 
 #: templates/index.html:69
 msgid ""
-"En France, près d'une personne sur 5 est ou sera en situation de handicap au "
-"cours de sa vie."
+"En France, près d'une personne sur 5 est ou sera en situation de handicap au"
+" cours de sa vie."
 msgstr ""
 "In France, nearly one person in five is or will be disabled during his or "
 "her life."
@@ -3761,8 +3732,8 @@ msgstr "2. Fill in the information"
 
 #: templates/index.html:115
 msgid ""
-"Répondez à quelques questions : y a-t-il une marche pour entrer ? des places "
-"de parking à proximité ?"
+"Répondez à quelques questions : y a-t-il une marche pour entrer ? des places"
+" de parking à proximité ?"
 msgstr "Answer a few questions: Is there a step to enter?"
 
 #: templates/index.html:117
@@ -3845,8 +3816,7 @@ msgstr "Connection"
 #, python-format
 msgid ""
 "\n"
-"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</"
-"strong>,\n"
+"    Vous êtes déjà authentifié en tant que <strong>%(user.username)s</strong>,\n"
 "    vous ne pouvez donc pas vous authentifier avec un nouveau compte.\n"
 "    Veuillez <a href=\"%(url_logout)s\">d'abord vous déconnecter</a>\n"
 "    ou revenir à la <a href=\"%(url_home)s\">page d'accueil</a>.\n"
@@ -3899,9 +3869,9 @@ msgstr "Change your password"
 
 #: templates/registration/password_change_form.html:12
 msgid ""
-"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
-"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
-"saisi."
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre"
+" nouveau mot de passe à deux reprises afin de vérifier qu’il est "
+"correctement saisi."
 msgstr ""
 "For security reasons, please enter your old password and then your new "
 "password twice to ensure that it is entered correctly."
@@ -3935,25 +3905,21 @@ msgid ""
 "La réinitialisation de votre mot de passe est impossible, les paramètres "
 "d'identification ne sont pas cohérents."
 msgstr ""
-"Resetting your password is impossible, the identification parameters are not "
-"consistent."
+"Resetting your password is impossible, the identification parameters are not"
+" consistent."
 
 #: templates/registration/password_reset_confirm.html:21
 #, python-format
 msgid ""
 "\n"
-"    Il se peut que votre mot de passe ait <strong>déjà été réinitialisé</"
-"strong>&nbsp;auquel cas, pas de panique&nbsp;!\n"
-"    Il suffit de <strong><a href=\"%(url_login)s\">vous identifier</a></"
-"strong> au moyen du mot de passe que\n"
+"    Il se peut que votre mot de passe ait <strong>déjà été réinitialisé</strong>&nbsp;auquel cas, pas de panique&nbsp;!\n"
+"    Il suffit de <strong><a href=\"%(url_login)s\">vous identifier</a></strong> au moyen du mot de passe que\n"
 "    vous avez précédemment redéfini.\n"
 "    "
 msgstr ""
 "\n"
-"It may be that your password has <strong>already been reset</strong>&nbsp;in "
-"which case, don't panic&nbsp;!\n"
-"Simply <strong><a href=\"%(url_login)s\">log in</a></strong> using the "
-"password you\n"
+"It may be that your password has <strong>already been reset</strong>&nbsp;in which case, don't panic&nbsp;!\n"
+"Simply <strong><a href=\"%(url_login)s\">log in</a></strong> using the password you\n"
 "you previously redefined."
 
 #: templates/registration/password_reset_confirm.html:27
@@ -3963,31 +3929,25 @@ msgstr "If it is not the case:"
 #: templates/registration/password_reset_confirm.html:34
 msgid ""
 "\n"
-"      Si vous utilisez un client de messagerie susceptible de tronquer ou "
-"modifier les liens hypertextes\n"
-"      d'un courriel, assurez-vous de <strong>désactiver cette "
-"fonctionnalité</strong> ou d'utiliser un\n"
-"      <strong><a href=\"https://fr.wikipedia.org/wiki/"
-"Client_de_messagerie\">client de messagerie alternatif</a></strong>.\n"
+"      Si vous utilisez un client de messagerie susceptible de tronquer ou modifier les liens hypertextes\n"
+"      d'un courriel, assurez-vous de <strong>désactiver cette fonctionnalité</strong> ou d'utiliser un\n"
+"      <strong><a href=\"https://fr.wikipedia.org/wiki/Client_de_messagerie\">client de messagerie alternatif</a></strong>.\n"
 "      "
 msgstr ""
 "\n"
 "If you are using an email client that may truncate or modify hyperlinks\n"
 "in an email, be sure to <strong>disable this feature</strong> or use an\n"
-"<strong><a href=\"https://en.wikipedia.org/wiki/Email_client\">alternative "
-"email client</a></strong>."
+"<strong><a href=\"https://en.wikipedia.org/wiki/Email_client\">alternative email client</a></strong>."
 
 #: templates/registration/password_reset_confirm.html:42
 #, python-format
 msgid ""
 "\n"
-"      Si aucune de ces pistes ne solutionnent le problème, <strong><a "
-"href=\"%(url_contact_connection)s\">veuillez nous contacter</a></strong>.\n"
+"      Si aucune de ces pistes ne solutionnent le problème, <strong><a href=\"%(url_contact_connection)s\">veuillez nous contacter</a></strong>.\n"
 "      "
 msgstr ""
 "\n"
-"If none of these leads solve the problem, <strong><a "
-"href=\"%(url_contact_connection)s\">please contact us</a></strong>."
+"If none of these leads solve the problem, <strong><a href=\"%(url_contact_connection)s\">please contact us</a></strong>."
 
 #: templates/registration/password_reset_confirm.html:48
 #: templates/registration/password_reset_done.html:9
@@ -3999,8 +3959,8 @@ msgid ""
 "Pour des raisons de sécurité, saisissez votre nouveau mot de passe à deux "
 "reprises afin de vérifier qu’il est correctement saisi."
 msgstr ""
-"For security reasons, please enter your new password twice to ensure that it "
-"is entered correctly."
+"For security reasons, please enter your new password twice to ensure that it"
+" is entered correctly."
 
 #: templates/registration/password_reset_confirm.html:70
 msgid "Enregistrer mon nouveau mot de passe"
@@ -4013,17 +3973,13 @@ msgstr "Change in progress"
 #: templates/registration/password_reset_done.html:12
 msgid ""
 "\n"
-"    Nous avons envoyé un email à l'adresse que vous avez indiqué, pour peu "
-"que\n"
-"    <strong>celui-ci existe dans notre base de données</strong>, afin de "
-"vous\n"
+"    Nous avons envoyé un email à l'adresse que vous avez indiqué, pour peu que\n"
+"    <strong>celui-ci existe dans notre base de données</strong>, afin de vous\n"
 "    permettre de modifier le mot de passe du compte qui y est associé.\n"
 "    "
 msgstr ""
 "\n"
-"We sent an email to the address you indicated, provided <strong>that it "
-"exists in our database</strong>, to allow you to change the password for to "
-"associated account."
+"We sent an email to the address you indicated, provided <strong>that it exists in our database</strong>, to allow you to change the password for to associated account."
 
 #: templates/registration/password_reset_done.html:19
 msgid "Si vous ne recevez pas d'email d'ici quelques minutes :"
@@ -4031,8 +3987,8 @@ msgstr "If you do not receive an email within a few minutes:"
 
 #: templates/registration/password_reset_done.html:21
 msgid ""
-"Vérifiez votre dossier <em>Spam</em> ou <em>Pourriels</em> dans votre client "
-"de messagerie électronique"
+"Vérifiez votre dossier <em>Spam</em> ou <em>Pourriels</em> dans votre client"
+" de messagerie électronique"
 msgstr "Please check your <em>Spam</em> folder in your email client"
 
 #: templates/registration/password_reset_done.html:23
@@ -4060,16 +4016,12 @@ msgstr "Fields marked with an asterisk (*) are required."
 #, python-format
 msgid ""
 "Merci de fournir l'adresse email que vous\n"
-"          avez initialement utilisée pour créer votre compte. Si vous ne "
-"vous souvenez\n"
-"          pas de cette adresse, ou qu'elle est devenue inaccessible, merci "
-"de\n"
-"          <a href=\"%(url_contact_connection)s\">prendre contact</a> avec "
-"notre équipe."
+"          avez initialement utilisée pour créer votre compte. Si vous ne vous souvenez\n"
+"          pas de cette adresse, ou qu'elle est devenue inaccessible, merci de\n"
+"          <a href=\"%(url_contact_connection)s\">prendre contact</a> avec notre équipe."
 msgstr ""
 "Please provide the email address you originally used to\n"
-"you originally used to create your account. If you do not remember this "
-"address or it has become inaccessible, please\n"
+"you originally used to create your account. If you do not remember this address or it has become inaccessible, please\n"
 "<a href=\"%(url_contact_connection)s\">contact us</a>."
 
 #: templates/registration/password_reset_form.html:38
@@ -4127,8 +4079,8 @@ msgstr "Show the list of all establishments located in {{ town }}"
 
 #: templates/search/global_map.html:41
 msgid ""
-"Afficher les établissements situés dans un rayon de "
-"{{ MAP_SEARCH_RADIUS_KM }} kilomètres autour de"
+"Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM "
+"}} kilomètres autour de"
 msgstr ""
 "Show establishments located within {{ MAP_SEARCH_RADIUS_KM }} kilometers of"
 
@@ -4199,7 +4151,8 @@ msgstr "Locate"
 #: templates/stats/includes/territoires_table.html:3
 #, python-format
 msgid ""
-"Liste des %(nb_territoires)s communes de 5000 habitants ou plus, classées par"
+"Liste des %(nb_territoires)s communes de 5000 habitants ou plus, classées "
+"par"
 msgstr ""
 "List of %(nb_territoires)s municipalities with 5000 or more inhabitants, "
 "sorted by"
