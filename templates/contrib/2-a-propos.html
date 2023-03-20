@@ -6,7 +6,7 @@
 
 {% block page_title %}{% translate "A propos de vous" %} - {% translate "acceslibre" %}{% endblock %}
 {% block full_infos %}{% endblock %}
-{% block contrib_title %}{% translate "{{ erp.nom }} de {{ erp.commune_ext }}" %}{% endblock %}
+{% block contrib_title %}{% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}{% endblock %}
 {% block contrib_step %}<small>{% translate "Étape 2 sur 7" %}</small>{% endblock %}
 {% block contrib_subtitle %}{% translate "A propos de vous" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}

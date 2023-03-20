@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 15:03+0100\n"
+"POT-Creation-Date: 2023-03-20 17:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Exemple: nom@domaine.com"
 msgstr ""
 
-#: compte/forms.py:80
+#: compte/forms.py:80 contact/forms.py:29
 msgid "Format de l'email attendu : nom@domaine.tld"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr "Mot de passe"
 msgid "Confirmation du mot de passe"
 msgstr ""
 
-#: compte/forms.py:101
+#: compte/forms.py:101 contact/forms.py:34
 msgid "Je ne suis pas un robot"
 msgstr ""
 
@@ -128,6 +128,14 @@ msgstr ""
 
 #: compte/models.py:59
 msgid "UsersStats"
+msgstr ""
+
+#: contact/forms.py:35
+msgid "Merci de cocher cette case pour envoyer votre message"
+msgstr ""
+
+#: contact/forms.py:58
+msgid "Cochez cette case pour soumettre le formulaire."
 msgstr ""
 
 #: contact/models.py:20
@@ -2329,6 +2337,15 @@ msgstr ""
 msgid "Oups... Le serveur a crashé"
 msgstr ""
 
+#: templates/500.html:14
+msgid ""
+"Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre\n"
+"    requête. L'erreur a vraisemblablement déjà été automatiquement notifiée\n"
+"    à l'équipe technique, qui s'efforcera de corriger le problème dans les "
+"plus\n"
+"    brefs délais."
+msgstr ""
+
 #: templates/500.html:21
 #, python-format
 msgid ""
@@ -2574,8 +2591,9 @@ msgstr ""
 
 #: templates/contrib/2-a-propos.html:9 templates/contrib/3-transport.html:7
 #: templates/contrib/4-exterieur.html:6 templates/contrib/5-entree.html:6
-#: templates/contrib/7-commentaire.html:9
-msgid "{{ erp.nom }} de {{ erp.commune_ext }}"
+#: templates/contrib/6-accueil.html:6 templates/contrib/7-commentaire.html:9
+#, python-format
+msgid "%(erp.nom)s de %(erp.commune_ext)s"
 msgstr ""
 
 #: templates/contrib/2-a-propos.html:10
