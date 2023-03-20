@@ -45,7 +45,7 @@ def map_list_from_schema(schema_enum, data, verbose=False):
     result = set()
     for d in data:
         choice = schema_enum[[y[0] for y in schema_enum].index(d)][index]
-        result.add(choice)
+        result.add(str(choice))
 
     return list(result)
 
