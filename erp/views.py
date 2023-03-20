@@ -838,8 +838,6 @@ def contrib_a_propos(request, erp_slug):
 
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
-                if form.cleaned_data["subscribe"] is True:
-                    ErpSubscription.subscribe(erp, request.user)
 
             erp.save()
             messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
