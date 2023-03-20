@@ -31,9 +31,9 @@ Le point d'entrée racine de l'API est accessible à l'adresse
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
-## Authentification
+## Identification
 
-Si vous voulez utiliser notre API, nous pouvons vous fournir une clef, à joindre à chaque requête via l'API via l'entête suivante :
+Si vous voulez utiliser notre API, nous pouvons vous fournir une clef, à joindre à chaque requête à l'API via l'entête suivante :
 ```
 Authorization: Api-Key <VOTRE_CLEF_API>
 ```
