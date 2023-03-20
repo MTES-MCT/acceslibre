@@ -1,15 +1,16 @@
 {% extends "editorial/base.html" %}
 
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block page_title %}Revendiquer un établissement{% endblock %}
+{% block page_title %}{% translate "Revendiquer un établissement" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
 <main>
-  <h1 class="h3 mb-3">Revendiquer un établissement</h1>
+  <h1 class="h3 mb-3">{% translate "Revendiquer un établissement" %}</h1>
 
-  <p class="font-weight-bold">Vous déclarez être gestionnaire de l'établissement suivant&nbsp;:</p>
+  <p class="font-weight-bold">{% translate "Vous déclarez être gestionnaire de l'établissement suivant&nbsp;:" %}</p>
 
   <div class="card shadow-m mb-3">
     <div class="card-header">
@@ -21,7 +22,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-6">
-          <h3 class="h6">Adresse&nbsp;:</h3>
+          <h3 class="h6">{% translate "Adresse&nbsp;:" %}</h3>
           <address class="mb-2 font-italic">{{ erp.adresse }}</adresse>
         </div>
         <div class="col-sm-6">
@@ -48,7 +49,7 @@
     {% if form.non_field_errors %}
     <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      Attention, des erreurs ont été rencontrées.
+      {% translate "Attention, des erreurs ont été rencontrées." %}
       <ul class="my-1">
         {% for field_name, message in form.non_field_errors.items %}
         <li>{{ field_name }}: {{ message }}</li>
@@ -61,7 +62,7 @@
       {{ form.ok|as_crispy_field }}
     </div>
 
-    <button class="btn btn-primary">Accepter et continuer</button>
+    <button class="btn btn-primary">{% translate "Accepter et continuer" %}</button>
   </form>
 </main>
 {% endblock %}

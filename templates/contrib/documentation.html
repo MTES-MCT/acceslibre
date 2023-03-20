@@ -1,23 +1,24 @@
 {% extends "editorial/base.html" %}
 
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block page_title %}Documentation des champs d'accessibilité{% endblock %}
+{% block page_title %}{% translate "Documentation des champs d'accessibilité" %}{% endblock %}
 
 {% block editorial_content %}
-  <h2 class="h3 mb-3">Documentation des champs d'accessibilité</h2>
+  <h2 class="h3 mb-3">{% translate "Documentation des champs d'accessibilité" %}</h2>
 
   <div class="alert alert-info mb-3">
-    Vous souhaitez étudier ces entités au format tableur&nbsp;? <a href="{% url "contact_form" %}">Demandez le nous</a>&nbsp;!
+    {% translate "Vous souhaitez étudier ces entités au format tableur&nbsp;?" %} <a href="{% url 'contact_form' %}">{% translate "Demandez le nous" %}</a>&nbsp;!
   </div>
 
   <table class="table table-responsive">
     <tbody>
       <tr class="table-light">
-        <th>Entité</th>
-        <th>Description</th>
-        <th>Type de données</th>
-        <th>Attributs</th>
+        <th>{% translate "Entité" %}</th>
+        <th>{% translate "Description" %}</th>
+        <th>{% translate "Type de données" %}</th>
+        <th>{% translate "Attributs" %}</th>
       </tr>
     {% for section, fields in sections.items %}
       <tr class="table-light mt-2">
@@ -29,19 +30,19 @@
         <td style="width:40%">{% if field.help_text_ui %}{{ field.help_text_ui }}{% else %}{{ field.help_text }}{% endif %}</td>
         <td class="text-center">
           {% if field.type == "boolean" %}
-            Booléen optionnel
+          {% translate "Booléen optionnel" %}
           {% elif field.type == "number" %}
-            Nombre entier positif
+          {% translate "Nombre entier positif" %}
           {% elif field.type == "array" %}
-            Choix multiple
+          {% translate "Choix multiple" %}
           {% elif field.type == "string" %}
             {% if field.choices %}
-            Choix simple
+            {% translate "Choix simple" %}
             {% else %}
-            Texte libre
+            {% translate "Texte libre" %}
             {% endif %}
           {% else %}
-            N/A
+          {% translate "N/A" %}
           {% endif %}
         </td>
         <td>

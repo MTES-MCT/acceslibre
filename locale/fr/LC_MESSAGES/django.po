@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 10:20+0100\n"
+"POT-Creation-Date: 2023-03-20 15:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgid ""
 "cette opération est irréversible."
 msgstr ""
 
-#: compte/forms.py:168
+#: compte/forms.py:168 erp/forms.py:511
 msgid "Vous devez confirmer la suppression pour la rendre effective."
 msgstr ""
 
@@ -105,7 +105,7 @@ msgid "EmailTokens"
 msgstr ""
 
 #: compte/models.py:23 compte/models.py:38 compte/models.py:63
-#: contact/models.py:49 erp/models.py:164 erp/models.py:314
+#: contact/models.py:51 erp/models.py:164 erp/models.py:314
 #: subscription/models.py:16
 msgid "Utilisateur"
 msgstr ""
@@ -130,82 +130,192 @@ msgstr ""
 msgid "UsersStats"
 msgstr ""
 
-#: contact/models.py:19
+#: contact/models.py:20
 msgid "Bug technique"
 msgstr ""
 
-#: contact/models.py:20
+#: contact/models.py:21
 msgid "Problème de connexion"
 msgstr ""
 
-#: contact/models.py:21
+#: contact/models.py:22
 msgid "Adresse non reconnue"
 msgstr ""
 
-#: contact/models.py:22
+#: contact/models.py:23
 msgid "Suppression d'un établissement"
 msgstr ""
 
-#: contact/models.py:23
+#: contact/models.py:24
 msgid "Prise de contact avec Acceslibre"
 msgstr ""
 
-#: contact/models.py:24 erp/models.py:373 templates/editorial/footer.html:50
+#: contact/models.py:25 erp/models.py:373 templates/editorial/footer.html:50
 msgid "API"
 msgstr ""
 
-#: contact/models.py:25
+#: contact/models.py:26
 msgid "Signaler une malveillance"
 msgstr ""
 
-#: contact/models.py:26 templates/erp/includes/vaccination.html:8
+#: contact/models.py:27 templates/erp/includes/vaccination.html:8
 msgid "Vaccination"
 msgstr ""
 
-#: contact/models.py:27 erp/schema.py:97
+#: contact/models.py:28
+msgid "Clef API"
+msgstr ""
+
+#: contact/models.py:29 erp/schema.py:97
 msgid "Autre"
 msgstr ""
 
-#: contact/models.py:36
+#: contact/models.py:38
 msgid "Sujet"
 msgstr ""
 
-#: contact/models.py:37
+#: contact/models.py:39
 msgid "Votre nom"
 msgstr ""
 
-#: contact/models.py:40
+#: contact/models.py:42
 msgid "Adresse email"
 msgstr ""
 
-#: contact/models.py:45
+#: contact/models.py:47
 msgid "Message"
 msgstr ""
 
-#: contact/models.py:55
+#: contact/models.py:57
 msgid "Envoi OK"
 msgstr ""
 
-#: contact/models.py:58 erp/models.py:142 erp/models.py:166 erp/models.py:329
+#: contact/models.py:60 erp/models.py:142 erp/models.py:166 erp/models.py:329
 #: erp/models.py:569 erp/models.py:1334 subscription/models.py:25
 msgid "Date de création"
 msgstr ""
 
-#: contact/models.py:59 erp/models.py:143 erp/models.py:167 erp/models.py:330
+#: contact/models.py:61 erp/models.py:143 erp/models.py:167 erp/models.py:330
 #: erp/models.py:570 erp/models.py:1335 subscription/models.py:26
 msgid "Dernière modification"
 msgstr ""
 
-#: core/settings.py:235
+#: core/settings.py:236
 msgid "French"
 msgstr ""
 
-#: core/settings.py:236
+#: core/settings.py:237
 msgid "English"
 msgstr ""
 
-#: erp/models.py:89 erp/models.py:476 erp/schema.py:1460
+#: erp/forms.py:145
+msgid "Un mots-clé par ligne"
+msgstr ""
+
+#: erp/forms.py:167
+msgid "Un code postal par ligne"
+msgstr ""
+
+#: erp/forms.py:192
+#, python-brace-format
+msgid ""
+"{message}. Veuillez vérifier votre saisie ou <a href=\"{signalement_url}\" "
+"target=\"_blank\">signaler une erreur</a>."
+msgstr ""
+
+#: erp/forms.py:225
+#, python-brace-format
+msgid "Cette adresse n'est pas localisable au code postal {code_postal} "
+msgstr ""
+
+#: erp/forms.py:235
+msgid "Cette adresse n'est pas localisable au code INSEE {}"
+msgstr ""
+
+#: erp/forms.py:396 erp/models.py:89 erp/models.py:476 erp/schema.py:1460
+#: templates/contrib/delete.html:24
 msgid "Activité"
+msgstr ""
+
+#: erp/forms.py:441
+msgid "ex: nom@domain.tld"
+msgstr ""
+
+#: erp/forms.py:452
+msgid "Je ne trouve pas l'activité"
+msgstr ""
+
+#: erp/forms.py:462
+msgid "Vous devez suggérer un nom d'activité pour l'établissement."
+msgstr ""
+
+#: erp/forms.py:498
+#, python-brace-format
+msgid ""
+"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
+msgstr ""
+
+#: erp/forms.py:504
+msgid ""
+"Supprimer cet établissement de la base de données (cette opération est "
+"irrémédiable)"
+msgstr ""
+
+#: erp/forms.py:539
+msgid "Recherche"
+msgstr ""
+
+#: erp/forms.py:542
+msgid ""
+"Recherche sur le nom d'une administration publique, d'une entreprise, un\n"
+"            <a href=\"https://www.service-public.fr/professionnels-"
+"entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\">numéro "
+"SIRET</a>,\n"
+"            l'adresse, l'activité ou le\n"
+"            <a href=\"https://www.insee.fr/fr/information/2406147\" "
+"tabindex=\"-1\" target=\"_blank\">code NAF</a>."
+msgstr ""
+
+#: erp/forms.py:552 templates/stats/includes/territoires_table.html:18
+msgid "Commune"
+msgstr ""
+
+#: erp/forms.py:556
+msgid "Rechercher une commune"
+msgstr ""
+
+#: erp/forms.py:587
+msgid "Vous êtes ?"
+msgstr ""
+
+#: erp/forms.py:591
+msgid "Je suis simple contributeur"
+msgstr ""
+
+#: erp/forms.py:595 templates/erp/includes/sidebar.html:34
+msgid "Je gère cet établissement"
+msgstr ""
+
+#: erp/forms.py:599
+msgid "Je représente la fonction publique"
+msgstr ""
+
+#: erp/forms.py:607
+msgid "Registre d'accessibilité"
+msgstr ""
+
+#: erp/forms.py:613 erp/models.py:1327 erp/schema.py:348 erp/schema.py:1442
+msgid "Conformité"
+msgstr ""
+
+#: erp/forms.py:628
+msgid "Je souhaite mettre en ligne cette fiche d'établissement immédiatement"
+msgstr ""
+
+#: erp/forms.py:638
+msgid ""
+"Je m'engage sur l'honneur à fournir des informations factuelles sur cet "
+"établissement."
 msgstr ""
 
 #: erp/models.py:90
@@ -850,10 +960,6 @@ msgstr ""
 
 #: erp/models.py:1318
 msgid "URL du registre"
-msgstr ""
-
-#: erp/models.py:1327 erp/schema.py:348 erp/schema.py:1442
-msgid "Conformité"
 msgstr ""
 
 #: erp/models.py:1331
@@ -2417,6 +2523,8 @@ msgid "Adresse de l'établissement"
 msgstr ""
 
 #: templates/contrib/1-admin-infos.html:27
+#: templates/contrib/base_access_form.html:50 templates/contrib/claim.html:52
+#: templates/contrib/delete.html:47
 msgid "Attention, des erreurs ont été rencontrées."
 msgstr ""
 
@@ -2549,6 +2657,124 @@ msgstr ""
 
 #: templates/contrib/9-labellisation.html:6
 msgid "Labellisation"
+msgstr ""
+
+#: templates/contrib/base.html:35
+msgid "Chargement des API ..."
+msgstr ""
+
+#: templates/contrib/base_access_form.html:26
+msgid ""
+"Vous vous apprêtez à modifier les informations initialement fournies par "
+"<strong>{{ erp.user }}</strong>"
+msgstr ""
+
+#: templates/contrib/base_access_form.html:28
+msgid ""
+"Vous vous apprêtez à modifier les informations existantes pour cet "
+"établissement"
+msgstr ""
+
+#: templates/contrib/base_access_form.html:30
+msgid ""
+"Veuillez vous assurer de la fiabilité des informations que vous contribuez."
+msgstr ""
+
+#: templates/contrib/base_access_form.html:38
+msgid "Les champs marqué d'une astérique (*) sont obligatoires."
+msgstr ""
+
+#: templates/contrib/claim.html:6 templates/contrib/claim.html:11
+msgid "Revendiquer un établissement"
+msgstr ""
+
+#: templates/contrib/claim.html:13
+msgid "Vous déclarez être gestionnaire de l'établissement suivant&nbsp;:"
+msgstr ""
+
+#: templates/contrib/claim.html:25
+msgid "Adresse&nbsp;:"
+msgstr ""
+
+#: templates/contrib/claim.html:65
+msgid "Accepter et continuer"
+msgstr ""
+
+#: templates/contrib/delete.html:6
+msgid "Renseigner un établissement"
+msgstr ""
+
+#: templates/contrib/delete.html:10
+msgid "Supprimer un établissement"
+msgstr ""
+
+#: templates/contrib/delete.html:14
+msgid "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:"
+msgstr ""
+
+#: templates/contrib/delete.html:30
+msgid "Siret"
+msgstr ""
+
+#: templates/contrib/delete.html:35
+msgid "Adresse"
+msgstr ""
+
+#: templates/contrib/delete.html:60
+msgid "Supprimer l'établissement"
+msgstr ""
+
+#: templates/contrib/documentation.html:6
+#: templates/contrib/documentation.html:9
+msgid "Documentation des champs d'accessibilité"
+msgstr ""
+
+#: templates/contrib/documentation.html:12
+msgid "Vous souhaitez étudier ces entités au format tableur&nbsp;?"
+msgstr ""
+
+#: templates/contrib/documentation.html:12
+msgid "Demandez le nous"
+msgstr ""
+
+#: templates/contrib/documentation.html:18
+msgid "Entité"
+msgstr ""
+
+#: templates/contrib/documentation.html:19
+msgid "Description"
+msgstr ""
+
+#: templates/contrib/documentation.html:20
+msgid "Type de données"
+msgstr ""
+
+#: templates/contrib/documentation.html:21
+msgid "Attributs"
+msgstr ""
+
+#: templates/contrib/documentation.html:33
+msgid "Booléen optionnel"
+msgstr ""
+
+#: templates/contrib/documentation.html:35
+msgid "Nombre entier positif"
+msgstr ""
+
+#: templates/contrib/documentation.html:37
+msgid "Choix multiple"
+msgstr ""
+
+#: templates/contrib/documentation.html:40
+msgid "Choix simple"
+msgstr ""
+
+#: templates/contrib/documentation.html:42
+msgid "Texte libre"
+msgstr ""
+
+#: templates/contrib/documentation.html:45
+msgid "N/A"
 msgstr ""
 
 #: templates/contrib/forms/global_form.html:7
@@ -3165,10 +3391,6 @@ msgstr ""
 
 #: templates/erp/includes/sidebar.html:30
 msgid "Signaler un problème"
-msgstr ""
-
-#: templates/erp/includes/sidebar.html:34
-msgid "Je gère cet établissement"
 msgstr ""
 
 #: templates/erp/includes/sidebar.html:43
@@ -3901,10 +4123,6 @@ msgid ""
 "La donnée étant à ce jour inexistante en France, l'estimation du nombre "
 "d'établissements recevant du public se fait sur la base d'1 établissement "
 "pour 45 habitants."
-msgstr ""
-
-#: templates/stats/includes/territoires_table.html:18
-msgid "Commune"
 msgstr ""
 
 #: templates/stats/includes/territoires_table.html:19

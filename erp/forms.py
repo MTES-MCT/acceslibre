@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as translate
 
 from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
@@ -141,7 +142,7 @@ class AdminActiviteForm(forms.ModelForm):
         widget=widgets.Textarea(),
         delimiter="\n",
         required=False,
-        help_text="Un mots-clé par ligne",
+        help_text=translate("Un mots-clé par ligne"),
     )
 
     def save(self, commit=True):
@@ -163,7 +164,7 @@ class AdminCommuneForm(forms.ModelForm):
         widget=widgets.Textarea(),
         delimiter="\n",
         required=False,
-        help_text="Un code postal par ligne",
+        help_text=translate("Un code postal par ligne"),
     )
 
 
@@ -187,7 +188,10 @@ class BaseErpForm(forms.ModelForm):
     def format_error(self, message):
         signalement_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
-            f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" target="_blank">signaler une erreur</a>.'
+            translate(
+                f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" '
+                'target="_blank">signaler une erreur</a>.'
+            )
         )
 
     def raise_validation_error(self, field, message):
@@ -217,8 +221,10 @@ class BaseErpForm(forms.ModelForm):
                 self.raise_validation_error(
                     "code_postal",
                     mark_safe(
-                        "Cette adresse n'est pas localisable au code postal "
-                        f"{code_postal} (mais l'est au code {locdata['code_postal']})"
+                        translate(
+                            f"Cette adresse n'est pas localisable au code postal {code_postal} "
+                            f"(mais l'est au code {locdata['code_postal']})"
+                        )
                     ),
                 )
 
@@ -226,7 +232,9 @@ class BaseErpForm(forms.ModelForm):
         if self.cleaned_data.get("code_insee") and self.cleaned_data["code_insee"] != locdata["code_insee"]:
             self.raise_validation_error(
                 "code_insee",
-                f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
+                translate("Cette adresse n'est pas localisable au code INSEE {}").format(
+                    self.cleaned_data["code_insee"]
+                ),
             )
 
         # Validate house number, if any
@@ -385,7 +393,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    activite = forms.ModelChoiceField(label="Activité", queryset=Activite.objects.order_by("position"))
+    activite = forms.ModelChoiceField(label=translate("Activité"), queryset=Activite.objects.order_by("position"))
     nouvelle_activite = forms.CharField(widget=forms.TextInput)
 
     class Meta:
@@ -430,7 +438,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
             "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
-            "contact_email": forms.EmailInput(attrs={"placeholder": "ex: nom@domain.tld"}),
+            "contact_email": forms.EmailInput(attrs={"placeholder": translate("ex: nom@domain.tld")}),
             "site_internet": forms.URLInput(attrs={"placeholder": "ex: http://etablissement.com"}),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
             "contact_url": forms.URLInput(attrs={"placeholder": "https://mon-etablissement.fr/contactez-nous.html"}),
@@ -440,7 +448,9 @@ class BasePublicErpInfosForm(BaseErpForm):
         super().__init__(*args, **kwargs)
         self.fields["activite"].required = True
         self.fields["nouvelle_activite"].required = False
-        self.fields["activite"].help_text = "<a href='#' id='no_activite'>Je ne trouve pas l'activité</a>"
+        self.fields["activite"].help_text = "<a href='#' id='no_activite'>{}</a>".format(
+            translate("Je ne trouve pas l'activité")
+        )
         self.fields["source_id"].required = False
 
     def clean_nouvelle_activite(self):
@@ -448,8 +458,8 @@ class BasePublicErpInfosForm(BaseErpForm):
         if not self.cleaned_data.get("activite"):
             return new_activity
 
-        if self.cleaned_data["activite"].nom.lower() == "autre" and not new_activity:
-            raise ValidationError(mark_safe("Vous devez suggérer un nom d'activité pour l'établissement."))
+        if self.cleaned_data["activite"].nom.lower() in ("autre", "other") and not new_activity:
+            raise ValidationError(mark_safe(translate("Vous devez suggérer un nom d'activité pour l'établissement.")))
         return new_activity
 
 
@@ -485,20 +495,20 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 else:
                     erp_display = f"{activite} - {adresse}"
                 raise ValidationError(
-                    mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
+                    mark_safe(translate(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."))
                 )
 
 
 class PublicErpDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label="Supprimer cet établissement de la base de données (cette opération est irrémédiable)",
+        label=translate("Supprimer cet établissement de la base de données (cette opération est irrémédiable)"),
         required=True,
     )
 
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError("Vous devez confirmer la suppression pour la rendre effective.")
+            raise ValidationError(translate("Vous devez confirmer la suppression pour la rendre effective."))
         return confirm
 
 
@@ -526,22 +536,24 @@ class ProviderGlobalSearchForm(forms.Form):
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
     code = forms.CharField(required=True, widget=forms.HiddenInput)
     what = forms.CharField(
-        label="Recherche",
+        label=translate("Recherche"),
         help_text=mark_safe(
-            """Recherche sur le nom d'une administration publique, d'une entreprise, un
+            translate(
+                """Recherche sur le nom d'une administration publique, d'une entreprise, un
             <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>,
             l'adresse, l\'activité ou le
             <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
+            )
         ),
         required=True,
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
     )
     where = forms.CharField(
-        label="Commune",
+        label=translate("Commune"),
         required=False,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Rechercher une commune",
+                "placeholder": translate("Rechercher une commune"),
                 "autocomplete": "off",
                 "class": "autocomplete-input form-control",
             }
@@ -572,19 +584,19 @@ class PublicAProposForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     user_type = forms.ChoiceField(
-        label="Vous êtes ?",
+        label=translate("Vous êtes ?"),
         choices=[
             (
                 Erp.USER_ROLE_PUBLIC,
-                "Je suis simple contributeur",
+                translate("Je suis simple contributeur"),
             ),
             (
                 Erp.USER_ROLE_GESTIONNAIRE,
-                "Je gère cet établissement",
+                translate("Je gère cet établissement"),
             ),
             (
                 Erp.USER_ROLE_ADMIN,
-                "Je représente la fonction publique",
+                translate("Je représente la fonction publique"),
             ),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
@@ -592,13 +604,13 @@ class PublicAProposForm(forms.ModelForm):
     )
 
     registre_url = forms.URLField(
-        label="Registre d'accessibilité",
+        label=translate("Registre d'accessibilité"),
         help_text=schema.get_help_text("registre_url"),
         widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}),
         required=False,
     )
     conformite = forms.ChoiceField(
-        label="Conformité",
+        label=translate("Conformité"),
         help_text=schema.get_help_text("conformite"),
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         widget=forms.RadioSelect(attrs={"class": "inline"}),
@@ -613,7 +625,7 @@ class PublicPublicationForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     published = forms.BooleanField(
-        label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
+        label=translate("Je souhaite mettre en ligne cette fiche d'établissement immédiatement"),
         required=True,
         initial=True,
         widget=forms.CheckboxInput(attrs={"checked": "checked"}),
@@ -623,7 +635,7 @@ class PublicPublicationForm(forms.ModelForm):
 class PublicClaimForm(forms.Form):
     ok = forms.BooleanField(
         required=True,
-        label="Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement.",
+        label=translate("Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement."),
     )
 
 

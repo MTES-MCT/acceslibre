@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as translate
 
 from erp.models import Erp
 
@@ -25,13 +26,13 @@ class ContactForm(forms.ModelForm):
     user = forms.ModelChoiceField(queryset=get_user_model().objects, widget=forms.HiddenInput, required=False)
     erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput, required=False)
 
-    email = forms.EmailField(error_messages={"invalid": "Format de l'email attendu : nom@domaine.tld"})
+    email = forms.EmailField(error_messages={"invalid": translate("Format de l'email attendu : nom@domaine.tld")})
 
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
     robot = forms.BooleanField(
-        label="Je ne suis pas un robot",
-        help_text="Merci de cocher cette case pour envoyer votre message",
+        label=translate("Je ne suis pas un robot"),
+        help_text=translate("Merci de cocher cette case pour envoyer votre message"),
         initial=False,
         required=False,
     )
@@ -54,5 +55,5 @@ class ContactForm(forms.ModelForm):
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
         if not robot:
-            raise ValidationError(mark_safe("Cochez cette case pour soumettre le formulaire."))
+            raise ValidationError(mark_safe(translate("Cochez cette case pour soumettre le formulaire.")))
         return robot

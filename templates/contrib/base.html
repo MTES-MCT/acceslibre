@@ -1,6 +1,7 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block top_fluid_content %}
   <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
@@ -31,7 +32,7 @@
 </div>
   <div id="spinner_container" class="flex-container align-items-center flex-center">
     <div class="spinner-border" id="spinner" role="status">
-      <span class="sr-only">Chargement des API ...</span>
+      <span class="sr-only">{% translate "Chargement des API ..." %}</span>
     </div>
   </div>
 {% endblock %}

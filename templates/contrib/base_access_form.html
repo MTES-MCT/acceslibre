@@ -2,6 +2,7 @@
 
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
 {% block contrib_content %}
   <form action="" method="POST" class="a4a-form a4a-conditional-form mb-4" novalidate>
@@ -21,13 +22,12 @@
       {% if erp.user != user %}
       <div class="alert alert-info" role="status">
         <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Vous vous apprêtez à modifier les informations
         {% if erp.user %}
-          initialement fournies par <strong>{{ erp.user }}</strong>
+        {% translate "Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>" %}
         {% else %}
-          existantes pour cet établissement
+        {% translate "Vous vous apprêtez à modifier les informations existantes pour cet établissement" %}
         {% endif %}.
-        Veuillez vous assurer de la fiabilité des informations que vous contribuez.
+        {% translate "Veuillez vous assurer de la fiabilité des informations que vous contribuez." %}
       </div>
       {% endif %}
 
@@ -35,19 +35,19 @@
       {% if step == 1 or step == 2 %}
       <p><small class="text-muted">
         <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Les champs marqué d'une astérique (*) sont obligatoires.
+        {% translate "Les champs marqué d'une astérique (*) sont obligatoires." %}
       </small></p>
       {% else %}
       <p><small class="text-muted">
-        <i aria-hidden="true" class="icon icon-info-circled"></i> Aucun champ n'est obligatoire. Si
-        vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>.
+        <i aria-hidden="true" class="icon icon-info-circled"></i> {% translate "Aucun champ n'est obligatoire. Si
+        vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>." %}
       </small></p>
       {% endif %}
     {% endblock %}
     {% if form.errors %}
     <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      Attention, des erreurs ont été rencontrées.
+      {% translate "Attention, des erreurs ont été rencontrées." %}
       <ul class="my-1">
         {% for field_name, message in form.errors.items %}
         <li>{{ field_name|get_field_label }}: {{ message }}</li>
