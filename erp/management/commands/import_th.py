@@ -59,6 +59,9 @@ class Command(BaseCommand):
         entry["activite"] = Activite.objects.get(nom=clean_activity(entry.get("activite")))
         entry["commune"] = entry["ville"]
         entry["code_postal"] = BaseMapper.handle_5digits_code(entry["code_postal"])
+        entry["site_internet"] = clean_website(entry["site_internet"])
+        entry["source"] = Erp.SOURCE_TH
+        entry["accessibilite"] = {"entree_porte_presence": True}
 
         existing = Erp.objects.find_duplicate(
             numero=clean(entry.get("numero")),
@@ -71,9 +74,6 @@ class Command(BaseCommand):
         if existing:
             return existing
 
-        entry["site_internet"] = clean_website(entry["site_internet"])
-
-        entry["accessibilite"] = {"entree_porte_presence": True}
         serializer = ErpImportSerializer(data=entry)
         try:
             serializer.is_valid(raise_exception=True)
