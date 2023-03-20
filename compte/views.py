@@ -312,3 +312,9 @@ def mes_preferences(request):
         "compte/mes_preferences.html",
         context={"form": form},
     )
+
+
+def set_api_key(request):
+    if request.method == "POST":
+        request.session["api_key"] = request.POST["api_key"]
+    return redirect("apidocs")

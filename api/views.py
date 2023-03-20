@@ -20,7 +20,6 @@ from erp.provider import geocoder
 # - query string parameters api documentation: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
 # - documenting your views: https://www.django-rest-framework.org/coreapi/from-documenting-your-api/#documenting-your-views
 
-
 API_DOC_SUMMARY = f"""
 {settings.SITE_NAME.title()} expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation)
 publique permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
@@ -32,6 +31,15 @@ Le point d'entrée racine de l'API est accessible à l'adresse
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
+## Authentification
+
+Si vous voulez utiliser notre API, nous pouvons vous fournir une clef, à joindre à chaque requête via l'API via l'entête suivante :
+```
+Authorization: Api-Key <VOTRE_CLEF_API>
+```
+
+Pour demander votre clef API, [contactez-nous]({settings.SITE_ROOT_URL}/contact/api_key), nous n'avons, à priori, pas de raison de refuser :-)
+
 ## Limitation
 
 Afin de garantir la disponibilité du site pour tous, un nombre maximum de requêtes par seconde est défini.
@@ -42,7 +50,7 @@ Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera
 ### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
@@ -52,7 +60,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 ### Récupérer les détails d'un établissement particulier
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez la présence de la clé `accessibilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
@@ -62,7 +70,7 @@ Notez la présence de la clé `accessibilite` qui expose l'URL du point de récu
 ### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -70,7 +78,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: applica
 ### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -87,7 +95,7 @@ class A4aAutoSchema(AutoSchema):
 
     def get_operation(self, path, method):
         op = super().get_operation(path, method)
-        for param, rule in self.query_string_params.items():
+        for _, rule in self.query_string_params.items():
             if path in rule["paths"] and method in rule["methods"]:
                 op["parameters"].append(rule["field"])
         return op
