@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 17:38+0100\n"
+"POT-Creation-Date: 2023-03-21 17:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1264,8 +1264,8 @@ msgid "association d'aide aux personnes déficientes visuelles"
 msgstr ""
 
 #: erp/schema.py:317 templates/contrib/includes/nav.html:21
-#: templates/contrib/includes/nav.html:68
-#: templates/contrib/includes/nav.html:70
+#: templates/contrib/includes/nav.html:69
+#: templates/contrib/includes/nav.html:71
 msgid "Accès"
 msgstr ""
 
@@ -1283,8 +1283,8 @@ msgstr ""
 
 #: erp/schema.py:329 templates/contrib/5-entree.html:12
 #: templates/contrib/includes/nav.html:31
-#: templates/contrib/includes/nav.html:84
-#: templates/contrib/includes/nav.html:86
+#: templates/contrib/includes/nav.html:85
+#: templates/contrib/includes/nav.html:87
 msgid "Entrée"
 msgstr ""
 
@@ -1337,9 +1337,9 @@ msgid ""
 msgstr ""
 
 #: erp/schema.py:389 templates/contrib/7-commentaire.html:15
-#: templates/contrib/includes/nav.html:41
-#: templates/contrib/includes/nav.html:101
-#: templates/contrib/includes/nav.html:103
+#: templates/contrib/includes/nav.html:42
+#: templates/contrib/includes/nav.html:102
+#: templates/contrib/includes/nav.html:104
 msgid "Informations complémentaires"
 msgstr ""
 
@@ -2208,17 +2208,17 @@ msgstr ""
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr ""
 
-#: erp/views.py:731 erp/views.py:801 erp/views.py:845 erp/views.py:931
+#: erp/views.py:731 erp/views.py:801 erp/views.py:843 erp/views.py:929
 msgid "Les données ont été enregistrées."
 msgstr ""
 
-#: erp/views.py:1059
+#: erp/views.py:1057
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
 "peut pas être publié."
 msgstr ""
 
-#: erp/views.py:1100
+#: erp/views.py:1098
 msgid "Les données ont été sauvegardées."
 msgstr ""
 
@@ -2243,7 +2243,7 @@ msgstr ""
 msgid "Date de fin du challenge (inclus)"
 msgstr ""
 
-#: stats/models.py:73 stats/models.py:198
+#: stats/models.py:73 stats/models.py:117
 msgid "Challenge"
 msgstr ""
 
@@ -2252,55 +2252,55 @@ msgstr ""
 msgid "Challenges"
 msgstr ""
 
-#: stats/models.py:192
+#: stats/models.py:111
 msgid "Joueur"
 msgstr ""
 
-#: stats/models.py:202
+#: stats/models.py:121
 msgid "Date d'inscription"
 msgstr ""
 
-#: stats/models.py:206
+#: stats/models.py:125
 msgid "Challenge Player"
 msgstr ""
 
-#: stats/models.py:207
+#: stats/models.py:126
 msgid "Challenges Players"
 msgstr ""
 
-#: stats/models.py:214
+#: stats/models.py:133
 msgid "Domaine du site réutilisateur"
 msgstr ""
 
-#: stats/models.py:217
+#: stats/models.py:136
 msgid "Date de notification sur Mattermost ?"
 msgstr ""
 
-#: stats/models.py:222
+#: stats/models.py:141
 msgid "Site réutilisateur"
 msgstr ""
 
-#: stats/models.py:223
+#: stats/models.py:142
 msgid "Sites réutilisateur"
 msgstr ""
 
-#: stats/models.py:234
+#: stats/models.py:153
 msgid "Url complète"
 msgstr ""
 
-#: stats/models.py:235
+#: stats/models.py:154
 msgid "Date de détection de tracking"
 msgstr ""
 
-#: stats/models.py:236
+#: stats/models.py:155
 msgid "Date de dernier contact"
 msgstr ""
 
-#: stats/models.py:240
+#: stats/models.py:159
 msgid "Implémentation du Widget"
 msgstr ""
 
-#: stats/models.py:241
+#: stats/models.py:160
 msgid "Implémentations du Widget"
 msgstr ""
 
@@ -2368,11 +2368,11 @@ msgstr ""
 msgid "Acceslibre est actuellement en maintenance et revient au plus vite."
 msgstr ""
 
-#: templates/annuaire/base.html:9
+#: templates/annuaire/base.html:9 templates/compte/base.html:12
 msgid "Menu"
 msgstr ""
 
-#: templates/annuaire/base.html:13
+#: templates/annuaire/base.html:13 templates/compte/base.html:16
 #: templates/django_registration/registration_closed.html:13
 #: templates/django_registration/registration_complete.html:34
 #: templates/editorial/partenaires.html:40
@@ -2437,6 +2437,157 @@ msgstr ""
 
 #: templates/communes.html:46
 msgid "Derniers établissements renseignés"
+msgstr ""
+
+#: templates/compte/base.html:23 templates/compte/index.html:5
+#: templates/compte/index.html:9 templates/editorial/header.html:23
+#: templates/editorial/header.html:41
+msgid "Mon compte"
+msgstr ""
+
+#: templates/compte/base.html:30
+msgid "Mes établissements"
+msgstr ""
+
+#: templates/compte/base.html:37
+msgid "Mes contributions"
+msgstr ""
+
+#: templates/compte/base.html:44
+msgid "Mes challenges"
+msgstr ""
+
+#: templates/compte/base.html:51
+msgid "Mes abonnements"
+msgstr ""
+
+#: templates/compte/base.html:58
+msgid "Mes préférences"
+msgstr ""
+
+#: templates/compte/base.html:65
+msgid "Mon identifiant"
+msgstr ""
+
+#: templates/compte/base.html:72
+msgid "Mon adresse email"
+msgstr ""
+
+#: templates/compte/base.html:79
+msgid "Mot de passe"
+msgstr ""
+
+#: templates/compte/base.html:85
+msgid "Admin"
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:7
+#: templates/compte/delete_account_warning.html:11
+#: templates/compte/index.html:49
+msgid "Supprimer mon compte"
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:14
+msgid "Souhaitez vous confirmer la suppression de votre compte ?"
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:15
+msgid ""
+"Toutes vos contributions sont conservées, en revanche, votre identifiant "
+"n'apparaîtra plus sur le site."
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:24
+#: templates/contrib/1-admin-infos.html:27
+#: templates/contrib/base_access_form.html:50 templates/contrib/claim.html:52
+#: templates/contrib/delete.html:47
+msgid "Attention, des erreurs ont été rencontrées."
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:40
+#: templates/erp/includes/vote-form.html:34
+msgid "Annuler"
+msgstr ""
+
+#: templates/compte/delete_account_warning.html:43
+msgid "Confirmer la suppression"
+msgstr ""
+
+#: templates/compte/email_change_activation_failed.html:6
+#: templates/django_registration/activation_failed.html:6
+msgid "Activation échouée"
+msgstr ""
+
+#: templates/compte/email_change_activation_failed.html:12
+msgid "Une erreur est survenue :"
+msgstr ""
+
+#: templates/compte/email_change_activation_failed.html:17
+#, python-format
+msgid ""
+"\n"
+"      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique "
+"de l'échec d'activation.\n"
+"      Merci de <a href=\"%(url_contact_topic_bug)s\">nous contacter</a>.\n"
+"      "
+msgstr ""
+
+#: templates/compte/email_change_activation_success.html:6
+msgid "Activation réussie"
+msgstr ""
+
+#: templates/compte/email_change_activation_success.html:12
+#, python-format
+msgid ""
+"\n"
+"      Votre adresse mail à été changée avec succès !\n"
+"      Vous pouvez <a href=\"%(url_login)s\">vous connecter</a> avec votre "
+"nouvelle adresse.\n"
+"      "
+msgstr ""
+
+#: templates/compte/index.html:12
+msgid "Mon nom d'utilisateur (identifiant) :"
+msgstr ""
+
+#: templates/compte/index.html:14 templates/compte/index.html:26
+msgid "changer"
+msgstr ""
+
+#: templates/compte/index.html:19
+msgid "Mon identité :"
+msgstr ""
+
+#: templates/compte/index.html:24
+msgid "Mon adresse email :"
+msgstr ""
+
+#: templates/compte/index.html:30
+msgid "Date d'inscription :"
+msgstr ""
+
+#: templates/compte/index.html:34
+msgid "Dernière connexion :"
+msgstr ""
+
+#: templates/compte/index.html:38
+msgid "Déconnexion"
+msgstr ""
+
+#: templates/compte/index.html:41
+msgid "Se déconnecter"
+msgstr ""
+
+#: templates/compte/index.html:46
+msgid "Suppression du compte"
+msgstr ""
+
+#: templates/compte/index.html:57
+msgid "L'accès à la console d'administration vous est accordé"
+msgstr ""
+
+#: templates/compte/index.html:62
+msgid "Accéder à l'admin"
 msgstr ""
 
 #: templates/contrib/0-start.html:7
@@ -2539,12 +2690,6 @@ msgstr ""
 msgid "Adresse de l'établissement"
 msgstr ""
 
-#: templates/contrib/1-admin-infos.html:27
-#: templates/contrib/base_access_form.html:50 templates/contrib/claim.html:52
-#: templates/contrib/delete.html:47
-msgid "Attention, des erreurs ont été rencontrées."
-msgstr ""
-
 #: templates/contrib/1-admin-infos.html:44
 msgid ""
 "Des établissements correspondant à votre saisie sont déjà présents sur "
@@ -2593,7 +2738,7 @@ msgstr ""
 #: templates/contrib/4-exterieur.html:6 templates/contrib/5-entree.html:6
 #: templates/contrib/6-accueil.html:6 templates/contrib/7-commentaire.html:9
 #, python-format
-msgid "%(erp.nom)s de %(erp.commune_ext)s"
+msgid "%(erp_nom)s de %(erp_commune)s"
 msgstr ""
 
 #: templates/contrib/2-a-propos.html:10
@@ -2631,8 +2776,8 @@ msgid "Étape 4 sur 7"
 msgstr ""
 
 #: templates/contrib/4-exterieur.html:12 templates/contrib/includes/nav.html:26
-#: templates/contrib/includes/nav.html:76
-#: templates/contrib/includes/nav.html:78
+#: templates/contrib/includes/nav.html:77
+#: templates/contrib/includes/nav.html:79
 msgid "Extérieur"
 msgstr ""
 
@@ -2653,10 +2798,12 @@ msgid "Étape 6 sur 7"
 msgstr ""
 
 #: templates/contrib/6-accueil.html:12 templates/contrib/includes/nav.html:36
-#: templates/contrib/includes/nav.html:92
-#: templates/contrib/includes/nav.html:94
-msgid "Accueil"
-msgstr ""
+#: templates/contrib/includes/nav.html:93
+#: templates/contrib/includes/nav.html:95
+#, fuzzy
+#| msgid "Accueil - Réception"
+msgid "Accueil et prestations"
+msgstr "Accueil"
 
 #: templates/contrib/7-commentaire.html:7
 msgid "Commentaire et informations complémentaires"
@@ -2811,14 +2958,14 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: templates/contrib/includes/nav.html:9 templates/contrib/includes/nav.html:50
-#: templates/contrib/includes/nav.html:52
+#: templates/contrib/includes/nav.html:9 templates/contrib/includes/nav.html:51
+#: templates/contrib/includes/nav.html:53
 msgid "Informations"
 msgstr ""
 
 #: templates/contrib/includes/nav.html:15
-#: templates/contrib/includes/nav.html:59
-#: templates/contrib/includes/nav.html:61
+#: templates/contrib/includes/nav.html:60
+#: templates/contrib/includes/nav.html:62
 msgid "À propos"
 msgstr ""
 
@@ -2875,10 +3022,6 @@ msgstr ""
 #: templates/django_registration/activation_complete.html:16
 #: templates/editorial/header.html:45 templates/registration/login.html:66
 msgid "Se connecter"
-msgstr ""
-
-#: templates/django_registration/activation_failed.html:6
-msgid "Activation échouée"
 msgstr ""
 
 #: templates/django_registration/activation_failed.html:10
@@ -3075,10 +3218,6 @@ msgstr ""
 
 #: templates/editorial/header.html:18
 msgid "Aller au contenu principal"
-msgstr ""
-
-#: templates/editorial/header.html:23 templates/editorial/header.html:41
-msgid "Mon compte"
 msgstr ""
 
 #: templates/editorial/header.html:33
@@ -3559,10 +3698,6 @@ msgstr ""
 
 #: templates/erp/includes/vote-form.html:32
 msgid "Envoyer"
-msgstr ""
-
-#: templates/erp/includes/vote-form.html:34
-msgid "Annuler"
 msgstr ""
 
 #: templates/erp/includes/vote-form.html:50

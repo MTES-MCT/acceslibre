@@ -1,19 +1,23 @@
 {% extends "editorial/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Activation échouée{% endblock %}
+{% block page_title %}{% translate "Activation échouée" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
   {% if activation_error %}
     <div class="alert alert-warning">
-      Une erreur est survenue: {{ activation_error }}
+      {% translate "Une erreur est survenue :" %} {{ activation_error }}
     </div>
   {% else %}
     <p>
+      {% url 'contact_topic' topic='bug' as url_contact_topic_bug %}
+      {% blocktranslate %}
       Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.
-      Merci de <a href="{% url "contact_topic" topic="bug" %}">nous contacter</a>.
+      Merci de <a href="{{ url_contact_topic_bug }}">nous contacter</a>.
+      {% endblocktranslate %}
     </p>
   {% endif %}
 {% endblock %}

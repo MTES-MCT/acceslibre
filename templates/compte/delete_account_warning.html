@@ -2,16 +2,17 @@
 {% load crispy_forms_filters %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Supprimer mon compte{% endblock %}
+{% block page_title %}{% translate "Supprimer mon compte" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-    <h1 class="h3 mb-3">Supprimer mon compte</h1>
+    <h1 class="h3 mb-3">{% translate "Supprimer mon compte" %}</h1>
 
     <div class="alert alert-danger">
-      Souhaitez vous confirmer la suppression de votre compte ?<br>
-      Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site.
+      {% translate "Souhaitez vous confirmer la suppression de votre compte ?" %}<br>
+      {% translate "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site." %}
     </div>
 
     <form action="" method="POST" class="a4a-form">
@@ -20,7 +21,7 @@
       {% if form.non_field_errors %}
         <div class="alert alert-warning">
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-          Attention, des erreurs ont été rencontrées.
+          {% translate "Attention, des erreurs ont été rencontrées." %}
           <ul class="my-1">
             {% for field_name, message in form.non_field_errors.items %}
               <li>{{ field_name }}: {{ message }}</li>
@@ -35,11 +36,11 @@
 
       <div class="d-flex justify-content-between">
       <span>
-        <a class="btn btn btn-outline-info text-nowrap" href="{% url "mon_compte" %}">
-         Annuler
+        <a class="btn btn btn-outline-info text-nowrap" href="{% url 'mon_compte' %}">
+          {% translate "Annuler" %}
         </a>
       </span>
-      <button class="btn btn-danger">Confirmer la suppression</button>
+      <button class="btn btn-danger">{% translate "Confirmer la suppression" %}</button>
       </div>
     </form>
 {% endblock %}
