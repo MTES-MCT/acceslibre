@@ -33,7 +33,8 @@
         <option {% if erp %}value="{% url 'contrib_accueil' erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 6 %}selected{% endif %}>
           {% if step > 6 %}[ok]{% endif %}
-          {% translate "Accueil" %}
+          {% translate "Accueil et prestations" %}
+
         </option>
         <option {% if erp %}value="{% url 'contrib_commentaire' erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 7 %}selected{% endif %}>
@@ -89,9 +90,9 @@
       <li class="StepProgress-item{% if step == 6 %} current{% endif %}{% if step > 6 %} is-done{% endif %}"
         aria-label="{% if step == 6 %}en cours{% endif %}{% if step > 6 %} validé{% endif %}">
         {% if erp %}
-        <a title="Accueil {% if step == 6 %}(Étape en cours){% endif %}{% if step > 6 %}(Étape validée){% endif %}" href="{% url 'contrib_accueil' erp_slug=erp.slug %}">{% translate "Accueil" %}</a>
+        <a title="Accueil {% if step == 6 %}(Étape en cours){% endif %}{% if step > 6 %}(Étape validée){% endif %}" href="{% url 'contrib_accueil' erp_slug=erp.slug %}">{% translate "Accueil et prestations" %}</a>
         {% else %}
-        {% translate "Accueil" %}
+        {% translate "Accueil et prestations" %}
         {% endif %}
       </li>
 

@@ -9,7 +9,7 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block fields_content %}
-  <h3 class="h4">{% translate "Accueil" %}</h3>
+  <h3 class="h4">{% translate "Accueil et prestations" %}</h3>
   {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
