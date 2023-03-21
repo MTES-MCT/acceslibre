@@ -169,7 +169,7 @@ class Command(BaseCommand):
             compute_access_completion_rate(access.pk)
             access.refresh_from_db()
             if access.completion_rate <= 4:
+                print(f"ERP#{erp.pk} - {erp.nom} has been deleted from our DB")
                 erp.delete()
-                print(f"ERP#{erp.pk} has been deleted from our DB")
             else:
-                print(f"ERP#{erp.pk} has no TH labels anymore nor families")
+                print(f"ERP#{erp.pk} - {erp.nom} has no TH labels anymore nor families")
