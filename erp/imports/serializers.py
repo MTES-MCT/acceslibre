@@ -196,7 +196,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
             validated_data["accessibilite"].pop(attr, False)
 
         for attr in validated_data["accessibilite"]:
-            setattr(accessibilite, attr, validated_data["accessibilite"][attr])
+            if validated_data["accessibilite"][attr] is not None:
+                setattr(accessibilite, attr, validated_data["accessibilite"][attr])
 
         accessibilite.save()
         return instance
