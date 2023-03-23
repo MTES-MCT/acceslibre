@@ -45,6 +45,7 @@ LOGGING = {
 
 SEND_IN_BLUE_TEMPLATE_IDS = {
     "draft_deleted": 4,
+    "vote_down": 5,
 }
 
 

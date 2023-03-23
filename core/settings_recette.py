@@ -33,4 +33,5 @@ SECURE_HSTS_SECONDS = 3600
 
 SEND_IN_BLUE_TEMPLATE_IDS = {
     "draft_deleted": 4,
+    "vote_down": 5,
 }

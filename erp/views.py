@@ -627,6 +627,15 @@ def vote(request, erp_slug):
                     "SITE_ROOT_URL": settings.SITE_ROOT_URL,
                 },
             )
+            if vote.value != 1:
+                context = {
+                    "erp_contrib_url": "{}{}".format(
+                        settings.SITE_ROOT_URL, reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
+                    )
+                }
+                SendInBlueMailer().send_email(
+                    to_list=request.user.email, subject=None, template="vote_down", context=context
+                )
             messages.add_message(request, messages.SUCCESS, "Votre vote a été enregistré.")
     return redirect(erp.get_absolute_url())
 
