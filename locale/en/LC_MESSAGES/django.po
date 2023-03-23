@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 17:57+0100\n"
-"PO-Revision-Date: 2023-03-21 18:04+0009\n"
+"POT-Creation-Date: 2023-03-23 11:53+0100\n"
+"PO-Revision-Date: 2023-03-23 11:58+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -137,12 +137,10 @@ msgid "UsersStats"
 msgstr "UsersStats"
 
 #: contact/forms.py:35
-#| msgid "Vous devez cocher cette case pour soumettre le formulaire"
 msgid "Merci de cocher cette case pour envoyer votre message"
 msgstr "Please check this box to send your message"
 
 #: contact/forms.py:58
-#| msgid "Vous devez cocher cette case pour soumettre le formulaire"
 msgid "Cochez cette case pour soumettre le formulaire."
 msgstr "Check this box to submit the form."
 
@@ -2366,11 +2364,11 @@ msgstr "Only active users can vote."
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr "You cannot vote on your establishment"
 
-#: erp/views.py:731 erp/views.py:801 erp/views.py:843 erp/views.py:929
+#: erp/views.py:740 erp/views.py:810 erp/views.py:852 erp/views.py:938
 msgid "Les données ont été enregistrées."
 msgstr "The data has been saved."
 
-#: erp/views.py:1057
+#: erp/views.py:1066
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne"
 " peut pas être publié."
@@ -2378,7 +2376,7 @@ msgstr ""
 "You have not provided enough accessibility information. Your establishment "
 "cannot be published."
 
-#: erp/views.py:1098
+#: erp/views.py:1107
 msgid "Les données ont été sauvegardées."
 msgstr "The data has been saved."
 
@@ -2620,27 +2618,25 @@ msgid "Mon compte"
 msgstr "My account"
 
 #: templates/compte/base.html:30
-#| msgid "établissement"
 msgid "Mes établissements"
 msgstr "My establishments"
 
-#: templates/compte/base.html:37
-#| msgid "Parcours de contribution"
+#: templates/compte/base.html:37 templates/compte/mes_contributions.html:6
+#: templates/compte/mes_contributions.html:10
 msgid "Mes contributions"
 msgstr "My contributions"
 
-#: templates/compte/base.html:44
-#| msgid "sur les challenges"
+#: templates/compte/base.html:44 templates/compte/mes_challenges.html:6
+#: templates/compte/mes_challenges.html:10
 msgid "Mes challenges"
 msgstr "My challenges"
 
-#: templates/compte/base.html:51
-#| msgid "Stationnement"
+#: templates/compte/base.html:51 templates/compte/mes_abonnements.html:6
+#: templates/compte/mes_abonnements.html:10
 msgid "Mes abonnements"
 msgstr "My subscriptions"
 
 #: templates/compte/base.html:58
-#| msgid "lieux<br> référencés"
 msgid "Mes préférences"
 msgstr "My preferences"
 
@@ -2649,12 +2645,10 @@ msgid "Mon identifiant"
 msgstr "My login"
 
 #: templates/compte/base.html:72
-#| msgid "Adresse email"
 msgid "Mon adresse email"
 msgstr "My email address"
 
 #: templates/compte/base.html:79
-#| msgid "Mon mot de passe"
 msgid "Mot de passe"
 msgstr "Password"
 
@@ -2665,12 +2659,10 @@ msgstr "Admin"
 #: templates/compte/delete_account_warning.html:7
 #: templates/compte/delete_account_warning.html:11
 #: templates/compte/index.html:49
-#| msgid "Créer mon compte"
 msgid "Supprimer mon compte"
 msgstr "Delete my account"
 
 #: templates/compte/delete_account_warning.html:14
-#| msgid "Vous devez confirmer la suppression pour la rendre effective."
 msgid "Souhaitez vous confirmer la suppression de votre compte ?"
 msgstr "Would you like to confirm the deletion of your account?"
 
@@ -2695,7 +2687,6 @@ msgid "Annuler"
 msgstr "Cancel"
 
 #: templates/compte/delete_account_warning.html:43
-#| msgid "Confirmation"
 msgid "Confirmer la suppression"
 msgstr "Confirm deletion"
 
@@ -2710,11 +2701,6 @@ msgstr "An error occurred:"
 
 #: templates/compte/email_change_activation_failed.html:17
 #, python-format
-#| msgid ""
-#| "\n"
-#| "      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.\n"
-#| "      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
-#| "      "
 msgid ""
 "\n"
 "      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.\n"
@@ -2726,7 +2712,6 @@ msgstr ""
 "Please <a href=\"%(url_contact_topic_bug)s\">contact us</a>."
 
 #: templates/compte/email_change_activation_success.html:6
-#| msgid "Activation échouée"
 msgid "Activation réussie"
 msgstr "Successful activation"
 
@@ -2743,7 +2728,6 @@ msgstr ""
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
 #: templates/compte/index.html:12
-#| msgid "Ce nom d'utilisateur est réservé"
 msgid "Mon nom d'utilisateur (identifiant) :"
 msgstr "My username (login):"
 
@@ -2756,32 +2740,26 @@ msgid "Mon identité :"
 msgstr "My identity:"
 
 #: templates/compte/index.html:24
-#| msgid "Adresse email"
 msgid "Mon adresse email :"
 msgstr "My email address:"
 
 #: templates/compte/index.html:30
-#| msgid "Date d'inscription"
 msgid "Date d'inscription :"
 msgstr "Date of registration:"
 
 #: templates/compte/index.html:34
-#| msgid "Problème de connexion"
 msgid "Dernière connexion :"
 msgstr "Last login:"
 
 #: templates/compte/index.html:38
-#| msgid "Connexion"
 msgid "Déconnexion"
 msgstr "Log out"
 
 #: templates/compte/index.html:41
-#| msgid "Se connecter"
 msgid "Se déconnecter"
 msgstr "Log out"
 
 #: templates/compte/index.html:46
-#| msgid "Suppression d'un établissement"
 msgid "Suppression du compte"
 msgstr "Account deletion"
 
@@ -2792,6 +2770,123 @@ msgstr "You are granted access to the administration console"
 #: templates/compte/index.html:62
 msgid "Accéder à l'admin"
 msgstr "Access to the admin"
+
+#: templates/compte/mes_abonnements.html:14
+msgid ""
+"Les établissements pour lesquels vous êtes abonné aux notifications par "
+"email de mise à jour."
+msgstr ""
+"Institutions for which you are subscribed to email notifications of updates."
+
+#: templates/compte/mes_abonnements.html:37
+msgid "<strong>Vous</strong> avez créé cette fiche"
+msgstr "<strong>You</strong> have created this record"
+
+#: templates/compte/mes_abonnements.html:39
+msgid "Fiche créée par"
+msgstr "Created by"
+
+#: templates/compte/mes_abonnements.html:44
+msgid "Actions"
+msgstr "Actions"
+
+#: templates/compte/mes_abonnements.html:48
+msgid "Se désabonner"
+msgstr "Unsubscribe"
+
+#: templates/compte/mes_abonnements.html:53
+#: templates/compte/mes_challenges.html:42
+#: templates/compte/mes_contributions.html:60
+msgid "La liste est vide."
+msgstr "The list is empty."
+
+#: templates/compte/mes_challenges.html:14
+msgid "Les challenges sur lesquels vous êtes inscrit."
+msgstr "The challenges you are registered for."
+
+#: templates/compte/mes_challenges.html:27
+#, python-format
+msgid "Du %(start)s au %(end)s inclus"
+msgstr "From %(start)s to %(end)s included"
+
+#: templates/compte/mes_challenges.html:31
+msgid "Inscrit depuis le"
+msgstr "Registered since"
+
+#: templates/compte/mes_challenges.html:37
+msgid "Voir le classement"
+msgstr "See the ranking"
+
+#: templates/compte/mes_challenges.html:43
+msgid ""
+"Inscrivez vous sans attendre à un challenge et gagner de nombreux lots."
+msgstr "Register now for a challenge and win many prizes."
+
+#: templates/compte/mes_challenges.html:43
+msgid "Voir les challenges"
+msgstr "See the challenges"
+
+#: templates/compte/mes_contributions.html:15
+#| msgid "Réinitialisation effectuée"
+msgid "Contributions effectuées"
+msgstr "Contributions made"
+
+#: templates/compte/mes_contributions.html:19
+#| msgid "Contributeur"
+msgid "Contributions reçues"
+msgstr "Contributions received"
+
+#: templates/compte/mes_contributions.html:27
+msgid ""
+"Cette page liste les modifications effectuées sur vos établissements par les"
+" autres utilisateurs de la plateforme."
+msgstr ""
+"This page lists the changes made to your facilities by other users of the "
+"platform."
+
+#: templates/compte/mes_contributions.html:29
+msgid ""
+"Cette page liste les modifications que vous avez effectué sur les "
+"établissements initialement renseignés par d'autres utilisateurs."
+msgstr ""
+"This page lists the changes you have made to the facilities originally "
+"entered by other users."
+
+#: templates/compte/mes_contributions.html:35
+msgid "Date"
+msgstr "Date"
+
+#: templates/compte/mes_contributions.html:36
+#| msgid "Confirmation"
+msgid "Modifications"
+msgstr "Changes"
+
+#: templates/compte/mes_contributions.html:42
+#| msgid "par"
+msgid "Par"
+msgstr "By"
+
+#: templates/compte/mes_contributions.html:43
+msgid "le"
+msgstr "on"
+
+#: templates/compte/mes_contributions.html:48
+#: templates/contrib/3-transport.html:9 templates/contrib/4-exterieur.html:8
+#: templates/contrib/5-entree.html:8 templates/contrib/6-accueil.html:8
+#: templates/contrib/7-commentaire.html:11
+msgid "Informations d'accessibilité"
+msgstr "Accessibility information"
+
+#: templates/compte/mes_contributions.html:51
+#| msgid "Informations transports"
+msgid "Informations administratives"
+msgstr "Administrative information"
+
+#: templates/compte/mes_contributions.html:55
+#| msgid ""
+#| "L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
+msgid "La ressource n'existe plus dans la base de données."
+msgstr "The resource no longer exists in the database."
 
 #: templates/contrib/0-start.html:7
 msgid "Partager les données d'accessibilité d'un établissement"
@@ -2950,7 +3045,6 @@ msgstr "acceslibre"
 #: templates/contrib/4-exterieur.html:6 templates/contrib/5-entree.html:6
 #: templates/contrib/6-accueil.html:6 templates/contrib/7-commentaire.html:9
 #, python-format
-#| msgid "{{ erp.nom }} de {{ erp.commune_ext }}"
 msgid "%(erp_nom)s de %(erp_commune)s"
 msgstr "%(erp_nom)s of %(erp_commune)s"
 
@@ -2965,12 +3059,6 @@ msgstr "Coming to the establishment"
 #: templates/contrib/3-transport.html:8
 msgid "Étape 3 sur 7"
 msgstr "Step 3 of 7"
-
-#: templates/contrib/3-transport.html:9 templates/contrib/4-exterieur.html:8
-#: templates/contrib/5-entree.html:8 templates/contrib/6-accueil.html:8
-#: templates/contrib/7-commentaire.html:11
-msgid "Informations d'accessibilité"
-msgstr "Accessibility information"
 
 #: templates/contrib/3-transport.html:13
 msgid "Transport en commun"
@@ -3014,7 +3102,6 @@ msgstr "Step 6 of 7"
 #: templates/contrib/6-accueil.html:12 templates/contrib/includes/nav.html:36
 #: templates/contrib/includes/nav.html:93
 #: templates/contrib/includes/nav.html:95
-#| msgid "et prestations"
 msgid "Accueil et prestations"
 msgstr "Reception and services"
 

@@ -1,21 +1,22 @@
 {% extends "compte/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Mes contributions{% endblock %}
+{% block page_title %}{% translate "Mes contributions" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block compte_content %}
-  <h1 class="h3 mb-3">Mes contributions</h1>
+  <h1 class="h3 mb-3">{% translate "Mes contributions" %}</h1>
 
   <nav class="nav nav-tabs nav-fill">
-    <a class="nav-item nav-link{% if not recues %} active{% endif %}" href="{% url "mes_contributions" %}">
+    <a class="nav-item nav-link{% if not recues %} active{% endif %}" href="{% url 'mes_contributions' %}">
       <i aria-hidden="true" class="icon icon-contribute-out"></i>
-      Contributions effectuées
+      {% translate "Contributions effectuées" %}
     </a>
-    <a class="nav-item nav-link{% if recues %} active{% endif %}" href="{% url "mes_contributions_recues" %}">
+    <a class="nav-item nav-link{% if recues %} active{% endif %}" href="{% url 'mes_contributions_recues' %}">
       <i aria-hidden="true" class="icon icon-contribute-in"></i>
-      Contributions reçues
+      {% translate "Contributions reçues" %}
     </a>
   </nav>
 
@@ -23,40 +24,40 @@
     <p class="text-muted px-3 py-2 mb-0">
       <i aria-hidden="true" class="icon icon-bulb"></i>
       {% if recues %}
-      Cette page liste les modifications effectuées sur vos établissements par les autres utilisateurs de la plateforme.
+      {% translate "Cette page liste les modifications effectuées sur vos établissements par les autres utilisateurs de la plateforme." %}
       {% else %}
-      Cette page liste les modifications que vous avez effectué sur les établissements initialement renseignés par d'autres utilisateurs.
+      {% translate "Cette page liste les modifications que vous avez effectué sur les établissements initialement renseignés par d'autres utilisateurs." %}
       {% endif %}
     </p>
 
     <table class="table table-striped mb-0">
       <thead>
-        <th scope="col">Date</th>
-        <th scope="col">Modifications</th>
+        <th scope="col">{% translate "Date" %}</th>
+        <th scope="col">{% translate "Modifications" %}</th>
       </thead>
       <tbody>
         {% for version in pager %}
         <tr>
           <td class="text-right">
-            {% if recues %}Par <strong>{{ version.revision.user }}</strong><br>{% endif %}
-            le {{ version.revision.date_created|date:"j F Y"|lower }}<br>
+            {% if recues %}{% translate "Par" %} <strong>{{ version.revision.user }}</strong><br>{% endif %}
+            {% translate "le" %} {{ version.revision.date_created|date:"j F Y"|lower }}<br>
             {{ version.revision.date_created|date:"à H:i"|lower }}
           </td>
           <td>
             {% if version.content_type.model == "accessibilite" %}
-              <strong>Informations d'accessibilité</strong><br>
+              <strong>{% translate "Informations d'accessibilité" %}</strong><br>
               {% include "compte/erp_info.html" with erp=version.object.erp %}
             {% elif version.content_type.model == "erp" %}
-              <strong>Informations administratives</strong><br>
+              <strong>{% translate "Informations administratives" %}</strong><br>
               {% include "compte/erp_info.html" with erp=version.object %}
             {% else %}
               <strong>{{ version }}</strong><br>
-              <span class="text-danger">La ressource n'existe plus dans la base de données.</span>
+              <span class="text-danger">{% translate "La ressource n'existe plus dans la base de données." %}</span>
             {% endif %}
           </td>
         </tr>
         {% empty %}
-          <tr><td colspan="2">La liste est vide.</td></tr>
+          <tr><td colspan="2">{% translate "La liste est vide." %}</td></tr>
         {% endfor %}
       </tbody>
     </table>
