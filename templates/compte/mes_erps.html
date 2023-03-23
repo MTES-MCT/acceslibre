@@ -1,41 +1,42 @@
 {% extends "compte/base.html" %}
 
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Mes établissements{% endblock %}
+{% block page_title %}{% translate "Mes établissements" %}{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block compte_content %}
   <div class="row mb-3">
-    <h1 class="h3 col-sm-6">Mes établissements</h1>
+    <h1 class="h3 col-sm-6">{% translate "Mes établissements" %}</h1>
     <div class="col-sm-6 text-right">
-      <a class="btn btn-primary mb-1" href="{% url "contrib_start" %}">
+      <a class="btn btn-primary mb-1" href="{% url 'contrib_start' %}">
         <i aria-hidden="true" class="icon icon-plus-circle"></i>
-        Ajouter un nouvel établissement
+        {% translate "Ajouter un nouvel établissement" %}
       </a>
     </div>
   </div>
 
   <form action="{% url 'mes_erps' %}" class="form-inline" method="get">
     <div class="form-group mx-sm-3 mb-2">
-      <label for="q" class="sr-only">Recherche dans mes ERPs</label>
-      <input name="q" type="" class="form-control" id="" placeholder="Nom" value="{{ q }}">
+      <label for="q" class="sr-only">{% translate "Recherche dans mes ERPs" %}</label>
+      <input name="q" type="" class="form-control" id="" placeholder="{% translate 'Nom' %}" value="{{ q }}">
     </div>
-    <button type="submit" class="btn btn-success btn-lg mb-2">Rechercher</button>
+    <button type="submit" class="btn btn-success btn-lg mb-2">{% translate "Rechercher" %}</button>
   </form>
 
   {% if erp_total_count > 0 %}
   <nav class="nav nav-tabs nav-fill">
     <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">
-      Tous <span class="badge badge-pill badge-primary">{{ erp_total_count }}</span>
+      {% translate "Tous" %} <span class="badge badge-pill badge-primary">{{ erp_total_count }}</span>
     </a>
-    <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
+    <a class="nav-item nav-link{% if filter_published == '1' %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
       href="./?published=1"{% if erp_published_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
-      Publiés <span class="badge badge-pill badge-primary">{{ erp_published_count }}</span>
+      {% translate "Publiés" %} <span class="badge badge-pill badge-primary">{{ erp_published_count }}</span>
     </a>
-    <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
+    <a class="nav-item nav-link{% if filter_published == '0' %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
       href="./?published=0"{% if erp_non_published_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
-      Non-publiés <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
+      {% translate "Non-publiés" %} <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
     </a>
   </nav>
 
@@ -46,12 +47,12 @@
         <div class="font-weight-bold">
           {% if not erp.published or not erp.geom or not erp.accessibilite %}
           <img alt="" class="act-icon act-icon-20 mb-1"
-            src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+            src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
           <span class="text-muted">{{ erp.nom }}</span>
           {% else %}
           <a href="{{ erp.get_absolute_url }}">
             <img alt="" class="act-icon act-icon-20 mb-1"
-              src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+              src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
             {{ erp.nom }}
           </a>
           {% endif %}
@@ -65,36 +66,36 @@
         <div>
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
           <small class="text-secondary">
-            <i aria-hidden="true" class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
+            <i aria-hidden="true" class="icon icon-exclamation-circle"></i> {% translate "La fiche n'est pas publiée" %}
           </small>
         {% else %}
           <small class="text-success">
-            <i aria-hidden="true" class="icon icon-check"></i> La fiche est publiée
+            <i aria-hidden="true" class="icon icon-check"></i> {% translate "La fiche est publiée" %}
           </small>
         {% endif %}
         </div>
         {% if not erp.accessibilite %}
           <div>
             <small class="text-info">
-              <i aria-hidden="true" class="icon icon-exclamation-circle"></i> Les informations d'accessibilité ne sont pas renseignées
+              <i aria-hidden="true" class="icon icon-exclamation-circle"></i> {% translate "Les informations d'accessibilité ne sont pas renseignées" %}
             </small>
           </div>
         {% endif %}
       </div>
-      <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
-        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Modifier</a>
+      <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="{% translate 'Actions' %}">
+        <a class="btn btn-sm btn-outline-primary" href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier" %}</a>
         {% if user.is_staff %}
-          <a class="btn btn-sm btn-outline-primary" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
+          <a class="btn btn-sm btn-outline-primary" href="{% url 'admin:erp_erp_change' object_id=erp.pk %}">{% translate "Admin" %}</a>
         {% endif %}
-        <a class="btn btn-sm btn-danger" href="{% url "contrib_delete" erp_slug=erp.slug %}">Supprimer</a>
+        <a class="btn btn-sm btn-danger" href="{% url 'contrib_delete' erp_slug=erp.slug %}">{% translate "Supprimer" %}</a>
       </div>
     </li>
     {% empty %}
-    <li class="list-group-item border-top-0 rounded-0">La liste est vide.</li>
+    <li class="list-group-item border-top-0 rounded-0">{% translate "La liste est vide." %}</li>
     {% endfor %}
   </ul>
   {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
   {% else %}
-  <p class="alert alert-info">Vous n'avez renseigné aucun établissement pour le moment.</p>
+  <p class="alert alert-info">{% translate "Vous n'avez renseigné aucun établissement pour le moment." %}</p>
   {% endif %}
 {% endblock %}

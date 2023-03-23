@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 11:53+0100\n"
-"PO-Revision-Date: 2023-03-23 11:58+0009\n"
+"POT-Creation-Date: 2023-03-23 13:52+0100\n"
+"PO-Revision-Date: 2023-03-23 13:54+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -408,7 +408,7 @@ msgstr "Activity suggestion"
 msgid "Suggestions d'activités"
 msgstr "Activities suggestions"
 
-#: erp/models.py:205
+#: erp/models.py:205 templates/compte/mes_erps.html:23
 msgid "Nom"
 msgstr "Name"
 
@@ -2617,7 +2617,8 @@ msgstr "Latest establishments filled in"
 msgid "Mon compte"
 msgstr "My account"
 
-#: templates/compte/base.html:30
+#: templates/compte/base.html:30 templates/compte/mes_erps.html:6
+#: templates/compte/mes_erps.html:11
 msgid "Mes établissements"
 msgstr "My establishments"
 
@@ -2636,7 +2637,8 @@ msgstr "My challenges"
 msgid "Mes abonnements"
 msgstr "My subscriptions"
 
-#: templates/compte/base.html:58
+#: templates/compte/base.html:58 templates/compte/mes_preferences.html:7
+#: templates/compte/mes_preferences.html:11
 msgid "Mes préférences"
 msgstr "My preferences"
 
@@ -2652,7 +2654,7 @@ msgstr "My email address"
 msgid "Mot de passe"
 msgstr "Password"
 
-#: templates/compte/base.html:85
+#: templates/compte/base.html:85 templates/compte/mes_erps.html:88
 msgid "Admin"
 msgstr "Admin"
 
@@ -2786,7 +2788,7 @@ msgstr "<strong>You</strong> have created this record"
 msgid "Fiche créée par"
 msgstr "Created by"
 
-#: templates/compte/mes_abonnements.html:44
+#: templates/compte/mes_abonnements.html:44 templates/compte/mes_erps.html:85
 msgid "Actions"
 msgstr "Actions"
 
@@ -2797,6 +2799,7 @@ msgstr "Unsubscribe"
 #: templates/compte/mes_abonnements.html:53
 #: templates/compte/mes_challenges.html:42
 #: templates/compte/mes_contributions.html:60
+#: templates/compte/mes_erps.html:94
 msgid "La liste est vide."
 msgstr "The list is empty."
 
@@ -2827,12 +2830,10 @@ msgid "Voir les challenges"
 msgstr "See the challenges"
 
 #: templates/compte/mes_contributions.html:15
-#| msgid "Réinitialisation effectuée"
 msgid "Contributions effectuées"
 msgstr "Contributions made"
 
 #: templates/compte/mes_contributions.html:19
-#| msgid "Contributeur"
 msgid "Contributions reçues"
 msgstr "Contributions received"
 
@@ -2857,12 +2858,10 @@ msgid "Date"
 msgstr "Date"
 
 #: templates/compte/mes_contributions.html:36
-#| msgid "Confirmation"
 msgid "Modifications"
 msgstr "Changes"
 
 #: templates/compte/mes_contributions.html:42
-#| msgid "par"
 msgid "Par"
 msgstr "By"
 
@@ -2878,15 +2877,120 @@ msgid "Informations d'accessibilité"
 msgstr "Accessibility information"
 
 #: templates/compte/mes_contributions.html:51
-#| msgid "Informations transports"
 msgid "Informations administratives"
 msgstr "Administrative information"
 
 #: templates/compte/mes_contributions.html:55
-#| msgid ""
-#| "L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
 msgid "La ressource n'existe plus dans la base de données."
 msgstr "The resource no longer exists in the database."
+
+#: templates/compte/mes_erps.html:15
+msgid "Ajouter un nouvel établissement"
+msgstr "Add a new establishment"
+
+#: templates/compte/mes_erps.html:22
+msgid "Recherche dans mes ERPs"
+msgstr "Search in my ERPs"
+
+#: templates/compte/mes_erps.html:25 templates/editorial/header.html:37
+#: templates/search/form.html:57 templates/search/form.html:58
+msgid "Rechercher"
+msgstr "Search"
+
+#: templates/compte/mes_erps.html:31
+msgid "Tous"
+msgstr "All"
+
+#: templates/compte/mes_erps.html:35
+msgid "Publiés"
+msgstr "Published"
+
+#: templates/compte/mes_erps.html:39
+msgid "Non-publiés"
+msgstr "Unpublished"
+
+#: templates/compte/mes_erps.html:69
+msgid "La fiche n'est pas publiée"
+msgstr "The form is not published"
+
+#: templates/compte/mes_erps.html:73
+msgid "La fiche est publiée"
+msgstr "The form is published"
+
+#: templates/compte/mes_erps.html:80
+msgid "Les informations d'accessibilité ne sont pas renseignées"
+msgstr "Accessibility information is not filled in"
+
+#: templates/compte/mes_erps.html:86
+msgid "Modifier"
+msgstr "Change"
+
+#: templates/compte/mes_erps.html:90
+msgid "Supprimer"
+msgstr "Delete"
+
+#: templates/compte/mes_erps.html:99
+msgid "Vous n'avez renseigné aucun établissement pour le moment."
+msgstr "You have not entered any institutions at this time."
+
+#: templates/compte/mes_preferences.html:18
+msgid "Mettre à jour mes préférences"
+msgstr "Update my preferences"
+
+#: templates/compte/mon_email.html:8 templates/compte/mon_email.html:13
+#| msgid "Mon adresse email"
+msgid "Changer mon adresse email"
+msgstr "Change my email address"
+
+#: templates/compte/mon_email.html:18
+#, python-format
+msgid ""
+"\n"
+"      Utilisez le formulaire ci-dessous pour modifier votre adresse email actuelle (<strong>%(email)s</strong>)<br>\n"
+"      Nous vous enverrons un mail à la nouvelle adresse comportant un lien d'activation\n"
+"      qu'il faudra cliquer pour confirmer ce changement.\n"
+"      "
+msgstr ""
+"\n"
+"Use the form below to change your current email address (<strong>%(email)s</strong>)<br>\n"
+"We will send you an email to the new address with an activation link\n"
+"that you will need to click to confirm the change."
+
+#: templates/compte/mon_email.html:28
+#| msgid "Mon adresse email"
+msgid "Mettre à jour mon adresse email"
+msgstr "Update my email address"
+
+#: templates/compte/mon_email_sent.html:5
+#: templates/compte/mon_email_sent.html:9
+msgid "Email d'activation envoyé"
+msgstr "Activation email sent"
+
+#: templates/compte/mon_identifiant.html:7
+#| msgid "Mon identifiant"
+msgid "Identifiant"
+msgstr "Login"
+
+#: templates/compte/mon_identifiant.html:12
+#: templates/compte/mon_identifiant.html:25
+#| msgid "Mon identifiant"
+msgid "Changer mon identifiant"
+msgstr "Change my login"
+
+#: templates/compte/mon_identifiant.html:12
+#| msgid "Utilisateur"
+msgid "nom d'utilisateur"
+msgstr "username"
+
+#: templates/compte/mon_identifiant.html:17
+#, python-format
+msgid ""
+"\n"
+"      Votre identifiant (ou nom d'utilisateur) actuel est <strong>%(username)s</strong>.\n"
+"      "
+msgstr ""
+"\n"
+"Your current login (or username) is <strong>%(username)s</strong>."
 
 #: templates/contrib/0-start.html:7
 msgid "Partager les données d'accessibilité d'un établissement"
@@ -3546,11 +3650,6 @@ msgstr "Go to main content"
 #: templates/editorial/header.html:33
 msgid "Bonjour"
 msgstr "Hello"
-
-#: templates/editorial/header.html:37 templates/search/form.html:57
-#: templates/search/form.html:58
-msgid "Rechercher"
-msgstr "Search"
 
 #: templates/editorial/partenaires.html:7
 #: templates/editorial/partenaires.html:11
