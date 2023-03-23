@@ -801,7 +801,9 @@ def test_erp_vote_anonymous(data, client):
     assert "registration/login.html" in [t.name for t in response.templates]
 
 
-def test_erp_vote_logged_in(data, client):
+def test_erp_vote_logged_in(data, client, mocker):
+    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+
     client.force_login(data.niko)
 
     response = client.post(
@@ -811,6 +813,7 @@ def test_erp_vote_logged_in(data, client):
     )
 
     assert response.status_code == 400
+    mock_mail.assert_not_called()
 
     # Ensure votes are not counted
     assert Vote.objects.filter(erp=data.erp, user=data.niko, value=-1, comment="bouh").count() == 0
@@ -819,7 +822,8 @@ def test_erp_vote_logged_in(data, client):
     assert len(mail.outbox) == 0
 
 
-def test_erp_vote_counts(data, client):
+def test_erp_vote_counts(data, client, mocker):
+    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
     client.force_login(data.niko)
 
     client.post(
@@ -830,6 +834,7 @@ def test_erp_vote_counts(data, client):
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 0
+    mock_mail.assert_not_called()
 
     client.force_login(data.sophie)
 
@@ -838,6 +843,14 @@ def test_erp_vote_counts(data, client):
         {"action": "DOWN", "comment": "bouh sophie"},
         follow=True,
     )
+
+    mock_mail.assert_called_once_with(
+        to_list=data.sophie.email,
+        subject=None,
+        template="vote_down",
+        context={"erp_contrib_url": f"http://testserver/contrib/edit-infos/{data.erp.slug}/"},
+    )
+    mock_mail.reset_mock()
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
@@ -849,7 +862,7 @@ def test_erp_vote_counts(data, client):
         {"action": "UP"},
         follow=True,
     )
-
+    mock_mail.assert_not_called()
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
 
