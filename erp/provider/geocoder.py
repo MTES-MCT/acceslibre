@@ -43,7 +43,7 @@ def geocode(address, postcode=None, citycode=None, provider=None):
         try:
             data = query({"q": address, "postcode": postcode, "citycode": citycode, "limit": 1}, provider=provider)
             data = data or {}
-            if not data["features"]:
+            if data and not data["features"]:
                 data = {}
             if data and data["features"] and data["features"][0]["properties"]["score"] < 0.4:
                 data = {}
