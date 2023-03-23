@@ -154,6 +154,16 @@ class Activite(models.Model):
             act.save()
 
 
+class ActivitiesGroup(models.Model):
+    name = models.CharField(
+        max_length=255, verbose_name=translate("Nom"), help_text=translate("Nom du groupe d'activités")
+    )
+    activities = models.ManyToManyField(Activite, related_name="groups")
+
+    def __str__(self):
+        return translate(f"Groupe d'activités : {self.name}")
+
+
 class ActivitySuggestion(models.Model):
     erp = models.ForeignKey("Erp", verbose_name=translate("Établissement"), on_delete=models.CASCADE)
     name = models.CharField(max_length=255, help_text=translate("Nom suggéré pour l'activité"))
