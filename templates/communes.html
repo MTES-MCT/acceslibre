@@ -39,7 +39,7 @@
     </div>
     <div class="col-md-4">
       <p>
-        <a class="btn btn-block btn-primary" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
+        <a class="btn btn-block btn-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
       </p>
       <aside class="card">
         <div class="card-header">
@@ -52,7 +52,7 @@
               <li>
                 <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
                   <img alt="" class="act-icon act-icon-20 mb-1"
-                    src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                    src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
                   {% if erp.commune_ext %}{{ erp.commune_ext.nom }}{% else %}erp.commune{% endif %}
                   {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
                   <br><strong>{{ erp.nom }}</strong>

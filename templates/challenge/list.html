@@ -2,14 +2,15 @@
 
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Challenges{% endblock %}
+{% block page_title %}{% translate "Challenges" %}{% endblock %}
 
 {% block editorial_content %}
 <div class="row">
   <div class="fr-col-12 fr-col-md-6 ">
     <section class="row mt-4">
-      <div class="col-12"><h1 class="text-center text-md-right fr-h1 ">Challenges</h1></div>
+      <div class="col-12"><h1 class="text-center text-md-right fr-h1 ">{% translate "Challenges" %}</h1></div>
     </section>
 
 
@@ -17,7 +18,7 @@
     <section class="row justify-content-start mt-4">
       <div class="col-12">
         <h2 class="fr-h2">
-          <strong>Challenges en cours</strong>
+          <strong>{% translate "Challenges en cours" %}</strong>
         </h2>
         {% include 'common/challenge_item.html' with challenges=challenges_en_cours %}
       </div>
@@ -28,7 +29,7 @@
     <section class="row justify-content-start mt-4">
       <div class="col-12">
           <h2 class="fr-h2">
-            <strong>Challenges terminés</strong>
+            <strong>{% translate "Challenges terminés" %}</strong>
           </h2>
           {% include 'common/challenge_item.html' with challenges=challenges_termines %}
         </div>
@@ -38,7 +39,7 @@
     <section class="row justify-content-start mt-4">
       <div class="col-12">
           <h2 class="fr-h2">
-            <strong>Prochains challenges</strong>
+            <strong>{% translate "Prochains challenges" %}</strong>
           </h2>
           {% include 'common/challenge_item.html' with challenges=challenges_a_venir %}
         </div>
@@ -48,7 +49,7 @@
   <div class="fr-col-5 fr-col-offset-1 mt-20">
     <figure class="fr-content-media d-none d-sm-block">
         <div class="fr-content-media__img ">
-            <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+            <img class="auto-height" src="{% static 'img/login.jpg' %}" alt="" aria-hidden="true">
         </div>
     </figure>
   </div>

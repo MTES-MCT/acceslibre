@@ -1,9 +1,14 @@
+{% load i18n %}
+
 <div class="fr-container ">
     <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w">
         <ul class="row" style="list-style-type: none">
         {% for challenge in challenges %}
             <li>
-              <a class="btn-link fr-text--bold" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>: {{ challenge.start_date|date:"d F Y" }} au {{ challenge.end_date|date:"d F Y" }} inclus
+              <a class="btn-link fr-text--bold" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>:
+              {% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}
+              {{ start }} au {{ end }} inclus
+              {% endblocktranslate %}
               <div class="row">
                 <div class="col-10 offset-1 text-center">
                   {% if challenge.text_reserve %}
@@ -11,14 +16,13 @@
                   {% endif %}
                   {% if request.user in challenge.players.all %}
                     <small>
-                    <i aria-hidden="true" class="text-success icon icon-check mr-1"></i>Vous êtes inscrits à ce challenge !
+                    <i aria-hidden="true" class="text-success icon icon-check mr-1"></i>{% translate "Vous êtes inscrits à ce challenge !" %}
                     </small>
                   {% elif challenge.has_open_inscription %}
-                    <a class="btn-block btn btn-outline-primary" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">S'inscrire</a>
+                    <a class="btn-block btn btn-outline-primary" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
                   {% endif %}
                 </div>
               </div>
-
           </li>
         {% endfor %}
         </ul>

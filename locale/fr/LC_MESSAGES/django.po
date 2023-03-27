@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 13:52+0100\n"
+"POT-Creation-Date: 2023-03-27 15:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2247,7 +2247,8 @@ msgstr ""
 msgid "Challenge"
 msgstr ""
 
-#: stats/models.py:74 templates/editorial/footer.html:38
+#: stats/models.py:74 templates/challenge/list.html:7
+#: templates/challenge/list.html:13 templates/editorial/footer.html:38
 #: templates/stats/index.html:90
 msgid "Challenges"
 msgstr ""
@@ -2368,6 +2369,26 @@ msgstr ""
 msgid "Acceslibre est actuellement en maintenance et revient au plus vite."
 msgstr ""
 
+#: templates/admin/assign_activite.html:9
+msgid "Sélectionnez une catégorie à assigner aux ERP sélectionnés :"
+msgstr ""
+
+#: templates/admin/assign_activite.html:17 templates/admin/assign_user.html:20
+msgid "Les ERP suivants seront mis à jour en conséquence :"
+msgstr ""
+
+#: templates/admin/assign_activite.html:27
+msgid "Assigner l'activité"
+msgstr ""
+
+#: templates/admin/assign_user.html:9
+msgid "Sélectionnez un utilisateur à attribuer aux ERP sélectionnés :"
+msgstr ""
+
+#: templates/admin/assign_user.html:30
+msgid "Attribuer l'utilisateur"
+msgstr ""
+
 #: templates/annuaire/base.html:9 templates/compte/base.html:12
 msgid "Menu"
 msgstr ""
@@ -2421,6 +2442,149 @@ msgstr ""
 
 #: templates/base.html:60
 msgid "Ouverture dans un nouvel onglet"
+msgstr ""
+
+#: templates/challenge/detail.html:10
+msgid "Retour aux challenges"
+msgstr ""
+
+#: templates/challenge/detail.html:14 templates/challenge/podium.html:13
+#, python-format
+msgid "Du %(start)s au %(end)s."
+msgstr ""
+
+#: templates/challenge/detail.html:23 templates/common/challenge_item.html:22
+#: templates/registration/login.html:72
+msgid "S'inscrire"
+msgstr ""
+
+#: templates/challenge/detail.html:29
+msgid "Objectifs :"
+msgstr ""
+
+#: templates/challenge/detail.html:36 templates/challenge/podium.html:18
+msgid "ERPs ajoutés"
+msgstr ""
+
+#: templates/challenge/detail.html:36 templates/challenge/podium.html:18
+msgid "ERP ajouté"
+msgstr ""
+
+#: templates/challenge/detail.html:47 templates/challenge/podium.html:29
+msgid "Le concours n'a pas encore démarré"
+msgstr ""
+
+#: templates/challenge/detail.html:51 templates/challenge/podium.html:33
+msgid "Le concours est terminé"
+msgstr ""
+
+#: templates/challenge/detail.html:55 templates/challenge/podium.html:37
+msgid ""
+"Le concours a démarré, mais aucun participant n'a encore ajouté "
+"d'établissement."
+msgstr ""
+
+#: templates/challenge/detail.html:66 templates/challenge/detail.html:82
+#: templates/challenge/detail.html:98 templates/challenge/podium.html:48
+#: templates/challenge/podium.html:64 templates/challenge/podium.html:80
+msgid "établissements renseignés"
+msgstr ""
+
+#: templates/challenge/detail.html:68 templates/challenge/detail.html:84
+#: templates/challenge/detail.html:100 templates/challenge/podium.html:50
+#: templates/challenge/podium.html:66 templates/challenge/podium.html:82
+msgid "établissement renseigné"
+msgstr ""
+
+#: templates/challenge/detail.html:108 templates/challenge/podium.html:90
+msgid "Classement général"
+msgstr ""
+
+#: templates/challenge/detail.html:111 templates/challenge/podium.html:93
+msgid "Aucun participant n'a ajouté d'établissement pour le moment"
+msgstr ""
+
+#: templates/challenge/list.html:21
+msgid "Challenges en cours"
+msgstr ""
+
+#: templates/challenge/list.html:32
+msgid "Challenges terminés"
+msgstr ""
+
+#: templates/challenge/list.html:42
+msgid "Prochains challenges"
+msgstr ""
+
+#: templates/challenge/podium.html:7
+msgid "Challenge DDT février/mars 2022"
+msgstr ""
+
+#: templates/challenge/podium.html:10
+msgid "Challenge DDT (M)"
+msgstr ""
+
+#: templates/challenge/podium.html:12
+msgid "Tous acceslibre"
+msgstr ""
+
+#: templates/common/challenge_item.html:9
+#, python-format
+msgid ""
+"\n"
+"              %(start)s au %(end)s inclus\n"
+"              "
+msgstr ""
+
+#: templates/common/challenge_item.html:19
+msgid "Vous êtes inscrits à ce challenge !"
+msgstr ""
+
+#: templates/common/map.html:18
+msgid "JavaScript doit être activé pour utiliser la cartographie interactive."
+msgstr ""
+
+#: templates/common/notifications.html:8
+msgid "Debug"
+msgstr ""
+
+#: templates/common/notifications.html:10
+msgid "Information"
+msgstr ""
+
+#: templates/common/notifications.html:12
+msgid "Succès"
+msgstr ""
+
+#: templates/common/notifications.html:14
+msgid "Avertissement"
+msgstr ""
+
+#: templates/common/notifications.html:16
+msgid "Erreur"
+msgstr ""
+
+#: templates/common/notifications.html:21
+#: templates/erp/includes/sidebar.html:124 templates/erp/widget.html:225
+msgid "Fermer"
+msgstr ""
+
+#: templates/common/pager.html:7 templates/common/pager.html:11
+msgid "Page précédente"
+msgstr ""
+
+#: templates/common/pager.html:17 templates/search/global_map.html:9
+#: templates/search/global_map.html:55 templates/search/results.html:10
+#: templates/search/results.html:71
+msgid "page"
+msgstr ""
+
+#: templates/common/pager.html:24
+msgid "(page courante)"
+msgstr ""
+
+#: templates/common/pager.html:34 templates/common/pager.html:38
+msgid "Page suivante"
 msgstr ""
 
 #: templates/communes.html:7 templates/communes.html:16
@@ -2799,6 +2963,105 @@ msgid ""
 "      "
 msgstr ""
 
+#: templates/contact_form/contact_form.html:8
+#: templates/contact_form/contact_form_sent.html:4
+msgid "Contact"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:8
+msgid "Signaler une malveillance pour l'établissement"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:14
+msgid "Contactez-nous"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:22
+#: templates/contrib/base_access_form.html:38
+msgid "Les champs marqué d'une astérique (*) sont obligatoires."
+msgstr ""
+
+#: templates/contact_form/contact_form.html:44
+msgid "Établissement :"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:45
+#: templates/django_registration/registration_complete.html:20
+#: templates/django_registration/registration_form.html:22
+#: templates/registration/login.html:23
+msgid "Retour à la fiche"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:50
+#, python-format
+msgid ""
+"\n"
+"          Nous vous rappelons que la mission d'Acceslibre est de fournir "
+"l'information\n"
+"          d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/"
+"Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">accessibilité de cet établissement</a>."
+msgstr ""
+
+#: templates/contact_form/contact_form.html:54
+msgid ""
+"Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc "
+"pas vous renseigner sur la prise de rendez-vous.</strong>"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:56
+msgid "Vous pouvez néanmoins contacter ce centre au "
+msgstr ""
+
+#: templates/contact_form/contact_form.html:60
+msgid "Plus d'information sur les modalités de vaccination"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:64
+msgid ""
+"Nous ne pouvons pas vous fournir une assistance vis à vis des services ou "
+"prestations proposés."
+msgstr ""
+
+#: templates/contact_form/contact_form.html:65
+msgid "Merci de votre compréhension."
+msgstr ""
+
+#: templates/contact_form/contact_form.html:78
+#: templates/erp/includes/vote-form.html:32
+msgid "Envoyer"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:85
+msgid "Problèmes techniques & rapport de bug"
+msgstr ""
+
+#: templates/contact_form/contact_form.html:90
+msgid ""
+"\n"
+"            Le code source de l'application est open source et\n"
+"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/"
+"acceslibre\">intégralement publié sur Github</a>,\n"
+"            vous pouvez donc si vous le souhaitez remonter les problèmes "
+"techniques que vous\n"
+"            rencontrez à l'utilisation du service sur\n"
+"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/"
+"issues/new\">l'outil de rapport de bug dédié</a>.\n"
+"            "
+msgstr ""
+
+#: templates/contact_form/contact_form.html:102
+msgid "Vous pouvez également nous envoyer directement un mail à"
+msgstr ""
+
+#: templates/contact_form/contact_form_sent.html:9
+msgid "Votre message a été envoyé"
+msgstr ""
+
+#: templates/contact_form/contact_form_sent.html:12
+msgid "Nous vous répondrons dans les plus brefs délais."
+msgstr ""
+
 #: templates/contrib/0-start.html:7
 msgid "Partager les données d'accessibilité d'un établissement"
 msgstr ""
@@ -3048,10 +3311,6 @@ msgid ""
 "Veuillez vous assurer de la fiabilité des informations que vous contribuez."
 msgstr ""
 
-#: templates/contrib/base_access_form.html:38
-msgid "Les champs marqué d'une astérique (*) sont obligatoires."
-msgstr ""
-
 #: templates/contrib/claim.html:6 templates/contrib/claim.html:11
 msgid "Revendiquer un établissement"
 msgstr ""
@@ -3298,12 +3557,6 @@ msgstr ""
 
 #: templates/django_registration/registration_complete.html:6
 msgid "Inscription en cours de finalisation"
-msgstr ""
-
-#: templates/django_registration/registration_complete.html:20
-#: templates/django_registration/registration_form.html:22
-#: templates/registration/login.html:23
-msgid "Retour à la fiche"
 msgstr ""
 
 #: templates/django_registration/registration_complete.html:21
@@ -3818,10 +4071,6 @@ msgstr ""
 msgid "Tester le widget"
 msgstr ""
 
-#: templates/erp/includes/sidebar.html:124 templates/erp/widget.html:225
-msgid "Fermer"
-msgstr ""
-
 #: templates/erp/includes/sidebar.html:125
 msgid "Copier"
 msgstr ""
@@ -3892,10 +4141,6 @@ msgstr ""
 msgid ""
 "Veuillez nous expliquer la raison de votre insatisfaction afin que nous "
 "puissions nous améliorer."
-msgstr ""
-
-#: templates/erp/includes/vote-form.html:32
-msgid "Envoyer"
 msgstr ""
 
 #: templates/erp/includes/vote-form.html:50
@@ -4122,6 +4367,22 @@ msgstr ""
 msgid "Abonnez-vous à votre fiche acceslibre"
 msgstr ""
 
+#: templates/mapicons.html:8 templates/mapicons.html:11
+msgid "Map icons"
+msgstr ""
+
+#: templates/mapicons.html:13
+msgid "Démo"
+msgstr ""
+
+#: templates/mapicons.html:52
+msgid "Icônes"
+msgstr ""
+
+#: templates/mapicons.html:52
+msgid "icônes"
+msgstr ""
+
 #: templates/registration/login.html:8
 msgid "Connexion"
 msgstr ""
@@ -4149,10 +4410,6 @@ msgstr ""
 #: templates/registration/login.html:69
 #: templates/registration/password_reset_complete.html:15
 msgid "ou"
-msgstr ""
-
-#: templates/registration/login.html:72
-msgid "S'inscrire"
 msgstr ""
 
 #: templates/registration/password_change_done.html:4
@@ -4344,11 +4601,6 @@ msgstr ""
 
 #: templates/search/global_map.html:9 templates/search/results.html:10
 msgid "Résultats pour"
-msgstr ""
-
-#: templates/search/global_map.html:9 templates/search/global_map.html:55
-#: templates/search/results.html:10 templates/search/results.html:71
-msgid "page"
 msgstr ""
 
 #: templates/search/global_map.html:11 templates/search/results.html:12

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 13:52+0100\n"
-"PO-Revision-Date: 2023-03-23 13:54+0009\n"
+"POT-Creation-Date: 2023-03-27 15:52+0200\n"
+"PO-Revision-Date: 2023-03-27 15:53+0009\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2405,7 +2405,8 @@ msgstr "End date of the challenge (included)"
 msgid "Challenge"
 msgstr "Challenge"
 
-#: stats/models.py:74 templates/editorial/footer.html:38
+#: stats/models.py:74 templates/challenge/list.html:7
+#: templates/challenge/list.html:13 templates/editorial/footer.html:38
 #: templates/stats/index.html:90
 msgid "Challenges"
 msgstr "Challenges"
@@ -2535,6 +2536,27 @@ msgstr ""
 "Acceslibre is currently under maintenance and will be back as soon as "
 "possible."
 
+#: templates/admin/assign_activite.html:9
+msgid "Sélectionnez une catégorie à assigner aux ERP sélectionnés :"
+msgstr "Select a category to assign to the selected ERPs:"
+
+#: templates/admin/assign_activite.html:17 templates/admin/assign_user.html:20
+msgid "Les ERP suivants seront mis à jour en conséquence :"
+msgstr "The following ERPs will be updated accordingly:"
+
+#: templates/admin/assign_activite.html:27
+#| msgid "Nom de l'activité"
+msgid "Assigner l'activité"
+msgstr "Assign the activity"
+
+#: templates/admin/assign_user.html:9
+msgid "Sélectionnez un utilisateur à attribuer aux ERP sélectionnés :"
+msgstr "Select a user to assign to the selected ERPs:"
+
+#: templates/admin/assign_user.html:30
+msgid "Attribuer l'utilisateur"
+msgstr "Assign user"
+
 #: templates/annuaire/base.html:9 templates/compte/base.html:12
 msgid "Menu"
 msgstr "Menu"
@@ -2594,6 +2616,153 @@ msgstr "Go to the official website"
 #: templates/base.html:60
 msgid "Ouverture dans un nouvel onglet"
 msgstr "Open in a new tab"
+
+#: templates/challenge/detail.html:10
+msgid "Retour aux challenges"
+msgstr "Back to challenges"
+
+#: templates/challenge/detail.html:14 templates/challenge/podium.html:13
+#, python-format
+msgid "Du %(start)s au %(end)s."
+msgstr "From %(start)s to %(end)s."
+
+#: templates/challenge/detail.html:23 templates/common/challenge_item.html:22
+#: templates/registration/login.html:72
+msgid "S'inscrire"
+msgstr "Sign up"
+
+#: templates/challenge/detail.html:29
+msgid "Objectifs :"
+msgstr "Objectives:"
+
+#: templates/challenge/detail.html:36 templates/challenge/podium.html:18
+msgid "ERPs ajoutés"
+msgstr "ERPs added"
+
+#: templates/challenge/detail.html:36 templates/challenge/podium.html:18
+msgid "ERP ajouté"
+msgstr "ERP added"
+
+#: templates/challenge/detail.html:47 templates/challenge/podium.html:29
+msgid "Le concours n'a pas encore démarré"
+msgstr "The challenge has not started yet"
+
+#: templates/challenge/detail.html:51 templates/challenge/podium.html:33
+msgid "Le concours est terminé"
+msgstr "The challenge is over"
+
+#: templates/challenge/detail.html:55 templates/challenge/podium.html:37
+msgid ""
+"Le concours a démarré, mais aucun participant n'a encore ajouté "
+"d'établissement."
+msgstr ""
+"The challenge has started, but no participant has added an establishment "
+"yet."
+
+#: templates/challenge/detail.html:66 templates/challenge/detail.html:82
+#: templates/challenge/detail.html:98 templates/challenge/podium.html:48
+#: templates/challenge/podium.html:64 templates/challenge/podium.html:80
+msgid "établissements renseignés"
+msgstr "establishments informed"
+
+#: templates/challenge/detail.html:68 templates/challenge/detail.html:84
+#: templates/challenge/detail.html:100 templates/challenge/podium.html:50
+#: templates/challenge/podium.html:66 templates/challenge/podium.html:82
+msgid "établissement renseigné"
+msgstr "establishment informed"
+
+#: templates/challenge/detail.html:108 templates/challenge/podium.html:90
+msgid "Classement général"
+msgstr "General ranking"
+
+#: templates/challenge/detail.html:111 templates/challenge/podium.html:93
+msgid "Aucun participant n'a ajouté d'établissement pour le moment"
+msgstr "No participant has added an establishment at this time"
+
+#: templates/challenge/list.html:21
+msgid "Challenges en cours"
+msgstr "Challenges in progress"
+
+#: templates/challenge/list.html:32
+msgid "Challenges terminés"
+msgstr "Completed challenges"
+
+#: templates/challenge/list.html:42
+msgid "Prochains challenges"
+msgstr "Upcoming challenges"
+
+#: templates/challenge/podium.html:7
+msgid "Challenge DDT février/mars 2022"
+msgstr "DDT Challenge February/March 2022"
+
+#: templates/challenge/podium.html:10
+msgid "Challenge DDT (M)"
+msgstr "Challenge DDT (M)"
+
+#: templates/challenge/podium.html:12
+msgid "Tous acceslibre"
+msgstr "All acceslibre"
+
+#: templates/common/challenge_item.html:9
+#, python-format
+msgid ""
+"\n"
+"              %(start)s au %(end)s inclus\n"
+"              "
+msgstr ""
+"\n"
+"%(start)s to %(end)s included"
+
+#: templates/common/challenge_item.html:19
+msgid "Vous êtes inscrits à ce challenge !"
+msgstr "You are registered for this challenge!"
+
+#: templates/common/map.html:18
+msgid "JavaScript doit être activé pour utiliser la cartographie interactive."
+msgstr "JavaScript must be enabled to use the interactive map."
+
+#: templates/common/notifications.html:8
+msgid "Debug"
+msgstr "Debug"
+
+#: templates/common/notifications.html:10
+msgid "Information"
+msgstr "Information"
+
+#: templates/common/notifications.html:12
+msgid "Succès"
+msgstr "Success"
+
+#: templates/common/notifications.html:14
+msgid "Avertissement"
+msgstr "Warning"
+
+#: templates/common/notifications.html:16
+msgid "Erreur"
+msgstr "Error"
+
+#: templates/common/notifications.html:21
+#: templates/erp/includes/sidebar.html:124 templates/erp/widget.html:225
+msgid "Fermer"
+msgstr "Close"
+
+#: templates/common/pager.html:7 templates/common/pager.html:11
+msgid "Page précédente"
+msgstr "Previous page"
+
+#: templates/common/pager.html:17 templates/search/global_map.html:9
+#: templates/search/global_map.html:55 templates/search/results.html:10
+#: templates/search/results.html:71
+msgid "page"
+msgstr "page"
+
+#: templates/common/pager.html:24
+msgid "(page courante)"
+msgstr "(current page)"
+
+#: templates/common/pager.html:34 templates/common/pager.html:38
+msgid "Page suivante"
+msgstr "Next page"
 
 #: templates/communes.html:7 templates/communes.html:16
 msgid "Communes et territoires pilotes"
@@ -2938,7 +3107,6 @@ msgid "Mettre à jour mes préférences"
 msgstr "Update my preferences"
 
 #: templates/compte/mon_email.html:8 templates/compte/mon_email.html:13
-#| msgid "Mon adresse email"
 msgid "Changer mon adresse email"
 msgstr "Change my email address"
 
@@ -2957,7 +3125,6 @@ msgstr ""
 "that you will need to click to confirm the change."
 
 #: templates/compte/mon_email.html:28
-#| msgid "Mon adresse email"
 msgid "Mettre à jour mon adresse email"
 msgstr "Update my email address"
 
@@ -2967,18 +3134,15 @@ msgid "Email d'activation envoyé"
 msgstr "Activation email sent"
 
 #: templates/compte/mon_identifiant.html:7
-#| msgid "Mon identifiant"
 msgid "Identifiant"
 msgstr "Login"
 
 #: templates/compte/mon_identifiant.html:12
 #: templates/compte/mon_identifiant.html:25
-#| msgid "Mon identifiant"
 msgid "Changer mon identifiant"
 msgstr "Change my login"
 
 #: templates/compte/mon_identifiant.html:12
-#| msgid "Utilisateur"
 msgid "nom d'utilisateur"
 msgstr "username"
 
@@ -2991,6 +3155,112 @@ msgid ""
 msgstr ""
 "\n"
 "Your current login (or username) is <strong>%(username)s</strong>."
+
+#: templates/contact_form/contact_form.html:8
+#: templates/contact_form/contact_form_sent.html:4
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/contact_form/contact_form.html:8
+msgid "Signaler une malveillance pour l'établissement"
+msgstr "Report a malicious act for the establishment"
+
+#: templates/contact_form/contact_form.html:14
+msgid "Contactez-nous"
+msgstr "Contact us"
+
+#: templates/contact_form/contact_form.html:22
+#: templates/contrib/base_access_form.html:38
+msgid "Les champs marqué d'une astérique (*) sont obligatoires."
+msgstr "Fields marked with an asterisk (*) are required."
+
+#: templates/contact_form/contact_form.html:44
+msgid "Établissement :"
+msgstr "Establishment:"
+
+#: templates/contact_form/contact_form.html:45
+#: templates/django_registration/registration_complete.html:20
+#: templates/django_registration/registration_form.html:22
+#: templates/registration/login.html:23
+msgid "Retour à la fiche"
+msgstr "Back to the record"
+
+#: templates/contact_form/contact_form.html:50
+#, python-format
+msgid ""
+"\n"
+"          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information\n"
+"          d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener noreferrer\">accessibilité de cet établissement</a>."
+msgstr ""
+"\n"
+"We remind you that the mission of Acceslibre is to provide information\n"
+"of <a class=\"bold\" href=\"https://en.wikipedia.org/wiki/Accessibility\" target=\"_blank\" rel=\"noopener noreferrer\">accessibility of this facility</a>."
+
+#: templates/contact_form/contact_form.html:54
+msgid ""
+"Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc "
+"pas vous renseigner sur la prise de rendez-vous.</strong>"
+msgstr ""
+"We do not operate this vaccination center, <strong>so we cannot provide "
+"information on making an appointment.</strong>"
+
+#: templates/contact_form/contact_form.html:56
+msgid "Vous pouvez néanmoins contacter ce centre au "
+msgstr "However, you can contact this center at"
+
+#: templates/contact_form/contact_form.html:60
+msgid "Plus d'information sur les modalités de vaccination"
+msgstr "More information on how to get vaccinated"
+
+#: templates/contact_form/contact_form.html:64
+msgid ""
+"Nous ne pouvons pas vous fournir une assistance vis à vis des services ou "
+"prestations proposés."
+msgstr ""
+"We cannot provide you with any assistance in relation to the services "
+"offered."
+
+#: templates/contact_form/contact_form.html:65
+msgid "Merci de votre compréhension."
+msgstr "Thank you for your understanding."
+
+#: templates/contact_form/contact_form.html:78
+#: templates/erp/includes/vote-form.html:32
+msgid "Envoyer"
+msgstr "Send"
+
+#: templates/contact_form/contact_form.html:85
+msgid "Problèmes techniques & rapport de bug"
+msgstr "Technical problems & bug reports"
+
+#: templates/contact_form/contact_form.html:90
+msgid ""
+"\n"
+"            Le code source de l'application est open source et\n"
+"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre\">intégralement publié sur Github</a>,\n"
+"            vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous\n"
+"            rencontrez à l'utilisation du service sur\n"
+"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/issues/new\">l'outil de rapport de bug dédié</a>.\n"
+"            "
+msgstr ""
+"\n"
+"The source code of the application is open source and\n"
+"<a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre\">integrally published on Github</a>,\n"
+"so if you wish, you can report any technical problems you\n"
+"encounter when using the service on\n"
+"<a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/issues/new\">the dedicated bug reporting tool</a>."
+
+#: templates/contact_form/contact_form.html:102
+msgid "Vous pouvez également nous envoyer directement un mail à"
+msgstr "You can also send us an email directly to"
+
+#: templates/contact_form/contact_form_sent.html:9
+msgid "Votre message a été envoyé"
+msgstr "Your message has been sent"
+
+#: templates/contact_form/contact_form_sent.html:12
+msgid "Nous vous répondrons dans les plus brefs délais."
+msgstr "We will answer you as soon as possible."
 
 #: templates/contrib/0-start.html:7
 msgid "Partager les données d'accessibilité d'un établissement"
@@ -3252,10 +3522,6 @@ msgid ""
 "Veuillez vous assurer de la fiabilité des informations que vous contribuez."
 msgstr "Please ensure that the information you contribute is reliable."
 
-#: templates/contrib/base_access_form.html:38
-msgid "Les champs marqué d'une astérique (*) sont obligatoires."
-msgstr "Fields marked with an asterisk (*) are required."
-
 #: templates/contrib/claim.html:6 templates/contrib/claim.html:11
 msgid "Revendiquer un établissement"
 msgstr "Claiming an establishment"
@@ -3514,12 +3780,6 @@ msgstr "It is temporarily impossible to create a new account on the platform."
 #: templates/django_registration/registration_complete.html:6
 msgid "Inscription en cours de finalisation"
 msgstr "Registration in the process of being finalized"
-
-#: templates/django_registration/registration_complete.html:20
-#: templates/django_registration/registration_form.html:22
-#: templates/registration/login.html:23
-msgid "Retour à la fiche"
-msgstr "Back to the record"
 
 #: templates/django_registration/registration_complete.html:21
 #: templates/django_registration/registration_form.html:23
@@ -4082,10 +4342,6 @@ msgstr ""
 msgid "Tester le widget"
 msgstr "Test the widget"
 
-#: templates/erp/includes/sidebar.html:124 templates/erp/widget.html:225
-msgid "Fermer"
-msgstr "Close"
-
 #: templates/erp/includes/sidebar.html:125
 msgid "Copier"
 msgstr "Copy"
@@ -4161,10 +4417,6 @@ msgid ""
 "puissions nous améliorer."
 msgstr ""
 "Please tell us the reason for your dissatisfaction so that we can improve."
-
-#: templates/erp/includes/vote-form.html:32
-msgid "Envoyer"
-msgstr "Send"
 
 #: templates/erp/includes/vote-form.html:50
 msgid "Connectez-vous pour pouvoir voter"
@@ -4403,6 +4655,22 @@ msgstr "Follow the modifications of your record"
 msgid "Abonnez-vous à votre fiche acceslibre"
 msgstr "Subscribe to your acceslibre record"
 
+#: templates/mapicons.html:8 templates/mapicons.html:11
+msgid "Map icons"
+msgstr "Map icons"
+
+#: templates/mapicons.html:13
+msgid "Démo"
+msgstr "Demo"
+
+#: templates/mapicons.html:52
+msgid "Icônes"
+msgstr "Icons"
+
+#: templates/mapicons.html:52
+msgid "icônes"
+msgstr "Icons"
+
 #: templates/registration/login.html:8
 msgid "Connexion"
 msgstr "Connection"
@@ -4435,10 +4703,6 @@ msgstr "Forgot your password?"
 #: templates/registration/password_reset_complete.html:15
 msgid "ou"
 msgstr "or"
-
-#: templates/registration/login.html:72
-msgid "S'inscrire"
-msgstr "Sign up"
 
 #: templates/registration/password_change_done.html:4
 msgid "Changement effectué"
@@ -4642,11 +4906,6 @@ msgstr "Start typing then select from the list"
 #: templates/search/global_map.html:9 templates/search/results.html:10
 msgid "Résultats pour"
 msgstr "Results for"
-
-#: templates/search/global_map.html:9 templates/search/global_map.html:55
-#: templates/search/results.html:10 templates/search/results.html:71
-msgid "page"
-msgstr "page"
 
 #: templates/search/global_map.html:11 templates/search/results.html:12
 msgid "Aucun résultat"
@@ -4860,16 +5119,3 @@ msgstr "over the last 30 days"
 #: templates/stats/territoires.html:8
 msgid "Retour aux statistiques générales"
 msgstr "Back to general statistics"
-
-#~ msgid "Accueil"
-#~ msgstr "Home"
-
-#, fuzzy
-#~ msgid "sur {{ SITE_NAME|title }}"
-#~ msgstr "published establishment on %(SITE_NAME|title)s"
-
-#, fuzzy
-#~ msgid "établissements publiés sur {{ SITE_NAME|title }}"
-#~ msgstr ""
-#~ "\n"
-#~ "published establishment on %(SITE_NAME|title)s"
