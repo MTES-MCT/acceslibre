@@ -16,7 +16,7 @@ from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneFor
 from erp.resources import ErpAdminResource
 
 from . import schema
-from .models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
+from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp, Vote
 
 
 @admin.register(Activite)
@@ -49,6 +49,9 @@ class ActiviteAdmin(admin.ModelAdmin):
         return mark_safe(
             f'<img src="/static/img/mapicons.svg#{icon}" style="width:16px;height:16px;background:#075ea2;padding:3px;border-radius:25%">'
         )
+
+
+admin.site.register(ActivitiesGroup)
 
 
 @admin.register(ActivitySuggestion)

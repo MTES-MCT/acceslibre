@@ -902,6 +902,12 @@ def process_accessibilite_form(
     Traitement générique des requêtes sur les formulaires d'accessibilité
     """
 
+    def _get_contrib_form_for_activity(activity: Activite):
+        groups = activity.groups.all()
+        # FIXME finish activities groups integration -> if not groups
+        if True or not groups:
+            return forms.ContribAccessibiliteForm
+
     erp = get_object_or_404(
         Erp.objects.select_related("accessibilite"),
         slug=erp_slug,
@@ -913,7 +919,8 @@ def process_accessibilite_form(
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
     user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.published
 
-    Form = modelform_factory(Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields)
+    contrib_form = _get_contrib_form_for_activity(erp.activite)
+    Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
 
     if request.method == "POST":
         form = Form(request.POST, instance=accessibilite)
@@ -921,7 +928,7 @@ def process_accessibilite_form(
         if request.GET:
             form = Form(request.GET, instance=accessibilite)
         else:
-            form = forms.ContribAccessibiliteForm(instance=accessibilite, initial={"entree_porte_presence": True})
+            form = contrib_form(instance=accessibilite, initial={"entree_porte_presence": True})
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)
