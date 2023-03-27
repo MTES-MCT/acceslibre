@@ -354,7 +354,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     # NOTE: if the widget code is edited it should be also reflected in metabase
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<a href="#" aria-haspopup="dialog" aria-controls="dialog">Accessibilité</a>
+<a href="#" aria-haspopup="dialog" aria-controls="dialog">{translate('Accessibilité')}</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>\n"""
     return render(
         request,
@@ -636,7 +636,7 @@ def vote(request, erp_slug):
                 SendInBlueMailer().send_email(
                     to_list=request.user.email, subject=None, template="vote_down", context=context
                 )
-            messages.add_message(request, messages.SUCCESS, "Votre vote a été enregistré.")
+            messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
     return redirect(erp.get_absolute_url())
 
 
@@ -648,7 +648,7 @@ def contrib_delete(request, erp_slug):
         form = forms.PublicErpDeleteForm(request.POST)
         if form.is_valid():
             erp.delete()
-            messages.add_message(request, messages.SUCCESS, "L'établissement a été supprimé.")
+            messages.add_message(request, messages.SUCCESS, translate("L'établissement a été supprimé."))
             return redirect("mes_erps")
     else:
         form = forms.PublicErpDeleteForm()
@@ -731,7 +731,7 @@ def contrib_admin_infos(request):
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
-                if erp.activite.nom.lower() == "autre":
+                if erp.activite.nom.lower() in ("autre", translate("autre")):
                     ActivitySuggestion.objects.create(
                         name=form.cleaned_data["nouvelle_activite"],
                         erp=erp,
@@ -740,7 +740,8 @@ def contrib_admin_infos(request):
                 messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
         else:
-            duplicated = bool("existe déjà" in form.errors.get("__all__", [""])[0])
+            error_message = (form.errors.get("__all__", [""])[0] or "").lower()
+            duplicated = bool("existe déjà" in error_message or translate("existe déjà") in error_message)
     else:
         encoded_data = request.GET.get("data")
         try:
@@ -1164,7 +1165,7 @@ def contrib_claim(request, erp_slug):
             erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
             erp.save()
             erp_claimed.send(sender=Erp, instance=erp)
-            messages.add_message(request, messages.SUCCESS, "Opération effectuée avec succès.")
+            messages.add_message(request, messages.SUCCESS, translate("Opération effectuée avec succès."))
             return redirect("contrib_edit_infos", erp_slug=erp.slug)
     else:
         form = forms.PublicClaimForm()
