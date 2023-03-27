@@ -1,3 +1,4 @@
+{% load i18n %}
 <div aria-hidden="true" id="app-map" data-label="{{ where|default_if_none:"" }}"
   class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}"
   data-lat="{{ lat|default_if_none:"" }}" data-lon="{{ lon|default_if_none:"" }}">
@@ -14,7 +15,7 @@
     <div class="p-3">
       <div class="alert alert-warning">
         <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-        JavaScript doit être activé pour utiliser la cartographie interactive.
+        {% translate "JavaScript doit être activé pour utiliser la cartographie interactive." %}
       </div>
     </div>
   </noscript>

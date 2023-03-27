@@ -1,10 +1,12 @@
 {% extends "admin/base_site.html" %}
 
+{% load i18n %}
+
 {% block content %}
 <form action="" method="post">
   {% csrf_token %}
 
-  <p>Sélectionnez une catégorie à assigner aux ERP sélectionnés :</p>
+  <p>{% translate "Sélectionnez une catégorie à assigner aux ERP sélectionnés :" %}</p>
 
   <select name="activite">
     {% for activite in activites %}
@@ -12,7 +14,7 @@
     {% endfor %}
   </select>
 
-  <p>Les ERP suivants seront mis à jour en conséquence :</p>
+  <p>{% translate "Les ERP suivants seront mis à jour en conséquence :" %}</p>
 
   <ul>
   {% for erp in erps %}
@@ -22,6 +24,6 @@
   </ul>
 
   <input type="hidden" name="action" value="assign_activite" />
-  <input type="submit" name="apply" value="Assigner l'activité"/>
+  <input type="submit" name="apply" value="{% translate "Assigner l'activité" %}"/>
 </form>
 {% endblock %}

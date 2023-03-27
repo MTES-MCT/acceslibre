@@ -1,10 +1,12 @@
 {% extends "admin/base_site.html" %}
 
+{% load i18n %}
+
 {% block content %}
 <form action="" method="post">
   {% csrf_token %}
 
-  <p>Sélectionnez un utilisateur à attribuer aux ERP sélectionnés :</p>
+  <p>{% translate "Sélectionnez un utilisateur à attribuer aux ERP sélectionnés :" %}</p>
 
   <select name="new_owner_id">
     {% for user in users %}
@@ -15,7 +17,7 @@
     {% endfor %}
   </select>
 
-  <p>Les ERP suivants seront mis à jour en conséquence :</p>
+  <p>{% translate "Les ERP suivants seront mis à jour en conséquence :" %}</p>
 
   <ul>
   {% for erp in erps %}
@@ -25,6 +27,6 @@
   </ul>
 
   <input type="hidden" name="action" value="assign_user" />
-  <input type="submit" name="apply" value="Attribuer l'utilisateur"/>
+  <input type="submit" name="apply" value="{% translate "Attribuer l'utilisateur" %}"/>
 </form>
 {% endblock %}

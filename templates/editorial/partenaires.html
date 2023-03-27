@@ -10,8 +10,8 @@
 <div class="mt-5">
   <h1 class="text-center mt-5 mb-5">{% translate "Nos partenaires" %}</h1>
   <div class="row flex justify-content-center mb-5">
-    <img class="a4a-partenaire-logo flex-column" src="{% static "img/partenaires/FranceRelance.png" %}" alt="FranceRelance">
-    <img class="a4a-partenaire-logo flex-column" src="{% static "img/partenaires/NextGenEU.png" %}" alt="NextGenEU">
+    <img class="a4a-partenaire-logo flex-column" src="{% static 'img/partenaires/FranceRelance.png' %}" alt="FranceRelance">
+    <img class="a4a-partenaire-logo flex-column" src="{% static 'img/partenaires/NextGenEU.png' %}" alt="NextGenEU">
   </div>
   <div class="row flex justify-content-center mb-5">
   {% for pid, partenaire in partenaires.items|shuffle %}

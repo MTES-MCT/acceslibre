@@ -2,19 +2,20 @@
 
 {% load a4a %}
 {% load static %}
+{% load i18n %}
 
-{% block page_title %}Challenge DDT février/mars 2022{% endblock %}
+{% block page_title %}{% translate "Challenge DDT février/mars 2022" %}{% endblock %}
 
 {% block editorial_content %}
-  <h1 class="text-center">Challenge DDT (M)
+  <h1 class="text-center">{% translate "Challenge DDT (M)" %}
   <h2 class="text-center py-4">
-    Tous acceslibre<br>
-    <small class="text-muted">Du {{ start_date|date:"d F Y" }} au {{ stop_date|date:"d F Y"  }}.</small><br>
+    {% translate "Tous acceslibre" %}<br>
+    <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small><br>
   </h2>
 
   <section class="row justify-content-center mt-4">
     <h3 class="fr-h1">
-      <strong>{{ total_contributions }} ERP{{ total_contributions|pluralize }} ajouté{{ total_contributions|pluralize }}</strong>
+      <strong>{{ total_contributions }} {% if total_contributions > 1 %}{% translate "ERPs ajoutés" %}{% else %}{% translate "ERP ajouté" %}{% endif %}</strong>
     </h3>
   </section>
 
@@ -25,15 +26,15 @@
     <div>
       {% if today < start_date %}
       <div class="alert alert-info">
-        Le concours n'a pas encore démarré
+        {% translate "Le concours n'a pas encore démarré" %}
       </div>
       {% elif today > stop_date%}
       <div class="alert alert-info">
-        Le concours est terminé
+        {% translate "Le concours est terminé" %}
       </div>
       {% elif not top_contribs %}
       <div class="alert alert-info">
-        Le concours a démarré, mais aucun participant n'a encore ajouté d'établissement.
+        {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté d'établissement." %}
       </div>
       {% endif %}
       <ul class="list-group" style="min-width:320px">
@@ -43,8 +44,11 @@
             {{ top_contribs.0.username }}<br>
             <small class="text-muted">
               {{ top_contribs.0.erp_count_published }}
-              établissement{{ top_contribs.0.erp_count_published|pluralize:"s" }}
-              renseigné{{ top_contribs.0.erp_count_published|pluralize:"s" }}
+              {% if top_contribs.0.erp_count_published > 1 %}
+              {% translate "établissements renseignés" %}
+              {% else %}
+              {% translate "établissement renseigné" %}
+              {% endif %}
             </small>
           {% else %}
             ???
@@ -56,8 +60,11 @@
             {{ top_contribs.1.username }}<br>
             <small class="text-muted">
               {{ top_contribs.1.erp_count_published }}
-              établissement{{ top_contribs.1.erp_count_published|pluralize:"s" }}
-              renseigné{{ top_contribs.1.erp_count_published|pluralize:"s" }}
+              {% if top_contribs.1.erp_count_published > 1 %}
+              {% translate "établissements renseignés" %}
+              {% else %}
+              {% translate "établissement renseigné" %}
+              {% endif %}
             </small>
           {% else %}
             ???
@@ -69,18 +76,21 @@
             {{ top_contribs.2.username }}<br>
             <small class="text-muted">
               {{ top_contribs.2.erp_count_published }}
-              établissement{{ top_contribs.2.erp_count_published|pluralize:"s" }}
-              renseigné{{ top_contribs.2.erp_count_published|pluralize:"s" }}
+              {% if top_contribs.2.erp_count_published > 1 %}
+              {% translate "établissements renseignés" %}
+              {% else %}
+              {% translate "établissement renseigné" %}
+              {% endif %}
             </small>
           {% else %}
             ???
           {% endif %}
         </li>
       </ul>
-      <h3 class="mt-5 mb-3">Classement général</h3>
+      <h3 class="mt-5 mb-3">{% translate "Classement général" %}</h3>
       {% if not top_contribs %}
       <div class="alert alert-info">
-        Aucun participant n'a ajouté d'établissement pour le moment
+        {% translate "Aucun participant n'a ajouté d'établissement pour le moment" %}
       </div>
       {% endif %}
       <ol>
