@@ -21,15 +21,15 @@ function SearchWhere(root) {
     code: root.querySelector("input[name=code]"),
   };
   input.addEventListener('input', activate_submit_btn, false);
-  activate_submit_btn(event=false, force=false)
+  activate_submit_btn(event = false, force = false)
 
 
 
-  function activate_submit_btn(event, force=false){
-    if(hiddens.code.value.length == 0){
-        input.form.querySelector("button[type=submit]").setAttribute('disabled', '');
+  function activate_submit_btn(event, force = false) {
+    if (hiddens.code.value.length == 0) {
+      input.form.querySelector("button[type=submit]").setAttribute('disabled', '');
     };
-    if(force || hiddens.code.value){
+    if (force || hiddens.code.value) {
       input.form.querySelector("button[type=submit]").removeAttribute('disabled');
     };
   }
@@ -65,7 +65,7 @@ function SearchWhere(root) {
       if (!result) {
         return;
       }
-      activate_submit_btn(event=false, force=true);
+      activate_submit_btn(event = false, force = true);
       if (result.lat && result.lon) {
         setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
@@ -104,10 +104,15 @@ function SearchWhere(root) {
     search: async (input) => {
       const loc = await api.loadUserLocation({ retrieve: false });
       const commonResults = await getCommonResults(loc);
-      if (input.length < 1 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
+      if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults;
       }
-      const { results } = await api.searchLocation(input, loc);
+      var { results } = await api.searchLocation(input, loc, 'municipality');
+      if (results.length) {
+        return results;
+      }
+
+      var { results } = await api.searchLocation(input, loc);
       return results;
     },
   });
@@ -135,7 +140,7 @@ function SearchWhere(root) {
     setTimeout(() => {
       try {
         submittable = exp.target.getAttribute("aria-expanded") !== "true";
-      } catch (e) {}
+      } catch (e) { }
     }, 0);
   });
   observer.observe(input, { attributeOldValue: true });

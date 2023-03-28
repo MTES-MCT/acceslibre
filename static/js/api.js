@@ -54,7 +54,7 @@ async function loadUserLocation(options = {}) {
   let loc = null;
   try {
     loc = JSON.parse(sessionStorage["a4a-loc"] || "null");
-  } catch (_) {}
+  } catch (_) { }
   try {
     if (!loc || (loc.timestamp && new Date().getTime() - loc.timestamp > ttl)) {
       if (!!retrieve) {
@@ -89,16 +89,23 @@ function saveUserLocation(loc) {
   return loc;
 }
 
-async function searchLocation(q, loc) {
-  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`;
+async function searchLocation(q, loc, kind = '') {
+  if (q.length <= 2) {
+    return { q, results: [] };
+  }
+  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5&type=${kind}`;
   const { lat, lon } = loc || {};
   if (lat && lon) url += `&lat=${lat}&lon=${lon}`;
   try {
     const res = await fetch(url);
     const { features } = await res.json();
-    const results = features.map(
+    const results = features.filter((
+      { properties: { score } }) => {
+      return (score > 0.4);
+    }).map(
       ({ properties: { type, label, context, citycode, postcode }, geometry: { coordinates } }) => {
         const text = type === "municipality" ? `${label} (${postcode.substr(0, 2)})` : label;
+
         return {
           id: "loc",
           text,
@@ -109,6 +116,7 @@ async function searchLocation(q, loc) {
         };
       }
     );
+
     return { q, results };
   } catch (err) {
     // most likely a temporary network issue
