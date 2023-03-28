@@ -7,6 +7,8 @@ from django.views.decorators.http import require_GET
 def robots_txt(request):
     lines = [
         "User-agent: *",
+        "Disallow: /compte/*",
+        "",
         f"Sitemap: {settings.SITE_ROOT_URL}/sitemap.xml",
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
