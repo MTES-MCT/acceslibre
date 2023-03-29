@@ -1135,6 +1135,8 @@ def contrib_publication(request, erp_slug):
             redirect_url = erp.get_success_url()
         elif erp.user == request.user:
             redirect_url = reverse("mes_erps")
+        else:
+            redirect_url = reverse("mes_contributions")
 
         return redirect(redirect_url)
 
