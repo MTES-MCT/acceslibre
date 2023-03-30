@@ -8,10 +8,10 @@ from django import template
 from django.conf import settings
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as translate
 
 from erp import forms, schema, serializers
 from erp.models import Erp
-from erp.provider import arrondissements, naf, sirene
 
 register = template.Library()
 
@@ -56,23 +56,6 @@ def addclass(value, arg):
         return value
 
 
-@register.simple_tag
-def arrondissements_json_data():
-    return mark_safe(arrondissements.to_json())
-
-
-@register.filter(name="cv_provider_name")
-def cv_provider_name(value):
-    service = ""
-    if "doctolib" in value:
-        service = "Doctolib"
-    elif "maiia" in value:
-        service = "Maiia"
-    elif "keldoc" in value:
-        service = "Keldoc"
-    return mark_safe(f"sur&nbsp;{service}") if service else ""
-
-
 @register.filter(name="encode_provider_data")
 def encode_provider_data(value):
     return serializers.encode_provider_data(value)
@@ -85,14 +68,16 @@ def format_distance(value):
     elif isinstance(value, float):
         return str(value)
     if value.m == 0:
-        return "Au même endroit"
+        return translate("Au même endroit")
     elif value.m < 1500:
-        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>')
+        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> {translate("mètres")}</i>')
     elif value.m < 10000:
         formatted = f"{value.km:.2f}".replace(".", ",")
-        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
+        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> {translate("kilomètres")}</i>')
     else:
-        return mark_safe(f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
+        return mark_safe(
+            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> {translate("kilomètres")}</i>'
+        )
 
 
 @register.filter(name="format_isodate")
@@ -130,7 +115,7 @@ def format_username(value):
         url = reverse("partenaires") + f"#{username}"
         return mark_safe(
             f"""
-            <a href="{url}" title="En savoir plus sur {username}">
+            <a href="{url}" title="{translate('En savoir plus sur')} {username}">
               <img src="{avatar}" alt="" width="16" height="16">&nbsp;{username}</a>
             </a>
             """
@@ -138,54 +123,9 @@ def format_username(value):
     return username
 
 
-@register.filter(name="format_siret")
-def format_siret(value):
-    return sirene.format_siret(value, separator=" ")
-
-
-@register.filter(name="get_dispositifs_appel_label")
-def get_dispositifs_appel_label(value):
-    return dict(schema.DISPOSITIFS_APPEL_CHOICES).get(value, "")
-
-
-@register.filter(name="get_equipement_label")
-def get_equipement_label(value):
-    return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
-
-
-@register.filter(name="get_equipement_description")
-def get_equipement_description(value):
-    return dict(schema.EQUIPEMENT_MALENTENDANT_DESCRIPTIONS).get(value, "")
-
-
-@register.filter(name="get_label_name")
-def get_label_name(value):
-    return dict(schema.LABEL_CHOICES).get(value)
-
-
-@register.filter(name="get_pente_degre_difficulte")
-def get_pente_degre_difficulte(value):
-    return dict(schema.PENTE_CHOICES).get(value)
-
-
-@register.filter(name="get_naf_label")
-def get_naf_label(value):
-    return naf.get_naf_label(value, "inconnu")
-
-
 @register.filter(name="get_field_label")
 def get_field_label(value):
     return schema.get_label(value) or forms.get_label(value)
-
-
-@register.filter("isemptylist")
-def isemptylist(value):
-    return value == []
-
-
-@register.filter("isnonemptylist")
-def isnonemptylist(value):
-    return isinstance(value, list) and len(value) > 0
 
 
 @register.simple_tag
@@ -228,7 +168,6 @@ def result_map_img(coordonnees, size="500x300", zoom=16, style="streets-v11", ma
     return f"{base}{marker_code}{lon},{lat},{zoom},0,50/{size}?access_token={settings.MAPBOX_TOKEN}"
 
 
-@register.filter("safe_username")
 def safe_username(value):
     if "@" in value:
         username = value.split("@")[0]

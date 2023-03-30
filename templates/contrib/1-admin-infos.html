@@ -121,7 +121,7 @@
           $("#id_activite").select2({
             allowClear: true,
             theme: "bootstrap4",
-            placeholder: "Rechercher une activité"
+            placeholder: '{% translate "Rechercher une activité" %}'
           });
           $("#id_activite").on("change", function(){
             if($("#id_activite").val() == '{{ activite.id }}'){
