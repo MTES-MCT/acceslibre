@@ -27,7 +27,7 @@ class Mailer:
         raise NotImplementedError
 
     def mail_admins(self, *args, **kwargs):
-        return self.send_email([settings.DEFAULT_FROM_EMAIL], *args, **kwargs)
+        return self.send_email([settings.DEFAULT_EMAIL], *args, **kwargs)
 
 
 class DefaultMailer(Mailer):
@@ -57,6 +57,12 @@ class SendInBlueMailer(Mailer):
         super().__init__()
 
     def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
+        if not to_list:
+            return False
+
+        if not isinstance(to_list, (list, set, tuple)):
+            to_list = [to_list]
+
         context = context or {}
         context["site_name"] = settings.SITE_NAME
         context["site_url"] = settings.SITE_ROOT_URL
@@ -67,7 +73,7 @@ class SendInBlueMailer(Mailer):
 
         template_id = settings.SEND_IN_BLUE_TEMPLATE_IDS.get(template)
         send_smtp_email = SendSmtpEmail(
-            to=[SendSmtpEmailTo(email=to_list)],
+            to=[SendSmtpEmailTo(email=to) for to in to_list],
             sender=SendSmtpEmailSender(email=settings.DEFAULT_EMAIL),
             template_id=template_id,
             params=context,
