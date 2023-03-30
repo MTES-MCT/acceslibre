@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 15:52+0200\n"
+"POT-Creation-Date: 2023-03-30 13:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgid "EmailTokens"
 msgstr ""
 
 #: compte/models.py:23 compte/models.py:38 compte/models.py:63
-#: contact/models.py:51 erp/models.py:164 erp/models.py:314
+#: contact/models.py:51 erp/models.py:178 erp/models.py:331
 #: subscription/models.py:16
 msgid "Utilisateur"
 msgstr ""
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Prise de contact avec Acceslibre"
 msgstr ""
 
-#: contact/models.py:25 erp/models.py:373 templates/editorial/footer.html:50
+#: contact/models.py:25 erp/models.py:390 templates/editorial/footer.html:50
 msgid "API"
 msgstr ""
 
@@ -198,13 +198,13 @@ msgstr ""
 msgid "Envoi OK"
 msgstr ""
 
-#: contact/models.py:60 erp/models.py:142 erp/models.py:166 erp/models.py:329
-#: erp/models.py:569 erp/models.py:1334 subscription/models.py:25
+#: contact/models.py:60 erp/models.py:145 erp/models.py:183 erp/models.py:346
+#: erp/models.py:614 erp/models.py:1379 subscription/models.py:25
 msgid "Date de création"
 msgstr ""
 
-#: contact/models.py:61 erp/models.py:143 erp/models.py:167 erp/models.py:330
-#: erp/models.py:570 erp/models.py:1335 subscription/models.py:26
+#: contact/models.py:61 erp/models.py:146 erp/models.py:184 erp/models.py:347
+#: erp/models.py:615 erp/models.py:1380 subscription/models.py:26
 msgid "Dernière modification"
 msgstr ""
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
-#: erp/forms.py:396 erp/models.py:89 erp/models.py:476 erp/schema.py:1460
+#: erp/forms.py:396 erp/models.py:89 erp/models.py:498 erp/schema.py:1460
 #: templates/contrib/delete.html:24
 msgid "Activité"
 msgstr ""
@@ -284,7 +284,8 @@ msgid ""
 "tabindex=\"-1\" target=\"_blank\">code NAF</a>."
 msgstr ""
 
-#: erp/forms.py:552 templates/stats/includes/territoires_table.html:18
+#: erp/forms.py:552 erp/models.py:591
+#: templates/stats/includes/territoires_table.html:18
 msgid "Commune"
 msgstr ""
 
@@ -312,7 +313,7 @@ msgstr ""
 msgid "Registre d'accessibilité"
 msgstr ""
 
-#: erp/forms.py:613 erp/models.py:1327 erp/schema.py:348 erp/schema.py:1442
+#: erp/forms.py:613 erp/models.py:1372 erp/schema.py:348 erp/schema.py:1442
 msgid "Conformité"
 msgstr ""
 
@@ -330,657 +331,672 @@ msgstr ""
 msgid "Activités"
 msgstr ""
 
-#: erp/models.py:97
+#: erp/models.py:98 erp/models.py:162 erp/models.py:222 erp/models.py:483
+#: templates/compte/mes_erps.html:23
+msgid "Nom"
+msgstr ""
+
+#: erp/models.py:98
 msgid "Nom de l'activité"
 msgstr ""
 
-#: erp/models.py:102 erp/models.py:210 erp/models.py:469 stats/models.py:56
+#: erp/models.py:104 erp/models.py:105 erp/models.py:227 erp/models.py:490
+#: erp/models.py:491 stats/models.py:56
 msgid "Identifiant d'URL (slug)"
 msgstr ""
 
-#: erp/models.py:106
+#: erp/models.py:109
 msgid "Mots-clés"
 msgstr ""
 
-#: erp/models.py:110
+#: erp/models.py:113
 msgid "Liste de mots-clés apparentés à cette activité"
 msgstr ""
 
-#: erp/models.py:116
+#: erp/models.py:119
 msgid "Icône"
 msgstr ""
 
-#: erp/models.py:118
+#: erp/models.py:121
 msgid "Chemin de l'icône "
 msgstr ""
 
-#: erp/models.py:128
+#: erp/models.py:131
 msgid "Icône vectorielle"
 msgstr ""
 
-#: erp/models.py:130
+#: erp/models.py:133
 msgid "Nom de l'icône dans"
 msgstr ""
 
-#: erp/models.py:132
+#: erp/models.py:135
 msgid "le catalogue"
 msgstr ""
 
-#: erp/models.py:138
+#: erp/models.py:141
 msgid "Position dans la liste"
 msgstr ""
 
-#: erp/models.py:158 erp/models.py:309 erp/models.py:404 erp/models.py:829
+#: erp/models.py:162
+msgid "Nom du groupe d'activités"
+msgstr ""
+
+#: erp/models.py:167
+#, python-brace-format
+msgid "Groupe d'activités : {self.name}"
+msgstr ""
+
+#: erp/models.py:171 erp/models.py:326 erp/models.py:421 erp/models.py:874
 #: subscription/models.py:21
 msgid "Établissement"
 msgstr ""
 
-#: erp/models.py:159
+#: erp/models.py:172
 msgid "Nom suggéré pour l'activité"
 msgstr ""
 
-#: erp/models.py:161
+#: erp/models.py:174
 msgid "Activité attribuée"
 msgstr ""
 
-#: erp/models.py:170
+#: erp/models.py:187
 #, python-brace-format
 msgid "Suggestion d'activité : {self.name}"
 msgstr ""
 
-#: erp/models.py:173
+#: erp/models.py:190
 msgid "Suggestion d'activité"
 msgstr ""
 
-#: erp/models.py:174
+#: erp/models.py:191
 msgid "Suggestions d'activités"
 msgstr ""
 
-#: erp/models.py:205 templates/compte/mes_erps.html:23
-msgid "Nom"
-msgstr ""
-
-#: erp/models.py:214
+#: erp/models.py:231
 msgid "Département"
 msgstr ""
 
-#: erp/models.py:215
+#: erp/models.py:232
 msgid "Codé sur deux ou trois caractères."
 msgstr ""
 
-#: erp/models.py:219 erp/models.py:552
+#: erp/models.py:236 erp/models.py:597
 msgid "Code INSEE"
 msgstr ""
 
-#: erp/models.py:220 erp/models.py:553
+#: erp/models.py:237 erp/models.py:598
 msgid "Code INSEE de la commune"
 msgstr ""
 
-#: erp/models.py:225
+#: erp/models.py:242
 msgid "Superficie"
 msgstr ""
 
-#: erp/models.py:226
+#: erp/models.py:243
 msgid "Exprimée en hectares (ha)"
 msgstr ""
 
-#: erp/models.py:231
+#: erp/models.py:248
 msgid "Population"
 msgstr ""
 
-#: erp/models.py:232
+#: erp/models.py:249
 msgid "Nombre d'habitants estimé"
 msgstr ""
 
-#: erp/models.py:235 erp/models.py:490
+#: erp/models.py:252 erp/models.py:514
 msgid "Localisation"
 msgstr ""
 
-#: erp/models.py:236
+#: erp/models.py:253
 msgid "Coordonnées géographique du centre de la commune"
 msgstr ""
 
-#: erp/models.py:239
+#: erp/models.py:256
 msgid "Contour"
 msgstr ""
 
-#: erp/models.py:240
+#: erp/models.py:257
 msgid "Contour de la commune"
 msgstr ""
 
-#: erp/models.py:245
+#: erp/models.py:262
 msgid "Codes postaux"
 msgstr ""
 
-#: erp/models.py:247
+#: erp/models.py:264
 msgid "Liste des codes postaux de cette commune"
 msgstr ""
 
-#: erp/models.py:250
+#: erp/models.py:267
 msgid "Arrondissement"
 msgstr ""
 
-#: erp/models.py:252
+#: erp/models.py:269
 msgid "Cette commune est un arrondissement (Paris, Lyon, Marseille)"
 msgstr ""
 
-#: erp/models.py:255
+#: erp/models.py:272
 msgid "Obsolète"
 msgstr ""
 
-#: erp/models.py:257
+#: erp/models.py:274
 msgid ""
 "La commune est obsolète, par exemple suite à un regroupement ou un "
 "rattachement"
 msgstr ""
 
-#: erp/models.py:269
+#: erp/models.py:286
 msgid "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"
 msgstr ""
 
-#: erp/models.py:318
+#: erp/models.py:335
 msgid "Valeur"
 msgstr ""
 
-#: erp/models.py:326 erp/schema.py:354 templates/erp/includes/vote-form.html:26
+#: erp/models.py:343 erp/schema.py:354 templates/erp/includes/vote-form.html:26
 msgid "Commentaire"
 msgstr ""
 
-#: erp/models.py:333
+#: erp/models.py:350
 #, python-brace-format
 msgid "Vote {self.value} de {self.user.username} pour {self.erp.nom}"
 msgstr ""
 
-#: erp/models.py:370
+#: erp/models.py:387
 msgid "Base de données Acceslibre"
 msgstr ""
 
-#: erp/models.py:371
+#: erp/models.py:388
 msgid "Acceo"
 msgstr ""
 
-#: erp/models.py:372
+#: erp/models.py:389
 msgid "Back-office"
 msgstr ""
 
-#: erp/models.py:374
+#: erp/models.py:391
 msgid "API Entreprise (publique)"
 msgstr ""
 
-#: erp/models.py:375
+#: erp/models.py:392
 msgid "cconforme"
 msgstr ""
 
-#: erp/models.py:376
+#: erp/models.py:393
 msgid "Gendarmerie"
 msgstr ""
 
-#: erp/models.py:377
+#: erp/models.py:394
 msgid "Lorient"
 msgstr ""
 
-#: erp/models.py:378
+#: erp/models.py:395
 msgid "Nestenn"
 msgstr ""
 
-#: erp/models.py:379
+#: erp/models.py:396
 msgid "API OpenDataSoft"
 msgstr ""
 
-#: erp/models.py:380
+#: erp/models.py:397
 msgid "Saisie manuelle publique"
 msgstr ""
 
-#: erp/models.py:381
+#: erp/models.py:398
 msgid "API des établissements publics"
 msgstr ""
 
-#: erp/models.py:382
+#: erp/models.py:399
 msgid "Sortir À Paris"
 msgstr ""
 
-#: erp/models.py:383
+#: erp/models.py:400
 msgid "Service Public"
 msgstr ""
 
-#: erp/models.py:384
+#: erp/models.py:401
 msgid "API Sirene INSEE"
 msgstr ""
 
-#: erp/models.py:385 erp/schema.py:100
+#: erp/models.py:402 erp/schema.py:100
 msgid "Tourisme & Handicap"
 msgstr ""
 
-#: erp/models.py:386
+#: erp/models.py:403
 msgid "Questionnaires Typeform"
 msgstr ""
 
-#: erp/models.py:387
+#: erp/models.py:404
 msgid "Questionnaires Typeform Musée"
 msgstr ""
 
-#: erp/models.py:388
+#: erp/models.py:405
 msgid "Centres de vaccination"
 msgstr ""
 
-#: erp/models.py:389
+#: erp/models.py:406
 msgid "Dell"
 msgstr ""
 
-#: erp/models.py:396
+#: erp/models.py:413
 msgid "Administration"
 msgstr ""
 
-#: erp/models.py:397
+#: erp/models.py:414
 msgid "Gestionnaire"
 msgstr ""
 
-#: erp/models.py:398
+#: erp/models.py:415
 msgid "Utilisateur public"
 msgstr ""
 
-#: erp/models.py:399
+#: erp/models.py:416
 msgid "Système"
 msgstr ""
 
-#: erp/models.py:405
+#: erp/models.py:422
 msgid "Établissements"
 msgstr ""
 
-#: erp/models.py:426
+#: erp/models.py:443
 msgid "Source"
 msgstr ""
 
-#: erp/models.py:429
+#: erp/models.py:446
 msgid "Nom de la source de données dont est issu cet ERP"
 msgstr ""
 
-#: erp/models.py:434
+#: erp/models.py:451
 msgid "Source ID"
 msgstr ""
 
-#: erp/models.py:435
+#: erp/models.py:452
 msgid "Identifiant de l'ERP dans la source initiale de données"
 msgstr ""
 
-#: erp/models.py:440
+#: erp/models.py:457
 msgid "ASP ID"
 msgstr ""
 
-#: erp/models.py:441
+#: erp/models.py:458
 msgid "Identifiant de l'ERP dans la base Service Public"
 msgstr ""
 
-#: erp/models.py:446
+#: erp/models.py:463
 msgid "Contributeur"
 msgstr ""
 
-#: erp/models.py:452
+#: erp/models.py:469
 msgid "Profil de contributeur"
 msgstr ""
 
-#: erp/models.py:460
+#: erp/models.py:477
 msgid "Commune (relation)"
 msgstr ""
 
-#: erp/models.py:461
+#: erp/models.py:478
 msgid "La commune de cet établissement"
 msgstr ""
 
-#: erp/models.py:464
+#: erp/models.py:484
 msgid "Nom de l'établissement ou de l'enseigne"
 msgstr ""
 
-#: erp/models.py:477
+#: erp/models.py:500
 msgid ""
 "Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres "
 "accentuées"
 msgstr ""
 
-#: erp/models.py:482
+#: erp/models.py:506
 msgid "Publié"
 msgstr ""
 
-#: erp/models.py:484
+#: erp/models.py:508
 msgid ""
 "Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas "
 "listé publiquement"
 msgstr ""
 
-#: erp/models.py:491
+#: erp/models.py:515
 msgid "Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)"
 msgstr ""
 
-#: erp/models.py:498
+#: erp/models.py:522
 msgid "Fournisseur utilisé pour la géolocalisation"
 msgstr ""
 
-#: erp/models.py:499
+#: erp/models.py:523
 msgid ""
 "Indique le fournisseur utilisé pour la géolocalisation de l'adresse de l'ERP."
 msgstr ""
 
-#: erp/models.py:505
+#: erp/models.py:529
 msgid "SIRET"
 msgstr ""
 
-#: erp/models.py:506
+#: erp/models.py:530
 msgid "Numéro SIRET si l'ERP est une entreprise"
 msgstr ""
 
-#: erp/models.py:513
+#: erp/models.py:537
 msgid "Téléphone"
 msgstr ""
 
-#: erp/models.py:514
+#: erp/models.py:538
 msgid "Numéro de téléphone de l'ERP"
 msgstr ""
 
-#: erp/models.py:520
+#: erp/models.py:544 templates/erp/includes/header.html:38
+msgid "Site internet"
+msgstr ""
+
+#: erp/models.py:545
 msgid "Adresse du site internet de l'ERP"
 msgstr ""
 
-#: erp/models.py:526
+#: erp/models.py:551
 msgid "Courriel"
 msgstr ""
 
-#: erp/models.py:527
+#: erp/models.py:552
 msgid "Adresse email permettant de contacter l'ERP"
 msgstr ""
 
-#: erp/models.py:533
+#: erp/models.py:558
 msgid "Lien vers outil de contact"
 msgstr ""
 
-#: erp/models.py:534
+#: erp/models.py:559
 msgid ""
 "Lien hypertexte permettant de contacter l'établissement (formulaire, "
 "chatbot, etc.)"
 msgstr ""
 
-#: erp/models.py:541
+#: erp/models.py:566
 msgid "Numéro"
 msgstr ""
 
-#: erp/models.py:542
+#: erp/models.py:567
 msgid "Numéro dans la voie, incluant le complément (BIS, TER, etc.)"
 msgstr ""
 
-#: erp/models.py:544
+#: erp/models.py:573 erp/models.py:574
 msgid "Voie"
 msgstr ""
 
-#: erp/models.py:545
+#: erp/models.py:580 erp/models.py:581
 msgid "Lieu dit"
 msgstr ""
 
-#: erp/models.py:546
+#: erp/models.py:585 erp/models.py:586
 msgid "Code postal"
 msgstr ""
 
-#: erp/models.py:547
+#: erp/models.py:590
 msgid "Nom de la commune"
 msgstr ""
 
-#: erp/models.py:573
+#: erp/models.py:618
 msgid "Search vector"
 msgstr ""
 
-#: erp/models.py:579
+#: erp/models.py:624
 msgid "Email lié à l'import"
 msgstr ""
 
-#: erp/models.py:580
+#: erp/models.py:625
 msgid ""
 "Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP"
 msgstr ""
 
-#: erp/models.py:731
+#: erp/models.py:776
 msgid "Le code postal doit faire 5 caractères"
 msgstr ""
 
-#: erp/models.py:735
+#: erp/models.py:780
 msgid "Veuillez entrer une voie ou un lieu-dit"
 msgstr ""
 
-#: erp/models.py:754
+#: erp/models.py:799
 #, python-brace-format
 msgid "Commune {self.commune} introuvable, veuillez vérifier votre saisie."
 msgstr ""
 
-#: erp/models.py:763
+#: erp/models.py:808
 msgid "Ce numéro SIRET est invalide."
 msgstr ""
 
-#: erp/models.py:821 erp/models.py:822 templates/erp/index.html:8
+#: erp/models.py:866 erp/models.py:867 templates/erp/index.html:8
 #: templates/erp/widget.html:230
 msgid "Accessibilité"
 msgstr ""
 
-#: erp/models.py:830
+#: erp/models.py:875
 msgid "ERP"
 msgstr ""
 
-#: erp/models.py:841
+#: erp/models.py:886
 msgid "Desserte par transports en commun"
 msgstr ""
 
-#: erp/models.py:847
+#: erp/models.py:892
 msgid "Informations transports"
 msgstr ""
 
-#: erp/models.py:858
+#: erp/models.py:903
 msgid "Stationnement dans l'ERP"
 msgstr ""
 
-#: erp/models.py:864
+#: erp/models.py:909
 msgid "Stationnements PMR dans l'ERP"
 msgstr ""
 
-#: erp/models.py:872
+#: erp/models.py:917
 msgid "Stationnement à proximité de l'ERP"
 msgstr ""
 
-#: erp/models.py:878
+#: erp/models.py:923
 msgid "Stationnements PMR à proximité de l'ERP"
 msgstr ""
 
-#: erp/models.py:888
+#: erp/models.py:933
 msgid "Espace extérieur"
 msgstr ""
 
-#: erp/models.py:896
+#: erp/models.py:941
 msgid "Cheminement de plain-pied"
 msgstr ""
 
-#: erp/models.py:903
+#: erp/models.py:948
 msgid "Terrain meuble ou accidenté"
 msgstr ""
 
-#: erp/models.py:909 erp/models.py:1212 erp/schema.py:577 erp/schema.py:881
+#: erp/models.py:954 erp/models.py:1257 erp/schema.py:577 erp/schema.py:881
 #: erp/schema.py:1137
 msgid "Nombre de marches"
 msgstr ""
 
-#: erp/models.py:916 erp/models.py:1067 erp/models.py:1219 erp/schema.py:593
+#: erp/models.py:961 erp/models.py:1112 erp/models.py:1264 erp/schema.py:593
 #: erp/schema.py:895 erp/schema.py:1151
 msgid "Sens de circulation de l'escalier"
 msgstr ""
 
-#: erp/models.py:924 erp/models.py:1227
+#: erp/models.py:969 erp/models.py:1272
 msgid "Repérage des marches ou de l’escalier"
 msgstr ""
 
-#: erp/models.py:931 erp/models.py:1082 erp/models.py:1234 erp/schema.py:627
+#: erp/models.py:976 erp/models.py:1127 erp/models.py:1279 erp/schema.py:627
 #: erp/schema.py:929 erp/schema.py:1185
 msgid "Main courante"
 msgstr ""
 
-#: erp/models.py:939 erp/models.py:1089 erp/models.py:1242 erp/schema.py:640
+#: erp/models.py:984 erp/models.py:1134 erp/models.py:1287 erp/schema.py:640
 #: erp/schema.py:942 erp/schema.py:1198
 msgid "Rampe"
 msgstr ""
 
-#: erp/models.py:946 erp/models.py:1123 erp/models.py:1249 erp/schema.py:562
+#: erp/models.py:991 erp/models.py:1168 erp/models.py:1294 erp/schema.py:562
 #: erp/schema.py:868 erp/schema.py:1124
 msgid "Ascenseur/élévateur"
 msgstr ""
 
-#: erp/models.py:954
+#: erp/models.py:999
 msgid "Pente présence"
 msgstr ""
 
-#: erp/models.py:963 erp/schema.py:670 erp/schema.py:671
+#: erp/models.py:1008 erp/schema.py:670 erp/schema.py:671
 msgid "Difficulté de la pente"
 msgstr ""
 
-#: erp/models.py:972 erp/schema.py:681 erp/schema.py:682 erp/schema.py:683
+#: erp/models.py:1017 erp/schema.py:681 erp/schema.py:682 erp/schema.py:683
 msgid "Longueur de la pente"
 msgstr ""
 
-#: erp/models.py:980 erp/schema.py:693
+#: erp/models.py:1025 erp/schema.py:693
 msgid "Dévers"
 msgstr ""
 
-#: erp/models.py:989 erp/schema.py:710
+#: erp/models.py:1034 erp/schema.py:710
 msgid "Bande de guidage"
 msgstr ""
 
-#: erp/models.py:997 erp/models.py:1257
+#: erp/models.py:1042 erp/models.py:1302
 msgid "Rétrécissement du cheminement"
 msgstr ""
 
-#: erp/models.py:1008 erp/schema.py:753
+#: erp/models.py:1053 erp/schema.py:753
 msgid "Entrée facilement repérable"
 msgstr ""
 
-#: erp/models.py:1016
+#: erp/models.py:1061
 msgid "Y a-t-il une porte ?"
 msgstr ""
 
-#: erp/models.py:1024
+#: erp/models.py:1069
 msgid "Manœuvre de la porte"
 msgstr ""
 
-#: erp/models.py:1032 erp/schema.py:801 erp/schema.py:803 erp/schema.py:804
+#: erp/models.py:1077 erp/schema.py:801 erp/schema.py:803 erp/schema.py:804
 msgid "Type de porte"
 msgstr ""
 
-#: erp/models.py:1040 erp/schema.py:814
+#: erp/models.py:1085 erp/schema.py:814
 msgid "Entrée vitrée"
 msgstr ""
 
-#: erp/models.py:1046
+#: erp/models.py:1091
 msgid "Vitrophanie"
 msgstr ""
 
-#: erp/models.py:1054 erp/schema.py:848
+#: erp/models.py:1099 erp/schema.py:848
 msgid "Entrée de plain-pied"
 msgstr ""
 
-#: erp/models.py:1060
+#: erp/models.py:1105
 msgid "Marches d'escalier"
 msgstr ""
 
-#: erp/models.py:1075
+#: erp/models.py:1120
 msgid "Repérage de l'escalier"
 msgstr ""
 
-#: erp/models.py:1097
+#: erp/models.py:1142
 msgid "Présence d'une balise sonore"
 msgstr ""
 
-#: erp/models.py:1104
+#: erp/models.py:1149
 msgid "Dispositif d'appel"
 msgstr ""
 
-#: erp/models.py:1108
+#: erp/models.py:1153
 msgid "Dispositifs d'appel disponibles"
 msgstr ""
 
-#: erp/models.py:1117 erp/schema.py:1010
+#: erp/models.py:1162 erp/schema.py:1010
 msgid "Aide humaine"
 msgstr ""
 
-#: erp/models.py:1130
+#: erp/models.py:1175
 msgid "Largeur minimale"
 msgstr ""
 
-#: erp/models.py:1138 erp/schema.py:1043 erp/views.py:505
+#: erp/models.py:1183 erp/schema.py:1043 erp/views.py:505
 msgid "Entrée spécifique PMR"
 msgstr ""
 
-#: erp/models.py:1146
+#: erp/models.py:1191
 msgid "Infos entrée spécifique PMR"
 msgstr ""
 
-#: erp/models.py:1157
+#: erp/models.py:1202
 msgid "Visibilité directe de la zone d'accueil depuis l'entrée"
 msgstr ""
 
-#: erp/models.py:1166 erp/schema.py:1235
+#: erp/models.py:1211 erp/schema.py:1235
 msgid "Personnel d'accueil"
 msgstr ""
 
-#: erp/models.py:1174 erp/schema.py:1258
+#: erp/models.py:1219 erp/schema.py:1258
 msgid "Audiodescription"
 msgstr ""
 
-#: erp/models.py:1178
+#: erp/models.py:1223
 msgid "Équipement(s) audiodescription"
 msgstr ""
 
-#: erp/models.py:1189
+#: erp/models.py:1234
 msgid "Présence d'équipement(s) sourds/malentendants"
 msgstr ""
 
-#: erp/models.py:1195
+#: erp/models.py:1240
 msgid "Équipement(s) sourd/malentendant"
 msgstr ""
 
-#: erp/models.py:1206
+#: erp/models.py:1251
 msgid "Cheminement de plain pied"
 msgstr ""
 
-#: erp/models.py:1267 erp/schema.py:1324
+#: erp/models.py:1312 erp/schema.py:1324
 msgid "Sanitaires"
 msgstr ""
 
-#: erp/models.py:1274
+#: erp/models.py:1319
 msgid "Nombre de sanitaires adaptés"
 msgstr ""
 
-#: erp/models.py:1282 erp/schema.py:1352
+#: erp/models.py:1327 erp/schema.py:1352
 msgid "Marques ou labels"
 msgstr ""
 
-#: erp/models.py:1289 erp/schema.py:1370
+#: erp/models.py:1334 erp/schema.py:1370
 msgid "Famille(s) de handicap concernées(s)"
 msgstr ""
 
-#: erp/models.py:1298 erp/schema.py:1385
+#: erp/models.py:1343 erp/schema.py:1385
 msgid "Autre label"
 msgstr ""
 
-#: erp/models.py:1308
+#: erp/models.py:1353
 msgid "Commentaire libre"
 msgstr ""
 
-#: erp/models.py:1318
+#: erp/models.py:1363
 msgid "URL du registre"
 msgstr ""
 
-#: erp/models.py:1331
+#: erp/models.py:1376
 msgid "Taux de complétion"
 msgstr ""
 
-#: erp/models.py:1339
+#: erp/models.py:1384
 #, python-brace-format
 msgid ""
 "Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
 msgstr ""
 
-#: erp/models.py:1341
+#: erp/models.py:1386
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr ""
 
@@ -2101,6 +2117,18 @@ msgstr ""
 msgid "Domaine d'activité de l'ERP"
 msgstr ""
 
+#: erp/serializers.py:57
+msgid "Impossible de décoder les informations du fournisseur de données"
+msgstr ""
+
+#: erp/serializers.py:67
+msgid "Impossible d'encoder les informations du fournisseur de données"
+msgstr ""
+
+#: erp/templatetags/a4a.py:72
+msgid "Au même endroit"
+msgstr ""
+
 #: erp/views.py:120
 msgid "Vous participez déjà à un autre challenge."
 msgstr ""
@@ -2208,18 +2236,38 @@ msgstr ""
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr ""
 
-#: erp/views.py:740 erp/views.py:810 erp/views.py:852 erp/views.py:938
+#: erp/views.py:639
+msgid "Votre vote a été enregistré."
+msgstr ""
+
+#: erp/views.py:651
+msgid "L'établissement a été supprimé."
+msgstr ""
+
+#: erp/views.py:734
+msgid "autre"
+msgstr ""
+
+#: erp/views.py:740 erp/views.py:811 erp/views.py:853 erp/views.py:946
 msgid "Les données ont été enregistrées."
 msgstr ""
 
-#: erp/views.py:1066
+#: erp/views.py:744
+msgid "existe déjà"
+msgstr ""
+
+#: erp/views.py:1074
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
 "peut pas être publié."
 msgstr ""
 
-#: erp/views.py:1107
+#: erp/views.py:1115
 msgid "Les données ont été sauvegardées."
+msgstr ""
+
+#: erp/views.py:1170
+msgid "Opération effectuée avec succès."
 msgstr ""
 
 #: stats/models.py:23 stats/models.py:24 templates/editorial/footer.html:41
@@ -3178,6 +3226,10 @@ msgstr ""
 msgid "Continuer ma saisie d'un nouvel établissement"
 msgstr ""
 
+#: templates/contrib/1-admin-infos.html:124
+msgid "Rechercher une activité"
+msgstr ""
+
 #: templates/contrib/1-admin-infos.html:173
 msgid "Emplacement de l'établissement"
 msgstr ""
@@ -3941,10 +3993,6 @@ msgid ""
 "nationale de vaccination contre la COVID-19."
 msgstr ""
 
-#: templates/erp/includes/header.html:38
-msgid "Site internet"
-msgstr ""
-
 #: templates/erp/includes/header.html:50 templates/erp/includes/header.html:55
 msgid "Écrire un message"
 msgstr ""
@@ -3955,6 +4003,11 @@ msgstr ""
 
 #: templates/erp/includes/history.html:4 templates/erp/includes/sidebar.html:86
 msgid "Historique des modifications"
+msgstr ""
+
+#: templates/erp/includes/history.html:10
+#: templates/erp/includes/sidebar.html:68
+msgid "par"
 msgstr ""
 
 #: templates/erp/includes/history.html:15
@@ -4021,10 +4074,6 @@ msgstr ""
 
 #: templates/erp/includes/sidebar.html:66
 msgid "Informations initialement fournies"
-msgstr ""
-
-#: templates/erp/includes/sidebar.html:68
-msgid "par"
 msgstr ""
 
 #: templates/erp/includes/sidebar.html:72

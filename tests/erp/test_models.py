@@ -1,9 +1,7 @@
 import pytest
-from django.contrib.auth.models import User
-from django.contrib.gis.geos import Point
 from django.core.exceptions import ValidationError
 
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
 
 
 class TestAccessibility:

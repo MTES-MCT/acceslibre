@@ -2,8 +2,8 @@ import api from "../api";
 import dom from "../dom";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
-const AROUND_ME = "Autour de moi";
-const FRANCE_ENTIERE = "France entière";
+const AROUND_ME = "Autour de moi"; // FIXME: to translate
+const FRANCE_ENTIERE = "France entière"; // FIXME: to translate
 
 async function getCommonResults(loc) {
   return [
