@@ -166,7 +166,9 @@ class TestErp:
 
 @pytest.mark.usefixtures("data")
 class TestActivitySuggestion:
-    def test_save(self, data):
+    def test_save(self, data, mocker):
+        mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+
         assert data.erp.activite.nom != "Autre"
         activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp)
         activity_suggest.mapped_activity = Activite.objects.create(nom="Bisounours")
@@ -190,3 +192,19 @@ class TestActivitySuggestion:
         assert (
             data.erp.activite.nom == "Bisounours2"
         ), "ERP should be impacted as it was in Other activity with a new mapped activity"
+
+        assert mock_mail.not_called()
+
+        # spamming suggestions
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.sophie)
+        assert mock_mail.not_called()
+
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        assert mock_mail.called_once_with(
+            subejct=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
+        )
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        assert mock_mail.called_once_with(
+            subejct=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 4}
+        )
