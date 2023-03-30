@@ -31,7 +31,7 @@ def compute_access_completion_rate(accessibilite_pk):
 def check_for_activity_suggestion_spam(suggestion_pk):
     try:
         suggestion = ActivitySuggestion.objects.get(pk=suggestion_pk)
-    except Accessibilite.DoesNotExist:
+    except ActivitySuggestion.DoesNotExist:
         return
 
     two_days_ago = datetime.now() - timedelta(hours=48)
