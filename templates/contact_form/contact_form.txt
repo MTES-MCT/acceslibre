@@ -7,7 +7,7 @@ Sujet : {{ subject }}
 Adresse email : {{ email }}
 Message: {{ body }}
 
---
+-- 
 L'équipe {{ SITE_NAME.title }}
 {{ SITE_ROOT_URL }}
 {% endautoescape %}

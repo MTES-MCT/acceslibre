@@ -17,7 +17,7 @@ Le vote étant positif, pas de commentaire.
 
 Vous pouvez contacter l'utilisateur à cette adresse : {{ vote.user.email }}.
 
---
+-- 
 L'équipe {{ SITE_NAME.title }}
 {{ SITE_ROOT_URL }}
 {% endautoescape %}

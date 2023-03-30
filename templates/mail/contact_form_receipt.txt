@@ -26,7 +26,7 @@ Toute demande sur un établissement ne portant pas sur son accessibilité ne pou
 {% endif %}
 Bien cordialement,
 
---
+-- 
 L’équipe {{ SITE_NAME.title }}
 {{ SITE_ROOT_URL }}
 {% endautoescape %}

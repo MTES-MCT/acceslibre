@@ -6,7 +6,7 @@ Sujet: {{ message.get_topic_display }}
 Message :
 {{ message.body }}
 
---
+-- 
 L'équipe {{ SITE_NAME.title }}
 {{ SITE_ROOT_URL }}
 {% endautoescape %}
