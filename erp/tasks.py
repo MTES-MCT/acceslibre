@@ -43,3 +43,8 @@ def check_for_activity_suggestion_spam(suggestion_pk):
             template="spam_activities_suggestion",
             context={"nb_times": nb_times},
         )
+        SendInBlueMailer().mail_admins(
+            subject=None,
+            template="spam_activities_suggestion_admin",
+            context={"nb_times": nb_times, "username": suggestion.user.username, "email": suggestion.user.email},
+        )

@@ -166,6 +166,7 @@ class TestErp:
 class TestActivitySuggestion:
     def test_save(self, data, mocker):
         mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+        mock_mail_admins = mocker.patch("core.mailer.SendInBlueMailer.mail_admins", return_value=True)
 
         assert data.erp.activite.nom != "Autre"
         activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp)
@@ -191,18 +192,23 @@ class TestActivitySuggestion:
             data.erp.activite.nom == "Bisounours2"
         ), "ERP should be impacted as it was in Other activity with a new mapped activity"
 
-        assert mock_mail.not_called()
+        mock_mail.assert_not_called()
 
         # spamming suggestions
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.sophie)
-        assert mock_mail.not_called()
+        mock_mail.assert_not_called()
 
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
-        assert mock_mail.called_once_with(
-            subejct=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
+        mock_mail.assert_called_once_with(
+            subject=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
+        )
+        mock_mail_admins.called_once_with(
+            subject=None,
+            template="spam_activities_suggestion_admin",
+            context={"nb_times": 3, "username": data.niko.username, "email": data.niko.email},
         )
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
-        assert mock_mail.called_once_with(
-            subejct=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 4}
-        )
+        assert mock_mail.call_count == 2
+        assert mock_mail_admins.call_count == 2
