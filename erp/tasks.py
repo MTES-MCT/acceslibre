@@ -1,6 +1,9 @@
+from datetime import datetime, timedelta
+
 from celery import shared_task
 
-from erp.models import Accessibilite
+from core.mailer import SendInBlueMailer
+from erp.models import Accessibilite, ActivitySuggestion
 from erp.schema import FIELDS
 
 
@@ -22,3 +25,21 @@ def compute_access_completion_rate(accessibilite_pk):
 
     access.completion_rate = nb_filled_in_fields * 100 / nb_fields
     access.save(update_fields=["completion_rate"])
+
+
+@shared_task()
+def check_for_activity_suggestion_spam(suggestion_pk):
+    try:
+        suggestion = ActivitySuggestion.objects.get(pk=suggestion_pk)
+    except Accessibilite.DoesNotExist:
+        return
+
+    two_days_ago = datetime.now() - timedelta(hours=48)
+    nb_times = ActivitySuggestion.objects.filter(user=suggestion.user, created_at__gte=two_days_ago).count()
+    if nb_times >= 3:
+        SendInBlueMailer().send_email(
+            to_list=suggestion.user.email,
+            subject=None,
+            template="spam_activities_suggestion",
+            context={"nb_times": nb_times},
+        )
