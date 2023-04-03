@@ -10,14 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock %}</title>
     <meta name="description" content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock %}">
-    <link rel="manifest" href="{% static "manifest.webmanifest" %}">
     <meta name="theme-color" content="#075ea2">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
-    <link rel="apple-touch-icon" href="{% static "img/apple-touch-icon.png" %}">
+    <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
+    <script src="{% url 'javascript-catalog' %}"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
     <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
-    <link rel="stylesheet" href="{% static "dist/main.css" %}">
+    <link rel="stylesheet" href="{% static 'dist/main.css' %}">
     {% block stylesheet_extras %}{% endblock %}
-    <script src="{% static "dist/main.js" %}"></script>
+    <script src="{% static 'dist/main.js' %}"></script>
     {% block javascript_extras %}{% endblock %}
     <meta name="google-site-verification" content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
     {% switch 'USE_BETA_MATOMO' %}
