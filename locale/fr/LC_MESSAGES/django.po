@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 14:59+0200\n"
+"POT-Creation-Date: 2023-04-03 16:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -926,7 +926,7 @@ msgstr ""
 msgid "Largeur minimale"
 msgstr ""
 
-#: erp/models.py:1184 erp/schema.py:1043 erp/views.py:505
+#: erp/models.py:1184 erp/schema.py:1043 erp/views.py:507
 msgid "Entrée spécifique PMR"
 msgstr ""
 
@@ -1149,7 +1149,7 @@ msgstr ""
 msgid "> 2 mètres"
 msgstr ""
 
-#: erp/schema.py:125 erp/views.py:526
+#: erp/schema.py:125 erp/views.py:528
 msgid "Aucun personnel"
 msgstr ""
 
@@ -2145,132 +2145,136 @@ msgstr ""
 msgid "Vous êtes déjà inscrit au challenge."
 msgstr ""
 
-#: erp/views.py:394
-msgid "Stationnement adapté dans l'établissement"
+#: erp/views.py:218 erp/views.py:254 erp/views.py:270
+msgid "France entière"
 msgstr ""
 
 #: erp/views.py:396
-msgid "Stationnement adapté à proximité"
+msgid "Stationnement adapté dans l'établissement"
 msgstr ""
 
 #: erp/views.py:398
+msgid "Stationnement adapté à proximité"
+msgstr ""
+
+#: erp/views.py:400
 msgid "Pas de stationnement adapté à proximité"
 msgstr ""
 
-#: erp/views.py:421
+#: erp/views.py:423
 msgid "Chemin d’accès de plain pied"
 msgstr ""
 
-#: erp/views.py:434
+#: erp/views.py:436
 #, python-format
 msgid "Chemin rendu accessible (%s)"
 msgstr ""
 
-#: erp/views.py:435
+#: erp/views.py:437
 msgid "rampe"
 msgstr ""
 
-#: erp/views.py:435
+#: erp/views.py:437
 msgid "ascenseur"
 msgstr ""
 
-#: erp/views.py:448
+#: erp/views.py:450
 msgid "Difficulté sur le chemin d'accès"
 msgstr ""
 
-#: erp/views.py:455
+#: erp/views.py:457
 msgid "Entrée de plain pied"
 msgstr ""
 
-#: erp/views.py:460
+#: erp/views.py:462
 msgid "Entrée de plain pied mais étroite"
 msgstr ""
 
-#: erp/views.py:468
+#: erp/views.py:470
 msgid "Accès à l'entrée par ascenseur"
 msgstr ""
 
-#: erp/views.py:475
+#: erp/views.py:477
 msgid "Entrée rendue accessible par ascenseur mais étroite"
 msgstr ""
 
-#: erp/views.py:483
+#: erp/views.py:485
 msgid "Entrée rendue accessible par rampe mais étroite"
 msgstr ""
 
-#: erp/views.py:494
+#: erp/views.py:496
 msgid "Accès à l’entrée par une rampe"
 msgstr ""
 
-#: erp/views.py:501
+#: erp/views.py:503
 msgid "L’entrée n’est pas de plain-pied"
 msgstr ""
 
-#: erp/views.py:503
+#: erp/views.py:505
 msgid ""
 "\n"
 " Aide humaine possible"
 msgstr ""
 
-#: erp/views.py:528
+#: erp/views.py:530
 msgid "Personnel non formé"
 msgstr ""
 
-#: erp/views.py:530
+#: erp/views.py:532
 msgid "Personnel sensibilisé / formé"
 msgstr ""
 
-#: erp/views.py:541
+#: erp/views.py:543
 msgid "Balise sonore"
 msgstr ""
 
-#: erp/views.py:588
+#: erp/views.py:590
 msgid "Sanitaire adapté"
 msgstr ""
 
-#: erp/views.py:590
+#: erp/views.py:592
 msgid "Sanitaire non adapté"
 msgstr ""
 
-#: erp/views.py:611
+#: erp/views.py:613
 msgid "Seuls les utilisateurs actifs peuvent voter."
 msgstr ""
 
-#: erp/views.py:614
+#: erp/views.py:616
 msgid "Vous ne pouvez pas voter sur votre établissement"
 msgstr ""
 
-#: erp/views.py:639
+#: erp/views.py:641
 msgid "Votre vote a été enregistré."
 msgstr ""
 
-#: erp/views.py:651
+#: erp/views.py:653
 msgid "L'établissement a été supprimé."
 msgstr ""
 
-#: erp/views.py:734
+#: erp/views.py:736
 msgid "autre"
 msgstr ""
 
-#: erp/views.py:740 erp/views.py:811 erp/views.py:853 erp/views.py:946
+#: erp/views.py:742 erp/views.py:813 erp/views.py:855 erp/views.py:948
 msgid "Les données ont été enregistrées."
 msgstr ""
 
-#: erp/views.py:744
+#: erp/views.py:746
 msgid "existe déjà"
 msgstr ""
 
-#: erp/views.py:1074
+#: erp/views.py:1076
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne "
 "peut pas être publié."
 msgstr ""
 
-#: erp/views.py:1115
+#: erp/views.py:1117
 msgid "Les données ont été sauvegardées."
 msgstr ""
 
-#: erp/views.py:1170
+#: erp/views.py:1172
 msgid "Opération effectuée avec succès."
 msgstr ""
 
@@ -2301,7 +2305,7 @@ msgstr ""
 
 #: stats/models.py:74 templates/challenge/list.html:7
 #: templates/challenge/list.html:13 templates/editorial/footer.html:38
-#: templates/stats/index.html:89
+#: templates/stats/index.html:90
 msgid "Challenges"
 msgstr ""
 
@@ -2484,15 +2488,15 @@ msgstr ""
 msgid "Ajouter un établissement"
 msgstr ""
 
-#: templates/base.html:54
+#: templates/base.html:55
 msgid "Vous consultez actuellement le serveur de recette acceslibre."
 msgstr ""
 
-#: templates/base.html:55
+#: templates/base.html:56
 msgid "Aller sur le site officiel"
 msgstr ""
 
-#: templates/base.html:60
+#: templates/base.html:61
 msgid "Ouverture dans un nouvel onglet"
 msgstr ""
 
@@ -4832,11 +4836,11 @@ msgid ""
 "l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés."
 msgstr ""
 
-#: templates/stats/index.html:51
+#: templates/stats/index.html:45
 msgid "Nombre d'établissements"
 msgstr ""
 
-#: templates/stats/index.html:75
+#: templates/stats/index.html:76
 msgid ""
 "\n"
 "              fiche publiée\n"
@@ -4848,28 +4852,28 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/stats/index.html:90
+#: templates/stats/index.html:91
 msgid "Tout savoir"
 msgstr ""
 
-#: templates/stats/index.html:90
+#: templates/stats/index.html:91
 msgid "sur les challenges"
 msgstr ""
 
-#: templates/stats/index.html:97 templates/stats/territoires.html:3
+#: templates/stats/index.html:98 templates/stats/territoires.html:3
 #: templates/stats/territoires.html:9
 msgid "Principaux territoires couverts"
 msgstr ""
 
-#: templates/stats/index.html:98
+#: templates/stats/index.html:99
 msgid "Voir plus de territoires"
 msgstr ""
 
-#: templates/stats/index.html:108
+#: templates/stats/index.html:109
 msgid "Fréquentation"
 msgstr ""
 
-#: templates/stats/index.html:108
+#: templates/stats/index.html:109
 msgid "sur les 30 derniers jours"
 msgstr ""
 

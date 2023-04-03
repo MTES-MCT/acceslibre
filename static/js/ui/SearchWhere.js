@@ -2,10 +2,10 @@ import api from "../api";
 import dom from "../dom";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
-const AROUND_ME = "Autour de moi"; // FIXME: to translate
-const FRANCE_ENTIERE = "France entière"; // FIXME: to translate
 
 async function getCommonResults(loc) {
+  const AROUND_ME = gettext("Autour de moi");
+  const FRANCE_ENTIERE = gettext("France entière");
   return [
     { id: "around_me", text: `${AROUND_ME} ${loc?.label || ""}`, icon: "street-view" },
     { id: "france_entiere", text: FRANCE_ENTIERE, icon: "france" },
@@ -13,6 +13,8 @@ async function getCommonResults(loc) {
 }
 
 function SearchWhere(root) {
+  const AROUND_ME = gettext("Autour de moi");
+  const FRANCE_ENTIERE = gettext("France entière");
   const input = root.querySelector("input[name=where]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
   const hiddens = {

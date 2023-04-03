@@ -5,6 +5,7 @@ from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
 from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
+from django.views.i18n import JavaScriptCatalog
 
 from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
@@ -16,8 +17,9 @@ from compte.views import (
 from core.sitemaps import SITEMAPS
 from core.views import robots_txt
 
-SITEMAP_CACHE_TTL = 86400
-
+# in seconds
+ONE_HOUR = 60 * 60
+ONE_DAY = 24 * ONE_HOUR
 
 urlpatterns = [
     path(
@@ -38,11 +40,7 @@ urlpatterns = [
         ),
         name="django_registration_activation_complete",
     ),
-    path(
-        "compte/activate/<str:activation_key>/",
-        CustomActivationView.as_view(),
-        name="django_registration_activate",
-    ),
+    path("compte/activate/<str:activation_key>/", CustomActivationView.as_view(), name="django_registration_activate"),
     path(
         "compte/register/",
         CustomRegistrationView.as_view(form_class=CustomRegistrationForm),
@@ -53,29 +51,19 @@ urlpatterns = [
         CustomRegistrationCompleteView.as_view(template_name="django_registration/registration_complete.html"),
         name="django_registration_complete",
     ),
-    path(
-        "compte/login/",
-        LoginView.as_view(form_class=CustomAuthenticationForm),
-        name="login",
-    ),
+    path("compte/login/", LoginView.as_view(form_class=CustomAuthenticationForm), name="login"),
     # TODO more things to move to auth
     path("compte/", include("django_registration.backends.activation.urls")),
     path("compte/", include("django.contrib.auth.urls")),
     path("compte/", include("compte.urls")),
     path("admin/", admin.site.urls),
     path(
-        "sitemap.xml",
-        cache_page(SITEMAP_CACHE_TTL)(sitemap_views.index),
-        {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"},
+        "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
     ),
-    path(
-        "sitemap-<section>.xml",
-        cache_page(SITEMAP_CACHE_TTL)(sitemap_views.sitemap),
-        {"sitemaps": SITEMAPS},
-        name="sitemap",
-    ),
+    path("sitemap-<section>.xml", cache_page(ONE_DAY)(sitemap_views.sitemap), {"sitemaps": SITEMAPS}, name="sitemap"),
     path("maintenance-mode/", include("maintenance_mode.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
+    path("jsi18n/", cache_page(ONE_HOUR, key_prefix="jsi18n")(JavaScriptCatalog.as_view()), name="javascript-catalog"),
     path("robots.txt", robots_txt),
 ]
 if "rosetta" in settings.INSTALLED_APPS:

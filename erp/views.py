@@ -215,7 +215,7 @@ def _get_search_qs_and_context(commune_slug, lat, lon, what, where):
         where = str(commune)
     elif location:
         qs = qs.nearest(location)
-    elif where and not where == "France entière":
+    elif where and where not in ("France entière", translate("France entière")):
         location = geocoder.autocomplete(where)
         if location:
             lat, lon = (location.y, location.x)  # update current searched lat/lon
@@ -250,7 +250,9 @@ def search(request, commune_slug=None):
         "search/results.html",
         context=context
         | {
-            "url_params": request.META["QUERY_STRING"] if where != "France entière" else None,
+            "url_params": request.META["QUERY_STRING"]
+            if where not in ("France entière", translate("France entière"))
+            else None,
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
@@ -265,7 +267,7 @@ def global_map(request, commune_slug=None):
     where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
     # FIXME: "France entière" is engendering huge perf pb and has been disabled, since this has been released with
     # this possibility we might have some cached links here and there and have to block this possible value.
-    if not where or where == "France entière":
+    if not where or where in ("France entière", translate("France entière")):
         raise Http404()
 
     qs, context = _get_search_qs_and_context(commune_slug, lat, lon, what, where)
