@@ -14,12 +14,11 @@
       <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
         <p class="fr-h4 text-center text-count font-weight-bold">{{ nb_published_erps }}</p>
         <div class="h4 px-4 text-center">
-          <!-- {# FIXME can manage pluralize with blocktranslate/plural in Django 4.x #} -->
-          {% if nb_published_erps <= 1 %}
-          {% translate "établissement publié" %}
-          {% else %}
-          {% translate "établissements publiés" %}
-          {% endif %} {% blocktranslate with site=SITE_NAME|title %}sur {{ site }}{% endblocktranslate %}
+          {% blocktranslate count counter=nb_published_erps %}
+          établissement publié
+          {% plural %}
+          établissements publiés
+          {% endblocktranslate %}
         </div>
       </div>
     </div>
@@ -43,13 +42,14 @@
           {% translate "Graphique représentant l'évolution du nombre d'établissements publiés sur l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés." %}
         </canvas>
         <script>
+        {% translate "Nombre d'établissements" as translate_np_erps %}
         var erpCountChart = new Chart("erpCountChart", {
           type: "bar",
           data: {
             labels: {{ erp_counts_histogram.labels|safe }},
             datasets: [
               {
-                label: "Nombre d'établissements",
+                label: "{{ translate_np_erps }}",
                 data: {{ erp_counts_histogram.totals|escapejs }},
                 backgroundColor: "#075ea2",
               }
@@ -73,11 +73,11 @@
             <strong>{{ contributor.username }}</strong>
             <small class="text-muted">
               {{ contributor.erp_count_published }}{% if contributor.erp_count_published != contributor.erp_count_total %}/{{ contributor.erp_count_total }}{% endif %}
-              {% if contributor.erp_count_published <= 1 %}
+              {% blocktranslate count counter=contributor.erp_count_published %}
               fiche publiée
-              {% else %}
+              {% plural %}
               fiches publiées
-              {% endif %}
+              {% endblocktranslate %}
             </small>
           </li>
         {% endfor %}
@@ -88,7 +88,7 @@
   <aside class="container-fluid alert mb-0 shadow-sm text-left" style="background-color: rgba(0,0,0,.03); border:1px solid rgba(0, 0, 0, 0.125)">
     <div class="container">
       <h2 class="fr-h3">{% translate "Challenges" %}</h2>
-      <a class="btn-link fr-text--bold" href="{% url 'challenges' %}">{% translate "Tout savoir" %}</a>{% translate "sur les challenges" %}
+      <a class="btn-link fr-text--bold" href="{% url 'challenges' %}">{% translate "Tout savoir" %}</a> {% translate "sur les challenges" %}
     </div>
   </aside>
 
