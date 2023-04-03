@@ -8,6 +8,7 @@ from django.core.validators import RegexValidator
 from django.utils.functional import lazy
 from django.utils.html import format_html
 from django.utils.translation import gettext as translate
+from django.utils.translation import gettext_lazy as translate_lazy
 from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
@@ -28,7 +29,7 @@ def define_username_field():
     return forms.CharField(
         max_length=32,
         required=True,
-        label="Nom d'utilisateur",
+        label=translate_lazy("Nom d'utilisateur"),
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
             validate_username_whitelisted,
@@ -40,7 +41,7 @@ def define_email_field(label="Email"):
     return forms.EmailField(
         required=True,
         label=label,
-        widget=forms.TextInput(attrs={"placeholder": translate("Exemple: nom@domaine.com")}),
+        widget=forms.TextInput(attrs={"placeholder": translate_lazy("Exemple: nom@domaine.com")}),
     )
 
 
@@ -128,8 +129,8 @@ class UsernameChangeForm(forms.Form):
 
 
 class EmailChangeForm(forms.Form):
-    email1 = define_email_field(translate("Nouvelle adresse email"))
-    email2 = define_email_field(translate("Confirmation de la nouvelle adresse email"))
+    email1 = define_email_field(translate_lazy("Nouvelle adresse email"))
+    email2 = define_email_field(translate_lazy("Confirmation de la nouvelle adresse email"))
 
     def __init__(self, *args, user=None, **kwargs):
         self.user = user
@@ -156,7 +157,7 @@ class EmailChangeForm(forms.Form):
 
 class AccountDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label=translate(
+        label=translate_lazy(
             "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
         ),
         required=True,
@@ -176,4 +177,4 @@ class PreferencesForm(forms.ModelForm):
 
 
 class CustomAuthenticationForm(AuthenticationForm):
-    username = UsernameField(label=translate("Adresse e-mail"), widget=forms.TextInput(attrs={"autofocus": True}))
+    username = UsernameField(label=translate_lazy("Adresse e-mail"), widget=forms.TextInput(attrs={"autofocus": True}))
