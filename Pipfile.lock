@@ -943,11 +943,11 @@
         },
         "phonenumbers": {
             "hashes": [
-                "sha256:253bb0e01250d21a11f2b42b3e6e161b7f6cb2ac440e2e2a95c1da71d221ee1a",
-                "sha256:d3e3555b38c89b121f5b2e917847003bdd07027569d758d5f40156c01aeac089"
+                "sha256:1b7c75c4a5e62885a0be0a6b073b7e3f4ce6672fd42ab7b4a6b46359c40591d0",
+                "sha256:4ba92a917fb8f6e3fe33fd04b9d84299852ce237289129ee4eda47a043a5c6c4"
             ],
             "index": "pypi",
-            "version": "==8.13.7"
+            "version": "==8.13.8"
         },
         "pickleshare": {
             "hashes": [
@@ -1962,7 +1962,7 @@
                 "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504",
                 "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version >= '3.8.0'",
             "version": "==5.12.0"
         },
         "jedi": {
