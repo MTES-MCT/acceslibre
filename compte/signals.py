@@ -46,7 +46,7 @@ def save_access_update_stats(sender, instance, created, **kwargs):
     user_stats.save()
 
 
-erp_claimed = Signal(providing_args=["instance"])
+erp_claimed = Signal()
 
 
 @receiver(erp_claimed, dispatch_uid="update_stats_after_erp_claimed")

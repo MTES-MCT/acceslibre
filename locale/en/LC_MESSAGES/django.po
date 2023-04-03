@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-03 11:52+0200\n"
-"PO-Revision-Date: 2023-04-03 11:54+0009\n"
-"Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2023-04-03 14:59+0200\n"
+"PO-Revision-Date: 2023-04-03 15:01+0200\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,6 @@ msgid "Ce nom d'utilisateur est réservé"
 msgstr "This username is reserved"
 
 #: compte/forms.py:32
-#| msgid "nom d'utilisateur"
 msgid "Nom d'utilisateur"
 msgstr "Username"
 
@@ -219,11 +218,11 @@ msgstr "Creation date"
 msgid "Dernière modification"
 msgstr "Last modification"
 
-#: core/settings.py:236
+#: core/settings.py:233
 msgid "French"
 msgstr "French"
 
-#: core/settings.py:237
+#: core/settings.py:234
 msgid "English"
 msgstr "English"
 
@@ -2460,7 +2459,7 @@ msgstr "Challenge"
 
 #: stats/models.py:74 templates/challenge/list.html:7
 #: templates/challenge/list.html:13 templates/editorial/footer.html:38
-#: templates/stats/index.html:90
+#: templates/stats/index.html:89
 msgid "Challenges"
 msgstr "Challenges"
 
@@ -5110,32 +5109,40 @@ msgstr "Number of filled in ERP"
 msgid "Statistiques <small>- au"
 msgstr "Statistics <small>- at"
 
-#: templates/stats/index.html:19
-msgid "établissement publié"
-msgstr "published establishment"
+#: templates/stats/index.html:17
+msgid ""
+"\n"
+"          établissement publié\n"
+"          "
+msgid_plural ""
+"\n"
+"          établissements publiés\n"
+"          "
+msgstr[0] ""
+"\n"
+"published establishment"
+msgstr[1] ""
+"\n"
+"published establishments"
 
-#: templates/stats/index.html:21
-msgid "établissements publiés"
-msgstr "published establishments"
+#: templates/stats/index.html:30
+msgid "contributeur"
+msgstr "contributor"
 
-#: templates/stats/index.html:22 templates/stats/index.html:31
+#: templates/stats/index.html:30
 #, python-format
 msgid "sur %(site)s"
 msgstr "on %(site)s"
 
-#: templates/stats/index.html:31
-msgid "contributeur"
-msgstr "contributor"
-
-#: templates/stats/index.html:39
+#: templates/stats/index.html:38
 msgid "Évolution du nombre d'établissements publiés"
 msgstr "Evolution of the number of published establishments"
 
-#: templates/stats/index.html:42
+#: templates/stats/index.html:41
 msgid "Graphique représentant l'évolution du nombre d'établissements publiés"
 msgstr "Graph showing the evolution of the number of published establishments"
 
-#: templates/stats/index.html:43
+#: templates/stats/index.html:42
 msgid ""
 "Graphique représentant l'évolution du nombre d'établissements publiés sur "
 "l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés."
@@ -5144,31 +5151,59 @@ msgstr ""
 "the year. We reach this month {{ nb_published_erps }} published "
 "establishments."
 
-#: templates/stats/index.html:91
+#: templates/stats/index.html:51
+#| msgid "de l'établissement"
+msgid "Nombre d'établissements"
+msgstr "Number of establishments"
+
+#: templates/stats/index.html:75
+msgid ""
+"\n"
+"              fiche publiée\n"
+"              "
+msgid_plural ""
+"\n"
+"              fiches publiées\n"
+"              "
+msgstr[0] ""
+"\n"
+"published establishment"
+msgstr[1] ""
+"\n"
+"published establishments"
+
+#: templates/stats/index.html:90
 msgid "Tout savoir"
 msgstr "All about"
 
-#: templates/stats/index.html:91
+#: templates/stats/index.html:90
 msgid "sur les challenges"
 msgstr "the challenges"
 
-#: templates/stats/index.html:98 templates/stats/territoires.html:3
+#: templates/stats/index.html:97 templates/stats/territoires.html:3
 #: templates/stats/territoires.html:9
 msgid "Principaux territoires couverts"
 msgstr "Main territories covered"
 
-#: templates/stats/index.html:99
+#: templates/stats/index.html:98
 msgid "Voir plus de territoires"
 msgstr "See more territories"
 
-#: templates/stats/index.html:109
+#: templates/stats/index.html:108
 msgid "Fréquentation"
 msgstr "Attendance"
 
-#: templates/stats/index.html:109
+#: templates/stats/index.html:108
 msgid "sur les 30 derniers jours"
 msgstr "over the last 30 days"
 
 #: templates/stats/territoires.html:8
 msgid "Retour aux statistiques générales"
 msgstr "Back to general statistics"
+
+#, fuzzy
+#~ msgid "Nombre d\\"
+#~ msgstr "Number of steps"
+
+#~ msgid "établissements publiés"
+#~ msgstr "published establishments"
