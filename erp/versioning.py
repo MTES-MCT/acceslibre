@@ -14,6 +14,10 @@ def extract_online_erp(version):
     """
     if not hasattr(version, "content_type"):
         return None
+
+    if not version.object:
+        return None
+
     erp = version.object if version.content_type == ContentType.objects.get_for_model(Erp) else version.object.erp
     if erp and erp.published:
         return erp
