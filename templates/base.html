@@ -1,6 +1,5 @@
 {% load static %}
 {% load i18n %}
-{% load waffle_tags %}
 <!DOCTYPE html>
 <html lang="fr" data-fr-scheme="light">
   <head>
@@ -21,27 +20,14 @@
     <script src="{% static 'dist/main.js' %}"></script>
     {% block javascript_extras %}{% endblock %}
     <meta name="google-site-verification" content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
-    {% switch 'USE_BETA_MATOMO' %}
-      {% if not STAGING %}
-        <!-- Matomo Tag Manager -->
-        <script>
-          var _mtm = window._mtm = window._mtm || [];
-          _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.async=true; g.src='https://stats.beta.gouv.fr/js/container_EZREc6IE.js'; s.parentNode.insertBefore(g,s);
-        </script>
-        <!-- End Matomo Tag Manager -->
-      {% else %}
-        <!-- Matomo Tag Manager -->
-        <script>
-          var _mtm = window._mtm = window._mtm || [];
-          _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.async=true; g.src='https://stats.beta.gouv.fr/js/container_vaTNfBst.js'; s.parentNode.insertBefore(g,s);
-        </script>
-        <!-- End Matomo Tag Manager -->
-      {% endif %}
-    {% endswitch %}
+    <!-- Matomo Tag Manager -->
+    <script>
+      var _mtm = window._mtm = window._mtm || [];
+      _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src='https://stats.beta.gouv.fr/js/container_EZREc6IE.js'; s.parentNode.insertBefore(g,s);
+    </script>
+    <!-- End Matomo Tag Manager -->
   </head>
 
   <body class="a4a" tabindex="0">

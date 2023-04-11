@@ -14,7 +14,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         start_date = datetime.datetime(2022, 3, 21)
         stop_date = datetime.datetime(2022, 6, 21, 23, 59, 59)
-        top_contribs, total_contributions = get_count_challenge(start_date, stop_date)
+        top_contribs, _ = get_count_challenge(start_date, stop_date)
         stamp = datetime.date.today().isoformat()
         csv_filename = f"export-challenge-{stamp}.csv"
         with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
