@@ -16,9 +16,9 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     _paq.push(['enableHeartBeatTimer']);
     _paq.push(['trackEvent', "widget", "display", true]);
     (function () {
-      var u = "//stats.beta.gouv.fr/";
+      var u = "//stats.data.gouv.fr/";
       _paq.push(["setTrackerUrl", u + "matomo.php"]);
-      _paq.push(["setSiteId", "3"]);
+      _paq.push(["setSiteId", "118"]);
       var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
       g.type = "text/javascript"; g.async = true; g.defer = true; g.src = u + "matomo.js"; s.parentNode.insertBefore(g, s);
     })();
@@ -68,9 +68,9 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       _paq.push(['enableHeartBeatTimer']);
       _paq.push(['trackEvent', "widget", "open", true]);
       (function () {
-        var u = "//stats.beta.gouv.fr/";
+        var u = "//stats.data.gouv.fr/";
         _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "3"]);
+        _paq.push(["setSiteId", "118"]);
       })();
       const focusableElements = dialog.querySelectorAll(focusableElementsArray);
       const firstFocusableElement = focusableElements[0];
