@@ -17,6 +17,11 @@
     color: var(--g700);
   }
 
+  .fr-link--close:focus {
+    outline: auto;
+    outline-color: #000;
+  }
+
   .fr-modal__body {
     border-radius: 12px;
   }
@@ -221,7 +226,7 @@
       <div class="fr-col-12 fr-col-md-5">
         <div class="fr-modal__body">
           <div class="fr-modal__header text-right">
-            <button id="btn_acceslibre_close" aria-label="Fermer" data-dismiss="dialog" class="fr-link fr-link--close " title="{% translate 'Fermer la fenêtre' %}"
+            <button id="btn_acceslibre_close" aria-label="Fermer" data-dismiss="dialog" class="fr-link fr-link--close" title="{% translate 'Fermer la fenêtre' %}"
               aria-controls="fr-modal-1">{% translate "Fermer" %}
             </button>
           </div>
@@ -255,7 +260,7 @@
                 <span>{% translate "Voir plus sur" %} </span>
                 <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}" alt="acceslibre"
                   style="height:50px;vertical-align: text-bottom;">
-            </a>
+              </a>
             </p>
           </div>
         </div>
