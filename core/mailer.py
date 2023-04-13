@@ -111,7 +111,7 @@ class SendInBlueMailer(Mailer):
             api_instance.create_attribute(
                 attribute_name="ACTIVATION_KEY",
                 attribute_category="normal",
-                create_attribute=CreateAttribute(type="str"),
+                create_attribute=CreateAttribute(type="text"),
             )
 
     def sync_user(self, user):
