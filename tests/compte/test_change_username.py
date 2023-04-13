@@ -39,6 +39,7 @@ def test_update_username_authenticated(mocker, client, data):
                 "IS_ACTIVE": True,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
+                "ACTIVATION_KEY": "",
             }
         ),
     )

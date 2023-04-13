@@ -3,6 +3,7 @@ import logging
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django_registration.backends.activation.views import RegistrationView
 from sib_api_v3_sdk import (
     ApiClient,
     Configuration,
@@ -106,6 +107,13 @@ class SendInBlueMailer(Mailer):
                 create_attribute=CreateAttribute(type="boolean"),
             )
 
+        if "ACTIVATION_KEY" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="ACTIVATION_KEY",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="str"),
+            )
+
     def sync_user(self, user):
         if not user.email:
             return False
@@ -125,6 +133,7 @@ class SendInBlueMailer(Mailer):
                 "IS_ACTIVE": user.is_active,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
+                "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
             }
         )
         api_instance.update_contact(contact.id, update_contact)
