@@ -160,13 +160,11 @@ class Command(BaseCommand):
 
         field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
         if field_label in row:
-            if row[field_label] == "Oui c'est praticable":
-                accessibilite.cheminement_ext_presence = True
-                accessibilite.cheminement_ext_terrain_stable = True
-                accessibilite.cheminement_ext_plain_pied = True
-                accessibilite.cheminement_ext_retrecissement = False
+            if row[field_label] == "Oui, nous avons une place handicapée":
+                accessibilite.stationnement_ext_presence = True
+                accessibilite.stationnement_ext_pmr = True
             elif row[field_label] == "Non, ce n'est pas praticable":
-                accessibilite.cheminement_ext_presence = True
+                pass
 
         field_label = "Ce chemin n'est pas praticable car :"
         if field_label in row:

@@ -37,7 +37,7 @@ class BaseMapper:
         "cheminement_ext_main_courante",
         "cheminement_ext_rampe",
         "cheminement_ext_pente_presence",
-        "cheminement_ext_pente_degree_difficulte",
+        "cheminement_ext_pente_degre_difficulte",
         "cheminement_ext_pente_longueur",
         "cheminement_ext_devers",
         "cheminement_ext_bande_guidage",
@@ -61,8 +61,8 @@ class BaseMapper:
         "entree_porte_presence",
         "entree_porte_manoeuvre",
         "entree_porte_type",
-        "acceuil_visibilite",
-        "acceuil_personnels",
+        "accueil_visibilite",
+        "accueil_personnels",
         "accueil_audiodescription_presence",
         "accueil_audiodescription",
         "accueil_equipements_malentendants_presence",
@@ -106,7 +106,8 @@ class BaseMapper:
             return "0" + cpost
         return cpost
 
-    def format_data(self, value):
+    @staticmethod
+    def format_data(value):
         if value == "":
             return None
         return value.strip()

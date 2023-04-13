@@ -65,7 +65,7 @@ def geocode(address, postcode=None, citycode=None, provider=None):
 
     data = provider["requester"](provider).geocode(address, postcode, citycode)
     if not data and next_provider:
-        return geocode(address, postcode, citycode, provider=next_provider["name"])
+        return geocode(address, postcode=postcode, citycode=citycode, provider=next_provider["name"])
 
     return data
 
