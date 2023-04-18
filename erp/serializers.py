@@ -41,7 +41,7 @@ def decode_provider_data(data):
     try:
         if data:
             decoded = json.loads(base64.urlsafe_b64decode(data).decode())
-            del decoded["activite"]
+            decoded.pop("activite", None)
             if "coordonnees" in decoded:
                 decoded["lat"] = decoded["coordonnees"][1]
                 decoded["lon"] = decoded["coordonnees"][0]

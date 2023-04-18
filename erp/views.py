@@ -752,6 +752,13 @@ def contrib_admin_infos(request):
             data_error = err
         else:
             data_erp = data.copy()
+            try:
+                if "activite_slug" in data:
+                    data_erp["activite"] = data["activite"] = Activite.objects.get(slug=data["activite_slug"])
+            except Activite.DoesNotExist:
+                pass
+
+            data_erp.pop("activite_slug", None)
             if "coordonnees" in data_erp:
                 del data_erp["coordonnees"]
             if "naf" in data_erp:
@@ -775,7 +782,6 @@ def contrib_admin_infos(request):
                 "next": schema.SECTION_A_PROPOS,
             },
             "form": form,
-            "has_data": data is not None,
             "data_error": data_error,
             "existing_matches": existing_matches,
             "geojson_list": geojson_list,
@@ -826,7 +832,6 @@ def contrib_edit_infos(request, erp_slug):
             },
             "erp": erp,
             "form": form,
-            "has_data": False,
             "activite": Activite.objects.get(nom="Autre"),
         },
     )
@@ -871,7 +876,6 @@ def contrib_a_propos(request, erp_slug):
             },
             "erp": erp,
             "form": form,
-            "has_data": False,
         },
     )
 

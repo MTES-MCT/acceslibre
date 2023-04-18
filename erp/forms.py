@@ -414,6 +414,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "telephone",
             "contact_url",
             "geoloc_provider",
+            "asp_id",
         )
         labels = {"user_type": "Saisie en qualité de"}
         help_texts = {
@@ -431,6 +432,7 @@ class BasePublicErpInfosForm(BaseErpForm):
         widgets = {
             "source": forms.HiddenInput(),
             "source_id": forms.HiddenInput(),
+            "asp_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
             "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
