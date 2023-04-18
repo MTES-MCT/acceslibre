@@ -906,7 +906,7 @@ def process_accessibilite_form(
     """
 
     def _get_contrib_form_for_activity(activity: Activite):
-        groups = activity.groups.all()
+        groups = activity.groups.all() if activity else None
         # FIXME finish activities groups integration -> if not groups
         if True or not groups:
             return forms.ContribAccessibiliteForm
