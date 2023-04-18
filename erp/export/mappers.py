@@ -82,6 +82,15 @@ class EtalabMapper(BaseExportMapper):
     accueil_cheminement_main_courante: bool
     accueil_cheminement_rampe: Literal["aucune", "fixe", "amovible", "aide humaine"]
     accueil_cheminement_sens_marches: Literal["montant", "descendant"]
+    accueil_chambre_nombre_accessibles: int
+    accueil_chambre_douche_plain_pied: bool
+    accueil_chambre_douche_siege: bool
+    accueil_chambre_douche_barre_appui: bool
+    accueil_chambre_sanitaires_barre_appui: bool
+    accueil_chambre_sanitaires_espace_usage: bool
+    accueil_chambre_numero_visible: bool
+    accueil_chambre_equipement_alerte: bool
+    accueil_chambre_accompagnement: bool
     accueil_retrecissement: bool
     sanitaires_presence: bool
     sanitaires_adaptes: int
@@ -179,6 +188,15 @@ class EtalabMapper(BaseExportMapper):
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
+            accueil_chambre_nombre_accessibles=erp.accessibilite.accueil_chambre_nombre_accessibles,
+            accueil_chambre_douche_plain_pied=erp.accessibilite.accueil_chambre_douche_plain_pied,
+            accueil_chambre_douche_siege=erp.accessibilite.accueil_chambre_douche_siege,
+            accueil_chambre_douche_barre_appui=erp.accessibilite.accueil_chambre_douche_barre_appui,
+            accueil_chambre_sanitaires_barre_appui=erp.accessibilite.accueil_chambre_sanitaires_barre_appui,
+            accueil_chambre_sanitaires_espace_usage=erp.accessibilite.accueil_chambre_sanitaires_espace_usage,
+            accueil_chambre_numero_visible=erp.accessibilite.accueil_chambre_numero_visible,
+            accueil_chambre_equipement_alerte=erp.accessibilite.accueil_chambre_equipement_alerte,
+            accueil_chambre_accompagnement=erp.accessibilite.accueil_chambre_accompagnement,
             sanitaires_presence=erp.accessibilite.sanitaires_presence,
             sanitaires_adaptes=erp.accessibilite.sanitaires_adaptes,
             labels=map_list_from_schema(schema.LABEL_CHOICES, erp.accessibilite.labels),
@@ -273,6 +291,15 @@ class PartooMapper(BaseExportMapper):
     accueil_cheminement_rampe: Literal["aucune", "fixe", "amovible", "aide humaine"]
     accueil_cheminement_sens_marches: Literal["montant", "descendant"]
     accueil_retrecissement: bool
+    accueil_chambre_nombre_accessibles: int
+    accueil_chambre_douche_plain_pied: bool
+    accueil_chambre_douche_siege: bool
+    accueil_chambre_douche_barre_appui: bool
+    accueil_chambre_sanitaires_barre_appui: bool
+    accueil_chambre_sanitaires_espace_usage: bool
+    accueil_chambre_numero_visible: bool
+    accueil_chambre_equipement_alerte: bool
+    accueil_chambre_accompagnement: bool
     sanitaires_presence: bool
     sanitaires_adaptes: int
     labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th"]]]
@@ -361,6 +388,15 @@ class PartooMapper(BaseExportMapper):
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
+            accueil_chambre_nombre_accessibles=erp.accessibilite.accueil_chambre_nombre_accessibles,
+            accueil_chambre_douche_plain_pied=erp.accessibilite.accueil_chambre_douche_plain_pied,
+            accueil_chambre_douche_siege=erp.accessibilite.accueil_chambre_douche_siege,
+            accueil_chambre_douche_barre_appui=erp.accessibilite.accueil_chambre_douche_barre_appui,
+            accueil_chambre_sanitaires_barre_appui=erp.accessibilite.accueil_chambre_sanitaires_barre_appui,
+            accueil_chambre_sanitaires_espace_usage=erp.accessibilite.accueil_chambre_sanitaires_espace_usage,
+            accueil_chambre_numero_visible=erp.accessibilite.accueil_chambre_numero_visible,
+            accueil_chambre_equipement_alerte=erp.accessibilite.accueil_chambre_equipement_alerte,
+            accueil_chambre_accompagnement=erp.accessibilite.accueil_chambre_accompagnement,
             sanitaires_presence=erp.accessibilite.sanitaires_presence,
             sanitaires_adaptes=erp.accessibilite.sanitaires_adaptes,
             labels=map_list_from_schema(schema.LABEL_CHOICES, erp.accessibilite.labels),

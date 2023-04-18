@@ -359,8 +359,11 @@ SECTIONS = {
 
 FIELDS = {
     # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
-    #      In the UI, the sub fields are visible only if the root field has given value.
-    #      Default is False if not provided.
+    #        In the UI, the sub fields are visible only if the root field has given value.
+    #        Default is False if not provided.
+    # NOTE conditional(true|false) determines whether a field is always display or if it is display only under certain conditions. Like if field has
+    #        sense only for a category of activities.
+    #        Default is False if not provided.
     # Transport
     "transport_station_presence": {
         "type": "boolean",
@@ -1228,6 +1231,180 @@ FIELDS = {
         "warn_if": True,
         "root": True,
     },
+    "accueil_chambre_nombre_accessibles": {
+        "type": "number",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Nombre de chambres accessibles à une personne en fauteuil roulant"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Nombre de chambres accessibles à une personne en fauteuil roulant : espace et aménagement suffisant pour permettre à une personne en fauteuil de circuler dans la chambre, atteindre le lit et tourner (espace de rotation d’au moins 150 cm de diamètre)"
+            )
+        ),
+        "help_text_ui": translate_lazy("Nombre de chambres accessibles à une personne en fauteuil roulant."),
+        "help_text_ui_neg": translate_lazy("Aucune chambre accessible à une personne en fauteuil roulant."),
+        "choices": None,
+        "unit": "chambre",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "warn_if": lambda x, i: x is not None and x < 80,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_douche_plain_pied": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Douche accessible"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "La douche est-elle à l'italienne ou équipée d'un bac extra plat (hauteur inférieure à 2 cm)&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("La douche est à l'italienne ou équipée d'un bac extra plat."),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas à l'italienne ni équipée d'un bac extra plat."),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_douche_siege": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Siège de douche"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "La douche est-elle équipée d'un siège de douche normé et d'une largeur minimum de 40 cm&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("La douche est équipée d'un siège de douche."),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'un siège de douche."),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_douche_barre_appui": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Douche sécurisée"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "La douche est-elle équipée d'une barre d'appui horizontale permettant le transfert depuis un fauteuil vers le siège de douche&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("La douche est équipée d'une barre d'appui horizontale."),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'une barre d'appui horizontale."),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_sanitaires_barre_appui": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Toilette sécurisé"),
+        "help_text": mark_safe(translate_lazy("Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?")),
+        "help_text_ui": translate_lazy("Le toilette est équipé d'une barre d'appui horizontale."),
+        "help_text_ui_neg": translate_lazy("Le toilette n'est pas équipé d'une barre d'appui horizontale."),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_sanitaires_espace_usage": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Toilette accessible"),
+        "help_text": mark_safe(
+            translate_lazy("Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?")
+        ),
+        "help_text_ui": translate_lazy("TODO"),
+        "help_text_ui_neg": translate_lazy("TODO"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_numero_visible": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Visibilité des numéros de chambres"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur)"
+            )
+        ),
+        "help_text_ui": translate_lazy("Les numéros de chambres sont repérables et en relief."),
+        "help_text_ui_neg": translate_lazy("Les numéros de chambres ne sont pas repérables et en relief."),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_equipement_alerte": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Equipement d'alerte adapté"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "L'établissement dispose-t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy(
+            "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration."
+        ),
+        "help_text_ui_neg": translate_lazy(
+            "L'établissement ne dispose pas d'équipements d'alerte par flash lumineux ou vibration."
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
+    "accueil_chambre_accompagnement": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accompagnement spécifique"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Est-il proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy(
+            "Il est proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant."
+        ),
+        "help_text_ui_neg": translate_lazy(
+            "Aucun accompagnement personnalisé pour présenter la chambre à un client en situation de handicap n'est proposé."
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "root": False,
+        "conditional": True,
+    },
     "accueil_personnels": {
         "type": "string",
         "nullable": True,
@@ -1579,7 +1756,9 @@ def get_human_readable_value(field, value):
     return text.humanize_value(value, choices=get_field_choices(field))
 
 
-def get_labels():
+def get_labels(include_conditional: bool = False):
+    if not include_conditional:
+        return dict((k, v.get("label")) for (k, v) in FIELDS.items() if not v.get("conditional", False))
     return dict((k, v.get("label")) for (k, v) in FIELDS.items())
 
 
@@ -1590,7 +1769,11 @@ def get_label(field, default=""):
         return default
 
 
-def get_help_texts():
+def get_help_texts(include_conditional: bool = False):
+    if not include_conditional:
+        return dict(
+            (k, v.get("help_text")) for (k, v) in FIELDS.items() if v.get("conditional", False) == include_conditional
+        )
     return dict((k, v.get("help_text")) for (k, v) in FIELDS.items())
 
 
@@ -1615,19 +1798,23 @@ def get_help_text_ui_neg(field):
         return get_help_text_ui(field)
 
 
-def get_nullable(field):
+def get_nullable(field) -> bool:
     return FIELDS[field].get("nullable")
 
 
-def get_nullable_bool_fields():
+def get_nullable_bool_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]
 
 
-def get_required_fields():
+def get_required_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if "required" in v and v["required"] is True]
 
 
-def get_section_fields(section_id):
+def get_conditional_fields() -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
+
+
+def get_section_fields(section_id) -> list[str]:
     return [k for (k, v) in FIELDS.items() if v["section"] == section_id]
 
 

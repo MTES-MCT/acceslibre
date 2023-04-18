@@ -14,6 +14,7 @@ from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as translate
+from django.utils.translation import ngettext
 from django.views.generic import TemplateView
 from reversion.views import create_revision
 from waffle import switch_is_active
@@ -596,6 +597,18 @@ def widget_from_uuid(request, uuid):  # noqa
             "label": presence_sanitaire_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
         }
+
+    if erp.accessibilite.accueil_chambre_nombre_accessibles:
+        accessibilite_data["chambres accessibles"] = {
+            "label": ngettext(
+                "%(count)d chambre accessible",
+                "%(count)d chambres accessibles",
+                erp.accessibilite.accueil_chambre_nombre_accessibles,
+            )
+            % {"count": erp.accessibilite.accueil_chambre_nombre_accessibles},
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/chambre_accessible.png",
+        }
+
     return render(
         request,
         "erp/widget.html",
@@ -910,10 +923,13 @@ def process_accessibilite_form(
     """
 
     def _get_contrib_form_for_activity(activity: Activite):
-        groups = activity.groups.all() if activity else None
-        # FIXME finish activities groups integration -> if not groups
-        if True or not groups:
+        # FIXME enhance this, too hardcoded, find a better way to manage this + manage multiple groups
+        group = activity.groups.first() if activity else None
+        mapping = {"Hébergement": forms.ContribAccessibiliteHotelsForm}
+        if not group or group.name not in mapping:
             return forms.ContribAccessibiliteForm
+        else:
+            return mapping[group.name]
 
     erp = get_object_or_404(
         Erp.objects.select_related("accessibilite"),

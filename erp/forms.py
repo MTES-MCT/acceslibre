@@ -74,7 +74,7 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
     class Meta:
         model = Accessibilite
-        exclude = ("pk",)
+        exclude = ["pk"] + schema.get_conditional_fields()
         widgets = get_widgets_for_accessibilite()
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
@@ -97,9 +97,36 @@ class ContribAccessibiliteForm(forms.ModelForm):
         return self.cleaned_data["accueil_audiodescription"]
 
 
+class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=True)
+        help_texts = schema.get_help_texts(include_conditional=True)
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in (
+            "accueil_audiodescription_presence",
+            "accueil_audiodescription",
+            "sanitaires_presence",
+            "sanitaires_adaptes",
+        ):
+            self.fields.pop(field, None)
+
+
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
+    class Meta:
+        model = Accessibilite
+        exclude = ["pk"]
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=True)
+        help_texts = schema.get_help_texts(include_conditional=True)
+        required = schema.get_required_fields()
 
     sanitaires_adaptes = forms.ChoiceField(
         required=False,
@@ -359,6 +386,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
                 "cheminement_ext_nombre_marches",
                 "entree_marches",
                 "accueil_cheminement_nombre_marches",
+                "accueil_chambre_nombre_accessibles",
             ]
             and value == 0
         ):
