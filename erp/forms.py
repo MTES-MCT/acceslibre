@@ -395,12 +395,14 @@ class BasePublicErpInfosForm(BaseErpForm):
     lon = forms.DecimalField(widget=forms.HiddenInput)
     activite = forms.ModelChoiceField(label=translate("Activité"), queryset=Activite.objects.order_by("position"))
     nouvelle_activite = forms.CharField(widget=forms.TextInput)
+    asp_id = forms.CharField(widget=forms.HiddenInput, required=False)
 
     class Meta:
         model = Erp
         fields = (
             "source",
             "source_id",
+            "asp_id",
             "geom",
             "nom",
             "activite",
@@ -414,6 +416,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "telephone",
             "contact_url",
             "geoloc_provider",
+            "asp_id",
         )
         labels = {"user_type": "Saisie en qualité de"}
         help_texts = {

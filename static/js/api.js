@@ -104,7 +104,8 @@ async function searchLocation(q, loc, kind = '') {
       return (score > 0.4);
     }).map(
       ({ properties: { type, label, context, citycode, postcode }, geometry: { coordinates } }) => {
-        const text = type === "municipality" ? `${label} (${postcode.substr(0, 2)})` : label;
+        const text = type === "municipality" ? `${label} (${postcode})` : label;
+        context = ""  // Empty the context, which initially contains department, region
 
         return {
           id: "loc",
