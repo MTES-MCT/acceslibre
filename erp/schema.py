@@ -1331,8 +1331,8 @@ FIELDS = {
         "help_text": mark_safe(
             translate_lazy("Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?")
         ),
-        "help_text_ui": translate_lazy("TODO"),
-        "help_text_ui_neg": translate_lazy("TODO"),
+        "help_text_ui": translate_lazy("Le toilette dispose d'un espace d'usage à côté de la cuvette."),
+        "help_text_ui_neg": translate_lazy("Le toilette ne dispose pas d'un espace d'usage à côté de la cuvette."),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
