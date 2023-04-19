@@ -34,6 +34,15 @@ def test_export_command(mocker, data, settings):
     # tweak the existing ERP to have some fields to export
     data.erp.accessibilite.accueil_audiodescription_presence = True
     data.erp.accessibilite.accueil_audiodescription = ["avec_app"]
+    data.erp.accessibilite.accueil_chambre_nombre_accessibles = 12
+    data.erp.accessibilite.accueil_chambre_douche_plain_pied = True
+    data.erp.accessibilite.accueil_chambre_douche_siege = True
+    data.erp.accessibilite.accueil_chambre_douche_barre_appui = True
+    data.erp.accessibilite.accueil_chambre_sanitaires_barre_appui = False
+    data.erp.accessibilite.accueil_chambre_sanitaires_espace_usage = True
+    data.erp.accessibilite.accueil_chambre_numero_visible = True
+    data.erp.accessibilite.accueil_chambre_equipement_alerte = False
+    data.erp.accessibilite.accueil_chambre_accompagnement = True
     data.erp.accessibilite.save()
 
     assert Erp.objects.all(), "No ERP"
@@ -105,6 +114,15 @@ def test_export_command(mocker, data, settings):
         "",
         "",
         "",
+        "12",
+        "True",
+        "True",
+        "True",
+        "False",
+        "True",
+        "True",
+        "False",
+        "True",
         "",
         "True",
         "False",
@@ -120,7 +138,7 @@ def test_export_command(mocker, data, settings):
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 73, "New exported field or missing field in export"
+        assert len(header) == 82, "New exported field or missing field in export"
         assert erp_csv == expected
 
     assert os.path.isfile("acceslibre-with-web-url.csv")
@@ -128,7 +146,7 @@ def test_export_command(mocker, data, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 74, "New exported field or missing field in export"
+        assert len(header) == 83, "New exported field or missing field in export"
         assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
 
     os.unlink("acceslibre-with-web-url.csv")

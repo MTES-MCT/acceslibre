@@ -135,6 +135,20 @@ const rules = [
     indent: 1,
   },
 
+  // Chambres accessibles
+  {
+    source: "accueil_chambre_nombre_accessibles",
+    minValue: 1,
+    targets: [
+      "accueil_chambre_douche_plain_pied",
+      "accueil_chambre_douche_siege",
+      "accueil_chambre_douche_barre_appui",
+      "accueil_chambre_sanitaires_barre_appui",
+      "accueil_chambre_sanitaires_espace_usage",
+    ],
+    indent: 1,
+  },
+
   // Labels
   // TODO
 
@@ -165,7 +179,7 @@ function getValue(root, field) {
     // field has not been found in the page, skipping
     return;
   }
-  const selectedInput = inputs.filter(({ checked }) => checked)[0];
+  const selectedInput = inputs.filter(input => input.checked || input.type == "number")[0];
   return selectedInput?.value;
 }
 
@@ -202,7 +216,8 @@ function processTargets(root, rule, value) {
     if (!el) {
       return;
     }
-    if (rule.values.indexOf(value) !== -1) {
+
+    if ((typeof rule.minValue !== 'undefined' && value && parseInt(value) >= rule.minValue) || (typeof rule.values !== 'undefined' && rule.values.indexOf(value) !== -1)) {
       el.classList.add("indented" + rule.indent);
       el.setAttribute("aria-label", el.children[0].children[0].innerHTML);
       el.classList.remove("hidden");

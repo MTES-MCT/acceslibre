@@ -1303,6 +1303,61 @@ class Accessibilite(models.Model):
         verbose_name=translate_lazy("Rétrécissement du cheminement"),
     )
 
+    # Champs spécifiques hébergement sur l'accessibilité des chambres
+    accueil_chambre_nombre_accessibles = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Nombre de chambres accessibles"),
+    )
+    accueil_chambre_douche_plain_pied = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_plain_pied"),
+        verbose_name=translate_lazy("Douche plain pied"),
+    )
+    accueil_chambre_douche_siege = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        verbose_name=translate_lazy("Siège de douche"),
+    )
+    accueil_chambre_douche_barre_appui = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        verbose_name=translate_lazy("Barre d'appui dans la douche"),
+    )
+    accueil_chambre_sanitaires_barre_appui = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_sanitaires_barre_appui"),
+        verbose_name=translate_lazy("Barre d'appui dans les sanitaires"),
+    )
+    accueil_chambre_sanitaires_espace_usage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_sanitaires_espace_usage"),
+        verbose_name=translate_lazy("Espace d'usage dans les sanitaires"),
+    )
+    accueil_chambre_numero_visible = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        verbose_name=translate_lazy("Numéro de chambre visible et en relief"),
+    )
+    accueil_chambre_equipement_alerte = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        verbose_name=translate_lazy("Equipement d'alerte dans la chambre"),
+    )
+    accueil_chambre_accompagnement = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
+    )
+
     ##############
     # Sanitaires #
     ##############

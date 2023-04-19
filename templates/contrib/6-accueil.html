@@ -26,4 +26,13 @@
   {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=False %}
   {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
   {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
+  {% include "fields/number.html" with field=form.accueil_chambre_nombre_accessibles %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_plain_pied inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_siege inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_barre_appui inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_barre_appui inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_espace_usage inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_numero_visible inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_equipement_alerte inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True %}
 {% endblock %}

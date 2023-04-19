@@ -34,7 +34,7 @@ django-rest-framework = "*"
 django-reversion = "==5.0.4"
 djangorestframework-gis = "*"
 django-waffle = "*"
-frictionless = "==5.10.5"
+frictionless = "==4.40.8"  # generate_schema to rewrite to be able to bump it to 5.x.x
 fuzzywuzzy = "*"
 ipython = "*"
 Markdown = "*"

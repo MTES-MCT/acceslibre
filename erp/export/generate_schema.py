@@ -40,12 +40,15 @@ def generate_schema(
     table_schema["path"] = repository + "schema.json"
     table_schema.get("resources")[0]["path"] = repository + "exemple-valide.csv"
 
-    # table_schema["version"] = "0.0.1"
-
     for field_name in EtalabMapper.headers():
         f = FIELDS.get(field_name)
         if not f:
             continue
+
+        # cast to str to avoid working with proxy (due to lazy translations)
+        for attr in ("label", "description", "help_text", "help_text_ui", "help_text_ui_neg"):
+            if f.get(attr):
+                f[attr] = str(f[attr])
 
         table_schema.add_field(create_field(field_name, f))
 
