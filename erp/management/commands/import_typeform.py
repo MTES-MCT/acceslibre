@@ -161,10 +161,9 @@ class Command(BaseCommand):
         field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
         if field_label in row:
             if row[field_label] == "Oui, nous avons une place handicapée":
-                accessibilite.stationnement_ext_presence = True
-                accessibilite.stationnement_ext_pmr = True
+                accessibilite.stationnement_pmr = True
             elif row[field_label] == "Non, ce n'est pas praticable":
-                pass
+                accessibilite.stationnement_pmr = False
 
         field_label = "Ce chemin n'est pas praticable car :"
         if field_label in row:
@@ -183,7 +182,6 @@ class Command(BaseCommand):
                 accessibilite.stationnement_ext_presence = True
                 accessibilite.stationnement_ext_pmr = True
             elif row[field_label] == "Non, pas de place handicapé pas loin":
-                accessibilite.stationnement_ext_presence = True
                 accessibilite.stationnement_ext_pmr = False
         accessibilite.save()
         return erp, duplicated_pks

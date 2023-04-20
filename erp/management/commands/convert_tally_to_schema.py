@@ -8,10 +8,16 @@ from erp.provider.geocoder import geocode
 mapping = {
     "Est-ce qu’il y au moins une place handicapé dans votre parking ?": {
         "Oui, nous avons une place handicapé": [
-            ("stationnement_ext_presence", True),
-            ("stationnement_ext_pmr", True),
+            ("stationnement_pmr", True),
         ],
-        "Non, nous n'avons pas de place handicapé": [],
+        "Non, nous n'avons pas de place handicapé": [
+            ("stationnement_pmr", False),
+        ],
+        "Je ne suis pas sûr": [],
+    },
+    "Votre établissement :": {
+        "Oui, au moins une marche": [("entree_plain_pied", False)],
+        "Non, c'est de plain-pied": [("entree_plain_pied", True)],
         "Je ne suis pas sûr": [],
     },
     "Ce chemin n'est pas praticable car :": {
@@ -34,7 +40,6 @@ mapping = {
             ("stationnement_ext_pmr", True),
         ],
         "Non, pas de place handicapé pas loin": [
-            ("stationnement_ext_presence", True),
             ("stationnement_ext_pmr", False),
         ],
         "Je ne suis pas sûr": [],
