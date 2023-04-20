@@ -16,8 +16,8 @@ class TestConvertTallyToSchema:
                     "email": "contrib@beta.gouv.fr",
                 },
                 {
-                    "stationnement_ext_presence": True,
-                    "stationnement_ext_pmr": True,
+                    "stationnement_presence": True,
+                    "stationnement_pmr": True,
                     "code_postal": "04100",
                     "code_insee": "04100",
                     "lieu_dit": None,

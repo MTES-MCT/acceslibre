@@ -8,6 +8,7 @@ from erp.provider.geocoder import geocode
 mapping = {
     "Est-ce qu’il y au moins une place handicapé dans votre parking ?": {
         "Oui, nous avons une place handicapé": [
+            ("stationnement_presence", True),
             ("stationnement_pmr", True),
         ],
         "Non, nous n'avons pas de place handicapé": [

@@ -161,6 +161,7 @@ class Command(BaseCommand):
         field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
         if field_label in row:
             if row[field_label] == "Oui, nous avons une place handicapée":
+                accessibilite.stationnement_presence = True
                 accessibilite.stationnement_pmr = True
             elif row[field_label] == "Non, ce n'est pas praticable":
                 accessibilite.stationnement_pmr = False
