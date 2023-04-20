@@ -109,6 +109,15 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 0
 
+    def test_list_asp_id(self, api_client, data):
+        response = api_client.get(reverse("erp-list") + "?asp_id_not_null=true")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 0
+
+        response = api_client.get(reverse("erp-list") + "?asp_id_not_null=false")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+
     def test_detail(self, api_client, data):
         response = api_client.get(reverse("erp-detail", kwargs={"slug": data.erp.slug}))
         assert response.json() == {
