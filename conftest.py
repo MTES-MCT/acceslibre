@@ -431,7 +431,7 @@ def data(db):
         commentaire="foo",
         entree_porte_presence=True,
         entree_reperage=True,
-        # 4 access info min to reach the min required completion rate
+        # 4 access info min to reach the min required for publication.
     )
 
     class Data:
