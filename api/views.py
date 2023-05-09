@@ -297,8 +297,10 @@ class ErpFilterBackend(BaseFilterBackend):
         # ASP ID is not null
         asp_id_not_null = request.query_params.get("asp_id_not_null", None)
         if asp_id_not_null is not None:
-            asp_id_not_null = asp_id_not_null == "true"
-            queryset = queryset.filter(asp_id__isnull=not asp_id_not_null)
+            if asp_id_not_null == "true":
+                queryset = queryset.exclude(asp_id__isnull=True).exclude(asp_id__exact="")
+            else:
+                queryset = queryset.filter(asp_id__isnull=True)
 
         # UUID
         uuid = request.query_params.get("uuid", None)
