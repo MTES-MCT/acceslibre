@@ -25,6 +25,7 @@ from core.lib import geo, url
 from core.mailer import SendInBlueMailer, get_mailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
+from erp.forms import get_contrib_form_for_activity
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre, geocoder
 from erp.provider import search as provider_search
@@ -922,15 +923,6 @@ def process_accessibilite_form(
     Traitement générique des requêtes sur les formulaires d'accessibilité
     """
 
-    def _get_contrib_form_for_activity(activity: Activite):
-        # FIXME enhance this, too hardcoded, find a better way to manage this + manage multiple groups
-        group = activity.groups.first() if activity else None
-        mapping = {"Hébergement": forms.ContribAccessibiliteHotelsForm}
-        if not group or group.name not in mapping:
-            return forms.ContribAccessibiliteForm
-        else:
-            return mapping[group.name]
-
     erp = get_object_or_404(
         Erp.objects.select_related("accessibilite"),
         slug=erp_slug,
@@ -942,7 +934,7 @@ def process_accessibilite_form(
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
     user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.published
 
-    contrib_form = _get_contrib_form_for_activity(erp.activite)
+    contrib_form = get_contrib_form_for_activity(erp.activite)
     Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
 
     if request.method == "POST":

@@ -90,6 +90,7 @@ to_int_headers = {"Combien de marches y a-t-il pour entrer dans votre établisse
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
+    "activite": "activite",
 }
 basic_mapped_headers = {
     "email": "import_email",
