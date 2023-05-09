@@ -1267,7 +1267,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
-        "root": False,
+        "root": True,
         "conditional": True,
     },
     "accueil_chambre_douche_siege": {
@@ -1347,7 +1347,7 @@ FIELDS = {
         "label": translate_lazy("Visibilité des numéros de chambres"),
         "help_text": mark_safe(
             translate_lazy(
-                "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur)"
+                "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur) ?"
             )
         ),
         "help_text_ui": translate_lazy("Les numéros de chambres sont repérables et en relief."),
@@ -1356,7 +1356,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
-        "root": False,
+        "root": True,
         "conditional": True,
     },
     "accueil_chambre_equipement_alerte": {
@@ -1373,13 +1373,13 @@ FIELDS = {
             "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration."
         ),
         "help_text_ui_neg": translate_lazy(
-            "L'établissement ne dispose pas d'équipements d'alerte par flash lumineux ou vibration."
+            "L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou vibration."
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
-        "root": False,
+        "root": True,
         "conditional": True,
     },
     "accueil_chambre_accompagnement": {
@@ -1402,7 +1402,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
-        "root": False,
+        "root": True,
         "conditional": True,
     },
     "accueil_personnels": {

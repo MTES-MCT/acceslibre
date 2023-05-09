@@ -680,3 +680,13 @@ def get_label(field, default=""):
         return FORM_FIELDS[field].get("label", default)
     except KeyError:
         return default
+
+
+def get_contrib_form_for_activity(activity: Activite):
+    # FIXME enhance this, too hardcoded, find a better way to manage this + manage multiple groups
+    group = activity.groups.first() if activity else None
+    mapping = {"Hébergement": ContribAccessibiliteHotelsForm}
+    if not group or group.name not in mapping:
+        return ContribAccessibiliteForm
+    else:
+        return mapping[group.name]

@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from celery import shared_task
 
 from core.mailer import SendInBlueMailer
+from erp.forms import get_contrib_form_for_activity
 from erp.models import Accessibilite, ActivitySuggestion
 from erp.schema import FIELDS
 
@@ -14,7 +15,8 @@ def compute_access_completion_rate(accessibilite_pk):
     except Accessibilite.DoesNotExist:
         return
 
-    root_fields = [field for field in FIELDS if FIELDS[field].get("root") is True]
+    form_fields = get_contrib_form_for_activity(access.erp.activite).base_fields.keys()
+    root_fields = [field for field in form_fields if FIELDS.get(field, {}).get("root") is True]
     nb_fields = len(root_fields)
 
     nb_filled_in_fields = 0
