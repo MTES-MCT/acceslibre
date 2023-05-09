@@ -29,7 +29,6 @@ from erp.forms import get_contrib_form_for_activity
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre, geocoder
 from erp.provider import search as provider_search
-from erp.tasks import compute_access_completion_rate
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -1072,14 +1071,21 @@ def contrib_accueil(request, erp_slug):
     )
 
 
-def ensure_minimal_completion_rate(request, erp):
+def ensure_min_nb_answers(request, erp):
     if erp.published:
         return True
 
-    # check completion rate, 4 root answers min, on contrib mode only (not on edit mode).
-    compute_access_completion_rate(erp.accessibilite.pk)
-    erp.accessibilite.refresh_from_db()
-    if erp.accessibilite.completion_rate >= settings.MIN_COMPLETION_RATE_REQUIRED:
+    # check that we have 4 root answers min, on contrib mode only (not on edit mode).
+    form_fields = get_contrib_form_for_activity(erp.activite).base_fields.keys()
+    root_fields = [field for field in form_fields if schema.FIELDS.get(field, {}).get("root") is True]
+
+    nb_filled_in_fields = 0
+    for attr in root_fields:
+        # NOTE: we can not use bool() here, as False is a filled in info
+        if getattr(erp.accessibilite, attr) not in (None, [], ""):
+            nb_filled_in_fields += 1
+
+    if nb_filled_in_fields >= settings.MIN_NB_ANSWERS_IN_CONTRIB:
         return True
 
     messages.add_message(
@@ -1108,7 +1114,7 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    if not ensure_minimal_completion_rate(request, erp):
+    if not ensure_min_nb_answers(request, erp):
         return redirect(request.META.get("HTTP_REFERER", reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})))
 
     if request.method == "POST":
