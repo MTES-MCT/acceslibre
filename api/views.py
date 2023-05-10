@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.gis.geos import Point
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
@@ -153,7 +153,6 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = Accessibilite.objects.select_related("erp").filter(erp__published=True).order_by("-updated_at")
-    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
     filter_backends = [AccessibiliteFilterBackend]
@@ -219,7 +218,6 @@ class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = Activite.objects.order_by("nom")
-    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = ActiviteWithCountSerializer
     lookup_field = "slug"
     pagination_class = ActivitePagination
@@ -507,7 +505,6 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     serializer_class = ErpSerializer
-    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     lookup_field = "slug"
     pagination_class = ErpPagination
     filter_backends = [ErpFilterBackend]

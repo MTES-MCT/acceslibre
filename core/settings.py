@@ -139,9 +139,12 @@ REST_FRAMEWORK = {
         "rest_framework.throttling.UserRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "anon": "10/second",
-        "user": "10/second",
+        "anon": "3/second",
+        "user": "3/second",
     },
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework_api_key.permissions.HasAPIKey",
+    ],
 }
 
 ROOT_URLCONF = "core.urls"
