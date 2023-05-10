@@ -161,6 +161,24 @@ class TestErp:
 
         Erp.objects.get(metadata__foo__bar=43)  # raises if not found
 
+    def test_save(self, data, activite):
+        # test activity change, should wipe answers to conditional questions
+        access = data.erp.accessibilite
+        access.accueil_chambre_numero_visible = True
+        access.save()
+
+        assert data.erp.activite.nom != "Accessoires", "Conditions for test not met, should test an activity change."
+
+        data.erp.activite = Activite.objects.get(nom="Accessoires")
+        data.erp.save()
+
+        data.erp.refresh_from_db()
+        data.erp.accessibilite.refresh_from_db()
+
+        access = data.erp.accessibilite
+        assert access.accueil_chambre_numero_visible is None
+        assert data.erp.activite.nom == "Accessoires"
+
 
 @pytest.mark.usefixtures("data")
 class TestActivitySuggestion:
