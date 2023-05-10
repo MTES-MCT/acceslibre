@@ -9,7 +9,7 @@ STAGING = True
 SITE_NAME = "acceslibre (recette)"
 SITE_HOST = "recette-access4all.osc-fr1.scalingo.io"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
-ALLOWED_HOSTS = [SITE_HOST]
+ALLOWED_HOSTS = [SITE_HOST, "recette.acceslibre.info"]
 
 if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
