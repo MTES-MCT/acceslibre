@@ -626,8 +626,14 @@ class Erp(models.Model):
         help_text=translate_lazy("Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP"),
     )
 
+    __original_activite_id = None
+
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__original_activite_id = self.activite_id
 
     def get_activite_vector_icon(self):
         default = "building"
@@ -825,6 +831,16 @@ class Erp(models.Model):
         return vote
 
     def save(self, *args, **kwargs):
+        if (
+            self.__original_activite_id is not None
+            and self.activite_id != self.__original_activite_id
+            and self.has_accessibilite
+        ):
+            accessibility = self.accessibilite
+            for field in schema.get_conditional_fields():
+                setattr(accessibility, field, None)
+            accessibility.save()
+
         search_vector = SearchVector(
             Value(self.nom, output_field=models.TextField()),
             weight="A",
