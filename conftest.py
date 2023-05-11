@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.db import connection
 
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.models import Accessibilite, Activite, ActivitiesGroup, Commune, Erp
 from erp.provider import geocoder
 
 TEST_PASSWORD = "Abc12345!"
@@ -361,8 +361,11 @@ def activite(db):
         "plage",
         "syndic, gérance immo",
     ]
-    for a in list_activite:
-        Activite.objects.get_or_create(nom=a)
+    group = ActivitiesGroup.objects.create(name="Hébergement")
+    for name in list_activite:
+        activity, created = Activite.objects.get_or_create(nom=name)
+        if created and name in ("Hôtel", "Hôtel restaurant", "Chambres d'hôtes, gîte, pension"):
+            group.activities.add(activity.pk)
 
 
 @pytest.fixture

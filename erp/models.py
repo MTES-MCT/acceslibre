@@ -836,10 +836,27 @@ class Erp(models.Model):
             and self.activite_id != self.__original_activite_id
             and self.has_accessibilite
         ):
-            accessibility = self.accessibilite
-            for field in schema.get_conditional_fields():
-                setattr(accessibility, field, None)
-            accessibility.save()
+            # We wipe conditional questions' answer only if the new activity is in a distinct activity group.
+            # We could have stored an ___original_group_activity_id but it would have create overload on each __init__
+            # by fetching a joined attribute.
+            group_activity_has_changed = False
+            try:
+                original_activite = Activite.objects.get(pk=self.__original_activite_id)
+            except Activite.DoesNotExist:
+                pass
+
+            if not (original_groups := original_activite.groups.all()):
+                group_activity_has_changed = True
+            else:
+                group_activity_has_changed = self.activite_id not in [
+                    a.pk for g in original_groups.all() for a in g.activities.all()
+                ]
+
+            if group_activity_has_changed:
+                accessibility = self.accessibilite
+                for field in schema.get_conditional_fields():
+                    setattr(accessibility, field, None)
+                accessibility.save()
 
         search_vector = SearchVector(
             Value(self.nom, output_field=models.TextField()),

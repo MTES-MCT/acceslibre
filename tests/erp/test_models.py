@@ -162,22 +162,34 @@ class TestErp:
         Erp.objects.get(metadata__foo__bar=43)  # raises if not found
 
     def test_save(self, data, activite):
-        # test activity change, should wipe answers to conditional questions
+        # test activity change, should wipe answers to conditional questions if we change the activity group
+        data.erp.activite = Activite.objects.get(nom="Hôtel")
+        data.erp.save()
+        assert data.erp.activite.groups.first().name == "Hébergement", "Conditions for test not met"
+
         access = data.erp.accessibilite
         access.accueil_chambre_numero_visible = True
         access.save()
 
-        assert data.erp.activite.nom != "Accessoires", "Conditions for test not met, should test an activity change."
+        erp = Erp.objects.get(pk=data.erp.pk)
+        erp.activite = Activite.objects.get(nom="Hôtel restaurant")
+        erp.save()
 
-        data.erp.activite = Activite.objects.get(nom="Accessoires")
-        data.erp.save()
+        erp = Erp.objects.get(pk=data.erp.pk)
+        access = erp.accessibilite
+        assert (
+            access.accueil_chambre_numero_visible is True
+        ), "should not wipe conditional questions' answers, same group"
+        assert erp.activite.nom == "Hôtel restaurant"
 
-        data.erp.refresh_from_db()
-        data.erp.accessibilite.refresh_from_db()
+        erp.activite = Activite.objects.get(nom="Accessoires")
+        erp.save()
 
-        access = data.erp.accessibilite
-        assert access.accueil_chambre_numero_visible is None
-        assert data.erp.activite.nom == "Accessoires"
+        erp = Erp.objects.get(pk=data.erp.pk)
+
+        access = erp.accessibilite
+        assert access.accueil_chambre_numero_visible is None, "should wipe conditional questions' answers"
+        assert erp.activite.nom == "Accessoires"
 
 
 @pytest.mark.usefixtures("data")
