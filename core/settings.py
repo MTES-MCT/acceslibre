@@ -87,6 +87,7 @@ INSTALLED_APPS = [
     "stats.apps.StatsConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

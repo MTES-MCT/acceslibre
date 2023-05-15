@@ -1,3 +1,2 @@
 #!/bin/env bash
-
 python manage.py migrate --settings=core.settings_prod

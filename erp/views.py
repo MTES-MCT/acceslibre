@@ -800,7 +800,7 @@ def contrib_admin_infos(request):
             "geojson_list": geojson_list,
             "erp": erp,
             "external_erp": external_erp,
-            "activite": Activite.objects.get(nom="Autre"),
+            "activite": Activite.objects.get(slug="autre"),
             "duplicated": duplicated,
         },
     )
