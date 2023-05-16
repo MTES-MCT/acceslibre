@@ -121,7 +121,7 @@ def activite(db):
         "Aide à la personne",
         "Aide sociale à l'enfance : action éducative",
         "Ambulances",
-        "Aménagement maison : cuisine salle de bain salon",
+        "Aménagement maison : cuisine salle de bain salon",
         "Animalerie",
         "Antiquaire",
         "Apiculteur",
