@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 15:05+0200\n"
-"PO-Revision-Date: 2023-04-19 15:16+0200\n"
+"POT-Creation-Date: 2023-05-16 15:46+0200\n"
+"PO-Revision-Date: 2023-05-16 16:02+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -209,20 +209,20 @@ msgid "Envoi OK"
 msgstr "Send OK"
 
 #: contact/models.py:60 erp/models.py:146 erp/models.py:184 erp/models.py:347
-#: erp/models.py:615 erp/models.py:1435 subscription/models.py:25
+#: erp/models.py:615 erp/models.py:1468 subscription/models.py:25
 msgid "Date de création"
 msgstr "Creation date"
 
 #: contact/models.py:61 erp/models.py:147 erp/models.py:185 erp/models.py:348
-#: erp/models.py:616 erp/models.py:1436 subscription/models.py:26
+#: erp/models.py:616 erp/models.py:1469 subscription/models.py:26
 msgid "Dernière modification"
 msgstr "Last modification"
 
-#: core/settings.py:233
+#: core/settings.py:236
 msgid "French"
 msgstr "French"
 
-#: core/settings.py:234
+#: core/settings.py:237
 msgid "English"
 msgstr "English"
 
@@ -329,7 +329,7 @@ msgstr "I represent the public service"
 msgid "Registre d'accessibilité"
 msgstr "Accessibility register"
 
-#: erp/forms.py:644 erp/models.py:1428 erp/schema.py:348 erp/schema.py:1619
+#: erp/forms.py:644 erp/models.py:1461 erp/schema.py:348 erp/schema.py:1619
 msgid "Conformité"
 msgstr "Compliance"
 
@@ -402,7 +402,7 @@ msgstr "Name of the activity group"
 msgid "Groupe d'activités : {self.name}"
 msgstr "Activity group: {self.name}"
 
-#: erp/models.py:172 erp/models.py:327 erp/models.py:422 erp/models.py:875
+#: erp/models.py:172 erp/models.py:327 erp/models.py:422 erp/models.py:908
 #: subscription/models.py:21
 msgid "Établissement"
 msgstr "Establishment"
@@ -775,284 +775,282 @@ msgid ""
 "Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP"
 msgstr "Email address to remind the user linked to the ERP import"
 
-#: erp/models.py:777
+#: erp/models.py:783
 msgid "Le code postal doit faire 5 caractères"
 msgstr "The postal code must be 5 characters long"
 
-#: erp/models.py:781
+#: erp/models.py:787
 msgid "Veuillez entrer une voie ou un lieu-dit"
 msgstr "Please enter a street or a hamlet"
 
-#: erp/models.py:800
+#: erp/models.py:806
 #, python-brace-format
 msgid "Commune {self.commune} introuvable, veuillez vérifier votre saisie."
 msgstr "Municipality {self.commune} not found, please check your entry."
 
-#: erp/models.py:809
+#: erp/models.py:815
 msgid "Ce numéro SIRET est invalide."
 msgstr "This SIRET number is invalid."
 
-#: erp/models.py:867 erp/models.py:868 templates/erp/index.html:8
+#: erp/models.py:900 erp/models.py:901 templates/erp/index.html:8
 #: templates/erp/widget.html:235
 msgid "Accessibilité"
 msgstr "Accessibility"
 
-#: erp/models.py:876
+#: erp/models.py:909
 msgid "ERP"
 msgstr "ERP"
 
-#: erp/models.py:887
+#: erp/models.py:920
 msgid "Desserte par transports en commun"
 msgstr "Public transport access"
 
-#: erp/models.py:893
+#: erp/models.py:926
 msgid "Informations transports"
 msgstr "Transport information"
 
-#: erp/models.py:904
+#: erp/models.py:937
 msgid "Stationnement dans l'ERP"
 msgstr "Parking in the ERP"
 
-#: erp/models.py:910
+#: erp/models.py:943
 msgid "Stationnements PMR dans l'ERP"
 msgstr "PRM parking in the ERP"
 
-#: erp/models.py:918
+#: erp/models.py:951
 msgid "Stationnement à proximité de l'ERP"
 msgstr "Parking near the ERP"
 
-#: erp/models.py:924
+#: erp/models.py:957
 msgid "Stationnements PMR à proximité de l'ERP"
 msgstr "PRM parking near the ERP"
 
-#: erp/models.py:934
+#: erp/models.py:967
 msgid "Espace extérieur"
 msgstr "Outdoor space"
 
-#: erp/models.py:942
+#: erp/models.py:975
 msgid "Cheminement de plain-pied"
 msgstr "Level walkway"
 
-#: erp/models.py:949
+#: erp/models.py:982
 msgid "Terrain meuble ou accidenté"
 msgstr "Soft or uneven ground"
 
-#: erp/models.py:955 erp/models.py:1258 erp/schema.py:580 erp/schema.py:884
+#: erp/models.py:988 erp/models.py:1291 erp/schema.py:580 erp/schema.py:884
 #: erp/schema.py:1140
 msgid "Nombre de marches"
 msgstr "Number of steps"
 
-#: erp/models.py:962 erp/models.py:1113 erp/models.py:1265 erp/schema.py:596
+#: erp/models.py:995 erp/models.py:1146 erp/models.py:1298 erp/schema.py:596
 #: erp/schema.py:898 erp/schema.py:1154
 msgid "Sens de circulation de l'escalier"
 msgstr "Direction of the staircase"
 
-#: erp/models.py:970 erp/models.py:1273
+#: erp/models.py:1003 erp/models.py:1306
 msgid "Repérage des marches ou de l’escalier"
 msgstr "Locating the steps or staircase"
 
-#: erp/models.py:977 erp/models.py:1128 erp/models.py:1280 erp/schema.py:630
+#: erp/models.py:1010 erp/models.py:1161 erp/models.py:1313 erp/schema.py:630
 #: erp/schema.py:932 erp/schema.py:1188
 msgid "Main courante"
 msgstr "Handrail"
 
-#: erp/models.py:985 erp/models.py:1135 erp/models.py:1288 erp/schema.py:643
+#: erp/models.py:1018 erp/models.py:1168 erp/models.py:1321 erp/schema.py:643
 #: erp/schema.py:945 erp/schema.py:1201
 msgid "Rampe"
 msgstr "Ramp"
 
-#: erp/models.py:992 erp/models.py:1169 erp/models.py:1295 erp/schema.py:565
+#: erp/models.py:1025 erp/models.py:1202 erp/models.py:1328 erp/schema.py:565
 #: erp/schema.py:871 erp/schema.py:1127
 msgid "Ascenseur/élévateur"
 msgstr "Elevator"
 
-#: erp/models.py:1000
+#: erp/models.py:1033
 msgid "Pente présence"
 msgstr "Slope presence"
 
-#: erp/models.py:1009 erp/schema.py:673 erp/schema.py:674
+#: erp/models.py:1042 erp/schema.py:673 erp/schema.py:674
 msgid "Difficulté de la pente"
 msgstr "Difficulty of the slope"
 
-#: erp/models.py:1018 erp/schema.py:684 erp/schema.py:685 erp/schema.py:686
+#: erp/models.py:1051 erp/schema.py:684 erp/schema.py:685 erp/schema.py:686
 msgid "Longueur de la pente"
 msgstr "Length of the slope"
 
-#: erp/models.py:1026 erp/schema.py:696
+#: erp/models.py:1059 erp/schema.py:696
 msgid "Dévers"
 msgstr "Spill"
 
-#: erp/models.py:1035 erp/schema.py:713
+#: erp/models.py:1068 erp/schema.py:713
 msgid "Bande de guidage"
 msgstr "Guide band"
 
-#: erp/models.py:1043 erp/models.py:1303
+#: erp/models.py:1076 erp/models.py:1336
 msgid "Rétrécissement du cheminement"
 msgstr "Narrowing of the path"
 
-#: erp/models.py:1054 erp/schema.py:756
+#: erp/models.py:1087 erp/schema.py:756
 msgid "Entrée facilement repérable"
 msgstr "Easily identifiable entrance"
 
-#: erp/models.py:1062
+#: erp/models.py:1095
 msgid "Y a-t-il une porte ?"
 msgstr "Is there a door?"
 
-#: erp/models.py:1070
+#: erp/models.py:1103
 msgid "Manœuvre de la porte"
 msgstr "Door operation"
 
-#: erp/models.py:1078 erp/schema.py:804 erp/schema.py:806 erp/schema.py:807
+#: erp/models.py:1111 erp/schema.py:804 erp/schema.py:806 erp/schema.py:807
 msgid "Type de porte"
 msgstr "Type of door"
 
-#: erp/models.py:1086 erp/schema.py:817
+#: erp/models.py:1119 erp/schema.py:817
 msgid "Entrée vitrée"
 msgstr "Glass entrance"
 
-#: erp/models.py:1092
+#: erp/models.py:1125
 msgid "Vitrophanie"
 msgstr "Vitrophanie"
 
-#: erp/models.py:1100 erp/schema.py:851
+#: erp/models.py:1133 erp/schema.py:851
 msgid "Entrée de plain-pied"
 msgstr "Ground level entrance"
 
-#: erp/models.py:1106
+#: erp/models.py:1139
 msgid "Marches d'escalier"
 msgstr "Stair treads"
 
-#: erp/models.py:1121
+#: erp/models.py:1154
 msgid "Repérage de l'escalier"
 msgstr "Staircase location"
 
-#: erp/models.py:1143
+#: erp/models.py:1176
 msgid "Présence d'une balise sonore"
 msgstr "Presence of a sound beacon"
 
-#: erp/models.py:1150
+#: erp/models.py:1183
 msgid "Dispositif d'appel"
 msgstr "Calling device"
 
-#: erp/models.py:1154
+#: erp/models.py:1187
 msgid "Dispositifs d'appel disponibles"
 msgstr "Available calling devices"
 
-#: erp/models.py:1163 erp/schema.py:1013
+#: erp/models.py:1196 erp/schema.py:1013
 msgid "Aide humaine"
 msgstr "Human assistance"
 
-#: erp/models.py:1176
+#: erp/models.py:1209
 msgid "Largeur minimale"
 msgstr "Minimum width"
 
-#: erp/models.py:1184 erp/schema.py:1046 erp/views.py:508
+#: erp/models.py:1217 erp/schema.py:1046 erp/views.py:508
 msgid "Entrée spécifique PMR"
 msgstr "Specific PRM entrance"
 
-#: erp/models.py:1192
+#: erp/models.py:1225
 msgid "Infos entrée spécifique PMR"
 msgstr "Information on specific PRM entrance"
 
-#: erp/models.py:1203
+#: erp/models.py:1236
 msgid "Visibilité directe de la zone d'accueil depuis l'entrée"
 msgstr "Direct visibility of the reception area from the entrance"
 
-#: erp/models.py:1212 erp/schema.py:1412
+#: erp/models.py:1245 erp/schema.py:1412
 msgid "Personnel d'accueil"
 msgstr "Reception staff"
 
-#: erp/models.py:1220 erp/schema.py:1435
+#: erp/models.py:1253 erp/schema.py:1435
 msgid "Audiodescription"
 msgstr "Audiodescription"
 
-#: erp/models.py:1224
+#: erp/models.py:1257
 msgid "Équipement(s) audiodescription"
 msgstr "Audiodescription equipment(s)"
 
-#: erp/models.py:1235
+#: erp/models.py:1268
 msgid "Présence d'équipement(s) sourds/malentendants"
 msgstr "Presence of deaf/hard of hearing equipment(s)"
 
-#: erp/models.py:1241
+#: erp/models.py:1274
 msgid "Équipement(s) sourd/malentendant"
 msgstr "Deaf/hard of hearing equipment(s)"
 
-#: erp/models.py:1252
+#: erp/models.py:1285
 msgid "Cheminement de plain pied"
 msgstr "Level access road"
 
-#: erp/models.py:1310
-#| msgid "Nombre de marches"
+#: erp/models.py:1343
 msgid "Nombre de chambres accessibles"
 msgstr "Number of accessible rooms"
 
-#: erp/models.py:1316
-#| msgid "Entrée de plain pied"
+#: erp/models.py:1349
 msgid "Douche plain pied"
 msgstr "Walk-in shower"
 
-#: erp/models.py:1322 erp/schema.py:1277
+#: erp/models.py:1355 erp/schema.py:1277
 msgid "Siège de douche"
 msgstr "Shower seat"
 
-#: erp/models.py:1328
+#: erp/models.py:1361
 msgid "Barre d'appui dans la douche"
 msgstr "Grab bar in the shower"
 
-#: erp/models.py:1334
+#: erp/models.py:1367
 msgid "Barre d'appui dans les sanitaires"
 msgstr "Grab bar in the bathroom"
 
-#: erp/models.py:1340
+#: erp/models.py:1373
 msgid "Espace d'usage dans les sanitaires"
 msgstr "Space for use in the sanitary facilities"
 
-#: erp/models.py:1346
+#: erp/models.py:1379
 msgid "Numéro de chambre visible et en relief"
 msgstr "Visible and embossed room number"
 
-#: erp/models.py:1352
+#: erp/models.py:1385
 msgid "Equipement d'alerte dans la chambre"
 msgstr "Warning equipment in the room"
 
-#: erp/models.py:1358
+#: erp/models.py:1391
 msgid "Accompagnement personnalisé pour présenter la chambre"
 msgstr "Personalized accompaniment to present the room"
 
-#: erp/models.py:1368 erp/schema.py:1501
+#: erp/models.py:1401 erp/schema.py:1501
 msgid "Sanitaires"
 msgstr "Sanitary facilities"
 
-#: erp/models.py:1375
+#: erp/models.py:1408
 msgid "Nombre de sanitaires adaptés"
 msgstr "Number of adapted toilets"
 
-#: erp/models.py:1383 erp/schema.py:1529
+#: erp/models.py:1416 erp/schema.py:1529
 msgid "Marques ou labels"
 msgstr "Brands or labels"
 
-#: erp/models.py:1390 erp/schema.py:1547
+#: erp/models.py:1423 erp/schema.py:1547
 msgid "Famille(s) de handicap concernées(s)"
 msgstr "Disability family(ies) concerned"
 
-#: erp/models.py:1399 erp/schema.py:1562
+#: erp/models.py:1432 erp/schema.py:1562
 msgid "Autre label"
 msgstr "Other label"
 
-#: erp/models.py:1409
+#: erp/models.py:1442
 msgid "Commentaire libre"
 msgstr "Free comment"
 
-#: erp/models.py:1419
+#: erp/models.py:1452
 msgid "URL du registre"
 msgstr "Registry URL"
 
-#: erp/models.py:1432
+#: erp/models.py:1465
 msgid "Taux de complétion"
 msgstr "Completion rate"
 
-#: erp/models.py:1440
+#: erp/models.py:1473
 #, python-brace-format
 msgid ""
 "Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
@@ -1060,7 +1058,7 @@ msgstr ""
 "Accessibility of the establishment \"{self.erp.nom}\" "
 "({self.erp.code_postal})"
 
-#: erp/models.py:1442
+#: erp/models.py:1475
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr "Accessibility details of this ERP"
 
@@ -2151,7 +2149,6 @@ msgid "Aucune chambre accessible à une personne en fauteuil roulant."
 msgstr "No wheelchair accessible rooms."
 
 #: erp/schema.py:1258
-#| msgid "Tous acceslibre"
 msgid "Douche accessible"
 msgstr "Accessible shower"
 
@@ -2189,7 +2186,6 @@ msgid "La douche n'est pas équipée d'un siège de douche."
 msgstr "The shower is not equipped with a shower seat."
 
 #: erp/schema.py:1296
-#| msgid "Marches ou escalier sécurisé(es)"
 msgid "Douche sécurisée"
 msgstr "Secure shower"
 
@@ -2206,7 +2202,6 @@ msgid "La douche est équipée d'une barre d'appui horizontale."
 msgstr "The shower is equipped with a horizontal grab bar."
 
 #: erp/schema.py:1303
-#| msgid "L'escalier n'est pas équipé de main-courante"
 msgid "La douche n'est pas équipée d'une barre d'appui horizontale."
 msgstr "The shower is not equipped with a horizontal grab bar."
 
@@ -2215,8 +2210,6 @@ msgid "Toilette sécurisé"
 msgstr "Secure toilet"
 
 #: erp/schema.py:1316
-#| msgid ""
-#| "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
 msgid "Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?"
 msgstr "Is the toilet equipped with a horizontal grab bar?"
 
@@ -2225,12 +2218,10 @@ msgid "Le toilette est équipé d'une barre d'appui horizontale."
 msgstr "The toilet is equipped with a horizontal grab bar."
 
 #: erp/schema.py:1318
-#| msgid "L'escalier n'est pas équipé de main-courante"
 msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale."
 msgstr "The toilet is not equipped with a horizontal grab bar."
 
 #: erp/schema.py:1330
-#| msgid "Tous acceslibre"
 msgid "Toilette accessible"
 msgstr "Accessible toilet"
 
@@ -2254,14 +2245,18 @@ msgid "Visibilité des numéros de chambres"
 msgstr "Visibility of room numbers"
 
 #: erp/schema.py:1350
+#| msgid ""
+#| "Les numéros de chambres sont-ils bien repérables et en relief (très "
+#| "contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la "
+#| "porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur)"
 msgid ""
 "Les numéros de chambres sont-ils bien repérables et en relief (très "
 "contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la "
-"porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur)"
+"porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur) ?"
 msgstr ""
-"Are the room numbers clearly visible and in relief (highly contrasting, "
+"Are the room numbers clearly visible and in relief (high contrast, "
 "positioned at eye level, i.e. 160 cm, in the middle of the door or above the"
-" handle, and in relief at least 2 cm thick)"
+" handle, and in relief at least 2 cm thick)?"
 
 #: erp/schema.py:1353
 msgid "Les numéros de chambres sont repérables et en relief."
@@ -2272,7 +2267,6 @@ msgid "Les numéros de chambres ne sont pas repérables et en relief."
 msgstr "The room numbers are not recognizable and embossed."
 
 #: erp/schema.py:1366
-#| msgid "Équipement(s) sourd/malentendant"
 msgid "Equipement d'alerte adapté"
 msgstr "Adapted warning equipment"
 
@@ -2292,12 +2286,14 @@ msgstr ""
 "The facility has one or more flashing light or vibrating alarm systems."
 
 #: erp/schema.py:1376
+#| msgid ""
+#| "L'établissement ne dispose pas d'équipements d'alerte par flash lumineux ou "
+#| "vibration."
 msgid ""
-"L'établissement ne dispose pas d'équipements d'alerte par flash lumineux ou "
+"L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou "
 "vibration."
 msgstr ""
-"The establishment does not have any equipment for alerting by light flash or"
-" vibration."
+"The facility does not have any flashing light or vibration alert equipment."
 
 #: erp/schema.py:1389
 msgid "Accompagnement spécifique"
@@ -2657,7 +2653,7 @@ msgstr "The establishment has been deleted."
 msgid "autre"
 msgstr "other"
 
-#: erp/views.py:755 erp/views.py:832 erp/views.py:873 erp/views.py:968
+#: erp/views.py:755 erp/views.py:832 erp/views.py:873 erp/views.py:959
 msgid "Les données ont été enregistrées."
 msgstr "The data has been saved."
 
@@ -2665,7 +2661,7 @@ msgstr "The data has been saved."
 msgid "existe déjà"
 msgstr "already exists"
 
-#: erp/views.py:1096
+#: erp/views.py:1094
 msgid ""
 "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne"
 " peut pas être publié."
@@ -2673,11 +2669,11 @@ msgstr ""
 "You have not provided enough accessibility information. Your establishment "
 "cannot be published."
 
-#: erp/views.py:1137
+#: erp/views.py:1135
 msgid "Les données ont été sauvegardées."
 msgstr "The data has been saved."
 
-#: erp/views.py:1192
+#: erp/views.py:1190
 msgid "Opération effectuée avec succès."
 msgstr "Operation successfully completed."
 
@@ -4097,9 +4093,6 @@ msgstr "It's almost over"
 
 #: templates/django_registration/registration_complete.html:33
 #, python-format
-#| msgid ""
-#| "Un email a été envoyé à {{ email }}. Il contient un lien qui permet "
-#| "d'activer votre compte"
 msgid ""
 "Un email a été envoyé à %(email)s. Il contient un lien qui permet d'activer "
 "votre compte"
@@ -5172,11 +5165,22 @@ msgstr "Password Reset"
 msgid "Réinitialisez votre mot de passe"
 msgstr "Reset your password"
 
-#: templates/registration/password_reset_form.html:23
+#: templates/registration/password_reset_form.html:16
+msgid ""
+"\n"
+"          Mot de passe perdu&nbsp;? Saisissez votre adresse électronique ci-dessous et\n"
+"          nous vous enverrons les instructions pour en créer un nouveau.\n"
+"        "
+msgstr ""
+"\n"
+"Lost your password? Enter your email address below and we will send you\n"
+"we'll send you instructions on how to create a new one."
+
+#: templates/registration/password_reset_form.html:27
 msgid "Les champs marqués d'une astérique (*) sont obligatoires."
 msgstr "Fields marked with an asterisk (*) are required."
 
-#: templates/registration/password_reset_form.html:32
+#: templates/registration/password_reset_form.html:36
 #, python-format
 msgid ""
 "Merci de fournir l'adresse email que vous\n"
@@ -5188,7 +5192,7 @@ msgstr ""
 "you originally used to create your account. If you do not remember this address or it has become inaccessible, please\n"
 "<a href=\"%(url_contact_connection)s\">contact us</a>."
 
-#: templates/registration/password_reset_form.html:38
+#: templates/registration/password_reset_form.html:42
 msgid "Réinitialiser mon mot de passe"
 msgstr "Reset my password"
 
@@ -5452,6 +5456,35 @@ msgstr "over the last 30 days"
 #: templates/stats/territoires.html:8
 msgid "Retour aux statistiques générales"
 msgstr "Back to general statistics"
+
+#: templates/swagger-ui.html:25
+#| msgid "acceslibre"
+msgid "API acceslibre"
+msgstr "acceslibre API"
+
+#: templates/swagger-ui.html:27
+#| msgid "Réinitialiser mon mot de passe"
+msgid "Réinitialiser la clef API : "
+msgstr "Reset the API key:"
+
+#: templates/swagger-ui.html:30 templates/swagger-ui.html:62
+msgid "OK"
+msgstr "OK"
+
+#: templates/swagger-ui.html:57
+msgid "Pour accéder à l'API, veuillez fournir une clef API valide :"
+msgstr "To access the API, please provide a valid API key:"
+
+#: templates/swagger-ui.html:67
+#, python-format
+msgid ""
+"\n"
+"  Si vous n'avez pas encore de clef API, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contactez-nous</a>, nous\n"
+"  n'avons, à priori, pas de raison de refuser :-)\n"
+"  "
+msgstr ""
+"\n"
+"If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
 
 #, fuzzy
 #~ msgid "Nombre d\\"
