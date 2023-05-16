@@ -75,7 +75,7 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
 
 
 def get_last_position():
-    qs = Activite.objects.order_by("position").exclude(nom="Autre")
+    qs = Activite.objects.order_by("position").exclude(slug="autre")
     if qs.exists():
         try:
             return qs.last().position + 1
@@ -152,7 +152,7 @@ class Activite(models.Model):
     @classmethod
     def reorder(cls):
         position = 1
-        for act in cls.objects.all().order_by("nom").exclude(nom="Autre"):
+        for act in cls.objects.all().order_by("nom").exclude(slug="autre"):
             act.position = position
             position += 1
             act.save()
@@ -192,7 +192,7 @@ class ActivitySuggestion(models.Model):
         verbose_name_plural = translate_lazy("Suggestions d'activités")
 
     def save(self, *args, **kwargs):
-        if self.mapped_activity and self.erp.activite and self.erp.activite.nom.lower() == "autre":
+        if self.mapped_activity and self.erp.activite and self.erp.activite.slug == "autre":
             self.erp.activite = self.mapped_activity
             self.erp.save()
 

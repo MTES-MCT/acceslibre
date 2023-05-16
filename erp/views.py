@@ -746,7 +746,7 @@ def contrib_admin_infos(request):
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
-                if erp.activite.nom.lower() in ("autre", translate("autre")):
+                if erp.activite.slug == "autre":
                     ActivitySuggestion.objects.create(
                         name=form.cleaned_data["nouvelle_activite"],
                         erp=erp,
@@ -823,7 +823,7 @@ def contrib_edit_infos(request, erp_slug):
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
-            if erp.activite.nom.lower() == "autre":
+            if erp.activite.slug == "autre":
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
                     erp=erp,
@@ -845,7 +845,7 @@ def contrib_edit_infos(request, erp_slug):
             },
             "erp": erp,
             "form": form,
-            "activite": Activite.objects.get(nom="Autre"),
+            "activite": Activite.objects.get(slug="autre"),
         },
     )
 

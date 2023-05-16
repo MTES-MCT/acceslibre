@@ -489,7 +489,7 @@ class BasePublicErpInfosForm(BaseErpForm):
         if not self.cleaned_data.get("activite"):
             return new_activity
 
-        if self.cleaned_data["activite"].nom.lower() in ("autre", "other") and not new_activity:
+        if self.cleaned_data["activite"].slug == "autre" and not new_activity:
             raise ValidationError(mark_safe(translate("Vous devez suggérer un nom d'activité pour l'établissement.")))
         return new_activity
 
