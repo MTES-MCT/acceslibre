@@ -2,13 +2,12 @@ import pytest
 import reversion
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
-from django.core import mail
 from django.test import Client
 from django.urls import reverse
 from waffle.testutils import override_switch
 
 from compte.models import UserStats
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
 from tests.utils import assert_redirect
 
 
@@ -821,85 +820,6 @@ def test_delete_erp_owner(data, client):
     assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
     assert Erp.objects.filter(slug=data.erp.slug).count() == 0
-
-
-def test_erp_vote_anonymous(data, client):
-    response = client.post(
-        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
-        {"action": "DOWN", "comment": "bouh"},
-        follow=True,
-    )
-
-    # ensure user is redirected to login page
-    assert_redirect(response, "/compte/login/?next=/app/aux-bons-croissants/vote/")
-    assert response.status_code == 200
-    assert "registration/login.html" in [t.name for t in response.templates]
-
-
-def test_erp_vote_logged_in(data, client, mocker):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
-
-    client.force_login(data.niko)
-
-    response = client.post(
-        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
-        {"action": "DOWN", "comment": "bouh"},
-        follow=True,
-    )
-
-    assert response.status_code == 400
-    mock_mail.assert_not_called()
-
-    # Ensure votes are not counted
-    assert Vote.objects.filter(erp=data.erp, user=data.niko, value=-1, comment="bouh").count() == 0
-
-    # test email notification verify not send.
-    assert len(mail.outbox) == 0
-
-
-def test_erp_vote_counts(data, client, mocker):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
-    client.force_login(data.niko)
-
-    client.post(
-        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
-        {"action": "DOWN", "comment": "bouh niko"},
-        follow=True,
-    )
-
-    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 0
-    mock_mail.assert_not_called()
-
-    client.force_login(data.sophie)
-
-    client.post(
-        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
-        {"action": "DOWN", "comment": "bouh sophie"},
-        follow=True,
-    )
-
-    mock_mail.assert_called_once_with(
-        to_list=data.sophie.email,
-        subject=None,
-        template="vote_down",
-        context={"erp_contrib_url": f"http://testserver/contrib/edit-infos/{data.erp.slug}/"},
-    )
-    mock_mail.reset_mock()
-
-    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
-
-    client.force_login(data.admin)
-
-    client.post(
-        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
-        {"action": "UP"},
-        follow=True,
-    )
-    mock_mail.assert_not_called()
-    assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
 
 
 def test_accessibilite_history(data, client):

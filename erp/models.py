@@ -314,6 +314,14 @@ class Commune(models.Model):
 
 
 class Vote(models.Model):
+    NEGATIVE_VALUE = -1
+    POSITIVE_VALUE = 1
+
+    VOTE_UP_ACTION = "UP"
+    VOTE_DOWN_ACTION = "DOWN"
+    UNVOTE_UP_ACTION = "UNVOTE_UP"
+    UNVOTE_DOWN_ACTION = "UNVOTE_DOWN"
+
     class Meta:
         indexes = [
             models.Index(fields=["value"]),
@@ -349,6 +357,19 @@ class Vote(models.Model):
 
     def __str__(self):
         return translate(f"Vote {self.value} de {self.user.username} pour {self.erp.nom}")
+
+    @property
+    def is_negative(self):
+        return self.value == self.NEGATIVE_VALUE
+
+    @property
+    def is_positive(self):
+        return self.value == self.POSITIVE_VALUE
+
+    def is_unvoting_possible(self, action):
+        return (action == Vote.UNVOTE_UP_ACTION and self.is_positive) or (
+            action == Vote.UNVOTE_DOWN_ACTION and self.is_negative
+        )
 
 
 @reversion.register(
@@ -816,19 +837,17 @@ class Erp(models.Model):
             self.siret = siret
 
     def vote(self, user, action, comment=None):
-        votes = Vote.objects.filter(erp=self, user=user)
-        if votes.count() > 0:
-            vote = votes.first()
-            # check for vote cancellation
-            if (action == "UP" and vote.value == 1) or (action == "DOWN" and vote.value == -1 and not comment):
+        try:
+            vote = Vote.objects.get(erp=self, user=user)
+            if vote.is_unvoting_possible(action):
                 vote.delete()
                 return None
-        else:
+        except Vote.DoesNotExist:
             vote = Vote(erp=self, user=user)
-        vote.value = 1 if action == "UP" else -1
-        vote.comment = comment if action == "DOWN" else None
-        vote.save()
-        return vote
+            vote.value = Vote.POSITIVE_VALUE if action == Vote.VOTE_UP_ACTION else Vote.NEGATIVE_VALUE
+            vote.comment = comment if action == Vote.VOTE_DOWN_ACTION else None
+            vote.save()
+            return vote
 
     def save(self, *args, **kwargs):
         if (
