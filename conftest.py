@@ -370,6 +370,7 @@ def activite(db):
 
 @pytest.fixture
 def data(db):
+    Activite.objects.create(nom="Autre")
     obj_admin = User.objects.create_user(
         username="admin",
         password=TEST_PASSWORD,
