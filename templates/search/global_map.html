@@ -37,10 +37,10 @@
       </p>
       <ul>
         {% if commune %}
-        <li><a href="{% url 'search' %}?where={{ commune }}&code={{ commune.code_insee }}">{% translate "Afficher la liste de tous les établissements situés à {{ commune }}" %}</a></li>
-        <li><a href="{% url 'search' %}?where={{ commune.nom }}&lat={{ commune.geom.y }}&lon={{ commune.geom.x }}">{% translate "Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM }} kilomètres autour de" %} {{ commune|preposition_nom }}</a></li>
+        <li><a href="{% url 'search' %}?where={{ commune }}&code={{ commune.code_insee }}">{% blocktranslate %}Afficher la liste de tous les établissements situés à {{ commune }}{% endblocktranslate %}</a></li>
+        <li><a href="{% url 'search' %}?where={{ commune.nom }}&lat={{ commune.geom.y }}&lon={{ commune.geom.x }}">{% blocktranslate %}Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM }} kilomètres autour de{% endblocktranslate %} {{ commune|preposition_nom }}</a></li>
         {% endif %}
-        <li><a href="{% url 'contrib_start' %}{% if commune %}?code_insee={{ commune.code_insee }}{% endif %}">{% if commune %}{% translate "Ajouter un établissement manquant à {{ commune }}" %}{% else %}{% translate "Ajouter un établissement manquant" %}{% endif %}</a></li>
+        <li><a href="{% url 'contrib_start' %}{% if commune %}?code_insee={{ commune.code_insee }}{% endif %}">{% if commune %}{% blocktranslate %}Ajouter un établissement manquant à {{ commune }} {% endblocktranslate %} %}{% else %}{% translate "Ajouter un établissement manquant" %}{% endif %}</a></li>
         <li><a href="{% url 'contact_form' %}">{% translate "Nous contacter pour obtenir de l'aide ou nous signaler un problème" %}</a></li>
       </ul>
     </div>
@@ -50,7 +50,7 @@
         <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}
           {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-            {% translate "à moins de {{ MAP_SEARCH_RADIUS_KM }}" %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
+            {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
           {% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}{% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>

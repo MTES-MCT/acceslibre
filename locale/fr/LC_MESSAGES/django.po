@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 15:46+0200\n"
+"POT-Creation-Date: 2023-05-17 10:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,11 +212,11 @@ msgstr ""
 msgid "Dernière modification"
 msgstr ""
 
-#: core/settings.py:236
+#: core/settings.py:237
 msgid "French"
 msgstr ""
 
-#: core/settings.py:237
+#: core/settings.py:238
 msgid "English"
 msgstr ""
 
@@ -2462,10 +2462,6 @@ msgstr ""
 msgid "L'établissement a été supprimé."
 msgstr ""
 
-#: erp/views.py:749
-msgid "autre"
-msgstr ""
-
 #: erp/views.py:755 erp/views.py:832 erp/views.py:873 erp/views.py:959
 msgid "Les données ont été enregistrées."
 msgstr ""
@@ -3565,9 +3561,10 @@ msgid "Chargement des API ..."
 msgstr ""
 
 #: templates/contrib/base_access_form.html:26
+#, python-format
 msgid ""
 "Vous vous apprêtez à modifier les informations initialement fournies par "
-"<strong>{{ erp.user }}</strong>"
+"<strong>%(erp.user)s</strong>"
 msgstr ""
 
 #: templates/contrib/base_access_form.html:28
@@ -4901,17 +4898,20 @@ msgid "Vous pouvez cependant :"
 msgstr ""
 
 #: templates/search/global_map.html:40 templates/search/results.html:58
-msgid "Afficher la liste de tous les établissements situés à {{ commune }}"
+#, python-format
+msgid "Afficher la liste de tous les établissements situés à %(commune)s"
 msgstr ""
 
 #: templates/search/global_map.html:41
+#, python-format
 msgid ""
-"Afficher les établissements situés dans un rayon de "
-"{{ MAP_SEARCH_RADIUS_KM }} kilomètres autour de"
+"Afficher les établissements situés dans un rayon de %(MAP_SEARCH_RADIUS_KM)s "
+"kilomètres autour de"
 msgstr ""
 
 #: templates/search/global_map.html:43
-msgid "Ajouter un établissement manquant à {{ commune }}"
+#, python-format
+msgid "Ajouter un établissement manquant à %(commune)s "
 msgstr ""
 
 #: templates/search/global_map.html:43
@@ -4923,7 +4923,8 @@ msgid "Nous contacter pour obtenir de l'aide ou nous signaler un problème"
 msgstr ""
 
 #: templates/search/global_map.html:53 templates/search/results.html:69
-msgid "à moins de {{ MAP_SEARCH_RADIUS_KM }}"
+#, python-format
+msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
 msgstr ""
 
 #: templates/search/global_map.html:53 templates/search/results.html:69
@@ -5051,9 +5052,10 @@ msgid "Graphique représentant l'évolution du nombre d'établissements publiés
 msgstr ""
 
 #: templates/stats/index.html:42
+#, python-format
 msgid ""
 "Graphique représentant l'évolution du nombre d'établissements publiés sur "
-"l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés."
+"l'année. Nous atteignons ce mois-ci %(nb_published_erps)s ERPs publiés."
 msgstr ""
 
 #: templates/stats/index.html:45
