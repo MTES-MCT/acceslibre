@@ -16,7 +16,6 @@ class TrackStatsWidget:
             and request.headers.get("Origin")
             and Site.objects.get_current().domain not in request.headers.get("Origin")
         ):
-
             try:
                 referer, created = Referer.objects.update_or_create(domain=request.headers.get("Origin"))
             except Referer.MultipleObjectsReturned:

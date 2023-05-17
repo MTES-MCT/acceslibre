@@ -39,7 +39,6 @@ def dedoublonnage_implementation(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     replaces = [
         ("stats", "0001_initial"),
         ("stats", "0002_alter_challenge_start_date"),

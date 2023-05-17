@@ -100,7 +100,7 @@ class Command(BaseCommand):
         # activité
         nom_activite = clean(row["domaine"])
         if nom_activite:
-            for (pka, activite) in self.activites:
+            for pka, activite in self.activites:
                 if nom_activite.lower().strip() == activite:
                     fields["activite_id"] = pka
 

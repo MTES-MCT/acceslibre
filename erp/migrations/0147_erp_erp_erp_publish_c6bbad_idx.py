@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("erp", "0146_alter_accessibilite_accueil_audiodescription"),
     ]

@@ -93,7 +93,6 @@ class Importer:
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
             except Exception as e:
-
                 if str(e) not in results["activites_not_found"]:
                     results["activites_not_found"].append(str(e))
 

@@ -41,7 +41,6 @@ def update_sanitaires_adaptes_to_int(apps, schema_editor):
 
 
 class Migration(MigrationIgnoredInTest):
-
     dependencies = [
         ("erp", "0147_erp_erp_erp_publish_c6bbad_idx"),
     ]

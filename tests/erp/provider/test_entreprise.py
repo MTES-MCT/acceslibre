@@ -192,7 +192,7 @@ def test_format_nom():
         ({"unite_legale": {"prenom_usuel": "Guy", "nom_usage": "Lux"}}, "Guy Lux"),
         ({"unite_legale": {"prenom_1": "Guy", "nom": "Lux"}}, "Guy Lux"),
     ]
-    for (test, expected) in tests:
+    for test, expected in tests:
         assert entreprise.format_nom(test) == expected
 
 

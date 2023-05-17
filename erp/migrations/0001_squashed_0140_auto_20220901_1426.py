@@ -117,7 +117,7 @@ def migrate_sources(apps, schema_editor):
         try:
             LogEntry.objects.get(content_type__model="erp", object_id=erp.pk)
             erp.source = "admin"
-        except (LogEntry.DoesNotExist):
+        except LogEntry.DoesNotExist:
             erp.source = "public"
         except LogEntry.MultipleObjectsReturned:
             erp.source = "admin"
@@ -252,7 +252,6 @@ def reorder(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     replaces = [
         ("erp", "0001_initial"),
         ("erp", "0002_auto_20200131_1536"),

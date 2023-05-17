@@ -11,7 +11,6 @@ def add_preferences_to_users(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("compte", "0002_userpreferences"),
     ]

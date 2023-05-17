@@ -7,7 +7,7 @@ def test_get_api_fieldsets():
     fieldsets = schema.get_api_fieldsets()
     assert type(fieldsets) == dict
 
-    for (_, section) in fieldsets.items():
+    for _, section in fieldsets.items():
         assert "label" in section
         assert "fields" in section
         assert type(section["fields"]) == list
@@ -17,7 +17,7 @@ def test_get_admin_fieldsets():
     fieldsets = schema.get_admin_fieldsets()
     assert type(fieldsets) == list
 
-    for (section_label, section) in fieldsets:
+    for section_label, section in fieldsets:
         assert type(section) == dict
         assert "description" in section
         assert "fields" in section
@@ -28,7 +28,7 @@ def test_get_form_fieldsets():
     fieldsets = schema.get_form_fieldsets()
     assert type(fieldsets) == dict
 
-    for (_, section) in fieldsets.items():
+    for _, section in fieldsets.items():
         assert type(section) == dict
         assert "icon" in section
         assert "tabid" in section
