@@ -18,7 +18,8 @@ import "leaflet";
 import "leaflet.markercluster";
 import "leaflet.locatecontrol";
 import "leaflet-center-cross";
-import "chart.js";
+import Chart from 'chart.js/auto';
+window.Chart = Chart;
 
 // Bootstrap
 import * as bootstrap from 'bootstrap';

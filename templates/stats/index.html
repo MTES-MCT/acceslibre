@@ -43,7 +43,8 @@
         </canvas>
         <script>
         {% translate "Nombre d'établissements" as translate_np_erps %}
-        var erpCountChart = new Chart("erpCountChart", {
+        const ctx = document.getElementById('erpCountChart').getContext('2d');
+        var erpCountChart = new window.Chart(ctx, {
           type: "bar",
           data: {
             labels: {{ erp_counts_histogram.labels|safe }},
