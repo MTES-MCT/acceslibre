@@ -23,7 +23,7 @@
       <div class="alert alert-info" role="status">
         <i aria-hidden="true" class="icon icon-info-circled"></i>
         {% if erp.user %}
-        {% translate "Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>" %}
+        {% blocktranslate %}Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>{% endblocktranslate %}
         {% else %}
         {% translate "Vous vous apprêtez à modifier les informations existantes pour cet établissement" %}
         {% endif %}.
