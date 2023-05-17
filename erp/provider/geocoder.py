@@ -1,5 +1,5 @@
 import logging
-from enum import Enum  # FIXME Python3.11 replace this with StrEnum
+from enum import StrEnum
 
 import requests
 
@@ -10,7 +10,7 @@ from erp.provider.osm import OSMRequester
 logger = logging.getLogger(__name__)
 
 
-class Provider(Enum):  # FIXME Python3.11 replace this with StrEnum
+class Provider(StrEnum):
     BAN = "ban"
     GEOPORTAIL = "geoportail"
     OSM = "osm"
