@@ -442,7 +442,6 @@ def request(path, params=None):
 
 
 def search_types(type, code_insee, activite_mairie, activite_administration):
-
     if type not in TYPES:
         raise RuntimeError(f'Le type "{type}" est invalide.')
     response = request(f"communes/{code_insee}/{type}")

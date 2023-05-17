@@ -7,7 +7,6 @@ import erp.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("erp", "0140_auto_20220901_1426"),
     ]

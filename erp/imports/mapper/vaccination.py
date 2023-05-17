@@ -169,7 +169,7 @@ class VaccinationMapper:
     def _check_ecartement(self):
         "Vérification des autres raisons d'écartement"
 
-        for (test, raison) in self.TESTS_ECARTEMENT.items():
+        for test, raison in self.TESTS_ECARTEMENT.items():
             if text.contains_sequence(test, self.props.get("c_nom")) or text.contains_sequence(
                 test, self.props.get("c_rdv_modalites")
             ):
@@ -204,7 +204,7 @@ class VaccinationMapper:
 
     def _import_basic_erp_fields(self):
         "Importe les champs administratif basiques du centre de vaccination"
-        for (json_field, model_field) in self.FIELDS_MAP.items():
+        for json_field, model_field in self.FIELDS_MAP.items():
             setattr(self.erp, model_field, self.props[json_field])
 
     def _import_coordinates(self):

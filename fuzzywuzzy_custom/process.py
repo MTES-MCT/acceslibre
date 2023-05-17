@@ -58,6 +58,7 @@ def extractWithoutOrder(query, choices, processor=default_processor, scorer=defa
 
         ('train', 22, 'bard'), ('man', 0, 'dog')
     """
+
     # Catch generators without lengths
     def no_process(x):
         return x

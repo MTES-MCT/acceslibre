@@ -15,7 +15,6 @@ def change_category(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("contact", "0004_merge_20200916_1733"),
     ]

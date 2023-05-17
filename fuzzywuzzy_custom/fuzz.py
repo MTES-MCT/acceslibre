@@ -179,6 +179,7 @@ def partial_token_set_ratio(s1, s2, force_ascii=True, full_process=True):
 # Combination API #
 ###################
 
+
 # q is for quick
 def QRatio(s1, s2, force_ascii=True, full_process=True):
     """
