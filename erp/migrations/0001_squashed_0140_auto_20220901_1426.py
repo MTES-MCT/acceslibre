@@ -14,15 +14,21 @@ import django.db.models.deletion
 import django_better_admin_arrayfield.models.fields
 from django.conf import settings
 from django.contrib.admin.models import ADDITION, LogEntry
-from django.core.management import call_command
 from django.db import migrations, models
-from django.db.migrations import RunPython
 from django.db.models import Q
 
 import erp.models
+from core.db import OperationIgnoredInTest
 from erp import schema
 from erp.models import Activite as Activite_class
 from erp.models import get_last_position
+
+
+def run_python(*args, **kwargs):
+    if settings.TEST:
+        # Do not run python migration codes in test mode, useless, data should be kept up to date in fixtures.
+        return OperationIgnoredInTest()
+    return migrations.RunPython(*args, **kwargs)
 
 
 def migrate_cheminement_types(apps, schema_editor):
@@ -117,7 +123,7 @@ def migrate_sources(apps, schema_editor):
         try:
             LogEntry.objects.get(content_type__model="erp", object_id=erp.pk)
             erp.source = "admin"
-        except (LogEntry.DoesNotExist):
+        except LogEntry.DoesNotExist:
             erp.source = "public"
         except LogEntry.MultipleObjectsReturned:
             erp.source = "admin"
@@ -252,7 +258,6 @@ def reorder(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-
     replaces = [
         ("erp", "0001_initial"),
         ("erp", "0002_auto_20200131_1536"),
@@ -1356,7 +1361,7 @@ class Migration(migrations.Migration):
                 verbose_name="Type",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_cheminement_types,
         ),
         migrations.AlterUniqueTogether(
@@ -1903,7 +1908,7 @@ class Migration(migrations.Migration):
                 unique=True,
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_data_forward,
             reverse_code=migrate_data_backward,
         ),
@@ -1991,7 +1996,7 @@ class Migration(migrations.Migration):
                 to=settings.AUTH_USER_MODEL,
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=add_user,
         ),
         migrations.AlterField(
@@ -2755,7 +2760,7 @@ class Migration(migrations.Migration):
                 verbose_name="Commune (relation)",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=prepare_equipements_data,
         ),
         migrations.AlterField(
@@ -3323,7 +3328,7 @@ class Migration(migrations.Migration):
                 verbose_name="Utilisateur",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_equipements_malentendant,
         ),
         migrations.DeleteModel(
@@ -3400,7 +3405,7 @@ class Migration(migrations.Migration):
                 verbose_name="Source",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_sources,
         ),
         migrations.AddField(
@@ -3758,7 +3763,7 @@ class Migration(migrations.Migration):
                 verbose_name="Équipement(s) sourd/malentendant",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_equipement_choices,
         ),
         migrations.AlterField(
@@ -3966,7 +3971,7 @@ class Migration(migrations.Migration):
                 verbose_name="Lien vers outil de contact",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_prestations_to_commentaire,
         ),
         migrations.RemoveField(
@@ -4086,7 +4091,7 @@ class Migration(migrations.Migration):
                 verbose_name="Longueur de la pente",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_previous_data,
         ),
         migrations.RemoveField(
@@ -4150,7 +4155,7 @@ class Migration(migrations.Migration):
                 verbose_name="Difficulté de la pente",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_previous_data_diff,
         ),
         migrations.AlterField(
@@ -4169,7 +4174,7 @@ class Migration(migrations.Migration):
                 verbose_name="Longueur de la pente",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_sonnette_to_bouton,
         ),
         migrations.AlterField(
@@ -4197,7 +4202,7 @@ class Migration(migrations.Migration):
             name="uuid",
             field=models.UUIDField(default=uuid.uuid4, null=True),
         ),
-        migrations.RunPython(
+        run_python(
             code=gen_uuid,
             reverse_code=django.db.migrations.operations.special.RunPython.noop,
         ),
@@ -4378,7 +4383,7 @@ class Migration(migrations.Migration):
                 verbose_name="Source",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=migrate_sanitaires_adaptes,
         ),
         migrations.RemoveField(
@@ -4395,10 +4400,10 @@ class Migration(migrations.Migration):
             old_name="cheminement_ext_terrain_accidente",
             new_name="cheminement_ext_terrain_stable",
         ),
-        migrations.RunPython(
+        run_python(
             code=update_erp_accueil_equipements_malentendants,
         ),
-        migrations.RunPython(
+        run_python(
             code=reset_user,
         ),
         migrations.AddField(
@@ -4445,13 +4450,13 @@ class Migration(migrations.Migration):
                 verbose_name="Source",
             ),
         ),
-        migrations.RunPython(
+        run_python(
             code=update_activite_position,
         ),
-        migrations.RunPython(
+        run_python(
             code=add_activite_autre,
         ),
-        migrations.RunPython(
+        run_python(
             code=reorder,
         ),
     ]

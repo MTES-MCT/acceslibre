@@ -121,7 +121,7 @@ def activite(db):
         "Aide à la personne",
         "Aide sociale à l'enfance : action éducative",
         "Ambulances",
-        "Aménagement maison : cuisine salle de bain salon",
+        "Aménagement maison : cuisine salle de bain salon",
         "Animalerie",
         "Antiquaire",
         "Apiculteur",
@@ -370,6 +370,7 @@ def activite(db):
 
 @pytest.fixture
 def data(db):
+    Activite.objects.create(nom="Autre")
     obj_admin = User.objects.create_user(
         username="admin",
         password=TEST_PASSWORD,

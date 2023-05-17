@@ -144,7 +144,7 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
     assert response.context["results_bdd"][0]["id"] == obj_erp.id
 
 
-def test_claim(client, user):
+def test_claim(client, user, data):
     erp = Erp.objects.create(user=user, nom="test", commune="lyon", published=True, geom=Point(0, 0))
 
     user.stats.refresh_from_db()
