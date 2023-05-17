@@ -3,7 +3,7 @@ version: 2.1
 executors:
   for_tests:
     docker:
-      - image: cimg/python:3.10.9-node
+      - image: cimg/python:3.11.2-node
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
@@ -25,7 +25,7 @@ executors:
 
   for_checks:
     docker:
-      - image: cimg/python:3.10.9-node
+      - image: cimg/python:3.11.2-node
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DJANGO_SETTINGS_MODULE: core.settings_test
@@ -50,7 +50,7 @@ jobs:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "/usr/local/lib/python3.10/site-packages"
+            - "/usr/local/lib/python3.11/site-packages"
       - restore_cache:
           name: Restore Node cached dependencies
           keys:

@@ -51,7 +51,7 @@ class OSMRequester(GeolocRequester):
                 "code_postal": geocoding.get("postcode"),
                 "commune": geocoding.get("city"),
                 "code_insee": "",
-                "provider": self.provider["name"].value,  # FIXME Python3.11 drop this .value
+                "provider": self.provider["name"],
             }
         except (KeyError, IndexError, TypeError) as err:
             raise RuntimeError(f"Erreur lors du géocodage de l'adresse {address}") from err

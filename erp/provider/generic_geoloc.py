@@ -55,13 +55,13 @@ class GeolocRequester:
                 "code_postal": properties.get("postcode"),
                 "commune": properties.get("city"),
                 "code_insee": properties.get("citycode"),
-                "provider": self.provider["name"].value,  # FIXME Python3.11 drop this .value
+                "provider": self.provider["name"],
             }
         except (KeyError, IndexError, TypeError) as err:
             raise RuntimeError(f"Erreur lors du géocodage de l'adresse {address}") from err
 
     def query(self, params, timeout=8):
-        url = self.urls.get(self.provider["name"].value)  # FIXME Python3.11 drop this .value
+        url = self.urls.get(self.provider["name"])
         if not url:
             raise Exception("Misconfigured")
 
