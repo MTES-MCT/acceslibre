@@ -83,7 +83,7 @@ urlpatterns = [
     ),
     path(
         "recherche/<str:commune_slug>/",
-        cache_user_page(views.search),
+        cache_user_page(views.search_in_municipality),
         name="search_commune",
     ),
     path(

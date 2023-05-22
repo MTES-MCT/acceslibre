@@ -3,7 +3,6 @@ from enum import StrEnum
 
 import requests
 
-from core.lib import geo
 from erp.provider.generic_geoloc import GeolocRequester
 from erp.provider.osm import OSMRequester
 
@@ -30,20 +29,6 @@ PROVIDERS = [
         "requester": OSMRequester,
     },
 ]
-
-
-def autocomplete(q, limit=1):
-    params = {
-        "autocomplete": 1,
-        "q": q,
-        "limit": limit,
-    }
-    try:
-        results = GeolocRequester(PROVIDERS[0]).query(params, timeout=0.75)  # avoid blocking for too long
-        (lon, lat) = results.get("features")[0]["geometry"]["coordinates"]
-        return geo.parse_location((lat, lon))
-    except (KeyError, IndexError, RuntimeError):
-        return None
 
 
 def geocode(address, postcode=None, citycode=None, provider=None):

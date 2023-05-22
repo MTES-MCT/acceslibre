@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.db.models.functions import Lower
 from django.forms import modelform_factory
 from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
@@ -29,7 +30,7 @@ from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
 from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
-from erp.provider import acceslibre, geocoder
+from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
@@ -195,8 +196,15 @@ def _update_search_pager(pager, commune):
     return pager
 
 
-def _clean_search_params(params, *args):
-    return ("" if params.get(arg, "") == "None" else params.get(arg, "") for arg in args)
+def _cleaned_search_params_as_dict(get_parameters):
+    allow_list = ("where", "what", "lat", "lon", "code", "search_type", "postcode", "street_name", "municipality")
+    cleaned_dict = {
+        k: "" if get_parameters.get(k, "") == "None" else get_parameters.get(k, "")
+        for k, v in get_parameters.items()
+        if k in allow_list
+    }
+    cleaned_dict["where"] = cleaned_dict.get("where") or "France entière"
+    return cleaned_dict
 
 
 def _parse_location_or_404(lat, lon):
@@ -208,91 +216,103 @@ def _parse_location_or_404(lat, lon):
         raise Http404(err)
 
 
-def _get_search_qs_and_context(commune_slug, lat, lon, what, where):
+def _filter_erp_by_location(queryset, **kwargs):
+    search_type = kwargs.get("search_type")
+    lat, lon = kwargs.get("lat"), kwargs.get("lon")
     location = _parse_location_or_404(lat, lon)
-    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what)
-    commune = None
-    if commune_slug:
-        commune = get_object_or_404(Commune, slug=commune_slug)
-        qs = qs.filter(commune_ext=commune)
-        where = str(commune)
-    elif location:
-        qs = qs.nearest(location)
-    elif where and where not in ("France entière", translate("France entière")):
-        location = geocoder.autocomplete(where)
-        if location:
-            lat, lon = (location.y, location.x)  # update current searched lat/lon
-            qs = qs.nearest(location)
-        else:
-            qs = qs.search_commune(where)
 
-    return qs, {
-        "commune": commune,
-        "lat": lat,
-        "lon": lon,
-        "what": what,
-        "where": where,
-        "commune_json": commune.toTemplateJson() if commune else None,
+    if search_type == settings.IN_MUNICIPALITY_SEARCH_TYPE:
+        return queryset.filter(commune=kwargs.get("municipality").nom)
+
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
+        return queryset.annotate(city=Lower("commune")).filter(city=kwargs.get("municipality").lower())
+
+    if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
+        return queryset.nearest(location, max_radius_km=0.2)
+
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET:
+        street_name = kwargs.get("street_name")
+        postcode = kwargs.get("postcode")
+        return queryset.filter(code_postal=postcode, voie__icontains=street_name)
+    return queryset
+
+
+def search(request):
+    filters = _cleaned_search_params_as_dict(request.GET)
+    base_queryset = Erp.objects.published().search_what(filters.get("what"))
+    queryset = _filter_erp_by_location(base_queryset, **filters)
+
+    paginator = Paginator(queryset, 10)
+    pager = paginator.get_page(request.GET.get("page") or 1)
+    pager_base_url = url.encode_qs(**filters)
+
+    context = {
+        **filters,
+        "pager": pager,
+        "pager_base_url": pager_base_url,
+        "geojson_list": make_geojson(pager),
+        "paginator": paginator,
     }
+    return render(request, "search/results.html", context=context)
 
 
-def search(request, commune_slug=None):
-    where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
-    where = where or "France entière"
-    qs, context = _get_search_qs_and_context(commune_slug, lat, lon, what, where)
-    # pager
-    paginator = Paginator(qs, 10)
-    pager = paginator.get_page(request.GET.get("page", 1))
-    if context["commune"]:
-        pager = _update_search_pager(pager, context["commune"])
-    pager_base_url = url.encode_qs(where=where, what=what, lat=lat, lon=lon, code=code)
-    geojson_list = make_geojson(pager)
+def search_in_municipality(request, commune_slug):
+    municipality = get_object_or_404(Commune, slug=commune_slug)
+    filters = _cleaned_search_params_as_dict(request.GET)
+    filters["search_type"] = settings.IN_MUNICIPALITY_SEARCH_TYPE
+    filters["municipality"] = municipality
+    base_queryset = Erp.objects.published().search_what(filters.get("what"))
+    queryset = _filter_erp_by_location(base_queryset, **filters)
 
-    return render(
-        request,
-        "search/results.html",
-        context=context
-        | {
-            "url_params": request.META["QUERY_STRING"]
-            if where not in ("France entière", translate("France entière"))
-            else None,
-            "paginator": paginator,
-            "pager": pager,
-            "pager_base_url": pager_base_url,
-            "code": code,
-            "geojson_list": geojson_list,
-        },
-    )
+    paginator = Paginator(queryset, 10)
+    pager = paginator.get_page(request.GET.get("page") or 1)
+    pager = _update_search_pager(pager, municipality)
+
+    context = {
+        **filters,
+        "pager": pager,
+        "pager_base_url": url.encode_qs(**filters),
+        "paginator": paginator,
+        "where": str(municipality),
+        "commune": municipality,
+        "commune_json": municipality.toTemplateJson(),
+        "geojson_list": make_geojson(pager),
+    }
+    return render(request, "search/results.html", context=context)
 
 
-@waffle_switch("USE_GLOBAL_MAP")
-def global_map(request, commune_slug=None):
-    where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
-    # FIXME: "France entière" is engendering huge perf pb and has been disabled, since this has been released with
-    # this possibility we might have some cached links here and there and have to block this possible value.
-    if not where or where in ("France entière", translate("France entière")):
-        raise Http404()
-
-    qs, context = _get_search_qs_and_context(commune_slug, lat, lon, what, where)
-    # pager
-    paginator = Paginator(qs, qs.count())
-    pager = paginator.get_page(request.GET.get("page", 1))
-    geojson_list = make_geojson(pager)
+def _build_qr_code_from_current_uri(request):
     img = qrcode.make(request.build_absolute_uri())
     with io.BytesIO() as output:
         img.save(output, format="PNG")
         qrcode_img = base64.b64encode(output.getvalue()).decode("utf-8")
+    return qrcode_img
+
+
+@waffle_switch("USE_GLOBAL_MAP")
+def global_map(request):
+    filters = _cleaned_search_params_as_dict(request.GET)
+    base_queryset = Erp.objects.published().search_what(filters.get("what"))
+    queryset = _filter_erp_by_location(base_queryset, **filters)
+
+    # FIXME: "France entière" is engendering huge perf pb and has been disabled, since this has been released with
+    # this possibility we might have some cached links here and there and have to block this possible value.
+    where = filters.get("where")
+    if not where or where in ("France entière", translate("France entière")):
+        raise Http404()
+
+    paginator = Paginator(queryset, queryset.count())
+    pager = paginator.get_page(request.GET.get("page", 1))
 
     return render(
         request,
         "search/global_map.html",
-        context=context
-        | {
-            "qrcode_img": qrcode_img,
+        context={
+            **filters,
+            "qrcode_img": _build_qr_code_from_current_uri(request),
             "paginator": paginator,
             "pager": pager,
-            "code": code,
-            "geojson_list": geojson_list,
+            "geojson_list": make_geojson(pager),
         },
     )
 
@@ -907,7 +927,11 @@ def contrib_a_propos(request, erp_slug):
                 erp.user = request.user
 
             erp.save()
-            messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                translate("Les données ont été enregistrées."),
+            )
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
         if hasattr(erp, "accessibilite"):
