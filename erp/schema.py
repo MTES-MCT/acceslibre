@@ -364,6 +364,9 @@ FIELDS = {
     # NOTE conditional(true|false) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
     #        Default is False if not provided.
+    # NOTE free_text(true|false) determines whether a field is a free text/a user input or not. If yes, it's intented to be cleaned from profanities and
+    #        translated on front end side.
+    #        Default is False if not provided.
     # Transport
     "transport_station_presence": {
         "type": "boolean",
@@ -383,6 +386,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "transport_information": {
@@ -402,6 +406,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "example": "Ligne n4",
+        "free_text": True,
         "root": False,
     },
     # Stationnement
@@ -425,6 +430,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "stationnement_pmr": {
@@ -447,6 +453,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": False,
     },
     "stationnement_ext_presence": {
@@ -469,6 +476,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "stationnement_ext_pmr": {
@@ -491,6 +499,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": False,
     },
     # Cheminement extérieur
@@ -512,6 +521,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
     },
     "cheminement_ext_terrain_stable": {
@@ -534,6 +544,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": False,
     },
     "cheminement_ext_plain_pied": {
@@ -556,6 +567,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": False,
     },
     "cheminement_ext_ascenseur": {
@@ -571,6 +583,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "description": translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
+        "free_text": False,
         "root": False,
     },
     "cheminement_ext_nombre_marches": {
@@ -587,6 +600,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
         "description": translate_lazy("Combien y'a t'il de marches&nbsp;?"),
+        "free_text": False,
         "root": False,
     },
     "cheminement_ext_sens_marches": {
@@ -601,6 +615,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
+        "free_text": False,
     },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
@@ -622,6 +637,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "cheminement_ext_main_courante": {
         "type": "boolean",
@@ -635,6 +651,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "cheminement_ext_rampe": {
         "type": "string",
@@ -650,6 +667,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
+        "free_text": False,
     },
     "cheminement_ext_pente_presence": {
         "type": "boolean",
@@ -663,6 +681,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
     },
     "cheminement_ext_pente_degre_difficulte": {
         "type": "string",
@@ -676,6 +695,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
+        "free_text": False,
     },
     "cheminement_ext_pente_longueur": {
         "type": "string",
@@ -688,6 +708,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
+        "free_text": False,
     },
     "cheminement_ext_devers": {
         "type": "string",
@@ -705,6 +726,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [DEVERS_LEGER, DEVERS_IMPORTANT],
+        "free_text": False,
     },
     "cheminement_ext_bande_guidage": {
         "type": "boolean",
@@ -726,6 +748,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "cheminement_ext_retrecissement": {
         "type": "boolean",
@@ -747,6 +770,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
     },
     # Entrée
     "entree_reperage": {
@@ -767,6 +791,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_porte_presence": {
@@ -782,6 +807,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": None,
         "required": True,
+        "free_text": False,
         "root": True,
     },
     "entree_porte_manoeuvre": {
@@ -796,6 +822,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
+        "free_text": False,
     },
     "entree_porte_type": {
         "type": "string",
@@ -809,6 +836,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
+        "free_text": False,
     },
     "entree_vitree": {
         "type": "boolean",
@@ -822,6 +850,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
     },
     "entree_vitree_vitrophanie": {
         "type": "boolean",
@@ -843,6 +872,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "entree_plain_pied": {
         "type": "boolean",
@@ -862,6 +892,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_ascenseur": {
@@ -876,6 +907,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "entree_marches": {
         "type": "number",
@@ -890,6 +922,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+        "free_text": False,
     },
     "entree_marches_sens": {
         "type": "string",
@@ -903,6 +936,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
+        "free_text": False,
     },
     "entree_marches_reperage": {
         "type": "boolean",
@@ -924,6 +958,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "entree_marches_main_courante": {
         "type": "boolean",
@@ -937,6 +972,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "entree_marches_rampe": {
         "type": "string",
@@ -952,6 +988,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
+        "free_text": False,
     },
     "entree_dispositif_appel": {
         "type": "boolean",
@@ -969,6 +1006,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_dispositif_appel_type": {
@@ -983,6 +1021,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "entree_balise_sonore": {
         "type": "boolean",
@@ -1004,6 +1043,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_aide_humaine": {
@@ -1018,6 +1058,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_largeur_mini": {
@@ -1037,6 +1078,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
+        "free_text": False,
         "root": True,
     },
     "entree_pmr": {
@@ -1059,6 +1101,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "entree_pmr_informations": {
@@ -1073,6 +1116,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
+        "free_text": True,
         "example": "Entrée fléchée",
     },
     # Accueil
@@ -1096,6 +1140,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "accueil_cheminement_plain_pied": {
@@ -1118,6 +1163,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "accueil_cheminement_ascenseur": {
@@ -1132,6 +1178,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "accueil_cheminement_nombre_marches": {
         "type": "number",
@@ -1146,6 +1193,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+        "free_text": False,
     },
     "accueil_cheminement_sens_marches": {
         "type": "string",
@@ -1159,6 +1207,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": None,
+        "free_text": False,
     },
     "accueil_cheminement_reperage_marches": {
         "type": "boolean",
@@ -1180,6 +1229,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "accueil_cheminement_main_courante": {
         "type": "boolean",
@@ -1193,6 +1243,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     "accueil_cheminement_rampe": {
         "type": "string",
@@ -1229,6 +1280,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
     },
     "accueil_chambre_nombre_accessibles": {
@@ -1248,6 +1300,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
+        "free_text": False,
         "root": False,
         "conditional": True,
     },
@@ -1267,6 +1320,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
         "conditional": True,
     },
@@ -1286,6 +1340,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": False,
         "conditional": True,
     },
@@ -1305,6 +1360,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": False,
         "conditional": True,
     },
@@ -1320,6 +1376,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": False,
         "conditional": True,
     },
@@ -1337,6 +1394,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": False,
         "conditional": True,
     },
@@ -1356,6 +1414,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
         "conditional": True,
     },
@@ -1379,6 +1438,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
         "conditional": True,
     },
@@ -1402,6 +1462,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "free_text": False,
         "root": True,
         "conditional": True,
     },
@@ -1426,6 +1487,7 @@ FIELDS = {
             PERSONNELS_NON_FORMES,
             PERSONNELS_AUCUN,
         ],
+        "free_text": False,
         "root": True,
     },
     "accueil_audiodescription_presence": {
@@ -1440,6 +1502,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "accueil_audiodescription": {
@@ -1453,6 +1516,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and len(x) == 0,
+        "free_text": False,
     },
     "accueil_equipements_malentendants_presence": {
         "type": "boolean",
@@ -1474,6 +1538,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "accueil_equipements_malentendants": {
@@ -1492,6 +1557,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and len(x) == 0,
+        "free_text": False,
     },
     # Sanitaires
     "sanitaires_presence": {
@@ -1506,6 +1572,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
         "root": True,
     },
     "sanitaires_adaptes": {
@@ -1520,6 +1587,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     # Labels
     "labels": {
@@ -1538,6 +1606,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "free_text": False,
         "root": True,
     },
     "labels_familles_handicap": {
@@ -1554,6 +1623,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "free_text": False,
     },
     "labels_autre": {
         "type": "string",
@@ -1567,6 +1637,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "free_text": True,
         "example": "HandiLabel",
     },
     # Commentaire
@@ -1590,6 +1661,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "free_text": True,
         "example": "Propose des places gratuites",
         "root": True,
     },
@@ -1609,6 +1681,7 @@ FIELDS = {
         "section": SECTION_REGISTRE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is None,
+        "free_text": False,
         "example": f"{REGISTRE_INFO_URL}",
     },
     # Conformité
@@ -1628,6 +1701,7 @@ FIELDS = {
         "section": SECTION_CONFORMITE,
         "nullable_bool": True,
         "warn_if": False,
+        "free_text": False,
     },
     # Activité
     "activite": {
@@ -1642,6 +1716,7 @@ FIELDS = {
         "attribute": "nom",
         "nullable_bool": True,
         "section": SECTION_ACTIVITE,
+        "free_text": False,
     },
 }
 
@@ -1816,6 +1891,10 @@ def get_conditional_fields() -> list[str]:
 
 def get_section_fields(section_id) -> list[str]:
     return [k for (k, v) in FIELDS.items() if v["section"] == section_id]
+
+
+def get_free_text_fields() -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("free_text", False) is True]
 
 
 def get_type(field):

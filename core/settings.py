@@ -57,6 +57,12 @@ SENTRY_DSN = get_env_variable("SENTRY_DSN", required=False)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Source: https://github.com/chucknorris-io/swear-words/blob/master/fr completed with some plurals
+FRENCH_PROFANITY_WORDLIST = os.path.join(BASE_DIR, "erp/provider/french_profanity_wordlist.txt")
+# For each user, we ignore the first <NB_PROFANITIES_IGNORED> profanities in free texts, after that,
+# the user account is deactivated
+NB_PROFANITIES_IGNORED = 1
+
 DEBUG = False
 
 # Static files

@@ -67,6 +67,10 @@ class UserStats(models.Model):
     nb_erp_created = models.IntegerField(default=0)
     nb_erp_edited = models.IntegerField(default=0)
     nb_erp_attributed = models.IntegerField(default=0)
+    nb_profanities = models.IntegerField(default=0)
 
     def __str__(self) -> str:
-        return f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"
+        return (
+            f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"
+            f"/{self.nb_profanities}"
+        )
