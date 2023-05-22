@@ -19,7 +19,7 @@ mapper_choices = {
 
 
 class Command(BaseCommand):
-    help = "Valide et importe les données dans le bdd acceslibre."
+    help = "Valide et importe les données dans le bdd acceslibre. (CSV, séparateur virgule)"
 
     def add_arguments(self, parser):
         parser.add_argument(
