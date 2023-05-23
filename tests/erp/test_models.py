@@ -103,27 +103,27 @@ class TestErp:
     def test_vote(self, data):
         assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 
-        vote = data.erp.vote(data.niko, action="DOWN")
-        assert vote.value == -1
+        vote = data.erp.vote(data.niko, action=Vote.VOTE_DOWN_ACTION)
+        assert vote.value == Vote.NEGATIVE_VALUE
         assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
 
         # user cancels his downvote
-        vote = data.erp.vote(data.niko, action="DOWN")
+        vote = data.erp.vote(data.niko, action=Vote.UNVOTE_DOWN_ACTION)
         assert vote is None
-        assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 0
+        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 
         # user downvote with a comment
-        vote = data.erp.vote(data.niko, action="DOWN", comment="gna")
-        assert vote.value == -1
+        vote = data.erp.vote(data.niko, action=Vote.VOTE_DOWN_ACTION, comment="gna")
+        assert vote.value == Vote.NEGATIVE_VALUE
         assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 1
 
-        # user now upvotes
-        vote = data.erp.vote(data.niko, action="UP")
-        assert vote.value == 1
+        # user cannot upvote while he/she still have a negative vote
+        vote = data.erp.vote(data.niko, action=Vote.VOTE_UP_ACTION)
+        assert vote is None
         assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
 
-        # user cancels his previous upvote
-        vote = data.erp.vote(data.niko, action="UP")
+        # user cancels his downvote
+        vote = data.erp.vote(data.niko, action=Vote.UNVOTE_DOWN_ACTION)
         assert vote is None
         assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 

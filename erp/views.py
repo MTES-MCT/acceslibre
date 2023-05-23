@@ -25,7 +25,7 @@ from core.lib import geo, url
 from core.mailer import SendInBlueMailer, get_mailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
-from erp.forms import get_contrib_form_for_activity
+from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre, geocoder
 from erp.provider import search as provider_search
@@ -340,11 +340,28 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     geojson_list = make_geojson(nearest_erps or [erp])
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
-    user_vote = (
-        request.user.is_authenticated
-        and not Vote.objects.filter(user=request.user, erp=erp).exists()
-        and request.user != erp.user
-    )
+    is_authenticated = request.user.is_authenticated
+    is_user_erp_owner = request.user == erp.user
+    user_has_rights_to_vote = is_authenticated and not is_user_erp_owner
+    current_vote = None
+    if is_authenticated:
+        current_vote = Vote.objects.filter(user=request.user, erp=erp).first()
+    has_vote = current_vote is not None
+    vote_up_form = {
+        "title": get_vote_button_title(is_authenticated, is_user_erp_owner, has_vote, default="Oui"),
+        "value": Vote.UNVOTE_UP_ACTION if has_vote and current_vote.is_positive else Vote.VOTE_UP_ACTION,
+        "count": getattr(erp, "count_positives", 0),
+        "user_can_vote": user_has_rights_to_vote and (not has_vote or current_vote.is_positive),
+    }
+    vote_down_form = {
+        "title": get_vote_button_title(is_authenticated, is_user_erp_owner, has_vote, default="Non"),
+        "value": Vote.UNVOTE_DOWN_ACTION if has_vote and current_vote.is_negative else Vote.VOTE_DOWN_ACTION,
+        "count": getattr(erp, "count_negatives", 0),
+        "user_can_vote": user_has_rights_to_vote and (not has_vote or current_vote.is_negative),
+        "toogle_form": not has_vote,
+        "type": "button" if not has_vote else "submit",
+    }
+
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
@@ -374,7 +391,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "url_widget_js": url_widget_js,
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
-            "user_vote": user_vote,
+            "vote_up_form": vote_up_form,
+            "vote_down_form": vote_down_form,
             "th_labels": th_labels,
             "has_th": has_th,
         },
@@ -627,31 +645,30 @@ def vote(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, published=True)
     if request.user == erp.user:
         return HttpResponseBadRequest(translate("Vous ne pouvez pas voter sur votre établissement"))
-    if request.method == "POST":
-        action = request.POST.get("action")
-        comment = request.POST.get("comment") if action == "DOWN" else None
-        vote = erp.vote(request.user, action, comment=comment)
-        if vote:
-            get_mailer().mail_admins(
-                f"Vote {'positif' if vote.value == 1 else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
-                "mail/vote_notification.txt",
-                {
-                    "erp": erp,
-                    "vote": vote,
-                    "SITE_NAME": settings.SITE_NAME,
-                    "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-                },
-            )
-            if vote.value != 1:
-                context = {
-                    "erp_contrib_url": "{}{}".format(
-                        settings.SITE_ROOT_URL, reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
-                    )
-                }
-                SendInBlueMailer().send_email(
-                    to_list=request.user.email, subject=None, template="vote_down", context=context
-                )
-            messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
+    if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
+
+    action = request.POST.get("action")
+    comment = request.POST.get("comment") if action == Vote.VOTE_DOWN_ACTION else None
+    vote = erp.vote(request.user, action, comment=comment)
+    if not vote:
+        messages.add_message(request, messages.SUCCESS, translate("Votre vote a bien été effacé."))
+        return redirect(erp.get_absolute_url())
+    get_mailer().mail_admins(
+        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
+        "mail/vote_notification.txt",
+        {
+            "erp": erp,
+            "vote": vote,
+            "SITE_NAME": settings.SITE_NAME,
+            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        },
+    )
+    if vote.is_negative:
+        route = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
+        context = {"erp_contrib_url": f"{settings.SITE_ROOT_URL}{route}"}
+        SendInBlueMailer().send_email(to_list=request.user.email, subject=None, template="vote_down", context=context)
+    messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
     return redirect(erp.get_absolute_url())
 
 
