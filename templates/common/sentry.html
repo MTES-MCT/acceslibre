@@ -1,6 +1,6 @@
 {% if not debug and SENTRY_DSN %}
-  <!-- Sentry -->
-  <script>
+    <!-- Sentry -->
+    <script>
   (function(Sentry, Integrations) {
     if (!Sentry) {
       return;
@@ -11,6 +11,6 @@
       integrations: [new Integrations.BrowserTracing()],
     });
   })(window.Sentry, window.SentryIntegrations);
-  </script>
-  <!-- End Sentry Code -->
+    </script>
+    <!-- End Sentry Code -->
 {% endif %}

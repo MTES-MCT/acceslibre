@@ -1,38 +1,44 @@
 {% extends "contrib/base_access_form.html" %}
 {% load i18n %}
-
-{% block page_title %}{% translate "L'accueil de l'établissement" %}{% endblock %}
+{% block page_title %}
+    {% translate "L'accueil de l'établissement" %}
+{% endblock %}
 {% block full_infos %}{% endblock %}
-{% block contrib_title %}{% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}{% endblock %}
-{% block contrib_step %}<small>{% translate "Étape 6 sur 7" %}</small>{% endblock %}
-{% block contrib_subtitle %}{% translate "Informations d'accessibilité" %}{% endblock %}
+{% block contrib_title %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+{% endblock %}
+{% block contrib_step %}
+    <small>{% translate "Étape 6 sur 7" %}</small>
+{% endblock %}
+{% block contrib_subtitle %}
+    {% translate "Informations d'accessibilité" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
-
 {% block fields_content %}
-  <h3 class="h4">{% translate "Accueil et prestations" %}</h3>
-  {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
-  {% include "fields/number.html" with field=form.accueil_cheminement_nombre_marches %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_audiodescription inline=False %}
-  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=False %}
-  {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
-  {% include "fields/number.html" with field=form.accueil_chambre_nombre_accessibles %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_plain_pied inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_siege inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_barre_appui inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_barre_appui inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_espace_usage inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_numero_visible inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_equipement_alerte inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True %}
+    <h3 class="h4">{% translate "Accueil et prestations" %}</h3>
+    {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
+    {% include "fields/number.html" with field=form.accueil_cheminement_nombre_marches %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_audiodescription inline=False %}
+    {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=False %}
+    {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
+    {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
+    {% include "fields/number.html" with field=form.accueil_chambre_nombre_accessibles %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_plain_pied inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_siege inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_barre_appui inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_barre_appui inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_espace_usage inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_numero_visible inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_equipement_alerte inline=True %}
+    {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True %}
 {% endblock %}

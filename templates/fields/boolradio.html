@@ -1,26 +1,31 @@
 {% load a4a %}
 {% load i18n %}
 {% if field %}
-<div class="a4a-form-field field-{{ field.name }} mb-3">
-  {% if field.id_for_label %}
-  <label for="{{ field.id_for_label }}" class="mb-0">
-    <strong tabindex="0">{{ field.label }}{% if field.field.required %} <small>({% translate "requis" %})</small>{% endif %}</strong><br>
-  </label>
-{% else %}
-  <span class="mb-0">
-    <strong tabindex="0">{{ field.label }}</strong><br>
-  </span>
-{% endif %}
-  <div class="form-group mb-1">
-    <p tabindex="0">{{ field.help_text|safe }}</p>
-    <div class="a4a-form-choices{% if inline %} inline{% endif %}" role="group">
-    <fieldset>
-      {{ field }}
-      </fieldset>
+    <div class="a4a-form-field field-{{ field.name }} mb-3">
+        {% if field.id_for_label %}
+            <label for="{{ field.id_for_label }}" class="mb-0">
+                <strong tabindex="0">{{ field.label }}
+                    {% if field.field.required %}
+                        <small>({% translate "requis" %})</small>
+                    {% endif %}
+                </strong>
+                <br>
+            </label>
+        {% else %}
+            <span class="mb-0">
+                <strong tabindex="0">{{ field.label }}</strong>
+                <br>
+            </span>
+        {% endif %}
+        <div class="form-group mb-1">
+            <p tabindex="0">{{ field.help_text|safe }}</p>
+            <div class="a4a-form-choices{% if inline %} inline{% endif %}"
+                 role="group">
+                <fieldset>
+                    {{ field }}
+                </fieldset>
+            </div>
+            {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
+        </div>
     </div>
-    {% for error in field.errors %}
-    <div class="form-text text-danger" role="alert">{{ error }}</div>
-    {% endfor %}
-  </div>
-</div>
 {% endif %}

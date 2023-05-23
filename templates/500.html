@@ -1,26 +1,27 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
 {% block page_title %}Erreur{% endblock %}
-
 {% block editorial_content %}
-<div class="text-center">
-  <h2 class="display-4">{% translate "Oups... Le serveur a crashé" %}</h2>
-  <div class="my-4">
-    <img class="w-50" src="{% static 'img/undraw_server_down.svg' %}" aria-hidden="true">
-  </div>
-  <p>{% blocktranslate %}Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
+    <div class="text-center">
+        <h2 class="display-4">{% translate "Oups... Le serveur a crashé" %}</h2>
+        <div class="my-4">
+            <img class="w-50"
+                 src="{% static 'img/undraw_server_down.svg' %}"
+                 aria-hidden="true">
+        </div>
+        <p>
+            {% blocktranslate %}Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
     requête. L'erreur a vraisemblablement déjà été automatiquement notifiée
     à l'équipe technique, qui s'efforcera de corriger le problème dans les plus
     brefs délais.{% endblocktranslate %}
-  </p>
-  {% url 'home' as url_home %}
-  {% url 'contact_topic' topic='bug' as url_contact_bug %}
-  <p>{% blocktranslate %}En attendant, vous pouvez tenter de revenir à <a href="{{ url_home }}">l'accueil</a>
+        </p>
+        {% url 'home' as url_home %}
+        {% url 'contact_topic' topic='bug' as url_contact_bug %}
+        <p>
+            {% blocktranslate %}En attendant, vous pouvez tenter de revenir à <a href="{{ url_home }}">l'accueil</a>
     ou de nous <a href="{{ url_contact_bug }}"> contacter spécifiquement à ce sujet</a>
     si vous l'estimez nécessaire.{% endblocktranslate %}
-  </p>
-</div>
+        </p>
+    </div>
 {% endblock %}

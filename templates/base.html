@@ -2,49 +2,56 @@
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="fr" data-fr-scheme="light">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="{% block robots %}{% if STAGING %}noindex, nofollow{% else %}index, follow{% endif %}{% endblock %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock %}</title>
-    <meta name="description" content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock %}">
-    <meta name="theme-color" content="#075ea2">
-    <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
-    <script src="{% url 'javascript-catalog' %}"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
-    <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
-    <link rel="stylesheet" href="{% static 'dist/main.css' %}">
-    {% block stylesheet_extras %}{% endblock %}
-    <script src="{% static 'dist/main.js' %}"></script>
-    {% block javascript_extras %}{% endblock %}
-    <meta name="google-site-verification" content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
-    <!-- Matomo Tag Manager -->
-    <script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots"
+              content="{% block robots %}{% if STAGING %}noindex, nofollow{% else %}index, follow{% endif %}{% endblock %}">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+            {% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock %}
+        </title>
+        <meta name="description"
+              content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock %}">
+        <meta name="theme-color" content="#075ea2">
+        <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
+        <script src="{% url 'javascript-catalog' %}"></script>
+        <link rel="shortcut icon"
+              type="image/x-icon"
+              href="{% static 'img/favicon.ico' %}">
+        <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+        <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
+        <link rel="stylesheet" href="{% static 'dist/main.css' %}">
+        {% block stylesheet_extras %}{% endblock %}
+        <script src="{% static 'dist/main.js' %}"></script>
+        {% block javascript_extras %}{% endblock %}
+        <meta name="google-site-verification"
+              content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
+        <!-- Matomo Tag Manager -->
+        <script>
       var _mtm = window._mtm = window._mtm || [];
       _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='https://stats.data.gouv.fr/js/container_60PXt0c2.js'; s.parentNode.insertBefore(g,s);
-    </script>
-    <!-- End Matomo Tag Manager -->
-  </head>
-
-  <body class="a4a" tabindex="0">
-    {% block skiplinks %}{% endblock %}
-    {% include "common/notifications.html" %}
-    {% block content %}{% endblock %}
-    {% include "common/matomo.html" %}
-    {% include "common/sentry.html" %}
-    {% if STAGING %}
-    <div class="a4a-staging-notice">
-      {% translate "Vous consultez actuellement le serveur de recette acceslibre." %}
-      <a href="https://acceslibre.beta.gouv.fr/">{% translate "Aller sur le site officiel" %}</a>
-    </div>
-    {% endif %}
-    <!-- New window warning messages -->
-    <div style="display: none">
-      <span id="new_target">{% translate "Ouverture dans un nouvel onglet" %}</span>
-    </div>
-  </body>
+      g.async=true; g.src='https://stats.data.gouv.fr/js/container_zMRXlK5d.js'; s.parentNode.insertBefore(g,s);
+        </script>
+        <!-- End Matomo Tag Manager -->
+    </head>
+    <body class="a4a" tabindex="0">
+        {% block skiplinks %}{% endblock %}
+        {% include "common/notifications.html" %}
+        {% block content %}{% endblock %}
+        {% include "common/matomo.html" %}
+        {% include "common/sentry.html" %}
+        {% if STAGING %}
+            <div class="a4a-staging-notice">
+                {% translate "Vous consultez actuellement le serveur de recette acceslibre." %}
+                <a href="https://acceslibre.beta.gouv.fr/">{% translate "Aller sur le site officiel" %}</a>
+            </div>
+        {% endif %}
+        <!-- New window warning messages -->
+        <div style="display: none">
+            <span id="new_target">{% translate "Ouverture dans un nouvel onglet" %}</span>
+        </div>
+    </body>
 </html>

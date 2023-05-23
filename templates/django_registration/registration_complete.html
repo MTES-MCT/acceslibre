@@ -1,35 +1,43 @@
 {% extends "editorial/base.html" %}
-
 {% load static a4a %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Inscription en cours de finalisation" %}{% endblock %}
+{% block page_title %}
+    {% translate "Inscription en cours de finalisation" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 {% block top_fluid_content %}
-  {% if 'contrib/publication/' in request.GET.next  %}
-
-<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
-    <div class="container">
-      <div class="fr-container">
-        <div class="fr-follow__newsletter">
-            <div>
-                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
-                <p class="fr-text--md">{% translate "Publication" %}</p>
-            </div>
-            <div>
-                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="{% translate 'Retour à la fiche' %}">
-                    <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
-                </a>
+    {% if 'contrib/publication/' in request.GET.next %}
+        <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+            <div class="container">
+                <div class="fr-container">
+                    <div class="fr-follow__newsletter">
+                        <div>
+                            <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
+                            <p class="fr-text--md">{% translate "Publication" %}</p>
+                        </div>
+                        <div>
+                            <a href="javascript:history.back()"
+                               class="fr-link fr-text--bold"
+                               title="{% translate 'Retour à la fiche' %}">
+                                <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-    </div>
-</div>
-  {% endif %}
+    {% endif %}
 {% endblock %}
-
 {% block editorial_content %}
-  <h3 role="status">{% translate "C'est presque fini" %}</h3>
-  <p>{% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}{% if 'contrib/publication/' in request.GET.next  %} {% translate "et de publier la fiche" %}{% endif %}.</p>
-  <p style="margin-left:-0.75em;"><a href="{% url 'home' %}" class="fr-link">{% translate "Retour à l'accueil" %}</a></p>
+    <h3 role="status">{% translate "C'est presque fini" %}</h3>
+    <p>
+        {% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}
+        {% if 'contrib/publication/' in request.GET.next %}
+            {% translate "et de publier la fiche" %}
+        {% endif %}
+        .
+    </p>
+    <p style="margin-left:-0.75em;">
+        <a href="{% url 'home' %}" class="fr-link">{% translate "Retour à l'accueil" %}</a>
+    </p>
 {% endblock %}

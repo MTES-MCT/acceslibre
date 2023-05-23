@@ -1,63 +1,66 @@
 {% extends "contrib/base.html" %}
-
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-
 {% block contrib_content %}
-  <form action="" method="POST" class="a4a-form a4a-conditional-form mb-4" novalidate>
-
-    {% csrf_token %}
-    {% block full_infos %}
-      <h1 class="h3 mb-3" tabindex="0">{% block page_title %}{% endblock %}</h1>
-
-      <h2 class="h5 mb-0">
-        {% if erp.published %}<a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>{% else %}{{ erp.nom }}{% endif %}
-        {% if erp.activite %} <small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
-      </h2>
-      <address class="text-muted mb-2">
-        <em>{{ erp.adresse }}</em>
-      </address>
-
-      {% if erp.user != user %}
-      <div class="alert alert-info" role="status">
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        {% if erp.user %}
-        {% blocktranslate %}Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>{% endblocktranslate %}
-        {% else %}
-        {% translate "Vous vous apprêtez à modifier les informations existantes pour cet établissement" %}
-        {% endif %}.
-        {% translate "Veuillez vous assurer de la fiabilité des informations que vous contribuez." %}
-      </div>
-      {% endif %}
-
-
-      {% if step == 1 or step == 2 %}
-      <p><small class="text-muted">
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        {% translate "Les champs marqué d'une astérique (*) sont obligatoires." %}
-      </small></p>
-      {% else %}
-      <p><small class="text-muted">
-        <i aria-hidden="true" class="icon icon-info-circled"></i> {% translate "Aucun champ n'est obligatoire. Si
-        vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>." %}
-      </small></p>
-      {% endif %}
-    {% endblock %}
-    {% if form.errors %}
-    <div class="alert alert-warning" role="alert">
-      <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      {% translate "Attention, des erreurs ont été rencontrées." %}
-      <ul class="my-1">
-        {% for field_name, message in form.errors.items %}
-        <li>{{ field_name|get_field_label }}: {{ message }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {% block fields_content %}{% endblock %}
-
-    {% include "contrib/includes/prevnext.html" %}
-  </form>
+    <form action=""
+          method="POST"
+          class="a4a-form a4a-conditional-form mb-4"
+          novalidate>
+        {% csrf_token %}
+        {% block full_infos %}
+            <h1 class="h3 mb-3" tabindex="0">
+                {% block page_title %}{% endblock %}
+            </h1>
+            <h2 class="h5 mb-0">
+                {% if erp.published %}
+                    <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+                {% else %}
+                    {{ erp.nom }}
+                {% endif %}
+                {% if erp.activite %}<small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
+            </h2>
+            <address class="text-muted mb-2">
+                <em>{{ erp.adresse }}</em>
+            </address>
+            {% if erp.user != user %}
+                <div class="alert alert-info" role="status">
+                    <i aria-hidden="true" class="icon icon-info-circled"></i>
+                    {% if erp.user %}
+                        {% blocktranslate %}Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>{% endblocktranslate %}
+                    {% else %}
+                        {% translate "Vous vous apprêtez à modifier les informations existantes pour cet établissement" %}
+                    {% endif %}
+                    .
+                    {% translate "Veuillez vous assurer de la fiabilité des informations que vous contribuez." %}
+                </div>
+            {% endif %}
+            {% if step == 1 or step == 2 %}
+                <p>
+                    <small class="text-muted">
+                        <i aria-hidden="true" class="icon icon-info-circled"></i>
+                        {% translate "Les champs marqué d'une astérique (*) sont obligatoires." %}
+                    </small>
+                </p>
+            {% else %}
+                <p>
+                    <small class="text-muted">
+                        <i aria-hidden="true" class="icon icon-info-circled"></i> {% translate "Aucun champ n'est obligatoire. Si
+                        vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>." %}
+                    </small>
+                </p>
+            {% endif %}
+        {% endblock %}
+        {% if form.errors %}
+            <div class="alert alert-warning" role="alert">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                {% translate "Attention, des erreurs ont été rencontrées." %}
+                <ul class="my-1">
+                    {% for field_name, message in form.errors.items %}<li>{{ field_name|get_field_label }}: {{ message }}</li>{% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% block fields_content %}{% endblock %}
+        {% include "contrib/includes/prevnext.html" %}
+    </form>
 {% endblock %}

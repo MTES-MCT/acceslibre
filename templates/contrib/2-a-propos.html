@@ -1,20 +1,23 @@
 {% extends "contrib/base_access_form.html" %}
-
 {% load a4a %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-
-{% block page_title %}{% translate "A propos de vous" %} - {% translate "acceslibre" %}{% endblock %}
+{% block page_title %}
+    {% translate "A propos de vous" %} - {% translate "acceslibre" %}
+{% endblock %}
 {% block full_infos %}{% endblock %}
-{% block contrib_title %}{% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}{% endblock %}
-{% block contrib_step %}<small>{% translate "Étape 2 sur 7" %}</small>{% endblock %}
-{% block contrib_subtitle %}{% translate "A propos de vous" %}{% endblock %}
+{% block contrib_title %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+{% endblock %}
+{% block contrib_step %}
+    <small>{% translate "Étape 2 sur 7" %}</small>
+{% endblock %}
+{% block contrib_subtitle %}
+    {% translate "A propos de vous" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
-
 {% block fields_content %}
-
-  {% include "fields/boolradio.html" with field=form.user_type %}
-  {% include "fields/textarea.html" with field=form.registre_url %}
-  {% include "fields/boolradio.html" with field=form.conformite inline=True %}
-
+    {% include "fields/boolradio.html" with field=form.user_type %}
+    {% include "fields/textarea.html" with field=form.registre_url %}
+    {% include "fields/boolradio.html" with field=form.conformite inline=True %}
 {% endblock %}

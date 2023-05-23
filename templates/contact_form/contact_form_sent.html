@@ -1,15 +1,15 @@
 {% extends "editorial/base.html" %}
-
 {% load i18n %}
-{% block page_title %}{% translate "Contact" %}{% endblock %}
+{% block page_title %}
+    {% translate "Contact" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
-
 {% block editorial_content %}
-<main role="status">
-  <h3>{% translate "Votre message a été envoyé" %}</h3>
-  <p class="alert alert-success">
-    <i aria-hidden="true" class="icon icon-check"></i>
-    {% translate "Nous vous répondrons dans les plus brefs délais." %}
-  </p>
-</main>
+    <main role="status">
+        <h3>{% translate "Votre message a été envoyé" %}</h3>
+        <p class="alert alert-success">
+            <i aria-hidden="true" class="icon icon-check"></i>
+            {% translate "Nous vous répondrons dans les plus brefs délais." %}
+        </p>
+    </main>
 {% endblock %}

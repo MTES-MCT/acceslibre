@@ -1,16 +1,15 @@
 {% extends "contrib/base_access_form.html" %}
-
 {% load a4a %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Labellisation" %}{% endblock %}
+{% block page_title %}
+    {% translate "Labellisation" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
-
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.labels inline=True %}
-  {% include "fields/textarea.html" with field=form.labels_autre %}
-  {% include "fields/boolradio.html" with field=form.labels_familles_handicap inline=True %}
-  <script>
+    {% include "fields/boolradio.html" with field=form.labels inline=True %}
+    {% include "fields/textarea.html" with field=form.labels_autre %}
+    {% include "fields/boolradio.html" with field=form.labels_familles_handicap inline=True %}
+    <script>
   $(document).ready(function() {
     const $fieldFamilles = $(".field-labels_familles_handicap");
     $fieldFamilles.hide();
@@ -55,5 +54,5 @@
 
     checkDisplay();
   });
-  </script>
+    </script>
 {% endblock %}

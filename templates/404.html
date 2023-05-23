@@ -1,22 +1,23 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Page introuvable" %}{% endblock %}
-
+{% block page_title %}
+    {% translate "Page introuvable" %}
+{% endblock %}
 {% block editorial_content %}
-<div class="text-center">
-  <h2 class="display-4">Page introuvable</h2>
-  <div class="my-4">
-    <img class="w-50" src="{% static 'img/undraw_page_not_found.svg' %}" aria-hidden="true">
-  </div>
-  {% url 'home' as url_home %}
-  {% url 'contact_topic' topic='bug' as url_contact_bug %}
-  <p>
-    {% blocktranslate %}Vous pouvez tenter de revenir à <a href="{{ url_home }}">l'accueil</a>
+    <div class="text-center">
+        <h2 class="display-4">Page introuvable</h2>
+        <div class="my-4">
+            <img class="w-50"
+                 src="{% static 'img/undraw_page_not_found.svg' %}"
+                 aria-hidden="true">
+        </div>
+        {% url 'home' as url_home %}
+        {% url 'contact_topic' topic='bug' as url_contact_bug %}
+        <p>
+            {% blocktranslate %}Vous pouvez tenter de revenir à <a href="{{ url_home }}">l'accueil</a>
     ou de nous <a href="{{ url_contact_bug }}"> contacter spécifiquement à ce sujet</a> en prenant
     soin de préciser l'adresse utilisée.{% endblocktranslate %}
-  </p>
-</main>
+        </p>
+    </main>
 {% endblock %}

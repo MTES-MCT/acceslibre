@@ -1,11 +1,13 @@
 {% extends "editorial/base.html" %}
 {% load i18n %}
-{% block page_title %}{% translate "Principaux territoires couverts" %}{% endblock %}
-
+{% block page_title %}
+    {% translate "Principaux territoires couverts" %}
+{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
-
 {% block editorial_content %}
-  <p><a href="{% url "stats_home" %}">&laquo; {% translate "Retour aux statistiques générales" %}</a></p>
-  <h1 class="my-3">{% translate "Principaux territoires couverts" %}</h1>
-  {% include "stats/includes/territoires_table.html" %}
-{% endblock  %}
+    <p>
+        <a href="{% url "stats_home" %}">&laquo; {% translate "Retour aux statistiques générales" %}</a>
+    </p>
+    <h1 class="my-3">{% translate "Principaux territoires couverts" %}</h1>
+    {% include "stats/includes/territoires_table.html" %}
+{% endblock %}

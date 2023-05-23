@@ -1,20 +1,16 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
 {% block robots %}noindex, nofollow{% endblock %}
-
-{% block page_title %}{% translate "Map icons" %}{% endblock %}
-
+{% block page_title %}
+    {% translate "Map icons" %}
+{% endblock %}
 {% block editorial_content %}
-<h2 class="mb-4">{% translate "Map icons" %}</h2>
-
-<h3 class="mb-4">{% translate "Démo" %}</h3>
-
-<div class="mb-4">
-  <div id="map-demo" style="width:100%;height:400px"></div>
-  <script>
+    <h2 class="mb-4">{% translate "Map icons" %}</h2>
+    <h3 class="mb-4">{% translate "Démo" %}</h3>
+    <div class="mb-4">
+        <div id="map-demo" style="width:100%;height:400px"></div>
+        <script>
   const map = a4a.geo.createMap("map-demo", {
     dragging: false,
     scrollWheelZoom: false
@@ -46,22 +42,32 @@
   }).addTo(map)
       .bindPopup('Auto-école')
       .openPopup();
-  </script>
-</div>
-
-<h3 class="mb-4">{% translate "Icônes" %} <small class="text-muted">{{ mapicons|length }} {% translate "icônes" %}</small></h3>
-
-<div class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list">
-  {% for icon in mapicons %}
-  <div class="text-center mb-4">
-    <img class="act-icon" alt="" src="{% static 'img/mapicons.svg' %}#{{ icon }}">
-    <img class="act-icon act-icon-32" alt="" src="{% static 'img/mapicons.svg' %}#{{ icon }}">
-    <img class="act-icon act-icon-32 act-icon-rounded" alt="" src="{% static 'img/mapicons.svg' %}#{{ icon }}">
-    <img class="act-icon act-icon-24" alt="" src="{% static 'img/mapicons.svg' %}#{{ icon }}">
-    <img class="act-icon act-icon-16" alt="" src="{% static 'img/mapicons.svg' %}#{{ icon }}">
-    <br>
-    <small class="text-muted">{{ icon }}</small>
-  </div>
-  {% endfor %}
-</div>
+        </script>
+    </div>
+    <h3 class="mb-4">
+        {% translate "Icônes" %} <small class="text-muted">{{ mapicons|length }} {% translate "icônes" %}</small>
+    </h3>
+    <div class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list">
+        {% for icon in mapicons %}
+            <div class="text-center mb-4">
+                <img class="act-icon"
+                     alt=""
+                     src="{% static 'img/mapicons.svg' %}#{{ icon }}">
+                <img class="act-icon act-icon-32"
+                     alt=""
+                     src="{% static 'img/mapicons.svg' %}#{{ icon }}">
+                <img class="act-icon act-icon-32 act-icon-rounded"
+                     alt=""
+                     src="{% static 'img/mapicons.svg' %}#{{ icon }}">
+                <img class="act-icon act-icon-24"
+                     alt=""
+                     src="{% static 'img/mapicons.svg' %}#{{ icon }}">
+                <img class="act-icon act-icon-16"
+                     alt=""
+                     src="{% static 'img/mapicons.svg' %}#{{ icon }}">
+                <br>
+                <small class="text-muted">{{ icon }}</small>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

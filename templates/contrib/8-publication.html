@@ -1,12 +1,9 @@
 {% extends "contrib/base_access_form.html" %}
-
 {% load a4a %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-
-{% block page_title %}{% translate "Publication" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
-{% block fields_content %}
-  {{ form.published|as_crispy_field }}
+{% block page_title %}
+    {% translate "Publication" %}
 {% endblock %}
+{% block robots %}noindex, nofollow{% endblock %}
+{% block fields_content %}{{ form.published|as_crispy_field }}{% endblock %}
