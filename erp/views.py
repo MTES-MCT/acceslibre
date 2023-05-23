@@ -937,12 +937,12 @@ def process_accessibilite_form(
     Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
 
     if request.method == "POST":
-        form = Form(request.POST, instance=accessibilite)
+        form = Form(request.POST, instance=accessibilite, user=request.user)
     else:
         if request.GET:
-            form = Form(request.GET, instance=accessibilite)
+            form = Form(request.GET, instance=accessibilite, user=request.user)
         else:
-            form = contrib_form(instance=accessibilite, initial={"entree_porte_presence": True})
+            form = contrib_form(instance=accessibilite, initial={"entree_porte_presence": True}, user=request.user)
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)

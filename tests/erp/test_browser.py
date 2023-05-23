@@ -7,6 +7,7 @@ from django.test import Client
 from django.urls import reverse
 from waffle.testutils import override_switch
 
+from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
 from tests.utils import assert_redirect
 
@@ -751,6 +752,40 @@ def test_add_erp_other_activity(mock_geocode, data, client):
 
     data.niko.stats.refresh_from_db()
     assert data.niko.stats.nb_erp_created == initial_nb_created + 1
+
+
+def test_add_erp_with_profanities(data, client):
+    assert UserStats.objects.get(user=data.sophie).nb_profanities == 0
+
+    client.force_login(data.sophie)
+    erp = data.erp
+
+    client.post(
+        reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
+        data={"labels_autre": "barrez-vous, cons de mimes", "commentaire": "foo"},
+        follow=True,
+    )
+    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert not accessibilite.labels_autre, "Comment with profanities should not be stored"
+
+    assert UserStats.objects.get(user=data.sophie).nb_profanities == 1
+    data.sophie.refresh_from_db()
+    assert data.sophie.is_active is True
+
+    client.post(
+        reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
+        data={
+            "commentaire": "bite",
+        },
+        follow=True,
+    )
+    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert (
+        accessibilite.commentaire == "foo"
+    ), "Comment with profanities should be ignored and reversed to the previous stored comment"
+    assert UserStats.objects.get(user=data.sophie).nb_profanities == 2
+    data.sophie.refresh_from_db()
+    assert data.sophie.is_active is False
 
 
 def test_delete_erp_unauthorized(data, client):

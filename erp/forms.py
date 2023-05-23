@@ -1,14 +1,18 @@
 from functools import reduce
 
+from better_profanity import profanity
 from django import forms
+from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.db.models import F
 from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 
+from compte.models import UserStats
 from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
@@ -71,6 +75,7 @@ class ContribAccessibiliteForm(forms.ModelForm):
         label=schema.get_label("labels"),
         help_text=schema.get_help_text("labels"),
     )
+    _user = None
 
     class Meta:
         model = Accessibilite
@@ -79,6 +84,10 @@ class ContribAccessibiliteForm(forms.ModelForm):
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
         required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        self._user = kwargs.pop("user", False)
+        super().__init__(*args, **kwargs)
 
     def clean_accueil_equipements_malentendants(self):
         if (
@@ -95,6 +104,24 @@ class ContribAccessibiliteForm(forms.ModelForm):
         ):
             return None
         return self.cleaned_data["accueil_audiodescription"]
+
+    def clean(self):
+        cleaned_data = super().clean()
+        profanity_word_loaded = False
+        for free_text in schema.get_free_text_fields():
+            if not cleaned_data.get(free_text):
+                continue
+
+            if not profanity_word_loaded:
+                profanity.load_censor_words_from_file(settings.FRENCH_PROFANITY_WORDLIST)
+
+            if profanity.contains_profanity(cleaned_data[free_text]):
+                cleaned_data.pop(free_text)
+                if self._user:
+                    user_stats, _ = UserStats.objects.get_or_create(user=self._user)
+                    user_stats.nb_profanities = F("nb_profanities") + 1
+                    user_stats.save(update_fields=("nb_profanities",))
+        return cleaned_data
 
 
 class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
