@@ -21,7 +21,7 @@ from reversion.models import Version
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
-from erp.provider import sirene
+from erp.provider import deepl, sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
 
@@ -902,6 +902,18 @@ class Erp(models.Model):
                 )
         self.search_vector = search_vector
         super().save(*args, **kwargs)
+
+    def translate(self, target_lang: str):
+        if target_lang == settings.LANGUAGE_CODE or not self.has_accessibilite():
+            return self
+
+        access = self.accessibilite
+        fields_to_translate = schema.get_free_text_fields()
+        for field_to_translate in fields_to_translate:
+            if field_value := getattr(access, field_to_translate, None):
+                setattr(self.accessibilite, field_to_translate, deepl.translate(field_value, target_lang))
+
+        return self
 
 
 @reversion.register(

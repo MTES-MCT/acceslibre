@@ -13,6 +13,7 @@ from django.forms import modelform_factory
 from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.utils.translation import ngettext
 from django.views.generic import TemplateView
@@ -338,6 +339,12 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             Erp.objects.select_related("activite").published().nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
         )
     geojson_list = make_geojson(nearest_erps or [erp])
+
+    # translate free texts if user is not displaying the page in french
+    current_language = get_language()
+    if current_language != "fr":
+        erp.translate(current_language)
+
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
     is_authenticated = request.user.is_authenticated
