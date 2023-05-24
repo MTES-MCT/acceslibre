@@ -8,7 +8,13 @@ class ChallengeAdmin(admin.ModelAdmin):
     list_display = ("nom", "slug", "start_date", "end_date", "nb_erp_total_added")
     ordering = ("nom",)
     search_fields = ("nom",)
-    readonly_fields = ["nb_erp_total_added", "classement"]
+    readonly_fields = ("nb_erp_total_added", "classement")
+    exclude = ("created_by",)
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
 
 
 @admin.register(ChallengePlayer)
