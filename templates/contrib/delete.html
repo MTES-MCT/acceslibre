@@ -1,62 +1,59 @@
 {% extends "editorial/base.html" %}
-
 {% load crispy_forms_tags %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Renseigner un établissement" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Renseigner un établissement" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
-  <h2 class="h3 mb-3">{% translate "Supprimer un établissement" %}</h2>
-
-  <p class="text-danger">
-    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-    <strong>{% translate "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:" %}</strong>
-  </p>
-
-  <div class="card border-danger shadow-m mb-3">
-    <div class="card-header text-danger">
-      <strong>{{ erp.nom }}</strong>
+    <h2 class="h3 mb-3">{% translate "Supprimer un établissement" %}</h2>
+    <p class="text-danger">
+        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+        <strong>{% translate "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:" %}</strong>
+    </p>
+    <div class="card border-danger shadow-m mb-3">
+        <div class="card-header text-danger">
+            <strong>{{ erp.nom }}</strong>
+        </div>
+        <div class="card-body d-md-flex justify-content-between text-danger">
+            {% if erp.activite %}
+                <dl class="mb-0">
+                    <dt>{% translate "Activité" %}</dt>
+                    <dd>
+                        {{ erp.activite.nom }}
+                    </dd>
+                </dl>
+            {% endif %}
+            {% if erp.siret %}
+                <dl class="mb-0">
+                    <dt>{% translate "Siret" %}</dt>
+                    <dd>
+                        {{ erp.siret }}
+                    </dd>
+                </dl>
+            {% endif %}
+            <dl class="mb-0">
+                <dt>{% translate "Adresse" %}</dt>
+                <dd>
+                    <address class="m-0">{{ erp.adresse }}</address>
+                </dd>
+            </dl>
+        </div>
     </div>
-    <div class="card-body d-md-flex justify-content-between text-danger">
-      {% if erp.activite %}
-      <dl class="mb-0">
-        <dt>{% translate "Activité" %}</dt>
-        <dd>{{ erp.activite.nom }}</dd>
-      </dl>
-      {% endif %}
-      {% if erp.siret %}
-      <dl class="mb-0">
-        <dt>{% translate "Siret" %}</dt>
-        <dd>{{ erp.siret }}</dd>
-      </dl>
-      {% endif %}
-      <dl class="mb-0">
-        <dt>{% translate "Adresse" %}</dt>
-        <dd><address class="m-0">{{ erp.adresse }}</adresse></dd>
-      </dl>
-    </div>
-  </div>
-
-  <form action="" method="POST" class="a4a-form" novalidate>
-    {% csrf_token %}
-
-    {% if form.non_field_errors %}
-    <div class="alert alert-warning" role="alert">
-      <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      {% translate "Attention, des erreurs ont été rencontrées." %}
-      <ul class="my-1">
-        {% for field_name, message in form.non_field_errors.items %}
-        <li>{{ field_name }}: {{ message }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    <div class="ml-2">
-      {{ form.confirm|as_crispy_field }}
-    </div>
-
-    <button class="btn btn-danger">{% translate "Supprimer l'établissement" %}</button>
-  </form>
-{% endblock %}
+    <form action="" method="post" class="a4a-form" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-warning" role="alert">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                {% translate "Attention, des erreurs ont été rencontrées." %}
+                <ul class="my-1">
+                    {% for field_name, message in form.non_field_errors.items %}<li>{{ field_name }}: {{ message }}</li>{% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <div class="ml-2">{{ form.confirm|as_crispy_field }}</div>
+        <button class="btn btn-danger">{% translate "Supprimer l'établissement" %}</button>
+    </form>
+{% endblock editorial_content %}

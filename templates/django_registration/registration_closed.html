@@ -1,15 +1,18 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Inscriptions fermées" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Inscriptions fermées" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
-<div class="text-center">
-  <h3 role="status">{% translate "Les inscriptions sont closes" %}</h3>
-  <p>{% translate "Il est temporairement impossible de créer un nouveau compte sur la plateforme." %}</p>
-  <p><a href="{% url 'home' %}">{% translate "Retour à l'accueil" %}</a></p>
-</div>
-{% endblock %}
+    <div class="text-center">
+        <h3 role="status">{% translate "Les inscriptions sont closes" %}</h3>
+        <p>{% translate "Il est temporairement impossible de créer un nouveau compte sur la plateforme." %}</p>
+        <p>
+            <a href="{% url 'home' %}">{% translate "Retour à l'accueil" %}</a>
+        </p>
+    </div>
+{% endblock editorial_content %}

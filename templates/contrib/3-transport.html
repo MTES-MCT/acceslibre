@@ -1,21 +1,29 @@
 {% extends "contrib/base_access_form.html" %}
-
 {% load i18n %}
-
-{% block page_title %}{% translate "Venir dans l'établissement" %}{% endblock %}
-{% block full_infos %}{% endblock %}
-{% block contrib_title %}{% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}{% endblock %}
-{% block contrib_step %}<small>{% translate "Étape 3 sur 7" %}</small>{% endblock %}
-{% block contrib_subtitle %}{% translate "Informations d'accessibilité" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Venir dans l'établissement" %}
+{% endblock page_title %}
+{% block full_infos %}
+{% endblock full_infos %}
+{% block contrib_title %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+{% endblock contrib_title %}
+{% block contrib_step %}
+    <small>{% translate "Étape 3 sur 7" %}</small>
+{% endblock contrib_step %}
+{% block contrib_subtitle %}
+    {% translate "Informations d'accessibilité" %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block fields_content %}
-  <h3 class="h4">{% translate "Transport en commun" %}</h3>
-  {% include "fields/boolradio.html" with field=form.transport_station_presence inline=True %}
-  {% include "fields/textarea.html" with field=form.transport_information %}
-  <h3 class="h4">{% translate "Stationnement" %}</h3>
-  {% include "fields/boolradio.html" with field=form.stationnement_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.stationnement_pmr inline=True %}
-  {% include "fields/boolradio.html" with field=form.stationnement_ext_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr inline=True %}
-{% endblock %}
+    <h3 class="h4">{% translate "Transport en commun" %}</h3>
+    {% include "fields/boolradio.html" with field=form.transport_station_presence inline=True %}
+    {% include "fields/textarea.html" with field=form.transport_information %}
+    <h3 class="h4">{% translate "Stationnement" %}</h3>
+    {% include "fields/boolradio.html" with field=form.stationnement_presence inline=True %}
+    {% include "fields/boolradio.html" with field=form.stationnement_pmr inline=True %}
+    {% include "fields/boolradio.html" with field=form.stationnement_ext_presence inline=True %}
+    {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr inline=True %}
+{% endblock fields_content %}

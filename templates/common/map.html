@@ -1,22 +1,21 @@
 {% load i18n %}
-<div aria-hidden="true" id="app-map" data-label="{{ where|default_if_none:"" }}"
-  class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}"
-  data-lat="{{ lat|default_if_none:"" }}" data-lon="{{ lon|default_if_none:"" }}">
-  <script id="commune-data" type="application/json">
+<div aria-hidden="true"
+     id="app-map"
+     data-label="{{ where|default_if_none:"" }}"
+     class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}"
+     data-lat="{{ lat|default_if_none:"" }}"
+     data-lon="{{ lon|default_if_none:"" }}">
+    <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
-  </script>
-  <script id="erp-pk-data" type="application/json">
-    {% if erp %}{{ erp.pk }}{% else %}null{% endif %}
-  </script>
-  <script id="erps-data" type="application/json">
-    {{ geojson_list | safe }}
-  </script>
-  <noscript>
-    <div class="p-3">
-      <div class="alert alert-warning">
-        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-        {% translate "JavaScript doit être activé pour utiliser la cartographie interactive." %}
-      </div>
-    </div>
-  </noscript>
+    </script>
+    <script id="erp-pk-data" type="application/json">{% if erp %}{{ erp.pk }}{% else %}null{% endif %}</script>
+    <script id="erps-data" type="application/json">{{ geojson_list | safe }}</script>
+    <noscript>
+        <div class="p-3">
+            <div class="alert alert-warning">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                {% translate "JavaScript doit être activé pour utiliser la cartographie interactive." %}
+            </div>
+        </div>
+    </noscript>
 </div>

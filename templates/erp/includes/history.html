@@ -1,39 +1,36 @@
 {% load a4a %}
 {% load i18n %}
-
 <h3 class="sr-only">{% translate "Historique des modifications" %}</h3>
-
 <div class="list-group list-group-flush">
-  {% for entry in erp.get_history %}
-  <details class="list-group-item list-group-item-action text-overlay">
-    <summary class="no-ouline">
-      {% if entry.user %}{% translate "par" %} <strong>{{ entry.user.username|format_username }}</strong> {% endif %}{% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ entry.date|date:"j/m/Y à H:i"|lower }}
-    </summary>
-    {% if entry.diff %}
-      <table class="table table-sm table-striped mt-3 mb-0">
-        <tr>
-          <th>{% translate "Champ" %}</th>
-          <th>{% translate "Ancienne valeur" %}</th>
-          <th>{% translate "Nouvelle valeur" %}</th>
-        </tr>
-        {% for field in entry.diff %}
-        <tr>
-          <td>{{ field.label }}</td>
-          <td class="text-danger">
-            {{ field.old }}
-          </td>
-          <td class="text-success">
-            {{ field.new }}
-          </td>
-        </tr>
-        {% endfor %}
-      </table>
-    {% endif %}
-  </details>
-  {% empty %}
-  <p class="alert alert-info">
-    <i aria-hidden="true" class="icon icon-info-circled"></i>
-    {% translate "Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement." %}
-  </p>
-  {% endfor %}
+    {% for entry in erp.get_history %}
+        <details class="list-group-item list-group-item-action text-overlay">
+            <summary class="no-ouline">
+                {% if entry.user %}
+                    {% translate "par" %} <strong>{{ entry.user.username|format_username }}</strong>
+                {% endif %}
+                {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ entry.date|date:"j/m/Y à H:i"|lower }}
+            </summary>
+            {% if entry.diff %}
+                <table class="table table-sm table-striped mt-3 mb-0">
+                    <tr>
+                        <th>{% translate "Champ" %}</th>
+                        <th>{% translate "Ancienne valeur" %}</th>
+                        <th>{% translate "Nouvelle valeur" %}</th>
+                    </tr>
+                    {% for field in entry.diff %}
+                        <tr>
+                            <td>{{ field.label }}</td>
+                            <td class="text-danger">{{ field.old }}</td>
+                            <td class="text-success">{{ field.new }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </details>
+    {% empty %}
+        <p class="alert alert-info">
+            <i aria-hidden="true" class="icon icon-info-circled"></i>
+            {% blocktranslate%}Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.{% endblocktranslate %}
+        </p>
+    {% endfor %}
 </div>

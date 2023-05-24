@@ -1,17 +1,18 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Activation réussie" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Activation réussie" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
     <div class="alert alert-success">
-      {% url 'login' as url_login %}
-      {% blocktranslate %}
+        {% url 'login' as url_login %}
+        {% blocktranslate %}
       Votre adresse mail à été changée avec succès !
       Vous pouvez <a href="{{ url_login }}">vous connecter</a> avec votre nouvelle adresse.
       {% endblocktranslate %}
     </div>
-{% endblock %}
+{% endblock editorial_content %}

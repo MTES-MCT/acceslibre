@@ -1,22 +1,20 @@
 {% extends "compte/base.html" %}
 {% load crispy_forms_filters %}
-
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Mes préférences" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Mes préférences" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <h1 class="h3 mb-3">{% translate "Mes préférences" %}</h1>
     <form action="{% url 'mes_preferences' %}" method="post">
-      {% csrf_token %}
-      {{ form|crispy }}
-
-      <p>
-        <button type="submit" class="btn btn-primary w-100">
-          {% translate "Mettre à jour mes préférences" %}
-        </button>
-      </p>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>
+            <button type="submit" class="btn btn-primary w-100">{% translate "Mettre à jour mes préférences" %}</button>
+        </p>
     </form>
-{% endblock %}
+{% endblock compte_content %}

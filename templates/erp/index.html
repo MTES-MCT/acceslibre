@@ -1,78 +1,77 @@
 {% extends "editorial/base.html" %}
-
 {% load waffle_tags %}
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{{ erp.nom }}, {% if activite %}{{ activite.nom }}, {% endif %}{{ commune.nom }}, {% translate "Accessibilité" %}{% endblock %}
-
-{% block page_description %}{% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom}}{% endblock %}
-
+{% block page_title %}
+    {{ erp.nom }},
+    {% if activite %}{{ activite.nom }},{% endif %}
+    {{ commune.nom }}, {% translate "Accessibilité" %}
+{% endblock page_title %}
+{% block page_description %}
+    {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom }}
+{% endblock page_description %}
 {% block top_fluid_content %}
-  {{ block.super }}
-{% endblock %}
-
+    {{ block.super }}
+{% endblock top_fluid_content %}
 {% block skiplinks %}
-  <a class="skippy sr-only sr-only-focusable" href="#app-map">
-    <span class="skippy-text">{% translate "Aller à la carte" %}</span>
-  </a>
-  <a class="skippy sr-only sr-only-focusable" href="#a11y">
-    <span class="skippy-text">{% translate "Aller aux informations d'accessibilité" %}</span>
-  </a>
+    <a class="skippy sr-only sr-only-focusable" href="#app-map">
+        <span class="skippy-text">{% translate "Aller à la carte" %}</span>
+    </a>
+    <a class="skippy sr-only sr-only-focusable" href="#a11y">
+        <span class="skippy-text">{% translate "Aller aux informations d'accessibilité" %}</span>
+    </a>
 {% endblock skiplinks %}
-
 {% block editorial_content %}
-
-<main role="main" id="content">
-  <article class="mt-5">
-    {% if 'success' in request.GET and messages %}
-      <div class="container container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
-        <span class="h1 mb-0">{% translate "Merci !" %}</span>
-        <img src="{% static 'img/merci.png' %}" height="60" class="d-none d-md-inline-block mb-2" alt="" aria-hidden="true"/>
-        <br>
-        {% translate "La fiche est publiée. Merci pour votre contribution." %}
-        <br>
-        <a class="mt-2 fr-btn" href="{% url 'contrib_start' %}">{% translate "Ajoutez un nouvel établissement" %}</a>
-      </div>
-    {% endif %}
-    {% include "erp/includes/header.html" %}
-    <aside class="mb-4 mt-2 order-1">
-      {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-    </aside>
-    <div class="d-flex flex-column">
-      <div class="row order-2">
-        <section id="a11y" class="col-lg-7 col-xl-8">
-        {% if accessibilite_data %}
-          {% include "erp/includes/accessibilite.html" %}
-          <aside class="text-center">
-            {% include "erp/includes/vote-form.html" %}
-          </aside>
-        {% else %}
-          <div class="alert alert-info">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
-            {% url "contrib_edit_infos" erp_slug=erp.slug as url_contrib %}
-            {% blocktranslate %}Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
+    <main role="main" id="content">
+        <article class="mt-5">
+            {% if 'success' in request.GET and messages %}
+                <div class="container container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
+                    <span class="h1 mb-0">{% translate "Merci !" %}</span>
+                    <img src="{% static 'img/merci.png' %}"
+                         height="60"
+                         class="d-none d-md-inline-block mb-2"
+                         alt=""
+                         aria-hidden="true" />
+                    <br>
+                    {% translate "La fiche est publiée. Merci pour votre contribution." %}
+                    <br>
+                    <a class="mt-2 fr-btn" href="{% url 'contrib_start' %}">{% translate "Ajoutez un nouvel établissement" %}</a>
+                </div>
+            {% endif %}
+            {% include "erp/includes/header.html" %}
+            <aside class="mb-4 mt-2 order-1">
+                {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+            </aside>
+            <div class="d-flex flex-column">
+                <div class="row order-2">
+                    <section id="a11y" class="col-lg-7 col-xl-8">
+                        {% if accessibilite_data %}
+                            {% include "erp/includes/accessibilite.html" %}
+                            <aside class="text-center">
+                                {% include "erp/includes/vote-form.html" %}
+                            </aside>
+                        {% else %}
+                            <div class="alert alert-info">
+                                <i aria-hidden="true" class="icon icon-info-circled"></i>
+                                {% url "contrib_edit_infos" erp_slug=erp.slug as url_contrib %}
+                                {% blocktranslate %}Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
             mais <a href="{{url_contrib}}">vous pouvez les ajouter</a>.{% endblocktranslate %}
-          </div>
-        {% endif %}
-        </section>
-        <aside class="col-lg-5 col-xl-4">
-          {% include "erp/includes/sidebar.html" %}
-        </aside>
-      </div>
-
-    </div>
-  </article>
-</main>
-{% endblock %}
-
+                            </div>
+                        {% endif %}
+                    </section>
+                    <aside class="col-lg-5 col-xl-4">
+                        {% include "erp/includes/sidebar.html" %}
+                    </aside>
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock editorial_content %}
 {% block bottom_fluid_content %}
-{% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
-<aside id="proximite" class="container-fluid bg-light mt-4 py-4">
-  <div class="container">
-    {% include "erp/includes/proximite.html" %}
-  </div>
-</aside>
+    {% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
+    <aside id="proximite" class="container-fluid bg-light mt-4 py-4">
+        <div class="container">{% include "erp/includes/proximite.html" %}</div>
+    </aside>
 {% endswitch %}
-{% endblock %}
+{% endblock bottom_fluid_content %}

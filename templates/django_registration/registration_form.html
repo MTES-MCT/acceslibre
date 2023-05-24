@@ -1,78 +1,84 @@
 {% extends "editorial/base.html" %}
-
 {% load a4a %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Créer un compte" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% block page_title %}
+    {% translate "Créer un compte" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block top_fluid_content %}
-  {% if 'contrib/publication/' in request.GET.next  %}
-
-<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
-    <div class="container">
-      <div class="fr-container">
-        <div class="fr-follow__newsletter">
-            <div>
-                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
-                <p class="fr-text--md">{% translate "Publication" %}</p>
-            </div>
-            <div>
-                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="{% translate 'Retour à la fiche' %}">
-                    <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
-                </a>
+    {% if 'contrib/publication/' in request.GET.next %}
+        <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+            <div class="container">
+                <div class="fr-container">
+                    <div class="fr-follow__newsletter">
+                        <div>
+                            <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
+                            <p class="fr-text--md">{% translate "Publication" %}</p>
+                        </div>
+                        <div>
+                            <a href="javascript:history.back()"
+                               class="fr-link fr-text--bold"
+                               title="{% translate "Retour à la fiche" %}">
+                                <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
-    </div>
-</div>
-  {% endif %}
-{% endblock %}
-
+    {% endif %}
+{% endblock top_fluid_content %}
 {% block editorial_content %}
-
-  {% if user.is_authenticated %}
-  <p class="alert alert-warning" role="alert">
-    {% url 'logout' as url_logout %}
-    {% url 'home' as url_home %}
-    {% blocktranslate %}
+    {% if user.is_authenticated %}
+        <p class="alert alert-warning" role="alert">
+            {% url 'logout' as url_logout %}
+            {% url 'home' as url_home %}
+            {% blocktranslate %}
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
     vous ne pouvez donc pas créer un nouveau compte.
     Veuillez <a href="{{ url_logout }}">vous déconnecter</a>
     ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
     {% endblocktranslate %}
-  </p>
-  {% else %}
-<div class="row">
-  <div class="fr-col-12 fr-col-md-6">
-      <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
-        {% csrf_token %}
-
-        <input type="hidden" name="next" value="{{ next|urlencode }}">
-        <h1 class="h3 text-left mb-4">{% translate "Je crée un compte" %}</h1>
-        <div class="">
-          {{ form.non_field_errors }}
-
-          {{ form.email|as_crispy_field }}
-          {{ form.username|as_crispy_field }}
-          {{ form.password1|as_crispy_field }}
-          {{ form.password2|as_crispy_field }}
-          {{ form.robot|as_crispy_field }}
+        </p>
+    {% else %}
+        <div class="row">
+            <div class="fr-col-12 fr-col-md-6">
+                <form action="."
+                      method="post"
+                      novalidate
+                      class="registration-form mb-4"
+                      id="registration">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next|urlencode }}">
+                    <h1 class="h3 text-left mb-4">{% translate "Je crée un compte" %}</h1>
+                    <div>
+                        {{ form.non_field_errors }}
+                        {{ form.email|as_crispy_field }}
+                        {{ form.username|as_crispy_field }}
+                        {{ form.password1|as_crispy_field }}
+                        {{ form.password2|as_crispy_field }}
+                        {{ form.robot|as_crispy_field }}
+                    </div>
+                    <button type="submit"
+                            class="btn fr-btns-group--center btn-primary fr-btn btn-block">
+                        {% translate "Créer mon compte" %}
+                    </button>
+                </form>
+            </div>
+            <div class="fr-col-5 fr-col-offset-1 mt-20">
+                <figure class="fr-content-media d-none d-sm-block">
+                    <div class="fr-content-media__img ">
+                        <img class="auto-height"
+                             src="{% static 'img/login.jpg' %}"
+                             alt=""
+                             aria-hidden="true">
+                    </div>
+                </figure>
+            </div>
         </div>
-        <button type="submit" class="btn fr-btns-group--center btn-primary fr-btn btn-block">{% translate "Créer mon compte" %}</button>
-      </form>
-    </div>
-    <div class="fr-col-5 fr-col-offset-1 mt-20">
-      <figure class="fr-content-media d-none d-sm-block">
-          <div class="fr-content-media__img ">
-              <img class="auto-height" src="{% static 'img/login.jpg' %}" alt="" aria-hidden="true">
-          </div>
-      </figure>
-    </div>
-</div>
-
-  {% endif %}
-
-</main>
-{% endblock %}
+    {% endif %}
+{% endblock editorial_content %}

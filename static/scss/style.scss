@@ -26,37 +26,42 @@ $viewport-xl: 1200px;
 
 .btn-search {
   max-width: 7% !important;
+
   @media screen and (max-width: $viewport-md) {
-        max-width: 15%!important;
-      }
+    max-width: 15% !important;
+  }
 }
 
 .blur {
-    background-color: white;
-    opacity: 0.3;
+  background-color: white;
+  opacity: 0.3;
 }
 
+.text-center {
+  text-align:center;
+}
 #spinner_container {
-    z-index:9999;
-    position:absolute;
-    height:100%;
-    width:100%;
-    top: 0;
-    left: 0;
-    display: none;
+  z-index: 9999;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
 }
 
-#spinner   {
+#spinner {
   color: $primary;
   width: 10rem;
   height: 10rem;
   left: 50%;
   top: 50%;
-  position:absolute;
+  position: absolute;
 }
 
 #qrcode {
   display: flex;
+
   @media screen and (max-width: $viewport-sm) {
     // on mobile we don't want to display qrcode
     display: none;
@@ -74,17 +79,18 @@ $viewport-xl: 1200px;
   margin-top: 15rem !important;
 }
 
-iframe{
+iframe {
   border: 0px;
-  margin:0px;
+  margin: 0px;
 }
 
-.icon-difference{
+.icon-difference {
   max-height: 130px;
-  width:auto;
+  width: auto;
 }
 
-button.fr-btn:focus, button.fr-btn:hover{
+button.fr-btn:focus,
+button.fr-btn:hover {
   background-color: white;
   color: rgba(41, 41, 255, 0.5);
   background-image: none !important;
@@ -93,17 +99,24 @@ button.fr-btn:focus, button.fr-btn:hover{
   border: 2px solid rgba(41, 41, 255, 0.5);
 }
 
+.elt-bigger {
+  font-size: 1.1em !important;
+}
+
 #home-latest-erps-list {
-  & ul{
+  & ul {
     padding-left: 0px;
   }
+
   & li {
     list-style-type: none;
   }
 }
-.fr-header__brand-top{
-  display:block !important;
+
+.fr-header__brand-top {
+  display: block !important;
 }
+
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
@@ -114,6 +127,7 @@ button.fr-btn:focus, button.fr-btn:hover{
   &-footer {
     margin-top: auto;
   }
+
   &-bg-home {
     background-position: center;
     background-size: cover;
@@ -130,20 +144,23 @@ button.fr-btn:focus, button.fr-btn:hover{
     z-index: 9999;
   }
 
-  .bold{
+  .bold {
     font-weight: bold;
   }
 
   .focus-img:focus img {
     border: 2px solid white;
-    padding:2px;
+    padding: 2px;
   }
+
   &-comment-block {
     p {
       margin: 0;
+
       &::before {
         content: "« ";
       }
+
       &::after {
         content: " »";
       }
@@ -152,7 +169,9 @@ button.fr-btn:focus, button.fr-btn:hover{
 
   // selectWoo styles overriding
   .select2-container--bootstrap4 {
-    .select2-selection, input[type=text] {
+
+    .select2-selection,
+    input[type=text] {
       border: 1px solid $input-border-color;
     }
   }
@@ -161,6 +180,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     cursor: pointer;
     font-size: .87em;
     padding: 8px 12px;
+
     &:hover {
       color: $list-group-active-color;
       background-color: $list-group-active-bg;
@@ -197,6 +217,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     }
 
     &-erp {
+
       // large viewport
       @media screen and (min-width: $viewport-md) {
         width: 96px;
@@ -204,6 +225,7 @@ button.fr-btn:focus, button.fr-btn:hover{
         padding: 7px;
         margin-right: 15px;
       }
+
       // mobile viewport
       @media screen and (max-width: $viewport-md) {
         width: 32px;
@@ -312,7 +334,9 @@ button.fr-btn:focus, button.fr-btn:hover{
   }
 
   .cgu {
-    p, li {
+
+    p,
+    li {
       color: #444;
     }
   }
@@ -365,16 +389,19 @@ button.fr-btn:focus, button.fr-btn:hover{
           opacity: 0;
           right: 0;
         }
+
         5% {
           height: auto;
           opacity: 1;
           right: 0;
         }
+
         90% {
           height: auto;
           opacity: 1;
           right: 0;
         }
+
         100% {
           height: 0px;
           opacity: 0;
@@ -401,12 +428,18 @@ button.fr-btn:focus, button.fr-btn:hover{
     }
   }
 
-  h1, .h1,
-  h2, .h2,
-  h3, .h3,
-  h4, .h4,
-  h5, .h5,
-  h6, .h6 {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
     font-weight: 400;
   }
 
@@ -440,8 +473,10 @@ button.fr-btn:focus, button.fr-btn:hover{
 
   &-home-commune-link {
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
+
       .card-body {
         background-color: #f8f9fa;
       }
@@ -453,7 +488,8 @@ button.fr-btn:focus, button.fr-btn:hover{
     margin: 0;
     padding: .27rem 0;
 
-    h3, h4 {
+    h3,
+    h4 {
       line-height: 1.5em;
     }
   }
@@ -474,7 +510,7 @@ button.fr-btn:focus, button.fr-btn:hover{
   }
 
   .form-group {
-    > label {
+    >label {
       color: #444;
       font-weight: 500;
     }
@@ -491,10 +527,12 @@ button.fr-btn:focus, button.fr-btn:hover{
 
   &-erp-details-link {
     font-size: .9em;
+
     @media screen and (max-width: $viewport-md) {
       font-size: .85em;
       padding: 4px;
     }
+
     .icon {
       vertical-align: inherit;
     }
@@ -570,6 +608,7 @@ button.fr-btn:focus, button.fr-btn:hover{
 
     @media screen and (max-width: $viewport-md) {
       display: none;
+
       &.visible {
         display: block;
       }
@@ -580,6 +619,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     @media screen and (min-width: $viewport-md) {
       height: calc(100vh - 58px - 57px);
     }
+
     @media screen and (max-width: $viewport-md) {
       height: calc(100vh - 148px);
     }
@@ -589,6 +629,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     @media screen and (min-width: $viewport-md) {
       height: 350px;
     }
+
     @media screen and (max-width: $viewport-md) {
       height: 200px;
     }
@@ -599,7 +640,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     .autocomplete-input {
       &.loading {
         background: transparent url("/img/loading.gif") no-repeat;
-        background-position : calc(100% - 8px) center;
+        background-position: calc(100% - 8px) center;
       }
     }
 
@@ -607,14 +648,17 @@ button.fr-btn:focus, button.fr-btn:hover{
       input[name=what] {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+
         &:focus {
           z-index: 100000;
         }
       }
+
       input[name=where] {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-left: 0;
+
         &:focus {
           z-index: 100000;
         }
@@ -727,6 +771,7 @@ button.fr-btn:focus, button.fr-btn:hover{
     @media screen and (min-width: $viewport-lg) {
       max-height: 58px;
     }
+
     h2 {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -877,11 +922,11 @@ button.fr-btn:focus, button.fr-btn:hover{
     text-decoration: none;
   }
 
-  input[type="checkbox"] + .form-check-label.requiredField {
+  input[type="checkbox"]+.form-check-label.requiredField {
     display: flex;
   }
 
-  input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
+  input[type="checkbox"]+.form-check-label.requiredField .asteriskField {
     left: -10px;
   }
 
@@ -959,8 +1004,8 @@ button.fr-btn:focus, button.fr-btn:hover{
 
   .StepProgress-item.is-done::before {
     color: limegreen;
-    left:-25px;
-    content:"✔"
+    left: -25px;
+    content: "✔"
   }
 
   .StepProgress-item.current {
@@ -1042,10 +1087,12 @@ button.fr-btn:focus, button.fr-btn:hover{
       animation: lds-dual-ring 1.2s linear infinite;
     }
   }
+
   @keyframes lds-dual-ring {
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }

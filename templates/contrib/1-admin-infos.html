@@ -1,114 +1,109 @@
 {% extends "contrib/base.html" %}
-
 {% load a4a %}
 {% load crispy_forms_tags static %}
 {% load i18n %}
-
-{% block page_title %}{% if erp %}{% translate "Modifier un établissement" %}{% else %}{% translate "Ajouter un établissement" %}{% endif %}{% endblock %}
-{% block contrib_title %}{% translate "Ajouter les données d'accessibilité d'un établissement" %}{% endblock %}
-{% block contrib_step %}<small>{% translate "Étape 1 sur 7" %}</small>{% endblock %}
-{% block contrib_subtitle %}{% translate "L'établissement" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% if erp %}
+        {% translate "Modifier un établissement" %}
+    {% else %}
+        {% translate "Ajouter un établissement" %}
+    {% endif %}
+{% endblock page_title %}
+{% block contrib_title %}
+    {% translate "Ajouter les données d'accessibilité d'un établissement" %}
+{% endblock contrib_title %}
+{% block contrib_step %}
+    <small>{% translate "Étape 1 sur 7" %}</small>
+{% endblock contrib_step %}
+{% block contrib_subtitle %}
+    {% translate "L'établissement" %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block contrib_content %}
-  <h1 class="h3 mb-3">
-    {% translate "Adresse de l'établissement" %}
-  </h1>
-
-  <form action="" method="POST" class="mb-4" novalidate>
-    {% csrf_token %}
-    {{ form.geom|as_crispy_field }}
-    {{ form.source|as_crispy_field }}
-    {{ form.source_id|as_crispy_field }}
-    {{ form.asp_id|as_crispy_field }}
-
-    {% if form.non_field_errors %}
-    <div class="alert alert-warning" role="alert">
-      <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-      {% translate "Attention, des erreurs ont été rencontrées." %}
-      <ul class="my-1">
-        {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    {% if data_error %}
-      <div class="alert alert-danger">{{ data_error }}</div>
-    {% endif %}
-
-    {% if existing_matches or duplicated %}
-      {% if existing_matches %}
-      <div class="alert alert-warning">
-        <p>
-          <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-          {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
-        </p>
-      </div>
-      {% endif %}
-      <div class="list-group list-group-flush">
-        {% if existing_matches %}
-        <div class="row">
-          <div class="col-md-12">
-            {% for erp in existing_matches %}
-            <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
-              <div>
-                <div class="d-flex w-100 justify-content-between">
-                  <h2 class="h6 font-weight-bold w-100 mb-0 pb-0">
-                    <!-- rank: {{ erp.rank }} -->
-                    <a href="{{ erp.get_absolute_url }}">
-                      <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
-                        src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                      {% if where|startswith:"Autour de moi" and erp.distance %}
-                        <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
-                      {% endif %}
-                      {{ erp.nom }}
-                      <span class="sr-only">{{ erp.adresse }}</span>
-                    </a>
-                  </h2>
-                </div>
-                <div aria-hidden="true">
-                  {% if erp.activite %}
-                    <small class="font-weight-bold text-muted">{{ erp.activite }}</small>
-                  {% endif %}
-                  <address class="d-inline mb-0">
-                    <small>{{ erp.adresse }}</small>
-                  </address>
-                </div>
-              </div>
-
+    <h1 class="h3 mb-3">{% translate "Adresse de l'établissement" %}</h1>
+    <form action="" method="post" class="mb-4" novalidate>
+        {% csrf_token %}
+        {{ form.geom|as_crispy_field }}
+        {{ form.source|as_crispy_field }}
+        {{ form.source_id|as_crispy_field }}
+        {{ form.asp_id|as_crispy_field }}
+        {% if form.non_field_errors %}
+            <div class="alert alert-warning" role="alert">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                {% translate "Attention, des erreurs ont été rencontrées." %}
+                <ul class="my-1">
+                    {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+                </ul>
             </div>
-            <p class="text-left">
-              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
-                <i aria-hidden="true" class="icon icon-pencil"></i>
-                {% translate "Améliorez ces informations" %}
-              </a>
-            </p>
-          {% endfor %}
-          </div>
-        </div>
         {% endif %}
-        {% if duplicated or existing_matches %}
-        <hr class="my-5" style="width: 100%; border:1px solid rgba(0, 0, 0, 0.1);">
-        <p class="mb-0">
-          <button class="btn btn-primary" type="submit" name="force" value="1">
-            <i aria-hidden="true" class="icon icon-pencil"></i>
-            {% translate "Continuer ma saisie d'un nouvel établissement" %}
-          </button>
-        </p>
+        {% if data_error %}<div class="alert alert-danger">{{ data_error }}</div>{% endif %}
+        {% if existing_matches or duplicated %}
+            {% if existing_matches %}
+                <div class="alert alert-warning">
+                    <p>
+                        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                        {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
+                    </p>
+                </div>
+            {% endif %}
+            <div class="list-group list-group-flush">
+                {% if existing_matches %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for erp in existing_matches %}
+                                <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+                                    <div>
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h2 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                                                <!-- rank: {{ erp.rank }} -->
+                                                <a href="{{ erp.get_absolute_url }}">
+                                                    <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                                                    {% if where|startswith:"Autour de moi" and erp.distance %}
+                                                        <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
+                                                    {% endif %}
+                                                    {{ erp.nom }}
+                                                    <span class="sr-only">{{ erp.adresse }}</span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <div aria-hidden="true">
+                                            {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+                                            <address class="d-inline mb-0">
+                                                <small>{{ erp.adresse }}</small>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-left">
+                                    <a class="btn btn-outline-primary text-wrap mx-auto"
+                                       href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
+                                        <i aria-hidden="true" class="icon icon-pencil"></i>
+                                        {% translate "Améliorez ces informations" %}
+                                    </a>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if duplicated or existing_matches %}
+                    <hr class="my-5" style="width: 100%; border:1px solid rgba(0, 0, 0, 0.1)">
+                    <p class="mb-0">
+                        <button class="btn btn-primary" type="submit" name="force" value="1">
+                            <i aria-hidden="true" class="icon icon-pencil"></i>
+                            {% translate "Continuer ma saisie d'un nouvel établissement" %}
+                        </button>
+                    </p>
+                {% endif %}
+            </div>
         {% endif %}
-      </div>
-    {% endif %}
-
-    <div class="row mt-4">
-      <div class="col-sm-6">
-        {{ form.nom|as_crispy_field }}
-      </div>
-      <div class="col-sm-6">
-        {{ form.activite|as_crispy_field }}
-        {{ form.nouvelle_activite|as_crispy_field }}
-
-        <script>
+        <div class="row mt-4">
+            <div class="col-sm-6">{{ form.nom|as_crispy_field }}</div>
+            <div class="col-sm-6">
+                {{ form.activite|as_crispy_field }}
+                {{ form.nouvelle_activite|as_crispy_field }}
+                <script>
         $(document).ready(function() {
           if($("#id_activite").val() == '{{ activite.id }}'){
               $("#div_id_nouvelle_activite").show();
@@ -136,74 +131,63 @@
             document.querySelector('.select2-search__field').focus();
           });
         });
-        </script>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-3">
-        {{ form.numero|as_crispy_field }}
-      </div>
-      <div class="col-sm-9">
-        {{ form.voie|as_crispy_field }}
-      </div>
-    </div>
-    {{ form.lieu_dit|as_crispy_field }}
-    <div class="row">
-      <div class="col-sm-4">
-        {{ form.code_postal|as_crispy_field }}
-      </div>
-      <div class="col-sm-8">
-        {{ form.commune|as_crispy_field }}
-      </div>
-    </div>
-    <hr>
-    <h2 class="h3">Contact</h2>
-    <div class="row">
-      <div class="col-lg-4">
-        {{ form.site_internet|as_crispy_field }}
-      </div>
-      <div class="col-lg-4">
-        {{ form.telephone|as_crispy_field }}
-      </div>
-      <div class="col-lg-4">
-        {{ form.contact_email|as_crispy_field }}
-      </div>
-    </div>
-    {{ form.contact_url|as_crispy_field }}
-
-    <h3 class="h3 mb-3">{% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span></h3>
-
-    <div aria-hidden="true" class="alert alert-info">
-      <i class="icon icon-info-circled"></i>
-      {% blocktranslate %}
+                </script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">{{ form.numero|as_crispy_field }}</div>
+            <div class="col-sm-9">{{ form.voie|as_crispy_field }}</div>
+        </div>
+        {{ form.lieu_dit|as_crispy_field }}
+        <div class="row">
+            <div class="col-sm-4">{{ form.code_postal|as_crispy_field }}</div>
+            <div class="col-sm-8">{{ form.commune|as_crispy_field }}</div>
+        </div>
+        <hr>
+        <h2 class="h3">Contact</h2>
+        <div class="row">
+            <div class="col-lg-4">{{ form.site_internet|as_crispy_field }}</div>
+            <div class="col-lg-4">{{ form.telephone|as_crispy_field }}</div>
+            <div class="col-lg-4">{{ form.contact_email|as_crispy_field }}</div>
+        </div>
+        {{ form.contact_url|as_crispy_field }}
+        <h3 class="h3 mb-3">
+            {% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
+        </h3>
+        <div aria-hidden="true" class="alert alert-info">
+            <i class="icon icon-info-circled"></i>
+            {% blocktranslate %}
       Merci de bien vérifier la bonne géolocalisation de votre établissement sur
       la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte
       pour faire correspondre le pointeur central sur sa position précise.</strong>
       {% endblocktranslate %}
-    </div>
-
-    {% if erp or external_erp %}
-    <h2 class="h5 mb-3">
-      {%  if erp %}
-      {{ erp.nom }}
-      {% elif external_erp %}
-      {{ external_erp.nom }}
-      {% endif %}
-      <small class="text-muted">
-        {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
-        - <em>{%  if erp %}{{ erp.adresse }}{% elif external_erp %}{{ external_erp.adresse }}{% endif %}</em>
-      </small>
-    </h2>
-  {% endif %}
-
-    <div id="localisation-map" aria-hidden="true">
-      <div class="a4a-localisation-map"></div>
-      {{ form.lat }}
-      {{ form.lon }}
-    </div>
-
-    {% if not existing_matches %}
-     {% include "contrib/includes/prevnext.html" %}
+        </div>
+        {% if erp or external_erp %}
+            <h2 class="h5 mb-3">
+                {% if erp %}
+                    {{ erp.nom }}
+                {% elif external_erp %}
+                    {{ external_erp.nom }}
+                {% endif %}
+                <small class="text-muted">
+                    {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
+                    - <em>
+                    {% if erp %}
+                        {{ erp.adresse }}
+                    {% elif external_erp %}
+                        {{ external_erp.adresse }}
+                    {% endif %}
+                </em>
+            </small>
+        </h2>
     {% endif %}
-  </form>
-{% endblock %}
+    <div id="localisation-map" aria-hidden="true">
+        <div class="a4a-localisation-map"></div>
+        {{ form.lat }}
+        {{ form.lon }}
+    </div>
+    {% if not existing_matches %}
+        {% include "contrib/includes/prevnext.html" %}
+    {% endif %}
+</form>
+{% endblock contrib_content %}

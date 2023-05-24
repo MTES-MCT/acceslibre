@@ -1,14 +1,12 @@
 {% load a4a %}
-
 <div class="a4a-form-field field-{{ field.name }} mb-3">
-  <label for="{{ field.id_for_label }}" class="mb-0">
-    <strong tabindex="0">{{ field.label }}</strong><br>
-  </label>
-  <div class="form-group">
-    <p tabindex="0">{{ field.help_text|safe }}</p>
-    {{ field|addclass:"form-control" }}
-    {% for error in field.errors %}
-    <div class="form-text text-danger" role="alert">{{ error }}</div>
-    {% endfor %}
-  </div>
+    <label for="{{ field.id_for_label }}" class="mb-0">
+        <strong tabindex="0">{{ field.label }}</strong>
+        <br>
+    </label>
+    <div class="form-group">
+        <p tabindex="0">{{ field.help_text|safe }}</p>
+        {{ field|addclass:"form-control" }}
+        {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
+    </div>
 </div>

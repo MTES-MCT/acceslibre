@@ -1,42 +1,49 @@
 {% extends "editorial/base.html" %}
-
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Nos partenaires" %}{% endblock %}
-
+{% block page_title %}
+    {% translate "Nos partenaires" %}
+{% endblock page_title %}
 {% block editorial_content %}
-<div class="mt-5">
-  <h1 class="text-center mt-5 mb-5">{% translate "Nos partenaires" %}</h1>
-  <div class="row flex justify-content-center mb-5">
-    <img class="a4a-partenaire-logo flex-column" src="{% static 'img/partenaires/FranceRelance.png' %}" alt="FranceRelance">
-    <img class="a4a-partenaire-logo flex-column" src="{% static 'img/partenaires/NextGenEU.png' %}" alt="NextGenEU">
-  </div>
-  <div class="row flex justify-content-center mb-5">
-  {% for pid, partenaire in partenaires.items|shuffle %}
-    <a class="m-2" href="#{{ pid }}">
-      <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
-        alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-    </a>
-  {% endfor %}
-  </div>
-
-
-  {% for pid, partenaire in partenaires.items|shuffle %}
-  <div class="card mb-3" id="{{ pid }}">
-    <div class="card-body">
-      <h2 class="h5 card-title">
-        <a rel="noopener" aria-describedby="new_target" target="_blank" href="{{ partenaire.url }}">
-          <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
-            alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-        </a>
-      </h2>
-      {% include partenaire.template %}
+    <div class="mt-5">
+        <h1 class="text-center mt-5 mb-5">{% translate "Nos partenaires" %}</h1>
+        <div class="row flex justify-content-center mb-5">
+            <img class="a4a-partenaire-logo flex-column"
+                 src="{% static 'img/partenaires/FranceRelance.png' %}"
+                 alt="FranceRelance">
+            <img class="a4a-partenaire-logo flex-column"
+                 src="{% static 'img/partenaires/NextGenEU.png' %}"
+                 alt="NextGenEU">
+        </div>
+        <div class="row flex justify-content-center mb-5">
+            {% for pid, partenaire in partenaires.items|shuffle %}
+                <a class="m-2" href="#{{ pid }}">
+                    <img class="a4a-partenaire-logo"
+                         src="{% static partenaire.logo %}"
+                         alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
+                </a>
+            {% endfor %}
+        </div>
+        {% for pid, partenaire in partenaires.items|shuffle %}
+            <div class="card mb-3" id="{{ pid }}">
+                <div class="card-body">
+                    <h2 class="h5 card-title">
+                        <a rel="noopener"
+                           aria-describedby="new_target"
+                           target="_blank"
+                           href="{{ partenaire.url }}">
+                            <img class="a4a-partenaire-logo"
+                                 src="{% static partenaire.logo %}"
+                                 alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
+                        </a>
+                    </h2>
+                    {% include partenaire.template %}
+                </div>
+            </div>
+        {% endfor %}
+        <p>
+            <a href="{% url "home" %}">« {% translate "Retour à l'accueil" %}</a>
+        </p>
     </div>
-  </div>
-  {% endfor %}
-
-  <p><a href="{% url "home" %}">&laquo; {% translate "Retour à l'accueil" %}</a></p>
-</div>
-{% endblock %}
+{% endblock editorial_content %}

@@ -1,33 +1,27 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <!-- {% comment %}Common header (logo and login/logout/account links){% endcomment %} -->
-  {% block header %}
-    {% include "editorial/header.html" with dark=True %}
-  {% endblock %}
-
-  <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
-  <main role="main" id="content">
-
-  {% block top_fluid_content %}
-    <aside class="container-fluid bg-light py-4">
-      <div class="container text-center">
-        {% include "search/form.html" with dark=False %}
-      </div>
-    </aside>
-  {% endblock %}
-
-  <!-- {% comment %}Main content area{% endcomment %} -->
-  <div class="container a4a-editorial my-4">
-    <div class="fr-container">
-    {% block editorial_content %}{% endblock %}
-    </div>
-  </div>
-
-  <!-- {% comment %}Full-width content available area,empty by default{% endcomment %} -->
-  {% block bottom_fluid_content %}{% endblock %}
-
-  </main>
-  <!-- {% comment %}Common page footer{% endcomment %} -->
-  {% include "editorial/footer.html" %}
-{% endblock %}
+    <!-- {% comment %}Common header (logo and login/logout/account links){% endcomment %} -->
+    {% block header %}
+        {% include "editorial/header.html" with dark=True %}
+    {% endblock header %}
+    <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
+    <main role="main" id="content">
+        {% block top_fluid_content %}
+            <aside class="container-fluid bg-light py-4">
+                <div class="container text-center">{% include "search/form.html" with dark=False %}</div>
+            </aside>
+        {% endblock top_fluid_content %}
+        <!-- {% comment %}Main content area{% endcomment %} -->
+        <div class="container a4a-editorial my-4">
+            <div class="fr-container">
+                {% block editorial_content %}
+                {% endblock editorial_content %}
+            </div>
+        </div>
+        <!-- {% comment %}Full-width content available area,empty by default{% endcomment %} -->
+        {% block bottom_fluid_content %}
+        {% endblock bottom_fluid_content %}
+    </main>
+    <!-- {% comment %}Common page footer{% endcomment %} -->
+    {% include "editorial/footer.html" %}
+{% endblock content %}

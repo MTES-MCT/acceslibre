@@ -1,15 +1,17 @@
 {% extends "editorial/base.html" %}
-
 {% load static %}
 {% load i18n %}
-
-{% block page_title %}{% translate "Inscriptions fermées" %}{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-
+{% block page_title %}
+    {% translate "Inscriptions fermées" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
-  {% url "contact_topic" topic="connection" as url_contact_connection %}
-  <h3 role="status">{% translate "Les inscriptions sont temporairement fermées" %}</h3>
-  <p>{% blocktranslate %}La possibilité de créer un compte a temporairement été désactivée. Pour plus d'information,
-  vous pouvez <a href="{{ url_contact_connection }}">nous contacter</a>.{% endblocktranslate %}</p>
-
-{% endblock %}
+    {% url "contact_topic" topic="connection" as url_contact_connection %}
+    <h3 role="status">{% translate "Les inscriptions sont temporairement fermées" %}</h3>
+    <p>
+        {% blocktranslate %}La possibilité de créer un compte a temporairement été désactivée. Pour plus d'information,
+  vous pouvez <a href="{{ url_contact_connection }}">nous contacter</a>.{% endblocktranslate %}
+    </p>
+{% endblock editorial_content %}
