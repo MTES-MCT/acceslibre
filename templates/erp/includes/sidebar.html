@@ -45,7 +45,7 @@
                     </a>
                 {% else %}
                     <a href="{% url 'subscribe_erp' erp_slug=erp.slug %}"
-                       title='{% translate "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour" %}'>
+                       title="{% translate "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour" %}">
                         <i aria-hidden="true" class="icon icon-bell"></i>
                         {% translate "S'abonner aux mises à jour" %}
                     </a>
@@ -123,7 +123,7 @@
                                     class="close"
                                     data-dismiss="modal"
                                     aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">×</span>
                             </button>
                         </div>
                         <div class="modal-body text-left" id="widget-code">

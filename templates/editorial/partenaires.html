@@ -4,7 +4,7 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Nos partenaires" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <div class="mt-5">
         <h1 class="text-center mt-5 mb-5">{% translate "Nos partenaires" %}</h1>
@@ -43,7 +43,7 @@
             </div>
         {% endfor %}
         <p>
-            <a href="{% url "home" %}">&laquo; {% translate "Retour à l'accueil" %}</a>
+            <a href="{% url "home" %}">« {% translate "Retour à l'accueil" %}</a>
         </p>
     </div>
-{% endblock %}
+{% endblock editorial_content %}

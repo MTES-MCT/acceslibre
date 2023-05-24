@@ -8,15 +8,18 @@
     {% if erp %}
         - {% translate "Signaler une malveillance pour l'établissement" %} "{{ erp.nom }}"
     {% endif %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-{% block top_fluid_content %}{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block top_fluid_content %}
+{% endblock top_fluid_content %}
 {% block editorial_content %}
     <h1 class="h3 text-center mb-4">{% translate "Contactez-nous" %}</h1>
     <div class="row justify-content-md-center">
         <form id="contact-form"
               action="."
-              method="POST"
+              method="post"
               novalidate
               autocomplete
               class="col-md-6 col-lg-7 mb-4">
@@ -37,7 +40,7 @@
             {% if erp %}
                 <div class="alert alert-info d-inline-block d-md-flex justify-content-between">
                     <span>{% translate "Établissement :" %} {{ erp.nom }} ({{ erp.commune_ext.nom }})</span>
-                    <span><a class="bold" href="{{ erp.get_absolute_url }}">&raquo; {% translate "Retour à la fiche" %}</a></span>
+                    <span><a class="bold" href="{{ erp.get_absolute_url }}">» {% translate "Retour à la fiche" %}</a></span>
                 </div>
                 {% if erp.activite %}
                     <div class="alert alert-warning">
@@ -65,7 +68,7 @@
                                    href="https://solidarites-sante.gouv.fr/grands-dossiers/vaccin-covid-19/je-suis-un-particulier/"
                                    target="_blank"
                                    rel="noopener noreferrer">
-                                    &raquo; {% translate "Plus d'information sur les modalités de vaccination" %}
+                                    » {% translate "Plus d'information sur les modalités de vaccination" %}
                                 </a>
                             </p>
                         {% else %}
@@ -108,4 +111,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock editorial_content %}

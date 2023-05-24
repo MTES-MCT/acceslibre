@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Annuaire" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <h1 class="mb-3">
         <a href="{% url 'annuaire_home' %}">{% translate "Annuaire" %}</a>
@@ -39,8 +39,9 @@
                     <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
                     <p>
                         <a class="btn btn-outline-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                    </p>
+                {% endfor %}
+            {% endif %}
         </div>
-    {% endblock %}
+    </div>
+{% endblock editorial_content %}

@@ -7,11 +7,13 @@
     {{ erp.nom }},
     {% if activite %}{{ activite.nom }},{% endif %}
     {{ commune.nom }}, {% translate "Accessibilité" %}
-{% endblock %}
+{% endblock page_title %}
 {% block page_description %}
     {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom }}
-{% endblock %}
-{% block top_fluid_content %}{{ block.super }}{% endblock %}
+{% endblock page_description %}
+{% block top_fluid_content %}
+    {{ block.super }}
+{% endblock top_fluid_content %}
 {% block skiplinks %}
     <a class="skippy sr-only sr-only-focusable" href="#app-map">
         <span class="skippy-text">{% translate "Aller à la carte" %}</span>
@@ -65,11 +67,11 @@
             </div>
         </article>
     </main>
-{% endblock %}
+{% endblock editorial_content %}
 {% block bottom_fluid_content %}
     {% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
-        <aside id="proximite" class="container-fluid bg-light mt-4 py-4">
-            <div class="container">{% include "erp/includes/proximite.html" %}</div>
-        </aside>
-    {% endswitch %}
-{% endblock %}
+    <aside id="proximite" class="container-fluid bg-light mt-4 py-4">
+        <div class="container">{% include "erp/includes/proximite.html" %}</div>
+    </aside>
+{% endswitch %}
+{% endblock bottom_fluid_content %}

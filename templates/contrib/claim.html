@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Revendiquer un établissement" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
     <main>
         <h1 class="h3 mb-3">{% translate "Revendiquer un établissement" %}</h1>
@@ -20,14 +22,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h3 class="h6">{% translate "Adresse&nbsp;:" %}</h3>
-                        <address class="mb-2 font-italic">{{ erp.adresse }}</adresse>
-                        </div>
-                        <div class="col-sm-6">
-                            <div id="claim-map" style="height:200px"></div>
-                        </div>
+                        <address class="mb-2 font-italic">{{ erp.adresse }}</address>
+                    </div>
+                    <div class="col-sm-6">
+                        <div id="claim-map" style="height:200px"></div>
                     </div>
                 </div>
-                <script>
+            </div>
+            <script>
       window.addEventListener("DOMContentLoaded", function() {
         const map = a4a.geo.createMap("claim-map", { scrollWheelZoom: false }).setView({
           lat: {{ erp.geom.coords.1 }},
@@ -37,21 +39,21 @@
         const control = L.control.centerCross({show: true, position: "topright"});
         map.addControl(control);
       });
-                </script>
-            </div>
-            <form action="" method="POST" class="a4a-form" novalidate>
-                {% csrf_token %}
-                {% if form.non_field_errors %}
-                    <div class="alert alert-warning" role="alert">
-                        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-                        {% translate "Attention, des erreurs ont été rencontrées." %}
-                        <ul class="my-1">
-                            {% for field_name, message in form.non_field_errors.items %}<li>{{ field_name }}: {{ message }}</li>{% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
-                <div class="ml-2">{{ form.ok|as_crispy_field }}</div>
-                <button class="btn btn-primary">{% translate "Accepter et continuer" %}</button>
-            </form>
-        </main>
-    {% endblock %}
+            </script>
+        </div>
+        <form action="" method="post" class="a4a-form" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="alert alert-warning" role="alert">
+                    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                    {% translate "Attention, des erreurs ont été rencontrées." %}
+                    <ul class="my-1">
+                        {% for field_name, message in form.non_field_errors.items %}<li>{{ field_name }}: {{ message }}</li>{% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div class="ml-2">{{ form.ok|as_crispy_field }}</div>
+            <button class="btn btn-primary">{% translate "Accepter et continuer" %}</button>
+        </form>
+    </main>
+{% endblock editorial_content %}

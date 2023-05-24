@@ -3,14 +3,12 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Page introuvable" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <div class="text-center">
-        <h2 class="display-4">Page introuvable</h2>
+        <h2 class="display-4">{% translate "Page introuvable" %}</h2>
         <div class="my-4">
-            <img class="w-50"
-                 src="{% static 'img/undraw_page_not_found.svg' %}"
-                 aria-hidden="true">
+            <img class="w-50" src="{% static "img/undraw_page_not_found.svg" %}" aria-hidden="true" alt="{% translate "Page introuvable" %}">
         </div>
         {% url 'home' as url_home %}
         {% url 'contact_topic' topic='bug' as url_contact_bug %}
@@ -19,5 +17,5 @@
     ou de nous <a href="{{ url_contact_bug }}"> contacter spécifiquement à ce sujet</a> en prenant
     soin de préciser l'adresse utilisée.{% endblocktranslate %}
         </p>
-    </main>
-{% endblock %}
+    </div>
+{% endblock editorial_content %}

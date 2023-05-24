@@ -2,12 +2,12 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Mon compte" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
-    <h1 class="h3 mb-3">
-        {% translate "Mon compte" %}
-    </h3>
+    <h1 class="h3 mb-3">{% translate "Mon compte" %}</h1>
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span>{% translate "Mon nom d'utilisateur (identifiant) :" %}</span>
@@ -65,4 +65,4 @@
             </li>
         {% endif %}
     </ul>
-{% endblock %}
+{% endblock compte_content %}

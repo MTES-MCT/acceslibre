@@ -10,11 +10,12 @@
             {% translate "Aucun résultat" %}
         {% endif %}
     {% endspaceless %}
-{% endblock %}
-{% block top_fluid_content %}{% endblock %}
+{% endblock page_title %}
+{% block top_fluid_content %}
+{% endblock top_fluid_content %}
 {% block header %}
     {% include "editorial/header.html" with dark=True %}
-{% endblock %}
+{% endblock header %}
 {% block editorial_content %}
     <h1 class="mt-3 mb-2">
         <span class="sr-only">{% translate "Localité :" %}</span> {{ where }}
@@ -76,7 +77,9 @@
             <div id="qrcode" class="row">
                 <div class="col-12 text-sm-right text-center mb-2 mt-0">
                     <span class="h6 font-weight-bold w-100 mb-0 pt-3">{% translate "Retrouvez l'ensemble de ces établissements via ce QRCode" %}</span>
-                    <img height="100" src="data:image/png;base64,{{ qrcode_img }}">
+                    <img height="100"
+                         src="data:image/png;base64,{{ qrcode_img }}"
+                         alt="qrcode">
                 </div>
             </div>
             <div class="flex">
@@ -90,4 +93,4 @@
             </div>
         {% endif %}
     </section>
-{% endblock %}
+{% endblock editorial_content %}

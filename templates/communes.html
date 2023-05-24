@@ -5,10 +5,10 @@
 {% load cache %}
 {% block page_title %}
     {% translate "Communes et territoires pilotes" %}
-{% endblock %}
+{% endblock page_title %}
 {% block header %}
     {% include "editorial/header.html" with dark=True %}
-{% endblock %}
+{% endblock header %}
 {% block editorial_content %}
     {% cache 500 communes %}
     <h1 class="mb-3">{% translate "Communes et territoires pilotes" %}</h1>
@@ -33,7 +33,7 @@
                 {% endfor %}
             </div>
             <p class="text-right">
-                <a href="{% url "annuaire_home" %}">{% translate "Toutes les communes, par département" %}&nbsp;&raquo;</a>
+                <a href="{% url "annuaire_home" %}">{% translate "Toutes les communes, par département" %}&nbsp;»</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -59,7 +59,7 @@
                                     {% else %}
                                         erp.commune
                                     {% endif %}
-                                    {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
+                                    {% if erp.activite %}» <span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
                                     <br>
                                     <strong>{{ erp.nom }}</strong>
                                 </a>
@@ -71,4 +71,4 @@
         </div>
     </div>
 {% endcache %}
-{% endblock %}
+{% endblock editorial_content %}

@@ -5,7 +5,7 @@
         <h2 class="h5 mb-0 pb-1 border-bottom font-weight-bold">
             <i aria-hidden="true" class="icon icon-vaccin mr-1"></i>
             {% translate "Vaccination" %}
-        </h3>
+        </h2>
         {% if not infos.date_ouverture and not infos.date_fermeture and not infos.modalites and not infos.acces_sur_rdv and not infos.prevaccination and not infos.url_rdv and not erp.telephone %}
             <div class="alert alert-info">
                 <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
@@ -27,7 +27,7 @@
                 {% translate "Modalités particulières :" %}
                 <br>
                 <i aria-hidden="true" class="icon icon-bubble"></i>
-                &laquo;&nbsp;{{ infos.modalites }}&nbsp;&raquo;
+                «&nbsp;{{ infos.modalites }}&nbsp;»
             </div>
         {% endif %}
         {% if infos.acces_sur_rdv %}
@@ -41,7 +41,7 @@
             </div>
         {% endif %}
         <div class="m-0 py-1">
-            <span aria-hidden="true">&raquo;</span>
+            <span aria-hidden="true">»</span>
             <a href="https://www.sante.fr/cf/centres-vaccination-covid.html" title="{% translate "Le site s'ouvrira dans une nouvelle fenêtre" %}">{% translate "En savoir plus sur les conditions de vaccination" %}</a>
         </div>
     {% endwith %}

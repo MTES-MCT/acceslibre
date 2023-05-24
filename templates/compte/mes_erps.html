@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Mes établissements" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <div class="row mb-3">
         <h1 class="h3 col-sm-6">{% translate "Mes établissements" %}</h1>
@@ -21,8 +23,7 @@
             <input name="q"
                    type=""
                    class="form-control"
-                   id=""
-                   placeholder="{% translate 'Nom' %}"
+                   placeholder='{% translate "Nom" %}'
                    value="{{ q }}">
         </div>
         <button type="submit" class="btn btn-success btn-lg mb-2">{% translate "Rechercher" %}</button>
@@ -88,7 +89,7 @@
                     </div>
                     <div class="btn-group d-flex justify-content-between mt-1"
                          role="group"
-                         aria-label="{% translate 'Actions' %}">
+                         aria-label="{% translate "Actions" %}">
                         <a class="btn btn-sm btn-outline-primary"
                            href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier" %}</a>
                         {% if user.is_staff %}
@@ -107,4 +108,4 @@
     {% else %}
         <p class="alert alert-info">{% translate "Vous n'avez renseigné aucun établissement pour le moment." %}</p>
     {% endif %}
-{% endblock %}
+{% endblock compte_content %}

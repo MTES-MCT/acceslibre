@@ -5,8 +5,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Changer mon adresse email" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <h1 class="h3 mb-3">{% translate "Changer mon adresse email" %}</h1>
     <form action="{% url 'mon_email' %}" method="post">
@@ -23,4 +25,4 @@
             <button type="submit" class="btn btn-primary w-100">{% translate "Mettre à jour mon adresse email" %}</button>
         </p>
     </form>
-{% endblock %}
+{% endblock compte_content %}

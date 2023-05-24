@@ -4,18 +4,21 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Commentaire et informations complémentaires" %}
-{% endblock %}
-{% block full_infos %}{% endblock %}
+{% endblock page_title %}
+{% block full_infos %}
+{% endblock full_infos %}
 {% block contrib_title %}
     {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
-{% endblock %}
+{% endblock contrib_title %}
 {% block contrib_step %}
     <small>{% translate "Étape 7 sur 7" %}</small>
-{% endblock %}
+{% endblock contrib_step %}
 {% block contrib_subtitle %}
     {% translate "Informations d'accessibilité" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block fields_content %}
     <h3 class="h4">{% translate "Informations complémentaires" %}</h3>
     {% include "fields/boolradio.html" with field=form.labels inline=True %}
@@ -68,4 +71,4 @@
   });
     </script>
     {{ form.commentaire|as_crispy_field }}
-{% endblock %}
+{% endblock fields_content %}

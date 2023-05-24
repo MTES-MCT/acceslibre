@@ -1,7 +1,7 @@
 {% load i18n %}
 <form class="vote-form my-5"
       action="{% url 'erp_vote' erp_slug=erp.slug %}"
-      method="POST">
+      method="post">
     <h4 class="h5">{% translate "Ces informations sont-elles fiables&nbsp;?" %}</h4>
     <span class="text-nowrap">
         {% csrf_token %}
@@ -35,7 +35,7 @@
                   id="vote_comment_input"
                   name="comment"
                   rows="3"
-                  placeholder="{% translate 'Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer.' %}"></textarea>
+                  placeholder='{% translate "Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer." %}'></textarea>
         <div class="mt-2">
             <button type="submit"
                     name="action"

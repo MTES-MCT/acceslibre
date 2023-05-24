@@ -4,6 +4,10 @@
 {% load crispy_forms_tags %}
 {% block page_title %}
     {% translate "Publication" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
-{% block fields_content %}{{ form.published|as_crispy_field }}{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block fields_content %}
+    {{ form.published|as_crispy_field }}
+{% endblock fields_content %}

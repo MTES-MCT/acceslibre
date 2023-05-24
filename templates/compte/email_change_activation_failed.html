@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Activation échouée" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
     {% if activation_error %}
         <div class="alert alert-warning">{% translate "Une erreur est survenue :" %} {{ activation_error }}</div>
@@ -17,4 +19,4 @@
       {% endblocktranslate %}
         </p>
     {% endif %}
-{% endblock %}
+{% endblock editorial_content %}

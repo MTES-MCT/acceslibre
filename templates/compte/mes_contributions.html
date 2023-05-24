@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Mes contributions" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <h1 class="h3 mb-3">{% translate "Mes contributions" %}</h1>
     <nav class="nav nav-tabs nav-fill">
@@ -70,4 +72,4 @@
         </table>
     </div>
     {% include "common/pager.html" with pager=pager pager_base_url="?1" %}
-{% endblock %}
+{% endblock compte_content %}

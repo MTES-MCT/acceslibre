@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Mes challenges" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <h1 class="h3 mb-3">{% translate "Mes challenges" %}</h1>
     <p>
@@ -42,4 +44,4 @@
         {% endfor %}
     </ul>
     {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
-{% endblock %}
+{% endblock compte_content %}

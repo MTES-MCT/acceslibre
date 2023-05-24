@@ -8,20 +8,22 @@
     {% else %}
         {% translate "Ajouter un établissement" %}
     {% endif %}
-{% endblock %}
+{% endblock page_title %}
 {% block contrib_title %}
     {% translate "Ajouter les données d'accessibilité d'un établissement" %}
-{% endblock %}
+{% endblock contrib_title %}
 {% block contrib_step %}
     <small>{% translate "Étape 1 sur 7" %}</small>
-{% endblock %}
+{% endblock contrib_step %}
 {% block contrib_subtitle %}
     {% translate "L'établissement" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block contrib_content %}
     <h1 class="h3 mb-3">{% translate "Adresse de l'établissement" %}</h1>
-    <form action="" method="POST" class="mb-4" novalidate>
+    <form action="" method="post" class="mb-4" novalidate>
         {% csrf_token %}
         {{ form.geom|as_crispy_field }}
         {{ form.source|as_crispy_field }}
@@ -188,4 +190,4 @@
         {% include "contrib/includes/prevnext.html" %}
     {% endif %}
 </form>
-{% endblock %}
+{% endblock contrib_content %}

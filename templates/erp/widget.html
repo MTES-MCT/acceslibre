@@ -235,7 +235,7 @@
                                 aria-label="Fermer"
                                 data-dismiss="dialog"
                                 class="fr-link fr-link--close"
-                                title="{% translate 'Fermer la fenêtre' %}"
+                                title="{% translate "Fermer la fenêtre" %}"
                                 aria-controls="fr-modal-1">{% translate "Fermer" %}</button>
                     </div>
                     <div class="fr-modal__content">
@@ -248,7 +248,10 @@
                                 {% for item, data in accessibilite_data.items %}
                                     <li class="modal__item fr-grid-row">
                                         <div class="fr-col-md-2 modal__icon">
-                                            <img aria-hidden="true" src="{{ data.icon }}" style="width:40px">
+                                            <img aria-hidden="true"
+                                                 src="{{ data.icon }}"
+                                                 style="width:40px"
+                                                 alt="{{ data.label }}">
                                         </img>
                                     </div>
                                     <div class="fr-col-md-10 modal__text">

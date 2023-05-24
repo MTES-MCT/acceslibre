@@ -4,8 +4,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Identifiant" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block compte_content %}
     <h1 class="h3 mb-3">
         {% translate "Changer mon identifiant" %} <small class="text-muted">({% translate "nom d'utilisateur" %})</small>
@@ -22,4 +24,4 @@
             <button type="submit" class="btn btn-primary w-100">{% translate "Changer mon identifiant" %}</button>
         </p>
     </form>
-{% endblock %}
+{% endblock compte_content %}

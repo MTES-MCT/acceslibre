@@ -11,10 +11,10 @@
             {% translate "Aucun résultat" %}
         {% endif %}
     {% endspaceless %}
-{% endblock %}
+{% endblock page_title %}
 {% block header %}
     {% include "editorial/header.html" with dark=True %}
-{% endblock %}
+{% endblock header %}
 {% block editorial_content %}
     <h1 class="mt-3 mb-2">
         <small class="text-muted" style="font-size:.6em">{% translate "Votre recherche" %}</small>
@@ -27,7 +27,9 @@
     </h1>
     {% if what and "centres de vaccination" in what %}
         <div class="alert alert-warning mt-3">
-            {% translate "Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours)." %}
+            {% blocktranslate %}
+            Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
+            {% endblocktranslate %}
             <br class="d-none d-md-block">
             <i aria-hidden="true" class="icon icon-info-circled"></i>
             {% translate "Si vous gérez un centre de vaccination," %}
@@ -44,10 +46,11 @@
             <div class="mb-3 row ml-0">
                 <div class="mt-2 pr-4">
                     <a class="fr-btn btn-lg"
-                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">Ajouter un établissement</a>
+                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
                 </div>
                 <div class="mt-2 pr-4">
-                    <a class="fr-btn fr-btn--secondary btn-lg" href="/#block_search_form">{% translate "Nouvelle recherche" %}</a>
+                    <a class="fr-btn fr-btn--secondary btn-lg"
+                       href="{% url 'home' %}#block_search_form">{% translate "Nouvelle recherche" %}</a>
                 </div>
             </div>
             <div class="alert" role="alert" aria-live="assertive">
@@ -82,68 +85,68 @@
                     </h2>
                 </div>
                 {% switch 'USE_GLOBAL_MAP' %}
-                    {% if url_params %}
-                        <div class="col-sm-6 text-right">
-                            <a target="_blank"
-                               rel="noopener noreferrer"
-                               href="{% url 'global_map' %}?{{ url_params }}"
-                               class="fr-btn fr-btn--secondary">{% translate "Afficher la carte globale" %}</a>
-                        </div>
-                    {% endif %}
-                {% endswitch %}
-            </div>
-            <div class="row no-gutters">
-                <div class="col-md-5">
-                    <div class="list-group list-group-flush">
-                        {% for erp in pager %}
-                            {% if erp.outside %}
-                                <h2 class="h5 mt-3 mb-2">
-                                    {% translate "Aux alentours" %}
-                                    {% if commune %}<small class="text-muted">{{ commune.nom|preposition_nom }}</small>{% endif %}
-                                </h2>
-                            {% endif %}
-                            <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
-                                <div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <a href="{{ erp.get_absolute_url }}">
-                                            <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
-                                                <!-- rank: {{ erp.rank }} -->
-                                                <img alt="" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                                                {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-                                                    {% if erp.distance %}<small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>{% endif %}
-                                                {% endif %}
-                                                {{ erp.nom }}
-                                                <span class="sr-only">
-                                                    {% if erp.activite %}{{ erp.activite }}{% endif %}
-                                                {% translate "à l'adresse" %} {{ erp.adresse }}</span>
-                                            </h3>
-                                        </a>
-                                    </div>
-                                    <div aria-hidden="true">
-                                        {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
-                                        <address class="d-inline mb-0">
-                                            <small>{{ erp.adresse }}</small>
-                                        </address>
-                                    </div>
+                {% if url_params %}
+                    <div class="col-sm-6 text-right">
+                        <a target="_blank"
+                           rel="noopener noreferrer"
+                           href="{% url 'global_map' %}?{{ url_params }}"
+                           class="fr-btn fr-btn--secondary">{% translate "Afficher la carte globale" %}</a>
+                    </div>
+                {% endif %}
+            {% endswitch %}
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <div class="list-group list-group-flush">
+                    {% for erp in pager %}
+                        {% if erp.outside %}
+                            <h2 class="h5 mt-3 mb-2">
+                                {% translate "Aux alentours" %}
+                                {% if commune %}<small class="text-muted">{{ commune.nom|preposition_nom }}</small>{% endif %}
+                            </h2>
+                        {% endif %}
+                        <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+                            <div>
+                                <div class="d-flex w-100 justify-content-between">
+                                    <a href="{{ erp.get_absolute_url }}">
+                                        <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                                            <!-- rank: {{ erp.rank }} -->
+                                            <img alt="" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                                            {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
+                                                {% if erp.distance %}<small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>{% endif %}
+                                            {% endif %}
+                                            {{ erp.nom }}
+                                            <span class="sr-only">
+                                                {% if erp.activite %}{{ erp.activite }}{% endif %}
+                                            {% translate "à l'adresse" %} {{ erp.adresse }}</span>
+                                        </h3>
+                                    </a>
                                 </div>
-                                <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
-                                        title="{% translate 'Localiser sur la carte' %}"
-                                        data-erp-id="{{ erp.pk }}">
-                                    {% translate "Localiser" %}
-                                    <br>
-                                    <i aria-hidden="true" class="icon icon-target"></i>
-                                </button>
+                                <div aria-hidden="true">
+                                    {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+                                    <address class="d-inline mb-0">
+                                        <small>{{ erp.adresse }}</small>
+                                    </address>
+                                </div>
                             </div>
-                        {% endfor %}
-                    </div>
-                    <div class="pt-2 pr-2">
-                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                    </div>
+                            <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+                                    title="{% translate "Localiser sur la carte" %}"
+                                    data-erp-id="{{ erp.pk }}">
+                                {% translate "Localiser" %}
+                                <br>
+                                <i aria-hidden="true" class="icon icon-target"></i>
+                            </button>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="col-md-7 a4a-search-map-area">
-                    {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
+                <div class="pt-2 pr-2">
+                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
                 </div>
             </div>
-        {% endif %}
-    </section>
-{% endblock %}
+            <div class="col-md-7 a4a-search-map-area">
+                {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
+            </div>
+        </div>
+    {% endif %}
+</section>
+{% endblock editorial_content %}

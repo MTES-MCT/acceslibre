@@ -4,8 +4,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Supprimer mon compte" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
     <h1 class="h3 mb-3">{% translate "Supprimer mon compte" %}</h1>
     <div class="alert alert-danger">
@@ -13,7 +15,7 @@
         <br>
         {% translate "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site." %}
     </div>
-    <form action="" method="POST" class="a4a-form">
+    <form action="" method="post" class="a4a-form">
         {% csrf_token %}
         {% if form.non_field_errors %}
             <div class="alert alert-warning">
@@ -33,4 +35,4 @@
             <button class="btn btn-danger">{% translate "Confirmer la suppression" %}</button>
         </div>
     </form>
-{% endblock %}
+{% endblock editorial_content %}

@@ -1,10 +1,12 @@
 {% extends "editorial/base.html" %}
 {% load static %}
 {% load i18n %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block page_title %}
     {% translate "Map icons" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <h2 class="mb-4">{% translate "Map icons" %}</h2>
     <h3 class="mb-4">{% translate "Démo" %}</h3>
@@ -70,4 +72,4 @@
             </div>
         {% endfor %}
     </div>
-{% endblock %}
+{% endblock editorial_content %}

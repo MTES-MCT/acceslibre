@@ -2,18 +2,21 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Espace et chemin extérieur" %}
-{% endblock %}
-{% block full_infos %}{% endblock %}
+{% endblock page_title %}
+{% block full_infos %}
+{% endblock full_infos %}
 {% block contrib_title %}
     {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
-{% endblock %}
+{% endblock contrib_title %}
 {% block contrib_step %}
     <small>{% translate "Étape 4 sur 7" %}</small>
-{% endblock %}
+{% endblock contrib_step %}
 {% block contrib_subtitle %}
     {% translate "Informations d'accessibilité" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block fields_content %}
     <h3 class="h4">{% translate "Extérieur" %}</h3>
     {% include "fields/boolradio.html" with field=form.cheminement_ext_presence inline=True %}
@@ -31,4 +34,4 @@
     {% include "fields/boolradio.html" with field=form.cheminement_ext_devers inline=True %}
     {% include "fields/boolradio.html" with field=form.cheminement_ext_bande_guidage inline=True %}
     {% include "fields/boolradio.html" with field=form.cheminement_ext_retrecissement inline=True %}
-{% endblock %}
+{% endblock fields_content %}

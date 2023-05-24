@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Accès restreint" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <div class="text-center">
         <h2>{% translate "Accès non autorisé" %}</h2>
@@ -13,4 +13,4 @@
     <a href="{{ url_contact_bug }}">contactez-nous</a>.{% endblocktranslate %}
         </p>
     </div>
-{% endblock %}
+{% endblock editorial_content %}

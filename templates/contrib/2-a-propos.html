@@ -4,20 +4,23 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "A propos de vous" %} - {% translate "acceslibre" %}
-{% endblock %}
-{% block full_infos %}{% endblock %}
+{% endblock page_title %}
+{% block full_infos %}
+{% endblock full_infos %}
 {% block contrib_title %}
     {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
-{% endblock %}
+{% endblock contrib_title %}
 {% block contrib_step %}
     <small>{% translate "Étape 2 sur 7" %}</small>
-{% endblock %}
+{% endblock contrib_step %}
 {% block contrib_subtitle %}
     {% translate "A propos de vous" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock contrib_subtitle %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block fields_content %}
     {% include "fields/boolradio.html" with field=form.user_type %}
     {% include "fields/textarea.html" with field=form.registre_url %}
     {% include "fields/boolradio.html" with field=form.conformite inline=True %}
-{% endblock %}
+{% endblock fields_content %}

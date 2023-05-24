@@ -4,8 +4,10 @@
 {% load l10n %}
 {% block page_title %}
     {% translate "Statistiques" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block editorial_content %}
     <h1 class="my-3">
         {% translate "Statistiques <small>- au" %} {{ current_date|date:"SHORT_DATE_FORMAT" }}</small>
@@ -122,4 +124,4 @@
                     scrolling="yes"></iframe>
         </div>
     {% endswitch %}
-{% endblock %}
+{% endblock editorial_content %}

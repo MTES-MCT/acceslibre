@@ -36,7 +36,8 @@
                                 </li>
                             {% endif %}
                             <li>
-                                <a class="fr-link fr-fi-search-line" href="/#block_search_form">{% translate "Rechercher" %}</a>
+                                <a class="fr-link fr-fi-search-line"
+                                   href="{% url 'home' %}#block_search_form">{% translate "Rechercher" %}</a>
                             </li>
                             {% if user.is_authenticated %}
                                 <li>

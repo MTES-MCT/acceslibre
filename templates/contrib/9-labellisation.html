@@ -3,8 +3,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Labellisation" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block fields_content %}
     {% include "fields/boolradio.html" with field=form.labels inline=True %}
     {% include "fields/textarea.html" with field=form.labels_autre %}
@@ -55,4 +57,4 @@
     checkDisplay();
   });
     </script>
-{% endblock %}
+{% endblock fields_content %}

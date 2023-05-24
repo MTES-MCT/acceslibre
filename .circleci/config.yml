@@ -79,6 +79,10 @@ jobs:
           name: Check Django templates
           command: |
             pipenv run ./manage.py validate_templates
+      - run:
+          name: Check Django templates linting
+          command: |
+            pipenv run djlint templates --profile=django --custom-blocks=switch,flag,sample --ignore="H006,H021,H019"
 
   tests:
     executor:

@@ -1,7 +1,9 @@
 {% extends "editorial/base.html" %}
 {% load static %}
 {% load i18n %}
-{% block page_title %}API acceslibre{% endblock %}
+{% block page_title %}
+    API acceslibre
+{% endblock page_title %}
 {% block stylesheet_extras %}
     <link rel="stylesheet"
           type="text/css"
@@ -18,14 +20,14 @@
   }
 
     </style>
-{% endblock %}
+{% endblock stylesheet_extras %}
 {% block editorial_content %}
     <h1>{% translate "API acceslibre" %}</h1>
     {% if request.session.api_key %}
         {% translate "Réinitialiser la clef API : " %}
         <form action="{% url 'set_api_key' %}" method="post">
             <input type="hidden" name="api_key" value="" />
-            <input type="submit" value="{% translate 'OK' %}" />
+            <input type="submit" value='{% translate "OK" %}' />
             {% csrf_token %}
         </form>
         <div id="swagger-ui"></div>
@@ -53,7 +55,7 @@
         <p>{% translate "Pour accéder à l'API, veuillez fournir une clef API valide :" %}</p>
         <form action="{% url 'set_api_key' %}" method="post">
             <input type="text" name="api_key" />
-            <input type="submit" value="{% translate 'OK' %}" />
+            <input type="submit" value='{% translate "OK" %}' />
             {% csrf_token %}
         </form>
         <p class="pt-5">
@@ -63,4 +65,4 @@
   {% endblocktranslate %}
         </p>
     {% endif %}
-{% endblock %}
+{% endblock editorial_content %}

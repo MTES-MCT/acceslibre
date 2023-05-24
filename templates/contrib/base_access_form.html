@@ -4,13 +4,14 @@
 {% load i18n %}
 {% block contrib_content %}
     <form action=""
-          method="POST"
+          method="post"
           class="a4a-form a4a-conditional-form mb-4"
           novalidate>
         {% csrf_token %}
         {% block full_infos %}
             <h1 class="h3 mb-3" tabindex="0">
-                {% block page_title %}{% endblock %}
+                {% block page_title %}
+                {% endblock page_title %}
             </h1>
             <h2 class="h5 mb-0">
                 {% if erp.published %}
@@ -50,7 +51,7 @@
                     </small>
                 </p>
             {% endif %}
-        {% endblock %}
+        {% endblock full_infos %}
         {% if form.errors %}
             <div class="alert alert-warning" role="alert">
                 <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
@@ -60,7 +61,8 @@
                 </ul>
             </div>
         {% endif %}
-        {% block fields_content %}{% endblock %}
+        {% block fields_content %}
+        {% endblock fields_content %}
         {% include "contrib/includes/prevnext.html" %}
     </form>
-{% endblock %}
+{% endblock contrib_content %}

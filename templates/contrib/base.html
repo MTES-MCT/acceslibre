@@ -8,25 +8,29 @@
                 <div class="fr-follow__newsletter">
                     <div>
                         <h1 class="fr-h2 fr-follow__title">
-                            {% block contrib_title %}{% endblock %}
+                            {% block contrib_title %}
+                            {% endblock contrib_title %}
                         </h1>
-                        {% block contrib_step %}{% endblock %}
+                        {% block contrib_step %}
+                        {% endblock contrib_step %}
                         <h2 class="mt-2 fr-h3 fr-text--md">
-                            {% block contrib_subtitle %}{% endblock %}
+                            {% block contrib_subtitle %}
+                            {% endblock contrib_subtitle %}
                         </h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock top_fluid_content %}
 {% block editorial_content %}
     <div class="row">
         {% block navbar %}
-            <div class="col-md-3 mb-3">{% include 'contrib/includes/nav.html' %}</div>
-        {% endblock %}
-        <div class="{% block search %}col-md-9{% endblock %}">
-            {% block contrib_content %}{% endblock %}
+            <div class="col-md-3 mb-3">{% include "contrib/includes/nav.html" %}</div>
+        {% endblock navbar %}
+        <div class="{% block search %}col-md-9{% endblock search %}">
+            {% block contrib_content %}
+            {% endblock contrib_content %}
         </div>
     </div>
     <div id="spinner_container"
@@ -35,4 +39,4 @@
             <span class="sr-only">{% translate "Chargement des API ..." %}</span>
         </div>
     </div>
-{% endblock %}
+{% endblock editorial_content %}

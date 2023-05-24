@@ -4,7 +4,7 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Challenges" %}
-{% endblock %}
+{% endblock page_title %}
 {% block editorial_content %}
     <div class="row">
         <div class="fr-col-12 fr-col-md-6 ">
@@ -19,7 +19,7 @@
                         <h2 class="fr-h2">
                             <strong>{% translate "Challenges en cours" %}</strong>
                         </h2>
-                        {% include 'common/challenge_item.html' with challenges=challenges_en_cours %}
+                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}
                     </div>
                 </section>
             {% endif %}
@@ -29,7 +29,7 @@
                         <h2 class="fr-h2">
                             <strong>{% translate "Challenges terminés" %}</strong>
                         </h2>
-                        {% include 'common/challenge_item.html' with challenges=challenges_termines %}
+                        {% include "common/challenge_item.html" with challenges=challenges_termines %}
                     </div>
                 </section>
             {% endif %}
@@ -39,7 +39,7 @@
                         <h2 class="fr-h2">
                             <strong>{% translate "Prochains challenges" %}</strong>
                         </h2>
-                        {% include 'common/challenge_item.html' with challenges=challenges_a_venir %}
+                        {% include "common/challenge_item.html" with challenges=challenges_a_venir %}
                     </div>
                 </section>
             {% endif %}
@@ -54,5 +54,5 @@
                 </div>
             </figure>
         </div>
-    </div
-{% endblock %}
+    </div>
+{% endblock editorial_content %}

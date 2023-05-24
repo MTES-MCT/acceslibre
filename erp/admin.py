@@ -315,7 +315,7 @@ class ErpAdmin(
         icon = ""
         if obj.activite:
             icon = mark_safe(
-                f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} &raquo;'
+                f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} »'
             )
         edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
         return mark_safe(f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>')

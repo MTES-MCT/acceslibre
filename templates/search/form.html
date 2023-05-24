@@ -18,7 +18,7 @@
                        name="what"
                        class="fr-input "
                        placeholder="Mairie, café..."
-                       aria-label="{% translate 'Rechercher un établissement, une activité. Exemple : Mairie, Café' %}"
+                       aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Mairie, Café" %}'
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
@@ -54,7 +54,7 @@
             <button type="submit"
                     {% if 'contrib' in request.path %}disabled{% endif %}
                     class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}"
-                    title="{% translate 'Rechercher' %}">
+                    title="{% translate "Rechercher" %}">
                 <span class="sr-only">{% translate "Rechercher" %}</span>
             </button>
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">

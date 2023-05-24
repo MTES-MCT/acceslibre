@@ -5,8 +5,10 @@
 {% load i18n %}
 {% block page_title %}
     {% translate "Créer un compte" %}
-{% endblock %}
-{% block robots %}noindex, nofollow{% endblock %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
 {% block top_fluid_content %}
     {% if 'contrib/publication/' in request.GET.next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
@@ -20,7 +22,7 @@
                         <div>
                             <a href="javascript:history.back()"
                                class="fr-link fr-text--bold"
-                               title="{% translate 'Retour à la fiche' %}">
+                               title="{% translate "Retour à la fiche" %}">
                                 <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
                             </a>
                         </div>
@@ -29,7 +31,7 @@
             </div>
         </div>
     {% endif %}
-{% endblock %}
+{% endblock top_fluid_content %}
 {% block editorial_content %}
     {% if user.is_authenticated %}
         <p class="alert alert-warning" role="alert">
@@ -46,14 +48,14 @@
         <div class="row">
             <div class="fr-col-12 fr-col-md-6">
                 <form action="."
-                      method="POST"
+                      method="post"
                       novalidate
                       class="registration-form mb-4"
                       id="registration">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next|urlencode }}">
                     <h1 class="h3 text-left mb-4">{% translate "Je crée un compte" %}</h1>
-                    <div class="">
+                    <div>
                         {{ form.non_field_errors }}
                         {{ form.email|as_crispy_field }}
                         {{ form.username|as_crispy_field }}
@@ -79,5 +81,4 @@
             </div>
         </div>
     {% endif %}
-</main>
-{% endblock %}
+{% endblock editorial_content %}

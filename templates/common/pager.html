@@ -5,11 +5,11 @@
             {% if pager.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="{{ pager_base_url }}&page={{ pager.previous_page_number }}">&laquo;&nbsp;{% translate "Page précédente" %}</a>
+                       href="{{ pager_base_url }}&page={{ pager.previous_page_number }}">«&nbsp;{% translate "Page précédente" %}</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="#">&laquo;&nbsp;{% translate "Page précédente" %}</a>
+                    <a class="page-link" href="#">«&nbsp;{% translate "Page précédente" %}</a>
                 </li>
             {% endif %}
             {% if not no_page_links %}
@@ -33,11 +33,11 @@
             {% if pager.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                       href="{{ pager_base_url }}&page={{ pager.next_page_number }}">{% translate "Page suivante" %}&nbsp;&raquo;</a>
+                       href="{{ pager_base_url }}&page={{ pager.next_page_number }}">{% translate "Page suivante" %}&nbsp;»</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <a class="page-link" href="#">{% translate "Page suivante" %}&nbsp;&raquo;</a>
+                    <a class="page-link" href="#">{% translate "Page suivante" %}&nbsp;»</a>
                 </li>
             {% endif %}
         </ul>

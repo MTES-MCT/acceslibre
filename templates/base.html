@@ -6,14 +6,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="robots"
-              content="{% block robots %}{% if STAGING %}noindex, nofollow{% else %}index, follow{% endif %}{% endblock %}">
+              content="{% block robots %}{% if STAGING %}noindex, nofollow{% else %}index, follow{% endif %}{% endblock robots %}">
         <meta name="viewport"
               content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="accessibilité,handicap">
         <title>
-            {% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock %}
+            {% block page_title %}
+                acceslibre, la plateforme collaborative de l'accessibilité
+            {% endblock page_title %}
         </title>
         <meta name="description"
-              content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock %}">
+              content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock page_description %}">
         <meta name="theme-color" content="#075ea2">
         <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
         <script src="{% url 'javascript-catalog' %}"></script>
@@ -23,9 +26,11 @@
         <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
         <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
         <link rel="stylesheet" href="{% static 'dist/main.css' %}">
-        {% block stylesheet_extras %}{% endblock %}
+        {% block stylesheet_extras %}
+        {% endblock stylesheet_extras %}
         <script src="{% static 'dist/main.js' %}"></script>
-        {% block javascript_extras %}{% endblock %}
+        {% block javascript_extras %}
+        {% endblock javascript_extras %}
         <meta name="google-site-verification"
               content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
         <!-- Matomo Tag Manager -->
@@ -38,9 +43,11 @@
         <!-- End Matomo Tag Manager -->
     </head>
     <body class="a4a" tabindex="0">
-        {% block skiplinks %}{% endblock %}
+        {% block skiplinks %}
+        {% endblock skiplinks %}
         {% include "common/notifications.html" %}
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock content %}
         {% include "common/matomo.html" %}
         {% include "common/sentry.html" %}
         {% if STAGING %}
