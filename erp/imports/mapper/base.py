@@ -135,7 +135,7 @@ class BaseMapper:
         dest_fields["nom"] = record.get("nom") or record.get("name")
         dest_fields["code_postal"] = self.handle_5digits_code(record.get("code_postal") or record.get("postal_code"))
         dest_fields["import_email"] = record.get("email") or record.get("import_email")
-        dest_fields["activite"] = dest_fields["activite"] or kwargs.get("activite", None)
+        dest_fields["activite"] = dest_fields.get("activite") or kwargs.get("activite", None)
         if "source" in record:
             dest_fields["source"] = record["source"]
         return dest_fields
