@@ -71,7 +71,7 @@ function SearchWhere(root) {
       if (result.lat && result.lon) {
         setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
-        if ((await api.hasPermission("geolocation")) !== "granted") {
+        if (await api.hasPermission("geolocation") !== "granted") {
           a11yGeolocBtn.focus();
         }
         setGeoLoading(true);

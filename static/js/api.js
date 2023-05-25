@@ -22,7 +22,7 @@ function getCurrentPosition(options = { timeout: 10000 }) {
 }
 
 async function hasPermission(name) {
-  // Exemple name: "geolocation"
+  // Example name: "geolocation"
   if (!navigator?.permissions?.query) {
     return false;
   }
@@ -32,7 +32,7 @@ async function hasPermission(name) {
 }
 
 async function getUserLocation(options) {
-  const {
+  let {
     coords: { latitude: lat, longitude: lon },
     timestamp,
   } = await getCurrentPosition(options);
@@ -85,7 +85,6 @@ async function reverseGeocode({ lat, lon }, options = {}) {
 }
 
 function saveUserLocation(loc) {
-  sessionStorage["a4a-loc"] = JSON.stringify(loc);
   return loc;
 }
 
