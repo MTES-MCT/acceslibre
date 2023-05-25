@@ -1,6 +1,7 @@
 import base64
 import datetime
 import io
+import re
 import urllib
 
 import qrcode
@@ -726,6 +727,11 @@ def contrib_global_search(request):
         except RuntimeError as err:
             error = err
 
+    # remove postal code in where
+    address = re.split(r"\(|\)", request.GET.get("where") or "()")
+    city = address[0].strip()
+    postal_code = address[1]
+
     return render(
         request,
         template_name="contrib/0a-search_results.html",
@@ -741,6 +747,13 @@ def contrib_global_search(request):
             "results": results,
             "error": error,
             "results_global_count": len(results) + len(results_bdd),
+            "query": {
+                "nom": request.GET.get("what"),
+                "commune": city,
+                "code_postal": postal_code,
+                "lat": request.GET.get("lat"),
+                "lon": request.GET.get("lon"),
+            },
         },
     )
 
