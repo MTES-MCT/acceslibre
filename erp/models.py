@@ -853,7 +853,7 @@ class Erp(models.Model):
         if (
             self.__original_activite_id is not None
             and self.activite_id != self.__original_activite_id
-            and self.has_accessibilite
+            and self.has_accessibilite()
         ):
             # We wipe conditional questions' answer only if the new activity is in a distinct activity group.
             # We could have stored an ___original_group_activity_id but it would have create overload on each __init__
