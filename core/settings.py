@@ -1,21 +1,19 @@
 import os
 
-import dj_database_url
+import environ
 from django.contrib.messages import constants as message_constants
-from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as trans
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
-def get_env_variable(var_name, required=True, type=str):
-    if required:
-        try:
-            return type(os.environ[var_name])
-        except TypeError:
-            raise ImproperlyConfigured(f"Unable to cast '{var_name}' to {type}.")
-        except KeyError:
-            raise ImproperlyConfigured(f"The '{var_name}' environment variable must be set.")
-    else:
-        return os.environ.get(var_name)
+# Set the project base directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 TEST = False
@@ -24,8 +22,8 @@ PRODUCTION = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
-SECRET_KEY = get_env_variable("SECRET_KEY")
-DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
+SECRET_KEY = env("SECRET_KEY")
+DATAGOUV_API_KEY = env("DATAGOUV_API_KEY", default=None)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
 DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
 # NOTE: to retrieve resources id: https://demo.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
@@ -49,10 +47,10 @@ REAL_USER_NOTIFICATION = False
 UNPUBLISHED_ERP_NOTIF_DAYS = 7
 
 # Mattermost hook
-MATTERMOST_HOOK = get_env_variable("MATTERMOST_HOOK", required=False)
+MATTERMOST_HOOK = env("MATTERMOST_HOOK", default=None)
 
 # Sentry integration
-SENTRY_DSN = get_env_variable("SENTRY_DSN", required=False)
+SENTRY_DSN = env("SENTRY_DSN", default=None)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -202,7 +200,9 @@ WSGI_APPLICATION = "core.wsgi.application"
 # see https://doc.scalingo.com/languages/python/django/start#configure-the-database-access
 # see https://pypi.org/project/dj-database-url/ for options management
 database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
-DATABASES = {"default": dj_database_url.config()}
+DATABASES = {
+    "default": env.db(),
+}
 DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
 # Default field to use for implicit model primary keys
@@ -222,14 +222,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": os.environ.get("SCALINGO_REDIS_URL"),
-    }
+    "default": env.cache_url("SCALINGO_REDIS_URL"),
 }
 
-CELERY_BROKER_URL = os.environ.get("SCALINGO_REDIS_URL")
-CELERY_RESULT_BACKEND = os.environ.get("SCALINGO_REDIS_URL")
+CELERY_BROKER_URL = CACHES["default"]["LOCATION"]
+CELERY_RESULT_BACKEND = CACHES["default"]["LOCATION"]
 
 # Cookie security
 CSRF_COOKIE_SECURE = True
@@ -255,15 +252,15 @@ USE_TZ = True
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Email configuration (production uses Mailjet - see README)
-SEND_IN_BLUE_API_KEY = get_env_variable("SEND_IN_BLUE_API_KEY")
+SEND_IN_BLUE_API_KEY = env("SEND_IN_BLUE_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST = get_env_variable("EMAIL_HOST")
-EMAIL_PORT = get_env_variable("EMAIL_PORT", type=int)
-EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env.int("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_EMAIL = "acceslibre@beta.gouv.fr"
 DEFAULT_FROM_EMAIL = f"L'équipe {SITE_NAME} <{DEFAULT_EMAIL}>"
 MANAGERS = [("Acceslibre", DEFAULT_EMAIL)]
