@@ -251,7 +251,7 @@ class Commune(models.Model):
     )
     geom = models.PointField(
         verbose_name=translate_lazy("Localisation"),
-        help_text=translate_lazy("Coordonnées géographique du centre de la commune"),
+        help_text=translate_lazy("Coordonnées géographiques du centre de la commune"),
     )
     contour = models.MultiPolygonField(
         verbose_name=translate_lazy("Contour"),
