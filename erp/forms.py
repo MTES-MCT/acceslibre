@@ -11,6 +11,7 @@ from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
+from django.utils.translation import gettext_lazy as translate_lazy
 
 from compte.models import UserStats
 from erp import schema
@@ -196,7 +197,7 @@ class AdminActiviteForm(forms.ModelForm):
         widget=widgets.Textarea(),
         delimiter="\n",
         required=False,
-        help_text=translate("Un mots-clé par ligne"),
+        help_text=translate_lazy("Un mots-clé par ligne"),
     )
 
     def save(self, commit=True):
@@ -218,7 +219,7 @@ class AdminCommuneForm(forms.ModelForm):
         widget=widgets.Textarea(),
         delimiter="\n",
         required=False,
-        help_text=translate("Un code postal par ligne"),
+        help_text=translate_lazy("Un code postal par ligne"),
     )
 
 
@@ -448,7 +449,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    activite = forms.ModelChoiceField(label=translate("Activité"), queryset=Activite.objects.order_by("position"))
+    activite = forms.ModelChoiceField(label=translate_lazy("Activité"), queryset=Activite.objects.order_by("position"))
     nouvelle_activite = forms.CharField(widget=forms.TextInput)
     asp_id = forms.CharField(widget=forms.HiddenInput, required=False)
 
@@ -496,7 +497,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
             "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
-            "contact_email": forms.EmailInput(attrs={"placeholder": translate("ex: nom@domain.tld")}),
+            "contact_email": forms.EmailInput(attrs={"placeholder": translate_lazy("ex: nom@domain.tld")}),
             "site_internet": forms.URLInput(attrs={"placeholder": "ex: http://etablissement.com"}),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
             "contact_url": forms.URLInput(attrs={"placeholder": "https://mon-etablissement.fr/contactez-nous.html"}),
@@ -559,7 +560,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
 class PublicErpDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label=translate("Supprimer cet établissement de la base de données (cette opération est irrémédiable)"),
+        label=translate_lazy("Supprimer cet établissement de la base de données (cette opération est irrémédiable)"),
         required=True,
     )
 
@@ -594,9 +595,9 @@ class ProviderGlobalSearchForm(forms.Form):
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
     code = forms.CharField(required=True, widget=forms.HiddenInput)
     what = forms.CharField(
-        label=translate("Recherche"),
+        label=translate_lazy("Recherche"),
         help_text=mark_safe(
-            translate(
+            translate_lazy(
                 """Recherche sur le nom d'une administration publique, d'une entreprise, un
             <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>,
             l'adresse, l\'activité ou le
@@ -607,11 +608,11 @@ class ProviderGlobalSearchForm(forms.Form):
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
     )
     where = forms.CharField(
-        label=translate("Commune"),
+        label=translate_lazy("Commune"),
         required=False,
         widget=forms.TextInput(
             attrs={
-                "placeholder": translate("Rechercher une commune"),
+                "placeholder": translate_lazy("Rechercher une commune"),
                 "autocomplete": "off",
                 "class": "autocomplete-input form-control",
             }
@@ -642,19 +643,19 @@ class PublicAProposForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     user_type = forms.ChoiceField(
-        label=translate("Vous êtes ?"),
+        label=translate_lazy("Vous êtes ?"),
         choices=[
             (
                 Erp.USER_ROLE_PUBLIC,
-                translate("Je suis simple contributeur"),
+                translate_lazy("Je suis simple contributeur"),
             ),
             (
                 Erp.USER_ROLE_GESTIONNAIRE,
-                translate("Je gère cet établissement"),
+                translate_lazy("Je gère cet établissement"),
             ),
             (
                 Erp.USER_ROLE_ADMIN,
-                translate("Je représente la fonction publique"),
+                translate_lazy("Je représente la fonction publique"),
             ),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
@@ -662,13 +663,13 @@ class PublicAProposForm(forms.ModelForm):
     )
 
     registre_url = forms.URLField(
-        label=translate("Registre d'accessibilité"),
+        label=translate_lazy("Registre d'accessibilité"),
         help_text=schema.get_help_text("registre_url"),
         widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}),
         required=False,
     )
     conformite = forms.ChoiceField(
-        label=translate("Conformité"),
+        label=translate_lazy("Conformité"),
         help_text=schema.get_help_text("conformite"),
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         widget=forms.RadioSelect(attrs={"class": "inline"}),
@@ -683,7 +684,7 @@ class PublicPublicationForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     published = forms.BooleanField(
-        label=translate("Je souhaite mettre en ligne cette fiche d'établissement immédiatement"),
+        label=translate_lazy("Je souhaite mettre en ligne cette fiche d'établissement immédiatement"),
         required=True,
         initial=True,
         widget=forms.CheckboxInput(attrs={"checked": "checked"}),
@@ -693,7 +694,7 @@ class PublicPublicationForm(forms.ModelForm):
 class PublicClaimForm(forms.Form):
     ok = forms.BooleanField(
         required=True,
-        label=translate("Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement."),
+        label=translate_lazy("Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement."),
     )
 
 

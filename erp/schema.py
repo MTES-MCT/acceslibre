@@ -1645,7 +1645,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": mark_safe("<strong>Informations complémentaires et prestations spécifiques</strong>"),
+        "label": mark_safe(translate_lazy("<strong>Informations complémentaires et prestations spécifiques</strong>")),
         "help_text": mark_safe(
             translate_lazy(
                 "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
