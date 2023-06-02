@@ -573,6 +573,8 @@ class PublicErpDeleteForm(forms.Form):
 
 class PublicErpEditInfosForm(BasePublicErpInfosForm):
     def clean(self):
+        if not self.cleaned_data.get("lon") or not self.cleaned_data.get("lat"):
+            raise ValidationError(translate("Cet ERP est non localisable."))
         # En édition publique d'un ERP, on ne met à jour la localisation que si
         # elle est absente ou que l'adresse a été modifiée
         if self.cleaned_data["geom"] != Point(
