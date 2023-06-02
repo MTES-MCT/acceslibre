@@ -254,7 +254,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Code postal
         code_postal = request.query_params.get("code_postal", None)
         if code_postal is not None:
-            queryset = queryset.filter(commune_ext__code_postaux__contains=[code_postal])
+            queryset = queryset.filter(code_postal=code_postal)
 
         # Code INSEE
         code_insee = request.query_params.get("code_insee", None)

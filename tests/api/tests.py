@@ -1,4 +1,5 @@
 import json
+import uuid
 from unittest.mock import ANY
 
 import pytest
@@ -108,6 +109,24 @@ class TestErpApi:
         response = api_client.get(reverse("erp-list") + "?q=nexiste_pas")
         content = json.loads(response.content)
         assert len(content["results"]) == 0
+
+    def test_list_postal_code(self, api_client, data):
+        # TODO: use several fixtures when we will have a real mechanism
+        erp2 = data.erp
+        erp2.pk = None
+        erp2.uuid = uuid.uuid4()
+        erp2.save()
+        response = api_client.get(reverse("erp-list") + "?code_postal=34830")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 2
+        assert all([e["code_postal"] == "34830" for e in content["results"]])
+
+        erp2.code_postal = 75010
+        erp2.save()
+        response = api_client.get(reverse("erp-list") + "?code_postal=34830")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+        assert all([e["code_postal"] == "34830" for e in content["results"]])
 
     def test_list_asp_id(self, api_client, data):
         response = api_client.get(reverse("erp-list") + "?asp_id_not_null=true")
