@@ -2719,7 +2719,7 @@ class Migration(migrations.Migration):
                 (
                     "geom",
                     django.contrib.gis.db.models.fields.PointField(
-                        help_text="Coordonnées géographique du centre de la commune",
+                        help_text="Coordonnées géographiques du centre de la commune",
                         srid=4326,
                         verbose_name="Localisation",
                     ),

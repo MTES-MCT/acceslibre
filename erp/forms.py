@@ -197,7 +197,7 @@ class AdminActiviteForm(forms.ModelForm):
         widget=widgets.Textarea(),
         delimiter="\n",
         required=False,
-        help_text=translate_lazy("Un mots-clé par ligne"),
+        help_text=translate_lazy("Un mot-clé par ligne"),
     )
 
     def save(self, commit=True):
