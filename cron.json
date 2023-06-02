@@ -17,10 +17,6 @@
             "size": "M"
         },
         {
-            "command": "10 4 * * * python manage.py import_dataset vaccination",
-            "size": "M"
-        },
-        {
             "command": "10 5 * * * python manage.py import_dataset gendarmerie",
             "size": "M"
         },
@@ -38,6 +34,10 @@
         },
         {
             "command": "30 14 * * 1 python manage.py notify_activity_suggestions",
+            "size": "M"
+        },
+        {
+            "command": "0 * * * * python manage.py calculate_challenge_stats",
             "size": "M"
         }
     ]
