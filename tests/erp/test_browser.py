@@ -1,3 +1,5 @@
+from copy import copy
+
 import pytest
 import reversion
 from django.contrib.auth.models import User
@@ -1012,3 +1014,20 @@ def test_erp_redirect(client, data):
     assert response.status_code == 200
     assert response.context["erp"] == data.erp
     assert response.redirect_chain == [("/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/", 302)]
+
+
+def test_edit_erp_invalid_data(data, client):
+    client.force_login(data.niko)
+    initial_erp = copy(data.erp)
+    payload = {
+        "lat": "http://i-want-to-hack-you.com/spam.exe",
+    }
+    response = client.post(
+        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        payload,
+        follow=True,
+    )
+
+    data.erp.refresh_from_db()
+    assert "lat" in response.context["form"].errors
+    assert data.erp.geom.x == initial_erp.geom.x
