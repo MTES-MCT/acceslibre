@@ -220,19 +220,21 @@ def _filter_erp_by_location(queryset, **kwargs):
     search_type = kwargs.get("search_type")
     lat, lon = kwargs.get("lat"), kwargs.get("lon")
     location = _parse_location_or_404(lat, lon)
+    postcode = kwargs.get("postcode")
 
     if search_type == settings.IN_MUNICIPALITY_SEARCH_TYPE:
         return queryset.filter(commune=kwargs.get("municipality").nom)
 
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
-        return queryset.annotate(city=Lower("commune")).filter(city=kwargs.get("municipality").lower())
+        return queryset.annotate(city=Lower("commune")).filter(
+            city=kwargs.get("municipality").lower(), code_postal=postcode
+        )
 
     if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
         return queryset.nearest(location, max_radius_km=0.2)
 
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET:
         street_name = kwargs.get("street_name")
-        postcode = kwargs.get("postcode")
         return queryset.filter(code_postal=postcode, voie__icontains=street_name)
     return queryset
 
