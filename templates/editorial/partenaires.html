@@ -8,21 +8,27 @@
 {% block editorial_content %}
     <div class="mt-5">
         <h1 class="text-center mt-5 mb-5">{% translate "Nos partenaires" %}</h1>
-        <div class="row flex justify-content-center mb-5">
-            <img class="a4a-partenaire-logo flex-column"
-                 src="{% static 'img/partenaires/FranceRelance.png' %}"
-                 alt="FranceRelance">
-            <img class="a4a-partenaire-logo flex-column"
-                 src="{% static 'img/partenaires/NextGenEU.png' %}"
-                 alt="NextGenEU">
+        <div class="fr-grid-row">
+            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
+                <img class="a4a-partenaire-logo flex-column"
+                     src="{% static 'img/partenaires/FranceRelance.png' %}"
+                     alt="FranceRelance">
+            </div>
+            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
+                <img class="a4a-partenaire-logo flex-column"
+                     src="{% static 'img/partenaires/NextGenEU.png' %}"
+                     alt="NextGenEU">
+            </div>
         </div>
-        <div class="row flex justify-content-center mb-5">
+        <div class="fr-grid-row">
             {% for pid, partenaire in partenaires.items|shuffle %}
-                <a class="m-2" href="#{{ pid }}">
-                    <img class="a4a-partenaire-logo"
-                         src="{% static partenaire.logo %}"
-                         alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-                </a>
+                <div class="fr-col-lg-3 fr-col-12 text-center fr-p-2w">
+                    <a class="m-2" href="#{{ pid }}">
+                        <img class="a4a-partenaire-logo"
+                             src="{% static partenaire.logo %}"
+                             alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
+                    </a>
+                </div>
             {% endfor %}
         </div>
         {% for pid, partenaire in partenaires.items|shuffle %}
