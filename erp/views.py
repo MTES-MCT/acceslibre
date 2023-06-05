@@ -756,8 +756,11 @@ def contrib_global_search(request):
 
     # remove postal code in where
     address = re.split(r"\(|\)", request.GET.get("where") or "()")
-    city = address[0].strip()
-    postal_code = address[1]
+    city = ""
+    postal_code = ""
+    if len(address) == 2:
+        city = address[0].strip()
+        postal_code = address[1]
 
     return render(
         request,
