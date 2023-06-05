@@ -95,6 +95,32 @@ class TestErpApi:
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
 
+    def test_list_geojson(self, api_client, data):
+        response = api_client.get(reverse("erp-list"), headers={"Content-Type": "application/geo+json"})
+        assert response.json() == {
+            "count": 1,
+            "page_size": 20,
+            "next": None,
+            "previous": None,
+            "results": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "id": 1,
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [3.9047933, 43.6648217]},
+                        "properties": {
+                            "nom": "Aux bons croissants",
+                            "code_postal": "34830",
+                            "voie": "grand rue",
+                            "lieu_dit": None,
+                            "commune": "Jacou",
+                        },
+                    }
+                ],
+            },
+        }
+
     def test_list_page_size(self, api_client, data):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
         content = json.loads(response.content)

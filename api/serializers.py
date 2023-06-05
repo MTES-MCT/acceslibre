@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
@@ -143,3 +144,11 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_web_url(self, obj):
         return self.context["request"].build_absolute_uri(obj.get_absolute_url())
+
+
+class ErpGeoSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = Erp
+        geo_field = "geom"
+
+        fields = ("id", "nom", "code_postal", "voie", "lieu_dit", "commune", "geom")

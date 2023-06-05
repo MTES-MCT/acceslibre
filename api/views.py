@@ -7,7 +7,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
 
-from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpSerializer
+from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider import geocoder
@@ -24,12 +24,13 @@ API_DOC_SUMMARY = f"""
 {settings.SITE_NAME.title()} expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation)
 publique permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
 [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) autant que possible et
-expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation).
+expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation) ou [geoJSON](https://fr.wikipedia.org/wiki/GeoJSON).
 
 Le point d'entrée racine de l'API est accessible à l'adresse
 [`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
+- Une réponse de type `application/geo+json` est restituée si explicitement demandée par le client et si disponible.
 
 ## Identification
 
@@ -54,6 +55,13 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne 
 ```
 
 Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
+
+
+### Rechercher les établissements dont le code postal est 26000 et les récupérer au format geoJSON en vue de les afficher sur une carte :
+
+```
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?code_postal=26000 -H "accept: application/geo+json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+```
 
 ---
 
@@ -504,8 +512,12 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
-    serializer_class = ErpSerializer
     lookup_field = "slug"
     pagination_class = ErpPagination
     filter_backends = [ErpFilterBackend]
     schema = ErpSchema()
+
+    def get_serializer_class(self):
+        if self.request.headers.get("Content-Type") == "application/geo+json":
+            return ErpGeoSerializer
+        return ErpSerializer
