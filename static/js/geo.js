@@ -87,7 +87,7 @@ function createCustomTiles(styleId) {
     maxZoom: 18,
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw",
+    accessToken: "pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw",
   });
 }
 
@@ -100,7 +100,7 @@ function getStreetTiles() {
 
 function getSatelliteTiles() {
   if (!satelliteTiles) {
-    satelliteTiles = createCustomTiles("n1k0/ckh8z9k2q2gbj19mw0x32efym");
+    satelliteTiles = createCustomTiles("acceslibre/cliiv23h1005i01qv6365088q");
   }
   return satelliteTiles;
 }
