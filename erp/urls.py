@@ -73,7 +73,7 @@ urlpatterns = [
     ),
     path(
         "recherche/",
-        cache_user_page(views.search),
+        views.search,
         name="search",
     ),
     path(

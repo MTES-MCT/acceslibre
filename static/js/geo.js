@@ -2,13 +2,15 @@
 // TODO: split these into better scoped components
 
 import api from "./api";
+var L = window.L; // Let's make EsLint happy :)
 
 let currentPk,
   layers = [],
   markers,
   map,
   satelliteTiles,
-  streetTiles;
+  streetTiles,
+  geoJsonLayer;
 
 function recalculateMapSize() {
   if (!map) {
@@ -27,7 +29,7 @@ function recalculateMapSize() {
   }
 }
 
-function createIcon(highlight, iconName = "building") {
+function _createIcon(highlight, iconName = "building") {
   const size = highlight ? 48 : 32;
   const options = {
     iconUrl: `/static/img/mapicons.svg#${iconName}`,
@@ -40,8 +42,42 @@ function createIcon(highlight, iconName = "building") {
   return L.icon(options);
 }
 
-// see https://leafletjs.com/examples/geojson/
-function onEachFeature({ geometry, properties: props }, layer) {
+// TODO move me to another file ?
+// TODO fix issue with icons
+function _generateHTMLForResult(result) {
+    return `
+    <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+    <div>
+        <div class="d-flex w-100 justify-content-between">
+            <a href="${ result.properties.web_url }">
+                <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                    <img alt="" class="act-icon act-icon-20 mb-1" src="{% static " img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                   ${ result.properties.nom }
+                    <span class="sr-only">
+                        ${ result.properties.activite.nom }
+                        {% translate "à l'adresse" %} ${ result.properties.adresse }
+                    </span>
+                </h3>
+            </a>
+        </div>
+        <div aria-hidden="true">
+            <small class="font-weight-bold text-muted">${ result.properties.activite.nom }</small>
+            <address class="d-inline mb-0">
+                <small>${ result.properties.adresse }</small>
+            </address>
+        </div>
+    </div>
+    <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+            title="${gettext('Localiser sur la carte')}"
+            data-erp-id="{{ erp.pk }}">
+        ${gettext("Localiser")}
+        <br>
+        <i aria-hidden="true" class="icon icon-target"></i>
+    </button>
+</div>`;
+}
+
+function _drawPopUpMarker({ geometry, properties: props }, layer) {
   let zoomLink = "";
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
@@ -55,15 +91,15 @@ function onEachFeature({ geometry, properties: props }, layer) {
   layers.push(layer);
 }
 
-function pointToLayer({ properties: props }, coords) {
+function _createPointIcon({ properties: props }, coords) {
   return L.marker(coords, {
     alt: props.nom,
     title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
-    icon: createIcon(currentPk && Number(props.pk) === currentPk, props.activite__vector_icon),
+    icon: _createIcon(currentPk && Number(props.pk) === currentPk, props.activite__vector_icon),
   });
 }
 
-function iconCreateFunction(cluster) {
+function _createClusterIcon(cluster) {
   return L.divIcon({
     html: cluster.getChildCount(),
     className: "a4a-cluster-icon",
@@ -109,7 +145,7 @@ function safeBase64Encode(data) {
   return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
 }
 
-function onMapContextMenu(root, { latlng, target: map }) {
+function _displayCustomMenu(root, { latlng, target: map }) {
   // prevent imprecise locations by requiring a minimum zoom level
   if (map.getZoom() < 16) {
     return;
@@ -176,71 +212,126 @@ function parseJsonScript(scriptNode) {
   return JSON.parse(scriptNode.textContent);
 }
 
-function parseAround({ lat, lon, label }) {
+function _parseAround({ lat, lon, label }) {
   if (!lat || !lon) return;
   try {
     return { label, point: L.latLng(lat, lon) };
   } catch (_) {}
 }
 
-function AppMap(root) {
-  let aroundPoint;
-  const info = parseJsonScript(root.querySelector("#commune-data"));
-  const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
-  const geoJson = parseJsonScript(root.querySelector("#erps-data"));
-  const around = parseAround(root.dataset);
-  currentPk = pk;
+function refreshList(data) {
+  const listContainer = document.querySelector("#erp-results-list");
+  listContainer.innerHTML = "";
+  data.features.forEach(function(point){
+    let html = _generateHTMLForResult(point);
+    listContainer.innerHTML += html;
+    // TODO see how many point we will handle ?
+  });
+}
 
-  map = createMap(root);
-
-  if (info) {
-    map.setMinZoom(info.zoom - 2);
-    if (info.contour) {
-      L.polygon(info.contour, { color: "#075ea2", opacity: 0.6, weight: 3, fillOpacity: 0.05 }).addTo(map);
-    }
+function updateNumberOfResults(data) {
+  const numberContainer = document.querySelector("#number-of-results");
+  if (data.count > 1) {
+    numberContainer.innerHTML = data.count + gettext(" établissements");
+  } else {
+    numberContainer.innerHTML = data.count + gettext(" établissement");
   }
+}
 
-  const geoJsonLayer = L.geoJSON(geoJson, {
-    onEachFeature: onEachFeature,
-    pointToLayer: pointToLayer,
+// TODO clean this function
+function refreshDataOnMove(map, refreshApiUrl) {
+  map.on("moveend", function () {
+    const southWest = map.getBounds().getSouthWest()
+    const northEast = map.getBounds().getNorthEast()
+    // TODO solve issue for api key
+
+    const apiKey = "";
+    let url = refreshApiUrl + "?in_bbox=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
+
+    const fetchPromise = fetch(url, { timeout: 10000, headers: {"Content-Type": "application/geo+json", "Authorization": apiKey} });
+
+    fetchPromise.then((response) => {
+      const jsonPromise = response.json();
+      jsonPromise.then((jsonData) => {
+        map.removeLayer(markers);
+        markers = _createMarkersFromGeoJson(jsonData);
+        map.addLayer(markers);
+        refreshList(jsonData);
+        updateNumberOfResults(jsonData);
+
+      });
+    });
+  });
+}
+
+function _createMarkersFromGeoJson(geoJson) {
+  geoJsonLayer = L.geoJSON(geoJson, {
+    onEachFeature: _drawPopUpMarker,
+    pointToLayer: _createPointIcon,
   });
 
-  // right-click menu
-  map.on("contextmenu", onMapContextMenu.bind(map, root));
-
-  // markers
   markers = L.markerClusterGroup({
     maxClusterRadius: 30,
     showCoverageOnHover: false,
-    iconCreateFunction: iconCreateFunction,
+    iconCreateFunction: _createClusterIcon,
   });
   markers.addLayer(geoJsonLayer);
+  return markers;
+}
 
-  if (around) {
-    aroundPoint = L.circleMarker(around.point, { color: "#fff", fillColor: "#3388ff", fillOpacity: 1, radius: 9 })
-      .bindPopup(around.label)
-      .addTo(map);
-    markers.addLayer(aroundPoint);
-  }
-
-  map.addLayer(markers);
-
-  if (geoJson.features.length > 0) {
-    map.fitBounds(markers.getBounds(), { padding: [70, 70] });
-  } else if (info) {
-    map.setView(info.center, info.zoom);
-  }
-
+function _addLocateButton(map) {
   L.control
     .locate({
       icon: "icon icon-street-view a4a-locate-icon",
       strings: { title: "Localisez moi" },
     })
     .addTo(map);
+}
+
+function _addMarkerAtCenterOfSearch(dataset, markers){
+  const around = _parseAround(dataset);
+   if (around) {
+      let aroundPoint = L.circleMarker(around.point, { color: "#fff", fillColor: "#3388ff", fillOpacity: 1, radius: 9 })
+        .bindPopup(around.label)
+        .addTo(map);
+      markers.addLayer(aroundPoint);
+    }
+}
+
+function AppMap(root) {
+  const municipalityData = parseJsonScript(root.querySelector("#commune-data"));
+  const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
+  const geoJson = parseJsonScript(root.querySelector("#erps-data"));
+  currentPk = pk;
+
+  // TODO handle initial results on page load + delete result row html file
+  map = createMap(root);
+  map.on("contextmenu", _displayCustomMenu.bind(map, root));
+
+  if (municipalityData) {
+    map.setMinZoom(municipalityData.zoom - 2);
+    if (municipalityData.contour) {
+      L.polygon(municipalityData.contour, { color: "#075ea2", opacity: 0.6, weight: 3, fillOpacity: 0.05 }).addTo(map);
+    }
+  }
+
+  markers = _createMarkersFromGeoJson(geoJson);
+  _addMarkerAtCenterOfSearch(root.dataset, markers)
+  map.addLayer(markers);
+
+  if (geoJson.features.length > 0) {
+    map.fitBounds(markers.getBounds(), { padding: [70, 70] });
+  } else if (municipalityData) {
+    map.setView(municipalityData.center, municipalityData.zoom);
+  }
+
+  _addLocateButton(map);
 
   if (pk) {
     openMarkerPopup(pk);
   }
+
+  refreshDataOnMove(map, root.dataset.refreshApiUrl);
 
   return map;
 }
@@ -266,31 +357,30 @@ function zoomTo(lat, lon) {
   map.setView([lat, lon], 18);
 }
 
-function update_map(query, map){
+function update_map(query, map) {
   var mapDomEl = document.querySelector(".a4a-localisation-map");
   var btnSubmit = document.querySelector('[name="contribute"]');
-  btnSubmit.setAttribute('disabled', '');
+  btnSubmit.setAttribute("disabled", "");
   mapDomEl.style.opacity = 0.3;
-  api.getCoordinate(query).then(function(response){
-    var result = response.results[0];
-    if (result !== undefined) {
-      map.setView(
-        {
-          lat: result.lat,
-          lon: result.lon,
-        },
-        18
-      );
-    } else {
-
-    }
-
-
-  }).then(function(response){
-    mapDomEl.style.opacity = 1;
-    btnSubmit.removeAttribute('disabled');
-  });
-};
+  api
+    .getCoordinate(query)
+    .then(function (response) {
+      var result = response.results[0];
+      if (result !== undefined) {
+        map.setView(
+          {
+            lat: result.lat,
+            lon: result.lon,
+          },
+          18
+        );
+      }
+    })
+    .then(function (response) {
+      mapDomEl.style.opacity = 1;
+      btnSubmit.removeAttribute("disabled");
+    });
+}
 
 export default {
   AppMap,

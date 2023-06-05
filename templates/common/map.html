@@ -1,10 +1,12 @@
 {% load i18n %}
 <div aria-hidden="true"
      id="app-map"
-     data-label="{{ where|default_if_none:"" }}"
      class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}"
-     data-lat="{{ lat|default_if_none:"" }}"
-     data-lon="{{ lon|default_if_none:"" }}">
+     data-label="{{ where|default_if_none:'' }}"
+     data-lat="{{ lat|default_if_none:'' }}"
+     data-lon="{{ lon|default_if_none:'' }}"
+     data-refresh-api-url="{% url 'erp-list' %}"
+     data-should-refresh="TODO HANDLE ME">
     <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
     </script>
