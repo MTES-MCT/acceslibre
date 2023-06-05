@@ -104,6 +104,12 @@ class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ErpSerializer(serializers.HyperlinkedModelSerializer):
+    activite = ActiviteSerializer(many=False, read_only=True)
+    adresse = serializers.ReadOnlyField()
+    distance = serializers.SerializerMethodField()
+    web_url = serializers.SerializerMethodField()
+    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
+
     class Meta:
         model = Erp
         fields = (
@@ -132,12 +138,6 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
-    activite = ActiviteSerializer(many=False, read_only=True)
-    adresse = serializers.ReadOnlyField()
-    distance = serializers.SerializerMethodField()
-    web_url = serializers.SerializerMethodField()
-    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
-
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
             return obj.distance.m
@@ -147,8 +147,14 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ErpGeoSerializer(GeoFeatureModelSerializer):
+    activite = ActiviteSerializer(many=False, read_only=True)
+    web_url = serializers.SerializerMethodField()
+
     class Meta:
         model = Erp
         geo_field = "geom"
 
-        fields = ("id", "nom", "code_postal", "voie", "lieu_dit", "commune", "geom")
+        fields = ("id", "nom", "adresse", "geom", "activite", "web_url")
+
+    def get_web_url(self, obj):
+        return obj.get_absolute_uri()
