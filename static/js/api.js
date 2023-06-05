@@ -103,7 +103,7 @@ async function searchLocation(q, loc, kind = '') {
       { properties: { score } }) => {
       return (score > 0.4);
     }).map(
-      ({ properties: { type, label, context, citycode, postcode }, geometry: { coordinates } }) => {
+      ({ properties: { type, label, context, citycode, postcode, search_type, city, street,municipality }, geometry: { coordinates } }) => {
         const text = type === "municipality" ? `${label} (${postcode})` : label;
         context = ""  // Empty the context, which initially contains department, region
 
@@ -114,6 +114,10 @@ async function searchLocation(q, loc, kind = '') {
           code: citycode,
           lat: coordinates[1],
           lon: coordinates[0],
+          search_type: type,
+          postcode: postcode,
+          street_name: street,
+          municipality: municipality,
         };
       }
     );

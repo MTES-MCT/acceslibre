@@ -6,26 +6,6 @@ from erp.provider.generic_geoloc import GeolocRequester
 from erp.provider.osm import OSMRequester
 
 
-def test_ban_autocomplete_empty(mocker):
-    mocker.patch("erp.provider.generic_geoloc.GeolocRequester.query", return_value={"features": []})
-
-    assert geocoder.autocomplete("plop") is None
-
-
-def test_ban_autocomplete_ok(mocker):
-    mocker.patch(
-        "erp.provider.generic_geoloc.GeolocRequester.query",
-        return_value={"features": [{"geometry": {"coordinates": [1, 2]}}]},
-    )
-
-    assert geocoder.autocomplete("plop") == Point(1, 2, srid=4326)
-
-
-def test_ban_autocomplete_request_error(mocker):
-    mocker.patch("erp.provider.generic_geoloc.GeolocRequester.query", side_effect=RuntimeError("error"))
-    geocoder.autocomplete("plop") is None
-
-
 @pytest.mark.disable_geocode_autouse
 def test_geocode_fallback_geoportail(mocker):
     mocker.patch.object(GeolocRequester, "query")

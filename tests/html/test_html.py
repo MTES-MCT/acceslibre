@@ -67,7 +67,6 @@ def test_search_empty(data, client):
 
 
 def test_search_result(data, client, mocker):
-    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     validate_url_get(client, reverse("search") + "?where=jacou")
 
 

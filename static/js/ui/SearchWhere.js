@@ -21,6 +21,10 @@ function SearchWhere(root) {
     lat: root.querySelector("input[name=lat]"),
     lon: root.querySelector("input[name=lon]"),
     code: root.querySelector("input[name=code]"),
+    search_type: root.querySelector("input[name=search_type]"),
+    postcode: root.querySelector("input[name=postcode]"),
+    street_name: root.querySelector("input[name=street_name]"),
+    municipality: root.querySelector("input[name=municipality]"),
   };
   input.addEventListener('input', activate_submit_btn, false);
   activate_submit_btn(event = false, force = false)
@@ -40,6 +44,10 @@ function SearchWhere(root) {
     hiddens.lat.value = loc?.lat || "";
     hiddens.lon.value = loc?.lon || "";
     hiddens.code.value = loc?.code || "";
+    hiddens.search_type.value = loc?.search_type || "";
+    hiddens.postcode.value = loc?.postcode || "";
+    hiddens.street_name.value = loc?.street_name || "";
+    hiddens.municipality.value = loc?.municipality || "";
   }
 
   function setSearchValue(label) {
@@ -83,6 +91,7 @@ function SearchWhere(root) {
           setSearchValue("");
           input.focus();
         } else {
+          loc.search_type = AROUND_ME
           setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
           input.form.querySelector("button[type=submit]").focus();

@@ -358,3 +358,10 @@ USERNAME_BLACKLIST = [
 ]
 
 MIN_NB_ANSWERS_IN_CONTRIB = 4
+
+
+# https://adresse.data.gouv.fr/api-doc/adresse
+ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY = "municipality"
+ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER = "housenumber"
+ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET = "street"
+IN_MUNICIPALITY_SEARCH_TYPE = "in_municipality"
