@@ -14,8 +14,7 @@
         </h1>
         <div>
             <address class="d-inline font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
-            - <a href="#"
-    onclick="a4a.geo.openMarkerPopup({{ erp.pk }}, { highlight: true });return false">{% translate "Situer sur la carte" %}</a>
+            - <a href="#" class="a4a-geo-link" data-erp-identifier="{{ erp.uuid }}">{% translate "Situer sur la carte" %}</a>
         </div>
         {% with erp.metadata.centre_vaccination as cv %}
             {% if cv %}

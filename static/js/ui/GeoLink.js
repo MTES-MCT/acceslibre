@@ -4,8 +4,8 @@ function GeoLink(root) {
   root.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
-    const pk = parseInt(root.dataset?.erpId, 10);
-    if (pk) geo.openMarkerPopup(pk);
+    const identifier = root.dataset?.erpIdentifier;
+    if (identifier) geo.openMarkerPopup(identifier);
   });
 }
 

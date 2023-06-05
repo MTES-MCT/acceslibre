@@ -105,10 +105,10 @@ class TestErpApi:
             "previous": None,
             "features": [
                 {
-                    "id": ANY,
                     "type": "Feature",
                     "geometry": {"type": "Point", "coordinates": [3.9047933, 43.6648217]},
                     "properties": {
+                        "uuid": str(data.erp.uuid),
                         "nom": "Aux bons croissants",
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
