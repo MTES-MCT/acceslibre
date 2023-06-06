@@ -6,11 +6,9 @@ from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
-from rest_framework_api_key.permissions import HasAPIKey
 from rest_framework_gis.pagination import GeoJsonPagination
 
 from api.filters import ZoneFilter
-from api.permissions import IsAllowedForAction
 from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
@@ -553,7 +551,6 @@ class ErpViewSet(
     bbox_filter_field = "geom"
     filter_backends = (ZoneFilter, ErpFilterBackend)
     schema = ErpSchema()
-    permission_classes = [HasAPIKey & IsAllowedForAction]
 
     def get_serializer_class(self):
         if self.request.headers.get("Accept") == "application/geo+json":

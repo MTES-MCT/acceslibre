@@ -149,6 +149,7 @@ REST_FRAMEWORK = {
     },
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework_api_key.permissions.HasAPIKey",
+        "api.permissions.IsAllowedForAction",
     ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
