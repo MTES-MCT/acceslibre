@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.gis.geos import Point
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
@@ -11,6 +11,7 @@ from rest_framework_gis.pagination import GeoJsonPagination
 
 from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
 from erp import schema
+from erp.imports.serializers import ErpImportSerializer
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider import geocoder
 
@@ -155,7 +156,9 @@ class AccessibilitePagination(PageNumberPagination):
     max_page_size = 1000
 
 
-class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
+class AccessibiliteViewSet(
+    mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
+):
     """
     list:
     Ce point d'accès liste les **critères d'accessibilité** des ERP.
@@ -220,7 +223,9 @@ class ActiviteSchema(A4aAutoSchema):
     }
 
 
-class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
+class ActiviteViewSet(
+    mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
+):
     """
     list:
     Ce point d'accès liste les **activités d'ERP**. Il accepte les filtres suivants :
@@ -492,7 +497,13 @@ class ErpSchema(A4aAutoSchema):
     }
 
 
-class ErpViewSet(viewsets.ReadOnlyModelViewSet):
+class ErpViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    viewsets.GenericViewSet,
+):
     """
     list:
     Ce point d'accès liste les ERP. Il accepte et permet de combiner plusieurs
@@ -517,7 +528,23 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
     par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
     (*slug*).
+
+    create:
+    Ce point d'accès permet de créer un ERP, pour une activité existante, identifiée par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
+    (*slug*) et possédant des infos d'accessibilité.
+
+    update:
+    Ce point d'accès permet de mettre à jour partiellement ou totalement un ERP spécifique, identifié
+    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme)) ainsi que ses données d'accessibilité.
     """
+
+    serializers = {
+        "default": ErpSerializer,
+        "list": ErpSerializer,
+        "create": ErpImportSerializer,
+        "update": ErpImportSerializer,
+        "partial_update": ErpImportSerializer,
+    }
 
     queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     lookup_field = "slug"
@@ -528,7 +555,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     def get_serializer_class(self):
         if self.request.headers.get("Accept") == "application/geo+json":
             return ErpGeoSerializer
-        return ErpSerializer
+        return self.serializers.get(self.action, self.serializers["default"])
 
     def get_pagination_class(self):
         if self.request.headers.get("Accept") == "application/geo+json":

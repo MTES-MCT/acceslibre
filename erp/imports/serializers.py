@@ -20,6 +20,13 @@ class NullBooleanField(serializers.Field):
             return False
         return None
 
+    def to_representation(self, value):
+        if value in TRUE_VALUES:
+            return True
+        if value in FALSE_VALUES:
+            return False
+        return None
+
 
 class DuplicatedExceptionErp(serializers.ValidationError):
     def __init__(self, *args, **kwargs):

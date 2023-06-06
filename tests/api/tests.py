@@ -6,6 +6,8 @@ import pytest
 from django.urls import reverse
 from rest_framework.test import APIClient
 
+from erp.models import Erp
+
 
 @pytest.fixture
 def api_client():
@@ -299,6 +301,116 @@ class TestErpApi:
             "source_id": None,
             "asp_id": None,
         }
+
+    def test_post(self, api_client, activite, commune_montreuil):
+        assert not Erp.objects.filter(nom="Mairie de Montreuil").first()
+        payload = {
+            "activite": "Mairie",
+            "nom": "Mairie de Montreuil",
+            "numero": "101",
+            "voie": "rue Francis de Pressencé",
+            "commune": "Montreuil",
+            "code_insee": "69100",
+            "code_postal": "69100",
+            "site_internet": "https://example.com",
+            "contact_email": "user@example.com",
+            "contact_url": "https://example.com/contact",
+            "accessibilite": {
+                "transport_station_presence": True,
+                "transport_information": "string",
+                "stationnement_presence": True,
+                "stationnement_pmr": True,
+                "stationnement_ext_presence": True,
+                "stationnement_ext_pmr": True,
+                "cheminement_ext_presence": True,
+                "cheminement_ext_plain_pied": True,
+                "cheminement_ext_terrain_stable": True,
+                "cheminement_ext_nombre_marches": 32767,
+                "cheminement_ext_sens_marches": "montant",
+                "cheminement_ext_reperage_marches": True,
+                "cheminement_ext_main_courante": True,
+                "cheminement_ext_rampe": "aucune",
+                "cheminement_ext_ascenseur": True,
+                "cheminement_ext_pente_presence": True,
+                "cheminement_ext_pente_degre_difficulte": "légère",
+                "cheminement_ext_pente_longueur": "courte",
+                "cheminement_ext_devers": "aucun",
+                "cheminement_ext_bande_guidage": True,
+                "cheminement_ext_retrecissement": True,
+                "entree_reperage": True,
+                "entree_porte_presence": True,
+                "entree_porte_manoeuvre": "battante",
+                "entree_porte_type": "manuelle",
+                "entree_vitree": True,
+                "entree_vitree_vitrophanie": True,
+                "entree_plain_pied": True,
+                "entree_marches": 32767,
+                "entree_marches_sens": "montant",
+                "entree_marches_reperage": True,
+                "entree_marches_main_courante": True,
+                "entree_marches_rampe": "aucune",
+                "entree_balise_sonore": True,
+                "entree_dispositif_appel": True,
+                "entree_dispositif_appel_type": ["bouton"],
+                "entree_aide_humaine": True,
+                "entree_ascenseur": True,
+                "entree_largeur_mini": 32767,
+                "entree_pmr": True,
+                "entree_pmr_informations": "string",
+                "accueil_visibilite": True,
+                "accueil_personnels": "aucun",
+                "accueil_audiodescription_presence": True,
+                "accueil_audiodescription": ["avec_équipement_permanent"],
+                "accueil_equipements_malentendants_presence": True,
+                "accueil_equipements_malentendants": ["bim"],
+                "accueil_cheminement_plain_pied": True,
+                "accueil_cheminement_nombre_marches": 32767,
+                "accueil_cheminement_sens_marches": "montant",
+                "accueil_cheminement_reperage_marches": True,
+                "accueil_cheminement_main_courante": True,
+                "accueil_cheminement_rampe": "aucune",
+                "accueil_cheminement_ascenseur": True,
+                "accueil_retrecissement": True,
+                "sanitaires_presence": True,
+                "sanitaires_adaptes": True,
+                "labels": ["th"],
+                "labels_familles_handicap": ["auditif"],
+                "labels_autre": "string",
+                "commentaire": "string",
+                "conformite": True,
+            },
+            "source": "acceslibre",
+            "source_id": "string",
+            "asp_id": "string",
+        }
+
+        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        assert response.status_code == 201, response.json()
+        assert (erp := Erp.objects.filter(nom="Mairie de Montreuil").first())
+        assert erp.published is True
+        assert erp.activite.slug == "mairie"
+        assert erp.accessibilite.transport_station_presence is True
+
+        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        assert response.status_code == 400, response.json()
+        assert "Potentiel doublon" in response.json()["non_field_errors"][0], "Should raise for duplicated ERP"
+
+        payload["activite"] = "Activité inconnue"
+        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        assert response.status_code == 400
+        assert response.json() == {"activite": ["L'object avec nom=Activité inconnue n'existe pas."]}
+
+        payload = {"accessibilite": {"transport_station_presence": False}}
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 200, response.json()
+        erp.accessibilite.refresh_from_db()
+        assert erp.accessibilite.transport_station_presence is False, "Should change access info"
+
+        payload = {"accessibilite": {"transport_station_presence": None}}
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 200, response.json()
+        erp.accessibilite.refresh_from_db()
+        assert erp.accessibilite.transport_station_presence is False, "Should not be able to empty things"
 
 
 @pytest.mark.usefixtures("api_client")
