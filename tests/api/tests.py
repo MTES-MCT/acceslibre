@@ -125,25 +125,25 @@ class TestErpApi:
 
         response = api_client.get(
             reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100",
-            headers={"Content-Type": "application/geo+json"},
+            headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_erp
         # bbox without results
         response = api_client.get(
-            reverse("erp-list") + "?in_bbox=4,44,5,45", headers={"Content-Type": "application/geo+json"}
+            reverse("erp-list") + "?in_bbox=4,44,5,45", headers={"Accept": "application/geo+json"}
         )
         assert response.json() == geojson_expected_for_no_results
 
         # combination of bbox + filter
         response = api_client.get(
             reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100&code_postal=34830",
-            headers={"Content-Type": "application/geo+json"},
+            headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_erp
 
         response = api_client.get(
             reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100&code_postal=26000",
-            headers={"Content-Type": "application/geo+json"},
+            headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_no_results
 
