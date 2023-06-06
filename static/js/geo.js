@@ -188,6 +188,7 @@ function _parseAround({ lat, lon, label }) {
 }
 
 function refreshList(data) {
+  console.log(data);
   const listContainer = document.querySelector("#erp-results-list");
   let HTMLResult = ""
   data.features.forEach(function(point){
@@ -283,6 +284,7 @@ function AppMap(root) {
   markers = _createMarkersFromGeoJson(geoJson);
   _addMarkerAtCenterOfSearch(root.dataset, markers)
   map.addLayer(markers);
+  refreshList(geoJson);
 
   if (geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds(), { padding: [70, 70] });

@@ -1,28 +1,41 @@
 function generateHTMLForResult(result) {
-    return `
+  let icon = "build";
+  let activity_name = "";
+  let link = "";
+  if (result.properties.activite__vector_icon) {
+    icon = result.properties.activite__vector_icon;
+    activity_name = result.properties.activite__nom;
+    link = result.properties.absolute_url;
+  } else if (result.properties.activite) {
+    icon = result.properties.activite.vector_icon;
+    activity_name = result.properties.activite.nom;
+    link = result.properties.web_url;
+  }
+
+  return `
     <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
     <div>
         <div class="d-flex w-100 justify-content-between">
-            <a href="${ result.properties.web_url }">
+            <a href="${link}">
                 <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
-                    <img alt="" class="act-icon act-icon-20 mb-1" src="/static/img/mapicons.svg#${ result.properties.activite.vector_icon || 'building' }">
-                   ${ result.properties.nom }
+                    <img alt="" class="act-icon act-icon-20 mb-1" src="/static/img/mapicons.svg#${icon}">
+                   ${result.properties.nom}
                     <span class="sr-only">
-                        ${ result.properties.activite.nom }
-                        {% translate "à l'adresse" %} ${ result.properties.adresse }
+                        ${activity_name}
+                        {% translate "à l'adresse" %} ${result.properties.adresse}
                     </span>
                 </h3>
             </a>
         </div>
         <div aria-hidden="true">
-            <small class="font-weight-bold text-muted">${ result.properties.activite.nom }</small>
+            <small class="font-weight-bold text-muted">${activity_name}</small>
             <address class="d-inline mb-0">
-                <small>${ result.properties.adresse }</small>
+                <small>${result.properties.adresse}</small>
             </address>
         </div>
     </div>
     <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
-            title="${gettext('Localiser sur la carte')}"
+            title="${gettext("Localiser sur la carte")}"
             data-erp-id="{{ erp.pk }}">
         ${gettext("Localiser")}
         <br>
@@ -32,5 +45,5 @@ function generateHTMLForResult(result) {
 }
 
 export default {
-  generateHTMLForResult
-}
+  generateHTMLForResult,
+};
