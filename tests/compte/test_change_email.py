@@ -125,7 +125,7 @@ def test_deleting_unused_tokens(data):
     email_tokens = EmailToken.objects.all()
     assert len(email_tokens) == 1
 
-    management.call_command("purge_tokens")
+    management.call_command("purge_obsolete_objects_in_base")
     email_tokens = EmailToken.objects.all()
     assert len(email_tokens) == 0
 
