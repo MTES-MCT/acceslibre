@@ -6,9 +6,9 @@ from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
-from rest_framework_gis.filters import InBBoxFilter
 from rest_framework_gis.pagination import GeoJsonPagination
 
+from api.filters import ZoneFilter
 from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
@@ -63,7 +63,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 ### Rechercher les établissements contenu dans un cadre englobant Valence et les récupérer au format geoJSON en vue de les afficher sur une carte :
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?in_bbox=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?zone=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez que le cadre est définit par 2 coordonnées :
@@ -549,7 +549,7 @@ class ErpViewSet(
     queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     lookup_field = "slug"
     bbox_filter_field = "geom"
-    filter_backends = (InBBoxFilter, ErpFilterBackend)
+    filter_backends = (ZoneFilter, ErpFilterBackend)
     schema = ErpSchema()
 
     def get_serializer_class(self):

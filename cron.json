@@ -1,15 +1,11 @@
 {
     "jobs": [
         {
-            "command": "25 * * * * python manage.py purge_tokens",
-            "size": "M"
-        },
-        {
             "command": "5 3 * * * python manage.py refresh_global_stats",
             "size": "M"
         },
         {
-            "command": "35 3 * * * python manage.py purge_inactive_accounts",
+            "command": "35 3 * * * python manage.py purge_obsolete_objects_in_base",
             "size": "M"
         },
         {

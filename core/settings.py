@@ -149,6 +149,7 @@ REST_FRAMEWORK = {
     },
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework_api_key.permissions.HasAPIKey",
+        "api.permissions.IsAllowedForAction",
     ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
@@ -156,6 +157,8 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.BrowsableAPIRenderer",
     ],
 }
+
+INTERNAL_API_KEY_NAME = "acceslibre - internal uses only"
 
 ROOT_URLCONF = "core.urls"
 
