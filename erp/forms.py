@@ -452,6 +452,7 @@ class BasePublicErpInfosForm(BaseErpForm):
     activite = forms.ModelChoiceField(label=translate_lazy("Activité"), queryset=Activite.objects.order_by("position"))
     nouvelle_activite = forms.CharField(widget=forms.TextInput)
     asp_id = forms.CharField(widget=forms.HiddenInput, required=False)
+    user_type = forms.CharField(initial=Erp.USER_ROLE_PUBLIC, widget=forms.HiddenInput, required=False)
 
     class Meta:
         model = Erp
@@ -473,6 +474,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "contact_url",
             "geoloc_provider",
             "asp_id",
+            "user_type",
         )
         labels = {"user_type": "Saisie en qualité de"}
         help_texts = {
