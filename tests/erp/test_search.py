@@ -47,7 +47,33 @@ def test_search_by_municipality(data, client):
         published=True,
     )
     filters = {
-        "what": "Boulangerie",
+        "where": "Jacou (34830)",
+        "search_type": "municipality",
+        "postcode": 34830,
+        "municipality": "Jacou",
+    }
+    query_string = urlencode(filters)
+    response = client.get(f"{reverse('search')}?{query_string}")
+    assert response.status_code == 200
+    assert response.context["where"] == "Jacou (34830)"
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+
+
+def test_search_by_municipality_with_multiple_postcodes_for_municipality(data, client):
+    Erp.objects.create(
+        nom="Out of town",
+        commune="Lille",
+        code_postal=59000,
+        published=True,
+    )
+    Erp.objects.create(
+        nom="Other postcode",
+        commune="Jacou",
+        code_postal=34831,
+        published=True,
+    )
+    filters = {
         "where": "Jacou (34830)",
         "search_type": "municipality",
         "postcode": 34830,
