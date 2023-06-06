@@ -157,6 +157,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+INTERNAL_API_KEY_NAME = "acceslibre - internal uses only"
+
 ROOT_URLCONF = "core.urls"
 
 

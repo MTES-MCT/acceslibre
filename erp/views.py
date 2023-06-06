@@ -8,6 +8,7 @@ import qrcode
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -19,6 +20,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.utils.translation import ngettext
 from django.views.generic import TemplateView
+from rest_framework_api_key.models import APIKey
 from reversion.views import create_revision
 from waffle import switch_is_active
 from waffle.decorators import waffle_switch
@@ -35,6 +37,8 @@ from erp.provider import search as provider_search
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
+
+HOURS = 60 * 60
 
 
 def handler403(request, exception):
@@ -239,6 +243,18 @@ def _filter_erp_by_location(queryset, **kwargs):
     return queryset
 
 
+def _get_or_create_api_key():
+    api_key = cache.get(settings.INTERNAL_API_KEY_NAME)
+    if api_key:
+        return api_key
+
+    _, api_key = APIKey.objects.create_key(
+        name=settings.INTERNAL_API_KEY_NAME, expiry_date=datetime.datetime.now() + datetime.timedelta(hours=1.2)
+    )
+    cache.set(settings.INTERNAL_API_KEY_NAME, api_key, timeout=1 * HOURS)
+    return api_key
+
+
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
     base_queryset = Erp.objects.published().search_what(filters.get("what"))
@@ -254,6 +270,7 @@ def search(request):
         "pager_base_url": pager_base_url,
         "geojson_list": make_geojson(pager),
         "paginator": paginator,
+        "map_api_key": _get_or_create_api_key(),
     }
     return render(request, "search/results.html", context=context)
 
