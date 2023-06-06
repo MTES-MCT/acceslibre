@@ -2,6 +2,7 @@
 // TODO: split these into better scoped components
 
 import api from "./api";
+import mapUtils from "./mapUtils";
 var L = window.L; // Let's make EsLint happy :)
 
 let currentPk,
@@ -42,47 +43,12 @@ function _createIcon(highlight, iconName = "building") {
   return L.icon(options);
 }
 
-// TODO move me to another file ?
-// TODO fix issue with icons
-function _generateHTMLForResult(result) {
-    return `
-    <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
-    <div>
-        <div class="d-flex w-100 justify-content-between">
-            <a href="${ result.properties.web_url }">
-                <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
-                    <img alt="" class="act-icon act-icon-20 mb-1" src="{% static " img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                   ${ result.properties.nom }
-                    <span class="sr-only">
-                        ${ result.properties.activite.nom }
-                        {% translate "à l'adresse" %} ${ result.properties.adresse }
-                    </span>
-                </h3>
-            </a>
-        </div>
-        <div aria-hidden="true">
-            <small class="font-weight-bold text-muted">${ result.properties.activite.nom }</small>
-            <address class="d-inline mb-0">
-                <small>${ result.properties.adresse }</small>
-            </address>
-        </div>
-    </div>
-    <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
-            title="${gettext('Localiser sur la carte')}"
-            data-erp-id="{{ erp.pk }}">
-        ${gettext("Localiser")}
-        <br>
-        <i aria-hidden="true" class="icon icon-target"></i>
-    </button>
-</div>`;
-}
-
 function _drawPopUpMarker({ geometry, properties: props }, layer) {
   let zoomLink = "";
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
       <strong>
-        <a class="text-primary" href="${props.absolute_url}">${props.nom}</a>
+        <a class="text-primary" href="${props.absolute_url || props.web_url }">${props.nom}</a>
       </strong>
       ${(props.activite__nom && "<br>" + props.activite__nom) || ""}
       <br>${props.adresse}
@@ -95,7 +61,7 @@ function _createPointIcon({ properties: props }, coords) {
   return L.marker(coords, {
     alt: props.nom,
     title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
-    icon: _createIcon(currentPk && Number(props.pk) === currentPk, props.activite__vector_icon),
+    icon: _createIcon(currentPk && Number(props.pk) === currentPk, props.activite__vector_icon || props.activite.vector_icon),
   });
 }
 
@@ -195,8 +161,10 @@ function _displayCustomMenu(root, { latlng, target: map }) {
   });
 }
 
+// TODO fix {{ erp.pk }} / Localiser function
+
 function createMap(domTarget, options = {}) {
-  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: false };
+  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true };
   const map = L.map(domTarget, { ...defaults, options });
   L.control.scale({ imperial: false }).addTo(map);
   L.control
@@ -221,12 +189,11 @@ function _parseAround({ lat, lon, label }) {
 
 function refreshList(data) {
   const listContainer = document.querySelector("#erp-results-list");
-  listContainer.innerHTML = "";
+  let HTMLResult = ""
   data.features.forEach(function(point){
-    let html = _generateHTMLForResult(point);
-    listContainer.innerHTML += html;
-    // TODO see how many point we will handle ?
+    HTMLResult += mapUtils.generateHTMLForResult(point);
   });
+  listContainer.innerHTML = HTMLResult;
 }
 
 function updateNumberOfResults(data) {
@@ -238,27 +205,25 @@ function updateNumberOfResults(data) {
   }
 }
 
-// TODO clean this function
+function _getDataPromiseFromAPI(map, refreshApiUrl) {
+  const southWest = map.getBounds().getSouthWest()
+  const northEast = map.getBounds().getNorthEast()
+  // TODO solve issue for api key
+  const apiKey = "";
+  let url = refreshApiUrl + "?in_bbox=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
+  return fetch(url, { timeout: 10000, headers: {"Accept": "application/geo+json", "Authorization": apiKey} });
+}
+
 function refreshDataOnMove(map, refreshApiUrl) {
   map.on("moveend", function () {
-    const southWest = map.getBounds().getSouthWest()
-    const northEast = map.getBounds().getNorthEast()
-    // TODO solve issue for api key
-
-    const apiKey = "";
-    let url = refreshApiUrl + "?in_bbox=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
-
-    const fetchPromise = fetch(url, { timeout: 10000, headers: {"Content-Type": "application/geo+json", "Authorization": apiKey} });
-
+    const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl)
     fetchPromise.then((response) => {
-      const jsonPromise = response.json();
-      jsonPromise.then((jsonData) => {
+      response.json().then((jsonData) => {
         map.removeLayer(markers);
         markers = _createMarkersFromGeoJson(jsonData);
         map.addLayer(markers);
         refreshList(jsonData);
         updateNumberOfResults(jsonData);
-
       });
     });
   });
@@ -331,8 +296,9 @@ function AppMap(root) {
     openMarkerPopup(pk);
   }
 
-  refreshDataOnMove(map, root.dataset.refreshApiUrl);
-
+  if (root.dataset.shouldRefresh == "True") {
+    refreshDataOnMove(map, root.dataset.refreshApiUrl);
+  }
   return map;
 }
 

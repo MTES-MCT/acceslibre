@@ -271,6 +271,7 @@ def search(request):
         "geojson_list": make_geojson(pager),
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
+        "dynamic_map": True,
     }
     return render(request, "search/results.html", context=context)
 

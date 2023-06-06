@@ -143,4 +143,4 @@ export default {
   saveUserLocation,
   searchLocation,
   getCoordinate
-  };
+};
