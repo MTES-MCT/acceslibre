@@ -111,7 +111,7 @@ class TestErpApi:
                     "properties": {
                         "nom": "Aux bons croissants",
                         "adresse": "4 grand rue 34830 Jacou",
-                        "activite": {"nom": "Boulangerie", "slug": "boulangerie"},
+                        "activite": {"nom": "Boulangerie", "vector_icon": "building"},
                         "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
                     },
                 }

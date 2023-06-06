@@ -88,9 +88,15 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Activite
-        fields = ["nom", "slug"]
+        fields = ("nom", "slug")
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
+
+
+class ActiviteGeoSerializer(ActiviteSerializer):
+    class Meta:
+        model = Activite
+        fields = ("nom", "vector_icon")
 
 
 class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
@@ -147,7 +153,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ErpGeoSerializer(GeoFeatureModelSerializer):
-    activite = ActiviteSerializer(many=False, read_only=True)
+    activite = ActiviteGeoSerializer(many=False, read_only=True)
     web_url = serializers.SerializerMethodField()
 
     class Meta:
