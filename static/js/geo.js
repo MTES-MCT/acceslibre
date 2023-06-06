@@ -206,18 +206,16 @@ function updateNumberOfResults(data) {
   }
 }
 
-function _getDataPromiseFromAPI(map, refreshApiUrl) {
+function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
-  // TODO solve issue for api key
-  const apiKey = "";
-  let url = refreshApiUrl + "?in_bbox=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
-  return fetch(url, { timeout: 10000, headers: {"Accept": "application/geo+json", "Authorization": apiKey} });
+  let url = refreshApiUrl + "?zone=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
+  return fetch(url, { timeout: 10000, headers: {"Accept": "application/geo+json", "Authorization": "Api-Key " + apiKey} });
 }
 
-function refreshDataOnMove(map, refreshApiUrl) {
+function refreshDataOnMove(map, refreshApiUrl, apiKey) {
   map.on("moveend", function () {
-    const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl)
+    const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey)
     fetchPromise.then((response) => {
       response.json().then((jsonData) => {
         map.removeLayer(markers);
@@ -270,7 +268,6 @@ function AppMap(root) {
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
   currentPk = pk;
 
-  // TODO handle initial results on page load + delete result row html file
   map = createMap(root);
   map.on("contextmenu", _displayCustomMenu.bind(map, root));
 
@@ -299,7 +296,7 @@ function AppMap(root) {
   }
 
   if (root.dataset.shouldRefresh == "True") {
-    refreshDataOnMove(map, root.dataset.refreshApiUrl);
+    refreshDataOnMove(map, root.dataset.refreshApiUrl, root.dataset.apiKey);
   }
   return map;
 }
