@@ -95,6 +95,58 @@ class TestErpApi:
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
 
+    def test_list_geojson(self, api_client, data):
+        geojson_expected_for_erp = {
+            "type": "FeatureCollection",
+            "count": 1,
+            "next": None,
+            "previous": None,
+            "features": [
+                {
+                    "id": ANY,
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [3.9047933, 43.6648217]},
+                    "properties": {
+                        "nom": "Aux bons croissants",
+                        "adresse": "4 grand rue 34830 Jacou",
+                        "activite": {"nom": "Boulangerie", "slug": "boulangerie"},
+                        "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
+                    },
+                }
+            ],
+        }
+        geojson_expected_for_no_results = {
+            "type": "FeatureCollection",
+            "count": 0,
+            "next": None,
+            "previous": None,
+            "features": [],
+        }
+
+        response = api_client.get(
+            reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100",
+            headers={"Content-Type": "application/geo+json"},
+        )
+        assert response.json() == geojson_expected_for_erp
+        # bbox without results
+        response = api_client.get(
+            reverse("erp-list") + "?in_bbox=4,44,5,45", headers={"Content-Type": "application/geo+json"}
+        )
+        assert response.json() == geojson_expected_for_no_results
+
+        # combination of bbox + filter
+        response = api_client.get(
+            reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100&code_postal=34830",
+            headers={"Content-Type": "application/geo+json"},
+        )
+        assert response.json() == geojson_expected_for_erp
+
+        response = api_client.get(
+            reverse("erp-list") + "?in_bbox=3.897168,43.653841,3.929097,43.676100&code_postal=26000",
+            headers={"Content-Type": "application/geo+json"},
+        )
+        assert response.json() == geojson_expected_for_no_results
+
     def test_list_page_size(self, api_client, data):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
         content = json.loads(response.content)

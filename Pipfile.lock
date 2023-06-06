@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "39dda08cdd63a69390b21aca99655dc60127ca8f441897ba04994533b78c44f3"
+            "sha256": "e9677ada7f88934ebad4e4853dad6bf4a4349219335acfba49e07fa0ad2c7b41"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -340,6 +340,14 @@
             ],
             "index": "pypi",
             "version": "==3.2.1"
+        },
+        "django-filter": {
+            "hashes": [
+                "sha256:2fe15f78108475eda525692813205fa6f9e8c1caf1ae65daa5862d403c6dbf00",
+                "sha256:d12d8e0fc6d3eb26641e553e5d53b191eb8cec611427d4bdce0becb1f7c172b5"
+            ],
+            "index": "pypi",
+            "version": "==23.2"
         },
         "django-import-export": {
             "hashes": [
@@ -1991,7 +1999,7 @@
                 "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504",
                 "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version >= '3.8.0'",
             "version": "==5.12.0"
         },
         "jedi": {
