@@ -31,7 +31,7 @@ expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_
 Le point d'entrée racine de l'API est accessible à l'adresse
 [`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
-- Une réponse de type `application/json` est restituée si explicitement demandée par le client.
+- Une réponse de type `application/json` est restituée par défaut.
 - Une réponse de type `application/geo+json` est restituée si explicitement demandée par le client et si disponible.
 
 ## Identification
@@ -53,7 +53,7 @@ Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera
 ### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
@@ -62,7 +62,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 ### Rechercher les établissements contenu dans un cadre englobant Valence et les récupérer au format geoJSON en vue de les afficher sur une carte :
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?in_bbox=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?in_bbox=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez que le cadre est définit par 2 coordonnées :
@@ -76,7 +76,7 @@ Notez également que vous pouvez combiner les filtres (`code_postal`, `q`, `comm
 ### Récupérer les détails d'un établissement particulier
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 Notez la présence de la clé `accessibilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
@@ -86,7 +86,7 @@ Notez la présence de la clé `accessibilite` qui expose l'URL du point de récu
 ### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -94,7 +94,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: applica
 ### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json" -H  "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -526,12 +526,12 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     schema = ErpSchema()
 
     def get_serializer_class(self):
-        if self.request.headers.get("Content-Type") == "application/geo+json":
+        if self.request.headers.get("Accept") == "application/geo+json":
             return ErpGeoSerializer
         return ErpSerializer
 
     def get_pagination_class(self):
-        if self.request.headers.get("Content-Type") == "application/geo+json":
+        if self.request.headers.get("Accept") == "application/geo+json":
             return GeoJsonPagination
         return ErpPagination
 
