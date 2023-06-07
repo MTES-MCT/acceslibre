@@ -41,7 +41,7 @@ jobs:
           name: Install System dependencies
           command: |
             sudo apt update
-            sudo apt install -y gdal-bin
+            sudo apt install -y gdal-bin gettext
       - run:
           name: Install Python dependencies
           command: |
