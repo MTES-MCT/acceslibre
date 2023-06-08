@@ -140,6 +140,8 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "distance",
             "source_id",
             "asp_id",
+            "updated_at",
+            "created_at",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}

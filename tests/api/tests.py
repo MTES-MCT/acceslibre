@@ -209,6 +209,8 @@ class TestErpApi:
             "contact_email": None,
             "contact_url": None,
             "user_type": "system",
+            "created_at": ANY,
+            "updated_at": ANY,
             "accessibilite": {
                 "url": f"http://testserver/api/accessibilite/{data.erp.accessibilite.id}/",
                 "erp": "http://testserver/api/erps/aux-bons-croissants/",
