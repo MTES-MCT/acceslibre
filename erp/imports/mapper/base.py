@@ -90,6 +90,7 @@ class BaseMapper:
         "labels_familles_handicap",
         "registre_url",
         "conformite",
+        "commentaire",
     ]
 
     fields = erp_fields + accessibility_fields
