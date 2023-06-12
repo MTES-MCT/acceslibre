@@ -19,5 +19,5 @@ import "../vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css";
 import "./style.scss";
 
 // DSFR
-import "@gouvfr/dsfr/dist/css/dsfr.css";
+import "@gouvfr/dsfr/dist/dsfr/dsfr.css";
 import "./style-dsfr.scss";
