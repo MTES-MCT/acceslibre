@@ -14,7 +14,6 @@ function generateHTMLForResult(result) {
     activity_name = result.properties.activite.nom;
     link = result.properties.web_url;
   }
-// TODO fix {{ erp.pk }} / Localiser function
 
   return `
     <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">

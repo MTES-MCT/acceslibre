@@ -220,10 +220,7 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
 }
 
 function refreshDataOnMove(map, refreshApiUrl, apiKey) {
-console.log("refreshDataOnMove")
   map.on("moveend", function (event) {
-    console.log("Map finished mouvement")
-    console.log(mapMovedDueToPopup)
     if(mapMovedDueToPopup) {
       mapMovedDueToPopup = false
       return
@@ -316,8 +313,6 @@ function AppMap(root) {
 }
 
 function openMarkerPopup(pk, options = {}) {
-  console.log("Trying to open popup for ")
-  console.log(pk)
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
@@ -326,7 +321,7 @@ function openMarkerPopup(pk, options = {}) {
   layers.forEach((layer) => {
     mapMovedDueToPopup = true;
     if (layer.pk === pk) {
-      console.log("Marker found, opening popup")
+      layer.__parent._group._map = map
       markers.zoomToShowLayer(layer, () => {
         layer.openPopup();
       });
