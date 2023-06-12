@@ -2,7 +2,6 @@ function generateHTMLForResult(result) {
   let icon = "build";
   let activity_name = "";
   let link = "";
-  console.log(result)
   if (result.properties.activite__vector_icon) {
     // Data from template context
     icon = result.properties.activite__vector_icon;
