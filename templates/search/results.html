@@ -19,11 +19,11 @@
     <h1 class="mt-3 mb-2">
         <small class="text-muted" style="font-size:.6em">{% translate "Votre recherche" %}</small>
         <br>
-        <span class="sr-only">{% translate "Localité :" %}</span> {{ where }}
-        {% if where and what %}<small class="text-muted">/</small>{% endif %}
         {% if what %}
             <span class="sr-only">{% translate "Activité :" %}</span> {{ what }}
         {% endif %}
+        {% if where and what %}<small class="text-muted">/</small>{% endif %}
+        <span class="sr-only">{% translate "Localité :" %}</span> {{ where }}
     </h1>
     {% if what and "centres de vaccination" in what %}
         <div class="alert alert-warning mt-3">
