@@ -192,6 +192,7 @@ class TestErpApi:
     def test_detail(self, api_client, data):
         response = api_client.get(reverse("erp-detail", kwargs={"slug": data.erp.slug}))
         assert response.json() == {
+            "id": data.erp.id,
             "url": "http://testserver/api/erps/aux-bons-croissants/",
             "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
             "uuid": ANY,
