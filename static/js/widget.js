@@ -40,7 +40,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     link2.id = 2;
     link2.rel = 'stylesheet';
     link2.type = 'text/css';
-    link2.href = base_url + '/static/vendor/dsfr/dist/css/modal.css';
+    link2.href = base_url + '/static/css/dsfr-modal.css';
     link2.media = 'all';
     head.appendChild(link2);
 
