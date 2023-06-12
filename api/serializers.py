@@ -119,6 +119,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Erp
         fields = (
+            "id",
             "url",
             "web_url",
             "uuid",

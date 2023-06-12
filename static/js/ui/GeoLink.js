@@ -5,6 +5,8 @@ function GeoLink(root) {
     event.preventDefault();
     event.stopPropagation();
     const pk = parseInt(root.dataset?.erpId, 10);
+    console.log("Clicked somewhere");
+    console.log(pk);
     if (pk) geo.openMarkerPopup(pk);
   });
 }

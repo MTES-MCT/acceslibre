@@ -3,6 +3,9 @@
 
 import api from "./api";
 import mapUtils from "./mapUtils";
+import dom from "./dom";
+import ui from "./ui";
+
 var L = window.L; // Let's make EsLint happy :)
 
 let currentPk,
@@ -11,7 +14,10 @@ let currentPk,
   map,
   satelliteTiles,
   streetTiles,
+  mapMovedDueToPopup,
   geoJsonLayer;
+
+mapMovedDueToPopup = false
 
 function recalculateMapSize() {
   if (!map) {
@@ -43,7 +49,7 @@ function _createIcon(highlight, iconName = "building") {
   return L.icon(options);
 }
 
-function _drawPopUpMarker({ geometry, properties: props }, layer) {
+function _drawPopUpMarker({ geometry, properties: props, id }, layer) {
   let zoomLink = "";
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
@@ -54,6 +60,9 @@ function _drawPopUpMarker({ geometry, properties: props }, layer) {
       <br>${props.adresse}
     </div>`);
   layer.pk = parseInt(props.pk, 10);
+  if (!layer.pk) {
+    layer.pk = parseInt(id, 10);
+  }
   layers.push(layer);
 }
 
@@ -161,8 +170,6 @@ function _displayCustomMenu(root, { latlng, target: map }) {
   });
 }
 
-// TODO fix {{ erp.pk }} / Localiser function
-
 function createMap(domTarget, options = {}) {
   const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true };
   const map = L.map(domTarget, { ...defaults, options });
@@ -188,7 +195,6 @@ function _parseAround({ lat, lon, label }) {
 }
 
 function refreshList(data) {
-  console.log(data);
   const listContainer = document.querySelector("#erp-results-list");
   let HTMLResult = ""
   data.features.forEach(function(point){
@@ -214,7 +220,14 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
 }
 
 function refreshDataOnMove(map, refreshApiUrl, apiKey) {
-  map.on("moveend", function () {
+console.log("refreshDataOnMove")
+  map.on("moveend", function (event) {
+    console.log("Map finished mouvement")
+    console.log(mapMovedDueToPopup)
+    if(mapMovedDueToPopup) {
+      mapMovedDueToPopup = false
+      return
+    }
     const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey)
     fetchPromise.then((response) => {
       response.json().then((jsonData) => {
@@ -223,6 +236,7 @@ function refreshDataOnMove(map, refreshApiUrl, apiKey) {
         map.addLayer(markers);
         refreshList(jsonData);
         updateNumberOfResults(jsonData);
+        dom.mountAll(".a4a-geo-link", ui.GeoLink);
       });
     });
   });
@@ -302,25 +316,24 @@ function AppMap(root) {
 }
 
 function openMarkerPopup(pk, options = {}) {
+  console.log("Trying to open popup for ")
+  console.log(pk)
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
   }
+  currentPk = pk;
   layers.forEach((layer) => {
+    mapMovedDueToPopup = true;
     if (layer.pk === pk) {
+      console.log("Marker found, opening popup")
       markers.zoomToShowLayer(layer, () => {
         layer.openPopup();
-        if (options.highlight) {
-          map.setView(layer.getLatLng(), 18);
-        }
       });
     }
   });
 }
 
-function zoomTo(lat, lon) {
-  map.setView([lat, lon], 18);
-}
 
 function update_map(query, map) {
   var mapDomEl = document.querySelector(".a4a-localisation-map");
@@ -353,5 +366,4 @@ export default {
   openMarkerPopup,
   recalculateMapSize,
   update_map,
-  zoomTo,
 };

@@ -2,15 +2,19 @@ function generateHTMLForResult(result) {
   let icon = "build";
   let activity_name = "";
   let link = "";
+  console.log(result)
   if (result.properties.activite__vector_icon) {
+    // Data from template context
     icon = result.properties.activite__vector_icon;
     activity_name = result.properties.activite__nom;
     link = result.properties.absolute_url;
   } else if (result.properties.activite) {
+    // Data from API
     icon = result.properties.activite.vector_icon;
     activity_name = result.properties.activite.nom;
     link = result.properties.web_url;
   }
+// TODO fix {{ erp.pk }} / Localiser function
 
   return `
     <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
@@ -36,7 +40,7 @@ function generateHTMLForResult(result) {
     </div>
     <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
             title="${gettext("Localiser sur la carte")}"
-            data-erp-id="{{ erp.pk }}">
+            data-erp-id="${ result.id }">
         ${gettext("Localiser")}
         <br>
         <i aria-hidden="true" class="icon icon-target"></i>
