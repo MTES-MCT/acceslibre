@@ -83,23 +83,43 @@ function _createClusterIcon(cluster) {
 }
 
 function createStreetTiles() {
-  return L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> et contributeurs`,
-  });
+  return L.tileLayer(
+    "https://wmts.geopf.fr/rok4/wmts?" +
+    "&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0" +
+    "&STYLE=normal" +
+    "&TILEMATRIXSET=PM" +
+    "&FORMAT=image/png" +
+    "&LAYER=PLAN-IGN_PNG" +
+    "&TILEMATRIX={z}" +
+    "&TILEROW={y}" +
+    "&TILECOL={x}",
+    {
+      minZoom: 0,
+      maxZoom: 18,
+      attribution: "IGN-F/Geoportail",
+      tileSize: 256
+    }
+  )
 }
 
-function createCustomTiles(styleId) {
-  return L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-    id: styleId,
-    attribution: `
-        &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
-        <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
-        Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>`,
-    maxZoom: 18,
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: "pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw",
-  });
+function createCustomTiles() {
+  return L.tileLayer(
+    "https://wmts.geopf.fr/rok4/wmts?" +
+    "&REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0" +
+    "&STYLE=normal" +
+    "&TILEMATRIXSET=PM" +
+    "&FORMAT=image/jpeg" +
+    "&LAYER=321715_BDORTHO_PYR-JPG_PM_D069_2020"+
+    "&TILEMATRIX={z}" +
+    "&TILEROW={y}" +
+    "&TILECOL={x}",
+    {
+      minZoom: 0,
+      maxZoom: 18,
+      attribution: "IGN-F/Geoportail",
+      tileSize: 256
+    }
+  )
 }
 
 function getStreetTiles() {
@@ -111,7 +131,7 @@ function getStreetTiles() {
 
 function getSatelliteTiles() {
   if (!satelliteTiles) {
-    satelliteTiles = createCustomTiles("acceslibre/cliiv23h1005i01qv6365088q");
+    satelliteTiles = createCustomTiles();
   }
   return satelliteTiles;
 }
