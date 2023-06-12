@@ -1,9 +1,11 @@
 from urllib.parse import urlencode
 
+import pytest
 from django.contrib.gis.geos import Point
 from django.urls import reverse
 
 from erp.models import Accessibilite, Erp
+from erp.views import _clean_address
 
 
 def test_search_clean_params(data, client):
@@ -243,6 +245,38 @@ def test_search_in_municipality_respects_what_clause(data, client, activite_mair
     assert response.context["where"] == "Jacou (34)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
+
+
+@pytest.mark.parametrize(
+    "where, expected",
+    (
+        ("Strasbourg", ("Strasbourg", "")),
+        ("Paris (75001)", ("Paris", "75001")),
+        ("Paris 10e arrondissement (75010) ", ("Paris", "75010")),
+        ("Paris 11e arrondissement (75011)", ("Paris", "75011")),
+        ("Paris 12e arrondissement (75012)", ("Paris", "75012")),
+        ("Paris 13e arrondissement (75013)", ("Paris", "75013")),
+        ("Paris 14e arrondissement (75014)", ("Paris", "75014")),
+        ("Paris 15e arrondissement (75015)", ("Paris", "75015")),
+        ("Paris 16e arrondissement (75016)", ("Paris", "75016")),
+        ("Paris 17e arrondissement (75017)", ("Paris", "75017")),
+        ("Paris 18e arrondissement (75018)", ("Paris", "75018")),
+        ("Paris 19e arrondissement (75019)", ("Paris", "75019")),
+        ("Paris 1er arrondissement (75001)", ("Paris", "75001")),
+        ("Paris 20e arrondissement (75020)", ("Paris", "75020")),
+        ("Paris 2e arrondissement (75002)", ("Paris", "75002")),
+        ("Paris 3e arrondissement (75003)", ("Paris", "75003")),
+        ("Paris 4e arrondissement (75004)", ("Paris", "75004")),
+        ("Paris 5e arrondissement (75005)", ("Paris", "75005")),
+        ("Paris 6e arrondissement (75006)", ("Paris", "75006")),
+        ("Paris 7e arrondissement (75007)", ("Paris", "75007")),
+        ("Paris 8e arrondissement (75008)", ("Paris", "75008")),
+        ("Paris 9e arrondissement (75009)", ("Paris", "75009")),
+        ("Paris 9e ARRONDISSEMENT (75009)", ("Paris", "75009")),
+    ),
+)
+def test_clean_address(where, expected):
+    assert _clean_address(where) == expected
 
 
 def test_search_in_municipality_not_found(data, client):

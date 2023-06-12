@@ -1,5 +1,3 @@
-import json
-
 DPT_BDR = {"code": "13", "nom": "Bouches-du-Rhône"}
 DPT_PARIS = {"code": "75", "nom": "Paris"}
 DPT_RHONE = {"code": "69", "nom": "Rhône"}
@@ -288,7 +286,3 @@ PARIS = [
 def get_by_code_insee(code_insee):
     all = LYON + MARSEILLE + PARIS
     return next((x for x in all if x["code"] == str(code_insee)), None)
-
-
-def to_json():
-    return json.dumps({"Paris": PARIS, "Marseille": MARSEILLE, "Lyon": LYON})
