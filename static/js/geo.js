@@ -215,7 +215,8 @@ function updateNumberOfResults(data) {
 function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
-  let url = refreshApiUrl + "?zone=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
+  const queryTerm = document.querySelector("#what-input").value;
+  let url = refreshApiUrl + "?q=" + queryTerm +"&zone=" + southWest.lng + "," + southWest.lat + "," + northEast.lng + "," + northEast.lat
   return fetch(url, { timeout: 10000, headers: {"Accept": "application/geo+json", "Authorization": "Api-Key " + apiKey} });
 }
 
