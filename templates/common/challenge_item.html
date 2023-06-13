@@ -4,7 +4,7 @@
         <ul class="row" style="list-style-type: none">
             {% for challenge in challenges %}
                 <li>
-                    <a class="btn-link fr-text--bold"
+                    <a class="btn-link fr-text--heavy"
                        href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>:
                     {% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}
               {{ start }} au {{ end }} inclus

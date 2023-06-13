@@ -31,11 +31,11 @@ Minimal content of DSFR to apply style on widget
   justify-content: center;
 }
 
-#widget-a11y-container .fr-text--bold {
+#widget-a11y-container .fr-text--heavy {
   font-weight: 700 !important;
 }
 
-#widget-a11y-container .fr-link--close {
+#widget-a11y-container .fr-btn--close {
   font-size: 0.875rem;
   line-height: 1.5rem;
   min-height: 2rem;
@@ -57,7 +57,7 @@ Minimal content of DSFR to apply style on widget
   outline: none;
 }
 
-#widget-a11y-container .fr-link--close::before {
+#widget-a11y-container .fr-btn--close::before {
   margin-right: -0.25rem;
   margin-left: 0.5rem;
   content: "";
@@ -149,7 +149,7 @@ Minimal content of DSFR to apply style on widget
   margin-bottom: 1rem !important;
 }
 
-#widget-a11y-container .fr-link--close:focus {
+#widget-a11y-container .fr-btn--close:focus {
   outline: auto;
   outline-color: #000;
 }
@@ -298,7 +298,7 @@ Minimal content of DSFR to apply style on widget
                         <button id="btn_acceslibre_close"
                                 aria-label="Fermer"
                                 data-dismiss="dialog"
-                                class="fr-link fr-link--close"
+                                class="fr-btn fr-btn--close"
                                 title="{% translate "Fermer la fenêtre" %}"
                                 aria-controls="fr-modal-1">{% translate "Fermer" %}</button>
                     </div>
@@ -319,7 +319,7 @@ Minimal content of DSFR to apply style on widget
                                         </img>
                                     </div>
                                     <div class="fr-col-md-10 modal__text">
-                                        <span class="fr-text--bold">{{ item|capfirst }}</span>
+                                        <span class="fr-text--heavy">{{ item|capfirst }}</span>
                                         <br>
                                         <span style="color: #3A3A3A;">{{ data.label|linebreaks }}</span>
                                     </div>

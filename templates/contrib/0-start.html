@@ -23,7 +23,7 @@
         {% include "search/form.html" with search_action="." %}
         <div class="mt-1 pr-4">
             {% url 'contrib_admin_infos' as url_contrib_admin_infos %}
-            {% blocktranslate %}Je souhaite <a class="fr-link" href="{{ url_contrib_admin_infos }}">ajouter manuellement un établissement.</a>{% endblocktranslate %}
+            {% blocktranslate %}Je souhaite <a class="fr-btn" href="{{ url_contrib_admin_infos }}">ajouter manuellement un établissement.</a>{% endblocktranslate %}
         </div>
     </div>
     <div class="fr-grid-row fr-mb-2v fr-mt-3v ">
