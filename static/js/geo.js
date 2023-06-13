@@ -38,7 +38,7 @@ function recalculateMapSize() {
   }
 }
 
-function _createIcon(highlight, iconName = "building") {
+function _createIcon(highlight, iconName) {
   const size = highlight ? 48 : 32;
   const options = {
     iconUrl: `/static/img/mapicons.svg#${iconName}`,
@@ -70,12 +70,19 @@ function _drawPopUpMarker({ geometry, properties: props, id }, layer) {
 }
 
 function _createPointIcon({ properties: props }, coords) {
+  let activity_icon = props.activite__vector_icon;
+  if (!activity_icon && props.activite) {
+    activity_icon = props.activite.vector_icon;
+  } else {
+    activity_icon = "building";
+  }
+
   return L.marker(coords, {
     alt: props.nom,
     title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
     icon: _createIcon(
       currentErpIdentifier && Number(props.uuid) === currentErpIdentifier,
-      props.activite__vector_icon || props.activite.vector_icon
+      activity_icon
     ),
   });
 }
@@ -225,7 +232,7 @@ function refreshList(data) {
 
 function updateNumberOfResults(data) {
   const numberContainer = document.querySelector("#number-of-results");
-  const translation = ngettext( ' établissement', ' établissements', data.count);
+  const translation = ngettext(" établissement", " établissements", data.count);
   numberContainer.innerHTML = data.count + translation;
 }
 
@@ -256,11 +263,10 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
 
 function refreshDataOnMove(map, refreshApiUrl, apiKey) {
   const debouncedFunction = debounce(function (ev) {
-
-  if (mapMovedDueToPopup) {
-    mapMovedDueToPopup = false;
-    return;
-  }
+    if (mapMovedDueToPopup) {
+      mapMovedDueToPopup = false;
+      return;
+    }
 
     const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey);
     fetchPromise.then((response) => {

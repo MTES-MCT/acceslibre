@@ -1,5 +1,5 @@
 function generateHTMLForResult(result) {
-  let icon = "build";
+  let icon = "building";
   let activity_name = "";
   let link = "";
   if (result.properties.activite__vector_icon) {
