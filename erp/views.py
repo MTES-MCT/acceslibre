@@ -70,7 +70,7 @@ def make_geojson(erp_qs):
         geometry_field="geom",
         use_natural_foreign_keys=True,
         fields=[
-            "pk",
+            "uuid",
             "nom",
             "activite__nom",
             "activite__vector_icon",
@@ -295,6 +295,7 @@ def search(request):
         "geojson_list": make_geojson(pager),
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
+        "dynamic_map": True,
     }
     return render(request, "search/results.html", context=context)
 

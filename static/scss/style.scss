@@ -678,7 +678,7 @@ button.fr-btn:hover {
 
   &-search-map-area {
     position: relative;
-    min-height: 400px; // desktop
+    height: 600px; // desktop
 
     @media only screen and (max-width: $viewport-sm) {
       min-height: 200px; // mobile

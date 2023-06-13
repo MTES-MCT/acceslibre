@@ -13,7 +13,7 @@ class SpecialErpSerializer(geojson.Serializer):
 
     def end_object(self, obj):  # noqa
         for field in self.selected_fields:
-            if field == "pk":
+            if field == "uuid":
                 continue
             elif field in self._current.keys():
                 continue
