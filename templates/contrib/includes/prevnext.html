@@ -14,7 +14,7 @@
             {% if libelle_step.next %}
                 <li>
                     <input type="submit"
-                           class="fr-btn btn btn-primary"
+                           class="fr-btn btn-primary"
                            name="contribute"
                            value='{% translate "Continuer" %}'
                            aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ libelle_step.next|capfirst }} ">
@@ -23,7 +23,7 @@
             {% if publier_route %}
                 <li>
                     <input type="submit"
-                           class="{% if libelle_step.next %}btn btn-link {% else %}fr-btn btn btn-primary{% endif %}"
+                           class="{% if libelle_step.next %}btn btn-link {% else %}fr-btn btn-primary{% endif %}"
                            name="publier"
                            value='{% translate "Publier" %}'>
                 </li>
