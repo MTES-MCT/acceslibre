@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-14 14:28+0200\n"
+"POT-Creation-Date: 2023-06-15 15:37+0200\n"
 "PO-Revision-Date: 2023-06-14 12:39+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4283,15 +4283,6 @@ msgstr "Display the global map"
 msgid "Aux alentours"
 msgstr "Around"
 
-msgid "à l'adresse"
-msgstr "at"
-
-msgid "Localiser sur la carte"
-msgstr "Locate on the map"
-
-msgid "Localiser"
-msgstr "Locate"
-
 #, python-format
 msgid ""
 "Liste des %(nb_territoires)s communes de 5000 habitants ou plus, classées par"
@@ -4432,3 +4423,12 @@ msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
+
+#~ msgid "à l'adresse"
+#~ msgstr "at"
+
+#~ msgid "Localiser sur la carte"
+#~ msgstr "Locate on the map"
+
+#~ msgid "Localiser"
+#~ msgstr "Locate"
