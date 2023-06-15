@@ -8,7 +8,7 @@
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    {% include "fields/boolradio.html" with field=form.labels inline=True %}
+    {% include "fields/checkbox.html" with field=form.labels inline=True %}
     {% include "fields/textarea.html" with field=form.labels_autre %}
     {% include "fields/boolradio.html" with field=form.labels_familles_handicap inline=True %}
     <script>
