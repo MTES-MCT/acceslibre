@@ -911,8 +911,10 @@ class Erp(models.Model):
         fields_to_translate = schema.get_free_text_fields()
         for field_to_translate in fields_to_translate:
             if field_value := getattr(access, field_to_translate, None):
-                setattr(self.accessibilite, field_to_translate, deepl.translate(field_value, target_lang))
-
+                try:
+                    setattr(self.accessibilite, field_to_translate, deepl.translate(field_value, target_lang))
+                except deepl.QuotaExceededException:
+                    return self  # We won't be able to translate anymore, keep it in french
         return self
 
 
