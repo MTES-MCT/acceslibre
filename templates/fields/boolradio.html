@@ -17,14 +17,19 @@
                 <br>
             </span>
         {% endif %}
-        <div class="form-group mb-1">
+        <div class="fr-form-group mb-1">
             <p tabindex="0">{{ field.help_text|safe }}</p>
-            <div class="a4a-form-choices{% if inline %} inline{% endif %}"
-                 role="group">
-                <fieldset>
-                    {{ field }}
-                </fieldset>
-            </div>
+            <fieldset class="fr-fieldset">
+                <div class="{% if inline %} inline{% endif %} fr-fieldset__content"
+                     role="group">
+                    {% for choice in field %}
+                        <div class="fr-checkbox-group">
+                            {{ choice.tag }}
+                            <label class="fr-label" for="id_labels_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </fieldset>
             {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
         </div>
     </div>
