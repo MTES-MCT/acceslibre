@@ -111,7 +111,7 @@ button.fr-btn:hover {
   color: white;
 }
 
-[href] {
+[href]:not(.leaflet-control-layers-toggle) {
   background-image: none !important;
 }
 
@@ -1136,4 +1136,15 @@ select#language {
 
 .leaflet-container .a4a-map-popup-content a {
   text-decoration: underline;
+}
+
+
+.leaflet-control-layers-base input[type="radio"] {
+  appearance: auto;
+}
+
+.leaflet-control-layers-toggle {
+  background-image: url('../../node_modules/leaflet/dist/images/layers.png') !important;
+  background-size: auto !important;
+  background-position: 50% !important;
 }
