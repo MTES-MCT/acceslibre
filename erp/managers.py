@@ -206,3 +206,64 @@ class ErpQuerySet(models.QuerySet):
             count_positives=Count("vote__value", filter=Q(vote__value=1)),
             count_negatives=Count("vote__value", filter=Q(vote__value=-1)),
         )
+
+    def with_parking(self):
+        return self.filter(Q(accessibilite__stationnement_pmr=True) | Q(accessibilite__stationnement_ext_pmr=True))
+
+    def with_accessible_path(self):
+        no_path = Q(accessibilite__cheminement_ext_presence=False)
+        proper_surface = Q(accessibilite__cheminement_ext_terrain_stable=True) | Q(
+            accessibilite__cheminement_ext_terrain_stable__isnull=True
+        )
+        not_narrow = Q(accessibilite__cheminement_ext_retrecissement=False) | Q(
+            accessibilite__cheminement_ext_retrecissement__isnull=True
+        )
+        slope = Q(accessibilite__cheminement_ext_pente_presence=False) | (
+            Q(accessibilite__cheminement_ext_pente_degre_difficulte="légère")
+            | Q(accessibilite__cheminement_ext_pente_degre_difficulte__isnull=True)
+        )
+        camber = (
+            Q(accessibilite__cheminement_ext_devers="aucun")
+            | Q(accessibilite__cheminement_ext_devers="léger")
+            | Q(accessibilite__cheminement_ext_devers__isnull=True)
+        )
+        with_ramp = (
+            Q(accessibilite__accueil_cheminement_ascenseur=True)
+            | Q(accessibilite__accueil_cheminement_rampe="fixe")
+            | Q(accessibilite__accueil_cheminement_rampe="amovible")
+        )
+        ground_level = Q(accessibilite__cheminement_ext_plain_pied=True) | with_ramp
+
+        accessible_path = Q(
+            proper_surface,
+            not_narrow,
+            slope,
+            camber,
+            ground_level,
+            accessibilite__cheminement_ext_presence=True,
+        )
+        return self.filter(no_path | accessible_path)
+
+    def with_accessible_entry(self):
+        specific = Q(accessibilite__entree_pmr=True)
+        with_entry = Q(accessibilite__entree_largeur_mini__gte=80) | Q(accessibilite__entree_largeur_mini__isnull=True)
+        ground_level = Q(accessibilite__entree_plain_pied=True) & with_entry
+        etage_ascenceur = (
+            Q(
+                accessibilite__entree_plain_pied=False,
+                accessibilite__entree_ascenseur=True,
+            )
+            & with_entry
+        )
+        with_ramp = Q(accessibilite__accueil_cheminement_rampe="fixe") | Q(
+            accessibilite__accueil_cheminement_rampe="amovible"
+        )
+        ramp_level = (
+            Q(
+                accessibilite__entree_plain_pied=False,
+                accessibilite__entree_ascenseur=True,
+            )
+            & with_entry
+            & with_ramp
+        )
+        return self.filter(specific | ground_level | etage_ascenceur | ramp_level)
