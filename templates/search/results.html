@@ -99,9 +99,14 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="pt-2 pr-2">
-                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                    </div>
+                    {% if not dynamic_map %}
+                        <div class="pt-2 pr-2">
+                            {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-7 a4a-search-map-area">
+                    {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
                 </div>
                 {% if not dynamic_map %}
                     <div class="pt-2 pr-2">
