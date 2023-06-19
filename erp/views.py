@@ -727,7 +727,7 @@ def vote(request, erp_slug):
         messages.add_message(request, messages.SUCCESS, translate("Votre vote a bien été effacé."))
         return redirect(erp.get_absolute_url())
     get_mailer().mail_admins(
-        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
+        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune})",
         "mail/vote_notification.txt",
         {
             "erp": erp,
