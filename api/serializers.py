@@ -162,7 +162,7 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
         model = Erp
         geo_field = "geom"
 
-        fields = ("id", "nom", "adresse", "geom", "activite", "web_url")
+        fields = ("uuid", "nom", "adresse", "geom", "activite", "web_url")
 
     def get_web_url(self, obj):
         return obj.get_absolute_uri()

@@ -73,13 +73,8 @@ urlpatterns = [
     ),
     path(
         "recherche/",
-        cache_user_page(views.search),
+        views.search,
         name="search",
-    ),
-    path(
-        "global/",
-        cache_user_page(views.global_map),
-        name="global_map",
     ),
     path(
         "recherche/<str:commune_slug>/",

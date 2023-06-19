@@ -24,15 +24,15 @@
   "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
   "dependencies": {
     "@gouvfr/dsfr": "^1.9.3",
-    "@sentry/browser": "^7.54.0",
-    "@sentry/tracing": "^7.54.0",
+    "@sentry/browser": "^7.55.2",
+    "@sentry/tracing": "^7.55.2",
     "@trevoreyre/autocomplete-js": "^2.2.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.6.2",
     "chart.js": "^3.9.1",
     "core-js": "^3.31.0",
-    "crisp-sdk-web": "^1.0.18",
+    "crisp-sdk-web": "^1.0.19",
     "install": "^0.13.0",
     "jquery": "^3.7.0",
     "leaflet": "^1.9.4",
@@ -44,12 +44,12 @@
     "parcel-bundler": "^1.12.5",
     "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.7",
-    "sass": "^1.63.3",
+    "sass": "^1.63.4",
     "url-search-params-polyfill": "^8.2.3",
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
-    "eslint": "^8.42.0"
+    "eslint": "^8.43.0"
   }
 }
