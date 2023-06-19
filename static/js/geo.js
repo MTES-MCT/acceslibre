@@ -15,11 +15,12 @@ let currentErpIdentifier,
   satelliteTiles,
   streetTiles,
   mapMovedDueToPopup,
-  lastMoveEndEvent,
+  shouldTryToBroadenSearchToGetOneResult,
   geoJsonLayer;
 
 mapMovedDueToPopup = false;
-lastMoveEndEvent = Date.now();
+shouldTryToBroadenSearchToGetOneResult = false;
+
 
 function recalculateMapSize() {
   if (!map) {
@@ -261,8 +262,7 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
   });
 }
 
-function refreshDataOnMove(map, refreshApiUrl, apiKey) {
-  const debouncedFunction = debounce(function (ev) {
+function refreshData(map, refreshApiUrl, apiKey) {
     if (mapMovedDueToPopup) {
       mapMovedDueToPopup = false;
       return;
@@ -277,11 +277,23 @@ function refreshDataOnMove(map, refreshApiUrl, apiKey) {
         refreshList(jsonData);
         updateNumberOfResults(jsonData);
         dom.mountAll(".a4a-geo-link", ui.GeoLink);
+
+        if (shouldTryToBroadenSearchToGetOneResult){
+          if (jsonData.count >= 1) {
+            shouldTryToBroadenSearchToGetOneResult = false;
+          } else {
+            map.setView(L.latLng(map.getCenter()), map.getZoom() - 1);
+          }
+        }
       });
     });
-  }, 300);
+}
 
-  map.on("moveend", debouncedFunction);
+function refreshDataOnMove(map, refreshApiUrl, apiKey) {
+  const debouncedFunction = debounce(refreshData, 300);
+  map.on("moveend", function() {
+    debouncedFunction(map, refreshApiUrl, apiKey)
+  });
 }
 
 const debounce = (callback, wait) => {
@@ -333,6 +345,16 @@ function _addMarkerAtCenterOfSearch(dataset, markers) {
   }
 }
 
+
+function broadenSearchOnClick(broaderSearchButton, map, root){
+  broaderSearchButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      shouldTryToBroadenSearchToGetOneResult = true
+      map.setView(L.latLng(root.dataset.lat, root.dataset.lon), map.getZoom() - 1);
+  });
+}
+
 function AppMap(root) {
   const municipalityData = parseJsonScript(root.querySelector("#commune-data"));
   const erpIdentifier = root.dataset.erpIdentifier;
@@ -354,6 +376,11 @@ function AppMap(root) {
     }
   }
 
+   const broaderSearchButton = document.querySelector("#broaderSearch");
+   if (broaderSearchButton){
+      broadenSearchOnClick(broaderSearchButton, map, root)
+   }
+
   markers = _createMarkersFromGeoJson(geoJson);
   _addMarkerAtCenterOfSearch(root.dataset, markers);
   map.addLayer(markers);
@@ -363,6 +390,9 @@ function AppMap(root) {
     map.fitBounds(markers.getBounds(), { padding: [70, 70] });
   } else if (municipalityData) {
     map.setView(municipalityData.center, municipalityData.zoom);
+  } else {
+    map.setView(L.latLng(root.dataset.lat, root.dataset.lon), 14);
+    refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
   }
 
   _addLocateButton(map);

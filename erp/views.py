@@ -182,19 +182,6 @@ def _search_commune_code_postal(qs, code_insee):
     )
 
 
-def _update_search_pager(pager, commune):
-    for erp in pager.object_list:
-        if any(
-            [
-                commune.contour and not commune.contour.covers(erp.geom),
-                erp.code_postal not in commune.code_postaux,
-            ]
-        ):
-            erp.outside = True
-            break
-    return pager
-
-
 def _cleaned_search_params_as_dict(get_parameters):
     allow_list = ("where", "what", "lat", "lon", "code", "search_type", "postcode", "street_name", "municipality")
     cleaned_dict = {
@@ -306,7 +293,6 @@ def search_in_municipality(request, commune_slug):
 
     paginator = Paginator(queryset, 10)
     pager = paginator.get_page(request.GET.get("page") or 1)
-    pager = _update_search_pager(pager, municipality)
 
     context = {
         **filters,
