@@ -207,8 +207,29 @@ class ErpQuerySet(models.QuerySet):
             count_negatives=Count("vote__value", filter=Q(vote__value=-1)),
         )
 
-    def with_parking(self):
+    def with_adapted_parking(self):
         return self.filter(Q(accessibilite__stationnement_pmr=True) | Q(accessibilite__stationnement_ext_pmr=True))
+
+    def with_parking(self):
+        return self.filter(
+            Q(accessibilite__stationnement_presence=True) | Q(accessibilite__stationnement_ext_presence=True)
+        )
+
+    def with_nb_stairs_max(self, max_included: int = 1):
+        return self.filter(
+            accessibilite__cheminement_ext_nombre_marches__lte=max_included,
+            accessibilite__accueil_cheminement_nombre_marches__lte=max_included,
+            accessibilite__entree_marches__lte=max_included,
+        )
+
+    def with_potentially_all_at_ground_level(self):
+        return self.filter(
+            Q(accessibilite__accueil_cheminement_plain_pied=True)
+            | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True),
+            Q(accessibilite__accueil_cheminement_plain_pied=True)
+            | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True),
+            Q(accessibilite__entree_plain_pied=True) | Q(accessibilite__entree_plain_pied__isnull=True),
+        )
 
     def with_accessible_path(self):
         no_path = Q(accessibilite__cheminement_ext_presence=False)
@@ -247,7 +268,7 @@ class ErpQuerySet(models.QuerySet):
     def with_accessible_entry(self):
         specific = Q(accessibilite__entree_pmr=True)
         with_entry = Q(accessibilite__entree_largeur_mini__gte=80) | Q(accessibilite__entree_largeur_mini__isnull=True)
-        ground_level = Q(accessibilite__entree_plain_pied=True) & with_entry
+        ground_level = self.with_potentially_all_at_ground_level & with_entry
         etage_ascenceur = (
             Q(
                 accessibilite__entree_plain_pied=False,
@@ -267,3 +288,15 @@ class ErpQuerySet(models.QuerySet):
             & with_ramp
         )
         return self.filter(specific | ground_level | etage_ascenceur | ramp_level)
+
+    def with_adapted_path(self):
+        ...
+
+    def with_entry_low_stairs(self):
+        ...
+
+    def with_reception_low_stairs(self):
+        ...
+
+    def with_staff(self):
+        ...
