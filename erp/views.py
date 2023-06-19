@@ -1,10 +1,7 @@
-import base64
 import datetime
-import io
 import re
 import urllib
 
-import qrcode
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -22,7 +19,6 @@ from django.views.generic import TemplateView
 from rest_framework_api_key.models import APIKey
 from reversion.views import create_revision
 from waffle import switch_is_active
-from waffle.decorators import waffle_switch
 
 from compte.signals import erp_claimed
 from core.lib import geo, url
@@ -323,42 +319,6 @@ def search_in_municipality(request, commune_slug):
         "geojson_list": make_geojson(pager),
     }
     return render(request, "search/results.html", context=context)
-
-
-def _build_qr_code_from_current_uri(request):
-    img = qrcode.make(request.build_absolute_uri())
-    with io.BytesIO() as output:
-        img.save(output, format="PNG")
-        qrcode_img = base64.b64encode(output.getvalue()).decode("utf-8")
-    return qrcode_img
-
-
-@waffle_switch("USE_GLOBAL_MAP")
-def global_map(request):
-    filters = _cleaned_search_params_as_dict(request.GET)
-    base_queryset = Erp.objects.published().search_what(filters.get("what"))
-    queryset = _filter_erp_by_location(base_queryset, **filters)
-
-    # FIXME: "France entière" is engendering huge perf pb and has been disabled, since this has been released with
-    # this possibility we might have some cached links here and there and have to block this possible value.
-    where = filters.get("where")
-    if not where or where in ("France entière", translate("France entière")):
-        raise Http404()
-
-    paginator = Paginator(queryset, queryset.count())
-    pager = paginator.get_page(request.GET.get("page", 1))
-
-    return render(
-        request,
-        "search/global_map.html",
-        context={
-            **filters,
-            "qrcode_img": _build_qr_code_from_current_uri(request),
-            "paginator": paginator,
-            "pager": pager,
-            "geojson_list": make_geojson(pager),
-        },
-    )
 
 
 class EditorialView(TemplateView):
@@ -727,7 +687,7 @@ def vote(request, erp_slug):
         messages.add_message(request, messages.SUCCESS, translate("Votre vote a bien été effacé."))
         return redirect(erp.get_absolute_url())
     get_mailer().mail_admins(
-        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
+        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune})",
         "mail/vote_notification.txt",
         {
             "erp": erp,
