@@ -53,7 +53,6 @@ def test_communes(data, client):
     assert len(response.context["latest"]) == 1
 
 
-@override_switch("USE_GLOBAL_MAP", True)
 @pytest.mark.parametrize(
     "url",
     [
@@ -68,9 +67,6 @@ def test_communes(data, client):
         reverse("search") + "?where=jacou&what=boulangerie",
         reverse("search") + "?where=jacou&what=boulangerie&lat=43.2&lon=2.39",
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"}),
-        # Global Search
-        reverse("global_map") + "?where=jacou",
-        reverse("global_map") + "?where=jacou&what=boulangerie",
         # Editorial
         reverse("accessibilite"),
         reverse("cgu"),
