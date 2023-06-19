@@ -77,11 +77,13 @@
                         {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
                             {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
                         {% endif %}
-                        <small class="text-muted">
-                            {% if paginator.num_pages > 1 %}
-                                {% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}
-                            {% endif %}
-                        </small>
+                        {% if not dynamic_map %}
+                            <small class="text-muted">
+                                {% if paginator.num_pages > 1 %}
+                                    {% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}
+                                {% endif %}
+                            </small>
+                        {% endif %}
                     </h2>
                 </div>
                 {% switch 'USE_GLOBAL_MAP' %}
@@ -107,9 +109,11 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <div class="pt-2 pr-2">
-                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                </div>
+                {% if not dynamic_map %}
+                    <div class="pt-2 pr-2">
+                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+                    </div>
+                {% endif %}
             </div>
             <div class="col-md-7 a4a-search-map-area">
                 {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
