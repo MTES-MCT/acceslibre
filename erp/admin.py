@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from import_export.admin import ExportMixin
+from import_export.admin import ExportMixin, ImportExportModelAdmin
 from reversion.admin import VersionAdmin
 
 from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneForm, AdminErpForm
@@ -20,7 +20,7 @@ from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion
 
 
 @admin.register(Activite)
-class ActiviteAdmin(admin.ModelAdmin):
+class ActiviteAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     form = AdminActiviteForm
     list_display = (
         "icon_img",
