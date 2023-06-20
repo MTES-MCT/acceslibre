@@ -2,7 +2,6 @@
 import "core-js/stable";
 import "mutationobserver-shim";
 import "regenerator-runtime/runtime";
-import "url-search-params-polyfill";
 import "whatwg-fetch";
 
 // jQuery and selectWoo are very special beasts
@@ -42,7 +41,6 @@ import api from "./api"
 // Initializations
 dom.ready(() => {
   dom.mountOne("#app-map", geo.AppMap);
-  dom.mountOne("#id_code_insee", ui.CommuneSearch);
   dom.mountOne("#localisation-map", ui.LocalisationMap);
   dom.mountOne("#map-height-toggle-link", ui.MapExpander);
   dom.mountOne(".a4a-conditional-form", ui.ConditionalForm);
