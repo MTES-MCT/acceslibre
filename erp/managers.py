@@ -232,7 +232,9 @@ class ErpQuerySet(models.QuerySet):
         )
 
     def with_accessible_path(self):
-        no_path = Q(accessibilite__cheminement_ext_presence=False)
+        no_path = Q(accessibilite__cheminement_ext_presence=False) | Q(
+            accessibilite__cheminement_ext_presence__isnull=True
+        )
         proper_surface = Q(accessibilite__cheminement_ext_terrain_stable=True) | Q(
             accessibilite__cheminement_ext_terrain_stable__isnull=True
         )
@@ -253,7 +255,10 @@ class ErpQuerySet(models.QuerySet):
             | Q(accessibilite__accueil_cheminement_rampe="fixe")
             | Q(accessibilite__accueil_cheminement_rampe="amovible")
         )
-        ground_level = Q(accessibilite__cheminement_ext_plain_pied=True) | with_ramp
+        ground_level = (
+            Q(accessibilite__cheminement_ext_plain_pied=True)
+            | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
+        ) | with_ramp
 
         accessible_path = Q(
             proper_surface,
@@ -264,6 +269,36 @@ class ErpQuerySet(models.QuerySet):
             accessibilite__cheminement_ext_presence=True,
         )
         return self.filter(no_path | accessible_path)
+
+    def with_adapted_path(self):
+        no_path = Q(accessibilite__cheminement_ext_presence=False) | Q(
+            accessibilite__cheminement_ext_presence__isnull=True
+        )
+        slope = Q(accessibilite__cheminement_ext_pente_presence=False) | (
+            Q(accessibilite__cheminement_ext_pente_degre_difficulte="légère")
+            | Q(accessibilite__cheminement_ext_pente_degre_difficulte__isnull=True)
+        )
+        with_ramp = (
+            Q(accessibilite__cheminement_ext_ascenseur=True)
+            | Q(accessibilite__cheminement_ext_rampe="fixe")
+            | Q(accessibilite__cheminement_ext_rampe="amovible")
+        )
+        with_stairs = Q(accessibilite__cheminement_ext_nombre_marches__gt=1) | Q(
+            accessibilite__cheminement_ext_nombre_marches__isnull=True
+        )
+        with_stairs_and_ramp = with_stairs | with_ramp
+        adapted_stairs = with_stairs_and_ramp | Q(accessibilite__cheminement_ext_nombre_marches__lte=1)
+        ground_level = (
+            Q(accessibilite__cheminement_ext_plain_pied=True)
+            | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
+        ) | adapted_stairs
+
+        adapted_path = Q(
+            slope,
+            ground_level,
+            accessibilite__cheminement_ext_presence=True,
+        )
+        return self.filter(no_path | adapted_path)
 
     def with_accessible_entry(self):
         specific = Q(accessibilite__entree_pmr=True)
@@ -288,9 +323,6 @@ class ErpQuerySet(models.QuerySet):
             & with_ramp
         )
         return self.filter(specific | ground_level | etage_ascenceur | ramp_level)
-
-    def with_adapted_path(self):
-        ...
 
     def with_entry_low_stairs(self):
         ...
