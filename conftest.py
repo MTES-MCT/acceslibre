@@ -5,9 +5,11 @@ import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.db import connection
+from pytest_factoryboy import register
 
 from erp.models import Accessibilite, Activite, ActivitiesGroup, Commune, Erp
 from erp.provider import geocoder
+from tests.factories import AccessibiliteFactory, ErpFactory
 
 TEST_PASSWORD = "Abc12345!"
 
@@ -450,3 +452,7 @@ def data(db):
         erp = obj_erp
 
     return Data()
+
+
+register(ErpFactory)
+register(AccessibiliteFactory)

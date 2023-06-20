@@ -217,9 +217,11 @@ class ErpQuerySet(models.QuerySet):
 
     def with_nb_stairs_max(self, max_included: int = 1):
         return self.filter(
-            accessibilite__cheminement_ext_nombre_marches__lte=max_included,
-            accessibilite__accueil_cheminement_nombre_marches__lte=max_included,
-            accessibilite__entree_marches__lte=max_included,
+            Q(accessibilite__cheminement_ext_nombre_marches__lte=max_included)
+            | Q(accessibilite__cheminement_ext_nombre_marches__isnull=True),
+            Q(accessibilite__accueil_cheminement_nombre_marches__lte=max_included)
+            | Q(accessibilite__accueil_cheminement_nombre_marches__isnull=True),
+            Q(accessibilite__entree_marches__lte=max_included) | Q(accessibilite__entree_marches__isnull=True),
         )
 
     def with_potentially_all_at_ground_level(self):

@@ -3,6 +3,7 @@ from django.contrib.gis.geos import Point
 
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
+from tests.factories import AccessibiliteFactory
 
 
 @pytest.fixture
@@ -143,3 +144,132 @@ def test_ErpQuerySet_find_duplicate(data):
         ).exists()
         is False
     )
+
+
+@pytest.mark.django_db
+class TestErpQuerySetFilters:
+    @pytest.mark.parametrize(
+        "access_attrs, should_be_returned",
+        (
+            pytest.param(
+                {"stationnement_pmr": True, "stationnement_ext_pmr": True},
+                True,
+                id="nominal",
+            ),
+            pytest.param(
+                {"stationnement_pmr": True, "stationnement_ext_pmr": False},
+                True,
+                id="one_false",
+            ),
+            pytest.param(
+                {"stationnement_pmr": False, "stationnement_ext_pmr": False},
+                False,
+                id="both_false",
+            ),
+            pytest.param(
+                {"stationnement_pmr": True, "stationnement_ext_pmr": None},
+                True,
+                id="one_unknown",
+            ),
+        ),
+    )
+    def test_with_adapted_parking(self, access_attrs, should_be_returned):
+        access = AccessibiliteFactory(**access_attrs)
+        assert list(Erp.objects.with_adapted_parking().all()) == ([access.erp] if should_be_returned else [])
+
+    @pytest.mark.parametrize(
+        "access_attrs, should_be_returned",
+        (
+            pytest.param(
+                {"stationnement_presence": True, "stationnement_ext_presence": True},
+                True,
+                id="nominal",
+            ),
+            pytest.param(
+                {"stationnement_presence": True, "stationnement_ext_presence": False},
+                True,
+                id="one_false",
+            ),
+            pytest.param(
+                {"stationnement_presence": False, "stationnement_ext_presence": False},
+                False,
+                id="both_false",
+            ),
+            pytest.param(
+                {"stationnement_presence": True, "stationnement_ext_presence": None},
+                True,
+                id="one_unknown",
+            ),
+        ),
+    )
+    def test_with_parking(self, access_attrs, should_be_returned):
+        access = AccessibiliteFactory(**access_attrs)
+        assert list(Erp.objects.with_parking().all()) == ([access.erp] if should_be_returned else [])
+
+    @pytest.mark.parametrize(
+        "access_attrs, should_be_returned",
+        (
+            pytest.param(
+                {"cheminement_ext_nombre_marches": 0, "accueil_cheminement_nombre_marches": 0, "entree_marches": 0},
+                True,
+                id="nominal",
+            ),
+            pytest.param(
+                {"cheminement_ext_nombre_marches": 0, "accueil_cheminement_nombre_marches": 2, "entree_marches": 0},
+                False,
+                id="one_falsy",
+            ),
+            pytest.param(
+                {"cheminement_ext_nombre_marches": 2, "accueil_cheminement_nombre_marches": 2, "entree_marches": 2},
+                False,
+                id="all_falsy",
+            ),
+            pytest.param(
+                {"cheminement_ext_nombre_marches": 0, "accueil_cheminement_nombre_marches": None, "entree_marches": 0},
+                True,
+                id="one_unknown",
+            ),
+        ),
+    )
+    def test_with_nb_stairs_max(self, access_attrs, should_be_returned):
+        access = AccessibiliteFactory(**access_attrs)
+        assert list(Erp.objects.with_nb_stairs_max().all()) == ([access.erp] if should_be_returned else [])
+
+    @pytest.mark.parametrize(
+        "access_attrs, should_be_returned",
+        (
+            pytest.param(
+                {"cheminement_ext_plain_pied": True, "accueil_cheminement_plain_pied": True, "entree_plain_pied": True},
+                True,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_plain_pied": True,
+                    "accueil_cheminement_plain_pied": False,
+                    "entree_plain_pied": True,
+                },
+                False,
+                id="one_falsy",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_plain_pied": False,
+                    "accueil_cheminement_plain_pied": False,
+                    "entree_plain_pied": False,
+                },
+                False,
+                id="all_falsy",
+            ),
+            pytest.param(
+                {"cheminement_ext_plain_pied": True, "accueil_cheminement_plain_pied": None, "entree_plain_pied": True},
+                True,
+                id="one_unknown",
+            ),
+        ),
+    )
+    def test_with_potentially_all_at_ground_level(self, access_attrs, should_be_returned):
+        access = AccessibiliteFactory(**access_attrs)
+        assert list(Erp.objects.with_potentially_all_at_ground_level().all()) == (
+            [access.erp] if should_be_returned else []
+        )
