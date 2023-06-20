@@ -302,33 +302,47 @@ class ErpQuerySet(models.QuerySet):
 
     def with_accessible_entry(self):
         specific = Q(accessibilite__entree_pmr=True)
-        with_entry = Q(accessibilite__entree_largeur_mini__gte=80) | Q(accessibilite__entree_largeur_mini__isnull=True)
-        ground_level = self.with_potentially_all_at_ground_level & with_entry
-        etage_ascenceur = (
+        with_entry_min_width = Q(accessibilite__entree_largeur_mini__gte=80) | Q(
+            accessibilite__entree_largeur_mini__isnull=True
+        )
+        ground_level = self.with_potentially_all_at_ground_level & with_entry_min_width
+        elevator_floor = (
             Q(
                 accessibilite__entree_plain_pied=False,
                 accessibilite__entree_ascenseur=True,
             )
-            & with_entry
+            & with_entry_min_width
         )
-        with_ramp = Q(accessibilite__accueil_cheminement_rampe="fixe") | Q(
-            accessibilite__accueil_cheminement_rampe="amovible"
-        )
+        with_ramp = Q(accessibilite__entree_marches_rampe="fixe") | Q(accessibilite__entree_marches_rampe="amovible")
         ramp_level = (
             Q(
                 accessibilite__entree_plain_pied=False,
                 accessibilite__entree_ascenseur=True,
             )
-            & with_entry
+            & with_entry_min_width
             & with_ramp
         )
-        return self.filter(specific | ground_level | etage_ascenceur | ramp_level)
+        return self.filter(specific | ground_level | elevator_floor | ramp_level)
 
     def with_entry_low_stairs(self):
-        ...
+        with_ramp = (
+            Q(accessibilite__entree_ascenseur=True)
+            | Q(accessibilite__entree_marches_rampe="fixe")
+            | Q(accessibilite__entree_marches_rampe="amovible")
+        )
+        ground_level = self.with_potentially_all_at_ground_level | with_ramp
+
+        return self.filter(ground_level)
 
     def with_reception_low_stairs(self):
-        ...
+        with_ramp = (
+            Q(accessibilite__accueil_cheminement_ascenseur=True)
+            | Q(accessibilite__accueil_cheminement_rampe="fixe")
+            | Q(accessibilite__accueil_cheminement_rampe="amovible")
+        )
+        ground_level = self.with_potentially_all_at_ground_level | with_ramp
+
+        return self.filter(ground_level)
 
     def with_staff(self):
-        ...
+        return self.filter(accessibilite__accueil_personnels__in=["non-formés", "formés"])
