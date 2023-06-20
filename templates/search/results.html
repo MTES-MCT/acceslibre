@@ -43,77 +43,48 @@
             <h3 class="h5">
                 <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
             </h3>
-            <div class="mb-3 row ml-0">
-                <div class="mt-2 pr-4">
-                    <a class="fr-btn btn-lg"
-                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
-                </div>
-                <div class="mt-2 pr-4">
+            <div class="d-flex justify-content-between w-75 mb-4" id="cta">
+                <div class="mt-2">
+                    <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la recherche" %}</a>
                     <a class="fr-btn fr-btn--secondary btn-lg"
                        href="{% url 'home' %}#block_search_form">{% translate "Nouvelle recherche" %}</a>
                 </div>
-            </div>
-            <div class="alert" role="alert" aria-live="assertive">
-                <p>
-                    <i aria-hidden="true" class="icon icon-bulb"></i>
-                    {% translate "Vous pouvez cependant :" %}
-                </p>
-                <ul>
-                    {% if commune %}
-                        <li>
-                            <a href="{% url 'search' %}?where={{ commune }}&code={{ commune.code_insee }}">{% blocktranslate %}Afficher la liste de tous les établissements situés à {{ commune }}{% endblocktranslate %}</a>
-                        </li>
-                    {% endif %}
-                    <li>
-                        <a href="{% url 'contact_form' %}">{% translate "Nous contacter pour obtenir de l'aide ou nous signaler un problème" %}</a>
-                    </li>
-                </ul>
-            </div>
-        {% elif pager %}
-            <div class="row mt-2">
-                <div class="col-sm-6">
-                    <h2 class="h4 m-0 mb-3">
-                        <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
-                        {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-                            {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
-                        {% endif %}
-                        {% if not dynamic_map %}
-                            <small class="text-muted">
-                                {% if paginator.num_pages > 1 %}
-                                    {% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}
-                                {% endif %}
-                            </small>
-                        {% endif %}
-                    </h2>
+                <div class="my-auto">{% translate "ou" %}</div>
+                <div class="mt-2 pr-4">
+                    <a class="fr-btn fr-btn--secondary btn-lg"
+                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
                 </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-md-5">
-                    <div class="list-group list-group-flush" id="erp-results-list">
-                        {% for erp in pager %}
-                            {% if erp.outside %}
-                                <h2 class="h5 mt-3 mb-2">
-                                    {% translate "Aux alentours" %}
-                                    {% if commune %}<small class="text-muted">{{ commune.nom|preposition_nom }}</small>{% endif %}
-                                </h2>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    {% if not dynamic_map %}
-                        <div class="pt-2 pr-2">
-                            {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="col-md-7 a4a-search-map-area">
-                    {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
-                </div>
-                {% if not dynamic_map %}
-                    <div class="pt-2 pr-2">
-                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                    </div>
-                {% endif %}
             </div>
         {% endif %}
+        <div class="row mt-2">
+            <div class="col-sm-6">
+                <h2 class="h4 m-0 mb-3">
+                    <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
+                    {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
+                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
+                    {% endif %}
+                    {% if not dynamic_map %}
+                        <small class="text-muted">
+                            {% if paginator.num_pages > 1 %}
+                                {% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}
+                            {% endif %}
+                        </small>
+                    {% endif %}
+                </h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <div class="list-group list-group-flush" id="erp-results-list"></div>
+            </div>
+            <div class="col-md-7 a4a-search-map-area">
+                {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
+            </div>
+            {% if not dynamic_map %}
+                <div class="pt-2 pr-2">
+                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+                </div>
+            {% endif %}
+        </div>
     </section>
 {% endblock editorial_content %}
