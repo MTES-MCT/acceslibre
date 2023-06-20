@@ -26,12 +26,12 @@ function LocalisationMap(root) {
   let code_postal = document.getElementById("id_code_postal");
   let ville = document.getElementById("id_commune");
 
-  document.querySelectorAll("input").forEach(
+  [numero, voie, lieu_dit, code_postal, ville].forEach(
     (elem) => elem.addEventListener("change", function (event) {
       let query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
       geo.update_map(query, map);
     })
- )
+  )
 }
 
 export default LocalisationMap;
