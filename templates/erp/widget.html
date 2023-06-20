@@ -1,221 +1,286 @@
 {% load static %}
 {% load i18n %}
-<style id="compiled-css" type="text/css">
-  .text-center {
-    text-align: center;
+<style>
+  /*
+Minimal content of DSFR to apply style on widget
+*/
+
+#widget-a11y-container .fr-modal__body {
+  flex: 1 1 auto;
+  max-height: calc(100vh - 2rem);
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1), 0 8px 16px -16px rgba(0, 0, 0, 0.32);
+  background-color: var(--w);
+  overflow: hidden;
+}
+
+#widget-a11y-container .fr-modal__header {
+  flex: auto 0 0;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 0.5rem;
+}
+
+
+#widget-a11y-container .fr-grid-row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#widget-a11y-container .fr-grid-row--center {
+  justify-content: center;
+}
+
+#widget-a11y-container .fr-text--heavy {
+  font-weight: 700 !important;
+}
+
+#widget-a11y-container .fr-btn--close {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  flex-direction: row-reverse;
+  overflow: initial;
+  max-width: none;
+  max-height: none;
+  margin-right: -0.5rem;
+  display: flex;
+  margin-left: auto;
+  background-color: var(--t-plain);
+  color: var(--g700);
+  --color-hover: var(--block-color-hover);
+  --color-active: var(--block-color-active);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+#widget-a11y-container .fr-btn--close::before {
+  margin-right: -0.25rem;
+  margin-left: 0.5rem;
+  content: "";
+  font-size: 1rem;
+  content: "x";
+}
+
+#widget-a11y-container #dialog {
+  --link-underline: 0 1px 0 0 currentColor;
+  --link-blank-font: normal normal normal 1rem/1 dsfr-icons;
+  --link-blank-content: "\00a0";
+  --ul-type: "●\00a0\00a0";
+  --ol-type: decimal;
+  --ul-start: 1rem;
+  --ol-start: 1.5rem;
+  --xl-block: 0.5rem;
+  --li-bottom: 0.25rem;
+  --xl-base: 1em;
+  --ol-content: counters(li-counter, ".") ".\00a0\00a0";
+  --bf500: #000091;
+  --bf500-plain: #000091;
+  --w-bf500: #fff;
+  --bf300-plain: #9a9aff;
+  --bf200-bf300: #ececff;
+  --bf100-g750: #f5f5ff;
+  --t-plain: transparent;
+  --t-w: transparent;
+  --g800: #1e1e1e;
+  --g700: #383838;
+  --g600: #6a6a6a;
+  --g500: #9c9c9c;
+  --g400: #cecece;
+  --g300: #e7e7e7;
+  --g200: #f0f0f0;
+  --g100: #f8f8f8;
+  --w: #fff;
+  --beige: #f9f8f6;
+  --g800-plain: #1e1e1e;
+  --g600-g400: #6a6a6a;
+  --g400-t: #cecece;
+  --g100-g800: #f8f8f8;
+  --w-g750: #fff;
+  --focus: #2a7ffe;
+  --info: #0762c8;
+  --success: #008941;
+  --error: #e10600;
+  --rm300: #f7bfc3;
+  --rm500: #e1000f;
+  --scroll-shadow: rgba(30, 30, 30, 0.16);
+  --overlay: rgba(156, 156, 156, 0.32);
+  --block-color-hover: rgba(224, 224, 224, 0.5);
+  --block-color-active: rgba(194, 194, 194, 0.5);
+  font-family: "Marianne", arial, sans-serif;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--g700);
+  box-sizing: inherit;
+  outline-offset: 2px;
+  outline-width: 2px;
+  outline-color: var(--focus);
+  position: fixed;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: .2s;
+  outline-style: none;
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 2.4rem;
+}
+
+#widget-a11y-container #dialog[aria-hidden="true"] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#widget-a11y-container .text-center {
+  text-align: center;
+}
+
+#widget-a11y-container .modal__subtitle.fr-text--lg {
+  margin-bottom: 1rem !important;
+}
+
+#widget-a11y-container .fr-btn--close:focus {
+  outline: auto;
+  outline-color: #000;
+}
+
+#widget-a11y-container .fr-modal__body {
+  border-radius: 12px;
+}
+
+#widget-a11y-container .modal__icon {
+  color: #7F7FC8;
+  text-align: center;
+  font-size: 2em;
+  padding: 2vh;
+  width: 5rem;
+}
+
+#widget-a11y-container .modal__subtitle {
+  color: #484D7A !important;
+}
+
+#widget-a11y-container .modal__item {
+  border: 1px solid var(--g300);
+  list-style-type: none;
+  padding: 0vh;
+  margin-top: -1px;
+}
+
+#widget-a11y-container .modal__hr {
+  color: var(--g400);
+  margin: 0px;
+}
+
+#widget-a11y-container .modal__footer_link {
+  text-align: right;
+  color: var(--g700);
+}
+
+#widget-a11y-container .modal__footer_link a {
+  box-shadow: none;
+  color: inherit;
+}
+
+#widget-a11y-container :root:not([data-fr-theme="dark"]) .fr-btn--secondary {
+  --color-hover: var(--block-color-hover);
+  --color-active: var(--block-color-active);
+}
+
+#widget-a11y-container .fr-h4,
+#widget-a11y-container .modal__subtitle {
+  color: var(--g700) !important;
+  font-family: "Marianne", arial, sans-serif
+}
+
+#widget-a11y-container .modal__text {
+  padding: 1.5vh;
+  max-width: 65%;
+}
+
+#widget-a11y-container .modal__text p {
+  font-size: 1rem !important;
+  margin-bottom: 0;
+}
+
+#widget-a11y-container .fr-btn {
+  --link-underline: none;
+  --link-blank-font: none;
+  --link-blank-content: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 1;
+}
+
+#widget-a11y-container .fr-btn>span {
+  padding: 0.5rem;
+}
+
+#widget-a11y-container .fr-btn--secondary {
+  background-color: var(--t-plain);
+  color: var(--bf500);
+  box-shadow: inset 0 0 0 1px var(--bf500);
+}
+
+#widget-a11y-container #btn_acceslibre:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#widget-a11y-container #btn_acceslibre {
+  box-shadow: none;
+  padding: 0;
+}
+
+@media (min-width: 48em) {
+  #widget-a11y-container .fr-modal__body {
+    max-height: 80vh;
   }
 
-  .modal__subtitle.fr-text--lg {
-    margin-bottom: 1rem !important;
+  #widget-a11y-container .fr-modal__content {
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
-  .fr-modal__content {
-    margin-bottom: 1rem;
+  #widget-a11y-container .fr-modal__header {
+    padding: 1rem;
   }
 
-  .fr-link {
-    color: var(--g700);
+  #widget-a11y-container .fr-col-md-10 {
+    flex: 0 0 calc(1000% / 12);
+    width: calc(1000% / 12);
+    max-width: calc(1000% / 12);
   }
 
-  .fr-link--close:focus {
-    outline: auto;
-    outline-color: #000;
+  #widget-a11y-container .fr-col-md-2 {
+    flex: 0 0 calc(200% / 12);
+    width: calc(200% / 12);
+    max-width: calc(200% / 12);
   }
 
-  .fr-modal__body {
-    border-radius: 12px;
+  #widget-a11y-container .fr-col-md-5 {
+    flex: 0 0 calc(500% / 12);
+    width: calc(500% / 12);
+    max-width: calc(500% / 12);
   }
-
-  .modal__icon {
-    color: #7F7FC8;
-    text-align: center;
-    font-size: 2em;
-    padding: 2vh;
-    width: 5rem;
-  }
-
-  .modal__subtitle {
-    /* Couleurs illustratives/G - blue-dark */
-    color: #484D7A !important;
-  }
-
-  .modal__item {
-    border: 1px solid var(--g300);
-    list-style-type: none;
-    padding: 0vh;
-    margin-top: -1px;
-  }
-
-  .modal__hr {
-    color: var(--g400);
-    margin: 0px;
-  }
-
-  .modal__footer_link {
-    text-align: right;
-    color: var(--g700);
-  }
-
-  .modal__footer_link a {
-    box-shadow: none;
-    color: inherit;
-  }
-
-  .c-dialog {
-    position: fixed;
-    z-index: 100000;
-    top: 10vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    padding: 2.4rem;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    background-color: rgba(0, 0, 0, 0.75);
-    transition: .2s;
-  }
-
-  .c-dialog__box {
-    flex: 1;
-    max-width: 48rem;
-    margin: auto;
-    padding: 2.4rem;
-    background-color: white;
-  }
-
-  .c-dialog[aria-hidden="true"] {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  /* EOS */
-
-  :root:not([data-fr-theme="dark"]) .fr-btn--secondary {
-    --color-hover: var(--block-color-hover);
-    --color-active: var(--block-color-active);
-  }
-
-  #dialog {
-    --link-underline: 0 1px 0 0 currentColor;
-    --link-blank-font: normal normal normal 1rem/1 dsfr-icons;
-    --link-blank-content: "\00a0";
-    --ul-type: "●\00a0\00a0";
-    --ol-type: decimal;
-    --ul-start: 1rem;
-    --ol-start: 1.5rem;
-    --xl-block: 0.5rem;
-    --li-bottom: 0.25rem;
-    --xl-base: 1em;
-    --ol-content: counters(li-counter, ".") ".\00a0\00a0";
-    --bf500: #000091;
-    --bf500-plain: #000091;
-    --w-bf500: #fff;
-    --bf300-plain: #9a9aff;
-    --bf200-bf300: #ececff;
-    --bf100-g750: #f5f5ff;
-    --t-plain: transparent;
-    --t-w: transparent;
-    --g800: #1e1e1e;
-    --g700: #383838;
-    --g600: #6a6a6a;
-    --g500: #9c9c9c;
-    --g400: #cecece;
-    --g300: #e7e7e7;
-    --g200: #f0f0f0;
-    --g100: #f8f8f8;
-    --w: #fff;
-    --beige: #f9f8f6;
-    --g800-plain: #1e1e1e;
-    --g600-g400: #6a6a6a;
-    --g400-t: #cecece;
-    --g100-g800: #f8f8f8;
-    --w-g750: #fff;
-    --focus: #2a7ffe;
-    --info: #0762c8;
-    --success: #008941;
-    --error: #e10600;
-    --rm300: #f7bfc3;
-    --rm500: #e1000f;
-    --scroll-shadow: rgba(30, 30, 30, 0.16);
-    --overlay: rgba(156, 156, 156, 0.32);
-    font-family: "Marianne", arial, sans-serif;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    --block-color-hover: rgba(224, 224, 224, 0.5);
-    --block-color-active: rgba(194, 194, 194, 0.5);
-    color: var(--g700);
-    box-sizing: inherit;
-    outline-offset: 2px;
-    outline-width: 2px;
-    outline-color: var(--focus);
-    position: fixed;
-    z-index: 999999;
-    top: 0vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    padding: 2.4rem;
-    overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.75);
-    transition: .2s;
-    outline-style: none;
-  }
-
-  .fr-h4,
-  .modal__subtitle {
-    color: var(--g700) !important;
-    font-family: "Marianne", arial, sans-serif
-  }
-
-  .modal__text {
-    padding: 1.5vh;
-    max-width: 65%;
-  }
-
-  .modal__text p {
-    font-size: 1rem !important;
-    margin-bottom: 0;
-  }
-
-  .fr-btn {
-    --link-underline: none;
-    --link-blank-font: none;
-    --link-blank-content: none;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    min-height: 2.5rem;
-    padding: 0.5rem 1.5rem;
-    margin: 0;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    z-index: 1;
-  }
-
-  .fr-btn>span {
-    padding: 0.5rem;
-  }
-
-  .fr-btn--secondary {
-    background-color: var(--t-plain);
-    color: var(--bf500);
-    box-shadow: inset 0 0 0 1px var(--bf500);
-  }
-
-  #btn_acceslibre:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  #btn_acceslibre {
-    box-shadow: none;
-    padding: 0;
-  }
+}
 
 </style>
 <div class="js-document" data-fr-theme="dark">
@@ -225,8 +290,7 @@
          aria-describedby="dialog-desc"
          aria-modal="true"
          aria-hidden="true"
-         tabindex="-1"
-         class="c-dialog">
+         tabindex="-1">
         <div id="1" class="fr-grid-row fr-grid-row--center" style="width:100%">
             <div class="fr-col-12 fr-col-md-5">
                 <div class="fr-modal__body">
@@ -234,7 +298,7 @@
                         <button id="btn_acceslibre_close"
                                 aria-label="Fermer"
                                 data-dismiss="dialog"
-                                class="fr-link fr-link--close"
+                                class="fr-btn fr-btn--close"
                                 title="{% translate "Fermer la fenêtre" %}"
                                 aria-controls="fr-modal-1">{% translate "Fermer" %}</button>
                     </div>
@@ -255,7 +319,7 @@
                                         </img>
                                     </div>
                                     <div class="fr-col-md-10 modal__text">
-                                        <span class="fr-text--bold">{{ item|capfirst }}</span>
+                                        <span class="fr-text--heavy">{{ item|capfirst }}</span>
                                         <br>
                                         <span style="color: #3A3A3A;">{{ data.label|linebreaks }}</span>
                                     </div>

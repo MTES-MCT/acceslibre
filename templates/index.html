@@ -17,7 +17,7 @@
                     <p class="fr-mb-3w fr-text--lead">
                         {% translate "Partagez les informations indispensables aux déplacements des personnes en situation de handicap" %}
                     </p>
-                    <ul class="fr-mb-5w fr-links-group" style="padding-left: 0px;">
+                    <ul class="fr-mb-5w fr-btns-group--inline" style="padding-left: 0px;">
                         <li style="list-style-type: none;display:inline;">
                             <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Contribuer" %}</a>
                         </li>
@@ -40,19 +40,19 @@
         <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
             <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                 <p class="fr-h1">{{ erp_count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--bold">
+                <p class="fr-text--xl fr-text--heavy">
                     {% translate "lieux<br> référencés" %}
                 </p>
             </div>
             <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                 <p class="fr-h1">{{ contributor_count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--bold">
+                <p class="fr-text--xl fr-text--heavy">
                     {% translate "contributrices<br> et contributeurs" %}
                 </p>
             </div>
             <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                 <p class="fr-h1">{% translate "12 millions" %}</p>
-                <p class="fr-text--xl fr-text--bold">
+                <p class="fr-text--xl fr-text--heavy">
                     {% translate "de personnes<br> concernées" %}
                 </p>
             </div>
@@ -87,21 +87,21 @@
             <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v fr-grid-row--bottom">
                 <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                     <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block icon-difference" src="{% static "img/landing/puzzle.png" %}" alt="" aria-hidden="true" />
-                    <p class="fr-text--lead fr-text--bold fr-mb-0">{% translate "À votre niveau" %}</p>
+                    <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "À votre niveau" %}</p>
                     <p>
                         {% translate "Toute information est utile,<br> même partielle" %}
                     </p>
                 </div>
                 <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                     <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/check.png" %}" alt="" aria-hidden="true" />
-                    <p class="fr-text--lead fr-text--bold fr-mb-0">{% translate "En quelques secondes" %}</p>
+                    <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "En quelques secondes" %}</p>
                     <p>
                         {% translate "Enrichir les informations se fait <br>en quelques clics" %}
                     </p>
                 </div>
                 <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
                     <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/heart.png" %}" alt="" aria-hidden="true" />
-                    <p class="fr-text--lead fr-text--bold fr-mb-0">{% translate "Pour le bien de tous" %}</p>
+                    <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "Pour le bien de tous" %}</p>
                     <p>
                         {% translate "Les données d’accessibilités<br> sont indispensables" %}
                     </p>
@@ -114,15 +114,15 @@
             <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
                 <div class="fr-col-12 fr-col-sm-7">
                     <h2 class="fr-h2">{% translate "Partager des connaissances" %}</h2>
-                    <h3 class="fr-h5 fr-text--bold fr-mb-0">{% translate "1. Explorez" %}</h3>
+                    <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "1. Explorez" %}</h3>
                     <p class="fr-mb-3w fr-text--sm">
                         {% translate "Retrouvez de nombreux lieux ouverts au public : cafés, restaurants, administrations..." %}
                     </p>
-                    <h3 class="fr-h5 fr-text--bold fr-mb-0">{% translate "2. Renseignez les informations" %}</h3>
+                    <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "2. Renseignez les informations" %}</h3>
                     <p class="fr-mb-3w fr-text--sm">
                         {% translate "Répondez à quelques questions : y a-t-il une marche pour entrer ? des places de parking à proximité ?" %}
                     </p>
-                    <h3 class="fr-h5 fr-text--bold fr-mb-0">{% translate "3. Et recommencez" %}</h3>
+                    <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "3. Et recommencez" %}</h3>
                     <p class="fr-mb-3w fr-text--sm">
                         {% translate "Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire attention !" %}
                     </p>
@@ -193,7 +193,7 @@
                             <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
                         </div>
                         <div class="fr-col-12 fr-col-sm-10">
-                            <p class="fr-text--bold fr-mb-0">{% translate "Facilitez l’accès à votre établissement" %}</p>
+                            <p class="fr-text--heavy fr-mb-0">{% translate "Facilitez l’accès à votre établissement" %}</p>
                             <p class="fr-text--md">{% translate "Remplissez votre fiche en quelques clics" %}</p>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                             <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
                         </div>
                         <div class="fr-col-12 fr-col-sm-10">
-                            <p class="fr-text--bold fr-mb-0">{% translate "Touchez une plus large clientèle" %}</p>
+                            <p class="fr-text--heavy fr-mb-0">{% translate "Touchez une plus large clientèle" %}</p>
                             <p class="fr-text--md">
                                 {% translate "Communiquez sur l'accessibilité de votre établissement grâce au widget acceslibre" %}
                             </p>
@@ -217,7 +217,7 @@
                             <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
                         </div>
                         <div class="fr-col-12 fr-col-sm-10">
-                            <p class="fr-text--bold fr-mb-0">{% translate "Suivez les modifications de votre fiche" %}</p>
+                            <p class="fr-text--heavy fr-mb-0">{% translate "Suivez les modifications de votre fiche" %}</p>
                             <p class="fr-text--md">{% translate "Abonnez-vous à votre fiche acceslibre" %}</p>
                         </div>
                     </div>

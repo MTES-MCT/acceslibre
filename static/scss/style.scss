@@ -1,19 +1,19 @@
 // Acceslibre styles
 
-// Bootstrap colors
 $white: #fff;
 $body-color: #111;
 $dark: #333;
 $primary: #075ea2;
 $success: #167d2e;
 $info: #097182;
+$warning: #ffc107;
 $input-border-color: #969696;
 $navbar-dark-color: rgba($white, 0.8);
 $text-dark: #343a40;
 $text-muted: rgb(104, 104, 104);
+$border-radius: .25rem !default;
 // Responsive texts
 $enable-responsive-font-sizes: true;
-
 // Viewports
 $viewport-xs: 320px;
 $viewport-sm: 576px;
@@ -90,6 +90,12 @@ iframe {
   width: auto;
 }
 
+a.btn {
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus,
 button.fr-btn:focus,
 button.fr-btn:hover {
   background-color: white;
@@ -98,6 +104,23 @@ button.fr-btn:hover {
   --color-hover: rgba(41, 41, 255, 0.5);
   --color-active: rgba(41, 41, 255, 0.5);
   border: 2px solid rgba(41, 41, 255, 0.5);
+}
+
+.fr-btn:not(.fr-btn--secondary):focus,
+.fr-btn:not(.fr-btn--secondary):hover {
+  color: white;
+}
+
+[href]:not(.leaflet-control-layers-toggle) {
+  background-image: none !important;
+}
+
+.fr-header__tools-links .fr-btns-group>li {
+  padding: 1rem;
+}
+
+.fr-header__tools-links .fr-btns-group .fr-btn {
+  box-shadow: none;
 }
 
 .elt-bigger {
@@ -116,6 +139,11 @@ button.fr-btn:hover {
 
 .fr-header__brand-top {
   display: block !important;
+}
+
+select#language {
+  padding: 0.2rem 2.5rem 0.2rem 1.5rem;
+  width: auto;
 }
 
 .a4a {
@@ -183,9 +211,9 @@ button.fr-btn:hover {
     padding: 8px 12px;
 
     &:hover {
-      color: $list-group-active-color;
-      background-color: $list-group-active-bg;
-      border-color: $list-group-active-border-color;
+      color: $white;
+      background-color: theme-color("primary");
+      border-color: theme-color("primary");
     }
   }
 
@@ -1108,4 +1136,15 @@ button.fr-btn:hover {
 
 .leaflet-container .a4a-map-popup-content a {
   text-decoration: underline;
+}
+
+
+.leaflet-control-layers-base input[type="radio"] {
+  appearance: auto;
+}
+
+.leaflet-control-layers-toggle {
+  background-image: url('../../node_modules/leaflet/dist/images/layers.png') !important;
+  background-size: auto !important;
+  background-position: 50% !important;
 }
