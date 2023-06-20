@@ -60,14 +60,6 @@ $viewport-xl: 1200px;
   position: absolute;
 }
 
-#qrcode {
-  display: flex;
-
-  @media screen and (max-width: $viewport-sm) {
-    // on mobile we don't want to display qrcode
-    display: none;
-  }
-}
 
 // SPACING
 .mt-10,
@@ -144,6 +136,12 @@ button.fr-btn:hover {
 select#language {
   padding: 0.2rem 2.5rem 0.2rem 1.5rem;
   width: auto;
+}
+
+header .fr-header__body .fr-select-group {
+  width: fit-content;
+  position: absolute;
+  right: 1rem;
 }
 
 .a4a {
