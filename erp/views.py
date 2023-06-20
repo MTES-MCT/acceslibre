@@ -208,28 +208,24 @@ def _cleaned_search_params_as_dict(get_parameters):
 
 def _clean_address(where):
     """
-    where is a string as returned by geoloc API on frontend side. It returns city and postal_code, this is pure string
+    where is a string as returned by geoloc API on frontend side. It returns city and code_departement, this is pure string
     work, nothing coming from a database or elsewhere.
     For ex:
-        "Paris 6e Arrondissement (75006)" returns ("Paris", "75006")
-        "Lille (59000)" returns ("Lille", "59000")
+        "Paris (75006)" returns ("Paris", "75")
+        "Lille (59)" returns ("Lille", "59")
         "Strasbourg" returns ("Strasbourg", "")
     """
     where = (where or "()").strip()
 
-    # remove potential district infos
-    regex = r"( [0-9]+e[r]? arrondissement)"
-    where = re.sub(regex, "", where, flags=re.IGNORECASE)
-
-    # remove postal code in where
+    # remove code departement in where
     address = re.split(r"\(|\)", where)
     city = where
-    postal_code = ""
+    code_departement = ""
     if len(address) >= 2:
         city = address[0].strip()
-        postal_code = address[1]
+        code_departement = address[1]
 
-    return city, postal_code
+    return city, code_departement
 
 
 def _parse_location_or_404(lat, lon):
@@ -251,8 +247,8 @@ def _filter_erp_by_location(queryset, **kwargs):
         return queryset.filter(commune=kwargs.get("municipality").nom)
 
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
-        city, postal_code = _clean_address(kwargs.get("where"))
-        return queryset.filter(commune__iexact=city, code_postal=postal_code)
+        city, code_departement = _clean_address(kwargs.get("where"))
+        return queryset.filter(commune__iexact=city, code_postal__startswith=code_departement)
 
     if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
         return queryset.nearest(location, max_radius_km=0.2)
@@ -758,7 +754,7 @@ def contrib_global_search(request):
         except RuntimeError as err:
             error = err
 
-    city, postal_code = _clean_address(request.GET.get("where"))
+    city, _ = _clean_address(request.GET.get("where"))
 
     return render(
         request,
@@ -778,7 +774,6 @@ def contrib_global_search(request):
             "query": {
                 "nom": request.GET.get("what"),
                 "commune": city,
-                "code_postal": postal_code,
                 "lat": request.GET.get("lat"),
                 "lon": request.GET.get("lon"),
             },
