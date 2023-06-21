@@ -3,11 +3,7 @@
   "name": "acceslibre",
   "title": "Schéma des données d'accessibilité des ERPs",
   "description": "Spécification du fichier d'échange relatif aux données d'accessibilité des Établissements Recevant du Public (ERP).",
-  "keywords": [
-    "accessibilite",
-    "access",
-    "a11y"
-  ],
+  "keywords": ["accessibilite", "access", "a11y"],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
   "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/schema.json",
@@ -165,7 +161,5 @@
       }
     }
   ],
-  "primaryKey": [
-    "id"
-  ]
+  "primaryKey": ["id"]
 }

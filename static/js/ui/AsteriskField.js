@@ -1,5 +1,8 @@
 export default function AsteriskField(root) {
-  root.outerHTML = `
+  root.outerHTML =
+    `
     &nbsp;
-    <small>(` + gettext("requis") + `)</small>`;
+    <small>(` +
+    gettext('requis') +
+    `)</small>`
 }

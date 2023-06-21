@@ -1,1 +1,10 @@
 templates/**/*.html
+.venv
+.cache
+docs
+static/vendor
+static/dist
+static/icons
+*.lock
+**/fixtures/*
+**/img/*

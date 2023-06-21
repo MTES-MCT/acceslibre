@@ -1,40 +1,40 @@
 {
-    "jobs": [
-        {
-            "command": "5 3 * * * python manage.py refresh_global_stats",
-            "size": "M"
-        },
-        {
-            "command": "35 3 * * * python manage.py purge_obsolete_objects_in_base",
-            "size": "M"
-        },
-        {
-            "command": "55 3 * * * python manage.py deleterevisions --keep=20 --days=30",
-            "size": "M"
-        },
-        {
-            "command": "10 5 * * * python manage.py import_dataset gendarmerie",
-            "size": "M"
-        },
-        {
-            "command": "40 0 * * * python manage.py export_to_datagouv",
-            "size": "XL"
-        },
-        {
-            "command": "5 */3 * * * python manage.py notify_changed_erps --hours=3",
-            "size": "M"
-        },
-        {
-            "command": "30 14 * * 4 python manage.py notify_unpublished_erps",
-            "size": "M"
-        },
-        {
-            "command": "30 14 * * 1 python manage.py notify_activity_suggestions",
-            "size": "M"
-        },
-        {
-            "command": "0 * * * * python manage.py calculate_challenge_stats",
-            "size": "M"
-        }
-    ]
+  "jobs": [
+    {
+      "command": "5 3 * * * python manage.py refresh_global_stats",
+      "size": "M"
+    },
+    {
+      "command": "35 3 * * * python manage.py purge_obsolete_objects_in_base",
+      "size": "M"
+    },
+    {
+      "command": "55 3 * * * python manage.py deleterevisions --keep=20 --days=30",
+      "size": "M"
+    },
+    {
+      "command": "10 5 * * * python manage.py import_dataset gendarmerie",
+      "size": "M"
+    },
+    {
+      "command": "40 0 * * * python manage.py export_to_datagouv",
+      "size": "XL"
+    },
+    {
+      "command": "5 */3 * * * python manage.py notify_changed_erps --hours=3",
+      "size": "M"
+    },
+    {
+      "command": "30 14 * * 4 python manage.py notify_unpublished_erps",
+      "size": "M"
+    },
+    {
+      "command": "30 14 * * 1 python manage.py notify_activity_suggestions",
+      "size": "M"
+    },
+    {
+      "command": "0 * * * * python manage.py calculate_challenge_stats",
+      "size": "M"
+    }
+  ]
 }

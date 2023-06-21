@@ -1,9 +1,9 @@
-import api from "../api";
+import api from '../api'
 
 function GetGeolocBtn(root) {
-  root.addEventListener("click", async (event) => {
-    await api.loadUserLocation({ retrieve: true });
-  });
+  root.addEventListener('click', async (event) => {
+    await api.loadUserLocation({ retrieve: true })
+  })
 }
 
-export default GetGeolocBtn;
+export default GetGeolocBtn
