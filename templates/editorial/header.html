@@ -24,6 +24,7 @@
                             <a href="{% url 'mon_compte' %}" class="m-4">
                                 <i aria-hidden="true" class="icon icon-unlock"></i> {% translate "Mon compte" %}
                             </a>
+                            {% include "editorial/header_language.html" with margin=True id="language_brand" %}
                         </div>
                     </div>
                 </div>
@@ -51,26 +52,8 @@
                                        href="{% url 'login' %}?next={{ request.path }}">{% translate "Se connecter" %}</a>
                                 </li>
                             {% endif %}
+                            <li>{% include "editorial/header_language.html" with margin=False id="language_tools" %}</li>
                         </ul>
-                    </div>
-                    <div class="fr-select-group">
-                        <form class="fr-grid-row" action="{% url 'set_language' %}" method="post">
-                            <label class="fr-label sr-only" for="language">{% translate "Langue" %}</label>
-                            {% csrf_token %}
-                            <input name="next" type="hidden" value="{{ redirect_to }}">
-                            <select class="fr-select fr-col" id="language" name="language">
-                                {% get_current_language as LANGUAGE_CODE %}
-                                {% get_available_languages as LANGUAGES %}
-                                {% get_language_info_list for LANGUAGES as languages %}
-                                {% for language in languages %}
-                                    <option value="{{ language.code }}"
-                                            {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                                        {{ language.name_local|capfirst }} ({{ language.code }})
-                                    </option>
-                                {% endfor %}
-                            </select>
-                            <input class="fr-col" type="submit" value="Go">
-                        </form>
                     </div>
                 </div>
             </div>

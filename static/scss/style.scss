@@ -138,10 +138,12 @@ select#language {
   width: auto;
 }
 
-header .fr-header__body .fr-select-group {
+select[name="language"] {
   width: fit-content;
-  position: absolute;
-  right: 1rem;
+}
+
+#widgetmodal {
+  z-index: 9999;
 }
 
 .a4a {

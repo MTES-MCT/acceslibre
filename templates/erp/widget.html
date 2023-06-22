@@ -36,22 +36,11 @@ Minimal content of DSFR to apply style on widget
 }
 
 #widget-a11y-container .fr-btn--close {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-  min-height: 2rem;
-  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem !important;
   border-radius: 1rem;
-  flex-direction: row-reverse;
-  overflow: initial;
-  max-width: none;
-  max-height: none;
-  margin-right: -0.5rem;
-  display: flex;
-  margin-left: auto;
-  background-color: var(--t-plain);
-  color: var(--g700);
-  --color-hover: var(--block-color-hover);
-  --color-active: var(--block-color-active);
+  flex-direction: row-reverse !important;
+  margin-right: 1rem !important;
+  margin-left: auto !important;
   cursor: pointer;
   border: none;
   outline: none;
@@ -60,9 +49,8 @@ Minimal content of DSFR to apply style on widget
 #widget-a11y-container .fr-btn--close::before {
   margin-right: -0.25rem;
   margin-left: 0.5rem;
-  content: "";
   font-size: 1rem;
-  content: "x";
+  content: "";
 }
 
 #widget-a11y-container #dialog {
