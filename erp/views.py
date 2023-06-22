@@ -488,7 +488,7 @@ def widget_from_uuid(request, uuid):  # noqa
             translate("rampe") if erp.accessibilite.cheminement_ext_rampe else translate("ascenseur")
         )
     elif (
-        not erp.accessibilite.cheminement_ext_terrain_stable
+        erp.accessibilite.cheminement_ext_terrain_stable is False
         or erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_IMPORTANTE
         or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
         or erp.accessibilite.cheminement_ext_retrecissement
