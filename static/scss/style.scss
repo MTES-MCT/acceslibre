@@ -11,7 +11,7 @@ $input-border-color: #969696;
 $navbar-dark-color: rgba($white, 0.8);
 $text-dark: #343a40;
 $text-muted: rgb(104, 104, 104);
-$border-radius: .25rem !default;
+$border-radius: 0.25rem !default;
 // Responsive texts
 $enable-responsive-font-sizes: true;
 // Viewports
@@ -21,7 +21,7 @@ $viewport-md: 768px;
 $viewport-lg: 992px;
 $viewport-xl: 1200px;
 
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 // App specific styles
 
 .btn-search {
@@ -59,7 +59,6 @@ $viewport-xl: 1200px;
   top: 50%;
   position: absolute;
 }
-
 
 // SPACING
 .mt-10,
@@ -107,7 +106,7 @@ button.fr-btn:hover {
   background-image: none !important;
 }
 
-.fr-header__tools-links .fr-btns-group>li {
+.fr-header__tools-links .fr-btns-group > li {
   padding: 1rem;
 }
 
@@ -138,7 +137,7 @@ select#language {
   width: auto;
 }
 
-select[name="language"] {
+select[name='language'] {
   width: fit-content;
 }
 
@@ -187,33 +186,32 @@ select[name="language"] {
       margin: 0;
 
       &::before {
-        content: "« ";
+        content: '« ';
       }
 
       &::after {
-        content: " »";
+        content: ' »';
       }
     }
   }
 
   // selectWoo styles overriding
   .select2-container--bootstrap4 {
-
     .select2-selection,
-    input[type=text] {
+    input[type='text'] {
       border: 1px solid $input-border-color;
     }
   }
 
   &-autocomplete-result {
     cursor: pointer;
-    font-size: .87em;
+    font-size: 0.87em;
     padding: 8px 12px;
 
     &:hover {
       color: $white;
-      background-color: theme-color("primary");
-      border-color: theme-color("primary");
+      background-color: theme-color('primary');
+      border-color: theme-color('primary');
     }
   }
 
@@ -229,7 +227,7 @@ select[name="language"] {
 
   .btn {
     .icon {
-      font-size: .9em;
+      font-size: 0.9em;
     }
   }
 
@@ -246,7 +244,6 @@ select[name="language"] {
     }
 
     &-erp {
-
       // large viewport
       @media screen and (min-width: $viewport-md) {
         width: 96px;
@@ -363,7 +360,6 @@ select[name="language"] {
   }
 
   .cgu {
-
     p,
     li {
       color: #444;
@@ -515,7 +511,7 @@ select[name="language"] {
   .a11y-field {
     list-style-type: none;
     margin: 0;
-    padding: .27rem 0;
+    padding: 0.27rem 0;
 
     h3,
     h4 {
@@ -529,7 +525,7 @@ select[name="language"] {
 
   hr[noshade] {
     border-top: 1px solid #ddd;
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
 
   .bl-highlight {
@@ -539,14 +535,14 @@ select[name="language"] {
   }
 
   .form-group {
-    >label {
+    > label {
       color: #444;
       font-weight: 500;
     }
   }
 
   &-icon-small-top {
-    font-size: .85em;
+    font-size: 0.85em;
   }
 
   &-tab-content-section {
@@ -555,10 +551,10 @@ select[name="language"] {
   }
 
   &-erp-details-link {
-    font-size: .9em;
+    font-size: 0.9em;
 
     @media screen and (max-width: $viewport-md) {
-      font-size: .85em;
+      font-size: 0.85em;
       padding: 4px;
     }
 
@@ -664,17 +660,16 @@ select[name="language"] {
     }
   }
 
-
   &-search-form {
     .autocomplete-input {
       &.loading {
-        background: transparent url("/img/loading.gif") no-repeat;
+        background: transparent url('/img/loading.gif') no-repeat;
         background-position: calc(100% - 8px) center;
       }
     }
 
     @media screen and (min-width: $viewport-xl) {
-      input[name=what] {
+      input[name='what'] {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
 
@@ -683,7 +678,7 @@ select[name="language"] {
         }
       }
 
-      input[name=where] {
+      input[name='where'] {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-left: 0;
@@ -743,7 +738,7 @@ select[name="language"] {
   }
 
   &-slightly-smaller {
-    font-size: .87em;
+    font-size: 0.87em;
   }
 
   &-slightly-bold {
@@ -951,11 +946,11 @@ select[name="language"] {
     text-decoration: none;
   }
 
-  input[type="checkbox"]+.form-check-label.requiredField {
+  input[type='checkbox'] + .form-check-label.requiredField {
     display: flex;
   }
 
-  input[type="checkbox"]+.form-check-label.requiredField .asteriskField {
+  input[type='checkbox'] + .form-check-label.requiredField .asteriskField {
     left: -10px;
   }
 
@@ -1011,7 +1006,6 @@ select[name="language"] {
     list-style: none;
   }
 
-
   .StepProgress-item {
     position: relative;
     padding-top: 4px;
@@ -1023,18 +1017,17 @@ select[name="language"] {
 
   .StepProgress-item::before {
     display: inline-block;
-    content: "";
+    content: '';
     position: absolute;
     left: -15px;
     height: 50%;
     width: 10px;
   }
 
-
   .StepProgress-item.is-done::before {
     color: limegreen;
     left: -25px;
-    content: "✔"
+    content: '✔';
   }
 
   .StepProgress-item.current {
@@ -1105,7 +1098,7 @@ select[name="language"] {
     height: $lds-dual-ring-size;
 
     &:after {
-      content: " ";
+      content: ' ';
       display: block;
       width: $lds-dual-ring-size;
       height: $lds-dual-ring-size;
@@ -1128,7 +1121,6 @@ select[name="language"] {
   }
 }
 
-
 #erp-results-list {
   max-height: 600px;
   overflow-y: scroll;
@@ -1138,8 +1130,7 @@ select[name="language"] {
   text-decoration: underline;
 }
 
-
-.leaflet-control-layers-base input[type="radio"] {
+.leaflet-control-layers-base input[type='radio'] {
   appearance: auto;
 }
 

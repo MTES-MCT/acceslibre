@@ -1,50 +1,50 @@
 function addClass(el, ...args) {
   for (const class_ of args) {
-    el.classList.add(class_);
+    el.classList.add(class_)
   }
 }
 
 function findAll(sel) {
-  return [].slice.call(document.querySelectorAll(sel), 0);
+  return [].slice.call(document.querySelectorAll(sel), 0)
 }
 
 function hide(el) {
-  el.dataset.previousDisplay = window.getComputedStyle(el).display;
-  el.style.display = "none";
+  el.dataset.previousDisplay = window.getComputedStyle(el).display
+  el.style.display = 'none'
 }
 
 function mountOne(selector, fn) {
-  const node = document.querySelector(selector);
+  const node = document.querySelector(selector)
   if (node) {
-    fn(node);
+    fn(node)
   }
 }
 
 function mountAll(selector, fn) {
-  findAll(selector).forEach(fn);
+  findAll(selector).forEach(fn)
 }
 
 function preventDefault(event) {
-  event.preventDefault();
+  event.preventDefault()
 }
 
 function ready(fn) {
-  window.addEventListener("DOMContentLoaded", fn);
+  window.addEventListener('DOMContentLoaded', fn)
 }
 
 function removeClass(el, ...args) {
   for (const class_ of args) {
-    el.classList.remove(class_);
+    el.classList.remove(class_)
   }
 }
 
 function show(el) {
-  const { previousDisplay } = el.dataset;
+  const { previousDisplay } = el.dataset
   if (previousDisplay) {
-    delete el.dataset.previousDisplay;
-    el.style.display = previousDisplay;
+    delete el.dataset.previousDisplay
+    el.style.display = previousDisplay
   } else {
-    el.style.display = "block";
+    el.style.display = 'block'
   }
 }
 
@@ -58,4 +58,4 @@ export default {
   ready,
   removeClass,
   show,
-};
+}

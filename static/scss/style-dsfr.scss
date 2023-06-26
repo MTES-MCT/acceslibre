@@ -1,28 +1,27 @@
-a{
+a {
   --link-underline: none;
 }
 
-p{
-  font-size: 1.10rem !important
+p {
+  font-size: 1.1rem !important;
 }
-.fr-btn:hover{
+.fr-btn:hover {
   color: var(--w-bf500);
 }
 
-.fr-btn--secondary:hover{
+.fr-btn--secondary:hover {
   color: var(--bf500);
 }
 
-
 .bg-alt-blue-france-975 {
-  background-color: #F5F5FE !important;
+  background-color: #f5f5fe !important;
 }
 
-.auto-height{
+.auto-height {
   height: auto !important;
 }
 
-.input-form{
+.input-form {
   position: relative;
   display: inline-block;
 }
