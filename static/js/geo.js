@@ -196,7 +196,7 @@ function _displayCustomMenu(root, { latlng, target: map }) {
 }
 
 function createMap(domTarget, options = {}) {
-  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true };
+  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true, ...options };
   const map = L.map(domTarget, { ...defaults, options });
   L.control.scale({ imperial: false }).addTo(map);
   L.control
