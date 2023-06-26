@@ -1,4 +1,5 @@
 import datetime
+import json
 import re
 import urllib
 
@@ -841,6 +842,11 @@ def contrib_admin_infos(request):
             "external_erp": external_erp,
             "activite": Activite.objects.get(slug="autre"),
             "duplicated": duplicated,
+            "map_options": json.dumps(
+                {
+                    "scrollWheelZoom": False,  # Zoom in/out is not permitted in contrib mode as it would result into a position change of the cross
+                }
+            ),
         },
     )
 
@@ -885,6 +891,11 @@ def contrib_edit_infos(request, erp_slug):
             "erp": erp,
             "form": form,
             "activite": Activite.objects.get(slug="autre"),
+            "map_options": json.dumps(
+                {
+                    "scrollWheelZoom": False,  # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
+                }
+            ),
         },
     )
 

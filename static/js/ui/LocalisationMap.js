@@ -4,7 +4,8 @@ function LocalisationMap(root) {
   const mapDomEl = root.querySelector(".a4a-localisation-map");
   const hiddenLat = root.querySelector("input[type=hidden][name=lat]");
   const hiddenLon = root.querySelector("input[type=hidden][name=lon]");
-  const map = geo.createMap(mapDomEl, { scrollWheelZoom: false });
+  const mapOptions = JSON.parse(root.querySelector("#map-options").textContent.trim());
+  const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, ...mapOptions });
   map.setView(
     {
       lat: hiddenLat.value,

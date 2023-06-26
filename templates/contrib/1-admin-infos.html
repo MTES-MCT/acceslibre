@@ -186,6 +186,9 @@
         <div class="a4a-localisation-map"></div>
         {{ form.lat }}
         {{ form.lon }}
+        <script id="map-options" type="application/json">
+        {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
+        </script>
     </div>
     {% if not existing_matches %}
         {% include "contrib/includes/prevnext.html" %}
