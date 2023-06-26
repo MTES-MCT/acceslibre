@@ -8,7 +8,7 @@
      data-refresh-api-url="{% url "erp-list" %}"
      data-should-refresh="{{ dynamic_map|default:'False' }}"
      data-api-key="{{ map_api_key|default:'' }}"
-     data-erp-identifer="{{ erp.uuid }}">
+     data-erp-identifier="{{ erp.uuid }}">
     <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
     </script>
