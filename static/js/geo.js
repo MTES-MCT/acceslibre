@@ -16,10 +16,12 @@ let currentErpIdentifier,
   streetTiles,
   mapMovedDueToPopup,
   shouldTryToBroadenSearchToGetOneResult,
+  currentPage,
   geoJsonLayer
 
 mapMovedDueToPopup = false
 shouldTryToBroadenSearchToGetOneResult = false
+currentPage = 1
 
 function recalculateMapSize() {
   if (!map) {
@@ -176,6 +178,29 @@ function _displayCustomMenu(root, { latlng, target: map }) {
   })
 }
 
+function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
+  const container = document.querySelector('#erp-results-list')
+  if (!container) {
+    return
+  }
+
+  // Watch for end of scroll
+  container.addEventListener('scroll', (event) => {
+    if (container.offsetHeight + container.scrollTop >= container.scrollHeight) {
+      currentPage += 1
+      refreshData(map, refreshApiUrl, apiKey, currentPage)
+    }
+  })
+
+  // Watch for last result being tabulated
+  const nodes = document.querySelectorAll('.map-results')
+  const lastElement = nodes[nodes.length - 1]
+  lastElement.addEventListener('focusin', function (event) {
+    currentPage += 1
+    refreshData(map, refreshApiUrl, apiKey, currentPage)
+  })
+}
+
 function createMap(domTarget, options = {}) {
   const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true, ...options }
   const map = L.map(domTarget, { ...defaults, options })
@@ -200,12 +225,16 @@ function _parseAround({ lat, lon, label }) {
   } catch (_) {}
 }
 
-function refreshList(data) {
+function refreshList(data, clearHTML = true) {
   const listContainer = document.querySelector('#erp-results-list')
   if (!listContainer) {
     return
   }
-  let HTMLResult = ''
+
+  let HTMLResult = listContainer.innerHTML
+  if (clearHTML) {
+    HTMLResult = ''
+  }
   data.features.forEach(function (point) {
     HTMLResult += mapUtils.generateHTMLForResult(point)
   })
@@ -218,7 +247,7 @@ function updateNumberOfResults(data) {
   numberContainer.innerHTML = data.count + translation
 }
 
-function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
+function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
   const queryTerm = document.querySelector('#what-input').value
@@ -233,7 +262,9 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
     ',' +
     northEast.lng +
     ',' +
-    northEast.lat
+    northEast.lat +
+    '&page=' +
+    page
   return fetch(url, {
     timeout: 10000,
     headers: {
@@ -243,19 +274,25 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey) {
   })
 }
 
-function refreshData(map, refreshApiUrl, apiKey) {
+function refreshData(map, refreshApiUrl, apiKey, page = 1) {
   if (mapMovedDueToPopup) {
     mapMovedDueToPopup = false
     return
   }
-
-  const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey)
+  const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page)
+  const clearOldResults = page == 1
   fetchPromise.then((response) => {
+    if (!response.ok) {
+      return
+    }
+
     response.json().then((jsonData) => {
-      map.removeLayer(markers)
+      if (clearOldResults) {
+        map.removeLayer(markers)
+      }
       markers = _createMarkersFromGeoJson(jsonData)
       map.addLayer(markers)
-      refreshList(jsonData)
+      refreshList(jsonData, clearOldResults)
       updateNumberOfResults(jsonData)
       dom.mountAll('.a4a-geo-link', ui.GeoLink)
 
@@ -273,6 +310,7 @@ function refreshData(map, refreshApiUrl, apiKey) {
 function refreshDataOnMove(map, refreshApiUrl, apiKey) {
   const debouncedFunction = debounce(refreshData, 300)
   map.on('moveend', function () {
+    currentPage = 0
     debouncedFunction(map, refreshApiUrl, apiKey)
   })
 }
@@ -365,6 +403,7 @@ function AppMap(root) {
   _addMarkerAtCenterOfSearch(root.dataset, markers)
   map.addLayer(markers)
   refreshList(geoJson)
+  _loadMoreWhenLastElementIsDisplayed(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
 
   if (geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds(), { padding: [70, 70] })
