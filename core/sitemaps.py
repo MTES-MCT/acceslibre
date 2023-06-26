@@ -40,7 +40,7 @@ class ErpSitemap(Sitemap):
     limit = 1000
 
     def items(self):
-        return Erp.objects.published()
+        return Erp.objects.published().select_related("activite")
 
     def lastmod(self, obj):
         return obj.updated_at
