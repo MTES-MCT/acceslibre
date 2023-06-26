@@ -133,12 +133,6 @@ function SearchWhere(root) {
     }
   })
 
-  autocomplete.input.addEventListener('keydown', (event) => {
-    if (event.key != 'Tab' && event.key != 'Enter') {
-      setSearchData(null)
-    }
-  })
-
   // Prevent global form submission when an autocomplete entry is selected by pressing Enter,
   // which usually triggers form submit when a form input has the focus.
   let submittable
@@ -148,6 +142,9 @@ function SearchWhere(root) {
     setTimeout(() => {
       try {
         submittable = exp.target.getAttribute('aria-expanded') !== 'true'
+        if (submittable) {
+          activate_submit_btn(null, (force = true))
+        }
       } catch (e) {}
     }, 0)
   })
