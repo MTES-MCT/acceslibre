@@ -2,7 +2,6 @@
 import "core-js/stable";
 import "mutationobserver-shim";
 import "regenerator-runtime/runtime";
-import "whatwg-fetch";
 
 // jQuery and selectWoo are very special beasts
 // https://stackoverflow.com/a/47984928
