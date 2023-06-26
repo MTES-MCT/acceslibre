@@ -32,6 +32,12 @@ $viewport-xl: 1200px;
   }
 }
 
+#cta .fr-btn {
+  @media screen and (max-width: $viewport-md) {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .blur {
   background-color: white;
   opacity: 0.3;
