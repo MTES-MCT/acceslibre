@@ -106,13 +106,13 @@
                 {{ form.nouvelle_activite|as_crispy_field }}
                 <script>
         $(document).ready(function() {
-          if($("#id_activite").val() == '{{ activite.id }}'){
+          if($("#id_activite").val() == '{{ other_activity.id }}'){
               $("#div_id_nouvelle_activite").show();
             } else {
               $("#div_id_nouvelle_activite").hide();
           }
           $("#no_activite").on("click", function(){
-              $("#id_activite").val({{ activite.id }});
+              $("#id_activite").val({{ other_activity.id }});
               $("#id_activite").trigger('change');
           });
           $("#id_activite").select2({
@@ -121,7 +121,7 @@
             placeholder: '{% translate "Rechercher une activité" %}'
           });
           $("#id_activite").on("change", function(){
-            if($("#id_activite").val() == '{{ activite.id }}'){
+            if($("#id_activite").val() == '{{ other_activity.id }}'){
               $("#div_id_nouvelle_activite").show();
             } else {
               $("#div_id_nouvelle_activite").hide();
