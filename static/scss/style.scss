@@ -1153,3 +1153,9 @@ div.equipments {
 div.equipments button {
   margin: 2px 2px;
 }
+
+@media (min-width: 768px) {
+  .responsive-tabs .tab-content > .tab-pane {
+    display: block;
+  }
+}
