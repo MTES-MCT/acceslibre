@@ -41,6 +41,38 @@ def test_search_pagination(data, client):
     assert len(response.context["pager"]) == 1
 
 
+def test_search_pagination_performances(data, client, django_assert_max_num_queries):
+    data.erp.delete()
+    erp = Erp.objects.create(
+        nom="ERP",
+        commune_ext=data.jacou,
+        commune="jacou",
+        geom=data.erp.geom,
+        published=True,
+    )
+    Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
+
+    with django_assert_max_num_queries(4):
+        response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
+    assert response.status_code == 200
+    assert len(response.context["pager"]) == 1
+
+    for i in range(1, 10):
+        erp = Erp.objects.create(
+            nom=f"e{i}",
+            commune_ext=data.jacou,
+            commune="jacou",
+            geom=data.erp.geom,
+            published=True,
+        )
+        Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
+
+    with django_assert_max_num_queries(4):
+        response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
+    assert response.status_code == 200
+    assert len(response.context["pager"]) == 10
+
+
 def test_search_by_municipality(data, client):
     Erp.objects.create(
         nom="Out of town",
@@ -230,6 +262,26 @@ def test_search_in_municipality(data, client):
     assert response.context["where"] == "Jacou (34)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
+
+
+def test_search_in_municipality_performances(data, client, django_assert_max_num_queries):
+    with django_assert_max_num_queries(4):
+        response = client.get(reverse("search_commune", kwargs={"commune_slug": "34-jacou"}))
+    assert len(response.context["pager"]) == 1
+
+    for _ in range(5):
+        Erp.objects.create(
+            nom="ERP",
+            code_postal="34830",
+            commune="Jacou",
+            commune_ext=data.erp.commune_ext,
+            published=True,
+            activite=data.erp.activite,
+        )
+
+    with django_assert_max_num_queries(4):
+        response = client.get(reverse("search_commune", kwargs={"commune_slug": "34-jacou"}))
+    assert len(response.context["pager"]) == 6
 
 
 def test_search_in_municipality_respects_what_clause(data, client, activite_mairie):

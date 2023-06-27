@@ -60,9 +60,7 @@ def handler500(request):
 
 
 def make_geojson(erp_qs):
-    "Take an Erp queryset and serialize it to geojson."
-    serializer = serializers.SpecialErpSerializer()
-    return serializer.serialize(
+    return serializers.SpecialErpSerializer().serialize(
         erp_qs,
         geometry_field="geom",
         use_natural_foreign_keys=True,
@@ -73,7 +71,6 @@ def make_geojson(erp_qs):
             "activite__vector_icon",
             "adresse",
             "absolute_url",
-            "has_accessibilite",
         ],
     )
 
@@ -261,7 +258,8 @@ def _get_or_create_api_key():
 
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
-    base_queryset = Erp.objects.published().search_what(filters.get("what"))
+    base_queryset = Erp.objects.published().with_activity()
+    base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
 
     paginator = Paginator(queryset, 50)
@@ -285,7 +283,8 @@ def search_in_municipality(request, commune_slug):
     filters = _cleaned_search_params_as_dict(request.GET)
     filters["search_type"] = settings.IN_MUNICIPALITY_SEARCH_TYPE
     filters["municipality"] = municipality
-    base_queryset = Erp.objects.published().search_what(filters.get("what"))
+    base_queryset = Erp.objects.published().with_activity()
+    base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
 
     paginator = Paginator(queryset, 10)
@@ -343,9 +342,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     nearest_erps = []
     if switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
-        nearest_erps = (
-            Erp.objects.select_related("activite").published().nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
-        )
+        nearest_erps = Erp.objects.with_activity().published().nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
     geojson_list = make_geojson(nearest_erps or [erp])
 
     # translate free texts if user is not displaying the page in french
@@ -779,7 +776,7 @@ def contrib_admin_infos(request):
         if form.is_valid():
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
-            )
+            ).with_activity()
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False

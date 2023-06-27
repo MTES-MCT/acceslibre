@@ -21,8 +21,6 @@ class SpecialErpSerializer(geojson.Serializer):
                 self._current[field] = obj.get_absolute_url()
             elif field == "adresse":
                 self._current[field] = obj.adresse
-            elif field == "has_accessibilite":
-                self._current[field] = obj.has_accessibilite()
             else:
                 try:
                     if "__" in field:

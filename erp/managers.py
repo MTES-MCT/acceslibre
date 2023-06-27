@@ -85,6 +85,9 @@ class ErpQuerySet(models.QuerySet):
             qs = qs.filter(clause)
         return qs
 
+    def with_activity(self):
+        return self.select_related("activite")
+
     def find_similar(self, nom, commune, voie=None, lieu_dit=None):
         # FIXME: might be deprecated as this is not compliant with the last definition of a duplicate.
         # Prefer `find_duplicate`
