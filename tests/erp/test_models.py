@@ -1,4 +1,5 @@
 import pytest
+import reversion
 from django.core.exceptions import ValidationError
 
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
@@ -242,3 +243,31 @@ class TestActivitySuggestion:
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
         assert mock_mail.call_count == 2
         assert mock_mail_admins.call_count == 2
+
+
+def test_get_global_timestamps_no_history(data):
+    erp = data.erp
+    global_timestamps = erp.get_global_timestamps()
+    assert global_timestamps["created_at"] == global_timestamps["updated_at"]
+
+
+def test_get_global_timestamps_with_history(data, django_assert_num_queries):
+    erp = data.erp
+
+    with reversion.create_revision():
+        reversion.set_user(data.niko)
+        accessibilite = erp.accessibilite
+        accessibilite.sanitaires_presence = False
+        accessibilite.transport_station_presence = True
+        accessibilite.save()
+
+    with reversion.create_revision():
+        reversion.set_user(data.niko)
+        accessibilite = erp.accessibilite
+        accessibilite.sanitaires_presence = True
+        accessibilite.transport_station_presence = False
+        accessibilite.save()
+
+    with django_assert_num_queries(1):
+        global_timestamps = erp.get_global_timestamps()
+    assert global_timestamps["updated_at"] > global_timestamps["created_at"]
