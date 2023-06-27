@@ -19,7 +19,7 @@ def test_search_clean_params(data, client):
 
 def test_search_pagination(data, client):
     data.erp.delete()
-    for i in range(1, 22):
+    for i in range(1, 102):
         erp = Erp.objects.create(
             nom=f"e{i}",
             commune_ext=data.jacou,
@@ -28,14 +28,14 @@ def test_search_pagination(data, client):
             published=True,
         )
         Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
-    assert Erp.objects.published().count() == 21
+    assert Erp.objects.published().count() == 101
     response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
     assert response.status_code == 200
     assert response.context["pager"].paginator.num_pages == 3
-    assert len(response.context["pager"]) == 10
+    assert len(response.context["pager"]) == 50
     response = client.get(reverse("search") + "?where=jacou&code=34120&page=2")
     assert response.status_code == 200
-    assert len(response.context["pager"]) == 10
+    assert len(response.context["pager"]) == 50
     response = client.get(reverse("search") + "?where=jacou&code=34120&page=3")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 1

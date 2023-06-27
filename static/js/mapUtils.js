@@ -15,7 +15,7 @@ function generateHTMLForResult(result) {
   }
 
   return `
-    <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+    <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0 map-results">
     <div>
         <div class="d-flex w-100 justify-content-between">
             <a href="${link}">

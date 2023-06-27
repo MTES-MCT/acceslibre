@@ -264,7 +264,7 @@ def search(request):
     base_queryset = Erp.objects.published().search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
 
-    paginator = Paginator(queryset, 10)
+    paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)
     pager_base_url = url.encode_qs(**filters)
 
