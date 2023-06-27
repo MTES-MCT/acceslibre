@@ -5,6 +5,7 @@ import GetGeolocBtn from './GetGeolocBtn'
 import LocalisationMap from './LocalisationMap'
 import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
+import LabelTag from './LabelTag'
 
 export default {
   AsteriskField,
@@ -14,4 +15,5 @@ export default {
   LocalisationMap,
   MapExpander,
   SearchWhere,
+  LabelTag,
 }

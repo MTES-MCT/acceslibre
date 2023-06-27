@@ -2,6 +2,7 @@
 import 'core-js/stable'
 import 'mutationobserver-shim'
 import 'regenerator-runtime/runtime'
+import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
 
 // jQuery and selectWoo are very special beasts
 // https://stackoverflow.com/a/47984928
@@ -48,6 +49,7 @@ dom.ready(() => {
   dom.mountAll('.asteriskField', ui.AsteriskField)
   dom.mountAll('.a4a-geo-link', ui.GeoLink)
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
+  dom.mountAll('.a4a-label-tag', ui.LabelTag)
 })
 
 // expose general namespaced lib for usage within pages
