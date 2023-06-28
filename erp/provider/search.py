@@ -102,12 +102,3 @@ def equipments_filters():
         "having_adapted_wc": "Toilette PMR",
         "having_label": "Label",
     }
-
-
-# from erp.models import *
-# from erp.provider.search import equipments_filters
-
-# qs = Erp.objects.all()
-# for eq in equipments_filters():
-#     nb = getattr(qs, eq)().count()
-#     print(f"NB ERP returned using filter `{eq}`: {nb}")

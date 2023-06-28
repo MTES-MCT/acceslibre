@@ -1,8 +1,11 @@
+from contextlib import nullcontext as does_not_raise
+
 import pytest
 from django.contrib.gis.geos import Point
 
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
+from erp.provider.search import equipments_filters
 from tests.factories import AccessibiliteFactory
 
 
@@ -173,9 +176,9 @@ class TestErpQuerySetFilters:
             ),
         ),
     )
-    def test_with_adapted_parking(self, access_attrs, should_be_returned):
+    def test_having_adapted_parking(self, access_attrs, should_be_returned):
         access = AccessibiliteFactory(**access_attrs)
-        assert list(Erp.objects.with_adapted_parking().all()) == ([access.erp] if should_be_returned else [])
+        assert list(Erp.objects.having_adapted_parking().all()) == ([access.erp] if should_be_returned else [])
 
     @pytest.mark.parametrize(
         "access_attrs, should_be_returned",
@@ -202,9 +205,9 @@ class TestErpQuerySetFilters:
             ),
         ),
     )
-    def test_with_parking(self, access_attrs, should_be_returned):
+    def test_having_parking(self, access_attrs, should_be_returned):
         access = AccessibiliteFactory(**access_attrs)
-        assert list(Erp.objects.with_parking().all()) == ([access.erp] if should_be_returned else [])
+        assert list(Erp.objects.having_parking().all()) == ([access.erp] if should_be_returned else [])
 
     @pytest.mark.parametrize(
         "access_attrs, should_be_returned",
@@ -231,9 +234,9 @@ class TestErpQuerySetFilters:
             ),
         ),
     )
-    def test_with_nb_stairs_max(self, access_attrs, should_be_returned):
+    def test_having_nb_stairs_max(self, access_attrs, should_be_returned):
         access = AccessibiliteFactory(**access_attrs)
-        assert list(Erp.objects.with_nb_stairs_max().all()) == ([access.erp] if should_be_returned else [])
+        assert list(Erp.objects.having_nb_stairs_max().all()) == ([access.erp] if should_be_returned else [])
 
     @pytest.mark.parametrize(
         "access_attrs, should_be_returned",
@@ -268,8 +271,14 @@ class TestErpQuerySetFilters:
             ),
         ),
     )
-    def test_with_potentially_all_at_ground_level(self, access_attrs, should_be_returned):
+    def test_having_potentially_all_at_ground_level(self, access_attrs, should_be_returned):
         access = AccessibiliteFactory(**access_attrs)
-        assert list(Erp.objects.with_potentially_all_at_ground_level().all()) == (
+        assert list(Erp.objects.having_potentially_all_at_ground_level().all()) == (
             [access.erp] if should_be_returned else []
         )
+
+    def test_ensure_all_equipments_answering(self):
+        qs = Erp.objects.all()
+        for eq in equipments_filters():
+            with does_not_raise():
+                getattr(qs, eq)().count()

@@ -62,15 +62,6 @@
                 <input type="hidden"
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
-                <div class="fr-checkbox-group">
-                    <input type="checkbox" id="checkbox1" name="checkbox1" class="hidden">
-                    <label class="fr-label invisible" for="checkbox1"></label>
-                    <button class="fr-tag fr-fi-information-line fr-tag--icon-left a4a-label-tag"
-                            aria-pressed="false"
-                            data-fr-js-toggle="true"
-                            type="button"
-                            for="checkbox1">Label tag</button>
-                </div>
             </div>
             <button type="submit"
                     {% if 'contrib' in request.path %}disabled{% endif %}
