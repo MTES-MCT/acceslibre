@@ -70,3 +70,44 @@ def global_search(terms, code_insee):
         result["exists"] = Erp.objects.find_by_source_id(result["source"], result["source_id"], published=True).first()
 
     return sort_and_filter_results(code_insee, result_public + result_ods + result_entreprises)
+
+
+def equipments_filters():
+    # Equipment = namedtuple("Equipment", ["name", "slug", "manager"])
+    return {
+        "having_parking": "Stationnement à proximité",
+        "having_public_transportation": "Transport en commun à proximité",
+        "having_adapted_parking": "Stationnement PMR (dans l'établissement ou à proximité)",
+        "having_no_path": "Pas de chemin extérieur ou donnée inconnue",
+        "having_proper_surface": "Extérieur - revêtement stable ou donnée inconnue",
+        "having_path_low_stairs": "Extérieur - plain pied ou accessible via rampe ou ascenseur",
+        "having_no_slope": "Extérieur - pas de pente importante ou donnée inconnue",
+        "having_no_camber": "Extérieur - pas de dévers important ou donnée inconnue",
+        "having_no_shrink": "Extérieur - aucun rétrécissement ou donnée inconnue",
+        "having_nb_stairs_max": "Maximum 1 marche",  # TODO make the same for entry/reception/ext
+        "having_guide_band": "Extérieur - bande de guidage",
+        "having_accessible_entry": "Entrée de plain pied ou accessible via rampe ou ascenseur",
+        "having_entry_min_width": "Largeur de porte supérieure à 80cm ou donnée inconnue",
+        "having_adapted_entry": "Entrée spécifique PMR",
+        "having_entry_easily_identifiable": "Entrée facilement repérable",
+        "having_sound_beacon": "Balise sonore",
+        "having_visible_reception": "Visibilité de l'accueil depuis l'entrée",
+        "having_staff": "Présence de personnel",
+        "having_trained_staff": "Personnel sensibilisé ou formé",
+        "having_audiodescription": "Audiodescription",
+        "having_hearing_equipments": "Equipements spécifiques pour personne malentendante",
+        # "Chemin de plain pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou donnée inconnue",
+        "having_entry_no_shrink": "Chemin sans rétrécissement jusqu'à l'accueil ou donnée inconnue",
+        "having_accessible_rooms": "Chambre accessible",
+        "having_adapted_wc": "Toilette PMR",
+        "having_label": "Label",
+    }
+
+
+# from erp.models import *
+# from erp.provider.search import equipments_filters
+
+# qs = Erp.objects.all()
+# for eq in equipments_filters():
+#     nb = getattr(qs, eq)().count()
+#     print(f"NB ERP returned using filter `{eq}`: {nb}")

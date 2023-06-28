@@ -30,6 +30,7 @@ from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
+from erp.provider.search import equipments_filters
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -274,6 +275,7 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
+        "equipments": equipments_filters(),
     }
     return render(request, "search/results.html", context=context)
 
