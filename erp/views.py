@@ -820,8 +820,6 @@ def contrib_admin_infos(request):
             external_erp = Erp(**data_erp)
         form = forms.PublicErpAdminInfosForm(initial=data)
 
-    geojson_list = make_geojson(existing_matches) if existing_matches else None
-
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -834,10 +832,9 @@ def contrib_admin_infos(request):
             "form": form,
             "data_error": data_error,
             "existing_matches": existing_matches,
-            "geojson_list": geojson_list,
             "erp": erp,
             "external_erp": external_erp,
-            "activite": Activite.objects.get(slug="autre"),
+            "other_activity": Activite.objects.only("id").get(slug="autre"),
             "duplicated": duplicated,
             "map_options": json.dumps(
                 {
