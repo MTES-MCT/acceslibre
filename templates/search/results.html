@@ -48,9 +48,7 @@
                     <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la recherche" %}</a>
                     <a class="fr-btn fr-btn--secondary btn-lg"
                        href="{% url 'home' %}#block_search_form">{% translate "Nouvelle recherche" %}</a>
-                </div>
-                <div class="my-auto">{% translate "ou" %}</div>
-                <div class="mt-2 pr-4">
+                    <span>{% translate "ou" %}</span>
                     <a class="fr-btn fr-btn--secondary btn-lg"
                        href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
                 </div>
