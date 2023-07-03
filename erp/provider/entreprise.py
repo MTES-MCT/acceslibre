@@ -78,7 +78,7 @@ def process_response(json_value, terms, code_insee):
                     "commune": etablissement["siege"]["libelle_commune"],
                     "code_postal": etablissement["siege"]["code_postal"],
                     "lieu_dit": "",
-                    "coordonnees": etablissement["siege"]["coordonnees"],
+                    "coordonnees": [etablissement["siege"]["longitude"], etablissement["siege"]["latitude"]],
                     "siret": etablissement["siege"]["siret"],
                     "code_insee": code_insee,
                     **normalize_sirene_adresse(etablissement["siege"], code_insee),
