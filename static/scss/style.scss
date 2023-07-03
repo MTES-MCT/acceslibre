@@ -116,6 +116,10 @@ button.fr-btn:hover {
   padding: 1rem;
 }
 
+.fr-header__tools-links .fr-btns-group > li > a {
+  padding-top: 0 !important;
+}
+
 .fr-header__tools-links .fr-btns-group .fr-btn {
   box-shadow: none;
 }
@@ -138,13 +142,9 @@ button.fr-btn:hover {
   display: block !important;
 }
 
-select#language {
-  padding: 0.2rem 2.5rem 0.2rem 1.5rem;
-  width: auto;
-}
-
 select[name='language'] {
   width: fit-content;
+  padding: 0.25rem 2rem;
 }
 
 #widgetmodal {
