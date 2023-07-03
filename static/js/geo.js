@@ -195,6 +195,9 @@ function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
   // Watch for last result being tabulated
   const nodes = document.querySelectorAll('.map-results')
   const lastElement = nodes[nodes.length - 1]
+  if (!lastElement) {
+    return
+  }
   lastElement.addEventListener('focusin', function (event) {
     currentPage += 1
     refreshData(map, refreshApiUrl, apiKey, currentPage)
