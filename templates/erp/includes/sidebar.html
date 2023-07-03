@@ -10,13 +10,6 @@
             <i aria-hidden="true" class="icon icon-pencil mr-1"></i>
             {% translate "Contribuez&nbsp;!" %}
         </h2>
-        <p class="text-center">
-            <a class="btn btn-primary text-wrap mx-auto"
-               href="{% url 'contrib_start' %}">
-                <i aria-hidden="true" class="icon icon-plus-circle"></i>
-                {% translate "Ajoutez un établissement" %}
-            </a>
-        </p>
         <p class="my-3">
             {% translate "Si la description de l'accessibilité de cet établissement est incomplète ou inexacte, contribuez à l'améliorer." %}
         </p>
@@ -62,6 +55,13 @@
                 </a>
             </p>
         {% endif %}
+        <p class="text-center">
+            <a class="btn btn-primary text-wrap mx-auto"
+               href="{% url 'contrib_start' %}">
+                <i aria-hidden="true" class="icon icon-plus-circle"></i>
+                {% translate "Ajoutez un établissement" %}
+            </a>
+        </p>
     </div>
     <div class="card-footer">
         <div class="a4a-text-smaller">
@@ -122,7 +122,7 @@
                                     title="Fermer la fenêtre"
                                     class="close"
                                     data-dismiss="modal"
-                                    aria-label="Close">
+                                    aria-label="{% translate "Fermer" %}">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
@@ -133,7 +133,7 @@
                             <div style="background-color: black; padding: 1rem;">
                                 <code style="color:lightgrey"
                                       class="Code__Text-sc-1wllvkx-1 dNGlgo"
-                                      id="tocopy">{{ widget_tag|linebreaksbr }}</code>
+                                      id="tocopy">{{ widget_tag }}</code>
                             </div>
                         </div>
                         <div class="modal-footer">

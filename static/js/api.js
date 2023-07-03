@@ -92,11 +92,11 @@ function saveUserLocation(loc) {
 function getMunicipalityApi(q) {
   return `https://geo.api.gouv.fr/communes?nom=${encodeURIComponent(
     q
-  )}&boost=population&fields=centre,codesPostaux,codeDepartement&limit=5`
+  )}&boost=population&fields=centre,codesPostaux,codeDepartement&limit=10`
 }
 
 function getAddressApi(q, loc) {
-  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`
+  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=10`
   const { lat, lon } = loc || {}
   if (lat && lon) url += `&lat=${lat}&lon=${lon}`
   return url
