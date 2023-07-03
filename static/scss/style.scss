@@ -1159,3 +1159,20 @@ div.equipments button {
     display: block;
   }
 }
+
+@media(min-width : 768px) {
+    .fr-tabs {
+        ul {
+          display: none;
+        }
+    }
+
+    .fr-tabs__panel:not(.fr-tabs__panel--selected) {
+          visibility: visible !important;
+      }
+
+      .fr-tabs__panel {
+        margin-right: 0px !important;
+        left: 0px !important;
+      }
+}

@@ -71,6 +71,7 @@
                 </h2>
             </div>
         </div>
+        <!--    TODO essai bootstrap-->
         <div class="container-fluid responsive-tabs">
             <ul class="nav nav-tabs d-md-none" role="tablist">
                 <li class="nav-item">
@@ -93,6 +94,52 @@
                      class="tab-pane col-12 col-md-7 a4a-search-map-area"
                      id="map">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
             </div>
+        </div>
+        <!--    TODO END essai bootstrap-->
+        <!--      TODO TEST DSFR -->
+        <div class="fr-tabs row">
+            <ul class="fr-tabs__list"
+                role="tablist"
+                aria-label="[A modifier | nom du système d'onglet]">
+                <li role="presentation">
+                    <button id="tabpanel-404"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="0"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="tabpanel-404-panel">Label Tab 1</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-405"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="-1"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="tabpanel-405-panel">Label Tab 2</button>
+                </li>
+            </ul>
+            <div id="tabpanel-404-panel"
+                 class="fr-tabs__panel fr-tabs__panel--selected col col-12 col-md-5"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-404"
+                 tabindex="0">
+                <!-- données de test -->
+                <p>Contenu 1</p>
+            </div>
+            <div id="tabpanel-405-panel"
+                 class="fr-tabs__panel col col-12 col-md-7 a4a-search-map-area"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-405"
+                 tabindex="0">
+                <!-- données de test -->
+                <p>Contenu 2</p>
+            </div>
+        </div>
+        <!--      END TODO TEST DSFR -->
+        <div class="row">
+            <div class="col-sm">One of three columns</div>
+            <div class="col-sm">One of three columns</div>
+            <div class="col-sm">One of three columns</div>
         </div>
         <!--  TODO see what to do with pagination-->
         {% if not dynamic_map %}
