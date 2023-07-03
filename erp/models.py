@@ -744,15 +744,13 @@ class Erp(models.Model):
         return reverse("admin:erp_erp_change", kwargs={"object_id": self.pk}) if self.pk else None
 
     def get_global_timestamps(self):
-        print("IN ERP get_global_timestamps")
-        (created_at, updated_at) = (self.created_at, self.updated_at)
+        created_at = self.created_at
+        updated_at = self.created_at
         if self.has_accessibilite():
-            print("ERP has access")
             history = self.accessibilite.get_history()
-            a_created_at = self.accessibilite.created_at
             a_updated_at = history[0]["date"] if history else self.accessibilite.created_at
-            created_at = (a_created_at if a_created_at > created_at else created_at,)
-            updated_at = (a_updated_at if a_updated_at > updated_at else updated_at,)
+            updated_at = max(a_updated_at, self.created_at)
+            created_at = max(self.accessibilite.created_at, self.created_at)
         return {
             "created_at": created_at,
             "updated_at": updated_at,
@@ -1518,23 +1516,16 @@ class Accessibilite(models.Model):
         return super().__hash__()
 
     def get_history(self, exclude_changes_from=None):
-        print("In access get_history")
         return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
 
     def get_versions(self):
-        print("In access get_versions")
         # take the last n revisions
         qs = (
             Version.objects.get_for_object(self)
             .select_related("revision__user")
             .order_by("-revision__date_created")[: self.HISTORY_MAX_LATEST_ITEMS + 1]
         )
-
-        # make it a list, so it's reversable
-        versions = list(qs)
-        # reorder the slice by date_created ASC
-        versions.reverse()
-        return versions
+        return reversed(list(qs))
 
     def has_data(self):
         # count the number of filled fields to provide more validation
