@@ -133,7 +133,7 @@ def test_search(mocker):
             "commune": "COISE",
             "code_postal": "69590",
             "lieu_dit": "",
-            "coordonnees": "45.611594,4.455569",
+            "coordonnees": ["4.455569", "45.611594"],
             "siret": "21690062100014",
             "code_insee": "69062",
             "numero": None,
