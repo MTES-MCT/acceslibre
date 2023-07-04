@@ -66,21 +66,23 @@
     <div class="card-footer">
         <div class="a4a-text-smaller">
             {% spaceless %}
-                {% translate "Informations initialement fournies" %}
-                {% if erp.user %}
-                    {% translate "par" %} <strong>{{ erp.user.username|format_username }}</strong>
-                {% endif %}
-                {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ erp.get_global_timestamps.created_at|date:"j/m/Y" }}
-                {% if erp.user_type == "gestionnaire" %}
-                    {% translate "en tant que gestionnaire de l'établissement" %}
-                {% elif erp.user_type == "admin" %}
-                    {% translate "en tant qu'administration" %}
-                {% elif erp.user_type == "public" %}
-                    {% translate "en tant qu'usager de l'établissement" %}
-                {% endif %}
-                {% if erp.get_global_timestamps.created_at != erp.get_global_timestamps.updated_at %}
-                    {% translate "et mises à jour le" %} {{ erp.get_global_timestamps.updated_at|date:"j/m/Y" }}
-                {% endif %}
+                {% with erp.get_global_timestamps as timestamps %}
+                    {% translate "Informations initialement fournies" %}
+                    {% if erp.user %}
+                        {% translate "par" %} <strong>{{ erp.user.username|format_username }}</strong>
+                    {% endif %}
+                    {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ timestamps.created_at|date:"j/m/Y" }}
+                    {% if erp.user_type == "gestionnaire" %}
+                        {% translate "en tant que gestionnaire de l'établissement" %}
+                    {% elif erp.user_type == "admin" %}
+                        {% translate "en tant qu'administration" %}
+                    {% elif erp.user_type == "public" %}
+                        {% translate "en tant qu'usager de l'établissement" %}
+                    {% endif %}
+                    {% if timestamps.created_at != timestamps.updated_at %}
+                        {% translate "et mises à jour le" %} {{ timestamps.updated_at|date:"j/m/Y" }}
+                    {% endif %}
+                {% endwith %}
             {% endspaceless %}
             .
             <br>
