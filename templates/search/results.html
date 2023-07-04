@@ -18,9 +18,9 @@
 {% block editorial_content %}
     <h1 class="mt-3 mb-2 text-muted">
         {% if what %}
-            {% blocktrans %}Résultats pour «{{what}}» - «{{where}}»{% endblocktrans %}
+            {% blocktranslate %}Résultats pour «{{what}}» - «{{where}}»{% endblocktranslate %}
         {% else %}
-            {% blocktrans %}Résultats pour «{{where}}»{% endblocktrans %}
+            {% blocktranslate %}Résultats pour «{{where}}»{% endblocktranslate %}
         {% endif %}
     </h1>
     {% if what and "centres de vaccination" in what %}
@@ -79,7 +79,7 @@
                             tabindex="0"
                             role="tab"
                             aria-selected="true"
-                            aria-controls="tabpanel-404-panel">Liste des résultats</button>
+                            aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
                 </li>
                 <li role="presentation">
                     <button id="tabpanel-405"
@@ -87,7 +87,7 @@
                             tabindex="-1"
                             role="tab"
                             aria-selected="false"
-                            aria-controls="tabpanel-405-panel">Carte</button>
+                            aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
                 </li>
             </ul>
             <div id="tabpanel-404-panel"

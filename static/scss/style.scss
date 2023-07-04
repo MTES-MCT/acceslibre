@@ -1160,25 +1160,24 @@ div.equipments button {
 }
 
 .a4a-search-map-area {
-height: 600px !important;
+  height: 600px !important;
 }
 
-@media(min-width : 768px) {
-    .fr-tabs__list {
-          display: none !important;
-    }
+@media (min-width: $viewport-md) {
+  .fr-tabs__list {
+    display: none !important;
+  }
 
-    .fr-tabs__panel:not(.fr-tabs__panel--selected) {
-          visibility: visible !important;
-      }
+  .fr-tabs__panel:not(.fr-tabs__panel--selected) {
+    visibility: visible !important;
+  }
 
-      .fr-tabs__panel {
-        margin-right: 0px !important;
-        left: 0px !important;
-      }
+  .fr-tabs__panel {
+    margin-right: 0px !important;
+    left: 0px !important;
+  }
 
-      .fr-tabs__panel--direction-end  {
-        transform: none !important;
-      }
-
+  .fr-tabs__panel--direction-end {
+    transform: none !important;
+  }
 }
