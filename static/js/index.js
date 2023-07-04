@@ -28,6 +28,7 @@ import * as bootstrap from 'bootstrap'
 // Sentry
 import * as Sentry from '@sentry/browser'
 import { Integrations } from '@sentry/tracing'
+import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
 window.Sentry = Sentry
 window.SentryIntegrations = Integrations
 
