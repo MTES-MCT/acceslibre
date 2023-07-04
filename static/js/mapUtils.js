@@ -24,7 +24,7 @@ function generateHTMLForResult(result) {
                    ${result.properties.nom}
                     <span class="sr-only">
                         ${activity_name}
-                        {% translate "à l'adresse" %} ${result.properties.adresse}
+                        ${result.properties.adresse}
                     </span>
                 </h3>
             </a>
