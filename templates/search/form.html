@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load a4a %}
 <form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg"
       id="search-form"
       role="search"
@@ -64,19 +65,22 @@
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
             <div class="fr-checkbox-group row">
-                {% for label_slug, label_name in equipments.items %}
-                    <input type="checkbox"
-                           id="{{ label_slug }}"
-                           name="equipments"
-                           class="hidden"
-                           value="{{ label_slug }}">
-                    <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
-                    <button class="fr-tag a4a-label-tag mb-1"
-                            aria-pressed="false"
-                            data-fr-js-toggle="true"
-                            type="button"
-                            for-input="{{ label_slug }}">{{ label_name }}</button>
-                {% endfor %}
+                {% with request.GET|get_list:"equipments" as equipment_params %}
+                    {% for label_slug, label_name in equipments.items %}
+                        <input type="checkbox"
+                               id="{{ label_slug }}"
+                               name="equipments"
+                               class="hidden"
+                               value="{{ label_slug }}"
+                               {% if label_slug in equipment_params %}checked{% endif %}>
+                        <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
+                        <button class="fr-tag a4a-label-tag mb-1"
+                                aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
+                                data-fr-js-toggle="true"
+                                type="button"
+                                for-input="{{ label_slug }}">{{ label_name }}</button>
+                    {% endfor %}
+                {% endwith %}
             </div>
             <button type="submit"
                     {% if 'contrib' in request.path %}disabled{% endif %}
