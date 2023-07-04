@@ -299,6 +299,15 @@ PARTENAIRES = {
         "url": "https://www.avh.asso.fr/",
         "weight": 100,
     },
+    "LAPOSTE": {
+        "avatar": "laposte.png",
+        "logo": "img/partenaires/laposte.png",
+        "name": "La Poste",
+        "short_description": translate_lazy("Service universel postal"),
+        "template": "editorial/partenaires/laposte.html",
+        "url": "https://laposte.fr/",
+        "weight": 100,
+    },
 }
 
 SECTION_A_PROPOS = "a_propos"
