@@ -71,20 +71,6 @@
                 </h2>
             </div>
         </div>
-        <div class="fr-checkbox-group row">
-            {% for label_slug, label_name in equipments.items %}
-                <input type="checkbox"
-                       id="{{ label_slug }}"
-                       name="equipments"
-                       class="hidden"
-                       value="{{ label_slug }}">
-                <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
-                <button class="fr-tag a4a-label-tag mb-1"
-                        aria-pressed="false"
-                        data-fr-js-toggle="true"
-                        type="button">{{ label_name }}</button>
-            {% endfor %}
-        </div>
         <div class="row no-gutters">
             <div class="col-md-5">
                 <div class="list-group list-group-flush" id="erp-results-list"></div>

@@ -74,6 +74,7 @@ def global_search(terms, code_insee):
 
 def equipments_filters():
     # Equipment = namedtuple("Equipment", ["name", "slug", "manager"])
+    # TODO translate
     return {
         "having_parking": "Stationnement à proximité",
         "having_public_transportation": "Transport en commun à proximité",

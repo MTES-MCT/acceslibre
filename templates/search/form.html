@@ -63,6 +63,21 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
+            <div class="fr-checkbox-group row">
+                {% for label_slug, label_name in equipments.items %}
+                    <input type="checkbox"
+                           id="{{ label_slug }}"
+                           name="equipments"
+                           class="hidden"
+                           value="{{ label_slug }}">
+                    <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
+                    <button class="fr-tag a4a-label-tag mb-1"
+                            aria-pressed="false"
+                            data-fr-js-toggle="true"
+                            type="button"
+                            for-input="{{ label_slug }}">{{ label_name }}</button>
+                {% endfor %}
+            </div>
             <button type="submit"
                     {% if 'contrib' in request.path %}disabled{% endif %}
                     class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}"
