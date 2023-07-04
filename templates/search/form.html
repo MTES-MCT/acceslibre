@@ -78,7 +78,7 @@
                                 aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
                                 data-fr-js-toggle="true"
                                 type="button"
-                                for-input="{{ label_slug }}">{{ label_name }}</button>
+                                data-for-input="{{ label_slug }}">{{ label_name }}</button>
                     {% endfor %}
                 {% endwith %}
             </div>
