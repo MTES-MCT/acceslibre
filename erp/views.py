@@ -30,7 +30,7 @@ from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
-from erp.provider.search import equipments_filters
+from erp.provider.search import get_equipment_by_slug, get_equipments
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -245,6 +245,20 @@ def _filter_erp_by_location(queryset, **kwargs):
     return queryset
 
 
+def _filter_erp_by_equipments(queryset, equipments: list):
+    if not equipments:
+        return queryset
+
+    for eq_slug in equipments:
+        equipment = get_equipment_by_slug(eq_slug)
+        if not equipment:
+            continue
+
+        queryset = getattr(queryset, equipment.manager.__name__)()
+
+    return queryset
+
+
 def _get_or_create_api_key():
     api_key = cache.get(settings.INTERNAL_API_KEY_NAME)
     if api_key:
@@ -262,6 +276,7 @@ def search(request):
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
+    queryset = _filter_erp_by_equipments(queryset, request.GET.getlist("equipments", []))
 
     paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)
@@ -275,7 +290,7 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
-        "equipments": equipments_filters(),
+        "equipments": get_equipments(as_dict=True),
     }
     return render(request, "search/results.html", context=context)
 

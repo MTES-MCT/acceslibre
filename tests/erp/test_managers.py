@@ -5,7 +5,7 @@ from django.contrib.gis.geos import Point
 
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
-from erp.provider.search import equipments_filters
+from erp.provider.search import get_equipments
 from tests.factories import AccessibiliteFactory
 
 
@@ -279,6 +279,6 @@ class TestErpQuerySetFilters:
 
     def test_ensure_all_equipments_answering(self):
         qs = Erp.objects.all()
-        for eq in equipments_filters():
+        for eq in get_equipments(as_dict=True):
             with does_not_raise():
                 getattr(qs, eq)().count()
