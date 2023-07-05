@@ -4324,11 +4324,13 @@ msgstr "Results for"
 msgid "Aucun résultat"
 msgstr "No result"
 
-msgid "Activité :"
-msgstr "Activity:"
+#, python-format
+msgid "Résultats pour «%(what)s» - «%(where)s»"
+msgstr "Results for «%(what)s» - «%(where)s»"
 
-msgid "Localité :"
-msgstr "Locality:"
+#, python-format
+msgid "Résultats pour «%(where)s»"
+msgstr "Results for «%(where)s»"
 
 msgid ""
 "\n"
@@ -4361,6 +4363,12 @@ msgstr "km"
 
 msgid "kilomètres"
 msgstr "kilometers"
+
+msgid "Liste des résultats"
+msgstr "Results list"
+
+msgid "Carte"
+msgstr "Map"
 
 #, python-format
 msgid ""
@@ -4511,6 +4519,11 @@ msgstr ""
 #~ "votre site web :"
 #~ msgstr ""
 #~ "Copy this code and paste it where you want it to appear on your website:"
+#~ msgid "Activité :"
+#~ msgstr "Activity:"
+
+#~ msgid "Localité :"
+#~ msgstr "Locality:"
 
 #~ msgid "Vous pouvez cependant :"
 #~ msgstr "However, you can :"
