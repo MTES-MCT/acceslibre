@@ -3,6 +3,7 @@ import json
 import re
 import urllib
 
+import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -290,7 +291,9 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
-        "equipments": get_equipments(as_dict=True),
+        "equipments": get_equipments(as_dict=True)
+        if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
+        else [],
     }
     return render(request, "search/results.html", context=context)
 

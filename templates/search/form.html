@@ -64,7 +64,16 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-checkbox-group row">
+            <button type="submit"
+                    {% if 'contrib' in request.path %}disabled{% endif %}
+                    class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}"
+                    title="{% translate "Rechercher" %}">
+                <span class="sr-only">{% translate "Rechercher" %}</span>
+            </button>
+            <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+                {% translate "Autoriser l'obtention de ma localisation géographique" %}
+            </button>
+            <div class="fr-checkbox-group row equipments">
                 {% with request.GET|get_list:"equipments" as equipment_params %}
                     {% for label_slug, label_name in equipments.items %}
                         <input type="checkbox"
@@ -82,15 +91,6 @@
                     {% endfor %}
                 {% endwith %}
             </div>
-            <button type="submit"
-                    {% if 'contrib' in request.path %}disabled{% endif %}
-                    class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}"
-                    title="{% translate "Rechercher" %}">
-                <span class="sr-only">{% translate "Rechercher" %}</span>
-            </button>
-            <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-                {% translate "Autoriser l'obtention de ma localisation géographique" %}
-            </button>
         </div>
     </div>
 </form>
