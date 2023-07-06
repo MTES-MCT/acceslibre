@@ -52,9 +52,11 @@
   });
         </script>
     {% else %}
-        <p>{% translate "Pour accéder à l'API, veuillez fournir une clef API valide :" %}</p>
         <form action="{% url 'set_api_key' %}" method="post">
-            <input type="text" name="api_key" />
+            <label class="fr-label" for="api_key">
+                {% translate "Pour accéder à l'API, veuillez fournir une clef API valide :" %}
+            </label>
+            <input class="fr-input" type="text" name="api_key" id="api_key" />
             <input type="submit" value='{% translate "OK" %}' />
             {% csrf_token %}
         </form>

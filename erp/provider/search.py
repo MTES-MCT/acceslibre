@@ -208,3 +208,17 @@ def get_equipment_by_slug(slug: str):
             return equipment
 
     return None
+
+
+def filter_erps_by_equipments(queryset, equipments: list):
+    if not equipments:
+        return queryset
+
+    for eq_slug in equipments:
+        equipment = get_equipment_by_slug(eq_slug)
+        if not equipment:
+            continue
+
+        queryset = getattr(queryset, equipment.manager.__name__)()
+
+    return queryset

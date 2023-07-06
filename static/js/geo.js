@@ -254,6 +254,11 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
   const queryTerm = document.querySelector('#what-input').value
+  let equipments = document.querySelectorAll('input[name=equipments]:checked')
+  let equipmentsQuery = ''
+  equipments.forEach(function (eq) {
+    equipmentsQuery += '&equipments=' + eq.value
+  })
   let url =
     refreshApiUrl +
     '?q=' +
@@ -266,6 +271,7 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
     northEast.lng +
     ',' +
     northEast.lat +
+    equipmentsQuery +
     '&page=' +
     page
   return fetch(url, {
