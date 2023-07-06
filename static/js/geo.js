@@ -53,8 +53,7 @@ function _createIcon(highlight, iconName) {
   return L.icon(options)
 }
 
-function _drawPopUpMarker({ geometry, properties: props, id }, layer) {
-  let zoomLink = ''
+function _drawPopUpMarker({ properties: props }, layer) {
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
       <strong>
@@ -134,7 +133,7 @@ function _displayCustomMenu(root, { latlng, target: map }) {
     return
   }
 
-  const popup = L.popup()
+  L.popup()
     .setLatLng(latlng)
     .setContent('<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>')
     .openOn(map)
@@ -185,7 +184,7 @@ function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
   }
 
   // Watch for end of scroll
-  container.addEventListener('scroll', (event) => {
+  container.addEventListener('scroll', () => {
     if (container.offsetHeight + container.scrollTop >= container.scrollHeight) {
       currentPage += 1
       refreshData(map, refreshApiUrl, apiKey, currentPage)
@@ -198,7 +197,7 @@ function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
   if (!lastElement) {
     return
   }
-  lastElement.addEventListener('focusin', function (event) {
+  lastElement.addEventListener('focusin', function () {
     currentPage += 1
     refreshData(map, refreshApiUrl, apiKey, currentPage)
   })
@@ -382,6 +381,15 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
   })
 }
 
+function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
+  equipmentsInputs.forEach((equimentInput) => {
+    let button = document.querySelector('button[data-for-input=' + equimentInput.id + ']')
+    button.addEventListener('click', function () {
+      refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    })
+  })
+}
+
 function AppMap(root) {
   const municipalityData = parseJsonScript(root.querySelector('#commune-data'))
   const erpIdentifier = root.dataset.erpIdentifier
@@ -406,6 +414,11 @@ function AppMap(root) {
   const broaderSearchButton = document.querySelector('#broaderSearch')
   if (broaderSearchButton) {
     broadenSearchOnClick(broaderSearchButton, map, root)
+  }
+
+  const equipmentsInputs = document.querySelectorAll('input[name=equipments]')
+  if (equipmentsInputs) {
+    refreshMapOnEquipmentsChange(equipmentsInputs, map, root)
   }
 
   markers = _createMarkersFromGeoJson(geoJson)
@@ -452,7 +465,7 @@ function openMarkerPopup(erpIdentifier, options = {}) {
   })
 }
 
-function update_map(query, map) {
+function updateMap(query, map) {
   var mapDomEl = document.querySelector('.a4a-localisation-map')
   var btnSubmit = document.querySelector('[name="contribute"]')
   btnSubmit.setAttribute('disabled', '')
@@ -471,7 +484,7 @@ function update_map(query, map) {
         )
       }
     })
-    .then(function (response) {
+    .then(function () {
       mapDomEl.style.opacity = 1
       btnSubmit.removeAttribute('disabled')
     })
@@ -482,5 +495,5 @@ export default {
   createMap,
   openMarkerPopup,
   recalculateMapSize,
-  update_map,
+  updateMap,
 }
