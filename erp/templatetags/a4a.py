@@ -191,4 +191,6 @@ def startswith(value, starts):
 
 @register.filter
 def get_list(dictionary, key):
+    if not isinstance(dictionary, dict):
+        return []
     return dictionary.getlist(key)
