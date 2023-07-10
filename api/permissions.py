@@ -15,16 +15,15 @@ class IsAllowedForAction(permissions.BasePermission):
 
         key = auth.split()[1]
         if key == cache.get(settings.INTERNAL_API_KEY_NAME):
-            return True
+            if view.action in ("default", "list"):
+                # Internal api key is allowed to perform only view/list actions, not write operations (create, update, ...)
+                return True
+            return False
 
         try:
             with sentry_sdk.start_span(description="Check signature of API KEY"):
-                api_key = APIKey.objects.get_from_key(key)
+                APIKey.objects.get_from_key(key)
         except APIKey.DoesNotExist:
-            return False
-
-        if api_key.name == settings.INTERNAL_API_KEY_NAME and view.action not in ("default", "list"):
-            # Internal api key is allowed to perform only view/list actions, not write operations (create, update, ...)
             return False
 
         return True
