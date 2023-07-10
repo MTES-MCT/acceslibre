@@ -54,4 +54,3 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self._delete_users(options)
         self._delete_email_tokens()
-        self._delete_internal_api_keys()

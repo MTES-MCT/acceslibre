@@ -47,18 +47,3 @@ def test_purge_accounts_keep_inactive_with_erps(spambot):
     call_command("purge_obsolete_objects_in_base", today="2020-06-01")
 
     assert User.objects.filter(username="spambot").count() == 1
-
-
-@pytest.mark.django_db
-def test_purge_api_tokens():
-    to_keep, _ = APIKey.objects.create_key(name="to_not_delete", expiry_date=datetime.now() - timedelta(hours=2))
-    to_keep2, _ = APIKey.objects.create_key(
-        name=settings.INTERNAL_API_KEY_NAME, expiry_date=datetime.now() + timedelta(hours=1)
-    )
-    to_delete, _ = APIKey.objects.create_key(
-        name=settings.INTERNAL_API_KEY_NAME, expiry_date=datetime.now() - timedelta(hours=2)
-    )
-    call_command("purge_obsolete_objects_in_base")
-
-    assert APIKey.objects.filter(pk__in=(to_keep.pk, to_keep2.pk)).count() == 2
-    assert APIKey.objects.filter(pk=to_delete.pk).first() is None
