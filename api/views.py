@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.gis.geos import Point
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
@@ -8,12 +7,11 @@ from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
 from rest_framework_gis.pagination import GeoJsonPagination
 
-from api.filters import ZoneFilter
+from api.filters import EquipmentFilter, ErpFilter, ZoneFilter
 from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Accessibilite, Activite, Erp
-from erp.provider import geocoder
 
 # Useful docs
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
@@ -263,81 +261,6 @@ class ErpPagination(PageNumberPagination):
         )
 
 
-class ErpFilterBackend(BaseFilterBackend):
-    # FIXME: do NOT apply filters on details view
-    def filter_queryset(self, request, queryset, view):
-        use_distinct = False
-        # Commune (legacy)
-        commune = request.query_params.get("commune", None)
-        if commune is not None:
-            queryset = queryset.filter(commune__unaccent__icontains=commune)
-
-        # Code postal
-        code_postal = request.query_params.get("code_postal", None)
-        if code_postal is not None:
-            queryset = queryset.filter(code_postal=code_postal)
-
-        # Code INSEE
-        code_insee = request.query_params.get("code_insee", None)
-        if code_insee is not None:
-            queryset = queryset.filter(commune_ext__code_insee=code_insee)
-
-        # Activité
-        activite = request.query_params.get("activite", None)
-        if activite is not None:
-            queryset = queryset.having_activite(activite)
-
-        # SIRET
-        siret = request.query_params.get("siret", None)
-        if siret is not None:
-            queryset = queryset.filter(siret=siret)
-
-        # Search
-        search_terms = request.query_params.get("q", None)
-        if search_terms is not None:
-            use_distinct = False
-            queryset = queryset.search_what(search_terms)
-
-        # Source Externe
-        source = request.query_params.get("source", None)
-        if source is not None:
-            queryset = queryset.filter(source__iexact=source)
-
-        # Id Externe
-        source_id = request.query_params.get("source_id", None)
-        if source_id is not None:
-            queryset = queryset.filter(source_id__iexact=source_id)
-
-        # ASP Id
-        asp_id = request.query_params.get("asp_id", None)
-        if asp_id is not None:
-            queryset = queryset.filter(asp_id__iexact=asp_id)
-
-        # ASP ID is not null
-        asp_id_not_null = request.query_params.get("asp_id_not_null", None)
-        if asp_id_not_null is not None:
-            if asp_id_not_null == "true":
-                queryset = queryset.exclude(asp_id__isnull=True).exclude(asp_id__exact="")
-            else:
-                queryset = queryset.filter(asp_id__isnull=True)
-
-        # UUID
-        uuid = request.query_params.get("uuid", None)
-        if uuid is not None:
-            queryset = queryset.filter(uuid=uuid)
-
-        # Proximity
-        around = geocoder.parse_coords(request.query_params.get("around"))
-        if around is not None:
-            lat, lon = around
-            queryset = queryset.nearest(Point(lon, lat, srid=4326))
-            use_distinct = False
-
-        if use_distinct:
-            queryset = queryset.distinct("id", "nom")
-        return queryset
-
-
 class ErpSchema(A4aAutoSchema):
     query_string_params = {
         "q": {
@@ -549,7 +472,7 @@ class ErpViewSet(
     queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     lookup_field = "slug"
     bbox_filter_field = "geom"
-    filter_backends = (ZoneFilter, ErpFilterBackend)
+    filter_backends = (ZoneFilter, EquipmentFilter, ErpFilter)
     schema = ErpSchema()
 
     def get_serializer_class(self):

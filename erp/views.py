@@ -3,9 +3,11 @@ import json
 import re
 import urllib
 
+import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -17,7 +19,6 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.utils.translation import ngettext
 from django.views.generic import TemplateView
-from rest_framework_api_key.models import APIKey
 from reversion.views import create_revision
 from waffle import switch_is_active
 
@@ -30,6 +31,7 @@ from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
+from erp.provider.search import filter_erps_by_equipments, get_equipments
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -249,9 +251,7 @@ def _get_or_create_api_key():
     if api_key:
         return api_key
 
-    _, api_key = APIKey.objects.create_key(
-        name=settings.INTERNAL_API_KEY_NAME, expiry_date=datetime.datetime.now() + datetime.timedelta(hours=1.2)
-    )
+    api_key = User.objects.make_random_password(32)
     cache.set(settings.INTERNAL_API_KEY_NAME, api_key, timeout=1 * HOURS)
     return api_key
 
@@ -261,6 +261,7 @@ def search(request):
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
+    queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
 
     paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)
@@ -274,6 +275,7 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
+        "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
     }
     return render(request, "search/results.html", context=context)
 

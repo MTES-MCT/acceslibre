@@ -1,12 +1,10 @@
 import logging
 from datetime import datetime, timedelta
 
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.db.models import Count
 from django.utils import timezone
-from rest_framework_api_key.models import APIKey
 
 from compte.models import EmailToken
 
@@ -40,12 +38,6 @@ class Command(BaseCommand):
         nb_deleted, _ = EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
         logger.info(f"[CRON] Purge tokens, {nb_deleted} token(s) deleted.")
 
-    def _delete_internal_api_keys(self):
-        nb_deleted, _ = APIKey.objects.filter(
-            name=settings.INTERNAL_API_KEY_NAME, expiry_date__lt=datetime.now(timezone.utc)
-        ).delete()
-        logger.info(f"[CRON] Purge APIKey, {nb_deleted} api key(s) deleted.")
-
     def add_arguments(self, parser):
         parser.add_argument(
             "--days",
@@ -62,4 +54,3 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self._delete_users(options)
         self._delete_email_tokens()
-        self._delete_internal_api_keys()

@@ -187,3 +187,10 @@ def startswith(value, starts):
     if isinstance(value, str):
         return value.startswith(starts)
     return False
+
+
+@register.filter
+def get_list(dictionary, key):
+    if not isinstance(dictionary, dict):
+        return []
+    return dictionary.getlist(key)

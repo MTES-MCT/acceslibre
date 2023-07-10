@@ -52,7 +52,7 @@ def test_search_pagination_performances(data, client, django_assert_max_num_quer
     )
     Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
 
-    with django_assert_max_num_queries(4):
+    with django_assert_max_num_queries(5):
         response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 1
@@ -67,7 +67,7 @@ def test_search_pagination_performances(data, client, django_assert_max_num_quer
         )
         Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
 
-    with django_assert_max_num_queries(4):
+    with django_assert_max_num_queries(5):
         response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 10

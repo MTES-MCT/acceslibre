@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load a4a %}
 <form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg"
       id="search-form"
       role="search"
@@ -72,6 +73,24 @@
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>
+            <div class="fr-checkbox-group row equipments">
+                {% with request.GET|get_list:"equipments" as equipment_params %}
+                    {% for label_slug, label in equipments.items %}
+                        <input type="checkbox"
+                               id="{{ label_slug }}"
+                               name="equipments"
+                               class="hidden"
+                               value="{{ label_slug }}"
+                               {% if label_slug in equipment_params %}checked{% endif %}>
+                        <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
+                        <button class="fr-tag a4a-label-tag mb-1"
+                                aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
+                                data-fr-js-toggle="true"
+                                type="button"
+                                data-for-input="{{ label_slug }}">{{ label.name }}</button>
+                    {% endfor %}
+                {% endwith %}
+            </div>
         </div>
     </div>
 </form>
