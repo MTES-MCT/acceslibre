@@ -382,11 +382,8 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
 }
 
 function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
-  equipmentsInputs.forEach((equimentInput) => {
-    let button = document.querySelector('button[data-for-input=' + equimentInput.id + ']')
-    button.addEventListener('click', function () {
-      refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
-    })
+  document.addEventListener('labelClicked', async function () {
+    refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
   })
 }
 
