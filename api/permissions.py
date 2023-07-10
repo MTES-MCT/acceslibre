@@ -8,7 +8,11 @@ class IsAllowedForAction(permissions.BasePermission):
     message = "For internal uses only."
 
     def has_permission(self, request, view):
-        key = request.META["HTTP_AUTHORIZATION"].split()[1]
+        auth = request.META.get("HTTP_AUTHORIZATION")
+        if not auth:
+            return False
+
+        key = auth.split()[1]
         try:
             with sentry_sdk.start_span(description="Check signature of API KEY"):
                 api_key = APIKey.objects.get_from_key(key)
