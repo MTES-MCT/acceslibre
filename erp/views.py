@@ -7,6 +7,7 @@ import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -18,7 +19,6 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.utils.translation import ngettext
 from django.views.generic import TemplateView
-from rest_framework_api_key.models import APIKey
 from reversion.views import create_revision
 from waffle import switch_is_active
 
@@ -251,9 +251,7 @@ def _get_or_create_api_key():
     if api_key:
         return api_key
 
-    _, api_key = APIKey.objects.create_key(
-        name=settings.INTERNAL_API_KEY_NAME, expiry_date=datetime.datetime.now() + datetime.timedelta(hours=1.2)
-    )
+    api_key = User.objects.make_random_password(32)
     cache.set(settings.INTERNAL_API_KEY_NAME, api_key, timeout=1 * HOURS)
     return api_key
 

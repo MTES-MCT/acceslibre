@@ -1,5 +1,6 @@
 import sentry_sdk
 from django.conf import settings
+from django.core.cache import cache
 from rest_framework import permissions
 from rest_framework_api_key.models import APIKey
 
@@ -13,6 +14,9 @@ class IsAllowedForAction(permissions.BasePermission):
             return False
 
         key = auth.split()[1]
+        if key == cache.get(settings.INTERNAL_API_KEY_NAME):
+            return True
+
         try:
             with sentry_sdk.start_span(description="Check signature of API KEY"):
                 api_key = APIKey.objects.get_from_key(key)
