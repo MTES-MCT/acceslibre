@@ -16,14 +16,12 @@
     {% include "editorial/header.html" with dark=True %}
 {% endblock header %}
 {% block editorial_content %}
-    <h1 class="mt-3 mb-2">
-        <small class="text-muted" style="font-size:.6em">{% translate "Votre recherche" %}</small>
-        <br>
+    <h1 class="mt-3 mb-2 text-muted">
         {% if what %}
-            <span class="sr-only">{% translate "Activité :" %}</span> {{ what }}
+            {% blocktranslate %}Résultats pour «{{what}}» - «{{where}}»{% endblocktranslate %}
+        {% else %}
+            {% blocktranslate %}Résultats pour «{{where}}»{% endblocktranslate %}
         {% endif %}
-        {% if where and what %}<small class="text-muted">/</small>{% endif %}
-        <span class="sr-only">{% translate "Localité :" %}</span> {{ where }}
     </h1>
     {% if what and "centres de vaccination" in what %}
         <div class="alert alert-warning mt-3">
@@ -71,18 +69,44 @@
                 </h2>
             </div>
         </div>
-        <div class="row no-gutters">
-            <div class="col-md-5">
+        <div class="fr-tabs row">
+            <ul class="fr-tabs__list"
+                role="tablist"
+                aria-label="Résultats de recherche">
+                <li role="presentation">
+                    <button id="tabpanel-404"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="0"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-405"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="-1"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
+                </li>
+            </ul>
+            <div id="tabpanel-404-panel"
+                 class="fr-tabs__panel fr-tabs__panel--selected col col-12 col-md-5"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-404"
+                 tabindex="0">
                 <div class="list-group list-group-flush" id="erp-results-list"></div>
+                {% if not dynamic_map %}
+                    <div class="pt-2 pr-2">
+                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+                    </div>
+                {% endif %}
             </div>
-            <div class="col-md-7 a4a-search-map-area">
-                {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
-            </div>
-            {% if not dynamic_map %}
-                <div class="pt-2 pr-2">
-                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                </div>
-            {% endif %}
+            <div id="tabpanel-405-panel"
+                 class="fr-tabs__panel col col-12 col-md-7 a4a-search-map-area"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-405"
+                 tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
         </div>
     </section>
 {% endblock editorial_content %}

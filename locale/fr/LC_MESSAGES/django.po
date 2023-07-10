@@ -3872,10 +3872,12 @@ msgstr ""
 msgid "Aucun résultat"
 msgstr ""
 
-msgid "Activité :"
+#, python-format
+msgid "Résultats pour «%(what)s» - «%(where)s»"
 msgstr ""
 
-msgid "Localité :"
+#, python-format
+msgid "Résultats pour «%(where)s»"
 msgstr ""
 
 msgid ""
@@ -3905,6 +3907,12 @@ msgid "km"
 msgstr ""
 
 msgid "kilomètres"
+msgstr ""
+
+msgid "Liste des résultats"
+msgstr ""
+
+msgid "Carte"
 msgstr ""
 
 #, python-format

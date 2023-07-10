@@ -711,7 +711,6 @@ select[name='language'] {
     height: 600px; // desktop
 
     @media only screen and (max-width: $viewport-sm) {
-      min-height: 200px; // mobile
       order: -1; // on mobile the map is on top of results
     }
   }
@@ -1152,4 +1151,33 @@ div.equipments {
 
 div.equipments button {
   margin: 2px 2px;
+}
+
+@media (min-width: 768px) {
+  .responsive-tabs .tab-content > .tab-pane {
+    display: block;
+  }
+}
+
+.a4a-search-map-area {
+  height: 600px !important;
+}
+
+@media (min-width: $viewport-md) {
+  .fr-tabs__list {
+    display: none !important;
+  }
+
+  .fr-tabs__panel:not(.fr-tabs__panel--selected) {
+    visibility: visible !important;
+  }
+
+  .fr-tabs__panel {
+    margin-right: 0px !important;
+    left: 0px !important;
+  }
+
+  .fr-tabs__panel--direction-end {
+    transform: none !important;
+  }
 }
