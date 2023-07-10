@@ -279,6 +279,6 @@ class TestErpQuerySetFilters:
 
     def test_ensure_all_equipments_answering(self):
         qs = Erp.objects.all()
-        for eq in get_equipments(as_dict=True):
+        for eq in get_equipments():
             with does_not_raise():
                 getattr(qs, eq)().count()

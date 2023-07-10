@@ -77,7 +77,7 @@ def global_search(terms, code_insee):
     return sort_and_filter_results(code_insee, result_public + result_ods + result_entreprises)
 
 
-def get_equipments(as_dict: bool = False):
+def get_equipments():
     Equipment = namedtuple("Equipment", ["name", "slug", "manager"])
     equipments = [
         Equipment(
@@ -194,20 +194,13 @@ def get_equipments(as_dict: bool = False):
         Equipment(slug="having_label", manager=ErpQuerySet.having_label, name=translate("Établissement labellisé")),
     ]
 
-    if as_dict:
-        return {eq.slug: eq.name for eq in equipments}
-    return equipments
+    return {eq.slug: eq for eq in equipments}
 
 
 def get_equipment_by_slug(slug: str):
     if not slug:
         return None
-    equipments = get_equipments()
-    for equipment in equipments:
-        if equipment.slug == slug:
-            return equipment
-
-    return None
+    return get_equipments().get(slug)
 
 
 def filter_erps_by_equipments(queryset, equipments: list):

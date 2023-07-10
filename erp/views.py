@@ -275,9 +275,7 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
-        "equipments": get_equipments(as_dict=True)
-        if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
-        else [],
+        "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
     }
     return render(request, "search/results.html", context=context)
 
