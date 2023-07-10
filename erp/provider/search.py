@@ -191,7 +191,7 @@ def get_equipments(as_dict: bool = False):
             name=translate("Chambre accessible"),
         ),
         Equipment(slug="having_adapted_wc", manager=ErpQuerySet.having_adapted_wc, name=translate("Toilette PMR")),
-        Equipment(slug="having_label", manager=ErpQuerySet.having_label, name=translate("Label")),
+        Equipment(slug="having_label", manager=ErpQuerySet.having_label, name=translate("Établissement labellisé")),
     ]
 
     if as_dict:
