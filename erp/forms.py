@@ -1,4 +1,4 @@
-from functools import reduce
+from copy import deepcopy
 
 from better_profanity import profanity
 from django import forms
@@ -331,9 +331,8 @@ class AdminErpForm(BaseErpForm):
 
 
 class ViewAccessibiliteForm(AdminAccessibiliteForm):
-    """This form is used to render Accessibilite data in Erp details pages, and is
-    probably one of the most hairy piece of code and logic from the whole app. This
-    is due to the inherent complexity of the professional accessibility domain
+    """This form is used to render Accessibilite data in Erp details pages.
+    Handle inherent complexity of the professional accessibility domain
     where words, concepts and their formulation — which HAVE to be cognitively
     accessible themselves — are highly important."""
 
@@ -345,48 +344,35 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
         )
 
     fieldsets = schema.get_form_fieldsets()
+    nullable_values = [None, "", []]
 
-    def get_accessibilite_data(self, flatten=False):
+    def _build_data_for_field(self, field):
+        form_field = self[field["id"]]
+        field_value = form_field.value()
+        if field_value in self.nullable_values:
+            return
+        label, values = self.get_label_and_values(form_field.name, field_value, field["choices"], field["unit"])
+        return {
+            "label": label,
+            "value": field_value,
+            "values": values,
+            "is_comment": form_field.field.widget.template_name.endswith("textarea.html"),
+        }
+
+    def get_accessibilite_data(self):
         data = {}
-        for section, section_info in self.fieldsets.items():
-            data[section] = {
-                "icon": section_info["icon"],
-                "tabid": section_info["tabid"],
-                "description": section_info["description"],
-                "edit_route": section_info["edit_route"],
-                "fields": [],
-            }
-            section_fields = section_info["fields"]
-            for field_data in section_fields:
-                field = self[field_data["id"]]
-                field_value = field.value()
-                warning = False
-                if "warn_if" in field_data and field_data["warn_if"] is not None:
-                    if callable(field_data["warn_if"]):
-                        warning = field_data["warn_if"](field_value, self.instance)
-                    else:
-                        warning = field_value == field_data["warn_if"]
-                label, values = self.get_label_and_values(
-                    field.name, field_value, field_data["choices"], field_data["unit"]
-                )
-                data[section]["fields"].append(
-                    {
-                        "name": field.name,
-                        "label": label,
-                        "value": field_value,
-                        "values": values,
-                        "warning": warning,
-                        "is_comment": field.field.widget.template_name.endswith("textarea.html"),
-                    }
-                )
-            # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(self[f["id"]].value() in [None, "", []] for f in section_fields)
-            if empty_section:
-                data.pop(section)
-        if flatten:
-            return reduce(lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), [])
-        else:
-            return data
+        for section_name, section_info in deepcopy(self.fieldsets).items():
+            fields_data = []
+            for field in section_info["fields"]:
+                field_data = self._build_data_for_field(field)
+                if field_data:
+                    fields_data.append(field_data)
+
+            if fields_data:
+                section_info["fields"] = fields_data
+                data[section_name] = section_info
+
+        return data
 
     def get_label_and_values(self, name, value, choices, unit=""):
         "Computes rephrased label and optional values to render on the frontend for a given field."

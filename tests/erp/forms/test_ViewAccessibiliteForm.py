@@ -10,15 +10,9 @@ def form_test():
     def _factory(name, value):
         instance = Accessibilite(**{name: value})
         form = forms.ViewAccessibiliteForm(instance=instance)
-        return form.get_accessibilite_data(flatten=True)
+        return form.get_accessibilite_data()
 
     return _factory
-
-
-def get_by_name(entries: dict, name: str):
-    for entry in entries:
-        if entry["name"] == name:
-            return entry
 
 
 def test_ViewAccessibiliteForm_empty():
@@ -52,7 +46,7 @@ def test_ViewAccessibiliteForm_filled():
 def test_ViewAccessibiliteForm_filled_with_comment():
     form = forms.ViewAccessibiliteForm({"commentaire": "plop"})
     data = form.get_accessibilite_data()
-    field = get_by_name(data["Commentaire"]["fields"], "commentaire")
+    field = data["Commentaire"]["fields"][0]
     assert field["value"] == "plop"
     assert field["is_comment"] is True
 
@@ -75,24 +69,27 @@ def test_ViewAccessibiliteForm_serialized():
         }
     )
     data = form.get_accessibilite_data()
-    field = get_by_name(data["Entrée"]["fields"], "entree_reperage")
+    field = data["Entrée"]["fields"][0]
 
     assert field["label"] == schema.get_help_text_ui("entree_reperage")
     assert field["value"] is True
-    assert field["warning"] is False
     assert field["is_comment"] is False
 
 
 def test_ViewAccessibiliteForm_labels(form_test):
+    def _get_labels_list(name, value):
+        data = form_test(name, value)
+        return [value["fields"][0]["label"] for k, value in data.items()]
+
     def assert_absence(name, value):
-        assert get_help_text_ui_neg(name) in [f["label"] for f in form_test(name, value)]
+        assert get_help_text_ui_neg(name) in _get_labels_list(name, value)
 
     def assert_presence(name, value):
-        assert get_help_text_ui(name) in [f["label"] for f in form_test(name, value)]
+        assert get_help_text_ui(name) in _get_labels_list(name, value)
 
     def assert_missing(name, value):
-        assert get_help_text_ui(name) not in [f["label"] for f in form_test(name, value)]
-        assert get_help_text_ui_neg(name) not in [f["label"] for f in form_test(name, value)]
+        assert get_help_text_ui(name) not in _get_labels_list(name, value)
+        assert get_help_text_ui_neg(name) not in _get_labels_list(name, value)
 
     # boolean fields
     assert_presence("sanitaires_presence", True)
