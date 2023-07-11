@@ -35,7 +35,7 @@ from tests.erp.imports.mapper.fixtures import jacou, paris
         pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
         pytest.param(
             {
-                "activite": "Boulangerie",
+                "activite": "boulangerie",
                 "numero": "4",
                 "voie": "grand rue",
                 "code_postal": "34830",
@@ -51,7 +51,7 @@ from tests.erp.imports.mapper.fixtures import jacou, paris
                 "commune": "Jacou",
                 "code_insee": "34830",
             },
-            id="duplicate",
+            id="duplicate_and_lowercase_activity",
         ),
         pytest.param({"accessibilite": {"entree_porte_presence": 1}}, True, None, id="boolean_choices"),
         pytest.param({"accessibilite": {"entree_porte_presence": "faux"}}, True, None, id="boolean_choices"),

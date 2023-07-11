@@ -88,7 +88,7 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
 
 
 class ErpImportSerializer(serializers.ModelSerializer):
-    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
+    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom__iexact")
     commune = serializers.CharField(required=True)
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False, allow_null=True, default=None)
