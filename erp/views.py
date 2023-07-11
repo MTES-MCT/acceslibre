@@ -33,7 +33,7 @@ from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import filter_erps_by_equipments, get_equipments
 from stats.models import Challenge
-from stats.queries import get_count_active_contributors
+from stats.queries import get_active_contributors
 from subscription.models import ErpSubscription
 
 HOURS = 60 * 60
@@ -82,8 +82,8 @@ def home(request):
         request,
         "index.html",
         context={
-            "erp_count": Erp.objects.published().count(),
-            "contributor_count": get_count_active_contributors(),
+            "erps": Erp.objects.published(),
+            "contributors": get_active_contributors(),
         },
     )
 
