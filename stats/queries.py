@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import Count, Q
 
 from core.lib import sql
+from erp.models import Erp
 
 
 def get_erp_counts_histogram():
@@ -65,8 +66,8 @@ def get_stats_territoires(sort="completude", max=50):
     )
 
 
-def get_active_contributors():
-    return get_user_model().objects.filter(erp__published=True).distinct()
+def get_active_contributors_ids():
+    return Erp.objects.published().with_user().values_list("user_id", flat=True).distinct("user_id").order_by("user_id")
 
 
 def get_top_contributors():

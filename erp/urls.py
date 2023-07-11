@@ -1,22 +1,15 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from core.cache import cache_per_user
 from erp import schema, views
-
-MINUTES = 60
-APP_CACHE_TTL = 5 * MINUTES
-EDITORIAL_CACHE_TTL = 60 * MINUTES
 
 handler403 = views.handler403
 handler404 = views.handler404
 handler500 = views.handler500
 
 
-def cache_editorial_page(template_name, context=None):
-    return cache_per_user(EDITORIAL_CACHE_TTL)(
-        views.EditorialView.as_view(template_name=template_name, extra_context=context)
-    )
+def editorial_page(template_name, context=None):
+    return views.EditorialView.as_view(template_name=template_name, extra_context=context)
 
 
 urlpatterns = [
@@ -30,17 +23,17 @@ urlpatterns = [
     ),
     path(
         "conditions-generales-d-utilisation",
-        cache_editorial_page("editorial/cgu.html"),
+        editorial_page("editorial/cgu.html"),
         name="cgu",
     ),
     path(
         "accessibilite",
-        cache_editorial_page("editorial/accessibilite.html"),
+        editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
     ),
     path(
         "partenaires",
-        cache_editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
+        editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
         name="partenaires",
     ),
     # Challenge DDT mars 2022

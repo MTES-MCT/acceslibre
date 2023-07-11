@@ -17,7 +17,7 @@ def stats(request):
         context={
             "current_date": datetime.datetime.now(),
             "nb_published_erps": erp_qs.count(),
-            "nb_contributors": queries.get_active_contributors().count(),
+            "nb_contributors": queries.get_active_contributors_ids().count(),
             "top_contributors": global_stat.top_contributors,
             "erp_counts_histogram": global_stat.erp_counts_histogram,
             "stats_territoires": global_stat.get_stats_territoires(sort=sort)[:10],
