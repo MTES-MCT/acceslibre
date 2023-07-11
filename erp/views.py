@@ -301,6 +301,8 @@ def search_in_municipality(request, commune_slug):
         "commune": municipality,
         "commune_json": municipality.toTemplateJson(),
         "geojson_list": make_geojson(pager),
+        "search_type": settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
+        "municipality": municipality.nom,
     }
     return render(request, "search/results.html", context=context)
 
