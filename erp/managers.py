@@ -162,6 +162,9 @@ class ErpQuerySet(models.QuerySet):
     def published(self):
         return self.filter(published=True)
 
+    def with_user(self):
+        return self.filter(user__isnull=False)
+
     def search_commune(self, query):
         # FIXME: way too much code in common with ComuneQuerySet#search which should
         #        be factored out.
