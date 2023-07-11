@@ -24,10 +24,10 @@ class CommuneSitemap(Sitemap):
     changefreq = "weekly"
     protocol = "https"
     priority = 0.6
-    limit = 10000
+    limit = 1000
 
     def items(self):
-        return Commune.objects.having_published_erps()
+        return Commune.objects.having_published_erps().only("slug")
 
     def lastmod(self, obj):
         return obj.updated_at
