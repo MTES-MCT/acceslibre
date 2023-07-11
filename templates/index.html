@@ -2,6 +2,7 @@
 {% load a4a %}
 {% load static humanize %}
 {% load i18n %}
+{% load cache %}
 {% block page_title %}
     acceslibre, la plateforme collaborative de l'accessibilité
 {% endblock page_title %}
@@ -36,28 +37,30 @@
             </div>
         </div>
     </div>
-    <div class="fr-container">
-        <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
-                <p class="fr-h1">{{ erp_count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "lieux<br> référencés" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
-                <p class="fr-h1">{{ contributor_count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "contributrices<br> et contributeurs" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
-                <p class="fr-h1">{% translate "12 millions" %}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "de personnes<br> concernées" %}
-                </p>
+    {% cache 3600 homepage_statistics %}
+        <div class="fr-container">
+            <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
+                <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+                    <p class="fr-h1">{{ erps.count|intcomma }}</p>
+                    <p class="fr-text--xl fr-text--heavy">
+                        {% translate "lieux<br> référencés" %}
+                    </p>
+                </div>
+                <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+                    <p class="fr-h1">{{ contributors.count|intcomma }}</p>
+                    <p class="fr-text--xl fr-text--heavy">
+                        {% translate "contributrices<br> et contributeurs" %}
+                    </p>
+                </div>
+                <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+                    <p class="fr-h1">{% translate "12 millions" %}</p>
+                    <p class="fr-text--xl fr-text--heavy">
+                        {% translate "de personnes<br> concernées" %}
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    {% endcache %}
     <div class="fr-grid-row bg-alt-blue-france-975">
         <div class="fr-container ">
             <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">

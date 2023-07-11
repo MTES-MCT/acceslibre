@@ -65,9 +65,8 @@ def get_stats_territoires(sort="completude", max=50):
     )
 
 
-def get_count_active_contributors():
-    """Retourne le nombre de contributeurs ayant apporté, modifié au moins une info publiée"""
-    return get_user_model().objects.filter(erp__published=True).distinct().count()
+def get_active_contributors():
+    return get_user_model().objects.filter(erp__published=True).distinct()
 
 
 def get_top_contributors():

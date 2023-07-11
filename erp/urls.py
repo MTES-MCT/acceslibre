@@ -13,14 +13,6 @@ handler404 = views.handler404
 handler500 = views.handler500
 
 
-def cache_app_page():
-    return cache_per_user(APP_CACHE_TTL)(views.App.as_view())
-
-
-def cache_user_page(view):
-    return cache_per_user(APP_CACHE_TTL)(view)
-
-
 def cache_editorial_page(template_name, context=None):
     return cache_per_user(EDITORIAL_CACHE_TTL)(
         views.EditorialView.as_view(template_name=template_name, extra_context=context)
@@ -33,7 +25,7 @@ urlpatterns = [
     ############################################################################
     path(
         "",
-        cache_user_page(views.home),
+        views.home,
         name="home",
     ),
     path(
