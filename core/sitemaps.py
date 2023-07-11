@@ -32,6 +32,9 @@ class CommuneSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.updated_at
 
+    def get_latest_lastmod(*args, **kwargs):
+        return Commune.objects.having_published_erps().first().updated_at
+
 
 class ErpSitemap(Sitemap):
     changefreq = "daily"
@@ -44,6 +47,9 @@ class ErpSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.updated_at
+
+    def get_latest_lastmod(*args, **kwargs):
+        return Erp.objects.published().order_by("-updated_at").first().updated_at
 
 
 class StaticViewSitemap(Sitemap):
