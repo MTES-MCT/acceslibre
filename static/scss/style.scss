@@ -1163,6 +1163,10 @@ div.equipments button {
   height: 600px !important;
 }
 
+.fr-tabs {
+  --tabs-height: auto !important;
+}
+
 @media (min-width: $viewport-md) {
   .fr-tabs__list {
     display: none !important;
