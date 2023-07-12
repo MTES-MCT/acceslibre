@@ -47,6 +47,11 @@ Pour demander votre clef API, [contactez-nous]({settings.SITE_ROOT_URL}/contact/
 Afin de garantir la disponibilité du site pour tous, un nombre maximum de requêtes par seconde est défini.
 Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence de vos requêtes.
 
+## Règles métier
+
+- Il n'est possible de modifier via l'API que les données d'accessibilité d'un ERP, les infos portées par l'ERP ne sont pas modifiables.
+- Il n'est autorisé que l'enrichissement de la donnée, il n'est pas possible de supprimer de la donnée (un élément à `true` ou `false` ne peut pas passer à `null`).
+
 ## Quelques exemples d'utilisation
 
 ### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
@@ -459,17 +464,14 @@ class ErpViewSet(
     (*slug*) et possédant des infos d'accessibilité.
 
     update:
-    Ce point d'accès permet de mettre à jour partiellement ou totalement un ERP spécifique, identifié
-    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme)) ainsi que ses données d'accessibilité.
-    Pour la mise à jour totale (PUT) seules sont autorisées les modifications des données d'accessibilité. A ce jour, aucune
-    info sur l'ERP n'est vouée à être modifiée via API.
+    Ce point d'accès permet de mettre à jour partiellement les données d'accessibilité d'un ERP identifié
+    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme)).
     """
 
     serializers = {
         "default": ErpSerializer,
         "list": ErpSerializer,
         "create": ErpImportSerializer,
-        "update": ErpImportSerializer,
         "partial_update": ErpImportSerializer,
     }
 
@@ -478,6 +480,7 @@ class ErpViewSet(
     bbox_filter_field = "geom"
     filter_backends = (ZoneFilter, EquipmentFilter, ErpFilter)
     schema = ErpSchema()
+    http_method_names = ["get", "post", "patch"]
 
     def get_serializer_class(self):
         if self.request.headers.get("Accept") == "application/geo+json":
