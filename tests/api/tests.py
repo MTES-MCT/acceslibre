@@ -302,7 +302,7 @@ class TestErpApi:
             "asp_id": None,
         }
 
-    def test_post(self, api_client, activite, commune_montreuil):
+    def test_post_put_patch(self, api_client, activite, commune_montreuil):
         assert not Erp.objects.filter(nom="Mairie de Montreuil").first()
         payload = {
             "activite": "Mairie",
@@ -386,6 +386,9 @@ class TestErpApi:
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 201, response.json()
+        erp_json = response.json()
+        assert "slug" in erp_json
+        assert erp_json["nom"] == "Mairie de Montreuil"
         assert (erp := Erp.objects.filter(nom="Mairie de Montreuil").first())
         assert erp.published is True
         assert erp.activite.slug == "mairie"
@@ -393,7 +396,19 @@ class TestErpApi:
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
-        assert "Potentiel doublon" in response.json()["non_field_errors"][0], "Should raise for duplicated ERP"
+        reason = response.json()["non_field_errors"][0]
+        assert "Potentiel doublon" in reason, "Should raise for duplicated ERP"
+        assert erp.slug in reason
+        assert str(erp.id) in reason
+
+        payload["import_email"] = "test@test.com"
+        response = api_client.put(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 200
+        erp_json = response.json()
+        assert erp_json["nom"] == "Mairie de Montreuil"
+        assert erp_json["import_email"] == "test@test.com"
+        erp.refresh_from_db()
+        assert erp.import_email == "test@test.com"
 
         payload["activite"] = "Activité inconnue"
         response = api_client.post(reverse("erp-list"), data=payload, format="json")

@@ -652,7 +652,7 @@ class Erp(models.Model):
     __original_activite_id = None
 
     def __str__(self):
-        return f"ERP #{self.id} ({self.nom}, {self.commune})"
+        return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
