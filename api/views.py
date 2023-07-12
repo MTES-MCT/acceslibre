@@ -106,7 +106,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "A
 ### Modifier les détails d'accessibilité d'un ERP
 
 ```
-$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'accept: application/json' -H 'Content-Type: application/json' -H 'Authorization: Api-Key <VOTRE_CLEF_API>' -d '{{"accessibilite": {{"transport_station_presence": "true"}}}}'
+$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-Type: application/json' -H 'Authorization: Api-Key <VOTRE_CLEF_API>' -d '{{"accessibilite": {{"transport_station_presence": "true"}}}}'
 ```
 
 Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
