@@ -2,14 +2,17 @@
   "name": "acceslibre",
   "version": "1.0.0",
   "description": "Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.",
-  "main": "parcel-entry.js",
   "private": true,
+  "main": "dist/main.js",
+  "targets": {
+    "main": false
+  },
   "scripts": {
     "clean": "rm -rf static/dist/",
-    "start": "parcel static/parcel-entry.js --hmr-port 34471 --out-dir static/dist --public-url /static/dist --out-file main",
+    "start": "parcel static/parcel-entry.js --hmr-port 34471 --dist-dir static/dist --public-url /static/dist",
     "start:server": "python manage.py runserver",
     "start:both": "concurrently -n \"server,front\" -c \"yellow,blue\" -k \"npm run start:server\" \"npm run start\"",
-    "build:prod": "parcel build static/parcel-entry.js --out-dir static/dist --public-url /static/dist --out-file main",
+    "build:prod": "parcel build static/parcel-entry.js --dist-dir static/dist --public-url /static/dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,12 +27,14 @@
   "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
   "dependencies": {
     "@gouvfr/dsfr": "1.9.3",
+    "@babel/preset-env": "^7.22.4",
     "@sentry/browser": "^7.57.0",
     "@sentry/tracing": "^7.57.0",
+    "@parcel/transformer-sass": "^2.9.1",
     "@trevoreyre/autocomplete-js": "^2.2.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.3.0",
     "chart.js": "^3.9.1",
     "core-js": "^3.31.1",
     "crisp-sdk-web": "^1.0.19",
@@ -41,13 +46,15 @@
     "leaflet.markercluster": "^1.4.1",
     "mutationobserver-shim": "^0.3.7",
     "npm": "^9.8.0",
-    "parcel-bundler": "^1.12.5",
+    "parcel": "^2.0.0",
+    "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.63.6"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
     "eslint": "^8.44.0",
-    "prettier": "3.0.0"
+    "prettier": "3.0.0",
+    "process": "^0.11.10"
   }
 }
