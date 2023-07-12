@@ -98,6 +98,12 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "A
 
 ---
 
+### Modifier les détails d'accessibilité d'un ERP
+
+```
+$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'accept: application/json' -H 'Content-Type: application/json' -H 'Authorization: Api-Key <VOTRE_CLEF_API>' -d '{{"accessibilite": {{"transport_station_presence": "true"}}}}'
+```
+
 Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
 """
 
@@ -154,9 +160,7 @@ class AccessibilitePagination(PageNumberPagination):
     max_page_size = 1000
 
 
-class AccessibiliteViewSet(
-    mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
-):
+class AccessibiliteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     list:
     Ce point d'accès liste les **critères d'accessibilité** des ERP.
@@ -221,9 +225,7 @@ class ActiviteSchema(A4aAutoSchema):
     }
 
 
-class ActiviteViewSet(
-    mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
-):
+class ActiviteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     list:
     Ce point d'accès liste les **activités d'ERP**. Il accepte les filtres suivants :
@@ -459,6 +461,8 @@ class ErpViewSet(
     update:
     Ce point d'accès permet de mettre à jour partiellement ou totalement un ERP spécifique, identifié
     par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme)) ainsi que ses données d'accessibilité.
+    Pour la mise à jour totale (PUT) seules sont autorisées les modifications des données d'accessibilité. A ce jour, aucune
+    info sur l'ERP n'est vouée à être modifiée via API.
     """
 
     serializers = {

@@ -102,6 +102,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "code_postal",
             "commune",
             "numero",
+            "slug",
             "voie",
             "lieu_dit",
             "code_insee",
