@@ -14,12 +14,16 @@ class TestPermissions:
     perm = IsAllowedForAction()
     factory = APIRequestFactory()
 
-    def test_bad_key(self):
+    def test_bad_key_value(self):
         request = self.factory.get("/", headers={"Authorization": "Api-Key FOO"})
 
         assert self.perm.has_permission(request, MagicMock(action="list")) is False
 
-    # TODO fix cache usage
+    def test_bad_key_format(self):
+        request = self.factory.get("/", headers={"Authorization": "FOO"})
+
+        assert self.perm.has_permission(request, MagicMock(action="list")) is False
+
     def test_internal_key_for_get(self, settings):
         cache_settings = settings.CACHES.copy()
         cache_settings["default"]["BACKEND"] = "django.core.cache.backends.locmem.LocMemCache"

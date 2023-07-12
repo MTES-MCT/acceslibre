@@ -13,7 +13,10 @@ class IsAllowedForAction(permissions.BasePermission):
         if not auth:
             return False
 
-        key = auth.split()[1]
+        if len(auth_split := auth.split()) != 2:
+            return False
+
+        key = auth_split[1]
         if key == cache.get(settings.INTERNAL_API_KEY_NAME):
             if view.action in ("default", "list"):
                 # Internal api key is allowed to perform only view/list actions, not write operations (create, update, ...)
