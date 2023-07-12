@@ -139,8 +139,6 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
         for field in (
             "accueil_audiodescription_presence",
             "accueil_audiodescription",
-            "sanitaires_presence",
-            "sanitaires_adaptes",
         ):
             self.fields.pop(field, None)
 
