@@ -22,11 +22,11 @@ function generateHTMLForResult(result) {
                 <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
                     <img alt="" class="act-icon act-icon-20 mb-1" src="/static/img/mapicons.svg#${icon}">
                    ${result.properties.nom}
-                    <span class="sr-only">
-                        ${activity_name}
-                        ${result.properties.adresse}
-                    </span>
                 </h3>
+                <span class="sr-only">
+                    ${activity_name}
+                    ${result.properties.adresse}
+                </span>
             </a>
         </div>
         <div aria-hidden="true">
