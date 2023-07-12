@@ -302,7 +302,7 @@ class TestErpApi:
             "asp_id": None,
         }
 
-    def test_post_put_patch(self, api_client, activite, commune_montreuil):
+    def test_post_patch(self, api_client, activite, commune_montreuil):
         assert not Erp.objects.filter(nom="Mairie de Montreuil").first()
         payload = {
             "activite": "Mairie",
@@ -401,15 +401,6 @@ class TestErpApi:
         assert erp.slug in reason
         assert str(erp.id) in reason
 
-        payload["import_email"] = "test@test.com"
-        response = api_client.put(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
-        assert response.status_code == 200
-        erp_json = response.json()
-        assert erp_json["nom"] == "Mairie de Montreuil"
-        assert erp_json["import_email"] == "test@test.com"
-        erp.refresh_from_db()
-        assert erp.import_email == "test@test.com"
-
         payload["activite"] = "Activité inconnue"
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400
@@ -426,6 +417,11 @@ class TestErpApi:
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should not be able to empty things"
+
+        response = api_client.delete(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 405
+        erp.refresh_from_db()
+        assert erp is not None
 
 
 @pytest.mark.usefixtures("api_client")
