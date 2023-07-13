@@ -1095,7 +1095,7 @@ select[name='language'] {
   .lds-dual-ring {
     // adapted from https://loading.io/css/
     $lds-dual-ring-size: 16px;
-    $lds-dual-ring-stroke: $lds-dual-ring-size / 6;
+    $lds-dual-ring-stroke: calc($lds-dual-ring-size / 6);
     $lds-dual-ring-margin: 0px;
 
     display: inline-block;
