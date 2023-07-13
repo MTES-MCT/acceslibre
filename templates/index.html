@@ -3,6 +3,7 @@
 {% load static humanize %}
 {% load i18n %}
 {% load cache %}
+{% get_current_language as LANGUAGE_CODE %}
 {% block page_title %}
     acceslibre, la plateforme collaborative de l'accessibilité
 {% endblock page_title %}
@@ -37,7 +38,7 @@
             </div>
         </div>
     </div>
-    {% cache 3600 homepage_statistics %}
+    {% cache 3600 homepage_statistics LANGUAGE_CODE %}
         <div class="fr-container">
             <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
                 <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
