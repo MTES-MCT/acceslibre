@@ -28,10 +28,10 @@
         <div class="pt-3 pb-3">{% include "contrib/includes/result_search_erps.html" with results=results light=True %}</div>
     {% endif %}
     <div>
-        {% if results %}
+        {% if results or results_bdd %}
             <hr>
             <h3 class="h5 mt-5 mb-3">
-                <b>{% translate "L'établissement ne figure pas dans la liste." %}</b>
+                <b>{% translate "L'établissement que je souhaite ajouter n’est pas dans cette liste." %}</b>
             </h3>
         {% else %}
             <h3 class="h5">
@@ -41,7 +41,7 @@
         <div class="row mb-3">
             <div class="mt-1 pr-4 ml-3">
                 <a class="fr-btn btn-lg"
-                   href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}#content">{% translate "Ajouter un établissement" %}</a>
+                   href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}#content">{% translate "Ajouter cet établissement" %}</a>
             </div>
             <div class="ml-3 mt-1 pr-4">
                 <a class="fr-btn fr-btn--secondary btn-lg"
