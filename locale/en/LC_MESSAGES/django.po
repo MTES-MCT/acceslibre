@@ -225,9 +225,6 @@ msgstr ""
 msgid "Cet ERP est non localisable."
 msgstr "This ERP cannot be located."
 
-msgid "Recherche"
-msgstr "Search"
-
 msgid ""
 "Recherche sur le nom d'une administration publique, d'une entreprise, un\n"
 "            <a href=\"https://www.service-public.fr/professionnels-"
@@ -246,9 +243,6 @@ msgstr ""
 
 msgid "Commune"
 msgstr "Municipality"
-
-msgid "Rechercher une commune"
-msgstr "Search for a commune"
 
 msgid "Vous êtes ?"
 msgstr "Who are you?"
@@ -2854,22 +2848,20 @@ msgstr "Your message has been sent"
 msgid "Nous vous répondrons dans les plus brefs délais."
 msgstr "We will answer you as soon as possible."
 
-msgid "Partager les données d'accessibilité d'un établissement"
-msgstr "Share accessibility data for a facility"
+msgid "Contribuer"
+msgstr "Contribute"
 
 msgid "Étape 1 sur 7"
 msgstr "Step 1 of 7"
 
-msgid "L'établissement"
-msgstr "The facility"
+msgid "Quel est l'établissement concerné ?"
+msgstr "Which establishment is involved?"
 
-#, python-format
 msgid ""
-"Je souhaite <a class=\"fr-btn\" href=\"%(url_contrib_admin_infos)s\">ajouter "
-"manuellement un établissement.</a>"
+"Vérifiez si l'établissement existe déjà ou si des informations sont "
+"disponibles"
 msgstr ""
-"I would like to <a class=\"fr-btn\" "
-"href=\"%(url_contrib_admin_infos)s\">manually add an establishment.</a>."
+"Check whether the facility already exists or whether information is available"
 
 msgid "La charte du contributeur"
 msgstr "The contributor's charter"
@@ -2913,6 +2905,9 @@ msgstr "Search for a facility"
 
 msgid "Ajouter les données d'accessibilité d'un établissement"
 msgstr "Add accessibility data for a facility"
+
+msgid "L'établissement"
+msgstr "The facility"
 
 msgid "Votre recherche"
 msgstr "Your search"
@@ -3135,6 +3130,30 @@ msgstr "Allow me to obtain my geographical location"
 
 msgid "Trouver l'établissement"
 msgstr "Find the facility"
+
+msgid "Nom de l'établissement"
+msgstr "Name of the establishment"
+
+msgid ""
+"Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la "
+"gare"
+msgstr ""
+"Search for an establishment, an activity. Example: Le Louvre, Café de la gare"
+
+msgid "Sélectionner dans la liste"
+msgstr "Select from the list"
+
+msgid "Votre suggestion :"
+msgstr "Your suggestion:"
+
+msgid "Selectionnez une activité"
+msgstr "Select an activity"
+
+msgid "Adresse ou commune"
+msgstr "Address or municipality"
+
+msgid "Commencer la saisie puis sélectionner dans la liste"
+msgstr "Start typing then select from the list"
 
 msgid "Navigation"
 msgstr "Navigation"
@@ -3941,9 +3960,6 @@ msgid ""
 msgstr ""
 "Share information essential to the movement of people with disabilities"
 
-msgid "Contribuer"
-msgstr "Contribute"
-
 msgid "Explorer"
 msgstr "Explore"
 
@@ -4315,9 +4331,6 @@ msgstr "Search for a facility, an activity. Example : Mairie, Café"
 msgid "<strong>Où</strong> (adresse, ville)"
 msgstr "<strong>Where</strong> (address, city)"
 
-msgid "Commencer la saisie puis sélectionner dans la liste"
-msgstr "Start typing then select from the list"
-
 msgid "Résultats pour"
 msgstr "Results for"
 
@@ -4510,6 +4523,24 @@ msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
+
+#~ msgid "Recherche"
+#~ msgstr "Search"
+
+#~ msgid "Rechercher une commune"
+#~ msgstr "Search for a commune"
+
+#~ msgid "Partager les données d'accessibilité d'un établissement"
+#~ msgstr "Share accessibility data for a facility"
+
+#, python-format
+#~ msgid ""
+#~ "Je souhaite <a class=\"fr-btn\" "
+#~ "href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un "
+#~ "établissement.</a>"
+#~ msgstr ""
+#~ "I would like to <a class=\"fr-btn\" "
+#~ "href=\"%(url_contrib_admin_infos)s\">manually add an establishment.</a>."
 
 #~ msgid "Label"
 #~ msgstr "Label"

@@ -82,6 +82,7 @@ def test_empty_search_results(data, client):
         data={
             "what": "",
             "code": "",
+            "activite": "",
         },
     )
     assert response.status_code == 200
