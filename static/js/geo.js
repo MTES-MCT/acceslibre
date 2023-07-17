@@ -10,7 +10,7 @@ var L = window.L // Let's make EsLint happy :)
 
 let currentErpIdentifier,
   layers = [],
-  markers,
+  markers = null,
   map,
   satelliteTiles,
   streetTiles,
@@ -216,10 +216,6 @@ function createMap(domTarget, options = {}) {
   return map
 }
 
-function parseJsonScript(scriptNode) {
-  return JSON.parse(scriptNode.textContent)
-}
-
 function _parseAround({ lat, lon, label }) {
   if (!lat || !lon) return
   try {
@@ -295,7 +291,7 @@ function refreshData(map, refreshApiUrl, apiKey, page = 1) {
     }
 
     response.json().then((jsonData) => {
-      if (clearOldResults) {
+      if (clearOldResults && markers) {
         map.removeLayer(markers)
       }
       markers = _createMarkersFromGeoJson(jsonData)
@@ -388,13 +384,18 @@ function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
 }
 
 function AppMap(root) {
-  const municipalityData = parseJsonScript(root.querySelector('#commune-data'))
   const erpIdentifier = root.dataset.erpIdentifier
-  const geoJson = parseJsonScript(root.querySelector('#erps-data'))
+  const erpData = root.querySelector('#erps-data').textContent
+  let geoJson = null
+  if (erpData) {
+    geoJson = JSON.parse(erpData)
+  }
   currentErpIdentifier = erpIdentifier
 
   map = createMap(root)
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
+
+  const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
 
   if (municipalityData) {
     map.setMinZoom(municipalityData.zoom - 2)
@@ -418,13 +419,15 @@ function AppMap(root) {
     refreshMapOnEquipmentsChange(equipmentsInputs, map, root)
   }
 
-  markers = _createMarkersFromGeoJson(geoJson)
-  _addMarkerAtCenterOfSearch(root.dataset, markers)
-  map.addLayer(markers)
-  refreshList(geoJson)
-  _loadMoreWhenLastElementIsDisplayed(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+  if (geoJson) {
+    markers = _createMarkersFromGeoJson(geoJson)
+    _addMarkerAtCenterOfSearch(root.dataset, markers)
+    map.addLayer(markers)
+    refreshList(geoJson)
+    _loadMoreWhenLastElementIsDisplayed(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+  }
 
-  if (geoJson.features.length > 0) {
+  if (geoJson && geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds(), { padding: [70, 70] })
   } else if (municipalityData) {
     map.setView(municipalityData.center, municipalityData.zoom)
