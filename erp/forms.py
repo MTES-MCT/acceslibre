@@ -197,6 +197,14 @@ class AdminActiviteForm(forms.ModelForm):
         required=False,
         help_text=translate_lazy("Un mot-clé par ligne"),
     )
+    naf_ape_code = SimpleArrayField(
+        forms.CharField(),
+        label=translate_lazy("Code NAF/APE"),
+        widget=widgets.Textarea(),
+        delimiter="\n",
+        required=True,
+        help_text=translate_lazy("Un code APE/NAF par ligne"),
+    )
 
     def save(self, commit=True):
         m = super(AdminActiviteForm, self).save(commit=False)
