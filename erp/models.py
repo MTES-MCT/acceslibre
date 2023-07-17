@@ -115,6 +115,14 @@ class Activite(models.Model):
         blank=True,
         help_text=translate_lazy("Liste de mots-clés apparentés à cette activité"),
     )
+    naf_ape_code = ArrayField(
+        models.CharField(max_length=10),
+        verbose_name=translate_lazy("Code NAF/APE"),
+        default=list,
+        null=True,
+        blank=True,
+        help_text=translate_lazy("Liste des codes NAF/APE liés à cette activité"),
+    )
     icon = models.CharField(
         max_length=120,
         null=True,
