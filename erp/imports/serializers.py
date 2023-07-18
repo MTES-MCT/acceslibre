@@ -142,6 +142,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
         return obj
 
     def validate(self, obj):
+        if "accessibilite" not in obj:
+            raise serializers.ValidationError("Veuillez fournir les données d'accessibilité.")
+
         if self.instance:
             # if we are updating an ERP, only accessibility and import_email are editable
             self.instance.import_email = obj.get("import_email")
