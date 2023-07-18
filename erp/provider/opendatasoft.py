@@ -88,7 +88,7 @@ def get_district_search(code_insee):
 
 def build_query_params(terms, code_insee):
     params = {
-        "dataset": "sirene_v3",
+        "dataset": "economicref-france-sirene-v3",
         "q": terms,
         "rows": MAX_PER_PAGE,
         "refine.etatadministratifetablissement": "Actif",
@@ -109,6 +109,8 @@ def query(terms, code_insee):
         res = requests.get(f"{BASE_API_URL}/search/", build_query_params(terms, code_insee), timeout=5)
         logger.info(f"opendatasoft api search call: {res.url}")
         if res.status_code == 404:
+            if "Unknown dataset" in (error := res.json().get("error", "")):
+                raise RuntimeError(f"opendatasoft: {error}")
             return []
         elif res.status_code != 200:
             raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête: {res.url}")
@@ -119,9 +121,6 @@ def query(terms, code_insee):
         return [parse_etablissement(r) for r in json_value["records"]]
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"opendatasoft search api error: {err}")
-    except requests.exceptions.Timeout:
-        logger.error(f"opendatasoft api timeout : {BASE_API_URL}/search/")
-        return []
 
 
 def search(terms, code_insee):
