@@ -73,7 +73,7 @@ def process_response(json_value, terms, code_insee):
                 continue
             results.append(
                 {
-                    "nom": etablissement["nom_complet"],
+                    "nom": etablissement["siege"].get("nom_commercial") or etablissement["nom_complet"],
                     "voie": etablissement["siege"]["libelle_voie"],
                     "commune": etablissement["siege"]["libelle_commune"],
                     "code_postal": etablissement["siege"]["code_postal"],
