@@ -406,6 +406,9 @@ class TestErpApi:
         assert response.status_code == 400
         assert response.json() == {"activite": ["L'object avec nom=Activité inconnue n'existe pas."]}
 
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data={}, format="json")
+        assert response.status_code == 400, "invalid payload should raise a 400 error"
+
         payload = {"accessibilite": {"transport_station_presence": False}}
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 200, response.json()
