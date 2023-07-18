@@ -293,8 +293,8 @@ Minimal content of DSFR to apply style on widget
                     <div class="fr-modal__header text-right">
                         <button id="btn_acceslibre_close"
                                 aria-label="Fermer"
-                                data-dismiss="dialog"
-                                class="fr-btn fr-btn--close"
+                                data-dismiss="{{ erp.uuid }}"
+                                class="fr-btn fr-btn--close btn_acceslibre_close"
                                 title="{% translate "Fermer la fenêtre" %}"
                                 aria-controls="fr-modal-1">{% translate "Fermer" %}</button>
                     </div>
@@ -327,7 +327,7 @@ Minimal content of DSFR to apply style on widget
                            href="{{ erp.get_absolute_uri }}"
                            target="_blank"
                            rel="noopener"
-                           class="fr-btn fr-btn--secondary fr-text--md">
+                           class="fr-btn fr-btn--secondary fr-text--md btn_acceslibre">
                             <span>{% translate "Voir plus sur" %}</span>
                             <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
                                  alt="acceslibre"
