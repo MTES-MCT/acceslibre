@@ -1,6 +1,5 @@
 import pytest
 from django.contrib.gis.geos import Point
-from django.core.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Erp
