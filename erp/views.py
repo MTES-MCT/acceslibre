@@ -24,7 +24,7 @@ from waffle import switch_is_active
 
 from compte.signals import erp_claimed
 from core.lib import geo, url
-from core.mailer import SendInBlueMailer, get_mailer
+from core.mailer import BrevoMailer, get_mailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
 from erp.forms import get_contrib_form_for_activity, get_vote_button_title
@@ -683,7 +683,7 @@ def vote(request, erp_slug):
     if vote.is_negative:
         route = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
         context = {"erp_contrib_url": f"{settings.SITE_ROOT_URL}{route}"}
-        SendInBlueMailer().send_email(to_list=request.user.email, subject=None, template="vote_down", context=context)
+        BrevoMailer().send_email(to_list=request.user.email, subject=None, template="vote_down", context=context)
     messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
     return redirect(erp.get_absolute_url())
 
@@ -1199,7 +1199,7 @@ def contrib_publication(request, erp_slug):
                     continue
 
                 context = {"draft_nom": draft.nom, "commune": draft.commune, "erp_url": erp.get_absolute_uri()}
-                SendInBlueMailer().send_email(
+                BrevoMailer().send_email(
                     to_list=draft.user.email, subject=None, template="draft_deleted", context=context
                 )
                 draft.delete()

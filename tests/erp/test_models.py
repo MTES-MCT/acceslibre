@@ -196,8 +196,8 @@ class TestErp:
 @pytest.mark.usefixtures("data")
 class TestActivitySuggestion:
     def test_save(self, data, mocker):
-        mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
-        mock_mail_admins = mocker.patch("core.mailer.SendInBlueMailer.mail_admins", return_value=True)
+        mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+        mock_mail_admins = mocker.patch("core.mailer.BrevoMailer.mail_admins", return_value=True)
 
         assert data.erp.activite.nom != "Autre"
         activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp)

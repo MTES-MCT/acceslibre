@@ -49,12 +49,12 @@ class DefaultMailer(Mailer):
         return 1 == email.send(fail_silently=fail_silently)
 
 
-class SendInBlueMailer(Mailer):
+class BrevoMailer(Mailer):
     configuration = None
 
     def __init__(self) -> None:
         self.configuration = Configuration()
-        self.configuration.api_key["api-key"] = settings.SEND_IN_BLUE_API_KEY
+        self.configuration.api_key["api-key"] = settings.BREVO_API_KEY
         super().__init__()
 
     def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
@@ -68,11 +68,11 @@ class SendInBlueMailer(Mailer):
         context["site_name"] = settings.SITE_NAME
         context["site_url"] = settings.SITE_ROOT_URL
 
-        if template not in settings.SEND_IN_BLUE_TEMPLATE_IDS:
+        if template not in settings.BREVO_TEMPLATE_IDS:
             logger.error(f"Template {template} not found")
             return False
 
-        template_id = settings.SEND_IN_BLUE_TEMPLATE_IDS.get(template)
+        template_id = settings.BREVO_TEMPLATE_IDS.get(template)
         send_smtp_email = SendSmtpEmail(
             to=[SendSmtpEmailTo(email=to) for to in to_list],
             sender=SendSmtpEmailSender(email=settings.DEFAULT_EMAIL),

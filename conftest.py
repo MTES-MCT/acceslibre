@@ -61,7 +61,7 @@ def mock_geocode(request, mocker):
 
 
 @pytest.fixture(autouse=True)
-def mock_send_in_blue(mocker):
+def mock_brevo(mocker):
     mocker.patch("sib_api_v3_sdk.ContactsApi.get_contact_info", return_value=MagicMock(id=1))
     mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
 

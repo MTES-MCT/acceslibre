@@ -14,7 +14,7 @@ executors:
           EMAIL_HOST_USER: xxx
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
-          SEND_IN_BLUE_API_KEY: xxx
+          BREVO_API_KEY: xxx
           SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
       - image: cimg/postgres:12.12-postgis
         environment:

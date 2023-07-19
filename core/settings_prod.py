@@ -39,7 +39,7 @@ SECURE_SSL_REDIRECT = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
-SEND_IN_BLUE_TEMPLATE_IDS = {
+BREVO_TEMPLATE_IDS = {
     "draft_deleted": 16,
     "vote_down": 79,
     "spam_activities_suggestion": 87,

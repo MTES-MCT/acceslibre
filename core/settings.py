@@ -260,7 +260,7 @@ DEEPL_MAPPING = {"en": "EN-GB"}
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Email configuration (production uses Mailjet - see README)
-SEND_IN_BLUE_API_KEY = env("SEND_IN_BLUE_API_KEY")
+BREVO_API_KEY = env("BREVO_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True

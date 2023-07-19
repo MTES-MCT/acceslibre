@@ -44,7 +44,7 @@ LOGGING = {
 }
 
 
-SEND_IN_BLUE_TEMPLATE_IDS = {
+BREVO_TEMPLATE_IDS = {
     "draft_deleted": 4,
     "vote_down": 5,
     "spam_activities_suggestion": 6,

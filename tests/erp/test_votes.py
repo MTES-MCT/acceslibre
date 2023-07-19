@@ -19,7 +19,7 @@ def test_erp_cannot_vote_as_anonymous(data, client):
 
 
 def test_erp_cannot_vote_when_user_is_owner(data, client, mocker):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     client.force_login(data.niko)
 
@@ -40,7 +40,7 @@ def test_erp_cannot_vote_when_user_is_owner(data, client, mocker):
 
 
 def test_erp_vote_counts(data, client, mocker):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     # ERP is owner by user, this vote should not count
     client.force_login(data.niko)
@@ -91,7 +91,7 @@ def test_erp_vote_counts(data, client, mocker):
 
 
 def test_erp_user_can_unvote_when_existing_vote(data, client, mocker):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
     client.force_login(data.sophie)
     Vote.objects.create(user=data.sophie, erp=data.erp, value=Vote.NEGATIVE_VALUE, comment="Data is incorrect")
 
