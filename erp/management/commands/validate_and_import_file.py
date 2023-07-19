@@ -1,6 +1,7 @@
 import csv
 import re
 
+import reversion
 from django.core.management.base import BaseCommand, CommandError
 from django.utils.timezone import now
 from rest_framework.exceptions import ValidationError
@@ -161,7 +162,9 @@ Paramètres de lancement du script :
                                 if not self.skip_import:
                                     print_success("\t * Importation de l'ERP")
                                     try:
-                                        erp = validated_erp_data.save()
+                                        with reversion.create_revision():
+                                            erp = validated_erp_data.save()
+                                            reversion.set_comment("Created via import")
                                     except Exception as e:
                                         print_error(
                                             f"Une erreur est survenue lors de l'import de la ligne {_}: {e}. Passage à la ligne suivante."
