@@ -271,7 +271,6 @@ def search(request):
         **filters,
         "pager": pager,
         "pager_base_url": pager_base_url,
-        "geojson_list": make_geojson(pager),
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
