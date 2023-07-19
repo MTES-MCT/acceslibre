@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import Signal, receiver
 
 from compte.models import UserStats
+from compte.tasks import sync_user_attributes
 from erp.models import Accessibilite, Erp
 
 
@@ -23,6 +24,7 @@ def save_erp_update_stats(sender, instance, created, **kwargs):
     user_stats, _ = UserStats.objects.get_or_create(user=instance.user)
     if created:
         user_stats.nb_erp_created = F("nb_erp_created") + 1
+        sync_user_attributes.delay(instance.user.pk)
     else:
         user_stats.nb_erp_edited = F("nb_erp_edited") + 1
 
