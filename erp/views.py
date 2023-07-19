@@ -707,9 +707,10 @@ def contrib_delete(request, erp_slug):
 
 
 def contrib_start(request):
-    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
+    form = forms.ProviderGlobalSearchForm(request.GET or None)
     if form.is_valid():
         return redirect(f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}")
+
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -725,21 +726,34 @@ def contrib_global_search(request):
     results_bdd = []
     results = []
 
+    need_external_api_search = True
+    if request.GET.get("search_type") in ("housenumber", "street"):
+        # Business rule: we do not want to search in external API if the user is providing a full address. We are
+        # assuming he knows what he does and does not need help with some external API results.
+        need_external_api_search = False
+
+    activite = Activite.objects.get(nom=request.GET.get("activite")) if request.GET.get("activite") else None
+
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
         try:
-            results = provider_search.global_search(what_lower, request.GET.get("code"))
-            qs_results_bdd = (
-                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-                .published()
-                .search_what(what_lower)
-            )
-
-            commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
-
-            results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
+            if need_external_api_search:
+                results = provider_search.global_search(
+                    what_lower,
+                    request.GET.get("code"),
+                    activities=",".join(activite.naf_ape_code) if activite else None,
+                )
         except RuntimeError as err:
             error = err
+
+        qs_results_bdd = (
+            Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
+        )
+        if activite:
+            qs_results_bdd = qs_results_bdd.filter(activite=activite)
+
+        commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = _clean_address(request.GET.get("where"))
 
@@ -747,7 +761,7 @@ def contrib_global_search(request):
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "what": request.GET.get("what", ""),
+            "form": forms.ProviderGlobalSearchForm(initial=request.GET.copy()),
             "commune_search": commune,
             "step": 1,
             "libelle_step": {
@@ -763,6 +777,8 @@ def contrib_global_search(request):
                 "commune": city,
                 "lat": request.GET.get("lat"),
                 "lon": request.GET.get("lon"),
+                "activite_slug": activite.slug if activite else None,
+                "new_activity": request.GET.get("new_activity"),
             },
         },
     )
@@ -811,15 +827,12 @@ def contrib_admin_infos(request):
             except Activite.DoesNotExist:
                 pass
 
+            data["nouvelle_activite"] = data_erp.pop("new_activity", "")
             data_erp.pop("activite_slug", None)
-            if "coordonnees" in data_erp:
-                del data_erp["coordonnees"]
-            if "naf" in data_erp:
-                del data_erp["naf"]
-            if "lat" in data_erp:
-                del data_erp["lat"]
-            if "lon" in data_erp:
-                del data_erp["lon"]
+            data_erp.pop("coordonnees", None)
+            data_erp.pop("naf", None)
+            data_erp.pop("lat", None)
+            data_erp.pop("lon", None)
             external_erp = Erp(**data_erp)
         form = forms.PublicErpAdminInfosForm(initial=data)
 

@@ -46,8 +46,8 @@ def sort_and_filter_results(code_insee, results):
     return processed
 
 
-def global_search(terms, code_insee):
-    # OpenDataSoft
+def global_search(terms, code_insee, activities):
+    # OpenDataSoft sirene V3
     result_ods = opendatasoft.search(terms, code_insee)
     for result in result_ods:
         result["exists"] = Erp.objects.find_similar(
@@ -57,9 +57,9 @@ def global_search(terms, code_insee):
             lieu_dit=result["lieu_dit"],
         ).first()
 
-    # Etalab entreprise
+    # API entreprise
     search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
-    result_entreprises = entreprise.search(search_entreprises, code_insee)
+    result_entreprises = entreprise.search(search_entreprises, code_insee, activities)
     for result in result_entreprises:
         # TODO: Search by short distance around location
         result["exists"] = Erp.objects.find_similar(

@@ -587,11 +587,17 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
 
 
 class ProviderGlobalSearchForm(forms.Form):
+    activite = forms.ModelChoiceField(
+        label=translate_lazy("Activité"),
+        queryset=Activite.objects.order_by("position"),
+        required=True,
+        to_field_name="nom",
+    )
+    new_activity = forms.CharField(required=False, widget=forms.HiddenInput)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
     code = forms.CharField(required=True, widget=forms.HiddenInput)
     what = forms.CharField(
-        label=translate_lazy("Recherche"),
         help_text=mark_safe(
             translate_lazy(
                 """Recherche sur le nom d'une administration publique, d'une entreprise, un
@@ -608,7 +614,6 @@ class ProviderGlobalSearchForm(forms.Form):
         required=False,
         widget=forms.TextInput(
             attrs={
-                "placeholder": translate_lazy("Rechercher une commune"),
                 "autocomplete": "off",
                 "class": "autocomplete-input form-control",
             }

@@ -8,6 +8,7 @@ from erp.provider import arrondissements, voies
 
 logger = logging.getLogger(__name__)
 
+# See api doc here: https://api.gouv.fr/documentation/api-recherche-entreprises
 BASE_URL_ENTERPRISE_API = "https://recherche-entreprises.api.gouv.fr/search"
 MAX_PER_PAGE = 5
 
@@ -89,19 +90,23 @@ def process_response(json_value, terms, code_insee):
         raise RuntimeError(f"Erreur de traitement de la réponse: {err}")
 
 
-def search(terms, code_insee):
+def search(terms, code_insee, activities):
     try:
         terms = clean_search_terms(terms)
+        payload = {
+            "per_page": MAX_PER_PAGE,
+            "page": 1,
+            "q": terms,
+            "code_insee": code_insee,
+            "categorie_entreprise": "PME,ETI",
+            "etat_administratif": "A",
+        }
+        if activities:
+            payload["activite_principale"] = activities
+
         res = requests.get(
             f"{BASE_URL_ENTERPRISE_API}",
-            {
-                "per_page": MAX_PER_PAGE,
-                "page": 1,
-                "q": terms,
-                "code_insee": code_insee,
-                "categorie_entreprise": "PME,ETI",
-                "etat_administratif": "A",
-            },
+            payload,
             timeout=5,
         )
         logger.info(f"entreprise api call: {res.url}")
