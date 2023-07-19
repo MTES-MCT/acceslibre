@@ -30,7 +30,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_SECONDS = 3600
 
-SEND_IN_BLUE_TEMPLATE_IDS = {
+BREVO_TEMPLATE_IDS = {
     "draft_deleted": 4,
     "vote_down": 5,
     "spam_activities_suggestion": 6,

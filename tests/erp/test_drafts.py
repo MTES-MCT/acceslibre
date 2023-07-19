@@ -70,7 +70,7 @@ def test_user_published_listed(data, test_response):
 
 
 def test_delete_similar_draft(mocker, data, client):
-    mock_mail = mocker.patch("core.mailer.SendInBlueMailer.send_email", return_value=True)
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
     data.erp.published = False
     data.erp.save()
 

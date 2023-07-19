@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from celery import shared_task
 
-from core.mailer import SendInBlueMailer
+from core.mailer import BrevoMailer
 from erp.forms import get_contrib_form_for_activity
 from erp.models import Accessibilite, ActivitySuggestion
 from erp.schema import FIELDS
@@ -39,13 +39,13 @@ def check_for_activity_suggestion_spam(suggestion_pk):
     two_days_ago = datetime.now() - timedelta(hours=48)
     nb_times = ActivitySuggestion.objects.filter(user=suggestion.user, created_at__gte=two_days_ago).count()
     if nb_times >= 3:
-        SendInBlueMailer().send_email(
+        BrevoMailer().send_email(
             to_list=suggestion.user.email,
             subject=None,
             template="spam_activities_suggestion",
             context={"nb_times": nb_times},
         )
-        SendInBlueMailer().mail_admins(
+        BrevoMailer().mail_admins(
             subject=None,
             template="spam_activities_suggestion_admin",
             context={"nb_times": nb_times, "username": suggestion.user.username, "email": suggestion.user.email},
