@@ -23,7 +23,7 @@ def test_update_username_authenticated(mocker, client, data):
 
     assert response.status_code == 200
 
-    mock_update_sib = mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
+    mock_update_brevo = mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
     client.post(reverse("mon_identifiant"), data={"username": "coucou"}, follow=True)
 
     assert response.status_code == 200
@@ -31,7 +31,7 @@ def test_update_username_authenticated(mocker, client, data):
     # this raises if not found
     user = get_user_model().objects.get(id=data.niko.id, username="coucou")
 
-    mock_update_sib.assert_called_once_with(
+    mock_update_brevo.assert_called_once_with(
         1,  # global mock on get_contact_info
         UpdateContact(
             attributes={
@@ -40,6 +40,7 @@ def test_update_username_authenticated(mocker, client, data):
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": "",
+                "NB_ERPS": 1,
             }
         ),
     )

@@ -114,6 +114,13 @@ class BrevoMailer(Mailer):
                 create_attribute=CreateAttribute(type="text"),
             )
 
+        if "NB_ERPS" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="NB_ERPS",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="float"),
+            )
+
     def sync_user(self, user):
         if not user.email:
             return False
@@ -134,6 +141,7 @@ class BrevoMailer(Mailer):
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
+                "NB_ERPS": user.stats.nb_erp_created if hasattr(user, "stats") else 0,
             }
         )
         api_instance.update_contact(contact.id, update_contact)
