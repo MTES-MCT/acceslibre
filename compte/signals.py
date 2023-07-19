@@ -26,6 +26,7 @@ def save_erp_update_stats(sender, instance, created, **kwargs):
         user_stats.nb_erp_created = F("nb_erp_created") + 1
         sync_user_attributes.delay(instance.user.pk)
     else:
+        # FIXME: the editor is not necessarely the erp creator ! Wrong stats here
         user_stats.nb_erp_edited = F("nb_erp_edited") + 1
 
     user_stats.save()
@@ -57,6 +58,7 @@ def save_access_update_stats(sender, instance, created, **kwargs):
         # ignore internal changes made on completion_rate
         return
 
+    # FIXME: the editor is not necessarely the erp creator ! Wrong stats here
     user_stats, _ = UserStats.objects.get_or_create(user=instance.erp.user)
     user_stats.nb_erp_edited = F("nb_erp_edited") + 1
     user_stats.save(update_fields=("nb_erp_edited",))
