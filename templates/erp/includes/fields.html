@@ -1,41 +1,31 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-{% if fields %}
-    <ul class="p-0 m-0">
-        {% for field in fields %}
-            {% render_field field.value as field_value %}
-            {% if field_value %}
-                <li class="a11y-field border-bottom">
-                    <!-- {{ field.name }} -->
-                    <p class="h6 m-0 p-0 font-weight-normal">
-                        {% if field.is_comment %}<i aria-hidden="true" class="icon icon-bubble"></i>{% endif %}
-                        {% if field.warning %}
-                            <span class="sr-only">{% translate "Attention :" %}</span>
+<ul class="p-0 m-0">
+    {% for field in fields %}
+        {% render_field field.value as field_value %}
+        <li class="a11y-field border-bottom">
+            <p class="h6 m-0 p-0 font-weight-normal">
+                {% if field.is_comment %}<i aria-hidden="true" class="icon icon-bubble"></i>{% endif %}
+                {{ field.label }}
+                {% if field.values and not field.is_comment %}
+                    :
+                    {% for value in field.values %}
+                        {% if value|startswith:"http" %}
+                            <a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ value|truncatechars_html:30 }}</a>
+                            {% if not forloop.last %},{% endif %}
+                        {% else %}
+                            <strong>{{ value }}</strong>
+                            {% if not forloop.last %},{% endif %}
                         {% endif %}
-                        {{ field.label }}
-                        {% if field.values and not field.is_comment %}
-                            :
-                            {% for value in field.values %}
-                                {% if value|startswith:"http" %}
-                                    <a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ value|truncatechars_html:30 }}</a>
-                                    {% if not forloop.last %},{% endif %}
-                                {% else %}
-                                    <strong>{{ value }}</strong>
-                                    {% if not forloop.last %},{% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    </p>
-                    {% if field.is_comment %}
-                        <blockquote class="a4a-comment-block mb-0 my-1">
-                            {{ field.value|urlizetrunc:25|linebreaks }}
-                        </blockquote>
-                    {% endif %}
-                </li>
+                    {% endfor %}
+                {% endif %}
+            </p>
+            {% if field.is_comment %}
+                <blockquote class="a4a-comment-block mb-0 my-1">
+                    {{ field.value|urlizetrunc:25|linebreaks }}
+                </blockquote>
             {% endif %}
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>{% translate "Aucune information." %}</h3>
-{% endif %}
+        </li>
+    {% endfor %}
+</ul>

@@ -23,25 +23,15 @@
     </section>
 {% endif %}
 {% for section, info in accessibilite_data.items %}
-    <section id="{{ info.tabid }}" class="mb-5">
-        {% if info.fields %}
+    {% if info.fields %}
+        <section id="{{ info.tabid }}" class="mb-5">
             <h2 class="h5 mb-0 pb-1 border-bottom font-weight-bold">
                 <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
                 {{ section }}
                 <small class="text-muted">{{ info.description }}</small>
             </h2>
             {% include "erp/includes/fields.html" with fields=info.fields %}
-        {% elif info.sections %}
-            {% for subsection, subinfo in info.sections.items %}
-                <div class="card mb-3">
-                    <div class="card-header border-bottom-0 p-2">
-                        <h6 class="m-0">
-                            <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
-                        </h6>
-                    </div>
-                    <div class="card-body p-0">{% include "erp/includes/fields.html" with fields=subinfo.fields %}</div>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </section>
+            <!--      TODO check what was the purpose of the ELIF here ?-->
+        </section>
+    {% endif %}
 {% endfor %}
