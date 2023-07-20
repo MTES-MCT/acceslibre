@@ -9,7 +9,7 @@ from pytest_factoryboy import register
 
 from erp.models import Accessibilite, Activite, ActivitiesGroup, Commune, Erp
 from erp.provider import geocoder
-from tests.factories import AccessibiliteFactory, ErpFactory
+from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
 
 TEST_PASSWORD = "Abc12345!"
 
@@ -457,3 +457,4 @@ def data(db):
 
 register(ErpFactory)
 register(AccessibiliteFactory)
+register(UserFactory)

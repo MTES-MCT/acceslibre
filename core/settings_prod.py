@@ -44,6 +44,7 @@ BREVO_TEMPLATE_IDS = {
     "vote_down": 79,
     "spam_activities_suggestion": 87,
     "spam_activities_suggestion_admin": 88,
+    "draft": 139,
 }
 
 REAL_USER_NOTIFICATION = True
