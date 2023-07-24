@@ -25,18 +25,12 @@
     trigger.focus()
   }
 
+  function getTracker() {
+    return window.AccesLibreMatomoTracker
+  }
+
   function openModal(dialog) {
-    var _paq = (window._paq = window._paq || [])
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView'])
-    _paq.push(['enableLinkTracking'])
-    _paq.push(['enableHeartBeatTimer'])
-    _paq.push(['trackEvent', 'widget', 'open', true])
-    ;(function () {
-      var u = '//stats.data.gouv.fr/'
-      _paq.push(['setTrackerUrl', u + 'matomo.php'])
-      _paq.push(['setSiteId', '118'])
-    })()
+    getTracker().trackEvent('widget', 'open', true)
     const focusableElements = dialog.querySelectorAll(focusableElementsArray)
     const firstFocusableElement = focusableElements[0]
     const lastFocusableElement = focusableElements[focusableElements.length - 1]
@@ -128,8 +122,7 @@
 
   function _trackOnClick(element, trackingString) {
     element.addEventListener('click', () => {
-      var _paq = (window._paq = window._paq || [])
-      _paq.push(['trackEvent', 'widget', trackingString, true])
+      getTracker().trackEvent('widget', trackingString, true)
     })
   }
 
@@ -153,6 +146,33 @@
     trackEventOnRedirect()
   }
 
+  function setupAnalytics() {
+    var u = 'https://stats.data.gouv.fr/'
+    var matomoTracker = Matomo.getTracker(u + 'matomo.php', 118)
+    window.AccesLibreMatomoTracker = matomoTracker
+    matomoTracker.trackPageView()
+    matomoTracker.enableLinkTracking()
+    matomoTracker.enableHeartBeatTimer()
+  }
+  function setupAnalyticsScript() {
+    var u = 'https://stats.data.gouv.fr/'
+    ;(function () {
+      var d = document,
+        g = d.createElement('script'),
+        s = d.getElementsByTagName('script')[0]
+      g.type = 'text/javascript'
+      g.async = true
+      g.defer = true
+      g.src = u + 'matomo.js'
+      s.parentNode.insertBefore(g, s)
+
+      g.onreadystatechange = setupAnalytics
+      g.onload = setupAnalytics
+    })()
+  }
+
+  setupAnalyticsScript()
+
   allContainers.forEach(function (container) {
     var erp_pk = container.getAttribute('data-pk')
     fetch(base_url + '/uuid/' + erp_pk + '/widget/')
@@ -160,26 +180,7 @@
         return response.text()
       })
       .then(function (body) {
-        var _paq = (window._paq = window._paq || [])
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView'])
-        _paq.push(['enableLinkTracking'])
-        _paq.push(['enableHeartBeatTimer'])
-        _paq.push(['trackEvent', 'widget', 'display', true])
-        ;(function () {
-          var u = '//stats.data.gouv.fr/'
-          _paq.push(['setTrackerUrl', u + 'matomo.php'])
-          _paq.push(['setSiteId', '118'])
-          var d = document,
-            g = d.createElement('script'),
-            s = d.getElementsByTagName('script')[0]
-          g.type = 'text/javascript'
-          g.async = true
-          g.defer = true
-          g.src = u + 'matomo.js'
-          s.parentNode.insertBefore(g, s)
-        })()
-
+        getTracker().trackEvent('widget', 'display', true)
         var container = document.querySelector(`[data-pk="${erp_pk}"]`)
         var newDiv = document.createElement('div')
         newDiv.innerHTML = body
