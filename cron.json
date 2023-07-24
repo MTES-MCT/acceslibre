@@ -25,7 +25,11 @@
       "size": "M"
     },
     {
-      "command": "30 14 * * 4 python manage.py notify_unpublished_erps",
+      "command": "30 14 * * 4 python manage.py notify_weekly_unpublished_erps",
+      "size": "M"
+    },
+    {
+      "command": "30 12 * * * python manage.py notify_daily_drafts",
       "size": "M"
     },
     {

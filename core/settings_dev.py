@@ -49,6 +49,7 @@ BREVO_TEMPLATE_IDS = {
     "vote_down": 5,
     "spam_activities_suggestion": 6,
     "spam_activities_suggestion_admin": 7,
+    "draft": 8,
 }
 
 

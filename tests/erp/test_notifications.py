@@ -10,7 +10,7 @@ from django.urls import reverse
 from django.utils import timezone
 from requests import Response
 
-from erp.management.commands.notify_unpublished_erps import Command
+from erp.management.commands.notify_weekly_unpublished_erps import Command
 from erp.models import Accessibilite, Erp
 
 
@@ -64,9 +64,9 @@ def test_get_notification_after7days(unpublished_erp, data):
 @override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_unpublished_erp_command(unpublished_erp, data):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
-    notify_unpublished_erps = Command(now=futur)
+    notify_weekly_unpublished_erps = Command(now=futur)
 
-    call_command(notify_unpublished_erps)
+    call_command(notify_weekly_unpublished_erps)
 
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
