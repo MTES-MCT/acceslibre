@@ -7,6 +7,7 @@ import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
 import LabelTag from './LabelTag'
 import NewActivity from './NewActivity'
+import ActivitySelect from './ActivitySelect'
 
 export default {
   AsteriskField,
@@ -18,4 +19,5 @@ export default {
   SearchWhere,
   LabelTag,
   NewActivity,
+  ActivitySelect,
 }

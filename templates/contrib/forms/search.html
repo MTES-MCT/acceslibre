@@ -21,21 +21,13 @@
                        aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare" %}'
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
-                {% if form.errors.what %}
-                    <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
-                {% endif %}
             </div>
-            <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left fr-select-group">
+            <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left fr-select-group mb-0">
                 <label for="activite">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                     <br>
                     <span class="sr-only">{% translate "Sélectionner dans la liste" %}</span>
                 </label>
-                {% if not request.GET.new_activity %}
-                    <a href="#" class="small ml-2" id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
-                {% else %}
-                    <span class="small">{% translate "Votre suggestion :" %} {{ request.GET.new_activity }}</span>
-                {% endif %}
                 <input type="text"
                        class="fr-input hidden"
                        id="new_activity"
@@ -50,9 +42,6 @@
                         </option>
                     {% endfor %}
                 </select>
-                {% if form.errors.activite %}
-                    <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
-                {% endif %}
             </div>
             <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field text-left"
                  style="z-index:9999">
@@ -104,6 +93,24 @@
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>
+            <div>
+                <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
+                    {% if form.errors.what %}
+                        <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
+                    {% endif %}
+                </div>
+                <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
+                    {% if form.errors.activite %}
+                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
+                    {% endif %}
+                    <a href="#"
+                       class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
+                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
+                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
+                          id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
+                </div>
+                <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left"></div>
+            </div>
             <div class="fr-checkbox-group row equipments">
                 {% with request.GET|get_list:"equipments" as equipment_params %}
                     {% for label_slug, label in equipments.items %}

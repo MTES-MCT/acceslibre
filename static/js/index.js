@@ -51,6 +51,7 @@ dom.ready(() => {
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
   dom.mountAll('.a4a-label-tag', ui.LabelTag)
   dom.mountOne('#no_activity', ui.NewActivity)
+  dom.mountOne('select#activite', ui.ActivitySelect)
 })
 
 // expose general namespaced lib for usage within pages
