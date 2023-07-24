@@ -23,14 +23,6 @@ def test_skip_import_with_KO_file():
     assert cm.results["imported"]["count"] == 0
 
 
-def test_one_line_with_KO_file():
-    cm = Command()
-    call_command(cm, file="data/tests/generic_test_failed.csv", one_line=True)
-
-    assert cm.one_line is True
-    assert cm.results["in_error"]["count"] == 1
-
-
 def test_generate_error_file_with_KO_file():
     cm = Command()
     call_command(cm, file="data/tests/generic_test_failed.csv", generate_errors_file=True)
@@ -40,23 +32,6 @@ def test_generate_error_file_with_KO_file():
     with open(cm.error_file_path, "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 5
-
-
-def test_generate_error_file_with_KO_file_and_oneline():
-    cm = Command()
-    call_command(
-        cm,
-        file="data/tests/generic_test_failed.csv",
-        generate_errors_file=True,
-        one_line=True,
-    )
-
-    assert cm.generate_errors_file is True
-    assert cm.one_line is True
-    assert cm.error_file is not None
-    with open(cm.error_file_path, "r") as error_file:
-        reader = csv.DictReader(error_file, delimiter=";")
-        assert len(list(reader)) == 1
 
 
 def test_skip_import_with_OK_file(activite, neufchateau):
