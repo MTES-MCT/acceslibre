@@ -36,12 +36,6 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            "--one_line",
-            action="store_true",
-            help="Traite seulement une seule ligne de données. Permet de vérifier à priori la cohérence du fichier.",
-        )
-
-        parser.add_argument(
             "--skip_import",
             action="store_true",
             help="Ignore l'étape d'import du fichier. (Seule la validation est opérée.)",
@@ -76,14 +70,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.input_file = options.get("file")
         self.verbose = options.get("verbose", False)
-        self.one_line = options.get("one_line", False)
         self.skip_import = options.get("skip_import", False)
         self.generate_errors_file = options.get("generate_errors_file", False)
         self.mapper = options.get("mapper")
         self.activite = options.get("activite", None)
         self.force_update = options.get("force_update", False)
 
-        counter = 0
         print("Démarrage du script")
         print_success(
             f"""
@@ -93,7 +85,6 @@ Paramètres de lancement du script :
     Mapper : {self.mapper}
     Activité : {self.activite}
     Verbose : {self.verbose}
-    One Line : {self.one_line}
     Skip import : {self.skip_import}
     Generate Errors file : {self.generate_errors_file}
     Force update duplicate erp : {self.force_update}
@@ -114,13 +105,13 @@ Paramètres de lancement du script :
                     self.results = {
                         "duplicated": {"count": 0, "msgs": []},
                         "in_error": {"count": 0, "msgs": []},
-                        "validated": {"count": 0, "erps": []},
-                        "imported": {"count": 0, "erps": []},
+                        "validated": {"count": 0},
+                        "imported": {"count": 0},
                     }
                     for _, row in enumerate(lines, 1):
                         print_success(f"\t     -> Validation ligne {_}/{total_line} ...")
                         erp_duplicated = None
-                        while counter < 2:
+                        while True:
                             try:
                                 validated_erp_data = self.validate_data(row, duplicated_erp=erp_duplicated)
                             except Exception as e:
@@ -137,7 +128,6 @@ Paramètres de lancement du script :
                                     self.results["duplicated"]["msgs"].append(
                                         {"line": _, "name": row.get("name"), "error": e, "data": row}
                                     )
-                                    counter = 0
                                     if self.force_update is True:
                                         erp_duplicated = Erp.objects.get(
                                             pk=re.search(
@@ -157,13 +147,12 @@ Paramètres de lancement du script :
                             else:
                                 print_success("\t         - La ligne est valide et peut-être importée")
                                 self.results["validated"]["count"] += 1
-                                self.results["validated"]["erps"].append(validated_erp_data)
 
                                 if not self.skip_import:
                                     print_success("\t * Importation de l'ERP")
                                     try:
                                         with reversion.create_revision():
-                                            erp = validated_erp_data.save()
+                                            validated_erp_data.save()
                                             reversion.set_comment("Created via import")
                                     except Exception as e:
                                         print_error(
@@ -171,10 +160,6 @@ Paramètres de lancement du script :
                                         )
                                     else:
                                         self.results["imported"]["count"] += 1
-                                        self.results["imported"]["erps"].append(erp)
-                            counter = 0
-                            break
-                        if self.one_line:
                             break
             except FileNotFoundError:
                 raise Exception(f"Le fichier {self.input_file} est introuvable.")
