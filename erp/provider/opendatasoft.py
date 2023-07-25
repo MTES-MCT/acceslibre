@@ -50,9 +50,15 @@ def extract_voie(etablissement):
 
 
 def parse_etablissement(record):
-    # TODO: Return None when a parsed establissement is invalid (eg. name is empty)
+    # The sirene dataset sometimes contains partially exposed info ([ND] = non diffusée), these records can be ignored
     etablissement = record.get("fields")
+    if any(etablissement.get(x) == "[ND]" for x in ("codepostaletablissement", "libellecommuneetablissement")):
+        return None
+
     nom = extract_nom(etablissement)
+    if nom.upper() in ("", "[ND]"):
+        return None
+
     voie = extract_voie(etablissement)
     return dict(
         source="opendatasoft",
@@ -118,7 +124,7 @@ def query(terms, code_insee):
         if not json_value or "records" not in json_value:
             raise RuntimeError(f"Résultat invalide: {json_value}")
         # FIXME: discard any parsed etablissement being None
-        return [parse_etablissement(r) for r in json_value["records"]]
+        return [parsed for r in json_value["records"] if (parsed := parse_etablissement(r))]
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"opendatasoft search api error: {err}")
 
