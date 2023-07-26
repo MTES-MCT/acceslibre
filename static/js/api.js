@@ -138,7 +138,7 @@ function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeD
 }
 
 async function searchLocation(q, loc, kind = '') {
-  if (q.length <= 2) {
+  if (q.trim().length <= 2) {
     return { q, results: [] }
   }
 
