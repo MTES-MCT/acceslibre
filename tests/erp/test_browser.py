@@ -1,3 +1,4 @@
+import uuid
 from copy import copy
 
 import pytest
@@ -9,6 +10,7 @@ from django.urls import reverse
 
 from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
+from tests.factories import ErpFactory
 from tests.utils import assert_redirect
 
 
@@ -941,3 +943,20 @@ def test_edit_erp_invalid_data(data, client):
     data.erp.refresh_from_db()
     assert "lat" in response.context["form"].errors
     assert data.erp.geom.x == initial_erp.geom.x
+
+
+@pytest.mark.django_db
+def test_get_erp_by_uuid(client):
+    response = client.get(reverse("erp_uuid", kwargs={"uuid": uuid.uuid4()}))
+    assert response.status_code == 404
+
+    erp = ErpFactory(published=True)
+
+    response = client.get(reverse("erp_uuid", kwargs={"uuid": erp.uuid}))
+    assert response.status_code == 302
+    assert erp.slug in response.url
+
+    erp.published = False
+    erp.save()
+    response = client.get(reverse("erp_uuid", kwargs={"uuid": erp.uuid}))
+    assert response.status_code == 404, "should receive a 404 for a non published ERP"
