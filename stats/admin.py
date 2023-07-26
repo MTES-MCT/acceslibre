@@ -35,5 +35,5 @@ class RefererAdmin(admin.ModelAdmin):
 @admin.register(Implementation)
 class ImplementationAdmin(admin.ModelAdmin):
     list_display = ("urlpath", "created_at", "updated_at")
-    search_fields = ("referer", "urlpath")
+    search_fields = ("urlpath",)
     list_filter = ("referer", "created_at")
