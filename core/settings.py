@@ -36,6 +36,11 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
+
+MAP_DEFAULT_LAT = "46.7"
+MAP_DEFAULT_LON = "1.9"
+MAP_DEFAULT_ZOOM = 6
+
 # Mapbox
 # NOTE: this is NOT a sensitive information, as this token is exposed on the frontend anyway
 MAPBOX_TOKEN = "pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw"
@@ -172,12 +177,13 @@ def expose_site_context(request):
 
     return {
         "MAP_SEARCH_RADIUS_KM": settings.MAP_SEARCH_RADIUS_KM,
-        "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
         "SENTRY_DSN": settings.SENTRY_DSN,
         "SITE_NAME": settings.SITE_NAME,
-        "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
         "STAGING": settings.STAGING or settings.DEBUG,
+        "MAP_DEFAULT_LAT": settings.MAP_DEFAULT_LAT,
+        "MAP_DEFAULT_LON": settings.MAP_DEFAULT_LON,
+        "MAP_DEFAULT_ZOOM": settings.MAP_DEFAULT_ZOOM,
     }
 
 

@@ -432,7 +432,7 @@ function AppMap(root) {
   } else if (municipalityData) {
     map.setView(municipalityData.center, municipalityData.zoom)
   } else {
-    map.setView(L.latLng(root.dataset.lat, root.dataset.lon), 14)
+    map.setView(L.latLng(root.dataset.lat, root.dataset.lon), root.dataset.defaultZoom || 14)
     refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
   }
 
