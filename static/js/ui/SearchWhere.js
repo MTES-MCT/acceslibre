@@ -25,14 +25,14 @@ function SearchWhere(root) {
     street_name: root.querySelector('input[name=street_name]'),
     municipality: root.querySelector('input[name=municipality]'),
   }
-  input.addEventListener('input', activate_submit_btn, false)
-  activate_submit_btn((event = false), (force = false))
+  input.addEventListener('input', activateSubmitBtn, false)
+  activateSubmitBtn((event = false), (force = false))
 
-  function activate_submit_btn(event, force = false) {
+  function activateSubmitBtn(event, force = false) {
     if (hiddens.code.value.length == 0) {
       input.form.querySelector('button[type=submit]').setAttribute('disabled', '')
     }
-    if (force || hiddens.code.value) {
+    if (force || hiddens.code.value.length != 0) {
       input.form.querySelector('button[type=submit]').removeAttribute('disabled')
     }
   }
@@ -65,6 +65,7 @@ function SearchWhere(root) {
 
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
+    submitOnEnter: true, // see https://github.com/trevoreyre/autocomplete/issues/157
 
     getResultValue: ({ text }) => text,
 
@@ -72,7 +73,6 @@ function SearchWhere(root) {
       if (!result) {
         return
       }
-      activate_submit_btn((event = false), (force = true))
       if (result.lat && result.lon) {
         setSearchData(result)
       } else if (result.text.startsWith(AROUND_ME)) {
@@ -96,6 +96,7 @@ function SearchWhere(root) {
       } else {
         setSearchData(null)
       }
+      activateSubmitBtn((event = false), (force = true))
     },
 
     renderResult: ({ text, context, icon }, props) => {
@@ -143,7 +144,7 @@ function SearchWhere(root) {
       try {
         submittable = exp.target.getAttribute('aria-expanded') !== 'true'
         if (submittable) {
-          activate_submit_btn(null, (force = true))
+          activateSubmitBtn(null, (force = false))
         }
       } catch (e) {}
     }, 0)
