@@ -102,10 +102,17 @@ class Command(BaseCommand):
         print("Not found in DB, creating it.")
         return serializer.save()
 
+    @staticmethod
+    def _get_filenames():
+        now = datetime.now().strftime("%Y-%m-%d_%Hh%Mm%S")
+        csv_old_th_filename = f"old_th_{now}.csv"
+        csv_error_th_filename = f"error_th_{now}.csv"
+        return csv_old_th_filename, csv_error_th_filename
+
     def handle(self, *args, **options):
         self.input_file = options.get("file")
+        csv_old_th_filename, csv_error_th_filename = self._get_filenames()
         # make a backup of previously flagged T&H
-        csv_old_th_filename = f"old_th_{datetime.now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
         with open(os.path.join(settings.BASE_DIR, csv_old_th_filename), "w") as csvfile:
             fieldnames = ["ID", "labels", "labels_familles_handicap"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -152,7 +159,6 @@ class Command(BaseCommand):
                 print(f"### Done for {row['nom']}: {access.labels_familles_handicap}")
 
         if errors:
-            csv_error_th_filename = f"error_th_{datetime.now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
             with open(os.path.join(settings.BASE_DIR, csv_error_th_filename), "w") as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=errors[0].keys())
                 writer.writeheader()

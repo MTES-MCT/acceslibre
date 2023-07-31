@@ -180,8 +180,12 @@ Paramètres de lancement du script :
         serializer.is_valid(raise_exception=True)
         return serializer
 
+    @staticmethod
+    def _get_error_filename():
+        return f"errors_{now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
+
     def write_error_file(self):
-        self.error_file_path = f"errors_{now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
+        self.error_file_path = self._get_error_filename()
         with open(self.error_file_path, "w") as self.error_file:
             fieldnames = ("line", "name", "error", "data")
 
