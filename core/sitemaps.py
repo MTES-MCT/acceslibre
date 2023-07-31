@@ -53,7 +53,6 @@ class ErpSitemap(Sitemap):
 
 
 class StaticViewSitemap(Sitemap):
-    priority = 0.5
     changefreq = "daily"
     protocol = "https"
 

@@ -354,7 +354,7 @@ def clean_coordonnees(coords):
         return None
     if len(coords) != 2:
         return None
-    if type(coords[0]) != float or type(coords[1]) != float:
+    if not isinstance(coords[0], float) or not isinstance(coords[1], float):
         return None
     return coords
 
