@@ -215,3 +215,35 @@ def filter_erps_by_equipments(queryset, equipments: list):
         queryset = getattr(queryset, equipment.manager.__name__)()
 
     return queryset
+
+
+def get_equipments_groups():
+    # TODO add icon
+    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipments", "suggestions"])
+
+    # TODO example values, replace by correct values
+    for_pmr = EquipmentGroup(
+        name=translate("Accessible PMR"),
+        slug="pmr",
+        equipments=[
+            get_equipment_by_slug("having_no_slope"),
+            get_equipment_by_slug("having_accessible_entry"),
+            get_equipment_by_slug("having_adapted_entry"),
+        ],
+        suggestions=[
+            get_equipment_by_slug("having_adapted_wc"),
+            get_equipment_by_slug("having_public_transportation"),
+            get_equipment_by_slug("having_adapted_parking"),
+        ],
+    )
+    deaf_person = EquipmentGroup(
+        name=translate("Surdité totale"),
+        slug="deaf",
+        equipments=[
+            get_equipment_by_slug("having_hearing_equipments"),
+            get_equipment_by_slug("having_trained_staff"),
+        ],
+        suggestions=[],  # TODO handle this to that it is accepted (no JS error) if we need to
+    )
+
+    return [for_pmr, deaf_person]

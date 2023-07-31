@@ -4,7 +4,6 @@ import re
 import urllib
 from decimal import Decimal
 from uuid import UUID
-from collections import namedtuple
 
 import waffle
 from django.conf import settings
@@ -34,12 +33,10 @@ from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
-from erp.provider.search import filter_erps_by_equipments, get_equipments
+from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_groups
 from stats.models import Challenge
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
-
-from .provider.search import get_equipment_by_slug
 
 HOURS = 60 * 60
 
@@ -263,41 +260,6 @@ def _get_or_create_api_key():
     return api_key
 
 
-# TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
-# This will automatically make the suggestions displayed at the end of the list ?
-# TODO move me to another file ?
-def get_equipments_groups():
-    # TODO add icon
-    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipments", "suggestions"])
-
-    # TODO example values, replace by correct values
-    for_pmr = EquipmentGroup(
-        name="Accessible PMR",  # TODO maybe translate ?
-        slug="pmr",
-        equipments=[
-            get_equipment_by_slug("having_no_slope"),
-            get_equipment_by_slug("having_accessible_entry"),
-            get_equipment_by_slug("having_adapted_entry"),
-        ],
-        suggestions=[
-            get_equipment_by_slug("having_adapted_wc"),
-            get_equipment_by_slug("having_public_transportation"),
-            get_equipment_by_slug("having_adapted_parking"),
-        ],
-    )
-    deaf_person = EquipmentGroup(
-        name="Surdité totale",  # TODO maybe translate ?
-        slug="deaf",
-        equipments=[
-            get_equipment_by_slug("having_hearing_equipments"),
-            get_equipment_by_slug("having_trained_staff"),
-        ],
-        suggestions=[],  # TODO handle this to that it is accepted (no JS error) if we need to
-    )
-
-    return [for_pmr, deaf_person]
-
-
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
     base_queryset = Erp.objects.published().with_activity()
@@ -316,6 +278,8 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
+        # TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
+        # This will automatically make the suggestions displayed at the end of the list ?
         "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
         "equipments_group": get_equipments_groups(),  # TODO add flag
     }

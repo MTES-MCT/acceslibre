@@ -76,14 +76,14 @@
                 <h3>Raccourcis test</h3>
                 {% with request.GET|get_list:"equipments_group" as params %}
                     {% for group in equipments_group %}
-                        {% include "search/tag_with_label.html" with slug=group.slug params=params name=group.name group=True input_name="equipmentsGroups" children=group.equipments suggestions=group.suggestions %}
+                        {% include "search/tag_with_label.html" with slug=group.slug params=params name=group.name eventType="groupLabelClicked" input_name="equipmentsGroups" children=group.equipments suggestions=group.suggestions %}
                     {% endfor %}
                 {% endwith %}
             </div>
             <div class="fr-checkbox-group row equipments">
                 {% with request.GET|get_list:"equipments" as equipment_params %}
                     {% for label_slug, label in equipments.items %}
-                        {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" name=label.name extra_classes="hidden" %}
+                        {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="filterAdded" name=label.name extra_classes="hidden" %}
                     {% endfor %}
                 {% endwith %}
             </div>
