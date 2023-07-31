@@ -263,24 +263,39 @@ def _get_or_create_api_key():
     return api_key
 
 
+# TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
+# This will automatically make the suggestions displayed at the end of the list ?
+# TODO move me to another file ?
 def get_equipments_groups():
     # TODO add icon
-    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipements"])
+    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipments", "suggestions"])
 
     # TODO example values, replace by correct values
     for_pmr = EquipmentGroup(
-        name="Accessible PMR",
+        name="Accessible PMR",  # TODO maybe translate ?
         slug="pmr",
-        equipements=[
-            get_equipment_by_slug("having_adapted_wc"),
+        equipments=[
             get_equipment_by_slug("having_no_slope"),
             get_equipment_by_slug("having_accessible_entry"),
             get_equipment_by_slug("having_adapted_entry"),
         ],
+        suggestions=[
+            get_equipment_by_slug("having_adapted_wc"),
+            get_equipment_by_slug("having_public_transportation"),
+            get_equipment_by_slug("having_adapted_parking"),
+        ],
     )
-    return [
-        for_pmr,
-    ]
+    deaf_person = EquipmentGroup(
+        name="Surdité totale",  # TODO maybe translate ?
+        slug="deaf",
+        equipments=[
+            get_equipment_by_slug("having_hearing_equipments"),
+            get_equipment_by_slug("having_trained_staff"),
+        ],
+        suggestions=[],  # TODO handle this to that it is accepted (no JS error) if we need to
+    )
+
+    return [for_pmr, deaf_person]
 
 
 def search(request):

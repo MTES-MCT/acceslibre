@@ -72,6 +72,7 @@ window.onload = function () {
 }
 
 // TODO move me to another place ?
+// TODO split me into better scoped functions (one for children, one for suggestions ?)
 document.addEventListener('groupLabelClicked', function (event) {
   let equipmentsGroup = event.detail.source
   let children = equipmentsGroup.getAttribute('data-children').split(',')
@@ -82,7 +83,17 @@ document.addEventListener('groupLabelClicked', function (event) {
       parent.classList.toggle('hidden')
       let inputFilter = parent.querySelector('input')
       inputFilter.checked = !inputFilter.checked
+      let button = parent.querySelector('button')
+      button.setAttribute('aria-pressed', true)
       needRefresh = true
+    }
+  })
+
+  let suggestions = equipmentsGroup.getAttribute('data-suggestions').split(',')
+  suggestions.forEach(function (suggestion) {
+    if (suggestion) {
+      let parent = document.querySelector(`#${suggestion}`).parentNode
+      parent.classList.toggle('hidden')
     }
   })
 
@@ -90,6 +101,5 @@ document.addEventListener('groupLabelClicked', function (event) {
     document.dispatchEvent(new Event('filterAdded'))
   }
 
-  // TODO
-  // Refresh the api accordingly
+  // TODO : when the group is unchecked, uncheck all the suggestions to avoid that the filter is still applied?
 })
