@@ -978,8 +978,7 @@ def process_accessibilite_form(
     form_fields,
     template_name,
     redirect_route,
-    prev_route=None,
-    redirect_hash=None,
+    prev_route,
     libelle_step=None,
 ):
     """
@@ -995,7 +994,12 @@ def process_accessibilite_form(
     # N'amener l'utilisateur vers l'étape de publication que:
     # - s'il est propriétaire de la fiche
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
+    # TODO double check this mess
     user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.published
+
+    publier_route = None
+    if user_can_access_next_route:
+        publier_route = reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
 
     contrib_form = get_contrib_form_for_activity(erp.activite)
     Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
@@ -1007,57 +1011,45 @@ def process_accessibilite_form(
             form = Form(request.GET, instance=accessibilite, user=request.user)
         else:
             form = contrib_form(instance=accessibilite, initial={"entree_porte_presence": True}, user=request.user)
-    if form.is_valid():
-        if check_authentication(request, erp, form):
-            return check_authentication(request, erp, form)
-        accessibilite = form.save(commit=False)
-        accessibilite.erp = erp
-        accessibilite.save()
-        if request.user.is_authenticated and accessibilite.erp.user is None:
-            accessibilite.erp.user = request.user
-            accessibilite.erp.save()
-        form.save_m2m()
-        if "publier" in request.POST:
-            return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
-        messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
-        if user_can_access_next_route:
-            return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
-        else:
-            if erp.published:
-                redirect_url = erp.get_success_url()
-            elif erp.user == request.user:
-                redirect_url = reverse("mes_erps")
-            else:
-                redirect_url = reverse("mes_contributions")
-            if step == 8:
-                redirect_url += f"#{redirect_hash}"
-            return redirect(redirect_url)
+    if not form.is_valid():
+        return render(
+            request,
+            template_name=template_name,
+            context={
+                "step": step,
+                "libelle_step": libelle_step,
+                "erp": erp,
+                "form": form,
+                "accessibilite": accessibilite,
+                "publier_route": publier_route,
+                "prev_route": reverse(prev_route, kwargs={"erp_slug": erp.slug}),
+            },
+        )
 
-    if prev_route:
-        prev_route = reverse(prev_route, kwargs={"erp_slug": erp.slug})
-    else:
-        prev_route = None
+    needs_redirect = check_authentication(request, erp, form)
+    if needs_redirect:
+        return needs_redirect
 
+    accessibilite = form.save(commit=False)
+    accessibilite.erp = erp
+    accessibilite.save()
+    if request.user.is_authenticated and accessibilite.erp.user is None:
+        accessibilite.erp.user = request.user
+        accessibilite.erp.save()
+    form.save_m2m()
+
+    if "publier" in request.POST:
+        return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
+
+    messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
     if user_can_access_next_route:
-        publier_route = reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
-    else:
-        publier_route = None
-
-    return render(
-        request,
-        template_name=template_name,
-        context={
-            "step": step,
-            "libelle_step": libelle_step,
-            "erp": erp,
-            "form": form,
-            "accessibilite": accessibilite,
-            "redirect_hash": redirect_hash,
-            "publier_route": publier_route,
-            "prev_route": prev_route,
-        },
-    )
+        return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
+    if erp.published:
+        return redirect(erp.get_success_url())
+    if erp.user == request.user:
+        return redirect("mes_erps")
+    return redirect("mes_contributions")
 
 
 @create_revision(request_creates_revision=lambda x: True)
@@ -1076,7 +1068,6 @@ def contrib_transport(request, erp_slug):
         "contrib/3-transport.html",
         "contrib_exterieur",
         prev_route=prev_route,
-        redirect_hash=schema.SECTION_TRANSPORT,
         libelle_step={
             "current": schema.SECTION_TRANSPORT,
             "next": schema.SECTION_CHEMINEMENT_EXT,
@@ -1094,7 +1085,6 @@ def contrib_exterieur(request, erp_slug):
         "contrib/4-exterieur.html",
         "contrib_entree",
         prev_route="contrib_transport",
-        redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
         libelle_step={
             "current": schema.SECTION_CHEMINEMENT_EXT,
             "next": schema.SECTION_ENTREE,
@@ -1112,7 +1102,6 @@ def contrib_entree(request, erp_slug):
         "contrib/5-entree.html",
         "contrib_accueil",
         prev_route="contrib_exterieur",
-        redirect_hash=schema.SECTION_ENTREE,
         libelle_step={"current": schema.SECTION_ENTREE, "next": schema.SECTION_ACCUEIL},
     )
 
@@ -1127,7 +1116,6 @@ def contrib_accueil(request, erp_slug):
         "contrib/6-accueil.html",
         "contrib_commentaire",
         prev_route="contrib_entree",
-        redirect_hash=schema.SECTION_ACCUEIL,
         libelle_step={
             "current": schema.SECTION_ACCUEIL,
             "next": schema.SECTION_COMMENTAIRE,
@@ -1170,7 +1158,6 @@ def contrib_commentaire(request, erp_slug):
         "contrib/7-commentaire.html",
         "contrib_publication",
         prev_route="contrib_accueil",
-        redirect_hash=schema.SECTION_COMMENTAIRE,
         libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": None},
     )
 
