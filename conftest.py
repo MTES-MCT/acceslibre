@@ -67,6 +67,11 @@ def mock_brevo(mocker):
 
 
 @pytest.fixture
+def activite_other():
+    Activite.objects.create(nom="Autre")
+
+
+@pytest.fixture
 def activite_administration_publique():
     return Activite.objects.create(nom="Administration Publique")
 

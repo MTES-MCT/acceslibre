@@ -2,6 +2,7 @@ import datetime
 import json
 import re
 import urllib
+from decimal import Decimal
 
 import waffle
 from django.conf import settings
@@ -865,16 +866,20 @@ def contrib_admin_infos(request):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    initial = {"lat": float(erp.geom.y), "lon": float(erp.geom.x)}
+    initial = {"lat": Decimal(erp.geom.y), "lon": Decimal(erp.geom.x)}
     if request.user.is_authenticated and erp.user is request.user:
         libelle_next = schema.SECTION_A_PROPOS
         next_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
     else:
         libelle_next = schema.SECTION_TRANSPORT
         next_route = schema.SECTIONS[schema.SECTION_TRANSPORT]["edit_route"]
+
     if request.method == "POST":
-        form = forms.PublicErpEditInfosForm(request.POST, instance=erp)
+        form = forms.PublicErpEditInfosForm(request.POST, instance=erp, initial=initial)
         if form.is_valid():
+            if not form.has_changed():
+                return redirect(next_route, erp_slug=erp.slug)
+
             erp = form.save()
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
@@ -885,7 +890,11 @@ def contrib_edit_infos(request, erp_slug):
                     erp=erp,
                     user=request.user if request.user.is_authenticated else None,
                 )
-            messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                translate("Les données ont été enregistrées."),
+            )
             return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
@@ -895,18 +904,12 @@ def contrib_edit_infos(request, erp_slug):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
-            "libelle_step": {
-                "current": "informations",
-                "next": libelle_next,
-            },
+            "libelle_step": {"current": "informations", "next": libelle_next},
             "erp": erp,
             "form": form,
             "activite": Activite.objects.get(slug="autre"),
-            "map_options": json.dumps(
-                {
-                    "scrollWheelZoom": False,  # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
-                }
-            ),
+            # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
+            "map_options": json.dumps({"scrollWheelZoom": False}),
         },
     )
 

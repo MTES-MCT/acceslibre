@@ -12,7 +12,7 @@ from erp.models import Erp
 
 def factory(data):
     # Lists in CSV are rendered like "[""value""]", but standard csv module gives '["value"]'
-    return dict([(x[0], json.dumps(x[1])) if type(x[1]) == list else x for x in data])
+    return dict([(x[0], json.dumps(x[1])) if isinstance(x[1], list) else x for x in data])
 
 
 def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMapper], logger=None):

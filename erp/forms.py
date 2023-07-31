@@ -419,7 +419,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
         return label, values
 
     def get_display_values(self, name, value, choices, unit=""):
-        if type(value) == bool:
+        if isinstance(value, bool):
             return None
         try:
             value = getattr(self.instance, f"get_{name}_display")()
