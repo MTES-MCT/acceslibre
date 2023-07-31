@@ -4,6 +4,7 @@ import re
 import urllib
 from decimal import Decimal
 from uuid import UUID
+from collections import namedtuple
 
 import waffle
 from django.conf import settings
@@ -37,6 +38,8 @@ from erp.provider.search import filter_erps_by_equipments, get_equipments
 from stats.models import Challenge
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
+
+from .provider.search import get_equipment_by_slug
 
 HOURS = 60 * 60
 
@@ -260,6 +263,26 @@ def _get_or_create_api_key():
     return api_key
 
 
+def get_equipments_groups():
+    # TODO add icon
+    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipements"])
+
+    # TODO example values, replace by correct values
+    for_pmr = EquipmentGroup(
+        name="Accessible PMR",
+        slug="pmr",
+        equipements=[
+            get_equipment_by_slug("having_adapted_wc"),
+            get_equipment_by_slug("having_no_slope"),
+            get_equipment_by_slug("having_accessible_entry"),
+            get_equipment_by_slug("having_adapted_entry"),
+        ],
+    )
+    return [
+        for_pmr,
+    ]
+
+
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
     base_queryset = Erp.objects.published().with_activity()
@@ -279,6 +302,7 @@ def search(request):
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
         "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
+        "equipments_group": get_equipments_groups(),  # TODO add flag
     }
     return render(request, "search/results.html", context=context)
 

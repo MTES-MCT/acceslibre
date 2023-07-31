@@ -1,0 +1,20 @@
+<span class="{{ extra_classes }}">
+    <input type="checkbox"
+           id="{{ slug }}"
+           name="{{ input_name }}"
+           class="hidden"
+           value="{{ slug }}"
+           {% if slug in params %}checked{% endif %}
+           autocomplete="off">
+    <label class="fr-label invisible ml-0" for="{{ slug }}"></label>
+    <button class="fr-tag a4a-label-tag mb-1"
+        aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
+        data-fr-js-toggle="true"
+        type="button"
+        data-event-type="{% if group %}groupLabelClicked{% else %}filterAdded{% endif %}"
+        data-for-input="{{ slug }}"
+        {% if children %} data-children="{% for c in children %}{{ c.slug }},{% endfor %}
+    {% endif %}>
+    {{ name }}
+</button>
+</span>

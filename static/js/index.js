@@ -70,3 +70,26 @@ window.onload = function () {
     })
   }
 }
+
+// TODO move me to another place ?
+document.addEventListener('groupLabelClicked', function (event) {
+  let equipmentsGroup = event.detail.source
+  let children = equipmentsGroup.getAttribute('data-children').split(',')
+  let needRefresh = false
+  children.forEach(function (child) {
+    if (child) {
+      let parent = document.querySelector(`#${child}`).parentNode
+      parent.classList.toggle('hidden')
+      let inputFilter = parent.querySelector('input')
+      inputFilter.checked = !inputFilter.checked
+      needRefresh = true
+    }
+  })
+
+  if (needRefresh) {
+    document.dispatchEvent(new Event('filterAdded'))
+  }
+
+  // TODO
+  // Refresh the api accordingly
+})
