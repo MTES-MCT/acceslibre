@@ -202,6 +202,7 @@ def _clean_address(where):
         "Paris (75006)" returns ("Paris", "75")
         "Lille (59)" returns ("Lille", "59")
         "Strasbourg" returns ("Strasbourg", "")
+        "10 Rue Marin 69160 Tassin-la-Demi-Lune" returns ("Tassin-la-Demi-Lune", "")
     """
     where = (where or "()").strip()
 
@@ -212,7 +213,8 @@ def _clean_address(where):
     if len(address) >= 2:
         city = address[0].strip()
         code_departement = address[1]
-
+    elif found := re.search(r".* [0-9]{5} (.*)", where):
+        city = found.groups(1)[0]
     return city, code_departement
 
 
@@ -781,6 +783,7 @@ def contrib_global_search(request):
                 "lon": request.GET.get("lon"),
                 "activite_slug": activite.slug if activite else None,
                 "new_activity": request.GET.get("new_activity"),
+                "code_postal": request.GET.get("postcode"),
             },
         },
     )
