@@ -419,8 +419,9 @@ def from_uuid(request, uuid):
     return redirect(erp.get_absolute_url())
 
 
-def widget_from_uuid(request, uuid):  # noqa
-    erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
+def widget_from_uuid(request, uuid):
+    # activite is used in template when get_absolute_uri
+    erp = get_object_or_404(Erp.objects.select_related("accessibilite", "activite").published(), uuid=uuid)
     accessibilite_data = {}
     access = erp.accessibilite
 
