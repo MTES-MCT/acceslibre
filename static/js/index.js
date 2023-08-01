@@ -37,7 +37,6 @@ window.SentryIntegrations = Integrations
 import dom from './dom'
 import geo from './geo'
 import ui from './ui'
-import api from './api'
 
 // Initializations
 dom.ready(() => {
@@ -71,33 +70,4 @@ window.onload = function () {
   }
 }
 
-// TODO move me to another place ?
-// TODO split me into better scoped functions (one for children, one for suggestions ?)
-document.addEventListener('groupLabelClicked', function (event) {
-  let equipmentsGroup = event.detail.source
-  let children = equipmentsGroup.getAttribute('data-children').split(',')
-  let needRefresh = false
-  children.forEach(function (child) {
-    let parent = document.querySelector(`#${child}`).parentNode
-    parent.classList.toggle('hidden')
-    let inputFilter = parent.querySelector('input')
-    inputFilter.checked = !inputFilter.checked
-    let button = parent.querySelector('button')
-    button.setAttribute('aria-pressed', true)
-    needRefresh = true
-  })
-
-  let suggestions = equipmentsGroup.getAttribute('data-suggestions')
-  if (suggestions) {
-    suggestions.split(',').forEach(function (suggestion) {
-      let parent = document.querySelector(`#${suggestion}`).parentNode
-      parent.classList.toggle('hidden')
-    })
-  }
-
-  if (needRefresh) {
-    document.dispatchEvent(new Event('filterAdded'))
-  }
-
-  // TODO : when the group is unchecked, uncheck all the suggestions to avoid that the filter is still applied?
-})
+ui.ListenToGroupLabelClicked()

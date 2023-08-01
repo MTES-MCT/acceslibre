@@ -8,6 +8,7 @@ import SearchWhere from './SearchWhere'
 import LabelTag from './LabelTag'
 import NewActivity from './NewActivity'
 import ActivitySelect from './ActivitySelect'
+import ListenToGroupLabelClicked from './GroupLabelTag'
 
 export default {
   AsteriskField,
@@ -20,4 +21,5 @@ export default {
   LabelTag,
   NewActivity,
   ActivitySelect,
+  ListenToGroupLabelClicked,
 }
