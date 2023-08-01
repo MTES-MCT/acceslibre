@@ -76,7 +76,7 @@
                 <h3>Raccourcis test</h3>
                 {% with request.GET|get_list:"equipments_group" as params %}
                     {% for group in equipments_group %}
-                        {% include "search/tag_with_label.html" with slug=group.slug params=params name=group.name eventType="groupLabelClicked" input_name="equipmentsGroups" children=group.equipments suggestions=group.suggestions %}
+                        {% include "search/tag_with_label.html" with slug=group.slug params=params name=group.name eventType="groupLabelClicked" input_name="equipmentsGroups" children_list=group.equipments_as_list suggestions_list=group.suggestions_as_list %}
                     {% endfor %}
                 {% endwith %}
             </div>

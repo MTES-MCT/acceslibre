@@ -1,4 +1,5 @@
 from collections import namedtuple
+from dataclasses import dataclass
 
 from django.utils.translation import gettext as translate
 
@@ -217,33 +218,76 @@ def filter_erps_by_equipments(queryset, equipments: list):
     return queryset
 
 
-def get_equipments_groups():
+@dataclass
+class EquipmentGroup:
     # TODO add icon
-    EquipmentGroup = namedtuple("EquipmentGroup", ["name", "slug", "equipments", "suggestions"])
+    name: str
+    slug: str
+    equipments: list
+    suggestions: list
 
-    # TODO example values, replace by correct values
+    @property
+    def equipments_as_list(self):
+        return ",".join([e.slug for e in self.equipments])
+
+    @property
+    def suggestions_as_list(self):
+        return ",".join([e.slug for e in self.suggestions])
+
+
+def get_equipments_groups():
+    # TODO review naming of groups (not sure what is the correct vocabulary in English)
     for_pmr = EquipmentGroup(
-        name=translate("Accessible PMR"),
+        name=translate("Incapacité à marcher"),
         slug="pmr",
         equipments=[
-            get_equipment_by_slug("having_no_slope"),
+            # TODO @MLV : not exactly what is in the miro document was not able to find what is needed
             get_equipment_by_slug("having_accessible_entry"),
-            get_equipment_by_slug("having_adapted_entry"),
+            get_equipment_by_slug("having_potentially_all_at_ground_level"),
         ],
         suggestions=[
-            get_equipment_by_slug("having_adapted_wc"),
             get_equipment_by_slug("having_public_transportation"),
             get_equipment_by_slug("having_adapted_parking"),
+            get_equipment_by_slug("having_adapted_wc"),
+            get_equipment_by_slug("having_accessible_rooms"),
+            # TODO @MLV : missing the "sonnette" filter ?
+        ],
+    )
+    difficulty_walking = EquipmentGroup(
+        name=translate("Difficulté à marcher"),
+        slug="difficulty_walking",
+        equipments=[
+            # TODO @MLV: could not find "stationnement ou TC a proximité"
+            # TODO @MLV: could not find "chemint ext adapté pour les mal marchands"
+            # TODO @MLV : missing having_nb_stairs_max for entry ?
+            get_equipment_by_slug("having_nb_stairs_max"),
+        ],
+        suggestions=[],
+    )
+    difficulty_of_vision = EquipmentGroup(
+        name=translate("Difficulté à voir"),
+        slug="difficulty_walking",
+        equipments=[
+            # TODO @MLV: could not find "stationnement ou TC a proximité"
+            get_equipment_by_slug("having_trained_staff"),
+        ],
+        suggestions=[
+            get_equipment_by_slug("having_visible_reception"),
+            get_equipment_by_slug("having_audiodescription"),
+            get_equipment_by_slug("having_guide_band"),
+            get_equipment_by_slug("having_sound_beacon"),
         ],
     )
     deaf_person = EquipmentGroup(
         name=translate("Surdité totale"),
         slug="deaf",
-        equipments=[
-            get_equipment_by_slug("having_hearing_equipments"),
-            get_equipment_by_slug("having_trained_staff"),
-        ],
-        suggestions=[],  # TODO handle this to that it is accepted (no JS error) if we need to
+        equipments=[get_equipment_by_slug("having_trained_staff")],
+        suggestions=[get_equipment_by_slug("having_hearing_equipments")],
     )
-
-    return [for_pmr, deaf_person]
+    hard_to_understand = EquipmentGroup(
+        name=translate("Difficulté à comprendre"),
+        slug="hard_to_understand",
+        equipments=[get_equipment_by_slug("having_trained_staff")],
+        suggestions=[],
+    )
+    return [for_pmr, difficulty_walking, difficulty_of_vision, deaf_person, hard_to_understand]

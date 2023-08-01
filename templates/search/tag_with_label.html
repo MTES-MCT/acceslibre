@@ -7,7 +7,12 @@
            {% if slug in params %}checked{% endif %}
            autocomplete="off">
     <label class="fr-label invisible ml-0" for="{{ slug }}"></label>
-    <button class="fr-tag a4a-label-tag mb-1" aria-pressed="{% if slug in params %}true{% else %}false{% endif %}" data-fr-js-toggle="true" type="button" data-event-type="{{ eventType }}" data-for-input="{{ slug }}" {% if children %} data-children="{% for c in children %}{{ c.slug }},{% endfor %} {% endif %} {% if suggestions %} data-suggestions="{% for s in suggestions %}{{ s.slug }},{% endfor %} {% endif %}>
-        {{ name }}
-    </button>
+    <button class="fr-tag a4a-label-tag mb-1"
+            aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
+            data-fr-js-toggle="true"
+            type="button"
+            data-event-type="{{ eventType }}"
+            data-for-input="{{ slug }}"
+            {% if children_list %}data-children="{{ children_list }}"{% endif %}
+            {% if suggestions_list %}data-suggestions="{{ suggestions_list }}"{% endif %}>{{ name }}</button>
 </span>
