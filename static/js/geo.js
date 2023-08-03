@@ -68,10 +68,12 @@ function _drawPopUpMarker({ properties: props }, layer) {
 
 function _createPointIcon({ properties: props }, coords) {
   let activity_icon = props.activite__vector_icon
-  if (!activity_icon && props.activite) {
-    activity_icon = props.activite.vector_icon
-  } else {
-    activity_icon = 'building'
+  if (!activity_icon) {
+    if (props.activite) {
+      activity_icon = props.activite.vector_icon
+    } else {
+      activity_icon = 'building'
+    }
   }
 
   return L.marker(coords, {
