@@ -2,6 +2,7 @@ import datetime
 import json
 import re
 import urllib
+from uuid import UUID
 
 import waffle
 from django.conf import settings
@@ -419,8 +420,23 @@ def from_uuid(request, uuid):
     return redirect(erp.get_absolute_url())
 
 
-def widget_from_uuid(request, uuid):  # noqa
-    erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
+def widget_from_uuid(request, uuid):
+    def _render_404():
+        return render(
+            request, "erp/widget/404.html", context={"ref_uuid": uuid, "base_url": f"{settings.SITE_ROOT_URL}"}
+        )
+
+    try:
+        UUID(uuid)
+    except ValueError:
+        return _render_404()
+
+    # activite is used in template when get_absolute_uri
+    erp = Erp.objects.select_related("accessibilite", "activite").published().filter(uuid=uuid).first()
+
+    if not erp:
+        return _render_404()
+
     accessibilite_data = {}
     access = erp.accessibilite
 
@@ -644,8 +660,9 @@ def widget_from_uuid(request, uuid):  # noqa
 
     return render(
         request,
-        "erp/widget.html",
+        "erp/widget/index.html",
         context={
+            "ref_uuid": erp.uuid,
             "accessibilite_data": accessibilite_data,
             "erp": erp,
             "base_url": f"{settings.SITE_ROOT_URL}",

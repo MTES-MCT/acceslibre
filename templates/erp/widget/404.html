@@ -1,0 +1,23 @@
+{% extends "erp/widget/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block modal_content %}
+    <div class="fr-modal__content">
+        <p>
+            L'établissement n'a pas été trouvé sur AccèsLibre, vous pouvez  <a class="fr-btn fr-btn--contrib"
+     href="{{ base_url }}{% url 'contrib_admin_infos' %}?#content">{% translate "Ajouter cet établissement" %}</a>
+        </p>
+        <p class="modal__footer_link">
+            <a id="btn_acceslibre"
+               href="{{ base_url }}"
+               target="_blank"
+               rel="noopener"
+               class="fr-btn fr-btn--secondary fr-text--md btn_acceslibre">
+                <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
+                     alt="acceslibre"
+                     style="height:50px;
+                            vertical-align: text-bottom">
+            </a>
+        </p>
+    </div>
+{% endblock modal_content %}
