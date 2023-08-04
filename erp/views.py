@@ -3,6 +3,7 @@ import json
 import re
 import urllib
 from decimal import Decimal
+from uuid import UUID
 
 import waffle
 from django.conf import settings
@@ -423,8 +424,22 @@ def from_uuid(request, uuid):
 
 
 def widget_from_uuid(request, uuid):
+    def _render_404():
+        return render(
+            request, "erp/widget/404.html", context={"ref_uuid": uuid, "base_url": f"{settings.SITE_ROOT_URL}"}
+        )
+
+    try:
+        UUID(uuid)
+    except ValueError:
+        return _render_404()
+
     # activite is used in template when get_absolute_uri
-    erp = get_object_or_404(Erp.objects.select_related("accessibilite", "activite").published(), uuid=uuid)
+    erp = Erp.objects.select_related("accessibilite", "activite").published().filter(uuid=uuid).first()
+
+    if not erp:
+        return _render_404()
+
     accessibilite_data = {}
     access = erp.accessibilite
 
@@ -648,8 +663,9 @@ def widget_from_uuid(request, uuid):
 
     return render(
         request,
-        "erp/widget.html",
+        "erp/widget/index.html",
         context={
+            "ref_uuid": erp.uuid,
             "accessibilite_data": accessibilite_data,
             "erp": erp,
             "base_url": f"{settings.SITE_ROOT_URL}",

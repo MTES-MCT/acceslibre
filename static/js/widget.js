@@ -1,5 +1,5 @@
 ;(function () {
-  const base_url = document.querySelector('[data-baseurl]').getAttribute('data-baseurl')
+  const baseURL = document.querySelector('[data-baseurl]').getAttribute('data-baseurl')
   const allContainers = document.querySelectorAll('[data-pk]')
   const keyCodes = {
     tab: 9,
@@ -135,16 +135,16 @@
   }
 
   function trackEventOnClose() {
-    var close_buttons = document.querySelectorAll('.btn_acceslibre_close')
-    close_buttons.forEach(function (close_button) {
-      _trackOnClick(close_button, 'close')
+    var closeButtons = document.querySelectorAll('.btn_acceslibre_close')
+    closeButtons.forEach(function (closeButton) {
+      _trackOnClick(closeButton, 'close')
     })
   }
 
   function trackEventOnRedirect() {
-    var redirect_buttons = document.querySelectorAll('.btn_acceslibre')
-    redirect_buttons.forEach(function (redirect_button) {
-      _trackOnClick(redirect_button, 'redirect')
+    var redirectButtons = document.querySelectorAll('.btn_acceslibre')
+    redirectButtons.forEach(function (redirectButton) {
+      _trackOnClick(redirectButton, 'redirect')
     })
   }
 
@@ -182,14 +182,14 @@
   setupAnalyticsScript()
 
   allContainers.forEach(function (container) {
-    var erp_pk = container.getAttribute('data-pk')
-    fetch(base_url + '/uuid/' + erp_pk + '/widget/')
+    var erpPK = container.getAttribute('data-pk')
+    fetch(baseURL + '/uuid/' + erpPK + '/widget/')
       .then(function (response) {
         return response.text()
       })
       .then(function (body) {
         getTracker().trackEvent('widget', 'display', true)
-        var container = document.querySelector(`[data-pk="${erp_pk}"]`)
+        var container = document.querySelector(`[data-pk="${erpPK}"]`)
         var newDiv = document.createElement('div')
         newDiv.innerHTML = body
         container.appendChild(newDiv)
