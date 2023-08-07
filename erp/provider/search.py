@@ -90,6 +90,11 @@ def get_equipments():
             name=translate("Transport en commun à proximité"),
         ),
         Equipment(
+            slug="having_parking_or_public_transportation",
+            manager=ErpQuerySet.having_parking_or_public_transportation,
+            name=translate("Transport en commun ou parking à proximité"),
+        ),
+        Equipment(
             slug="having_adapted_parking",
             manager=ErpQuerySet.having_adapted_parking,
             name=translate("Stationnement PMR (dans l'établissement ou à proximité)"),
@@ -98,6 +103,11 @@ def get_equipments():
             slug="having_no_path",
             manager=ErpQuerySet.having_no_path,
             name=translate("Pas de chemin extérieur ou donnée inconnue"),
+        ),
+        Equipment(
+            slug="having_adapted_path",
+            manager=ErpQuerySet.having_adapted_path,
+            name=translate("Chemin adapté"),
         ),
         Equipment(
             slug="having_proper_surface",
@@ -113,6 +123,11 @@ def get_equipments():
             slug="having_no_slope",
             manager=ErpQuerySet.having_no_slope,
             name=translate("Extérieur - pas de pente importante ou donnée inconnue"),
+        ),
+        Equipment(
+            slug="having_accessible_path",
+            manager=ErpQuerySet.having_accessible_path,
+            name=translate("Chemin accessible"),
         ),
         Equipment(
             slug="having_no_camber",
@@ -153,6 +168,11 @@ def get_equipments():
             name=translate("Entrée facilement repérable"),
         ),
         Equipment(slug="having_sound_beacon", manager=ErpQuerySet.having_sound_beacon, name=translate("Balise sonore")),
+        Equipment(
+            slug="having_entry_call_device",
+            manager=ErpQuerySet.having_entry_call_device,
+            name=translate("Dispositif d'appel à l'entrée"),
+        ),
         Equipment(
             slug="having_visible_reception",
             manager=ErpQuerySet.having_visible_reception,
@@ -219,12 +239,12 @@ def filter_erps_by_equipments(queryset, equipments: list):
 
 
 @dataclass
-class EquipmentGroup:
-    # TODO add icon
+class EquipmentsShortcut:
     name: str
     slug: str
     equipments: list
     suggestions: list
+    icon: str  # TODO @MLV check with Sophie if we'll use icons
 
     @property
     def equipments_as_list(self):
@@ -235,40 +255,41 @@ class EquipmentGroup:
         return ",".join([e.slug for e in self.suggestions])
 
 
-def get_equipments_groups():
-    # TODO review naming of groups (not sure what is the correct vocabulary in English)
-    for_pmr = EquipmentGroup(
-        name=translate("Incapacité à marcher"),
-        slug="pmr",
+def get_equipments_shortcuts():
+    wheeling_chair = EquipmentsShortcut(
+        name=translate("En fauteuil roulant"),
+        slug="wheeling_chair",
         equipments=[
-            # TODO @MLV : not exactly what is in the miro document was not able to find what is needed
+            get_equipment_by_slug("having_accessible_path"),
             get_equipment_by_slug("having_accessible_entry"),
             get_equipment_by_slug("having_potentially_all_at_ground_level"),
+            # TODO @MLV check this with Sophie, have the algo changed ??
         ],
         suggestions=[
             get_equipment_by_slug("having_public_transportation"),
             get_equipment_by_slug("having_adapted_parking"),
             get_equipment_by_slug("having_adapted_wc"),
             get_equipment_by_slug("having_accessible_rooms"),
-            # TODO @MLV : missing the "sonnette" filter ?
+            get_equipment_by_slug("having_entry_call_device"),
         ],
+        icon="",
     )
-    difficulty_walking = EquipmentGroup(
+    difficulty_walking = EquipmentsShortcut(
         name=translate("Difficulté à marcher"),
         slug="difficulty_walking",
         equipments=[
-            # TODO @MLV: could not find "stationnement ou TC a proximité"
-            # TODO @MLV: could not find "chemint ext adapté pour les mal marchands"
-            # TODO @MLV : missing having_nb_stairs_max for entry ?
-            get_equipment_by_slug("having_nb_stairs_max"),
+            get_equipment_by_slug("having_parking_or_public_transportation"),
+            get_equipment_by_slug("having_adapted_path"),
+            # TODO @MLV: check this with Sophie, can't find related algo for "chemin ext adapté aux mal marchants" + nb stairs
         ],
         suggestions=[],
+        icon="",
     )
-    difficulty_of_vision = EquipmentGroup(
+    difficulty_of_vision = EquipmentsShortcut(
         name=translate("Difficulté à voir"),
         slug="difficulty_walking",
         equipments=[
-            # TODO @MLV: could not find "stationnement ou TC a proximité"
+            get_equipment_by_slug("having_parking_or_public_transportation"),
             get_equipment_by_slug("having_trained_staff"),
         ],
         suggestions=[
@@ -277,17 +298,20 @@ def get_equipments_groups():
             get_equipment_by_slug("having_guide_band"),
             get_equipment_by_slug("having_sound_beacon"),
         ],
+        icon="",
     )
-    deaf_person = EquipmentGroup(
-        name=translate("Surdité totale"),
+    deaf_person = EquipmentsShortcut(
+        name=translate("Difficulté à entendre"),
         slug="deaf",
         equipments=[get_equipment_by_slug("having_trained_staff")],
         suggestions=[get_equipment_by_slug("having_hearing_equipments")],
+        icon="assistive-listening-system",
     )
-    hard_to_understand = EquipmentGroup(
+    hard_to_understand = EquipmentsShortcut(
         name=translate("Difficulté à comprendre"),
         slug="hard_to_understand",
         equipments=[get_equipment_by_slug("having_trained_staff")],
         suggestions=[],
+        icon="",
     )
-    return [for_pmr, difficulty_walking, difficulty_of_vision, deaf_person, hard_to_understand]
+    return [wheeling_chair, difficulty_walking, difficulty_of_vision, deaf_person, hard_to_understand]

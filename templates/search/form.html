@@ -72,15 +72,16 @@
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>
-            <div>
-                <h3>Raccourcis test</h3>
-                {% with request.GET|get_list:"equipments_group" as params %}
-                    {% for group in equipments_group %}
-                        {% include "search/tag_with_label.html" with slug=group.slug params=params name=group.name eventType="groupLabelClicked" input_name="equipmentsGroups" children_list=group.equipments_as_list suggestions_list=group.suggestions_as_list %}
+            <div class="fr-checkbox-group row equipments">
+                <span class="m-2">{% translate "Adaptés à" %}</span>
+                {% with request.GET|get_list:"equipments_shortcuts" as params %}
+                    {% for shortcut in equipments_shortcuts %}
+                        {% include "search/tag_with_label.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutLabelClicked" input_name="equipmentsShortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
                     {% endfor %}
                 {% endwith %}
             </div>
             <div class="fr-checkbox-group row equipments">
+                <span class="m-2">{% translate "Equipements disponibles" %}</span>
                 {% with request.GET|get_list:"equipments" as equipment_params %}
                     {% for label_slug, label in equipments.items %}
                         {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="filterAdded" name=label.name extra_classes="hidden" %}

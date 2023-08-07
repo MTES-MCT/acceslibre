@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 10:49+0200\n"
-"PO-Revision-Date: 2023-07-19 15:27+0200\n"
+"POT-Creation-Date: 2023-08-07 16:44+0200\n"
+"PO-Revision-Date: 2023-08-07 16:44+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -814,11 +814,17 @@ msgstr "Parking nearby"
 msgid "Transport en commun à proximité"
 msgstr "Public transport nearby"
 
+msgid "Transport en commun ou parking à proximité"
+msgstr "Public transport or parking nearby"
+
 msgid "Stationnement PMR (dans l'établissement ou à proximité)"
 msgstr "PRM parking (on site or nearby)"
 
 msgid "Pas de chemin extérieur ou donnée inconnue"
 msgstr "No external path or unknown data"
+
+msgid "Chemin adapté"
+msgstr "Adapted path"
 
 msgid "Extérieur - revêtement stable ou donnée inconnue"
 msgstr "Exterior - stable coating or unknown data"
@@ -828,6 +834,9 @@ msgstr "Outdoor - ground level or accessible via ramp or elevator"
 
 msgid "Extérieur - pas de pente importante ou donnée inconnue"
 msgstr "Exterior - no significant slope or unknown data"
+
+msgid "Chemin accessible"
+msgstr "Accessible path"
 
 msgid "Extérieur - pas de dévers important ou donnée inconnue"
 msgstr "Exterior - no significant slope or unknown data"
@@ -849,6 +858,9 @@ msgstr "Door width greater than 80cm or unknown data"
 
 msgid "Balise sonore"
 msgstr "audio location device"
+
+msgid "Dispositif d'appel à l'entrée"
+msgstr "Calling device at the entrance"
 
 msgid "Visibilité de l'accueil depuis l'entrée"
 msgstr "Visibility of reception area from entrance"
@@ -879,6 +891,21 @@ msgstr "PRM toilet"
 
 msgid "Établissement labellisé"
 msgstr "Labeled facility"
+
+msgid "En fauteuil roulant"
+msgstr "In a wheelchair"
+
+msgid "Difficulté à marcher"
+msgstr "Difficulty walking"
+
+msgid "Difficulté à voir"
+msgstr "Difficulty seeing"
+
+msgid "Difficulté à entendre"
+msgstr "Difficulty hearing"
+
+msgid "Difficulté à comprendre"
+msgstr "Difficulty understanding"
 
 msgid "Inconnu"
 msgstr "Unknown"
@@ -1572,9 +1599,6 @@ msgstr "No stairs"
 
 msgid "Repérage des marches"
 msgstr "Identification of the steps"
-
-msgid "Dispositif d'appel à l'entrée"
-msgstr "Calling device at the entrance"
 
 msgid ""
 "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à "
@@ -4327,6 +4351,12 @@ msgstr "Search for a facility, an activity. Example : Mairie, Café"
 
 msgid "<strong>Où</strong> (adresse, ville)"
 msgstr "<strong>Where</strong> (address, city)"
+
+msgid "Adaptés à"
+msgstr "Adapted to"
+
+msgid "Equipements disponibles"
+msgstr "Available equipments"
 
 msgid "Résultats pour"
 msgstr "Results for"

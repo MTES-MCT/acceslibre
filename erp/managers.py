@@ -213,13 +213,20 @@ class ErpQuerySet(models.QuerySet):
     def having_adapted_parking(self):
         return self.filter(Q(accessibilite__stationnement_pmr=True) | Q(accessibilite__stationnement_ext_pmr=True))
 
-    def having_parking(self):
-        return self.filter(
-            Q(accessibilite__stationnement_presence=True) | Q(accessibilite__stationnement_ext_presence=True)
-        )
+    def having_parking(self, as_q=False):
+        parking = Q(accessibilite__stationnement_presence=True) | Q(accessibilite__stationnement_ext_presence=True)
+        if as_q:
+            return parking
+        return self.filter(parking)
 
-    def having_public_transportation(self):
-        return self.filter(accessibilite__transport_station_presence=True)
+    def having_public_transportation(self, as_q=False):
+        public_transp = Q(accessibilite__transport_station_presence=True)
+        if as_q:
+            return public_transp
+        return self.filter(public_transp)
+
+    def having_parking_or_public_transportation(self):
+        return self.filter(self.having_public_transportation(as_q=True) | self.having_parking(as_q=True))
 
     def having_nb_stairs_max(self, max_included: int = 1):
         return self.filter(
@@ -424,6 +431,9 @@ class ErpQuerySet(models.QuerySet):
 
     def having_sound_beacon(self):
         return self.filter(accessibilite__entree_balise_sonore=True)
+
+    def having_entry_call_device(self):
+        return self.filter(accessibilite__entree_dispositif_appel=True)
 
     def having_adapted_wc(self):
         return self.filter(accessibilite__sanitaires_adaptes__gte=1)

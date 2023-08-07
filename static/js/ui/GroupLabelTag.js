@@ -27,8 +27,8 @@ function _toogle_suggestions(suggestions) {
   }
 }
 
-function ListenToGroupLabelClicked() {
-  document.addEventListener('groupLabelClicked', function (event) {
+function ListenToshortcutLabelClicked() {
+  document.addEventListener('shortcutLabelClicked', function (event) {
     let equipmentsGroup = event.detail.source
     let children = equipmentsGroup.getAttribute('data-children').split(',')
     const needRefresh = _toogle_children(children)
@@ -41,4 +41,4 @@ function ListenToGroupLabelClicked() {
   })
 }
 
-export default ListenToGroupLabelClicked
+export default ListenToshortcutLabelClicked
