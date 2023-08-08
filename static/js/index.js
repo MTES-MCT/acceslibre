@@ -70,4 +70,4 @@ window.onload = function () {
   }
 }
 
-ui.ListenToshortcutLabelClicked()
+ui.listenToLabelEvents()
