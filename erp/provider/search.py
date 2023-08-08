@@ -218,18 +218,14 @@ def get_equipments():
     return {eq.slug: eq for eq in equipments}
 
 
-def get_equipment_by_slug(slug: str):
-    if not slug:
-        return None
-    return get_equipments().get(slug)
-
-
 def filter_erps_by_equipments(queryset, equipments: list):
     if not equipments:
         return queryset
 
+    all_equipments = get_equipments()
+
     for eq_slug in equipments:
-        equipment = get_equipment_by_slug(eq_slug)
+        equipment = all_equipments.get(eq_slug)
         if not equipment:
             continue
 
@@ -256,21 +252,22 @@ class EquipmentsShortcut:
 
 
 def get_equipments_shortcuts():
+    all_equipments = get_equipments()
     wheeling_chair = EquipmentsShortcut(
         name=translate("En fauteuil roulant"),
         slug="wheeling_chair",
         equipments=[
-            get_equipment_by_slug("having_accessible_path"),
-            get_equipment_by_slug("having_accessible_entry"),
-            get_equipment_by_slug("having_potentially_all_at_ground_level"),
+            all_equipments.get("having_accessible_path"),
+            all_equipments.get("having_accessible_entry"),
+            all_equipments.get("having_potentially_all_at_ground_level"),
             # TODO @MLV check this with Sophie, have the algo changed ??
         ],
         suggestions=[
-            get_equipment_by_slug("having_public_transportation"),
-            get_equipment_by_slug("having_adapted_parking"),
-            get_equipment_by_slug("having_adapted_wc"),
-            get_equipment_by_slug("having_accessible_rooms"),
-            get_equipment_by_slug("having_entry_call_device"),
+            all_equipments.get("having_public_transportation"),
+            all_equipments.get("having_adapted_parking"),
+            all_equipments.get("having_adapted_wc"),
+            all_equipments.get("having_accessible_rooms"),
+            all_equipments.get("having_entry_call_device"),
         ],
         icon="",
     )
@@ -278,8 +275,8 @@ def get_equipments_shortcuts():
         name=translate("Difficulté à marcher"),
         slug="difficulty_walking",
         equipments=[
-            get_equipment_by_slug("having_parking_or_public_transportation"),
-            get_equipment_by_slug("having_adapted_path"),
+            all_equipments.get("having_parking_or_public_transportation"),
+            all_equipments.get("having_adapted_path"),
             # TODO @MLV: check this with Sophie, can't find related algo for "chemin ext adapté aux mal marchants" + nb stairs
         ],
         suggestions=[],
@@ -289,28 +286,28 @@ def get_equipments_shortcuts():
         name=translate("Difficulté à voir"),
         slug="difficulty_walking",
         equipments=[
-            get_equipment_by_slug("having_parking_or_public_transportation"),
-            get_equipment_by_slug("having_trained_staff"),
+            all_equipments.get("having_parking_or_public_transportation"),
+            all_equipments.get("having_trained_staff"),
         ],
         suggestions=[
-            get_equipment_by_slug("having_visible_reception"),
-            get_equipment_by_slug("having_audiodescription"),
-            get_equipment_by_slug("having_guide_band"),
-            get_equipment_by_slug("having_sound_beacon"),
+            all_equipments.get("having_visible_reception"),
+            all_equipments.get("having_audiodescription"),
+            all_equipments.get("having_guide_band"),
+            all_equipments.get("having_sound_beacon"),
         ],
         icon="",
     )
     deaf_person = EquipmentsShortcut(
         name=translate("Difficulté à entendre"),
         slug="deaf",
-        equipments=[get_equipment_by_slug("having_trained_staff")],
-        suggestions=[get_equipment_by_slug("having_hearing_equipments")],
+        equipments=[all_equipments.get("having_trained_staff")],
+        suggestions=[all_equipments.get("having_hearing_equipments")],
         icon="assistive-listening-system",
     )
     hard_to_understand = EquipmentsShortcut(
         name=translate("Difficulté à comprendre"),
         slug="hard_to_understand",
-        equipments=[get_equipment_by_slug("having_trained_staff")],
+        equipments=[all_equipments.get("having_trained_staff")],
         suggestions=[],
         icon="",
     )

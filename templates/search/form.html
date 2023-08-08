@@ -72,7 +72,7 @@
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>
-            <div class="fr-checkbox-group row equipments">
+            <div class="fr-checkbox-group row equipments equiments-shortcuts">
                 <span class="m-2">{% translate "Adaptés à" %}</span>
                 {% with request.GET|get_list:"equipments_shortcuts" as params %}
                     {% for shortcut in equipments_shortcuts %}
@@ -85,6 +85,14 @@
                 {% with request.GET|get_list:"equipments" as equipment_params %}
                     {% for label_slug, label in equipments.items %}
                         {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="filterAdded" name=label.name extra_classes="hidden" %}
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="fr-checkbox-group row equipments">
+                <span class="m-2">{% translate "Tous les équipements" %}</span>
+                {% with request.GET|get_list:"equipments" as equipment_params %}
+                    {% for label_slug, label in equipments.items %}
+                        {% include "search/tag_with_label_wo_form.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="filterAdded" name=label.name %}
                     {% endfor %}
                 {% endwith %}
             </div>
