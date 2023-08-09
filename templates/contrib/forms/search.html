@@ -43,8 +43,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field text-left"
-                 style="z-index:9999">
+            <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field text-left">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Adresse ou commune" %}</strong></span>
                     <br>
@@ -124,8 +123,7 @@
                         <button class="fr-tag a4a-label-tag mb-1"
                                 aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
                                 data-fr-js-toggle="true"
-                                type="button"
-                                data-for-input="{{ label_slug }}">{{ label.name }}</button>
+                                type="button">{{ label.name }}</button>
                     {% endfor %}
                 {% endwith %}
             </div>

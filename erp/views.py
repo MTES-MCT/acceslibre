@@ -33,7 +33,7 @@ from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
-from erp.provider.search import filter_erps_by_equipments, get_equipments
+from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
 from stats.models import Challenge
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -278,6 +278,11 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
+        "equipments_shortcuts": get_equipments_shortcuts()
+        if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
+        else [],
+        # TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
+        # This will automatically make the suggestions displayed at the end of the list ?
         "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
     }
     return render(request, "search/results.html", context=context)

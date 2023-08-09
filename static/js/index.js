@@ -37,7 +37,6 @@ window.SentryIntegrations = Integrations
 import dom from './dom'
 import geo from './geo'
 import ui from './ui'
-import api from './api'
 
 // Initializations
 dom.ready(() => {
@@ -70,3 +69,5 @@ window.onload = function () {
     })
   }
 }
+
+ui.listenToLabelEvents()

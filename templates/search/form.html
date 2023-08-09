@@ -22,8 +22,7 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field text-left"
-                 style="z-index:9999">
+            <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field text-left">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Où</strong> (adresse, ville)" %}</span>
                     <br>
@@ -72,24 +71,53 @@
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>
-            <div class="fr-checkbox-group row equipments">
-                {% with request.GET|get_list:"equipments" as equipment_params %}
-                    {% for label_slug, label in equipments.items %}
-                        <input type="checkbox"
-                               id="{{ label_slug }}"
-                               name="equipments"
-                               class="hidden"
-                               value="{{ label_slug }}"
-                               {% if label_slug in equipment_params %}checked{% endif %}>
-                        <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
-                        <button class="fr-tag a4a-label-tag mb-1"
-                                aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
-                                data-fr-js-toggle="true"
-                                type="button"
-                                data-for-input="{{ label_slug }}">{{ label.name }}</button>
-                    {% endfor %}
-                {% endwith %}
-            </div>
+            {% if equipments_shortcuts or equipments %}
+                <div class="fr-checkbox-group row equipments equiments-shortcuts">
+                    <span class="m-2">{% translate "Adaptés à" %}</span>
+                    {% with request.GET|get_list:"equipments_shortcuts" as params %}
+                        {% for shortcut in equipments_shortcuts %}
+                            {% include "search/tag_with_label.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutLabelClicked" input_name="equipmentsShortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
+                        {% endfor %}
+                    {% endwith %}
+                </div>
+                <div class="fr-checkbox-group row equipments">
+                    <span class="m-2">{% translate "Equipements disponibles" %}</span>
+                    {% with request.GET|get_list:"equipments" as equipment_params %}
+                        {% for label_slug, label in equipments.items %}
+                            {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name extra_classes="hidden" %}
+                        {% endfor %}
+                    {% endwith %}
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#equipmentsmodal">{% translate "Ajouter des équipements" %}</button>
+                </div>
+                <div class="modal" id="equipmentsmodal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="fr-h5 modal-title">{% translate "Tous les équipements" %}</h3>
+                                <button type="button"
+                                        title="Fermer la fenêtre"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="{% translate "Fermer" %}">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-left">
+                                <div class="fr-checkbox-group row equipments">
+                                    {% with request.GET|get_list:"equipments" as equipment_params %}
+                                        {% for label_slug, label in equipments.items %}
+                                            {% include "search/tag_with_label_wo_form.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
+                                        {% endfor %}
+                                    {% endwith %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </form>
