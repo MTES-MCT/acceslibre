@@ -1,4 +1,4 @@
-<span class="{{ extra_classes }}">
+<span {% if input_name == "equipments" and slug not in params %}class="hidden"{% endif %}>
     <input type="checkbox"
            id="{{ slug }}"
            name="{{ input_name }}"

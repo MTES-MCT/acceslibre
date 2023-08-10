@@ -1,4 +1,5 @@
 function _toggleChild(parent) {
+  // TODO would be safer to explicitely hide / display rather than toggle, we would avoid a desync
   let inputFilter = parent.querySelector('input')
   inputFilter.checked = !inputFilter.checked
 
