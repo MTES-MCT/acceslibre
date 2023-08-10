@@ -102,7 +102,7 @@ def get_equipments():
         Equipment(
             slug="having_no_path",
             manager=ErpQuerySet.having_no_path,
-            name=translate("Pas de chemin extérieur ou donnée inconnue"),
+            name=translate("Pas de chemin extérieur ou information inconnue"),
         ),
         Equipment(
             slug="having_adapted_path",
@@ -112,7 +112,7 @@ def get_equipments():
         Equipment(
             slug="having_proper_surface",
             manager=ErpQuerySet.having_proper_surface,
-            name=translate("Extérieur - revêtement stable ou donnée inconnue"),
+            name=translate("Extérieur - revêtement stable ou information inconnue"),
         ),
         Equipment(
             slug="having_path_low_stairs",
@@ -122,7 +122,7 @@ def get_equipments():
         Equipment(
             slug="having_no_slope",
             manager=ErpQuerySet.having_no_slope,
-            name=translate("Extérieur - pas de pente importante ou donnée inconnue"),
+            name=translate("Extérieur - pas de pente importante ou information inconnue"),
         ),
         Equipment(
             slug="having_accessible_path",
@@ -132,12 +132,12 @@ def get_equipments():
         Equipment(
             slug="having_no_camber",
             manager=ErpQuerySet.having_no_camber,
-            name=translate("Extérieur - pas de dévers important ou donnée inconnue"),
+            name=translate("Extérieur - pas de dévers important ou information inconnue"),
         ),
         Equipment(
             slug="having_no_shrink",
             manager=ErpQuerySet.having_no_shrink,
-            name=translate("Extérieur - aucun rétrécissement ou donnée inconnue"),
+            name=translate("Extérieur - aucun rétrécissement ou information inconnue"),
         ),
         Equipment(
             slug="having_nb_stairs_max", manager=ErpQuerySet.having_nb_stairs_max, name=translate("Maximum 1 marche")
@@ -155,7 +155,7 @@ def get_equipments():
         Equipment(
             slug="having_entry_min_width",
             manager=ErpQuerySet.having_entry_min_width,
-            name=translate("Largeur de porte supérieure à 80cm ou donnée inconnue"),
+            name=translate("Largeur de porte supérieure à 80cm ou information inconnue"),
         ),
         Equipment(
             slug="having_adapted_entry",
@@ -198,13 +198,13 @@ def get_equipments():
             slug="having_potentially_all_at_ground_level",
             manager=ErpQuerySet.having_potentially_all_at_ground_level,
             name=translate(
-                "Chemin de plain pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou donnée inconnue"
+                "Chemin de plain pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou information inconnue"
             ),
         ),
         Equipment(
             slug="having_entry_no_shrink",
             manager=ErpQuerySet.having_entry_no_shrink,
-            name=translate("Chemin sans rétrécissement jusqu'à l'accueil ou donnée inconnue"),
+            name=translate("Chemin sans rétrécissement jusqu'à l'accueil ou information inconnue"),
         ),
         Equipment(
             slug="having_accessible_rooms",

@@ -53,6 +53,7 @@ function listenToLabelEvents() {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
     _toggleChildren([equipmentSlug], event.detail.source.getAttribute('aria-pressed') === 'true')
     document.dispatchEvent(new Event('filterAdded'))
+    // TODO if all equipments of a shortcut are unchecked, then uncheck the shortcut
   })
 }
 
