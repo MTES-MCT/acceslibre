@@ -84,7 +84,7 @@
                     <span class="m-2">{% translate "Equipements disponibles" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
-                            {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name extra_classes="hidden" %}
+                            {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
                         {% endfor %}
                     {% endwith %}
                     <button type="button"
@@ -109,7 +109,7 @@
                                 <div class="fr-checkbox-group row equipments">
                                     {% with request.GET|get_list:"equipments" as equipment_params %}
                                         {% for label_slug, label in equipments.items %}
-                                            {% include "search/tag_with_label_wo_form.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
+                                            {% include "search/tag_with_label_clone.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
                                         {% endfor %}
                                     {% endwith %}
                                 </div>

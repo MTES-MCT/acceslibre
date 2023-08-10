@@ -141,7 +141,7 @@ def get_equipments():
         ),
         Equipment(
             slug="having_nb_stairs_max", manager=ErpQuerySet.having_nb_stairs_max, name=translate("Maximum 1 marche")
-        ),  # TODO make the same for entry/reception/ext
+        ),
         Equipment(
             slug="having_guide_band",
             manager=ErpQuerySet.having_guide_band,
