@@ -30,7 +30,7 @@ function generateHTMLForResult(result) {
             </a>
         </div>
         <div aria-hidden="true">
-            <small class="font-weight-bold text-muted">${activity_name}</small>
+            <small class="font-weight-bold">${activity_name}</small>
             <address class="d-inline mb-0">
                 <small>${result.properties.adresse}</small>
             </address>

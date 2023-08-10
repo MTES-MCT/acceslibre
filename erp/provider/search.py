@@ -117,7 +117,7 @@ def get_equipments():
         Equipment(
             slug="having_path_low_stairs",
             manager=ErpQuerySet.having_path_low_stairs,
-            name=translate("Extérieur - plain pied ou accessible via rampe ou ascenseur"),
+            name=translate("Extérieur - plain-pied ou accessible via rampe ou ascenseur"),
         ),
         Equipment(
             slug="having_no_slope",
@@ -150,7 +150,7 @@ def get_equipments():
         Equipment(
             slug="having_accessible_entry",
             manager=ErpQuerySet.having_accessible_entry,
-            name=translate("Entrée de plain pied ou accessible via rampe ou ascenseur"),
+            name=translate("Entrée de plain-pied ou accessible via rampe ou ascenseur"),
         ),
         Equipment(
             slug="having_entry_min_width",
@@ -198,7 +198,7 @@ def get_equipments():
             slug="having_potentially_all_at_ground_level",
             manager=ErpQuerySet.having_potentially_all_at_ground_level,
             name=translate(
-                "Chemin de plain pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou information inconnue"
+                "Chemin de plain-pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou information inconnue"
             ),
         ),
         Equipment(
