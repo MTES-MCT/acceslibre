@@ -76,7 +76,7 @@
                     <span class="m-2">{% translate "Adaptés à" %}</span>
                     {% with request.GET|get_list:"equipments_shortcuts" as params %}
                         {% for shortcut in equipments_shortcuts %}
-                            {% include "search/tag_with_label.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutLabelClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
+                            {% include "search/tag_with_label.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
                         {% endfor %}
                     {% endwith %}
                 </div>
