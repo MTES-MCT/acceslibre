@@ -151,6 +151,10 @@ select[name='language'] {
   z-index: 9999;
 }
 
+.autocomplete-result-list {
+  z-index: 2 !important;
+}
+
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
