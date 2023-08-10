@@ -380,7 +380,7 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
 }
 
 function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
-  document.addEventListener('filterAdded', async function () {
+  document.addEventListener('filterChanged', async function () {
     refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
   })
 }

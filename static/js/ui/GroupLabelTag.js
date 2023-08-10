@@ -29,8 +29,30 @@ function _toggleSuggestions(shortcut, suggestions) {
     parent.classList.toggle('hidden')
   })
 }
+
+function _checkForShortcutToHide() {
+  let shortcutsDisplayed = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
+  shortcutsDisplayed.forEach(function (shortcut) {
+    let allChildrenUnchecked = true
+    let children = shortcut.parentNode.querySelector('button').getAttribute('data-children').split(',')
+    children.forEach(function (child) {
+      if (allChildrenUnchecked) {
+        let displayed = document.querySelector(`input[value=${child}]`).checked
+        if (displayed) {
+          allChildrenUnchecked = false
+        }
+      }
+    })
+
+    if (allChildrenUnchecked) {
+      shortcut.checked = false
+      shortcut.parentNode.querySelector('button').setAttribute('aria-pressed', false)
+    }
+  })
+}
+
 function listenToLabelEvents() {
-  document.addEventListener('shortcutLabelClicked', function (event) {
+  document.addEventListener('shortcutClicked', function (event) {
     let equipmentsShortcut = event.detail.source
     let display = equipmentsShortcut.getAttribute('aria-pressed') === 'true'
     let input = equipmentsShortcut.parentNode.querySelector('input')
@@ -45,15 +67,19 @@ function listenToLabelEvents() {
     }
 
     if (children) {
-      document.dispatchEvent(new Event('filterAdded'))
+      document.dispatchEvent(new Event('filterChanged'))
     }
   })
 
   document.addEventListener('equipmentClicked', function (event) {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
-    _toggleChildren([equipmentSlug], event.detail.source.getAttribute('aria-pressed') === 'true')
-    document.dispatchEvent(new Event('filterAdded'))
-    // TODO if all equipments of a shortcut are unchecked, then uncheck the shortcut
+    let display = event.detail.source.getAttribute('aria-pressed') === 'true'
+    _toggleChildren([equipmentSlug], display)
+    document.dispatchEvent(new Event('filterChanged'))
+
+    if (!display) {
+      _checkForShortcutToHide()
+    }
   })
 }
 
