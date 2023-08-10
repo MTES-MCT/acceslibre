@@ -284,7 +284,7 @@ def get_equipments_shortcuts():
     )
     difficulty_of_vision = EquipmentsShortcut(
         name=translate("Difficulté à voir"),
-        slug="difficulty_walking",
+        slug="difficulty_of_vision",
         equipments=[
             all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_trained_staff"),
