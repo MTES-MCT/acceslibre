@@ -271,6 +271,8 @@ def search(request):
     pager = paginator.get_page(request.GET.get("page") or 1)
     pager_base_url = url.encode_qs(**filters)
 
+    equipment_filters_feature = waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
+
     context = {
         **filters,
         "pager": pager,
@@ -278,12 +280,10 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
-        "equipments_shortcuts": get_equipments_shortcuts()
-        if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
-        else [],
+        "equipments_shortcuts": get_equipments_shortcuts() if equipment_filters_feature else [],
         # TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
         # This will automatically make the suggestions displayed at the end of the list ?
-        "equipments": get_equipments() if waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request) else [],
+        "equipments": get_equipments() if equipment_filters_feature else [],
     }
     return render(request, "search/results.html", context=context)
 

@@ -32,9 +32,12 @@ function _toggleSuggestions(shortcut, suggestions) {
 function listenToLabelEvents() {
   document.addEventListener('shortcutLabelClicked', function (event) {
     let equipmentsShortcut = event.detail.source
+    let display = equipmentsShortcut.getAttribute('aria-pressed') === 'true'
+    let input = equipmentsShortcut.parentNode.querySelector('input')
+    input.checked = display
     let children = equipmentsShortcut.getAttribute('data-children').split(',')
     let suggestions = equipmentsShortcut.getAttribute('data-suggestions')
-    _toggleChildren(children, equipmentsShortcut.getAttribute('aria-pressed') === 'true')
+    _toggleChildren(children, display)
 
     if (suggestions) {
       suggestions = suggestions.split(',')
