@@ -120,6 +120,16 @@ def get_equipments():
             name=translate("Extérieur - plain-pied ou accessible via rampe ou ascenseur"),
         ),
         Equipment(
+            slug="having_entry_low_stairs",
+            manager=ErpQuerySet.having_entry_low_stairs,
+            name=translate("Nb marches entrée <= 1"),
+        ),
+        Equipment(
+            slug="having_reception_low_stairs",
+            manager=ErpQuerySet.having_reception_low_stairs,
+            name=translate("Nb marches accueil <= 1"),
+        ),
+        Equipment(
             slug="having_no_slope",
             manager=ErpQuerySet.having_no_slope,
             name=translate("Extérieur - pas de pente importante ou information inconnue"),
@@ -151,6 +161,11 @@ def get_equipments():
             slug="having_accessible_entry",
             manager=ErpQuerySet.having_accessible_entry,
             name=translate("Entrée de plain-pied ou accessible via rampe ou ascenseur"),
+        ),
+        Equipment(
+            slug="having_accessible_path_to_reception",
+            manager=ErpQuerySet.having_accessible_path_to_reception,
+            name=translate("Chemin vers l'accueil accessible"),
         ),
         Equipment(
             slug="having_entry_min_width",
@@ -259,8 +274,7 @@ def get_equipments_shortcuts():
         equipments=[
             all_equipments.get("having_accessible_path"),
             all_equipments.get("having_accessible_entry"),
-            all_equipments.get("having_potentially_all_at_ground_level"),
-            # TODO @MLV check this with Sophie, have the algo changed ??
+            all_equipments.get("having_accessible_path_to_reception"),
         ],
         suggestions=[
             all_equipments.get("having_public_transportation"),
@@ -277,7 +291,8 @@ def get_equipments_shortcuts():
         equipments=[
             all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_adapted_path"),
-            # TODO @MLV: check this with Sophie, can't find related algo for "chemin ext adapté aux mal marchants" + nb stairs
+            all_equipments.get("having_entry_low_stairs"),
+            all_equipments.get("having_reception_low_stairs"),
         ],
         suggestions=[],
         icon="diff-walking",

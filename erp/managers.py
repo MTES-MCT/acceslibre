@@ -319,8 +319,22 @@ class ErpQuerySet(models.QuerySet):
         )
         return self.filter(self.having_no_path(as_q=True) | accessible_path)
 
-    def having_adapted_path(self):
+    def having_accessible_path_to_reception(self):
+        having_path = Q(accessibilite__cheminement_ext_presence=True)
         with_ramp = (
+            Q(accessibilite__cheminement_ext_ascenseur=True)
+            | Q(accessibilite__cheminement_ext_rampe="fixe")
+            | Q(accessibilite__cheminement_ext_rampe="amovible")
+        )
+
+        ground_level_or_ramp = (
+            Q(accessibilite__cheminement_ext_plain_pied=True)
+            | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
+        ) | with_ramp
+        return self.filter(having_path & self.having_no_shrink(as_q=True) & ground_level_or_ramp)
+
+    def having_adapted_path(self):
+        with_ramp_or_elevator = (
             Q(accessibilite__cheminement_ext_ascenseur=True)
             | Q(accessibilite__cheminement_ext_rampe="fixe")
             | Q(accessibilite__cheminement_ext_rampe="amovible")
@@ -328,7 +342,7 @@ class ErpQuerySet(models.QuerySet):
         with_stairs = Q(accessibilite__cheminement_ext_nombre_marches__gt=1) | Q(
             accessibilite__cheminement_ext_nombre_marches__isnull=True
         )
-        with_low_stairs_or_ramp = with_stairs | with_ramp
+        with_low_stairs_or_ramp = with_stairs | with_ramp_or_elevator
         adapted_stairs = with_low_stairs_or_ramp | Q(accessibilite__cheminement_ext_nombre_marches__lte=1)
         ground_level = (
             Q(accessibilite__cheminement_ext_plain_pied=True)
