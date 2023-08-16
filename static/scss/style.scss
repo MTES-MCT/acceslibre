@@ -1189,3 +1189,42 @@ div.equipments button {
     transform: none !important;
   }
 }
+
+// icons for tag filters
+.tag-picto {
+  &:before {
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+    content: '';
+    background-color: var(--background-action-high-blue-france);
+  }
+  &[aria-pressed='true']:before {
+    background-color: white;
+  }
+
+  &-wheelchair:before {
+    -webkit-mask-image: url('/img/fauteuil.svg');
+    mask-image: url('/img/fauteuil.svg');
+  }
+
+  &-diff-walking:before {
+    -webkit-mask-image: url('/img/cane.svg');
+    mask-image: url('/img/cane.svg');
+  }
+
+  &-diff-vision:before {
+    -webkit-mask-image: url('/img/cessite.svg');
+    mask-image: url('/img/cessite.svg');
+  }
+
+  &-deaf:before {
+    -webkit-mask-image: url('/img/surdite.svg');
+    mask-image: url('/img/surdite.svg');
+  }
+
+  &-diff-understand:before {
+    -webkit-mask-image: url('/img/communication.svg');
+    mask-image: url('/img/communication.svg');
+  }
+}

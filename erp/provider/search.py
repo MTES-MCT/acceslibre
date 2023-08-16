@@ -240,7 +240,7 @@ class EquipmentsShortcut:
     slug: str
     equipments: list
     suggestions: list
-    icon: str  # TODO @MLV check with Sophie if we'll use icons
+    icon: str
 
     @property
     def equipments_as_list(self):
@@ -269,7 +269,7 @@ def get_equipments_shortcuts():
             all_equipments.get("having_accessible_rooms"),
             all_equipments.get("having_entry_call_device"),
         ],
-        icon="",
+        icon="wheelchair",
     )
     difficulty_walking = EquipmentsShortcut(
         name=translate("Difficulté à marcher"),
@@ -280,7 +280,7 @@ def get_equipments_shortcuts():
             # TODO @MLV: check this with Sophie, can't find related algo for "chemin ext adapté aux mal marchants" + nb stairs
         ],
         suggestions=[],
-        icon="",
+        icon="diff-walking",
     )
     difficulty_of_vision = EquipmentsShortcut(
         name=translate("Difficulté à voir"),
@@ -295,20 +295,20 @@ def get_equipments_shortcuts():
             all_equipments.get("having_guide_band"),
             all_equipments.get("having_sound_beacon"),
         ],
-        icon="",
+        icon="diff-vision",
     )
     deaf_person = EquipmentsShortcut(
         name=translate("Difficulté à entendre"),
         slug="deaf",
         equipments=[all_equipments.get("having_trained_staff")],
         suggestions=[all_equipments.get("having_hearing_equipments")],
-        icon="assistive-listening-system",
+        icon="deaf",
     )
     hard_to_understand = EquipmentsShortcut(
         name=translate("Difficulté à comprendre"),
         slug="hard_to_understand",
         equipments=[all_equipments.get("having_trained_staff")],
         suggestions=[],
-        icon="",
+        icon="diff-understand",
     )
     return [wheeling_chair, difficulty_walking, difficulty_of_vision, deaf_person, hard_to_understand]
