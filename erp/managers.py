@@ -320,18 +320,21 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(self.having_no_path(as_q=True) | accessible_path)
 
     def having_accessible_path_to_reception(self):
-        having_path = Q(accessibilite__cheminement_ext_presence=True)
+        no_shrink = Q(accessibilite__accueil_retrecissement=False) | Q(
+            accessibilite__accueil_retrecissement__isnull=True
+        )
+
         with_ramp = (
-            Q(accessibilite__cheminement_ext_ascenseur=True)
-            | Q(accessibilite__cheminement_ext_rampe="fixe")
-            | Q(accessibilite__cheminement_ext_rampe="amovible")
+            Q(accessibilite__accueil_cheminement_ascenseur=True)
+            | Q(accessibilite__accueil_cheminement_rampe="fixe")
+            | Q(accessibilite__accueil_cheminement_rampe="amovible")
         )
 
         ground_level_or_ramp = (
-            Q(accessibilite__cheminement_ext_plain_pied=True)
-            | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
+            Q(accessibilite__accueil_cheminement_plain_pied=True)
+            | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True)
         ) | with_ramp
-        return self.filter(having_path & self.having_no_shrink(as_q=True) & ground_level_or_ramp)
+        return self.filter(no_shrink & ground_level_or_ramp)
 
     def having_adapted_path(self):
         with_ramp_or_elevator = (
