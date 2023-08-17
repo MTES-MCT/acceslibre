@@ -228,27 +228,6 @@ class ErpQuerySet(models.QuerySet):
     def having_parking_or_public_transportation(self):
         return self.filter(self.having_public_transportation(as_q=True) | self.having_parking(as_q=True))
 
-    def having_nb_stairs_max(self, max_included: int = 1):
-        return self.filter(
-            Q(accessibilite__cheminement_ext_nombre_marches__lte=max_included)
-            | Q(accessibilite__cheminement_ext_nombre_marches__isnull=True),
-            Q(accessibilite__accueil_cheminement_nombre_marches__lte=max_included)
-            | Q(accessibilite__accueil_cheminement_nombre_marches__isnull=True),
-            Q(accessibilite__entree_marches__lte=max_included) | Q(accessibilite__entree_marches__isnull=True),
-        )
-
-    def having_potentially_all_at_ground_level(self, as_q=False):
-        ground_level = Q(
-            Q(accessibilite__accueil_cheminement_plain_pied=True)
-            | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True),
-            Q(accessibilite__accueil_cheminement_plain_pied=True)
-            | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True),
-            Q(accessibilite__entree_plain_pied=True) | Q(accessibilite__entree_plain_pied__isnull=True),
-        )
-        if as_q:
-            return ground_level
-        return self.filter(ground_level)
-
     def having_no_path(self, as_q=False):
         no_path = Q(accessibilite__cheminement_ext_presence=False) | Q(
             accessibilite__cheminement_ext_presence__isnull=True
@@ -298,11 +277,11 @@ class ErpQuerySet(models.QuerySet):
             return camber
         return self.filter(camber)
 
-    def having_accessible_path(self):
+    def having_accessible_exterior_path(self):
         with_ramp = (
-            Q(accessibilite__accueil_cheminement_ascenseur=True)
-            | Q(accessibilite__accueil_cheminement_rampe="fixe")
-            | Q(accessibilite__accueil_cheminement_rampe="amovible")
+            Q(accessibilite__cheminement_ext_ascenseur=True)
+            | Q(accessibilite__cheminement_ext_rampe="fixe")
+            | Q(accessibilite__cheminement_ext_rampe="amovible")
         )
         ground_level = (
             Q(accessibilite__cheminement_ext_plain_pied=True)
@@ -324,17 +303,17 @@ class ErpQuerySet(models.QuerySet):
             accessibilite__accueil_retrecissement__isnull=True
         )
 
-        with_ramp = (
+        with_ramp_or_elevator = (
             Q(accessibilite__accueil_cheminement_ascenseur=True)
             | Q(accessibilite__accueil_cheminement_rampe="fixe")
             | Q(accessibilite__accueil_cheminement_rampe="amovible")
         )
 
-        ground_level_or_ramp = (
+        ground_level_or_ramp_or_elevator = (
             Q(accessibilite__accueil_cheminement_plain_pied=True)
             | Q(accessibilite__accueil_cheminement_plain_pied__isnull=True)
-        ) | with_ramp
-        return self.filter(no_shrink & ground_level_or_ramp)
+        ) | with_ramp_or_elevator
+        return self.filter(no_shrink & ground_level_or_ramp_or_elevator)
 
     def having_adapted_path(self):
         with_ramp_or_elevator = (
@@ -345,8 +324,8 @@ class ErpQuerySet(models.QuerySet):
         with_stairs = Q(accessibilite__cheminement_ext_nombre_marches__gt=1) | Q(
             accessibilite__cheminement_ext_nombre_marches__isnull=True
         )
-        with_low_stairs_or_ramp = with_stairs | with_ramp_or_elevator
-        adapted_stairs = with_low_stairs_or_ramp | Q(accessibilite__cheminement_ext_nombre_marches__lte=1)
+        with_stairs_and_ramp_or_elevator = with_stairs & with_ramp_or_elevator
+        adapted_stairs = with_stairs_and_ramp_or_elevator | Q(accessibilite__cheminement_ext_nombre_marches__lte=1)
         ground_level = (
             Q(accessibilite__cheminement_ext_plain_pied=True)
             | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
@@ -370,7 +349,12 @@ class ErpQuerySet(models.QuerySet):
     def having_accessible_entry(self):
         specific = Q(accessibilite__entree_pmr=True)
         entry_min_width = self.having_entry_min_width(as_q=True)
-        ground_level = self.having_potentially_all_at_ground_level(as_q=True) & entry_min_width
+        ground_level = (
+            Q(
+                Q(accessibilite__entree_plain_pied=True) | Q(accessibilite__entree_plain_pied__isnull=True),
+            )
+            & entry_min_width
+        )
         elevator_floor = (
             Q(
                 accessibilite__entree_plain_pied=False,
@@ -390,34 +374,53 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(specific | ground_level | elevator_floor | ramp_level)
 
     def having_entry_low_stairs(self):
-        with_ramp = (
+        with_ramp_or_elevator = (
             Q(accessibilite__entree_ascenseur=True)
             | Q(accessibilite__entree_marches_rampe="fixe")
             | Q(accessibilite__entree_marches_rampe="amovible")
         )
-        ground_level = self.having_potentially_all_at_ground_level(as_q=True) | with_ramp
-
-        return self.filter(ground_level)
+        with_stairs = Q(accessibilite__entree_marches__gt=1) | Q(accessibilite__entree_marches__isnull=True)
+        with_stairs_and_ramp_or_elevator = with_stairs & with_ramp_or_elevator
+        adapted_stairs = with_stairs_and_ramp_or_elevator | Q(accessibilite__entree_marches__lte=1)
+        ground_level = Q(accessibilite__entree_plain_pied=True) | Q(accessibilite__entree_plain_pied__isnull=True)
+        return self.filter(ground_level | adapted_stairs)
 
     def having_reception_low_stairs(self):
-        with_ramp = (
+        with_ramp_or_elevator = (
             Q(accessibilite__accueil_cheminement_ascenseur=True)
             | Q(accessibilite__accueil_cheminement_rampe="fixe")
             | Q(accessibilite__accueil_cheminement_rampe="amovible")
         )
-        ground_level = self.having_potentially_all_at_ground_level(as_q=True) | with_ramp
-
-        return self.filter(ground_level)
+        with_stairs = Q(accessibilite__accueil_cheminement_nombre_marches__gt=1) | Q(
+            accessibilite__accueil_cheminement_nombre_marches__isnull=True
+        )
+        with_stairs_and_ramp_or_elevator = with_stairs & with_ramp_or_elevator
+        adapted_stairs = with_stairs_and_ramp_or_elevator | Q(accessibilite__accueil_cheminement_nombre_marches__lte=1)
+        ground_level = Q(accessibilite__accueil_cheminement_plain_pied=True) | Q(
+            accessibilite__accueil_cheminement_plain_pied__isnull=True
+        )
+        return self.filter(ground_level | adapted_stairs)
 
     def having_path_low_stairs(self):
-        with_ramp = (
+        with_ramp_or_elevator = (
             Q(accessibilite__cheminement_ext_ascenseur=True)
             | Q(accessibilite__cheminement_ext_rampe="fixe")
             | Q(accessibilite__cheminement_ext_rampe="amovible")
         )
-        ground_level = self.having_potentially_all_at_ground_level(as_q=True) | with_ramp
+        with_stairs = Q(accessibilite__cheminement_ext_nombre_marches__gte=1) | Q(
+            accessibilite__cheminement_ext_nombre_marches__isnull=True
+        )
+        with_stairs_and_ramp_or_elevator = with_stairs & with_ramp_or_elevator
+        ground_level = (
+            Q(accessibilite__cheminement_ext_plain_pied=True)
+            | Q(accessibilite__cheminement_ext_plain_pied__isnull=True)
+        ) | with_stairs_and_ramp_or_elevator
 
-        return self.filter(ground_level)
+        adapted_path = Q(
+            ground_level,
+            accessibilite__cheminement_ext_presence=True,
+        )
+        return self.filter(self.having_no_path(as_q=True) | adapted_path)
 
     def having_staff(self):
         return self.filter(accessibilite__accueil_personnels__in=["non-formés", "formés"])
@@ -440,7 +443,7 @@ class ErpQuerySet(models.QuerySet):
     def having_label(self):
         return self.filter(accessibilite__labels__isnull=False)
 
-    def having_entry_easily_identifiable(self):
+    def having_entry_easily_identificable(self):
         return self.filter(accessibilite__entree_reperage=True)
 
     def having_visible_reception(self):

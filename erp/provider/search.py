@@ -107,7 +107,7 @@ def get_equipments():
         Equipment(
             slug="having_adapted_path",
             manager=ErpQuerySet.having_adapted_path,
-            name=translate("Chemin adapté"),
+            name=translate("Chemin adapté aux personnes mal marchantes"),
         ),
         Equipment(
             slug="having_proper_surface",
@@ -122,12 +122,12 @@ def get_equipments():
         Equipment(
             slug="having_entry_low_stairs",
             manager=ErpQuerySet.having_entry_low_stairs,
-            name=translate("Nb marches entrée <= 1"),
+            name=translate("Maximum une marche à l'entrée"),
         ),
         Equipment(
             slug="having_reception_low_stairs",
             manager=ErpQuerySet.having_reception_low_stairs,
-            name=translate("Nb marches accueil <= 1"),
+            name=translate("Maximum une marche à l'accueil"),
         ),
         Equipment(
             slug="having_no_slope",
@@ -135,9 +135,9 @@ def get_equipments():
             name=translate("Extérieur - pas de pente importante ou information inconnue"),
         ),
         Equipment(
-            slug="having_accessible_path",
-            manager=ErpQuerySet.having_accessible_path,
-            name=translate("Chemin accessible"),
+            slug="having_accessible_exterior_path",
+            manager=ErpQuerySet.having_accessible_exterior_path,
+            name=translate("Chemin extérieur accessible"),
         ),
         Equipment(
             slug="having_no_camber",
@@ -150,9 +150,6 @@ def get_equipments():
             name=translate("Extérieur - aucun rétrécissement ou information inconnue"),
         ),
         Equipment(
-            slug="having_nb_stairs_max", manager=ErpQuerySet.having_nb_stairs_max, name=translate("Maximum 1 marche")
-        ),
-        Equipment(
             slug="having_guide_band",
             manager=ErpQuerySet.having_guide_band,
             name=translate("Extérieur - bande de guidage"),
@@ -160,7 +157,7 @@ def get_equipments():
         Equipment(
             slug="having_accessible_entry",
             manager=ErpQuerySet.having_accessible_entry,
-            name=translate("Entrée de plain-pied ou accessible via rampe ou ascenseur"),
+            name=translate("Entrée accessible"),
         ),
         Equipment(
             slug="having_accessible_path_to_reception",
@@ -178,8 +175,8 @@ def get_equipments():
             name=translate("Entrée spécifique PMR"),
         ),
         Equipment(
-            slug="having_entry_easily_identifiable",
-            manager=ErpQuerySet.having_entry_easily_identifiable,
+            slug="having_entry_easily_identificable",
+            manager=ErpQuerySet.having_entry_easily_identificable,
             name=translate("Entrée facilement repérable"),
         ),
         Equipment(slug="having_sound_beacon", manager=ErpQuerySet.having_sound_beacon, name=translate("Balise sonore")),
@@ -191,7 +188,7 @@ def get_equipments():
         Equipment(
             slug="having_visible_reception",
             manager=ErpQuerySet.having_visible_reception,
-            name=translate("Visibilité de l'accueil depuis l'entrée"),
+            name=translate("Proximité de l'accueil"),
         ),
         Equipment(slug="having_staff", manager=ErpQuerySet.having_staff, name=translate("Présence de personnel")),
         Equipment(
@@ -208,13 +205,6 @@ def get_equipments():
             slug="having_hearing_equipments",
             manager=ErpQuerySet.having_hearing_equipments,
             name=translate("Equipements spécifiques pour personne malentendante"),
-        ),
-        Equipment(
-            slug="having_potentially_all_at_ground_level",
-            manager=ErpQuerySet.having_potentially_all_at_ground_level,
-            name=translate(
-                "Chemin de plain-pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou information inconnue"
-            ),
         ),
         Equipment(
             slug="having_entry_no_shrink",
@@ -272,7 +262,7 @@ def get_equipments_shortcuts():
         name=translate("En fauteuil roulant"),
         slug="wheeling_chair",
         equipments=[
-            all_equipments.get("having_accessible_path"),
+            all_equipments.get("having_accessible_exterior_path"),
             all_equipments.get("having_accessible_entry"),
             all_equipments.get("having_accessible_path_to_reception"),
         ],
@@ -302,7 +292,7 @@ def get_equipments_shortcuts():
         slug="difficulty_of_vision",
         equipments=[
             all_equipments.get("having_parking_or_public_transportation"),
-            all_equipments.get("having_trained_staff"),
+            all_equipments.get("having_staff"),
         ],
         suggestions=[
             all_equipments.get("having_visible_reception"),
