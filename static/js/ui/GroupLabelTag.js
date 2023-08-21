@@ -66,7 +66,7 @@ function listenToLabelEvents() {
       _toggleSuggestions(equipmentsShortcut, suggestions)
     }
 
-    if (children) {
+    if (children.length) {
       document.dispatchEvent(new Event('filterChanged'))
     }
   })
@@ -79,6 +79,18 @@ function listenToLabelEvents() {
 
     if (!display) {
       _checkForShortcutToHide()
+    }
+  })
+
+  document.querySelector('#remove-all-filters').addEventListener('click', function () {
+    let equipments = document.querySelectorAll('.equipments-selected button[aria-pressed=true]')
+    equipments.forEach(function (equipment) {
+      let equipmentSlug = equipment.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
+      _toggleChildren([equipmentSlug], false)
+    })
+    if (equipments.length) {
+      _checkForShortcutToHide()
+      document.dispatchEvent(new Event('filterChanged'))
     }
   })
 }
