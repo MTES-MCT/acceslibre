@@ -110,11 +110,6 @@ def get_equipments():
             name=translate("Chemin adapté aux personnes mal marchantes"),
         ),
         Equipment(
-            slug="having_proper_surface",
-            manager=ErpQuerySet.having_proper_surface,
-            name=translate("Extérieur - revêtement stable ou information inconnue"),
-        ),
-        Equipment(
             slug="having_path_low_stairs",
             manager=ErpQuerySet.having_path_low_stairs,
             name=translate("Extérieur - plain-pied ou accessible via rampe ou ascenseur"),
@@ -130,24 +125,9 @@ def get_equipments():
             name=translate("Maximum une marche à l'accueil"),
         ),
         Equipment(
-            slug="having_no_slope",
-            manager=ErpQuerySet.having_no_slope,
-            name=translate("Extérieur - pas de pente importante ou information inconnue"),
-        ),
-        Equipment(
             slug="having_accessible_exterior_path",
             manager=ErpQuerySet.having_accessible_exterior_path,
             name=translate("Chemin extérieur accessible"),
-        ),
-        Equipment(
-            slug="having_no_camber",
-            manager=ErpQuerySet.having_no_camber,
-            name=translate("Extérieur - pas de dévers important ou information inconnue"),
-        ),
-        Equipment(
-            slug="having_no_shrink",
-            manager=ErpQuerySet.having_no_shrink,
-            name=translate("Extérieur - aucun rétrécissement ou information inconnue"),
         ),
         Equipment(
             slug="having_guide_band",
@@ -173,11 +153,6 @@ def get_equipments():
             slug="having_adapted_entry",
             manager=ErpQuerySet.having_adapted_entry,
             name=translate("Entrée spécifique PMR"),
-        ),
-        Equipment(
-            slug="having_entry_easily_identificable",
-            manager=ErpQuerySet.having_entry_easily_identificable,
-            name=translate("Entrée facilement repérable"),
         ),
         Equipment(slug="having_sound_beacon", manager=ErpQuerySet.having_sound_beacon, name=translate("Balise sonore")),
         Equipment(

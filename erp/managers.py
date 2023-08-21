@@ -443,9 +443,6 @@ class ErpQuerySet(models.QuerySet):
     def having_label(self):
         return self.filter(accessibilite__labels__isnull=False)
 
-    def having_entry_easily_identificable(self):
-        return self.filter(accessibilite__entree_reperage=True)
-
     def having_visible_reception(self):
         return self.filter(accessibilite__accueil_visibilite=True)
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-17 11:27+0200\n"
+"POT-Creation-Date: 2023-08-21 10:26+0200\n"
 "PO-Revision-Date: 2023-08-17 11:27+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -826,9 +826,6 @@ msgstr "No external path or unknown information"
 msgid "Chemin adapté aux personnes mal marchantes"
 msgstr "Path suitable for people with walking difficulties"
 
-msgid "Extérieur - revêtement stable ou information inconnue"
-msgstr "Exterior - stable coating or unknown information"
-
 msgid "Extérieur - plain-pied ou accessible via rampe ou ascenseur"
 msgstr "Outdoor - ground level or accessible via ramp or elevator"
 
@@ -838,17 +835,8 @@ msgstr "Maximum 1 step at the entrance"
 msgid "Maximum une marche à l'accueil"
 msgstr "Maximum 1 step to reception"
 
-msgid "Extérieur - pas de pente importante ou information inconnue"
-msgstr "Exterior - no significant slope or unknown information"
-
 msgid "Chemin extérieur accessible"
 msgstr "Accessible outdoor path"
-
-msgid "Extérieur - pas de dévers important ou information inconnue"
-msgstr "Exterior - no significant slope or unknown information"
-
-msgid "Extérieur - aucun rétrécissement ou information inconnue"
-msgstr "Exterior - no shrinkage or unknown information"
 
 msgid "Extérieur - bande de guidage"
 msgstr "Exterior - guide strip"
@@ -4556,6 +4544,18 @@ msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
+
+#~ msgid "Extérieur - revêtement stable ou information inconnue"
+#~ msgstr "Exterior - stable coating or unknown information"
+
+#~ msgid "Extérieur - pas de pente importante ou information inconnue"
+#~ msgstr "Exterior - no significant slope or unknown information"
+
+#~ msgid "Extérieur - pas de dévers important ou information inconnue"
+#~ msgstr "Exterior - no significant slope or unknown information"
+
+#~ msgid "Extérieur - aucun rétrécissement ou information inconnue"
+#~ msgstr "Exterior - no shrinkage or unknown information"
 
 #~ msgid "Nb marches entrée <= 1"
 #~ msgstr "Nb entry stairs <= 1"
