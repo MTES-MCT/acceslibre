@@ -302,7 +302,7 @@ class Commune(models.Model):
 
     def get_zoom(self):
         if not self.superficie or self.superficie > 8000:
-            return 12
+            return settings.MAP_DEFAULT_ZOOM_LARGE_CITY
         elif self.superficie > 6000:
             return 13
         elif self.superficie > 1500:
