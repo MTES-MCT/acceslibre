@@ -40,6 +40,7 @@ MAP_SEARCH_RADIUS_KM = 10
 MAP_DEFAULT_LAT = "46.7"
 MAP_DEFAULT_LON = "1.9"
 MAP_DEFAULT_ZOOM = 6
+MAP_DEFAULT_ZOOM_LARGE_CITY = 12
 
 # Mapbox
 # NOTE: this is NOT a sensitive information, as this token is exposed on the frontend anyway
@@ -184,6 +185,7 @@ def expose_site_context(request):
         "MAP_DEFAULT_LAT": settings.MAP_DEFAULT_LAT,
         "MAP_DEFAULT_LON": settings.MAP_DEFAULT_LON,
         "MAP_DEFAULT_ZOOM": settings.MAP_DEFAULT_ZOOM,
+        "MAP_DEFAULT_ZOOM_LARGE_CITY": settings.MAP_DEFAULT_ZOOM_LARGE_CITY,
     }
 
 
