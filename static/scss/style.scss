@@ -26,6 +26,8 @@ $viewport-xl: 1200px;
 
 .btn-search {
   max-width: 7% !important;
+  vertical-align: bottom;
+  min-height: unset !important;
 
   @media screen and (max-width: $viewport-md) {
     max-width: 15% !important;
