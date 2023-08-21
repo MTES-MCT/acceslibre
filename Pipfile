@@ -22,7 +22,7 @@ django-webtest = "*"
 
 [packages]
 coreapi = "*"
-Django = "==4.2.1"
+Django = "==4.2.3"
 django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
@@ -55,7 +55,7 @@ ijson = "*"
 gunicorn = "*"
 dj-static = "*"
 image = "*"
-redis = "*"
+redis = "==4.6.0"  # Tests (at least) are not compatible with 5.x.x
 sib-api-v3-sdk = "*"
 celery = "*"
 pandas = "*"
