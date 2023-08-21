@@ -68,6 +68,6 @@ window.onload = function () {
       dst.value = src.value.split('@')[0]
     })
   }
-}
 
-ui.listenToLabelEvents()
+  ui.listenToLabelEvents()
+}

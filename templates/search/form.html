@@ -80,13 +80,16 @@
                         {% endfor %}
                     {% endwith %}
                 </div>
-                <div class="fr-checkbox-group row equipments">
+                <div class="fr-checkbox-group row equipments equipments-selected">
                     <span class="m-2">{% translate "Equipements disponibles" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
                         {% endfor %}
                     {% endwith %}
+                    <button type="button" class="btn btn-secondary" id="remove-all-filters">
+                        {% translate "Supprimer tous les filtres" %}
+                    </button>
                     <button type="button"
                             class="btn btn-primary"
                             data-toggle="modal"
