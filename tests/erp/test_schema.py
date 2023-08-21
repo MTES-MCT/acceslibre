@@ -5,36 +5,36 @@ from erp import schema
 
 def test_get_api_fieldsets():
     fieldsets = schema.get_api_fieldsets()
-    assert type(fieldsets) == dict
+    assert isinstance(fieldsets, dict)
 
     for _, section in fieldsets.items():
         assert "label" in section
         assert "fields" in section
-        assert type(section["fields"]) == list
+        assert isinstance(section["fields"], list)
 
 
 def test_get_admin_fieldsets():
     fieldsets = schema.get_admin_fieldsets()
-    assert type(fieldsets) == list
+    assert isinstance(fieldsets, list)
 
     for section_label, section in fieldsets:
-        assert type(section) == dict
+        assert isinstance(section, dict)
         assert "description" in section
         assert "fields" in section
-        assert type(section["fields"]) == list
+        assert isinstance(section["fields"], list)
 
 
 def test_get_form_fieldsets():
     fieldsets = schema.get_form_fieldsets()
-    assert type(fieldsets) == dict
+    assert isinstance(fieldsets, dict)
 
     for _, section in fieldsets.items():
-        assert type(section) == dict
+        assert isinstance(section, dict)
         assert "icon" in section
         assert "tabid" in section
         assert "description" in section
         assert "fields" in section
-        assert type(section["fields"]) == list
+        assert isinstance(section["fields"], list)
         for field in section["fields"]:
             assert "id" in field
             assert "warn_if" in field
@@ -42,7 +42,7 @@ def test_get_form_fieldsets():
 
 def test_get_labels():
     result = schema.get_labels()
-    assert type(result) == dict
+    assert isinstance(result, dict)
 
 
 def test_get_label():
@@ -55,7 +55,7 @@ def test_get_label():
 
 def test_get_help_texts():
     result = schema.get_help_texts()
-    assert type(result) == dict
+    assert isinstance(result, dict)
 
 
 def test_get_help_text():
@@ -90,14 +90,14 @@ def test_get_human_readable_value_ko():
 
 def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
-    assert type(result) == list
+    assert isinstance(result, list)
     assert "entree_reperage" in result
     assert "cheminement_ext_pente_presence" not in result
 
 
 def test_get_nullable_bool_fields():
     result = schema.get_nullable_bool_fields()
-    assert type(result) == list
+    assert isinstance(result, list)
 
 
 @pytest.mark.parametrize(

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-26 10:49+0200\n"
-"PO-Revision-Date: 2023-07-19 15:27+0200\n"
+"POT-Creation-Date: 2023-08-17 11:27+0200\n"
+"PO-Revision-Date: 2023-08-17 11:27+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -814,44 +814,62 @@ msgstr "Parking nearby"
 msgid "Transport en commun à proximité"
 msgstr "Public transport nearby"
 
+msgid "Transport en commun ou parking à proximité"
+msgstr "Public transport or parking nearby"
+
 msgid "Stationnement PMR (dans l'établissement ou à proximité)"
 msgstr "PRM parking (on site or nearby)"
 
-msgid "Pas de chemin extérieur ou donnée inconnue"
-msgstr "No external path or unknown data"
+msgid "Pas de chemin extérieur ou information inconnue"
+msgstr "No external path or unknown information"
 
-msgid "Extérieur - revêtement stable ou donnée inconnue"
-msgstr "Exterior - stable coating or unknown data"
+msgid "Chemin adapté aux personnes mal marchantes"
+msgstr "Path suitable for people with walking difficulties"
 
-msgid "Extérieur - plain pied ou accessible via rampe ou ascenseur"
+msgid "Extérieur - revêtement stable ou information inconnue"
+msgstr "Exterior - stable coating or unknown information"
+
+msgid "Extérieur - plain-pied ou accessible via rampe ou ascenseur"
 msgstr "Outdoor - ground level or accessible via ramp or elevator"
 
-msgid "Extérieur - pas de pente importante ou donnée inconnue"
-msgstr "Exterior - no significant slope or unknown data"
+msgid "Maximum une marche à l'entrée"
+msgstr "Maximum 1 step at the entrance"
 
-msgid "Extérieur - pas de dévers important ou donnée inconnue"
-msgstr "Exterior - no significant slope or unknown data"
+msgid "Maximum une marche à l'accueil"
+msgstr "Maximum 1 step to reception"
 
-msgid "Extérieur - aucun rétrécissement ou donnée inconnue"
-msgstr "Exterior - no shrinkage or unknown data"
+msgid "Extérieur - pas de pente importante ou information inconnue"
+msgstr "Exterior - no significant slope or unknown information"
 
-msgid "Maximum 1 marche"
-msgstr "Maximum 1 step"
+msgid "Chemin extérieur accessible"
+msgstr "Accessible outdoor path"
+
+msgid "Extérieur - pas de dévers important ou information inconnue"
+msgstr "Exterior - no significant slope or unknown information"
+
+msgid "Extérieur - aucun rétrécissement ou information inconnue"
+msgstr "Exterior - no shrinkage or unknown information"
 
 msgid "Extérieur - bande de guidage"
 msgstr "Exterior - guide strip"
 
-msgid "Entrée de plain pied ou accessible via rampe ou ascenseur"
-msgstr "Ground-level entrance or accessible via ramp or elevator"
+msgid "Entrée accessible"
+msgstr "Accessible entrance"
 
-msgid "Largeur de porte supérieure à 80cm ou donnée inconnue"
-msgstr "Door width greater than 80cm or unknown data"
+msgid "Chemin vers l'accueil accessible"
+msgstr "Accessible path to reception"
+
+msgid "Largeur de porte supérieure à 80cm ou information inconnue"
+msgstr "Door width greater than 80cm or unknown information"
 
 msgid "Balise sonore"
 msgstr "audio location device"
 
-msgid "Visibilité de l'accueil depuis l'entrée"
-msgstr "Visibility of reception area from entrance"
+msgid "Dispositif d'appel à l'entrée"
+msgstr "Calling device at the entrance"
+
+msgid "Proximité de l'accueil"
+msgstr "Proximity of reception"
 
 msgid "Présence de personnel"
 msgstr "Staff presence"
@@ -862,14 +880,8 @@ msgstr "Sensitized or trained staff"
 msgid "Equipements spécifiques pour personne malentendante"
 msgstr "Special equipment for the hearing impaired"
 
-msgid ""
-"Chemin de plain pied jusqu'à l'accueil ou accessible via rampe ou ascenseur "
-"ou donnée inconnue"
-msgstr ""
-"Level path to reception or accessible via ramp or elevator or unknown data"
-
-msgid "Chemin sans rétrécissement jusqu'à l'accueil ou donnée inconnue"
-msgstr "Straight path to reception or unknown data"
+msgid "Chemin sans rétrécissement jusqu'à l'accueil ou information inconnue"
+msgstr "Straight path to reception or unknown information"
 
 msgid "Chambre accessible"
 msgstr "Accessible room"
@@ -879,6 +891,21 @@ msgstr "PRM toilet"
 
 msgid "Établissement labellisé"
 msgstr "Labeled facility"
+
+msgid "En fauteuil roulant"
+msgstr "In a wheelchair"
+
+msgid "Difficulté à marcher"
+msgstr "Difficulty walking"
+
+msgid "Difficulté à voir"
+msgstr "Difficulty seeing"
+
+msgid "Difficulté à entendre"
+msgstr "Difficulty hearing"
+
+msgid "Difficulté à comprendre"
+msgstr "Difficulty understanding"
 
 msgid "Inconnu"
 msgstr "Unknown"
@@ -1572,9 +1599,6 @@ msgstr "No stairs"
 
 msgid "Repérage des marches"
 msgstr "Identification of the steps"
-
-msgid "Dispositif d'appel à l'entrée"
-msgstr "Calling device at the entrance"
 
 msgid ""
 "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à "
@@ -4328,6 +4352,18 @@ msgstr "Search for a facility, an activity. Example : Mairie, Café"
 msgid "<strong>Où</strong> (adresse, ville)"
 msgstr "<strong>Where</strong> (address, city)"
 
+msgid "Adaptés pour"
+msgstr "Adapted for"
+
+msgid "Equipements disponibles"
+msgstr "Available equipments"
+
+msgid "Ajouter des équipements"
+msgstr "Add equipment"
+
+msgid "Tous les équipements"
+msgstr "All equipment"
+
 msgid "Résultats pour"
 msgstr "Results for"
 
@@ -4520,6 +4556,31 @@ msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
+
+#~ msgid "Nb marches entrée <= 1"
+#~ msgstr "Nb entry stairs <= 1"
+
+#~ msgid "Nb marches accueil <= 1"
+#~ msgstr "Nb reception stairs <= 1"
+
+#~ msgid "Chemin adapté"
+#~ msgstr "Adapted path"
+
+#~ msgid "Visibilité de l'accueil depuis l'entrée"
+#~ msgstr "Visibility of reception area from entrance"
+
+#~ msgid "Chemin accessible"
+#~ msgstr "Accessible path"
+
+#~ msgid "Entrée de plain-pied ou accessible via rampe ou ascenseur"
+#~ msgstr "Ground-level entrance or accessible via ramp or elevator"
+
+#~ msgid ""
+#~ "Chemin de plain-pied jusqu'à l'accueil ou accessible via rampe ou "
+#~ "ascenseur ou information inconnue"
+#~ msgstr ""
+#~ "Level path to reception or accessible via ramp or elevator or unknown "
+#~ "information"
 
 #~ msgid "Explorer les lieux en France"
 #~ msgstr "Explore locations in France"

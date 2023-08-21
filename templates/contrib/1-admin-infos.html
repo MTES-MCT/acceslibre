@@ -24,7 +24,11 @@
 {% block contrib_content %}
     <div class="col-md-9">
         <h3 class="h3 mb-3">{% translate "Adresse de l'établissement" %}</h3>
-        <form action="" method="post" class="mb-4" novalidate>
+        <form id="contrib-edit-form"
+          action=""
+          method="post"
+          class="mb-4"
+          novalidate>
             {% csrf_token %}
             {{ form.geom|as_crispy_field }}
             {{ form.source|as_crispy_field }}

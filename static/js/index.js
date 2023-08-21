@@ -37,7 +37,6 @@ window.SentryIntegrations = Integrations
 import dom from './dom'
 import geo from './geo'
 import ui from './ui'
-import api from './api'
 
 // Initializations
 dom.ready(() => {
@@ -69,19 +68,6 @@ window.onload = function () {
       dst.value = src.value.split('@')[0]
     })
   }
-
-  var loader = document.querySelector('.loader-api')
-  if (loader) {
-    loader.addEventListener('click', function (e) {
-      wait_screen()
-    })
-    loader.addEventListener('submit', function () {
-      wait_screen()
-    })
-  }
-
-  function wait_screen() {
-    document.querySelector('#content').classList.add('blur')
-    document.querySelector('#spinner_container').style.display = 'block'
-  }
 }
+
+ui.listenToLabelEvents()

@@ -304,6 +304,7 @@ def test_search_in_municipality_respects_what_clause(data, client, activite_mair
     (
         ("Strasbourg", ("Strasbourg", "")),
         ("Paris (75)", ("Paris", "75")),
+        ("10 Rue Marin 69160 Tassin-la-Demi-Lune", ("Tassin-la-Demi-Lune", "")),
     ),
 )
 def test_clean_address(where, expected):

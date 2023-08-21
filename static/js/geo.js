@@ -379,9 +379,19 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
   })
 }
 
+function refreshURL() {
+  let queryParams = new URLSearchParams(window.location.search)
+  ;['equipments', 'equipments_shortcuts'].forEach(function (inputName) {
+    let inputs = document.querySelectorAll(`input[name=${inputName}]:checked`)
+    inputs.forEach((input) => queryParams.append(inputName, input.value))
+  })
+  history.replaceState(null, null, '?' + queryParams.toString())
+}
+
 function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
-  document.addEventListener('labelClicked', async function () {
+  document.addEventListener('filterChanged', async function () {
     refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    refreshURL()
   })
 }
 

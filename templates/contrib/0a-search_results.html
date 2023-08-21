@@ -47,8 +47,7 @@
                        href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}#content">{% translate "Ajouter cet établissement" %}</a>
                 </div>
                 <div class="ml-3 mt-1 pr-4">
-                    <a class="fr-btn fr-btn--secondary btn-lg"
-                       href="{% url 'home' %}#block_search_form">{% translate "Nouvelle recherche" %}</a>
+                    <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
                 </div>
             </div>
         </div>

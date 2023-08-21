@@ -44,8 +44,8 @@ Pour demander votre clef API, [contactez-nous]({settings.SITE_ROOT_URL}/contact/
 
 ## Limitation
 
-Afin de garantir la disponibilité du site pour tous, un nombre maximum de requêtes par seconde est défini.
-Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence de vos requêtes.
+Afin de garantir la disponibilité de l'API pour tous, un nombre maximum de requêtes par seconde est défini.
+Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence et le nombre de vos requêtes.
 
 ## Règles métier
 
@@ -61,6 +61,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne 
 ```
 
 Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
+Cette URL peut également être dynamiquement construite à partir de l'UUID de l'établissement : `{settings.SITE_ROOT_URL}/uuid/<uuid_de_l_erp>/`
 
 
 ### Rechercher les établissements contenu dans un cadre englobant Valence et les récupérer au format geoJSON en vue de les afficher sur une carte :

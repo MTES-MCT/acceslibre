@@ -1,10 +1,13 @@
 import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
+from django.contrib.messages.constants import SUCCESS
 from django.test import Client
 from django.urls import reverse
+from reversion.models import Version
 
 from erp.models import Activite, Erp
+from tests.factories import AccessibiliteFactory, CommuneFactory
 
 AKEI_SIRET = "88076068100010"
 
@@ -177,3 +180,44 @@ def test_claim(client, user, data):
 
     user.stats.refresh_from_db()
     assert user.stats.nb_erp_attributed == initial_nb_attributed + 1
+
+
+@pytest.mark.django_db
+def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(django_app, activite_other):
+    erp = AccessibiliteFactory(erp__published=True).erp
+    CommuneFactory(nom=erp.commune)
+    initial_updated_at = erp.updated_at
+    assert Version.objects.get_for_object(erp).count() == 0
+
+    url = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
+    page = django_app.get(url)
+    edit_page_form = page.forms["contrib-edit-form"]
+    response = edit_page_form.submit().follow()
+    assert response.status_code == 200
+
+    assert Version.objects.get_for_object(erp).count() == 0
+    erp.refresh_from_db()
+    assert erp.updated_at == initial_updated_at
+
+
+@pytest.mark.django_db
+def test_submitting_contrib_edit_info_form_with_info_does_trigger_save(django_app, activite_other):
+    erp = AccessibiliteFactory(erp__published=True).erp
+    CommuneFactory(nom=erp.commune)
+    initial_updated_at = erp.updated_at
+    assert Version.objects.get_for_object(erp).count() == 0
+
+    url = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
+    page = django_app.get(url)
+    edit_page_form = page.forms["contrib-edit-form"]
+    edit_page_form["site_internet"] = "https://example.com"
+    response = edit_page_form.submit().follow()
+    assert response.status_code == 200
+
+    assert Version.objects.get_for_object(erp).count() == 1
+    erp.refresh_from_db()
+    assert erp.updated_at > initial_updated_at
+
+    messages = list(response.context["messages"])
+    assert len(messages) == 1
+    assert messages[0].level == SUCCESS
