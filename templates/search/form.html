@@ -84,7 +84,7 @@
                     <span class="m-2">{% translate "Equipements disponibles" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
-                            {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
+                            {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
                         {% endfor %}
                     {% endwith %}
                     <button type="button" class="fr-btn--tertiary ml-4" id="remove-all-filters">
