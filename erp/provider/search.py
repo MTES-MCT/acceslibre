@@ -233,6 +233,21 @@ class EquipmentsShortcut:
 
 def get_equipments_shortcuts():
     all_equipments = get_equipments()
+    difficulty_of_vision = EquipmentsShortcut(
+        name=translate("Difficulté à voir"),
+        slug="difficulty_of_vision",
+        equipments=[
+            all_equipments.get("having_parking_or_public_transportation"),
+            all_equipments.get("having_staff"),
+        ],
+        suggestions=[
+            all_equipments.get("having_visible_reception"),
+            all_equipments.get("having_audiodescription"),
+            all_equipments.get("having_guide_band"),
+            all_equipments.get("having_sound_beacon"),
+        ],
+        icon="diff-vision",
+    )
     wheeling_chair = EquipmentsShortcut(
         name=translate("En fauteuil roulant"),
         slug="wheeling_chair",
@@ -262,21 +277,6 @@ def get_equipments_shortcuts():
         suggestions=[],
         icon="diff-walking",
     )
-    difficulty_of_vision = EquipmentsShortcut(
-        name=translate("Difficulté à voir"),
-        slug="difficulty_of_vision",
-        equipments=[
-            all_equipments.get("having_parking_or_public_transportation"),
-            all_equipments.get("having_staff"),
-        ],
-        suggestions=[
-            all_equipments.get("having_visible_reception"),
-            all_equipments.get("having_audiodescription"),
-            all_equipments.get("having_guide_band"),
-            all_equipments.get("having_sound_beacon"),
-        ],
-        icon="diff-vision",
-    )
     deaf_person = EquipmentsShortcut(
         name=translate("Difficulté à entendre"),
         slug="deaf",
@@ -291,4 +291,4 @@ def get_equipments_shortcuts():
         suggestions=[],
         icon="diff-understand",
     )
-    return [wheeling_chair, difficulty_walking, difficulty_of_vision, deaf_person, hard_to_understand]
+    return [difficulty_of_vision, wheeling_chair, difficulty_walking, deaf_person, hard_to_understand]
