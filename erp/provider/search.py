@@ -79,7 +79,9 @@ def global_search(terms, code_insee, activities):
 
 
 def get_equipments():
-    Equipment = namedtuple("Equipment", ["name", "slug", "manager"])
+    Equipment = namedtuple(
+        "Equipment", ["name", "slug", "manager", "is_default_suggestion"], defaults=(None, None, None, False)
+    )
     equipments = [
         Equipment(
             slug="having_parking", manager=ErpQuerySet.having_parking, name=translate("Stationnement à proximité")
@@ -138,6 +140,7 @@ def get_equipments():
             slug="having_accessible_entry",
             manager=ErpQuerySet.having_accessible_entry,
             name=translate("Entrée accessible"),
+            is_default_suggestion=True,
         ),
         Equipment(
             slug="having_accessible_path_to_reception",
@@ -165,7 +168,12 @@ def get_equipments():
             manager=ErpQuerySet.having_visible_reception,
             name=translate("Proximité de l'accueil"),
         ),
-        Equipment(slug="having_staff", manager=ErpQuerySet.having_staff, name=translate("Présence de personnel")),
+        Equipment(
+            slug="having_staff",
+            manager=ErpQuerySet.having_staff,
+            name=translate("Présence de personnel"),
+            is_default_suggestion=True,
+        ),
         Equipment(
             slug="having_trained_staff",
             manager=ErpQuerySet.having_trained_staff,
@@ -180,6 +188,7 @@ def get_equipments():
             slug="having_hearing_equipments",
             manager=ErpQuerySet.having_hearing_equipments,
             name=translate("Equipements spécifiques pour personne malentendante"),
+            is_default_suggestion=True,
         ),
         Equipment(
             slug="having_entry_no_shrink",

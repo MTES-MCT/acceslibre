@@ -380,7 +380,7 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
 }
 
 function refreshURL() {
-  let queryParams = new URLSearchParams(window.location.search)
+  let queryParams = new URLSearchParams()
   ;['equipments', 'equipments_shortcuts'].forEach(function (inputName) {
     let inputs = document.querySelectorAll(`input[name=${inputName}]:checked`)
     inputs.forEach((input) => queryParams.append(inputName, input.value))
