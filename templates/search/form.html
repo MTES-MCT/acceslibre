@@ -87,13 +87,17 @@
                             {% include "search/tag_with_label.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
                         {% endfor %}
                     {% endwith %}
-                    <button type="button" class="btn btn-secondary" id="remove-all-filters">
-                        {% translate "Supprimer tous les filtres" %}
+                    <button type="button" class="fr-btn--tertiary ml-4" id="remove-all-filters">
+                        <span aria-hidden="true">x</span>{% translate "Supprimer tous les filtres" %}
                     </button>
+                </div>
+                <div class="row equipments">
                     <button type="button"
-                            class="btn btn-primary"
+                            class="fr-btn--tertiary m-2"
                             data-toggle="modal"
-                            data-target="#equipmentsmodal">{% translate "Ajouter des équipements" %}</button>
+                            data-target="#equipmentsmodal">
+                        <span aria-hidden="true">+</span>{% translate "Voir tous les filtres" %}
+                    </button>
                 </div>
                 <div class="modal" id="equipmentsmodal" aria-hidden="true">
                     <div class="modal-dialog" role="document">

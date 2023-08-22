@@ -1230,3 +1230,11 @@ div.equipments button {
     mask-image: url('/img/communication.svg');
   }
 }
+
+#search-form .fr-btn--tertiary {
+  height: 2.1rem;
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  margin: 0;
+  box-shadow: inset 0 0 0 1px var(--background-action-high-blue-france);
+}
