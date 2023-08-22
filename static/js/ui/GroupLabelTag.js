@@ -82,17 +82,20 @@ function listenToLabelEvents() {
     }
   })
 
-  document.querySelector('#remove-all-filters').addEventListener('click', function () {
-    let equipments = document.querySelectorAll('.equipments-selected button[aria-pressed=true]')
-    equipments.forEach(function (equipment) {
-      let equipmentSlug = equipment.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
-      _toggleChildren([equipmentSlug], false)
+  let removeAllFilterBtn = document.querySelector('#remove-all-filters')
+  if (removeAllFilterBtn) {
+    document.querySelector('#remove-all-filters').addEventListener('click', function () {
+      let equipments = document.querySelectorAll('.equipments-selected button[aria-pressed=true]')
+      equipments.forEach(function (equipment) {
+        let equipmentSlug = equipment.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
+        _toggleChildren([equipmentSlug], false)
+      })
+      if (equipments.length) {
+        _checkForShortcutToHide()
+        document.dispatchEvent(new Event('filterChanged'))
+      }
     })
-    if (equipments.length) {
-      _checkForShortcutToHide()
-      document.dispatchEvent(new Event('filterChanged'))
-    }
-  })
+  }
 }
 
 export default listenToLabelEvents
