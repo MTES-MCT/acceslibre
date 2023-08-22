@@ -134,6 +134,14 @@ function SearchWhere(root) {
     }
   })
 
+  // Wipe all the search results and input on click if FRANCE_ENTIERE
+  autocomplete.input.addEventListener('click', (event) => {
+    if (autocomplete.input.value == FRANCE_ENTIERE) {
+      setSearchValue('')
+      setSearchData(null)
+    }
+  })
+
   // Prevent global form submission when an autocomplete entry is selected by pressing Enter,
   // which usually triggers form submit when a form input has the focus.
   let submittable
