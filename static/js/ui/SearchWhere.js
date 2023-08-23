@@ -26,14 +26,13 @@ function SearchWhere(root) {
     municipality: root.querySelector('input[name=municipality]'),
   }
   input.addEventListener('input', activateSubmitBtn, false)
-  activateSubmitBtn((event = false), (force = false))
+  activateSubmitBtn(null, (force = false))
 
   function activateSubmitBtn(event, force = false) {
-    if (hiddens.code.value.length == 0) {
-      input.form.querySelector('button[type=submit]').setAttribute('disabled', '')
-    }
-    if (force || hiddens.code.value.length != 0) {
+    if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
       input.form.querySelector('button[type=submit]').removeAttribute('disabled')
+    } else {
+      input.form.querySelector('button[type=submit]').setAttribute('disabled', '')
     }
   }
 
@@ -96,7 +95,7 @@ function SearchWhere(root) {
       } else {
         setSearchData(null)
       }
-      activateSubmitBtn((event = false), (force = true))
+      activateSubmitBtn(null, (force = true))
     },
 
     renderResult: ({ text, context, icon }, props) => {
