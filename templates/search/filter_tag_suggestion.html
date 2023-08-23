@@ -1,0 +1,12 @@
+<span class="hidden">
+    <input type="checkbox"
+           id="{{ slug }}-suggestion"
+           class="hidden"
+           autocomplete="off">
+    <label class="fr-label invisible ml-0" for="{{ slug }}-suggestion"></label>
+    <button class="fr-tag a4a-label-tag mb-1 fr-tag--icon-left {% if is_default_suggestion %}default-suggestion{% endif %}"
+            aria-pressed="false"
+            data-fr-js-toggle="true"
+            type="button"
+            data-event-type="{{ eventType }}">{{ name }}</button>
+</span>

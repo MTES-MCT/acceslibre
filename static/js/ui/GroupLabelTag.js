@@ -1,10 +1,19 @@
+import url from '../url.js'
+
+function _toggleHidden(elt, display) {
+  const isClone = elt.querySelector('label').getAttribute('for').includes('-clone')
+  if (display) {
+    elt.classList.remove('hidden')
+  } else if (!isClone) {
+    // never hide a clone, the modal should contain all equipments
+    elt.classList.add('hidden')
+  }
+}
+
 function _toggleChild(parent, display = true) {
   let inputFilter = parent.querySelector('input')
   inputFilter.checked = display
-
-  if (display) {
-    parent.classList.remove('hidden')
-  }
+  _toggleHidden(parent, display)
 
   let button = parent.querySelector('button')
   button.setAttribute('aria-pressed', display)
@@ -17,30 +26,28 @@ function _toggleChildren(children, display = true) {
   })
 }
 
-function _toggleSuggestions(shortcut, suggestions) {
-  suggestions.forEach(function (suggestion) {
-    let parent = document.querySelector(`#${suggestion}`).parentNode
-    let shortcutJustUnchecked = shortcut.parentNode.querySelector('button').getAttribute('aria-pressed') !== 'true'
-    let suggestionWasChecked = parent.querySelector('button').getAttribute('aria-pressed') === 'true'
-    if (shortcutJustUnchecked && suggestionWasChecked) {
-      _toggleChildren([suggestion], !shortcutJustUnchecked)
-    }
+function _toggleSuggestions(shortcut, display = true) {
+  shortcut = shortcut.parentNode.querySelector('button')
+  let suggestions = shortcut.getAttribute('data-suggestions')
+  if (!suggestions) {
+    return
+  }
+  suggestions = suggestions.split(',')
 
-    parent.classList.toggle('hidden')
+  suggestions.forEach(function (suggestion) {
+    let parent = document.querySelector(`#${suggestion}-suggestion`).parentNode
+    _toggleHidden(parent, display)
   })
 }
 
-function _toogleDefaultSuggestion(display) {
+function _toggleDefaultSuggestion(display) {
   document.querySelectorAll('.default-suggestion').forEach(function (btn) {
-    if (display) {
-      btn.parentNode.classList.remove('hidden')
-    } else {
-      btn.parentNode.classList.add('hidden')
-    }
+    _toggleHidden(btn.parentNode, display)
   })
 }
 
 function _checkForShortcutToHide() {
+  // If all equipments of a shortcut are unchecked, the shortcut and its suggestions should be hidden.
   let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
   shortcutsChecked.forEach(function (shortcut) {
     let allChildrenUnchecked = true
@@ -55,10 +62,34 @@ function _checkForShortcutToHide() {
     })
 
     if (allChildrenUnchecked) {
+      _toggleSuggestions(shortcut, false)
       shortcut.checked = false
       shortcut.parentNode.querySelector('button').setAttribute('aria-pressed', false)
+      url.refreshSearchURL()
     }
   })
+}
+
+function _checkForSuggestionToShow(equipmentSlug) {
+  // If an equipment is unchecked and if it is part of a checked shortcut, it should reappear in suggestion list
+  let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
+  if (!shortcutsChecked.length) {
+    return
+  }
+
+  let suggestionToShow = false
+  shortcutsChecked.forEach(function (shortcut) {
+    if (!suggestionToShow) {
+      if (shortcut.parentNode.querySelector('button').getAttribute('data-suggestions').includes(equipmentSlug)) {
+        suggestionToShow = true
+      }
+    }
+  })
+
+  if (suggestionToShow) {
+    let suggestion = document.querySelector(`#${equipmentSlug}-suggestion`)
+    _toggleHidden(suggestion.parentNode, true)
+  }
 }
 
 function listenToLabelEvents() {
@@ -67,28 +98,28 @@ function listenToLabelEvents() {
     return
   }
 
+  // TODO this should be always check (as soon as a tag/clone/suggestion is unclicked ?). In other words: do we have
+  // to display default suggestions as soon as we have no suggestions anymore ?
   let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
   if (!shortcutsChecked.length) {
-    console.log('display default suggetsion')
-    _toogleDefaultSuggestion(true)
+    _toggleDefaultSuggestion(true)
+  } else {
+    shortcutsChecked.forEach(function (shortcut) {
+      _toggleSuggestions(shortcut, true)
+    })
   }
 
   document.addEventListener('shortcutClicked', function (event) {
     let equipmentsShortcut = event.detail.source
     let display = equipmentsShortcut.getAttribute('aria-pressed') === 'true'
     if (display) {
-      _toogleDefaultSuggestion(false)
+      _toggleDefaultSuggestion(false)
     }
     let input = equipmentsShortcut.parentNode.querySelector('input')
     input.checked = display
     let children = equipmentsShortcut.getAttribute('data-children').split(',')
-    let suggestions = equipmentsShortcut.getAttribute('data-suggestions')
     _toggleChildren(children, display)
-
-    if (suggestions) {
-      suggestions = suggestions.split(',')
-      _toggleSuggestions(equipmentsShortcut, suggestions)
-    }
+    _toggleSuggestions(equipmentsShortcut, display)
 
     if (children.length) {
       document.dispatchEvent(new Event('filterChanged'))
@@ -103,7 +134,19 @@ function listenToLabelEvents() {
 
     if (!display) {
       _checkForShortcutToHide()
+      _checkForSuggestionToShow(equipmentSlug)
     }
+  })
+
+  document.addEventListener('suggestionClicked', function (event) {
+    event.preventDefault()
+    let equipmentSlug = event.detail.source.parentNode
+      .querySelector('label')
+      .getAttribute('for')
+      .replace('-suggestion', '')
+    _toggleChildren([equipmentSlug], true)
+    document.dispatchEvent(new Event('filterChanged'))
+    _toggleChild(event.detail.source.parentNode, false)
   })
 
   document.querySelector('#remove-all-filters').addEventListener('click', function () {

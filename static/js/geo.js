@@ -5,6 +5,7 @@ import api from './api'
 import mapUtils from './mapUtils'
 import dom from './dom'
 import ui from './ui'
+import url from './url.js'
 
 var L = window.L // Let's make EsLint happy :)
 
@@ -379,19 +380,10 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
   })
 }
 
-function refreshURL() {
-  let queryParams = new URLSearchParams()
-  ;['equipments', 'equipments_shortcuts'].forEach(function (inputName) {
-    let inputs = document.querySelectorAll(`input[name=${inputName}]:checked`)
-    inputs.forEach((input) => queryParams.append(inputName, input.value))
-  })
-  history.replaceState(null, null, '?' + queryParams.toString())
-}
-
 function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
   document.addEventListener('filterChanged', async function () {
     refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
-    refreshURL()
+    url.refreshSearchURL()
   })
 }
 
