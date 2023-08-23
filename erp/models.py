@@ -771,28 +771,30 @@ class Erp(models.Model):
 
     @property
     def adresse(self):
-        pieces = filter(
-            lambda x: x is not None,
-            [
+        pieces = [
+            str(x)
+            for x in [
                 self.numero,
                 self.voie,
                 self.lieu_dit,
                 self.code_postal,
                 self.commune,
-            ],
-        )
+            ]
+            if x is not None
+        ]
         return " ".join(pieces).strip().replace("  ", " ")
 
     @property
     def short_adresse(self):
-        pieces = filter(
-            lambda x: x is not None,
-            [
+        pieces = [
+            str(x)
+            for x in [
                 self.numero,
                 self.voie,
                 self.lieu_dit,
-            ],
-        )
+            ]
+            if x is not None
+        ]
         return " ".join(pieces).strip().replace("  ", " ")
 
     @property
