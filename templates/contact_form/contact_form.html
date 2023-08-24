@@ -81,7 +81,7 @@
             {{ form.body|as_crispy_field }}
             {{ form.user|as_crispy_field }}
             {{ form.next|as_crispy_field }}
-            {% if not user.is_authenticated %}{{ form.robot|as_crispy_field }}{% endif %}
+            {{ form.robot|as_crispy_field }}
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">{% translate "Envoyer" %}</button>
             </div>
