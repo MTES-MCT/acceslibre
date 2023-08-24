@@ -110,23 +110,25 @@
                 </div>
                 <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left"></div>
             </div>
-            <div class="fr-checkbox-group row equipments">
-                {% with request.GET|get_list:"equipments" as equipment_params %}
-                    {% for label_slug, label in equipments.items %}
-                        <input type="checkbox"
-                               id="{{ label_slug }}"
-                               name="equipments"
-                               class="hidden"
-                               value="{{ label_slug }}"
-                               {% if label_slug in equipment_params %}checked{% endif %}>
-                        <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
-                        <button class="fr-tag a4a-label-tag mb-1"
-                                aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
-                                data-fr-js-toggle="true"
-                                type="button">{{ label.name }}</button>
-                    {% endfor %}
-                {% endwith %}
-            </div>
+            {% if equipments_shortcuts or equipments %}
+                <div class="fr-checkbox-group row equipments">
+                    {% with request.GET|get_list:"equipments" as equipment_params %}
+                        {% for label_slug, label in equipments.items %}
+                            <input type="checkbox"
+                                   id="{{ label_slug }}"
+                                   name="equipments"
+                                   class="hidden"
+                                   value="{{ label_slug }}"
+                                   {% if label_slug in equipment_params %}checked{% endif %}>
+                            <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
+                            <button class="fr-tag a4a-label-tag mb-1"
+                                    aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
+                                    data-fr-js-toggle="true"
+                                    type="button">{{ label.name }}</button>
+                        {% endfor %}
+                    {% endwith %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </form>
