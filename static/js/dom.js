@@ -8,11 +8,6 @@ function findAll(sel) {
   return [].slice.call(document.querySelectorAll(sel), 0)
 }
 
-function hide(el) {
-  el.dataset.previousDisplay = window.getComputedStyle(el).display
-  el.style.display = 'none'
-}
-
 function mountOne(selector, fn) {
   const node = document.querySelector(selector)
   if (node) {
@@ -38,24 +33,11 @@ function removeClass(el, ...args) {
   }
 }
 
-function show(el) {
-  const { previousDisplay } = el.dataset
-  if (previousDisplay) {
-    delete el.dataset.previousDisplay
-    el.style.display = previousDisplay
-  } else {
-    el.style.display = 'block'
-  }
-}
-
 export default {
   addClass,
-  findAll,
-  hide,
   mountAll,
   mountOne,
   preventDefault,
   ready,
   removeClass,
-  show,
 }

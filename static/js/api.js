@@ -173,10 +173,8 @@ async function getCoordinate(q) {
 
 export default {
   hasPermission,
-  getUserLocation,
   loadUserLocation,
   reverseGeocode,
-  saveUserLocation,
   searchLocation,
   getCoordinate,
 }
