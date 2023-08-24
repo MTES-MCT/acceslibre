@@ -20,6 +20,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 INSTALLED_APPS.append("debug_toolbar")
 INSTALLED_APPS.append("rosetta")
+ROSETTA_POFILE_WRAP_WIDTH = 0
 
 MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 

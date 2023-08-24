@@ -9,7 +9,7 @@ RETURN=0
 for LOCAL_DIR in locale/*; do
     cp $LOCAL_DIR/LC_MESSAGES/django.po $LOCAL_DIR/LC_MESSAGES/django.po.original
 
-    pipenv run ./manage.py makemessages --ignore=node_modules --all --no-location
+    pipenv run ./manage.py makemessages --ignore=node_modules --all --no-location --no-wrap
 
     diff $LOCAL_DIR/LC_MESSAGES/django.po $LOCAL_DIR/LC_MESSAGES/django.po.original || { RETURN=$?; echo "makemessages generates extra diff, maybe you should run makemessages and commit the change";}
 
