@@ -24,6 +24,8 @@ $viewport-xl: 1200px;
 @import '~bootstrap/scss/bootstrap';
 // App specific styles
 
+@import 'loader.scss';
+
 .btn-search {
   max-width: 7% !important;
   vertical-align: bottom;
