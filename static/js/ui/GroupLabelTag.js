@@ -42,7 +42,11 @@ function _toggleSuggestions(shortcut, display = true) {
 
 function _toggleDefaultSuggestion(display) {
   document.querySelectorAll('.default-suggestion').forEach(function (btn) {
-    _toggleHidden(btn.parentNode, display)
+    let equipmentSlug = btn.parentNode.querySelector('label').getAttribute('for').replace('-suggestion', '')
+    let equipmentAlreadyChecked = document.querySelector(`input[name=equipments][value=${equipmentSlug}]:checked`)
+    if (!equipmentAlreadyChecked) {
+      _toggleHidden(btn.parentNode, display)
+    }
   })
 }
 
@@ -98,8 +102,6 @@ function listenToLabelEvents() {
     return
   }
 
-  // TODO this should be always check (as soon as a tag/clone/suggestion is unclicked ?). In other words: do we have
-  // to display default suggestions as soon as we have no suggestions anymore ?
   let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
   if (!shortcutsChecked.length) {
     _toggleDefaultSuggestion(true)
@@ -130,12 +132,12 @@ function listenToLabelEvents() {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
     let display = event.detail.source.getAttribute('aria-pressed') === 'true'
     _toggleChildren([equipmentSlug], display)
-    document.dispatchEvent(new Event('filterChanged'))
 
     if (!display) {
       _checkForShortcutToHide()
       _checkForSuggestionToShow(equipmentSlug)
     }
+    document.dispatchEvent(new Event('filterChanged'))
   })
 
   document.addEventListener('suggestionClicked', function (event) {
@@ -145,8 +147,8 @@ function listenToLabelEvents() {
       .getAttribute('for')
       .replace('-suggestion', '')
     _toggleChildren([equipmentSlug], true)
-    document.dispatchEvent(new Event('filterChanged'))
     _toggleChild(event.detail.source.parentNode, false)
+    document.dispatchEvent(new Event('filterChanged'))
   })
 
   document.querySelector('#remove-all-filters').addEventListener('click', function () {
@@ -158,6 +160,15 @@ function listenToLabelEvents() {
     if (equipments.length) {
       _checkForShortcutToHide()
       document.dispatchEvent(new Event('filterChanged'))
+    }
+  })
+
+  document.addEventListener('filterChanged', function () {
+    let nbSuggestionDisplayed = document.querySelectorAll(
+      '.equipments-suggestions > span:not(.hidden):not(.section-text)'
+    ).length
+    if (nbSuggestionDisplayed == 0) {
+      _toggleDefaultSuggestion(true)
     }
   })
 }

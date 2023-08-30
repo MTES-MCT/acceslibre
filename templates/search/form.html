@@ -73,7 +73,7 @@
             </button>
             {% if equipments_shortcuts or equipments %}
                 <div class="fr-checkbox-group row equipments equiments-shortcuts">
-                    <span class="m-2">{% translate "Adaptés pour" %}</span>
+                    <span class="m-2 section-text">{% translate "Adaptés pour" %}</span>
                     {% with request.GET|get_list:"equipments_shortcuts" as params %}
                         {% for shortcut in equipments_shortcuts %}
                             {% include "search/filter_tag.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
@@ -81,7 +81,7 @@
                     {% endwith %}
                 </div>
                 <div class="fr-checkbox-group row equipments equipments-selected">
-                    <span class="m-2">{% translate "Equipements disponibles" %}</span>
+                    <span class="m-2 section-text">{% translate "Equipements disponibles" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/filter_tag.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
@@ -92,7 +92,7 @@
                     </button>
                 </div>
                 <div class="fr-checkbox-group row equipments equipments-suggestions">
-                    <span class="m-2">{% translate "Suggestions" %}</span>
+                    <span class="m-2 section-text">{% translate "Suggestions" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/filter_tag_suggestion.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="suggestionClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
