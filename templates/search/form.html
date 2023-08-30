@@ -123,8 +123,12 @@
                             <div class="modal-body text-left">
                                 <div class="fr-checkbox-group row equipments">
                                     {% with request.GET|get_list:"equipments" as equipment_params %}
-                                        {% for label_slug, label in equipments.items %}
-                                            {% include "search/filter_tag_clone.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
+                                        {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
+                                        {% for group in equipments_by_group %}
+                                            <h3 class="mt-4 mb-4 w-100">{{ group.grouper }}</h3>
+                                            {% for equipement in group.list %}
+                                                {% include "search/filter_tag_clone.html" with slug=equipement.slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=equipement.name %}
+                                            {% endfor %}
                                         {% endfor %}
                                     {% endwith %}
                                 </div>

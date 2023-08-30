@@ -79,129 +79,175 @@ def global_search(terms, code_insee, activities):
 
 
 def get_equipments():
+    ACCESS_GROUP = translate("Accès")
+    SERVICES_GROUP = translate("Accueil et prestations")
+    OUTSIDE_GROUP = translate("Extérieur")
+    ENTRANCE_GROUP = translate("Entrée")
     Equipment = namedtuple(
-        "Equipment", ["name", "slug", "manager", "is_default_suggestion"], defaults=(None, None, None, False)
+        "Equipment",
+        ["name", "slug", "manager", "is_default_suggestion", "group"],
+        defaults=(None, None, None, False, "default"),
     )
     equipments = [
         Equipment(
-            slug="having_parking", manager=ErpQuerySet.having_parking, name=translate("Stationnement à proximité")
+            slug="having_parking",
+            manager=ErpQuerySet.having_parking,
+            name=translate("Stationnement à proximité"),
+            group=ACCESS_GROUP,
         ),
         Equipment(
             slug="having_public_transportation",
             manager=ErpQuerySet.having_public_transportation,
             name=translate("Transport en commun à proximité"),
+            group=ACCESS_GROUP,
         ),
         Equipment(
             slug="having_parking_or_public_transportation",
             manager=ErpQuerySet.having_parking_or_public_transportation,
             name=translate("Transport en commun ou parking à proximité"),
+            group=ACCESS_GROUP,
         ),
         Equipment(
             slug="having_adapted_parking",
             manager=ErpQuerySet.having_adapted_parking,
             name=translate("Stationnement PMR (dans l'établissement ou à proximité)"),
+            group=ACCESS_GROUP,
         ),
         Equipment(
             slug="having_no_path",
             manager=ErpQuerySet.having_no_path,
             name=translate("Pas de chemin extérieur ou information inconnue"),
+            group=OUTSIDE_GROUP,
         ),
         Equipment(
             slug="having_adapted_path",
             manager=ErpQuerySet.having_adapted_path,
             name=translate("Chemin adapté aux personnes mal marchantes"),
+            group=OUTSIDE_GROUP,
         ),
         Equipment(
             slug="having_path_low_stairs",
             manager=ErpQuerySet.having_path_low_stairs,
             name=translate("Extérieur - plain-pied ou accessible via rampe ou ascenseur"),
+            group=OUTSIDE_GROUP,
         ),
         Equipment(
             slug="having_entry_low_stairs",
             manager=ErpQuerySet.having_entry_low_stairs,
             name=translate("Maximum une marche à l'entrée"),
+            group=ENTRANCE_GROUP,
         ),
         Equipment(
             slug="having_reception_low_stairs",
             manager=ErpQuerySet.having_reception_low_stairs,
             name=translate("Maximum une marche à l'accueil"),
+            group=ENTRANCE_GROUP,
         ),
         Equipment(
             slug="having_accessible_exterior_path",
             manager=ErpQuerySet.having_accessible_exterior_path,
             name=translate("Chemin extérieur accessible"),
+            group=OUTSIDE_GROUP,
         ),
         Equipment(
             slug="having_guide_band",
             manager=ErpQuerySet.having_guide_band,
             name=translate("Extérieur - bande de guidage"),
+            group=OUTSIDE_GROUP,
         ),
         Equipment(
             slug="having_accessible_entry",
             manager=ErpQuerySet.having_accessible_entry,
             name=translate("Entrée accessible"),
             is_default_suggestion=True,
+            group=ENTRANCE_GROUP,
         ),
         Equipment(
             slug="having_accessible_path_to_reception",
             manager=ErpQuerySet.having_accessible_path_to_reception,
             name=translate("Chemin vers l'accueil accessible"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_entry_min_width",
             manager=ErpQuerySet.having_entry_min_width,
             name=translate("Largeur de porte supérieure à 80cm ou information inconnue"),
+            group=ENTRANCE_GROUP,
         ),
         Equipment(
             slug="having_adapted_entry",
             manager=ErpQuerySet.having_adapted_entry,
             name=translate("Entrée spécifique PMR"),
+            group=ENTRANCE_GROUP,
         ),
-        Equipment(slug="having_sound_beacon", manager=ErpQuerySet.having_sound_beacon, name=translate("Balise sonore")),
+        Equipment(
+            slug="having_sound_beacon",
+            manager=ErpQuerySet.having_sound_beacon,
+            name=translate("Balise sonore"),
+            group=ENTRANCE_GROUP,
+        ),
         Equipment(
             slug="having_entry_call_device",
             manager=ErpQuerySet.having_entry_call_device,
             name=translate("Dispositif d'appel à l'entrée"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_visible_reception",
             manager=ErpQuerySet.having_visible_reception,
             name=translate("Proximité de l'accueil"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_staff",
             manager=ErpQuerySet.having_staff,
             name=translate("Présence de personnel"),
             is_default_suggestion=True,
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_trained_staff",
             manager=ErpQuerySet.having_trained_staff,
             name=translate("Personnel sensibilisé ou formé"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_audiodescription",
             manager=ErpQuerySet.having_audiodescription,
             name=translate("Audiodescription"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_hearing_equipments",
             manager=ErpQuerySet.having_hearing_equipments,
             name=translate("Equipements spécifiques pour personne malentendante"),
             is_default_suggestion=True,
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_entry_no_shrink",
             manager=ErpQuerySet.having_entry_no_shrink,
             name=translate("Chemin sans rétrécissement jusqu'à l'accueil ou information inconnue"),
+            group=SERVICES_GROUP,
         ),
         Equipment(
             slug="having_accessible_rooms",
             manager=ErpQuerySet.having_accessible_rooms,
             name=translate("Chambre accessible"),
+            group=SERVICES_GROUP,
         ),
-        Equipment(slug="having_adapted_wc", manager=ErpQuerySet.having_adapted_wc, name=translate("Toilette PMR")),
-        Equipment(slug="having_label", manager=ErpQuerySet.having_label, name=translate("Établissement labellisé")),
+        Equipment(
+            slug="having_adapted_wc",
+            manager=ErpQuerySet.having_adapted_wc,
+            name=translate("Toilette PMR"),
+            group=SERVICES_GROUP,
+        ),
+        Equipment(
+            slug="having_label",
+            manager=ErpQuerySet.having_label,
+            name=translate("Établissement labellisé"),
+            group=SERVICES_GROUP,
+        ),
     ]
 
     return {eq.slug: eq for eq in equipments}
