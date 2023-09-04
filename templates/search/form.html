@@ -1,11 +1,11 @@
 {% load static %}
 {% load i18n %}
 {% load a4a %}
-<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg"
+<form class="fr-col-12 a4a-search-form"
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
-    <div class="fr-col-12 no-gutters">
+    <div class="fr-col-12 no-gutters fr-search-bar fr-search-bar--lg">
         <div class="what-field py-1">
             <div class="fr-col-12 fr-col-sm-5 input-group input-form text-left">
                 <label for="what-input">
@@ -107,36 +107,49 @@
                         <span aria-hidden="true">+&nbsp;</span>{% translate "Voir tous les filtres" %}
                     </button>
                 </div>
-                <div class="modal" id="equipmentsmodal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="fr-h5 modal-title">{% translate "Tous les équipements" %}</h3>
-                                <button type="button"
-                                        title="Fermer la fenêtre"
-                                        class="close"
-                                        data-dismiss="modal"
-                                        aria-label="{% translate "Fermer" %}">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-left">
-                                <div class="fr-checkbox-group row equipments">
-                                    {% with request.GET|get_list:"equipments" as equipment_params %}
-                                        {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
-                                        {% for group in equipments_by_group %}
-                                            <h3 class="mt-4 mb-4 w-100">{{ group.grouper }}</h3>
-                                            {% for equipement in group.list %}
-                                                {% include "search/filter_tag_clone.html" with slug=equipement.slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=equipement.name %}
-                                            {% endfor %}
-                                        {% endfor %}
-                                    {% endwith %}
-                                </div>
-                            </div>
-                        </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="modal" id="equipmentsmodal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="fr-h5 modal-title">{% translate "Tous les équipements" %}</h3>
+                    <button type="button"
+                            title="Fermer la fenêtre"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="{% translate "Fermer" %}">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-left">
+                    <div class="fr-checkbox-group row equipments">
+                        {% with request.GET|get_list:"equipments" as equipment_params %}
+                            {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
+                            {% for group in equipments_by_group %}
+                                <h3 class="{% if not forloop.first %}mt-4{% endif %} mb-2 w-100">{{ group.grouper }}</h3>
+                                <fieldset class="fr-fieldset"
+                                          id="checkboxes"
+                                          aria-labelledby="checkboxes-legend checkboxes-messages">
+                                    {% for equipement in group.list %}
+                                        <div class="fr-fieldset__element">
+                                            <div class="fr-checkbox-group">
+                                                <input name="equipments"
+                                                       id="checkboxes-{{ equipement.slug }}"
+                                                       type="checkbox">
+                                                <label class="fr-label" for="checkboxes-{{ equipement.slug }}">{{ equipement.name }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </fieldset>
+                            {% endfor %}
+                        {% endwith %}
+                        <!--                  TODO see what to do with all the clone JS thing -->
+                        <input type="submit" value="{% trans 'Rechercher' %}">
                     </div>
                 </div>
-            {% endif %}
+            </div>
         </div>
     </div>
 </form>
