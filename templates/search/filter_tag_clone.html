@@ -1,13 +1,7 @@
-<span>
+<div>
     <input type="checkbox"
            id="{{ slug }}-clone"
-           class="hidden"
            {% if slug in params %}checked{% endif %}
            autocomplete="off">
-    <label class="fr-label invisible ml-0" for="{{ slug }}-clone"></label>
-    <button class="fr-tag a4a-label-tag mb-1 fr-tag--icon-left"
-            aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
-            data-fr-js-toggle="true"
-            type="button"
-            data-event-type="{{ eventType }}">{{ name }}</button>
-</span>
+    <label class="ml-0" for="{{ slug }}-clone">{{ name }}</label>
+</div>

@@ -111,7 +111,7 @@
         </div>
     </div>
     <div class="modal" id="equipmentsmodal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="fr-h5 modal-title">{% translate "Tous les équipements" %}</h3>
@@ -124,25 +124,14 @@
                     </button>
                 </div>
                 <div class="modal-body text-left">
-                    <div class="fr-checkbox-group row equipments">
+                    <div class="equipments">
                         {% with request.GET|get_list:"equipments" as equipment_params %}
                             {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
                             {% for group in equipments_by_group %}
                                 <h3 class="{% if not forloop.first %}mt-4{% endif %} mb-2 w-100">{{ group.grouper }}</h3>
-                                <fieldset class="fr-fieldset"
-                                          id="checkboxes"
-                                          aria-labelledby="checkboxes-legend checkboxes-messages">
-                                    {% for equipement in group.list %}
-                                        <div class="fr-fieldset__element">
-                                            <div class="fr-checkbox-group">
-                                                <input name="equipments"
-                                                       id="checkboxes-{{ equipement.slug }}"
-                                                       type="checkbox">
-                                                <label class="fr-label" for="checkboxes-{{ equipement.slug }}">{{ equipement.name }}</label>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </fieldset>
+                                {% for equipement in group.list %}
+                                    {% include "search/filter_tag_clone.html" with slug=equipement.slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=equipement.name %}
+                                {% endfor %}
                             {% endfor %}
                         {% endwith %}
                         <!--                  TODO see what to do with all the clone JS thing -->
