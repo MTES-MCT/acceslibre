@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-24 16:15+0200\n"
+"POT-Creation-Date: 2023-09-04 15:58+0200\n"
 "PO-Revision-Date: 2023-08-24 16:12+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -765,6 +765,18 @@ msgstr "Accessibility of the facility \"{self.erp.nom}\" ({self.erp.code_postal}
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr "Accessibility details of this ERP"
 
+msgid "Accès"
+msgstr "Access"
+
+msgid "Accueil et prestations"
+msgstr "Reception and services"
+
+msgid "Extérieur"
+msgstr "Exterior"
+
+msgid "Entrée"
+msgstr "Entrance"
+
 msgid "Stationnement à proximité"
 msgstr "Parking nearby"
 
@@ -1047,9 +1059,6 @@ msgstr "association for the visually impaired"
 msgid "Service universel postal"
 msgstr "Universal postal service"
 
-msgid "Accès"
-msgstr "Access"
-
 msgid "à proximité"
 msgstr "near"
 
@@ -1058,9 +1067,6 @@ msgstr "Outside path"
 
 msgid "depuis la voirie jusqu'à l'entrée"
 msgstr "from the road to the entrance"
-
-msgid "Entrée"
-msgstr "Entrance"
 
 msgid "de l'établissement"
 msgstr "of the facility"
@@ -2553,9 +2559,6 @@ msgstr "Outdoor space and path"
 msgid "Étape 4 sur 7"
 msgstr "Step 4 of 7"
 
-msgid "Extérieur"
-msgstr "Exterior"
-
 msgid "L'entrée de l'établissement"
 msgstr "Entrance of the facility"
 
@@ -2567,9 +2570,6 @@ msgstr "Reception of the facility"
 
 msgid "Étape 6 sur 7"
 msgstr "Step 6 of 7"
-
-msgid "Accueil et prestations"
-msgstr "Reception and services"
 
 msgid "Commentaire et informations complémentaires"
 msgstr "Comments and additional information"
@@ -3885,7 +3885,6 @@ msgstr ""
 #~ msgid "Partager les données d'accessibilité d'un établissement"
 #~ msgstr "Share accessibility data for a facility"
 
-#, python-format
 #~ msgid "Je souhaite <a class=\"fr-btn\" href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un établissement.</a>"
 #~ msgstr "I would like to <a class=\"fr-btn\" href=\"%(url_contrib_admin_infos)s\">manually add an establishment.</a>."
 
