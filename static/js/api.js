@@ -11,10 +11,14 @@ async function fetchWithTimeout(resource, options) {
   return response
 }
 
-function getCurrentPosition(options = { timeout: 10000 }) {
+function _getCurrentPosition() {
+  // TODO use maximumAge here instead of re-implementing it
   return new Promise((resolve, reject) => {
+    console.log('IN _getCurrentPosition')
+    console.log('geolocation' in navigator)
+    console.log(navigator)
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(resolve, reject, options)
+      navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 })
     } else {
       reject("La géolocalisation n'est pas disponible sur votre navigateur.")
     }
@@ -31,40 +35,56 @@ async function hasPermission(name) {
   return state
 }
 
-async function getUserLocation(options) {
-  const {
-    coords: { latitude: lat, longitude: lon },
-    timestamp,
-  } = await getCurrentPosition(options)
-  let label
+async function _getUserLocation() {
+  _getCurrentPosition().then(
+    async function (result) {
+      const {
+        coords: { latitude: lat, longitude: lon },
+        timestamp,
+      } = result
+      let label
+      try {
+        // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
+        const { features } = await reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 })
+        label = `(${features[0].properties.label})`
+      } catch (e) {
+        label = '✓'
+      }
+      return saveUserLocation({ lat, lon, label, timestamp })
+    },
+    function () {
+      console.log('TODO show modal')
+    }
+  )
+}
+
+function getLastStoredLocation() {
+  let storedLocation = null
+  let storedLocationIsRecent = false
+
   try {
-    // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
-    const { features } = await reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 })
-    label = `(${features[0].properties.label})`
+    storedLocation = JSON.parse(sessionStorage['a4a-loc'] || 'null')
+    storedLocationIsRecent = storedLocation.timestamp && new Date().getTime() - storedLocation.timestamp < 5 * 60000
   } catch (e) {
-    // if reverse geocoding request timed out, we still obtained coords so it's ok;
-    // just log other error types.
-    label = '✓'
+    return null
   }
-  return saveUserLocation({ lat, lon, label, timestamp })
+
+  if (storedLocation && storedLocationIsRecent) {
+    return storedLocation
+  }
+
+  return null
 }
 
 async function loadUserLocation(options = {}) {
-  const { ttl, retrieve } = { ttl: 5 * 60000, retrieve: true, ...options }
-  let loc = null
+  let storedLocation = getLastStoredLocation()
+
+  if (storedLocation) {
+    return storedLocation
+  }
+
   try {
-    loc = JSON.parse(sessionStorage['a4a-loc'] || 'null')
-  } catch (_) {}
-  try {
-    if (!loc || (loc.timestamp && new Date().getTime() - loc.timestamp > ttl)) {
-      if (!!retrieve) {
-        return await getUserLocation()
-      } else {
-        return loc
-      }
-    } else {
-      return loc
-    }
+    return await _getUserLocation()
   } catch (e) {
     console.error(e)
   }
@@ -177,4 +197,5 @@ export default {
   reverseGeocode,
   searchLocation,
   getCoordinate,
+  getLastStoredLocation,
 }

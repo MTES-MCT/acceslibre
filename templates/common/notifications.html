@@ -29,4 +29,20 @@
             </div>
         </div>
     {% endfor %}
+    <div class="a4a-notifications-item alert alert-dismissible p-0 m-0 card text-white bg-warning shadow-sm mb-2 hidden"
+         role="alert"
+         aria-live="polite"
+         id="js-notification"
+         aria-atomic="true">
+        <div class="card-header font-weight-bold px-3 py-2">{% translate "Information" %}</div>
+        <div class="card-body px-3 py-2">
+            <p class="card-text mb-0" id="js-notification-text"></p>
+            <button type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label='{% translate "Fermer" %}'>
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    </div>
 </div>

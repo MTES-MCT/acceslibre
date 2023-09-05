@@ -79,7 +79,7 @@ function SearchWhere(root) {
           a11yGeolocBtn.focus()
         }
         setGeoLoading(true)
-        const loc = await api.loadUserLocation({ retrieve: true })
+        const loc = await api.loadUserLocation()
         setGeoLoading(false)
         if (!loc) {
           console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
@@ -110,10 +110,9 @@ function SearchWhere(root) {
     },
 
     search: async (input) => {
-      const loc = await api.loadUserLocation({ retrieve: false })
-      const commonResults = await getCommonResults(loc)
       if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
-        return commonResults
+        const loc = await api.getLastStoredLocation()
+        return await getCommonResults(loc)
       }
       var { results } = await api.searchLocation(input, loc, 'municipality')
       if (results.length) {
