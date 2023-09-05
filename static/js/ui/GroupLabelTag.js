@@ -11,19 +11,19 @@ function _toggleHidden(elt, display) {
 }
 
 function _toggleChild(parent, display = true) {
-  let inputFilter = parent.querySelector('input')
-  inputFilter.checked = display
+  parent.querySelector('input').checked = display
   _toggleHidden(parent, display)
 
-  let button = parent.querySelector('button')
-  button.setAttribute('aria-pressed', display)
+  const button = parent.querySelector('button')
+  if (button) {
+    button.setAttribute('aria-pressed', display)
+  }
 }
 
 function _toggleChildren(children, display = true) {
   children.forEach(function (child) {
     _toggleChild(document.querySelector(`#${child}`).parentNode, display)
-    // TODO do we need this ?
-    // _toggleChild(document.querySelector(`#${child}-clone`).parentNode, display)
+    _toggleChild(document.querySelector(`#${child}-clone`).parentNode, display)
   })
 }
 
