@@ -115,6 +115,7 @@ function SearchWhere(root) {
     },
 
     search: async (input) => {
+      // TODO review this part ?
       if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         const loc = await api.getLastStoredLocation()
         return await getCommonResults(loc)

@@ -13,16 +13,6 @@ async function fetchWithTimeout(resource, options) {
   return response
 }
 
-// async function _getCurrentPosition() {
-//   return navigator.geolocation.getCurrentPosition(success)
-//   // new Promise((resolve, reject) => {
-//   //     if ('geolocation' in navigator) {
-//   //     } else {
-//   //       reject("La géolocalisation n'est pas disponible sur votre navigateur.")
-//   //     }
-//   // })
-// }
-
 async function hasPermission(name) {
   // Exemple name: "geolocation"
   if (!navigator?.permissions?.query) {
@@ -32,8 +22,6 @@ async function hasPermission(name) {
   const { state } = await navigator.permissions.query({ name })
   return state
 }
-
-// function _getLabelAndStorePosition(suc)
 
 async function _getUserLocation(successCallback, errorCallback) {
   // // TODO use maximumAge here instead of re-implementing it
@@ -83,11 +71,7 @@ async function loadUserLocation(successCallback, errorCallback) {
     return storedLocation
   }
 
-  try {
-    return await _getUserLocation(successCallback, errorCallback)
-  } catch (e) {
-    console.error(e)
-  }
+  return await _getUserLocation(successCallback, errorCallback)
 }
 
 async function reverseGeocode({ lat, lon }, options = {}) {
