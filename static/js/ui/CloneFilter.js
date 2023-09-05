@@ -1,14 +1,12 @@
 let toEmit = []
 function CloneFilter(root) {
   root.addEventListener('click', function (event) {
-    let eventType = root.getAttribute('data-event-type')
-    toEmit.push({ type: eventType, target: event.target })
-    console.log(`Need to emit ${toEmit}`)
+    toEmit.push({ type: root.getAttribute('data-event-type'), target: event.target })
   })
 }
 
 export function CloneFilterSubmit(root) {
-  root.addEventListener('click', function () {
+  root.addEventListener('click', () => {
     toEmit.forEach((event) => {
       document.dispatchEvent(new CustomEvent(event.type, { detail: { source: event.target } }))
     })

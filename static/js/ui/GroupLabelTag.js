@@ -22,7 +22,8 @@ function _toggleChild(parent, display = true) {
 function _toggleChildren(children, display = true) {
   children.forEach(function (child) {
     _toggleChild(document.querySelector(`#${child}`).parentNode, display)
-    _toggleChild(document.querySelector(`#${child}-clone`).parentNode, display)
+    // TODO do we need this ?
+    // _toggleChild(document.querySelector(`#${child}-clone`).parentNode, display)
   })
 }
 
@@ -128,7 +129,11 @@ function listenToLabelEvents() {
 
   document.addEventListener('equipmentClicked', function (event) {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
-    let display = event.detail.source.getAttribute('aria-pressed') === 'true'
+
+    const tagPressed = event.detail.source.getAttribute('aria-pressed') === 'true'
+    const inputChecked = event.detail.source.parentNode.querySelector('input[type=checkbox]').checked == true
+
+    const display = tagPressed || inputChecked
     _toggleChildren([equipmentSlug], display)
     document.dispatchEvent(new Event('filterChanged'))
 
