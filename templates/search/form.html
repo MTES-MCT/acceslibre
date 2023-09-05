@@ -130,10 +130,11 @@
                             {% for group in equipments_by_group %}
                                 <h3 class="{% if not forloop.first %}mt-4{% endif %} mb-2 w-100">{{ group.grouper }}</h3>
                                 {% for equipement in group.list %}
-                                    {% include "search/filter_tag_clone.html" with slug=equipement.slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=equipement.name %}
+                                    {% include "search/filter_clone.html" with slug=equipement.slug params=equipment_params eventType="equipmentClicked" name=equipement.name %}
                                 {% endfor %}
                             {% endfor %}
                         {% endwith %}
+                        <!--                        TODO style this button-->
                         <button type="button" id="clone-filter-submit" data-dismiss="modal">{% trans 'Rechercher' %}</button>
                     </div>
                 </div>
