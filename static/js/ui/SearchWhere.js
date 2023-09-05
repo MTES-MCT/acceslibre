@@ -64,7 +64,6 @@ function SearchWhere(root) {
   }
 
   function loadUserLocationSuccess(loc) {
-    console.log('ooooooooooooooooo', loc)
     loc.search_type = AROUND_ME
     setSearchData(loc)
     setSearchValue(`${AROUND_ME} ${loc.label}`)
@@ -98,18 +97,6 @@ function SearchWhere(root) {
         }
         setGeoLoading(true)
         api.loadUserLocation(loadUserLocationSuccess, loadUserLocationFailure)
-        // setGeoLoading(false)
-        // if (!loc) {
-        //   console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
-        //   setSearchData(null)
-        //   setSearchValue('')
-        //   input.focus()
-        // } else {
-        //   loc.search_type = AROUND_ME
-        //   setSearchData(loc)
-        //   setSearchValue(`${AROUND_ME} ${loc.label}`)
-        //   input.form.querySelector('button[type=submit]').focus()
-        // }
       } else {
         setSearchData(null)
       }

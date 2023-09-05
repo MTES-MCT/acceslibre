@@ -36,11 +36,8 @@ async function hasPermission(name) {
 // function _getLabelAndStorePosition(suc)
 
 async function _getUserLocation(successCallback, errorCallback) {
-  console.log('Will call function')
-
+  // // TODO use maximumAge here instead of re-implementing it
   navigator.geolocation.getCurrentPosition(function (loc) {
-    console.log('In accepted part', loc)
-    // L'utilisateur a accepté la géolocalisation
     const lat = loc.coords.latitude
     const lon = loc.coords.longitude
     const timestamp = loc.timestamp
@@ -58,78 +55,13 @@ async function _getUserLocation(successCallback, errorCallback) {
     saveUserLocation({ lat, lon, label, timestamp })
     successCallback(loc)
   }, errorCallback)
-
-  // _getCurrentPosition().then(function success(position){
-  //   successCallback(position)
-  // }, function failure(e){
-  //   errorCallback(position)
-  //   console.log(e)
-  // }).catch(e=>{
-  //   console.error(e)
-  // })
-
-  // // TODO use maximumAge here instead of re-implementing it
-  // navigator.geolocation.getCurrentPosition(
-  //   function (position) {
-  //     console.log("In accepted part")
-  //     // L'utilisateur a accepté la géolocalisation
-  //     const lat = position.coords.latitude;
-  //     const lon = position.coords.longitude;
-  //     const timestamp = position.timestamp
-  //     let label
-  //
-  //     try {
-  //       // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
-  //       const {features} = reverseGeocode({lat, lon}, {type: 'street', timeout: 800})
-  //       label = `(${features[0].properties.label})`
-  //     } catch (e) {
-  //       label = '✓'
-  //     }
-  //     saveUserLocation({lat, lon, label, timestamp})
-  //   },
-  //   function (error) {
-  //     console.log("In refused part")
-  //     if (error.code === 1) {
-  //       console.error("Vous avez refusé la géolocalisation.")
-  //     } else {
-  //       console.error("Erreur de géolocalisation : " + error.message);
-  //       console.error(" Une erreur s'est produite lors de la géolocalisation.")
-  //     }
-  //   }
-  // );
-
-  //
-  // await _getCurrentPosition().then((result) => {
-  //   console.log(result)
-  // }, (error) => {
-  //   console.error(error)
-  //   // ui.showMessage("Impossible de vous géolocaliser")
-  // })
-
-  // console.log("oooooooooooooo")
-  // console.log(result)
-  // console.log("oooooooooooooo")
-  //
-  // const {
-  //     coords: { latitude: lat, longitude: lon },
-  //     timestamp
-  //   } = result;
-  //
-  //   let label;
-  //   try {
-  //     const { features } = await reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 });
-  //     label = `(${features[0].properties.label})`;
-  //   } catch (e) {
-  //     label = '✓';
-  //   }
-  //
-  //   await saveUserLocation({ lat, lon, label, timestamp });
 }
 
 function getLastStoredLocation() {
   let storedLocation = null
   let storedLocationIsRecent = false
 
+  // TODO use correct parameter here
   try {
     storedLocation = JSON.parse(sessionStorage['a4a-loc'] || 'null')
     storedLocationIsRecent = storedLocation.timestamp && new Date().getTime() - storedLocation.timestamp < 5 * 60000
