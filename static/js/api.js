@@ -1,3 +1,5 @@
+import ui from './ui'
+
 async function fetchWithTimeout(resource, options) {
   // see https://dmitripavlutin.com/timeout-fetch-request/
   const { timeout = 8000 } = options
@@ -11,19 +13,15 @@ async function fetchWithTimeout(resource, options) {
   return response
 }
 
-function _getCurrentPosition() {
-  // TODO use maximumAge here instead of re-implementing it
-  return new Promise((resolve, reject) => {
-    console.log('IN _getCurrentPosition')
-    console.log('geolocation' in navigator)
-    console.log(navigator)
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 })
-    } else {
-      reject("La géolocalisation n'est pas disponible sur votre navigateur.")
-    }
-  })
-}
+// async function _getCurrentPosition() {
+//   return navigator.geolocation.getCurrentPosition(success)
+//   // new Promise((resolve, reject) => {
+//   //     if ('geolocation' in navigator) {
+//   //     } else {
+//   //       reject("La géolocalisation n'est pas disponible sur votre navigateur.")
+//   //     }
+//   // })
+// }
 
 async function hasPermission(name) {
   // Exemple name: "geolocation"
@@ -35,27 +33,97 @@ async function hasPermission(name) {
   return state
 }
 
-async function _getUserLocation() {
-  _getCurrentPosition().then(
-    async function (result) {
-      const {
-        coords: { latitude: lat, longitude: lon },
-        timestamp,
-      } = result
-      let label
-      try {
-        // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
-        const { features } = await reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 })
-        label = `(${features[0].properties.label})`
-      } catch (e) {
-        label = '✓'
-      }
-      return saveUserLocation({ lat, lon, label, timestamp })
-    },
-    function () {
-      console.log('TODO show modal')
+// function _getLabelAndStorePosition(suc)
+
+async function _getUserLocation(successCallback, errorCallback) {
+  console.log('Will call function')
+
+  navigator.geolocation.getCurrentPosition(function (loc) {
+    console.log('In accepted part', loc)
+    // L'utilisateur a accepté la géolocalisation
+    const lat = loc.coords.latitude
+    const lon = loc.coords.longitude
+    const timestamp = loc.timestamp
+    let label = ''
+
+    try {
+      // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
+      const { features } = reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 })
+      label = `(${features[0].properties.label})`
+    } catch (e) {
+      label = '✓'
     }
-  )
+
+    loc.label = label
+    saveUserLocation({ lat, lon, label, timestamp })
+    successCallback(loc)
+  }, errorCallback)
+
+  // _getCurrentPosition().then(function success(position){
+  //   successCallback(position)
+  // }, function failure(e){
+  //   errorCallback(position)
+  //   console.log(e)
+  // }).catch(e=>{
+  //   console.error(e)
+  // })
+
+  // // TODO use maximumAge here instead of re-implementing it
+  // navigator.geolocation.getCurrentPosition(
+  //   function (position) {
+  //     console.log("In accepted part")
+  //     // L'utilisateur a accepté la géolocalisation
+  //     const lat = position.coords.latitude;
+  //     const lon = position.coords.longitude;
+  //     const timestamp = position.timestamp
+  //     let label
+  //
+  //     try {
+  //       // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
+  //       const {features} = reverseGeocode({lat, lon}, {type: 'street', timeout: 800})
+  //       label = `(${features[0].properties.label})`
+  //     } catch (e) {
+  //       label = '✓'
+  //     }
+  //     saveUserLocation({lat, lon, label, timestamp})
+  //   },
+  //   function (error) {
+  //     console.log("In refused part")
+  //     if (error.code === 1) {
+  //       console.error("Vous avez refusé la géolocalisation.")
+  //     } else {
+  //       console.error("Erreur de géolocalisation : " + error.message);
+  //       console.error(" Une erreur s'est produite lors de la géolocalisation.")
+  //     }
+  //   }
+  // );
+
+  //
+  // await _getCurrentPosition().then((result) => {
+  //   console.log(result)
+  // }, (error) => {
+  //   console.error(error)
+  //   // ui.showMessage("Impossible de vous géolocaliser")
+  // })
+
+  // console.log("oooooooooooooo")
+  // console.log(result)
+  // console.log("oooooooooooooo")
+  //
+  // const {
+  //     coords: { latitude: lat, longitude: lon },
+  //     timestamp
+  //   } = result;
+  //
+  //   let label;
+  //   try {
+  //     const { features } = await reverseGeocode({ lat, lon }, { type: 'street', timeout: 800 });
+  //     label = `(${features[0].properties.label})`;
+  //   } catch (e) {
+  //     label = '✓';
+  //   }
+  //
+  //   await saveUserLocation({ lat, lon, label, timestamp });
 }
 
 function getLastStoredLocation() {
@@ -76,7 +144,7 @@ function getLastStoredLocation() {
   return null
 }
 
-async function loadUserLocation(options = {}) {
+async function loadUserLocation(successCallback, errorCallback) {
   let storedLocation = getLastStoredLocation()
 
   if (storedLocation) {
@@ -84,7 +152,7 @@ async function loadUserLocation(options = {}) {
   }
 
   try {
-    return await _getUserLocation()
+    return await _getUserLocation(successCallback, errorCallback)
   } catch (e) {
     console.error(e)
   }

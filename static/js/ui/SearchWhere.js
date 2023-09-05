@@ -1,5 +1,6 @@
 import api from '../api'
 import dom from '../dom'
+import ui from '../ui'
 import Autocomplete from '@trevoreyre/autocomplete-js'
 
 async function getCommonResults(loc) {
@@ -62,6 +63,23 @@ function SearchWhere(root) {
     }
   }
 
+  function loadUserLocationSuccess(loc) {
+    console.log('ooooooooooooooooo', loc)
+    loc.search_type = AROUND_ME
+    setSearchData(loc)
+    setSearchValue(`${AROUND_ME} ${loc.label}`)
+    input.form.querySelector('button[type=submit]').focus()
+    setGeoLoading(false)
+  }
+
+  function loadUserLocationFailure() {
+    setSearchData(null)
+    setSearchValue('')
+    input.focus()
+    setGeoLoading(false)
+    ui.showMessage('Vous avez refusé la géolocalisation.')
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
     submitOnEnter: true, // see https://github.com/trevoreyre/autocomplete/issues/157
@@ -79,19 +97,19 @@ function SearchWhere(root) {
           a11yGeolocBtn.focus()
         }
         setGeoLoading(true)
-        const loc = await api.loadUserLocation()
-        setGeoLoading(false)
-        if (!loc) {
-          console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
-          setSearchData(null)
-          setSearchValue('')
-          input.focus()
-        } else {
-          loc.search_type = AROUND_ME
-          setSearchData(loc)
-          setSearchValue(`${AROUND_ME} ${loc.label}`)
-          input.form.querySelector('button[type=submit]').focus()
-        }
+        api.loadUserLocation(loadUserLocationSuccess, loadUserLocationFailure)
+        // setGeoLoading(false)
+        // if (!loc) {
+        //   console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
+        //   setSearchData(null)
+        //   setSearchValue('')
+        //   input.focus()
+        // } else {
+        //   loc.search_type = AROUND_ME
+        //   setSearchData(loc)
+        //   setSearchValue(`${AROUND_ME} ${loc.label}`)
+        //   input.form.querySelector('button[type=submit]').focus()
+        // }
       } else {
         setSearchData(null)
       }

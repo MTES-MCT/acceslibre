@@ -9,6 +9,7 @@ import LabelTag from './LabelTag'
 import NewActivity from './NewActivity'
 import ActivitySelect from './ActivitySelect'
 import listenToLabelEvents from './GroupLabelTag'
+import showMessage from './Message'
 
 export default {
   AsteriskField,
@@ -22,4 +23,5 @@ export default {
   NewActivity,
   ActivitySelect,
   listenToLabelEvents,
+  showMessage,
 }
