@@ -16,13 +16,16 @@
     {% include "editorial/header.html" with dark=True %}
 {% endblock header %}
 {% block editorial_content %}
-    <h1 class="mt-3 mb-2 text-muted">
+    <h1 class="mt-3 mb-2 text-muted results-title">
         {% if what %}
             {% blocktranslate %}Résultats pour «{{what}}» autour de «{{where}}»{% endblocktranslate %}
         {% else %}
             {% blocktranslate %}Résultats autour de «{{where}}»{% endblocktranslate %}
         {% endif %}
     </h1>
+    <div class="spinner" id="loading-spinner">
+        <div class="loader"></div>
+    </div>
     {% if what and "centres de vaccination" in what %}
         <div class="alert alert-warning mt-3">
             {% blocktranslate %}

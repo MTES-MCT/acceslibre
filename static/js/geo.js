@@ -288,11 +288,12 @@ function refreshData(map, refreshApiUrl, apiKey, page = 1) {
   }
   const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page)
   const clearOldResults = page == 1
+  document.querySelector('#loading-spinner').classList.toggle('show-loader')
   fetchPromise.then((response) => {
     if (!response.ok) {
+      document.querySelector('#loading-spinner').classList.toggle('show-loader')
       return
     }
-
     response.json().then((jsonData) => {
       if (clearOldResults && markers) {
         map.removeLayer(markers)
@@ -302,6 +303,7 @@ function refreshData(map, refreshApiUrl, apiKey, page = 1) {
       refreshList(jsonData, clearOldResults)
       updateNumberOfResults(jsonData)
       dom.mountAll('.a4a-geo-link', ui.GeoLink)
+      document.querySelector('#loading-spinner').classList.toggle('show-loader')
 
       if (shouldTryToBroadenSearchToGetOneResult) {
         if (jsonData.count >= 1) {
