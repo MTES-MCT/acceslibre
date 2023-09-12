@@ -1,11 +1,11 @@
 let toEmit = []
-function CloneFilter(root) {
+function cloneFilter(root) {
   root.addEventListener('click', function (event) {
     toEmit.push({ type: root.getAttribute('data-event-type'), target: event.target })
   })
 }
 
-export function CloneFilterSubmit(root) {
+export function cloneFilterSubmit(root) {
   root.addEventListener('click', () => {
     toEmit.forEach((event) => {
       document.dispatchEvent(new CustomEvent(event.type, { detail: { source: event.target } }))
@@ -14,4 +14,4 @@ export function CloneFilterSubmit(root) {
   })
 }
 
-export default { CloneFilter, CloneFilterSubmit }
+export default { cloneFilter, cloneFilterSubmit }

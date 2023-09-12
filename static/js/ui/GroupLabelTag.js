@@ -133,7 +133,8 @@ function listenToLabelEvents() {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
 
     const tagPressed = event.detail.source.getAttribute('aria-pressed') === 'true'
-    const inputChecked = event.detail.source.parentNode.querySelector('input[type=checkbox]').checked == true
+    const inputChecked =
+      event.detail.source.parentNode.querySelector('input[type=checkbox]').getAttribute('checked') === 'true'
 
     const display = tagPressed || inputChecked
     _toggleChildren([equipmentSlug], display)
