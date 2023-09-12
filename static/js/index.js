@@ -37,6 +37,7 @@ window.SentryIntegrations = Integrations
 import dom from './dom'
 import geo from './geo'
 import ui from './ui'
+import cloneFilter from './ui/CloneFilter'
 
 // Initializations
 dom.ready(() => {
@@ -49,6 +50,8 @@ dom.ready(() => {
   dom.mountAll('.a4a-geo-link', ui.GeoLink)
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
   dom.mountAll('.a4a-label-tag', ui.LabelTag)
+  dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
+  dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
   dom.mountOne('#no_activity', ui.NewActivity)
   dom.mountOne('select#activite', ui.ActivitySelect)
 })

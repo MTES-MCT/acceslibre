@@ -11,12 +11,13 @@ function _toggleHidden(elt, display) {
 }
 
 function _toggleChild(parent, display = true) {
-  let inputFilter = parent.querySelector('input')
-  inputFilter.checked = display
+  parent.querySelector('input').checked = display
   _toggleHidden(parent, display)
 
-  let button = parent.querySelector('button')
-  button.setAttribute('aria-pressed', display)
+  const button = parent.querySelector('button')
+  if (button) {
+    button.setAttribute('aria-pressed', display)
+  }
 }
 
 function _toggleChildren(children, display = true) {
@@ -130,7 +131,12 @@ function listenToLabelEvents() {
 
   document.addEventListener('equipmentClicked', function (event) {
     let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
-    let display = event.detail.source.getAttribute('aria-pressed') === 'true'
+
+    const tagPressed = event.detail.source.getAttribute('aria-pressed') === 'true'
+    const inputChecked =
+      event.detail.source.parentNode.querySelector('input[type=checkbox]').getAttribute('checked') === 'true'
+
+    const display = tagPressed || inputChecked
     _toggleChildren([equipmentSlug], display)
 
     if (!display) {
