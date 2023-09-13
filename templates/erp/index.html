@@ -26,7 +26,7 @@
     <main role="main" id="content">
         <article class="mt-5">
             {% if 'success' in request.GET and messages %}
-                <div class="container container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
+                <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
                     <span class="h1 mb-0">{% translate "Merci !" %}</span>
                     <img src="{% static 'img/merci.png' %}"
                          height="60"
@@ -70,8 +70,8 @@
 {% endblock editorial_content %}
 {% block bottom_fluid_content %}
     {% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
-    <aside id="proximite" class="container-fluid bg-light mt-4 py-4">
-        <div class="container">{% include "erp/includes/proximite.html" %}</div>
+    <aside id="proximite" class="fr-container-fluid bg-light mt-4 py-4">
+        <div class="fr-container">{% include "erp/includes/proximite.html" %}</div>
     </aside>
 {% endswitch %}
 {% endblock bottom_fluid_content %}

@@ -745,6 +745,7 @@ def contrib_start(request):
         template_name="contrib/0-start.html",
         context={
             "form": form,
+            "step": 0,
         },
     )
 

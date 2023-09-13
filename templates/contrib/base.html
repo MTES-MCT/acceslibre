@@ -2,29 +2,27 @@
 {% load static %}
 {% load i18n %}
 {% block top_fluid_content %}
-    <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
-        <div class="container">
-            <div class="fr-container">
-                <div class="fr-follow__newsletter">
-                    <div>
-                        <h1 class="fr-h2 fr-follow__title">
-                            {% block contrib_title %}
-                            {% endblock contrib_title %}
-                        </h1>
-                        {% block contrib_step %}
-                        {% endblock contrib_step %}
-                        <h2 class="mt-2 fr-h3 fr-text--md">
-                            {% block contrib_subtitle %}
-                            {% endblock contrib_subtitle %}
-                        </h2>
-                    </div>
+    <div class="fr-follow bg-alt-blue-france-975">
+        <div class="fr-container">
+            <div class="fr-follow__newsletter">
+                <div>
+                    <h1 class="fr-h2 fr-follow__title">
+                        {% block contrib_title %}
+                        {% endblock contrib_title %}
+                    </h1>
+                    {% block contrib_step %}
+                    {% endblock contrib_step %}
+                    <h2 class="mt-2 fr-h3 fr-text--md">
+                        {% block contrib_subtitle %}
+                        {% endblock contrib_subtitle %}
+                    </h2>
                 </div>
             </div>
         </div>
     </div>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    <div class="row">
+    <div {% if step != 0 %}class="row"{% endif %}>
         {% block navbar %}
             <div class="col-md-3 mb-3">{% include "contrib/includes/nav.html" %}</div>
         {% endblock navbar %}
