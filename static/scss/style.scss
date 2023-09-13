@@ -675,6 +675,10 @@ select[name='language'] {
   }
 
   &-search-form {
+    .fr-search-bar {
+      display: block;
+    }
+
     .autocomplete-input {
       &.loading {
         background: transparent url('/img/loading.gif') no-repeat;
