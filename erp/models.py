@@ -305,10 +305,7 @@ class Commune(models.Model):
             return settings.MAP_DEFAULT_ZOOM_LARGE_CITY
         elif self.superficie > 6000:
             return 13
-        elif self.superficie > 1500:
-            return 14
-        else:
-            return 15
+        return 14
 
     def toTemplateJson(self):
         return json.dumps(

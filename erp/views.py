@@ -266,6 +266,11 @@ def search(request):
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
     queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
+    zoom_level = settings.MAP_DEFAULT_ZOOM
+    if request.GET.get("municipality"):
+        municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
+        if municipality:
+            zoom_level = municipality.get_zoom()
 
     paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)
@@ -281,9 +286,8 @@ def search(request):
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
         "equipments_shortcuts": get_equipments_shortcuts() if equipment_filters_feature else [],
-        # TODO : handle ordering in the display of equipment: display all filters that are part of a equipment section of a group and then all the other one.
-        # This will automatically make the suggestions displayed at the end of the list ?
         "equipments": get_equipments() if equipment_filters_feature else [],
+        "zoom_level": zoom_level,
     }
     return render(request, "search/results.html", context=context)
 
