@@ -12,20 +12,18 @@
 {% block top_fluid_content %}
     {% if 'contrib/publication/' in request.GET.next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
-            <div class="container">
-                <div class="fr-container">
-                    <div class="fr-follow__newsletter">
-                        <div>
-                            <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
-                            <p class="fr-text--md">{% translate "Publication" %}</p>
-                        </div>
-                        <div>
-                            <a href="javascript:history.back()"
-                               class="fr-btn fr-text--heavy"
-                               title="{% translate "Retour à la fiche" %}">
-                                <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
-                            </a>
-                        </div>
+            <div class="fr-container">
+                <div class="fr-follow__newsletter">
+                    <div>
+                        <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
+                        <p class="fr-text--md">{% translate "Publication" %}</p>
+                    </div>
+                    <div>
+                        <a href="javascript:history.back()"
+                           class="fr-btn fr-text--heavy"
+                           title="{% translate "Retour à la fiche" %}">
+                            <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
+                        </a>
                     </div>
                 </div>
             </div>
