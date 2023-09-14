@@ -1207,6 +1207,7 @@ div.equipments button {
     content: '';
     background-color: var(--background-action-high-blue-france);
   }
+
   &[aria-pressed='true']:before {
     background-color: white;
   }
@@ -1244,4 +1245,14 @@ div.equipments button {
   margin: 0;
   box-shadow: inset 0 0 0 1px var(--background-action-high-blue-france);
   font-size: 0.875rem;
+}
+
+@media (min-width: 48em) {
+  .fr-footer__bottom-item {
+    margin: 0.4rem 0 0 0.3rem !important;
+  }
+
+  .fr-footer__content {
+    flex-basis: 60% !important;
+  }
 }
