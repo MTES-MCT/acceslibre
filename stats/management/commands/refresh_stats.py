@@ -4,15 +4,22 @@ import logging
 from django.core.management import BaseCommand, CommandError
 from django.db.models import Q
 
-from stats.models import Challenge
+from stats.models import Challenge, GlobalStats
 
 logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    help = "Calcule les statistiques concernant les challenges en cours"
+    help = "Calcule les statistiques globales affichées sur la page Statistiques et les stats des challenge en cours"
 
     def handle(self, *args, **options):
+        try:
+            GlobalStats.objects.get().refresh_stats()
+            logger.info("STATS updated succesfully")
+        except KeyboardInterrupt:
+            raise CommandError("Interrompu.")
+
+        # Compute challenges stats
         today = datetime.datetime.today()
 
         for challenge in Challenge.objects.filter(
