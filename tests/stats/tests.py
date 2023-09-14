@@ -67,7 +67,7 @@ def test_widget_tracking_verify_dupes(data):
 
 
 def test_command_refresh_stats(client, data, mocker):
-    call_command("refresh_global_stats")
+    call_command("refresh_stats")
     assert GlobalStats.objects.count() == 1
     stat = GlobalStats.objects.get()
     assert stat.top_contributors is not dict()
