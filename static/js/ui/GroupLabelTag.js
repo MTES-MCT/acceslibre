@@ -130,13 +130,16 @@ function listenToLabelEvents() {
   })
 
   document.addEventListener('equipmentClicked', function (event) {
-    let equipmentSlug = event.detail.source.parentNode.querySelector('label').getAttribute('for').replace('-clone', '')
+    let parent = event.detail.source.parentNode
+    let equipmentSlug = parent.querySelector('label').getAttribute('for').replace('-clone', '')
+    const isClone = parent.querySelector('label').getAttribute('for').includes('-clone')
+    let display = true
+    if (isClone) {
+      display = parent.querySelector('input[type=checkbox]').checked
+    } else {
+      display = event.detail.source.getAttribute('aria-pressed') === 'true'
+    }
 
-    const tagPressed = event.detail.source.getAttribute('aria-pressed') === 'true'
-    const inputChecked =
-      event.detail.source.parentNode.querySelector('input[type=checkbox]').getAttribute('checked') === 'true'
-
-    const display = tagPressed || inputChecked
     _toggleChildren([equipmentSlug], display)
 
     if (!display) {
