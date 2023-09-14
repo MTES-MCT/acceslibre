@@ -247,10 +247,10 @@ class BaseErpForm(forms.ModelForm):
             return True
 
     def format_error(self, message):
-        signalement_url = reverse("contact_topic", kwargs={"topic": "bug"})
+        contact_bug_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
             translate(
-                f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" '
+                f'{message}. Veuillez vérifier votre saisie ou <a href="{contact_bug_url}" '
                 'target="_blank">signaler une erreur</a>.'
             )
         )

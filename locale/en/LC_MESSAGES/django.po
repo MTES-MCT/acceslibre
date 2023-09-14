@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-04 15:58+0200\n"
-"PO-Revision-Date: 2023-08-24 16:12+0200\n"
+"POT-Creation-Date: 2023-09-26 10:02+0200\n"
+"PO-Revision-Date: 2023-09-25 17:42+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -174,8 +174,8 @@ msgid "Un code postal par ligne"
 msgstr "One postal code per line"
 
 #, python-brace-format
-msgid "{message}. Veuillez vérifier votre saisie ou <a href=\"{signalement_url}\" target=\"_blank\">signaler une erreur</a>."
-msgstr "{message}. Please check your entry or <a href=\"{signalement_url}\" target=\"_blank\">report an error</a>."
+msgid "{message}. Veuillez vérifier votre saisie ou <a href=\"{contact_bug_url}\" target=\"_blank\">signaler une erreur</a>."
+msgstr "{message}. Please check your entry or <a href=\"{contact_bug_url}\" target=\"_blank\">report an error</a>."
 
 #, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {code_postal} "
@@ -2354,9 +2354,6 @@ msgstr "Report a malicious act for this facility"
 msgid "Contactez-nous"
 msgstr "Contact us"
 
-msgid "Les champs marqué d'une astérique (*) sont obligatoires."
-msgstr "Fields marked with an asterisk (*) are required."
-
 msgid "Établissement :"
 msgstr "Facility:"
 
@@ -2366,12 +2363,10 @@ msgstr "Back to the record"
 #, python-format
 msgid ""
 "\n"
-"          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information\n"
-"          d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener noreferrer\">accessibilité de cet établissement</a>."
+"                        Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener noreferrer\">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée."
 msgstr ""
 "\n"
-"We remind you that the mission of Acceslibre is to provide information\n"
-"of <a class=\"bold\" href=\"https://en.wikipedia.org/wiki/Accessibility\" target=\"_blank\" rel=\"noopener noreferrer\">accessibility of this facility</a>."
+"Your message will be forwarded to the acceslibre team that manages the <a class=\"bold\" href=\"https://en.wikipedia.org/wiki/Accessibility\" target=\"_blank\" rel=\"noopener noreferrer\">accessibility of this facility</a>. Any request that does not relate to accessibility information cannot be processed."
 
 msgid "Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong>"
 msgstr "We do not operate this vaccination center, <strong>so we cannot provide information on making an appointment.</strong>"
@@ -2382,33 +2377,8 @@ msgstr "However, you can contact this center at"
 msgid "Plus d'information sur les modalités de vaccination"
 msgstr "More information on how to get vaccinated"
 
-msgid "Nous ne pouvons pas vous fournir une assistance vis à vis des services ou prestations proposés."
-msgstr "We cannot provide you with any assistance in relation to the services offered."
-
-msgid "Merci de votre compréhension."
-msgstr "Thank you for your understanding."
-
 msgid "Envoyer"
 msgstr "Send"
-
-msgid "Problèmes techniques & rapport de bug"
-msgstr "Technical problems & bug reports"
-
-msgid ""
-"\n"
-"            Le code source de l'application est open source et\n"
-"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre\">intégralement publié sur Github</a>,\n"
-"            vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous\n"
-"            rencontrez à l'utilisation du service sur\n"
-"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/issues/new\">l'outil de rapport de bug dédié</a>.\n"
-"            "
-msgstr ""
-"\n"
-"The source code of this application is open source and\n"
-"<a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre\">integrally published on Github</a>,\n"
-"so if you wish, you can report any technical problems you\n"
-"encounter when using the service on\n"
-"<a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/issues/new\">the dedicated bug reporting tool</a>."
 
 msgid "Vous pouvez également nous envoyer directement un mail à"
 msgstr "You can also send us an email directly to"
@@ -2595,6 +2565,9 @@ msgstr "You are about to modify existing information for this facility"
 
 msgid "Veuillez vous assurer de la fiabilité des informations que vous contribuez."
 msgstr "Please ensure that the information you contribute is reliable."
+
+msgid "Les champs marqué d'une astérique (*) sont obligatoires."
+msgstr "Fields marked with an asterisk (*) are required."
 
 msgid "Revendiquer un établissement"
 msgstr "Claiming a facility"
@@ -3833,108 +3806,3 @@ msgid ""
 msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
-
-#~ msgid "Identifiant d'URL (slug) test"
-#~ msgstr "URL identifier (slug)"
-
-#~ msgid "Ajouter des équipements"
-#~ msgstr "Add equipment"
-
-#~ msgid "Extérieur - revêtement stable ou information inconnue"
-#~ msgstr "Exterior - stable coating or unknown information"
-
-#~ msgid "Extérieur - pas de pente importante ou information inconnue"
-#~ msgstr "Exterior - no significant slope or unknown information"
-
-#~ msgid "Extérieur - pas de dévers important ou information inconnue"
-#~ msgstr "Exterior - no significant slope or unknown information"
-
-#~ msgid "Extérieur - aucun rétrécissement ou information inconnue"
-#~ msgstr "Exterior - no shrinkage or unknown information"
-
-#~ msgid "Nb marches entrée <= 1"
-#~ msgstr "Nb entry stairs <= 1"
-
-#~ msgid "Nb marches accueil <= 1"
-#~ msgstr "Nb reception stairs <= 1"
-
-#~ msgid "Chemin adapté"
-#~ msgstr "Adapted path"
-
-#~ msgid "Visibilité de l'accueil depuis l'entrée"
-#~ msgstr "Visibility of reception area from entrance"
-
-#~ msgid "Chemin accessible"
-#~ msgstr "Accessible path"
-
-#~ msgid "Entrée de plain-pied ou accessible via rampe ou ascenseur"
-#~ msgstr "Ground-level entrance or accessible via ramp or elevator"
-
-#~ msgid "Chemin de plain-pied jusqu'à l'accueil ou accessible via rampe ou ascenseur ou information inconnue"
-#~ msgstr "Level path to reception or accessible via ramp or elevator or unknown information"
-
-#~ msgid "Explorer les lieux en France"
-#~ msgstr "Explore locations in France"
-
-#~ msgid "Recherche"
-#~ msgstr "Search"
-
-#~ msgid "Rechercher une commune"
-#~ msgstr "Search for a commune"
-
-#~ msgid "Partager les données d'accessibilité d'un établissement"
-#~ msgstr "Share accessibility data for a facility"
-
-#~ msgid "Je souhaite <a class=\"fr-btn\" href=\"%(url_contrib_admin_infos)s\">ajouter manuellement un établissement.</a>"
-#~ msgstr "I would like to <a class=\"fr-btn\" href=\"%(url_contrib_admin_infos)s\">manually add an establishment.</a>."
-
-#~ msgid "Label"
-#~ msgstr "Label"
-
-#~ msgid "Copiez ce code puis collez-le là où vous souhaitez qu'il s'affiche sur votre site web :"
-#~ msgstr "Copy this code and paste it where you want it to appear on your website:"
-
-#~ msgid "Activité :"
-#~ msgstr "Activity:"
-
-#~ msgid "Localité :"
-#~ msgstr "Locality:"
-
-#~ msgid "Vous pouvez cependant :"
-#~ msgstr "However, you can :"
-
-#~ msgid "Afficher la liste de tous les établissements situés à %(commune)s"
-#~ msgstr "Show the list of all facilities located in %(commune)s"
-
-#~ msgid "Nous contacter pour obtenir de l'aide ou nous signaler un problème"
-#~ msgstr "Contact us for help or to report a problem"
-
-#~ msgid "Aux alentours"
-#~ msgstr "Around"
-
-#~ msgid "Afficher les établissements situés dans un rayon de %(MAP_SEARCH_RADIUS_KM)s kilomètres autour de"
-#~ msgstr "Show facilities located within %(MAP_SEARCH_RADIUS_KM)s kilometers of"
-
-#~ msgid "Ajouter un établissement manquant à %(commune)s "
-#~ msgstr "Add a missing facility to %(commune)s"
-
-#~ msgid "Ajouter un établissement manquant"
-#~ msgstr "Add a missing facility"
-
-#~ msgid "Retrouvez l'ensemble de ces établissements via ce QRCode"
-#~ msgstr "Find all these facilities via this QRCode"
-
-#~ msgid "France entière"
-#~ msgstr "Whole France"
-
-#~ msgid "Afficher la carte globale"
-#~ msgstr "Display the global map"
-
-#~ msgid "à l'adresse"
-#~ msgstr "at"
-
-#~ msgid "Localiser sur la carte"
-#~ msgstr "Locate on the map"
-
-#~ msgid "Localiser"
-#~ msgstr "Locate"
