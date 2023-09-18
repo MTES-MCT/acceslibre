@@ -183,7 +183,10 @@
 
   allContainers.forEach(function (container) {
     var erpPK = container.getAttribute('data-pk')
-    fetch(baseURL + '/uuid/' + erpPK + '/widget/')
+    fetch(baseURL + '/uuid/' + erpPK + '/widget/', {
+      method: 'GET',
+      headers: { 'X-OriginUrl': window.location },
+    })
       .then(function (response) {
         return response.text()
       })

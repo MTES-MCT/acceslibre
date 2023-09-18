@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from stats.models import Challenge, ChallengePlayer, Implementation, Referer
+from stats.models import Challenge, ChallengePlayer, Implementation, Referer, WidgetEvent
 
 
 @admin.register(Challenge)
@@ -37,3 +37,9 @@ class ImplementationAdmin(admin.ModelAdmin):
     list_display = ("urlpath", "created_at", "updated_at")
     search_fields = ("urlpath",)
     list_filter = ("referer", "created_at")
+
+
+@admin.register(WidgetEvent)
+class WidgetEventAdmin(admin.ModelAdmin):
+    list_display = ("domain", "referer_url", "views")
+    search_fields = ("urlpath",)

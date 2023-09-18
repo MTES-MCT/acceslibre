@@ -165,3 +165,13 @@ class Implementation(models.Model):
 
     def __str__(self):
         return self.urlpath
+
+
+class WidgetEvent(models.Model):
+    date = models.DateField(auto_now_add=True)
+    domain = models.URLField(help_text=translate("Domaine du site réutilisateur"))
+    referer_url = models.URLField(help_text=translate("Url complète"))
+    views = models.IntegerField(default=0)
+
+    class Meta:
+        unique_together = ("domain", "referer_url", "date")
