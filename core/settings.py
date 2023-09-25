@@ -1,6 +1,7 @@
 import os
 
 import environ
+from corsheaders.defaults import default_headers
 from django.contrib.messages import constants as message_constants
 from django.utils.translation import gettext_lazy as trans
 
@@ -141,6 +142,10 @@ MIDDLEWARE = [
 SITE_ID = 1
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+    *default_headers,
+    "X-OriginUrl",
+)
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",

@@ -4,69 +4,55 @@ from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 
-from stats.models import GlobalStats, Implementation, Referer
+from stats.models import GlobalStats, WidgetEvent
 
 
 @pytest.mark.django_db
 def test_widget_tracking(data):
     c = Client()
     headers = {
-        "HTTP_ORIGIN": "http://test_widget_external_website.tld",
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
-    assert Referer.objects.all().count() == 0
+    assert WidgetEvent.objects.all().count() == 0
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response.status_code == 200
-    assert Referer.objects.all().count() == 1
-    assert Implementation.objects.all().count() == 1
-    impl = Implementation.objects.last()
-    assert impl.urlpath == "http://test_widget_external_website.tld/test_url.php"
+
+    event = WidgetEvent.objects.get()
+    assert event.views == 1
+    assert event.domain == "test_widget_external_website.tld"
+    assert event.referer_url == "http://test_widget_external_website.tld/test_url.php"
 
 
 @pytest.mark.django_db
-def test_widget_tracking_without_origin(data):
+def test_widget_tracking_multiple_views(data):
     c = Client()
     headers = {
-        "HTTP_REFERER": "http://test_widget_external_website.tld",
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld",
+        "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
-    assert Referer.objects.all().count() == 0
-    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    assert response.status_code == 200
-    assert Referer.objects.all().count() == 0
+    assert WidgetEvent.objects.all().count() == 0
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+
+    event = WidgetEvent.objects.get()
+    assert event.views == 3
+    assert event.domain == "test_widget_external_website.tld"
+    assert event.referer_url == "http://test_widget_external_website.tld/test_url.php"
 
 
 @pytest.mark.django_db
 def test_widget_tracking_with_same_origin_site(data):
     c = Client()
     headers = {
-        "HTTP_REFERER": "http://%s" % Site.objects.get_current().domain,
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld",
+        "HTTP_X-Originurl": f"http://{Site.objects.get_current().domain}/test/",
     }
-    assert Referer.objects.all().count() == 0
+    assert WidgetEvent.objects.all().count() == 0
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response.status_code == 200
-    assert Referer.objects.all().count() == 0
+    assert WidgetEvent.objects.all().count() == 0
 
 
-@pytest.mark.django_db
-def test_widget_tracking_verify_dupes(data):
-    c = Client()
-    headers = {
-        "HTTP_ORIGIN": "http://test_widget_external_website.tld",
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
-    }
-    assert Referer.objects.all().count() == 0
-    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    response_dupes = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    assert response_dupes.status_code == 200
-    assert Referer.objects.all().count() == 1
-    assert Implementation.objects.all().count() == 1
-    impl = Implementation.objects.last()
-    assert impl.urlpath == "http://test_widget_external_website.tld/test_url.php"
-
-
-def test_command_refresh_stats(client, data, mocker):
+def test_command_refresh_stats(client, data):
     call_command("refresh_stats")
     assert GlobalStats.objects.count() == 1
     stat = GlobalStats.objects.get()
