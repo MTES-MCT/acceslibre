@@ -1,9 +1,9 @@
 <div>
     <input type="checkbox"
            id="{{ slug }}-clone"
+           class="a4a-clone-filter"
+           data-event-type="{{ eventType }}"
            {% if slug in params %}checked{% endif %}
            autocomplete="off">
-    <label class="ml-0 a4a-clone-filter"
-           for="{{ slug }}-clone"
-           data-event-type="{{ eventType }}">{{ name }}</label>
+    <label class="ml-0" for="{{ slug }}-clone">{{ name }}</label>
 </div>
