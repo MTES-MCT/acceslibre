@@ -166,6 +166,10 @@ class Activite(models.Model):
             position += 1
             act.save()
 
+    @property
+    def keyword_with_name(self):
+        return [self.nom, *self.mots_cles]
+
 
 class ActivitiesGroup(models.Model):
     name = models.CharField(

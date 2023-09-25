@@ -7,7 +7,6 @@ import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
 import LabelTag from './LabelTag'
 import NewActivity from './NewActivity'
-import ActivitySelect from './ActivitySelect'
 import listenToLabelEvents from './GroupLabelTag'
 
 export default {
@@ -20,6 +19,5 @@ export default {
   SearchWhere,
   LabelTag,
   NewActivity,
-  ActivitySelect,
   listenToLabelEvents,
 }
