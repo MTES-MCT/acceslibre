@@ -936,7 +936,7 @@ def contrib_edit_infos(request, erp_slug):
             "libelle_step": {"current": "informations", "next": libelle_next},
             "erp": erp,
             "form": form,
-            "activite": Activite.objects.get(slug="autre"),
+            "other_activity": Activite.objects.only("id").get(slug="autre"),
             # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
             "map_options": json.dumps({"scrollWheelZoom": False}),
         },
