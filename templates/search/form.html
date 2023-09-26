@@ -7,7 +7,7 @@
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div class="no-gutters">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-4 input-group input-form text-left">
+            <div class="fr-col-12 fr-col-4 input-group input-form text-left">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Quoi</strong> (activité, enseigne)" %}</span>
                     <br>
@@ -22,7 +22,7 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-6 input-group input-form search-where-field text-left">
+            <div class="fr-col-10 fr-col-6 input-group input-form search-where-field text-left">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Où</strong> (adresse, ville)" %}</span>
                     <br>
