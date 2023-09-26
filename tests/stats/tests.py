@@ -24,6 +24,22 @@ def test_widget_tracking(data):
 
 
 @pytest.mark.django_db
+def test_widget_tracking_with_long_url(data):
+    c = Client()
+    headers = {
+        "HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=" + 200 * "#",
+    }
+    assert WidgetEvent.objects.all().count() == 0
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    assert response.status_code == 200
+
+    event = WidgetEvent.objects.get()
+    assert event.views == 1
+    assert event.domain == "test_widget_external_website.tld"
+    assert event.referer_url.startswith("http://test_widget_external_website.tld/?utm=")
+
+
+@pytest.mark.django_db
 def test_widget_tracking_multiple_views(data):
     c = Client()
     headers = {
