@@ -1,5 +1,5 @@
 import datetime
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 from django.contrib.sites.models import Site
 from django.db.models import F
@@ -22,6 +22,7 @@ class TrackStatsWidget:
     def _update_event(self, request):
         referer = request.headers.get("X-OriginUrl")
         referer = referer[:199]
+        referer = urljoin(referer, urlparse(referer).path)
         domain = urlparse(referer).netloc or referer
         date = datetime.date.today()
 
