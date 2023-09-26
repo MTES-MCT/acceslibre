@@ -21,6 +21,7 @@ class TrackStatsWidget:
 
     def _update_event(self, request):
         referer = request.headers.get("X-OriginUrl")
+        referer = referer[:199]
         domain = urlparse(referer).netloc or referer
         date = datetime.date.today()
 
