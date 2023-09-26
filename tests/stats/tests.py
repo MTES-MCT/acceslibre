@@ -27,7 +27,7 @@ def test_widget_tracking(data):
 def test_widget_tracking_with_long_url(data):
     c = Client()
     headers = {
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=" + 200 * "#",
+        "HTTP_X-Originurl": "http://test_widget_external_website.tld/" + 200 * "#",
     }
     assert WidgetEvent.objects.all().count() == 0
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
@@ -36,7 +36,21 @@ def test_widget_tracking_with_long_url(data):
     event = WidgetEvent.objects.get()
     assert event.views == 1
     assert event.domain == "test_widget_external_website.tld"
-    assert event.referer_url.startswith("http://test_widget_external_website.tld/?utm=")
+    assert event.referer_url.startswith("http://test_widget_external_website.tld/")
+
+
+@pytest.mark.django_db
+def test_widget_tracking_remove_query_string(data):
+    c = Client()
+    headers = {"HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=foo"}
+    assert WidgetEvent.objects.all().count() == 0
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    assert response.status_code == 200
+
+    event = WidgetEvent.objects.get()
+    assert event.views == 1
+    assert event.domain == "test_widget_external_website.tld"
+    assert event.referer_url.startswith("http://test_widget_external_website.tld/")
 
 
 @pytest.mark.django_db
