@@ -49,24 +49,6 @@
                             {% blocktranslate %}
                         Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class="bold" href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank" rel="noopener noreferrer">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée.{% endblocktranslate %}
                             <br>
-                            {% if erp.activite.slug == "centre-de-vaccination" %}
-                                <p>
-                                    {% translate "Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong>" %}
-                                </p>
-                                {% if erp.telephone %}
-                                    <p>
-                                        {% translate "Vous pouvez néanmoins contacter ce centre au " %}<a class="bold" href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>.
-                                    </p>
-                                {% endif %}
-                                <p class="mb-0">
-                                    <a class="bold"
-                                       href="https://solidarites-sante.gouv.fr/grands-dossiers/vaccin-covid-19/je-suis-un-particulier/"
-                                       target="_blank"
-                                       rel="noopener noreferrer">
-                                        » {% translate "Plus d'information sur les modalités de vaccination" %}
-                                    </a>
-                                </p>
-                            {% endif %}
                         </p>
                     </div>
                 {% endif %}
