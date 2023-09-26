@@ -33,24 +33,25 @@ class ContactForm(forms.ModelForm):
     robot = forms.BooleanField(
         label=translate("Je ne suis pas un robot"),
         help_text=translate("Merci de cocher cette case pour envoyer votre message"),
-        initial=False,
-        required=False,
+        required=True,
     )
 
     def __init__(self, *args, **kwargs):
         request = kwargs.pop("request")
-        initial = kwargs.get("initial", {})
+        initial = kwargs.get("initial") or {}
 
-        # prefill initial form data
         user = request.user
         if user.is_authenticated:
             initial["name"] = f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
             initial["email"] = user.email
             initial["user"] = user
+            initial["robot"] = True
 
         kwargs["initial"] = initial
 
-        return super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
+        if user.is_authenticated:
+            self.fields["robot"].widget = self.fields["robot"].hidden_widget()
 
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)

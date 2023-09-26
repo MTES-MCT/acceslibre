@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-04 15:58+0200\n"
+"POT-Creation-Date: 2023-09-26 10:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,7 +174,7 @@ msgid "Un code postal par ligne"
 msgstr ""
 
 #, python-brace-format
-msgid "{message}. Veuillez vérifier votre saisie ou <a href=\"{signalement_url}\" target=\"_blank\">signaler une erreur</a>."
+msgid "{message}. Veuillez vérifier votre saisie ou <a href=\"{contact_bug_url}\" target=\"_blank\">signaler une erreur</a>."
 msgstr ""
 
 #, python-brace-format
@@ -2322,9 +2322,6 @@ msgstr ""
 msgid "Contactez-nous"
 msgstr ""
 
-msgid "Les champs marqué d'une astérique (*) sont obligatoires."
-msgstr ""
-
 msgid "Établissement :"
 msgstr ""
 
@@ -2334,8 +2331,7 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information\n"
-"          d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener noreferrer\">accessibilité de cet établissement</a>."
+"                        Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class=\"bold\" href=\"https://fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener noreferrer\">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée."
 msgstr ""
 
 msgid "Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong>"
@@ -2347,26 +2343,7 @@ msgstr ""
 msgid "Plus d'information sur les modalités de vaccination"
 msgstr ""
 
-msgid "Nous ne pouvons pas vous fournir une assistance vis à vis des services ou prestations proposés."
-msgstr ""
-
-msgid "Merci de votre compréhension."
-msgstr ""
-
 msgid "Envoyer"
-msgstr ""
-
-msgid "Problèmes techniques & rapport de bug"
-msgstr ""
-
-msgid ""
-"\n"
-"            Le code source de l'application est open source et\n"
-"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre\">intégralement publié sur Github</a>,\n"
-"            vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous\n"
-"            rencontrez à l'utilisation du service sur\n"
-"            <a class=\"bold\" href=\"https://github.com/MTES-MCT/acceslibre/issues/new\">l'outil de rapport de bug dédié</a>.\n"
-"            "
 msgstr ""
 
 msgid "Vous pouvez également nous envoyer directement un mail à"
@@ -2546,6 +2523,9 @@ msgid "Vous vous apprêtez à modifier les informations existantes pour cet éta
 msgstr ""
 
 msgid "Veuillez vous assurer de la fiabilité des informations que vous contribuez."
+msgstr ""
+
+msgid "Les champs marqué d'une astérique (*) sont obligatoires."
 msgstr ""
 
 msgid "Revendiquer un établissement"
