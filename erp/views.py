@@ -764,7 +764,9 @@ def contrib_global_search(request):
         # assuming he knows what he does and does not need help with some external API results.
         need_external_api_search = False
 
-    activite = Activite.objects.get(nom=request.GET.get("activite")) if request.GET.get("activite") else None
+    activite = None
+    if request.GET.get("activite"):
+        activite = Activite.objects.filter(nom=request.GET.get("activite")).first()
 
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
