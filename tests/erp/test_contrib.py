@@ -146,6 +146,9 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
     assert "exists" in response.context["results_bdd"][0]
     assert response.context["results_bdd"][0]["source"] == "acceslibre"
     assert response.context["results_bdd"][0]["id"] == obj_erp.id
+    assert all(
+        [x in response.context["query"] for x in ("nom", "commune", "activite", "code_postal", "lat", "lon")]
+    ), "Missing info for encode_provider_data"
 
 
 def test_claim(client, user, data):
