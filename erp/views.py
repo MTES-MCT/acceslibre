@@ -811,6 +811,7 @@ def contrib_global_search(request):
                 "commune": city,
                 "lat": request.GET.get("lat"),
                 "lon": request.GET.get("lon"),
+                "activite": activite.pk if activite else None,
                 "activite_slug": activite.slug if activite else None,
                 "new_activity": request.GET.get("new_activity"),
                 "code_postal": request.GET.get("postcode"),
