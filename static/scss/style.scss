@@ -107,11 +107,6 @@ button.fr-btn:hover {
   border: 2px solid rgba(41, 41, 255, 0.5);
 }
 
-.fr-btn:not(.fr-btn--secondary):focus,
-.fr-btn:not(.fr-btn--secondary):hover {
-  color: white;
-}
-
 [href]:not(.leaflet-control-layers-toggle) {
   background-image: none !important;
 }
@@ -675,10 +670,6 @@ select[name='language'] {
   }
 
   &-search-form {
-    .fr-search-bar {
-      display: block;
-    }
-
     .autocomplete-input {
       &.loading {
         background: transparent url('/img/loading.gif') no-repeat;

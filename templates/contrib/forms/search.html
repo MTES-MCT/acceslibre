@@ -5,8 +5,8 @@
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
-    <div class="fr-col-12 no-gutters">
-        <div class="what-field py-1">
+    <div class="no-gutters w-100">
+        <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Nom de l'établissement" %}</strong></span>
@@ -22,7 +22,7 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left fr-select-group mb-0">
+            <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
                 <label for="activite">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                     <br>
@@ -80,52 +80,52 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <button type="submit"
-                    {% if 'contrib' in request.path %}disabled{% endif %}
-                    class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search"
-                    title="{% translate "Rechercher" %}">
-                <span class="sr-only">{% translate "Rechercher" %}</span>
-            </button>
-            <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-                {% translate "Autoriser l'obtention de ma localisation géographique" %}
-            </button>
-            <div>
-                <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
-                    {% if form.errors.what %}
-                        <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
-                    {% endif %}
-                </div>
-                <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
-                    {% if form.errors.activite %}
-                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
-                    {% endif %}
-                    <a href="#"
-                       class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
-                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
-                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
-                          id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
-                </div>
-                <div class="fr-col-12 fr-col-sm-4 input-group input-form text-left"></div>
+            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4">
+                <button type="submit"
+                        disabled
+                        class="fr-text--sm fr-btn"
+                        title="{% translate "Rechercher" %}">{% translate "Rechercher" %}</button>
+                <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+                    {% translate "Autoriser l'obtention de ma localisation géographique" %}
+                </button>
             </div>
-            {% if equipments_shortcuts or equipments %}
-                <div class="fr-checkbox-group row equipments">
-                    {% with request.GET|get_list:"equipments" as equipment_params %}
-                        {% for label_slug, label in equipments.items %}
-                            <input type="checkbox"
-                                   id="{{ label_slug }}"
-                                   name="equipments"
-                                   class="hidden"
-                                   value="{{ label_slug }}"
-                                   {% if label_slug in equipment_params %}checked{% endif %}>
-                            <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
-                            <button class="fr-tag a4a-label-tag mb-1"
-                                    aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
-                                    data-fr-js-toggle="true"
-                                    type="button">{{ label.name }}</button>
-                        {% endfor %}
-                    {% endwith %}
-                </div>
-            {% endif %}
         </div>
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-3 input-group input-form text-left">
+                {% if form.errors.what %}
+                    <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
+                {% endif %}
+            </div>
+            <div class="fr-col-3 input-group input-form text-left">
+                {% if form.errors.activite %}
+                    <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
+                {% endif %}
+                <a href="#"
+                   class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
+                   id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
+                <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
+                      id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
+            </div>
+            <div class="fr-col-6 input-group input-form text-left"></div>
+        </div>
+        {% if equipments_shortcuts or equipments %}
+            <div class="fr-checkbox-group row equipments">
+                {% with request.GET|get_list:"equipments" as equipment_params %}
+                    {% for label_slug, label in equipments.items %}
+                        <input type="checkbox"
+                               id="{{ label_slug }}"
+                               name="equipments"
+                               class="hidden"
+                               value="{{ label_slug }}"
+                               {% if label_slug in equipment_params %}checked{% endif %}>
+                        <label class="fr-label invisible ml-0" for="{{ label_slug }}"></label>
+                        <button class="fr-tag a4a-label-tag mb-1"
+                                aria-pressed="{% if label_slug in equipment_params %}true{% else %}false{% endif %}"
+                                data-fr-js-toggle="true"
+                                type="button">{{ label.name }}</button>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+        {% endif %}
     </div>
 </form>
