@@ -1,12 +1,12 @@
 function NewActivity(root) {
   root.addEventListener('click', function () {
     let inputNewActivity = document.getElementById('new_activity')
-    let selectActivity = document.getElementById('activite')
+    let selectActivity = document.getElementById('autocomplete-activity')
 
     inputNewActivity.classList.remove('hidden')
     inputNewActivity.focus()
     selectActivity.classList.add('hidden')
-    selectActivity.value = gettext('Autre')
+    selectActivity.querySelector('input').value = gettext('Autre')
   })
 }
 

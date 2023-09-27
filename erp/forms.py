@@ -19,6 +19,8 @@ from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
+from .fields import ActivityField
+
 
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
@@ -587,12 +589,6 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
 
 
 class ProviderGlobalSearchForm(forms.Form):
-    activite = forms.ModelChoiceField(
-        label=translate_lazy("Activité"),
-        queryset=Activite.objects.order_by("position"),
-        required=True,
-        to_field_name="nom",
-    )
     new_activity = forms.CharField(required=False, widget=forms.HiddenInput)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
@@ -631,6 +627,8 @@ class ProviderGlobalSearchForm(forms.Form):
                 initial["commune_search"] = commune_search
                 initial["code_insee"] = code
         super().__init__(*args, **kwargs)
+
+        self.fields["activite"] = ActivityField()
 
 
 class PublicAProposForm(forms.ModelForm):

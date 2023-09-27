@@ -32,16 +32,13 @@
                        class="fr-input hidden"
                        id="new_activity"
                        name="new_activity"
+                       placeholder="{% translate "Entrez votre activité" %}"
                        value="{{ request.GET.new_activity }}">
-                <select class="fr-select fr-input" id="activite" name="activite">
-                    <option value="" selected disabled hidden>{% translate "Selectionnez une activité" %}</option>
-                    {% for activity in form.activite.field.queryset %}
-                        <option value="{{ activity.nom }}"
-                                {% if form.activite.value == activity.nom %}selected{% endif %}>
-                            {{ activity.nom }}
-                        </option>
-                    {% endfor %}
-                </select>
+                <div id="autocomplete-activity" class="autocomplete">
+                    {{ form.activite }}
+                    <ul class="list-group">
+                    </ul>
+                </div>
             </div>
             <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field text-left">
                 <label for="where-input">
