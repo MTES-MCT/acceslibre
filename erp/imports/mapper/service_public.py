@@ -33,7 +33,11 @@ class ServicePublicMapper:
                 return
             postal_code = self.record["adresse"][0]["code_postal"]
             commune = self.record["adresse"][0]["nom_commune"]
-            return Erp.objects.search_what(name).filter(code_postal=postal_code, commune__iexact=commune).first()
+            return (
+                Erp.objects.search_what(name)
+                .filter(code_postal=postal_code, commune__iexact=commune, published=True)
+                .first()
+            )
 
         erp = (
             _search_by_old_code(self.record["ancien_code_pivot"])
