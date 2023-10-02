@@ -1,5 +1,6 @@
 function NewActivity(root) {
-  root.addEventListener('click', function () {
+  root.addEventListener('click', function (event) {
+    event.preventDefault()
     let inputNewActivity = document.getElementById('new_activity')
     let selectActivity = document.getElementById('autocomplete-activity')
 
