@@ -7,7 +7,7 @@
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div class="no-gutters">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-4 input-group input-form text-left">
+            <div class="fr-col-12 fr-col-lg-4 input-group input-form text-left pr-1">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Quoi</strong> (activité, enseigne)" %}</span>
                     <br>
@@ -22,7 +22,7 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-10 fr-col-6 input-group input-form search-where-field text-left">
+            <div class="fr-col-10 fr-col-lg-6 input-group input-form search-where-field text-left px-1">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Où</strong> (adresse, ville)" %}</span>
                     <br>
@@ -62,7 +62,7 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4">
+            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4 pl-1">
                 <button type="submit"
                         class="fr-text--sm fr-btn"
                         title="{% translate "Rechercher" %}">{% translate "Rechercher" %}</button>

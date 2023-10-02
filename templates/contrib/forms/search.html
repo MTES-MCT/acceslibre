@@ -7,7 +7,7 @@
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div class="no-gutters w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
+            <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left pr-1">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Nom de l'établissement" %}</strong></span>
                     <br>
@@ -21,8 +21,13 @@
                        aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare" %}'
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                <div>
+                    {% if form.errors.what %}
+                        <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
+                    {% endif %}
+                </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left">
+            <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left px-1">
                 <label for="activite">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                     <br>
@@ -39,8 +44,18 @@
                     <ul class="list-group">
                     </ul>
                 </div>
+                <div>
+                    {% if form.errors.activite %}
+                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
+                    {% endif %}
+                    <a href="#"
+                       class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
+                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
+                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
+                          id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
+                </div>
             </div>
-            <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field text-left">
+            <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field px-1">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Adresse ou commune" %}</strong></span>
                     <br>
@@ -80,7 +95,7 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4">
+            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4 pl-1">
                 <button type="submit"
                         disabled
                         class="fr-text--sm fr-btn"
@@ -89,24 +104,6 @@
                     {% translate "Autoriser l'obtention de ma localisation géographique" %}
                 </button>
             </div>
-        </div>
-        <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-3 input-group input-form text-left">
-                {% if form.errors.what %}
-                    <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
-                {% endif %}
-            </div>
-            <div class="fr-col-3 input-group input-form text-left">
-                {% if form.errors.activite %}
-                    <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
-                {% endif %}
-                <a href="#"
-                   class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
-                   id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
-                <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
-                      id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
-            </div>
-            <div class="fr-col-6 input-group input-form text-left"></div>
         </div>
         {% if equipments_shortcuts or equipments %}
             <div class="fr-checkbox-group row equipments">
