@@ -5,9 +5,9 @@
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
-    <div class="no-gutters fr-search-bar fr-search-bar--lg">
-        <div>
-            <div class="fr-col-12 fr-col-sm-5 input-group input-form text-left">
+    <div class="no-gutters">
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-lg-4 input-group input-form text-left pr-1">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Quoi</strong> (activité, enseigne)" %}</span>
                     <br>
@@ -22,7 +22,7 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-12 fr-col-sm-6 input-group input-form search-where-field text-left">
+            <div class="fr-col-10 fr-col-lg-6 input-group input-form search-where-field text-left px-1">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Où</strong> (adresse, ville)" %}</span>
                     <br>
@@ -62,15 +62,14 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <button type="submit"
-                    {% if 'contrib' in request.path %}disabled{% endif %}
-                    class="fr-col-12 fr-col-sm-2 fr-text--sm fr-btn btn-search"
-                    title="{% translate "Rechercher" %}">
-                <span class="sr-only">{% translate "Rechercher" %}</span>
-            </button>
-            <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-                {% translate "Autoriser l'obtention de ma localisation géographique" %}
-            </button>
+            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4 pl-1">
+                <button type="submit"
+                        class="fr-text--sm fr-btn"
+                        title="{% translate "Rechercher" %}">{% translate "Rechercher" %}</button>
+                <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+                    {% translate "Autoriser l'obtention de ma localisation géographique" %}
+                </button>
+            </div>
         </div>
         {% if equipments_shortcuts or equipments %}
             <div>

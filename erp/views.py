@@ -271,6 +271,8 @@ def search(request):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
             zoom_level = municipality.get_zoom()
+    elif request.GET.get("search_type") in ("housenumber", "street"):
+        zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
 
     paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)
@@ -762,7 +764,9 @@ def contrib_global_search(request):
         # assuming he knows what he does and does not need help with some external API results.
         need_external_api_search = False
 
-    activite = Activite.objects.get(nom=request.GET.get("activite")) if request.GET.get("activite") else None
+    activite = None
+    if request.GET.get("activite"):
+        activite = Activite.objects.filter(nom=request.GET.get("activite")).first()
 
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
@@ -807,6 +811,7 @@ def contrib_global_search(request):
                 "commune": city,
                 "lat": request.GET.get("lat"),
                 "lon": request.GET.get("lon"),
+                "activite": activite.pk if activite else None,
                 "activite_slug": activite.slug if activite else None,
                 "new_activity": request.GET.get("new_activity"),
                 "code_postal": request.GET.get("postcode"),

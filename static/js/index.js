@@ -38,6 +38,7 @@ import dom from './dom'
 import geo from './geo'
 import ui from './ui'
 import cloneFilter from './ui/CloneFilter'
+import Autocomplete from './ui/AutocompleteActivity'
 
 // Initializations
 dom.ready(() => {
@@ -53,7 +54,6 @@ dom.ready(() => {
   dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
   dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
   dom.mountOne('#no_activity', ui.NewActivity)
-  dom.mountOne('select#activite', ui.ActivitySelect)
 })
 
 // expose general namespaced lib for usage within pages
