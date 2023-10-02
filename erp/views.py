@@ -838,10 +838,12 @@ def contrib_admin_infos(request):
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
+                activite = form.cleaned_data.get("activite")
+                erp.activite = activite
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
-                if erp.activite.slug == "autre":
+                if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
                         name=form.cleaned_data["nouvelle_activite"],
                         erp=erp,
@@ -889,7 +891,7 @@ def contrib_admin_infos(request):
             "existing_matches": existing_matches,
             "erp": erp,
             "external_erp": external_erp,
-            "other_activity": Activite.objects.only("id").get(slug="autre"),
+            "other_activity": Activite.objects.only("id").get(slug=Activite.SLUG_MISCELLANEOUS),
             "duplicated": duplicated,
             "map_options": json.dumps(
                 {
@@ -921,7 +923,7 @@ def contrib_edit_infos(request, erp_slug):
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
-            if erp.activite.slug == "autre":
+            if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
                     erp=erp,

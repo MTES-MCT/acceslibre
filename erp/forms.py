@@ -19,7 +19,7 @@ from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
-from .fields import ActivityField
+from .fields import ActivityCharField, ActivityField
 
 
 def bool_radios():
@@ -443,8 +443,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    activite = forms.ModelChoiceField(label=translate_lazy("Activité"), queryset=Activite.objects.order_by("position"))
-    nouvelle_activite = forms.CharField(widget=forms.TextInput)
+    nouvelle_activite = forms.CharField(required=False, widget=forms.HiddenInput)
     asp_id = forms.CharField(widget=forms.HiddenInput, required=False)
     user_type = forms.CharField(initial=Erp.USER_ROLE_PUBLIC, widget=forms.HiddenInput, required=False)
 
@@ -456,7 +455,6 @@ class BasePublicErpInfosForm(BaseErpForm):
             "asp_id",
             "geom",
             "nom",
-            "activite",
             "numero",
             "voie",
             "lieu_dit",
@@ -501,11 +499,22 @@ class BasePublicErpInfosForm(BaseErpForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["activite"].required = True
+
+        instance = kwargs.get("instance")
+        initial = kwargs.get("initial")
+        if instance and instance.activite:
+            self.fields["activite"] = ActivityField(initial=instance.activite)
+            if instance.has_miscellaneous_activity:
+                self.fields["nouvelle_activite"].widget = forms.TextInput()
+        elif initial:
+            self.fields["activite"] = ActivityField(initial=initial.get("activite_slug"))
+            if initial.get("activite_slug") == Activite.SLUG_MISCELLANEOUS and initial.get("new_activity"):
+                self.fields["nouvelle_activite"].initial = initial.get("new_activity")
+                self.fields["nouvelle_activite"].widget = forms.TextInput()
+        else:
+            self.fields["activite"] = ActivityField()
+
         self.fields["nouvelle_activite"].required = False
-        self.fields["activite"].help_text = "<a href='#' id='no_activite'>{}</a>".format(
-            translate("Je ne trouve pas l'activité")
-        )
         self.fields["source_id"].required = False
 
     def clean_nouvelle_activite(self):
@@ -628,7 +637,7 @@ class ProviderGlobalSearchForm(forms.Form):
                 initial["code_insee"] = code
         super().__init__(*args, **kwargs)
 
-        self.fields["activite"] = ActivityField()
+        self.fields["activite"] = ActivityCharField()
 
 
 class PublicAProposForm(forms.ModelForm):
