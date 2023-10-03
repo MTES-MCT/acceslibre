@@ -49,6 +49,9 @@ def sort_and_filter_results(code_insee, results):
 
 def global_search(terms, code_insee, activity):
     def _populate_with_activity(entry):
+        if not activity:
+            return entry
+
         entry["activite"] = activity.pk
         entry["activite_slug"] = activity.slug
         return entry
