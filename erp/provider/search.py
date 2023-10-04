@@ -47,8 +47,17 @@ def sort_and_filter_results(code_insee, results):
     return processed
 
 
-def global_search(terms, code_insee, activities):
+def global_search(terms, code_insee, activity):
+    def _populate_with_activity(entry):
+        if not activity:
+            return entry
+
+        entry["activite"] = activity.pk
+        entry["activite_slug"] = activity.slug
+        return entry
+
     # OpenDataSoft sirene V3
+    naf_ape_codes = ",".join(activity.naf_ape_code) if activity else None
     result_ods = opendatasoft.search(terms, code_insee)
     for result in result_ods:
         result["exists"] = Erp.objects.find_similar(
@@ -57,10 +66,11 @@ def global_search(terms, code_insee, activities):
             voie=result["voie"],
             lieu_dit=result["lieu_dit"],
         ).first()
+        result = _populate_with_activity(result)
 
     # API entreprise
     search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
-    result_entreprises = entreprise.search(search_entreprises, code_insee, activities)
+    result_entreprises = entreprise.search(search_entreprises, code_insee, naf_ape_codes)
     for result in result_entreprises:
         # TODO: Search by short distance around location
         result["exists"] = Erp.objects.find_similar(
@@ -69,11 +79,13 @@ def global_search(terms, code_insee, activities):
             voie=result["voie"],
             lieu_dit=result["lieu_dit"],
         ).first()
+        result = _populate_with_activity(result)
 
     # Administration publique
     result_public = public_erp.search(terms, code_insee)
     for result in result_public:
         result["exists"] = Erp.objects.find_by_source_id(result["source"], result["source_id"], published=True).first()
+        result = _populate_with_activity(result)
 
     return sort_and_filter_results(code_insee, result_public + result_ods + result_entreprises)
 

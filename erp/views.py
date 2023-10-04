@@ -775,7 +775,7 @@ def contrib_global_search(request):
                 results = provider_search.global_search(
                     what_lower,
                     request.GET.get("code"),
-                    activities=",".join(activite.naf_ape_code) if activite else None,
+                    activity=activite,
                 )
         except RuntimeError as err:
             error = err

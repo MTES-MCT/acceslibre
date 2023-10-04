@@ -32,6 +32,10 @@ $viewport-xl: 1200px;
   }
 }
 
+.fr-btn:not(.fr-btn--secondary):not(.fr-btn--tertiary):hover {
+  color: white !important;
+}
+
 .blur {
   background-color: white;
   opacity: 0.3;
@@ -666,6 +670,7 @@ select[name='language'] {
         background-position: calc(100% - 8px) center;
       }
     }
+
     div.search-where-field {
       max-height: 5rem;
     }
