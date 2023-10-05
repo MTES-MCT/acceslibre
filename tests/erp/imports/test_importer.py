@@ -4,7 +4,6 @@ import pytest
 import requests
 from django.db import DataError
 
-from erp.imports.fetcher import JsonFetcher
 from erp.imports.importer import ROOT_DATASETS_URL, Importer
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
@@ -81,13 +80,6 @@ def test_import_invalid_erp(sample_record_ok, record_skippable, record_invalid_c
     assert len(results["unpublished"]) == 0
     assert len(results["errors"]) == 1
     assert record_invalid_cp["properties"]["c_com_insee"] in results["errors"][0]
-
-
-@pytest.mark.skip("TODO Mock for this test")
-def test_dataset_reachable():
-    response = requests.get(ROOT_DATASETS_URL + "/061a5736-8fc2-4388-9e55-8cc31be87fa0")
-    assert response.status_code == 200
-    assert response.headers["content-type"] == "text/csv"
 
 
 def test_intercept_sql_errors(mapper, neufchateau, sample_record_ok):
