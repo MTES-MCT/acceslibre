@@ -52,23 +52,6 @@ EQUIPEMENT_MALENTENDANT_CHOICES = [
     (EQUIPEMENT_MALENTENDANT_AUTRES, translate_lazy("autres")),
 ]
 
-EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
-    EQUIPEMENT_MALENTENDANT_AUTRES: translate_lazy("Autres équipements non précisés"),
-    EQUIPEMENT_MALENTENDANT_BIM: translate_lazy(
-        "La boucle à induction magnétique (BIM) permet d'entendre une source sonore en s'affranchissant de la distance (salles de spectacles), du bruit ambiant (lieux publics), des phénomènes d'échos ou de réverbérations sonores (églises, salles aux murs nus), des déformations apportées par les écouteurs (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma)."
-    ),
-    EQUIPEMENT_MALENTENDANT_BM_PORTATIVE: translate_lazy(
-        "La boucle magnétique portative (BMP) est un système de transmission du son individuel"
-    ),
-    EQUIPEMENT_MALENTENDANT_LSF: translate_lazy(
-        "La langue des signes française (LSF) est la langue des signes utilisée par une partie des sourds de France et par une partie des sourds de Suisse."
-    ),
-    EQUIPEMENT_MALENTENDANT_LPC: translate_lazy("Langue Française Parlée Complétée (LFPC)"),
-    EQUIPEMENT_MALENTENDANT_STS: translate_lazy(
-        "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par sous-titrage ou transcription TIP (Transcription Instantanée de la Parole)."
-    ),
-}
-
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"
@@ -147,21 +130,6 @@ AUDIODESCRIPTION_CHOICES = [
         translate_lazy("sans équipement, audiodescription audible par toute la salle (selon la programmation)"),
     ),
 ]
-AUDIODESCRIPTION_DESCRIPTIONS = [
-    (
-        AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
-        translate_lazy("Avec équipement permanent, casques et boîtiers disponibles à l’accueil"),
-    ),
-    (
-        AUDIODESCRIPTION_AVEC_APP,
-        translate_lazy("Avec équipement permanent nécessitant le téléchargement d'une application sur smartphone"),
-    ),
-    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "Avec équipement occasionnel selon la programmation"),
-    (
-        AUDIODESCRIPTION_SANS_EQUIPEMENT,
-        translate_lazy("Sans équipement, audiodescription audible par toute la salle (selon la programmation)"),
-    ),
-]
 
 PORTE_TYPE_MANUELLE = "manuelle"
 PORTE_TYPE_AUTOMATIQUE = "automatique"
@@ -186,7 +154,6 @@ PORTE_MANOEUVRE_CHOICES = [
 RAMPE_AUCUNE = "aucune"
 RAMPE_FIXE = "fixe"
 RAMPE_AMOVIBLE = "amovible"
-RAMPE_AIDE_HUMAINE = "aide humaine"
 RAMPE_CHOICES = [
     (RAMPE_AUCUNE, translate_lazy("Aucune")),
     (RAMPE_FIXE, translate_lazy("Fixe")),
@@ -315,7 +282,6 @@ SECTION_TRANSPORT = "transport"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"
 SECTION_ENTREE = "entree"
 SECTION_ACCUEIL = "accueil"
-SECTION_LABELS = "labels"
 SECTION_REGISTRE = "registre"
 SECTION_CONFORMITE = "conformite"
 SECTION_ACTIVITE = "activite"
