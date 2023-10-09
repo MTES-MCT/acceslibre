@@ -30,9 +30,17 @@
             <input type="submit" value='{% translate "OK" %}' />
             {% csrf_token %}
         </form>
-        <div id="swagger-ui"></div>
-        <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-        <script>
+    {% else %}
+        <p class="pt-5">
+            {% blocktranslate %}
+  Si vous n'avez pas encore de clef API, <a href="{{settings.SITE_ROOT_URL}}/contact/api_key">contactez-nous</a>, nous
+  n'avons, à priori, pas de raison de refuser :-)
+  {% endblocktranslate %}
+        </p>
+    {% endif %}
+    <div id="swagger-ui"></div>
+    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script>
   const ui = SwaggerUIBundle({
     url: "{% url schema_url %}",
     dom_id: "#swagger-ui",
@@ -50,21 +58,5 @@
       return request;
     }
   });
-        </script>
-    {% else %}
-        <form action="{% url 'set_api_key' %}" method="post">
-            <label class="fr-label" for="api_key">
-                {% translate "Pour accéder à l'API, veuillez fournir une clef API valide :" %}
-            </label>
-            <input class="fr-input" type="text" name="api_key" id="api_key" />
-            <input type="submit" value='{% translate "OK" %}' />
-            {% csrf_token %}
-        </form>
-        <p class="pt-5">
-            {% blocktranslate %}
-  Si vous n'avez pas encore de clef API, <a href="{{settings.SITE_ROOT_URL}}/contact/api_key">contactez-nous</a>, nous
-  n'avons, à priori, pas de raison de refuser :-)
-  {% endblocktranslate %}
-        </p>
-    {% endif %}
+    </script>
 {% endblock editorial_content %}

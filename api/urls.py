@@ -1,6 +1,7 @@
 from django.urls import include, path
 from django.views.generic import TemplateView
 from rest_framework import routers
+from rest_framework.permissions import AllowAny
 from rest_framework.schemas import get_schema_view
 
 from .views import API_DOC_SUMMARY, AccessibiliteViewSet, ActiviteViewSet, ErpViewSet
@@ -20,6 +21,8 @@ urlpatterns = [
             version="1.0.0",
             url="/api/",
             urlconf="api.urls",
+            permission_classes=[AllowAny],
+            public=True,
         ),
         name="openapi-schema",
     ),
