@@ -74,7 +74,7 @@
         {% if equipments_shortcuts or equipments %}
             <div>
                 <div class="fr-checkbox-group row equipments equiments-shortcuts">
-                    <span class="m-2 section-text">{% translate "Adaptés pour" %}</span>
+                    <span class="mr-2 mt-1 section-text">{% translate "Adaptés pour" %}</span>
                     {% with request.GET|get_list:"equipments_shortcuts" as params %}
                         {% for shortcut in equipments_shortcuts %}
                             {% include "search/filter_tag.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
@@ -82,31 +82,29 @@
                     {% endwith %}
                 </div>
                 <div class="fr-checkbox-group row equipments equipments-selected">
-                    <span class="m-2 section-text">{% translate "Equipements disponibles" %}</span>
+                    <span class="mr-2 mt-1 section-text">{% translate "Filtres" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/filter_tag.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
                         {% endfor %}
                     {% endwith %}
-                    <button type="button" class="fr-btn--tertiary ml-4" id="remove-all-filters">
+                    <button type="button"
+                            class="fr-btn--tertiary"
+                            data-toggle="modal"
+                            data-target="#equipmentsmodal">
+                        <span aria-hidden="true">+&nbsp;</span>{% translate "Voir tous les filtres" %}
+                    </button>
+                    <button type="button" class="fr-btn--tertiary ml-2" id="remove-all-filters">
                         <span aria-hidden="true">x&nbsp;</span>{% translate "Supprimer tous les filtres" %}
                     </button>
                 </div>
                 <div class="fr-checkbox-group row equipments equipments-suggestions">
-                    <span class="m-2 section-text">{% translate "Suggestions" %}</span>
+                    <span class="mr-2 mt-1 section-text">{% translate "Suggestions" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/filter_tag_suggestion.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="suggestionClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
                         {% endfor %}
                     {% endwith %}
-                </div>
-                <div class="row equipments">
-                    <button type="button"
-                            class="fr-btn--tertiary m-2"
-                            data-toggle="modal"
-                            data-target="#equipmentsmodal">
-                        <span aria-hidden="true">+&nbsp;</span>{% translate "Voir tous les filtres" %}
-                    </button>
                 </div>
             </div>
         {% endif %}
