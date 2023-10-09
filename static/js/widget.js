@@ -34,7 +34,7 @@
     }
   }
 
-  function getTracker() {
+  function getTrackers() {
     if (window.AccesLibreMatomoTracker) {
       return window.AccesLibreMatomoTracker
     } else {
@@ -47,7 +47,9 @@
   }
 
   function openModal(dialog) {
-    getTracker().trackEvent('widget', 'open', true)
+    getTrackers().forEach(function (tracker) {
+      tracker.trackEvent('widget', 'open', true)
+    })
     const focusableElements = dialog.querySelectorAll(focusableElementsArray)
     const firstFocusableElement = focusableElements[0]
     const lastFocusableElement = focusableElements[focusableElements.length - 1]
@@ -138,7 +140,9 @@
 
   function _trackOnClick(element, trackingString) {
     element.addEventListener('click', () => {
-      getTracker().trackEvent('widget', trackingString, true)
+      getTrackers().forEach(function (tracker) {
+        tracker.trackEvent('widget', trackingString, true)
+      })
     })
   }
 
@@ -163,12 +167,14 @@
   }
 
   function setupAnalytics() {
-    var u = 'https://stats.data.gouv.fr/'
-    var matomoTracker = Matomo.getTracker(u + 'matomo.php', 118)
-    window.AccesLibreMatomoTracker = matomoTracker
-    matomoTracker.trackPageView()
-    matomoTracker.enableLinkTracking()
-    matomoTracker.enableHeartBeatTimer()
+    var matomoTracker = Matomo.getTracker('https://stats.data.gouv.fr/matomo.php', 118)
+    var matomoSecondaryTracker = Matomo.getTracker('https://acceslibre.matomo.cloud/matomo.php', 1)
+    window.AccesLibreMatomoTracker = [matomoTracker, matomoSecondaryTracker]
+    window.AccesLibreMatomoTracker.forEach(function (tracker) {
+      tracker.trackPageView()
+      tracker.enableLinkTracking()
+      tracker.enableHeartBeatTimer()
+    })
   }
   function setupAnalyticsScript() {
     var u = 'https://stats.data.gouv.fr/'
@@ -239,7 +245,9 @@
         return response.text()
       })
       .then(function (body) {
-        getTracker().trackEvent('widget', 'display', true)
+        getTrackers().forEach(function (tracker) {
+          tracker.trackEvent('widget', 'display', true)
+        })
         var container = document.querySelector(`[data-pk="${erpPK}"]`)
         var newDiv = document.createElement('div')
         newDiv.innerHTML = body
