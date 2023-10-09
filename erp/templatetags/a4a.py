@@ -15,8 +15,6 @@ from erp.models import Erp
 
 register = template.Library()
 
-DATA_SOURCES = dict(Erp.SOURCE_CHOICES)
-
 
 @register.filter(name="active_compte_section")
 def active_compte_section(path, test):
@@ -101,11 +99,6 @@ def format_phone(value):
         return value
 
 
-@register.filter(name="format_source")
-def format_source(value, default="N/A"):
-    return DATA_SOURCES.get(value, default)
-
-
 @register.filter(name="format_username")
 def format_username(value):
     username = safe_username(value)
@@ -133,15 +126,6 @@ def render_field(value):
     return (isinstance(value, list) and len(value) > 0) or (
         not isinstance(value, list) and value != "" and value is not None
     )
-
-
-@register.filter("preposition_nom")
-def preposition_nom(value):
-    value = str(value)
-    if value.startswith("Le "):
-        return f"du {value.replace('Le ', '')}"
-    else:
-        return f"de {value}"
 
 
 @register.simple_tag
