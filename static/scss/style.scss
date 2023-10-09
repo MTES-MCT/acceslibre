@@ -1132,6 +1132,12 @@ select[name='language'] {
   overflow-y: scroll;
 }
 
+@media (min-width: 768px) {
+  #erp-results-list {
+    margin-right: 10px;
+  }
+}
+
 .leaflet-container .a4a-map-popup-content a {
   text-decoration: underline;
 }
