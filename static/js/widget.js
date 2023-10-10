@@ -40,9 +40,11 @@
     } else {
       // In case Matomo is not available (eg: Adblock) return a mock to avoid errors
       // in the rest of the code
-      return {
-        trackEvent: function () {},
-      }
+      return [
+        {
+          trackEvent: function () {},
+        },
+      ]
     }
   }
 
