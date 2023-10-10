@@ -1164,6 +1164,13 @@ div.equipments label {
   margin-bottom: 0px;
 }
 
+// add a left margin on "See all filters" only if there is some selected filters/equipments
+div.equipments-selected
+  > span:not(.hidden, .section-text)
+  ~ button:first-of-type {
+  margin-left: 0.5rem !important;
+}
+
 @media (min-width: $viewport-md) {
   div.equipments .section-text {
     width: 110px;
