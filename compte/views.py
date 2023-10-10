@@ -53,6 +53,24 @@ class CustomRegistrationView(RegistrationView):
         context["next"] = unquote(self.request.POST.get("next", self.request.GET.get("next", "")))
         return context
 
+    def create_inactive_user(self, form):
+        """
+        Create the inactive user account and send an email containing
+        activation instructions.
+
+        """
+        new_user = form.save(commit=False)
+        new_user.is_active = False
+        new_user.save()
+
+        preferences = new_user.preferences.get()
+        preferences.newsletter_opt_in = form.cleaned_data["newsletter_opt_in"]
+        preferences.save()
+
+        self.send_activation_email(new_user)
+
+        return new_user
+
 
 class CustomActivationView(ActivationView):
     def get_success_url(self, user=None):
@@ -294,19 +312,15 @@ def mes_challenges(request):
 
 @login_required
 def mes_preferences(request):
+    preferences = UserPreferences.objects.get(user=request.user)
     if request.method == "POST":
-        form = forms.PreferencesForm(request.POST)
+        form = forms.PreferencesForm(request.POST, instance=preferences)
         if form.is_valid():
-            prefs = UserPreferences.objects.get(user=request.user)
-            prefs.notify_on_unpublished_erps = form.cleaned_data.get("notify_on_unpublished_erps")
-            prefs.save()
-
+            form.save()
             messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
-
             return redirect("mes_preferences")
-        pass
     else:
-        form = forms.PreferencesForm(instance=request.user.preferences.get())
+        form = forms.PreferencesForm(instance=preferences)
     return render(
         request,
         "compte/mes_preferences.html",

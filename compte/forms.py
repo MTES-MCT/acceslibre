@@ -70,6 +70,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "password1",
             "password2",
             "next",
+            "newsletter_opt_in",
         ]
         widgets = {
             "email": forms.TextInput(attrs={"autocomplete": "email", "autofocus": True}),
@@ -102,6 +103,12 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         label=translate("Je ne suis pas un robot"),
         initial=False,
         required=False,
+    )
+
+    newsletter_opt_in = forms.BooleanField(
+        initial=False,
+        required=False,
+        label=translate("J'accepte de recevoir la newsletter"),
     )
 
     def __init__(self, *args, **kwargs):
@@ -173,7 +180,7 @@ class AccountDeleteForm(forms.Form):
 class PreferencesForm(forms.ModelForm):
     class Meta:
         model = UserPreferences
-        fields = ["notify_on_unpublished_erps"]
+        fields = ["notify_on_unpublished_erps", "newsletter_opt_in"]
 
 
 class CustomAuthenticationForm(AuthenticationForm):

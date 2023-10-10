@@ -43,6 +43,9 @@ class UserPreferences(models.Model):
         default=True,
         verbose_name=translate_lazy("Recevoir des mails de rappel de publication"),
     )
+    newsletter_opt_in = models.BooleanField(
+        default=False, verbose_name=translate_lazy("Accepte de recevoir la newsletter")
+    )
 
     @receiver(post_save, sender=get_user_model())
     def save_profile(sender, instance, created, **kwargs):
