@@ -81,6 +81,14 @@
                         {% endfor %}
                     {% endwith %}
                 </div>
+                <div class="fr-checkbox-group row equipments equipments-suggestions">
+                    <span class="mr-2 mt-1 section-text">{% translate "Suggestions" %}</span>
+                    {% with request.GET|get_list:"equipments" as equipment_params %}
+                        {% for label_slug, label in equipments.items %}
+                            {% include "search/filter_tag_suggestion.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="suggestionClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
+                        {% endfor %}
+                    {% endwith %}
+                </div>
                 <div class="fr-checkbox-group row equipments equipments-selected">
                     <span class="mr-2 mt-1 section-text">{% translate "Filtres" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
@@ -97,14 +105,6 @@
                     <button type="button" class="fr-btn--tertiary ml-2" id="remove-all-filters">
                         <span aria-hidden="true">x&nbsp;</span>{% translate "Supprimer tous les filtres" %}
                     </button>
-                </div>
-                <div class="fr-checkbox-group row equipments equipments-suggestions">
-                    <span class="mr-2 mt-1 section-text">{% translate "Suggestions" %}</span>
-                    {% with request.GET|get_list:"equipments" as equipment_params %}
-                        {% for label_slug, label in equipments.items %}
-                            {% include "search/filter_tag_suggestion.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="suggestionClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
-                        {% endfor %}
-                    {% endwith %}
                 </div>
             </div>
         {% endif %}
