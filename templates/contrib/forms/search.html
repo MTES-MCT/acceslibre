@@ -13,15 +13,7 @@
                     <br>
                 </label>
                 {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                <input type="search"
-                       id="what-input"
-                       name="what"
-                       class="fr-input"
-                       placeholder="Le Louvre, Café de la gare..."
-                       aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare" %}'
-                       autocomplete="off"
-                       required
-                       {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                <input type="search" id="what-input" name="what" class="fr-input" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" required {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                 <div>
                     {% if form.errors.what %}
                         <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
@@ -31,15 +23,8 @@
             <div class="fr-col-12 fr-col-sm-3 input-group input-form text-left px-1">
                 <label for="activite">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
-                    <br>
-                    <span class="sr-only">{% translate "Sélectionner dans la liste" %}</span>
                 </label>
-                <input type="text"
-                       class="fr-input hidden"
-                       id="new_activity"
-                       name="new_activity"
-                       placeholder="{% translate "Entrez votre activité" %}"
-                       value="{{ request.GET.new_activity }}">
+                <input type="text" class="fr-input hidden" id="new_activity" name="new_activity" placeholder="{% translate "Entrez votre activité" %}" value="{{ request.GET.new_activity }}" aria-label="{% translate "Commencer la saisie puis sélectionner l'activité dans la liste." %}">
                 <div id="autocomplete-activity" class="autocomplete">
                     {{ form.activite }}
                     <ul class="list-group">
@@ -59,8 +44,6 @@
             <div class="fr-col-10 fr-col-sm-4 input-group input-form search-where-field px-1">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Adresse ou commune" %}</strong></span>
-                    <br>
-                    <span class="sr-only">{% translate "Commencer la saisie puis sélectionner dans la liste" %}</span>
                 </label>
                 <input id="where-input"
                        class="autocomplete-input fr-input"
@@ -71,7 +54,8 @@
                        autocapitalize="off"
                        {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
                        name="where"
-                       placeholder="Lyon, 12 rue des prés Nantes">
+                       placeholder="Lyon, 12 rue des prés Nantes"
+                       aria-label="{% translate "Commencer la saisie puis sélectionner la ville ou adresse dans la liste" %}">
                 <ul class="list-group autocomplete-result-list rounded-only-bottom">
                 </ul>
                 <input type="hidden"
