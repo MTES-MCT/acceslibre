@@ -20,6 +20,7 @@
                        placeholder="Le Louvre, Café de la gare..."
                        aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare" %}'
                        autocomplete="off"
+                       required
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                 <div>
                     {% if form.errors.what %}
