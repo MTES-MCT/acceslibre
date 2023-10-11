@@ -1,10 +1,9 @@
 from datetime import datetime
 
 import pytest
-import requests
 from django.db import DataError
 
-from erp.imports.importer import ROOT_DATASETS_URL, Importer
+from erp.imports.importer import Importer
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
 from tests.erp.imports.mapper.fixtures import (
