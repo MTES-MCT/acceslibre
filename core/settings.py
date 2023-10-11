@@ -43,6 +43,7 @@ MAP_DEFAULT_LON = "1.9"
 MAP_DEFAULT_ZOOM = 6
 MAP_DEFAULT_ZOOM_LARGE_CITY = 12
 MAP_DEFAULT_ZOOM_STREET = 15
+MAP_DEFAULT_ZOOM_HOUSENUMBER = 17
 
 # Mapbox
 # NOTE: this is NOT a sensitive information, as this token is exposed on the frontend anyway
