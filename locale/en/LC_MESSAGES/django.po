@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-02 13:46+0200\n"
-"PO-Revision-Date: 2023-09-27 17:16+0200\n"
+"POT-Creation-Date: 2023-10-09 17:00+0200\n"
+"PO-Revision-Date: 2023-10-09 17:00+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -906,24 +906,6 @@ msgstr "subtitling or simultaneous transcription"
 msgid "autres"
 msgstr "others"
 
-msgid "Autres équipements non précisés"
-msgstr "Other unspecified equipment"
-
-msgid "La boucle à induction magnétique (BIM) permet d'entendre une source sonore en s'affranchissant de la distance (salles de spectacles), du bruit ambiant (lieux publics), des phénomènes d'échos ou de réverbérations sonores (églises, salles aux murs nus), des déformations apportées par les écouteurs (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma)."
-msgstr "The magnetic induction loop (MIR) allows you to hear a sound source without the distance (auditoriums), ambient noise (public places), echoes or sound reverberations (churches, rooms with bare walls), distortions caused by headphones (telephones, MP3) or speakers (television, radio, cinema)."
-
-msgid "La boucle magnétique portative (BMP) est un système de transmission du son individuel"
-msgstr "The portable magnetic loop (PML) is a system of individual sound transmission"
-
-msgid "La langue des signes française (LSF) est la langue des signes utilisée par une partie des sourds de France et par une partie des sourds de Suisse."
-msgstr "French Sign Language (LSF) is the sign language used by some of the deaf people in France and some of the deaf people in Switzerland."
-
-msgid "Langue Française Parlée Complétée (LFPC)"
-msgstr "Completed French Language (LFPC)"
-
-msgid "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par sous-titrage ou transcription TIP (Transcription Instantanée de la Parole)."
-msgstr "Service of communication, at a distance and in real time, between hearing and hard of hearing or deaf people, by subtitling or IST transcription (Instant Speech Transcription)."
-
 msgid "Handicap auditif"
 msgstr "Hearing disability"
 
@@ -983,15 +965,6 @@ msgstr "with permanent equipment requiring the download of a smartphone applicat
 
 msgid "sans équipement, audiodescription audible par toute la salle (selon la programmation)"
 msgstr "without equipment, audiodescription audible to the whole room (depending on programming)"
-
-msgid "Avec équipement permanent, casques et boîtiers disponibles à l’accueil"
-msgstr "With permanent equipment, helmets and cases available at the reception"
-
-msgid "Avec équipement permanent nécessitant le téléchargement d'une application sur smartphone"
-msgstr "With permanent equipment requiring the download of a smartphone application"
-
-msgid "Sans équipement, audiodescription audible par toute la salle (selon la programmation)"
-msgstr "Without equipment, audiodescription audible to the whole room (depending on programming)"
 
 msgid "Manuelle"
 msgstr "Manual"
@@ -3603,17 +3576,17 @@ msgstr "<strong>Where</strong> (address, city)"
 msgid "Adaptés pour"
 msgstr "Adapted for"
 
-msgid "Equipements disponibles"
-msgstr "Available equipments"
+msgid "Filtres"
+msgstr "Filters"
+
+msgid "Voir tous les filtres"
+msgstr "See all filters"
 
 msgid "Supprimer tous les filtres"
 msgstr "Delete all filters"
 
 msgid "Suggestions"
 msgstr "Suggestions"
-
-msgid "Voir tous les filtres"
-msgstr "See all filters"
 
 msgid "Tous les équipements"
 msgstr "All equipment"
@@ -3795,8 +3768,5 @@ msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
 
-#~ msgid "Explorer"
-#~ msgstr "Explore"
-
-#~ msgid "1. Explorez"
-#~ msgstr "1. Explore"
+#~ msgid "Equipements disponibles"
+#~ msgstr "Available equipments"
