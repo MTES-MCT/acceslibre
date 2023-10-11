@@ -136,6 +136,7 @@ def test_registration_flow(data, browser):
     browser.fill("password1", "Abcdef123!")
     browser.fill("password2", "Abcdef123!")
     browser.check("robot")
+    browser.check("newsletter_opt_in")
     button = browser.find_by_css("form.registration-form button[type=submit]")
     button.click()
 
@@ -147,6 +148,7 @@ def test_registration_flow(data, browser):
     assert "johndoe" in mail.outbox[0].body
     assert "http://testserver/compte/activate" in mail.outbox[0].body
     assert "?next=/contact/" in mail.outbox[0].body
+    assert user.preferences.get().newsletter_opt_in is True
 
     activation_url = [
         line for line in mail.outbox[0].body.split("\n") if line.startswith("http") and "/activate/" in line

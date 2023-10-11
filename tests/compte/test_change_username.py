@@ -41,6 +41,7 @@ def test_update_username_authenticated(mocker, client, data):
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": "",
                 "NB_ERPS": 1,
+                "NEWSLETTER_OPT_IN": False,
             }
         ),
     )
