@@ -7,6 +7,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from erp.models import Erp
+from tests.factories import ErpFactory
 
 
 @pytest.fixture
@@ -146,6 +147,19 @@ class TestErpApi:
             headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_no_results
+
+    def test_list_can_show_drafts(self, api_client, data):
+        ErpFactory(published=False)
+
+        response = api_client.get(reverse("erp-list"))
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+
+        response = api_client.get(reverse("erp-list") + "?with_drafts=True")
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 2
 
     def test_list_page_size(self, api_client, data):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
