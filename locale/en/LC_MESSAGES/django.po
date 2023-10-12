@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 17:30+0200\n"
-"PO-Revision-Date: 2023-10-11 16:04+0200\n"
+"POT-Creation-Date: 2023-10-12 15:41+0200\n"
+"PO-Revision-Date: 2023-10-12 15:33+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1688,6 +1688,9 @@ msgstr "Adapted parking nearby"
 msgid "Pas de stationnement adapté à proximité"
 msgstr "No adapted parking nearby"
 
+msgid "stationnement"
+msgstr "parking"
+
 msgid "Chemin d’accès de plain pied"
 msgstr "Ground level access road"
 
@@ -1732,17 +1735,38 @@ msgstr ""
 "\n"
 "Human help possible"
 
+msgid "accès"
+msgstr "access"
+
 msgid "Personnel non formé"
 msgstr "Untrained staff"
 
 msgid "Personnel sensibilisé / formé"
 msgstr "Awared / trained staff"
 
+msgid "personnel"
+msgstr "staff"
+
+msgid "balise sonore"
+msgstr "sound beacon"
+
+msgid "audiodescription"
+msgstr "audiodescription"
+
+msgid "équipements sourd et malentendant"
+msgstr "deaf/hard of hearing equipment(s)"
+
 msgid "Sanitaire adapté"
 msgstr "Adapted sanitary"
 
 msgid "Sanitaire non adapté"
 msgstr "Sanitary not adapted"
+
+msgid "sanitaire"
+msgstr "sanitary facilities"
+
+msgid "chambres accessibles"
+msgstr "accessible rooms"
 
 #, python-format
 msgid "%(count)d chambre accessible"
