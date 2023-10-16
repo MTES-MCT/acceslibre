@@ -495,12 +495,12 @@ class ErpViewSet(
     http_method_names = ["get", "post", "patch"]
 
     def get_serializer_class(self):
-        if self.request.headers.get("Accept") == "application/geo+json":
+        if self.request and self.request.headers.get("Accept") == "application/geo+json":
             return ErpGeoSerializer
         return self.serializers.get(self.action, self.serializers["default"])
 
     def get_pagination_class(self):
-        if self.request.headers.get("Accept") == "application/geo+json":
+        if self.request and self.request.headers.get("Accept") == "application/geo+json":
             return GeoJsonPagination
         return ErpPagination
 
