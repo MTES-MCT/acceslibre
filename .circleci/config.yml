@@ -42,6 +42,7 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y gdal-bin gettext
+            pip install --user --upgrade pipenv
       - run:
           name: Install Python dependencies
           command: |
