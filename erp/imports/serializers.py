@@ -118,6 +118,13 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "geoloc_provider",
         )
 
+    def validate_nom(self, value):
+        cleaned = (
+            str(value).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
+        )
+        # replace multiple spaces with one
+        return " ".join(cleaned.split())
+
     def validate_siret(self, obj):
         if not obj:
             return

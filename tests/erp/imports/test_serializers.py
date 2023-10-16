@@ -13,6 +13,7 @@ from tests.erp.imports.mapper.fixtures import jacou, paris
         pytest.param({"siret": "Non renseigné"}, False, None, id="invalid_siret"),
         pytest.param({"siret": "48137888300021"}, True, None, id="valid_siret"),
         pytest.param({"nom": ""}, False, None, id="empty_name"),
+        pytest.param({"nom": "Marie \n      Blachère"}, True, None, id="name_with_new_line"),
         pytest.param({"code_postal": "99999"}, False, None, id="invalid_postal_code"),
         pytest.param({"code_postal": "348300"}, False, None, id="invalid_postal_code"),
         pytest.param({"activite": "Unknown in DB"}, False, None, id="invalid_activity"),
@@ -76,7 +77,7 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         "voie": "Rue de la Coquille",
         "code_postal": 34830,
         "commune": "Jacou",
-        "nom": "Mairie",
+        "nom": "Marie Blachère",
         "activite": "Boulangerie",
         "accessibilite": {"entree_porte_presence": True},
         "latitude": 5,
@@ -90,6 +91,7 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         erp = serializer.save()
         assert isinstance(erp, Erp)
         assert erp.activite
+        assert erp.nom == "Marie Blachère"
         assert erp.accessibilite
         assert erp.geom.x == erp.geom.y == 0
         assert erp.import_email == erp_values.get("email")

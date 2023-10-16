@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-09 17:00+0200\n"
-"PO-Revision-Date: 2023-10-09 17:00+0200\n"
+"POT-Creation-Date: 2023-10-11 17:30+0200\n"
+"PO-Revision-Date: 2023-10-11 16:04+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -43,6 +43,9 @@ msgstr "Password confirmation"
 
 msgid "Je ne suis pas un robot"
 msgstr "I am not a robot"
+
+msgid "J'accepte de recevoir la newsletter"
+msgstr "I agree to receive the newsletter"
 
 msgid "Vous devez cocher cette case pour soumettre le formulaire"
 msgstr "You must check this box to submit the form"
@@ -91,6 +94,9 @@ msgstr "UsersPreferences"
 
 msgid "Recevoir des mails de rappel de publication"
 msgstr "Receive publication reminder emails"
+
+msgid "Accepte de recevoir la newsletter"
+msgstr "Agree to receive the newsletter"
 
 msgid "UserStats"
 msgstr "UserStats"
@@ -2614,14 +2620,15 @@ msgstr "Find the facility"
 msgid "Nom de l'établissement"
 msgstr "Name of the establishment"
 
-msgid "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare"
-msgstr "Search for an establishment, an activity. Example: Le Louvre, Café de la gare"
-
-msgid "Sélectionner dans la liste"
-msgstr "Select from the list"
+#. Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents
+msgid "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare"
+msgstr "Enter the name of the establishment. Example: Le Louvre, Café de la gare"
 
 msgid "Entrez votre activité"
 msgstr "Enter your activity"
+
+msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
+msgstr "Start typing, then select the activity from the list."
 
 msgid "Votre suggestion :"
 msgstr "Your suggestion:"
@@ -2629,8 +2636,8 @@ msgstr "Your suggestion:"
 msgid "Adresse ou commune"
 msgstr "Address or municipality"
 
-msgid "Commencer la saisie puis sélectionner dans la liste"
-msgstr "Start typing then select from the list"
+msgid "Commencer la saisie puis sélectionner la ville ou adresse dans la liste"
+msgstr "Start typing, then select the city or address from the list"
 
 msgid "Navigation"
 msgstr "Navigation"
@@ -3573,8 +3580,14 @@ msgstr "Search for a facility, an activity. Example : Mairie, Café"
 msgid "<strong>Où</strong> (adresse, ville)"
 msgstr "<strong>Where</strong> (address, city)"
 
+msgid "Commencer la saisie puis sélectionner dans la liste"
+msgstr "Start typing then select from the list"
+
 msgid "Adaptés pour"
 msgstr "Adapted for"
+
+msgid "Suggestions"
+msgstr "Suggestions"
 
 msgid "Filtres"
 msgstr "Filters"
@@ -3584,9 +3597,6 @@ msgstr "See all filters"
 
 msgid "Supprimer tous les filtres"
 msgstr "Delete all filters"
-
-msgid "Suggestions"
-msgstr "Suggestions"
 
 msgid "Tous les équipements"
 msgstr "All equipment"
@@ -3767,6 +3777,3 @@ msgid ""
 msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
-
-#~ msgid "Equipements disponibles"
-#~ msgstr "Available equipments"

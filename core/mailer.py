@@ -142,6 +142,7 @@ class BrevoMailer(Mailer):
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
                 "NB_ERPS": user.stats.nb_erp_created if hasattr(user, "stats") else 0,
+                "NEWSLETTER_OPT_IN": user.preferences.get().newsletter_opt_in,
             }
         )
         api_instance.update_contact(contact.id, update_contact)

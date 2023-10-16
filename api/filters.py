@@ -33,6 +33,12 @@ class ErpFilter(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
     def filter_queryset(self, request, queryset, view):
         use_distinct = False
+
+        # Drafts
+        with_drafts = request.query_params.get("with_drafts", False)
+        if not with_drafts:
+            queryset = queryset.published()
+
         # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:

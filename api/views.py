@@ -377,7 +377,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "asp_id_not_null",
                 "in": "query",
                 "required": False,
-                "description": "ID ASP fournit",
+                "description": "Une valeur vraie ne renvoit que les établissement dont l'ID ASP est fournit",
                 "schema": {"type": "boolean"},
             },
         },
@@ -410,7 +410,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "clean",
                 "in": "query",
                 "required": False,
-                "description": "Écarter les valeurs nulles ou non-renseignées",
+                "description": "Une valeur vraie écarte les valeurs d'accessibilité nulles ou non-renseignées",
                 "schema": {"type": "boolean"},
             },
         },
@@ -421,7 +421,18 @@ class ErpSchema(A4aAutoSchema):
                 "name": "readable",
                 "in": "query",
                 "required": False,
-                "description": "Formater les données d'accessibilité pour une lecture humaine",
+                "description": "Une valeur vraie formate les données d'accessibilité pour une lecture humaine",
+                "schema": {"type": "boolean"},
+            },
+        },
+        "with_drafts": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "with_drafts",
+                "in": "query",
+                "required": False,
+                "description": "Une valeur vraie permet de voir les établissements en brouillon (non publiés)",
                 "schema": {"type": "boolean"},
             },
         },
@@ -476,7 +487,7 @@ class ErpViewSet(
         "partial_update": ErpImportSerializer,
     }
 
-    queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
+    queryset = Erp.objects.select_related("activite", "accessibilite").order_by("nom")
     lookup_field = "slug"
     bbox_filter_field = "geom"
     filter_backends = (ZoneFilter, EquipmentFilter, ErpFilter)

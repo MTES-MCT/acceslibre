@@ -271,8 +271,10 @@ def search(request):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
             zoom_level = municipality.get_zoom()
-    elif request.GET.get("search_type") in ("housenumber", "street"):
+    elif request.GET.get("search_type") in ("street", "locality"):
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
+    elif request.GET.get("search_type") == "housenumber":
+        zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
     paginator = Paginator(queryset, 50)
     pager = paginator.get_page(request.GET.get("page") or 1)

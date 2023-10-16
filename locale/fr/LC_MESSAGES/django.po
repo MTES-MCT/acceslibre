@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-09 16:59+0200\n"
+"POT-Creation-Date: 2023-10-11 17:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,6 +42,9 @@ msgid "Confirmation du mot de passe"
 msgstr ""
 
 msgid "Je ne suis pas un robot"
+msgstr ""
+
+msgid "J'accepte de recevoir la newsletter"
 msgstr ""
 
 msgid "Vous devez cocher cette case pour soumettre le formulaire"
@@ -90,6 +93,9 @@ msgid "UsersPreferences"
 msgstr ""
 
 msgid "Recevoir des mails de rappel de publication"
+msgstr ""
+
+msgid "Accepte de recevoir la newsletter"
 msgstr ""
 
 msgid "UserStats"
@@ -2573,13 +2579,14 @@ msgstr ""
 msgid "Nom de l'établissement"
 msgstr ""
 
-msgid "Rechercher un établissement, une activité. Exemple : Le Louvre, Café de la gare"
-msgstr ""
-
-msgid "Sélectionner dans la liste"
+#. Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents
+msgid "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare"
 msgstr ""
 
 msgid "Entrez votre activité"
+msgstr ""
+
+msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
 msgstr ""
 
 msgid "Votre suggestion :"
@@ -2588,7 +2595,7 @@ msgstr ""
 msgid "Adresse ou commune"
 msgstr ""
 
-msgid "Commencer la saisie puis sélectionner dans la liste"
+msgid "Commencer la saisie puis sélectionner la ville ou adresse dans la liste"
 msgstr ""
 
 msgid "Navigation"
@@ -3425,7 +3432,13 @@ msgstr ""
 msgid "<strong>Où</strong> (adresse, ville)"
 msgstr ""
 
+msgid "Commencer la saisie puis sélectionner dans la liste"
+msgstr ""
+
 msgid "Adaptés pour"
+msgstr ""
+
+msgid "Suggestions"
 msgstr ""
 
 msgid "Filtres"
@@ -3435,9 +3448,6 @@ msgid "Voir tous les filtres"
 msgstr ""
 
 msgid "Supprimer tous les filtres"
-msgstr ""
-
-msgid "Suggestions"
 msgstr ""
 
 msgid "Tous les équipements"

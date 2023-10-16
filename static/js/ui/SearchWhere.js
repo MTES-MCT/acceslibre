@@ -128,7 +128,8 @@ function SearchWhere(root) {
   // Invalidate lat/lon on every key stroke in the search input, except when user tabs
   // out of the field or selects and entry by pressing the Enter key.
   autocomplete.input.addEventListener('keydown', (event) => {
-    if (event.key != 'Tab' && event.key != 'Enter') {
+    var ignoredKeys = ['Tab', 'Enter', 'Shift', 'Control']
+    if (!ignoredKeys.includes(event.key)) {
       setSearchData(null)
     }
   })
