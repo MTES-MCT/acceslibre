@@ -129,44 +129,6 @@ class ChallengePlayer(models.Model):
         return f"{self.player} - {self.challenge}"
 
 
-class Referer(models.Model):
-    domain = models.URLField(help_text=translate("Domaine du site réutilisateur"), unique=True)
-
-    date_notification_to_mattermost = models.DateTimeField(
-        null=True, verbose_name=translate("Date de notification sur Mattermost ?")
-    )
-
-    class Meta:
-        ordering = ("-id",)
-        verbose_name = translate("Site réutilisateur")
-        verbose_name_plural = translate("Sites réutilisateur")
-        indexes = [
-            models.Index(fields=["domain"], name="domain_idx"),
-        ]
-
-    def __str__(self):
-        return self.domain
-
-
-class Implementation(models.Model):
-    referer = models.ForeignKey(Referer, on_delete=models.CASCADE, related_name="implementations")
-    urlpath = models.URLField(help_text=translate("Url complète"), unique=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate("Date de détection de tracking"))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate("Date de dernier contact"))
-
-    class Meta:
-        ordering = ("-updated_at", "urlpath")
-        verbose_name = translate("Implémentation du Widget")
-        verbose_name_plural = translate("Implémentations du Widget")
-        indexes = [
-            models.Index(fields=["referer"], name="referer_idx"),
-            models.Index(fields=["urlpath"], name="urlpath_idx"),
-        ]
-
-    def __str__(self):
-        return self.urlpath
-
-
 class WidgetEvent(models.Model):
     date = models.DateField(auto_now_add=True)
     domain = models.URLField(help_text=translate("Domaine du site réutilisateur"))
