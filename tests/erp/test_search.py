@@ -39,6 +39,7 @@ def test_search_pagination(data, client):
     response = client.get(reverse("search") + "?where=jacou&code=34120&page=3")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 1
+    assert "geojson_list" in response.context, "Missing info for map"
 
 
 def test_search_pagination_performances(data, client, django_assert_max_num_queries):
