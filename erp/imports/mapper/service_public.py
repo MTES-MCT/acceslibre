@@ -146,7 +146,7 @@ mapping_service_public_to_acceslibre = {
     "mission_locale": "Emploi, formation",
     "mjd": "Point justice",
     "msa": "Sécurité sociale, mutuelle santé",
-    "msap": "Guichet France Services",
+    "msap": "Guichet france services",
     "ofii": "Administration publique",
     "onac": "Administration publique",
     "onf": "Administration publique",
@@ -207,11 +207,14 @@ class ServicePublicMapper:
         fields = line.get("adresse")[0]
         num = voie = lieu_dit = None
 
-        num, voie = fields["numero_voie"].split(None, 1)
+        try:
+            num, voie = fields["numero_voie"].split(None, 1)
+        except ValueError:
+            lieu_dit = fields["numero_voie"]
         return num, voie, lieu_dit
 
     def process(self):
-        if not (all([key in self.record for key in ("ancien_code_pivot", "partenaire_identifiant", "nom", "adresse")])):
+        if not (all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])):
             return None, None
 
         # NOTE: we search on both gendarmerie and service_public datasets as the gendarmerie import is taking
@@ -229,6 +232,9 @@ class ServicePublicMapper:
             ).first()
 
         def _search_by_name_address(name, address):
+            if not address[0]:
+                return
+
             postal_code = address[0]["code_postal"]
             commune = address[0]["nom_commune"]
             return (
@@ -236,6 +242,12 @@ class ServicePublicMapper:
                 .filter(code_postal=postal_code, commune__iexact=commune, published=True)
                 .first()
             )
+
+        def _clean_str(value):
+            # weird invisible char
+            value = value.replace(" ", "")
+            value = value.replace(" ", "")
+            return value
 
         erp = (
             _search_by_old_code(self.record["ancien_code_pivot"])
@@ -246,9 +258,10 @@ class ServicePublicMapper:
         commune_ext_id = Commune.objects.filter(
             code_postaux__contains=[self.record["adresse"][0]["code_postal"]]
         ).first()
+
         activite = mapping_service_public_to_acceslibre.get(self.record["pivot"][0]["type_service_local"])
         if not activite:
-            logger.info("Ignore ERP with unknown/unmapped activity %s", self.record["privot"]["type_service_local"])
+            logger.info("Ignore ERP with unknown/unmapped activity %s", self.record["pivot"][0]["type_service_local"])
             return None, None
 
         if not erp:
@@ -265,21 +278,32 @@ class ServicePublicMapper:
             erp.nom = self.record["nom"]
 
         num, voie, lieu_dit = self._extract_address(self.record)
+        if not num and not voie and not lieu_dit:
+            logger.info("Ignoring ERP without valid address")
+            return None, None
+
         lat = self.record["adresse"][0]["latitude"]
         long = self.record["adresse"][0]["longitude"]
+        if not lat or not long:
+            logger.info("Ignoring ERP without valid GEO info")
+            return None, None
 
-        erp.telephone = self.record["telephone"][0].get("valeur").replace(" ", "")
-        erp.contact_email = self.record["adresse_courriel"][0]
-        erp.site_internet = self.record["site_internet"][0].get("valeur")
+        erp.telephone = _clean_str((self.record.get("telephone") or [{"valeur": ""}])[0].get("valeur"))
+        erp.contact_email = (self.record.get("adresse_courriel") or [None])[0]
+        erp.site_internet = (self.record.get("site_internet") or [{"valeur": ""}])[0].get("valeur")
         erp.code_insee = self.record["code_insee_commune"]
         erp.numero = num
         erp.lieu_dit = lieu_dit
         erp.voie = voie
-        erp.code_postal = self.record["adresse"][0]["code_postal"]
+        erp.code_postal = _clean_str(self.record["adresse"][0]["code_postal"])
         erp.commune = self.record["adresse"][0]["nom_commune"]
         erp.commune_ext_id = commune_ext_id
         erp.geom = geo.parse_location((lat, long))
-        erp.activite = Activite.objects.get(nom=activite)
+        erp.activite = Activite.objects.filter(nom__iexact=activite).first()
+        if not erp.activite:
+            logger.info("Activity with name %s not found", activite)
+            return None, None
+
         erp.asp_id = self.record["id"]
 
         access = self.record["adresse"][0]["accessibilite"]
