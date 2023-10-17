@@ -292,6 +292,7 @@ def search(request):
         "equipments_shortcuts": get_equipments_shortcuts() if equipment_filters_feature else [],
         "equipments": get_equipments() if equipment_filters_feature else [],
         "zoom_level": zoom_level,
+        "geojson_list": make_geojson(pager),
     }
     return render(request, "search/results.html", context=context)
 
