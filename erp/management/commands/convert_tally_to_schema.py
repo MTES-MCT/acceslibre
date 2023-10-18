@@ -135,7 +135,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "--file",
             type=str,
-            help="Chemin du fichier à traiter",
+            help="Chemin du fichier à traiter, CSV avec séparateur virgule",
         )
 
     def _do_geocode(self, address, cp):

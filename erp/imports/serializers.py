@@ -111,11 +111,14 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "activite",
             "import_email",
             "site_internet",
+            "telephone",
             "accessibilite",
             "latitude",
             "longitude",
             "source",
             "geoloc_provider",
+            "source",
+            "source_id",
         )
 
     def validate_nom(self, value):
@@ -140,6 +143,12 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if not re.match(r"^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$", obj):
             raise serializers.ValidationError("Le code postal n'est pas valide.")
 
+        return obj
+
+    def validate_telephone(self, obj):
+        # weird invisible char
+        obj = obj.replace(" ", "")
+        obj = obj.replace(" ", "")
         return obj
 
     def validate_accessibilite(self, obj):
@@ -175,6 +184,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 obj["commune"] = locdata["commune"]
                 obj["code_insee"] = locdata["code_insee"]
                 obj["geoloc_provider"] = locdata["provider"]
+                obj["numero"] = locdata["numero"]
                 obj.pop("latitude", None)
                 obj.pop("longitude", None)
                 break
@@ -203,7 +213,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
         ).first()
 
         if existing:
-            raise DuplicatedExceptionErp(f"Potentiel doublon avec l'ERP : {existing}")
+            raise DuplicatedExceptionErp([f"Potentiel doublon avec l'ERP : {existing}", existing.pk])
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")
