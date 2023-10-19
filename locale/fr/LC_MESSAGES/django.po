@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 17:30+0200\n"
+"POT-Creation-Date: 2023-10-12 15:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1684,6 +1684,9 @@ msgstr ""
 msgid "Pas de stationnement adapté à proximité"
 msgstr ""
 
+msgid "stationnement"
+msgstr ""
+
 msgid "Chemin d’accès de plain pied"
 msgstr ""
 
@@ -1726,16 +1729,37 @@ msgid ""
 " Aide humaine possible"
 msgstr ""
 
+msgid "accès"
+msgstr ""
+
 msgid "Personnel non formé"
 msgstr ""
 
 msgid "Personnel sensibilisé / formé"
 msgstr ""
 
+msgid "personnel"
+msgstr ""
+
+msgid "balise sonore"
+msgstr ""
+
+msgid "audiodescription"
+msgstr ""
+
+msgid "équipements sourd et malentendant"
+msgstr ""
+
 msgid "Sanitaire adapté"
 msgstr ""
 
 msgid "Sanitaire non adapté"
+msgstr ""
+
+msgid "sanitaire"
+msgstr ""
+
+msgid "chambres accessibles"
 msgstr ""
 
 #, python-format
@@ -1810,28 +1834,7 @@ msgstr ""
 msgid "Domaine du site réutilisateur"
 msgstr ""
 
-msgid "Date de notification sur Mattermost ?"
-msgstr ""
-
-msgid "Site réutilisateur"
-msgstr ""
-
-msgid "Sites réutilisateur"
-msgstr ""
-
 msgid "Url complète"
-msgstr ""
-
-msgid "Date de détection de tracking"
-msgstr ""
-
-msgid "Date de dernier contact"
-msgstr ""
-
-msgid "Implémentation du Widget"
-msgstr ""
-
-msgid "Implémentations du Widget"
 msgstr ""
 
 msgid "Accès restreint"
@@ -3601,19 +3604,19 @@ msgstr ""
 msgid "API acceslibre"
 msgstr ""
 
-msgid "Réinitialiser la clef API : "
+msgid "Pour tester l'API, veuillez fournir une clef API valide :"
 msgstr ""
 
 msgid "OK"
 msgstr ""
 
-msgid "Pour accéder à l'API, veuillez fournir une clef API valide :"
+msgid "Réinitialiser la clef API"
 msgstr ""
 
 #, python-format
 msgid ""
 "\n"
-"  Si vous n'avez pas encore de clef API, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contactez-nous</a>, nous\n"
-"  n'avons, à priori, pas de raison de refuser :-)\n"
-"  "
+"            Si vous n'avez pas encore de clef API, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\" class=\"fr-link\">contactez-nous</a>, nous\n"
+"            n'avons, à priori, pas de raison de refuser :-)\n"
+"            "
 msgstr ""

@@ -41,16 +41,18 @@
     {% endif %}
     <section class="pt-2" id="results">
         {% if paginator.count == 0 %}
-            <h3 class="h5">
-                <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
-            </h3>
-            <div class="d-flex justify-content-between w-75 mb-4" id="cta">
-                <div class="mt-2">
-                    <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
-                    <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
-                    <span>{% translate "ou" %}</span>
-                    <a class="fr-btn fr-btn--secondary btn-lg"
-                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
+            <div id="no-results">
+                <h3 class="h5">
+                    <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
+                </h3>
+                <div class="d-flex justify-content-between w-75 mb-4" id="cta">
+                    <div class="mt-2">
+                        <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
+                        <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
+                        <span>{% translate "ou" %}</span>
+                        <a class="fr-btn fr-btn--secondary btn-lg"
+                           href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">{% translate "Ajouter un établissement" %}</a>
+                    </div>
                 </div>
             </div>
         {% endif %}

@@ -268,18 +268,25 @@ box-shadow: none;
 padding: 0;
 }
 
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-modal__content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 @media (min-width: 48em) {
 :is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-modal__body {
 max-height: 80vh;
 }
 
-:is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-modal__content {
-padding-left: 2rem;
-padding-right: 2rem;
-}
 
 :is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-modal__header {
 padding: 1rem;
+}
+
+
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-col-12 {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 :is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-col-md-10 {

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 17:30+0200\n"
-"PO-Revision-Date: 2023-10-11 16:04+0200\n"
+"POT-Creation-Date: 2023-10-12 15:41+0200\n"
+"PO-Revision-Date: 2023-10-12 15:33+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1688,6 +1688,9 @@ msgstr "Adapted parking nearby"
 msgid "Pas de stationnement adapté à proximité"
 msgstr "No adapted parking nearby"
 
+msgid "stationnement"
+msgstr "parking"
+
 msgid "Chemin d’accès de plain pied"
 msgstr "Ground level access road"
 
@@ -1732,17 +1735,38 @@ msgstr ""
 "\n"
 "Human help possible"
 
+msgid "accès"
+msgstr "access"
+
 msgid "Personnel non formé"
 msgstr "Untrained staff"
 
 msgid "Personnel sensibilisé / formé"
 msgstr "Awared / trained staff"
 
+msgid "personnel"
+msgstr "staff"
+
+msgid "balise sonore"
+msgstr "sound beacon"
+
+msgid "audiodescription"
+msgstr "audiodescription"
+
+msgid "équipements sourd et malentendant"
+msgstr "deaf/hard of hearing equipment(s)"
+
 msgid "Sanitaire adapté"
 msgstr "Adapted sanitary"
 
 msgid "Sanitaire non adapté"
 msgstr "Sanitary not adapted"
+
+msgid "sanitaire"
+msgstr "sanitary facilities"
+
+msgid "chambres accessibles"
+msgstr "accessible rooms"
 
 #, python-format
 msgid "%(count)d chambre accessible"
@@ -1816,29 +1840,8 @@ msgstr "Challenges Players"
 msgid "Domaine du site réutilisateur"
 msgstr "Domain of the reusing site"
 
-msgid "Date de notification sur Mattermost ?"
-msgstr "Date of notification on Mattermost ?"
-
-msgid "Site réutilisateur"
-msgstr "Reuse site"
-
-msgid "Sites réutilisateur"
-msgstr "Reuse sites"
-
 msgid "Url complète"
 msgstr "Complete URL"
-
-msgid "Date de détection de tracking"
-msgstr "Date of tracking detection"
-
-msgid "Date de dernier contact"
-msgstr "Date of last contact"
-
-msgid "Implémentation du Widget"
-msgstr "Widget implementation"
-
-msgid "Implémentations du Widget"
-msgstr "Widget implementations"
 
 msgid "Accès restreint"
 msgstr "Restricted access"
@@ -3759,21 +3762,21 @@ msgstr "Back to general statistics"
 msgid "API acceslibre"
 msgstr "acceslibre API"
 
-msgid "Réinitialiser la clef API : "
-msgstr "Reset the API key:"
+msgid "Pour tester l'API, veuillez fournir une clef API valide :"
+msgstr "To test the API, please provide a valid API key:"
 
 msgid "OK"
 msgstr "OK"
 
-msgid "Pour accéder à l'API, veuillez fournir une clef API valide :"
-msgstr "To access the API, please provide a valid API key:"
+msgid "Réinitialiser la clef API"
+msgstr "Reset the API key"
 
 #, python-format
 msgid ""
 "\n"
-"  Si vous n'avez pas encore de clef API, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contactez-nous</a>, nous\n"
-"  n'avons, à priori, pas de raison de refuser :-)\n"
-"  "
+"            Si vous n'avez pas encore de clef API, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\" class=\"fr-link\">contactez-nous</a>, nous\n"
+"            n'avons, à priori, pas de raison de refuser :-)\n"
+"            "
 msgstr ""
 "\n"
-"If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\">contact us</a>, we have, at first, no reason to refuse :-)"
+"If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no reason to refuse :-)"

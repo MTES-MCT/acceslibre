@@ -304,6 +304,11 @@ function refreshData(map, refreshApiUrl, apiKey, page = 1) {
       updateNumberOfResults(jsonData)
       dom.mountAll('.a4a-geo-link', ui.GeoLink)
       document.querySelector('#loading-spinner').classList.toggle('show-loader')
+      if (jsonData.count > 0) {
+        document.querySelector('#no-results').classList.add('hidden')
+      } else {
+        document.querySelector('#no-results').classList.remove('hidden')
+      }
 
       if (shouldTryToBroadenSearchToGetOneResult) {
         if (jsonData.count >= 1) {

@@ -292,6 +292,7 @@ def search(request):
         "equipments_shortcuts": get_equipments_shortcuts() if equipment_filters_feature else [],
         "equipments": get_equipments() if equipment_filters_feature else [],
         "zoom_level": zoom_level,
+        "geojson_list": make_geojson(pager),
     }
     return render(request, "search/results.html", context=context)
 
@@ -466,7 +467,7 @@ def widget_from_uuid(request, uuid):
         stationnement_label = translate("Pas de stationnement adapté à proximité")
 
     if stationnement_label:
-        accessibilite_data["stationnement"] = {
+        accessibilite_data[translate("stationnement")] = {
             "label": stationnement_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/car.png",
         }
@@ -573,17 +574,17 @@ def widget_from_uuid(request, uuid):
         entree_label = translate("Entrée spécifique PMR")
 
     if chemin_ext_label and entree_label:
-        accessibilite_data["accès"] = {
+        accessibilite_data[translate("accès")] = {
             "label": f"{chemin_ext_label} \n {entree_label}",
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
     elif chemin_ext_label:
-        accessibilite_data["accès"] = {
+        accessibilite_data[translate("accès")] = {
             "label": chemin_ext_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
     elif entree_label:
-        accessibilite_data["accès"] = {
+        accessibilite_data[translate("accès")] = {
             "label": entree_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
@@ -598,7 +599,7 @@ def widget_from_uuid(request, uuid):
         presence_personnel_label = translate("Personnel sensibilisé / formé")
 
     if presence_personnel_label:
-        accessibilite_data["personnel"] = {
+        accessibilite_data[translate("personnel")] = {
             "label": presence_personnel_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
         }
@@ -609,7 +610,7 @@ def widget_from_uuid(request, uuid):
         balise_sonore = translate("Balise sonore")
 
     if balise_sonore:
-        accessibilite_data["balise sonore"] = {
+        accessibilite_data[translate("balise sonore")] = {
             "label": balise_sonore,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
         }
@@ -625,7 +626,7 @@ def widget_from_uuid(request, uuid):
         )
 
     if presence_audiodescription_label:
-        accessibilite_data["audiodescription"] = {
+        accessibilite_data[translate("audiodescription")] = {
             "label": presence_audiodescription_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/audiodescription.png",
         }
@@ -645,7 +646,7 @@ def widget_from_uuid(request, uuid):
         )
 
     if presence_equipement_sourd_label:
-        accessibilite_data["équipements sourd et malentendant"] = {
+        accessibilite_data[translate("équipements sourd et malentendant")] = {
             "label": presence_equipement_sourd_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
         }
@@ -658,13 +659,13 @@ def widget_from_uuid(request, uuid):
         presence_sanitaire_label = translate("Sanitaire non adapté")
 
     if presence_sanitaire_label:
-        accessibilite_data["sanitaire"] = {
+        accessibilite_data[translate("sanitaire")] = {
             "label": presence_sanitaire_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
         }
 
     if erp.accessibilite.accueil_chambre_nombre_accessibles:
-        accessibilite_data["chambres accessibles"] = {
+        accessibilite_data[translate("chambres accessibles")] = {
             "label": ngettext(
                 "%(count)d chambre accessible",
                 "%(count)d chambres accessibles",

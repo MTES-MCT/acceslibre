@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from stats.models import Challenge, ChallengePlayer, Implementation, Referer, WidgetEvent
+from stats.models import Challenge, ChallengePlayer, WidgetEvent
 
 
 @admin.register(Challenge)
@@ -23,20 +23,6 @@ class ChallengePlayerAdmin(admin.ModelAdmin):
     ordering = ("inscription_date",)
     search_fields = ("player", "challenge")
     list_filter = ("challenge",)
-
-
-@admin.register(Referer)
-class RefererAdmin(admin.ModelAdmin):
-    list_display = ("domain", "date_notification_to_mattermost")
-    search_fields = ("domain",)
-    list_filter = ("date_notification_to_mattermost",)
-
-
-@admin.register(Implementation)
-class ImplementationAdmin(admin.ModelAdmin):
-    list_display = ("urlpath", "created_at", "updated_at")
-    search_fields = ("urlpath",)
-    list_filter = ("referer", "created_at")
 
 
 @admin.register(WidgetEvent)

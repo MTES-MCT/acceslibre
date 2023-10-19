@@ -6,6 +6,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils.timezone import now
 from rest_framework.exceptions import ValidationError
 
+from core.mailer import BrevoMailer
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.mapper.typeform import TypeFormBase, TypeFormMairie
 from erp.imports.serializers import ErpImportSerializer
@@ -67,6 +68,13 @@ class Command(BaseCommand):
             help="Forcer la mise à jour des ERPs dupliqués avec les données de l'import",
         )
 
+        parser.add_argument(
+            "--send_emails",
+            action="store_true",
+            default=False,
+            help="Whether we have to send an email to the mail address attached to the newly importer erp (import_email)",
+        )
+
     def handle(self, *args, **options):  # noqa
         self.input_file = options.get("file")
         self.verbose = options.get("verbose", False)
@@ -75,6 +83,7 @@ class Command(BaseCommand):
         self.mapper = options.get("mapper")
         self.activite = options.get("activite", None)
         self.force_update = options.get("force_update", False)
+        self.send_emails = options.get("send_emails", False)
 
         print("Démarrage du script")
         print_success(
@@ -152,8 +161,16 @@ Paramètres de lancement du script :
                                     print_success("\t * Importation de l'ERP")
                                     try:
                                         with reversion.create_revision():
-                                            validated_erp_data.save()
+                                            new_erp = validated_erp_data.save()
                                             reversion.set_comment("Created via import")
+
+                                        if self.send_emails and new_erp.import_email:
+                                            BrevoMailer().send_email(
+                                                to_list=new_erp.import_email,
+                                                subject=None,
+                                                template="erp_imported",
+                                                context={"erp_url": new_erp.get_absolute_uri()},
+                                            )
                                     except Exception as e:
                                         print_error(
                                             f"Une erreur est survenue lors de l'import de la ligne {_}: {e}. Passage à la ligne suivante."
