@@ -19,9 +19,6 @@
             <input type="hidden" name="lat" value="{{ lat|default_if_none:'' }}">
             <input type="hidden" name="lon" value="{{ lon|default_if_none:'' }}">
             <input type="hidden" name="code" value="{{ code|default_if_none:'' }}">
-            <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-                {% translate "Autoriser l'obtention de ma localisation géographique" %}
-            </button>
             <button type="submit" class="btn btn-primary mt-2 w-100">
                 <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
                 {% translate "Trouver l'établissement" %}
