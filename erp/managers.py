@@ -154,16 +154,13 @@ class ErpQuerySet(models.QuerySet):
     def search_what(self, query):
         if not query:
             return self
-        return (
-            self.annotate(
-                rank=search.SearchRank(
-                    F("search_vector"),
-                    search.SearchQuery(query, config="french_unaccent"),
-                )
-            )
-            .filter(search_vector=search.SearchQuery(query, config="french_unaccent"))
-            .order_by("-rank")
+
+        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
+        qs = qs.annotate(rank=search.SearchRank(F("search_vector"), query))
+        qs = qs.filter(
+            Q(nom__trigram_similar=query) | Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
         )
+        return qs.order_by("-similarity", "-rank")
 
     def with_votes(self):
         return self.annotate(
