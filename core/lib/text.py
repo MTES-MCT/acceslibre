@@ -17,12 +17,6 @@ def contains_sequence(test, source):
     return remove_accents(test.lower()) in remove_accents(source.lower())
 
 
-def contains_sequence_any(tests, source):
-    if not tests or not source:
-        return False
-    return any(contains_sequence(test, source) for test in tests)
-
-
 def _humanize_map_choices(values, choices):
     labels = []
     for value in values:
