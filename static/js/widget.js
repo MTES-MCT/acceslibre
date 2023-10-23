@@ -169,7 +169,7 @@
   }
 
   function setupAnalytics() {
-    var matomoTracker = Matomo.getTracker('https://stats.data.gouv.fr/matomo.php', 118)
+    var matomoTracker = Matomo.getTracker('https://stats.beta.gouv.fr/matomo.php', 3)
     var matomoSecondaryTracker = Matomo.getTracker('https://acceslibre.matomo.cloud/matomo.php', 1)
     window.AccesLibreMatomoTracker = [matomoTracker, matomoSecondaryTracker]
     window.AccesLibreMatomoTracker.forEach(function (tracker) {
@@ -179,7 +179,7 @@
     })
   }
   function setupAnalyticsScript() {
-    var u = 'https://stats.data.gouv.fr/'
+    var u = 'https://stats.beta.gouv.fr/'
     ;(function () {
       var d = document,
         g = d.createElement('script'),
