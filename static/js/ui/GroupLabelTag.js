@@ -146,7 +146,10 @@ function listenToLabelEvents() {
       _checkForShortcutToHide()
       _checkForSuggestionToShow(equipmentSlug)
     }
-    document.dispatchEvent(new Event('filterChanged'))
+
+    if (event.skipRefresh && event.skipRefresh === true) {
+      document.dispatchEvent(new Event('filterChanged'))
+    }
   })
 
   document.addEventListener('suggestionClicked', function (event) {
