@@ -8,9 +8,11 @@ function cloneFilter(root) {
 export function cloneFilterSubmit(root) {
   root.addEventListener('click', () => {
     toEmit.forEach((event) => {
-      document.dispatchEvent(new CustomEvent(event.type, { detail: { source: event.target } }))
+      document.dispatchEvent(new CustomEvent(event.type, { detail: { source: event.target, skipRefresh: true } }))
     })
     toEmit = []
+
+    document.getElementById('search-form').submit()
   })
 }
 
