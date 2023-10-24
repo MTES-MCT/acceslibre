@@ -6,7 +6,6 @@ from django.db import models
 from django.db.models import Count, F, Max, Q
 from django.db.models.functions import Length
 
-from core.lib import text
 from erp import schema
 
 
@@ -37,19 +36,6 @@ class CommuneQuerySet(models.QuerySet):
         return self.annotate(
             erp_access_count=Count("erp", filter=Q(erp__published=True), distinct=True),
         ).order_by("-erp_access_count")
-
-    def search(self, query):
-        qs = self.filter(obsolete=False)
-        terms = query.strip().split(" ")
-        clauses = Q()
-        for index, term in enumerate(terms):
-            if text.contains_digits(term) and len(term) == 5:
-                clauses = clauses | Q(code_postaux__contains=[term])
-            if len(term) > 2:
-                similarity_field = f"similarity_{index}"
-                qs = qs.annotate(**{similarity_field: search.TrigramSimilarity("nom", term)})
-                clauses = clauses | Q(nom__unaccent__icontains=term) | Q(**{f"{similarity_field}__gte": 0.6})
-        return qs.filter(clauses)
 
     def search_by_nom_code_postal(self, nom, code_postal):
         return self.filter(
@@ -164,31 +150,6 @@ class ErpQuerySet(models.QuerySet):
 
     def with_user(self):
         return self.filter(user__isnull=False)
-
-    def search_commune(self, query):
-        # FIXME: way too much code in common with ComuneQuerySet#search which should
-        #        be factored out.
-        qs = self
-        terms = query.strip().split(" ")
-        clauses = Q()
-        for index, term in enumerate(terms):
-            if text.contains_digits(term) and len(term) == 5:
-                clauses = clauses | Q(
-                    commune_ext__obsolete=False,
-                    commune_ext__code_postaux__contains=[term],
-                )
-            if len(term) > 2:
-                similarity_field = f"similarity_{index}"
-                qs = qs.annotate(**{similarity_field: search.TrigramSimilarity("commune_ext__nom", term)})
-                clauses = (
-                    clauses
-                    | Q(**{f"{similarity_field}__gte": 0.6})
-                    | Q(
-                        commune_ext__obsolete=False,
-                        commune_ext__nom__unaccent__icontains=term,
-                    )
-                )
-        return qs.filter(clauses)
 
     def search_what(self, query):
         if not query:

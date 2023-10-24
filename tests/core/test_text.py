@@ -36,12 +36,6 @@ def test_contains_sequence(test, source, expected):
     assert text.contains_sequence(test, source) is expected
 
 
-def test_contains_sequence_any():
-    assert text.contains_sequence_any(["foo", "baz"], "föo bâr bÄz") is True
-    assert text.contains_sequence_any(["foo", "nope"], "föo bâr bÄz") is True
-    assert text.contains_sequence_any(["nope", "nope"], "föo bâr bÄz") is False
-
-
 @pytest.mark.parametrize(
     "value, expected, choices",
     [
