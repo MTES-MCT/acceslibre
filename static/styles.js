@@ -1,5 +1,5 @@
 // Icons
-import '../icons/style.css'
+import './icons/style.css'
 
 // Leaflet and plugins
 import 'leaflet/dist/leaflet.css'
@@ -11,13 +11,13 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import 'leaflet.locatecontrol/dist/L.Control.Locate.min'
 
 // SelectWoo
-import '../vendor/selectWoo-1.0.8/css/select2.min.css'
-import '../vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css'
+import './vendor/selectWoo-1.0.8/css/select2.min.css'
+import './vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css'
 
 // Acceslibre own styles
-import './style.scss'
+import './scss/style.scss'
 
 // DSFR
 import '@gouvfr/dsfr/dist/dsfr/dsfr.css'
 import '@gouvfr/dsfr/dist/utility/icons/icons.css'
-import './style-dsfr.scss'
+import './scss/style-dsfr.scss'
