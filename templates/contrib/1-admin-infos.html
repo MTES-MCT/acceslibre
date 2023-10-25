@@ -25,10 +25,10 @@
     <div class="col-md-9">
         <h3 class="h3 mb-3">{% translate "Adresse de l'établissement" %}</h3>
         <form id="contrib-edit-form"
-          action=""
-          method="post"
-          class="mb-4"
-          novalidate>
+              action=""
+              method="post"
+              class="mb-4"
+              novalidate>
             {% csrf_token %}
             {{ form.geom|as_crispy_field }}
             {{ form.source|as_crispy_field }}
@@ -107,37 +107,25 @@
             <div class="row mt-4">
                 <div class="col-sm-6">{{ form.nom|as_crispy_field }}</div>
                 <div class="col-sm-6">
-                    {{ form.activite|as_crispy_field }}
+                    <label for="activite">
+                        <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
+                        <br>
+                        <span class="sr-only">{% translate "Sélectionner dans la liste" %}</span>
+                    </label>
+                    <div id="autocomplete-activity" class="autocomplete">
+                        {{ form.activite }}
+                        <ul class="list-group">
+                        </ul>
+                    </div>
+                    {% if form.errors.activite %}
+                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
+                    {% endif %}
+                    <a href="#"
+                       class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
+                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
+                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
+                          id="activity_suggested">{% translate "Votre suggestion :" %}<span>{{ request.GET.new_activity }}</span></span>
                     {{ form.nouvelle_activite|as_crispy_field }}
-                    <script>
-        $(document).ready(function() {
-          if($("#id_activite").val() == '{{ other_activity.id }}'){
-              $("#div_id_nouvelle_activite").show();
-            } else {
-              $("#div_id_nouvelle_activite").hide();
-          }
-          $("#no_activite").on("click", function(){
-              $("#id_activite").val({{ other_activity.id }});
-              $("#id_activite").trigger('change');
-          });
-          $("#id_activite").select2({
-            allowClear: true,
-            theme: "bootstrap4",
-            placeholder: '{% translate "Rechercher une activité" %}'
-          });
-          $("#id_activite").on("change", function(){
-            if($("#id_activite").val() == '{{ other_activity.id }}'){
-              $("#div_id_nouvelle_activite").show();
-            } else {
-              $("#div_id_nouvelle_activite").hide();
-              $("#id_nouvelle_activite").val("");
-            };
-          });
-          $(document).on('select2:open', () => {
-            document.querySelector('.select2-search__field').focus();
-          });
-        });
-                    </script>
                 </div>
             </div>
             <div class="row">
@@ -176,7 +164,9 @@
                         {{ external_erp.nom }}
                     {% endif %}
                     <small class="text-muted">
-                        {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
+                        {% if erp.activite %}
+                            - {{ erp.activite.nom }}
+                        {% endif %}
                         - <em>
                         {% if erp %}
                             {{ erp.adresse }}

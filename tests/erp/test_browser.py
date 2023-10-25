@@ -313,7 +313,7 @@ def test_ajout_erp(mock_geocode, data, client):
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test ERP",
-            "activite": data.boulangerie.pk,
+            "activite": data.boulangerie.nom,
             "numero": "12",
             "voie": "GRAND RUE",
             "lieu_dit": "",
@@ -332,6 +332,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert erp.voie == "Grand rue", "Should have been normalized with geocode result"
     assert erp.geoloc_provider == "ban"
     assert not hasattr(erp, "accessibilite")
+    assert erp.activite is not None
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
 
@@ -589,7 +590,7 @@ def test_add_erp_duplicate(mock_geocode, data, client):
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test ERP",
-            "activite": data.erp.activite_id,
+            "activite": data.erp.activite.nom,
             "numero": data.erp.numero,
             "voie": data.erp.voie,
             "lieu_dit": "",
@@ -651,7 +652,7 @@ def test_add_erp_other_activity(mock_geocode, data, client):
             "commune": "JACOU",
             "lat": 43,
             "lon": 3,
-            "activite": Activite.objects.get(nom="Autre").pk,
+            "activite": Activite.objects.get(nom="Autre").nom,
             "nouvelle_activite": "My suggestion",
         },
         follow=True,
@@ -844,7 +845,7 @@ def test_contribution_flow_administrative_data(data, mock_geocode, client):
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test contribution",
-            "activite": data.boulangerie.pk,
+            "activite": data.boulangerie.nom,
             "numero": "12",
             "voie": "GRAND RUE",
             "lieu_dit": "",

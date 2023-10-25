@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 15:39+0200\n"
-"PO-Revision-Date: 2023-10-12 15:33+0200\n"
+"POT-Creation-Date: 2023-10-24 14:57+0200\n"
+"PO-Revision-Date: 2023-09-27 17:16+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -167,11 +167,11 @@ msgstr "French"
 msgid "English"
 msgstr "English"
 
-msgid "Activité"
-msgstr "Activity"
-
 msgid "Cinéma, mairie, ..."
 msgstr "Cinéma, mairie, ..."
+
+msgid "Activité"
+msgstr "Activity"
 
 msgid "Un mot-clé par ligne"
 msgstr "One keyword per line"
@@ -198,9 +198,6 @@ msgstr "This address cannot be located at the INSEE code {}"
 
 msgid "ex: nom@domain.tld"
 msgstr "ex: name@domain.com"
-
-msgid "Je ne trouve pas l'activité"
-msgstr "I can't find the activity"
 
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
 msgstr "You must suggest an activity name for the facility"
@@ -2450,8 +2447,14 @@ msgstr "Improve this information"
 msgid "Continuer ma saisie d'un nouvel établissement"
 msgstr "Continue my entry of a new facility"
 
-msgid "Rechercher une activité"
-msgstr "Search for an activity"
+msgid "Sélectionner dans la liste"
+msgstr "Select from the list"
+
+msgid "Je ne trouve pas l'activité"
+msgstr "I can't find the activity"
+
+msgid "Votre suggestion :"
+msgstr "Your suggestion:"
 
 msgid "Emplacement de l'établissement"
 msgstr "Location of the facility"
@@ -2629,9 +2632,6 @@ msgstr "Enter your activity"
 
 msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
 msgstr "Start typing, then select the activity from the list."
-
-msgid "Votre suggestion :"
-msgstr "Your suggestion:"
 
 msgid "Adresse ou commune"
 msgstr "Address or municipality"
