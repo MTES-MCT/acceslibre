@@ -440,11 +440,12 @@
         },
         "djangorestframework-api-key": {
             "hashes": [
-                "sha256:c2fa61280069acd8dc0e9dd1840e0e1934a2a85631069326f4d1e3a91ca9aa9a",
-                "sha256:eed94f383e96ca8f9f9e4182406fe28b5585629d0039f65cbb7e6e254778f674"
+                "sha256:b9443cd864e43caebdd330224f9309957b38128267fbc9dc1ba2f3fa1c8414d0",
+                "sha256:f18cdfa45aaea10fd4daaebffa60481ce4002c9b9ef6c551ef1fc21dadf28845"
             ],
             "index": "pypi",
-            "version": "==2.3.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==3.0.0"
         },
         "djangorestframework-gis": {
             "hashes": [
