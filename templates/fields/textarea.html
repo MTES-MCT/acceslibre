@@ -1,5 +1,6 @@
 {% load a4a %}
-<div class="field-{{ field.name }} mb-3">
+<div class="field-{{ field.name }} mb-3 {{ extraclasses }}"
+     {% if extraid %}id="{{ extraid }}"{% endif %}>
     <label for="{{ field.id_for_label }}" class="mb-0">
         <strong tabindex="0">{{ field.label }}</strong>
         <br>
