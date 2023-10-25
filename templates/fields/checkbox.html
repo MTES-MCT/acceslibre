@@ -1,7 +1,8 @@
 {% load a4a %}
 {% load i18n %}
 {% if field %}
-    <div class="a4a-form-field field-{{ field.name }} mb-3">
+    <div class="a4a-form-field field-{{ field.name }} mb-3 {{ extraclasses }}"
+         {% if extraid %}id="{{ extraid }}"{% endif %}>
         {% if field.id_for_label %}
             <label for="{{ field.id_for_label }}" class="mb-0">
                 <strong tabindex="0">{{ field.label }}
