@@ -2,11 +2,11 @@ import api from '../api'
 import dom from '../dom'
 import Autocomplete from '@trevoreyre/autocomplete-js'
 
-async function getCommonResults(loc) {
+async function getCommonResults() {
   const AROUND_ME = gettext('Autour de moi')
   const FRANCE_ENTIERE = gettext('France entière')
   return [
-    { id: 'around_me', text: `${AROUND_ME} ${loc?.label || ''}`, icon: 'street-view' },
+    { id: 'around_me', text: AROUND_ME, icon: 'street-view' },
     { id: 'france_entiere', text: FRANCE_ENTIERE, icon: 'france' },
   ]
 }
@@ -79,7 +79,7 @@ function SearchWhere(root) {
           a11yGeolocBtn.focus()
         }
         setGeoLoading(true)
-        const loc = await api.loadUserLocation({ retrieve: true })
+        const loc = await api.getUserLocation()
         setGeoLoading(false)
         if (!loc) {
           console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
@@ -110,8 +110,7 @@ function SearchWhere(root) {
     },
 
     search: async (input) => {
-      const loc = await api.loadUserLocation({ retrieve: false })
-      const commonResults = await getCommonResults(loc)
+      const commonResults = await getCommonResults()
       if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults
       }

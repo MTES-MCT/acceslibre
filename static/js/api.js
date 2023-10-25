@@ -11,7 +11,7 @@ async function fetchWithTimeout(resource, options) {
   return response
 }
 
-function getCurrentPosition(options = { timeout: 10000 }) {
+async function getCurrentPosition(options = { timeout: 20000, maximumAge: 5 * 60000 }) {
   return new Promise((resolve, reject) => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options)
@@ -31,11 +31,11 @@ async function hasPermission(name) {
   return state
 }
 
-async function getUserLocation(options) {
+async function getUserLocation() {
   const {
     coords: { latitude: lat, longitude: lon },
     timestamp,
-  } = await getCurrentPosition(options)
+  } = await getCurrentPosition()
   let label
   try {
     // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
@@ -46,28 +46,7 @@ async function getUserLocation(options) {
     // just log other error types.
     label = '✓'
   }
-  return saveUserLocation({ lat, lon, label, timestamp })
-}
-
-async function loadUserLocation(options = {}) {
-  const { ttl, retrieve } = { ttl: 5 * 60000, retrieve: true, ...options }
-  let loc = null
-  try {
-    loc = JSON.parse(sessionStorage['a4a-loc'] || 'null')
-  } catch (_) {}
-  try {
-    if (!loc || (loc.timestamp && new Date().getTime() - loc.timestamp > ttl)) {
-      if (!!retrieve) {
-        return await getUserLocation()
-      } else {
-        return loc
-      }
-    } else {
-      return loc
-    }
-  } catch (e) {
-    console.error(e)
-  }
+  return { lat, lon, label, timestamp }
 }
 
 async function reverseGeocode({ lat, lon }, options = {}) {
@@ -82,11 +61,6 @@ async function reverseGeocode({ lat, lon }, options = {}) {
   } catch (e) {
     console.error('reverse geocoding error', e)
   }
-}
-
-function saveUserLocation(loc) {
-  sessionStorage['a4a-loc'] = JSON.stringify(loc)
-  return loc
 }
 
 function getMunicipalityApi(q) {
@@ -173,8 +147,8 @@ async function getCoordinate(q) {
 
 export default {
   hasPermission,
-  loadUserLocation,
   reverseGeocode,
   searchLocation,
   getCoordinate,
+  getUserLocation,
 }
