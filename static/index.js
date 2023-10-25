@@ -1,7 +1,3 @@
-// Polyfills
-import 'core-js/stable'
-import 'mutationobserver-shim'
-import 'regenerator-runtime/runtime'
 import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
 
 // jQuery and selectWoo are very special beasts
@@ -9,9 +5,9 @@ import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
 // https://stackoverflow.com/a/49722514
 import jquery from 'jquery'
 window.$ = window.jQuery = jquery
-import select2 from '../vendor/selectWoo-1.0.8/js/select2.full.min'
+import select2 from './vendor/selectWoo-1.0.8/js/select2.full.min'
 select2(window.$)
-import('../vendor/selectWoo-1.0.8/js/i18n/fr.js').then()
+import('./vendor/selectWoo-1.0.8/js/i18n/fr.js').then()
 
 import 'leaflet'
 import 'leaflet.markercluster'
@@ -29,16 +25,15 @@ import * as bootstrap from 'bootstrap'
 // Sentry
 import * as Sentry from '@sentry/browser'
 import { Integrations } from '@sentry/tracing'
-import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
 window.Sentry = Sentry
 window.SentryIntegrations = Integrations
 
 // app modules
-import dom from './dom'
-import geo from './geo'
-import ui from './ui'
-import cloneFilter from './ui/CloneFilter'
-import Autocomplete from './ui/AutocompleteActivity'
+import dom from './js/dom'
+import geo from './js/geo'
+import ui from './js/ui'
+import cloneFilter from './js/ui/CloneFilter'
+import Autocomplete from './js/ui/AutocompleteActivity'
 
 // Initializations
 dom.ready(() => {

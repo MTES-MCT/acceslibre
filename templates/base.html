@@ -26,10 +26,10 @@
               href="{% static 'img/favicon.ico' %}">
         <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
         <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
-        <link rel="stylesheet" href="{% static 'dist/main.css' %}">
+        <link rel="stylesheet" href="{% static 'dist/styles.css' %}">
         {% block stylesheet_extras %}
         {% endblock stylesheet_extras %}
-        <script src="{% static 'dist/main.js' %}"></script>
+        <script src="{% static 'dist/index.js' %}"></script>
         {% block javascript_extras %}
         {% endblock javascript_extras %}
         <meta name="google-site-verification"

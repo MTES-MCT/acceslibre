@@ -26,7 +26,7 @@ function SearchWhere(root) {
     municipality: root.querySelector('input[name=municipality]'),
   }
   input.addEventListener('input', activateSubmitBtn, false)
-  activateSubmitBtn(null, (force = false))
+  activateSubmitBtn(null, false)
 
   function activateSubmitBtn(event, force = false) {
     if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
@@ -152,7 +152,7 @@ function SearchWhere(root) {
       try {
         submittable = exp.target.getAttribute('aria-expanded') !== 'true'
         if (submittable) {
-          activateSubmitBtn(null, (force = false))
+          activateSubmitBtn(null, false)
         }
       } catch (e) {}
     }, 0)
