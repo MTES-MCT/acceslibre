@@ -29,6 +29,9 @@ function SearchWhere(root) {
   activateSubmitBtn(null, false)
 
   function activateSubmitBtn(event, force = false) {
+    if (input.value.startsWith(AROUND_ME) && hiddens.lat.getAttribute('value') && hiddens.lon.getAttribute('value')) {
+      force = true
+    }
     if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
       input.form.querySelector('button[type=submit]').removeAttribute('disabled')
     } else {
@@ -114,6 +117,7 @@ function SearchWhere(root) {
       if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults
       }
+
       var { results } = await api.searchLocation(input, loc, 'municipality')
       if (results.length) {
         return results
