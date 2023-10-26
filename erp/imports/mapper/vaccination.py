@@ -5,8 +5,8 @@ from django.db.utils import DataError
 
 from core.lib import text
 from erp.imports.mapper import SkippedRecord
-from erp.models import Accessibilite, Commune, Erp
-from erp.provider import arrondissements
+from erp.imports.mapper.generic import GenericMapper
+from erp.models import Accessibilite, Erp
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
@@ -15,7 +15,7 @@ RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
 RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
-class VaccinationMapper:
+class VaccinationMapper(GenericMapper):
     activite = None
     erp = None
     unpublish_reason = None
@@ -214,25 +214,3 @@ class VaccinationMapper:
             self.erp.geom = Point(lon, lat)
         except (KeyError, IndexError):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
-
-    def _retrieve_commune_ext(self):
-        "Assigne une commune normalisée à l'Erp en cours de génération"
-        if self.erp.code_insee:
-            commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
-            if not commune_ext:
-                arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
-                if arrdt:
-                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
-        elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
-        else:
-            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
-
-        if not commune_ext:
-            raise RuntimeError(
-                f"Impossible de résoudre la commune depuis le code INSEE ({self.erp.code_insee}) "
-                f"ou le code postal ({self.erp.code_postal}) "
-            )
-
-        self.erp.commune_ext = commune_ext
-        self.erp.commune = commune_ext.nom

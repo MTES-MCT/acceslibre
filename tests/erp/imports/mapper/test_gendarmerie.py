@@ -31,19 +31,19 @@ def test_updated_data(mapper, gendarmeries_valid):
     sample = gendarmeries_valid[0].copy()
     sample["code_commune_insee"] = "01283"
 
-    erp, reason = mapper(sample).process()
+    erp, _ = mapper(sample).process()
 
     assert erp.code_insee == "01283"
 
 
 def test_invalid_data(mapper, gendarmeries_valid):
     sample = gendarmeries_valid[0].copy()
-    sample["code_commune_insee"] = "67000azdasqd"
+    sample["code_commune_insee"] = sample["code_postal"] = "67000azdasqd"
 
     with pytest.raises(RuntimeError) as err:
         mapper(sample).process()
 
-    assert "résoudre la commune depuis le code INSEE" in str(err.value)
+    assert "Impossible de résoudre la commune depuis le code INSEE" in str(err.value)
 
 
 def test_fail_on_key_change(mapper, gendarmeries_valid):
@@ -59,7 +59,7 @@ def test_fail_on_key_change(mapper, gendarmeries_valid):
 
 def test_horaires(mapper, gendarmeries_valid):
     sample = gendarmeries_valid[0].copy()
-    erp, reason = mapper(sample).process()
+    erp, _ = mapper(sample).process()
 
     assert "Horaires d'accueil" in erp.accessibilite.commentaire
     assert "Lundi : 8h00-12h00 14h00-18h00" in erp.accessibilite.commentaire
@@ -67,7 +67,7 @@ def test_horaires(mapper, gendarmeries_valid):
 
 def test_horaires_missing(mapper, gendarmeries_valid):
     sample = gendarmeries_valid[2].copy()
-    erp, reason = mapper(sample).process()
+    erp, _ = mapper(sample).process()
 
     assert "Horaires d'accueil" not in erp.accessibilite.commentaire
 

@@ -5,13 +5,13 @@ from datetime import datetime
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 
-from erp.models import Accessibilite, Commune, Erp
-from erp.provider import arrondissements
+from erp.imports.mapper.generic import GenericMapper
+from erp.models import Accessibilite, Erp
 
 logger = logging.getLogger(__name__)
 
 
-class GendarmerieMapper:
+class GendarmerieMapper(GenericMapper):
     erp = None
     fields = [
         "identifiant_public_unite",
@@ -53,7 +53,7 @@ class GendarmerieMapper:
         for name, value in basic_fields.items():
             setattr(self.erp, name, value)
 
-        self._retrieve_commune_ext()
+        self._retrieve_commune_ext(self.record.get("commune"))
         self._populate_accessibilite(self.record)
 
         return self.erp, None
@@ -126,28 +126,6 @@ class GendarmerieMapper:
             }
         except KeyError as key:
             raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
-
-    def _retrieve_commune_ext(self):
-        "Assigne une commune normalisée à l'Erp en cours de génération"
-        if self.erp.code_insee:
-            commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
-            if not commune_ext:
-                arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
-                if arrdt:
-                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
-        elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
-        else:
-            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
-
-        if not commune_ext:
-            raise RuntimeError(
-                f"Impossible de résoudre la commune depuis le code INSEE ({self.erp.code_insee}) "
-                f"ou le code postal ({self.erp.code_postal}) "
-            )
-
-        self.erp.commune_ext = commune_ext
-        self.erp.commune = commune_ext.nom
 
     def _populate_accessibilite(self, record):
         if not self.erp.has_accessibilite():
