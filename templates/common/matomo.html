@@ -14,18 +14,20 @@
     g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
   })();
 
-  $(document).ready(function () {
-    $("[data-track-event]").on("click", function () {
-      try {
-        const rawData = $(this).data("track-event") || "";
-        if (rawData.length > 0) {
-          _paq.push(["trackEvent"].concat(rawData.split(",")));
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('[data-track-event]').forEach(function(elt){
+      elt.addEventListener('click', function(){
+        try {
+          const rawData = elt.getAttribute("data-track-event") || "";
+          if (rawData.length > 0) {
+            _paq.push(["trackEvent"].concat(rawData.split(",")));
+          }
+        } catch (e) {
+          console.error("Error while tracking event: ", e);
         }
-      } catch (e) {
-        console.error("Error while tracking event: " + e);
-      }
-    });
-  });
+      })
+    })
+  })
 </script>
 <noscript>
     <img src="//stats.data.gouv.fr/matomo.php?idsite=118&amp;rec=1" alt="">
