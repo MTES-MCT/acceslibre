@@ -29,6 +29,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 
 class ActiviteFactory(factory.django.DjangoModelFactory):
     nom = factory.LazyAttribute(lambda x: faker.name())
+    mots_cles = factory.List([])
 
     class Meta:
         model = "erp.Activite"
