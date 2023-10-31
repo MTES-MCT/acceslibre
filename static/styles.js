@@ -10,10 +10,6 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 // so we MUST skip the file extension.
 import 'leaflet.locatecontrol/dist/L.Control.Locate.min'
 
-// SelectWoo
-import './vendor/selectWoo-1.0.8/css/select2.min.css'
-import './vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css'
-
 // Acceslibre own styles
 import './scss/style.scss'
 

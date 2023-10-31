@@ -198,14 +198,6 @@ select[name='language'] {
     }
   }
 
-  // selectWoo styles overriding
-  .select2-container--bootstrap4 {
-    .select2-selection,
-    input[type='text'] {
-      border: 1px solid $input-border-color;
-    }
-  }
-
   &-autocomplete-result {
     cursor: pointer;
     font-size: 0.87em;
