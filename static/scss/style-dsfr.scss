@@ -25,3 +25,7 @@ p {
   position: relative;
   display: inline-block;
 }
+
+.fr-collapse {
+  max-height: var(--collapse-max-height) !important;
+}
