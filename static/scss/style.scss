@@ -958,55 +958,6 @@ select[name='language'] {
   &-form-input-number {
     width: 100px;
   }
-
-  /* Steps progress */
-
-  .StepProgress {
-    position: relative;
-    padding-left: 45px;
-    list-style: none;
-  }
-
-  .StepProgress-item {
-    position: relative;
-    padding-top: 4px;
-  }
-
-  .StepProgress-item:not(:last-child) {
-    padding-bottom: 20px;
-  }
-
-  .StepProgress-item::before {
-    display: inline-block;
-    content: '';
-    position: absolute;
-    left: -15px;
-    height: 50%;
-    width: 10px;
-  }
-
-  .StepProgress-item.is-done::before {
-    color: limegreen;
-    left: -25px;
-    content: '✔';
-  }
-
-  .StepProgress-item.current {
-    font-weight: bold;
-  }
-
-  .StepProgress-item.current::before {
-    border-left: 2px solid $primary;
-  }
-
-  .StepProgress-item.current::after {
-    color: $primary;
-    border: 2px solid $primary;
-  }
-
-  .StepProgress strong {
-    display: block;
-  }
 }
 
 #erp-results-list {
@@ -1166,4 +1117,12 @@ div.equipments-selected
   .fr-footer__content {
     flex-basis: 60% !important;
   }
+}
+
+.fr-sidemenu__item.is-done::before {
+  color: limegreen;
+  left: -0.75rem;
+  top: 0.75rem;
+  content: '✔';
+  box-shadow: none;
 }
