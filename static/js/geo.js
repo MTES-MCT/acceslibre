@@ -7,6 +7,10 @@ import dom from './dom'
 import ui from './ui'
 import url from './url.js'
 
+// Default coords used when we have no result and no selected city
+const DEFAULT_LAT = 46.7
+const DEFAULT_LON = 1.9
+
 var L = window.L // Let's make EsLint happy :)
 
 let currentErpIdentifier,
@@ -407,7 +411,6 @@ function AppMap(root) {
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
 
   const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
-
   if (municipalityData) {
     map.setMinZoom(municipalityData.zoom - 2)
     if (municipalityData.contour) {
@@ -443,7 +446,10 @@ function AppMap(root) {
   } else if (municipalityData) {
     map.setView(municipalityData.center, municipalityData.zoom)
   } else {
-    map.setView(L.latLng(root.dataset.lat, root.dataset.lon), root.dataset.defaultZoom || 14)
+    map.setView(
+      L.latLng(root.dataset.lat || DEFAULT_LAT, root.dataset.lon || DEFAULT_LON),
+      root.dataset.defaultZoom || 14
+    )
     refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
   }
 

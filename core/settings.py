@@ -38,8 +38,6 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 
-MAP_DEFAULT_LAT = "46.7"
-MAP_DEFAULT_LON = "1.9"
 MAP_DEFAULT_ZOOM = 6
 MAP_DEFAULT_ZOOM_LARGE_CITY = 12
 MAP_DEFAULT_ZOOM_STREET = 15
@@ -189,8 +187,6 @@ def expose_site_context(request):
         "SITE_NAME": settings.SITE_NAME,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
         "STAGING": settings.STAGING or settings.DEBUG,
-        "MAP_DEFAULT_LAT": settings.MAP_DEFAULT_LAT,
-        "MAP_DEFAULT_LON": settings.MAP_DEFAULT_LON,
         "MAP_DEFAULT_ZOOM": settings.MAP_DEFAULT_ZOOM,
         "MAP_DEFAULT_ZOOM_LARGE_CITY": settings.MAP_DEFAULT_ZOOM_LARGE_CITY,
     }
