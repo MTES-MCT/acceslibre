@@ -266,6 +266,8 @@ USE_L10N = True
 USE_TZ = True
 DEEPL_API_KEY = env("DEEPL_API_KEY", default=None)
 DEEPL_MAPPING = {"en": "EN-GB"}
+PLACES_API_KEY = env("PLACES_API_KEY", None)
+SCRAP_IO_API_KEY = env("SCRAP_IO_API_KEY", None)
 # Crispy forms
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
