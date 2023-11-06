@@ -7,7 +7,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from erp.models import Erp
-from tests.factories import ErpFactory
+from tests.factories import ActiviteFactory, ErpFactory
 
 
 @pytest.fixture
@@ -439,6 +439,36 @@ class TestErpApi:
         assert response.status_code == 405
         erp.refresh_from_db()
         assert erp is not None
+
+    @pytest.mark.parametrize(
+        "names, q, expected",
+        (
+            (
+                ["Musée du Louvre", "Lieu culturel", "Culture", "Cultura"],
+                "Cultura",
+                ["Cultura", "Culture", "Lieu culturel", "Musée du Louvre"],
+            ),
+            (
+                ["Musée du Louvre", "Lieu culturel", "Culture", "Cultura"],
+                "Culture",
+                ["Culture", "Cultura", "Lieu culturel", "Musée du Louvre"],
+            ),
+        ),
+    )
+    @pytest.mark.django_db
+    def test_search_name_ranking(self, api_client, names, q, expected):
+        activity = ActiviteFactory(nom="Culture", mots_cles=["culture", "musée", "exposition"])
+        for name in names:
+            ErpFactory(nom=name, activite=activity)
+
+        unrelated_erp = ErpFactory(nom="nothing related")
+
+        response = api_client.get(f"{reverse('erp-list')}?q={q}")
+
+        assert response.status_code == 200
+        response_names = [erp["nom"] for erp in response.json()["results"]]
+        assert response_names == expected
+        assert unrelated_erp.nom not in response_names
 
 
 @pytest.mark.usefixtures("api_client")

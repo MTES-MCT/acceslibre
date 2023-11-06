@@ -44,18 +44,27 @@
                     data-track-event="vote,{{ vote_down_form.value.lower }},{{ erp.slug }}">
                 {% translate "Envoyer" %}
             </button>
-            <button type="button" class="btn btn-link btn-vote-no-cancel">{% translate "Annuler" %}</button>
+            <button type="button" id="btn-vote-no-cancel" class="btn btn-link">{% translate "Annuler" %}</button>
         </div>
     </div>
     <script>
     // TODO: move to component?
-    $(document).ready(function() {
-      $("#btn-vote-no").on("click", function() {
-        $('#vote_comment').toggle();
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var voteComment = document.getElementById("vote_comment");
+
+      document.getElementById("btn-vote-no").addEventListener("click", function() {
+        if (voteComment.style.display === "none" || voteComment.style.display === "") {
+          voteComment.style.display = "block";
+        } else {
+          voteComment.style.display = "none";
+        }
       });
-      $(".btn-vote-no-cancel").on("click", function() {
-        $('#vote_comment').hide();
+
+      document.getElementById("btn-vote-no-cancel").addEventListener("click", function() {
+        voteComment.style.display = "none";
       });
+
     });
     </script>
     {% if not user.is_authenticated %}

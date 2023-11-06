@@ -319,23 +319,11 @@ select[name='language'] {
     }
   }
 
-  .small-caps {
-    font-variant: small-caps;
-  }
-
-  .uppercase {
-    text-transform: uppercase;
-  }
-
   svg {
     fill: currentColor;
   }
 
   &-landing {
-    &-ministere-logo {
-      max-height: 180px;
-    }
-
     &-partenaire-logo {
       max-width: 100%;
       max-height: 100px;
@@ -440,22 +428,6 @@ select[name='language'] {
     }
   }
 
-  &-bg-primary-gradient {
-    background: linear-gradient(15deg, #054a80, #3576a9);
-  }
-
-  &-cta-search {
-    @media screen and (max-width: $viewport-sm) {
-      padding: 0 0 1em 0 !important;
-    }
-  }
-
-  &-cta-contribute {
-    @media screen and (max-width: $viewport-sm) {
-      padding: 1em !important;
-    }
-  }
-
   h1,
   .h1,
   h2,
@@ -469,18 +441,6 @@ select[name='language'] {
   h6,
   .h6 {
     font-weight: 400;
-  }
-
-  .cursor-help {
-    cursor: help;
-  }
-
-  .fs9em {
-    font-style: 9em;
-  }
-
-  .no-outline {
-    outline: none;
   }
 
   .no-list {
@@ -666,7 +626,7 @@ select[name='language'] {
   &-search-form {
     .autocomplete-input {
       &.loading {
-        background: transparent url('/img/loading.gif') no-repeat;
+        background: transparent url('../img/loading.gif') no-repeat;
         background-position: calc(100% - 8px) center;
       }
     }
@@ -998,133 +958,6 @@ select[name='language'] {
   &-form-input-number {
     width: 100px;
   }
-
-  &-inline-submit-end {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-
-  /* Steps progress */
-
-  .StepProgress {
-    position: relative;
-    padding-left: 45px;
-    list-style: none;
-  }
-
-  .StepProgress-item {
-    position: relative;
-    padding-top: 4px;
-  }
-
-  .StepProgress-item:not(:last-child) {
-    padding-bottom: 20px;
-  }
-
-  .StepProgress-item::before {
-    display: inline-block;
-    content: '';
-    position: absolute;
-    left: -15px;
-    height: 50%;
-    width: 10px;
-  }
-
-  .StepProgress-item.is-done::before {
-    color: limegreen;
-    left: -25px;
-    content: '✔';
-  }
-
-  .StepProgress-item.current {
-    font-weight: bold;
-  }
-
-  .StepProgress-item.current::before {
-    border-left: 2px solid $primary;
-  }
-
-  .StepProgress-item.current::after {
-    color: $primary;
-    border: 2px solid $primary;
-  }
-
-  .StepProgress strong {
-    display: block;
-  }
-
-  /* Datepicker */
-  .datepicker {
-    padding: 5px 10px;
-
-    th {
-      text-align: center;
-
-      &.clear,
-      &.next,
-      &.prev {
-        cursor: pointer;
-      }
-    }
-
-    td {
-      padding: 3px 10px 1px;
-      text-align: center;
-
-      &.dow {
-        font-variant: small-caps;
-      }
-
-      &.day {
-        cursor: pointer;
-        font-size: 14px;
-
-        &.new,
-        &.old {
-          color: #575757;
-        }
-
-        &.active {
-          background: $primary;
-          border-radius: 3px;
-          color: $white;
-        }
-      }
-    }
-  }
-
-  .lds-dual-ring {
-    // adapted from https://loading.io/css/
-    $lds-dual-ring-size: 16px;
-    $lds-dual-ring-stroke: calc($lds-dual-ring-size / 6);
-    $lds-dual-ring-margin: 0px;
-
-    display: inline-block;
-    width: $lds-dual-ring-size;
-    height: $lds-dual-ring-size;
-
-    &:after {
-      content: ' ';
-      display: block;
-      width: $lds-dual-ring-size;
-      height: $lds-dual-ring-size;
-      margin: $lds-dual-ring-margin;
-      border-radius: 50%;
-      border: $lds-dual-ring-stroke solid $primary;
-      border-color: $primary transparent $primary transparent;
-      animation: lds-dual-ring 1.2s linear infinite;
-    }
-  }
-
-  @keyframes lds-dual-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 }
 
 #erp-results-list {
@@ -1232,28 +1065,23 @@ div.equipments-selected
   }
 
   &-wheelchair:before {
-    -webkit-mask-image: url('/img/fauteuil.svg');
-    mask-image: url('/img/fauteuil.svg');
+    mask-image: url('../img/fauteuil.svg');
   }
 
   &-diff-walking:before {
-    -webkit-mask-image: url('/img/cane.svg');
-    mask-image: url('/img/cane.svg');
+    mask-image: url('../img/cane.svg');
   }
 
   &-diff-vision:before {
-    -webkit-mask-image: url('/img/cessite.svg');
-    mask-image: url('/img/cessite.svg');
+    mask-image: url('../img/cessite.svg');
   }
 
   &-deaf:before {
-    -webkit-mask-image: url('/img/surdite.svg');
-    mask-image: url('/img/surdite.svg');
+    mask-image: url('../img/surdite.svg');
   }
 
   &-diff-understand:before {
-    -webkit-mask-image: url('/img/communication.svg');
-    mask-image: url('/img/communication.svg');
+    mask-image: url('../img/communication.svg');
   }
 }
 
@@ -1289,4 +1117,12 @@ div.equipments-selected
   .fr-footer__content {
     flex-basis: 60% !important;
   }
+}
+
+.fr-sidemenu__item.is-done::before {
+  color: limegreen;
+  left: -0.75rem;
+  top: 0.75rem;
+  content: '✔';
+  box-shadow: none;
 }

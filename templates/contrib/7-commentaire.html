@@ -22,53 +22,53 @@
 {% block fields_content %}
     <h3 class="h4">{% translate "Informations complémentaires" %}</h3>
     {% include "fields/checkbox.html" with field=form.labels inline=True %}
-    {% include "fields/textarea.html" with field=form.labels_autre %}
-    {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True %}
+    {% include "fields/textarea.html" with field=form.labels_autre extraclasses="hidden" extraid="field-labels_autre" %}
+    {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraclasses="hidden" extraid="field-labels_familles_handicap" %}
     <script>
-  $(document).ready(function () {
-    const $fieldFamilles = $(".field-labels_familles_handicap");
-    $fieldFamilles.hide();
+     document.addEventListener("DOMContentLoaded", function () {
+      const fieldFamilles = document.querySelector("#field-labels_familles_handicap");
+      const fieldAutre = document.querySelector("#field-labels_autre");
+      const otherInput = document.querySelector("#id_labels_autre");
 
-    const $fieldAutre = $(".field-labels_autre")
-    $fieldAutre.hide();
+      function getCheckedLabels() {
+        const checkedCheckboxes = document.querySelectorAll("input[name=labels]:checked");
+        const valuesArray = [];
 
-    const $labelsInputs = $("input[name=labels]");
-
-    function getCheckedLabels() {
-      return $labelsInputs.get().reduce(function (acc, input) {
-        if (input.checked) {
-          acc.push(input.value)
-        }
-        return acc;
-      }, []);
-    }
-
-    function checkDisplay() {
-      const checkedLabels = getCheckedLabels();
-      if (!(checkedLabels.indexOf("autre") == -1 || checkedLabels.indexOf("other") == -1)) {
-        $fieldAutre.show();
-        $fieldAutre.find("input[type=text]").attr("required", "required");
-      } else {
-        $fieldAutre.hide();
-        $fieldAutre.find("input[type=text]").val("");
-        $fieldAutre.find("input[type=text]").removeAttr("required");
-      }
-      if (checkedLabels.length > 0) {
-        $fieldFamilles.show();
-      } else {
-        $fieldFamilles.hide();
-        $fieldFamilles.find("input[type=checkbox]").each(function (i, input) {
-          input.checked = false;
+        checkedCheckboxes.forEach(function (checkbox) {
+          valuesArray.push(checkbox.value);
         });
-      }
-    }
 
-    $labelsInputs.each(function (i, input) {
-      $(input).on("change", checkDisplay);
+        return valuesArray;
+      }
+
+      function checkDisplay() {
+        const checkedLabels = getCheckedLabels();
+        if (checkedLabels.includes("autre") || checkedLabels.includes("other")) {
+          fieldAutre.classList.remove("hidden");
+          otherInput.setAttribute("required", "required");
+        } else {
+          fieldAutre.classList.add("hidden");
+          otherInput.value = "";
+          otherInput.removeAttribute("required");
+        }
+        if (checkedLabels.length > 0) {
+          fieldFamilles.classList.remove("hidden");
+        } else {
+          fieldFamilles.classList.add("hidden");
+          const checkboxes = fieldFamilles.querySelectorAll("input[type=checkbox]");
+          checkboxes.forEach(function (input) {
+            input.checked = false;
+          });
+        }
+      }
+
+      document.querySelectorAll("input[name=labels]").forEach(function (input) {
+        input.addEventListener("change", checkDisplay);
+      });
+
+      checkDisplay();
     });
 
-    checkDisplay();
-  });
     </script>
     {{ form.commentaire|as_crispy_field }}
 {% endblock fields_content %}

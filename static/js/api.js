@@ -11,7 +11,7 @@ async function fetchWithTimeout(resource, options) {
   return response
 }
 
-function getCurrentPosition(options = { timeout: 10000 }) {
+function getCurrentPosition(options = { timeout: 20000, maximumAge: 5 * 60000 }) {
   return new Promise((resolve, reject) => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options)

@@ -14,9 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (searchTerm.length < 3) {
         return []
       }
-      return activities.filter((activity) =>
-        activity.keywords.some((keyword) => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
+
+      const exactResults = activities.filter((activity) =>
+        activity.keywords.some((keyword) => keyword.toLowerCase() === searchTerm.toLowerCase())
       )
+
+      const otherKeywordResults = activities
+        .filter((activity) =>
+          activity.keywords.some((keyword) => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
+        )
+        .filter((activity) => !exactResults.includes(activity))
+
+      return exactResults.concat(otherKeywordResults)
     },
     renderResult: (result, props) => {
       const active = props['aria-selected'] ? 'active' : ''

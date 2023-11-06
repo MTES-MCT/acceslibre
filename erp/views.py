@@ -838,10 +838,12 @@ def contrib_admin_infos(request):
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
+                activite = form.cleaned_data.get("activite")
+                erp.activite = activite
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
-                if erp.activite.slug == "autre":
+                if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
                         name=form.cleaned_data["nouvelle_activite"],
                         erp=erp,
@@ -889,7 +891,7 @@ def contrib_admin_infos(request):
             "existing_matches": existing_matches,
             "erp": erp,
             "external_erp": external_erp,
-            "other_activity": Activite.objects.only("id").get(slug="autre"),
+            "other_activity": Activite.objects.only("id").get(slug=Activite.SLUG_MISCELLANEOUS),
             "duplicated": duplicated,
             "map_options": json.dumps(
                 {
@@ -921,7 +923,7 @@ def contrib_edit_infos(request, erp_slug):
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
-            if erp.activite.slug == "autre":
+            if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
                     erp=erp,
@@ -1020,7 +1022,6 @@ def process_accessibilite_form(
     template_name,
     redirect_route,
     prev_route=None,
-    redirect_hash=None,
     libelle_step=None,
 ):
     """
@@ -1032,11 +1033,6 @@ def process_accessibilite_form(
         slug=erp_slug,
     )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
-
-    # N'amener l'utilisateur vers l'étape de publication que:
-    # - s'il est propriétaire de la fiche
-    # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-    user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.published
 
     contrib_form = get_contrib_form_for_activity(erp.activite)
     Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
@@ -1062,28 +1058,12 @@ def process_accessibilite_form(
             return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
         messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
-        if user_can_access_next_route:
-            return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
-        else:
-            if erp.published:
-                redirect_url = erp.get_success_url()
-            elif erp.user == request.user:
-                redirect_url = reverse("mes_erps")
-            else:
-                redirect_url = reverse("mes_contributions")
-            if step == 8:
-                redirect_url += f"#{redirect_hash}"
-            return redirect(redirect_url)
+        return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
 
     if prev_route:
         prev_route = reverse(prev_route, kwargs={"erp_slug": erp.slug})
     else:
         prev_route = None
-
-    if user_can_access_next_route:
-        publier_route = reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
-    else:
-        publier_route = None
 
     return render(
         request,
@@ -1094,8 +1074,7 @@ def process_accessibilite_form(
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
-            "redirect_hash": redirect_hash,
-            "publier_route": publier_route,
+            "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
         },
     )
@@ -1117,7 +1096,6 @@ def contrib_transport(request, erp_slug):
         "contrib/3-transport.html",
         "contrib_exterieur",
         prev_route=prev_route,
-        redirect_hash=schema.SECTION_TRANSPORT,
         libelle_step={
             "current": schema.SECTION_TRANSPORT,
             "next": schema.SECTION_CHEMINEMENT_EXT,
@@ -1135,7 +1113,6 @@ def contrib_exterieur(request, erp_slug):
         "contrib/4-exterieur.html",
         "contrib_entree",
         prev_route="contrib_transport",
-        redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
         libelle_step={
             "current": schema.SECTION_CHEMINEMENT_EXT,
             "next": schema.SECTION_ENTREE,
@@ -1153,7 +1130,6 @@ def contrib_entree(request, erp_slug):
         "contrib/5-entree.html",
         "contrib_accueil",
         prev_route="contrib_exterieur",
-        redirect_hash=schema.SECTION_ENTREE,
         libelle_step={"current": schema.SECTION_ENTREE, "next": schema.SECTION_ACCUEIL},
     )
 
@@ -1168,7 +1144,6 @@ def contrib_accueil(request, erp_slug):
         "contrib/6-accueil.html",
         "contrib_commentaire",
         prev_route="contrib_entree",
-        redirect_hash=schema.SECTION_ACCUEIL,
         libelle_step={
             "current": schema.SECTION_ACCUEIL,
             "next": schema.SECTION_COMMENTAIRE,
@@ -1211,7 +1186,6 @@ def contrib_commentaire(request, erp_slug):
         "contrib/7-commentaire.html",
         "contrib_publication",
         prev_route="contrib_accueil",
-        redirect_hash=schema.SECTION_COMMENTAIRE,
         libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": None},
     )
 

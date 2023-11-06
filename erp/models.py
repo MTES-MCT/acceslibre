@@ -76,7 +76,7 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
 
 
 def get_last_position():
-    qs = Activite.objects.order_by("position").exclude(slug="autre")
+    qs = Activite.objects.order_by("position").exclude(slug=Activite.SLUG_MISCELLANEOUS)
     if qs.exists():
         try:
             return qs.last().position + 1
@@ -86,6 +86,8 @@ def get_last_position():
 
 
 class Activite(models.Model):
+    SLUG_MISCELLANEOUS = "autre"
+
     class Meta:
         ordering = ("nom",)
         verbose_name = translate_lazy("Activité")
@@ -161,7 +163,7 @@ class Activite(models.Model):
     @classmethod
     def reorder(cls):
         position = 1
-        for act in cls.objects.all().order_by("nom").exclude(slug="autre"):
+        for act in cls.objects.all().order_by("nom").exclude(slug=Activite.SLUG_MISCELLANEOUS):
             act.position = position
             position += 1
             act.save()
@@ -923,6 +925,10 @@ class Erp(models.Model):
                 except QuotaExceededException:
                     return self  # We won't be able to translate anymore, keep it in french
         return self
+
+    @property
+    def has_miscellaneous_activity(self):
+        return self.activite.slug == Activite.SLUG_MISCELLANEOUS
 
 
 @reversion.register(
