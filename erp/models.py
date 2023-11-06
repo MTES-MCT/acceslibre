@@ -924,6 +924,15 @@ class Erp(models.Model):
                     return self  # We won't be able to translate anymore, keep it in french
         return self
 
+    def merge_with(self, erp, fields=None):
+        if fields is None:
+            raise Exception("The list of fields to copy is mandatory")
+        access_to_keep = self.accessibilite
+        access_to_delete = erp.accessibilite
+        for field in fields:
+            setattr(access_to_keep, field, getattr(access_to_delete, field))
+        access_to_keep.save()
+
 
 @reversion.register(
     ignore_duplicates=True,
