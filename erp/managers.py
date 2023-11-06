@@ -71,6 +71,24 @@ class ErpQuerySet(models.QuerySet):
             qs = qs.filter(clause)
         return qs
 
+    def find_possible_duplicate(self, erp):
+        return (
+            self.exclude(pk=erp.pk)
+            .nearest(erp.geom, max_radius_km=0.050)
+            .filter(nom__trigram_word_similar=erp.nom)
+            .defer("metadata", "search_vector")
+            .select_related("accessibilite")
+            .exclude(accessibilite__isnull=True)
+        )
+
+    def all_has_same_access_data(self, erp, other_erps):
+        if not erp.has_accessibilite():
+            return False
+        if not all([e.has_accessibilite for e in other_erps]):
+            return False
+
+        return all([erp.accessibilite == e.accessibilite for e in other_erps])
+
     def with_activity(self):
         return self.select_related("activite")
 
