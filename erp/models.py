@@ -27,6 +27,8 @@ from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
 
+from .exceptions import MergeException
+
 FULLTEXT_CONFIG = "french_unaccent"
 
 models.CharField.register_lookup(Lower)
@@ -929,6 +931,33 @@ class Erp(models.Model):
     @property
     def has_miscellaneous_activity(self):
         return self.activite.slug == Activite.SLUG_MISCELLANEOUS
+
+    def merge_accessibility_with(self, erp, fields=None):
+        access_destination = self.accessibilite
+        access_source = erp.accessibilite
+
+        if fields is None:
+            fields = list(schema.FIELDS.keys())
+            fields.remove("activite")
+
+        needs_save = False
+        for field in fields:
+            a_field = getattr(access_source, field)
+            b_field = getattr(access_destination, field)
+            if a_field != b_field:
+                if a_field is not None and b_field in (None, [], ""):
+                    setattr(access_destination, field, a_field)
+                    needs_save = True
+                elif b_field is not None and a_field in (None, [], ""):
+                    setattr(access_destination, field, b_field)
+                    needs_save = True
+                else:
+                    raise MergeException(
+                        f"Can't merge ERP {self.pk} with ERP {erp.pk}, field {field} has value {a_field} and {b_field}"
+                    )
+
+        if needs_save:
+            access_destination.save()
 
 
 @reversion.register(
