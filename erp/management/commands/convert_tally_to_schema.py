@@ -83,10 +83,39 @@ mapping = {
         "Non, ce n'est pas praticable": [("cheminement_ext_presence", True)],
         "Je ne suis pas sûr": [],
     },
+    "La douche est-elle utilisable par une personne en fauteuil roulant, (c'est à dire à l'italienne ou équipée d'un bac extra plat) ?": {
+        "Douche à l'italienne ou équipée d'un bac extra plat": [("accueil_chambre_douche_plain_pied", True)],
+        "Non": [("accueil_chambre_douche_plain_pied", False)],
+    },
+    "Un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant est-il possible ? ": {
+        "Oui": [("accueil_chambre_accompagnement", True)],
+        "Non": [("accueil_chambre_accompagnement", False)],
+        "Je ne suis pas sûr": [],
+    },
+    "L'établissement dispose t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration ?": {
+        "Oui": [("accueil_chambre_equipement_alerte", True)],
+        "Non": [("accueil_chambre_equipement_alerte", False)],
+        "Je ne suis pas sûr": [],
+    },
+    "Les numéros de chambres sont-ils facilement repérables et en relief ?": {
+        "Oui": [("accueil_chambre_numero_visible", True)],
+        "Non": [("accueil_chambre_numero_visible", False)],
+        "Je ne suis pas sûr": [],
+    },
 }
 
-to_ignore_headers = ["Submission ID", "Respondent ID", "Submitted at", "Votre établissement :", "geo"]
-to_int_headers = {"Combien de marches y a-t-il pour entrer dans votre établissement ?": "entree_marches"}
+to_ignore_headers = [
+    "Submission ID",
+    "Respondent ID",
+    "Submitted at",
+    "Votre établissement :",
+    "geo",
+    "Avez-vous des chambres pour accueillir des clients dans votre établissement ?",
+]
+to_int_headers = {
+    "Combien de marches y a-t-il pour entrer dans votre établissement ?": "entree_marches",
+    "Combien de chambres accessibles avez-vous dans votre établissement ?": "accueil_chambre_nombre_accessibles",
+}
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
