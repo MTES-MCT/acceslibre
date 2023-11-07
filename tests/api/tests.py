@@ -423,11 +423,19 @@ class TestErpApi:
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data={}, format="json")
         assert response.status_code == 400, "invalid payload should raise a 400 error"
 
-        payload = {"accessibilite": {"transport_station_presence": False}}
+        payload = {"accessibilite": {"transport_station_presence": False, "commentaire": "New comment"}}
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should change access info"
+        assert erp.accessibilite.commentaire == "New comment"
+
+        payload = {"accessibilite": {"commentaire": "Updated comment"}}
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 200, response.json()
+        erp.accessibilite.refresh_from_db()
+        assert erp.accessibilite.transport_station_presence is False, "Should kept access info"
+        assert erp.accessibilite.commentaire == "Updated comment"
 
         payload = {"accessibilite": {"transport_station_presence": None}}
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
@@ -438,7 +446,7 @@ class TestErpApi:
         response = api_client.delete(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 405
         erp.refresh_from_db()
-        assert erp is not None
+        assert erp is not None, "should not be able to delete an ERP via API"
 
     @pytest.mark.parametrize(
         "names, q, expected",
