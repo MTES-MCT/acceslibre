@@ -919,10 +919,12 @@ def contrib_edit_infos(request, erp_slug):
             if not form.has_changed():
                 return redirect(next_route, erp_slug=erp.slug)
 
-            erp = form.save()
+            erp = form.save(commit=False)
+            activite = form.cleaned_data.get("activite")
+            erp.activite = activite
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
-                erp.save()
+            erp.save()
             if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
