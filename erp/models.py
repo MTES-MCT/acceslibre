@@ -1450,19 +1450,19 @@ class Accessibilite(models.Model):
     accueil_chambre_numero_visible = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_numero_visible"),
         verbose_name=translate_lazy("Numéro de chambre visible et en relief"),
     )
     accueil_chambre_equipement_alerte = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_equipement_alerte"),
         verbose_name=translate_lazy("Equipement d'alerte dans la chambre"),
     )
     accueil_chambre_accompagnement = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_accompagnement"),
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
 
