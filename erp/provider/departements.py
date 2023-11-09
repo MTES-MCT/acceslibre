@@ -410,9 +410,17 @@ DEPARTEMENTS = {
         "nom": "Mayotte",
         "region": "Mayotte",
     },
+    "977": {
+        "nom": "Saint-Barthélemy",
+        "region": "Saint-Barthélemy",
+    },
     "978": {
         "nom": "Saint-Martin",
         "region": "Saint-Martin",
+    },
+    "984": {
+        "nom": "Terres australes et antarctiques françaises",
+        "region": "Terres australes et antarctiques françaises",
     },
     "986": {
         "nom": "Wallis et Futuna",
@@ -425,6 +433,10 @@ DEPARTEMENTS = {
     "988": {
         "nom": "Nouvelle-Calédonie",
         "region": "Nouvelle-Calédonie",
+    },
+    "989": {
+        "nom": "La Passion-Clipperton",
+        "region": "La Passion-Clipperton",
     },
 }
 
