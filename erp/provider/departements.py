@@ -402,9 +402,29 @@ DEPARTEMENTS = {
         "nom": "La Réunion",
         "region": "La Réunion",
     },
+    "975": {
+        "nom": "Saint-Pierre et Miquelon",
+        "region": "Saint-Pierre et Miquelon",
+    },
     "976": {
         "nom": "Mayotte",
         "region": "Mayotte",
+    },
+    "978": {
+        "nom": "Saint-Martin",
+        "region": "Saint-Martin",
+    },
+    "986": {
+        "nom": "Wallis et Futuna",
+        "region": "Wallis et Futuna",
+    },
+    "987": {
+        "nom": "Polynésie Française",
+        "region": "Polynésie Française",
+    },
+    "988": {
+        "nom": "Nouvelle-Calédonie",
+        "region": "Nouvelle-Calédonie",
     },
 }
 

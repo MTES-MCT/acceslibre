@@ -1,0 +1,2 @@
+class MergeException(Exception):
+    pass

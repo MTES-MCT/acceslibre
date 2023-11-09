@@ -97,6 +97,7 @@ Paramètres de lancement du script :
     Skip import : {self.skip_import}
     Generate Errors file : {self.generate_errors_file}
     Force update duplicate erp : {self.force_update}
+    Send emails to contributor : {self.send_emails}
 
         """
         )

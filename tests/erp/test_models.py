@@ -2,7 +2,9 @@ import pytest
 import reversion
 from django.core.exceptions import ValidationError
 
+from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
+from tests.factories import AccessibiliteFactory
 
 
 class TestAccessibility:
@@ -271,3 +273,57 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
     with django_assert_num_queries(1):
         global_timestamps = erp.get_global_timestamps()
     assert global_timestamps["updated_at"] > global_timestamps["created_at"]
+
+
+@pytest.mark.django_db
+def test_merge_take_value_from_b_object():
+    a_access = AccessibiliteFactory(stationnement_presence=None)
+    b_access = AccessibiliteFactory(stationnement_presence=True)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    a_erp.merge_accessibility_with(b_erp)
+
+    a_erp.refresh_from_db()
+    assert a_erp.accessibilite.stationnement_presence is True
+
+
+@pytest.mark.django_db
+def test_merge_does_not_take_nullable_value_from_b_object():
+    a_access = AccessibiliteFactory(stationnement_presence=True)
+    b_access = AccessibiliteFactory(stationnement_presence=None)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    a_erp.merge_accessibility_with(b_erp)
+
+    a_erp.refresh_from_db()
+    assert a_erp.accessibilite.stationnement_presence is True
+
+
+@pytest.mark.django_db
+def test_merge_respects_fields():
+    a_access = AccessibiliteFactory(stationnement_presence=None, stationnement_pmr=None)
+    b_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=True)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    a_erp.merge_accessibility_with(b_erp, fields=["stationnement_pmr"])
+
+    a_erp.refresh_from_db()
+    assert a_erp.accessibilite.stationnement_presence is None
+    assert a_erp.accessibilite.stationnement_pmr is True
+
+
+@pytest.mark.django_db
+def test_merge_cant_handle_conflicting_values():
+    a_access = AccessibiliteFactory(stationnement_presence=False)
+    b_access = AccessibiliteFactory(stationnement_presence=True)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    with pytest.raises(MergeException):
+        a_erp.merge_accessibility_with(b_erp)
+
+    a_erp.refresh_from_db()
+    assert a_erp.accessibilite.stationnement_presence is False

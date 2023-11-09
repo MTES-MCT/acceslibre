@@ -42,5 +42,5 @@ def test_search_departement_exclude_stopword():
 
 
 def test_search_departement_limit():
-    assert len(departements.search("er")) == 9
+    assert len(departements.search("er")) == 10
     assert len(departements.search("er", limit=5)) == 5

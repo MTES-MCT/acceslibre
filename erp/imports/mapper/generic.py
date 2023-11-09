@@ -1,8 +1,11 @@
+import functools
 import logging
+import operator
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
+from django.db.models import Q
 
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
@@ -202,25 +205,39 @@ class GenericMapper:
         except Activite.DoesNotExist:
             raise Exception(f"{erp_basic_fields['activite']}")
 
-    def _retrieve_commune_ext(self):
-        "Assigne une commune normalisée à l'Erp en cours de génération"
-        if self.erp.code_insee:
-            commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
-            if not commune_ext:
-                arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
-                if arrdt:
-                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
-        elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
-        else:
-            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
+    def _retrieve_commune_ext(self, commune=None):
+        qs = Commune.objects.all()
 
-        if not commune_ext:
+        q_objects = []
+        q_name = None
+        if self.erp.code_insee:
+            arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
+            if arrdt:
+                q_name = Q(nom__iexact=arrdt["commune"])
+            q_objects.append(Q(code_insee=self.erp.code_insee))
+
+        if self.erp.code_postal:
+            q_objects.append(Q(code_postaux__contains=[self.erp.code_postal]))
+
+        if q_objects:
+            qs = qs.filter(functools.reduce(operator.or_, q_objects))
+
+        if not q_name:
+            if self.erp.commune:
+                q_name = Q(nom__iexact=self.erp.commune.strip())
+            elif commune:
+                q_name = Q(nom__iexact=commune)
+
+        if q_name:
+            qs = qs.filter(q_name)
+
+        if qs.count() != 1:
             raise RuntimeError(
                 f"Impossible de résoudre la commune depuis le code INSEE ({self.erp.code_insee}) "
-                f"ou le code postal ({self.erp.code_postal}) "
+                f"ou le code postal ({self.erp.code_postal}) et la commune ({self.erp.commune})"
             )
 
+        commune_ext = qs.first()
         self.erp.commune_ext = commune_ext
         self.erp.commune = commune_ext.nom
 

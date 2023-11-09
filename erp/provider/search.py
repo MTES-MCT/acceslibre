@@ -303,11 +303,10 @@ def get_equipments_shortcuts():
     difficulty_of_vision = EquipmentsShortcut(
         name=translate("Difficulté à voir"),
         slug="difficulty_of_vision",
-        equipments=[
+        equipments=[],
+        suggestions=[
             all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_staff"),
-        ],
-        suggestions=[
             all_equipments.get("having_visible_reception"),
             all_equipments.get("having_audiodescription"),
             all_equipments.get("having_guide_band"),
@@ -328,7 +327,6 @@ def get_equipments_shortcuts():
             all_equipments.get("having_adapted_parking"),
             all_equipments.get("having_adapted_wc"),
             all_equipments.get("having_accessible_rooms"),
-            all_equipments.get("having_entry_call_device"),
         ],
         icon="wheelchair",
     )
@@ -336,12 +334,15 @@ def get_equipments_shortcuts():
         name=translate("Difficulté à marcher"),
         slug="difficulty_walking",
         equipments=[
-            all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_adapted_path"),
             all_equipments.get("having_entry_low_stairs"),
             all_equipments.get("having_reception_low_stairs"),
         ],
-        suggestions=[],
+        suggestions=[
+            all_equipments.get("having_parking_or_public_transportation"),
+            all_equipments.get("having_staff"),
+            all_equipments.get("having_adapted_wc"),
+        ],
         icon="diff-walking",
     )
     deaf_person = EquipmentsShortcut(

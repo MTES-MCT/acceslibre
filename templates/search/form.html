@@ -73,7 +73,7 @@
         </div>
         {% if equipments_shortcuts or equipments %}
             <div>
-                <div class="fr-checkbox-group row equipments equiments-shortcuts">
+                <div class="fr-checkbox-group row equipments equipments-shortcuts">
                     <span class="mr-2 mt-1 section-text">{% translate "Adaptés pour" %}</span>
                     {% with request.GET|get_list:"equipments_shortcuts" as params %}
                         {% for shortcut in equipments_shortcuts %}
@@ -81,21 +81,16 @@
                         {% endfor %}
                     {% endwith %}
                 </div>
-                <div class="fr-checkbox-group row equipments equipments-suggestions">
-                    <span class="mr-2 mt-1 section-text">{% translate "Suggestions" %}</span>
-                    {% with request.GET|get_list:"equipments" as equipment_params %}
-                        {% for label_slug, label in equipments.items %}
-                            {% include "search/filter_tag_suggestion.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="suggestionClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
-                        {% endfor %}
-                    {% endwith %}
-                </div>
                 <div class="fr-checkbox-group row equipments equipments-selected">
                     <span class="mr-2 mt-1 section-text">{% translate "Filtres" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
-                            {% include "search/filter_tag.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name %}
+                            {% include "search/filter_tag.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
                         {% endfor %}
                     {% endwith %}
+                </div>
+                <div class="row equipments">
+                    <span class="mr-2 mt-1 section-text"></span>
                     <button type="button"
                             class="fr-btn--tertiary"
                             data-toggle="modal"
