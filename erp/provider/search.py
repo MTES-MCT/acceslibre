@@ -114,12 +114,6 @@ def get_equipments():
             group=ACCESS_GROUP,
         ),
         Equipment(
-            slug="having_parking_or_public_transportation",
-            manager=ErpQuerySet.having_parking_or_public_transportation,
-            name=translate("Transport en commun ou parking à proximité"),
-            group=ACCESS_GROUP,
-        ),
-        Equipment(
             slug="having_adapted_parking",
             manager=ErpQuerySet.having_adapted_parking,
             name=translate("Stationnement PMR (dans l'établissement ou à proximité)"),
@@ -251,7 +245,7 @@ def get_equipments():
         Equipment(
             slug="having_adapted_wc",
             manager=ErpQuerySet.having_adapted_wc,
-            name=translate("Toilette PMR"),
+            name=translate("Toilettes PMR"),
             group=SERVICES_GROUP,
         ),
         Equipment(
@@ -305,12 +299,13 @@ def get_equipments_shortcuts():
         slug="difficulty_of_vision",
         equipments=[],
         suggestions=[
-            all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_staff"),
             all_equipments.get("having_visible_reception"),
             all_equipments.get("having_audiodescription"),
             all_equipments.get("having_guide_band"),
             all_equipments.get("having_sound_beacon"),
+            all_equipments.get("having_public_transportation"),
+            all_equipments.get("having_parking"),
         ],
         icon="diff-vision",
     )
@@ -339,7 +334,6 @@ def get_equipments_shortcuts():
             all_equipments.get("having_reception_low_stairs"),
         ],
         suggestions=[
-            all_equipments.get("having_parking_or_public_transportation"),
             all_equipments.get("having_staff"),
             all_equipments.get("having_adapted_wc"),
         ],

@@ -62,32 +62,6 @@ function _toggleDefaultSuggestion(display) {
   })
 }
 
-function _checkForShortcutToHide() {
-  // If all equipments of a shortcut are unchecked, the shortcut and its suggestions should be hidden.
-  let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
-  shortcutsChecked.forEach(function (shortcut) {
-    let allChildrenUnchecked = true
-    let children = (shortcut.parentNode.querySelector('button').getAttribute('data-children') || '')
-      .split(',')
-      .filter((r) => r)
-    children.forEach(function (child) {
-      if (allChildrenUnchecked) {
-        let displayed = document.querySelector(`input[value=${child}]`).checked
-        if (displayed) {
-          allChildrenUnchecked = false
-        }
-      }
-    })
-
-    if (allChildrenUnchecked) {
-      _toggleShortcutSuggestions(shortcut, false)
-      shortcut.checked = false
-      shortcut.parentNode.querySelector('button').setAttribute('aria-pressed', false)
-      url.refreshSearchURL()
-    }
-  })
-}
-
 function _checkForSuggestionToShow(equipmentSlug) {
   // If an equipment is unchecked and if it is part of a checked shortcut, it should reappear in suggestion list
   let shortcutsChecked = document.querySelectorAll('input[name=equipments_shortcuts]:checked')
@@ -159,7 +133,6 @@ function listenToLabelEvents() {
     _toggleChildren([equipmentSlug], display, true)
 
     if (!display) {
-      _checkForShortcutToHide()
       _checkForSuggestionToShow(equipmentSlug)
     }
 
