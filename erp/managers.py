@@ -183,9 +183,6 @@ class ErpQuerySet(models.QuerySet):
             return public_transp
         return self.filter(public_transp)
 
-    def having_parking_or_public_transportation(self):
-        return self.filter(self.having_public_transportation(as_q=True) | self.having_parking(as_q=True))
-
     def having_no_path(self, as_q=False):
         no_path = Q(accessibilite__cheminement_ext_presence=False) | Q(
             accessibilite__cheminement_ext_presence__isnull=True
