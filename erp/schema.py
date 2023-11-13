@@ -1268,8 +1268,8 @@ FIELDS = {
                 "Nombre de chambres accessibles à une personne en fauteuil roulant : espace et aménagement suffisant pour permettre à une personne en fauteuil de circuler dans la chambre, atteindre le lit et tourner (espace de rotation d’au moins 150 cm de diamètre)"
             )
         ),
-        "help_text_ui": translate_lazy("Nombre de chambres accessibles à une personne en fauteuil roulant."),
-        "help_text_ui_neg": translate_lazy("Aucune chambre accessible à une personne en fauteuil roulant."),
+        "help_text_ui": translate_lazy("Nombre de chambres accessibles à une personne en fauteuil roulant"),
+        "help_text_ui_neg": translate_lazy("Aucune chambre accessible à une personne en fauteuil roulant"),
         "choices": None,
         "unit": "chambre",
         "section": SECTION_ACCUEIL,
@@ -1289,8 +1289,8 @@ FIELDS = {
                 "La douche est-elle à l'italienne ou équipée d'un bac extra plat (hauteur inférieure à 2 cm)&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("La douche est à l'italienne ou équipée d'un bac extra plat."),
-        "help_text_ui_neg": translate_lazy("La douche n'est pas à l'italienne ni équipée d'un bac extra plat."),
+        "help_text_ui": translate_lazy("La douche est à l'italienne ou équipée d'un bac extra plat"),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas à l'italienne ni équipée d'un bac extra plat"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1309,8 +1309,8 @@ FIELDS = {
                 "La douche est-elle équipée d'un siège de douche normé et d'une largeur minimum de 40 cm&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("La douche est équipée d'un siège de douche."),
-        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'un siège de douche."),
+        "help_text_ui": translate_lazy("La douche est équipée d'un siège de douche"),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'un siège de douche"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1329,8 +1329,8 @@ FIELDS = {
                 "La douche est-elle équipée d'une barre d'appui horizontale permettant le transfert depuis un fauteuil vers le siège de douche&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("La douche est équipée d'une barre d'appui horizontale."),
-        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'une barre d'appui horizontale."),
+        "help_text_ui": translate_lazy("La douche est équipée d'une barre d'appui horizontale"),
+        "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'une barre d'appui horizontale"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1345,8 +1345,8 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Toilette sécurisé"),
         "help_text": mark_safe(translate_lazy("Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?")),
-        "help_text_ui": translate_lazy("Le toilette est équipé d'une barre d'appui horizontale."),
-        "help_text_ui_neg": translate_lazy("Le toilette n'est pas équipé d'une barre d'appui horizontale."),
+        "help_text_ui": translate_lazy("Le toilette est équipé d'une barre d'appui horizontale"),
+        "help_text_ui_neg": translate_lazy("Le toilette n'est pas équipé d'une barre d'appui horizontale"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1363,8 +1363,8 @@ FIELDS = {
         "help_text": mark_safe(
             translate_lazy("Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?")
         ),
-        "help_text_ui": translate_lazy("Le toilette dispose d'un espace d'usage à côté de la cuvette."),
-        "help_text_ui_neg": translate_lazy("Le toilette ne dispose pas d'un espace d'usage à côté de la cuvette."),
+        "help_text_ui": translate_lazy("Le toilette dispose d'un espace d'usage à côté de la cuvette"),
+        "help_text_ui_neg": translate_lazy("Le toilette ne dispose pas d'un espace d'usage à côté de la cuvette"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1383,8 +1383,8 @@ FIELDS = {
                 "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur) ?"
             )
         ),
-        "help_text_ui": translate_lazy("Les numéros de chambres sont repérables et en relief."),
-        "help_text_ui_neg": translate_lazy("Les numéros de chambres ne sont pas repérables et en relief."),
+        "help_text_ui": translate_lazy("Les numéros de chambres sont repérables et en relief"),
+        "help_text_ui_neg": translate_lazy("Les numéros de chambres ne sont pas repérables et en relief"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1404,10 +1404,10 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy(
-            "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration."
+            "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration"
         ),
         "help_text_ui_neg": translate_lazy(
-            "L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou vibration."
+            "L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou vibration"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -1428,10 +1428,10 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy(
-            "Il est proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant."
+            "Il est proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant"
         ),
         "help_text_ui_neg": translate_lazy(
-            "Aucun accompagnement personnalisé pour présenter la chambre à un client en situation de handicap n'est proposé."
+            "Aucun accompagnement personnalisé pour présenter la chambre à un client en situation de handicap n'est proposé"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -1471,7 +1471,7 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Audiodescription"),
         "help_text": mark_safe(translate_lazy("L'établissement propose-t-il de l’audiodescription&nbsp?")),
-        "help_text_ui": translate_lazy("L'établissement propose l'audiodescription."),
+        "help_text_ui": translate_lazy("L'établissement propose l'audiodescription"),
         "help_text_ui_neg": translate_lazy("L'établissement ne propose pas l’audiodescription"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
