@@ -932,6 +932,14 @@ class Erp(models.Model):
     def has_miscellaneous_activity(self):
         return self.activite.slug == Activite.SLUG_MISCELLANEOUS
 
+    def shares_same_accessibility_data_with(self, other_erps):
+        if not self.has_accessibilite():
+            return False
+        if not all([e.has_accessibilite for e in other_erps]):
+            return False
+
+        return all([self.accessibilite == e.accessibilite for e in other_erps])
+
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite
         access_source = erp.accessibilite
