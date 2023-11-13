@@ -1,12 +1,16 @@
+import uuid
 from datetime import timedelta
+from io import StringIO
 
 import pytest
+from django.core.management import call_command
 from django.test import override_settings
 from django.utils import timezone
 
 from erp.management.commands.convert_tally_to_schema import Command as CommandConvertTallyToSchema
 from erp.management.commands.notify_daily_draft import Command as CommandNotifyDailyDraft
-from tests.factories import ErpFactory
+from erp.models import Erp
+from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
 
 
 class TestConvertTallyToSchema:
@@ -90,3 +94,78 @@ class TestNotifyDraft:
                 template="draft",
                 context={"publish_url": f"/contrib/publication/{erp.slug}/"},
             )
+
+
+@pytest.mark.django_db
+def test_remove_duplicates_with_same_accessibility_data():
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC).erp
+
+    duplicate = main_erp
+    duplicate.pk = None
+    duplicate.uuid = uuid.uuid4()
+    duplicate.nom = "Mairie - Lyon"
+    duplicate.save()
+
+    duplicate_access = main_erp.accessibilite
+    duplicate_access.pk = None
+    duplicate_access.erp = duplicate
+    duplicate_access.save()
+
+    assert Erp.objects.count() == 2
+
+    call_command("remove_duplicate_service_public", write=True)
+
+    assert Erp.objects.count() == 1
+
+
+@pytest.mark.django_db
+def test_merge_and_remove_duplicates_with_different_accessibility_data():
+    main_erp = AccessibiliteFactory(
+        stationnement_presence=None, erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC
+    ).erp
+
+    duplicate = main_erp
+    duplicate.pk = None
+    duplicate.uuid = uuid.uuid4()
+    duplicate.nom = "Mairie - Lyon"
+    duplicate.save()
+
+    duplicate_access = main_erp.accessibilite
+    duplicate_access.pk = None
+    duplicate_access.erp = duplicate
+    duplicate_access.stationnement_presence = True
+    duplicate_access.save()
+
+    assert Erp.objects.count() == 2
+
+    call_command("remove_duplicate_service_public", write=True)
+
+    assert Erp.objects.count() == 1
+    assert Erp.objects.get().accessibilite.stationnement_presence is True
+
+
+@pytest.mark.django_db
+def test_leave_untouched_multiple_duplicates():
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC).erp
+
+    for _ in range(0, 3):
+        duplicate = main_erp
+        duplicate.pk = None
+        duplicate.source = Erp.SOURCE_PUBLIC
+        duplicate.uuid = uuid.uuid4()
+        duplicate.nom = "Mairie - Lyon"
+        duplicate.save()
+
+        duplicate_access = main_erp.accessibilite
+        duplicate_access.pk = None
+        duplicate_access.erp = duplicate
+        duplicate_access.stationnement_presence = True
+        duplicate_access.save()
+
+    assert Erp.objects.count() == 4
+
+    out = StringIO()
+    call_command("remove_duplicate_service_public", write=True, stderr=out)
+
+    assert Erp.objects.count() == 4
+    assert out.getvalue() == "3 ERPs found - Need to improve merge strategy in this case\n"

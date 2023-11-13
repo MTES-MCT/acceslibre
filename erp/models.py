@@ -932,6 +932,14 @@ class Erp(models.Model):
     def has_miscellaneous_activity(self):
         return self.activite.slug == Activite.SLUG_MISCELLANEOUS
 
+    def shares_same_accessibility_data_with(self, other_erps):
+        if not self.has_accessibilite():
+            return False
+        if not all([e.has_accessibilite for e in other_erps]):
+            return False
+
+        return all([self.accessibilite == e.accessibilite for e in other_erps])
+
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite
         access_source = erp.accessibilite
@@ -1450,19 +1458,19 @@ class Accessibilite(models.Model):
     accueil_chambre_numero_visible = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_numero_visible"),
         verbose_name=translate_lazy("Numéro de chambre visible et en relief"),
     )
     accueil_chambre_equipement_alerte = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_equipement_alerte"),
         verbose_name=translate_lazy("Equipement d'alerte dans la chambre"),
     )
     accueil_chambre_accompagnement = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("accueil_chambre_douche_siege"),
+        choices=schema.get_field_choices("accueil_chambre_accompagnement"),
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
 
