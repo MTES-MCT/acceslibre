@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from geopy import distance
 
-from erp.exceptions import MergeException
+from erp.exceptions import MergeException, MultipleAspIdForDuplicates
 from erp.models import Erp
 
 
@@ -57,6 +57,13 @@ class Command(BaseCommand):
             duplicates[0].delete()
         self.to_delete += 1
 
+    def _get_asp_id(self, duplicates):
+        ids = set([e.asp_id for e in duplicates if e.asp_id])
+        if len(ids) == 1:
+            return list(ids)[0]
+        if len(ids) > 1:
+            raise MultipleAspIdForDuplicates
+
     def handle(self, *args, **options):
         self.should_write = options["write"]
         print(f"Starts with {Erp.objects.count()} ERPs")
@@ -78,10 +85,23 @@ class Command(BaseCommand):
 
             print(erp, duplicates)
             if erp.shares_same_accessibility_data_with(duplicates):
-                self._delete_duplicates(duplicates)
+                try:
+                    asp_id = self._get_asp_id(duplicates)
+                    if asp_id:
+                        erp.asp_id = asp_id
+                        erp.save()
+                    self._delete_duplicates(duplicates)
+                except MultipleAspIdForDuplicates:
+                    self.stderr.write(f"Can't find the correct ASP ID for {duplicates}")
             else:
                 try:
+                    asp_id = self._get_asp_id(duplicates)
+                    if asp_id:
+                        erp.asp_id = asp_id
+                        erp.save()
                     self._merge_and_delete(erp, duplicates)
+                except MultipleAspIdForDuplicates:
+                    self.stderr.write(f"Can't find the correct ASP ID for {duplicates}")
                 except MergeException:
                     pass
 

@@ -119,6 +119,30 @@ def test_remove_duplicates_with_same_accessibility_data():
 
 
 @pytest.mark.django_db
+def test_remove_duplicates_with_same_accessibility_data_keeps_aspid():
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon").erp
+
+    duplicate = main_erp
+    duplicate.pk = None
+    duplicate.uuid = uuid.uuid4()
+    duplicate.nom = "Mairie - Lyon"
+    duplicate.asp_id = "123"
+    duplicate.save()
+
+    duplicate_access = main_erp.accessibilite
+    duplicate_access.pk = None
+    duplicate_access.erp = duplicate
+    duplicate_access.save()
+
+    assert Erp.objects.count() == 2
+
+    call_command("remove_duplicate_mairie", write=True)
+
+    assert Erp.objects.count() == 1
+    assert Erp.objects.get().asp_id == "123"
+
+
+@pytest.mark.django_db
 def test_merge_and_remove_duplicates_with_different_accessibility_data():
     main_erp = AccessibiliteFactory(stationnement_presence=None, erp__nom="Mairie de Lyon").erp
 
@@ -126,6 +150,7 @@ def test_merge_and_remove_duplicates_with_different_accessibility_data():
     duplicate.pk = None
     duplicate.uuid = uuid.uuid4()
     duplicate.nom = "Mairie - Lyon"
+    duplicate.asp_id = "123"
     duplicate.save()
 
     duplicate_access = main_erp.accessibilite
@@ -140,6 +165,7 @@ def test_merge_and_remove_duplicates_with_different_accessibility_data():
 
     assert Erp.objects.count() == 1
     assert Erp.objects.get().accessibilite.stationnement_presence is True
+    assert Erp.objects.get().asp_id == "123"
 
 
 @pytest.mark.django_db
@@ -164,7 +190,6 @@ def test_leave_untouched_multiple_duplicates():
 
     out = StringIO()
     call_command("remove_duplicate_mairie", write=True, stderr=out)
-
     assert Erp.objects.count() == 4
     # Every ERP will be checked for duplicates, printing 4 messages
     assert (
@@ -174,3 +199,29 @@ def test_leave_untouched_multiple_duplicates():
 3 ERPs found - Need to improve merge strategy in this case
 3 ERPs found - Need to improve merge strategy in this case\n"""
     )
+
+
+@pytest.mark.django_db
+def test_leave_untouched_multiple_different_asp_ids():
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon").erp
+
+    for i in range(0, 3):
+        duplicate = main_erp
+        duplicate.pk = None
+        duplicate.uuid = uuid.uuid4()
+        duplicate.nom = "Mairie - Lyon"
+        duplicate.asp_id = f"ASP {i}"
+        duplicate.save()
+
+        duplicate_access = main_erp.accessibilite
+        duplicate_access.pk = None
+        duplicate_access.erp = duplicate
+        duplicate_access.save()
+
+    assert Erp.objects.count() == 4
+
+    out = StringIO()
+    call_command("remove_duplicate_mairie", write=True, stderr=out)
+
+    assert Erp.objects.count() == 4
+    assert out.getvalue().startswith("Can't find the correct ASP ID") is True
