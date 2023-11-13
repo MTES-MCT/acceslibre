@@ -8,15 +8,12 @@ from .base_duplication import BaseDuplicationCommand
 class Command(BaseDuplicationCommand):
     to_delete = 0
     unhandled = 0
-    help = "Best effort to remove all the duplicates that comes from the Service Public source."
+    help = "Best effort to remove all the duplicates that comes from the Acceo source."
 
     def _get_duplicates(self, erp):
-        name_1 = erp.nom.lower()
-        name_2 = erp.nom.lower().replace("mairie - ", "mairie de ")
-        name_3 = erp.nom.lower().replace("mairie de ", "mairie - ")
         qs = (
             Erp.objects.exclude(pk=erp.pk)
-            .filter(nom__lower__in=(name_1, name_2, name_3))
+            .filter(nom__lower=erp.nom.lower())
             .filter(commune=erp.commune, published=True)
             .select_related("accessibilite")
             .exclude(accessibilite__isnull=True)
@@ -26,14 +23,14 @@ class Command(BaseDuplicationCommand):
             distance_diff = distance.distance(
                 (erp.geom.y, erp.geom.x), (potential_duplicate.geom.y, potential_duplicate.geom.x)
             ).m
-            if distance_diff <= 500:
+            if distance_diff <= 70:
                 duplicates.append(potential_duplicate.pk)
 
         return Erp.objects.filter(pk__in=duplicates)
 
     def _get_queryset(self):
         return (
-            Erp.objects.filter(source=Erp.SOURCE_SERVICE_PUBLIC, published=True)
+            Erp.objects.filter(source=Erp.SOURCE_ACCEO, published=True)
             .select_related("accessibilite")
             .order_by("created_at")
         )
