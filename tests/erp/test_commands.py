@@ -98,7 +98,7 @@ class TestNotifyDraft:
 
 @pytest.mark.django_db
 def test_remove_duplicates_with_same_accessibility_data():
-    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC).erp
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon").erp
 
     duplicate = main_erp
     duplicate.pk = None
@@ -113,16 +113,14 @@ def test_remove_duplicates_with_same_accessibility_data():
 
     assert Erp.objects.count() == 2
 
-    call_command("remove_duplicate_service_public", write=True)
+    call_command("remove_duplicate_mairie", write=True)
 
     assert Erp.objects.count() == 1
 
 
 @pytest.mark.django_db
 def test_merge_and_remove_duplicates_with_different_accessibility_data():
-    main_erp = AccessibiliteFactory(
-        stationnement_presence=None, erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC
-    ).erp
+    main_erp = AccessibiliteFactory(stationnement_presence=None, erp__nom="Mairie de Lyon").erp
 
     duplicate = main_erp
     duplicate.pk = None
@@ -138,7 +136,7 @@ def test_merge_and_remove_duplicates_with_different_accessibility_data():
 
     assert Erp.objects.count() == 2
 
-    call_command("remove_duplicate_service_public", write=True)
+    call_command("remove_duplicate_mairie", write=True)
 
     assert Erp.objects.count() == 1
     assert Erp.objects.get().accessibilite.stationnement_presence is True
@@ -146,7 +144,7 @@ def test_merge_and_remove_duplicates_with_different_accessibility_data():
 
 @pytest.mark.django_db
 def test_leave_untouched_multiple_duplicates():
-    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon", erp__source=Erp.SOURCE_SERVICE_PUBLIC).erp
+    main_erp = AccessibiliteFactory(erp__nom="Mairie de Lyon").erp
 
     for _ in range(0, 3):
         duplicate = main_erp
@@ -165,7 +163,14 @@ def test_leave_untouched_multiple_duplicates():
     assert Erp.objects.count() == 4
 
     out = StringIO()
-    call_command("remove_duplicate_service_public", write=True, stderr=out)
+    call_command("remove_duplicate_mairie", write=True, stderr=out)
 
     assert Erp.objects.count() == 4
-    assert out.getvalue() == "3 ERPs found - Need to improve merge strategy in this case\n"
+    # Every ERP will be checked for duplicates, printing 4 messages
+    assert (
+        out.getvalue()
+        == """3 ERPs found - Need to improve merge strategy in this case
+3 ERPs found - Need to improve merge strategy in this case
+3 ERPs found - Need to improve merge strategy in this case
+3 ERPs found - Need to improve merge strategy in this case\n"""
+    )

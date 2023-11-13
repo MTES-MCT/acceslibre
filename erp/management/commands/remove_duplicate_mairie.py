@@ -8,7 +8,7 @@ from erp.models import Erp
 class Command(BaseCommand):
     to_delete = 0
     unhandled = 0
-    help = "Best effort to remove all the duplicates that comes from the Service Public source."
+    help = "Best effort to remove all the duplicates for town halls."
 
     def add_arguments(self, parser) -> None:
         parser.add_argument(
@@ -61,7 +61,7 @@ class Command(BaseCommand):
         self.should_write = options["write"]
         print(f"Starts with {Erp.objects.count()} ERPs")
         queryset = (
-            Erp.objects.filter(source=Erp.SOURCE_SERVICE_PUBLIC, published=True)
+            Erp.objects.filter(nom__icontains="Mairie ", published=True)
             .select_related("accessibilite")
             .order_by("created_at")
         )
