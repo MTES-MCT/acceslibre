@@ -43,6 +43,8 @@
     "process": "^0.11.10"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@parcel/transformer-postcss": "^2.10.2",
     "eslint": "^8.53.0",
     "prettier": "3.1.0"
   }
