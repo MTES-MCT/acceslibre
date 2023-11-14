@@ -275,6 +275,14 @@ PARTENAIRES = {
         "url": "https://laposte.fr/",
         "weight": 100,
     },
+    "ALLOCINE": {
+        "avatar": "allocine.png",
+        "logo": "img/partenaires/allocine.png",
+        "name": "AlloCiné",
+        "short_description": translate_lazy("Le site de référence des actualités cinéma, films et séries..."),
+        "template": "editorial/partenaires/allocine.html",
+        "url": "https://www.allocine.fr",
+    },
 }
 
 SECTION_A_PROPOS = "a_propos"
