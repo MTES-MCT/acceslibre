@@ -1,8 +1,11 @@
 import logging
 from datetime import datetime
 
-from core.lib import geo
-from erp.models import Accessibilite, Activite, Commune, Erp
+import reversion
+from rest_framework.exceptions import ValidationError
+
+from erp.imports.serializers import ErpImportSerializer
+from erp.models import Activite, Commune, Erp
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +16,7 @@ mapping_service_public_to_acceslibre = {
     "ademe": "Administration publique",
     "adil": "Agence départementale d'information sur le logement",
     "afpa": "Institut de formation",
-    "agefiph": "Association de gestion du fonds pour l'insertion professionnelle des personnes handicapées",
+    "agefiph": "Association",
     "anah": "Administration publique",
     "antenne_justice": "Point justice",
     "apec": "Emploi, formation",
@@ -35,7 +38,7 @@ mapping_service_public_to_acceslibre = {
     "canope_dt": "Emploi, formation",
     "cap_emploi": "Emploi, formation",
     "carif_oref": "Emploi, formation",
-    "carsat": "Retraite",
+    "carsat": "Administration publique",
     "caue": "Organisme de conseil",
     "ccd": "Tribunal",
     "cci": "Chambre de commerce et d'industrie",
@@ -51,7 +54,7 @@ mapping_service_public_to_acceslibre = {
     "chambre_metier": "Chambre metier",
     "chambre_notaires": "Notaire",
     "chu": "Hôpital",
-    "cicas": "Retraite",
+    "cicas": "Centre de ressources et d'information",
     "cidf": "Centre d'information sur les droits des femmes et des familles",
     "cij": "Point information jeunesse",
     "cio": "Centre d’information et d’orientation",
@@ -83,6 +86,7 @@ mapping_service_public_to_acceslibre = {
     "dd_femmes": "Administration publique",
     "dd_fip": "Administration publique",
     "ddcspp": "Administration publique",
+    "ddets": "Administration publique",
     "ddpjj": "Administration publique",
     "ddpp": "Administration publique",
     "ddsp": "Administration publique",
@@ -192,7 +196,7 @@ mapping_service_public_to_acceslibre = {
     "tresorerie": "Trésorerie",
     "tribunal_commerce": "Tribunal",
     "urcaue": "Association",
-    "urssaf": "Service des impôts des entreprises du centre des finances publiques",
+    "urssaf": "Sécurité sociale, mutuelle santé",
 }
 
 
@@ -203,19 +207,12 @@ class ServicePublicMapper:
         self.activite = activite
         self.source = source
 
-    def _extract_address(self, line):
-        fields = line.get("adresse")[0]
-        num = voie = lieu_dit = None
-
-        try:
-            num, voie = fields["numero_voie"].split(None, 1)
-        except ValueError:
-            lieu_dit = fields["numero_voie"]
-        return num, voie, lieu_dit
-
     def process(self):
         if not (all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])):
             return None, None
+
+        def _search_by_asp_id(asp_id):
+            return Erp.objects.filter(asp_id=asp_id).first()
 
         # NOTE: we search on both gendarmerie and service_public datasets as the gendarmerie import is taking
         # ownership on all the gendarmeries even on those initially coming from the service_public import
@@ -243,14 +240,9 @@ class ServicePublicMapper:
                 .first()
             )
 
-        def _clean_str(value):
-            # weird invisible char
-            value = value.replace(" ", "")
-            value = value.replace(" ", "")
-            return value
-
         erp = (
-            _search_by_old_code(self.record["ancien_code_pivot"])
+            _search_by_asp_id(self.record["id"])
+            or _search_by_old_code(self.record["ancien_code_pivot"])
             or _search_by_partner_id(self.record["partenaire_identifiant"])
             or _search_by_name_address(self.record["nom"], self.record["adresse"])
         )
@@ -264,65 +256,71 @@ class ServicePublicMapper:
             logger.info("Ignore ERP with unknown/unmapped activity %s", self.record["pivot"][0]["type_service_local"])
             return None, None
 
+        data = {}
+        for field in ("nom",):
+            data[field] = self.record[field]
+
+        data["asp_id"] = self.record["id"]
         if not erp:
-            erp = Erp(
-                nom=self.record["nom"],
-                source=Erp.SOURCE_SERVICE_PUBLIC,
-                source_id=self.record["ancien_code_pivot"],
-                user_type=Erp.USER_ROLE_SYSTEM,
-                published=False,  # will be set to True later on, if we have access info
-            )
-            erp.save()
-            Accessibilite.objects.create(erp=erp)
-        else:
-            erp.nom = self.record["nom"]
+            data["source"] = Erp.SOURCE_SERVICE_PUBLIC
+            data["source_id"] = self.record["ancien_code_pivot"]
+            data["user_type"] = Erp.USER_ROLE_SYSTEM
+            data["published"] = False  # will be set to True later on, if we have access info
 
-        num, voie, lieu_dit = self._extract_address(self.record)
-        if not num and not voie and not lieu_dit:
-            logger.info("Ignoring ERP without valid address")
-            return None, None
+        data["telephone"] = (self.record.get("telephone") or [{"valeur": ""}])[0].get("valeur")
+        data["contact_email"] = (self.record.get("adresse_courriel") or [None])[0]
+        data["site_internet"] = (self.record.get("site_internet") or [{"valeur": ""}])[0].get("valeur")
+        data["commune_ext_id"] = commune_ext_id
 
-        lat = self.record["adresse"][0]["latitude"]
-        long = self.record["adresse"][0]["longitude"]
-        if not lat or not long:
-            logger.info("Ignoring ERP without valid GEO info")
-            return None, None
-
-        erp.telephone = _clean_str((self.record.get("telephone") or [{"valeur": ""}])[0].get("valeur"))
-        erp.contact_email = (self.record.get("adresse_courriel") or [None])[0]
-        erp.site_internet = (self.record.get("site_internet") or [{"valeur": ""}])[0].get("valeur")
-        erp.code_insee = self.record["code_insee_commune"]
-        erp.numero = num
-        erp.lieu_dit = lieu_dit
-        erp.voie = voie
-        erp.code_postal = _clean_str(self.record["adresse"][0]["code_postal"])
-        erp.commune = self.record["adresse"][0]["nom_commune"]
-        erp.commune_ext_id = commune_ext_id
-        erp.geom = geo.parse_location((lat, long))
-        erp.activite = Activite.objects.filter(nom__iexact=activite).first()
-        if not erp.activite:
+        try:
+            data["activite"] = Activite.objects.get(nom__iexact=activite)
+        except Activite.DoesNotExist:
             logger.info("Activity with name %s not found", activite)
             return None, None
 
-        erp.asp_id = self.record["id"]
+        data["voie"] = self.record["adresse"][0]["complement1"] or self.record["adresse"][0]["numero_voie"]
+        data["code_postal"] = self.record["adresse"][0]["code_postal"]
+        data["commune"] = self.record["adresse"][0]["nom_commune"]
 
         access = self.record["adresse"][0]["accessibilite"]
         access_note = self.record["adresse"][0]["note_accessibilite"]
+        data["accessibilite"] = {"entree_porte_presence": True}
         if access:
-            erp.published = True
+            data["published"] = True
             if access == "ACC":
                 if "plain-pied" in access_note:
-                    erp.accessibilite.entree_plain_pied = True
+                    data["accessibilite"]["entree_plain_pied"] = True
                 elif "rampe" in access_note:
-                    erp.accessibilite.entree_plain_pied = False
-                    erp.accessibilite.entree_marches_rampe = "fixe"
+                    data["accessibilite"]["entree_plain_pied"] = False
+                    data["accessibilite"]["entree_marches_rampe"] = "fixe"
                 else:
-                    erp.accessibilite.commentaire = "Établissement accessible en fauteuil roulant"
+                    data["accessibilite"]["commentaire"] = "Établissement accessible en fauteuil roulant"
             elif access == "NAC":
-                erp.accessibilite.entree_plain_pied = False
+                data["accessibilite"]["entree_plain_pied"] = False
             elif access == "DEM":
-                erp.accessibilite.entree_plain_pied = False
-                erp.accessibilite.entree_marches_rampe = "amovible"
-                erp.accessibilite.entree_aide_humaine = True
+                data["accessibilite"]["entree_plain_pied"] = False
+                data["accessibilite"]["entree_marches_rampe"] = "amovible"
+                data["accessibilite"]["entree_aide_humaine"] = True
+
+        serializer = ErpImportSerializer(instance=erp, data=data)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except Exception as e:
+            if (
+                isinstance(e, ValidationError)
+                and "non_field_errors" in e.get_codes()
+                and "duplicate" in e.get_codes()["non_field_errors"]
+            ):
+                existing_erp_pk = int(e.detail["non_field_errors"][1])
+                existing_erp = Erp.objects.get(pk=existing_erp_pk)
+                existing_erp.asp_id = self.record["id"]
+                logger.info("Duplicated, setting asp_id and updating it")
+                return ServicePublicMapper(existing_erp).process()
+            logger.info("Validation error : %s", e)
+            return erp, None
+
+        with reversion.create_revision():
+            erp = serializer.save()
+            reversion.set_comment("Created via import")
 
         return erp, None

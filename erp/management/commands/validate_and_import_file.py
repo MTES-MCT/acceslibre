@@ -1,5 +1,4 @@
 import csv
-import re
 
 import reversion
 from django.core.management.base import BaseCommand, CommandError
@@ -139,12 +138,8 @@ Paramètres de lancement du script :
                                         {"line": _, "name": row.get("name"), "error": e, "data": row}
                                     )
                                     if self.force_update is True:
-                                        erp_duplicated = Erp.objects.get(
-                                            pk=re.search(
-                                                r".*ERP #(\d*)",
-                                                e.detail["non_field_errors"][0].__str__(),
-                                            ).group(1)
-                                        )
+                                        existing_erp_pk = int(e.detail["non_field_errors"][1])
+                                        erp_duplicated = Erp.objects.get(pk=existing_erp_pk)
                                         continue
                                 else:
                                     print_error(
