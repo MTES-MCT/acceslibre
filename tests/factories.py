@@ -18,13 +18,13 @@ class FuzzyPoint(BaseFuzzyAttribute):
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = User
-
     username = factory.Faker("email")
     email = username
     first_name = factory.Faker("first_name")
     last_name = factory.Faker("last_name")
+
+    class Meta:
+        model = User
 
 
 class ActiviteFactory(factory.django.DjangoModelFactory):

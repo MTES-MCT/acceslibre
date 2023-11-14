@@ -1,3 +1,4 @@
+import copy
 import uuid
 from datetime import timedelta
 from io import StringIO
@@ -10,7 +11,7 @@ from django.utils import timezone
 from erp.management.commands.convert_tally_to_schema import Command as CommandConvertTallyToSchema
 from erp.management.commands.notify_daily_draft import Command as CommandNotifyDailyDraft
 from erp.models import Erp
-from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
 class TestConvertTallyToSchema:
@@ -225,3 +226,133 @@ def test_leave_untouched_multiple_different_asp_ids():
 
     assert Erp.objects.count() == 4
     assert out.getvalue().startswith("Can't find the correct ASP ID") is True
+
+
+class TestOutscraperAcquisition:
+    initial_outscraper_response = [
+        [
+            {
+                "query": "restaurant, Lyon",
+                "name": "Le Neuvième Art - Restaurant Gastronomique Lyon",
+                "place_id": "ChIJzZhX5juz9UcR74W_XDtOxIo",
+                "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbf85ef",
+                "full_address": "173 Rue Cuvier, 69006 Lyon, France",
+                "street": "173 Rue Cuvier",
+                "postal_code": "69006",
+                "country_code": "FR",
+                "country": "France",
+                "city": "Lyon",
+                "latitude": 45.767984399999996,
+                "longitude": 4.8563522,
+                "site": "https://www.leneuviemeart.com/?utm_source=google+",
+                "phone": "+33 4 72 74 12 74",
+                "type": "Restaurant",
+                "logo": "https://lh5.googleusercontent.com/-m1FNcRqA6XM/AAAAAAAAAAI/AAAAAAAAAAA/2dBU__0u2ig/s44-p-k-no-ns-nd/photo.jpg",
+                "description": "Restaurant chic aux tons pastel, servant des menus dégustation composés de plats originaux et modernes à la présentation artistique.",
+                "category": "restaurants",
+                "subtypes": "Restaurant, Restaurant français, Restaurant gastronomique",
+                "cid": "9999203089535436271",
+                "business_status": "OPERATIONAL",
+                "about": {
+                    "Accessibilité": {
+                        "Entrée accessible en fauteuil roulant": True,
+                        "Toilettes accessibles en fauteuil roulant": True,
+                    },
+                },
+            }
+        ]
+    ]
+
+    @pytest.mark.django_db
+    def test_initial(self, mocker):
+        ActiviteFactory(nom="Restaurant")
+        CommuneFactory(nom="Lyon")
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        erp = Erp.objects.get(nom="Le Neuvième Art - Restaurant Gastronomique Lyon")
+        assert erp.source == Erp.SOURCE_OUTSCRAPER
+        assert erp.source_id == "ChIJzZhX5juz9UcR74W_XDtOxIo"
+        assert erp.site_internet == "https://www.leneuviemeart.com/?utm_source=google+"
+        assert erp.numero == "173"
+        assert erp.voie == "Rue cuvier"
+        assert erp.code_postal == "69006"
+        assert erp.commune == "Lyon"
+        assert erp.accessibilite.entree_plain_pied is True
+        assert erp.accessibilite.sanitaires_presence is True
+        assert erp.accessibilite.sanitaires_adaptes is True
+
+        # call the command twice, it should not create a second erp
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        assert (
+            Erp.objects.filter(nom="Le Neuvième Art - Restaurant Gastronomique Lyon").count() == 1
+        ), "should not create a second ERP"
+
+    @pytest.mark.django_db
+    def test_deletion(self, mocker):
+        mock_response = copy.deepcopy(self.initial_outscraper_response)
+        mock_response[0][0]["business_status"] = "CLOSED_PERMANENTLY"
+
+        activite = ActiviteFactory(nom="Restaurant")
+        CommuneFactory(nom="Lyon")
+        AccessibiliteFactory(
+            entree_plain_pied=False,
+            erp__nom="Le Neuvième Art - Restaurant Gastronomique Lyon",
+            erp__commune="Lyon",
+            erp__numero=173,
+            erp__voie="Rue cuvier",
+            erp__activite=activite,
+        ).erp
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=mock_response)
+
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        assert (
+            Erp.objects.filter(nom="Le Neuvième Art - Restaurant Gastronomique Lyon").count() == 0
+        ), "should have deleted the closed_permanently ERP"
+
+    @pytest.mark.django_db
+    def test_update(self, mocker):
+        activite = ActiviteFactory(nom="Restaurant")
+
+        existing_erp = AccessibiliteFactory(
+            entree_plain_pied=None,
+            erp__nom="Le Neuvième Art - Restaurant Gastronomique Lyon",
+            erp__commune="Lyon",
+            erp__numero=173,
+            erp__voie="Rue cuvier",
+            erp__activite=activite,
+        ).erp
+        CommuneFactory(nom="Lyon")
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        existing_erp.refresh_from_db()
+
+        assert existing_erp.accessibilite.entree_plain_pied is True, "should have updated access info"
+
+        existing_erp.accessibilite.entree_plain_pied = False
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        existing_erp.refresh_from_db()
+
+        assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
+
+    @pytest.mark.django_db
+    def test_max_results(self, mocker):
+        mock = mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=1)
+        assert mock.call_count == 1
+
+        mock.reset_mock()
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=2)
+        assert mock.call_count == 1
+
+        mock.reset_mock()
+        mock = mocker.patch(
+            "outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response * 20
+        )
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=30)
+        assert mock.call_count == 2
