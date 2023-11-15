@@ -283,6 +283,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/allocine.html",
         "url": "https://www.allocine.fr",
     },
+    "CRT_NORMANDIE": {
+        "avatar": "crt_normandie.png",
+        "logo": "img/partenaires/crt_normandie.png",
+        "name": "Comité Régional du Tourisme de Normandie",
+        "short_description": translate_lazy("Base de données touristique normande"),
+        "template": "editorial/partenaires/crt_normandie.html",
+        "url": "https://pronormandietourisme.fr/outils/la-base-de-donnees/",
+    },
 }
 
 SECTION_A_PROPOS = "a_propos"
