@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
     "localhost",
     SITE_HOST,
     f"{APP_NAME}.osc-fr1.scalingo.io",
+    "www.acceslibre.info",
 ]
 
 if SENTRY_DSN is not None:
