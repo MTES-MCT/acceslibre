@@ -491,7 +491,12 @@ def widget_from_uuid(request, uuid):
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is False
-        and ((erp.accessibilite.cheminement_ext_ascenseur or erp.accessibilite.cheminement_ext_rampe))
+        and (
+            (
+                erp.accessibilite.cheminement_ext_ascenseur
+                or erp.accessibilite.cheminement_ext_rampe in (schema.RAMPE_AMOVIBLE, schema.RAMPE_FIXE)
+            )
+        )
         and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
