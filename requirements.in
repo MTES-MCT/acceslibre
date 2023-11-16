@@ -1,0 +1,47 @@
+coreapi
+Django==4.2.3
+#django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
+django-admin-autocomplete-filter
+django-admin-list-filter-dropdown
+django-autoslug
+django-better-admin-arrayfield
+django-cors-headers
+django-crispy-forms==1.14.0  # FIXME: not compatible with 2.0.0 TemplateNotFound launching tests
+django-extensions
+django-import-export
+django-logentry-admin
+django-registration
+django-rest-framework
+django-reversion==5.0.8
+djangorestframework-gis
+django-waffle
+frictionless==4.40.11  # generate_schema to rewrite to be able to bump it to 5.x.x
+fuzzywuzzy
+ipython
+Markdown
+phonenumbers
+psycopg2
+psycopg2-binary
+pytest-django
+python-levenshtein
+python-stdnum
+PyYAML
+requests
+sentry-sdk
+uuid
+ijson
+gunicorn
+dj-static
+image
+redis==4.6.0  # Tests (at least) are not compatible with 5.x.x
+sib-api-v3-sdk
+celery
+pandas
+django-maintenance-mode
+djangorestframework-api-key
+django-modeltranslation
+better-profanity
+django-environ
+deepl
+django-filter
+geopy
