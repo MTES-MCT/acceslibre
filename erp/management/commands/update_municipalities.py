@@ -31,7 +31,7 @@ class Command(BaseCommand):
             commune = Commune.objects.get(code_insee=data.code_insee)
         except Commune.DoesNotExist:
             commune = Commune()
-            print(f"Will create commune {data}")
+            print(f"Will create commune {data['nom']}")
         return commune
 
     def _handle_api_data(self, api_data):
