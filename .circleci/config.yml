@@ -15,6 +15,7 @@ executors:
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
           BREVO_API_KEY: xxx
+          OUTSCRAPER_API_KEY: xxx
           SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
       - image: cimg/postgres:12.12-postgis
         environment:
@@ -31,6 +32,7 @@ executors:
           DJANGO_SETTINGS_MODULE: core.settings_test
           SECRET_KEY: secret-key
           DATABASE_URL: postgres://root:password@localhost/circle_test
+          OUTSCRAPER_API_KEY: xxx
 jobs:
   checks:
     executor:

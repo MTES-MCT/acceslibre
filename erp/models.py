@@ -419,6 +419,7 @@ class Erp(models.Model):
     SOURCE_TYPEFORM_MUSEE = "typeform_musee"
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_DELL = "dell"
+    SOURCE_OUTSCRAPER = "outscraper"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, translate_lazy("Base de données Acceslibre")),
         (SOURCE_ACCEO, translate_lazy("Acceo")),
@@ -440,6 +441,7 @@ class Erp(models.Model):
         (SOURCE_TYPEFORM_MUSEE, translate_lazy("Questionnaires Typeform Musée")),
         (SOURCE_VACCINATION, translate_lazy("Centres de vaccination")),
         (SOURCE_DELL, translate_lazy("Dell")),
+        (SOURCE_OUTSCRAPER, translate_lazy("Outscraper")),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"

@@ -222,6 +222,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
         return obj
 
     def update(self, instance, validated_data, partial=True):
+        # If enrich_only, it won't update any access info already there
+        enrich_only = self.context.get("enrich_only") or False
         # if we are updating an ERP, only accessibility and import_email are editable
         if validated_data.get("import_email"):
             instance.import_email = validated_data["import_email"]
@@ -232,6 +234,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
             validated_data["accessibilite"].pop(attr, False)
 
         for attr in validated_data["accessibilite"]:
+            if enrich_only and getattr(accessibilite, attr, None) is not None:
+                continue
+
             if validated_data["accessibilite"][attr] is not None:
                 setattr(accessibilite, attr, validated_data["accessibilite"][attr])
 
