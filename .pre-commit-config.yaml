@@ -33,3 +33,14 @@ repos:
     hooks:
       - id: prettier
         types_or: [scss, css, javascript]
+  # - repo: https://github.com/jazzband/pip-tools
+  #   rev: 7.3.0
+  #   hooks:
+  #     - id: pip-compile
+  #       name: pip-compile requirements-dev.in
+  #       args: [requirements-dev.in]
+  #       files: ^requirements-dev\.(in|txt)$
+  #     - id: pip-compile
+  #       name: pip-compile requirements.in
+  #       args: [requirements.in]
+  #       files: ^requirements\.(in|txt)$
