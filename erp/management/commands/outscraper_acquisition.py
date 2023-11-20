@@ -131,10 +131,9 @@ class Command(BaseCommand):
 
     def _search(self, query, limit=20, skip=0, max_results=None, total_results=0):
         client = ApiClient(api_key=settings.OUTSCRAPER_API_KEY)
-        results = client.google_maps_search(query, limit=limit, skip=skip, language="fr")
+        results = client.google_maps_search(query, limit=limit, skip=skip, language="fr")[0]
         print(f"Fetched {limit} results for `{query}`, skipping the first {skip} results")
-
-        for result in results[0]:
+        for result in results:
             self._create_or_update_erp(result)
 
         total_results += len(results)

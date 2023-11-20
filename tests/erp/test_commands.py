@@ -352,7 +352,7 @@ class TestOutscraperAcquisition:
 
         mock.reset_mock()
         mock = mocker.patch(
-            "outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response * 20
+            "outscraper.ApiClient.google_maps_search", return_value=[self.initial_outscraper_response[0] * 20]
         )
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=30)
         assert mock.call_count == 2
