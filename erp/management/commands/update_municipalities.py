@@ -1,44 +1,18 @@
-from dataclasses import dataclass
-
 import requests
 from django.contrib.gis.geos import Point
 from django.core.management.base import BaseCommand
 
 from core.lib import geo
+from erp.dataclasses import Municipality
 from erp.models import Commune, Erp
-
 
 # TODO add tests
 # - TODO add test will update existing commune (check for contours)
-# - TODO add test will make obsolete old commune without ERP
 # - TODO add test will handle obsolete commune with ERP (still need to figure what to do)
 # - TODO add test will skip gracefully missing data in API (code postal)
 # TODO handle arrondissements
 # TODO move me somewhere else ?
 # TODO run it for real once
-@dataclass
-class Municipality:
-    nom: str
-    code_insee: str
-    departement: str
-    code_postaux: list
-    population: int
-    contour: str
-    center_lat: float
-    center_lon: float
-
-    @classmethod
-    def from_api(cls, json):
-        return cls(
-            nom=json["nom"],
-            code_insee=json["code"],
-            departement=json["codeDepartement"],
-            code_postaux=json["codesPostaux"],
-            population=json["population"],
-            contour=json["contour"],
-            center_lat=json["centre"]["coordinates"][1],
-            center_lon=json["centre"]["coordinates"][0],
-        )
 
 
 class Command(BaseCommand):

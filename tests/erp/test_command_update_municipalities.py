@@ -4,6 +4,7 @@ import pytest
 from django.core.management import call_command
 
 from erp.models import Commune
+from tests.factories import AccessibiliteFactory, CommuneFactory
 
 
 @pytest.mark.django_db
@@ -66,3 +67,16 @@ def test_command_will_create_unknown_commune(mocked_requests):
             (4.956045, 46.153859),
         ),
     )
+
+
+@pytest.mark.django_db
+@patch("erp.management.commands.update_municipalities.requests.get")
+def test_make_obsolete_old_commune_without_erp(mocked_requests):
+    commune = CommuneFactory(obsolete=False)
+    mocked_list = MagicMock(return_value=[])
+    mocked_requests.side_effect = [mocked_list]
+
+    call_command("update_municipalities", write=True)
+
+    commune.refresh_from_db()
+    assert commune.obsolete is True
