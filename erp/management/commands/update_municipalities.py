@@ -7,17 +7,14 @@ from erp.dataclasses import Municipality
 from erp.models import Commune, Erp
 
 # TODO add tests
-# - TODO add test will update existing commune (check for contours)
 # - TODO add test will handle obsolete commune with ERP (still need to figure what to do)
 # - TODO add test will skip gracefully missing data in API (code postal)
-# TODO handle arrondissements
-# TODO move me somewhere else ?
 # TODO run it for real once
+# TODO handle arrondissements
 
 
 class Command(BaseCommand):
     help = "Update all Commune objects based on official API"
-    # TODO remove limit
     list_url = "https://geo.api.gouv.fr/communes/"
     updated_insee = []
     fields = ("nom", "code_insee", "departement", "code_postaux", "population")
