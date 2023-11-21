@@ -291,6 +291,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/crt_normandie.html",
         "url": "https://pronormandietourisme.fr/outils/la-base-de-donnees/",
     },
+    "SOLOCAL": {
+        "avatar": "solocal.png",
+        "logo": "img/partenaires/solocal.png",
+        "name": "Solocal",
+        "short_description": translate_lazy("1er acteur français du marketing digital"),
+        "template": "editorial/partenaires/solocal.html",
+        "url": "https://www.solocal.com",
+    },
 }
 
 SECTION_A_PROPOS = "a_propos"
