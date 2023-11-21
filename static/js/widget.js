@@ -195,7 +195,10 @@
     })()
   }
   function openAccessibilityModal(uuid, callback = null) {
-    fetch('https://acceslibre.beta.gouv.fr/uuid/' + uuid + '/widget/')
+    fetch('https://acceslibre.beta.gouv.fr/uuid/' + uuid + '/widget/', {
+      method: 'GET',
+      headers: { 'X-OriginUrl': window.location },
+    })
       .then(function (response) {
         return response.text()
       })
@@ -242,7 +245,10 @@
 
   document.querySelectorAll('[data-pk]').forEach(function (container) {
     var erpPK = container.getAttribute('data-pk')
-    fetch(_getBaseURL() + '/uuid/' + erpPK + '/widget/')
+    fetch(_getBaseURL() + '/uuid/' + erpPK + '/widget/', {
+      method: 'GET',
+      headers: { 'X-OriginUrl': window.location },
+    })
       .then(function (response) {
         return response.text()
       })
