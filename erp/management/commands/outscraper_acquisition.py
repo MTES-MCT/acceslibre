@@ -100,6 +100,7 @@ class Command(BaseCommand):
         erp["source"] = Erp.SOURCE_OUTSCRAPER
         erp["source_id"] = result["place_id"]
 
+        print(f"Managing {erp['nom']}, {result['street']} {result['postal_code']} {result['city']}")
         if "Accessibilité" not in result.get("about", {}):
             return
 
@@ -131,7 +132,7 @@ class Command(BaseCommand):
 
     def _search(self, query, limit=20, skip=0, max_results=None, total_results=0):
         client = ApiClient(api_key=settings.OUTSCRAPER_API_KEY)
-        results = client.google_maps_search(query, limit=limit, skip=skip, language="fr")[0]
+        results = client.google_maps_search(query, limit=limit, skip=skip, language="fr", region="FR")[0]
         print(f"Fetched {limit} results for `{query}`, skipping the first {skip} results")
         for result in results:
             self._create_or_update_erp(result)
@@ -151,3 +152,13 @@ class Command(BaseCommand):
         limit = 20
 
         self._search(query=options["query"], limit=limit, skip=options["skip"], max_results=options["max_results"])
+
+
+# from erp.provider.departements import DEPARTEMENTS
+# for num, data in DEPARTEMENTS.items():
+#     print(f'python manage.py outscraper_acquisition --query="Hotel, {data["nom"]}" --activity=Hôtel')
+
+
+# from erp.models import Commune
+# for commune in Commune.objects.filter(population__gte=100000):
+#     print(f'python manage.py outscraper_acquisition --query="Hotel, {commune.nom}" --activity=Hôtel')
