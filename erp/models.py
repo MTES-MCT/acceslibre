@@ -658,6 +658,9 @@ class Erp(models.Model):
     # datetimes
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
+    check_closed_at = models.DateTimeField(
+        null=True, blank=True, verbose_name=translate_lazy("Dernière vérification de clôture")
+    )
 
     # search vector
     search_vector = SearchVectorField(translate_lazy("Search vector"), null=True)
