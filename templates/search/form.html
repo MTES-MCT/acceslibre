@@ -50,6 +50,9 @@
                        name="code"
                        {% if "code" in request.GET %} value="{{ code|default:request.GET.code }}" {% else %} value="{{ code }}" {% endif %}>
                 <input type="hidden"
+                       name="ban_id"
+                       {% if "ban_id" in request.GET %} value="{{ ban_id|default:request.GET.ban_id }}" {% else %} value="{{ ban_id }}" {% endif %}>
+                <input type="hidden"
                        name="postcode"
                        {% if "postcode" in request.GET %} value="{{ postcode|default:request.GET.postcode }}" {% else %} value="{{ postcode }}" {% endif %}>
                 <input type="hidden"

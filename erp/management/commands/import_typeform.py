@@ -63,6 +63,7 @@ class Command(BaseCommand):
         fields["commune"] = geo_info.get("commune")
         fields["geom"] = geo_info.get("geom")
         fields["geoloc_provider"] = geo_info.get("provider")
+        fields["ban_id"] = geo_info.get("ban_id")
 
         fields["commune_ext"] = commune_ext
         fields["activite_id"] = Activite.objects.get(nom="Mairie").id

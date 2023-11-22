@@ -103,7 +103,7 @@ function getAddressApi(q, loc) {
 }
 
 function buildResultFromAddressApi({
-  properties: { type, label, context, citycode, postcode, search_type, city, street, municipality },
+  properties: { type, label, context, citycode, postcode, search_type, city, street, municipality, id },
   geometry: { coordinates },
 }) {
   context = '' // Empty the context, which initially contains department, region
@@ -113,6 +113,7 @@ function buildResultFromAddressApi({
     text: label,
     context: context,
     code: citycode,
+    ban_id: id,
     lat: coordinates[1],
     lon: coordinates[0],
     search_type: type,

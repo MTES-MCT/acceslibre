@@ -75,6 +75,7 @@ class Command(BaseCommand):
         fields["geom"] = geo_info.get("geom")
         fields["commune_ext"] = commune_ext
         fields["activite_id"] = activite
+        fields["ban_id"] = geo_info.get("ban_id")
 
         # checks rest
         if any(

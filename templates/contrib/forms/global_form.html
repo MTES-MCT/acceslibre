@@ -19,6 +19,7 @@
             <input type="hidden" name="lat" value="{{ lat|default_if_none:'' }}">
             <input type="hidden" name="lon" value="{{ lon|default_if_none:'' }}">
             <input type="hidden" name="code" value="{{ code|default_if_none:'' }}">
+            <input type="hidden" name="ban_id" value="{{ ban_id|default_if_none:'' }}">
             <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
                 {% translate "Autoriser l'obtention de ma localisation géographique" %}
             </button>

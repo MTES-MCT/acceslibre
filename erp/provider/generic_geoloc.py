@@ -56,6 +56,7 @@ class GeolocRequester:
                 "commune": properties.get("city"),
                 "code_insee": properties.get("citycode"),
                 "provider": self.provider["name"],
+                "ban_id": properties.get("id"),
             }
         except (KeyError, IndexError, TypeError) as err:
             raise RuntimeError(f"Erreur lors du géocodage de l'adresse {address}") from err

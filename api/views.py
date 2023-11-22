@@ -403,6 +403,17 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "string"},
             },
         },
+        "ban_id": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "ban_id",
+                "in": "query",
+                "required": False,
+                "description": "Identifiant BAN de l'adresse",
+                "schema": {"type": "string"},
+            },
+        },
         "clean": {
             "paths": ["/erps/"],
             "methods": ["GET"],

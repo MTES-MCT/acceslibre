@@ -635,6 +635,13 @@ class Erp(models.Model):
         verbose_name=translate_lazy("Code INSEE"),
         help_text=translate_lazy("Code INSEE de la commune"),
     )
+    ban_id = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("identifiant BAN"),
+        help_text=translate_lazy("Identifiant de la BAN"),
+    )
 
     # Metadata
     # Notes:

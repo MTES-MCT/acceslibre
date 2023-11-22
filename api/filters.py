@@ -34,58 +34,51 @@ class ErpFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         use_distinct = False
 
-        # Drafts
         with_drafts = request.query_params.get("with_drafts", False)
         if not with_drafts:
             queryset = queryset.published()
 
-        # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
             queryset = queryset.filter(commune__unaccent__icontains=commune)
 
-        # Code postal
         code_postal = request.query_params.get("code_postal", None)
         if code_postal is not None:
             queryset = queryset.filter(code_postal=code_postal)
 
-        # Code INSEE
         code_insee = request.query_params.get("code_insee", None)
         if code_insee is not None:
             queryset = queryset.filter(commune_ext__code_insee=code_insee)
 
-        # Activité
+        ban_id = request.query_params.get("ban_id", None)
+        if ban_id is not None:
+            queryset = queryset.filter(ban_id=ban_id)
+
         activite = request.query_params.get("activite", None)
         if activite is not None:
             queryset = queryset.having_activite(activite)
 
-        # SIRET
         siret = request.query_params.get("siret", None)
         if siret is not None:
             queryset = queryset.filter(siret=siret)
 
-        # Search
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
             use_distinct = False
             queryset = queryset.search_what(search_terms)
 
-        # Source Externe
         source = request.query_params.get("source", None)
         if source is not None:
             queryset = queryset.filter(source__iexact=source)
 
-        # Id Externe
         source_id = request.query_params.get("source_id", None)
         if source_id is not None:
             queryset = queryset.filter(source_id__iexact=source_id)
 
-        # ASP Id
         asp_id = request.query_params.get("asp_id", None)
         if asp_id is not None:
             queryset = queryset.filter(asp_id__iexact=asp_id)
 
-        # ASP ID is not null
         asp_id_not_null = request.query_params.get("asp_id_not_null", None)
         if asp_id_not_null is not None:
             if asp_id_not_null == "true":
@@ -93,12 +86,10 @@ class ErpFilter(BaseFilterBackend):
             else:
                 queryset = queryset.filter(asp_id__isnull=True)
 
-        # UUID
         uuid = request.query_params.get("uuid", None)
         if uuid is not None:
             queryset = queryset.filter(uuid=uuid)
 
-        # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))
         if around is not None:
             lat, lon = around
