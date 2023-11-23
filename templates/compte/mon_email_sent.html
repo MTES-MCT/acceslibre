@@ -9,7 +9,9 @@
 {% block compte_content %}
     <h1 class="h3 mb-3">{% translate "Email d'activation envoyé" %}</h1>
     <div class="alert alert-success">
-        {% translate "Un email de confirmation contenant un lien d'activation vous a été envoyé à la nouvelle
-        adresse. N'oubliez pas de cliquer ce lien pour valider et activer le changement." %}
+        {% blocktranslate %}
+        Un email de confirmation contenant un lien d'activation vous a été envoyé à la nouvelle
+        adresse. N'oubliez pas de cliquer ce lien pour valider et activer le changement.
+        {% endblocktranslate %}
     </div>
 {% endblock compte_content %}

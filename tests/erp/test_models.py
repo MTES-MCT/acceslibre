@@ -237,7 +237,7 @@ class TestActivitySuggestion:
         mock_mail.assert_called_once_with(
             subject=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
         )
-        mock_mail_admins.called_once_with(
+        mock_mail_admins.assert_called_once_with(
             subject=None,
             template="spam_activities_suggestion_admin",
             context={"nb_times": 3, "username": data.niko.username, "email": data.niko.email},

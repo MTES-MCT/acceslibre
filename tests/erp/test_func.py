@@ -1,4 +1,5 @@
 import html
+from unittest.mock import ANY
 
 import pytest
 from django.contrib.auth.models import User
@@ -101,7 +102,9 @@ def test_erp_details_edit_links(data, browser):
         assert len(matches) > 0, f'Edit url "{edit_url}" not found'
 
 
-def test_registration_flow_without_next(data, browser):
+def test_registration_flow_without_next(mocker, data, browser):
+    brevo_mock = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     browser.visit(reverse("django_registration_register"))
     browser.fill("username", "johndoe")
     browser.fill("email", "john@doe.com")
@@ -114,14 +117,16 @@ def test_registration_flow_without_next(data, browser):
     user = User.objects.get(username="johndoe")
     assert user.is_active is False
 
-    assert len(mail.outbox) == 1
-    assert "Activation de votre compte" in mail.outbox[0].subject
-    assert "johndoe" in mail.outbox[0].body
-    assert "http://testserver/compte/activate" in mail.outbox[0].body
+    assert brevo_mock.call_count == 1
+    brevo_mock.assert_called_once_with(
+        to_list="john@doe.com",
+        subject=None,
+        template="account_activation",
+        context={"activation_key": ANY, "username": "johndoe", "next": "/"},
+    )
 
-    activation_url = [
-        line for line in mail.outbox[0].body.split("\n") if line.startswith("http") and "/activate/" in line
-    ][0].strip()
+    key = brevo_mock.call_args_list[0][1]["context"]["activation_key"]
+    activation_url = f"http://testserver/compte/activate/{key}"
     browser.visit(activation_url)
 
     assert browser.is_text_present("Votre compte est désormais actif")
@@ -129,7 +134,9 @@ def test_registration_flow_without_next(data, browser):
     assert user.is_active is True
 
 
-def test_registration_flow(data, browser):
+def test_registration_flow(mocker, data, browser):
+    brevo_mock = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     browser.visit(reverse("django_registration_register") + "?next=/contact/")
     browser.fill("username", "johndoe")
     browser.fill("email", "john@doe.com")
@@ -143,16 +150,18 @@ def test_registration_flow(data, browser):
     user = User.objects.get(username="johndoe")
     assert user.is_active is False
 
-    assert len(mail.outbox) == 1
-    assert "Activation de votre compte" in mail.outbox[0].subject
-    assert "johndoe" in mail.outbox[0].body
-    assert "http://testserver/compte/activate" in mail.outbox[0].body
-    assert "?next=/contact/" in mail.outbox[0].body
+    assert brevo_mock.call_count == 1
+    brevo_mock.assert_called_once_with(
+        to_list="john@doe.com",
+        subject=None,
+        template="account_activation",
+        context={"activation_key": ANY, "username": "johndoe", "next": "/contact/"},
+    )
+
     assert user.preferences.get().newsletter_opt_in is True
 
-    activation_url = [
-        line for line in mail.outbox[0].body.split("\n") if line.startswith("http") and "/activate/" in line
-    ][0].strip()
+    key = brevo_mock.call_args_list[0][1]["context"]["activation_key"]
+    activation_url = f"http://testserver/compte/activate/{key}?next=/contact/"
     browser.visit(activation_url)
 
     user = User.objects.get(username="johndoe")
