@@ -47,6 +47,7 @@ BREVO_TEMPLATE_IDS = {
     "spam_activities_suggestion_admin": 88,
     "draft": 139,
     "erp_imported": 271,
+    "account_activation": 348,
 }
 
 REAL_USER_NOTIFICATION = True

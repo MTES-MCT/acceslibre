@@ -13,6 +13,7 @@ from django_registration.backends.activation.views import ActivationView, Regist
 
 from compte import forms, service
 from compte.models import UserPreferences
+from core.mailer import BrevoMailer
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -41,17 +42,21 @@ class CustomRegistrationView(RegistrationView):
     def get_success_url(self, user=None):
         return self.success_url + f"?email={user.email}&next={self.request.POST.get('next', '')}"
 
-    def get_email_context(self, activation_key):
-        "Add the next redirect value to the email template context."
-        context = super().get_email_context(activation_key)
-        context["next"] = self.request.POST.get("next", "")
-        return context
-
     def get_context_data(self, **kwargs):
         "Add the next redirect value to the email template context."
         context = super().get_context_data(**kwargs)
         context["next"] = unquote(self.request.POST.get("next", self.request.GET.get("next", "")))
         return context
+
+    def send_activation_email(self, user):
+        activation_key = self.get_activation_key(user)
+        context = {}
+        context["activation_key"] = activation_key
+        context["username"] = user.username
+        context["next"] = unquote(self.request.POST.get("next", self.request.GET.get("next", ""))) or "/"
+        return BrevoMailer().send_email(
+            to_list=user.email, subject=None, template="account_activation", context=context
+        )
 
     def create_inactive_user(self, form):
         """
