@@ -94,13 +94,18 @@ class Command(BaseCommand):
 
         # NOTE: in case of update, the ERP info won't be updated, only accessibility is updated
         for acceslibre_key, outscraper_key in self.mapping_acceslibre_outscraper.items():
+            if outscraper_key not in result:
+                # Consider all fields as mandatory
+                return None
             erp[acceslibre_key] = result[outscraper_key]
 
         erp["activite"] = self.activity_name
         erp["source"] = Erp.SOURCE_OUTSCRAPER
         erp["source_id"] = result["place_id"]
 
-        print(f"Managing {erp['nom']}, {result['street']} {result['postal_code']} {result['city']}")
+        if not existing_erp:
+            print(f"Managing {erp['nom']}, {result['street']} {result['postal_code']} {result['city']}")
+
         if "Accessibilité" not in result.get("about", {}):
             return
 
@@ -124,9 +129,9 @@ class Command(BaseCommand):
             return None
 
         new_erp = serializer.save()
-        action = "created"
+        action = "CREATED"
         if existing_erp:
-            action = "updated"
+            action = "UPDATED"
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
 
