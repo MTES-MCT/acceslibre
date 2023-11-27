@@ -217,6 +217,7 @@ class TestErpApi:
             "code_insee": ANY,
             "code_postal": "34830",
             "geom": {"type": "Point", "coordinates": [3.9047933, 43.6648217]},
+            "ban_id": "abcd_12345",
             "siret": "52128577500016",
             "telephone": None,
             "site_internet": None,

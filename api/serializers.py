@@ -130,6 +130,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "code_insee",
             "code_postal",
             "geom",
+            "ban_id",
             "siret",
             "telephone",
             "site_internet",

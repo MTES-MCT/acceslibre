@@ -244,6 +244,7 @@ class BaseErpForm(forms.ModelForm):
                 or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
                 or self.cleaned_data["code_postal"] != self.instance.code_postal
                 or self.cleaned_data["commune"] != self.instance.commune
+                or self.cleaned_data.get("ban_id") != self.instance.ban_id
             )
         except KeyError:
             return True
@@ -320,6 +321,7 @@ class BaseErpForm(forms.ModelForm):
         self.cleaned_data["commune"] = locdata["commune"]
         self.cleaned_data["code_insee"] = locdata["code_insee"]
         self.cleaned_data["geoloc_provider"] = locdata["provider"]
+        self.cleaned_data["ban_id"] = locdata.get("ban_id")
 
 
 class AdminErpForm(BaseErpForm):
@@ -483,6 +485,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "geoloc_provider",
             "asp_id",
             "user_type",
+            "ban_id",
         )
         labels = {"user_type": "Saisie en qualité de"}
         help_texts = {

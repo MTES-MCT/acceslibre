@@ -15,29 +15,6 @@ from tests.utils import assert_redirect
 
 
 @pytest.fixture
-def mock_geocode(mocker):
-    def _result(*args, **kwargs):
-        # naive address splitting, could be enhanced
-        numero_voie, commune = args[0].split(", ")
-        numero_voie = numero_voie.split(" ")
-        numero = numero_voie[0]
-        voie = " ".join(numero_voie[1:])
-
-        return {
-            "geom": Point((3, 43)),
-            "numero": numero,
-            "voie": voie.capitalize(),
-            "lieu_dit": None,
-            "code_postal": "34830",
-            "commune": commune,
-            "code_insee": "34830",
-            "provider": "ban",
-        }
-
-    mocker.patch("erp.provider.geocoder.geocode", side_effect=_result)
-
-
-@pytest.fixture
 def client():
     return Client()
 
@@ -299,7 +276,7 @@ def test_erp_edit_can_be_contributed(data, client):
     assert response.status_code == 200
 
 
-def test_ajout_erp(mock_geocode, data, client):
+def test_ajout_erp(data, client):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
 
@@ -331,6 +308,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert erp.geom.y == 43
     assert erp.voie == "Grand rue", "Should have been normalized with geocode result"
     assert erp.geoloc_provider == "ban"
+    assert erp.ban_id == "abcd_12345"
     assert not hasattr(erp, "accessibilite")
     assert erp.activite is not None
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
@@ -579,7 +557,7 @@ def test_ajout_erp_a11y_vide(data, client):
     assert erp.published is False
 
 
-def test_add_erp_duplicate(mock_geocode, data, client):
+def test_add_erp_duplicate(data, client):
     client.force_login(data.niko)
     data.niko.stats.refresh_from_db()
     initial_nb_created = data.niko.stats.nb_erp_created
@@ -608,7 +586,7 @@ def test_add_erp_duplicate(mock_geocode, data, client):
     assert data.niko.stats.nb_erp_created == initial_nb_created
 
 
-def test_add_erp_missing_activity(mock_geocode, data, client):
+def test_add_erp_missing_activity(data, client):
     client.force_login(data.niko)
 
     response = client.post(
@@ -632,7 +610,7 @@ def test_add_erp_missing_activity(mock_geocode, data, client):
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
 
 
-def test_add_erp_other_activity(mock_geocode, data, client):
+def test_add_erp_other_activity(data, client):
     assert ActivitySuggestion.objects.count() == 0
 
     client.force_login(data.niko)
@@ -833,7 +811,7 @@ def test_history_human_readable_diff(data, client):
     assert str(get_entry("labels", a11y_diff)["new"]) == "Destination pour Tous, Tourisme & Handicap"
 
 
-def test_contribution_flow_administrative_data(data, mock_geocode, client):
+def test_contribution_flow_administrative_data(data, client):
     client.force_login(data.sophie)
     response = client.get(reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}))
 

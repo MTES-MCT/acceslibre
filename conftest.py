@@ -51,6 +51,7 @@ def mock_geocode(request, mocker):
             "code_postal": kwargs.get("postcode") or "34830",
             "commune": commune,
             "code_insee": kwargs.get("postcode") or "34830",
+            "ban_id": "abcd_12345",
             "provider": "ban",
         }
 
@@ -432,6 +433,7 @@ def data(db):
         code_postal="34830",
         commune="Jacou",
         commune_ext=obj_jacou,
+        ban_id="abcd_12345",
         geom=Point((3.9047933, 43.6648217)),
         activite=obj_boulangerie,
         published=True,

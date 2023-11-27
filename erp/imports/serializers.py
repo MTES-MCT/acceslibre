@@ -119,6 +119,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "geoloc_provider",
             "source",
             "source_id",
+            "ban_id",
         )
 
     def validate_nom(self, value):
@@ -185,6 +186,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 obj["code_insee"] = locdata["code_insee"]
                 obj["geoloc_provider"] = locdata["provider"]
                 obj["numero"] = locdata["numero"]
+                obj["ban_id"] = locdata.get("ban_id")
                 obj.pop("latitude", None)
                 obj.pop("longitude", None)
                 break
