@@ -58,9 +58,9 @@ class Command(BaseCommand):
             print(f"Checking ERP with PK {erp.pk}")
             query = f"{erp.numero} {erp.voie}" if erp.numero else erp.lieu_dit
             query = f"{erp.nom}, {query} {erp.code_postal} {erp.commune}"
-            results = client.google_maps_search(query, limit=1, language="fr", region="FR")[0]
 
-            if results and results[0]["business_status"] == "CLOSED_PERMANENTLY":
+            results = client.google_maps_search(query, limit=1, language="fr", region="FR", fields="business_status")[0]
+            if results and results[0].get("business_status") == "CLOSED_PERMANENTLY":
                 self._delete_erp(erp)
                 continue
 
