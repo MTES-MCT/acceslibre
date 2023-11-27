@@ -4,3 +4,7 @@ class MergeException(Exception):
 
 class MultipleAspIdForDuplicates(Exception):
     pass
+
+
+class MainERPIdentificationException(Exception):
+    pass

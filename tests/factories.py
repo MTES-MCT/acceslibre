@@ -49,6 +49,15 @@ class ErpFactory(factory.django.DjangoModelFactory):
         model = "erp.Erp"
         django_get_or_create = ("nom",)
 
+    class Params:
+        with_accessbilite = factory.Trait(
+            accessibilite=factory.SubFactory("tests.factories.AccessibiliteFactory"),
+        )
+
+
+class ErpWithAccessibiliteFactory(ErpFactory):
+    with_accessbilite = True
+
 
 class AccessibiliteFactory(factory.django.DjangoModelFactory):
     erp = factory.SubFactory(ErpFactory)
