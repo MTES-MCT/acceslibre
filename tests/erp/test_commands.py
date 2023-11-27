@@ -233,22 +233,21 @@ class TestOutscraperAcquisition:
         [
             {
                 "query": "restaurant, Lyon",
-                "name": "Le Neuvième Art - Restaurant Gastronomique Lyon",
-                "place_id": "ChIJzZhX5juz9UcR74W_XDtOxIo",
-                "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbf85ef",
-                "full_address": "173 Rue Cuvier, 69006 Lyon, France",
-                "street": "173 Rue Cuvier",
+                "name": "Le Troisème Art - Restaurant Gastronomique Lyon",
+                "place_id": "ChIJzZhX5juz9UcR74W_abcd",
+                "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbfabcd",
+                "full_address": "173 Rue des tournesols, 69006 Lyon, France",
+                "street": "173 Rue des tournesols",
                 "postal_code": "69006",
                 "country_code": "FR",
                 "country": "France",
                 "city": "Lyon",
                 "latitude": 45.767984399999996,
                 "longitude": 4.8563522,
-                "site": "https://www.leneuviemeart.com/?utm_source=google+",
-                "phone": "+33 4 72 74 12 74",
+                "site": "https://www.troisiemeart.fr",
+                "phone": "+33 4 72 14 12 14",
                 "type": "Restaurant",
-                "logo": "https://lh5.googleusercontent.com/-m1FNcRqA6XM/AAAAAAAAAAI/AAAAAAAAAAA/2dBU__0u2ig/s44-p-k-no-ns-nd/photo.jpg",
-                "description": "Restaurant chic aux tons pastel, servant des menus dégustation composés de plats originaux et modernes à la présentation artistique.",
+                "description": "Restaurant chic",
                 "category": "restaurants",
                 "subtypes": "Restaurant, Restaurant français, Restaurant gastronomique",
                 "cid": "9999203089535436271",
@@ -270,12 +269,12 @@ class TestOutscraperAcquisition:
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
-        erp = Erp.objects.get(nom="Le Neuvième Art - Restaurant Gastronomique Lyon")
+        erp = Erp.objects.get(nom="Le Troisème Art - Restaurant Gastronomique Lyon")
         assert erp.source == Erp.SOURCE_OUTSCRAPER
-        assert erp.source_id == "ChIJzZhX5juz9UcR74W_XDtOxIo"
-        assert erp.site_internet == "https://www.leneuviemeart.com/?utm_source=google+"
+        assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
+        assert erp.site_internet == "https://www.troisiemeart.fr"
         assert erp.numero == "173"
-        assert erp.voie == "Rue cuvier"
+        assert erp.voie == "Rue des tournesols"
         assert erp.code_postal == "69006"
         assert erp.commune == "Lyon"
         assert erp.accessibilite.entree_plain_pied is True
@@ -286,7 +285,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
         assert (
-            Erp.objects.filter(nom="Le Neuvième Art - Restaurant Gastronomique Lyon").count() == 1
+            Erp.objects.filter(nom="Le Troisème Art - Restaurant Gastronomique Lyon").count() == 1
         ), "should not create a second ERP"
 
     @pytest.mark.django_db
@@ -298,10 +297,10 @@ class TestOutscraperAcquisition:
         CommuneFactory(nom="Lyon")
         AccessibiliteFactory(
             entree_plain_pied=False,
-            erp__nom="Le Neuvième Art - Restaurant Gastronomique Lyon",
+            erp__nom="Le Troisème Art - Restaurant Gastronomique Lyon",
             erp__commune="Lyon",
             erp__numero=173,
-            erp__voie="Rue cuvier",
+            erp__voie="Rue des tournesols",
             erp__activite=activite,
         ).erp
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=mock_response)
@@ -309,7 +308,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
         assert (
-            Erp.objects.filter(nom="Le Neuvième Art - Restaurant Gastronomique Lyon").count() == 0
+            Erp.objects.filter(nom="Le Troisème Art - Restaurant Gastronomique Lyon").count() == 0
         ), "should have deleted the closed_permanently ERP"
 
     @pytest.mark.django_db
@@ -318,10 +317,10 @@ class TestOutscraperAcquisition:
 
         existing_erp = AccessibiliteFactory(
             entree_plain_pied=None,
-            erp__nom="Le Neuvième Art - Restaurant Gastronomique Lyon",
+            erp__nom="Le Troisème Art - Restaurant Gastronomique Lyon",
             erp__commune="Lyon",
             erp__numero=173,
-            erp__voie="Rue cuvier",
+            erp__voie="Rue des tournesols",
             erp__activite=activite,
         ).erp
         CommuneFactory(nom="Lyon")
@@ -356,3 +355,59 @@ class TestOutscraperAcquisition:
         )
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=30)
         assert mock.call_count == 2
+
+
+class TestOutscraperCleaning:
+    initial_outscraper_response = [
+        [
+            {
+                "query": "restaurant, Lyon",
+                "name": "Le lard",
+                "place_id": "ChIJzZhX5juz9UcR74W_abcd",
+                "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbf85ef",
+                "full_address": "140 Rue Trouvier, 69006 Lyon, France",
+                "street": "173 Rue Trouvier",
+                "postal_code": "69006",
+                "country_code": "FR",
+                "country": "France",
+                "city": "Lyon",
+                "latitude": 45.767984399999996,
+                "longitude": 4.8563522,
+                "site": "https://www.lelard.com/?utm_source=google+",
+                "phone": "+33 4 72 14 12 14",
+                "type": "Restaurant",
+                "description": "Restaurant gras.",
+                "category": "restaurants",
+                "subtypes": "Restaurant, Restaurant français, Restaurant grastronomique",
+                "cid": "9999203089535436271",
+                "business_status": "CLOSED_PERMANENTLY",
+                "about": {
+                    "Accessibilité": {
+                        "Entrée accessible en fauteuil roulant": True,
+                        "Toilettes accessibles en fauteuil roulant": True,
+                    },
+                },
+            }
+        ]
+    ]
+
+    @pytest.mark.django_db
+    def test_initial(self, mocker):
+        ErpFactory(nom="Le lard", commune="Lyon", voie="Rue Trouvier", numero=173)
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+
+        call_command("outscraper_clean_closed", nb_days=0, write=False)
+        assert Erp.objects.filter(nom="Le lard").count() == 1, "should not have deleted it, no write param"
+
+        call_command("outscraper_clean_closed", nb_days=0, write=True)
+        assert Erp.objects.filter(nom="Le lard").count() == 0, "should have deleted it"
+
+    @pytest.mark.django_db
+    def test_no_response(self, mocker):
+        erp = ErpFactory(nom="no match")
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=[{}])
+
+        call_command("outscraper_clean_closed", nb_days=0, write=True)
+
+        erp.refresh_from_db()
+        assert erp.check_closed_at is not None, "should have set a check_closed_at date"
