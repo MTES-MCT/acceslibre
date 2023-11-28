@@ -1,3 +1,5 @@
+from subscription.models import ErpSubscription
+
 from .exceptions import MainERPIdentificationException, NeedsManualInspectionException, NotDuplicatesException
 
 
@@ -24,7 +26,6 @@ def find_main_erp_and_duplicates(erps):
     return by_age[0], by_age[1:]
 
 
-# TODO add test on me
 def check_for_automatic_merge(erps):
     shares_same_activity = len(set([e.activite for e in erps])) == 1
 
@@ -43,18 +44,39 @@ def check_for_automatic_merge(erps):
     raise NeedsManualInspectionException
 
 
+def _get_value_by_condition(erp_a, erp_b, condition, field_name):
+    if getattr(erp_a, condition) is True and getattr(erp_b, condition) is False:
+        return getattr(erp_a.accessibilite, field_name)
+    if getattr(erp_a, condition) is False and getattr(erp_b, condition) is True:
+        return getattr(erp_b.accessibilite, field_name)
+
+
 def get_most_reliable_field_value(erp_a, erp_b, field_name):
-    a_field = getattr(erp_a, field_name)
-    b_field = getattr(erp_b, field_name)
+    a_field = getattr(erp_a.accessibilite, field_name)
+    b_field = getattr(erp_b.accessibilite, field_name)
     nullable = (None, [], "")
 
     if a_field == b_field:
-        return a_field, False
+        return a_field
 
     if a_field is not None and b_field in nullable:
-        return a_field, True
+        return a_field
     if b_field is not None and a_field in nullable:
-        return b_field, True
-    else:
-        pass
-        # TODO implement merge for fields ?
+        return b_field
+
+    for condition in ("was_created_by_human", "was_created_by_business_owner", "was_created_by_administration"):
+        value = _get_value_by_condition(erp_a, erp_b, condition, field_name)
+        if value:
+            return value
+
+    if erp_a.updated_at > erp_b.updated_at:
+        return a_field
+    return b_field
+
+
+def move_subscriptions(main_erp, duplicates):
+    for erp in duplicates:
+        subscriptions = ErpSubscription.objects.filter(erp=erp)
+        for subscription in subscriptions:
+            ErpSubscription.subscribe(main_erp, subscription.user)
+            ErpSubscription.unsubscribe(erp, subscription.user)

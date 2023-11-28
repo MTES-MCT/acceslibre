@@ -33,6 +33,7 @@ class ActiviteFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = "erp.Activite"
+        django_get_or_create = ("nom",)
 
 
 class ErpFactory(factory.django.DjangoModelFactory):
