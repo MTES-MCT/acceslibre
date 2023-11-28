@@ -8,3 +8,11 @@ class MultipleAspIdForDuplicates(Exception):
 
 class MainERPIdentificationException(Exception):
     pass
+
+
+class NeedsManualInspectionException(Exception):
+    pass
+
+
+class NotDuplicatesException(Exception):
+    pass

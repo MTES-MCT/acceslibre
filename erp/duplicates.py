@@ -1,4 +1,4 @@
-from .exceptions import MainERPIdentificationException
+from .exceptions import MainERPIdentificationException, NeedsManualInspectionException, NotDuplicatesException
 
 
 def find_main_erp_and_duplicates(erps):
@@ -25,11 +25,22 @@ def find_main_erp_and_duplicates(erps):
 
 
 # TODO add test on me
-def shares_same_data(erps):
+def check_for_automatic_merge(erps):
     shares_same_activity = len(set([e.activite for e in erps])) == 1
-    shares_same_address = True  # TODO waiting for more details
 
-    return shares_same_activity and shares_same_address
+    if not shares_same_activity:
+        raise NeedsManualInspectionException
+
+    shares_same_street_name = len(set([e.voie for e in erps])) == 1
+    if not shares_same_street_name:
+        raise NotDuplicatesException
+
+    shares_same_house_number = len(set([e.numero for e in erps])) == 1
+    only_one_erp_with_number = len([e.numero for e in erps if e.numero]) == 1
+    if shares_same_house_number or only_one_erp_with_number:
+        return True
+
+    raise NeedsManualInspectionException
 
 
 def get_most_reliable_field_value(erp_a, erp_b, field_name):
