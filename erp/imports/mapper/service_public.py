@@ -201,27 +201,39 @@ mapping_service_public_to_acceslibre = {
 
 
 class ServicePublicMapper:
-    def __init__(self, record, source=None, activite=None, today=None):
+    def __init__(self, record, source=None, activite=None, today=None, erp=None):
         self.record = record
         self.today = today or datetime.today()
         self.activite = activite
         self.source = source
+        self.erp = erp
 
     def process(self):
-        if not (all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])):
+        if not self.erp and not (
+            all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])
+        ):
             return None, None
 
         def _search_by_asp_id(asp_id):
+            if not asp_id:
+                return
+
             return Erp.objects.filter(asp_id=asp_id).first()
 
         # NOTE: we search on both gendarmerie and service_public datasets as the gendarmerie import is taking
         # ownership on all the gendarmeries even on those initially coming from the service_public import
         def _search_by_old_code(old_code):
+            if not old_code:
+                return
+
             return Erp.objects.find_by_source_id(
                 [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], old_code, published=True
             ).first()
 
         def _search_by_partner_id(partner_id):
+            if not partner_id:
+                return
+
             return Erp.objects.find_by_source_id(
                 [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE],
                 partner_id,
@@ -240,7 +252,7 @@ class ServicePublicMapper:
                 .first()
             )
 
-        erp = (
+        erp = self.erp or (
             _search_by_asp_id(self.record["id"])
             or _search_by_old_code(self.record["ancien_code_pivot"])
             or _search_by_partner_id(self.record["partenaire_identifiant"])
@@ -315,12 +327,15 @@ class ServicePublicMapper:
                 existing_erp = Erp.objects.get(pk=existing_erp_pk)
                 existing_erp.asp_id = self.record["id"]
                 logger.info("Duplicated, setting asp_id and updating it")
-                return ServicePublicMapper(existing_erp).process()
+                return ServicePublicMapper(record=self.record, erp=existing_erp).process()
             logger.info("Validation error : %s", e)
             return erp, None
 
-        with reversion.create_revision():
+        try:
+            with reversion.create_revision():
+                erp = serializer.save()
+                reversion.set_comment("Created via service_public import")
+        except reversion.errors.RevertError:
             erp = serializer.save()
-            reversion.set_comment("Created via import")
 
         return erp, None
