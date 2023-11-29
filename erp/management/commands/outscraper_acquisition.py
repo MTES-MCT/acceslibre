@@ -1,3 +1,4 @@
+import reversion
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from outscraper import ApiClient
@@ -128,10 +129,16 @@ class Command(BaseCommand):
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
             return None
 
-        new_erp = serializer.save()
         action = "CREATED"
         if existing_erp:
             action = "UPDATED"
+
+        try:
+            with reversion.create_revision():
+                new_erp = serializer.save()
+                reversion.set_comment(f"{action} via outscraper")
+        except reversion.errors.RevertError:
+            new_erp = serializer.save()
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
 
