@@ -267,7 +267,8 @@ USE_TZ = True
 DEEPL_API_KEY = env("DEEPL_API_KEY", default=None)
 DEEPL_MAPPING = {"en": "EN-GB"}
 
-OUTSCRAPER_API_KEY = env("OUTSCRAPER_API_KEY", None)
+OUTSCRAPER_API_KEY = env("OUTSCRAPER_API_KEY", default=None)
+SCRAPFLY_IO_API_KEY = env("SCRAPFLY_IO_API_KEY", default=None)
 # Crispy forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 

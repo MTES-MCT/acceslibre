@@ -234,7 +234,7 @@ class TestOutscraperAcquisition:
         [
             {
                 "query": "restaurant, Lyon",
-                "name": "Le Troisème Art - Restaurant Gastronomique Lyon",
+                "name": "Le Troisième Art - Restaurant Gastronomique Lyon",
                 "place_id": "ChIJzZhX5juz9UcR74W_abcd",
                 "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbfabcd",
                 "full_address": "173 Rue des tournesols, 69006 Lyon, France",
@@ -268,9 +268,9 @@ class TestOutscraperAcquisition:
         ActiviteFactory(nom="Restaurant")
         CommuneFactory(nom="Lyon")
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
-        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+        call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
 
-        erp = Erp.objects.get(nom="Le Troisème Art - Restaurant Gastronomique Lyon")
+        erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
         assert erp.source == Erp.SOURCE_OUTSCRAPER
         assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
         assert erp.site_internet == "https://www.troisiemeart.fr"
@@ -286,7 +286,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
         assert (
-            Erp.objects.filter(nom="Le Troisème Art - Restaurant Gastronomique Lyon").count() == 1
+            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1
         ), "should not create a second ERP"
 
     @pytest.mark.django_db
@@ -298,7 +298,7 @@ class TestOutscraperAcquisition:
         CommuneFactory(nom="Lyon")
         AccessibiliteFactory(
             entree_plain_pied=False,
-            erp__nom="Le Troisème Art - Restaurant Gastronomique Lyon",
+            erp__nom="Le Troisième Art - Restaurant Gastronomique Lyon",
             erp__commune="Lyon",
             erp__numero=173,
             erp__voie="Rue des tournesols",
@@ -309,7 +309,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
         assert (
-            Erp.objects.filter(nom="Le Troisème Art - Restaurant Gastronomique Lyon").count() == 0
+            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 0
         ), "should have deleted the closed_permanently ERP"
 
     @pytest.mark.django_db
@@ -318,7 +318,7 @@ class TestOutscraperAcquisition:
 
         existing_erp = AccessibiliteFactory(
             entree_plain_pied=None,
-            erp__nom="Le Troisème Art - Restaurant Gastronomique Lyon",
+            erp__nom="Le Troisième Art - Restaurant Gastronomique Lyon",
             erp__commune="Lyon",
             erp__numero=173,
             erp__voie="Rue des tournesols",
@@ -412,3 +412,88 @@ class TestOutscraperCleaning:
 
         erp.refresh_from_db()
         assert erp.check_closed_at is not None, "should have set a check_closed_at date"
+
+
+class TestScrapflyAcquisition:
+    initial_scrapfly_list_response = [
+        {
+            "name": "Le Troisième Art - Restaurant Gastronomique Lyon",
+            "url": "https://boorking.com/3e-art",
+        }
+    ]
+
+    initial_scrapfly_detail_response = {
+        "id": "ChIJzZhX5juz9UcR74W_abcd",
+        "title": "Le Troisième Art - Restaurant Gastronomique Lyon",
+        "address": "173 Rue des tournesols, Lyon",
+        "features": {"Accessibilité": ["Toilettes avec barres d'appui", "Accessible en fauteuil roulant"]},
+    }
+
+    @pytest.mark.django_db
+    def test_initial(self, mocker):
+        ActiviteFactory(nom="Hôtel")
+        CommuneFactory(nom="Lyon", code_postaux=[69006])
+        mocker.patch("scrapfly.ScrapflyClient.scrape")
+        mocker.patch(
+            "erp.management.commands.scrapfly_acquisition.Command._search",
+            return_value=self.initial_scrapfly_list_response,
+        )
+        mocker.patch(
+            "erp.management.commands.scrapfly_acquisition.Command._parse_hotel",
+            return_value=self.initial_scrapfly_detail_response,
+        )
+        call_command("scrapfly_acquisition", query="Lyon")
+
+        erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
+        assert erp.source == Erp.SOURCE_SCRAPFLY
+        assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
+        assert erp.site_internet is None
+        assert erp.numero == "173"
+        assert erp.voie == "Rue des tournesols"
+        assert erp.code_postal == "34830"
+        assert erp.commune == "Lyon"
+        assert erp.accessibilite.entree_plain_pied is True
+        assert erp.accessibilite.entree_largeur_mini == 80
+        assert erp.accessibilite.sanitaires_presence is True
+
+        # call the command twice, it should not create a second erp
+        call_command("scrapfly_acquisition", query="restaurant, Lyon")
+
+        assert (
+            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1
+        ), "should not create a second ERP"
+
+    @pytest.mark.django_db
+    def test_update(self, mocker):
+        activite = ActiviteFactory(nom="Hôtel")
+
+        existing_erp = AccessibiliteFactory(
+            entree_plain_pied=None,
+            erp__nom="Le Troisième Art - Restaurant Gastronomique Lyon",
+            erp__commune="Lyon",
+            erp__numero=173,
+            erp__voie="Rue des tournesols",
+            erp__activite=activite,
+        ).erp
+        CommuneFactory(nom="Lyon")
+        mocker.patch("scrapfly.ScrapflyClient.scrape")
+        mocker.patch(
+            "erp.management.commands.scrapfly_acquisition.Command._search",
+            return_value=self.initial_scrapfly_list_response,
+        )
+        mocker.patch(
+            "erp.management.commands.scrapfly_acquisition.Command._parse_hotel",
+            return_value=self.initial_scrapfly_detail_response,
+        )
+        call_command("scrapfly_acquisition", query="Lyon")
+
+        existing_erp.refresh_from_db()
+
+        assert existing_erp.accessibilite.entree_plain_pied is True, "should have updated access info"
+
+        existing_erp.accessibilite.entree_plain_pied = False
+        call_command("scrapfly_acquisition", query="Lyon")
+
+        existing_erp.refresh_from_db()
+
+        assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
