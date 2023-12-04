@@ -1,13 +1,9 @@
-from datetime import date
+from unittest.mock import ANY
 
-import pytest
-from django.contrib.auth.models import User
 from django.core import mail
-from django.test import Client
 from django.urls import reverse
 
 from contact.models import Message
-from erp.models import Erp
 
 TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
@@ -17,7 +13,9 @@ RECEIPT_CONTENT_NORMAL = "contacter directement les gestionnaires de l'établiss
 RECEIPT_CONTENT_VACCINATION = "prise de rendez-vous de vaccination"
 
 
-def test_contact(data, client):
+def test_contact(mocker, data, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     response = client.post(
         reverse("contact_form"),
         {
@@ -30,26 +28,43 @@ def test_contact(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 2
-    assert "[signalement]" in mail.outbox[0].subject
-    assert TEST_NAME in mail.outbox[0].body
-    assert TEST_EMAIL in mail.outbox[0].body
-    assert TEST_BODY in mail.outbox[0].body
+    assert mock_mail.call_count == 2
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _kwargs == {
+        "subject": None,
+        "context": {
+            "message": {
+                "name": TEST_NAME,
+                "body": TEST_BODY,
+                "username": None,
+                "topic": "Signaler une malveillance",
+                "email": TEST_EMAIL,
+            }
+        },
+        "reply_to": TEST_EMAIL,
+        "template": "contact_to_admins",
+    }
+
+    _args, _kwargs = mock_mail.call_args_list[1]
+    assert _args == ([TEST_EMAIL],)
+    assert _kwargs == {
+        "context": {"message_date": ANY, "erp": ""},
+        "template": "contact_receipt",
+        "subject": None,
+    }
 
     assert (
-        1
-        == Message.objects.filter(
+        Message.objects.filter(
             topic="signalement",
             name=TEST_NAME,
             email=TEST_EMAIL,
             body=TEST_BODY,
             sent_ok=True,
         ).count()
+        == 1
     )
-
-    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
-    assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
 
 def test_contact_antispam(data, client):
@@ -69,7 +84,9 @@ def test_contact_antispam(data, client):
     assert 0 == Message.objects.count()
 
 
-def test_contact_authenticated(data, client):
+def test_contact_authenticated(mocker, data, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     client.force_login(data.niko)
 
     response = client.get(reverse("contact_form"))
@@ -89,27 +106,48 @@ def test_contact_authenticated(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 2
-    assert "[signalement]" in mail.outbox[0].subject
-    assert data.erp.user.username in mail.outbox[0].body
-    assert TEST_BODY in mail.outbox[0].body
+    assert mock_mail.call_count == 2
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _kwargs == {
+        "subject": None,
+        "context": {
+            "message": {
+                "name": TEST_NAME,
+                "body": TEST_BODY,
+                "username": "niko",
+                "topic": "Signaler une malveillance",
+                "email": TEST_EMAIL,
+            }
+        },
+        "reply_to": TEST_EMAIL,
+        "template": "contact_to_admins",
+    }
+
+    _args, _kwargs = mock_mail.call_args_list[1]
+    assert _args == ([TEST_EMAIL],)
+    assert _kwargs == {
+        "context": {"message_date": ANY, "erp": ""},
+        "template": "contact_receipt",
+        "subject": None,
+    }
 
     assert (
-        1
-        == Message.objects.filter(
+        Message.objects.filter(
             topic="signalement",
-            user=data.erp.user,
+            name=TEST_NAME,
+            email=TEST_EMAIL,
             body=TEST_BODY,
             sent_ok=True,
         ).count()
+        == 1
     )
 
-    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
-    assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
+def test_contact_topic(mocker, data, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
-def test_contact_topic(data, client):
     response = client.post(
         reverse("contact_topic", kwargs={"topic": "api"}),
         {
@@ -122,64 +160,40 @@ def test_contact_topic(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 2
-    assert "[api]" in mail.outbox[0].subject
-    assert TEST_NAME in mail.outbox[0].body
-    assert TEST_EMAIL in mail.outbox[0].body
-    assert TEST_BODY in mail.outbox[0].body
+    assert mock_mail.call_count == 2
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _kwargs == {
+        "subject": None,
+        "context": {
+            "message": {
+                "name": TEST_NAME,
+                "body": TEST_BODY,
+                "username": None,
+                "topic": "API",
+                "email": TEST_EMAIL,
+            }
+        },
+        "reply_to": TEST_EMAIL,
+        "template": "contact_to_admins",
+    }
+
+    _args, _kwargs = mock_mail.call_args_list[1]
+    assert _args == ([TEST_EMAIL],)
+    assert _kwargs == {
+        "context": {"message_date": ANY, "erp": ""},
+        "template": "contact_receipt",
+        "subject": None,
+    }
 
     assert (
-        1
-        == Message.objects.filter(
+        Message.objects.filter(
             topic="api",
             name=TEST_NAME,
             email=TEST_EMAIL,
             body=TEST_BODY,
             sent_ok=True,
         ).count()
+        == 1
     )
-
-    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
-    assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
-
-
-def test_contact_topic_erp(data, client):
-    response = client.post(
-        reverse(
-            "contact_topic_erp",
-            kwargs={"topic": "vaccination", "erp_slug": data.erp.slug},
-        ),
-        {
-            "topic": "vaccination",
-            "name": TEST_NAME,
-            "email": TEST_EMAIL,
-            "body": TEST_BODY,
-            "erp": str(data.erp.pk),
-            "robot": "on",
-        },
-    )
-
-    assert response.status_code == 302
-    assert len(mail.outbox) == 2
-    assert "[vaccination]" in mail.outbox[0].subject
-    assert TEST_NAME in mail.outbox[0].body
-    assert TEST_EMAIL in mail.outbox[0].body
-    assert TEST_BODY in mail.outbox[0].body
-    assert data.erp.nom in mail.outbox[0].body
-
-    assert (
-        1
-        == Message.objects.filter(
-            topic="vaccination",
-            name=TEST_NAME,
-            email=TEST_EMAIL,
-            body=TEST_BODY,
-            erp=data.erp,
-            sent_ok=True,
-        ).count()
-    )
-
-    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
-    assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_CONTENT_VACCINATION in mail.outbox[1].body

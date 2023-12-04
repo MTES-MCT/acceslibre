@@ -11,6 +11,7 @@ from sib_api_v3_sdk import (
     CreateAttribute,
     CreateContact,
     SendSmtpEmail,
+    SendSmtpEmailReplyTo,
     SendSmtpEmailSender,
     SendSmtpEmailTo,
     TransactionalEmailsApi,
@@ -78,6 +79,7 @@ class BrevoMailer(Mailer):
             sender=SendSmtpEmailSender(email=settings.DEFAULT_EMAIL),
             template_id=template_id,
             params=context,
+            reply_to=SendSmtpEmailReplyTo(email=reply_to) if reply_to else None,
         )
         api_instance = TransactionalEmailsApi(ApiClient(self.configuration))
 

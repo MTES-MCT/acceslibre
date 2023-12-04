@@ -13,7 +13,6 @@ class Message(models.Model):
     TOPIC_CONTACT = "contact"
     TOPIC_SIGNALEMENT = "signalement"
     TOPIC_API = "api"
-    TOPIC_VACCINATION = "vaccination"
     TOPIC_API_KEY = "api_key"
     TOPIC_AUTRE = "autre"
     TOPICS = [
@@ -24,7 +23,6 @@ class Message(models.Model):
         (TOPIC_CONTACT, translate("Prise de contact avec Acceslibre")),
         (TOPIC_API, translate("API")),
         (TOPIC_SIGNALEMENT, translate("Signaler une malveillance")),
-        (TOPIC_VACCINATION, translate("Vaccination")),
         (TOPIC_API_KEY, translate("Clef API")),
         (TOPIC_AUTRE, translate("Autre")),
     ]
