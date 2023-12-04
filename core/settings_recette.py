@@ -38,4 +38,5 @@ BREVO_TEMPLATE_IDS = {
     "draft": 8,
     "erp_imported": 9,
     "account_activation": 10,
+    "notif_weekly_unpublished": 11,
 }

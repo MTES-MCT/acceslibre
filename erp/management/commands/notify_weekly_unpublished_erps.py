@@ -3,9 +3,10 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.urls import reverse
 from django.utils import timezone
 
-from core.mailer import get_mailer
+from core.mailer import BrevoMailer
 from erp.models import Erp
 
 logger = logging.getLogger(__name__)
@@ -50,19 +51,26 @@ class Command(BaseCommand):
             if erp_updated_since_days >= settings.UNPUBLISHED_ERP_NOTIF_DAYS:
                 if erp.user.pk not in notifications:
                     notifications[erp.user.pk] = {"user": erp.user, "erps": []}
-                notifications[erp.user.pk]["erps"].append(erp)
+                erp_as_dict = {
+                    "commune": erp.commune,
+                    "activite": erp.activite.nom,
+                    "slug": erp.slug,
+                    "nom": erp.nom,
+                    "url_publication": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+                }
+                notifications[erp.user.pk]["erps"].append(erp_as_dict)
         return [n for n in notifications.values() if n["erps"]]
 
     def send_notification(self, notification):
         user, erps = notification["user"], notification["erps"]
-        return get_mailer().send_email(
-            [user.email],
-            f"[{settings.SITE_NAME}] Des établissements sont en attente de publication",
-            "mail/unpublished_erps_notification.txt",
-            {
-                "user": user,
+        return BrevoMailer().send_email(
+            to_list=[user.email],
+            subject=None,
+            template="notif_weekly_unpublished",
+            context={
+                "username": user.username,
                 "erps": erps,
-                "SITE_NAME": settings.SITE_NAME,
-                "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+                "url_mes_erps_draft": f"{reverse('mes_erps')}?published=0",
+                "url_mes_preferences": reverse("mes_preferences"),
             },
         )

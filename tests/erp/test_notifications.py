@@ -34,14 +34,22 @@ def unpublished_erp(data) -> Erp:
     return erp
 
 
-def test_get_notification_on7days(unpublished_erp, data):
+def test_get_notification_on7days(mocker, unpublished_erp, data):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notifs = Command(now=futur).get_notifications()
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
-    assert notifs[0]["erps"] == [unpublished_erp]
+    assert notifs[0]["erps"] == [
+        {
+            "commune": "Jacou (34)",
+            "activite": "Boulangerie",
+            "slug": "croissants-chauds",
+            "nom": "Croissants chauds",
+            "url_publication": "/contrib/publication/croissants-chauds/",
+        }
+    ]
 
 
 def test_get_notification_before7days(unpublished_erp, data):
@@ -58,22 +66,44 @@ def test_get_notification_after7days(unpublished_erp, data):
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
-    assert notifs[0]["erps"] == [unpublished_erp]
+    assert notifs[0]["erps"] == [
+        {
+            "commune": "Jacou (34)",
+            "activite": "Boulangerie",
+            "slug": "croissants-chauds",
+            "nom": "Croissants chauds",
+            "url_publication": "/contrib/publication/croissants-chauds/",
+        }
+    ]
 
 
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_unpublished_erp_command(unpublished_erp, data):
+def test_notification_unpublished_erp_command(mocker, unpublished_erp, data):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
+
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notify_weekly_unpublished_erps = Command(now=futur)
 
     call_command(notify_weekly_unpublished_erps)
-
-    assert len(mail.outbox) == 1
-    assert mail.outbox[0].to == [data.niko.email]
-    assert "Des établissements sont en attente de publication" in mail.outbox[0].subject
-    assert "Boulangerie: Croissants chauds, Jacou (34)" in mail.outbox[0].body
-    assert reverse("mes_preferences") in mail.outbox[0].body
-    assert reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug}) in mail.outbox[0].body
+    mock_mail.assert_called_once_with(
+        context={
+            "erps": [
+                {
+                    "activite": "Boulangerie",
+                    "commune": "Jacou (34)",
+                    "nom": "Croissants chauds",
+                    "slug": "croissants-chauds",
+                    "url_publication": "/contrib/publication/croissants-chauds/",
+                }
+            ],
+            "url_mes_erps_draft": "/compte/erps/?published=0",
+            "url_mes_preferences": "/compte/preferences/",
+            "username": "niko",
+        },
+        subject=None,
+        template="notif_weekly_unpublished",
+        to_list=["niko@niko.tld"],
+    )
 
 
 def test_notifications_default_settings(data):
