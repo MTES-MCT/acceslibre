@@ -1,13 +1,14 @@
 import json
 import uuid
+from datetime import datetime, timedelta
 from unittest.mock import ANY
 
 import pytest
 from django.urls import reverse
 from rest_framework.test import APIClient
 
-from erp.models import Erp
-from tests.factories import ActiviteFactory, ErpFactory
+from erp.models import Accessibilite, Erp
+from tests.factories import AccessibiliteFactory, ActiviteFactory, ErpFactory
 
 
 @pytest.fixture
@@ -591,3 +592,24 @@ class TestAccessibiliteApi:
                 }
             ],
         }
+
+
+@pytest.mark.django_db
+@pytest.mark.usefixtures("api_client")
+def test_list_can_filter_on_date(api_client):
+    date = datetime.now() - timedelta(days=10)
+
+    erp = ErpFactory(published=True)
+    Erp.objects.update(created_at=date, updated_at=date)
+    AccessibiliteFactory(erp=erp, created_at=date, updated_at=date)
+    Accessibilite.objects.update(created_at=date, updated_at=date)
+
+    response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=2")
+    assert response.status_code == 200
+    content = json.loads(response.content)
+    assert len(content["results"]) == 0
+
+    response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=15")
+    assert response.status_code == 200
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1

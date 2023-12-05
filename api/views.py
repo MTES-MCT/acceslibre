@@ -447,6 +447,17 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "boolean"},
             },
         },
+        "created_or_updated_in_last_days": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "created_or_updated_in_last_days",
+                "in": "query",
+                "required": False,
+                "description": "Filtre sur les établissements créés ou mis à jour dans les X derniers jours",
+                "schema": {"type": "boolean"},
+            },
+        },
     }
 
 
