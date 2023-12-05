@@ -1,45 +1,31 @@
-from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from core.mailer import get_mailer
+from core.mailer import BrevoMailer
 from erp.models import Erp
 
 from .forms import ContactForm
 from .models import Message
 
 
-def get_erp_contact_infos(erp):
-    """Extracts ERP contact informations as a plain text list, for emails. This is mostly due to
-    limitations of the Django templating system wrt whitespace formatting.
-    """
-    if not erp:
-        return None
-    infos = {
-        "Adresse email": erp.contact_email,
-        "Téléphone": erp.telephone,
-        "Formulaire de contact": erp.contact_url,
-        "Site internet": erp.site_internet,
-    }
-    return "\n".join(f"{k} : {v}" for (k, v) in infos.items() if v is not None)
-
-
 def send_receipt(message):
-    return get_mailer().send_email(
+    context = {
+        "message_date": message.created_at.strftime("%Y-%m-%d à %H:%M"),
+        "erp": message.erp.nom if message.erp else "",
+    }
+    if message.erp:
+        context["contact_infos"] = {
+            "contact_email": message.erp.contact_email,
+            "telephone": message.erp.telephone,
+            "contact_url": message.erp.contact_url,
+            "site_internet": message.erp.site_internet,
+        }
+    return BrevoMailer().send_email(
         [message.email],
-        f"[{settings.SITE_NAME}] Suite à votre demande d'aide [{message.get_topic_display()}]",
-        "mail/contact_form_receipt.txt",
-        {
-            "message_date": message.created_at,
-            "user": message.user,
-            "erp": message.erp,
-            "contact_infos": get_erp_contact_infos(message.erp),
-            "is_vaccination": message.topic == Message.TOPIC_VACCINATION
-            or (message.erp and message.erp.metadata.get("centre_vaccination") is not None),
-            "SITE_NAME": settings.SITE_NAME,
-            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-        },
+        context=context,
+        template="contact_receipt",
+        subject=None,
     )
 
 
@@ -51,13 +37,26 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
         form = ContactForm(request.POST, request=request, initial=initial)
         if form.is_valid():
             message = form.save()
-            subject = f"[{message.topic}] {message.get_topic_display()}"
-            subject += f" ({erp.nom})" if erp else ""
-            sent_ok = get_mailer().mail_admins(
-                subject,
-                "mail/contact_email.txt",
-                {"message": message},
+            context = {
+                "message": {
+                    "name": message.name,
+                    "body": message.body,
+                    "username": message.user.username if message.user else None,
+                    "topic": message.get_topic_display(),
+                    "email": message.email,
+                },
+            }
+            if erp:
+                context["message"]["erp"] = {
+                    "nom": erp.nom,
+                    "adresse": erp.adresse,
+                    "absolute_url": erp.get_absolute_url(),
+                }
+            sent_ok = BrevoMailer().mail_admins(
+                subject=None,
+                context=context,
                 reply_to=message.email,
+                template="contact_to_admins",
             )
             message.sent_ok = sent_ok
             message.save()
@@ -69,8 +68,7 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
                     "Votre message a été envoyé.",
                 )
                 return redirect(erp.get_absolute_url())
-            else:
-                return redirect(reverse("contact_form_sent"))
+            return redirect(reverse("contact_form_sent"))
     else:
         form = ContactForm(request=request, initial=initial)
     return render(
