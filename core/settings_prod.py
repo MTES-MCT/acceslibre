@@ -51,6 +51,7 @@ BREVO_TEMPLATE_IDS = {
     "notif_weekly_unpublished": 352,
     "contact_to_admins": 353,
     "contact_receipt": 354,
+    "changed_erp_notification": 355,
 }
 
 REAL_USER_NOTIFICATION = True

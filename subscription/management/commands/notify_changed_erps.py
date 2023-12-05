@@ -3,9 +3,10 @@ from datetime import datetime
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.urls import reverse
 from django.utils import timezone
 
-from core.mailer import get_mailer
+from core.mailer import BrevoMailer
 from erp import versioning
 from subscription.models import ErpSubscription
 
@@ -35,15 +36,14 @@ class Command(BaseCommand):
 
     def send_notification(self, notification):
         recipient = notification["user"]
-        return get_mailer().send_email(
+        return BrevoMailer().send_email(
             [recipient.email],
-            f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
-            "mail/changed_erp_notification.txt",
-            {
-                "user": recipient,
+            subject=None,
+            template="changed_erp_notification",
+            context={
+                "username": recipient.username,
                 "erps": notification["erps"],
-                "SITE_NAME": settings.SITE_NAME,
-                "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+                "url_changed_erp_notification": reverse("mes_contributions_recues"),
             },
         )
 
@@ -61,12 +61,24 @@ class Command(BaseCommand):
                 changes_by_others = erp.get_history(exclude_changes_from=user)
                 if not changes_by_others:
                     continue
-                # expose changes_by_others to be used in template
-                erp.changes_by_others = changes_by_others
+
+                for change in changes_by_others:
+                    change["user"] = change["user"].username
+                    del change["date"]
+
                 if user.pk not in notifications:
                     notifications[user.pk] = {"user": user, "erps": []}
                 if erp not in notifications[user.pk]["erps"]:
-                    notifications[user.pk]["erps"].append(erp)
+                    notifications[user.pk]["erps"].append(
+                        {
+                            "code_postal": erp.code_postal,
+                            "commune": erp.commune,
+                            "nom": erp.nom,
+                            "get_absolute_url": erp.get_absolute_url(),
+                            "changes_by_others": changes_by_others,
+                            "url_unsubscribe": reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug}),
+                        }
+                    )
 
         return notifications
 
@@ -79,6 +91,7 @@ class Command(BaseCommand):
             now = datetime.fromisoformat(options["now"])
         else:
             now = timezone.now()
+
         notifications = self.get_notifications(options["hours"], now=now).values()
         sent_ok = 0
         for notification in notifications:
