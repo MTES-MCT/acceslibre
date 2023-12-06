@@ -1,3 +1,4 @@
+from erp import schema
 from subscription.models import ErpSubscription
 
 from .exceptions import MainERPIdentificationException, NeedsManualInspectionException, NotDuplicatesException
@@ -80,3 +81,19 @@ def move_subscriptions(main_erp, duplicates):
         for subscription in subscriptions:
             ErpSubscription.subscribe(main_erp, subscription.user)
             ErpSubscription.unsubscribe(erp, subscription.user)
+
+
+def merge_accessibility_with(main_erp, duplicate):
+    access_destination = main_erp.accessibilite
+
+    fields = list(schema.FIELDS.keys())
+    fields.remove("activite")
+    needs_save = False
+    for field in fields:
+        field_value = get_most_reliable_field_value(main_erp, duplicate, field)
+        if field_value != getattr(access_destination, field):
+            setattr(access_destination, field, field_value)
+            needs_save = True
+
+    if needs_save:
+        access_destination.save()
