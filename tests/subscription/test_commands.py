@@ -1,6 +1,4 @@
 import pytest
-from django.conf import settings
-from django.core import mail
 from django.core.management import call_command
 from django.test import Client, override_settings
 from django.urls import reverse
@@ -75,7 +73,9 @@ def niko_create_erp_and_subscribe_updates(client, data):
 
 
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_erp(mock_geocode, client, data):
+def test_notification_erp(mocker, mock_geocode, client, data):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     erp = niko_create_erp_and_subscribe_updates(client, data)
 
     # sophie updates this erp data
@@ -108,21 +108,103 @@ def test_notification_erp(mock_geocode, client, data):
     assert Version.objects.count() != 0
 
     call_command("notify_changed_erps")
-    unsubscribe_url = reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug})
 
-    assert len(mail.outbox) == 1
-    assert mail.outbox[0].to == [data.niko.email]
-    assert "Vous avez reçu de nouvelles contributions" in mail.outbox[0].subject
-    assert "sophie erp" in mail.outbox[0].body
-    assert "34830 Jacou" in mail.outbox[0].body
-    assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
-    assert 'nom: "niko erp" devient "sophie erp"' in mail.outbox[0].body
-    assert f"{settings.SITE_ROOT_URL}{unsubscribe_url}" in mail.outbox[0].body
-    assert updated_erp.get_absolute_url() in mail.outbox[0].body
+    assert mock_mail.call_count == 1
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == ([data.niko.email],)
+    assert _kwargs == {
+        "subject": None,
+        "template": "changed_erp_notification",
+        "context": {
+            "username": "niko",
+            "erps": [
+                {
+                    "code_postal": "34830",
+                    "commune": "Jacou",
+                    "nom": "sophie erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
+                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
+                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
+                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "Jacou",
+                    "nom": "sophie erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
+                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
+                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
+                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "Jacou",
+                    "nom": "sophie erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
+                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
+                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
+                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "Jacou",
+                    "nom": "sophie erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
+                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
+                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
+                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+            ],
+            "url_changed_erp_notification": "/compte/contributions/recues/",
+        },
+    }
 
 
 @override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_accessibilite(client, data, mocker):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     erp = niko_create_erp_and_subscribe_updates(client, data)
 
     # sophie updates this erp accessibilite data
@@ -138,23 +220,190 @@ def test_notification_accessibilite(client, data, mocker):
     )
 
     assert response.status_code == 200
-    updated_acc = Accessibilite.objects.get(erp__slug=erp.slug)
     assert Version.objects.exists()
 
     call_command("notify_changed_erps")
 
-    assert len(mail.outbox) == 1
-    assert mail.outbox[0].to == [data.niko.email]
-    assert "Vous avez reçu de nouvelles contributions" in mail.outbox[0].subject
-    assert "niko erp" in mail.outbox[0].body
-    assert "34830 Jacou".lower() in mail.outbox[0].body.lower()
-    assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
-    assert 'Sanitaires: "Oui" devient "Non"' in mail.outbox[0].body
-    assert updated_acc.erp.get_absolute_url() in mail.outbox[0].body
+    assert mock_mail.call_count == 1
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == ([data.niko.email],)
+    assert _kwargs == {
+        "subject": None,
+        "template": "changed_erp_notification",
+        "context": {
+            "username": "niko",
+            "erps": [
+                {
+                    "code_postal": "34830",
+                    "commune": "JACOU",
+                    "nom": "niko erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {
+                                    "field": "accueil_visibilite",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Visibilité de la zone d'accueil",
+                                },
+                                {
+                                    "field": "accueil_audiodescription_presence",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Audiodescription",
+                                },
+                                {
+                                    "field": "accueil_audiodescription",
+                                    "old": "Vide",
+                                    "new": "None",
+                                    "label": "Type d'équipements pour l'audiodescription",
+                                },
+                                {
+                                    "field": "accueil_retrecissement",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Rétrécissement du chemin",
+                                },
+                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "JACOU",
+                    "nom": "niko erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {
+                                    "field": "accueil_visibilite",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Visibilité de la zone d'accueil",
+                                },
+                                {
+                                    "field": "accueil_audiodescription_presence",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Audiodescription",
+                                },
+                                {
+                                    "field": "accueil_audiodescription",
+                                    "old": "Vide",
+                                    "new": "None",
+                                    "label": "Type d'équipements pour l'audiodescription",
+                                },
+                                {
+                                    "field": "accueil_retrecissement",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Rétrécissement du chemin",
+                                },
+                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "JACOU",
+                    "nom": "niko erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {
+                                    "field": "accueil_visibilite",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Visibilité de la zone d'accueil",
+                                },
+                                {
+                                    "field": "accueil_audiodescription_presence",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Audiodescription",
+                                },
+                                {
+                                    "field": "accueil_audiodescription",
+                                    "old": "Vide",
+                                    "new": "None",
+                                    "label": "Type d'équipements pour l'audiodescription",
+                                },
+                                {
+                                    "field": "accueil_retrecissement",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Rétrécissement du chemin",
+                                },
+                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+                {
+                    "code_postal": "34830",
+                    "commune": "JACOU",
+                    "nom": "niko erp",
+                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
+                    "changes_by_others": [
+                        {
+                            "user": "sophie",
+                            "comment": "",
+                            "diff": [
+                                {
+                                    "field": "accueil_visibilite",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Visibilité de la zone d'accueil",
+                                },
+                                {
+                                    "field": "accueil_audiodescription_presence",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Audiodescription",
+                                },
+                                {
+                                    "field": "accueil_audiodescription",
+                                    "old": "Vide",
+                                    "new": "None",
+                                    "label": "Type d'équipements pour l'audiodescription",
+                                },
+                                {
+                                    "field": "accueil_retrecissement",
+                                    "old": "Oui",
+                                    "new": "Inconnu",
+                                    "label": "Rétrécissement du chemin",
+                                },
+                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
+                            ],
+                        }
+                    ],
+                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
+                },
+            ],
+            "url_changed_erp_notification": "/compte/contributions/recues/",
+        },
+    }
 
 
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_skip_owner(client, data):
+def test_notification_skip_owner(mocker, client, data):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
     client.force_login(data.niko)
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
@@ -181,7 +430,7 @@ def test_notification_skip_owner(client, data):
     # niko is owner and shouldn't be notified
     call_command("notify_changed_erps")
 
-    assert len(mail.outbox) == 0
+    mock_mail.assert_not_called
 
 
 def test_erp_publication_subscription_option(data, client):

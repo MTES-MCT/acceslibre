@@ -32,18 +32,29 @@ SESSION_COOKIE_SECURE = False
 
 LOGGING = {
     "version": 1,
-    "disable_existing_loggers": False,
     "handlers": {
         "console": {
+            "level": "DEBUG",
+            "filters": ["require_debug_true"],
             "class": "logging.StreamHandler",
-        },
+        }
     },
     "root": {
         "handlers": ["console"],
         "level": "INFO",
     },
+    "filters": {
+        "require_debug_true": {
+            "()": "django.utils.log.RequireDebugTrue",
+        }
+    },
+    "loggers": {
+        "django.db.backends": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+        }
+    },
 }
-
 
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 4,
@@ -56,6 +67,7 @@ BREVO_TEMPLATE_IDS = {
     "notif_weekly_unpublished": 11,
     "contact_to_admins": 12,
     "contact_receipt": 13,
+    "changed_erp_notification": 14,
 }
 
 
