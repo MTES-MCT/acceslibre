@@ -10,6 +10,7 @@ $warning: #ffc107;
 $input-border-color: #969696;
 $navbar-dark-color: rgba($white, 0.8);
 $text-dark: #343a40;
+$blue-france: #000091;
 $text-muted: rgb(104, 104, 104);
 $border-radius: 0.25rem !default;
 // Responsive texts
@@ -25,6 +26,8 @@ $viewport-xl: 1200px;
 // App specific styles
 
 @import 'loader.scss';
+@import 'progress.scss';
+@import 'half-circle-progress-bar.scss';
 
 #cta .fr-btn {
   @media screen and (max-width: $viewport-md) {

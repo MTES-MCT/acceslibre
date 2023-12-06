@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-05 09:42+0100\n"
+"POT-Creation-Date: 2023-12-18 16:56+0100\n"
 "PO-Revision-Date: 2023-11-23 14:43+0100\n"
 "Last-Translator: Marie-Laure3 Vernay <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,6 +163,159 @@ msgstr "French"
 
 msgid "English"
 msgstr "English"
+
+msgid "Porte battante"
+msgstr "Swing door"
+
+msgid "Porte coulissante"
+msgstr "Sliding door"
+
+msgid "Porte tambour"
+msgstr "Revolving door"
+
+msgid "Pas de porte"
+msgstr "No door"
+
+msgid "De quel type est la porte d'entrée ?"
+msgstr ""
+
+msgid "Porte automatique"
+msgstr ""
+
+msgid "Porte manuelle"
+msgstr ""
+
+msgid "Oui"
+msgstr "Yes"
+
+msgid "Non"
+msgstr "No"
+
+msgid "La porte est-elle assez large pour le passage d'un fauteuil roulant ou d'une poussette ? (supérieur à 80cm)"
+msgstr ""
+
+msgid "Dans cet établissement, y a-t-il des chambres PMR ?"
+msgstr ""
+
+msgid "Je ne suis pas sûr"
+msgstr "I am not sure"
+
+msgid "Combien y a-t-il de chambres PMR ?"
+msgstr ""
+
+msgid "A l'accueil, y a-t-il un équipement pour les personnes sourdes ou malentendantes ?"
+msgstr "Is the reception area equipped with products or services dedicated to the deaf or hard of hearing?"
+
+msgid "Boucle à induction magnétique fixe"
+msgstr "Fixed magnetic induction loop"
+
+msgid "Boucle à induction magnétique portative"
+msgstr "Portable magnetic induction loop"
+
+msgid "Langue des signes françaises"
+msgstr "French sign language (LSF)"
+
+msgid "Langue française parlée complétée (LFPC)"
+msgstr "Completed spoken French (LFPC)"
+
+msgid "Sous titrage ou transcription simultanée"
+msgstr "Subtitling or simultaneous transcription"
+
+msgid "L'établissement propose-t-il de l'audiodescription ?"
+msgstr "Does the facility offer audiodescription?"
+
+msgid "Casques et boîtiers disponibles à l’accueil"
+msgstr "With permanent equipment, helmets and boxes available at the reception"
+
+msgid "Une application sur smartphone"
+msgstr ""
+
+msgid "L'audiodescription est disponible grâce à :"
+msgstr ""
+
+msgid "Personnel sensibilisé"
+msgstr ""
+
+msgid "Personnel a priori non sensibilisé"
+msgstr ""
+
+msgid "Pas de personnel"
+msgstr ""
+
+msgid "Y a-t-il du personnel et est-il sensibilisé à l'accueil des personnes handicapées ?"
+msgstr "If the staff is present, are they trained or aware of how to welcome people with disabilities?"
+
+msgid "Toilettes PMR"
+msgstr "PRM toilet"
+
+msgid "Toilettes classiques"
+msgstr ""
+
+msgid "Pas de toilettes"
+msgstr ""
+
+msgid "Y a-t-il des toilettes PMR ou non dans votre établissement ?"
+msgstr ""
+
+msgid "Y a-t-il un parking réservé aux visiteurs ?"
+msgstr ""
+
+msgid "Y a-t-il une place PMR dans le parking ?"
+msgstr ""
+
+msgid "Places PMR"
+msgstr ""
+
+msgid "Places classiques"
+msgstr ""
+
+msgid "Pas de parking"
+msgstr ""
+
+msgid "Y a-t-il du stationnement, PMR ou non, dans les environs (200 mètres) ?"
+msgstr ""
+
+msgid "Une marche ou plus"
+msgstr ""
+
+msgid "Pas de marche"
+msgstr "No stairs"
+
+msgid "Y a t-il une marche (ou plus) à l'entrée de l'établissement ?"
+msgstr "Is there a door at the facility entrance?"
+
+msgid "Combien de marches y a-t-il pour entrer dans l'établissement ?"
+msgstr ""
+
+msgid "Monter"
+msgstr ""
+
+msgid "Descendre"
+msgstr ""
+
+msgid "Faut-il monter ou descendre les marches pour atteindre l'entrée ?"
+msgstr ""
+
+msgid "Rampe fixe"
+msgstr ""
+
+msgid "Rampe amovible"
+msgstr ""
+
+msgid "Ni rampe ni ascenseur"
+msgstr ""
+
+msgid "Ascenceur ou élévateur"
+msgstr ""
+
+msgid "Les 2! Rampe et ascenceur / élévateur"
+msgstr ""
+
+msgid "Avez-vous une rampe d'accès pour entrer dans l'établissement ?"
+msgstr ""
+
+msgid "Je ne suis pas sur"
+msgstr ""
 
 msgid "Cinéma, mairie, ..."
 msgstr "Cinéma, mairie, ..."
@@ -855,9 +1008,6 @@ msgstr "Straight path to reception or unknown information"
 msgid "Chambre accessible"
 msgstr "Accessible room"
 
-msgid "Toilettes PMR"
-msgstr "PRM toilet"
-
 msgid "Établissement labellisé"
 msgstr "Labeled facility"
 
@@ -881,12 +1031,6 @@ msgstr "Unknown"
 
 msgid "Inconnu ou sans objet"
 msgstr "Unknown or not applicable"
-
-msgid "Oui"
-msgstr "Yes"
-
-msgid "Non"
-msgstr "No"
 
 msgid "Aucun"
 msgstr "None"
@@ -981,17 +1125,8 @@ msgstr "Manual"
 msgid "Automatique"
 msgstr "Automatic"
 
-msgid "Porte battante"
-msgstr "Swing door"
-
-msgid "Porte coulissante"
-msgstr "Sliding door"
-
 msgid "Tourniquet"
 msgstr "Turnstile"
-
-msgid "Porte tambour"
-msgstr "Revolving door"
 
 msgid "Aucune"
 msgstr "None"
@@ -2576,6 +2711,34 @@ msgstr "Address&nbsp;:"
 msgid "Accepter et continuer"
 msgstr "Accept and continue"
 
+msgid "Merci !"
+msgstr "Thanks!"
+
+#, python-format
+msgid ""
+"%(erp_nom)s de %(erp_commune)s est en\n"
+"      ligne"
+msgstr ""
+
+msgid "Score de la fiche actuelle : "
+msgstr ""
+
+msgid "Les informations essentielles sont saisies, encore un effort !"
+msgstr ""
+
+msgid "As tu quelques minutes pour apporter des informations complémentaires ?"
+msgstr ""
+
+msgid "Oui, je continue"
+msgstr ""
+
+msgid "Non, plus tard"
+msgstr ""
+
+#, python-format
+msgid "Étape %(step)s sur %(total)s maximum"
+msgstr ""
+
 msgid "Renseigner un établissement"
 msgstr "Enter a facility"
 
@@ -3318,9 +3481,6 @@ msgstr "Go to the map"
 
 msgid "Aller aux informations d'accessibilité"
 msgstr "Go to accessibility information"
-
-msgid "Merci !"
-msgstr "Thanks!"
 
 msgid "La fiche est publiée. Merci pour votre contribution."
 msgstr "The form is published. Thank you for your contribution."

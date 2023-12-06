@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-05 09:42+0100\n"
+"POT-Creation-Date: 2023-12-18 16:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,6 +162,159 @@ msgid "French"
 msgstr ""
 
 msgid "English"
+msgstr ""
+
+msgid "Porte battante"
+msgstr ""
+
+msgid "Porte coulissante"
+msgstr ""
+
+msgid "Porte tambour"
+msgstr ""
+
+msgid "Pas de porte"
+msgstr ""
+
+msgid "De quel type est la porte d'entrée ?"
+msgstr ""
+
+msgid "Porte automatique"
+msgstr ""
+
+msgid "Porte manuelle"
+msgstr ""
+
+msgid "Oui"
+msgstr ""
+
+msgid "Non"
+msgstr ""
+
+msgid "La porte est-elle assez large pour le passage d'un fauteuil roulant ou d'une poussette ? (supérieur à 80cm)"
+msgstr ""
+
+msgid "Dans cet établissement, y a-t-il des chambres PMR ?"
+msgstr ""
+
+msgid "Je ne suis pas sûr"
+msgstr ""
+
+msgid "Combien y a-t-il de chambres PMR ?"
+msgstr ""
+
+msgid "A l'accueil, y a-t-il un équipement pour les personnes sourdes ou malentendantes ?"
+msgstr ""
+
+msgid "Boucle à induction magnétique fixe"
+msgstr ""
+
+msgid "Boucle à induction magnétique portative"
+msgstr ""
+
+msgid "Langue des signes françaises"
+msgstr ""
+
+msgid "Langue française parlée complétée (LFPC)"
+msgstr ""
+
+msgid "Sous titrage ou transcription simultanée"
+msgstr ""
+
+msgid "L'établissement propose-t-il de l'audiodescription ?"
+msgstr ""
+
+msgid "Casques et boîtiers disponibles à l’accueil"
+msgstr ""
+
+msgid "Une application sur smartphone"
+msgstr ""
+
+msgid "L'audiodescription est disponible grâce à :"
+msgstr ""
+
+msgid "Personnel sensibilisé"
+msgstr ""
+
+msgid "Personnel a priori non sensibilisé"
+msgstr ""
+
+msgid "Pas de personnel"
+msgstr ""
+
+msgid "Y a-t-il du personnel et est-il sensibilisé à l'accueil des personnes handicapées ?"
+msgstr ""
+
+msgid "Toilettes PMR"
+msgstr ""
+
+msgid "Toilettes classiques"
+msgstr ""
+
+msgid "Pas de toilettes"
+msgstr ""
+
+msgid "Y a-t-il des toilettes PMR ou non dans votre établissement ?"
+msgstr ""
+
+msgid "Y a-t-il un parking réservé aux visiteurs ?"
+msgstr ""
+
+msgid "Y a-t-il une place PMR dans le parking ?"
+msgstr ""
+
+msgid "Places PMR"
+msgstr ""
+
+msgid "Places classiques"
+msgstr ""
+
+msgid "Pas de parking"
+msgstr ""
+
+msgid "Y a-t-il du stationnement, PMR ou non, dans les environs (200 mètres) ?"
+msgstr ""
+
+msgid "Une marche ou plus"
+msgstr ""
+
+msgid "Pas de marche"
+msgstr ""
+
+msgid "Y a t-il une marche (ou plus) à l'entrée de l'établissement ?"
+msgstr ""
+
+msgid "Combien de marches y a-t-il pour entrer dans l'établissement ?"
+msgstr ""
+
+msgid "Monter"
+msgstr ""
+
+msgid "Descendre"
+msgstr ""
+
+msgid "Faut-il monter ou descendre les marches pour atteindre l'entrée ?"
+msgstr ""
+
+msgid "Rampe fixe"
+msgstr ""
+
+msgid "Rampe amovible"
+msgstr ""
+
+msgid "Ni rampe ni ascenseur"
+msgstr ""
+
+msgid "Ascenceur ou élévateur"
+msgstr ""
+
+msgid "Les 2! Rampe et ascenceur / élévateur"
+msgstr ""
+
+msgid "Avez-vous une rampe d'accès pour entrer dans l'établissement ?"
+msgstr ""
+
+msgid "Je ne suis pas sur"
 msgstr ""
 
 msgid "Cinéma, mairie, ..."
@@ -851,9 +1004,6 @@ msgstr ""
 msgid "Chambre accessible"
 msgstr ""
 
-msgid "Toilettes PMR"
-msgstr ""
-
 msgid "Établissement labellisé"
 msgstr ""
 
@@ -876,12 +1026,6 @@ msgid "Inconnu"
 msgstr ""
 
 msgid "Inconnu ou sans objet"
-msgstr ""
-
-msgid "Oui"
-msgstr ""
-
-msgid "Non"
 msgstr ""
 
 msgid "Aucun"
@@ -977,16 +1121,7 @@ msgstr ""
 msgid "Automatique"
 msgstr ""
 
-msgid "Porte battante"
-msgstr ""
-
-msgid "Porte coulissante"
-msgstr ""
-
 msgid "Tourniquet"
-msgstr ""
-
-msgid "Porte tambour"
 msgstr ""
 
 msgid "Aucune"
@@ -2532,6 +2667,34 @@ msgstr ""
 msgid "Accepter et continuer"
 msgstr ""
 
+msgid "Merci !"
+msgstr ""
+
+#, python-format
+msgid ""
+"%(erp_nom)s de %(erp_commune)s est en\n"
+"      ligne"
+msgstr ""
+
+msgid "Score de la fiche actuelle : "
+msgstr ""
+
+msgid "Les informations essentielles sont saisies, encore un effort !"
+msgstr ""
+
+msgid "As tu quelques minutes pour apporter des informations complémentaires ?"
+msgstr ""
+
+msgid "Oui, je continue"
+msgstr ""
+
+msgid "Non, plus tard"
+msgstr ""
+
+#, python-format
+msgid "Étape %(step)s sur %(total)s maximum"
+msgstr ""
+
 msgid "Renseigner un établissement"
 msgstr ""
 
@@ -3185,9 +3348,6 @@ msgid "Aller à la carte"
 msgstr ""
 
 msgid "Aller aux informations d'accessibilité"
-msgstr ""
-
-msgid "Merci !"
 msgstr ""
 
 msgid "La fiche est publiée. Merci pour votre contribution."

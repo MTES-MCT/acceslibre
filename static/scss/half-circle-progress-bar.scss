@@ -1,0 +1,26 @@
+.half-progress {
+  position: relative;
+  margin: 4px;
+  float: left;
+  text-align: center;
+  margin-right: 2rem;
+}
+.barOverflow {
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 90px;
+  margin-bottom: -14px;
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 10px solid #ccc;
+  border-bottom-color: $blue-france;
+  border-right-color: $blue-france;
+}
