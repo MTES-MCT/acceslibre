@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 UNIQUE_ANSWER = "unique"
+UNIQUE_OR_INT_ANSWER = "unique_or_int"
 
 
 @dataclass

@@ -1,5 +1,6 @@
 from .schema import RAMPE_AMOVIBLE, RAMPE_AUCUNE, RAMPE_FIXE, UNKNOWN
 
+# TODO remove me ?
 UNIQUE_ANSWER = "unique"
 
 FORM_QUESTION = {
