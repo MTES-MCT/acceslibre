@@ -102,7 +102,8 @@ class Command(BaseCommand):
                 self.to_delete += len(duplicates)
                 if self.should_write:
                     print(f"Will delete {duplicates}")
-                    duplicates.delete()
+                    for duplicate in duplicates:
+                        duplicate.delete()
                     erp.save()
             else:
                 self._merge_and_delete(erp, duplicates)
