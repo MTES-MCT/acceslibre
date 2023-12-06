@@ -52,6 +52,7 @@ BREVO_TEMPLATE_IDS = {
     "contact_to_admins": 353,
     "contact_receipt": 354,
     "changed_erp_notification": 355,
+    "email_change_activation": 356,
 }
 
 REAL_USER_NOTIFICATION = True

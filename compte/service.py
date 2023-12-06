@@ -5,10 +5,11 @@ from _datetime import timedelta
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.db import DatabaseError, models
+from django.urls import reverse
 
 from compte.models import EmailToken
 from core.lib import text
-from core.mailer import get_mailer
+from core.mailer import BrevoMailer
 
 DELETED_ACCOUNT_USERNAME = "anonyme"
 
@@ -27,15 +28,13 @@ def create_token(user, email, activation_token=None, today=datetime.now(timezone
 
 
 def send_activation_mail(activation_token, email, user):
-    get_mailer().send_email(
+    BrevoMailer().send_email(
         [email],
-        f"Activation de votre compte {settings.SITE_NAME.title()}",
-        "compte/email_change_activation_email.txt",
-        {
-            "activation_token": activation_token,
-            "user": user,
-            "SITE_NAME": settings.SITE_NAME,
-            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        subject=None,
+        template="email_change_activation",
+        context={
+            "username": user.username,
+            "url_change_email": reverse("change_email", kwargs={"activation_token": activation_token}),
         },
     )
 

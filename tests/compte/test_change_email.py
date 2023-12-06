@@ -25,7 +25,8 @@ def test_create_token_function(db, data):
     assert today + timedelta(settings.EMAIL_ACTIVATION_DAYS) == email_token.expire_at
 
 
-def test_user_change_email_e2e(client, data):
+def test_user_change_email_e2e(mocker, client, data):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
     _login_client(client, data)
 
     new_email = "test@test.com"
@@ -33,13 +34,21 @@ def test_user_change_email_e2e(client, data):
 
     email_token_query = EmailToken.objects.all()
     assert len(email_token_query) == 1
-    assert email_token_query.first().activation_token is not None
+    activation_token = email_token_query.first().activation_token
+    assert activation_token is not None
 
-    # test email notification sent
-    assert len(mail.outbox) == 1
-    assert "Activation de votre compte" in mail.outbox[0].subject
-    assert new_email in mail.outbox[0].recipients()
-    assert "Vous avez demandé à changer votre email" in mail.outbox[0].body
+    assert mock_mail.call_count == 1
+
+    _args, _kwargs = mock_mail.call_args_list[0]
+    assert _args == (["test@test.com"],)
+    assert _kwargs == {
+        "subject": None,
+        "template": "email_change_activation",
+        "context": {
+            "username": "niko",
+            "url_change_email": f"/compte/email/change/{activation_token}/",
+        },
+    }
 
 
 def test_user_validate_email_change(db, data):
