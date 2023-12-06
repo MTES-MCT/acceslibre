@@ -952,6 +952,20 @@ class Erp(models.Model):
 
         return all([self.accessibilite == e.accessibilite for e in other_erps])
 
+    @property
+    def was_created_by_human(self):
+        return self.source == self.SOURCE_PUBLIC or (
+            self.import_email and not self.source == self.SOURCE_SERVICE_PUBLIC
+        )
+
+    @property
+    def was_created_by_business_owner(self):
+        return self.user_type == self.USER_ROLE_GESTIONNAIRE
+
+    @property
+    def was_created_by_administration(self):
+        return self.user_type == self.USER_ROLE_ADMIN
+
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite
         access_source = erp.accessibilite

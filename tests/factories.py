@@ -33,6 +33,7 @@ class ActiviteFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = "erp.Activite"
+        django_get_or_create = ("nom",)
 
 
 class ErpFactory(factory.django.DjangoModelFactory):
@@ -48,6 +49,15 @@ class ErpFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = "erp.Erp"
         django_get_or_create = ("nom",)
+
+    class Params:
+        with_accessbilite = factory.Trait(
+            accessibilite=factory.SubFactory("tests.factories.AccessibiliteFactory"),
+        )
+
+
+class ErpWithAccessibiliteFactory(ErpFactory):
+    with_accessbilite = True
 
 
 class AccessibiliteFactory(factory.django.DjangoModelFactory):
