@@ -5,7 +5,6 @@ import urllib
 from decimal import Decimal
 from uuid import UUID
 
-import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -280,8 +279,6 @@ def search(request):
     pager = paginator.get_page(request.GET.get("page") or 1)
     pager_base_url = url.encode_qs(**filters)
 
-    equipment_filters_feature = waffle.flag_is_active(flag_name="EQUIPMENT_FILTERS", request=request)
-
     context = {
         **filters,
         "pager": pager,
@@ -289,8 +286,8 @@ def search(request):
         "paginator": paginator,
         "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
-        "equipments_shortcuts": get_equipments_shortcuts() if equipment_filters_feature else [],
-        "equipments": get_equipments() if equipment_filters_feature else [],
+        "equipments_shortcuts": get_equipments_shortcuts(),
+        "equipments": get_equipments(),
         "zoom_level": zoom_level,
         "geojson_list": make_geojson(pager),
     }
