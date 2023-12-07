@@ -5,6 +5,9 @@ from django.core.management.base import BaseCommand
 from erp.imports.mapper.base import BaseMapper
 from erp.provider.geocoder import geocode
 
+with_room_accessible = False
+with_comment = True
+
 mapping = {
     "Est-ce qu’il y au moins une place handicapé dans votre parking ?": {
         "Oui, nous avons une place handicapé": [
@@ -83,26 +86,29 @@ mapping = {
         "Non, ce n'est pas praticable": [("cheminement_ext_presence", True)],
         "Je ne suis pas sûr": [],
     },
-    "La douche est-elle utilisable par une personne en fauteuil roulant, (c'est à dire à l'italienne ou équipée d'un bac extra plat) ?": {
-        "Douche à l'italienne ou équipée d'un bac extra plat": [("accueil_chambre_douche_plain_pied", True)],
-        "Non": [("accueil_chambre_douche_plain_pied", False)],
-    },
-    "Un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant est-il possible ? ": {
-        "Oui": [("accueil_chambre_accompagnement", True)],
-        "Non": [("accueil_chambre_accompagnement", False)],
-        "Je ne suis pas sûr": [],
-    },
-    "L'établissement dispose t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration ?": {
-        "Oui": [("accueil_chambre_equipement_alerte", True)],
-        "Non": [("accueil_chambre_equipement_alerte", False)],
-        "Je ne suis pas sûr": [],
-    },
-    "Les numéros de chambres sont-ils facilement repérables et en relief ?": {
-        "Oui": [("accueil_chambre_numero_visible", True)],
-        "Non": [("accueil_chambre_numero_visible", False)],
-        "Je ne suis pas sûr": [],
-    },
 }
+if with_room_accessible:
+    mapping |= {
+        "La douche est-elle utilisable par une personne en fauteuil roulant, (c'est à dire à l'italienne ou équipée d'un bac extra plat) ?": {
+            "Douche à l'italienne ou équipée d'un bac extra plat": [("accueil_chambre_douche_plain_pied", True)],
+            "Non": [("accueil_chambre_douche_plain_pied", False)],
+        },
+        "Un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant est-il possible ? ": {
+            "Oui": [("accueil_chambre_accompagnement", True)],
+            "Non": [("accueil_chambre_accompagnement", False)],
+            "Je ne suis pas sûr": [],
+        },
+        "L'établissement dispose t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration ?": {
+            "Oui": [("accueil_chambre_equipement_alerte", True)],
+            "Non": [("accueil_chambre_equipement_alerte", False)],
+            "Je ne suis pas sûr": [],
+        },
+        "Les numéros de chambres sont-ils facilement repérables et en relief ?": {
+            "Oui": [("accueil_chambre_numero_visible", True)],
+            "Non": [("accueil_chambre_numero_visible", False)],
+            "Je ne suis pas sûr": [],
+        },
+    }
 
 to_ignore_headers = [
     "Submission ID",
@@ -110,12 +116,18 @@ to_ignore_headers = [
     "Submitted at",
     "Votre établissement :",
     "geo",
-    "Avez-vous des chambres pour accueillir des clients dans votre établissement ?",
 ]
+if with_room_accessible:
+    to_ignore_headers += [
+        "Avez-vous des chambres pour accueillir des clients dans votre établissement ?",
+    ]
 to_int_headers = {
     "Combien de marches y a-t-il pour entrer dans votre établissement ?": "entree_marches",
-    "Combien de chambres accessibles avez-vous dans votre établissement ?": "accueil_chambre_nombre_accessibles",
 }
+if with_room_accessible:
+    to_int_headers |= {
+        "Combien de chambres accessibles avez-vous dans votre établissement ?": "accueil_chambre_nombre_accessibles",
+    }
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
@@ -126,6 +138,10 @@ basic_mapped_headers = {
     "cp": "code_postal",
     "ville": "commune",
 }
+if with_comment:
+    basic_mapped_headers |= {
+        "Informations complémentaires": "commentaire",
+    }
 
 
 class Command(BaseCommand):
