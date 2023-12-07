@@ -37,6 +37,7 @@ class TestConvertTallyToSchema:
                     "commune": "Saint Martin en Haut",
                     "entree_marches": 124,
                     "import_email": "contrib@beta.gouv.fr",
+                    "source": "tally",
                 },
                 id="nominal_case",
             ),

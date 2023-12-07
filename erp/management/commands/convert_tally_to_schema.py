@@ -3,6 +3,7 @@ import csv
 from django.core.management.base import BaseCommand
 
 from erp.imports.mapper.base import BaseMapper
+from erp.models import Erp
 from erp.provider.geocoder import geocode
 
 with_room_accessible = False
@@ -190,6 +191,7 @@ class Command(BaseCommand):
 
             new_line.pop(cell, None)
 
+        new_line["source"] = Erp.SOURCE_TALLY
         new_line["code_postal"] = BaseMapper.handle_5digits_code(new_line["code_postal"])
         geo = self._do_geocode(new_line["adresse"], new_line["code_postal"])
         if geo:
@@ -218,7 +220,7 @@ class Command(BaseCommand):
                 return
 
             with open(self.input_file.replace(".csv", "_converted.csv"), "w") as new_file:
-                writer = csv.DictWriter(new_file, fieldnames=BaseMapper.fields)
+                writer = csv.DictWriter(new_file, fieldnames=BaseMapper.fields + ["source"])
                 writer.writeheader()
 
                 for line in reader:
