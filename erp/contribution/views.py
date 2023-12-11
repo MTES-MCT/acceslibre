@@ -30,7 +30,20 @@ class ContributionStepView(FormView):
         if not should_display_question:
             assert False # TODO
 
-        return ContributionForm(question=question)
+        print(self.get_form_kwargs())
+        return ContributionForm(question=question, **self.get_form_kwargs())
+
+    def form_valid(self, form):
+        print("IN FORM VALID")
+        print(form)
+        print(form.validated_data)
+        return super().form_valid(form)
+    def form_invalid(self, form):
+        print("IN FORM INVALID")
+        print(form.non_field_errors())
+        for field in form:
+            print(field.errors)
+        return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()

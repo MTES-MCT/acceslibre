@@ -16,7 +16,8 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
 
-<form>
+<form method="POST">
+{% csrf_token %}
 {% for field in form %}
     <fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
       <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-inline-legend">
@@ -35,6 +36,7 @@
   </fieldset>
 
 {% endfor %}
+<button class="fr-btn" type="submit">Valider</button>
   </form>
 
 {% endblock editorial_content %}
