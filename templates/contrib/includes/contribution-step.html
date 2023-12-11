@@ -15,6 +15,7 @@
     </div>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
+    {#  TODO add stepper#}
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}
