@@ -8,9 +8,6 @@ class ContributionForm(forms.Form):
         model = Accessibilite
 
     def __init__(self, *args, **kwargs):
+        question = kwargs.pop("question")
         super().__init__(*args, **kwargs)
-        question = kwargs.get("question")
-        print(question)
-        data = ""  # TODO
-        choices = []  # TODO
-        self.fields["question"] = forms.ChoiceField(label=data.label, required=True, choices=choices)
+        self.fields["question"] = forms.ChoiceField(label=question.label, required=True, choices=question.choices, widget=forms.RadioSelect)

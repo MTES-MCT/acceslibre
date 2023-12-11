@@ -1,0 +1,41 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block top_fluid_content %}
+    <div class="fr-follow bg-alt-blue-france-975">
+        <div class="fr-container">
+            <div class="fr-follow__newsletter">
+                <div>
+                    <h1 class="fr-h2 fr-follow__title">
+                         {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock top_fluid_content %}
+{% block editorial_content %}
+
+<form>
+{% for field in form %}
+    <fieldset class="fr-fieldset" id="radio-inline" aria-labelledby="radio-inline-legend radio-inline-messages">
+      <legend class="fr-fieldset__legend--regular fr-fieldset__legend" id="radio-inline-legend">
+          {{ field.label }}
+      </legend>
+      {% for choice in field  %}
+      <div class="fr-fieldset__element fr-fieldset__element--inline">
+          <div class="fr-radio-group">
+              <input type="radio" id="radio-inline-{{ forloop.counter }}" name="radio-inline">
+              <label class="fr-label" for="radio-inline-{{ forloop.counter }}">
+                  {{ choice.choice_label }}
+              </label>
+          </div>
+      </div>
+              {% endfor %}
+  </fieldset>
+
+{% endfor %}
+  </form>
+
+{% endblock editorial_content %}
+{#TODO bouton suivant précedent ? #}
