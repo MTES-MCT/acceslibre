@@ -1,8 +1,7 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.urls import include, path
 
 from erp import schema, views
-from django.urls import include, path
 
 handler403 = views.handler403
 handler404 = views.handler404
@@ -162,5 +161,4 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name="admin_password_reset_complete",
     ),
-
 ]

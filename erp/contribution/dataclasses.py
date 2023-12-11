@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+
 from django.utils.safestring import mark_safe
+
 UNIQUE_ANSWER = "unique"
 UNIQUE_OR_INT_ANSWER = "unique_or_int"
 
@@ -13,7 +15,7 @@ class Question:
 
     @property
     def choices(self):
-        img_url = "https://placehold.it/200x200" # TODO remove me
+        img_url = "https://placehold.it/200x200"  # TODO remove me
         return [(a.label, mark_safe(f"<img src='{img_url}' alt='{a.label}'>{a.label}")) for a in self.answers]
 
 
@@ -21,4 +23,4 @@ class Question:
 class Answer:
     label: str
     picture: str
-    modelisation: list
+    modelisations: list
