@@ -20,7 +20,15 @@ no_step = Answer(
 STEP_QUESTION = Question(
     label=translate_lazy("Y a t-il une marche (ou plus) à l'entrée de l'établissement ?"),
     type=UNIQUE_ANSWER,
-    answers=[at_least_one_step, no_step, not_sure_answer("entree_plain_pied")],
+    answers=[
+        at_least_one_step,
+        no_step,
+        not_sure_answer(
+            [
+                "entree_plain_pied",
+            ]
+        ),
+    ],
     display_conditions=[],
 )
 
@@ -28,7 +36,7 @@ STEP_QUESTION = Question(
 STEP_NUMBER_QUESTION = Question(
     label=translate_lazy("Combien de marches y a-t-il pour entrer dans l'établissement ?"),
     type=UNIQUE_OR_INT_ANSWER,
-    answers=[not_sure_answer("entree_marches")],
+    answers=[not_sure_answer(["entree_marches"])],
     # TODO write me
     display_conditions=["entree_not_plain_pied"],
 )
@@ -47,7 +55,15 @@ stairs_down = Answer(
 STEP_DIRECTION_QUESTION = Question(
     label=translate_lazy("Faut-il monter ou descendre les marches pour atteindre l'entrée ?"),
     type=UNIQUE_ANSWER,
-    answers=[stairs_up, stairs_down, not_sure_answer("entree_marches_sens")],
+    answers=[
+        stairs_up,
+        stairs_down,
+        not_sure_answer(
+            [
+                "entree_marches_sens",
+            ]
+        ),
+    ],
     display_conditions=["entree_not_plain_pied"],
 )
 
@@ -73,6 +89,15 @@ no_ramp = Answer(
 STEP_RAMP_QUESTION = Question(
     label=translate_lazy("Avez-vous une rampe d'accès pour entrer dans l'établissement ?"),
     type=UNIQUE_ANSWER,
-    answers=[fixed_ramp, movable_ramp, no_ramp, not_sure_answer("entree_marches_rampe")],
+    answers=[
+        fixed_ramp,
+        movable_ramp,
+        no_ramp,
+        not_sure_answer(
+            [
+                "entree_marches_rampe",
+            ]
+        ),
+    ],
     display_conditions=["entree_not_plain_pied"],
 )

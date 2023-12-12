@@ -1,17 +1,18 @@
-from django.shortcuts import get_object_or_404, reverse
-from django.views.generic.edit import FormView
-
-import erp.contribution.conditions as condition_module
-from erp.contribution import CONTRIBUTION_QUESTIONS
-from erp.models import Erp
-
-from .forms import ContributionForm
+from django.http import Http404
 
 # Working url : http://127.0.0.1:8000/contrib/v2/step/mairie-42/0
+from django.shortcuts import get_object_or_404, render, reverse
+from django.views.generic.edit import FormView
+
+from erp.contribution import CONTRIBUTION_QUESTIONS, get_next_question_number
+from erp.models import Erp
+
+from .exceptions import EndOfContributionException
+from .forms import ContributionForm
 
 
 class ContributionStepView(FormView):
-    template_name = "contrib/includes/contribution-step.html"
+    template_name = "contrib/contribution-step.html"
 
     def dispatch(self, request, *args, **kwargs):
         self.erp = get_object_or_404(Erp, slug=kwargs.get("erp_slug"))
@@ -19,42 +20,22 @@ class ContributionStepView(FormView):
         return super().dispatch(request, *args, **kwargs)
 
     def _get_question(self):
-        # TODO error handling if step does not exists
-        return CONTRIBUTION_QUESTIONS[self.step]
+        try:
+            return CONTRIBUTION_QUESTIONS[self.step]
+        except IndexError:
+            raise Http404
 
     def get_form(self, form_class=None):
-        # TODO should we chec0 for conditions here ?
+        # TODO should we check for conditions here ?
         question = self._get_question()
         return ContributionForm(question=question, **self.get_form_kwargs())
 
-    def _get_next_question_number(self):
-        # TODO handle cases with display conditions
-
-        next_question_number = self.step + 1
-
-        while True:
-            # TODO handle end of process / error
-            next_question = CONTRIBUTION_QUESTIONS[next_question_number]
-
-            if not next_question.display_conditions:
-                return next_question_number
-
-            should_display = []
-            for condition_name in next_question.display_conditions:
-                condition = getattr(condition_module, condition_name)
-                result = condition(access=self.erp.accessibilite)
-                should_display.append(result)
-
-            should_display_question = all(should_display)
-            if should_display_question:
-                return next_question_number
-
-            next_question_number += 1
-
     def get_success_url(self):
-        return reverse(
-            "contribution-step", kwargs={"erp_slug": self.erp.slug, "step_number": self._get_next_question_number()}
-        )
+        try:
+            next_question = get_next_question_number(self.step, erp=self.erp)
+            return reverse("contribution-step", kwargs={"erp_slug": self.erp.slug, "step_number": next_question})
+        except EndOfContributionException:
+            return reverse("contribution-base-success", kwargs={"erp_slug": self.erp.slug})
 
     def form_valid(self, form):
         # TODO move me to form.save() ?
@@ -70,15 +51,16 @@ class ContributionStepView(FormView):
         access.save()
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        # TODO handle errors
-        print("IN FORM INVALID")
-        print(form.non_field_errors())
-        for field in form:
-            print(field.errors)
-        return super().form_invalid(form)
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context["erp"] = self.erp
         return context
+
+
+def contribution_base_success_view(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    return render(
+        request,
+        "contrib/contribution-base-success.html",
+        context={"erp": erp},
+    )

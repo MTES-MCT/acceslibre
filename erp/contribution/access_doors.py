@@ -83,7 +83,15 @@ manual = Answer(
 DOOR_TYPE_QUESTION = Question(
     label=translate_lazy("De quel type est la porte d'entrée ?"),
     type=UNIQUE_ANSWER,
-    answers=[automatic, manual, not_sure_answer("entree_porte_type")],
+    answers=[
+        automatic,
+        manual,
+        not_sure_answer(
+            [
+                "entree_porte_type",
+            ]
+        ),
+    ],
     display_conditions=["has_door"],
 )
 
@@ -105,6 +113,14 @@ DOOR_SIZE_QUESTION = Question(
         "La porte est-elle assez large pour le passage d'un fauteuil roulant ou d'une poussette ? (supérieur à 80cm)"
     ),
     type=UNIQUE_ANSWER,
-    answers=[large_door, small_door, not_sure_answer("entree_largeur_mini")],
+    answers=[
+        large_door,
+        small_door,
+        not_sure_answer(
+            [
+                "entree_largeur_mini",
+            ]
+        ),
+    ],
     display_conditions=["has_door"],
 )
