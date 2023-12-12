@@ -48,7 +48,7 @@ not_sure_number_of_rooms = Answer(
 
 NUMBER_OF_ROOMS_QUESTION = Question(
     label=translate_lazy("Combien y a-t-il de chambres PMR ?"),
-    type=UNIQUE_OR_INT_ANSWER,  # TODO handle me ?
+    type=UNIQUE_OR_INT_ANSWER,
     answers=[not_sure_number_of_rooms],
     display_conditions=["has_at_least_one_room"],
 )

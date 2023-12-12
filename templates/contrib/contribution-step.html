@@ -19,22 +19,13 @@
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}
-            <fieldset class="fr-fieldset"
-                      id="radio-inline"
-                      aria-labelledby="radio-inline-legend radio-inline-messages">
-                <legend class="fr-fieldset__legend--regular fr-fieldset__legend"
-                        id="radio-inline-legend">{{ field.label }}</legend>
-                {% for choice in field %}
-                    <div class="fr-fieldset__element fr-fieldset__element--inline">
-                        <div class="fr-radio-group">
-                            {{ choice.tag }}
-                            <label class="fr-label" for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
-                        </div>
-                    </div>
-                {% endfor %}
-            </fieldset>
+            {% if field.field.widget.input_type == "radio" %}
+                {% include "contrib/forms/dsfr-radio.html" %}
+            {% elif field.field.widget.input_type == "int_or_radio" %}
+                {% include "contrib/forms/dsfr-int-or-unique.html" %}
+            {% endif %}
         {% endfor %}
-        <button class="fr-btn" type="submit">Valider</button>
+        <button class="fr-btn" type="submit">{% translate "Valider" %}</button>
     </form>
 {% endblock editorial_content %}
 {#TODO bouton suivant précedent ? #}

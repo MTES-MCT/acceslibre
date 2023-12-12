@@ -28,12 +28,18 @@ STEP_QUESTION = Question(
     display_conditions=[],
 )
 
-# TODO how to handle the int case here ?
+# number_of_steps = Answer(
+#     # TODO display this label ?
+#     label=translate_lazy("Nombre de marche"),
+#     picture="",
+#     modelisations=[{"field": "entree_marches"}],
+#     is_int=True,
+# )
+
 STEP_NUMBER_QUESTION = Question(
     label=translate_lazy("Combien de marches y a-t-il pour entrer dans l'établissement ?"),
     type=UNIQUE_OR_INT_ANSWER,
     answers=[not_sure_answer(["entree_marches"])],
-    # TODO write me
     display_conditions=["entree_not_plain_pied"],
 )
 
