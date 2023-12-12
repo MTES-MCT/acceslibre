@@ -38,17 +38,7 @@ class ContributionStepView(FormView):
             return reverse("contribution-base-success", kwargs={"erp_slug": self.erp.slug})
 
     def form_valid(self, form):
-        # TODO move me to form.save() ?
-        question = self._get_question()
-        access = self.erp.accessibilite
-
-        # TODO simplify this ?
-        for answer in question.answers:
-            if answer.label == form.cleaned_data.get("question"):
-                for modelisation in answer.modelisations:
-                    setattr(access, modelisation["field"], modelisation["value"])
-
-        access.save()
+        form.save(self.erp.accessibilite)
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):

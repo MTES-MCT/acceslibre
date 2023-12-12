@@ -23,11 +23,7 @@ STEP_QUESTION = Question(
     answers=[
         at_least_one_step,
         no_step,
-        not_sure_answer(
-            [
-                "entree_plain_pied",
-            ]
-        ),
+        not_sure_answer(["entree_plain_pied"]),
     ],
     display_conditions=[],
 )
@@ -58,11 +54,7 @@ STEP_DIRECTION_QUESTION = Question(
     answers=[
         stairs_up,
         stairs_down,
-        not_sure_answer(
-            [
-                "entree_marches_sens",
-            ]
-        ),
+        not_sure_answer(["entree_marches_sens"]),
     ],
     display_conditions=["entree_not_plain_pied"],
 )
@@ -93,11 +85,7 @@ STEP_RAMP_QUESTION = Question(
         fixed_ramp,
         movable_ramp,
         no_ramp,
-        not_sure_answer(
-            [
-                "entree_marches_rampe",
-            ]
-        ),
+        not_sure_answer(["entree_marches_rampe"]),
     ],
     display_conditions=["entree_not_plain_pied"],
 )

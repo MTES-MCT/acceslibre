@@ -9,11 +9,7 @@ PARKING_QUESTION = Question(
     answers=[
         yes_answer(["stationnement_presence"]),
         no_answer(["stationnement_presence"]),
-        not_sure_answer(
-            [
-                "stationnement_presence",
-            ]
-        ),
+        not_sure_answer(["stationnement_presence"]),
     ],
     display_conditions=[],
 )
@@ -25,11 +21,7 @@ PARKING_FOR_DISABLED_QUESTION = Question(
     answers=[
         yes_answer(["stationnement_pmr"]),
         no_answer(["stationnement_pmr"]),
-        not_sure_answer(
-            [
-                "stationnement_pmr",
-            ]
-        ),
+        not_sure_answer(["stationnement_pmr"]),
     ],
     display_conditions=["has_parking"],
 )

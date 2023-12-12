@@ -47,7 +47,7 @@ toilets_with_access = Answer(
 )
 
 toilets_without_access = Answer(
-    label=translate_lazy("Personnel a priori non sensibilisé"),
+    label=translate_lazy("Toilettes classiques"),
     picture="foo.jpg",
     modelisations=[
         {"field": "sanitaires_presence", "value": True},
@@ -56,7 +56,7 @@ toilets_without_access = Answer(
 )
 
 no_toilets = Answer(
-    label=translate_lazy("Pas de personnel"),
+    label=translate_lazy("Pas de toilettes"),
     picture="foo.jpg",
     modelisations=[
         {"field": "sanitaires_presence", "value": False},
