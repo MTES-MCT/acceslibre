@@ -24,3 +24,7 @@ def is_cultural_place(**kwargs):
 
 def has_audiodescription(**kwargs):
     return kwargs["access"].accueil_audiodescription_presence is True
+
+
+def has_at_least_one_room(**kwargs):
+    return kwargs["access"].accueil_chambre_nombre_accessibles >= 1

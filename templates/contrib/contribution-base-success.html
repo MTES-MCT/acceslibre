@@ -2,18 +2,23 @@
 {% load static %}
 {% load i18n %}
 {% block top_fluid_content %}
-    <div class="fr-follow bg-alt-blue-france-975">
-        <div class="fr-container">
-            <div class="fr-follow__newsletter">
-                <div>
-                    <h1 class="fr-h2 fr-follow__title">
-                        {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    Youpi on a fini
+    <h2 class="fr-h2">{% translate "Merci !" %}</h2>
+    <p>
+        {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }} est en
+      ligne{% endblocktranslate %}
+    </p>
+    <img src="https://placehold.it/200x200" alt="TODO">
+    <div class="fr-callout fr-icon-information-line">
+        <h3 class="fr-callout__title">
+            {% translate "Score de la fiche actuelle : " %} {{ erp.accessibilite.completion_rate }}%
+        </h3>
+        <p class="fr-callout__text">{% translate "Les informations essentielles sont saisies, encore un effort !" %}</p>
+        <p class="fr-callout__text">
+            {% translate "As tu quelques minutes pour apporter des informations complémentaires ?" %}
+        </p>
+        <button class="fr-btn">{% translate "Oui, je continue" %}</button>
+        <button class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</button>
+    </div>
 {% endblock editorial_content %}

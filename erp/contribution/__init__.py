@@ -3,8 +3,11 @@ import erp.contribution.conditions as condition_module
 from .access_doors import DOOR_QUESTION, DOOR_SIZE_QUESTION, DOOR_TYPE_QUESTION
 from .access_for_specific_category import (
     AUDIODESCRIPTION_QUESTION,
+    AUDIODESCRIPTION_TYPE_QUESTION,
     HEARING_EQUIPMENT_QUESTION,
     HEARING_EQUIPMENT_TYPE_QUESTION,
+    NUMBER_OF_ROOMS_QUESTION,
+    ROOM_QUESTION,
 )
 from .access_misc import TEAM_TRAINING_QUESTION, TOILETS_QUESTION
 from .access_parking import PARKING_FOR_DISABLED_NEARBY_QUESTION, PARKING_FOR_DISABLED_QUESTION, PARKING_QUESTION
@@ -24,14 +27,15 @@ CONTRIBUTION_QUESTIONS = [
     PARKING_QUESTION,
     PARKING_FOR_DISABLED_QUESTION,
     PARKING_FOR_DISABLED_NEARBY_QUESTION,
-    # TODO questions chambres
+    ROOM_QUESTION,
+    NUMBER_OF_ROOMS_QUESTION,
     HEARING_EQUIPMENT_QUESTION,
     HEARING_EQUIPMENT_TYPE_QUESTION,
     AUDIODESCRIPTION_QUESTION,
+    AUDIODESCRIPTION_TYPE_QUESTION,
 ]
 
 
-# TODO handle end of process / error
 def get_next_question_number(question_number, *, erp):
     next_question_number = question_number + 1
     print("IN get_next_question_number")
