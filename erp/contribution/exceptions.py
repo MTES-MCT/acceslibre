@@ -1,4 +1,4 @@
-class EndOfContributionException(Exception):
+class ContributionStopIteration(Exception):
     pass
 
 

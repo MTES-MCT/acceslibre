@@ -12,7 +12,7 @@ from .access_for_specific_category import (
 from .access_misc import TEAM_TRAINING_QUESTION, TOILETS_QUESTION
 from .access_parking import PARKING_FOR_DISABLED_NEARBY_QUESTION, PARKING_FOR_DISABLED_QUESTION, PARKING_QUESTION
 from .access_steps import STEP_DIRECTION_QUESTION, STEP_NUMBER_QUESTION, STEP_QUESTION, STEP_RAMP_QUESTION
-from .exceptions import EndOfContributionException
+from .exceptions import ContributionStopIteration
 
 CONTRIBUTION_QUESTIONS = [
     STEP_QUESTION,
@@ -36,16 +36,16 @@ CONTRIBUTION_QUESTIONS = [
 ]
 
 
-def get_next_question_number(question_number, *, erp):
-    next_question_number = question_number + 1
-    print("IN get_next_question_number")
-    print(next_question_number)
+def _find_question_in_given_direction(question_number, erp, offset):
+    next_question_number = question_number + offset
+    if next_question_number < 0:
+        raise ContributionStopIteration
 
     while True:
         try:
             next_question = CONTRIBUTION_QUESTIONS[next_question_number]
         except IndexError:
-            raise EndOfContributionException
+            raise ContributionStopIteration
 
         if not next_question.display_conditions:
             return next_question_number
@@ -55,4 +55,12 @@ def get_next_question_number(question_number, *, erp):
         if should_display:
             return next_question_number
 
-        next_question_number += 1
+        next_question_number += offset
+
+
+def get_previous_question_number(question_number, *, erp):
+    return _find_question_in_given_direction(question_number, erp, -1)
+
+
+def get_next_question_number(question_number, *, erp):
+    return _find_question_in_given_direction(question_number, erp, +1)

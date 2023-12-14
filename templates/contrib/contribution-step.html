@@ -30,8 +30,7 @@
                 {% include "contrib/forms/dsfr-int-or-unique.html" %}
             {% endif %}
         {% endfor %}
-        {% include "contrib/includes/prevnext.html" with next_step_title="suivante" %}
+        {% include "contrib/includes/prevnext.html" with next_step_title="suivante" prev_route=previous_url %}
     </form>
 {% endblock editorial_content %}
-{#TODO bouton précedent ? #}
 {#TODO utiliser composant du bouton de radio riche#}

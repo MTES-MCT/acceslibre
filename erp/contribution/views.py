@@ -4,11 +4,13 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views.generic.edit import FormView
 
-from erp.contribution import CONTRIBUTION_QUESTIONS, get_next_question_number
+from erp.contribution import CONTRIBUTION_QUESTIONS, get_next_question_number, get_previous_question_number
 from erp.models import Erp
 
-from .exceptions import EndOfContributionException
+from .exceptions import ContributionStopIteration
 from .forms import ContributionForm
+
+# TODO tests
 
 
 class ContributionStepView(FormView):
@@ -34,7 +36,7 @@ class ContributionStepView(FormView):
         try:
             next_question = get_next_question_number(self.step, erp=self.erp)
             return reverse("contribution-step", kwargs={"erp_slug": self.erp.slug, "step_number": next_question})
-        except EndOfContributionException:
+        except ContributionStopIteration:
             return reverse("contribution-base-success", kwargs={"erp_slug": self.erp.slug})
 
     def form_valid(self, form):
@@ -46,6 +48,12 @@ class ContributionStepView(FormView):
         context["erp"] = self.erp
         context["step"] = self.step + 1
         context["nb_step"] = len(CONTRIBUTION_QUESTIONS) + 1
+        try:
+            question_number = get_previous_question_number(self.step, erp=self.erp)
+            url = reverse("contribution-step", kwargs={"erp_slug": self.erp.slug, "step_number": question_number})
+            context["previous_url"] = url
+        except ContributionStopIteration:
+            pass
         return context
 
 
