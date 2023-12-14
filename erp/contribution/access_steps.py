@@ -28,13 +28,6 @@ STEP_QUESTION = Question(
     display_conditions=[],
 )
 
-# number_of_steps = Answer(
-#     # TODO display this label ?
-#     label=translate_lazy("Nombre de marche"),
-#     picture="",
-#     modelisations=[{"field": "entree_marches"}],
-#     is_int=True,
-# )
 
 STEP_NUMBER_QUESTION = Question(
     label=translate_lazy("Combien de marches y a-t-il pour entrer dans l'établissement ?"),

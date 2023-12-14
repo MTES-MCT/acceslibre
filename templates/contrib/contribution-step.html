@@ -15,7 +15,12 @@
     </div>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    {#  TODO add stepper#}
+    <div class="fr-stepper">
+        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }}{% endblocktranslate %}</span>
+        <progress max="{{ nb_step }}" value="{{ step }}">
+            {% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }}{% endblocktranslate %}
+        </progress>
+    </div>
     <form method="POST">
         {% csrf_token %}
         {% for field in form %}

@@ -44,6 +44,8 @@ class ContributionStepView(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context["erp"] = self.erp
+        context["step"] = self.step + 1
+        context["nb_step"] = len(CONTRIBUTION_QUESTIONS) + 1
         return context
 
 
