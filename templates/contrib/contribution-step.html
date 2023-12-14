@@ -16,9 +16,9 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     <div class="fr-stepper">
-        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }}{% endblocktranslate %}</span>
+        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}</span>
         <progress max="{{ nb_step }}" value="{{ step }}">
-            {% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }}{% endblocktranslate %}
+            {% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}
         </progress>
     </div>
     <form method="POST">
@@ -30,8 +30,8 @@
                 {% include "contrib/forms/dsfr-int-or-unique.html" %}
             {% endif %}
         {% endfor %}
-        <button class="fr-btn" type="submit">{% translate "Valider" %}</button>
+        {% include "contrib/includes/prevnext.html" with next_step_title="suivante" %}
     </form>
 {% endblock editorial_content %}
-{#TODO bouton suivant précedent ? #}
+{#TODO bouton précedent ? #}
 {#TODO utiliser composant du bouton de radio riche#}

@@ -27,6 +27,7 @@ $viewport-xl: 1200px;
 
 @import 'loader.scss';
 @import 'progress.scss';
+@import 'half-circle-progress-bar.scss';
 
 #cta .fr-btn {
   @media screen and (max-width: $viewport-md) {

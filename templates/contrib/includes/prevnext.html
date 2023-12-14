@@ -11,19 +11,19 @@
                     <a class="btn btn-link" href="{{ prev_route }}">« {% translate "Précédent" %}</a>
                 </li>
             {% endif %}
-            {% if libelle_step.next %}
+            {% if next_step_title %}
                 <li>
                     <input type="submit"
                            class="fr-btn btn-primary"
                            name="contribute"
                            value='{% translate "Continuer" %}'
-                           aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ libelle_step.next|capfirst }} ">
+                           aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ next_step_title|capfirst }} ">
                 </li>
             {% endif %}
             {% if publier_route %}
                 <li>
                     <input type="submit"
-                           class="{% if libelle_step.next %}btn btn-link {% else %}fr-btn btn-primary{% endif %}"
+                           class="{% if next_step_title %}btn btn-link {% else %}fr-btn btn-primary{% endif %}"
                            name="publier"
                            value='{% translate "Publier" %}'>
                 </li>
