@@ -953,9 +953,11 @@ class Erp(models.Model):
         return all([self.accessibilite == e.accessibilite for e in other_erps])
 
     @property
-    def was_created_by_human(self):
-        return self.source == self.SOURCE_PUBLIC or (
-            self.import_email and not self.source == self.SOURCE_SERVICE_PUBLIC
+    def is_human_source(self):
+        return bool(
+            self.source == self.SOURCE_PUBLIC
+            or self.user
+            or (self.import_email and not self.source == self.SOURCE_SERVICE_PUBLIC)
         )
 
     @property

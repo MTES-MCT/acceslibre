@@ -8,10 +8,10 @@ def find_main_erp_and_duplicates(erps):
     if len(erps) < 2 or not all([e.has_accessibilite() for e in erps]):
         raise MainERPIdentificationException
 
-    created_by_human = [e for e in erps if e.was_created_by_human]
-    if len(created_by_human) == 1:
-        duplicates = [e for e in erps if not e.was_created_by_human]
-        return created_by_human[0], duplicates
+    is_human_source = [e for e in erps if e.is_human_source]
+    if len(is_human_source) == 1:
+        duplicates = [e for e in erps if not e.is_human_source]
+        return is_human_source[0], duplicates
 
     created_by_business_owner = [e for e in erps if e.was_created_by_business_owner]
     if len(created_by_business_owner) == 1:
@@ -65,7 +65,7 @@ def get_most_reliable_field_value(erp_a, erp_b, field_name):
     if b_field is not None and a_field in nullable:
         return b_field
 
-    for condition in ("was_created_by_human", "was_created_by_business_owner", "was_created_by_administration"):
+    for condition in ("is_human_source", "was_created_by_business_owner", "was_created_by_administration"):
         value = _get_value_by_condition(erp_a, erp_b, condition, field_name)
         if value:
             return value

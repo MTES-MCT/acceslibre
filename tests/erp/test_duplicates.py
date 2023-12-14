@@ -28,14 +28,27 @@ def test_cannot_identify_main_erp_when_too_few_erps():
 
 @pytest.mark.django_db
 def test_will_prefer_erp_created_by_human():
-    erp_1 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC)
-    by_human = ErpWithAccessibiliteFactory(source=Erp.SOURCE_PUBLIC)
-    erp_2 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_ACCEO)
-    erp_3 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC)
+    erp_1 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC, user=None)
+    by_human = ErpWithAccessibiliteFactory(source=Erp.SOURCE_PUBLIC, user=None)
+    erp_2 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_ACCEO, user=None)
+    erp_3 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC, user=None)
 
     main, duplicates = find_main_erp_and_duplicates([erp_1, by_human, erp_2, erp_3])
 
     assert main == by_human
+    assert duplicates == [erp_1, erp_2, erp_3]
+
+
+@pytest.mark.django_db
+def test_will_prefer_erp_attributed_to__human():
+    erp_1 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC, user=None)
+    edited_by_human = ErpWithAccessibiliteFactory(source=Erp.SOURCE_ACCEO, user=UserFactory())
+    erp_2 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_ACCEO, user=None)
+    erp_3 = ErpWithAccessibiliteFactory(source=Erp.SOURCE_SERVICE_PUBLIC, user=None)
+
+    main, duplicates = find_main_erp_and_duplicates([erp_1, edited_by_human, erp_2, erp_3])
+
+    assert main == edited_by_human
     assert duplicates == [erp_1, erp_2, erp_3]
 
 
@@ -195,26 +208,26 @@ def test_merge_values_simple_case(a_value, b_value, expected):
 
 
 def test_merge_created_by_rules():
-    erp_a = MagicMock(was_created_by_human=True, accessibilite=MagicMock(entree_vitree=True))
-    erp_b = MagicMock(was_created_by_human=False, accessibilite=MagicMock(entree_vitree=False))
+    erp_a = MagicMock(is_human_source=True, accessibilite=MagicMock(entree_vitree=True))
+    erp_b = MagicMock(is_human_source=False, accessibilite=MagicMock(entree_vitree=False))
     assert get_most_reliable_field_value(erp_a, erp_b, "entree_vitree") is True
 
     erp_a = MagicMock(
-        was_created_by_human=False, was_created_by_business_owner=True, accessibilite=MagicMock(entree_vitree=True)
+        is_human_source=False, was_created_by_business_owner=True, accessibilite=MagicMock(entree_vitree=True)
     )
     erp_b = MagicMock(
-        was_created_by_human=False, was_created_by_business_owner=False, accessibilite=MagicMock(entree_vitree=False)
+        is_human_source=False, was_created_by_business_owner=False, accessibilite=MagicMock(entree_vitree=False)
     )
     assert get_most_reliable_field_value(erp_a, erp_b, "entree_vitree") is True
 
     erp_a = MagicMock(
-        was_created_by_human=False,
+        is_human_source=False,
         was_created_by_business_owner=False,
         was_created_by_administration=True,
         accessibilite=MagicMock(entree_vitree=True),
     )
     erp_b = MagicMock(
-        was_created_by_human=False,
+        is_human_source=False,
         was_created_by_business_owner=False,
         was_created_by_administration=False,
         accessibilite=MagicMock(entree_vitree=False),
@@ -224,14 +237,14 @@ def test_merge_created_by_rules():
 
 def test_merge_oldest_if_no_other_option():
     erp_a = MagicMock(
-        was_created_by_human=False,
+        is_human_source=False,
         updated_at=datetime.now(),
         was_created_by_business_owner=False,
         was_created_by_administration=False,
         accessibilite=MagicMock(entree_vitree=False),
     )
     erp_b = MagicMock(
-        was_created_by_human=False,
+        is_human_source=False,
         updated_at=datetime.now(),
         was_created_by_business_owner=False,
         was_created_by_administration=False,
