@@ -1,0 +1,24 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block top_fluid_content %}
+{% endblock top_fluid_content %}
+{% block editorial_content %}
+    <h2 class="fr-h2">{% translate "Bravo !" %}</h2>
+    <p>{% blocktranslate %}Votre fiche est publiée avec toutes les informations utiles !{% endblocktranslate %}</p>
+    <img src="https://placehold.it/200x200" alt="Placehold image" class="m-4">
+    <div class="fr-callout fr-icon-information-line">
+        <div class="half-progress">
+            <div class="barOverflow">
+                <div class="bar"></div>
+            </div>
+            <span>{{ erp.accessibilite.completion_rate }}</span>%
+        </div>
+        <h3 class="fr-callout__title">
+            {% translate "Score de la fiche actuelle : " %} {{ erp.accessibilite.completion_rate }}%
+        </h3>
+        <p class="fr-callout__text">{% translate "Bravo, les informations sont de super qualité !" %}</p>
+        <a href="{{ erp.get_absolute_url }}" class="fr-btn">{% translate "Voir la fiche" %}</a>
+        <a href="{% url 'home' %}" class="fr-btn fr-btn--secondary">{% translate "Retour à l'accueil" %}</a>
+    </div>
+{% endblock editorial_content %}

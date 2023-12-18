@@ -16,9 +16,9 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     <div class="fr-stepper">
-        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}</span>
-        <progress max="{{ nb_step }}" value="{{ step }}">
-            {% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}
+        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_sections %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}</span>
+        <progress max="{{ nb_sections }}" value="{{ step }}">
+            {% blocktranslate with step=step total=nb_sections %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}
         </progress>
     </div>
     <form method="post" id="contribution-form">
@@ -28,6 +28,10 @@
                 {% include "contrib/forms/dsfr-radio.html" %}
             {% elif field.field.widget.input_type == "int_or_radio" %}
                 {% include "contrib/forms/dsfr-int-or-unique.html" %}
+            {% elif field.field.widget.input_type == "checkbox" %}
+                {% include "contrib/forms/dsfr-checkbox.html" %}
+            {% elif field.field.widget.input_type == "text" %}
+                {% include "contrib/forms/dsfr-textarea.html" %}
             {% endif %}
         {% endfor %}
         {% include "contrib/includes/prevnext.html" with next_step_title="suivante" prev_route=previous_url %}

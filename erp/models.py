@@ -976,6 +976,10 @@ class Erp(models.Model):
     def is_cultural_place(self):
         return self.activite.groups.filter(name="Lieux culturels").exists()
 
+    @property
+    def is_accommodation(self):
+        return self.activite.groups.filter(name="Hébergement").exists()
+
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite
         access_source = erp.accessibilite
