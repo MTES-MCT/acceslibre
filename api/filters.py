@@ -1,4 +1,7 @@
+from datetime import datetime, timedelta
+
 from django.contrib.gis.geos import Point
+from django.db.models import Q
 from rest_framework.filters import BaseFilterBackend
 from rest_framework_gis.filters import InBBoxFilter
 
@@ -96,8 +99,20 @@ class ErpFilter(BaseFilterBackend):
             queryset = queryset.nearest(Point(lon, lat, srid=4326))
             use_distinct = False
 
+        number_of_days = request.query_params.get("created_or_updated_in_last_days", None)
+        if number_of_days is not None:
+            days_ago = datetime.now() - timedelta(days=int(number_of_days))
+            queryset = queryset.filter(
+                Q(created_at__gt=days_ago)
+                | Q(updated_at__gt=days_ago)
+                | Q(accessibilite__created_at__gt=days_ago)
+                | Q(accessibilite__updated_at__gt=days_ago)
+            )
+            use_distinct = True
+
         if use_distinct:
             queryset = queryset.distinct("id", "nom")
+
         return queryset
 
 
