@@ -1,6 +1,4 @@
 from django.http import Http404
-
-# Working url : http://127.0.0.1:8000/contrib/v2/step/mairie-42/0
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views.generic.edit import FormView
 
@@ -9,8 +7,6 @@ from erp.models import Erp
 
 from .exceptions import ContributionStopIteration
 from .forms import ContributionForm
-
-# TODO tests
 
 
 class ContributionStepView(FormView):

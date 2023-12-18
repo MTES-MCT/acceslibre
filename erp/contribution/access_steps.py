@@ -62,29 +62,57 @@ STEP_DIRECTION_QUESTION = Question(
 fixed_ramp = Answer(
     label=translate_lazy("Rampe fixe"),
     picture="foo.jpg",
-    modelisations=[{"field": "entree_marches_rampe", "value": RAMPE_FIXE}],
+    modelisations=[
+        {"field": "entree_marches_rampe", "value": RAMPE_FIXE},
+        {"field": "entree_ascenseur", "value": False},
+    ],
 )
 movable_ramp = Answer(
     label=translate_lazy("Rampe amovible"),
     picture="foo.jpg",
-    modelisations=[{"field": "entree_marches_rampe", "value": RAMPE_AMOVIBLE}],
+    modelisations=[
+        {"field": "entree_marches_rampe", "value": RAMPE_AMOVIBLE},
+        {"field": "entree_ascenseur", "value": False},
+    ],
 )
 
-no_ramp = Answer(
-    label=translate_lazy("Pas de rampe"),
+no_equipment = Answer(
+    label=translate_lazy("Ni rampe ni ascenseur"),
     picture="foo.jpg",
-    modelisations=[{"field": "entree_marches_rampe", "value": RAMPE_AUCUNE}],
+    modelisations=[
+        {"field": "entree_marches_rampe", "value": RAMPE_AUCUNE},
+        {"field": "entree_ascenseur", "value": False},
+    ],
 )
 
+elevator = Answer(
+    label=translate_lazy("Ascenceur ou élévateur"),
+    picture="foo.jpg",
+    modelisations=[
+        {"field": "entree_marches_rampe", "value": RAMPE_AUCUNE},
+        {"field": "entree_ascenseur", "value": True},
+    ],
+)
+
+both_equipments = Answer(
+    label=translate_lazy("Les 2! Rampe et ascenceur / élévateur"),
+    picture="foo.jpg",
+    modelisations=[
+        {"field": "entree_marches_rampe", "value": RAMPE_FIXE},
+        {"field": "entree_ascenseur", "value": True},
+    ],
+)
 
 STEP_RAMP_QUESTION = Question(
     label=translate_lazy("Avez-vous une rampe d'accès pour entrer dans l'établissement ?"),
     type=UNIQUE_ANSWER,
     answers=[
+        no_equipment,
+        elevator,
         fixed_ramp,
         movable_ramp,
-        no_ramp,
-        not_sure_answer(["entree_marches_rampe"]),
+        both_equipments,
+        not_sure_answer(["entree_marches_rampe", "entree_ascenseur"]),
     ],
     display_conditions=["entree_not_plain_pied"],
 )

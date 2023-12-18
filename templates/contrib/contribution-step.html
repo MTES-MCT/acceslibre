@@ -21,7 +21,7 @@
             {% blocktranslate with step=step total=nb_step %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}
         </progress>
     </div>
-    <form method="POST">
+    <form method="POST" id="contribution-form">
         {% csrf_token %}
         {% for field in form %}
             {% if field.field.widget.input_type == "radio" %}
