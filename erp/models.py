@@ -968,6 +968,10 @@ class Erp(models.Model):
     def was_created_by_administration(self):
         return self.user_type == self.USER_ROLE_ADMIN
 
+    @property
+    def is_cultural_place(self):
+        return self.activite.groups.filter(name="Lieux culturels").exists()
+
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite
         access_source = erp.accessibilite

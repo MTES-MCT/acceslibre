@@ -803,10 +803,7 @@ def contrib_global_search(request):
             "form": forms.ProviderGlobalSearchForm(initial=request.GET.copy()),
             "commune_search": commune,
             "step": 1,
-            "libelle_step": {
-                "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
-            },
+            "next_step_title": schema.SECTION_TRANSPORT,
             "results_bdd": results_bdd,
             "results": results,
             "error": error,
@@ -884,10 +881,7 @@ def contrib_admin_infos(request):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
-            "libelle_step": {
-                "current": "informations",
-                "next": schema.SECTION_A_PROPOS,
-            },
+            "next_step_title": schema.SECTION_A_PROPOS,
             "form": form,
             "data_error": data_error,
             "existing_matches": existing_matches,
@@ -947,7 +941,7 @@ def contrib_edit_infos(request, erp_slug):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
-            "libelle_step": {"current": "informations", "next": libelle_next},
+            "next_step_title": libelle_next,
             "erp": erp,
             "form": form,
             "other_activity": Activite.objects.only("id").get(slug="autre"),
@@ -994,10 +988,7 @@ def contrib_a_propos(request, erp_slug):
         context={
             "step": 2,
             "prev_route": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
-            "libelle_step": {
-                "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
-            },
+            "next_step_title": schema.SECTION_TRANSPORT,
             "erp": erp,
             "form": form,
         },
@@ -1026,7 +1017,7 @@ def process_accessibilite_form(
     template_name,
     redirect_route,
     prev_route=None,
-    libelle_step=None,
+    next_step_title=None,
 ):
     """
     Traitement générique des requêtes sur les formulaires d'accessibilité
@@ -1074,7 +1065,7 @@ def process_accessibilite_form(
         template_name=template_name,
         context={
             "step": step,
-            "libelle_step": libelle_step,
+            "next_step_title": next_step_title,
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
@@ -1100,10 +1091,7 @@ def contrib_transport(request, erp_slug):
         "contrib/3-transport.html",
         "contrib_exterieur",
         prev_route=prev_route,
-        libelle_step={
-            "current": schema.SECTION_TRANSPORT,
-            "next": schema.SECTION_CHEMINEMENT_EXT,
-        },
+        next_step_title=schema.SECTION_CHEMINEMENT_EXT,
     )
 
 
@@ -1117,10 +1105,7 @@ def contrib_exterieur(request, erp_slug):
         "contrib/4-exterieur.html",
         "contrib_entree",
         prev_route="contrib_transport",
-        libelle_step={
-            "current": schema.SECTION_CHEMINEMENT_EXT,
-            "next": schema.SECTION_ENTREE,
-        },
+        next_step_title=schema.SECTION_ENTREE,
     )
 
 
@@ -1134,7 +1119,7 @@ def contrib_entree(request, erp_slug):
         "contrib/5-entree.html",
         "contrib_accueil",
         prev_route="contrib_exterieur",
-        libelle_step={"current": schema.SECTION_ENTREE, "next": schema.SECTION_ACCUEIL},
+        next_step_title=schema.SECTION_ACCUEIL,
     )
 
 
@@ -1148,10 +1133,7 @@ def contrib_accueil(request, erp_slug):
         "contrib/6-accueil.html",
         "contrib_commentaire",
         prev_route="contrib_entree",
-        libelle_step={
-            "current": schema.SECTION_ACCUEIL,
-            "next": schema.SECTION_COMMENTAIRE,
-        },
+        next_step_title=schema.SECTION_COMMENTAIRE,
     )
 
 
@@ -1190,7 +1172,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib/7-commentaire.html",
         "contrib_publication",
         prev_route="contrib_accueil",
-        libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": None},
+        next_step_title=None,
     )
 
 
@@ -1248,7 +1230,7 @@ def contrib_publication(request, erp_slug):
         template_name="contrib/8-publication.html",
         context={
             "step": 8,
-            "libelle_step": {"current": "publication", "next": None},
+            "next_step_title": None,
             "erp": erp,
             "form": form,
             "prev_route": reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),

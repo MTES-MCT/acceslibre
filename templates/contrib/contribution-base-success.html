@@ -1,0 +1,30 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block top_fluid_content %}
+{% endblock top_fluid_content %}
+{% block editorial_content %}
+    <h2 class="fr-h2">{% translate "Merci !" %}</h2>
+    <p>
+        {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }} est en
+      ligne{% endblocktranslate %}
+    </p>
+    <img src="https://placehold.it/200x200" alt="Placehold image" class="m-4">
+    <div class="fr-callout fr-icon-information-line">
+        <div class="half-progress">
+            <div class="barOverflow">
+                <div class="bar"></div>
+            </div>
+            <span>{{ erp.accessibilite.completion_rate }}</span>%
+        </div>
+        <h3 class="fr-callout__title">
+            {% translate "Score de la fiche actuelle : " %} {{ erp.accessibilite.completion_rate }}%
+        </h3>
+        <p class="fr-callout__text">{% translate "Les informations essentielles sont saisies, encore un effort !" %}</p>
+        <p class="fr-callout__text">
+            {% translate "As tu quelques minutes pour apporter des informations complémentaires ?" %}
+        </p>
+        <button class="fr-btn">{% translate "Oui, je continue" %}</button>
+        <button class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</button>
+    </div>
+{% endblock editorial_content %}
