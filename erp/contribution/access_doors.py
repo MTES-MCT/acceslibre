@@ -10,6 +10,7 @@ from erp.schema import (
 )
 
 from .access_utils import not_sure_answer
+from .conditions import has_door
 from .dataclasses import UNIQUE_ANSWER, Answer, Question
 
 porte_battante = Answer(
@@ -65,7 +66,6 @@ DOOR_QUESTION = Question(
     label=translate_lazy("De quel type est la porte d'entrée ?"),
     type=UNIQUE_ANSWER,
     answers=[porte_battante, porte_coulissante, porte_tambour, tourniquet, unsure],
-    display_conditions=[],
 )
 
 
@@ -92,7 +92,7 @@ DOOR_TYPE_QUESTION = Question(
             ]
         ),
     ],
-    display_conditions=["has_door"],
+    display_conditions=[has_door],
 )
 
 large_door = Answer(
@@ -122,5 +122,5 @@ DOOR_SIZE_QUESTION = Question(
             ]
         ),
     ],
-    display_conditions=["has_door"],
+    display_conditions=[has_door],
 )

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from django.utils.safestring import mark_safe
 
@@ -11,7 +11,7 @@ class Question:
     label: str
     type: str
     answers: list
-    display_conditions: list
+    display_conditions: list = field(default_factory=list)
 
     @property
     def choices(self):

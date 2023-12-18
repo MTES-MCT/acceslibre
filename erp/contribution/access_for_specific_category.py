@@ -13,6 +13,7 @@ from erp.schema import (
 )
 
 from .access_utils import no_answer, not_sure_answer, yes_answer
+from .conditions import has_at_least_one_room, has_audiodescription, has_hearing_equipment, is_cultural_place
 from .dataclasses import UNIQUE_ANSWER, UNIQUE_OR_INT_ANSWER, Answer, Question
 
 has_rooms = Answer(
@@ -35,7 +36,6 @@ ROOM_QUESTION = Question(
     label=translate_lazy("Dans cet établissement, y a-t-il des chambres PMR ?"),
     type=UNIQUE_ANSWER,
     answers=[has_rooms, no_rooms, not_sure_answer(["accueil_chambre_nombre_accessibles"])],
-    display_conditions=[],
 )
 
 not_sure_number_of_rooms = Answer(
@@ -50,7 +50,7 @@ NUMBER_OF_ROOMS_QUESTION = Question(
     label=translate_lazy("Combien y a-t-il de chambres PMR ?"),
     type=UNIQUE_OR_INT_ANSWER,
     answers=[not_sure_number_of_rooms],
-    display_conditions=["has_at_least_one_room"],
+    display_conditions=[has_at_least_one_room],
 )
 
 
@@ -62,7 +62,7 @@ HEARING_EQUIPMENT_QUESTION = Question(
         no_answer(["accueil_equipements_malentendants_presence"]),
         not_sure_answer(["accueil_equipements_malentendants_presence"]),
     ],
-    display_conditions=["is_cultural_place"],
+    display_conditions=[is_cultural_place],
 )
 
 fixed_bim = Answer(
@@ -106,7 +106,7 @@ HEARING_EQUIPMENT_TYPE_QUESTION = Question(
     label=translate_lazy("A l'accueil, y a-t-il un équipement pour les personnes sourdes ou malentendantes ?"),
     type=UNIQUE_ANSWER,
     answers=[fixed_bim, removable_bim, lsf, lfpc, subtitles, not_sure_answer(["accueil_equipements_malentendants"])],
-    display_conditions=["is_cultural_place", "has_hearing_equipment"],
+    display_conditions=[is_cultural_place, has_hearing_equipment],
 )
 
 
@@ -118,7 +118,7 @@ AUDIODESCRIPTION_QUESTION = Question(
         no_answer(["accueil_audiodescription_presence"]),
         not_sure_answer(["accueil_audiodescription_presence"]),
     ],
-    display_conditions=["is_cultural_place"],
+    display_conditions=[is_cultural_place],
 )
 
 
@@ -161,5 +161,5 @@ AUDIODESCRIPTION_TYPE_QUESTION = Question(
         without_equipment,
         not_sure_answer(["accueil_equipements_malentendants"]),
     ],
-    display_conditions=["is_cultural_place", "has_audiodescription"],
+    display_conditions=[is_cultural_place, has_audiodescription],
 )

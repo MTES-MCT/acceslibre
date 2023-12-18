@@ -23,17 +23,14 @@ class ContributionForm(forms.Form):
             raise UnknownQuestionTypeException
 
     def save(self, accessibility):
-        # TODO simplify this ?
         users_answer = self.cleaned_data.get("question")
         if self.question.is_unique_type:
             picked_answer = next(a for a in self.question.answers if a.label == users_answer)
             for modelisation in picked_answer.modelisations:
                 setattr(accessibility, modelisation["field"], modelisation["value"])
         elif self.question.is_unique_or_int_type:
-            if not users_answer:
-                users_answer = None
             field = self.question.answers[0].modelisations[0]["field"]
-            setattr(accessibility, field, users_answer)
+            setattr(accessibility, field, users_answer if users_answer else None)
         else:
             raise UnknownQuestionTypeException
 

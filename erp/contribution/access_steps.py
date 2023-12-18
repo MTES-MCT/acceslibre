@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from erp.schema import ESCALIER_DESCENDANT, ESCALIER_MONTANT, RAMPE_AMOVIBLE, RAMPE_AUCUNE, RAMPE_FIXE
 
 from .access_utils import not_sure_answer
+from .conditions import entree_not_plain_pied
 from .dataclasses import UNIQUE_ANSWER, UNIQUE_OR_INT_ANSWER, Answer, Question
 
 at_least_one_step = Answer(
@@ -25,7 +26,6 @@ STEP_QUESTION = Question(
         no_step,
         not_sure_answer(["entree_plain_pied"]),
     ],
-    display_conditions=[],
 )
 
 
@@ -33,7 +33,7 @@ STEP_NUMBER_QUESTION = Question(
     label=translate_lazy("Combien de marches y a-t-il pour entrer dans l'établissement ?"),
     type=UNIQUE_OR_INT_ANSWER,
     answers=[not_sure_answer(["entree_marches"])],
-    display_conditions=["entree_not_plain_pied"],
+    display_conditions=[entree_not_plain_pied],
 )
 
 stairs_up = Answer(
@@ -55,7 +55,7 @@ STEP_DIRECTION_QUESTION = Question(
         stairs_down,
         not_sure_answer(["entree_marches_sens"]),
     ],
-    display_conditions=["entree_not_plain_pied"],
+    display_conditions=[entree_not_plain_pied],
 )
 
 
@@ -114,5 +114,5 @@ STEP_RAMP_QUESTION = Question(
         both_equipments,
         not_sure_answer(["entree_marches_rampe", "entree_ascenseur"]),
     ],
-    display_conditions=["entree_not_plain_pied"],
+    display_conditions=[entree_not_plain_pied],
 )

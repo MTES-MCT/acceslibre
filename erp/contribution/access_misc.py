@@ -33,7 +33,6 @@ TEAM_TRAINING_QUESTION = Question(
     label=translate_lazy("Y a-t-il du personnel et est-il sensibilisé à l'accueil des personnes handicapées ?"),
     type=UNIQUE_ANSWER,
     answers=[trained_team, non_trained_team, no_team, not_sure_answer("accueil_personnels")],
-    display_conditions=[],
 )
 
 
@@ -74,5 +73,4 @@ TOILETS_QUESTION = Question(
         no_toilets,
         not_sure_answer(["sanitaires_presence", "sanitaires_adaptes"]),
     ],
-    display_conditions=[],
 )

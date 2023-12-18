@@ -1,6 +1,7 @@
 from django.utils.translation import gettext_lazy as translate_lazy
 
 from .access_utils import no_answer, not_sure_answer, yes_answer
+from .conditions import has_no_parking, has_parking
 from .dataclasses import UNIQUE_ANSWER, Answer, Question
 
 PARKING_QUESTION = Question(
@@ -11,7 +12,6 @@ PARKING_QUESTION = Question(
         no_answer(["stationnement_presence"]),
         not_sure_answer(["stationnement_presence"]),
     ],
-    display_conditions=[],
 )
 
 
@@ -23,7 +23,7 @@ PARKING_FOR_DISABLED_QUESTION = Question(
         no_answer(["stationnement_pmr"]),
         not_sure_answer(["stationnement_pmr"]),
     ],
-    display_conditions=["has_parking"],
+    display_conditions=[has_parking],
 )
 
 parking_for_disabled = Answer(
@@ -62,5 +62,5 @@ PARKING_FOR_DISABLED_NEARBY_QUESTION = Question(
         no_parking,
         not_sure_answer(["stationnement_ext_presence", "stationnement_ext_pmr"]),
     ],
-    display_conditions=["has_no_parking"],
+    display_conditions=[has_no_parking],
 )

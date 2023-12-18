@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from .dataclasses import Answer
 
 
-# TODO rename to "unsure" ?
 def not_sure_answer(fields):
     return Answer(
         label=translate_lazy("Je ne suis pas sur"),
