@@ -455,7 +455,7 @@ class ErpSchema(A4aAutoSchema):
                 "in": "query",
                 "required": False,
                 "description": "Filtre sur les établissements créés ou mis à jour dans les X derniers jours",
-                "schema": {"type": "boolean"},
+                "schema": {"type": "integer"},
             },
         },
     }
