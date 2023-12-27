@@ -48,7 +48,7 @@ class Command(BaseCommand):
     }
 
     def _convert_access(self, access):
-        accessibility = {}
+        accessibility = {"entree_porte_presence": True}
         if access.get("Entrée accessible en fauteuil roulant") is True:
             accessibility["entree_plain_pied"] = True
             accessibility["entree_largeur_mini"] = 90
@@ -168,9 +168,9 @@ class Command(BaseCommand):
 
 # from erp.provider.departements import DEPARTEMENTS
 # for num, data in DEPARTEMENTS.items():
-#     print(f'python manage.py outscraper_acquisition --query="Hotel, {data["nom"]}" --activity=Hôtel')
+#     print(f'python manage.py outscraper_acquisition --query="Salle des fêtes, {data["nom"]}" --activity="Salle des fêtes"')
 
 
 # from erp.models import Commune
 # for commune in Commune.objects.filter(population__gte=100000):
-#     print(f'python manage.py outscraper_acquisition --query="Hotel, {commune.nom}" --activity=Hôtel')
+#     print(f'python manage.py outscraper_acquisition --query="Salle des fêtes, {commune.nom}" --activity="Salle des fêtes"')
