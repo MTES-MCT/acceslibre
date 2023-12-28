@@ -17,7 +17,7 @@ from .dataclasses import UNIQUE_ANSWER, UNIQUE_OR_INT_ANSWER, Answer, Question
 
 has_rooms = Answer(
     label=translate_lazy("Oui"),
-    picture="foo.jpg",
+    picture="1-heberg_chambre_pmr.jpg",
     modelisations=[
         {"field": "accueil_chambre_nombre_accessibles", "value": 1},
     ],
@@ -25,7 +25,7 @@ has_rooms = Answer(
 
 no_rooms = Answer(
     label=translate_lazy("Non"),
-    picture="foo.jpg",
+    picture="cross.png",
     modelisations=[
         {"field": "accueil_chambre_nombre_accessibles", "value": 0},
     ],
@@ -40,7 +40,7 @@ ROOM_QUESTION = Question(
 
 not_sure_number_of_rooms = Answer(
     label=translate_lazy("Je ne suis pas sûr"),
-    picture="foo.jpg",
+    picture="question.png",
     modelisations=[
         {"field": "accueil_chambre_nombre_accessibles", "value": 1},
     ],
@@ -144,8 +144,8 @@ temporary_equipment = Answer(
     ],
 )
 without_equipment = Answer(
-    label=translate_lazy("Une application sur smartphone"),
-    picture="foo.jpg",
+    label=translate_lazy("Aucun"),
+    picture="cross.png",
     modelisations=[
         {"field": "accueil_equipements_malentendants", "value": [AUDIODESCRIPTION_SANS_EQUIPEMENT]},
     ],

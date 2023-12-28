@@ -3,12 +3,18 @@
           aria-labelledby="radio-inline-legend radio-inline-messages">
     <legend class="fr-fieldset__legend--regular fr-fieldset__legend"
             id="radio-inline-legend">{{ field.label }}</legend>
-    {% for choice in field %}
-        <div class="fr-fieldset__element fr-fieldset__element--inline">
-            <div class="fr-radio-group">
-                {{ choice.tag }}
-                <label class="fr-label" for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
-            </div>
+    <div class="fr-container">
+        <div class="fr-grid-row fr-grid-row--gutters">
+            {% for choice in field %}
+                <div class="fr-col-3">
+                    <div class="fr-fieldset__element fr-fieldset__element--inline">
+                        <div class="fr-radio-group">
+                            {{ choice.tag }}
+                            <label class="fr-label" for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
 </fieldset>

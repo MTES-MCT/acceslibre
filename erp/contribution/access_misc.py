@@ -7,7 +7,7 @@ from .dataclasses import UNIQUE_ANSWER, Answer, Question
 
 trained_team = Answer(
     label=translate_lazy("Personnel sensibilisé"),
-    picture="foo.jpg",
+    picture="1-5-_personnel sensibilise.jpg",
     modelisations=[
         {"field": "accueil_personnels", "value": PERSONNELS_FORMES},
     ],
@@ -15,7 +15,7 @@ trained_team = Answer(
 
 non_trained_team = Answer(
     label=translate_lazy("Personnel a priori non sensibilisé"),
-    picture="foo.jpg",
+    picture="1-5-_personnel non sensibilise.jpg",
     modelisations=[
         {"field": "accueil_personnels", "value": PERSONNELS_NON_FORMES},
     ],
@@ -23,7 +23,7 @@ non_trained_team = Answer(
 
 no_team = Answer(
     label=translate_lazy("Pas de personnel"),
-    picture="foo.jpg",
+    picture="cross.png",
     modelisations=[
         {"field": "accueil_personnels", "value": PERSONNELS_AUCUN},
     ],
@@ -39,7 +39,7 @@ TEAM_TRAINING_QUESTION = Question(
 
 toilets_with_access = Answer(
     label=translate_lazy("Toilettes PMR"),
-    picture="foo.jpg",
+    picture="1-6-toilettes_PMR.jpg",
     modelisations=[
         {"field": "sanitaires_presence", "value": True},
         {"field": "sanitaires_adaptes", "value": True},
@@ -48,7 +48,7 @@ toilets_with_access = Answer(
 
 toilets_without_access = Answer(
     label=translate_lazy("Toilettes classiques"),
-    picture="foo.jpg",
+    picture="1-6-toilettes_classiques.jpg",
     modelisations=[
         {"field": "sanitaires_presence", "value": True},
         {"field": "sanitaires_adaptes", "value": False},
@@ -57,7 +57,7 @@ toilets_without_access = Answer(
 
 no_toilets = Answer(
     label=translate_lazy("Pas de toilettes"),
-    picture="foo.jpg",
+    picture="cross.png",
     modelisations=[
         {"field": "sanitaires_presence", "value": False},
         {"field": "sanitaires_adaptes", "value": False},
