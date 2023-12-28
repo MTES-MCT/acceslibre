@@ -48,13 +48,16 @@ LOGGING = {
             "()": "django.utils.log.RequireDebugTrue",
         }
     },
-    "loggers": {
+    "loggers": {},
+}
+SQL_LOGS = False
+if SQL_LOGS:
+    LOGGING["loggers"] = {
         "django.db.backends": {
             "level": "DEBUG",
             "handlers": ["console"],
         }
-    },
-}
+    }
 
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 4,
