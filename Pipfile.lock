@@ -419,11 +419,12 @@
         },
         "django-waffle": {
             "hashes": [
-                "sha256:125e0c5a95a9b54739c77693f7454d717c1ec82b43eb5eb3e6e1ad69c0f75fe6",
-                "sha256:6426baad1573ca1908bd615650048f7948690f336058d37d3e3bb550ddf75cda"
+                "sha256:5979a2f3dd674ef7086480525b39651fc2045427f6d8e6a614192656d3402c5b",
+                "sha256:e49d7d461d89f3bd8e53f20efe39310acca8f275c9888495e68e195345bf18b1"
             ],
             "index": "pypi",
-            "version": "==4.0.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==4.1.0"
         },
         "djangorestframework": {
             "hashes": [
