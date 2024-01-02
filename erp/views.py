@@ -23,6 +23,7 @@ from django.views.generic import TemplateView
 from reversion.views import create_revision
 from waffle import switch_is_active
 
+from compte.service import increment_nb_erp_updated
 from compte.signals import erp_claimed
 from core.lib import geo, url
 from core.mailer import BrevoMailer, get_mailer
@@ -918,9 +919,12 @@ def contrib_edit_infos(request, erp_slug):
             erp = form.save(commit=False)
             activite = form.cleaned_data.get("activite")
             erp.activite = activite
-            if request.user.is_authenticated and erp.user is None:
-                erp.user = request.user
+            if request.user.is_authenticated:
+                if erp.user is None:
+                    erp.user = request.user
+                increment_nb_erp_updated(request.user)
             erp.save()
+
             if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],

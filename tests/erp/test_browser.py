@@ -506,6 +506,7 @@ def test_ajout_erp(data, client):
 
     # Publication
     # Public user
+    # TODO register during erp creation flow, check nb_erp_created
     client.force_login(data.niko)
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),

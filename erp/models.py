@@ -19,6 +19,7 @@ from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from reversion.models import Version
 
+from compte.service import increment_nb_erp_created
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
@@ -678,6 +679,7 @@ class Erp(models.Model):
     )
 
     __original_activite_id = None
+    __original_user_id = None
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
@@ -685,6 +687,7 @@ class Erp(models.Model):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__original_activite_id = self.activite_id
+        self.__original_user_id = self.user_id
 
     def get_activite_vector_icon(self):
         default = "building"
@@ -877,6 +880,13 @@ class Erp(models.Model):
             return vote
 
     def save(self, *args, **kwargs):
+        if self.pk:
+            if self.__original_user_id is None and self.user_id:
+                # ERP has just been attributed to a user, manage his user_stats
+                increment_nb_erp_created(self.user)
+        elif self.user:
+            increment_nb_erp_created(self.user)
+
         if (
             self.__original_activite_id is not None
             and self.activite_id != self.__original_activite_id
