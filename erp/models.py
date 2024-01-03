@@ -420,6 +420,7 @@ class Erp(models.Model):
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_DELL = "dell"
     SOURCE_OUTSCRAPER = "outscraper"
+    SOURCE_SCRAPFLY = "scrapfly"
     SOURCE_TALLY = "tally"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, translate_lazy("Base de données Acceslibre")),
@@ -443,6 +444,7 @@ class Erp(models.Model):
         (SOURCE_VACCINATION, translate_lazy("Centres de vaccination")),
         (SOURCE_DELL, translate_lazy("Dell")),
         (SOURCE_OUTSCRAPER, translate_lazy("Outscraper")),
+        (SOURCE_SCRAPFLY, translate_lazy("Scrapfly")),
         (SOURCE_TALLY, translate_lazy("Tally")),
     )
     USER_ROLE_ADMIN = "admin"
