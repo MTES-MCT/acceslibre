@@ -3,6 +3,7 @@ import json
 import math
 import re
 from collections import defaultdict
+from datetime import datetime, timedelta
 from urllib.parse import urlencode
 from uuid import uuid4
 
@@ -61,6 +62,8 @@ class Command(BaseCommand):
     def _convert_access(self, access):
         accessibility = {}
         access_copy = copy.deepcopy(access)
+
+        accessibility["entree_porte_presence"] = True
 
         if (key := "Toilettes avec barres d'appui") in access_copy:
             accessibility["sanitaires_presence"] = True
@@ -170,7 +173,7 @@ class Command(BaseCommand):
 
         locdata = geocoder.geocode(erp["adresse"])
         for key in ("numero", "voie", "lieu_dit", "code_postal", "commune"):
-            erp[key] = locdata[key]
+            erp[key] = locdata.get(key)
 
         serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": True})
         try:
@@ -196,7 +199,7 @@ class Command(BaseCommand):
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
 
-    def _search(self, query, limit=20, skip=0, max_results=None, total_results=0):
+    def _search(self, query):
         client = ScrapflyClient(key=settings.SCRAPFLY_IO_API_KEY)
         locations = client.scrape(
             ScrapeConfig(
@@ -215,9 +218,9 @@ class Command(BaseCommand):
             print(f"No location found for {query}")
             return
 
-        # TEMP, make it relative to now
-        checkin = "2024-04-13"
-        checkout = "2024-04-14"
+        now = datetime.now()
+        checkin = (now + timedelta(days=60)).strftime("%Y-%m-%d")
+        checkout = (now + timedelta(days=61)).strftime("%Y-%m-%d")
 
         destination = locations[0]
         search_url = "https://www.booking.com/searchresults.fr-fr.html?" + urlencode(
@@ -246,10 +249,12 @@ class Command(BaseCommand):
         first_page = client.scrape(ScrapeConfig(search_url, **self.base_config))
         hotel_previews = self._parse_search_page(first_page)
 
-        # parse total amount of pages from heading1 text, e.g: "London: 1,232 properties found"
-        _total_results = int(
-            first_page.selector.css("h1").re(r"([\d,]+) établissement[s]? trouvé[s]?")[0].replace(",", "")
-        )
+        # parse total amount of pages from heading1 text, e.g: "Paris : 1232 établissements trouvés"
+        found = first_page.selector.css("h1").re(r"([\d,]+) établissement[s]? trouvé[s]?")
+        if not found:
+            return hotel_previews
+
+        _total_results = int(found[0].replace(",", ""))
         _page_size = 25
         total_pages = math.ceil(_total_results / _page_size)
         print(f"scraped {len(hotel_previews)} from 1st result page. {total_pages} to go")
@@ -269,8 +274,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.activity_name = "Hôtel"
-        limit = 20
 
-        hotels = self._search(query=options["query"], limit=limit)
+        hotels = self._search(query=options["query"])
         for hotel in hotels:
             self._parse_detail_page(hotel)
