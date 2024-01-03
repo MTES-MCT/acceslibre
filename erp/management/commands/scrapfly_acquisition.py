@@ -101,7 +101,7 @@ class Command(BaseCommand):
         return accessibility
 
     def _parse_search_page(self, result):
-        print("parsing search page: {}", result.context["url"])
+        print(f"parsing search page: {result.context['url']}")
         hotel_previews = []
 
         for hotel_box in result.selector.xpath(XPATH_CSS_SELECTORS_LIST["hotel_box"]):
