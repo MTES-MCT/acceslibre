@@ -16,12 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const exactResults = activities.filter((activity) =>
-        activity.keywords.some((keyword) => keyword.toLowerCase() === searchTerm.toLowerCase())
+        activity.keywords.some(
+          (keyword) => keyword.localeCompare(searchTerm, undefined, { sensitivity: 'base' }) === 0
+        )
       )
 
       const otherKeywordResults = activities
         .filter((activity) =>
-          activity.keywords.some((keyword) => keyword.toLowerCase().includes(searchTerm.toLowerCase()))
+          activity.keywords.some((keyword) =>
+            keyword
+              .toLowerCase()
+              .normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '')
+              .includes(
+                searchTerm
+                  .toLowerCase()
+                  .normalize('NFD')
+                  .replace(/[\u0300-\u036f]/g, '')
+              )
+          )
         )
         .filter((activity) => !exactResults.includes(activity))
 
