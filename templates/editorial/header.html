@@ -4,65 +4,92 @@
     <div class="fr-header__body">
         <div class="fr-container">
             <div class="fr-header__body-row">
-                <div class="fr-header__brand">
+                <div class="fr-header__brand fr-enlarge-link">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
-                            <a class="d-flex align-items-center text-decoration-none"
-                               href="{% url 'home' %}"
-                               style="margin-bottom: 10px">
-                                <img src="{% static 'img/logo-acceslibre.svg' %}"
-                                     alt="acceslibre, République Française"
-                                     height="75">
-                            </a>
-                            <a class="skippy sr-only sr-only-focusable"
-                               href="#content"
-                               style="position:relative !important">
-                                <span class="skippy-text">{% translate "Aller au contenu principal" %}</span>
+                            <a href="{% url 'home' %}"
+                               aria-label="République Française, aller a l'accueil">
+                                <p class="fr-logo">
+                                    République
+                                    <br>
+                                    Française
+                                </p>
                             </a>
                         </div>
-                        <div class="fr-header__navbar" style="justify-content: right;">
-                            <a href="{% url 'mon_compte' %}" class="m-4">
-                                <i aria-hidden="true" class="icon icon-unlock"></i> {% translate "Mon compte" %}
+                        <div class="fr-header__operator">
+                            <a href="{% url 'home' %}" aria-label="acceslibre, Aller a l'accueil">
+                                <img class="fr-responsive-img"
+                                     style="max-width:9.0625rem"
+                                     src="{% static 'img/logo-acceslibre-solo.svg' %}"
+                                     alt="{% blocktranslate %}acceslibre aller à l'accueil'{% endblocktranslate %}">
                             </a>
-                            {% include "editorial/header_language.html" with margin=True id="language_brand" %}
+                        </div>
+                        <div class="fr-header__navbar">
+                            <button class="fr-btn--menu fr-btn"
+                                    data-fr-opened="false"
+                                    aria-controls="modal-577"
+                                    aria-haspopup="menu"
+                                    id="button-578"
+                                    title="Menu">{% translate "Menu" %}</button>
                         </div>
                     </div>
                 </div>
                 <div class="fr-header__tools">
                     <div class="fr-header__tools-links">
                         <ul class="fr-btns-group">
-                            {% if user.is_authenticated %}
-                                <li>
-                                    {% translate "Bonjour" %}&nbsp;<strong>{{ user.username }}</strong>
-                                </li>
-                            {% endif %}
                             <li>
-                                <a class="fr-btn fr-btn--secondary fr-icon-search-line"
-                                   href="{% url "search" %}">{% translate "Rechercher" %}</a>
-                            </li>
-                            {% if user.is_authenticated %}
-                                <li>
-                                    <a class="fr-btn fr-btn--secondary fr-fi-lock-line"
+                                {% if user.is_authenticated %}
+                                    <a class="fr-btn fr-icon-lock-line"
                                        href="{% url 'mon_compte' %}?next={{ request.path }}">{% translate "Mon compte" %}
                                     </a>
-                                </li>
-                            {% else %}
-                                <li>
-                                    <a class="fr-btn fr-btn--secondary fr-fi-lock-line"
+                                {% else %}
+                                    <a class="fr-btn fr-icon-lock-line"
                                        href="{% url 'login' %}?next={{ request.path }}">{% translate "Se connecter" %}</a>
-                                </li>
-                            {% endif %}
-                            <li>{% include "editorial/header_language.html" with margin=False id="language_tools" %}</li>
+                                {% endif %}
+                            </li>
                         </ul>
+                        <nav role="navigation" class="fr-translate fr-nav">
+                            <div class="fr-nav__item">{% include "editorial/language_picker.html" %}</div>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="fr-header__menu fr-modal">
+    <div class="fr-header__menu fr-modal"
+         id="modal-577"
+         aria-labelledby="button-578">
         <div class="fr-container">
-            <button class="fr-btn--close fr-btn" title="{% translate "Fermer" %}">{% translate "Fermer" %}</button>
+            <button class="fr-btn--close fr-btn"
+                    aria-controls="modal-577"
+                    title="{% translate "Fermer" %}">{% translate "Fermer" %}</button>
             <div class="fr-header__menu-links"></div>
+            <nav class="fr-nav"
+                 id="navigation-581"
+                 role="navigation"
+                 aria-label="Menu principal">
+                <ul class="fr-nav__list">
+                    <li class="fr-nav__item">
+                        <a class="fr-nav__link" href="{% url "contrib_start" %}" target="_self">{% translate "Contribuer" %}</a>
+                    </li>
+                    <li class="fr-nav__item">
+                        <a class="fr-nav__link" href="{% url "search" %}" target="_self">{% translate "Rechercher" %}</a>
+                    </li>
+                    <li class="fr-nav__item">
+                        <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-774">{% translate "Voir aussi" %}</button>
+                        <div class="fr-collapse fr-menu" id="menu-774">
+                            <ul class="fr-menu__list">
+                                <li>
+                                    <a class="fr-nav__link" href="{% url 'challenges' %}" target="_self">{% translate "Challenges" %}</a>
+                                </li>
+                                <li>
+                                    <a class="fr-nav__link" href="{% url 'partenaires' %}" target="_self">{% translate "Partenaires" %}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </header>

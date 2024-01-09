@@ -1,0 +1,29 @@
+{% load i18n %}
+<button class="fr-translate__btn fr-btn fr-btn--tertiary"
+        aria-controls="translate-516"
+        aria-expanded="false"
+        title="Sélectionner une langue">
+    FR<span class="fr-hidden-lg">- Français</span>
+</button>
+<div class="fr-collapse fr-translate__menu fr-menu" id="translate-516">
+    <form class="fr-grid-row" action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        <ul class="fr-menu__list">
+            {% for language in languages %}
+                <li>
+                    <button class="fr-translate__language fr-nav__link"
+                            name="language"
+                            value="{{ language.code }}"
+                            type="submit"
+                            {% if language.code == LANGUAGE_CODE %}aria-current="true"{% endif %}>
+                        {{ language.code.upper }} {{ language.name_local.title }}
+                    </button>
+                </li>
+            {% endfor %}
+        </ul>
+    </form>
+</div>

@@ -11,9 +11,6 @@
 {% block page_description %}
     {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom }}
 {% endblock page_description %}
-{% block top_fluid_content %}
-    {{ block.super }}
-{% endblock top_fluid_content %}
 {% block skiplinks %}
     <a class="skippy sr-only sr-only-focusable" href="#app-map">
         <span class="skippy-text">{% translate "Aller à la carte" %}</span>

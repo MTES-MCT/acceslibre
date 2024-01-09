@@ -57,12 +57,12 @@
                     </div>
                     <div class="form-group">
                         <button type="submit"
-                                class="btn fr-btn fr-btns-group--center btn-block text-center">
+                                class="fr-btn fr-btns-group--center btn-block text-center">
                             {% translate "Se connecter" %}
                         </button>
                         <span class="text-center m-4">{% translate "ou" %}</span>
                         <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}"
-                           class="btn fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
+                           class="fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
                             {% translate "S'inscrire" %}
                         </a>
                     </div>

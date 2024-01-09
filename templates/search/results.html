@@ -12,9 +12,11 @@
         {% endif %}
     {% endspaceless %}
 {% endblock page_title %}
-{% block header %}
-    {% include "editorial/header.html" with dark=True %}
-{% endblock header %}
+{% block top_fluid_content %}
+    <aside class="fr-container-fluid bg-light py-4">
+        <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
+    </aside>
+{% endblock top_fluid_content %}
 {% block editorial_content %}
     <h1 class="mt-3 mb-2 text-muted results-title">
         {% if what %}
