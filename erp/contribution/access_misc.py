@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from erp.schema import PERSONNELS_AUCUN, PERSONNELS_FORMES, PERSONNELS_NON_FORMES
 
 from .access_utils import not_sure_answer
-from .dataclasses import UNIQUE_ANSWER, Answer, Question
+from .dataclasses import FREE_TEXT_ANSWER, UNIQUE_ANSWER, Answer, Question
 
 trained_team = Answer(
     label=translate_lazy("Personnel sensibilisé"),
@@ -33,7 +33,6 @@ TEAM_TRAINING_QUESTION = Question(
     label=translate_lazy("Y a-t-il du personnel et est-il sensibilisé à l'accueil des personnes handicapées ?"),
     type=UNIQUE_ANSWER,
     answers=[trained_team, non_trained_team, no_team, not_sure_answer("accueil_personnels")],
-    display_conditions=[],
 )
 
 
@@ -74,5 +73,12 @@ TOILETS_QUESTION = Question(
         no_toilets,
         not_sure_answer(["sanitaires_presence", "sanitaires_adaptes"]),
     ],
-    display_conditions=[],
+)
+
+FREE_COMMENT_QUESTION = Question(
+    label=translate_lazy(
+        "Enfin, souhaitez vous ajouter des informations complémentaires sur l'accessibilité de cet établissement ?"
+    ),
+    type=FREE_TEXT_ANSWER,
+    answers=[],
 )

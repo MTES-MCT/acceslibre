@@ -378,7 +378,7 @@ USERNAME_BLACKLIST = [
 ]
 
 MIN_NB_ANSWERS_IN_CONTRIB = 4
-
+MIN_NB_ANSWERS_IN_CONTRIB_V2 = 3
 
 # https://adresse.data.gouv.fr/api-doc/adresse
 ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY = "municipality"

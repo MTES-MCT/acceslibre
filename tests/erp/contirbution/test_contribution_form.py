@@ -74,3 +74,45 @@ def test_contrib_steps(django_app):
                 "contribution-step", kwargs={"erp_slug": erp.slug, "step_number": step["previous_url_step"]}
             )
             assert previous_url in response
+
+
+@pytest.mark.django_db
+def test_will_publish_on_last_step_if_enough_data(django_app):
+    erp = AccessibiliteFactory(
+        erp__published=False, entree_plain_pied=True, entree_porte_presence=True, sanitaires_presence=True
+    ).erp
+
+    url = reverse("contribution-step", kwargs={"erp_slug": erp.slug, "step_number": 12})
+    response = django_app.get(url)
+    assert response.status_code == 200
+
+    form = response.forms["contribution-form"]
+    form["question"] = "Non"
+    response = form.submit()
+
+    assert response.status_code == 302
+    expected_url = reverse("contribution-base-success", kwargs={"erp_slug": erp.slug})
+    assert response["Location"] == expected_url
+
+    erp.refresh_from_db()
+    assert erp.published is True
+
+
+@pytest.mark.django_db
+def test_will_not_publish_on_last_step_if_no_data(django_app):
+    erp = AccessibiliteFactory(erp__published=False, entree_plain_pied=True).erp
+
+    url = reverse("contribution-step", kwargs={"erp_slug": erp.slug, "step_number": 12})
+    response = django_app.get(url)
+    assert response.status_code == 200
+
+    form = response.forms["contribution-form"]
+    form["question"] = "Non"
+    response = form.submit()
+
+    assert response.status_code == 302
+    expected_url = reverse("contribution-base-success", kwargs={"erp_slug": erp.slug})
+    assert response["Location"] == expected_url
+
+    erp.refresh_from_db()
+    assert erp.published is False
