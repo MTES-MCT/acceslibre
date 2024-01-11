@@ -37,7 +37,7 @@ TESTING_STEPS = [
         "expected_step": 7,
         "answer": "Pas de porte",
         "side_effects": [
-            {"field": "entree_porte_presence", "value": None},
+            {"field": "entree_porte_presence", "value": False},
             {"field": "entree_porte_manoeuvre", "value": None},
         ],
         "previous_url_step": 4,

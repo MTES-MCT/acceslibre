@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from django.templatetags.static import static
 from django.utils.safestring import mark_safe
 
 UNIQUE_ANSWER = "unique"
@@ -15,8 +16,7 @@ class Question:
 
     @property
     def choices(self):
-        img_url = "https://placehold.it/200x200"
-        return [(a.label, mark_safe(f"<img src='{img_url}' alt='{a.label}'>{a.label}")) for a in self.answers]
+        return [(a.label, mark_safe(f"{a.image_tag}{a.label}")) for a in self.answers]
 
     @property
     def is_unique_type(self):
@@ -32,3 +32,8 @@ class Answer:
     label: str
     picture: str
     modelisations: list
+
+    @property
+    def image_tag(self):
+        path = f"img/contrib_v2/{self.picture}"
+        return f"<img src='{static(path)}' alt='{self.label}' class='w-100 h-auto'>"

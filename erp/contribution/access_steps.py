@@ -7,12 +7,12 @@ from .dataclasses import UNIQUE_ANSWER, UNIQUE_OR_INT_ANSWER, Answer, Question
 
 at_least_one_step = Answer(
     label=translate_lazy("Une marche ou plus"),
-    picture="foo.jpg",
+    picture="1-1-a-entree_marches.jpg",
     modelisations=[{"field": "entree_plain_pied", "value": False}],
 )
 no_step = Answer(
     label=translate_lazy("Pas de marche"),
-    picture="foo.jpg",
+    picture="1-1-a-porte-sans-marche.jpg",
     modelisations=[{"field": "entree_plain_pied", "value": True}],
 )
 
@@ -38,12 +38,12 @@ STEP_NUMBER_QUESTION = Question(
 
 stairs_up = Answer(
     label=translate_lazy("Monter"),
-    picture="foo.jpg",
+    picture="1-1-b_sens_escalier_monte.jpg",
     modelisations=[{"field": "entree_marches_sens", "value": ESCALIER_MONTANT}],
 )
 stairs_down = Answer(
     label=translate_lazy("Descendre"),
-    picture="foo.jpg",
+    picture="1-1-b_sens_escalier_descend.jpg",
     modelisations=[{"field": "entree_marches_sens", "value": ESCALIER_DESCENDANT}],
 )
 
@@ -61,7 +61,7 @@ STEP_DIRECTION_QUESTION = Question(
 
 fixed_ramp = Answer(
     label=translate_lazy("Rampe fixe"),
-    picture="foo.jpg",
+    picture="1-1-c-rampe_fixe.jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_FIXE},
         {"field": "entree_ascenseur", "value": False},
@@ -69,7 +69,7 @@ fixed_ramp = Answer(
 )
 movable_ramp = Answer(
     label=translate_lazy("Rampe amovible"),
-    picture="foo.jpg",
+    picture="1-1-c_rampe_amovible.jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_AMOVIBLE},
         {"field": "entree_ascenseur", "value": False},
@@ -78,7 +78,7 @@ movable_ramp = Answer(
 
 no_equipment = Answer(
     label=translate_lazy("Ni rampe ni ascenseur"),
-    picture="foo.jpg",
+    picture="cross.png",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_AUCUNE},
         {"field": "entree_ascenseur", "value": False},
@@ -87,7 +87,7 @@ no_equipment = Answer(
 
 elevator = Answer(
     label=translate_lazy("Ascenceur ou élévateur"),
-    picture="foo.jpg",
+    picture="1-1-c-ascenseur (2).jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_AUCUNE},
         {"field": "entree_ascenseur", "value": True},
@@ -96,7 +96,7 @@ elevator = Answer(
 
 both_equipments = Answer(
     label=translate_lazy("Les 2! Rampe et ascenceur / élévateur"),
-    picture="foo.jpg",
+    picture="1-1-c_deux_equipements.jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_FIXE},
         {"field": "entree_ascenseur", "value": True},

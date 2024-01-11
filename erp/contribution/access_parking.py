@@ -28,7 +28,7 @@ PARKING_FOR_DISABLED_QUESTION = Question(
 
 parking_for_disabled = Answer(
     label=translate_lazy("Places PMR"),
-    picture="foo.jpg",
+    picture="1-7-b-places_pmr.jpg",
     modelisations=[
         {"field": "stationnement_ext_presence", "value": True},
         {"field": "stationnement_ext_pmr", "value": True},
@@ -37,7 +37,7 @@ parking_for_disabled = Answer(
 
 parking_not_for_disabled = Answer(
     label=translate_lazy("Places classiques"),
-    picture="foo.jpg",
+    picture="1-7-b-stationnement.jpg",
     modelisations=[
         {"field": "stationnement_ext_presence", "value": True},
         {"field": "stationnement_ext_pmr", "value": False},
@@ -46,7 +46,7 @@ parking_not_for_disabled = Answer(
 
 no_parking = Answer(
     label=translate_lazy("Pas de parking"),
-    picture="foo.jpg",
+    picture="cross.png",
     modelisations=[
         {"field": "stationnement_ext_presence", "value": False},
         {"field": "stationnement_ext_pmr", "value": False},
