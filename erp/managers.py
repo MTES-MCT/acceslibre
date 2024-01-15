@@ -396,7 +396,7 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(accessibilite__accueil_equipements_malentendants_presence=True)
 
     def having_label(self):
-        return self.filter(accessibilite__labels__isnull=False)
+        return self.filter(accessibilite__labels__len__gt=0)
 
     def having_visible_reception(self):
         return self.filter(accessibilite__accueil_visibilite=True)
