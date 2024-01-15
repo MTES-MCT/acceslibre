@@ -5,15 +5,27 @@ from .access_utils import no_answer, not_sure_answer, yes_answer
 from .conditions import entrance_is_not_accessible, path_to_entrance_has_steps, staff_can_help
 from .dataclasses import UNIQUE_ANSWER, UNIQUE_OR_INT_ANSWER, Answer, Question
 
+staff_help = Answer(
+    label=translate_lazy("Oui"),
+    picture="2-6-a-aide_humaine.jpg",
+    modelisations=[{"field": "entree_aide_humaine", "value": True}],
+)
+
 CAN_STAFF_HELP_QUESTION = Question(
     label=translate_lazy("A l'entrée, y a-t-il du personnel pouvant aider une personne à mobilité réduite si besoin ?"),
     type=UNIQUE_ANSWER,
     answers=[
-        yes_answer(["entree_aide_humaine"]),
+        staff_help,
         no_answer(["entree_aide_humaine"]),
         not_sure_answer(["entree_aide_humaine"]),
     ],
     display_conditions=[entrance_is_not_accessible],
+)
+
+call_equipment = Answer(
+    label=translate_lazy("Oui"),
+    picture="2-6-b-sonnette.jpg",
+    modelisations=[{"field": "entree_dispositif_appel", "value": True}],
 )
 
 CALL_STAFF_EQUIPMENT_QUESTION = Question(
@@ -22,18 +34,24 @@ CALL_STAFF_EQUIPMENT_QUESTION = Question(
     ),
     type=UNIQUE_ANSWER,
     answers=[
-        yes_answer(["entree_dispositif_appel"]),
+        call_equipment,
         no_answer(["entree_dispositif_appel"]),
         not_sure_answer(["entree_dispositif_appel"]),
     ],
     display_conditions=[entrance_is_not_accessible, staff_can_help],
 )
 
+specific_entrance = Answer(
+    label=translate_lazy("Oui"),
+    picture="2-6-c_entree_handi.jpg",
+    modelisations=[{"field": "entree_pmr", "value": True}],
+)
+
 SPECIFIC_ENTRANCE_QUESTION = Question(
     label=translate_lazy("Y a-t-il une entrée dédiée aux personnes à mobilité réduite ?"),
     type=UNIQUE_ANSWER,
     answers=[
-        yes_answer(["entree_pmr"]),
+        specific_entrance,
         no_answer(["entree_pmr"]),
         not_sure_answer(["entree_pmr"]),
     ],
@@ -81,7 +99,7 @@ no_equipment = Answer(
 
 
 elevator = Answer(
-    label=translate_lazy("Ascenceur ou élévateur"),
+    label=translate_lazy("Ascenseur ou élévateur"),
     picture="2-8-c-elevateur.jpg",
     modelisations=[
         {"field": "accueil_cheminement_rampe", "value": RAMPE_AUCUNE},
@@ -98,7 +116,7 @@ ramp = Answer(
     ],
 )
 both_equipments = Answer(
-    label=translate_lazy("Les 2 : Rampe et ascenceur / élévateur"),
+    label=translate_lazy("Les 2 : Rampe et ascenseur / élévateur"),
     picture="1-1-c_deux_equipements.jpg",
     modelisations=[
         {"field": "accueil_cheminement_rampe", "value": RAMPE_FIXE},

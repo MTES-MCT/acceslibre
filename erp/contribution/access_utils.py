@@ -5,7 +5,7 @@ from .dataclasses import Answer
 
 def not_sure_answer(fields):
     return Answer(
-        label=translate_lazy("Je ne suis pas sur"),
+        label=translate_lazy("Je ne suis pas sûr(e)"),
         picture="question.png",
         modelisations=[{"field": field, "value": None} for field in fields],
     )

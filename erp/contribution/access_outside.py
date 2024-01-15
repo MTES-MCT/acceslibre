@@ -128,7 +128,7 @@ no_narrowing = Answer(
     modelisations=[{"field": "cheminement_ext_retrecissement", "value": False}],
 )
 
-OUTSIDE_PATH_CARACTERISTICS_QUESTION = Question(
+OUTSIDE_PATH_CHARACTERISTICS_QUESTION = Question(
     label=translate_lazy("Quelles sont les caractéristiques du chemin privatif ? "),
     type=MUTIPLE_ANSWERS,
     answers=[stable_path, no_slope, no_narrowing],

@@ -86,7 +86,7 @@ no_equipment = Answer(
 )
 
 elevator = Answer(
-    label=translate_lazy("Ascenceur ou élévateur"),
+    label=translate_lazy("Ascenseur ou élévateur"),
     picture="1-1-c-ascenseur (2).jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_AUCUNE},
@@ -95,7 +95,7 @@ elevator = Answer(
 )
 
 both_equipments = Answer(
-    label=translate_lazy("Les 2! Rampe et ascenceur / élévateur"),
+    label=translate_lazy("Les 2 ! Rampe et Ascenseur / élévateur"),
     picture="1-1-c_deux_equipements.jpg",
     modelisations=[
         {"field": "entree_marches_rampe", "value": RAMPE_FIXE},
