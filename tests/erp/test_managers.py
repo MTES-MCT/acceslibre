@@ -6,7 +6,7 @@ from django.contrib.gis.geos import Point
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider.search import get_equipments
-from tests.factories import AccessibiliteFactory
+from tests.factories import AccessibiliteFactory, ErpWithAccessibiliteFactory
 
 
 @pytest.fixture
@@ -214,3 +214,15 @@ class TestErpQuerySetFilters:
         for eq in get_equipments():
             with does_not_raise():
                 getattr(qs, eq)().count()
+
+    def test_having_label(self):
+        assert Erp.objects.having_label().count() == 0
+
+        ErpWithAccessibiliteFactory(accessibilite__labels=None)
+        assert Erp.objects.having_label().count() == 0
+
+        ErpWithAccessibiliteFactory(accessibilite__labels=[])
+        assert Erp.objects.having_label().count() == 0
+
+        ErpWithAccessibiliteFactory(accessibilite__labels=["dpt", "mobalib"])
+        assert Erp.objects.having_label().count() == 1
