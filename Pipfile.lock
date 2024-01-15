@@ -303,7 +303,7 @@
                 "sha256:45a747e1c5b3d6df1b141b1481e193b033fd1fdbda3ff52677dc81afdaacbaed",
                 "sha256:f7c7852a5ac5a3da5a8d5b35cc6168f31b605971441798dac845f17ca8028039"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.2.3"
         },
         "django-admin-autocomplete-filter": {
@@ -377,11 +377,12 @@
         },
         "django-import-export": {
             "hashes": [
-                "sha256:56b4196d85677989f3d6b15863c23ac351b21d973e53ddaa226f62510acdc034",
-                "sha256:81bd7a6b35c0ee3c78b99e2bedb7f320c13d551d9482f968864c83f8a24daf58"
+                "sha256:12edb7ba1f7f9b392d0257a2ae68086020e53ab2c7bd2b21a56ec17fbb83826b",
+                "sha256:b1b7385627ed61063cd9764e8c19cce3ce8945626f7953262df8162b0feec376"
             ],
             "index": "pypi",
-            "version": "==3.3.5"
+            "markers": "python_version >= '3.8'",
+            "version": "==3.3.6"
         },
         "django-logentry-admin": {
             "hashes": [
@@ -1500,7 +1501,7 @@
                 "sha256:fd1592b3fdf65fff2ad0004b5e363300ef59ced41c2e6b3a99d4089fa8c5435d",
                 "sha256:fd66fc5d0da6d9815ba2cebeb4205f95818ff4b79c3ebe268e75d961704af52f"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==6.0.1"
         },
         "rapidfuzz": {
