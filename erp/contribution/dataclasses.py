@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 
 from django.templatetags.static import static
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext_lazy as translate_lazy
 
 UNIQUE_ANSWER = "unique"
 MUTIPLE_ANSWERS = "multiple"
@@ -50,8 +51,9 @@ class Answer:
     @property
     def image_tag(self):
         path = f"img/contrib_v2/{self.picture}"
-        return f"<img src='{static(path)}' alt='{self.label}' class='w-100 h-auto'>"
-
-    @property
-    def safe_label(self):
-        return self.label.replace("'", " ")
+        alt = (
+            translate_lazy("Je ne suis pas sûr")
+            if self.label == translate_lazy("Je ne suis pas sûr(e)")
+            else self.label
+        )
+        return f"<img src='{static(path)}' alt='{alt}' class='w-100 h-auto'>"

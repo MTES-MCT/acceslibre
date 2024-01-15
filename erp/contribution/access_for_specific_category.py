@@ -46,7 +46,7 @@ ROOM_QUESTION = Question(
 )
 
 not_sure_number_of_rooms = Answer(
-    label=translate_lazy("Je ne suis pas sûr"),
+    label=translate_lazy("Je ne suis pas sûr(e)"),
     picture="question.png",
     modelisations=[
         {"field": "accueil_chambre_nombre_accessibles", "value": 1},
