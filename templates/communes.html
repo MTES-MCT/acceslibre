@@ -7,9 +7,6 @@
 {% block page_title %}
     {% translate "Communes et territoires pilotes" %}
 {% endblock page_title %}
-{% block header %}
-    {% include "editorial/header.html" with dark=True %}
-{% endblock header %}
 {% block editorial_content %}
     {% cache 500 communes LANGUAGE_CODE %}
     <h1 class="mb-3">{% translate "Communes et territoires pilotes" %}</h1>

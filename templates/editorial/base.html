@@ -1,15 +1,27 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
-    <!-- {% comment %}Common header (logo and login/logout/account links){% endcomment %} -->
+    <div class="fr-skiplinks">
+        <nav class="fr-container" role="navigation" aria-label="Accès rapide">
+            <ul class="fr-skiplinks__list">
+                <li>
+                    <a class="fr-link" href="#content">{% translate "Contenu" %}</a>
+                </li>
+                <li>
+                    <a class="fr-link" href="#navigation-581">{% translate "Navigation" %}</a>
+                </li>
+                <li>
+                    <a class="fr-link" href="#footer">{% translate "Pied de page" %}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     {% block header %}
-        {% include "editorial/header.html" with dark=True %}
+        {% include "editorial/header.html" %}
     {% endblock header %}
     <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
     <main role="main" id="content">
         {% block top_fluid_content %}
-            <aside class="fr-container-fluid bg-light py-4">
-                <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
-            </aside>
         {% endblock top_fluid_content %}
         <!-- {% comment %}Main content area{% endcomment %} -->
         <div class="fr-container a4a-editorial my-4">
