@@ -26,3 +26,12 @@ p {
 .fr-collapse {
   max-height: var(--collapse-max-height) !important;
 }
+
+label {
+  margin-bottom: 0 !important; // Needed to respect DSFR and counter reboot.scss from bootstrap
+}
+
+.fr-btns-group .fr-link {
+  // Make sure we can mix a a tag and a btn tag in a btn group
+  line-height: 2.5rem;
+}

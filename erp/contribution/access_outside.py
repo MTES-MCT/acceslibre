@@ -129,7 +129,7 @@ no_narrowing = Answer(
 )
 
 OUTSIDE_PATH_CHARACTERISTICS_QUESTION = Question(
-    label=translate_lazy("Quelles sont les caractéristiques du chemin privatif ? "),
+    label=translate_lazy("Quelles sont les caractéristiques du chemin privatif ? (plusieurs réponses possibles)"),
     type=MUTIPLE_ANSWERS,
     answers=[stable_path, no_slope, no_narrowing],
     display_conditions=[has_outside_path],

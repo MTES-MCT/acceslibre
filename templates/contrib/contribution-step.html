@@ -2,26 +2,21 @@
 {% load static %}
 {% load i18n %}
 {% block top_fluid_content %}
-    <div class="fr-follow bg-alt-blue-france-975">
-        <div class="fr-container">
-            <div class="fr-follow__newsletter">
-                <div>
-                    <h1 class="fr-h2 fr-follow__title">
-                        {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
-                    </h1>
-                </div>
-            </div>
+    <div class="fr-container fr-mt-8v fr-mt-md-8v fr-mb-2v fr-mb-md-4v">
+        <h4 class="fr-text--lead">{% translate "Ajoutez des informations d'accessibilité" %}</h4>
+        <div class="fr-stepper">
+            <h2 class="fr-stepper__title">
+                <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_sections %}Étape {{ step }} sur {{ total }}{% endblocktranslate %}</span>
+                {{ step_name }}
+            </h2>
+            <div class="fr-stepper__steps"
+                 data-fr-current-step="{{ step }}"
+                 data-fr-steps="{{ nb_sections }}"></div>
         </div>
     </div>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    <div class="fr-stepper">
-        <span class="fr-stepper__state">{% blocktranslate with step=step total=nb_sections %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}</span>
-        <progress max="{{ nb_sections }}" value="{{ step }}">
-            {% blocktranslate with step=step total=nb_sections %}Étape {{ step }} sur {{ total }} maximum{% endblocktranslate %}
-        </progress>
-    </div>
-    <form method="post" id="contribution-form">
+    <form method="post" id="contribution-form" class="contribution-form">
         {% csrf_token %}
         {% for field in form %}
             {% if field.field.widget.input_type == "radio" %}
@@ -34,6 +29,14 @@
                 {% include "contrib/forms/dsfr-textarea.html" %}
             {% endif %}
         {% endfor %}
-        {% include "contrib/includes/prevnext.html" with next_step_title="suivante" prev_route=previous_url %}
+        <ul class="fr-btns-group fr-grid-row fr-grid-row--gutters ">
+            <li class="fr-col-6 fr-col-sm-3">
+                <a class="fr-link fr-icon-arrow-left-line fr-link--icon-left"
+                   href="{{ previous_url }}#content">{% translate "Précédent" %}</a>
+            </li>
+            <li class="fr-col-6 fr-col-sm-3">
+                <button class="fr-btn">{% translate "Continuer" %}</button>
+            </li>
+        </ul>
     </form>
 {% endblock editorial_content %}

@@ -76,13 +76,13 @@ class ContributionStepMixin(FormView):
 
     def _get_section_number(self):
         done_mandatory_questions = [q for q in self.question_set[: self.step] if q.display_conditions == []]
-        return len(done_mandatory_questions)
+        return len(done_mandatory_questions) + 1
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         context["erp"] = self.erp
         context["step"] = self._get_section_number()
-        context["nb_sections"] = len([q for q in self.question_set if q.display_conditions == []])
+        context["nb_sections"] = len([q for q in self.question_set if q.display_conditions == []]) + 1
         try:
             question_number = get_previous_question_number(self.step, erp=self.erp, questions=self.question_set)
             url = reverse(self.route_name, kwargs={"erp_slug": self.erp.slug, "step_number": question_number})
@@ -98,12 +98,46 @@ class ContributionStepView(ContributionStepMixin):
     route_name = "contribution-step"
     success_route_name = "contribution-base-success"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        if self.step < 7:
+            context["step_name"] = translate("L'entrée")
+        elif self.step < 9:
+            context["step_name"] = translate("L'accueil")
+        elif self.step < 12:
+            context["step_name"] = translate("Le stationnement")
+        elif self.step < 14:
+            context["step_name"] = translate("Les chambres")
+        else:
+            context["step_name"] = translate("Les équipements")
+        return context
+
 
 class AdditionalContributionStepView(ContributionStepMixin):
     template_name = "contrib/contribution-step.html"
     question_set = ADDITIONAL_CONTRIBUTION_QUESTIONS
     route_name = "contribution-additional-step"
     success_route_name = "contribution-additional-success"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        if self.step == 0:
+            context["step_name"] = translate("Transport en commun")
+        elif self.step < 5:
+            context["step_name"] = translate("Chemin d'accès")
+        elif self.step < 8:
+            context["step_name"] = translate("Entrée")
+        elif self.step < 12:
+            context["step_name"] = translate("Chemin entre l'entrée et l'accueil")
+        elif self.step < 14:
+            context["step_name"] = translate("Les chambres")
+        elif self.step < 16:
+            context["step_name"] = translate("Equipements et prestations")
+        elif self.step < 18:
+            context["step_name"] = translate("Signalétique")
+        else:
+            context["step_name"] = translate("Autres")
+        return context
 
 
 def contribution_base_success_view(request, erp_slug):
