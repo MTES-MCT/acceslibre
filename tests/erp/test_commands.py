@@ -454,7 +454,7 @@ class TestScrapflyAcquisition:
         assert erp.commune == "Lyon"
         assert erp.accessibilite.entree_plain_pied is True
         assert erp.accessibilite.entree_largeur_mini == 80
-        assert erp.accessibilite.sanitaires_presence is True
+        assert erp.accessibilite.accueil_chambre_sanitaires_barre_appui is True
 
         # call the command twice, it should not create a second erp
         call_command("scrapfly_acquisition", query="restaurant, Lyon")
