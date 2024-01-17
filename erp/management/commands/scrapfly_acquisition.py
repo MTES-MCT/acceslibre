@@ -100,7 +100,7 @@ class Command(BaseCommand):
             access_copy.remove(key_to_ignore)
 
         # Some access info are allowed only if hotel has accessible bedrooms, but as it depends on the parsing order, wipe it here.
-        if accessibility["accueil_chambre_nombre_accessibles"] != 1:
+        if accessibility.get("accueil_chambre_nombre_accessibles") != 1:
             accessibility["accueil_chambre_sanitaires_barre_appui"] = None
 
         if access_copy:
