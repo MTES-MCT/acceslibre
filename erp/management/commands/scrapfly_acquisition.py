@@ -65,17 +65,20 @@ class Command(BaseCommand):
 
         accessibility["entree_porte_presence"] = True
 
-        if (key := "Toilettes avec barres d'appui") in access_copy:
-            accessibility["sanitaires_presence"] = True
-            access_copy.remove(key)
-
         if (key := "Accessible en fauteuil roulant") in access_copy:
             accessibility["entree_plain_pied"] = True
             accessibility["entree_largeur_mini"] = 80
+            accessibility["accueil_chambre_nombre_accessibles"] = 1
             access_copy.remove(key)
 
         if (key := "Logement entièrement accessible en fauteuil roulant") in access_copy:
             accessibility["accueil_chambre_nombre_accessibles"] = 1
+            accessibility["entree_plain_pied"] = True
+            accessibility["entree_largeur_mini"] = 80
+            access_copy.remove(key)
+
+        if (key := "Toilettes avec barres d'appui") in access_copy:
+            accessibility["accueil_chambre_sanitaires_barre_appui"] = True
             access_copy.remove(key)
 
         if (key := "Guidage vocal") in access_copy:
@@ -95,6 +98,10 @@ class Command(BaseCommand):
             if key_to_ignore not in access_copy:
                 continue
             access_copy.remove(key_to_ignore)
+
+        # Some access info are allowed only if hotel has accessible bedrooms, but as it depends on the parsing order, wipe it here.
+        if accessibility["accueil_chambre_nombre_accessibles"] != 1:
+            accessibility["accueil_chambre_sanitaires_barre_appui"] = None
 
         if access_copy:
             print(f"Extra access keys: {access_copy}")
