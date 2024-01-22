@@ -99,7 +99,7 @@ class Command(BaseCommand):
 
         # Some access info are allowed only if hotel has accessible bedrooms, but as it depends on the parsing order, wipe it here.
         if accessibility.get("accueil_chambre_nombre_accessibles") != 1:
-            accessibility["accueil_chambre_sanitaires_barre_appui"] = None
+            accessibility.pop("accueil_chambre_sanitaires_barre_appui", None)
 
         if access_copy:
             print(f"Extra access keys: {access_copy}")
