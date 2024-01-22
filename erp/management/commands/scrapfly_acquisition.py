@@ -63,8 +63,6 @@ class Command(BaseCommand):
         accessibility = {}
         access_copy = copy.deepcopy(access)
 
-        accessibility["entree_porte_presence"] = True
-
         if (key := "Accessible en fauteuil roulant") in access_copy:
             accessibility["entree_plain_pied"] = True
             accessibility["entree_largeur_mini"] = 80
@@ -105,6 +103,11 @@ class Command(BaseCommand):
 
         if access_copy:
             print(f"Extra access keys: {access_copy}")
+
+        if not accessibility:
+            return
+
+        accessibility["entree_porte_presence"] = True
         return accessibility
 
     def _parse_search_page(self, result):
@@ -177,6 +180,8 @@ class Command(BaseCommand):
         access = result["features"]["Accessibilité"]
 
         erp["accessibilite"] = self._convert_access(access)
+        if not erp["accessibilite"]:
+            return
 
         locdata = geocoder.geocode(erp["adresse"])
         for key in ("numero", "voie", "lieu_dit", "code_postal", "commune"):
@@ -193,7 +198,7 @@ class Command(BaseCommand):
             ):
                 erp_duplicated = Erp.objects.get(pk=int(e.detail["non_field_errors"][1]))
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
-            return None
+            return
 
         action = "UPDATED" if existing_erp else "CREATED"
 
