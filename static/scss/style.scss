@@ -223,10 +223,6 @@ select[name='language'] {
       filter: invert(1) contrast(2);
     }
 
-    &-squared {
-      border-radius: 0%;
-    }
-
     &-rounded {
       border-radius: 50%;
     }
@@ -278,33 +274,6 @@ select[name='language'] {
     fill: currentColor;
   }
 
-  &-landing {
-    &-partenaire-logo {
-      max-width: 100%;
-      max-height: 100px;
-      vertical-align: middle;
-    }
-
-    &-picto {
-      &-center {
-        display: block;
-        width: 70px;
-        margin: 0 auto;
-      }
-
-      &-right {
-        float: right;
-        width: 70px;
-        margin: 0 0 5px 5px;
-      }
-    }
-
-    &-separator {
-      border-top: 5px solid $primary;
-      margin: 1.5em 33%;
-    }
-  }
-
   .cgu {
     p,
     li {
@@ -315,10 +284,6 @@ select[name='language'] {
   &-partenaire-logo {
     max-width: 100%;
     max-height: 120px;
-  }
-
-  .navbar-brand {
-    padding-bottom: 1px;
   }
 
   .nav-tabs .active {
@@ -537,27 +502,6 @@ select[name='language'] {
     padding: 1px 1em;
   }
 
-  &-app-nav,
-  &-app-main {
-    @media screen and (min-width: $viewport-md) {
-      height: calc(100vh - 58px - 57px);
-    }
-  }
-
-  &-app-map-wrapper {
-    @media screen and (min-width: $viewport-md) {
-      display: block;
-    }
-
-    @media screen and (max-width: $viewport-md) {
-      display: none;
-
-      &.visible {
-        display: block;
-      }
-    }
-  }
-
   &-app-map {
     @media screen and (min-width: $viewport-md) {
       height: calc(100vh - 58px - 57px);
@@ -649,21 +593,9 @@ select[name='language'] {
     left: 0;
   }
 
-  &-erp-list-inner.loading {
-    opacity: 0.65;
-  }
-
   &-backlink {
     border-bottom: 1px solid #ddd;
     background: #fafafa;
-  }
-
-  &-slightly-smaller {
-    font-size: 0.87em;
-  }
-
-  &-slightly-bold {
-    font-weight: 500;
   }
 
   &-cluster-icon {
