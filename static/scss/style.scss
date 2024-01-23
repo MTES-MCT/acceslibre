@@ -486,17 +486,6 @@ select[name='language'] {
     width: 90px;
   }
 
-  &-marianne {
-    background: $white;
-    height: 30px;
-    width: 50px;
-  }
-
-  &-home-map {
-    width: 100%;
-    height: 700px;
-  }
-
   &-navbar {
     background-color: $primary;
     padding: 1px 1em;
@@ -689,103 +678,6 @@ select[name='language'] {
   &-notif {
     max-width: 600px;
     min-width: 350px;
-  }
-
-  /* Loader from https://loading.io/css/ */
-  .lds-ring {
-    display: inline-block;
-    height: 80px;
-    position: relative;
-    width: 80px;
-  }
-
-  .lds-ring div {
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border: 8px solid $white;
-    border-color: #4493ce transparent transparent transparent;
-    border-radius: 50%;
-    box-sizing: border-box;
-    display: block;
-    height: 64px;
-    margin: 8px;
-    position: absolute;
-    width: 64px;
-  }
-
-  .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-
-  .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-
-  .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-
-  @keyframes lds-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .autocomplete-suggestions {
-    background: $white;
-    border: 1px solid #4493ce;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top: 0;
-    cursor: pointer;
-    overflow: auto;
-    padding: 2px 0;
-  }
-
-  .autocomplete-suggestion {
-    overflow: hidden;
-    padding: 3px 12px;
-    white-space: nowrap;
-  }
-
-  .autocomplete-selected {
-    background: #f0f0f0;
-  }
-
-  .autocomplete-suggestions strong {
-    color: #39f;
-    font-weight: normal;
-  }
-
-  .autocomplete-group {
-    padding: 2px 5px;
-  }
-
-  .autocomplete-group strong {
-    border-bottom: 1px solid #000;
-    display: block;
-  }
-
-  &-badge-group {
-    white-space: nowrap;
-  }
-
-  &-badge {
-    font-size: 13px;
-    padding: 6px 8px 3px 6px;
-  }
-
-  &-badge-lg {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
-
-  &-contact-btn-group .btn {
-    white-space: nowrap;
-    text-align: left;
   }
 
   /* Forms */
