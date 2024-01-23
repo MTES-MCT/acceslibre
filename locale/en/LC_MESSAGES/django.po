@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-15 14:59+0100\n"
+"POT-Creation-Date: 2024-01-23 14:27+0100\n"
 "PO-Revision-Date: 2023-12-11 14:14+0100\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Il n'y a pas de rétrécissement"
 msgstr ""
 
-msgid "Quelles sont les caractéristiques du chemin privatif ? "
+msgid "Quelles sont les caractéristiques du chemin privatif ? (plusieurs réponses possibles)"
 msgstr ""
 
 msgid "Y a-t-il un parking réservé aux visiteurs ?"
@@ -424,6 +424,43 @@ msgstr "I am not sure"
 
 msgid "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."
 msgstr "You have not provided enough accessibility information. Your facility cannot be published."
+
+
+msgid "L'entrée"
+msgstr "Entrance"
+
+msgid "L'accueil"
+msgstr ""
+
+msgid "Le stationnement"
+msgstr ""
+
+msgid "Les chambres"
+msgstr ""
+
+msgid "Les équipements"
+msgstr ""
+
+msgid "Transport en commun"
+msgstr "Public transportation"
+
+msgid "Chemin d'accès"
+msgstr ""
+
+msgid "Entrée"
+msgstr "Entrance"
+
+msgid "Chemin entre l'entrée et l'accueil"
+msgstr ""
+
+msgid "Equipements et prestations"
+msgstr ""
+
+msgid "Signalétique"
+msgstr ""
+
+msgid "Autres"
+msgstr "Other"
 
 msgid "Cinéma, mairie, ..."
 msgstr "Cinéma, mairie, ..."
@@ -1052,9 +1089,6 @@ msgstr "Reception and services"
 
 msgid "Extérieur"
 msgstr "Exterior"
-
-msgid "Entrée"
-msgstr "Entrance"
 
 msgid "Stationnement à proximité"
 msgstr "Parking nearby"
@@ -2752,9 +2786,6 @@ msgstr "Coming to the facility"
 msgid "Étape 3 sur 7"
 msgstr "Step 3 of 7"
 
-msgid "Transport en commun"
-msgstr "Public transportation"
-
 msgid "Stationnement"
 msgstr "Parking"
 
@@ -2846,9 +2877,18 @@ msgstr ""
 msgid "Non, plus tard"
 msgstr ""
 
+msgid "Ajoutez des informations d'accessibilité"
+msgstr "Add accessibility information"
+
 #, python-format
-msgid "Étape %(step)s sur %(total)s maximum"
+msgid "Étape %(step)s sur %(total)s"
 msgstr ""
+
+msgid "Précédent"
+msgstr "Previous"
+
+msgid "Continuer"
+msgstr "Continue"
 
 msgid "Renseigner un établissement"
 msgstr "Enter a facility"
@@ -2949,12 +2989,6 @@ msgstr "About"
 
 msgid "Parcours de contribution"
 msgstr "Contribution path"
-
-msgid "Précédent"
-msgstr "Previous"
-
-msgid "Continuer"
-msgstr "Continue"
 
 msgid "Continuez sur l'étape"
 msgstr "Continue on step"

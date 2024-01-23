@@ -19,6 +19,18 @@ class Question:
 
     @property
     def choices(self):
+        return [
+            (
+                a.label,
+                mark_safe(
+                    f"""
+        <label class="fr-label" for="id_question_{i}">{a.label}</label>
+        <div class="fr-radio-rich__img fr-xl-radio-rich__img">{a.image_tag}</div>
+        """
+                ),
+            )
+            for i, a in enumerate(self.answers)
+        ]
         return [(a.label, mark_safe(f"{a.image_tag}{a.label}")) for a in self.answers]
 
     @property
@@ -56,4 +68,4 @@ class Answer:
             if self.label == translate_lazy("Je ne suis pas sûr(e)")
             else self.label
         )
-        return f"<img src='{static(path)}' alt='{alt}' class='w-100 h-auto'>"
+        return f"<img src='{static(path)}' alt='{alt}'>"
