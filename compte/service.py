@@ -83,12 +83,12 @@ def increment_nb_erp_created(user):
         return
 
     user_stats, _ = UserStats.objects.get_or_create(user=user)
-    user_stats = F("nb_erp_created") + 1
+    user_stats.nb_erp_created = F("nb_erp_created") + 1
     user_stats.save()
     sync_user_attributes.delay(user.pk)
 
 
-def increment_nb_erp_updated(user):
+def increment_nb_erp_edited(user):
     if not user:
         return
 

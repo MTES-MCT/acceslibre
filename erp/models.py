@@ -19,7 +19,7 @@ from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from reversion.models import Version
 
-from compte.service import increment_nb_erp_created
+from compte.service import increment_nb_erp_created, increment_nb_erp_edited
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
@@ -879,11 +879,17 @@ class Erp(models.Model):
             vote.save()
             return vote
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, editor=None, **kwargs):
+        if editor and not self.user:
+            self.user = editor
+
         if self.pk:
-            if self.__original_user_id is None and self.user_id:
-                # ERP has just been attributed to a user, manage his user_stats
-                increment_nb_erp_created(self.user)
+            if self.__original_user_id is None:
+                if self.user:
+                    # ERP has just been attributed to a user, manage his user_stats
+                    increment_nb_erp_created(self.user)
+            elif editor:
+                increment_nb_erp_edited(editor)
         elif self.user:
             increment_nb_erp_created(self.user)
 

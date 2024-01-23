@@ -277,6 +277,10 @@ def test_erp_edit_can_be_contributed(data, client):
 
 
 def test_ajout_erp(data, client):
+    data.niko.stats.refresh_from_db()
+    initial_nb_created = data.niko.stats.nb_erp_created
+    initial_nb_edited = data.niko.stats.nb_erp_edited
+
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
 
@@ -506,7 +510,6 @@ def test_ajout_erp(data, client):
 
     # Publication
     # Public user
-    # TODO register during erp creation flow, check nb_erp_created
     client.force_login(data.niko)
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
@@ -520,6 +523,10 @@ def test_ajout_erp(data, client):
     assert erp.user == data.niko
     assert_redirect(response, erp.get_absolute_url())
     assert response.status_code == 200
+
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
+    assert data.niko.stats.nb_erp_edited == initial_nb_edited
 
 
 def test_ajout_erp_a11y_vide(data, client):
@@ -813,6 +820,10 @@ def test_history_human_readable_diff(data, client):
 
 
 def test_contribution_flow_administrative_data(data, client):
+    data.sophie.stats.refresh_from_db()
+    initial_nb_created = data.sophie.stats.nb_erp_created
+    initial_nb_edited = data.sophie.stats.nb_erp_edited
+
     client.force_login(data.sophie)
     response = client.get(reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}))
 
@@ -844,6 +855,10 @@ def test_contribution_flow_administrative_data(data, client):
     assert updated_erp.user == data.erp.user  # original owner is preserved
     assert_redirect(response, "/contrib/transport/aux-bons-croissants/")
     assert response.status_code == 200
+
+    data.sophie.stats.refresh_from_db()
+    assert data.sophie.stats.nb_erp_created == initial_nb_created
+    assert data.sophie.stats.nb_erp_edited == initial_nb_edited + 1
 
 
 def test_contribution_flow_accessibilite_data(data, client):
