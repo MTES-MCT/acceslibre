@@ -37,12 +37,12 @@
                 {# djlint:on #}
             </p>
         {% endif %}
-        <p class="fr-callout__text">
-            {% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}
-        </p>
-        <a href="{% url "contribution-additional-step" erp.slug 0 %}"
-           class="fr-btn">{% translate "Oui, je continue" %}</a>
         {% if erp.published %}
+            <p class="fr-callout__text">
+                {% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}
+            </p>
+            <a href="{% url "contribution-additional-step" erp.slug 0 %}"
+               class="fr-btn">{% translate "Oui, je continue" %}</a>
             <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
         {% endif %}
     </div>

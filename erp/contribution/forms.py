@@ -22,7 +22,7 @@ class ContributionForm(forms.Form):
         elif self.question.is_mutiple_type:
             self.fields["question"] = forms.MultipleChoiceField(
                 label=self.question.label,
-                required=True,
+                required=False,
                 choices=self.question.choices,
                 widget=forms.CheckboxSelectMultiple,
             )

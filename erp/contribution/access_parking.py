@@ -54,7 +54,7 @@ no_parking = Answer(
 )
 
 PARKING_FOR_DISABLED_NEARBY_QUESTION = Question(
-    label=translate_lazy("Y a-t-il du stationnement, PMR ou non, dans les environs (200 mètres) ?"),
+    label=translate_lazy("Y a-t-il des places de stationnement PMR dans les environs (200 mètres) ?"),
     type=UNIQUE_ANSWER,
     answers=[
         parking_for_disabled,

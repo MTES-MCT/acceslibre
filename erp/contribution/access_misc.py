@@ -65,7 +65,7 @@ no_toilets = Answer(
 
 
 TOILETS_QUESTION = Question(
-    label=translate_lazy("Y a-t-il des toilettes PMR ou non dans votre établissement ?"),
+    label=translate_lazy("Y a-t-il des toilettes PMR dans votre établissement ?"),
     type=UNIQUE_ANSWER,
     answers=[
         toilets_with_access,
