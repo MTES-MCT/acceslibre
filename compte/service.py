@@ -5,9 +5,11 @@ from _datetime import timedelta
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
 from django.db import DatabaseError, models
+from django.db.models import F
 from django.urls import reverse
 
-from compte.models import EmailToken
+from compte.models import EmailToken, UserStats
+from compte.tasks import sync_user_attributes
 from core.lib import text
 from core.mailer import BrevoMailer
 
@@ -74,3 +76,22 @@ def anonymize_user(user):
         return user
     except (ValueError, DatabaseError) as err:
         raise RuntimeError(f"Erreur lors de la suppression du compte utilisateur: {err}")
+
+
+def increment_nb_erp_created(user):
+    if not user:
+        return
+
+    user_stats, _ = UserStats.objects.get_or_create(user=user)
+    user_stats.nb_erp_created = F("nb_erp_created") + 1
+    user_stats.save()
+    sync_user_attributes.delay(user.pk)
+
+
+def increment_nb_erp_edited(user):
+    if not user:
+        return
+
+    user_stats, _ = UserStats.objects.get_or_create(user=user)
+    user_stats.nb_erp_edited = F("nb_erp_edited") + 1
+    user_stats.save()

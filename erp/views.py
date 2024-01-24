@@ -839,9 +839,7 @@ def contrib_admin_infos(request):
                 erp.published = False
                 activite = form.cleaned_data.get("activite")
                 erp.activite = activite
-                if request.user.is_authenticated and erp.user is None:
-                    erp.user = request.user
-                erp.save()
+                erp.save(editor=request.user if request.user.is_authenticated else None)
                 if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
                         name=form.cleaned_data["nouvelle_activite"],
@@ -918,9 +916,8 @@ def contrib_edit_infos(request, erp_slug):
             erp = form.save(commit=False)
             activite = form.cleaned_data.get("activite")
             erp.activite = activite
-            if request.user.is_authenticated and erp.user is None:
-                erp.user = request.user
-            erp.save()
+            erp.save(editor=request.user if request.user.is_authenticated else None)
+
             if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
@@ -967,10 +964,7 @@ def contrib_a_propos(request, erp_slug):
             accessibilite.erp = erp
             accessibilite.save()
 
-            if request.user.is_authenticated and erp.user is None:
-                erp.user = request.user
-
-            erp.save()
+            erp.save(editor=request.user if request.user.is_authenticated else None)
             messages.add_message(
                 request,
                 messages.SUCCESS,
