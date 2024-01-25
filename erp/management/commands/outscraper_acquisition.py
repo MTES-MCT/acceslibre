@@ -5,7 +5,8 @@ from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Erp
+from erp.models import Commune, Erp
+from erp.provider.departements import DEPARTEMENTS
 
 
 class Command(BaseCommand):
@@ -166,11 +167,61 @@ class Command(BaseCommand):
         self._search(query=options["query"], limit=limit, skip=options["skip"], max_results=options["max_results"])
 
 
-# from erp.provider.departements import DEPARTEMENTS
-# for num, data in DEPARTEMENTS.items():
-#     print(f'python manage.py outscraper_acquisition --query="Salle des fêtes, {data["nom"]}" --activity="Salle des fêtes"')
+def print_commands():
+    queries = [
+        ("Boulangerie", "Boulangerie Pâtisserie"),
+        ("Cultura", "Librairie"),
+        ("FNAC", "Librairie"),
+        ("Pharmacie", "Pharmacie"),
+        ("Bowling", "Bowling"),
+        ("Cimetière", "Cimetière"),
+        ("EHPAD", "EHPAD"),
+        ("Laboratoire d'analyse médicale", "Laboratoire d'analyse médicale"),
+        ("DARTY", "Électroménager et matériel audio-vidéo"),
+        ("Décathlon", "Vente d'articles de sport"),
+        ("Toilettes publiques", "Toilettes publiques"),
+        ("Médiathèque", "Bibliothèque médiathèque"),
+        ("Crédit Agricole", "Banques, caisses d'épargne"),
+        ("Caisse d'Epargne", "Banques, caisses d'épargne"),
+        ("Banque populaire", "Banques, caisses d'épargne"),
+        ("BNP Paribas", "Banques, caisses d'épargne"),
+        ("Piscine municipale", "Piscine, centre aquatique"),
+        ("Intersport", "Vente d'articles de sport"),
+        ("Boucherie", "Boucherie / commerce de viande"),
+        ("Bijouterie", "Bijouterie joaillerie"),
+        ("Quincaillerie", "Droguerie"),
+        ("Librairie", "Librairie"),
+        ("Agence immobilière", "Agence immobilière"),
+        ("Office du tourisme", "Office du tourisme"),
+        ("Kebab", "Restauration rapide"),
+        ("Lidl", "Supermarché"),
+        ("Monoprix", "Supermarché"),
+        ("Franprix", "Supermarché"),
+        ("Pompes funèbres", "Pompes funèbres"),
+        ("Leroy Merlin", "Bricolage, matériaux, travaux"),
+        ("Castorama", "Bricolage, matériaux, travaux"),
+        ("Coiffeur", "Coiffure"),
+        ("Fleuriste", "Fleuriste"),
+        ("Chocolatier", "Chocolatier"),
+        ("Coworking", "Coworking"),
+        ("Carrosserie", "Carrosserie"),
+        ("Vétérinaire", "Vétérinaire"),
+        ("Salle des fêtes", "Salle des fêtes"),
+        ("Fromagerie", "Crèmerie Fromagerie"),
+    ]
 
+    for term, activity in queries:
+        for num, data in DEPARTEMENTS.items():
+            if any([str(num).startswith(x) for x in ["97", "98"]]):
+                # ignore DOM, no data for them
+                continue
+            print(f'python manage.py outscraper_acquisition --query="{term}, {data["nom"]}" --activity="{activity}"')
 
-# from erp.models import Commune
-# for commune in Commune.objects.filter(population__gte=100000):
-#     print(f'python manage.py outscraper_acquisition --query="Salle des fêtes, {commune.nom}" --activity="Salle des fêtes"')
+        for commune in Commune.objects.filter(population__gte=50000):
+            if any([str(commune.code_postaux[0]).startswith(x) for x in ["97", "98"]]):
+                # ignore DOM, no data for them
+                continue
+            if "arrondissement" in commune.nom:
+                # ignore, will be managed while processing the whole city
+                continue
+            print(f'python manage.py outscraper_acquisition --query="{term}, {commune.nom}" --activity="{activity}"')
