@@ -120,7 +120,7 @@ class Command(BaseCommand):
             print(f"Extra access keys: {access_copy}")
 
         if not accessibility:
-            return
+            return {}
 
         accessibility["entree_porte_presence"] = True
         return accessibility
