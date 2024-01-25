@@ -59,6 +59,21 @@ class Command(BaseCommand):
             help="The query you want to search on Outscraper to insert new ERPs",
         )
 
+    def _convert_ext(self, access):
+        accessibility = {}
+
+        if "L'établissement ne dispose pas de parking" in access:
+            accessibility["stationnement_presence"] = False
+
+        if "Parking intérieur" in access:
+            accessibility["stationnement_presence"] = True
+
+        if "Parking accessible aux personnes à mobilité réduite" in access:
+            accessibility["stationnement_presence"] = True
+            accessibility["stationnement_pmr"] = True
+
+        return accessibility
+
     def _convert_access(self, access):
         accessibility = {}
         access_copy = copy.deepcopy(access)
@@ -178,8 +193,9 @@ class Command(BaseCommand):
             return
 
         access = result["features"]["Accessibilité"]
+        ext = result["features"]["Parking"]
 
-        erp["accessibilite"] = self._convert_access(access)
+        erp["accessibilite"] = self._convert_access(access) | self._convert_ext(ext)
         if not erp["accessibilite"]:
             return
 

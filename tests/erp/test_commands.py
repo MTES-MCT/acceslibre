@@ -426,7 +426,10 @@ class TestScrapflyAcquisition:
         "id": "ChIJzZhX5juz9UcR74W_abcd",
         "title": "Le Troisième Art - Restaurant Gastronomique Lyon",
         "address": "173 Rue des tournesols, Lyon",
-        "features": {"Accessibilité": ["Toilettes avec barres d'appui", "Accessible en fauteuil roulant"]},
+        "features": {
+            "Accessibilité": ["Toilettes avec barres d'appui", "Accessible en fauteuil roulant"],
+            "Parking": ["Parking accessible aux personnes à mobilité réduite"],
+        },
     }
 
     @pytest.mark.django_db
@@ -455,6 +458,8 @@ class TestScrapflyAcquisition:
         assert erp.accessibilite.entree_plain_pied is True
         assert erp.accessibilite.entree_largeur_mini == 80
         assert erp.accessibilite.accueil_chambre_sanitaires_barre_appui is True
+        assert erp.accessibilite.stationnement_presence is True
+        assert erp.accessibilite.stationnement_pmr is True
 
         # call the command twice, it should not create a second erp
         call_command("scrapfly_acquisition", query="restaurant, Lyon")
