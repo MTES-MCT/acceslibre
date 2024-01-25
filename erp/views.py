@@ -25,7 +25,7 @@ from waffle import switch_is_active
 
 from compte.signals import erp_claimed
 from core.lib import geo, url
-from core.mailer import BrevoMailer, get_mailer
+from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
 from erp.forms import get_contrib_form_for_activity, get_vote_button_title
@@ -705,16 +705,7 @@ def vote(request, erp_slug):
     if not vote:
         messages.add_message(request, messages.SUCCESS, translate("Votre vote a bien été effacé."))
         return redirect(erp.get_absolute_url())
-    get_mailer().mail_admins(
-        f"Vote {'positif' if vote.is_positive else 'négatif'} pour {erp.nom} ({erp.commune})",
-        "mail/vote_notification.txt",
-        {
-            "erp": erp,
-            "vote": vote,
-            "SITE_NAME": settings.SITE_NAME,
-            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-        },
-    )
+
     if vote.is_negative:
         route = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
         context = {"erp_contrib_url": f"{settings.SITE_ROOT_URL}{route}"}

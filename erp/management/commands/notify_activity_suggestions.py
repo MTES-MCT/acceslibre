@@ -21,6 +21,7 @@ class Command(BaseCommand):
         if not activity_suggestions.count():
             return True
 
+        # TODO: migrate to Brevo if this mail seems useful.
         get_mailer().mail_admins(
             "Nouvelles suggestions d'activités.",
             "mail/activity_suggestions_notification.txt",
