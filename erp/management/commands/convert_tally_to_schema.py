@@ -7,7 +7,8 @@ from erp.models import Erp
 from erp.provider.geocoder import geocode
 
 with_room_accessible = False
-with_comment = True
+with_comment = False
+with_activity = False
 
 mapping = {
     "Est-ce qu’il y au moins une place handicapé dans votre parking ?": {
@@ -116,7 +117,8 @@ to_ignore_headers = [
     "Respondent ID",
     "Submitted at",
     "Votre établissement :",
-    "geo",
+    "latitude",
+    "longitude",
 ]
 if with_room_accessible:
     to_ignore_headers += [
@@ -132,7 +134,6 @@ if with_room_accessible:
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
-    "activite": "activite",
 }
 basic_mapped_headers = {
     "email": "import_email",
@@ -142,6 +143,11 @@ basic_mapped_headers = {
 if with_comment:
     basic_mapped_headers |= {
         "Informations complémentaires": "commentaire",
+    }
+
+if with_activity:
+    basic_mapped_headers |= {
+        "Quelle est l'activité de votre établissement ?": "activite",
     }
 
 

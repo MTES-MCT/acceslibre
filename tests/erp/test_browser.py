@@ -644,6 +644,8 @@ def test_add_erp_other_activity(data, client):
         follow=True,
     )
 
+    assert Erp.objects.get(nom="Test ERP", user=data.niko), "ERP should have been created and attributed to niko"
+
     assert ActivitySuggestion.objects.count() == 1
     activity_suggest = ActivitySuggestion.objects.last()
     assert activity_suggest.erp is not None
