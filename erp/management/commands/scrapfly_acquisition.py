@@ -107,6 +107,7 @@ class Command(BaseCommand):
             "Étages supérieurs accessibles par ascenseur",
             "Étages supérieurs accessibles uniquement par les escaliers",
             "Aides visuelles : panneaux tactiles",
+            "Adapté aux personnes malentendantes",
         ):
             if key_to_ignore not in access_copy:
                 continue
