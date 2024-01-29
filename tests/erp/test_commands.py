@@ -20,7 +20,7 @@ class TestConvertTallyToSchema:
         (
             pytest.param(
                 {
-                    "Est-ce qu’il y au moins une place handicapé dans votre parking ?": "Oui, nous avons une place handicapé",
+                    "Est-ce qu’il y a au moins une place handicapé dans votre parking ?": "Oui, nous avons une place handicapé",
                     "cp": "4100",
                     "adresse": "7 grande rue, Saint Martin en Haut",
                     "Combien de marches y a-t-il pour entrer dans votre établissement ?": "124",
