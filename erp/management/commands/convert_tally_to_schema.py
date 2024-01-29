@@ -11,7 +11,7 @@ with_comment = False
 with_activity = False
 
 mapping = {
-    "Est-ce qu’il y au moins une place handicapé dans votre parking ?": {
+    "Est-ce qu’il y a au moins une place handicapé dans votre parking ?": {
         "Oui, nous avons une place handicapé": [
             ("stationnement_presence", True),
             ("stationnement_pmr", True),
@@ -40,7 +40,7 @@ mapping = {
         "Autre": [],
         "Je ne suis pas sûr": [],
     },
-    "Est-ce qu’il y au moins une place handicapé dans les environs ?": {
+    "Est-ce qu’il y a au moins une place handicapé dans les environs ?": {
         "Oui, il y a une place de parking handicapé pas loin": [
             ("stationnement_ext_presence", True),
             ("stationnement_ext_pmr", True),
@@ -55,8 +55,8 @@ mapping = {
         "Non": [("entree_dispositif_appel", False)],
     },
     "Avez-vous un parking réservé à vos visiteurs ?": {
-        "Oui, nous avons un parking reservé": [("stationnement_presence", True)],
-        "Non, nous n'avons pas de parking reservé": [("stationnement_presence", False)],
+        "Oui, nous avons un parking réservé": [("stationnement_presence", True)],
+        "Non, nous n'avons pas de parking réservé": [("stationnement_presence", False)],
         "Je ne sais pas": [],
     },
     "Est-ce qu’il y a des toilettes adaptées dans votre établissement ?": {

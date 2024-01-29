@@ -14,7 +14,7 @@ from rest_framework.exceptions import ValidationError
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Erp
+from erp.models import Commune, Erp
 from erp.provider import geocoder
 
 # NOTE: mainly based on https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/bookingcom.py
@@ -62,8 +62,8 @@ class Command(BaseCommand):
     def _convert_ext(self, access):
         accessibility = {}
 
-        if "L'établissement ne dispose pas de parking" in access:
-            accessibility["stationnement_presence"] = False
+        if not access:
+            return {}
 
         if "Parking intérieur" in access:
             accessibility["stationnement_presence"] = True
@@ -244,7 +244,7 @@ class Command(BaseCommand):
         locations = json.loads(locations.content).get("results")
         if not locations:
             print(f"No location found for {query}")
-            return
+            return []
 
         now = datetime.now()
         checkin = (now + timedelta(days=60)).strftime("%Y-%m-%d")
@@ -306,3 +306,11 @@ class Command(BaseCommand):
         hotels = self._search(query=options["query"])
         for hotel in hotels:
             self._parse_detail_page(hotel)
+
+
+def print_commands():
+    for commune in Commune.objects.filter(population__gte=10000):
+        if "arrondissement" in commune.nom:
+            # ignore, will be managed while processing the whole city
+            continue
+        print(f'python manage.py scrapfly_acquisition --query="{commune.nom}"')
