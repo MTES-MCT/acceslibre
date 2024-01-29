@@ -1630,6 +1630,7 @@
                 "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.31.0"
         },
         "rfc3986": {
@@ -1754,11 +1755,12 @@
         },
         "scrapfly-sdk": {
             "hashes": [
-                "sha256:76d35fb846bfc40e444985d71f52097c7c3131c77071e16225ec2ff67caea411",
-                "sha256:ee662fef4b9b3e2560b9ed1d60c979e8f97b8041778fabec793ef7acd86ed4be"
+                "sha256:0188622627a1f716b7d065aebbd281245daf31899591ee4236b7b8d036088125",
+                "sha256:33c8aa75303b4e0ba53632a3f33c1ab0f726aca9ab809742b6953eb19de8d5ea"
             ],
             "index": "pypi",
-            "version": "==0.8.10"
+            "markers": "python_version >= '3.6'",
+            "version": "==0.8.15"
         },
         "sentry-sdk": {
             "hashes": [
@@ -1902,7 +1904,7 @@
                 "sha256:55901e917a5896a349ff771be919f8bd99aff50b79fe58fec595eb37bbc56bb3",
                 "sha256:df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
             ],
-            "markers": "python_version >= '3.6'",
+            "markers": "python_version >= '3.8'",
             "version": "==2.1.0"
         },
         "uuid": {
