@@ -166,7 +166,6 @@ class Command(BaseCommand):
 
         client = ScrapflyClient(key=settings.SCRAPFLY_IO_API_KEY)
 
-        print(f"scraping hotel {hotel['url']}")
         session = str(uuid4()).replace("-", "")
         result = client.scrape(
             ScrapeConfig(
