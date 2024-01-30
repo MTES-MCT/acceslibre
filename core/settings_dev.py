@@ -62,6 +62,7 @@ if SQL_LOGS:
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 4,
     "vote_down": 5,
+    "vote_down_admin": 16,
     "spam_activities_suggestion": 6,
     "spam_activities_suggestion_admin": 7,
     "draft": 8,

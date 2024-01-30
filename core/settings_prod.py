@@ -45,6 +45,7 @@ SECURE_HSTS_PRELOAD = True
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 16,
     "vote_down": 79,
+    "vote_down_admin": 374,
     "spam_activities_suggestion": 87,
     "spam_activities_suggestion_admin": 88,
     "draft": 139,
