@@ -64,12 +64,29 @@ def test_erp_vote_counts(data, client, mocker):
         follow=True,
     )
 
-    mock_mail.assert_called_once_with(
-        to_list=data.sophie.email,
-        subject=None,
-        template="vote_down",
-        context={"erp_contrib_url": f"http://testserver/contrib/edit-infos/{data.erp.slug}/"},
-    )
+    assert mock_mail.call_count == 2
+    call1, call2 = mock_mail.call_args_list
+
+    assert call1.kwargs == {
+        "to_list": data.sophie.email,
+        "subject": None,
+        "template": "vote_down",
+        "context": {"erp_contrib_url": f"http://testserver/contrib/edit-infos/{data.erp.slug}/"},
+    }
+
+    assert call2.kwargs == {
+        "to_list": "acceslibre@beta.gouv.fr",
+        "subject": None,
+        "template": "vote_down_admin",
+        "context": {
+            "username": data.sophie.username,
+            "erp_nom": "Aux bons croissants",
+            "erp_absolute_url": f"/app/34-jacou/a/boulangerie/erp/{data.erp.slug}/",
+            "comment": "bouh sophie",
+            "user_email": data.sophie.email,
+        },
+    }
+
     mock_mail.reset_mock()
 
     assert Vote.objects.filter(erp=data.erp, value=Vote.POSITIVE_VALUE).count() == 0
