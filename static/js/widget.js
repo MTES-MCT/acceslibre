@@ -14,6 +14,7 @@
   ]
 
   var itemsProcessed = 0
+  var trackedPageView = false
 
   function _getBaseURL() {
     const baseURLElement = document.querySelector('[data-baseurl]')
@@ -34,24 +35,31 @@
     }
   }
 
-  function getTrackers() {
+  function getTracker() {
     if (window.AccesLibreMatomoTracker) {
       return window.AccesLibreMatomoTracker
     } else {
       // In case Matomo is not available (eg: Adblock) return a mock to avoid errors
       // in the rest of the code
-      return [
-        {
-          trackEvent: function () {},
-        },
-      ]
+      return {
+        trackEvent: function () {},
+        trackPageView: function () {},
+        enableLinkTracking: function () {},
+        enableHeartBeatTimer: function () {},
+      }
     }
   }
 
   function openModal(dialog) {
-    getTrackers().forEach(function (tracker) {
-      tracker.trackEvent('widget', 'open', true)
-    })
+    const tracker = getTracker()
+    if (!trackedPageView) {
+      tracker.trackPageView()
+      tracker.enableLinkTracking()
+      tracker.enableHeartBeatTimer()
+      trackedPageView = true
+    }
+    tracker.trackEvent('widget', 'open', true)
+
     const focusableElements = dialog.querySelectorAll(focusableElementsArray)
     const firstFocusableElement = focusableElements[0]
     const lastFocusableElement = focusableElements[focusableElements.length - 1]
@@ -142,9 +150,7 @@
 
   function _trackOnClick(element, trackingString) {
     element.addEventListener('click', () => {
-      getTrackers().forEach(function (tracker) {
-        tracker.trackEvent('widget', trackingString, true)
-      })
+      getTracker().trackEvent('widget', trackingString, true)
     })
   }
 
@@ -169,17 +175,11 @@
   }
 
   function setupAnalytics() {
-    var matomoTracker = Matomo.getTracker('https://stats.data.gouv.fr/matomo.php', 118)
-    var matomoSecondaryTracker = Matomo.getTracker('https://acceslibre.matomo.cloud/matomo.php', 1)
-    window.AccesLibreMatomoTracker = [matomoTracker, matomoSecondaryTracker]
-    window.AccesLibreMatomoTracker.forEach(function (tracker) {
-      tracker.trackPageView()
-      tracker.enableLinkTracking()
-      tracker.enableHeartBeatTimer()
-    })
+    var matomoTracker = Matomo.getTracker('https://acceslibre.matomo.cloud/matomo.php', 1)
+    window.AccesLibreMatomoTracker = matomoTracker
   }
   function setupAnalyticsScript() {
-    var u = 'https://stats.data.gouv.fr/'
+    var u = 'https://acceslibre.matomo.cloud/'
     ;(function () {
       var d = document,
         g = d.createElement('script'),
@@ -253,9 +253,6 @@
         return response.text()
       })
       .then(function (body) {
-        getTrackers().forEach(function (tracker) {
-          tracker.trackEvent('widget', 'display', true)
-        })
         var container = document.querySelector(`[data-pk="${erpPK}"]`)
         var newDiv = document.createElement('div')
         newDiv.innerHTML = body
