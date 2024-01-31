@@ -1,9 +1,10 @@
-import unittest.mock as um
+import random
+from unittest import mock
 
 import pytest
+from django.contrib.gis.geos import Point
 from django.core.management import call_command
 
-from erp.management.commands.import_laposte import Command as CommandImportLaPoste
 from erp.models import Erp
 from tests.factories import ActiviteFactory, CommuneFactory
 
@@ -15,14 +16,30 @@ csv_file_contents = """"Libéllé de l'entité","Type de l'entité","Numéro et 
 
 
 @pytest.mark.django_db
-def test_nominal_case():
+def test_nominal_case(mocker):
     CommuneFactory(nom="AMBERIEU EN BUGEY")
     CommuneFactory(nom="AMBERIEUX EN DOMBES")
     CommuneFactory(nom="CEYZERIAT")
     ActiviteFactory(nom="Bureau de Poste")
 
-    with um.patch("builtins.open", um.mock_open(read_data=csv_file_contents)):
-        call_command("import_laposte", file="mock")
+    # random geo coords to avoid a matching by name.
+    def _mock_geocode(*args, **kwargs):
+        return {
+            "geom": Point(random.randint(1, 90), random.randint(0, 180), srid=4326),
+            "numero": random.randint(1, 9999),
+            "voie": "Grand rue",
+            "lieu_dit": None,
+            "code_postal": kwargs["postcode"],
+            "commune": "CEYZERIAT",
+            "code_insee": kwargs["postcode"],
+            "provider": "ban",
+        }
+
+    mocker.patch("erp.provider.geocoder.geocode", side_effect=_mock_geocode)
+
+    with mock.patch("builtins.open", mock.mock_open(read_data=csv_file_contents)):
+        call_command("import_laposte", file="mocked_file")
+
     assert Erp.objects.count() == 3
 
     erp1 = Erp.objects.get(nom="La Poste", code_postal="01500")

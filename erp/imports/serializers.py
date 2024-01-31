@@ -195,7 +195,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                     continue
 
                 if obj.get("latitude") is not None and obj.get("longitude") is not None:
-                    self._geom = Point((obj["latitude"], obj["longitude"]))
+                    self._geom = Point((obj["latitude"], obj["longitude"]), srid=4326)
                     obj.pop("latitude")
                     obj.pop("longitude")
                     break
@@ -208,14 +208,27 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         existing = Erp.objects.find_duplicate(
             numero=obj.get("numero"),
-            voie=obj.get("voie"),
-            lieu_dit=obj.get("lieu_dit"),
             commune=obj["commune"],
             activite=obj["activite"],
+            voie=obj.get("voie"),
+            lieu_dit=obj.get("lieu_dit"),
         ).first()
 
         if existing:
-            raise DuplicatedExceptionErp([f"Potentiel doublon avec l'ERP : {existing}", existing.pk])
+            raise DuplicatedExceptionErp(
+                [f"Potentiel doublon par activité/adresse postale avec l'ERP : {existing}", existing.pk]
+            )
+
+        existing = (
+            Erp.objects.nearest(point=self._geom, max_radius_km=0.075)
+            .filter(nom__lower__in=(obj["nom"].lower(), obj["nom"].lower().replace("-", " ")))
+            .first()
+        )
+
+        if existing:
+            raise DuplicatedExceptionErp(
+                [f"Potentiel doublon par nom/75m alentours avec l'ERP : {existing}", existing.pk]
+            )
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")
