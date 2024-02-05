@@ -11,7 +11,7 @@ from erp.contribution import (
     get_next_question_number,
     get_previous_question_number,
 )
-from erp.models import Erp
+from erp.models import Accessibilite, Erp
 
 from .exceptions import ContributionStopIteration
 from .forms import ContributionForm
@@ -45,13 +45,8 @@ class ContributionStepMixin(FormView):
         if self.erp.published:
             return True
 
-        fields_to_check = [
-            "entree_plain_pied",
-            "entree_porte_presence",
-            "accueil_personnels",
-            "sanitaires_presence",
-            "stationnement_presence",
-        ]
+        fields_to_exclude = ["id", "erp", "conformite", "registre_url", "completion_rate", "created_at", "updated_at"]
+        fields_to_check = [f.name for f in Accessibilite._meta.get_fields() if f.name not in fields_to_exclude]
         access = self.erp.accessibilite
         fields_values = [getattr(access, f) for f in fields_to_check if getattr(access, f) not in (None, [], "")]
         return len(fields_values) >= settings.MIN_NB_ANSWERS_IN_CONTRIB_V2
