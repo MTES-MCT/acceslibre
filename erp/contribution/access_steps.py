@@ -115,4 +115,5 @@ STEP_RAMP_QUESTION = Question(
         not_sure_answer(["entree_marches_rampe", "entree_ascenseur"]),
     ],
     display_conditions=[entree_not_plain_pied],
+    easy_skip_for_screen_readers=True,
 )

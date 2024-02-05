@@ -7,6 +7,7 @@ class ContributionForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.question = kwargs.pop("question")
         super().__init__(*args, **kwargs)
+        self.easy_skip_for_screen_readers = self.question.easy_skip_for_screen_readers
 
         if self.question.is_unique_type:
             self.fields["question"] = forms.ChoiceField(
