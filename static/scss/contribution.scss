@@ -76,3 +76,28 @@ $grey: #ddd;
     }
   }
 }
+
+.contribution-result {
+  .fr-callout__title {
+    min-height: 6rem;
+  }
+
+  .failure-image {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  @media only screen and (max-width: $viewport-sm) {
+    .half-progress {
+      width: 100%;
+
+      .barOverflow {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
