@@ -33,17 +33,17 @@ mapping = {
     },
     "ACH00005": {
         "OUI": {
-            "commentaire": "Distributeur de billets disposant d'une prise audio pour les malvoyants.",
+            "commentaire": "GAB avec prise audio pour malvoyant.",
         }
     },
     "ACH00006": {
         "OUI": {
-            "commentaire": "Automate d'affranchissement disposant d'une prise audio pour les malvoyants.",
+            "commentaire": "Equipement affranchissement avec prise audio.",
         }
     },
     "ACH00008": {
         "OUI": {
-            "commentaire": "Présence d'une bande de guidage de l'entrée à l'accueil.",
+            "commentaire": "Bande de guidage intérieure.",
         }
     },
     "ACH00010": {
@@ -54,14 +54,14 @@ mapping = {
     },
     "ACH00012": {
         "OUI": {
-            "commentaire": "Présence d'une table pour écrire adaptée aux personnes en fauteuil roulant.",
+            "commentaire": "Guichet avec tablette PMR.",
         }
     },
     "ACH00013": {
         "OUI": {
-            "commentaire": "Présence d'un espace confidentiel accessible aux personnes en fauteuil roulant.",
+            "commentaire": "Présence d'un espace confidentiel accessible .",
         },
-        "NON": {"commentaire": "Il n'y a pas d'espace confidentiel accessible aux personnes en fauteuil roulant."},
+        "NON": {"commentaire": "Pas d'espace confidentiel accessible."},
     },
 }
 
@@ -88,7 +88,7 @@ class Command(BaseCommand):
                 continue
 
             if value in access_map:
-                new_access = access_map[value]
+                new_access = access_map[value].copy()
                 if "commentaire" in access_map[value] and accessibilite.get("commentaire"):
                     new_access["commentaire"] = f"{accessibilite.get('commentaire')} {access_map[value]['commentaire']}"
 
