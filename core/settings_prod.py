@@ -30,7 +30,7 @@ if SENTRY_DSN is not None:
         integrations=[DjangoIntegration()],
         traces_sampler=custom_traces_sample_rate,
         send_default_pii=True,
-        environment="production",
+        environment="production-one-off" if IS_ONE_OFF_CONTAINER else "production",
     )
 
 

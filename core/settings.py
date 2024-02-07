@@ -20,6 +20,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 TEST = False
 STAGING = False
 PRODUCTION = False
+IS_ONE_OFF_CONTAINER = os.environ.get("CONTAINER", "").startswith("one-off")
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
