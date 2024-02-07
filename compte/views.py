@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
@@ -12,6 +13,7 @@ from django.views.generic import TemplateView
 from django_registration.backends.activation.views import ActivationView, RegistrationView
 
 from compte import forms, service
+from compte.forms import CustomPasswordResetForm
 from compte.models import UserPreferences
 from core.mailer import BrevoMailer
 from erp import versioning
@@ -337,3 +339,7 @@ def set_api_key(request):
     if request.method == "POST":
         request.session["api_key"] = request.POST["api_key"]
     return redirect("apidocs")
+
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm

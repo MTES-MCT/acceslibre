@@ -1,10 +1,11 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, UsernameField
 from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.urls import reverse
 from django.utils.functional import lazy
 from django.utils.html import format_html
 from django.utils.translation import gettext as translate
@@ -14,6 +15,7 @@ from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
 
 from compte.models import UserPreferences
+from core.mailer import BrevoMailer
 
 USERNAME_RULES = translate(
     "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
@@ -185,3 +187,26 @@ class PreferencesForm(forms.ModelForm):
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = UsernameField(label=translate_lazy("Adresse e-mail"), widget=forms.TextInput(attrs={"autofocus": True}))
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    def send_mail(
+        self,
+        subject_template_name,
+        email_template_name,
+        context,
+        from_email,
+        to_email,
+        html_email_template_name=None,
+    ):
+        BrevoMailer().send_email(
+            to_list=to_email,
+            subject=None,
+            template="password_reset",
+            context={
+                "username": context["user"].username,
+                "url_password_reset": reverse(
+                    "password_reset_confirm", kwargs={"uidb64": context["uid"], "token": context["token"]}
+                ),
+            },
+        )
