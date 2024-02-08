@@ -43,18 +43,31 @@
             <div class="d-flex flex-column">
                 <div class="row order-2">
                     <section id="a11y" class="col-lg-7 col-xl-8">
-                        {% if accessibilite_data %}
-                            {% include "erp/includes/accessibilite.html" %}
-                            <aside class="text-center">
-                                {% include "erp/includes/vote-form.html" %}
-                            </aside>
+                        {% if show_new_access_data %}
+                            {% include "erp/includes/access_parking.html" %}
+                            {% include "erp/includes/access_outside_path.html" %}
+                            {% include "erp/includes/access_entrance.html" %}
+                            {% include "erp/includes/access_reception.html" %}
+                            {% if erp.is_accommodation %}
+                                {% include "erp/includes/access_accommodation.html" %}
+                            {% endif %}
+                            {% if access.registre_url or acces.conformite %}
+                                {% include "erp/includes/access_legal.html" %}
+                            {% endif %}
                         {% else %}
-                            <div class="alert alert-info">
-                                <i aria-hidden="true" class="icon icon-info-circled"></i>
-                                {% url "contrib_edit_infos" erp_slug=erp.slug as url_contrib %}
-                                {% blocktranslate %}Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
+                            {% if accessibilite_data %}
+                                {% include "erp/includes/accessibilite.html" %}
+                                <aside class="text-center">
+                                    {% include "erp/includes/vote-form.html" %}
+                                </aside>
+                            {% else %}
+                                <div class="alert alert-info">
+                                    <i aria-hidden="true" class="icon icon-info-circled"></i>
+                                    {% url "contrib_edit_infos" erp_slug=erp.slug as url_contrib %}
+                                    {% blocktranslate %}Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
             mais <a href="{{url_contrib}}">vous pouvez les ajouter</a>.{% endblocktranslate %}
-                            </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </section>
                     <aside class="col-lg-5 col-xl-4">
