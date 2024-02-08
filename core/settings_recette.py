@@ -10,6 +10,7 @@ SITE_HOST = "recette.acceslibre.info"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 ALLOWED_HOSTS = [SITE_HOST, "recette.acceslibre.info"]
 
+
 if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -18,7 +19,7 @@ if SENTRY_DSN is not None:
         integrations=[DjangoIntegration()],
         traces_sample_rate=0.1,
         send_default_pii=True,
-        environment="recette",
+        environment="one-off-recette" if IS_ONE_OFF_CONTAINER else "recette",
     )
 
 # FIXME: removed because of a nasty bug with dist static assets
