@@ -368,6 +368,20 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if current_language != "fr":
         erp.translate(current_language)
 
+    fields = schema.FIELDS
+    instance = erp.accessibilite
+
+    for field_name, schema_values in fields.items():
+        if field_name == "activite":
+            continue
+        value = getattr(instance, field_name)
+
+        if schema_values["type"] == "boolean":
+            if value is True:
+                print(field_name, schema_values["help_text_ui"])
+
+        # print(field_name, value)
+
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
     is_authenticated = request.user.is_authenticated

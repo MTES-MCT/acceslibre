@@ -379,7 +379,7 @@ FIELDS = {
                 "Existe-t-il un arrêt de transport en commun à moins de 200 mètres de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Arrêt de transport en commun à moins de 200 mètres de l'établissement"),
+        "help_text_ui": translate_lazy("Transport en commun à proximité"),
         "help_text_ui_neg": translate_lazy(
             "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
         ),
