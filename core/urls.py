@@ -11,6 +11,7 @@ from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
     CustomActivationCompleteView,
     CustomActivationView,
+    CustomPasswordResetView,
     CustomRegistrationCompleteView,
     CustomRegistrationView,
 )
@@ -52,6 +53,7 @@ urlpatterns = [
         name="django_registration_complete",
     ),
     path("compte/login/", LoginView.as_view(form_class=CustomAuthenticationForm), name="login"),
+    path("compte/password_reset/", CustomPasswordResetView.as_view(), name="password_reset"),
     # TODO more things to move to auth
     path("compte/", include("django_registration.backends.activation.urls")),
     path("compte/", include("django.contrib.auth.urls")),
