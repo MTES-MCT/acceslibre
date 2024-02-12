@@ -269,11 +269,12 @@
         },
         "deepl": {
             "hashes": [
-                "sha256:17bd19a28850a10513377afc1b0e28ee907502e4a4a547d616bfa9cf65dfd4ea",
-                "sha256:b34d4a8644c9e62a7a9c24acfe80a07717bd0a3b2be77b633a10d5d4fe748dcd"
+                "sha256:23004a8247d75d80206adec4e29012e5ff5434e998f72463e193fce704ade1cb",
+                "sha256:2fb51fa8d9c04a081123c1f17c5bc3dd9c4711acd59687a71c470a345ab9b70c"
             ],
             "index": "pypi",
-            "version": "==1.16.1"
+            "markers": "python_version < '4' and python_full_version >= '3.6.2'",
+            "version": "==1.17.0"
         },
         "defusedxml": {
             "hashes": [
