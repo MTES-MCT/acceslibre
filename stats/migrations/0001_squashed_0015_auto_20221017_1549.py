@@ -221,8 +221,6 @@ class Migration(migrations.Migration):
                 ),
                 ("updated_at", models.DateTimeField(auto_now=True)),
                 ("erp_counts_histogram", models.JSONField(default=dict)),
-                ("stats_territoires_sort_count", models.JSONField(default=dict)),
-                ("stats_territoires_sort_default", models.JSONField(default=dict)),
                 ("top_contributors", models.JSONField(default=dict)),
             ],
             options={

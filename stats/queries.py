@@ -30,42 +30,6 @@ def get_erp_counts_histogram():
     }
 
 
-def get_stats_territoires(sort="completude", max=50):
-    sort_field = "erps_commune" if sort == "count" else "pourcentage_completude"
-    return sql.run_sql(
-        f"""--sql
-            select
-                (data.erps_commune::float / data.total_erps_commune::float * 100::float) as pourcentage_completude,
-                * from (
-                    select
-                        c.nom,
-                        c.slug,
-                        c.population,
-                        c.departement,
-                        (c.population / 45) as total_erps_commune,
-                        COUNT(e.id) filter (
-                            where e.published
-                        ) as erps_commune
-                    from
-                        erp_commune c
-                    left join
-                        erp_erp e on e.commune_ext_id = c.id
-                    left join
-                        erp_accessibilite a on e.id = a.erp_id
-                    where
-                        c.population >= 0
-                    group by
-                        c.nom, c.slug, c.population, c.departement
-                ) data
-            where
-                data.population > 5000 and data.erps_commune > 0 and data.total_erps_commune > 0
-            order by
-                {sort_field} desc
-            limit {max};
-            """
-    )
-
-
 def get_active_contributors_ids():
     return Erp.objects.published().with_user().values_list("user_id", flat=True).distinct("user_id").order_by("user_id")
 

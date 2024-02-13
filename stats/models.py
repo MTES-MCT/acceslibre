@@ -8,15 +8,13 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as translate
 
-from stats.queries import get_count_challenge, get_erp_counts_histogram, get_stats_territoires, get_top_contributors
+from stats.queries import get_count_challenge, get_erp_counts_histogram, get_top_contributors
 
 
 class GlobalStats(models.Model):
     _singleton = models.BooleanField(default=True, editable=False, unique=True)
     updated_at = models.DateTimeField(auto_now=True)
     erp_counts_histogram = models.JSONField(default=dict)
-    stats_territoires_sort_count = models.JSONField(default=dict)
-    stats_territoires_sort_default = models.JSONField(default=dict)
     top_contributors = models.JSONField(default=dict)
 
     class Meta:
@@ -25,18 +23,10 @@ class GlobalStats(models.Model):
 
     @classmethod
     def refresh_stats(cls):
-        self, created = cls.objects.get_or_create()
+        self, _ = cls.objects.get_or_create()
         self.erp_counts_histogram = get_erp_counts_histogram()
-        self.stats_territoires_sort_count = get_stats_territoires(sort="count")
-        self.stats_territoires_sort_default = get_stats_territoires()
         self.top_contributors = list(get_top_contributors())
         self.save()
-
-    def get_stats_territoires(self, sort):
-        if sort == "count":
-            return self.stats_territoires_sort_count
-        else:
-            return self.stats_territoires_sort_default
 
 
 class Challenge(models.Model):
