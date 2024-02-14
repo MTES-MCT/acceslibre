@@ -4,6 +4,7 @@ from django.contrib.gis.geos import Point
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Erp
 from tests.erp.imports.mapper.fixtures import jacou, paris
+from tests.factories import ActiviteFactory
 
 
 @pytest.mark.django_db
@@ -62,7 +63,7 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         "erp.provider.geocoder.geocode",
         return_value=geocoder_result
         or {
-            "geom": Point((0, 0)),
+            "geom": Point((0, 0), srid=4326),
             "numero": "4",
             "voie": "Rue de la Paix",
             "lieu_dit": None,
@@ -112,3 +113,43 @@ def test_erp_update_serializer(data):
     data.erp.refresh_from_db()
     assert data.erp.nom != "Aux bons pains", "Name should not be editable"
     assert data.accessibilite.accueil_equipements_malentendants_presence is True
+
+
+def test_erp_duplicate(data):
+    # 3/43 must match geocode mock coordinates
+    data.erp.geom.x = 3
+    data.erp.geom.y = 43
+    data.erp.save()
+
+    ActiviteFactory(nom="Piscine")
+    initial_values = {
+        "numero": data.erp.numero,
+        "voie": data.erp.voie,
+        "code_postal": data.erp.code_postal,
+        "commune": data.erp.commune,
+        "nom": "Marie Blachère",
+        "activite": "Boulangerie",
+        "accessibilite": {"entree_porte_presence": True},
+        "latitude": data.erp.geom.x,
+        "longitude": data.erp.geom.y,
+    }
+    serializer = ErpImportSerializer(data=initial_values)
+
+    assert serializer.is_valid() is False
+    assert "Potentiel doublon par activité/adresse postale" in str(serializer.errors["non_field_errors"])
+
+    initial_values = {
+        "numero": data.erp.numero,
+        "voie": data.erp.voie,
+        "code_postal": data.erp.code_postal,
+        "commune": data.erp.commune,
+        "nom": data.erp.nom,
+        "activite": "Piscine",
+        "accessibilite": {"entree_porte_presence": True},
+        "latitude": data.erp.geom.x,
+        "longitude": data.erp.geom.y,
+    }
+    serializer = ErpImportSerializer(data=initial_values)
+
+    assert serializer.is_valid() is False
+    assert "Potentiel doublon par nom/75m" in str(serializer.errors["non_field_errors"])
