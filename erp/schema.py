@@ -345,7 +345,7 @@ SECTIONS = {
     SECTION_CONFORMITE: {
         "icon": "conformite",
         "label": translate_lazy("Conformité"),
-        "description": translate_lazy("à la règlementation"),
+        "description": translate_lazy("à la réglementation"),
         "edit_route": None,
     },
     SECTION_COMMENTAIRE: {
