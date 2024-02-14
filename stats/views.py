@@ -8,7 +8,6 @@ from stats.models import GlobalStats
 
 
 def stats(request):
-    sort = _get_sort(request)
     erp_qs = Erp.objects.published()
     global_stat = GlobalStats.objects.get()
     return render(
@@ -20,24 +19,5 @@ def stats(request):
             "nb_contributors": queries.get_active_contributors_ids().count(),
             "top_contributors": global_stat.top_contributors,
             "erp_counts_histogram": global_stat.erp_counts_histogram,
-            "stats_territoires": global_stat.get_stats_territoires(sort=sort)[:10],
-            "stats_territoires_sort": sort,
         },
     )
-
-
-def territoires(request):
-    sort = _get_sort(request)
-    global_stat = GlobalStats.objects.get()
-    return render(
-        request,
-        "stats/territoires.html",
-        context={
-            "stats_territoires": global_stat.get_stats_territoires(sort=sort),
-            "stats_territoires_sort": sort,
-        },
-    )
-
-
-def _get_sort(request):
-    return "count" if request.GET.get("sort") == "count" else "completude"
