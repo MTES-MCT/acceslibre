@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from django.contrib.gis.geos import Point
 from django.db.models import Q
-from rest_framework.filters import BaseFilterBackend
+from rest_framework.filters import BaseFilterBackend, OrderingFilter
 from rest_framework_gis.filters import InBBoxFilter
 
 from erp.provider import geocoder
@@ -32,9 +32,20 @@ class ZoneFilter(InBBoxFilter):
         ]
 
 
-class ErpFilter(BaseFilterBackend):
+class ErpFilter(OrderingFilter, BaseFilterBackend):
+    # Work around DRF issue #6886 by always adding the primary key as last order field.
+    # See https://github.com/encode/django-rest-framework/issues/6886
+    def get_ordering(self, request, queryset, view):
+        ordering = super().get_ordering(request, queryset, view)
+        pk = queryset.model._meta.pk.name
+
+        if ordering is None:
+            return (f"-{pk}",)
+        return list(ordering) + [f"-{pk}"]
+
     # FIXME: do NOT apply filters on details view
     def filter_queryset(self, request, queryset, view):
+        ordered = False
         use_distinct = False
 
         with_drafts = request.query_params.get("with_drafts", False)
@@ -68,6 +79,7 @@ class ErpFilter(BaseFilterBackend):
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
             use_distinct = False
+            ordered = True
             queryset = queryset.search_what(search_terms)
 
         source = request.query_params.get("source", None)
@@ -85,7 +97,7 @@ class ErpFilter(BaseFilterBackend):
         asp_id_not_null = request.query_params.get("asp_id_not_null", None)
         if asp_id_not_null is not None:
             if asp_id_not_null == "true":
-                queryset = queryset.exclude(asp_id__isnull=True).exclude(asp_id__exact="")
+                queryset = queryset.exclude(asp_id__isnull=True).exclude(asp_id="")
             else:
                 queryset = queryset.filter(asp_id__isnull=True)
 
@@ -98,6 +110,7 @@ class ErpFilter(BaseFilterBackend):
             lat, lon = around
             queryset = queryset.nearest(Point(lon, lat, srid=4326))
             use_distinct = False
+            ordered = True
 
         number_of_days = request.query_params.get("created_or_updated_in_last_days", None)
         if number_of_days is not None:
@@ -112,6 +125,10 @@ class ErpFilter(BaseFilterBackend):
 
         if use_distinct:
             queryset = queryset.distinct("id", "nom")
+
+        if not ordered:
+            ordering = self.get_ordering(request, queryset, view)
+            queryset = queryset.order_by(*ordering)
 
         return queryset
 
