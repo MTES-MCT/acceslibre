@@ -1,0 +1,190 @@
+{% extends "editorial/base.html" %}
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Qui sommes-nous ?" %}
+{% endblock page_title %}
+{% block editorial_content %}
+    <div class="mt-5">
+        <h1 class="text-center mt-5 mb-5">{% translate "Qui sommes-nous ?" %}</h1>
+        <h2>{% translate "Le constat : un manque d'informations sur l'accessibilité des lieux" %}</h2>
+        <p>
+            {% blocktranslate %}Comment une personne en situation de handicap fait-elle pour savoir si elle pourra accéder au
+        lieu dans lequel
+        elle souhaite se rendre ? Dans la grande majorité des cas, les informations ne sont pas disponibles sur internet
+        ou ne sont pas fiables.{% endblocktranslate %}
+        </p>
+        <p>
+            {% blocktranslate %}Résultat : les personnes en situation de handicap, soit 12 millions de français, sortent
+        moins que les autres et
+        se retrouvent à l'écart.{% endblocktranslate %}
+        </p>
+        <h2>{% translate "Notre solution : Acceslibre, le site collaboratif pour l'accessibilité" %}</h2>
+        <p>{% blocktranslate %}La mission d'Acceslibre s'articule autour de deux axes :{% endblocktranslate %}</p>
+        <ul>
+            <li>
+                {% blocktranslate %}Créer la base de données la plus complète et la plus à jour concernant les informations
+            d'accessibilité des
+            lieux ouverts au public (restaurants, cinémas, pharmacie, administrations...){% endblocktranslate %}
+            </li>
+            <li>
+                {% blocktranslate %}Diffuser ces informations le plus largement possible sur internet, notamment sur les
+            grands sites qui
+            recensent des lieux publics : service-public.fr, allocine.fr...{% endblocktranslate %}
+            </li>
+        </ul>
+        <p>
+            {% blocktranslate %}A terme, notre objectif est qu'à chaque fois que des informations pratiques d'un
+        établissement sont renseignées
+        sur internet (adresse, horaires...), figurent également les informations d'accessibilité (plain-pieds, rampe,
+        toilettes adaptées...){% endblocktranslate %}
+        </p>
+        <h2>{% translate "Notre équipe" %}</h2>
+        <p>
+            {% blocktranslate %}Nous sommes ce qu'on appelle une « Startup d'État ». Il s'agit d'une petite équipe qui crée
+        un service public
+        numérique pour répondre à un problème qui touche les citoyens. Elle n'a pas pour objectif de faire du profit,
+        mais de maximiser son impact social et sociétal en répondant aux besoins des utilisateurs.{% endblocktranslate %}
+        </p>
+        <p>{% blocktranslate %}Acceslibre est rattachée au Ministère de la Transition Écologique.{% endblocktranslate %}</p>
+        <div class="fr-grid-row fr-grid-row--gutters mb-5">
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Julia Zucker</h3>
+                            <p class="fr-card__desc">{% translate "Intrapreneuse" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/julia.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Julia Zucker" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Sophie Tcheng</h3>
+                            <p class="fr-card__desc">{% translate "Intrapreneuse" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/sophie.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Sophie Tcheng" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Marie-Laure Vernay</h3>
+                            <p class="fr-card__desc">{% translate "Développeuse informatique" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/ml.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Marie-Laure Vernay" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Antonin Morel</h3>
+                            <p class="fr-card__desc">{% translate "Développeur informatique" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/antonin.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Antonin Morel" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Olivier Rousseau</h3>
+                            <p class="fr-card__desc">{% translate "Chargé de déploiement" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/oli.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Olivier Rousseau" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Quentin Kurtz</h3>
+                            <p class="fr-card__desc">{% translate "Chargé de déploiement" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/quentin.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Quentin Kurtz" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4 ">
+                <div class="fr-card fr-card--sm fr-card--horizontal">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">Jules Delmas</h3>
+                            <p class="fr-card__desc">{% translate "Coach Startup d'État" %}</p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/equipe/jules.png' %}"
+                                 width="100"
+                                 height="100"
+                                 alt="Jules Delmas" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>
+            <a href="{% url "home" %}">« {% translate "Retour à l'accueil" %}</a>
+        </p>
+    </div>
+{% endblock editorial_content %}
