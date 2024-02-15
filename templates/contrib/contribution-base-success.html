@@ -2,48 +2,38 @@
 {% load static %}
 {% load i18n %}
 {% block editorial_content %}
-    <h2 class="fr-h2">{% translate "Merci !" %}</h2>
     {% if erp.published %}
-        <p>
-            {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }} est en
-      ligne{% endblocktranslate %}
-        </p>
-    {% else %}
-        <p>
-            {# djlint:off T027 #}
-            {# https://github.com/djlint/djLint/issues/141 #}
-            {% translate "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié." %}
-            {# djlint:on #}
-        </p>
-    {% endif %}
-    <img src="https://placehold.it/200x200" alt="Placehold image" class="m-4">
-    <div class="fr-callout fr-icon-information-line">
-        <div class="half-progress">
-            <div class="barOverflow">
-                <div class="bar"></div>
+        <span class="contribution-result">
+            <h2 class="fr-h2 text-center">{% translate "Merci !" %}</h2>
+            <p class="text-center">
+                {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }} est en ligne{% endblocktranslate %}
+            </p>
+            <img src="{% static 'img/merci.jpg' %}"
+                 alt="{% translate "Image de remerciement" %}"
+                 class="w-100 mb-2">
+            <div class="fr-callout fr-icon-information-line">
+                <div class="half-progress">
+                    <div class="barOverflow">
+                        <div class="bar"></div>
+                    </div>
+                    <span>{{ erp.accessibilite.completion_rate }}</span>%
+                </div>
+                <h3 class="fr-callout__title">{% translate "Taux de remplissage : " %} {{ erp.accessibilite.completion_rate }}%</h3>
             </div>
-            <span>{{ erp.accessibilite.completion_rate }}</span>%
-        </div>
-        <h3 class="fr-callout__title">
-            {% translate "Score de la fiche actuelle : " %} {{ erp.accessibilite.completion_rate }}%
-        </h3>
-        {% if erp.published %}
-            <p class="fr-callout__text">{% translate "Les informations essentielles sont saisies, encore un effort !" %}</p>
-        {% else %}
-            <p class="fr-callout__text">
-                {# djlint:off T027 #}
-                {# https://github.com/djlint/djLint/issues/141 #}
-                {% translate "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié." %}
-                {# djlint:on #}
-            </p>
-        {% endif %}
-        {% if erp.published %}
-            <p class="fr-callout__text">
-                {% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}
-            </p>
-            <a href="{% url "contribution-additional-step" erp.slug 0 %}"
-               class="fr-btn">{% translate "Oui, je continue" %}</a>
+            <p>{% translate "Les informations essentielles sont saisies, encore un effort !" %}</p>
+            <p>{% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}</p>
+            <a href="{% url "contrib_transport" erp.slug %}" class="fr-btn">{% translate "Oui, je continue" %}</a>
             <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
-        {% endif %}
-    </div>
+        </span>
+    {% else %}
+        <span class="contribution-result">
+            <img src="{% static 'img/sad.png' %}"
+                 alt="{% translate "Personne triste" %}"
+                 class="failure-image mb-2">
+            <p>
+                {% translate "Nous n'avons pas pu créer la fiche car tu as saisi trop peu d'informations. Ne te décourage pas." %}
+            </p>
+            <a href="{% url "contribution-step" erp.slug 0 %}" class="fr-btn">{% translate "Recommencez la saisie" %}</a>
+        </span>
+    {% endif %}
 {% endblock editorial_content %}
