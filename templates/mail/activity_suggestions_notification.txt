@@ -1,6 +1,0 @@
-{% autoescape off %}Nous avons de nouvelles suggestions d'activités. Pour lister toutes les suggestions non traitées rendez vous sur
-{{ SITE_ROOT_URL }}/admin/erp/activitysuggestion/?erp__published__exact=1&mapped_activity__isempty=1
--- 
-L'équipe {{ SITE_NAME.title }}
-{{ SITE_ROOT_URL }}
-{% endautoescape %}

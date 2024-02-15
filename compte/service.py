@@ -32,7 +32,6 @@ def create_token(user, email, activation_token=None, today=datetime.now(timezone
 def send_activation_mail(activation_token, email, user):
     BrevoMailer().send_email(
         [email],
-        subject=None,
         template="email_change_activation",
         context={
             "username": user.username,

@@ -33,7 +33,6 @@ def test_contact(mocker, data, client):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == (["acceslibre@beta.gouv.fr"],)
     assert _kwargs == {
-        "subject": None,
         "context": {
             "message": {
                 "name": TEST_NAME,
@@ -52,7 +51,6 @@ def test_contact(mocker, data, client):
     assert _kwargs == {
         "context": {"message_date": ANY, "erp": ""},
         "template": "contact_receipt",
-        "subject": None,
     }
 
     assert (
@@ -111,7 +109,6 @@ def test_contact_authenticated(mocker, data, client):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == (["acceslibre@beta.gouv.fr"],)
     assert _kwargs == {
-        "subject": None,
         "context": {
             "message": {
                 "name": TEST_NAME,
@@ -130,7 +127,6 @@ def test_contact_authenticated(mocker, data, client):
     assert _kwargs == {
         "context": {"message_date": ANY, "erp": ""},
         "template": "contact_receipt",
-        "subject": None,
     }
 
     assert (
@@ -165,7 +161,6 @@ def test_contact_topic(mocker, data, client):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == (["acceslibre@beta.gouv.fr"],)
     assert _kwargs == {
-        "subject": None,
         "context": {
             "message": {
                 "name": TEST_NAME,
@@ -184,7 +179,6 @@ def test_contact_topic(mocker, data, client):
     assert _kwargs == {
         "context": {"message_date": ANY, "erp": ""},
         "template": "contact_receipt",
-        "subject": None,
     }
 
     assert (

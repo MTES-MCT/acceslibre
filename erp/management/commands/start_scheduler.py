@@ -27,7 +27,6 @@ class Command(BaseCommand):
             schedule.every().day.at("00:40").do(call_command, "export_to_datagouv")
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
             schedule.every().thursday.at("14:30").do(call_command, "notify_weekly_unpublished_erps")
-            schedule.every().monday.at("14:30").do(call_command, "notify_activity_suggestions")
             schedule.every().day.at("12:30").do(call_command("notify_daily_drafts"))
 
     def start(self):

@@ -31,7 +31,6 @@ class Command(BaseCommand):
         for erp in erps:
             mailer.send_email(
                 to_list=erp.user.email,
-                subject=None,
                 template="draft",
                 context={"publish_url": reverse("contrib_publication", kwargs={"erp_slug": erp.slug})},
             )

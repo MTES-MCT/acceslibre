@@ -120,7 +120,6 @@ def test_registration_flow_without_next(mocker, data, browser):
     assert brevo_mock.call_count == 1
     brevo_mock.assert_called_once_with(
         to_list="john@doe.com",
-        subject=None,
         template="account_activation",
         context={"activation_key": ANY, "username": "johndoe", "next": "/"},
     )
@@ -153,7 +152,6 @@ def test_registration_flow(mocker, data, browser):
     assert brevo_mock.call_count == 1
     brevo_mock.assert_called_once_with(
         to_list="john@doe.com",
-        subject=None,
         template="account_activation",
         context={"activation_key": ANY, "username": "johndoe", "next": "/contact/"},
     )

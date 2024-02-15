@@ -65,7 +65,6 @@ class Command(BaseCommand):
         user, erps = notification["user"], notification["erps"]
         return BrevoMailer().send_email(
             to_list=[user.email],
-            subject=None,
             template="notif_weekly_unpublished",
             context={
                 "username": user.username,

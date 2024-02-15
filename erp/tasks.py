@@ -41,12 +41,10 @@ def check_for_activity_suggestion_spam(suggestion_pk):
     if nb_times >= 3:
         BrevoMailer().send_email(
             to_list=suggestion.user.email,
-            subject=None,
             template="spam_activities_suggestion",
             context={"nb_times": nb_times},
         )
         BrevoMailer().mail_admins(
-            subject=None,
             template="spam_activities_suggestion_admin",
             context={"nb_times": nb_times, "username": suggestion.user.username, "email": suggestion.user.email},
         )

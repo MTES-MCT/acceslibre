@@ -25,7 +25,6 @@ def send_receipt(message):
         [message.email],
         context=context,
         template="contact_receipt",
-        subject=None,
     )
 
 
@@ -53,7 +52,6 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
                     "absolute_url": erp.get_absolute_url(),
                 }
             sent_ok = BrevoMailer().mail_admins(
-                subject=None,
                 context=context,
                 reply_to=message.email,
                 template="contact_to_admins",

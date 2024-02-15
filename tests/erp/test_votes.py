@@ -69,14 +69,12 @@ def test_erp_vote_counts(data, client, mocker):
 
     assert call1.kwargs == {
         "to_list": data.sophie.email,
-        "subject": None,
         "template": "vote_down",
         "context": {"erp_contrib_url": f"http://testserver/contrib/edit-infos/{data.erp.slug}/"},
     }
 
     assert call2.kwargs == {
         "to_list": "acceslibre@beta.gouv.fr",
-        "subject": None,
         "template": "vote_down_admin",
         "context": {
             "username": data.sophie.username,

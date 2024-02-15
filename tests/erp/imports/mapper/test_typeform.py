@@ -38,7 +38,6 @@ def test_save_non_existing_erp(mocker, activite_mairie, vallorcine):
 
     mock_mail.assert_called_once_with(
         to_list="secretaire.mairie@xxx.fr",
-        subject=None,
         template="erp_imported",
         context={"erp_url": erp.get_absolute_uri()},
     )

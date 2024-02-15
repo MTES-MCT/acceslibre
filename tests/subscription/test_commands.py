@@ -114,7 +114,6 @@ def test_notification_erp(mocker, mock_geocode, client, data):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == ([data.niko.email],)
     assert _kwargs == {
-        "subject": None,
         "template": "changed_erp_notification",
         "context": {
             "username": "niko",
@@ -229,7 +228,6 @@ def test_notification_accessibilite(client, data, mocker):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == ([data.niko.email],)
     assert _kwargs == {
-        "subject": None,
         "template": "changed_erp_notification",
         "context": {
             "username": "niko",

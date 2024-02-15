@@ -56,9 +56,7 @@ class CustomRegistrationView(RegistrationView):
         context["activation_key"] = activation_key
         context["username"] = user.username
         context["next"] = unquote(self.request.POST.get("next", self.request.GET.get("next", ""))) or "/"
-        return BrevoMailer().send_email(
-            to_list=user.email, subject=None, template="account_activation", context=context
-        )
+        return BrevoMailer().send_email(to_list=user.email, template="account_activation", context=context)
 
     def create_inactive_user(self, form):
         """

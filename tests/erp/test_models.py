@@ -235,10 +235,9 @@ class TestActivitySuggestion:
 
         ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
         mock_mail.assert_called_once_with(
-            subject=None, to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
+            to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
         )
         mock_mail_admins.assert_called_once_with(
-            subject=None,
             template="spam_activities_suggestion_admin",
             context={"nb_times": 3, "username": data.niko.username, "email": data.niko.email},
         )

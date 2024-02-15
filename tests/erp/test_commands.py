@@ -92,7 +92,6 @@ class TestNotifyDraft:
         if should_send_email:
             mock_mail.assert_called_once_with(
                 to_list=erp.user.email,
-                subject=None,
                 template="draft",
                 context={"publish_url": f"/contrib/publication/{erp.slug}/"},
             )

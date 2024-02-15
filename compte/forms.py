@@ -201,7 +201,6 @@ class CustomPasswordResetForm(PasswordResetForm):
     ):
         BrevoMailer().send_email(
             to_list=to_email,
-            subject=None,
             template="password_reset",
             context={
                 "username": context["user"].username,

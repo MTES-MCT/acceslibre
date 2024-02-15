@@ -42,7 +42,6 @@ def test_user_change_email_e2e(mocker, client, data):
     _args, _kwargs = mock_mail.call_args_list[0]
     assert _args == (["test@test.com"],)
     assert _kwargs == {
-        "subject": None,
         "template": "email_change_activation",
         "context": {
             "username": "niko",
