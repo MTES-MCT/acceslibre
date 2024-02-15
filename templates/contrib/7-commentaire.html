@@ -51,7 +51,8 @@
           otherInput.value = "";
           otherInput.removeAttribute("required");
         }
-        if (checkedLabels.length > 0) {
+
+        if (checkedLabels.includes("th")) {
           fieldFamilles.classList.remove("hidden");
         } else {
           fieldFamilles.classList.add("hidden");
