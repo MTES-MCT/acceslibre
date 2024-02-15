@@ -163,7 +163,6 @@ Paramètres de lancement du script :
                                         if self.send_emails and new_erp.import_email:
                                             BrevoMailer().send_email(
                                                 to_list=new_erp.import_email,
-                                                subject=None,
                                                 template="erp_imported",
                                                 context={"erp_url": new_erp.get_absolute_uri()},
                                             )

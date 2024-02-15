@@ -38,7 +38,6 @@ class Command(BaseCommand):
         recipient = notification["user"]
         return BrevoMailer().send_email(
             [recipient.email],
-            subject=None,
             template="changed_erp_notification",
             context={
                 "username": recipient.username,

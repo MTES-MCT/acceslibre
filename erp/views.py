@@ -709,7 +709,7 @@ def vote(request, erp_slug):
     if vote.is_negative:
         route = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
         context = {"erp_contrib_url": f"{settings.SITE_ROOT_URL}{route}"}
-        BrevoMailer().send_email(to_list=request.user.email, subject=None, template="vote_down", context=context)
+        BrevoMailer().send_email(to_list=request.user.email, template="vote_down", context=context)
         context = {
             "username": request.user.username,
             "erp_nom": erp.nom,
@@ -717,9 +717,7 @@ def vote(request, erp_slug):
             "comment": comment,
             "user_email": request.user.email,
         }
-        BrevoMailer().send_email(
-            to_list=settings.DEFAULT_EMAIL, subject=None, template="vote_down_admin", context=context
-        )
+        BrevoMailer().send_email(to_list=settings.DEFAULT_EMAIL, template="vote_down_admin", context=context)
     messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
     return redirect(erp.get_absolute_url())
 
@@ -1207,9 +1205,7 @@ def contrib_publication(request, erp_slug):
                     continue
 
                 context = {"draft_nom": draft.nom, "commune": draft.commune, "erp_url": erp.get_absolute_uri()}
-                BrevoMailer().send_email(
-                    to_list=draft.user.email, subject=None, template="draft_deleted", context=context
-                )
+                BrevoMailer().send_email(to_list=draft.user.email, template="draft_deleted", context=context)
                 draft.delete()
 
             redirect_url = erp.get_success_url()

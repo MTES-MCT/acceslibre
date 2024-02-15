@@ -1,8 +1,6 @@
 import logging
 
 from django.conf import settings
-from django.core.mail import EmailMessage
-from django.template.loader import render_to_string
 from django_registration.backends.activation.views import RegistrationView
 from sib_api_v3_sdk import (
     ApiClient,
@@ -24,30 +22,11 @@ logger = logging.getLogger(__name__)
 
 
 class Mailer:
-    # FIXME: when all mails will be migrated, clean those args, should be sufficient to keep only to_list, template and context
-    def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
+    def send_email(self, to_list, template, context=None, reply_to=None):
         raise NotImplementedError
 
     def mail_admins(self, *args, **kwargs):
         return self.send_email([settings.DEFAULT_EMAIL], *args, **kwargs)
-
-
-class DefaultMailer(Mailer):
-    def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
-        context = context if context else {}
-        context["SITE_NAME"] = settings.SITE_NAME
-        context["SITE_ROOT_URL"] = settings.SITE_ROOT_URL
-
-        email = EmailMessage(
-            subject=subject,
-            body=render_to_string(template, context),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=to_list,
-            reply_to=[reply_to] if reply_to else [settings.DEFAULT_FROM_EMAIL],
-        )
-        # Note: The return value will be the number of successfully delivered messages
-        # (which can be 0 or 1 since send_mail can only send one message).
-        return 1 == email.send(fail_silently=fail_silently)
 
 
 class BrevoMailer(Mailer):
@@ -58,7 +37,7 @@ class BrevoMailer(Mailer):
         self.configuration.api_key["api-key"] = settings.BREVO_API_KEY
         super().__init__()
 
-    def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
+    def send_email(self, to_list, template, context=None, reply_to=None):
         if not to_list:
             return False
 
@@ -149,7 +128,3 @@ class BrevoMailer(Mailer):
         )
         api_instance.update_contact(contact.id, update_contact)
         return True
-
-
-def get_mailer():
-    return DefaultMailer()

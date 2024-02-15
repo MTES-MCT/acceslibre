@@ -95,7 +95,6 @@ def test_delete_similar_draft(mocker, data, client):
 
     mock_mail.assert_called_once_with(
         to_list=data.erp.user.email,
-        subject=None,
         template="draft_deleted",
         context={"commune": "Jacou", "draft_nom": "Aux bons croissants", "erp_url": erp2.get_absolute_uri()},
     )

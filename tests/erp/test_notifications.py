@@ -100,7 +100,6 @@ def test_notification_unpublished_erp_command(mocker, unpublished_erp, data):
             "url_mes_preferences": "/compte/preferences/",
             "username": "niko",
         },
-        subject=None,
         template="notif_weekly_unpublished",
         to_list=["niko@niko.tld"],
     )
