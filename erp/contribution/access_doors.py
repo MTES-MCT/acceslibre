@@ -115,4 +115,5 @@ DOOR_SIZE_QUESTION = Question(
         not_sure_answer(["entree_largeur_mini"]),
     ],
     display_conditions=[has_door],
+    easy_skip_for_screen_readers=True,
 )

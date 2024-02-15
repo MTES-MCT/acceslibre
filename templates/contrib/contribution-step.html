@@ -19,6 +19,13 @@
     <form method="post" id="contribution-form" class="contribution-form">
         {% csrf_token %}
         {% for field in form %}
+            {% if form.easy_skip_for_screen_readers %}
+                <div class="sr-only sr-only-focusable">
+                    <button id="unsure-and-submit" data-answer-to-pick="{{ unsure_answer }}">
+                        {{ field.label }} - {% translate "Je ne suis par sûr et continuer" %}
+                    </button>
+                </div>
+            {% endif %}
             {% if field.field.widget.input_type == "radio" %}
                 {% include "contrib/forms/dsfr-radio.html" %}
             {% elif field.field.widget.input_type == "int_or_radio" %}

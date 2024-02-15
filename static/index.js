@@ -25,6 +25,7 @@ import geo from './js/geo'
 import ui from './js/ui'
 import cloneFilter from './js/ui/CloneFilter'
 import Autocomplete from './js/ui/AutocompleteActivity'
+import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 
 // Initializations
 dom.ready(() => {
@@ -41,6 +42,7 @@ dom.ready(() => {
   dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
   dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
   dom.mountOne('#no_activity', ui.NewActivity)
+  dom.mountOne('#unsure-and-submit', ui.PickAnswerAndSubmit)
 })
 
 // expose general namespaced lib for usage within pages

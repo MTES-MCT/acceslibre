@@ -12,6 +12,7 @@ from erp.contribution import (
     get_previous_question_number,
 )
 from erp.models import Accessibilite, Erp
+from erp.contribution.access_utils import UNSURE_ANSWER
 
 from .exceptions import ContributionStopIteration
 from .forms import ContributionForm
@@ -78,6 +79,7 @@ class ContributionStepMixin(FormView):
         context["erp"] = self.erp
         context["step"] = self._get_section_number()
         context["nb_sections"] = len([q for q in self.question_set if q.display_conditions == []]) + 1
+        context["unsure_answer"] = UNSURE_ANSWER
         try:
             question_number = get_previous_question_number(self.step, erp=self.erp, questions=self.question_set)
             url = reverse(self.route_name, kwargs={"erp_slug": self.erp.slug, "step_number": question_number})

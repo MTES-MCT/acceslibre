@@ -43,6 +43,7 @@ ROOM_QUESTION = Question(
     type=UNIQUE_ANSWER,
     answers=[has_rooms, no_rooms, not_sure_answer(["accueil_chambre_nombre_accessibles"])],
     display_conditions=[is_accommodation],
+    easy_skip_for_screen_readers=True,
 )
 
 not_sure_number_of_rooms = Answer(
@@ -70,6 +71,7 @@ HEARING_EQUIPMENT_QUESTION = Question(
         not_sure_answer(["accueil_equipements_malentendants_presence"]),
     ],
     display_conditions=[is_cultural_place],
+    easy_skip_for_screen_readers=True,
 )
 
 fixed_bim = Answer(
@@ -114,6 +116,7 @@ HEARING_EQUIPMENT_TYPE_QUESTION = Question(
     type=UNIQUE_ANSWER,
     answers=[fixed_bim, removable_bim, lsf, lfpc, subtitles, not_sure_answer(["accueil_equipements_malentendants"])],
     display_conditions=[is_cultural_place, has_hearing_equipment],
+    easy_skip_for_screen_readers=True,
 )
 
 

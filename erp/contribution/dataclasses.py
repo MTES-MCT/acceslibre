@@ -16,6 +16,7 @@ class Question:
     type: str
     answers: list
     display_conditions: list = field(default_factory=list)
+    easy_skip_for_screen_readers: bool = False
 
     @property
     def choices(self):

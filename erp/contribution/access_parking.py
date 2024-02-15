@@ -24,6 +24,7 @@ PARKING_FOR_DISABLED_QUESTION = Question(
         not_sure_answer(["stationnement_pmr"]),
     ],
     display_conditions=[has_parking],
+    easy_skip_for_screen_readers=True,
 )
 
 parking_for_disabled = Answer(
