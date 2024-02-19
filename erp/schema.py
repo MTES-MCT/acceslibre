@@ -529,9 +529,7 @@ FIELDS = {
                 "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
-        ),
+        "help_text_ui": translate_lazy("Revêtement stable"),
         "help_text_ui_neg": translate_lazy(
             "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
         ),
@@ -564,6 +562,9 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": False,
+        # TODO handle readable_text for not neg ?
+        "readable_text_neg": "Présence de {cheminement_ext_nombre_marches} marche(s) {cheminement_ext_sens_marches} sur le chemin extérieur",
+        "should_display_if_false": True,  # TODO do we really want to do this ?
     },
     "cheminement_ext_ascenseur": {
         "type": "boolean",
@@ -597,6 +598,7 @@ FIELDS = {
         "description": translate_lazy("Combien y'a t'il de marches&nbsp;?"),
         "free_text": False,
         "root": False,
+        "skip_for_readable_page": True,
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
@@ -611,6 +613,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": None,
         "free_text": False,
+        "skip_for_readable_page": True,  # TODO do we really need this, not needed for now cause string type is not handled
     },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
@@ -733,9 +736,7 @@ FIELDS = {
                 "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
-        ),
+        "help_text_ui": translate_lazy("Bande de guidage"),
         "help_text_ui_neg": translate_lazy(
             "Pas de bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
         ),
