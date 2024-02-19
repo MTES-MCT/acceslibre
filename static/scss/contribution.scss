@@ -90,6 +90,10 @@ $grey: #ddd;
     display: block;
   }
 
+  .half-progress {
+    top: -20px;
+  }
+
   @media only screen and (max-width: $viewport-sm) {
     .half-progress {
       width: 100%;
@@ -98,6 +102,9 @@ $grey: #ddd;
         margin-left: auto;
         margin-right: auto;
       }
+    }
+    .completion {
+      text-align: center;
     }
   }
 }
