@@ -43,15 +43,17 @@
             <div class="d-flex flex-column">
                 <div class="row order-2">
                     <section id="a11y" class="col-lg-7 col-xl-8">
-                        {% for k,v in access_data.items %}
-                            <h3>{{ k }}</h3>
-                            {% for data in v %}
-                                {{ data }}
-                                <br>
-                            {% endfor %}
-                            <br>
-                            <br>
-                        {% endfor %}
+                        {% include "common/access.html" %}
+                        {#                      #}
+                        {#                        {% for k,v in access_data.items %}#}
+                        {#                            <h3>{{ k }}</h3>#}
+                        {#                            {% for data in v %}#}
+                        {#                                {{ data }}#}
+                        {#                                <br>#}
+                        {#                            {% endfor %}#}
+                        {#                            <br>#}
+                        {#                            <br>#}
+                        {#                        {% endfor %}#}
                         <br>
                         <br>
                         <br>

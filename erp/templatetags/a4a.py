@@ -121,6 +121,12 @@ def get_field_label(value):
     return schema.get_label(value) or forms.get_label(value)
 
 
+@register.filter(name="positive_text")
+def positive_text(value):
+    print(value)
+    return schema.get_help_text_ui(value)
+
+
 @register.simple_tag
 def render_field(value):
     return (isinstance(value, list) and len(value) > 0) or (

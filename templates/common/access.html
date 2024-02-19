@@ -1,0 +1,54 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+{#TODO check which semantic HTML structure to use here Maybe UL ?#}
+<h3>Accès</h3>
+{% if access.transport_station_presence %}
+    {{ "transport_station_presence"|positive_text }}
+    <br />
+{% endif %}
+{% if access.stationnement_presence %}
+    {% if access.stationnement_pmr %}
+        {{ "stationnement_pmr"|positive_text }}
+        <br />
+    {% else %}
+        {{ "stationnement_presence"|positive_text }}
+        <br />
+    {% endif %}
+{% endif %}
+{% if access.stationnement_ext_presence %}
+    {% if access.stationnement_ext_pmr %}
+        {{ "stationnement_ext_pmr"|positive_text }}
+        <br />
+    {% else %}
+        {{ "stationnement_ext_presence"|positive_text }}
+        <br />
+    {% endif %}
+{% endif %}
+<h3>Chemin extérieur</h3>
+{% if access.cheminement_ext_bande_guidage %}
+    {{ "cheminement_ext_bande_guidage"|positive_text }}
+    <br />
+{% endif %}
+{% if access.cheminement_ext_plain_pied %}
+    {{ "cheminement_ext_plain_pied"|positive_text }}
+    <br />
+{% else %}
+    {% if access.cheminement_ext_nombre_marches %}
+        {% if access.cheminement_ext_sens_marches %}
+            Présence de {{ access.cheminement_ext_nombre_marches }} marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur
+            <br />
+        {% else %}
+            Présence de {{ access.cheminement_ext_nombre_marches }} marche
+            <br />
+        {% endif %}
+    {% else %}
+        {% if access.cheminement_ext_sens_marches %}
+            Présence de marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur
+            <br />
+        {% else %}
+            Présence de marche sur le chemin extérieur
+            <br />
+        {% endif %}
+    {% endif %}
+{% endif %}

@@ -449,6 +449,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
             "erp": erp,
+            "access": erp.accessibilite,
             "geojson_list": geojson_list,
             "nearest_erps": nearest_erps,
             "widget_tag": widget_tag,
