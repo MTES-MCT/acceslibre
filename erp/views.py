@@ -2,6 +2,7 @@ import datetime
 import json
 import re
 import urllib
+from collections import defaultdict
 from decimal import Decimal
 from uuid import UUID
 
@@ -371,6 +372,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     fields = schema.FIELDS
     instance = erp.accessibilite
 
+    access_data = defaultdict(list)
+
     for field_name, schema_values in fields.items():
         if field_name == "activite":
             continue
@@ -378,7 +381,11 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
         if schema_values["type"] == "boolean":
             if value is True:
-                print(field_name, schema_values["help_text_ui"])
+                access_data[schema_values["section"]].append(schema_values["help_text_ui"])
+
+        if schema_values.get("key_to_overwrite"):
+            to_remove = fields.get(schema_values.get("key_to_overwrite"))
+            access_data[to_remove["section"]].remove(to_remove["help_text_ui"])
 
         # print(field_name, value)
 
@@ -425,6 +432,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         "erp/index.html",
         context={
             "accessibilite_data": accessibilite_data,
+            "access_data": dict(access_data),
             "activite": erp.activite,
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,

@@ -421,12 +421,10 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement"
-        ),
+        "help_text_ui": translate_lazy("Places de parking au sein de l'établissement"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible au sein de la parcelle de l'établissement"
-        ),
+        ),  # TODO
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -444,18 +442,17 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement"
-        ),
+        "help_text_ui": translate_lazy("Places de parking au sein de l'établissement comprenant des places PMR"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement"
-        ),
+        ),  # TODO
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
         "root": False,
+        "key_to_overwrite": "stationnement_presence",
     },
     "stationnement_ext_presence": {
         "type": "boolean",
@@ -467,9 +464,7 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement"
-        ),
+        "help_text_ui": translate_lazy("Places de parking à proximité"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement"
         ),
@@ -490,9 +485,7 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement"
-        ),
+        "help_text_ui": translate_lazy("Places de parking à proximité comprenant des places PMR"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
         ),
@@ -502,6 +495,7 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": False,
+        "key_to_overwrite": "stationnement_ext_presence",
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
@@ -784,7 +778,7 @@ FIELDS = {
                 "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("L'entrée de l'établissement est facilement repérable"),
+        "help_text_ui": translate_lazy("Entrée bien signalée"),
         "help_text_ui_neg": translate_lazy(
             "Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
         ),
@@ -1034,9 +1028,7 @@ FIELDS = {
                 "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Présence d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
-        ),
+        "help_text_ui": translate_lazy("Balise sonore"),
         "help_text_ui_neg": translate_lazy(
             "Pas de balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
         ),
