@@ -27,7 +27,7 @@ class Command(BaseCommand):
             schedule.every().day.at("00:40").do(call_command, "export_to_datagouv")
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
             schedule.every().thursday.at("14:30").do(call_command, "notify_weekly_unpublished_erps")
-            schedule.every().day.at("12:30").do(call_command("notify_daily_draft"))
+            schedule.every().day.at("12:30").do(call_command, "notify_daily_draft")
 
     def start(self):
         while True:
