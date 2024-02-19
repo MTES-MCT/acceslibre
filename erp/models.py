@@ -424,6 +424,7 @@ class Erp(models.Model):
     SOURCE_SCRAPFLY = "scrapfly"
     SOURCE_TALLY = "tally"
     SOURCE_LAPOSTE = "laposte"
+    SOURCE_MOBEE_TRAVEL = "mobee-travel"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, translate_lazy("Base de données Acceslibre")),
         (SOURCE_ACCEO, translate_lazy("Acceo")),
@@ -449,6 +450,7 @@ class Erp(models.Model):
         (SOURCE_SCRAPFLY, translate_lazy("Scrapfly")),
         (SOURCE_TALLY, translate_lazy("Tally")),
         (SOURCE_LAPOSTE, translate_lazy("La Poste")),
+        (SOURCE_MOBEE_TRAVEL, translate_lazy("Mobee Travel")),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
