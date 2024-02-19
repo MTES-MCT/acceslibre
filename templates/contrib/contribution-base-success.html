@@ -5,8 +5,8 @@
     {% if erp.published %}
         <span class="contribution-result">
             <h2 class="fr-h2 text-center">{% translate "Merci !" %}</h2>
-            <p class="text-center">
-                {% blocktranslate with erp_nom=erp.nom.title erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }} est en ligne{% endblocktranslate %}
+            <p class="text-center bold">
+                {% blocktranslate with erp_nom=erp.nom.title %}{{ erp_nom }} est en ligne{% endblocktranslate %}
             </p>
             <img src="{% static 'img/merci.jpg' %}"
                  alt="{% translate "Image de remerciement" %}"
@@ -16,14 +16,16 @@
                     <div class="barOverflow">
                         <div class="bar"></div>
                     </div>
-                    <span>{{ erp.accessibilite.completion_rate }}</span>%
+                    <span class="hidden">{{ erp.accessibilite.completion_rate }}</span>
                 </div>
-                <h3 class="fr-callout__title">{% translate "Taux de remplissage : " %} {{ erp.accessibilite.completion_rate }}%</h3>
+                <p class="completion">{% translate "Taux de remplissage : " %} {{ erp.accessibilite.completion_rate }}%</p>
             </div>
             <p>{% translate "Les informations essentielles sont saisies, encore un effort !" %}</p>
             <p>{% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}</p>
-            <a href="{% url "contrib_transport" erp.slug %}" class="fr-btn">{% translate "Oui, je continue" %}</a>
-            <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
+            <div class="fr-btns-group--inline">
+                <a href="{% url "contrib_transport" erp.slug %}" class="fr-btn">{% translate "Oui, je continue" %}</a>
+                <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
+            </div>
         </span>
     {% else %}
         <span class="contribution-result">
