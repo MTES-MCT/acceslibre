@@ -8,6 +8,42 @@ from erp.imports.serializers import ErpImportSerializer
 from erp.models import Commune, Erp
 from erp.provider.departements import DEPARTEMENTS
 
+QUERIES = [
+    ("Boulangerie", "Boulangerie Pâtisserie"),
+    ("Pharmacie", "Pharmacie"),
+    ("Cimetière", "Cimetière"),
+    ("EHPAD", "EHPAD"),
+    ("Laboratoire d'analyse médicale", "Laboratoire d'analyse médicale"),
+    ("Toilettes publiques", "Toilettes publiques"),
+    ("Médiathèque", "Bibliothèque médiathèque"),
+    ("Piscine municipale", "Piscine, centre aquatique"),
+    ("Boucherie", "Boucherie / commerce de viande"),
+    ("Charcuterie", "Boucherie / commerce de viande"),
+    ("Bijouterie", "Bijouterie joaillerie"),
+    ("Quincaillerie", "Droguerie"),
+    ("Librairie", "Librairie"),
+    ("Agence immobilière", "Agence immobilière"),
+    ("Office du tourisme", "Office du tourisme"),
+    ("Kebab", "Restauration rapide"),
+    ("Pompes funèbres", "Pompes funèbres"),
+    ("Coiffeur", "Coiffure"),
+    ("Fleuriste", "Fleuriste"),
+    ("Chocolatier", "Chocolatier"),
+    ("Coworking", "Coworking"),
+    ("Carrosserie", "Carrosserie"),
+    ("Vétérinaire", "Vétérinaire"),
+    ("Auto-Ecole", "Auto école"),
+    ("Centre hospitalier", "Hôpital"),
+    ("Esthéticienne", "Soins de beauté, esthétique"),
+    ("Stade municipal", "Stade"),
+    ("Salle des fêtes", "Salle des fêtes"),
+    ("Fromagerie", "Crèmerie Fromagerie"),
+    ("Dentiste", "Chirurgien dentiste"),
+    ("Lycée", "Collège"),
+    ("Collège", "Collège"),
+    ("Photographe", "Photographie"),
+]
+
 
 class Command(BaseCommand):
     help = "Create ERPs from outscraper API"
@@ -168,43 +204,7 @@ class Command(BaseCommand):
 
 
 def print_commands():
-    queries = [
-        ("Boulangerie", "Boulangerie Pâtisserie"),
-        ("Pharmacie", "Pharmacie"),
-        ("Cimetière", "Cimetière"),
-        ("EHPAD", "EHPAD"),
-        ("Laboratoire d'analyse médicale", "Laboratoire d'analyse médicale"),
-        ("Toilettes publiques", "Toilettes publiques"),
-        ("Médiathèque", "Bibliothèque médiathèque"),
-        ("Piscine municipale", "Piscine, centre aquatique"),
-        ("Boucherie", "Boucherie / commerce de viande"),
-        ("Charcuterie", "Boucherie / commerce de viande"),
-        ("Bijouterie", "Bijouterie joaillerie"),
-        ("Quincaillerie", "Droguerie"),
-        ("Librairie", "Librairie"),
-        ("Agence immobilière", "Agence immobilière"),
-        ("Office du tourisme", "Office du tourisme"),
-        ("Kebab", "Restauration rapide"),
-        ("Pompes funèbres", "Pompes funèbres"),
-        ("Coiffeur", "Coiffure"),
-        ("Fleuriste", "Fleuriste"),
-        ("Chocolatier", "Chocolatier"),
-        ("Coworking", "Coworking"),
-        ("Carrosserie", "Carrosserie"),
-        ("Vétérinaire", "Vétérinaire"),
-        ("Auto-Ecole", "Auto école"),
-        ("Centre hospitalier", "Hôpital"),
-        ("Esthéticienne", "Soins de beauté, esthétique"),
-        ("Stade municipal", "Stade"),
-        ("Salle des fêtes", "Salle des fêtes"),
-        ("Fromagerie", "Crèmerie Fromagerie"),
-        ("Dentiste", "Chirurgien dentiste"),
-        ("Lycée", "Collège"),
-        ("Collège", "Collège"),
-        ("Photographe", "Photographie"),
-    ]
-
-    for term, activity in queries:
+    for term, activity in QUERIES:
         for num, data in DEPARTEMENTS.items():
             if any([str(num).startswith(x) for x in ["97", "98"]]):
                 # ignore DOM, no data for them
