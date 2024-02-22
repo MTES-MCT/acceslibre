@@ -94,7 +94,7 @@ class EtalabMapper(BaseExportMapper):
     accueil_retrecissement: bool
     sanitaires_presence: bool
     sanitaires_adaptes: int
-    labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th"]]]
+    labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th", "handiplage"]]]
     labels_familles_handicap: Optional[Set[Literal["auditif", "mental", "moteur", "visuel"]]]
     registre_url: str
     conformite: bool
@@ -302,7 +302,7 @@ class PartooMapper(BaseExportMapper):
     accueil_chambre_accompagnement: bool
     sanitaires_presence: bool
     sanitaires_adaptes: int
-    labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th"]]]
+    labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th", "handiplage"]]]
     labels_familles_handicap: Optional[Set[Literal["auditif", "mental", "moteur", "visuel"]]]
     registre_url: str
     conformite: bool
