@@ -20,7 +20,6 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
 from reversion.views import create_revision
-from waffle import switch_is_active
 
 from api.views import WidgetSerializer
 from compte.signals import erp_claimed
@@ -357,11 +356,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if need_redirect:
         return redirect(erp.get_absolute_url())
 
-    nearest_erps = []
-    if switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
-        nearest_erps = Erp.objects.with_activity().published().nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
-    geojson_list = make_geojson(nearest_erps or [erp])
-
     # translate free texts if user is not displaying the page in french
     current_language = get_language()
     if current_language != "fr":
@@ -414,8 +408,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
             "erp": erp,
-            "geojson_list": geojson_list,
-            "nearest_erps": nearest_erps,
+            "geojson_list": make_geojson([erp]),
             "widget_tag": widget_tag,
             "url_widget_js": url_widget_js,
             "root_url": settings.SITE_ROOT_URL,
@@ -424,6 +417,12 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "vote_down_form": vote_down_form,
             "th_labels": th_labels,
             "has_th": has_th,
+            "map_options": json.dumps(
+                {
+                    "scrollWheelZoom": False,
+                    "dragging": False,
+                }
+            ),
         },
     )
 

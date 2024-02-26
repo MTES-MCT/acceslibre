@@ -65,10 +65,3 @@
         </article>
     </main>
 {% endblock editorial_content %}
-{% block bottom_fluid_content %}
-    {% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
-    <aside id="proximite" class="fr-container-fluid bg-light mt-4 py-4">
-        <div class="fr-container">{% include "erp/includes/proximite.html" %}</div>
-    </aside>
-{% endswitch %}
-{% endblock bottom_fluid_content %}
