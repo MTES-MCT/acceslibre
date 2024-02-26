@@ -2,7 +2,7 @@ default_language_version:
   python: python3.11
 repos:
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 7.0.0
     hooks:
       - id: flake8
         entry: bash -c "flake8"
@@ -11,25 +11,25 @@ repos:
     hooks:
       - id: seed-isort-config
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
         args: ['--profile', 'black', --line-length=120]
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 24.2.0
     hooks:
       - id: black
         language_version: python3.11
         args: [--line-length=120]
   - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.29.0
+    rev: v1.34.1
     hooks:
       - id: djlint-reformat-django
         files: 'templates/'
         custom-blocks: 'switch,flag,sample'
         ignore: 'H006,H021,H019'
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: 'v2.7.1'
+    rev: 'v4.0.0-alpha.8'
     hooks:
       - id: prettier
         types_or: [scss, css, javascript]
