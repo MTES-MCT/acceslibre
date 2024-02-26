@@ -2,7 +2,6 @@ import datetime
 import json
 import re
 import urllib
-from collections import defaultdict
 from decimal import Decimal
 from uuid import UUID
 
@@ -34,7 +33,6 @@ from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
-from erp.schema import get_type
 from stats.models import Challenge
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -370,37 +368,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if current_language != "fr":
         erp.translate(current_language)
 
-    fields = schema.FIELDS
-    instance = erp.accessibilite
-
-    access_data = defaultdict(list)
-
-    for field_name, schema_values in fields.items():
-        if field_name == "activite":
-            continue
-
-        value = getattr(instance, field_name)
-        text = None
-
-        if get_type(field_name) == "boolean":
-            if value is True:
-                text = schema_values["help_text_ui"]
-            if value is False and schema_values.get("should_display_if_false", False):
-                if schema_values.get("readable_text_neg"):
-                    text = schema_values.get("readable_text_neg")
-                    for var in re.findall(r"\{([^{}]*)\}", text):
-                        text = text.replace("{" + var + "}", str(getattr(instance, var)))
-                else:
-                    text = schema_values["help_text_ui_neg"]
-
-        if text:
-            access_data[schema_values["section"]].append(text)
-
-        if schema_values.get("key_to_overwrite"):
-            to_remove = fields.get(schema_values.get("key_to_overwrite"))
-            # TODO maybe we can use the readable_text template to do this ?
-            access_data[to_remove["section"]].remove(to_remove["help_text_ui"])
-
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
     is_authenticated = request.user.is_authenticated
@@ -444,7 +411,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         "erp/index.html",
         context={
             "accessibilite_data": accessibilite_data,
-            "access_data": dict(access_data),
             "activite": erp.activite,
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,

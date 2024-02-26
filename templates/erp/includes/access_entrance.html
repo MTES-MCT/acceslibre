@@ -7,8 +7,8 @@
 {% if not access.entree_porte_presence %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}
 {## TODO missing door type#}
 {% if access.entree_largeur_mini >= 80 %}
-    <li>{{ entree_largeur_mini|positive_text }}</li>
+    <li>{{ "entree_largeur_mini"|positive_text }}</li>
 {% else %}
-    <li>{{ entree_largeur_mini|negative_text }}</li>
+    <li>{{ "entree_largeur_mini"|negative_text }}</li>
 {% endif %}
 {#TODO continuer a partir de la porte vitrée ou non#}

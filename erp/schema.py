@@ -443,14 +443,13 @@ FIELDS = {
         "help_text_ui": translate_lazy("Places de parking au sein de l'établissement comprenant des places PMR"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement"
-        ),  # TODO
+        ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
         "root": False,
-        "key_to_overwrite": "stationnement_presence",
     },
     "stationnement_ext_presence": {
         "type": "boolean",
@@ -491,7 +490,6 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": False,
-        "key_to_overwrite": "stationnement_ext_presence",
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
@@ -558,9 +556,6 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": False,
-        # TODO handle readable_text for not neg ?
-        "readable_text_neg": "Présence de {cheminement_ext_nombre_marches} marche(s) {cheminement_ext_sens_marches} sur le chemin extérieur",
-        "should_display_if_false": True,  # TODO do we really want to do this ?
     },
     "cheminement_ext_ascenseur": {
         "type": "boolean",
@@ -594,7 +589,6 @@ FIELDS = {
         "description": translate_lazy("Combien y'a t'il de marches&nbsp;?"),
         "free_text": False,
         "root": False,
-        "skip_for_readable_page": True,
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
@@ -609,7 +603,6 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": None,
         "free_text": False,
-        "skip_for_readable_page": True,  # TODO do we really need this, not needed for now cause string type is not handled
     },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
