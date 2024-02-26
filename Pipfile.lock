@@ -640,11 +640,12 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:1050a3ab8473488d7eee163796b02e511d0735cf43a04ba2a8348bd0f2eaf8a5",
-                "sha256:48fbc236fbe0e138b88773fa0437751f14c3645fb483f1d4c5dee58b37e5ce73"
+                "sha256:39c6f9efc079fb19bfb0f17eee903978fe9a290b1b82d68196c641cecb76ea22",
+                "sha256:869335e8cded62ffb6fac8928e5287a05433d6462e3ebaac25f4216474dd6bc4"
             ],
             "index": "pypi",
-            "version": "==8.21.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==8.22.1"
         },
         "isodate": {
             "hashes": [
@@ -1143,7 +1144,7 @@
                 "sha256:7236d1e080e4936be2dc3e326cec0af72acf9212a7e1d060210e70a47e253523",
                 "sha256:ee7d41123f3c9911050ea2c2dac107568dc43b2d3b0c7557a33212c398ead30f"
             ],
-            "markers": "sys_platform != 'win32'",
+            "markers": "sys_platform != 'win32' and sys_platform != 'emscripten'",
             "version": "==4.9.0"
         },
         "phonenumbers": {
