@@ -1,9 +1,22 @@
+from django.conf import settings
 from django.contrib.auth.models import User
+from django.utils.translation import gettext as translate
 from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
+from erp.widget_utils import (
+    get_audiodescription_label,
+    get_deaf_equipment_label,
+    get_entrance_label,
+    get_outside_path_label,
+    get_parking_label,
+    get_room_accessible_label,
+    get_sound_beacon_label,
+    get_staff_label,
+    get_wc_label,
+)
 
 # Useful docs:
 # - extra fields: https://stackoverflow.com/a/36697562/330911
@@ -167,3 +180,58 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
 
     def get_web_url(self, obj):
         return obj.get_absolute_uri()
+
+
+class WidgetSerializer(serializers.Serializer):
+    slug = serializers.CharField()
+    sections = serializers.SerializerMethodField()
+
+    def get_sections(self, instance):
+        access = instance.accessibilite
+        sections = [
+            {
+                "title": translate("stationnement"),
+                "labels": [get_parking_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/car.png",
+            },
+            {
+                "title": translate("accès"),
+                "labels": [label for label in [get_outside_path_label(access), get_entrance_label(access)] if label],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
+            },
+            {
+                "title": translate("personnel"),
+                "labels": [get_staff_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
+            },
+            {
+                "title": translate("balise sonore"),
+                "labels": [get_sound_beacon_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
+            },
+            {
+                "title": translate("audiodescription"),
+                "labels": [get_audiodescription_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/audiodescription.png",
+            },
+            {
+                "title": translate("équipements sourd et malentendant"),
+                "labels": [get_deaf_equipment_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
+            },
+            {
+                "title": translate("sanitaire"),
+                "labels": [get_wc_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
+            },
+            {
+                "title": translate("chambres accessibles"),
+                "labels": [get_room_accessible_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/chambre_accessible.png",
+            },
+        ]
+
+        for entry in sections:
+            entry["labels"] = [label for label in entry["labels"] if label]
+
+        return [entry for entry in sections if entry["labels"]]

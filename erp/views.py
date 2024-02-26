@@ -18,16 +18,15 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
-from django.utils.translation import ngettext
 from django.views.generic import TemplateView
 from reversion.views import create_revision
 from waffle import switch_is_active
 
+from api.views import WidgetSerializer
 from compte.signals import erp_claimed
 from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
-from erp.export.utils import map_list_from_schema
 from erp.forms import get_contrib_form_for_activity, get_vote_button_title
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre
@@ -451,237 +450,17 @@ def widget_from_uuid(request, uuid):
     if not erp:
         return _render_404()
 
-    accessibilite_data = {}
-    access = erp.accessibilite
-
-    # Conditions Stationnement
-    stationnement_label = None
-    if access.stationnement_presence and erp.accessibilite.stationnement_pmr:
-        stationnement_label = translate("Stationnement adapté dans l'établissement")
-    elif access.stationnement_ext_presence and access.stationnement_ext_pmr:
-        stationnement_label = translate("Stationnement adapté à proximité")
-    elif access.stationnement_ext_presence and access.stationnement_ext_pmr is False:
-        stationnement_label = translate("Pas de stationnement adapté à proximité")
-
-    if stationnement_label:
-        accessibilite_data[translate("stationnement")] = {
-            "label": stationnement_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/car.png",
-        }
-
-    # Conditions Chemin Extérieur
-    chemin_ext_label = None
-    if not erp.accessibilite.cheminement_ext_presence:
-        pass
-    elif (
-        erp.accessibilite.cheminement_ext_presence is True
-        and erp.accessibilite.cheminement_ext_plain_pied is True
-        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
-        and (
-            erp.accessibilite.cheminement_ext_pente_presence in (False, None)
-            or (erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE)
-        )
-        and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
-        and not erp.accessibilite.cheminement_ext_retrecissement
-    ):
-        chemin_ext_label = translate("Chemin d’accès de plain pied")
-    elif (
-        erp.accessibilite.cheminement_ext_presence is True
-        and erp.accessibilite.cheminement_ext_plain_pied is False
-        and (
-            (
-                erp.accessibilite.cheminement_ext_ascenseur
-                or erp.accessibilite.cheminement_ext_rampe in (schema.RAMPE_AMOVIBLE, schema.RAMPE_FIXE)
-            )
-        )
-        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
-        and (
-            erp.accessibilite.cheminement_ext_pente_presence in (False, None)
-            or (erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE)
-        )
-        and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
-        and not erp.accessibilite.cheminement_ext_retrecissement
-    ):
-        chemin_ext_label = translate("Chemin rendu accessible (%s)") % (
-            translate("rampe") if erp.accessibilite.cheminement_ext_rampe else translate("ascenseur")
-        )
-    elif (
-        erp.accessibilite.cheminement_ext_terrain_stable is False
-        or erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_IMPORTANTE
-        or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
-        or erp.accessibilite.cheminement_ext_retrecissement
-        or (
-            not erp.accessibilite.cheminement_ext_ascenseur
-            and erp.accessibilite.cheminement_ext_rampe in (schema.RAMPE_AUCUNE, None)
-            and erp.accessibilite.cheminement_ext_plain_pied is False
-        )
-    ):
-        chemin_ext_label = translate("Difficulté sur le chemin d'accès")
-
-    # Conditions Entrée
-    entree_label = None
-    if erp.accessibilite.entree_plain_pied is True and (
-        erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80
-    ):
-        entree_label = translate("Entrée de plain pied")
-    elif erp.accessibilite.entree_plain_pied is True and (
-        erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80
-    ):
-        entree_label = translate("Entrée de plain pied mais étroite")
-
-    elif (
-        erp.accessibilite.entree_plain_pied is False
-        and not erp.accessibilite.entree_pmr
-        and erp.accessibilite.entree_ascenseur
-        and (erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80)
-    ):
-        entree_label = translate("Accès à l'entrée par ascenseur")
-    elif (
-        erp.accessibilite.entree_plain_pied is False
-        and not erp.accessibilite.entree_pmr
-        and erp.accessibilite.entree_ascenseur
-        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
-    ):
-        entree_label = translate("Entrée rendue accessible par ascenseur mais étroite")
-    elif (
-        erp.accessibilite.entree_plain_pied is False
-        and not erp.accessibilite.entree_pmr
-        and not erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
-    ):
-        entree_label = translate("Entrée rendue accessible par rampe mais étroite")
-    elif (
-        erp.accessibilite.entree_plain_pied is False
-        and not erp.accessibilite.entree_pmr
-        and not erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and (
-            erp.accessibilite.entree_largeur_mini is None
-            or (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini >= 80)
-        )
-    ):
-        entree_label = translate("Accès à l’entrée par une rampe")
-    elif (
-        erp.accessibilite.entree_plain_pied is False
-        and not erp.accessibilite.entree_pmr
-        and not erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None)
-    ):
-        entree_label = translate("L’entrée n’est pas de plain-pied")
-        if erp.accessibilite.entree_aide_humaine is True:
-            entree_label += translate("\n Aide humaine possible")
-    elif erp.accessibilite.entree_plain_pied in (False, None) and erp.accessibilite.entree_pmr is True:
-        entree_label = translate("Entrée spécifique PMR")
-
-    if chemin_ext_label and entree_label:
-        accessibilite_data[translate("accès")] = {
-            "label": f"{chemin_ext_label} \n {entree_label}",
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
-        }
-    elif chemin_ext_label:
-        accessibilite_data[translate("accès")] = {
-            "label": chemin_ext_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
-        }
-    elif entree_label:
-        accessibilite_data[translate("accès")] = {
-            "label": entree_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
-        }
-
-    # Conditions présence de personnel
-    presence_personnel_label = None
-    if erp.accessibilite.accueil_personnels == schema.PERSONNELS_AUCUN:
-        presence_personnel_label = translate("Aucun personnel")
-    elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_NON_FORMES:
-        presence_personnel_label = translate("Personnel non formé")
-    elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_FORMES:
-        presence_personnel_label = translate("Personnel sensibilisé / formé")
-
-    if presence_personnel_label:
-        accessibilite_data[translate("personnel")] = {
-            "label": presence_personnel_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
-        }
-
-    # Conditions présence d'une balise sonore
-    balise_sonore = None
-    if erp.accessibilite.entree_balise_sonore:
-        balise_sonore = translate("Balise sonore")
-
-    if balise_sonore:
-        accessibilite_data[translate("balise sonore")] = {
-            "label": balise_sonore,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
-        }
-
-    presence_audiodescription_label = None
-    if erp.accessibilite.accueil_audiodescription_presence and erp.accessibilite.accueil_audiodescription:
-        presence_audiodescription_label = ", ".join(
-            map_list_from_schema(
-                schema.AUDIODESCRIPTION_CHOICES,
-                erp.accessibilite.accueil_audiodescription,
-                verbose=True,
-            )
-        )
-
-    if presence_audiodescription_label:
-        accessibilite_data[translate("audiodescription")] = {
-            "label": presence_audiodescription_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/audiodescription.png",
-        }
-
-    # Conditions Présence d’équipement sourd et malentendant
-    presence_equipement_sourd_label = None
-    if (
-        erp.accessibilite.accueil_equipements_malentendants_presence
-        and erp.accessibilite.accueil_equipements_malentendants
-    ):
-        presence_equipement_sourd_label = ", ".join(
-            map_list_from_schema(
-                schema.EQUIPEMENT_MALENTENDANT_CHOICES,
-                erp.accessibilite.accueil_equipements_malentendants,
-                verbose=True,
-            )
-        )
-
-    if presence_equipement_sourd_label:
-        accessibilite_data[translate("équipements sourd et malentendant")] = {
-            "label": presence_equipement_sourd_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
-        }
-
-    # Conditions Sanitaire
-    presence_sanitaire_label = None
-    if erp.accessibilite.sanitaires_presence and erp.accessibilite.sanitaires_adaptes:
-        presence_sanitaire_label = translate("Sanitaire adapté")
-    elif erp.accessibilite.sanitaires_presence and not erp.accessibilite.sanitaires_adaptes:
-        presence_sanitaire_label = translate("Sanitaire non adapté")
-
-    if presence_sanitaire_label:
-        accessibilite_data[translate("sanitaire")] = {
-            "label": presence_sanitaire_label,
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
-        }
-
-    if erp.accessibilite.accueil_chambre_nombre_accessibles:
-        accessibilite_data[translate("chambres accessibles")] = {
-            "label": ngettext(
-                "%(count)d chambre accessible",
-                "%(count)d chambres accessibles",
-                erp.accessibilite.accueil_chambre_nombre_accessibles,
-            )
-            % {"count": erp.accessibilite.accueil_chambre_nombre_accessibles},
-            "icon": f"{settings.SITE_ROOT_URL}/static/img/chambre_accessible.png",
-        }
+    access_sections = WidgetSerializer(erp).data["sections"]
+    access_data = {}
+    for entry in access_sections:
+        access_data[entry["title"]] = {"label": " \n ".join(entry["labels"]), "icon": entry["icon"]}
 
     return render(
         request,
         "erp/widget/index.html",
         context={
             "ref_uuid": erp.uuid,
-            "accessibilite_data": accessibilite_data,
+            "accessibilite_data": access_data,
             "erp": erp,
             "base_url": f"{settings.SITE_ROOT_URL}",
         },

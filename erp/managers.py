@@ -191,7 +191,7 @@ class ErpQuerySet(models.QuerySet):
             return no_path
         return self.filter(no_path)
 
-    def having_proper_surface(self, as_q=False):
+    def having_stable_ground(self, as_q=False):
         proper_surface = Q(accessibilite__cheminement_ext_terrain_stable=True) | Q(
             accessibilite__cheminement_ext_terrain_stable__isnull=True
         )
@@ -244,7 +244,7 @@ class ErpQuerySet(models.QuerySet):
         ) | with_ramp
 
         accessible_path = Q(
-            self.having_proper_surface(as_q=True),
+            self.having_stable_ground(as_q=True),
             self.having_no_shrink(as_q=True),
             self.having_no_slope(as_q=True),
             self.having_no_camber(as_q=True),
