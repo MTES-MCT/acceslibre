@@ -1,0 +1,38 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+<h3>Chemin extérieur</h3>
+<ul>
+    {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
+    {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
+    {% if access.cheminement_ext_plain_pied %}
+        <li>{{ "cheminement_ext_plain_pied"|positive_text }}</li>
+    {% else %}
+        {% if access.cheminement_ext_nombre_marches %}
+            {% if access.cheminement_ext_sens_marches %}
+                <li>
+                    Présence de {{ access.cheminement_ext_nombre_marches }} marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur
+                </li>
+            {% else %}
+                <li>Présence de {{ access.cheminement_ext_nombre_marches }} marche</li>
+            {% endif %}
+        {% else %}
+            {% if access.cheminement_ext_sens_marches %}
+                <li>Présence de marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur</li>
+            {% else %}
+                <li>Présence de marche sur le chemin extérieur</li>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    {#{% if access.cheminement_ext_reperage_marches %}#}
+    {#  # TODO waiting for comment Marches ou escalier sécurisé(es) / Main courante#}
+    {#  {{ "cheminement_ext_reperage_marches"|positive_text }}#}
+    {#{% else %}#}
+    {#  {{ "cheminement_ext_reperage_marches"|negative_text }}#}
+    {#{% endif %}#}
+    {% if access.cheminement_ext_rampe %}
+        <li>{{ "cheminement_ext_rampe"|positive_text }}</li>
+    {% else %}
+        <li>{{ "cheminement_ext_rampe"|negative_text }}</li>
+    {% endif %}
+</ul>

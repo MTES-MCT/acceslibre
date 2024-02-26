@@ -123,8 +123,12 @@ def get_field_label(value):
 
 @register.filter(name="positive_text")
 def positive_text(value):
-    print(value)
     return schema.get_help_text_ui(value)
+
+
+@register.filter(name="negative_text")
+def negative_text(value):
+    return schema.get_help_text_ui_neg(value)
 
 
 @register.simple_tag

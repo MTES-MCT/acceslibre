@@ -485,7 +485,7 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Places de parking à proximité comprenant des places PMR"),
+        "help_text_ui": translate_lazy("Places de parking PMR à proximité"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
         ),
@@ -508,7 +508,7 @@ FIELDS = {
                 "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("L'accès à l'entrée depuis la voirie se fait par un chemin extérieur"),
+        "help_text_ui": translate_lazy("Présence d'un chemin pour atteindre l'entrée"),
         "help_text_ui_neg": translate_lazy(
             "Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
         ),
@@ -625,9 +625,7 @@ FIELDS = {
                 "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
-        ),
+        "help_text_ui": translate_lazy("Escalier sécurisé et équipé d'une ou plusieurs mains courantess"),
         "help_text_ui_neg": translate_lazy(
             "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
         ),
@@ -660,7 +658,7 @@ FIELDS = {
             translate_lazy("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?")
         ),
         "help_text_ui": translate_lazy("Présence d'une rampe fixe ou amovible"),
-        "help_text_ui_neg": translate_lazy("Pas de rampe fixe ou amovible"),
+        "help_text_ui_neg": translate_lazy("Pas de rampe"),
         "choices": RAMPE_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,

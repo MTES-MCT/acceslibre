@@ -1646,3 +1646,11 @@ class Accessibilite(models.Model):
                 if field_value not in [None, "", []]:
                     return True
         return False
+
+    def has_outside_path_and_no_other_data(self):
+        attrs = [
+            f.name
+            for f in Accessibilite._meta.get_fields()
+            if f.name.startswith("cheminement_ext_") and f.name != "cheminement_ext_presence"
+        ]
+        return self.cheminement_ext_presence and all([getattr(self, attr) is None for attr in attrs])
