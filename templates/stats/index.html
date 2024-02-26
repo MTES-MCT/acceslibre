@@ -40,39 +40,13 @@
                 <h2 class="fr-h4 fr-text--sm">{% translate "Évolution du nombre d'établissements publiés" %}</h2>
             </div>
             <div class="card-body p-2">
-                <canvas id="erpCountChart"
-                        width="100%"
-                        height="250"
-                        role="img"
-                        alt="{% translate "Graphique représentant l'évolution du nombre d'établissements publiés" %}">
-                    {% blocktranslate %}Graphique représentant l'évolution du nombre d'établissements publiés sur l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés.{% endblocktranslate %}
-                </canvas>
-                <script>
-        {% translate "Nombre d'établissements" as translate_np_erps %}
-        const ctx = document.getElementById('erpCountChart').getContext('2d');
-        var erpCountChart = new window.Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: {{ erp_counts_histogram.labels|safe }},
-            datasets: [
-              {
-                label: "{{ translate_np_erps }}",
-                data: {{ erp_counts_histogram.totals|escapejs }},
-                backgroundColor: "#075ea2",
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false
-          }
-        });
-                </script>
+                {% translate "Nombre établissements" as translate_np_erps %}
+                <bar-chart x="[{{ labels }}]" y="[{{ totals|escapejs }}]" color='["blue-cumulus"]' name='["{{ translate_np_erps }}"]'></bar-chart>
             </div>
         </div>
         <div class="card shadow-sm col-md-5 p-0">
             <div class="card-header">
-                <h2 class="fr-h4 fr-text--sm">Top contributeurs</h2>
+                <h2 class="fr-h4 fr-text--sm">{% translate "Top contributeurs" %}</h2>
             </div>
             <div class="card-body">
                 <ol class="mb-0">

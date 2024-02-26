@@ -1,11 +1,10 @@
 import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
+import '@gouvfr/dsfr-chart/BarChart/bar-chart.umd.js'
 
 import 'leaflet'
 import 'leaflet.markercluster'
 import 'leaflet.locatecontrol'
 import 'leaflet-center-cross'
-import Chart from 'chart.js/auto'
-window.Chart = Chart
 
 import { Crisp } from 'crisp-sdk-web'
 Crisp.configure('600aff6d-b1eb-414c-a186-233177221bbf')

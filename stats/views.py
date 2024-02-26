@@ -1,4 +1,5 @@
 import datetime
+import json
 
 from django.shortcuts import render
 
@@ -18,6 +19,7 @@ def stats(request):
             "nb_published_erps": erp_qs.count(),
             "nb_contributors": queries.get_active_contributors_ids().count(),
             "top_contributors": global_stat.top_contributors,
-            "erp_counts_histogram": global_stat.erp_counts_histogram,
+            "totals": global_stat.erp_counts_histogram["totals"],
+            "labels": json.dumps(global_stat.erp_counts_histogram["labels"]),
         },
     )

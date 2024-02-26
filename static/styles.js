@@ -16,4 +16,5 @@ import './scss/style.scss'
 // DSFR
 import '@gouvfr/dsfr/dist/dsfr/dsfr.css'
 import '@gouvfr/dsfr/dist/utility/icons/icons.css'
+import '@gouvfr/dsfr-chart/BarChart/bar-chart.css'
 import './scss/style-dsfr.scss'
