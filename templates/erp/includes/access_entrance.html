@@ -1,0 +1,7 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+<h3 class="pt-4">{% translate "Entrée" %}</h3>
+{% render_access_value "entree_reperage" access %}
+{% if access.entree_balise_sonore %}<li>{{ "entree_balise_sonore"|positive_text }}</li>{% endif %}
+{% if not access.entree_porte_presence %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}

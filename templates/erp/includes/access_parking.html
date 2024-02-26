@@ -1,24 +1,30 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3>Accès</h3>
+<h3>{% translate "Accès" %}</h3>
 <ul>
-    {% if access.transport_station_presence %}<li>{{ "transport_station_presence"|positive_text }}</li>{% endif %}
-    {#TODO missing Informations complémentaires#}
+    {% if access.transport_station_presence %}
+        <li>
+            {{ "transport_station_presence"|positive_text }}
+            {% if access.transport_information %}: {{ access.transport_information }}{% endif %}
+        </li>
+    {% endif %}
     {% if access.stationnement_presence %}
         {% if access.stationnement_pmr %}
             <li>{{ "stationnement_pmr"|positive_text }}</li>
         {% else %}
             <li>{{ "stationnement_presence"|positive_text }}</li>
         {% endif %}
+    {% else %}
+        <li>{{ "stationnement_presence"|negative_text }}</li>
     {% endif %}
-    {#TODO missing neg case for Stationnement dans l'établissement#}
     {% if access.stationnement_ext_presence %}
         {% if access.stationnement_ext_pmr %}
             <li>{{ "stationnement_ext_pmr"|positive_text }}</li>
         {% else %}
             <li>{{ "stationnement_ext_presence"|positive_text }}</li>
         {% endif %}
+    {% else %}
+        <li>{{ "stationnement_ext_presence"|negative_text }}</li>
     {% endif %}
-    {## TODO missing neg case for Stationnement à proximité de l'établissement#}
 </ul>

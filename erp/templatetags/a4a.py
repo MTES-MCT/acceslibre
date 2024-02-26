@@ -131,6 +131,11 @@ def negative_text(value):
     return schema.get_help_text_ui_neg(value)
 
 
+@register.inclusion_tag("erp/includes/access_value.html")
+def render_access_value(value_name, access):
+    return {"value_name": value_name, "access": access, "value": getattr(access, value_name)}
+
+
 @register.simple_tag
 def render_field(value):
     return (isinstance(value, list) and len(value) > 0) or (

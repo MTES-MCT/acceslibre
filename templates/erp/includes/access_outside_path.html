@@ -1,7 +1,7 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3>Chemin extérieur</h3>
+<h3 class="pt-4">{% translate "Chemin extérieur" %}</h3>
 <ul>
     {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
     {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
@@ -24,15 +24,32 @@
             {% endif %}
         {% endif %}
     {% endif %}
-    {#{% if access.cheminement_ext_reperage_marches %}#}
-    {#  # TODO waiting for comment Marches ou escalier sécurisé(es) / Main courante#}
-    {#  {{ "cheminement_ext_reperage_marches"|positive_text }}#}
-    {#{% else %}#}
-    {#  {{ "cheminement_ext_reperage_marches"|negative_text }}#}
-    {#{% endif %}#}
-    {% if access.cheminement_ext_rampe %}
-        <li>{{ "cheminement_ext_rampe"|positive_text }}</li>
-    {% else %}
-        <li>{{ "cheminement_ext_rampe"|negative_text }}</li>
-    {% endif %}
+    <li>
+        {% if access.cheminement_ext_reperage_marches %}
+            {% if access.cheminement_ext_main_courante %}
+                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|positive_text %}
+        {{ cheminement }} et {{ main_courante }}
+        {% endblocktranslate %}
+            {% else %}
+                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|negative_text %}
+        {{ cheminement }} et {{ main_courante }}
+        {% endblocktranslate %}
+            {% endif %}
+        {% else %}
+            {% if access.cheminement_ext_main_courante %}
+                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|positive_text %}
+        {{ cheminement }} et {{ main_courante }}
+        {% endblocktranslate %}
+            {% else %}
+                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|negative_text %}
+        {{ cheminement }} et {{ main_courante }}
+        {% endblocktranslate %}
+            {% endif %}
+        {% endif %}
+    </li>
+    {% render_access_value "cheminement_ext_rampe" access %}
+    {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+    {% if access.cheminement_ext_pente_presence %}{#    # TODO missing case for pente #}{% endif %}
+    {#    TODO missing devers#}
+    {% render_access_value "cheminement_ext_retrecissement" access %}
 </ul>

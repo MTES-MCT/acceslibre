@@ -422,9 +422,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("Places de parking au sein de l'établissement"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de place de stationnement disponible au sein de la parcelle de l'établissement"
-        ),  # TODO
+        "help_text_ui_neg": translate_lazy("Pas de places de parking au sein de l'établissement "),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -465,9 +463,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("Places de parking à proximité"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement"
-        ),
+        "help_text_ui_neg": translate_lazy("Pas de places de parking à proximité"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -485,7 +481,7 @@ FIELDS = {
                 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Places de parking PMR à proximité"),
+        "help_text_ui": translate_lazy("Places de parking à proximité comprenant des places PMR"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
         ),
@@ -572,7 +568,7 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Ascenseur/élévateur"),
         "help_text": mark_safe(translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?")),
-        "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur"),
+        "help_text_ui": translate_lazy("Ascenseur ou élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
@@ -625,10 +621,8 @@ FIELDS = {
                 "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Escalier sécurisé et équipé d'une ou plusieurs mains courantess"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
-        ),
+        "help_text_ui": translate_lazy("Escalier sécurisé"),
+        "help_text_ui_neg": translate_lazy("Escalier non sécurisé"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -641,8 +635,8 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Main courante"),
         "help_text": mark_safe(translate_lazy("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?")),
-        "help_text_ui": translate_lazy("L'escalier est équipé d'une ou plusieurs main-courantes"),
-        "help_text_ui_neg": translate_lazy("L'escalier n'est pas équipé de main-courante"),
+        "help_text_ui": translate_lazy("Équipé d'une ou plusieurs mains courantes"),
+        "help_text_ui_neg": translate_lazy("Non équipé de main courante."),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -754,12 +748,8 @@ FIELDS = {
                 "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil"
-        ),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la zone d'accueil"
-        ),
+        "help_text_ui": translate_lazy("Présence de rétrécissement inférieur à 90 cm sur le chemin"),
+        "help_text_ui_neg": translate_lazy("Largeur minimale de 90 cm sur tout le chemin"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -778,9 +768,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("Entrée bien signalée"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
-        ),
+        "help_text_ui_neg": translate_lazy("L'entrée n'est pas bien signalée"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -795,7 +783,7 @@ FIELDS = {
         "label": translate_lazy("Y a-t-il une porte ?"),
         "help_text": mark_safe(translate_lazy("Y a-t-il une porte à l'entrée de l'établissement&nbsp;?")),
         "help_text_ui": translate_lazy("Présence d'une porte à l'entrée de l'établissement"),
-        "help_text_ui_neg": translate_lazy("Pas de porte à l'entrée de l'établissement"),
+        "help_text_ui_neg": translate_lazy("Pas de porte"),
         "choices": BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
