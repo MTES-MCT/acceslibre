@@ -2,13 +2,55 @@
 {% load static %}
 {% load i18n %}
 <h3 class="pt-4">{% translate "Entrée" %}</h3>
-{% render_access_value "entree_reperage" access %}
-{% if access.entree_balise_sonore %}<li>{{ "entree_balise_sonore"|positive_text }}</li>{% endif %}
-{% if not access.entree_porte_presence %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}
-{## TODO missing door type#}
-{% if access.entree_largeur_mini >= 80 %}
-    <li>{{ "entree_largeur_mini"|positive_text }}</li>
-{% else %}
-    <li>{{ "entree_largeur_mini"|negative_text }}</li>
-{% endif %}
-{#TODO continuer a partir de la porte vitrée ou non#}
+<ul>
+    {% render_access_value "entree_reperage" access %}
+    {% if access.entree_balise_sonore %}<li>{{ "entree_balise_sonore"|positive_text }}</li>{% endif %}
+    {% if not access.entree_porte_presence %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}
+    <li>
+        {% if access.entree_porte_type %}
+            {% if access.entree_porte_manoeuvre %}
+                {% blocktranslate with type=access.entree_porte_type manoeuvre=access.entree_porte_manoeuvre %}
+    Porte {{ type }} {{ manoeuvre }}
+    {% endblocktranslate %}
+            {% else %}
+                {% blocktranslate with type=access.entree_porte_type%}
+    Porte {{ type }}
+    {% endblocktranslate %}
+            {% endif %}
+        {% else %}
+            {% if access.entree_porte_manoeuvre %}
+                {% blocktranslate with manoeuvre=access.entree_porte_manoeuvre %}
+    Porte {{ manoeuvre }}
+    {% endblocktranslate %}
+            {% endif %}
+        {% endif %}
+    </li>
+    {% if access.entree_largeur_mini >= 80 %}
+        <li>{{ "entree_largeur_mini"|positive_text }}</li>
+    {% else %}
+        <li>{{ "entree_largeur_mini"|negative_text }}</li>
+    {% endif %}
+    <li>
+        {% if access.entree_vitree %}
+            {{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}
+        {% else %}
+            {{ "entree_vitree"|negative_text }}
+        {% endif %}
+    </li>
+    <li>
+        {% if access.entree_plain_pied %}
+            {{ "entree_plain_pied"|positive_text }}
+        {% else %}
+            {% include "erp/includes/access_stairs.html" with steps_direction=access.entree_marches_sens nb_steps=access.entree_marches %}
+        {% endif %}
+    </li>
+    <li>
+        {% include "erp/includes/access_steps.html" with main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
+    </li>
+    {% render_access_value "entree_marches_rampe" access %}
+    {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+    {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
+    {#TODO missings line 43/44#}
+    {% if access.entree_pmr %}<li>{{ "entree_pmr"|positive_text }}</li>{% endif %}
+    {#TODO missing comment on PMR#}
+</ul>

@@ -819,7 +819,7 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Entrée vitrée"),
         "help_text": mark_safe(translate_lazy("La porte d'entrée est-elle vitrée&nbsp;?")),
-        "help_text_ui": translate_lazy("La porte d'entrée est vitrée"),
+        "help_text_ui": translate_lazy("Porte vitrée"),
         "help_text_ui_neg": translate_lazy("La porte d'entrée n'est pas vitrée"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -837,12 +837,8 @@ FIELDS = {
                 "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée"
-        ),
-        "help_text_ui_neg": translate_lazy(
-            "Pas d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
-        ),
+        "help_text_ui": translate_lazy("Avec éléments contrastés sur la partie vitrée"),
+        "help_text_ui_neg": translate_lazy("Sans éléments contrastés sur la partie vitrée"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -859,7 +855,7 @@ FIELDS = {
                 "L'entrée est-elle de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau"),
+        "help_text_ui": translate_lazy("Entrée de plain pied"),
         "help_text_ui_neg": translate_lazy(
             "L'entrée n'est pas de plain-pied et présente une rupture brutale de niveau"
         ),
@@ -958,7 +954,7 @@ FIELDS = {
             translate_lazy("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?")
         ),
         "help_text_ui": translate_lazy("Présence d'une rampe fixe ou amovible"),
-        "help_text_ui_neg": translate_lazy("Pas de rampe fixe ou amovible"),
+        "help_text_ui_neg": translate_lazy("Pas de rampe"),
         "choices": RAMPE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -1025,7 +1021,7 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Aide humaine"),
         "help_text": mark_safe(translate_lazy("Présence ou possibilité d'une aide humaine au déplacement")),
-        "help_text_ui": translate_lazy("Possibilité d'une aide humaine au déplacement"),
+        "help_text_ui": translate_lazy("Aide humaine possible"),
         "help_text_ui_neg": translate_lazy("Pas de possibilité d'aide humaine au déplacement"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -1064,9 +1060,7 @@ FIELDS = {
                 "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy(
-            "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
-        ),
+        "help_text_ui": translate_lazy("Présence d'une entrée PMR"),
         "help_text_ui_neg": translate_lazy(
             "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
         ),

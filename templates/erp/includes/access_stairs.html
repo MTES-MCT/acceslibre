@@ -1,0 +1,21 @@
+{% load a4a %}
+{% load i18n %}
+{% if nb_steps %}
+    {% if steps_direction %}
+        {% blocktranslate with nb=nb_steps sens=steps_direction %}
+            Présence de {{ nb }} marches {{ sens }} pour atteindre l'entrée
+          {% endblocktranslate %}
+    {% else %}
+        {% blocktranslate with nb=nb_steps %}
+            Présence de {{ nb }} marches pour atteindre l'entrée
+          {% endblocktranslate %}
+    {% endif %}
+{% else %}
+    {% if steps_direction %}
+        {% blocktranslate with sens=steps_direction %}
+            Présence de marches {{ sens }} pour atteindre l'entrée
+          {% endblocktranslate %}
+    {% else %}
+        {% translate "Présence de marches pour atteindre l'entrée" %}
+    {% endif %}
+{% endif %}

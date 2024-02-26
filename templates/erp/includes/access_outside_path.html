@@ -8,44 +8,12 @@
     {% if access.cheminement_ext_plain_pied %}
         <li>{{ "cheminement_ext_plain_pied"|positive_text }}</li>
     {% else %}
-        {% if access.cheminement_ext_nombre_marches %}
-            {% if access.cheminement_ext_sens_marches %}
-                <li>
-                    Présence de {{ access.cheminement_ext_nombre_marches }} marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur
-                </li>
-            {% else %}
-                <li>Présence de {{ access.cheminement_ext_nombre_marches }} marche</li>
-            {% endif %}
-        {% else %}
-            {% if access.cheminement_ext_sens_marches %}
-                <li>Présence de marche {{ access.cheminement_ext_sens_marches }} sur le chemin extérieur</li>
-            {% else %}
-                <li>Présence de marche sur le chemin extérieur</li>
-            {% endif %}
-        {% endif %}
+        <li>
+            {% include "erp/includes/access_stairs.html" with steps_direction=access.cheminement_ext_sens_marches nb_steps=access.cheminement_ext_nombre_marches %}
+        </li>
     {% endif %}
     <li>
-        {% if access.cheminement_ext_reperage_marches %}
-            {% if access.cheminement_ext_main_courante %}
-                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|positive_text %}
-        {{ cheminement }} et {{ main_courante }}
-        {% endblocktranslate %}
-            {% else %}
-                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|negative_text %}
-        {{ cheminement }} et {{ main_courante }}
-        {% endblocktranslate %}
-            {% endif %}
-        {% else %}
-            {% if access.cheminement_ext_main_courante %}
-                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|positive_text %}
-        {{ cheminement }} et {{ main_courante }}
-        {% endblocktranslate %}
-            {% else %}
-                {% blocktranslate with cheminement="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|negative_text %}
-        {{ cheminement }} et {{ main_courante }}
-        {% endblocktranslate %}
-            {% endif %}
-        {% endif %}
+        {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
     </li>
     {% render_access_value "cheminement_ext_rampe" access %}
     {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
