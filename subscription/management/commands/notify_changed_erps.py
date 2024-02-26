@@ -35,7 +35,7 @@ class Command(BaseCommand):
         )
 
     def send_notification(self, notification):
-        recipient = notification["user"]
+        recipient = notification.pop("user")
         return BrevoMailer().send_email(
             [recipient.email],
             template="changed_erp_notification",
@@ -48,6 +48,7 @@ class Command(BaseCommand):
 
     def get_notifications(self, hours, now=None):
         notifications = {}
+        notified_erp_user = []
         for version in versioning.get_recent_contribs_qs(hours, now):
             erp = versioning.extract_online_erp(version)
             if not erp:
@@ -56,6 +57,9 @@ class Command(BaseCommand):
             if not subscribers:
                 continue
             for user in subscribers:
+                if (erp.pk, user.pk) in notified_erp_user:
+                    continue
+
                 # retrieve history for this erp, excluding current subscriber
                 changes_by_others = erp.get_history(exclude_changes_from=user)
                 if not changes_by_others:
@@ -67,6 +71,7 @@ class Command(BaseCommand):
 
                 if user.pk not in notifications:
                     notifications[user.pk] = {"user": user, "erps": []}
+
                 if erp not in notifications[user.pk]["erps"]:
                     notifications[user.pk]["erps"].append(
                         {
@@ -78,6 +83,7 @@ class Command(BaseCommand):
                             "url_unsubscribe": reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug}),
                         }
                     )
+                notified_erp_user.append((erp.pk, user.pk))
 
         return notifications
 
@@ -97,3 +103,5 @@ class Command(BaseCommand):
             sent_ok += 1 if self.send_notification(notification) else 0
         if notifications:
             logger.info(f"[CRON] {sent_ok}/{len(notifications)} notification(s) de souscription envoyée(s)")
+        else:
+            logger.info("No notif to send")

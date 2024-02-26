@@ -80,24 +80,32 @@ def test_notification_erp(mocker, mock_geocode, client, data):
 
     # sophie updates this erp data
     client.force_login(data.sophie)
+    payload = {
+        "source": "sirene",
+        "source_id": "xxx",
+        "nom": "sophie erp",
+        "activite": data.boulangerie.nom,
+        "site_internet": "http://google.com/",
+        "action": "contribute",
+        "numero": "4",
+        "voie": "Grand rue",
+        "lieu_dit": "",
+        "code_postal": "34830",
+        "commune": "Jacou",
+        "code_insee": "38140",
+        "lat": 43.657028,
+        "lon": 2.6754,
+    }
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
-        data={
-            "source": "sirene",
-            "source_id": "xxx",
-            "nom": "sophie erp",
-            "activite": data.boulangerie.nom,
-            "site_internet": "http://google.com/",
-            "action": "contribute",
-            "numero": "4",
-            "voie": "Grand rue",
-            "lieu_dit": "",
-            "code_postal": "34830",
-            "commune": "Jacou",
-            "code_insee": "38140",
-            "lat": 43.657028,
-            "lon": 2.6754,
-        },
+        data=payload,
+        follow=True,
+    )
+
+    # second edition
+    response = client.post(
+        reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
+        data=payload | {"site_internet": "https://bing.com"},
         follow=True,
     )
 
@@ -128,21 +136,14 @@ def test_notification_erp(mocker, mock_geocode, client, data):
                             "user": "sophie",
                             "comment": "",
                             "diff": [
-                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
-                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
-                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
-                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                                {
+                                    "field": "site_internet",
+                                    "label": "site_internet",
+                                    "new": "https://bing.com",
+                                    "old": "http://google.com/",
+                                }
                             ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
-                {
-                    "code_postal": "34830",
-                    "commune": "Jacou",
-                    "nom": "sophie erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
+                        },
                         {
                             "user": "sophie",
                             "comment": "",
@@ -152,45 +153,7 @@ def test_notification_erp(mocker, mock_geocode, client, data):
                                 {"field": "numero", "old": "5", "new": "4", "label": "numero"},
                                 {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
                             ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
-                {
-                    "code_postal": "34830",
-                    "commune": "Jacou",
-                    "nom": "sophie erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
-                        {
-                            "user": "sophie",
-                            "comment": "",
-                            "diff": [
-                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
-                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
-                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
-                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
-                            ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
-                {
-                    "code_postal": "34830",
-                    "commune": "Jacou",
-                    "nom": "sophie erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
-                        {
-                            "user": "sophie",
-                            "comment": "",
-                            "diff": [
-                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
-                                {"field": "geom", "old": "43.6570, 2.6754", "new": "43.0000, 3.0000", "label": "geom"},
-                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
-                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
-                            ],
-                        }
+                        },
                     ],
                     "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
                 },
@@ -232,126 +195,6 @@ def test_notification_accessibilite(client, data, mocker):
         "context": {
             "username": "niko",
             "erps": [
-                {
-                    "code_postal": "34830",
-                    "commune": "JACOU",
-                    "nom": "niko erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
-                        {
-                            "user": "sophie",
-                            "comment": "",
-                            "diff": [
-                                {
-                                    "field": "accueil_visibilite",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Visibilité de la zone d'accueil",
-                                },
-                                {
-                                    "field": "accueil_audiodescription_presence",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Audiodescription",
-                                },
-                                {
-                                    "field": "accueil_audiodescription",
-                                    "old": "Vide",
-                                    "new": "None",
-                                    "label": "Type d'équipements pour l'audiodescription",
-                                },
-                                {
-                                    "field": "accueil_retrecissement",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Rétrécissement du chemin",
-                                },
-                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
-                            ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
-                {
-                    "code_postal": "34830",
-                    "commune": "JACOU",
-                    "nom": "niko erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
-                        {
-                            "user": "sophie",
-                            "comment": "",
-                            "diff": [
-                                {
-                                    "field": "accueil_visibilite",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Visibilité de la zone d'accueil",
-                                },
-                                {
-                                    "field": "accueil_audiodescription_presence",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Audiodescription",
-                                },
-                                {
-                                    "field": "accueil_audiodescription",
-                                    "old": "Vide",
-                                    "new": "None",
-                                    "label": "Type d'équipements pour l'audiodescription",
-                                },
-                                {
-                                    "field": "accueil_retrecissement",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Rétrécissement du chemin",
-                                },
-                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
-                            ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
-                {
-                    "code_postal": "34830",
-                    "commune": "JACOU",
-                    "nom": "niko erp",
-                    "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
-                    "changes_by_others": [
-                        {
-                            "user": "sophie",
-                            "comment": "",
-                            "diff": [
-                                {
-                                    "field": "accueil_visibilite",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Visibilité de la zone d'accueil",
-                                },
-                                {
-                                    "field": "accueil_audiodescription_presence",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Audiodescription",
-                                },
-                                {
-                                    "field": "accueil_audiodescription",
-                                    "old": "Vide",
-                                    "new": "None",
-                                    "label": "Type d'équipements pour l'audiodescription",
-                                },
-                                {
-                                    "field": "accueil_retrecissement",
-                                    "old": "Oui",
-                                    "new": "Inconnu",
-                                    "label": "Rétrécissement du chemin",
-                                },
-                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
-                            ],
-                        }
-                    ],
-                    "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
-                },
                 {
                     "code_postal": "34830",
                     "commune": "JACOU",
