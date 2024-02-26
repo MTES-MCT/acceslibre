@@ -49,7 +49,27 @@
     </li>
     {% render_access_value "cheminement_ext_rampe" access %}
     {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
-    {% if access.cheminement_ext_pente_presence %}{#    # TODO missing case for pente #}{% endif %}
+    {% if access.cheminement_ext_pente_presence %}
+        {% if access.cheminement_ext_pente_degre_difficulte %}
+            {% if access.cheminement_ext_pente_longueur %}
+                {% blocktranslate with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
+            Pente {{ difficulte }} de longueur {{ longueur }}
+          {% endblocktranslate %}
+            {% else %}
+                {% blocktranslate with difficulte=access.cheminement_ext_pente_degre_difficulte %}
+            Pente {{ difficulte }}
+          {% endblocktranslate %}
+            {% endif %}
+        {% else %}
+            {% if access.cheminement_ext_pente_longueur %}
+                {% blocktranslate with longueur=access.cheminement_ext_pente_longueur  %}
+            Pente de longueur {{ longueur }}
+          {% endblocktranslate %}
+            {% else %}
+                {#            TODO missing details from Sophie#}
+            {% endif %}
+        {% endif %}
+    {% endif %}
     {#    TODO missing devers#}
     {% render_access_value "cheminement_ext_retrecissement" access %}
 </ul>
