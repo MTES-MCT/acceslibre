@@ -1051,8 +1051,8 @@ FIELDS = {
                 "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
             )
         ),
-        "help_text_ui": translate_lazy("Largeur minimale de la porte d'entrée"),
-        "help_text_ui_neg": translate_lazy("Largeur minimale de la porte d'entrée"),
+        "help_text_ui": translate_lazy("Largeur d'au moins 80 cm"),
+        "help_text_ui_neg": translate_lazy("Largeur inférieure à 80 cm"),
         "choices": None,
         "unit": "centimètre",
         "section": SECTION_ENTREE,
