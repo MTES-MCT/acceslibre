@@ -76,11 +76,13 @@ LABEL_AUTRE = "autre"
 LABEL_DPT = "dpt"
 LABEL_MOBALIB = "mobalib"
 LABEL_TH = "th"
+LABEL_HANDIPLAGE = "handiplage"
 LABEL_CHOICES = [
     (LABEL_AUTRE, translate_lazy("Autre")),
     (LABEL_DPT, translate_lazy("Destination pour Tous")),
     (LABEL_MOBALIB, translate_lazy("Mobalib")),
     (LABEL_TH, translate_lazy("Tourisme & Handicap")),
+    (LABEL_HANDIPLAGE, translate_lazy("Handiplage")),
 ]
 
 PENTE_LEGERE = "légère"
