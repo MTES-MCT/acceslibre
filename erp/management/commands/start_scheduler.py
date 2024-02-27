@@ -23,6 +23,7 @@ class Command(BaseCommand):
         schedule.every().day.at("03:55").do(call_command, "deleterevisions", keep=20, days=30)
         schedule.every().day.at("05:10").do(call_command, "import_dataset", "gendarmerie")
         schedule.every(30).days.at("02:10").do(call_command, "import_dataset", "service_public")
+        schedule.every(30).days.at("04:15").do(call_command, "data_grandlyon_acquisition")
         if not settings.STAGING:
             schedule.every().day.at("00:40").do(call_command, "export_to_datagouv")
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
