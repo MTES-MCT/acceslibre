@@ -6,25 +6,19 @@
     {% render_access_value "entree_reperage" access %}
     {% if access.entree_balise_sonore %}<li>{{ "entree_balise_sonore"|positive_text }}</li>{% endif %}
     {% if not access.entree_porte_presence %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}
-    <li>
-        {% if access.entree_porte_type %}
-            {% if access.entree_porte_manoeuvre %}
-                {% blocktranslate with type=access.entree_porte_type manoeuvre=access.entree_porte_manoeuvre %}
-    Porte {{ type }} {{ manoeuvre }}
-    {% endblocktranslate %}
-            {% else %}
-                {% blocktranslate with type=access.entree_porte_type%}
-    Porte {{ type }}
-    {% endblocktranslate %}
-            {% endif %}
+    {% if access.entree_porte_type %}
+        {% if access.entree_porte_manoeuvre %}
+            <li>
+                {% blocktranslate with type=access.entree_porte_type manoeuvre=access.entree_porte_manoeuvre %}Porte {{ type }} {{ manoeuvre }}{% endblocktranslate %}
+            </li>
         {% else %}
-            {% if access.entree_porte_manoeuvre %}
-                {% blocktranslate with manoeuvre=access.entree_porte_manoeuvre %}
-    Porte {{ manoeuvre }}
-    {% endblocktranslate %}
-            {% endif %}
+            <li>{% blocktranslate with type=access.entree_porte_type%}Porte {{ type }}{% endblocktranslate %}</li>
         {% endif %}
-    </li>
+    {% else %}
+        {% if access.entree_porte_manoeuvre %}
+            <li>{% blocktranslate with manoeuvre=access.entree_porte_manoeuvre %}Porte {{ manoeuvre }}{% endblocktranslate %}</li>
+        {% endif %}
+    {% endif %}
     {% if access.entree_largeur_mini >= 80 %}
         <li>{{ "entree_largeur_mini"|positive_text }}</li>
     {% else %}
@@ -50,7 +44,20 @@
     {% render_access_value "entree_marches_rampe" access %}
     {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
     {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
-    {#TODO missings line 43/44#}
-    {% if access.entree_pmr %}<li>{{ "entree_pmr"|positive_text }}</li>{% endif %}
-    {#TODO missing comment on PMR#}
+    {% if access.entree_dispositif_appel %}
+        {% if access.entree_dispositif_appel_type %}
+            {% for equipment in access.entree_dispositif_appel_type %}<li>{{ equipment|title }}</li>{% endfor %}
+        {% else %}
+            <li>{{ "entree_dispositif_appel"|positive_text }}</li>
+        {% endif %}
+    {% endif %}
+    {% if access.entree_pmr %}
+        <li>
+            {{ "entree_pmr"|positive_text }}
+            {% if access.entree_pmr_informations %}
+                <br />
+                {{ entree_pmr_informations }}
+            {% endif %}
+        </li>
+    {% endif %}
 </ul>

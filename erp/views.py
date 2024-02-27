@@ -426,6 +426,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "vote_down_form": vote_down_form,
             "th_labels": th_labels,
             "has_th": has_th,
+            "show_new_access_data": request.GET.get("v2", "") != "",
         },
     )
 
