@@ -1,7 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3 class="pt-4">{% translate "Chemin extérieur" %}</h3>
+<h4 class="pt-2 h4">
+    <i aria-hidden="true" class="icon icon-road mr-1 larger-font"></i>{% translate "Chemin vers l'entrée" %}
+</h4>
 <ul>
     {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
     {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
@@ -20,19 +22,19 @@
     {% if access.cheminement_ext_pente_presence %}
         {% if access.cheminement_ext_pente_degre_difficulte %}
             {% if access.cheminement_ext_pente_longueur %}
-                {% blocktranslate with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
-            Pente {{ difficulte }} de longueur {{ longueur }}
-          {% endblocktranslate %}
+                {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
+                    Pente {{ difficulte }} de longueur {{ longueur }}
+                {% endblocktranslate %}
             {% else %}
-                {% blocktranslate with difficulte=access.cheminement_ext_pente_degre_difficulte %}
-            Pente {{ difficulte }}
-          {% endblocktranslate %}
+                {% blocktranslate trimmed with difficulte=access.cheminement_ext_pente_degre_difficulte %}
+                    Pente {{ difficulte }}
+                {% endblocktranslate %}
             {% endif %}
         {% else %}
             {% if access.cheminement_ext_pente_longueur %}
-                {% blocktranslate with longueur=access.cheminement_ext_pente_longueur  %}
-            Pente de longueur {{ longueur }}
-          {% endblocktranslate %}
+                {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur %}
+                    Pente de longueur {{ longueur }}
+                {% endblocktranslate %}
             {% else %}
                 {#            TODO missing details from Sophie#}
             {% endif %}

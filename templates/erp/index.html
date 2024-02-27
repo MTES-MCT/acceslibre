@@ -51,6 +51,9 @@
                             {% if erp.is_accommodation %}
                                 {% include "erp/includes/access_accommodation.html" %}
                             {% endif %}
+                            {% if access.registre_url or acces.conformite %}
+                                {% include "erp/includes/access_legal.html" %}
+                            {% endif %}
                         {% else %}
                             {% if accessibilite_data %}
                                 {% include "erp/includes/accessibilite.html" %}

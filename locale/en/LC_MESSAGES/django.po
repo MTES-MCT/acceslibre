@@ -1369,9 +1369,6 @@ msgstr "Proximity to a public transportation stop"
 msgid "Existe-t-il un arrêt de transport en commun à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr "Is there a public transportation stop within 200 meters of the facility?"
 
-msgid "Arrêt de transport en commun à moins de 200 mètres de l'établissement"
-msgstr "Public transportation stops within 200 meters of the facility"
-
 msgid "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
 msgstr "No public transportation stops within 200 meters of the facility"
 
@@ -1390,11 +1387,11 @@ msgstr "Parking in the facility"
 msgid "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
 msgstr "Is there one or more parking spaces in the facility or within the facility grounds?"
 
-msgid "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement"
-msgstr "Parking is available within the facility's grounds"
+msgid "Places de parking au sein de l'établissement"
+msgstr ""
 
-msgid "Pas de place de stationnement disponible au sein de la parcelle de l'établissement"
-msgstr "No parking spaces available within the facility's grounds"
+msgid "Pas de places de parking au sein de l'établissement "
+msgstr "No parking spaces available within the facility"
 
 msgid "Stationnements adaptés dans l'établissement"
 msgstr "Adapted parkings in the facility"
@@ -1402,8 +1399,8 @@ msgstr "Adapted parkings in the facility"
 msgid "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
 msgstr "Is there one or more adapted parking spaces in the facility or within the facility grounds?"
 
-msgid "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement"
-msgstr "Adapted parking spaces are available within the facility's grounds"
+msgid "Places de parking au sein de l'établissement comprenant des places PMR"
+msgstr ""
 
 msgid "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement"
 msgstr "No suitable parking space available within the facility's grounds"
@@ -1414,11 +1411,11 @@ msgstr "Parking near the facility"
 msgid "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr "Is there one or more on-street or off-street parking spaces within 200 meters of the facility?"
 
-msgid "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement"
-msgstr "Parking is available within 200 meters of the facility"
+msgid "Places de parking à proximité"
+msgstr "Parking spaces nearby"
 
-msgid "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement"
-msgstr "No parking space available within 200 meters of the facility"
+msgid "Pas de places de parking à proximité"
+msgstr "No adapted parking spaces nearby"
 
 msgid "Stationnements adaptés à proximité de l'établissement"
 msgstr "Adapted parking close to the facility"
@@ -1426,8 +1423,8 @@ msgstr "Adapted parking close to the facility"
 msgid "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr "Is there one or more adapted parking spaces on the road or in a parking lot within 200 meters of the facility?"
 
-msgid "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement"
-msgstr "Adapted parking spaces are available within 200 meters of the facility"
+msgid "Places de parking à proximité comprenant des places PMR"
+msgstr ""
 
 msgid "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
 msgstr "No suitable parking space available within 200 meters of the facility"
@@ -1435,8 +1432,8 @@ msgstr "No suitable parking space available within 200 meters of the facility"
 msgid "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
 msgstr "Is there an exterior path between the sidewalk and the main entrance of the facility (example: a yard)?"
 
-msgid "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur"
-msgstr "Access to the entrance from the road is via an outside path"
+msgid "Présence d'un chemin pour atteindre l'entrée"
+msgstr ""
 
 msgid "Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
 msgstr "No exterior path from the sidewalk to the main entrance of the building"
@@ -1447,8 +1444,8 @@ msgstr "Exterior cladding"
 msgid "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
 msgstr "Is the surface of the outside path (between the sidewalk and the entrance of the facility) stable (rollable ground, no paving stones or gravel, no dirt or grass, etc.)?"
 
-msgid "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
-msgstr "The pavement is stable (no paving stones, gravel, dirt, grass, sand, or any unstabilized surface)"
+msgid "Revêtement stable"
+msgstr ""
 
 msgid "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
 msgstr "The surface is not stable (paving stones, gravel, earth, grass, sand, or any other non-stabilized surface)"
@@ -1467,9 +1464,6 @@ msgstr "The access to this space is not on the same level and presents a brutal 
 
 msgid "Existe-t-il un ascenseur ou un élévateur&nbsp;?"
 msgstr "Is there an elevator?"
-
-msgid "Présence d'un ascenseur ou un élévateur"
-msgstr "Presence of an elevator"
 
 msgid "Pas d'ascenseur ou d'élévateur"
 msgstr "No elevator"
@@ -1498,20 +1492,20 @@ msgstr "Secure steps or staircase"
 msgid "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
 msgstr "Is the staircase safe: contrasting stair nosings, warning strips at the top of the stairs, contrasting first and last risers?"
 
-msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
-msgstr "Presence of contrasting stair nosings, a warning strip at the top of the stairs and/or contrasting first and last risers"
+msgid "Escalier sécurisé"
+msgstr ""
 
-msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
-msgstr "No contrasting stair nosing, warning strips at the top of the stairs or contrasting first and last risers"
+msgid "Escalier non sécurisé"
+msgstr ""
 
 msgid "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
 msgstr "Is the staircase equipped with one or more handrails?"
 
-msgid "L'escalier est équipé d'une ou plusieurs main-courantes"
-msgstr "The staircase is equipped with one or more handrails"
+msgid "Équipé d'une ou plusieurs mains courantes"
+msgstr "Equipped with one or more handrails"
 
-msgid "L'escalier n'est pas équipé de main-courante"
-msgstr "The staircase is not equipped with a handrail"
+msgid "Non équipé de main courante."
+msgstr "Not equipped with a handrail"
 
 msgid "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
 msgstr "If there is a ramp with a gentle slope, is it stationary or removable?"
@@ -1519,8 +1513,8 @@ msgstr "If there is a ramp with a gentle slope, is it stationary or removable?"
 msgid "Présence d'une rampe fixe ou amovible"
 msgstr "Presence of a stationary or removable ramp"
 
-msgid "Pas de rampe fixe ou amovible"
-msgstr "No stationary or removable ramps"
+msgid "Pas de rampe"
+msgstr "No ramp"
 
 msgid "Pente"
 msgstr "Slope"
@@ -1561,20 +1555,20 @@ msgstr "Path narrowing"
 msgid "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
 msgstr "Is there a narrowing or several narrowings (less than 90 centimeters) in the path used by the public to reach the entrance?"
 
-msgid "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil"
-msgstr "One or more narrowings of less than 90 centimeters in the path to the reception area"
+msgid "Présence de rétrécissement inférieur à 90 cm sur le chemin"
+msgstr "Path narrowing to the reception area by less than 90 centimeters"
 
-msgid "Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la zone d'accueil"
-msgstr "No path narrowing to the reception area by less than 90 centimeters"
+msgid "Largeur minimale de 90 cm sur tout le chemin"
+msgstr ""
 
 msgid "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
 msgstr "Are there elements that facilitate the identification of the entrance to the facility (street number nearby, sign, vegetation, contrasting architectural elements, etc.)?"
 
-msgid "L'entrée de l'établissement est facilement repérable"
-msgstr "The facility entrance is easily identifiable"
+msgid "Entrée bien signalée"
+msgstr ""
 
-msgid "Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
-msgstr "No elements that facilitate the identification of the facility entrance (street number nearby, sign, vegetation, contrasting architectural elements, etc.)"
+msgid "L'entrée n'est pas bien signalée"
+msgstr ""
 
 msgid "Y a-t-il une porte ?"
 msgstr "Is there a door?"
@@ -1584,9 +1578,6 @@ msgstr "Is there a door at the facility entrance?"
 
 msgid "Présence d'une porte à l'entrée de l'établissement"
 msgstr "Presence of a door at the facility entrance"
-
-msgid "Pas de porte à l'entrée de l'établissement"
-msgstr "No door at the facility entrance"
 
 msgid "Manoeuvre de la porte"
 msgstr "Door handling"
@@ -1603,8 +1594,8 @@ msgstr "What is the type of door?"
 msgid "La porte d'entrée est-elle vitrée&nbsp;?"
 msgstr "Is the front door glazed?"
 
-msgid "La porte d'entrée est vitrée"
-msgstr "The front door is glazed"
+msgid "Porte vitrée"
+msgstr ""
 
 msgid "La porte d'entrée n'est pas vitrée"
 msgstr "The front door is not glazed"
@@ -1615,17 +1606,17 @@ msgstr "Identification of the glass"
 msgid "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
 msgstr "Are there any contrasting elements (stickers, woodwork or other elements) to identify the glazed door?"
 
-msgid "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée"
-msgstr "Contrasting elements make it possible to visualize the glazed parts of the entrance"
+msgid "Avec éléments contrastés sur la partie vitrée"
+msgstr ""
 
-msgid "Pas d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
-msgstr "No contrasting elements to visualize the glazed parts of the entrance"
+msgid "Sans éléments contrastés sur la partie vitrée"
+msgstr ""
 
 msgid "L'entrée est-elle de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;?"
 msgstr "Is the entrance ground-level, i.e. without steps or a step greater than 2 centimeters?"
 
-msgid "L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau"
-msgstr "The entrance is on the same level, that is to say, without a sudden break in level"
+msgid "Entrée de plain pied"
+msgstr "Ground-level entrance"
 
 msgid "L'entrée n'est pas de plain-pied et présente une rupture brutale de niveau"
 msgstr "The entrance is not on the same ground-level and presents a brutal break in level"
@@ -1639,11 +1630,20 @@ msgstr "No stairs"
 msgid "Repérage des marches"
 msgstr "Identification of the steps"
 
+msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
+msgstr "Presence of contrasting stair nosings, a warning strip at the top of the stairs and/or contrasting first and last risers"
+
+msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
+msgstr "No contrasting stair nosing, warning strips at the top of the stairs or contrasting first and last risers"
+
+msgid "L'escalier est équipé d'une ou plusieurs main-courantes"
+msgstr "The staircase is equipped with one or more handrails"
+
+msgid "L'escalier n'est pas équipé de main-courante"
+msgstr "The staircase is not equipped with a handrail"
+
 msgid "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée&nbsp;?"
 msgstr "Is there a device to allow someone to signal their presence at the entrance?"
-
-msgid "Présence d'un dispositif comme une sonnette pour signaler sa présence"
-msgstr "Presence of a device such as a bell to signal its presence"
 
 msgid "Pas de dispositif comme une sonnette pour signaler sa présence"
 msgstr "No device such as a doorbell to signal its presence"
@@ -1663,17 +1663,14 @@ msgstr "Audio location signal at the entrance"
 msgid "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
 msgstr "Is the entrance equipped with an audio location signal to facilitate its location by a blind or visually impaired person?"
 
-msgid "Présence d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
-msgstr "Presence of an audio location signal to facilitate its location by a blind or visually impaired person"
-
 msgid "Pas de balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
 msgstr "No audio location signal to facilitate its location by a blind or visually impaired person"
 
 msgid "Présence ou possibilité d'une aide humaine au déplacement"
 msgstr "Presence or possibility of a human assistance to move"
 
-msgid "Possibilité d'une aide humaine au déplacement"
-msgstr "Possibility of human assistance to move"
+msgid "Aide humaine possible"
+msgstr "Human help possible"
 
 msgid "Pas de possibilité d'aide humaine au déplacement"
 msgstr "No possibility of human assistance to move"
@@ -1684,14 +1681,17 @@ msgstr "Width of the door"
 msgid "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
 msgstr "If the width is not precisely known, indicate a minimum value. Example: the width is between 90 and 100 centimeters; indicate 90."
 
-msgid "Largeur minimale de la porte d'entrée"
-msgstr "Minimum width of the entrance door"
+msgid "Largeur d'au moins 80 cm"
+msgstr ""
+
+msgid "Largeur inférieure à 80 cm"
+msgstr ""
 
 msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
 msgstr "Is there a specific secondary entrance for people with reduced mobility?"
 
-msgid "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
-msgstr "Presence of a specific secondary entrance dedicated to people with reduced mobility"
+msgid "Présence d'une entrée PMR"
+msgstr ""
 
 msgid "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
 msgstr "No specific secondary entrance for people with reduced mobility"
@@ -1708,11 +1708,11 @@ msgstr "Visibility of the reception area"
 msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée du bâtiment&nbsp;?"
 msgstr "Is the reception area (reception desk, cashier, secretary, etc.) visible from the building entrance?"
 
-msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
-msgstr "The reception area (reception desk, cash desk, secretariat, etc.) is visible from the building entrance"
+msgid "Accueil à proximité direct de l'entrée"
+msgstr ""
 
-msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) n'est pas visible depuis l'entrée du bâtiment"
-msgstr "The reception area (reception desk, cash desk, secretariat, etc.) is not visible from the building entrance"
+msgid "Accueil non situé à proximité direct de l'entrée"
+msgstr ""
 
 msgid "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement"
 msgstr "Pathway between the main entrance of the building and the reception of the facility"
@@ -1720,17 +1720,29 @@ msgstr "Pathway between the main entrance of the building and the reception of t
 msgid "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de l'établissement est t-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;? (attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau)"
 msgstr "Once you have entered the building, is the path to the reception of the facility ground-level, i.e. without any step or step greater than 2 centimeters? (attention, level does not mean flat, but without a sudden break in level)"
 
+msgid "Chemin vers l'accueil de plain pied"
+msgstr ""
+
+msgid "Présence d'un ascenseur ou un élévateur"
+msgstr "Presence of an elevator"
+
 msgid "Repérage des marches ou de l'escalier"
 msgstr "Identification of the steps or staircase"
 
 msgid "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées"
 msgstr "Contrasting stair nosings, warning strips at the top of the stairs and/or contrasting first and last risers"
 
+msgid "Pas de rampe fixe ou amovible"
+msgstr "No stationary or removable ramps"
+
 msgid "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
 msgstr "Are there one or more narrowings (less than 90 centimeters) in the path used by the public to reach the reception area?"
 
-msgid "Présence d'un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil"
-msgstr "Presence of one or more narrowings of less than 90 centimeters in the path to the reception area"
+msgid "Présence de rétrécissement inférieur à 90 cm pour atteindre l'accueil"
+msgstr ""
+
+msgid "Largeur minimale de 90 cm sur toute la circulation menant à l'accueil"
+msgstr ""
 
 msgid "Nombre de chambres accessibles à une personne en fauteuil roulant"
 msgstr "Number of rooms accessible to a person in a wheelchair"
@@ -1738,8 +1750,8 @@ msgstr "Number of rooms accessible to a person in a wheelchair"
 msgid "Nombre de chambres accessibles à une personne en fauteuil roulant : espace et aménagement suffisant pour permettre à une personne en fauteuil de circuler dans la chambre, atteindre le lit et tourner (espace de rotation d’au moins 150 cm de diamètre)"
 msgstr "Number of rooms accessible to a person in a wheelchair: sufficient space and layout to allow a person in a wheelchair to move around the room, reach the bed and turn (turning space at least 150 cm in diameter)"
 
-msgid "Aucune chambre accessible à une personne en fauteuil roulant"
-msgstr "No wheelchair accessible rooms"
+msgid "Pas de chambre accessible"
+msgstr ""
 
 msgid "Douche accessible"
 msgstr "Accessible shower"
@@ -1747,20 +1759,20 @@ msgstr "Accessible shower"
 msgid "La douche est-elle à l'italienne ou équipée d'un bac extra plat (hauteur inférieure à 2 cm)&nbsp;?"
 msgstr "Is the shower Italian or equipped with an extra-flat tray (height less than 2 cm)?"
 
-msgid "La douche est à l'italienne ou équipée d'un bac extra plat"
-msgstr "The shower is Italian or equipped with an extra flat tray"
+msgid "Douche à l'italienne (bac plat)"
+msgstr ""
 
-msgid "La douche n'est pas à l'italienne ni équipée d'un bac extra plat"
-msgstr "The shower is not Italian style and not equipped with an extra flat tray"
+msgid "Douche avec bac non plat"
+msgstr ""
 
 msgid "La douche est-elle équipée d'un siège de douche normé et d'une largeur minimum de 40 cm&nbsp;?"
 msgstr "Is the shower equipped with a standard shower seat with a minimum width of 40 cm?"
 
-msgid "La douche est équipée d'un siège de douche"
-msgstr "The shower is equipped with a shower seat"
+msgid "Avec siège de douche"
+msgstr ""
 
-msgid "La douche n'est pas équipée d'un siège de douche"
-msgstr "The shower is not equipped with a shower seat"
+msgid "Sans siège de douche"
+msgstr ""
 
 msgid "Douche sécurisée"
 msgstr "Secure shower"
@@ -1768,11 +1780,11 @@ msgstr "Secure shower"
 msgid "La douche est-elle équipée d'une barre d'appui horizontale permettant le transfert depuis un fauteuil vers le siège de douche&nbsp;?"
 msgstr "Is the shower equipped with a horizontal grab bar that allows for transfer from a chair to the shower seat?"
 
-msgid "La douche est équipée d'une barre d'appui horizontale"
-msgstr "The shower is equipped with a horizontal grab bar"
+msgid "Barre d'appui"
+msgstr ""
 
-msgid "La douche n'est pas équipée d'une barre d'appui horizontale"
-msgstr "The shower is not equipped with a horizontal grab bar"
+msgid "Sans barre d'appui"
+msgstr ""
 
 msgid "Toilette sécurisé"
 msgstr "Secure toilet"
@@ -1780,11 +1792,8 @@ msgstr "Secure toilet"
 msgid "Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?"
 msgstr "Is the toilet equipped with a horizontal grab bar?"
 
-msgid "Le toilette est équipé d'une barre d'appui horizontale"
-msgstr "The toilet is equipped with a horizontal grab bar"
-
-msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
-msgstr "The toilet is not equipped with a horizontal grab bar"
+msgid "Avec Barre d'appui"
+msgstr ""
 
 msgid "Toilette accessible"
 msgstr "Accessible toilet"
@@ -1792,11 +1801,11 @@ msgstr "Accessible toilet"
 msgid "Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?"
 msgstr "Does the toilet have a usage space (80 cm x 130 cm) next to the toilet bowl?"
 
-msgid "Le toilette dispose d'un espace d'usage à côté de la cuvette"
-msgstr "The toilet has a usage area next to the toilet bowl"
+msgid "Avec espace d'usage"
+msgstr ""
 
-msgid "Le toilette ne dispose pas d'un espace d'usage à côté de la cuvette"
-msgstr "The toilet does not have a usage area next to the bowl"
+msgid "Sans espace d'usage"
+msgstr ""
 
 msgid "Visibilité des numéros de chambres"
 msgstr "Visibility of room numbers"
@@ -1804,11 +1813,11 @@ msgstr "Visibility of room numbers"
 msgid "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur) ?"
 msgstr "Are the room numbers clearly visible and in relief (high contrast, positioned at eye level, i.e. 160 cm, in the middle of the door or above the handle, and in relief at least 2 cm thick)?"
 
-msgid "Les numéros de chambres sont repérables et en relief"
-msgstr "The room numbers are clearly marked and embossed"
+msgid "Numéros de chambre en relief"
+msgstr ""
 
-msgid "Les numéros de chambres ne sont pas repérables et en relief"
-msgstr "The room numbers are not recognizable and embossed"
+msgid "Numéros de chambre sans relief"
+msgstr ""
 
 msgid "Equipement d'alerte adapté"
 msgstr "Adapted warning equipment"
@@ -1816,11 +1825,11 @@ msgstr "Adapted warning equipment"
 msgid "L'établissement dispose-t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration&nbsp;?"
 msgstr "Does the facility have one or more flashing light or vibrating alarm systems?"
 
-msgid "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration"
-msgstr "The facility has one or more flashing light or vibrating alarm systems"
+msgid "Equipement d'alerte par flash lumineux ou vibration"
+msgstr ""
 
-msgid "L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou vibration"
-msgstr "The facility does not have any flashing light or vibration alert equipment"
+msgid "Pas d'équipement d'alerte par flash lumineux ou vibration"
+msgstr ""
 
 msgid "Accompagnement spécifique"
 msgstr "Specific accompaniment"
@@ -1828,11 +1837,8 @@ msgstr "Specific accompaniment"
 msgid "Est-il proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant&nbsp;?"
 msgstr "Is there a personalized accompaniment to introduce the room to a client with a disability, particularly the blind or visually impaired?"
 
-msgid "Il est proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant"
-msgstr "We offer personalized assistance in presenting the room to a client with a disability, particularly the blind or visually impaired"
-
-msgid "Aucun accompagnement personnalisé pour présenter la chambre à un client en situation de handicap n'est proposé"
-msgstr "No personalized assistance is offered to introduce the room to a client with a disability"
+msgid "Pas de possibilité d'accompagnement personnalisé pour présenter la chambre"
+msgstr ""
 
 msgid "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
 msgstr "If the staff is present, are they trained or aware of how to welcome people with disabilities?"
@@ -1849,8 +1855,8 @@ msgstr "Does the facility offer audiodescription?"
 msgid "L'établissement propose l'audiodescription"
 msgstr "The facility offers audio description"
 
-msgid "L'établissement ne propose pas l’audiodescription"
-msgstr "The facility does not offer audio description"
+msgid "Pas de possibilité d'audiodescription"
+msgstr ""
 
 msgid "Type d'équipements pour l'audiodescription"
 msgstr "Type of equipment for audio description"
@@ -1864,11 +1870,11 @@ msgstr "Presence of hearing and communication aids"
 msgid "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
 msgstr "Is the reception area equipped with products or services dedicated to the deaf or hard of hearing?"
 
-msgid "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
-msgstr "Presence of products or services dedicated to deaf or hard of hearing people"
+msgid "Présence d'équipement d'aide à l'audition"
+msgstr ""
 
-msgid "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
-msgstr "No products or services dedicated to the deaf or hard of hearing"
+msgid "Absence d'équipement d'aide à l'audition"
+msgstr ""
 
 msgid "Liste des équipements d'aide à l'audition et à la communication"
 msgstr "List of hearing and communication aids"
@@ -1885,8 +1891,8 @@ msgstr "Are there any sanitary facilities available to the public?"
 msgid "Des sanitaires sont mis à disposition dans l'établissement"
 msgstr "Sanitary facilities are available in the facility"
 
-msgid "Pas de sanitaires mis à disposition dans l'établissement"
-msgstr "No sanitary facilities provided in the facility"
+msgid "Absence de toilettes"
+msgstr ""
 
 msgid "Sanitaires adaptés"
 msgstr "Adapted sanitary facilities"
@@ -1937,8 +1943,8 @@ msgstr "Internet address where the register can be consulted"
 msgid "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
 msgstr "Is the facility declared compliant (for administration use only)"
 
-msgid "L'établissement a été déclaré conforme à la réglementation"
-msgstr "The facility has been declared compliant with the regulations"
+msgid "Déclaré conforme à la réglementation"
+msgstr "Declared compliant with the regulations"
 
 msgid "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration"
 msgstr "the facility has not been declared to the administration as compliant with the regulations"
@@ -1994,9 +2000,6 @@ msgstr "elevator"
 
 msgid "Difficulté sur le chemin d'accès"
 msgstr "Difficulty on the access road"
-
-msgid "Entrée de plain pied"
-msgstr "Ground-level entrance"
 
 msgid "Entrée de plain pied mais étroite"
 msgstr "Single level but narrow entrance"
@@ -3587,6 +3590,84 @@ msgstr "Business developer"
 
 msgid "Coach Startup d'État"
 msgstr "Startup Coach"
+
+msgid "Hébergement"
+msgstr ""
+
+msgid "Au moins une chambre accessible à une personne en fauteuil roulant"
+msgstr ""
+
+#, python-format
+msgid "%(nb)s chambres accessibles à une personne en fauteuil roulant"
+msgstr ""
+
+#, python-format
+msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
+msgstr ""
+
+#, python-format
+msgid "Toilettes %(espace)s et %(appui)s"
+msgstr ""
+
+#, python-format
+msgid "Porte %(type)s %(manoeuvre)s"
+msgstr ""
+
+#, python-format
+msgid "Porte %(type)s"
+msgstr ""
+
+#, python-format
+msgid "Porte %(manoeuvre)s"
+msgstr ""
+
+msgid "Registre d'accessibilité et conformité"
+msgstr ""
+
+msgid "Registre disponible"
+msgstr ""
+
+msgid "Chemin vers l'entrée"
+msgstr ""
+
+#, python-format
+msgid "Pente %(difficulte)s de longueur %(longueur)s"
+msgstr ""
+
+#, python-format
+msgid "Pente %(difficulte)s"
+msgstr ""
+
+#, python-format
+msgid "Pente de longueur %(longueur)s"
+msgstr ""
+
+msgid "Transport et stationnement"
+msgstr ""
+
+msgid "Accueil et équipement"
+msgstr ""
+
+#, python-format
+msgid "Présence de %(nb)s marches %(sens)s pour atteindre l'entrée"
+msgstr ""
+
+#, python-format
+msgid "Présence de %(nb)s marches pour atteindre l'entrée"
+msgstr ""
+
+#, python-format
+msgid "Présence de marches %(sens)s pour atteindre l'entrée"
+msgstr ""
+
+msgid "Présence de marches pour atteindre l'entrée"
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"%(reperage_marches)s et %(main_courante)s\n"
+msgstr ""
 
 msgid "Ce bâtiment est labellisé Tourisme et handicap"
 msgstr "This building has been awarded the Tourisme & Handicap label"

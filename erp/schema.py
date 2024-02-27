@@ -1640,7 +1640,7 @@ FIELDS = {
         "help_text": mark_safe(
             translate_lazy("L'établissement est-il déclaré conforme ? (réservé à l'administration)")
         ),
-        "help_text_ui": translate_lazy("L'établissement a été déclaré conforme à la réglementation"),
+        "help_text_ui": translate_lazy("Déclaré conforme à la réglementation"),
         "help_text_ui_neg": translate_lazy(
             "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration"
         ),

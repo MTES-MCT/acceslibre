@@ -1,7 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3>{% translate "Accès" %}</h3>
+<h4 class="pt-2 h4">
+    <i aria-hidden="true" class="icon icon-bus mr-1 larger-font"></i>{% translate "Transport et stationnement" %}
+</h4>
 <ul>
     {% if access.transport_station_presence %}
         <li>

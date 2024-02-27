@@ -1,7 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3 class="pt-4">{% translate "Accueil" %}</h3>
+<h4 class="pt-2 h4">
+    <i aria-hidden="true" class="icon icon-users mr-1 larger-font"></i>{% translate "Accueil et équipement" %}
+</h4>
 <ul>
     {% render_access_value "accueil_visibilite" access %}
     <li>
@@ -37,9 +39,9 @@
     <li>
         {% if access.sanitaires_presence %}
             {% if access.sanitaires_adaptes %}
-                {% translate "Toillettes PMR" %}
+                {% translate "Toilettes PMR" %}
             {% else %}
-                {% translate "Toillettes classiques" %}
+                {% translate "Toilettes classiques" %}
             {% endif %}
         {% else %}
             {{ "sanitaires_presence"|negative_text }}
