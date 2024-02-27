@@ -524,9 +524,8 @@ def widget_from_uuid(request, uuid):
         erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80
     ):
         entree_label = translate("Entrée de plain pied")
-    elif (
-        erp.accessibilite.entree_plain_pied is True
-        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini) < 80
+    elif erp.accessibilite.entree_plain_pied is True and (
+        erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80
     ):
         entree_label = translate("Entrée de plain pied mais étroite")
 
