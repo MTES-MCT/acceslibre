@@ -1,4 +1,5 @@
 import csv
+import json
 
 from django.core.management.base import BaseCommand
 
@@ -6,9 +7,20 @@ from erp.imports.mapper.base import BaseMapper
 from erp.models import Erp
 from erp.provider.geocoder import geocode
 
+with_activity = True
+with_comment = True
+
+# 3 kinds of templates : basic, hosting, culture
 with_room_accessible = False
-with_comment = False
-with_activity = False
+with_culture = True
+
+to_ignore_headers = [
+    # "Submission ID",
+    # "Respondent ID",
+    # "Submitted at",
+    "Votre établissement :",
+]
+
 
 mapping = {
     "Est-ce qu’il y a au moins une place handicapé dans votre parking ?": {
@@ -111,19 +123,98 @@ if with_room_accessible:
             "Je ne suis pas sûr": [],
         },
     }
-
-to_ignore_headers = [
-    "Submission ID",
-    "Respondent ID",
-    "Submitted at",
-    "Votre établissement :",
-    "latitude",
-    "longitude",
-]
-if with_room_accessible:
     to_ignore_headers += [
         "Avez-vous des chambres pour accueillir des clients dans votre établissement ?",
     ]
+
+if with_culture:
+    mapping |= {
+        # TEMP entree_porte, will disappear with new templated forms
+        "Comment s'ouvre la porte ?": {
+            "Porte coulissante": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "coulissante")],
+            "Porte battante": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "battante")],
+            "Porte tourniquet": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "tourniquet")],
+            "Porte tambour": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "tambour")],
+            "Autre": [("entree_porte_presence", True)],
+        },
+        "Quel est le type de porte ?": {
+            "Manuelle": [("entree_porte_presence", True), ("entree_porte_type", "manuelle")],
+            "Automatique": [("entree_porte_presence", True), ("entree_porte_type", "automatique")],
+            "Autre": [("entree_porte_presence", True)],
+        },
+        "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée ?": {
+            "Oui": [("entree_dispositif_appel", True)],
+            "Non": [("entree_dispositif_appel", False)],
+            "Je ne sais pas": [],
+        },
+        "Quel(s) type(s) de dispositifs d'appel sont présents ?": {
+            "Bouton d'appel": [("entree_dispositif_appel_type", "bouton")],
+            "Interphone": [("entree_dispositif_appel_type", "interphone")],
+            "Visiophone": [("entree_dispositif_appel_type", "visiophone")],
+        },
+        "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées ?": {
+            "Oui": [("accueil_personnels", "formés")],
+            "Non": [("accueil_personnels", "non-formés")],
+            "Aucun personnel": [("accueil_personnels", "aucun")],
+            "Je ne sais pas": [],
+        },
+        # ENDTEMP
+        "L'établissement propose-t-il de l'audiodescription ?": {
+            "Oui": [("accueil_audiodescription_presence", True)],
+            "Non": [("accueil_audiodescription_presence", False)],
+        },
+        "sans équipement, audiodescription audible par toute la salle (selon la programmation)": {
+            "true": [("accueil_audiodescription", ["sans_équipement"])],
+            "false": [],
+        },
+        "avec équipement permanent, casques et boîtiers disponibles à l'accueil": {
+            "true": [("accueil_audiodescription", ["avec_équipement_permanent"])],
+            "false": [],
+        },
+        "avec équipement permanent nécessitant le téléchargement d'une application sur smartphone": {
+            "true": [("accueil_audiodescription", ["avec_app"])],
+            "false": [],
+        },
+        "avec équipement occasionnel selon la programmation": {
+            "true": [("accueil_audiodescription", ["avec_équipement_occasionnel"])],
+            "false": [],
+        },
+        "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes ?": {
+            "Oui": [("accueil_equipements_malentendants_presence", True)],
+            "Non": [("accueil_equipements_malentendants_presence", False)],
+            "Je ne sais pas": [],
+        },
+        "Langue française parlée complétée (LFPC)": {
+            "true": [("accueil_equipements_malentendants", ["lpc"])],
+            "false": [],
+        },
+        "Boucle à induction magnétique portative": {
+            "true": [("accueil_equipements_malentendants", ["bmp"])],
+            "false": [],
+        },
+        "Boucle à induction magnétique fixe": {
+            "true": [("accueil_equipements_malentendants", ["bim"])],
+            "false": [],
+        },
+        "Langue des signes française (LSF)": {
+            "true": [("accueil_equipements_malentendants", ["lsf"])],
+            "false": [],
+        },
+        "Sous-titrage ou transcription simultanée": {
+            "true": [("accueil_equipements_malentendants", ["sts"])],
+            "false": [],
+        },
+        "Autre": {
+            "true": [("accueil_equipements_malentendants", ["autres"])],
+            "false": [],
+        },
+    }
+    to_ignore_headers += [
+        "type d'équipements pour l'audiodescription",
+        "liste des équipements d'aide à l'audition et à la communication ?",
+    ]
+
+
 to_int_headers = {
     "Combien de marches y a-t-il pour entrer dans votre établissement ?": "entree_marches",
 }
@@ -131,6 +222,8 @@ if with_room_accessible:
     to_int_headers |= {
         "Combien de chambres accessibles avez-vous dans votre établissement ?": "accueil_chambre_nombre_accessibles",
     }
+
+
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
@@ -181,7 +274,11 @@ class Command(BaseCommand):
                 try:
                     if line[cell] and mapping[cell][line[cell]]:
                         for k, v in mapping[cell][line[cell]]:
-                            new_line[k] = v
+                            if isinstance(v, (list, set, tuple)):
+                                new_line[k] = new_line.get(k) or []
+                                new_line[k].extend(v)
+                            else:
+                                new_line[k] = v
                 except KeyError:
                     print(f"ERROR - {cell} -> {line[cell]} not found in {mapping[cell]}")
                     return
@@ -231,4 +328,7 @@ class Command(BaseCommand):
 
                 for line in reader:
                     new_line = self._process_line(line)
+                    for cell in new_line:
+                        if isinstance(new_line[cell], (list, set, tuple)):
+                            new_line[cell] = json.dumps(new_line[cell])
                     writer.writerow(new_line)

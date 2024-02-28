@@ -25,6 +25,8 @@ class TestConvertTallyToSchema:
                     "adresse": "7 grande rue, Saint Martin en Haut",
                     "Combien de marches y a-t-il pour entrer dans votre établissement ?": "124",
                     "email": "contrib@beta.gouv.fr",
+                    "Boucle à induction magnétique portative": "true",
+                    "Boucle à induction magnétique fixe": "true",
                 },
                 {
                     "stationnement_presence": True,
@@ -38,6 +40,7 @@ class TestConvertTallyToSchema:
                     "entree_marches": 124,
                     "import_email": "contrib@beta.gouv.fr",
                     "source": "tally",
+                    "accueil_equipements_malentendants": ["bmp", "bim"],
                 },
                 id="nominal_case",
             ),
