@@ -2,11 +2,12 @@ import csv
 
 import reversion
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.text import slugify
 from rest_framework.exceptions import ValidationError
 
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Activite, Erp
+from erp.models import Activite, Commune, Erp
 
 mapping = {
     "ACH00001": {
@@ -115,17 +116,32 @@ class Command(BaseCommand):
 
         return accessibilite
 
+    def _get_address_parts(self, line):
+        """
+        Try to find the commune on our database to enhance geolocation score.
+        Remove CEDEX and get a standard postal code
+        """
+        street = line["Numéro et voie"]
+        postal_code = line["Code postal"]
+        city = line["Localité"].upper().replace(" CEDEX", "")
+        city_slug = slugify(city)
+        city_slug = f"{postal_code[:2]}-{city_slug}"
+        if commune := Commune.objects.filter(slug=city_slug).first():
+            postal_code = commune.code_postaux[0]
+            city = commune.nom
+
+        return street, postal_code, city
+
     def _create_or_update_erp(self, line, existing_erp=None):
         erp = {
             "nom": "La Poste",
             "activite": self.activite.nom,
-            "code_postal": line["Code postal"],
-            "commune": line["Localité"],
-            "voie": line["Numéro et voie"],
             "source": Erp.SOURCE_LAPOSTE,
         }
 
-        print(f"Managing {erp['nom']}({erp['code_postal']})")
+        erp["voie"], erp["code_postal"], erp["commune"] = self._get_address_parts(line)
+
+        print(f"Managing {erp['nom']}({erp['code_postal']} {erp['commune']})")
         erp["accessibilite"] = self._convert_access(line)
         if not erp["accessibilite"]:
             return
