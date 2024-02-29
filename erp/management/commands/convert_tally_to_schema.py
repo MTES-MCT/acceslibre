@@ -162,6 +162,7 @@ if with_culture:
         "L'établissement propose-t-il de l'audiodescription ?": {
             "Oui": [("accueil_audiodescription_presence", True)],
             "Non": [("accueil_audiodescription_presence", False)],
+            "Je ne sais pas": [],
         },
         "sans équipement, audiodescription audible par toute la salle (selon la programmation)": {
             "true": [("accueil_audiodescription", ["sans_équipement"])],
@@ -245,7 +246,7 @@ if with_activity:
 
 
 class Command(BaseCommand):
-    help = "Exporte les joueurs du challenge DDT."
+    help = "Convert from a tally format to a schema format."
 
     def add_arguments(self, parser):
         parser.add_argument(
