@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-22 17:43+0100\n"
+"POT-Creation-Date: 2024-02-28 10:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "stationnement"
+msgstr ""
+
+msgid "accès"
+msgstr ""
+
+msgid "personnel"
+msgstr ""
+
+msgid "balise sonore"
+msgstr ""
+
+msgid "audiodescription"
+msgstr ""
+
+msgid "équipements sourd et malentendant"
+msgstr ""
+
+msgid "sanitaire"
+msgstr ""
+
+msgid "chambres accessibles"
+msgstr ""
 
 msgid "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
 msgstr ""
@@ -1963,99 +1987,6 @@ msgstr ""
 msgid "Autour de moi"
 msgstr ""
 
-msgid "Stationnement adapté dans l'établissement"
-msgstr ""
-
-msgid "Stationnement adapté à proximité"
-msgstr ""
-
-msgid "Pas de stationnement adapté à proximité"
-msgstr ""
-
-msgid "stationnement"
-msgstr ""
-
-msgid "Chemin d’accès de plain pied"
-msgstr ""
-
-#, python-format
-msgid "Chemin rendu accessible (%s)"
-msgstr ""
-
-msgid "rampe"
-msgstr ""
-
-msgid "ascenseur"
-msgstr ""
-
-msgid "Difficulté sur le chemin d'accès"
-msgstr ""
-
-msgid "Entrée de plain pied"
-msgstr ""
-
-msgid "Entrée de plain pied mais étroite"
-msgstr ""
-
-msgid "Accès à l'entrée par ascenseur"
-msgstr ""
-
-msgid "Entrée rendue accessible par ascenseur mais étroite"
-msgstr ""
-
-msgid "Entrée rendue accessible par rampe mais étroite"
-msgstr ""
-
-msgid "Accès à l’entrée par une rampe"
-msgstr ""
-
-msgid "L’entrée n’est pas de plain-pied"
-msgstr ""
-
-msgid ""
-"\n"
-" Aide humaine possible"
-msgstr ""
-
-msgid "accès"
-msgstr ""
-
-msgid "Personnel non formé"
-msgstr ""
-
-msgid "Personnel sensibilisé / formé"
-msgstr ""
-
-msgid "personnel"
-msgstr ""
-
-msgid "balise sonore"
-msgstr ""
-
-msgid "audiodescription"
-msgstr ""
-
-msgid "équipements sourd et malentendant"
-msgstr ""
-
-msgid "Sanitaire adapté"
-msgstr ""
-
-msgid "Sanitaire non adapté"
-msgstr ""
-
-msgid "sanitaire"
-msgstr ""
-
-msgid "chambres accessibles"
-msgstr ""
-
-#, python-format
-msgid "%(count)d chambre accessible"
-msgid_plural "%(count)d chambres accessibles"
-msgstr[0] ""
-msgstr[1] ""
-
 msgid "Seuls les utilisateurs actifs peuvent voter."
 msgstr ""
 
@@ -2082,6 +2013,75 @@ msgstr ""
 
 msgid "Opération effectuée avec succès."
 msgstr ""
+
+msgid "Stationnement adapté dans l'établissement"
+msgstr ""
+
+msgid "Stationnement adapté à proximité"
+msgstr ""
+
+msgid "Pas de stationnement adapté à proximité"
+msgstr ""
+
+msgid "Chemin d'accès de plain pied"
+msgstr ""
+
+msgid "rampe"
+msgstr ""
+
+msgid "ascenseur"
+msgstr ""
+
+#, python-format
+msgid "Chemin rendu accessible (%s)"
+msgstr ""
+
+msgid "Difficulté sur le chemin d'accès"
+msgstr ""
+
+msgid "Entrée de plain pied"
+msgstr ""
+
+msgid "Entrée de plain pied mais étroite"
+msgstr ""
+
+msgid "Accès à l'entrée par ascenseur"
+msgstr ""
+
+msgid "Entrée rendue accessible par ascenseur mais étroite"
+msgstr ""
+
+msgid "Accès à l'entrée par une rampe"
+msgstr ""
+
+msgid "Entrée rendue accessible par rampe mais étroite"
+msgstr ""
+
+msgid "L'entrée n'est pas de plain-pied"
+msgstr ""
+
+msgid ""
+"\n"
+" Aide humaine possible"
+msgstr ""
+
+msgid "Personnel non formé"
+msgstr ""
+
+msgid "Personnel sensibilisé / formé"
+msgstr ""
+
+msgid "Sanitaire adapté"
+msgstr ""
+
+msgid "Sanitaire non adapté"
+msgstr ""
+
+#, python-format
+msgid "%(count)d chambre accessible"
+msgid_plural "%(count)d chambres accessibles"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Statistiques"
 msgstr ""
@@ -3133,7 +3133,7 @@ msgstr ""
 msgid "licence etalab-2.0"
 msgstr ""
 
-msgid "acceslibre aller à l'accueil'"
+msgid "acceslibre aller à l'accueil"
 msgstr ""
 
 msgid "Voir aussi"

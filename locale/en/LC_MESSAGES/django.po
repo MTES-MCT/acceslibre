@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-22 17:43+0100\n"
-"PO-Revision-Date: 2024-02-22 17:43+0100\n"
+"POT-Creation-Date: 2024-02-28 14:46+0100\n"
+"PO-Revision-Date: 2024-02-28 10:26+0100\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,6 +16,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.9.9\n"
+
+msgid "stationnement"
+msgstr "parking"
+
+msgid "accès"
+msgstr "access"
+
+msgid "personnel"
+msgstr "staff"
+
+msgid "balise sonore"
+msgstr "sound beacon"
+
+msgid "audiodescription"
+msgstr "audiodescription"
+
+msgid "équipements sourd et malentendant"
+msgstr "deaf/hard of hearing equipment(s)"
+
+msgid "sanitaire"
+msgstr "sanitary facilities"
+
+msgid "chambres accessibles"
+msgstr "accessible rooms"
 
 msgid "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
 msgstr "Only letters, numbers and the characters \".\", \"-\" and \"_\" (spaces are not allowed)"
@@ -1967,101 +1991,6 @@ msgstr "You are already registered for the challenge."
 msgid "Autour de moi"
 msgstr "Around me"
 
-msgid "Stationnement adapté dans l'établissement"
-msgstr "Adapted parking in the facility"
-
-msgid "Stationnement adapté à proximité"
-msgstr "Adapted parking nearby"
-
-msgid "Pas de stationnement adapté à proximité"
-msgstr "No adapted parking nearby"
-
-msgid "stationnement"
-msgstr "parking"
-
-msgid "Chemin d’accès de plain pied"
-msgstr "Ground level access road"
-
-#, python-format
-msgid "Chemin rendu accessible (%s)"
-msgstr "Path made accessible (%s)"
-
-msgid "rampe"
-msgstr "ramp"
-
-msgid "ascenseur"
-msgstr "elevator"
-
-msgid "Difficulté sur le chemin d'accès"
-msgstr "Difficulty on the access road"
-
-msgid "Entrée de plain pied"
-msgstr "Ground-level entrance"
-
-msgid "Entrée de plain pied mais étroite"
-msgstr "Single level but narrow entrance"
-
-msgid "Accès à l'entrée par ascenseur"
-msgstr "Access to the entrance by elevator"
-
-msgid "Entrée rendue accessible par ascenseur mais étroite"
-msgstr "Entrance made accessible by elevator but narrow"
-
-msgid "Entrée rendue accessible par rampe mais étroite"
-msgstr "Entrance made accessible by ramp but narrow"
-
-msgid "Accès à l’entrée par une rampe"
-msgstr "Access to the entrance by a ramp"
-
-msgid "L’entrée n’est pas de plain-pied"
-msgstr "The entrance is not on the same level"
-
-msgid ""
-"\n"
-" Aide humaine possible"
-msgstr ""
-"\n"
-"Human help possible"
-
-msgid "accès"
-msgstr "access"
-
-msgid "Personnel non formé"
-msgstr "Untrained staff"
-
-msgid "Personnel sensibilisé / formé"
-msgstr "Awared / trained staff"
-
-msgid "personnel"
-msgstr "staff"
-
-msgid "balise sonore"
-msgstr "sound beacon"
-
-msgid "audiodescription"
-msgstr "audiodescription"
-
-msgid "équipements sourd et malentendant"
-msgstr "deaf/hard of hearing equipment(s)"
-
-msgid "Sanitaire adapté"
-msgstr "Adapted sanitary"
-
-msgid "Sanitaire non adapté"
-msgstr "Sanitary not adapted"
-
-msgid "sanitaire"
-msgstr "sanitary facilities"
-
-msgid "chambres accessibles"
-msgstr "accessible rooms"
-
-#, python-format
-msgid "%(count)d chambre accessible"
-msgid_plural "%(count)d chambres accessibles"
-msgstr[0] "%(count)d accessible room"
-msgstr[1] "%(count)d accessible rooms"
-
 msgid "Seuls les utilisateurs actifs peuvent voter."
 msgstr "Only active users can vote."
 
@@ -2088,6 +2017,77 @@ msgstr "The data has been saved."
 
 msgid "Opération effectuée avec succès."
 msgstr "Operation successfully completed."
+
+msgid "Stationnement adapté dans l'établissement"
+msgstr "Adapted parking in the facility"
+
+msgid "Stationnement adapté à proximité"
+msgstr "Adapted parking nearby"
+
+msgid "Pas de stationnement adapté à proximité"
+msgstr "No adapted parking nearby"
+
+msgid "Chemin d'accès de plain pied"
+msgstr "Ground level access road"
+
+msgid "rampe"
+msgstr "ramp"
+
+msgid "ascenseur"
+msgstr "elevator"
+
+#, python-format
+msgid "Chemin rendu accessible (%s)"
+msgstr "Path made accessible (%s)"
+
+msgid "Difficulté sur le chemin d'accès"
+msgstr "Difficulty on the access road"
+
+msgid "Entrée de plain pied"
+msgstr "Ground-level entrance"
+
+msgid "Entrée de plain pied mais étroite"
+msgstr "Single level but narrow entrance"
+
+msgid "Accès à l'entrée par ascenseur"
+msgstr "Access to the entrance by elevator"
+
+msgid "Entrée rendue accessible par ascenseur mais étroite"
+msgstr "Entrance made accessible by elevator but narrow"
+
+msgid "Accès à l'entrée par une rampe"
+msgstr "Access to the entrance by a ramp"
+
+msgid "Entrée rendue accessible par rampe mais étroite"
+msgstr "Entrance made accessible by ramp but narrow"
+
+msgid "L'entrée n'est pas de plain-pied"
+msgstr "The entrance is not on the same level"
+
+msgid ""
+"\n"
+" Aide humaine possible"
+msgstr ""
+"\n"
+"Human help possible"
+
+msgid "Personnel non formé"
+msgstr "Untrained staff"
+
+msgid "Personnel sensibilisé / formé"
+msgstr "Awared / trained staff"
+
+msgid "Sanitaire adapté"
+msgstr "Adapted sanitary"
+
+msgid "Sanitaire non adapté"
+msgstr "Sanitary not adapted"
+
+#, python-format
+msgid "%(count)d chambre accessible"
+msgid_plural "%(count)d chambres accessibles"
+msgstr[0] "%(count)d accessible room"
+msgstr[1] "%(count)d accessible rooms"
 
 msgid "Statistiques"
 msgstr "Statistics"
@@ -3196,8 +3196,8 @@ msgstr "Unless otherwise stated, all contents of this site are under"
 msgid "licence etalab-2.0"
 msgstr "etalab-2.0 license"
 
-msgid "acceslibre aller à l'accueil'"
-msgstr ""
+msgid "acceslibre aller à l'accueil"
+msgstr "acceslibre back to home"
 
 msgid "Voir aussi"
 msgstr "See more"

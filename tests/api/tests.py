@@ -606,10 +606,125 @@ def test_list_can_filter_on_date(api_client):
 
     response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=2")
     assert response.status_code == 200
-    content = json.loads(response.content)
-    assert len(content["results"]) == 0
+    assert len(response.json()["results"]) == 0
 
     response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=15")
     assert response.status_code == 200
-    content = json.loads(response.content)
-    assert len(content["results"]) == 1
+    assert len(response.json()["results"]) == 1
+
+
+@pytest.mark.usefixtures("api_client")
+class TestWidgetApi:
+    @pytest.mark.django_db
+    def test_nominal_case(self, api_client):
+        access_infos = {
+            "stationnement_presence": True,
+            "stationnement_pmr": True,
+            "cheminement_ext_presence": True,
+            "cheminement_ext_terrain_stable": False,
+            "entree_plain_pied": False,
+            "entree_marches_rampe": "amovible",
+            "entree_largeur_mini": 79,
+            "accueil_personnels": "non-formés",
+            "entree_balise_sonore": True,
+            "accueil_audiodescription_presence": True,
+            "accueil_audiodescription": ["avec_équipement_occasionnel"],
+            "accueil_equipements_malentendants_presence": True,
+            "accueil_equipements_malentendants": ["bim", "bmp"],
+            "sanitaires_presence": True,
+            "sanitaires_adaptes": False,
+            "accueil_chambre_nombre_accessibles": 2,
+        }
+
+        erp = ErpFactory(published=True)
+        AccessibiliteFactory(erp=erp, **access_infos)
+
+        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
+        assert response.status_code == 200
+
+        expected = {
+            "slug": erp.slug,
+            "sections": [
+                {
+                    "title": "stationnement",
+                    "labels": ["Stationnement adapté dans l'établissement"],
+                    "icon": "http://testserver/static/img/car.png",
+                },
+                {
+                    "title": "accès",
+                    "labels": ["Difficulté sur le chemin d'accès", "Entrée rendue accessible par rampe mais étroite"],
+                    "icon": "http://testserver/static/img/path.png",
+                },
+                {
+                    "title": "personnel",
+                    "labels": ["Personnel non formé"],
+                    "icon": "http://testserver/static/img/people.png",
+                },
+                {
+                    "title": "balise sonore",
+                    "labels": ["Balise sonore"],
+                    "icon": "http://testserver/static/img/people.png",
+                },
+                {
+                    "title": "audiodescription",
+                    "labels": ["avec équipement occasionnel selon la programmation"],
+                    "icon": "http://testserver/static/img/audiodescription.png",
+                },
+                {
+                    "title": "équipements sourd et malentendant",
+                    "labels": ANY,  # tested later on
+                    "icon": "http://testserver/static/img/assistive-listening-systems.png",
+                },
+                {
+                    "title": "sanitaire",
+                    "labels": ["Sanitaire non adapté"],
+                    "icon": "http://testserver/static/img/wc.png",
+                },
+                {
+                    "title": "chambres accessibles",
+                    "labels": ["2 chambres accessibles"],
+                    "icon": "http://testserver/static/img/chambre_accessible.png",
+                },
+            ],
+        }
+
+        assert response.json() == expected
+        # isolated test for unordered string on "équipements sourd et malentendant"
+        for entry in response.json()["sections"]:
+            if entry["title"] == "équipements sourd et malentendant":
+                assert "boucle à induction magnétique fixe" in entry["labels"][0]
+                assert "boucle à induction magnétique portative" in entry["labels"][0]
+                break
+
+    @pytest.mark.django_db
+    def test_low_completion_case(self, api_client):
+
+        access_infos = {
+            "entree_plain_pied": False,
+            "entree_marches_rampe": "fixe",
+            "entree_largeur_mini": 80,
+        }
+
+        erp = ErpFactory(published=True)
+        AccessibiliteFactory(erp=erp, **access_infos)
+
+        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
+        assert response.status_code == 200
+
+        expected = {
+            "slug": erp.slug,
+            "sections": [
+                {
+                    "title": "accès",
+                    "labels": ["Accès à l'entrée par une rampe"],
+                    "icon": "http://testserver/static/img/path.png",
+                },
+            ],
+        }
+
+        assert response.json() == expected
+
+    @pytest.mark.django_db
+    def test_not_found_case(self, api_client):
+        response = api_client.get(reverse("erp-widget", kwargs={"slug": "unknown-slug"}))
+        assert response.status_code == 404

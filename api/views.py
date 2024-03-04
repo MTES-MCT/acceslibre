@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
@@ -8,7 +9,13 @@ from rest_framework.schemas.openapi import AutoSchema
 from rest_framework_gis.pagination import GeoJsonPagination
 
 from api.filters import EquipmentFilter, ErpFilter, ZoneFilter
-from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpGeoSerializer, ErpSerializer
+from api.serializers import (
+    AccessibiliteSerializer,
+    ActiviteWithCountSerializer,
+    ErpGeoSerializer,
+    ErpSerializer,
+    WidgetSerializer,
+)
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Accessibilite, Activite, Erp
@@ -91,7 +98,7 @@ Notez la présence de la clé `accessibilite` qui expose l'URL du point de récu
 ### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/<ID_OBJET>/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -99,7 +106,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "Authorization: 
 ### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/<ID_OBJET>/?readable=true -H "Authorization: Api-Key <VOTRE_CLEF_API>"
 ```
 
 ---
@@ -111,6 +118,14 @@ $ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-T
 ```
 
 Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
+
+---
+
+### Récupérer les phrases du widget d'un ERP
+
+```
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+```
 """
 
 
@@ -527,3 +542,9 @@ class ErpViewSet(
         return ErpPagination
 
     pagination_class = property(fget=get_pagination_class)
+
+    @action(methods=["get"], detail=True, url_path="widget", url_name="widget")
+    def get_widget(self, request, slug=None):
+        erp = get_object_or_404(self.filter_queryset(self.get_queryset()), slug=slug)
+        serializer = WidgetSerializer(erp)
+        return Response(serializer.data)

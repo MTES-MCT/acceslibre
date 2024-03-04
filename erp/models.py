@@ -1646,3 +1646,29 @@ class Accessibilite(models.Model):
                 if field_value not in [None, "", []]:
                     return True
         return False
+
+    @property
+    def easy_or_no_slope(self):
+        return self.cheminement_ext_pente_presence in (False, None) or (
+            self.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE
+        )
+
+    @property
+    def little_or_no_camber(self):
+        return self.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
+
+    @property
+    def provide_stair_equipement(self):
+        self.cheminement_ext_ascenseur or self.cheminement_ext_rampe in (schema.RAMPE_AMOVIBLE, schema.RAMPE_FIXE)
+
+    @property
+    def stable_ground(self):
+        return self.cheminement_ext_terrain_stable in (True, None)
+
+    @property
+    def entrance_has_min_width(self):
+        return self.entree_largeur_mini is None or self.entree_largeur_mini >= 80
+
+    @property
+    def entrance_has_ramp(self):
+        return self.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
