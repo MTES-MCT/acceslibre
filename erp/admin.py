@@ -259,6 +259,7 @@ class ErpAdmin(
         return f"{settings.SITE_ROOT_URL}{obj.get_absolute_url()}"
 
     readonly_fields = [
+        "source",
         "source_id",
         "asp_id",
         "commune_ext",
@@ -271,6 +272,7 @@ class ErpAdmin(
             None,
             {
                 "fields": [
+                    "source",
                     "source_id",
                     "asp_id",
                     "activite",
