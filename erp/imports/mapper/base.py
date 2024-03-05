@@ -144,5 +144,8 @@ class BaseMapper:
     def get_a11y_fields(self, record):
         a11y_data = {k: self.format_data(v) for k, v in record.items() if k in self.accessibility_fields}
         for name in self.array_fields:
-            a11y_data[name] = json.loads(record.get(name)) if record.get(name) else None
+            try:
+                a11y_data[name] = json.loads(record.get(name)) if record.get(name) else None
+            except json.JSONDecodeError:
+                raise RuntimeError(f"Invalid value format for field `{name}`, expecting a JSON value")
         return a11y_data
