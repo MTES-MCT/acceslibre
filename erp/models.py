@@ -1659,7 +1659,10 @@ class Accessibilite(models.Model):
 
     @property
     def provide_stair_equipement(self):
-        self.cheminement_ext_ascenseur or self.cheminement_ext_rampe in (schema.RAMPE_AMOVIBLE, schema.RAMPE_FIXE)
+        return self.cheminement_ext_ascenseur or self.cheminement_ext_rampe in (
+            schema.RAMPE_AMOVIBLE,
+            schema.RAMPE_FIXE,
+        )
 
     @property
     def stable_ground(self):
