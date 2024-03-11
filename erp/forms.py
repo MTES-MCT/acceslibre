@@ -749,13 +749,3 @@ def get_contrib_form_for_activity(activity: Activite):
         return ContribAccessibiliteForm
     else:
         return mapping[group.name]
-
-
-def get_vote_button_title(is_authenticated, is_user_erp_owner, has_vote, default):
-    if not is_authenticated:
-        return "Vous devez vous connecter pour voter"
-    if is_user_erp_owner:
-        return "Vous ne pouvez pas voter sur votre établissement"
-    if has_vote:
-        return "Retirer mon vote"
-    return default

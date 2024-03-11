@@ -13,7 +13,7 @@ from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.forms import modelform_factory
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import get_language
@@ -26,8 +26,8 @@ from compte.signals import erp_claimed
 from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
-from erp.forms import get_contrib_form_for_activity, get_vote_button_title
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
+from erp.forms import get_contrib_form_for_activity
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
@@ -335,7 +335,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "user",
         )
         .published()
-        .with_votes()
         .filter(slug=erp_slug)
     )
 
@@ -363,28 +362,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
-    is_authenticated = request.user.is_authenticated
-    is_user_erp_owner = request.user == erp.user
-    user_has_rights_to_vote = is_authenticated and not is_user_erp_owner
-    current_vote = None
-    if is_authenticated:
-        current_vote = Vote.objects.filter(user=request.user, erp=erp).first()
-    has_vote = current_vote is not None
-    vote_up_form = {
-        "title": get_vote_button_title(is_authenticated, is_user_erp_owner, has_vote, default="Oui"),
-        "value": Vote.UNVOTE_UP_ACTION if has_vote and current_vote.is_positive else Vote.VOTE_UP_ACTION,
-        "count": getattr(erp, "count_positives", 0),
-        "user_can_vote": user_has_rights_to_vote and (not has_vote or current_vote.is_positive),
-    }
-    vote_down_form = {
-        "title": get_vote_button_title(is_authenticated, is_user_erp_owner, has_vote, default="Non"),
-        "value": Vote.UNVOTE_DOWN_ACTION if has_vote and current_vote.is_negative else Vote.VOTE_DOWN_ACTION,
-        "count": getattr(erp, "count_negatives", 0),
-        "user_can_vote": user_has_rights_to_vote and (not has_vote or current_vote.is_negative),
-        "toogle_form": not has_vote,
-        "type": "button" if not has_vote else "submit",
-    }
-
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
@@ -414,8 +391,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "url_widget_js": url_widget_js,
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
-            "vote_up_form": vote_up_form,
-            "vote_down_form": vote_down_form,
             "th_labels": th_labels,
             "has_th": has_th,
             "map_options": json.dumps(
@@ -476,39 +451,6 @@ def confirm_up_to_date(request, erp_slug):
     erp.checked_up_to_date_at = datetime.datetime.now()
     erp.save()
     messages.add_message(request, messages.SUCCESS, translate("Merci de votre contribution."))
-    return redirect(erp.get_absolute_url())
-
-
-@login_required
-def vote(request, erp_slug):
-    if not request.user.is_active:
-        raise Http404(translate("Seuls les utilisateurs actifs peuvent voter."))
-    erp = get_object_or_404(Erp, slug=erp_slug, published=True)
-    if request.user == erp.user:
-        return HttpResponseBadRequest(translate("Vous ne pouvez pas voter sur votre établissement"))
-    if not request.method == "POST":
-        return redirect(erp.get_absolute_url())
-
-    action = request.POST.get("action")
-    comment = request.POST.get("comment") if action == Vote.VOTE_DOWN_ACTION else None
-    vote = erp.vote(request.user, action, comment=comment)
-    if not vote:
-        messages.add_message(request, messages.SUCCESS, translate("Votre vote a bien été effacé."))
-        return redirect(erp.get_absolute_url())
-
-    if vote.is_negative:
-        route = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
-        context = {"erp_contrib_url": f"{settings.SITE_ROOT_URL}{route}"}
-        BrevoMailer().send_email(to_list=request.user.email, template="vote_down", context=context)
-        context = {
-            "username": request.user.username,
-            "erp_nom": erp.nom,
-            "erp_absolute_url": erp.get_absolute_url(),
-            "comment": comment,
-            "user_email": request.user.email,
-        }
-        BrevoMailer().send_email(to_list=settings.DEFAULT_EMAIL, template="vote_down_admin", context=context)
-    messages.add_message(request, messages.SUCCESS, translate("Votre vote a été enregistré."))
     return redirect(erp.get_absolute_url())
 
 

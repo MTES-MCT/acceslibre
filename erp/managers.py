@@ -162,12 +162,6 @@ class ErpQuerySet(models.QuerySet):
         )
         return qs.order_by("-similarity", "-rank")
 
-    def with_votes(self):
-        return self.annotate(
-            count_positives=Count("vote__value", filter=Q(vote__value=1)),
-            count_negatives=Count("vote__value", filter=Q(vote__value=-1)),
-        )
-
     def having_adapted_parking(self):
         return self.filter(Q(accessibilite__stationnement_pmr=True) | Q(accessibilite__stationnement_ext_pmr=True))
 

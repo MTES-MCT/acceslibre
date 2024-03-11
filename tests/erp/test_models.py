@@ -3,7 +3,7 @@ import reversion
 from django.core.exceptions import ValidationError
 
 from erp.exceptions import MergeException
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
 from tests.factories import AccessibiliteFactory
 
 
@@ -102,33 +102,6 @@ class TestErp:
     def test_editable_by(self, data):
         assert data.erp.editable_by(data.niko) is True
         assert data.erp.editable_by(data.sophie) is False
-
-    def test_vote(self, data):
-        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
-
-        vote = data.erp.vote(data.niko, action=Vote.VOTE_DOWN_ACTION)
-        assert vote.value == Vote.NEGATIVE_VALUE
-        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
-
-        # user cancels his downvote
-        vote = data.erp.vote(data.niko, action=Vote.UNVOTE_DOWN_ACTION)
-        assert vote is None
-        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
-
-        # user downvote with a comment
-        vote = data.erp.vote(data.niko, action=Vote.VOTE_DOWN_ACTION, comment="gna")
-        assert vote.value == Vote.NEGATIVE_VALUE
-        assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 1
-
-        # user cannot upvote while he/she still have a negative vote
-        vote = data.erp.vote(data.niko, action=Vote.VOTE_UP_ACTION)
-        assert vote is None
-        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
-
-        # user cancels his downvote
-        vote = data.erp.vote(data.niko, action=Vote.UNVOTE_DOWN_ACTION)
-        assert vote is None
-        assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 
     def test_metadata_tags_update_key(self, data):
         erp = Erp.objects.create(nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]})

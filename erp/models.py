@@ -373,19 +373,6 @@ class Vote(models.Model):
     def __str__(self):
         return translate(f"Vote {self.value} de {self.user.username} pour {self.erp.nom}")
 
-    @property
-    def is_negative(self):
-        return self.value == self.NEGATIVE_VALUE
-
-    @property
-    def is_positive(self):
-        return self.value == self.POSITIVE_VALUE
-
-    def is_unvoting_possible(self, action):
-        return (action == Vote.UNVOTE_UP_ACTION and self.is_positive) or (
-            action == Vote.UNVOTE_DOWN_ACTION and self.is_negative
-        )
-
 
 @reversion.register(
     ignore_duplicates=True,
@@ -878,19 +865,6 @@ class Erp(models.Model):
             if siret is None:
                 raise ValidationError({"siret": translate("Ce numéro SIRET est invalide.")})
             self.siret = siret
-
-    def vote(self, user, action, comment=None):
-        try:
-            vote = Vote.objects.get(erp=self, user=user)
-            if vote.is_unvoting_possible(action):
-                vote.delete()
-                return None
-        except Vote.DoesNotExist:
-            vote = Vote(erp=self, user=user)
-            vote.value = Vote.POSITIVE_VALUE if action == Vote.VOTE_UP_ACTION else Vote.NEGATIVE_VALUE
-            vote.comment = comment if action == Vote.VOTE_DOWN_ACTION else None
-            vote.save()
-            return vote
 
     def save(self, *args, editor=None, **kwargs):
         if editor and not self.user:
