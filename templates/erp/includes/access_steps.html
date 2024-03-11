@@ -39,7 +39,7 @@
     {% endif %}
 {% endif %}
 {% if reperage_marches %}
-    <li>
+    <li data-filters="visual,walking">
         {% if main_courante %}
             {% blocktranslate trimmed with main_courante=main_courante %}
                 {{ reperage_marches }} et {{ main_courante }}

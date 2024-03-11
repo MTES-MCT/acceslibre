@@ -1,6 +1,6 @@
 {% load a4a %}
 {% if value %}
-    <li>{{ value_name|positive_text }}</li>
+    <li {% if filters %}data-filter="{{ filters }}"{% endif %}>{{ value_name|positive_text }}</li>
 {% elif value is False %}
-    <li>{{ value_name|negative_text }}</li>
+    <li {% if filters %}data-filter="{{ filters }}"{% endif %}>{{ value_name|negative_text }}</li>
 {% endif %}

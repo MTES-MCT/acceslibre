@@ -44,6 +44,7 @@ dom.ready(() => {
   dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
   dom.mountOne('#no_activity', ui.NewActivity)
   dom.mountOne('#unsure-and-submit', ui.PickAnswerAndSubmit)
+  dom.mountOne('#filter-controller', ui.filterData)
 })
 
 // expose general namespaced lib for usage within pages

@@ -10,6 +10,7 @@ import NewActivity from './NewActivity'
 import listenToLabelEvents from './GroupLabelTag'
 import ProgressBar from './ProgressBar'
 import PickAnswerAndSubmit from './PickAnswerAndSubmit'
+import filterData from './FilterData'
 
 export default {
   AsteriskField,
@@ -24,4 +25,5 @@ export default {
   listenToLabelEvents,
   ProgressBar,
   PickAnswerAndSubmit,
+  filterData: filterData,
 }

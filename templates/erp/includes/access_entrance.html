@@ -1,23 +1,27 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h4 class="pt-2 h4">
+<h4 class="pt-2 h4" data-filter-title="true">
     <i aria-hidden="true" class="icon icon-entrance mr-1 larger-font"></i>{% translate "Entrée" %}
 </h4>
 {% spaceless %}
     <ul>
-        {% render_access_value "entree_reperage" access %}
-        {% if access.entree_balise_sonore %}<li>{{ "entree_balise_sonore"|positive_text }}</li>{% endif %}
-        {% if access.entree_porte_presence is False %}<li>{{ "entree_porte_presence"|negative_text }}</li>{% endif %}
+        {% render_access_value "entree_reperage" access "all" %}
+        {% if access.entree_balise_sonore %}
+            <li data-filters="visual">{{ "entree_balise_sonore"|positive_text }}</li>
+        {% endif %}
+        {% if access.entree_porte_presence is False %}
+            <li data-filters="all">{{ "entree_porte_presence"|negative_text }}</li>
+        {% endif %}
         {% if access.entree_porte_type %}
             {% if access.entree_porte_manoeuvre %}
-                <li>
+                <li data-filters="all">
                     {% blocktranslate trimmed with type=access.entree_porte_type manoeuvre=access.entree_porte_manoeuvre %}
                         Porte {{ type }} {{ manoeuvre }}
                     {% endblocktranslate %}
                 </li>
             {% else %}
-                <li>
+                <li data-filters="all">
                     {% blocktranslate trimmed with type=access.entree_porte_type %}
                         Porte {{ type }}
                     {% endblocktranslate %}
@@ -25,7 +29,7 @@
             {% endif %}
         {% else %}
             {% if access.entree_porte_manoeuvre %}
-                <li>
+                <li data-filters="all">
                     {% blocktranslate trimmed with manoeuvre=access.entree_porte_manoeuvre %}
                         Porte {{ manoeuvre }}
                     {% endblocktranslate %}
@@ -33,48 +37,50 @@
             {% endif %}
         {% endif %}
         {% if access.entree_largeur_mini >= 80 %}
-            <li>{{ "entree_largeur_mini"|positive_text }}</li>
+            <li data-filters="walking">{{ "entree_largeur_mini"|positive_text }}</li>
         {% elif access.entree_largeur_mini < 80 %}
-            <li>{{ "entree_largeur_mini"|negative_text }}</li>
+            <li data-filters="walking">{{ "entree_largeur_mini"|negative_text }}</li>
         {% endif %}
         {% if access.entree_vitree %}
             {% if access.entree_vitree_vitrophanie is True %}
-                <li>{{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}</li>
+                <li data-filters="visual,understand">
+                    {{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}
+                </li>
             {% else %}
-                <li>{{ "entree_vitree"|positive_text }}</li>
+                <li data-filters="visual,understand">{{ "entree_vitree"|positive_text }}</li>
             {% endif %}
         {% elif access.entree_vitree is False %}
-            <li>{{ "entree_vitree"|negative_text }}</li>
+            <li data-filters="visual,understand">{{ "entree_vitree"|negative_text }}</li>
         {% endif %}
         {% if access.entree_plain_pied %}
-            <li>{{ "entree_plain_pied"|positive_text }}</li>
+            <li data-filters="visual,walking">{{ "entree_plain_pied"|positive_text }}</li>
         {% elif access.entree_plain_pied is False %}
-            <li>
+            <li data-filters="visual,walking">
                 {% translate "pour atteindre l'entrée" as extra_context %}
                 {% include "erp/includes/access_stairs.html" with steps_direction=access.get_entry_steps_direction_text nb_steps=access.entree_marches %}
             </li>
         {% endif %}
         {% include "erp/includes/access_steps.html" with nb_marches=access.entree_marches main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
         {% if access.has_ramp_entry %}
-            <li>
+            <li data-filters="walking">
                 {% blocktranslate trimmed with sentence="entree_marches_rampe"|positive_text rampe=access.entree_marches_rampe %}
                     {{ sentence }} {{ rampe }}
                 {% endblocktranslate %}
             </li>
         {% elif access.entree_marches_rampe is False %}
-            <li>{{ "entree_marches_rampe"|negative_text }}</li>
+            <li data-filters="walking">{{ "entree_marches_rampe"|negative_text }}</li>
         {% endif %}
-        {% if access.entree_ascenseur %}<li>{{ "entree_ascenseur"|positive_text }}</li>{% endif %}
-        {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
+        {% if access.entree_ascenseur %}<li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>{% endif %}
+        {% if access.entree_aide_humaine %}<li data-filters="all">{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
         {% if access.entree_dispositif_appel %}
             {% if access.entree_dispositif_appel_type %}
-                {% for equipment in access.get_entree_dispositif_appel_type_text %}<li>{{ equipment }}</li>{% endfor %}
+                {% for equipment in access.get_entree_dispositif_appel_type_text %}<li data-filters="walking">{{ equipment }}</li>{% endfor %}
             {% else %}
-                <li>{{ "entree_dispositif_appel"|positive_text }}</li>
+                <li data-filters="all">{{ "entree_dispositif_appel"|positive_text }}</li>
             {% endif %}
         {% endif %}
         {% if access.entree_pmr %}
-            <li>
+            <li data-filters="all">
                 {{ "entree_pmr"|positive_text }}
                 {% if access.entree_pmr_informations %}
                     :
