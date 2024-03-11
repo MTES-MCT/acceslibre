@@ -401,13 +401,17 @@ function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
 function AppMap(root) {
   const erpIdentifier = root.dataset.erpIdentifier
   const erpData = root.querySelector('#erps-data').textContent
+  const options = root.querySelector('#map-options')
+  var mapOptions = {}
+  if (options) {
+    mapOptions = JSON.parse(options.textContent.trim())
+  }
   let geoJson = null
   if (erpData) {
     geoJson = JSON.parse(erpData)
   }
   currentErpIdentifier = erpIdentifier
-
-  map = createMap(root)
+  map = createMap(root, mapOptions)
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
 
   const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
