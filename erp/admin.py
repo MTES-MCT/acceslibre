@@ -16,7 +16,7 @@ from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneFor
 from erp.resources import ErpAdminResource
 
 from . import schema
-from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp, Vote
+from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp
 
 
 @admin.register(Activite)
@@ -458,73 +458,6 @@ class ErpAdmin(
             return "Inconnu"
 
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
-
-
-@admin.register(Vote)
-class VoteAdmin(admin.ModelAdmin):
-    list_display = (
-        "get_erp_nom",
-        "get_erp_activite",
-        "get_erp_commune",
-        "user",
-        "get_bool_vote",
-        "comment",
-        "created_at",
-        "updated_at",
-    )
-    list_select_related = ("erp", "user", "erp__commune_ext")
-    list_filter = [
-        "value",
-        AutocompleteFilterFactory("Votant", "user"),
-        AutocompleteFilterFactory("Commune de l'ERP évalué", "erp__commune_ext"),
-        "created_at",
-        "updated_at",
-    ]
-    list_display_links = ("get_erp_nom",)
-    ordering = ("-updated_at",)
-    search_fields = (
-        "erp__nom",
-        "erp__activite__nom",
-        "erp__commune_ext__nom",
-        "user__username",
-    )
-    readonly_fields = [
-        "erp",
-        "user",
-        "value",
-        "comment",
-        "created_at",
-        "updated_at",
-    ]
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = queryset.select_related("erp__activite", "user").prefetch_related("erp", "erp__commune_ext")
-        return queryset
-
-    def get_bool_vote(self, obj):
-        return obj.value == 1
-
-    get_bool_vote.boolean = True
-    get_bool_vote.short_description = "Positif"
-
-    def get_erp_activite(self, obj):
-        return obj.erp.activite.nom if obj.erp.activite else "-"
-
-    get_erp_activite.admin_order_field = "activite"
-    get_erp_activite.short_description = "Activité"
-
-    def get_erp_commune(self, obj):
-        return obj.erp.commune_ext.nom
-
-    get_erp_commune.admin_order_field = "activite"
-    get_erp_commune.short_description = "Commune"
-
-    def get_erp_nom(self, obj):
-        return obj.erp.nom
-
-    get_erp_nom.admin_order_field = "erp"
-    get_erp_nom.short_description = "Établissement"
 
 
 # General admin heading & labels

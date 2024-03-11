@@ -89,7 +89,6 @@ def test_urls_ok(data, url, client):
         reverse("admin:erp_activite_changelist"),
         reverse("admin:erp_commune_changelist"),
         reverse("admin:erp_erp_changelist"),
-        reverse("admin:erp_vote_changelist"),
     ],
 )
 def test_admin_urls_ok(data, url, client):
