@@ -106,7 +106,11 @@ class Command(BaseCommand):
 
         if value := line.get("ACH00015"):
             if value == "NON":
-                accessibilite |= {"entree_ascenseur": False, "entree_marches_rampe": schema.RAMPE_AUCUNE}
+                accessibilite |= {
+                    "entree_plain_pied": False,
+                    "entree_ascenseur": False,
+                    "entree_marches_rampe": schema.RAMPE_AUCUNE,
+                }
 
             elif value == "OUI":
                 if stairs is None:
