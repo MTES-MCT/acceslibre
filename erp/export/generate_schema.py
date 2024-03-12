@@ -69,7 +69,7 @@ def create_field(field_name, field):
         format=constraints.get("format", None),
     )
 
-    schema_field["example"] = field.get("example", generate_example_text(field)) or generate_example_text(field)
+    schema_field["example"] = field.get("example", generate_example_text(field))
 
     return schema_field
 
@@ -79,6 +79,10 @@ def get_description(field_name, field):
     description = field.get("description") or field.get("help_text_ui") or help_text
     if not description:
         raise ValueError("No description found for field: " + field_name)
+    if field.get("choices") and field.get("type") in ("string", "array"):
+        values = [f"{e[0]} -> {e[1]}" for e in field.get("choices") if e[0] is not None]
+        description += f". Valeurs possibles: {', '.join(values)}"
+
     return description
 
 
@@ -119,16 +123,13 @@ def get_constraints(field_name: str, field: Any) -> dict:
 
 
 def generate_example_text(field):
-    text = ""
     enum = field.get("choices") or None
     if field.get("type") == "boolean":
-        text = "True"
-    elif field.get("type") == "number":
-        text = "0"
-    elif field.get("type") == "string" and not enum:
-        pass
-    elif enum:
-        values = [f"{e[0]} -> {e[1]}" for e in enum if e[0] is not None]
-        text = f"Valeurs possibles: {', '.join(values)}"
-
-    return text
+        return "True"
+    if field.get("type") == "number":
+        return "0"
+    if field.get("type") == "string" and not enum:
+        return ""
+    if enum:
+        return str([value for value, _ in enum])
+    return ""
