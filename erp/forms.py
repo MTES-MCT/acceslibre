@@ -601,19 +601,23 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
             raise ValidationError(translate("Cet ERP est non localisable."))
         # En édition publique d'un ERP, on ne met à jour la localisation que si
         # elle est absente ou que l'adresse a été modifiée
+        point_changed = False
         if self.cleaned_data["geom"] != Point(
             float(self.cleaned_data.get("lon")),
             float(self.cleaned_data.get("lat")),
             srid=4326,
         ):
+            point_changed = True
+
+        if self.cleaned_data["geom"] is None or self.adresse_changed():
+            self.geocode()
+
+        if point_changed:
             self.cleaned_data["geom"] = Point(
                 float(self.cleaned_data.get("lon")),
                 float(self.cleaned_data.get("lat")),
                 srid=4326,
             )
-
-        if self.cleaned_data["geom"] is None or self.adresse_changed():
-            self.geocode()
 
 
 class ProviderGlobalSearchForm(forms.Form):
