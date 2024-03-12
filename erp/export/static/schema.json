@@ -174,7 +174,7 @@
           "Achat or",
           "Achat, vente, réparation de matériel informatique et téléphonique",
           "Administration publique",
-          "Aéroport, aérodrome",
+          "Aéroport",
           "Agence départementale d'information sur le logement",
           "Agence de publicité",
           "Agence de travail temporaire",
@@ -290,6 +290,7 @@
           "Coworking",
           "Crèche",
           "Crèmerie Fromagerie",
+          "Cure thermale",
           "Cycle vente et entretien",
           "Cyclisme",
           "Déchetterie",
@@ -324,7 +325,6 @@
           "Établissement de santé",
           "Établissement militaire",
           "Etablissement pénitentiaire",
-          "Établissement thermal",
           "Evénement culturel",
           "Fédération départementale pour la pêche et la protection du milieu aquatique",
           "Ferme",
@@ -376,7 +376,6 @@
           "Literie",
           "Location articles loisirs et sport",
           "Location de matériels",
-          "Location saisonnière",
           "Location véhicules",
           "Loisirs créatifs",
           "Luminaire",
@@ -426,7 +425,7 @@
           "Parc",
           "Parc d’attraction",
           "Parc des expositions",
-          "Parfumerie, cosmétique",
+          "Parfumerie beauté",
           "Parking & stationnement",
           "Patinoire",
           "Pédiatrie",
@@ -462,7 +461,6 @@
           "Refuge animalier",
           "Rempailleur tapissier chaises fauteuils",
           "Réparation auto et de matériel agricole",
-          "Résidence de tourisme",
           "Résidence, foyer",
           "Ressourcerie",
           "Restaurant",
@@ -476,12 +474,12 @@
           "Salle de concert",
           "Salle de danse",
           "Salle de jeux",
-          "Salle de remise en forme",
-          "Salle de réunion ou réception",
+          "Salle de réception",
           "Salle des fêtes",
           "Salle de spectacle",
           "Salle multisports",
           "Salle non spécialisée",
+          "Salles de remise en forme",
           "Salle spécialisée",
           "Salon de thé",
           "Sécurité sociale, mutuelle santé",
@@ -489,7 +487,7 @@
           "Services techniques",
           "Sex shop",
           "Skatepark",
-          "Soins de beauté, esthétique",
+          "Soins de beauté",
           "Sophrologue",
           "Spa",
           "Sports et loisirs",
@@ -510,7 +508,6 @@
           "Textile hors habillement",
           "Thalassothérapie",
           "Théâtre",
-          "Tiers lieu",
           "Toilettes publiques",
           "Toiletteur",
           "Traiteur",
@@ -526,8 +523,7 @@
           "Vente de matériel médical",
           "Vente de matériel pour piscine",
           "Vêtements",
-          "Vétérinaire",
-          "Village de vacances"
+          "Vétérinaire"
         ]
       },
       "example": ""
@@ -852,12 +848,12 @@
     {
       "name": "cheminement_ext_sens_marches",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
       "type": "string",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
+      "example": "['montant', 'descendant', None]"
     },
     {
       "name": "cheminement_ext_main_courante",
@@ -893,12 +889,12 @@
     {
       "name": "cheminement_ext_rampe",
       "title": "Rampe",
-      "description": "Présence d'une rampe fixe ou amovible",
+      "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "type": "string",
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
+      "example": "['aucune', 'fixe', 'amovible', None]"
     },
     {
       "name": "cheminement_ext_pente_presence",
@@ -934,32 +930,32 @@
     {
       "name": "cheminement_ext_pente_degre_difficulte",
       "title": "Degré de difficulté de la pente",
-      "description": "Difficulté de la pente",
+      "description": "Difficulté de la pente. Valeurs possibles: légère -> Légère, importante -> Importante",
       "type": "string",
       "constraints": {
         "enum": ["légère", "importante"]
       },
-      "example": "Valeurs possibles: légère -> Légère, importante -> Importante"
+      "example": "['légère', 'importante', None]"
     },
     {
       "name": "cheminement_ext_pente_longueur",
       "title": "Longueur de la pente",
-      "description": "Longueur de la pente",
+      "description": "Longueur de la pente. Valeurs possibles: courte -> < 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> > 2 mètres",
       "type": "string",
       "constraints": {
         "enum": ["courte", "moyenne", "longue"]
       },
-      "example": "Valeurs possibles: courte -> < 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> > 2 mètres"
+      "example": "['courte', 'moyenne', 'longue', None]"
     },
     {
       "name": "cheminement_ext_devers",
       "title": "Dévers",
-      "description": "Dévers ou inclinaison transversale du chemin",
+      "description": "Dévers ou inclinaison transversale du chemin. Valeurs possibles: aucun -> Aucun, léger -> Léger, important -> Important",
       "type": "string",
       "constraints": {
         "enum": ["aucun", "léger", "important"]
       },
-      "example": "Valeurs possibles: aucun -> Aucun, léger -> Léger, important -> Important"
+      "example": "['aucun', 'léger', 'important', None]"
     },
     {
       "name": "cheminement_ext_bande_guidage",
@@ -1250,22 +1246,22 @@
     {
       "name": "entree_marches_rampe",
       "title": "Rampe",
-      "description": "Présence d'une rampe fixe ou amovible",
+      "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "type": "string",
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
+      "example": "['aucune', 'fixe', 'amovible', None]"
     },
     {
       "name": "entree_marches_sens",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
       "type": "string",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
+      "example": "['montant', 'descendant', None]"
     },
     {
       "name": "entree_dispositif_appel",
@@ -1301,13 +1297,13 @@
     {
       "name": "entree_dispositif_appel_type",
       "title": "Type de dispositif d'appel à l'entrée",
-      "description": "Dispositifs d'appels présents",
+      "description": "Dispositifs d'appels présents. Valeurs possibles: bouton -> Bouton d'appel, interphone -> Interphone, visiophone -> Visiophone",
       "type": "array",
       "arrayItem": {
         "type": "string",
         "enum": ["bouton", "interphone", "visiophone"]
       },
-      "example": "Valeurs possibles: bouton -> Bouton d'appel, interphone -> Interphone, visiophone -> Visiophone"
+      "example": "['bouton', 'interphone', 'visiophone']"
     },
     {
       "name": "entree_balise_sonore",
@@ -1443,22 +1439,22 @@
     {
       "name": "entree_porte_manoeuvre",
       "title": "Manoeuvre de la porte",
-      "description": "Mode d'ouverture de la porte",
+      "description": "Mode d'ouverture de la porte. Valeurs possibles: battante -> Porte battante, coulissante -> Porte coulissante, tourniquet -> Tourniquet, tambour -> Porte tambour",
       "type": "string",
       "constraints": {
         "enum": ["battante", "coulissante", "tourniquet", "tambour"]
       },
-      "example": "Valeurs possibles: battante -> Porte battante, coulissante -> Porte coulissante, tourniquet -> Tourniquet, tambour -> Porte tambour"
+      "example": "['battante', 'coulissante', 'tourniquet', 'tambour', None]"
     },
     {
       "name": "entree_porte_type",
       "title": "Type de porte",
-      "description": "Type de porte",
+      "description": "Type de porte. Valeurs possibles: manuelle -> Manuelle, automatique -> Automatique",
       "type": "string",
       "constraints": {
         "enum": ["manuelle", "automatique"]
       },
-      "example": "Valeurs possibles: manuelle -> Manuelle, automatique -> Automatique"
+      "example": "['manuelle', 'automatique', None]"
     },
     {
       "name": "accueil_visibilite",
@@ -1494,12 +1490,12 @@
     {
       "name": "accueil_personnels",
       "title": "Personnel d'accueil",
-      "description": "Personnel à l'accueil des personnes handicapées",
+      "description": "Personnel à l'accueil des personnes handicapées. Valeurs possibles: aucun -> Aucun personnel, formés -> Personnels sensibilisés ou formés, non-formés -> Personnels non-formés",
       "type": "string",
       "constraints": {
         "enum": ["aucun", "formés", "non-formés"]
       },
-      "example": "Valeurs possibles: aucun -> Aucun personnel, formés -> Personnels sensibilisés ou formés, non-formés -> Personnels non-formés"
+      "example": "['aucun', 'formés', 'non-formés', None]"
     },
     {
       "name": "accueil_audiodescription_presence",
@@ -1535,7 +1531,7 @@
     {
       "name": "accueil_audiodescription",
       "title": "Type d'équipements pour l'audiodescription",
-      "description": "Équipements disponibles",
+      "description": "Équipements disponibles. Valeurs possibles: avec_équipement_permanent -> avec équipement permanent, casques et boîtiers disponibles à l’accueil, avec_app -> avec équipement permanent nécessitant le téléchargement d'une application sur smartphone, avec_équipement_occasionnel -> avec équipement occasionnel selon la programmation, sans_équipement -> sans équipement, audiodescription audible par toute la salle (selon la programmation)",
       "type": "array",
       "arrayItem": {
         "type": "string",
@@ -1546,7 +1542,7 @@
           "sans_équipement"
         ]
       },
-      "example": "Valeurs possibles: avec_équipement_permanent -> avec équipement permanent, casques et boîtiers disponibles à l’accueil, avec_app -> avec équipement permanent nécessitant le téléchargement d'une application sur smartphone, avec_équipement_occasionnel -> avec équipement occasionnel selon la programmation, sans_équipement -> sans équipement, audiodescription audible par toute la salle (selon la programmation)"
+      "example": "['avec_équipement_permanent', 'avec_app', 'avec_équipement_occasionnel', 'sans_équipement']"
     },
     {
       "name": "accueil_equipements_malentendants_presence",
@@ -1582,13 +1578,13 @@
     {
       "name": "accueil_equipements_malentendants",
       "title": "Liste des équipements d'aide à l'audition et à la communication",
-      "description": "Équipements ou prestations disponibles",
+      "description": "Équipements ou prestations disponibles. Valeurs possibles: bim -> boucle à induction magnétique fixe, bmp -> boucle à induction magnétique portative, lsf -> langue des signes française (LSF), lpc -> langue française parlée complétée (LFPC), sts -> sous-titrage ou transcription simultanée, autres -> autres",
       "type": "array",
       "arrayItem": {
         "type": "string",
         "enum": ["bim", "bmp", "lsf", "lpc", "sts", "autres"]
       },
-      "example": "Valeurs possibles: bim -> boucle à induction magnétique fixe, bmp -> boucle à induction magnétique portative, lsf -> langue des signes française (LSF), lpc -> langue française parlée complétée (LFPC), sts -> sous-titrage ou transcription simultanée, autres -> autres"
+      "example": "['bim', 'bmp', 'lsf', 'lpc', 'sts', 'autres']"
     },
     {
       "name": "accueil_cheminement_plain_pied",
@@ -1724,22 +1720,22 @@
     {
       "name": "accueil_cheminement_rampe",
       "title": "Rampe",
-      "description": "Présence d'une rampe fixe ou amovible",
+      "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "type": "string",
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
+      "example": "['aucune', 'fixe', 'amovible', None]"
     },
     {
       "name": "accueil_cheminement_sens_marches",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
       "type": "string",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
+      "example": "['montant', 'descendant', None]"
     },
     {
       "name": "accueil_chambre_nombre_accessibles",
@@ -2092,24 +2088,24 @@
     {
       "name": "labels",
       "title": "Marques ou labels",
-      "description": "Marque(s) ou label(s) obtenus par l'établissement",
+      "description": "Marque(s) ou label(s) obtenus par l'établissement. Valeurs possibles: autre -> Autre, dpt -> Destination pour Tous, mobalib -> Mobalib, th -> Tourisme & Handicap, handiplage -> Handiplage",
       "type": "array",
       "arrayItem": {
         "type": "string",
         "enum": ["autre", "dpt", "mobalib", "th", "handiplage"]
       },
-      "example": "Valeurs possibles: autre -> Autre, dpt -> Destination pour Tous, mobalib -> Mobalib, th -> Tourisme & Handicap, handiplage -> Handiplage"
+      "example": "['autre', 'dpt', 'mobalib', 'th', 'handiplage']"
     },
     {
       "name": "labels_familles_handicap",
       "title": "Famille(s) de handicap concernées(s)",
-      "description": "Famille(s) de handicap couverte(s) par ces marques ou labels",
+      "description": "Famille(s) de handicap couverte(s) par ces marques ou labels. Valeurs possibles: auditif -> Handicap auditif, mental -> Handicap mental, moteur -> Handicap moteur, visuel -> Handicap visuel",
       "type": "array",
       "arrayItem": {
         "type": "string",
         "enum": ["auditif", "mental", "moteur", "visuel"]
       },
-      "example": "Valeurs possibles: auditif -> Handicap auditif, mental -> Handicap mental, moteur -> Handicap moteur, visuel -> Handicap visuel"
+      "example": "['auditif', 'mental', 'moteur', 'visuel']"
     },
     {
       "name": "registre_url",

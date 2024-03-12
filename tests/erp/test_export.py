@@ -1,8 +1,8 @@
 import csv
+import json
 import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from typing import List
 from unittest.mock import ANY
 
 import pytest
@@ -167,7 +167,6 @@ def test_export_failure(mocker, data, settings):
     assert "Erreur lors de l'upload" in str(err.value)
 
 
-@pytest.mark.skip(reason="Dependencies error.")
 def test_generate_schema(db, activite):
     base = "erp/export/static/base-schema.json"
     outfile = "schema-test.json"
@@ -176,7 +175,7 @@ def test_generate_schema(db, activite):
     generate_schema(base, outfile, repository)
 
     try:
-        with open("schema-test.json", "r") as test_schema, open("erp/export/static/schema.json", "r") as actual_schema:
-            assert test_schema.read().strip() == actual_schema.read().strip()
+        with open(outfile, "r") as test_schema, open("erp/export/static/schema.json", "r") as actual_schema:
+            assert json.loads(test_schema.read()) == json.loads(actual_schema.read().strip())
     finally:
         os.remove(test_schema.name)
