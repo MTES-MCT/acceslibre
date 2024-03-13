@@ -23,7 +23,9 @@ class GeolocRequester:
 
         try:
             try:
-                data = self.query({"q": address, "postcode": postcode, "citycode": citycode, "limit": 1})
+                data = self.query(
+                    {"q": address, "postcode": postcode, "citycode": citycode, "limit": 1, "autocomplete": 0}
+                )
             except RuntimeError:
                 return {}
 
