@@ -42,6 +42,7 @@ QUERIES = [
     ("Lycée", "Collège"),
     ("Collège", "Collège"),
     ("Photographe", "Photographie"),
+    ("Opticien", "Opticien"),
 ]
 
 
