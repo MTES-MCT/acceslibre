@@ -156,6 +156,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "asp_id",
             "updated_at",
             "created_at",
+            "published",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}

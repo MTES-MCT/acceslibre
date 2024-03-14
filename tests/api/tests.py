@@ -53,6 +53,7 @@ class TestErpApi:
         assert erp_json["activite"]["nom"] == "Boulangerie"
         assert erp_json["activite"]["slug"] == "boulangerie"
         assert erp_json["code_postal"] == "34830"
+        assert erp_json["published"] is True
         assert "user" not in erp_json
         assert erp_json["accessibilite"]["accueil"]["accueil_visibilite"] is None
         assert erp_json["accessibilite"]["transport"]["transport_station_presence"] is None
@@ -161,6 +162,7 @@ class TestErpApi:
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
+        assert len([erp for erp in content["results"] if erp["published"] is False]) == 1
 
     def test_list_page_size(self, api_client, data):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
@@ -227,6 +229,7 @@ class TestErpApi:
             "user_type": "system",
             "created_at": ANY,
             "updated_at": ANY,
+            "published": True,
             "accessibilite": {
                 "url": f"http://testserver/api/accessibilite/{data.erp.accessibilite.id}/",
                 "erp": "http://testserver/api/erps/aux-bons-croissants/",
