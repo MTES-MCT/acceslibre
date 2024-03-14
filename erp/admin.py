@@ -261,7 +261,6 @@ class ErpAdmin(
     readonly_fields = [
         "source",
         "source_id",
-        "asp_id",
         "commune_ext",
         "accessibilite",
         "geoloc_provider",
