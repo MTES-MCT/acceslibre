@@ -668,6 +668,13 @@ class Erp(models.Model):
     check_closed_at = models.DateTimeField(
         null=True, blank=True, verbose_name=translate_lazy("Dernière vérification de clôture")
     )
+    permanently_closed = models.BooleanField(
+        default=False,
+        verbose_name=translate_lazy("Définitivement clôt"),
+        help_text=translate_lazy(
+            "Statut de fermeture de cet ERP: si la case est cochée, l'ERP est définitivement clôt et ne peut pas être inséré à nouveau."
+        ),
+    )
 
     # search vector
     search_vector = SearchVectorField(translate_lazy("Search vector"), null=True)
