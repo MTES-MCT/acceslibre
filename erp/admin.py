@@ -280,6 +280,7 @@ class ErpAdmin(
                     "user",
                     "user_type",
                     "published",
+                    "permanently_closed",
                 ]
             },
         ),
