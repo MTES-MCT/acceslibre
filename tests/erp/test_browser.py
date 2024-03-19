@@ -957,3 +957,17 @@ def test_get_erp_by_uuid(client):
     erp.save()
     response = client.get(reverse("erp_uuid", kwargs={"uuid": erp.uuid}))
     assert response.status_code == 404, "should receive a 404 for a non published ERP"
+
+
+@pytest.mark.django_db
+def test_can_update_checked_up_to_date_at_from_erp(client):
+    erp = ErpFactory(published=True)
+
+    assert erp.checked_up_to_date_at is None
+
+    response = client.post(reverse("confirm_up_to_date", kwargs={"erp_slug": erp.slug}))
+    assert response.status_code == 302
+    assert erp.slug in response.url
+
+    erp.refresh_from_db()
+    assert erp.checked_up_to_date_at is not None

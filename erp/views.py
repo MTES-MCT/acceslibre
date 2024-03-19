@@ -468,6 +468,17 @@ def widget_from_uuid(request, uuid):
     )
 
 
+def confirm_up_to_date(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, published=True)
+    if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
+
+    erp.checked_up_to_date_at = datetime.datetime.now()
+    erp.save()
+    messages.add_message(request, messages.SUCCESS, translate("Merci de votre contribution."))
+    return redirect(erp.get_absolute_url())
+
+
 @login_required
 def vote(request, erp_slug):
     if not request.user.is_active:
