@@ -666,6 +666,9 @@ class Erp(models.Model):
     # datetimes
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
+    checked_up_to_date_at = models.DateTimeField(
+        null=True, blank=True, verbose_name=translate_lazy("Dernière vérification des informations")
+    )
     check_closed_at = models.DateTimeField(
         null=True, blank=True, verbose_name=translate_lazy("Dernière vérification de clôture")
     )
