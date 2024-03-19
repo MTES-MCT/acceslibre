@@ -6,7 +6,6 @@ from compte.models import UserStats
 
 
 class UserAdminResource(resources.ModelResource):
-    vote_count = Field()
     nb_erp_created = Field()
     nb_erp_edited = Field()
     nb_erp_attributed = Field()
@@ -22,10 +21,7 @@ class UserAdminResource(resources.ModelResource):
             "is_active",
             "is_staff",
         ]
-        export_order = fields + ["vote_count", "nb_erp_created", "nb_erp_edited", "nb_erp_attributed"]
-
-    def dehydrate_vote_count(self, user):
-        return user.vote_count
+        export_order = fields + ["nb_erp_created", "nb_erp_edited", "nb_erp_attributed"]
 
     def dehydrate_nb_erp_created(self, user):
         try:
