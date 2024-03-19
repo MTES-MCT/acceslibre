@@ -4,56 +4,57 @@
 <h4 class="pt-2 h4">
     <i aria-hidden="true" class="icon icon-road mr-1 larger-font"></i>{% translate "Chemin vers l'entrée" %}
 </h4>
-<ul>
-    {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
-    {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
-    {% if access.cheminement_ext_plain_pied %}
-        <li>{{ "cheminement_ext_plain_pied"|positive_text }}</li>
-    {% else %}
+{% spaceless %}
+    <ul>
+        {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
+        {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
+        {% if access.cheminement_ext_plain_pied %}
+            <li>{{ "cheminement_ext_plain_pied"|positive_text }}</li>
+        {% elif access.cheminement_ext_plain_pied is False %}
+            <li>
+                {% translate "sur le chemin" as extra_context %}
+                {% include "erp/includes/access_stairs.html" with steps_direction=access.cheminement_ext_sens_marches nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
+            </li>
+        {% endif %}
         <li>
-            {% translate "sur le chemin" as extra_context %}
-            {% include "erp/includes/access_stairs.html" with steps_direction=access.cheminement_ext_sens_marches nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
+            {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
         </li>
-    {% endif %}
-    <li>
-        {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
-    </li>
-    {% render_access_value "cheminement_ext_rampe" access %}
-    {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
-    {% render_access_value "cheminement_ext_retrecissement" access %}
-    {% if access.cheminement_ext_pente_presence %}
-        {% if access.cheminement_ext_pente_degre_difficulte %}
-            {% if access.cheminement_ext_pente_longueur %}
-                <li>
-                    {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
-                        Présence d'une pente {{ difficulte }} de longueur {{ longueur }}
-                    {% endblocktranslate %}
-                </li>
+        {% render_access_value "cheminement_ext_rampe" access %}
+        {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+        {% if access.cheminement_ext_pente_presence %}
+            {% if access.cheminement_ext_pente_degre_difficulte %}
+                {% if access.cheminement_ext_pente_longueur %}
+                    <li>
+                        {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
+                            Présence d'une pente {{ difficulte }} de longueur {{ longueur }}
+                        {% endblocktranslate %}
+                    </li>
+                {% else %}
+                    <li>
+                        {% blocktranslate trimmed with difficulte=access.cheminement_ext_pente_degre_difficulte %}
+                            Présence d'une pente {{ difficulte }}
+                        {% endblocktranslate %}
+                    </li>
+                {% endif %}
             {% else %}
                 <li>
-                    {% blocktranslate trimmed with difficulte=access.cheminement_ext_pente_degre_difficulte %}
-                        Présence d'une pente {{ difficulte }}
-                    {% endblocktranslate %}
-                </li>
-            {% endif %}
-        {% else %}
-            <li>
-                {% if access.cheminement_ext_pente_longueur %}
-                    {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur %}
-                        Présence d'une pente de longueur {{ longueur }}
-                    {% endblocktranslate %}
-                </li>
+                    {% if access.cheminement_ext_pente_longueur %}
+                        {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur %}
+                            Présence d'une pente de longueur {{ longueur }}
+                        {% endblocktranslate %}
+                    </li>
+                {% endif %}
             {% endif %}
         {% endif %}
-    {% endif %}
-    <li>
         {% if access.has_camber %}
-            {% blocktranslate trimmed with difficulty=access.cheminement_ext_devers %}
-                Dévers {{ difficulty }}
+            <li>
+                {% blocktranslate trimmed with difficulty=access.cheminement_ext_devers %}
+                    Dévers {{ difficulty }}
+                </li>
             {% endblocktranslate %}
-        {% else %}
-            {{ "cheminement_ext_devers"|negative_text }}
+        {% elif access.has_camber is False %}
+            <li>{{ "cheminement_ext_devers"|negative_text }}</li>
         {% endif %}
-    </li>
-    {% render_access_value "cheminement_ext_retrecissement" access %}
-</ul>
+        {% render_access_value "cheminement_ext_retrecissement" access %}
+    </ul>
+{% endspaceless %}
