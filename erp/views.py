@@ -409,7 +409,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
             "erp": erp,
             "geojson_list": make_geojson([erp]),
-            "access": erp.accessibilite,
             "widget_tag": widget_tag,
             "url_widget_js": url_widget_js,
             "root_url": settings.SITE_ROOT_URL,
@@ -424,7 +423,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                     "dragging": False,
                 }
             ),
-            "show_new_access_data": request.GET.get("v2", "") != "",
         },
     )
 

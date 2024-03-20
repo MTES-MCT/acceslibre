@@ -121,28 +121,6 @@ def get_field_label(value):
     return schema.get_label(value) or forms.get_label(value)
 
 
-@register.filter(name="positive_text")
-def positive_text(value):
-    return schema.get_help_text_ui(value)
-
-
-@register.filter(name="negative_text")
-def negative_text(value):
-    return schema.get_help_text_ui_neg(value)
-
-
-@register.simple_tag
-def access_text(value_name, access):
-    if getattr(access, value_name):
-        return schema.get_help_text_ui(value_name)
-    return schema.get_help_text_ui_neg(value_name)
-
-
-@register.inclusion_tag("erp/includes/access_value.html")
-def render_access_value(value_name, access):
-    return {"value_name": value_name, "access": access, "value": getattr(access, value_name)}
-
-
 @register.simple_tag
 def render_field(value):
     return (isinstance(value, list) and len(value) > 0) or (

@@ -1395,6 +1395,9 @@ msgstr ""
 msgid "Existe-t-il un arrêt de transport en commun à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr ""
 
+msgid "Arrêt de transport en commun à moins de 200 mètres de l'établissement"
+msgstr ""
+
 msgid "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
 msgstr ""
 
@@ -1413,10 +1416,10 @@ msgstr ""
 msgid "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
 msgstr ""
 
-msgid "Places de parking au sein de l'établissement"
+msgid "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement"
 msgstr ""
 
-msgid "Pas de places de parking au sein de l'établissement "
+msgid "Pas de place de stationnement disponible au sein de la parcelle de l'établissement"
 msgstr ""
 
 msgid "Stationnements adaptés dans l'établissement"
@@ -1425,7 +1428,7 @@ msgstr ""
 msgid "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
 msgstr ""
 
-msgid "Places de parking au sein de l'établissement comprenant des places PMR"
+msgid "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement"
 msgstr ""
 
 msgid "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement"
@@ -1437,10 +1440,10 @@ msgstr ""
 msgid "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr ""
 
-msgid "Places de parking à proximité"
+msgid "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement"
 msgstr ""
 
-msgid "Pas de places de parking à proximité"
+msgid "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement"
 msgstr ""
 
 msgid "Stationnements adaptés à proximité de l'établissement"
@@ -1449,7 +1452,7 @@ msgstr ""
 msgid "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
 msgstr ""
 
-msgid "Places de parking à proximité comprenant des places PMR"
+msgid "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement"
 msgstr ""
 
 msgid "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
@@ -1458,7 +1461,7 @@ msgstr ""
 msgid "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
 msgstr ""
 
-msgid "Présence d'un chemin sur la parcelle de l'établissement qui mène à l'entrée"
+msgid "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur"
 msgstr ""
 
 msgid "Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
@@ -1470,10 +1473,10 @@ msgstr ""
 msgid "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
 msgstr ""
 
-msgid "Revêtement stable"
+msgid "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
 msgstr ""
 
-msgid "Revêtement meuble"
+msgid "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
 msgstr ""
 
 msgid "Chemin extérieur de plain-pied"
@@ -1489,6 +1492,9 @@ msgid "L'accès à cet espace n'est pas de plain-pied et présente une rupture b
 msgstr ""
 
 msgid "Existe-t-il un ascenseur ou un élévateur&nbsp;?"
+msgstr ""
+
+msgid "Présence d'un ascenseur ou un élévateur"
 msgstr ""
 
 msgid "Pas d'ascenseur ou d'élévateur"
@@ -1518,19 +1524,19 @@ msgstr ""
 msgid "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
 msgstr ""
 
-msgid "Escalier sécurisé"
+msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
 msgstr ""
 
-msgid "Escalier non sécurisé"
+msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
 msgstr ""
 
 msgid "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
 msgstr ""
 
-msgid "Équipé d'une ou plusieurs mains courantes"
+msgid "L'escalier est équipé d'une ou plusieurs main-courantes"
 msgstr ""
 
-msgid "Non équipé de main courante."
+msgid "L'escalier n'est pas équipé de main-courante"
 msgstr ""
 
 msgid "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
@@ -1539,7 +1545,7 @@ msgstr ""
 msgid "Présence d'une rampe fixe ou amovible"
 msgstr ""
 
-msgid "Pas de rampe"
+msgid "Pas de rampe fixe ou amovible"
 msgstr ""
 
 msgid "Pente"
@@ -1566,7 +1572,7 @@ msgstr ""
 msgid "Dévers ou inclinaison transversale du chemin"
 msgstr ""
 
-msgid "Pas de dévers"
+msgid "Pas de dévers ou d'inclinaison transversale du chemin"
 msgstr ""
 
 msgid "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
@@ -1581,19 +1587,19 @@ msgstr ""
 msgid "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
 msgstr ""
 
-msgid "Présence de rétrécissement inférieur à 90 cm sur le chemin"
+msgid "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil"
 msgstr ""
 
-msgid "Largeur minimale de 90 cm sur tout le chemin"
+msgid "Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre la zone d'accueil"
 msgstr ""
 
 msgid "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
 msgstr ""
 
-msgid "Entrée bien visible"
+msgid "L'entrée de l'établissement est facilement repérable"
 msgstr ""
 
-msgid "L'entrée n'est pas bien visible"
+msgid "Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
 msgstr ""
 
 msgid "Y a-t-il une porte ?"
@@ -1603,6 +1609,9 @@ msgid "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
 msgstr ""
 
 msgid "Présence d'une porte à l'entrée de l'établissement"
+msgstr ""
+
+msgid "Pas de porte à l'entrée de l'établissement"
 msgstr ""
 
 msgid "Manoeuvre de la porte"
@@ -1620,7 +1629,7 @@ msgstr ""
 msgid "La porte d'entrée est-elle vitrée&nbsp;?"
 msgstr ""
 
-msgid "Porte vitrée"
+msgid "La porte d'entrée est vitrée"
 msgstr ""
 
 msgid "La porte d'entrée n'est pas vitrée"
@@ -1632,16 +1641,16 @@ msgstr ""
 msgid "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
 msgstr ""
 
-msgid "Avec éléments contrastés sur la partie vitrée"
+msgid "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée"
 msgstr ""
 
-msgid "Sans éléments contrastés sur la partie vitrée"
+msgid "Pas d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
 msgstr ""
 
 msgid "L'entrée est-elle de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;?"
 msgstr ""
 
-msgid "Entrée de plain pied"
+msgid "L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau"
 msgstr ""
 
 msgid "L'entrée n'est pas de plain-pied et présente une rupture brutale de niveau"
@@ -1656,19 +1665,10 @@ msgstr ""
 msgid "Repérage des marches"
 msgstr ""
 
-msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
-msgstr ""
-
-msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
-msgstr ""
-
-msgid "L'escalier est équipé d'une ou plusieurs main-courantes"
-msgstr ""
-
-msgid "L'escalier n'est pas équipé de main-courante"
-msgstr ""
-
 msgid "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée&nbsp;?"
+msgstr ""
+
+msgid "Présence d'un dispositif comme une sonnette pour signaler sa présence"
 msgstr ""
 
 msgid "Pas de dispositif comme une sonnette pour signaler sa présence"
@@ -1689,13 +1689,16 @@ msgstr ""
 msgid "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
 msgstr ""
 
+msgid "Présence d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
+msgstr ""
+
 msgid "Pas de balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
 msgstr ""
 
 msgid "Présence ou possibilité d'une aide humaine au déplacement"
 msgstr ""
 
-msgid "Aide humaine possible"
+msgid "Possibilité d'une aide humaine au déplacement"
 msgstr ""
 
 msgid "Pas de possibilité d'aide humaine au déplacement"
@@ -1707,16 +1710,13 @@ msgstr ""
 msgid "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
 msgstr ""
 
-msgid "Largeur d'au moins 80 cm"
-msgstr ""
-
-msgid "Largeur inférieure à 80 cm"
+msgid "Largeur minimale de la porte d'entrée"
 msgstr ""
 
 msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
 msgstr ""
 
-msgid "Présence d'une entrée PMR"
+msgid "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
 msgstr ""
 
 msgid "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
@@ -1734,10 +1734,10 @@ msgstr ""
 msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée du bâtiment&nbsp;?"
 msgstr ""
 
-msgid "Accueil à proximité direct de l'entrée"
+msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
 msgstr ""
 
-msgid "Accueil éloigné de l'entrée"
+msgid "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) n'est pas visible depuis l'entrée du bâtiment"
 msgstr ""
 
 msgid "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement"
@@ -1746,28 +1746,16 @@ msgstr ""
 msgid "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de l'établissement est t-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;? (attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau)"
 msgstr ""
 
-msgid "Chemin vers l'accueil de plain pied"
-msgstr ""
-
-msgid "Présence d'un ascenseur ou un élévateur"
-msgstr ""
-
 msgid "Repérage des marches ou de l'escalier"
 msgstr ""
 
 msgid "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées"
 msgstr ""
 
-msgid "Pas de rampe fixe ou amovible"
-msgstr ""
-
 msgid "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
 msgstr ""
 
-msgid "Présence de rétrécissement inférieur à 90 cm pour atteindre l'accueil"
-msgstr ""
-
-msgid "Largeur minimale de 90 cm sur toute la circulation menant à l'accueil"
+msgid "Présence d'un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil"
 msgstr ""
 
 msgid "Nombre de chambres accessibles à une personne en fauteuil roulant"
@@ -1776,7 +1764,7 @@ msgstr ""
 msgid "Nombre de chambres accessibles à une personne en fauteuil roulant : espace et aménagement suffisant pour permettre à une personne en fauteuil de circuler dans la chambre, atteindre le lit et tourner (espace de rotation d’au moins 150 cm de diamètre)"
 msgstr ""
 
-msgid "Pas de chambre accessible"
+msgid "Aucune chambre accessible à une personne en fauteuil roulant"
 msgstr ""
 
 msgid "Douche accessible"
@@ -1785,19 +1773,19 @@ msgstr ""
 msgid "La douche est-elle à l'italienne ou équipée d'un bac extra plat (hauteur inférieure à 2 cm)&nbsp;?"
 msgstr ""
 
-msgid "Douche à l'italienne (bac plat)"
+msgid "La douche est à l'italienne ou équipée d'un bac extra plat"
 msgstr ""
 
-msgid "Douche classique, avec ressaut ou marche"
+msgid "La douche n'est pas à l'italienne ni équipée d'un bac extra plat"
 msgstr ""
 
 msgid "La douche est-elle équipée d'un siège de douche normé et d'une largeur minimum de 40 cm&nbsp;?"
 msgstr ""
 
-msgid "Avec siège de douche"
+msgid "La douche est équipée d'un siège de douche"
 msgstr ""
 
-msgid "Sans siège de douche"
+msgid "La douche n'est pas équipée d'un siège de douche"
 msgstr ""
 
 msgid "Douche sécurisée"
@@ -1806,10 +1794,10 @@ msgstr ""
 msgid "La douche est-elle équipée d'une barre d'appui horizontale permettant le transfert depuis un fauteuil vers le siège de douche&nbsp;?"
 msgstr ""
 
-msgid "Barre d'appui"
+msgid "La douche est équipée d'une barre d'appui horizontale"
 msgstr ""
 
-msgid "Sans barre d'appui"
+msgid "La douche n'est pas équipée d'une barre d'appui horizontale"
 msgstr ""
 
 msgid "Toilette sécurisé"
@@ -1818,7 +1806,10 @@ msgstr ""
 msgid "Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?"
 msgstr ""
 
-msgid "Avec Barre d'appui"
+msgid "Le toilette est équipé d'une barre d'appui horizontale"
+msgstr ""
+
+msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
 msgstr ""
 
 msgid "Toilette accessible"
@@ -1827,10 +1818,10 @@ msgstr ""
 msgid "Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?"
 msgstr ""
 
-msgid "Avec espace d'usage"
+msgid "Le toilette dispose d'un espace d'usage à côté de la cuvette"
 msgstr ""
 
-msgid "Sans espace d'usage"
+msgid "Le toilette ne dispose pas d'un espace d'usage à côté de la cuvette"
 msgstr ""
 
 msgid "Visibilité des numéros de chambres"
@@ -1839,10 +1830,10 @@ msgstr ""
 msgid "Les numéros de chambres sont-ils bien repérables et en relief (très contrastés, positionnés à hauteur des yeux, soit 160 cm, au milieu de la porte ou au-dessus de la poignée, et relief d’au moins 2 cm d’épaisseur) ?"
 msgstr ""
 
-msgid "Numéros de chambre en relief"
+msgid "Les numéros de chambres sont repérables et en relief"
 msgstr ""
 
-msgid "Numéros de chambre sans relief"
+msgid "Les numéros de chambres ne sont pas repérables et en relief"
 msgstr ""
 
 msgid "Equipement d'alerte adapté"
@@ -1851,10 +1842,10 @@ msgstr ""
 msgid "L'établissement dispose-t-il d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration&nbsp;?"
 msgstr ""
 
-msgid "Equipement d'alerte par flash lumineux ou vibration"
+msgid "L'établissement dispose d'un ou plusieurs équipements d'alerte par flash lumineux ou vibration"
 msgstr ""
 
-msgid "Pas d'équipement d'alerte par flash lumineux ou vibration"
+msgid "L'établissement ne dispose pas d'équipement d'alerte par flash lumineux ou vibration"
 msgstr ""
 
 msgid "Accompagnement spécifique"
@@ -1863,7 +1854,10 @@ msgstr ""
 msgid "Est-il proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant&nbsp;?"
 msgstr ""
 
-msgid "Pas de possibilité d'accompagnement personnalisé pour présenter la chambre"
+msgid "Il est proposé un accompagnement personnalisé pour présenter la chambre à un client en situation de handicap, notamment aveugle ou malvoyant"
+msgstr ""
+
+msgid "Aucun accompagnement personnalisé pour présenter la chambre à un client en situation de handicap n'est proposé"
 msgstr ""
 
 msgid "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
@@ -1881,7 +1875,7 @@ msgstr ""
 msgid "L'établissement propose l'audiodescription"
 msgstr ""
 
-msgid "Pas d'audiodescription"
+msgid "L'établissement ne propose pas l’audiodescription"
 msgstr ""
 
 msgid "Type d'équipements pour l'audiodescription"
@@ -1896,10 +1890,10 @@ msgstr ""
 msgid "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
 msgstr ""
 
-msgid "Présence d'équipement d'aide à l'audition"
+msgid "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
 msgstr ""
 
-msgid "Pas d'équipement d'aide à l'audition"
+msgid "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
 msgstr ""
 
 msgid "Liste des équipements d'aide à l'audition et à la communication"
@@ -1917,7 +1911,7 @@ msgstr ""
 msgid "Des sanitaires sont mis à disposition dans l'établissement"
 msgstr ""
 
-msgid "Absence de toilettes"
+msgid "Pas de sanitaires mis à disposition dans l'établissement"
 msgstr ""
 
 msgid "Sanitaires adaptés"
@@ -1969,7 +1963,7 @@ msgstr ""
 msgid "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
 msgstr ""
 
-msgid "Déclaré conforme à la réglementation"
+msgid "L'établissement a été déclaré conforme à la réglementation"
 msgstr ""
 
 msgid "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration"
@@ -2049,6 +2043,9 @@ msgid "Chemin rendu accessible (%s)"
 msgstr ""
 
 msgid "Difficulté sur le chemin d'accès"
+msgstr ""
+
+msgid "Entrée de plain pied"
 msgstr ""
 
 msgid "Entrée de plain pied mais étroite"
@@ -3442,98 +3439,6 @@ msgid "Chargé de déploiement"
 msgstr ""
 
 msgid "Coach Startup d'État"
-msgstr ""
-
-msgid "Hébergement"
-msgstr ""
-
-msgid "Au moins une chambre accessible à une personne en fauteuil roulant"
-msgstr ""
-
-#, python-format
-msgid "%(nb)s chambres accessibles à une personne en fauteuil roulant"
-msgstr ""
-
-#, python-format
-msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
-msgstr ""
-
-#, python-format
-msgid "Toilettes %(espace)s et %(appui)s"
-msgstr ""
-
-#, python-format
-msgid "Porte %(type)s %(manoeuvre)s"
-msgstr ""
-
-#, python-format
-msgid "Porte %(type)s"
-msgstr ""
-
-#, python-format
-msgid "Porte %(manoeuvre)s"
-msgstr ""
-
-msgid "pour atteindre l'entrée"
-msgstr ""
-
-msgid "Registre d'accessibilité et conformité"
-msgstr ""
-
-msgid "Registre disponible"
-msgstr ""
-
-msgid "Chemin vers l'entrée"
-msgstr ""
-
-msgid "sur le chemin"
-msgstr ""
-
-#, python-format
-msgid "Présence d'une pente %(difficulte)s de longueur %(longueur)s"
-msgstr ""
-
-#, python-format
-msgid "Présence d'une pente %(difficulte)s"
-msgstr ""
-
-#, python-format
-msgid "Présence d'une pente de longueur %(longueur)s"
-msgstr ""
-
-#, python-format
-msgid "Dévers %(difficulty)s"
-msgstr ""
-
-msgid "Transport et stationnement"
-msgstr ""
-
-msgid "Accueil et équipement"
-msgstr ""
-
-msgid "pour atteindre l'accueil"
-msgstr ""
-
-#, python-format
-msgid "Présence de %(nb)s marches %(sens)s %(extra_context)s"
-msgstr ""
-
-#, python-format
-msgid "Présence de %(nb)s marches %(extra_context)s"
-msgstr ""
-
-#, python-format
-msgid "Présence de marches %(sens)s %(extra_context)s"
-msgstr ""
-
-#, python-format
-msgid "Présence de marches %(extra_context)s"
-msgstr ""
-
-#, python-format
-msgid ""
-"\n"
-"%(reperage_marches)s et %(main_courante)s\n"
 msgstr ""
 
 msgid "Ce bâtiment est labellisé Tourisme et handicap"
