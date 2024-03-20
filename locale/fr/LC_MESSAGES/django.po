@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-19 10:56+0100\n"
+"POT-Creation-Date: 2024-03-18 11:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3502,7 +3502,7 @@ msgid "Présence d'une pente de longueur %(longueur)s"
 msgstr ""
 
 #, python-format
-msgid "Dévers %(difficulty)s </li>"
+msgid "Dévers %(difficulty)s"
 msgstr ""
 
 msgid "Transport et stationnement"
@@ -3531,7 +3531,9 @@ msgid "Présence de marches %(extra_context)s"
 msgstr ""
 
 #, python-format
-msgid "%(reperage_marches)s et %(main_courante)s"
+msgid ""
+"\n"
+"%(reperage_marches)s et %(main_courante)s\n"
 msgstr ""
 
 msgid "Ce bâtiment est labellisé Tourisme et handicap"

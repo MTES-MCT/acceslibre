@@ -133,11 +133,9 @@ def negative_text(value):
 
 @register.simple_tag
 def access_text(value_name, access):
-    value = getattr(access, value_name)
-    if value is True:
+    if getattr(access, value_name):
         return schema.get_help_text_ui(value_name)
-    if value is False:
-        return schema.get_help_text_ui_neg(value_name)
+    return schema.get_help_text_ui_neg(value_name)
 
 
 @register.inclusion_tag("erp/includes/access_value.html")

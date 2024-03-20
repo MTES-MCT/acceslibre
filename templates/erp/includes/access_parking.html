@@ -1,34 +1,32 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h4 class="pt-2 h4 hide-if-empty">
+<h4 class="pt-2 h4">
     <i aria-hidden="true" class="icon icon-bus mr-1 larger-font"></i>{% translate "Transport et stationnement" %}
 </h4>
-{% spaceless %}
-    <ul>
-        {% if access.transport_station_presence %}
-            <li>
-                {{ "transport_station_presence"|positive_text }}
-                {% if access.transport_information %}: {{ access.transport_information }}{% endif %}
-            </li>
+<ul>
+    {% if access.transport_station_presence %}
+        <li>
+            {{ "transport_station_presence"|positive_text }}
+            {% if access.transport_information %}: {{ access.transport_information }}{% endif %}
+        </li>
+    {% endif %}
+    {% if access.stationnement_presence %}
+        {% if access.stationnement_pmr %}
+            <li>{{ "stationnement_pmr"|positive_text }}</li>
+        {% else %}
+            <li>{{ "stationnement_presence"|positive_text }}</li>
         {% endif %}
-        {% if access.stationnement_presence %}
-            {% if access.stationnement_pmr %}
-                <li>{{ "stationnement_pmr"|positive_text }}</li>
-            {% else %}
-                <li>{{ "stationnement_presence"|positive_text }}</li>
-            {% endif %}
-        {% elif access.stationnement_presence is False %}
-            <li>{{ "stationnement_presence"|negative_text }}</li>
+    {% else %}
+        <li>{{ "stationnement_presence"|negative_text }}</li>
+    {% endif %}
+    {% if access.stationnement_ext_presence %}
+        {% if access.stationnement_ext_pmr %}
+            <li>{{ "stationnement_ext_pmr"|positive_text }}</li>
+        {% else %}
+            <li>{{ "stationnement_ext_presence"|positive_text }}</li>
         {% endif %}
-        {% if access.stationnement_ext_presence %}
-            {% if access.stationnement_ext_pmr %}
-                <li>{{ "stationnement_ext_pmr"|positive_text }}</li>
-            {% else %}
-                <li>{{ "stationnement_ext_presence"|positive_text }}</li>
-            {% endif %}
-        {% elif stationnement_ext_presence is False %}
-            <li>{{ "stationnement_ext_presence"|negative_text }}</li>
-        {% endif %}
-    </ul>
-{% endspaceless %}
+    {% else %}
+        <li>{{ "stationnement_ext_presence"|negative_text }}</li>
+    {% endif %}
+</ul>
