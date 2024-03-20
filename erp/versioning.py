@@ -72,3 +72,15 @@ def get_recent_contribs_qs(hours, now=None):
         .filter(revision__date_created__gt=now - timedelta(hours=hours))
         .prefetch_related("object")
     )
+
+
+def get_previous_version(version):
+    return (
+        Version.objects.filter(
+            revision__date_created__lt=version.revision.date_created,
+            content_type_id=version.content_type_id,
+            object_id=version.object_id,
+        )
+        .order_by("-revision__date_created")
+        .first()
+    )

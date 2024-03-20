@@ -1,0 +1,121 @@
+{% extends "editorial/base.html" %}
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+{% block page_title %}
+    {{ challenge }}
+{% endblock page_title %}
+{% block editorial_content %}
+    <p>
+        <a href="{% url 'challenges' %}">« {% translate "Retour aux challenges" %}</a>
+    </p>
+    <h1 class="text-center">{{ challenge }}</h1>
+    <h2 class="text-center py-4">
+        {{ challenge.accroche }}
+        <br>
+        <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small>
+        <br>
+        {% if challenge.text_reserve %}<small class="text-muted">{{ challenge.text_reserve }}</small>{% endif %}
+    </h2>
+    {% if challenge.has_open_inscription and request.user not in challenge.players.all %}
+        <div class="row">
+            <div class="col-8 offset-2">
+                <a class="btn-block btn btn-outline-primary"
+                   href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
+            </div>
+        </div>
+    {% endif %}
+    {% if challenge.objectif %}<p>{{ challenge.objectif | safe }}</p>{% endif %}
+    <section class="row justify-content-center mt-4">
+        <h3 class="fr-h1">
+            <strong>{{ total_contributions }}
+                {% if total_contributions > 1 %}
+                    {% translate "informations d'accessibilité ajoutées" %}
+                {% else %}
+                    {% translate "information d'accessibilité ajoutée" %}
+                {% endif %}
+            </strong>
+        </h3>
+    </section>
+    <div class="row justify-content-center">
+        <img src="{% static 'img/hands-challenge.png' %}"
+             alt="{% translate "Merci" %}" />
+    </div>
+    <section class="row justify-content-center mt-4">
+        <div>
+            {% if today < start_date %}
+                <div class="alert alert-info">{% translate "Le concours n'a pas encore démarré" %}</div>
+            {% elif today > stop_date %}
+                <div class="alert alert-info">{% translate "Le concours est terminé" %}</div>
+            {% elif not top_contribs %}
+                <div class="alert alert-info">
+                    {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété d'établissement." %}
+                </div>
+            {% endif %}
+            <ul class="list-group" style="min-width:320px">
+                <li class="list-group-item font-weight-bold" style="font-size:1.2em">
+                    <span class="badge badge-primary badge-pill">1</span>
+                    {% if top_contribs.0 %}
+                        {{ top_contribs.0.username }}
+                        <br>
+                        <small class="text-muted">
+                            {{ top_contribs.0.nb_access_info_changed }}
+                            {% if top_contribs.0.nb_access_info_changed > 1 %}
+                                {% translate "informations d'accessibilité renseignées" %}
+                            {% else %}
+                                {% translate "information d'accessibilité renseignée" %}
+                            {% endif %}
+                        </small>
+                    {% else %}
+                        ???
+                    {% endif %}
+                </li>
+                <li class="list-group-item" style="font-size:1.1em">
+                    <span class="badge badge-primary badge-pill">2</span>
+                    {% if top_contribs.1 %}
+                        {{ top_contribs.1.username }}
+                        <br>
+                        <small class="text-muted">
+                            {{ top_contribs.1.nb_access_info_changed }}
+                            {% if top_contribs.1.nb_access_info_changed > 1 %}
+                                {% translate "informations d'accessibilité renseignées" %}
+                            {% else %}
+                                {% translate "information d'accessibilité renseignée" %}
+                            {% endif %}
+                        </small>
+                    {% else %}
+                        ???
+                    {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <span class="badge badge-primary badge-pill">3</span>
+                    {% if top_contribs.2 %}
+                        {{ top_contribs.2.username }}
+                        <br>
+                        <small class="text-muted">
+                            {{ top_contribs.2.nb_access_info_changed }}
+                            {% if top_contribs.2.nb_access_info_changed > 1 %}
+                                {% translate "informations d'accessibilité renseignées" %}
+                            {% else %}
+                                {% translate "information d'accessibilité renseignée" %}
+                            {% endif %}
+                        </small>
+                    {% else %}
+                        ???
+                    {% endif %}
+                </li>
+            </ul>
+            <h3 class="mt-5 mb-3">{% translate "Classement général" %}</h3>
+            {% if not top_contribs %}
+                <div class="alert alert-info">
+                    {% translate "Aucun participant n'a ajouté ou complété d'établissement pour le moment" %}
+                </div>
+            {% endif %}
+            <ol>
+                {% for top_contrib in top_contribs %}
+                    <li>{{ top_contrib.username }} ({{ top_contrib.nb_access_info_changed }})</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+{% endblock editorial_content %}

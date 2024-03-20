@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as translate
 
-from stats.queries import get_count_challenge, get_erp_counts_histogram, get_top_contributors
+from stats.queries import get_challenge_scores, get_erp_counts_histogram, get_top_contributors
 
 
 class GlobalStats(models.Model):
@@ -73,25 +73,22 @@ class Challenge(models.Model):
     def has_open_inscription(self):
         return timezone.now() < self.end_date and timezone.now() >= self.start_date
 
+    @property
+    def version(self):
+        # NOTE: naive versionning, v1 challenges are intended to be deprecated soon, just here to manage a distinct display
+        return "v2" if self.end_date.year >= 2024 else "v1"
+
     def refresh_stats(self):
-        if self.nom == "Challenge DDT":
-            return  # do not update this challenge
+        players_ids = list(set(self.players.all().values_list("id", flat=True)))
 
-        if self.nom == "Challenge de l’été beta.gouv":
-            emails_players_list = (
-                get_user_model().objects.filter(email__contains="@beta.gouv.fr").values_list("email", flat=True)
-            )
-        elif self.pk == 3:  # Challenge Semaine du handicap à Antony
-            emails_players_list = (
-                get_user_model().objects.filter(email__contains="@ville-antony.fr").values_list("email", flat=True)
-            )
-        else:
-            emails_players_list = self.players.all().values_list("email", flat=True)
-
-        classement, self.nb_erp_total_added = get_count_challenge(self.start_date, self.end_date, emails_players_list)
+        scores_per_user_id = get_challenge_scores(self.start_date, self.end_date, players_ids)
+        users = get_user_model().objects.filter(pk__in=players_ids).only("username")
+        usernames_by_user_id = {user.pk: user.username for user in users}
         self.classement = [
-            {"username": user.username, "erp_count_published": user.erp_count_published} for user in classement
+            {"username": usernames_by_user_id.get(user_id), "nb_access_info_changed": max(score, 0)}
+            for user_id, score in scores_per_user_id
         ]
+        self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
         self.save()
 
 
