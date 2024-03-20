@@ -670,9 +670,9 @@ class Erp(models.Model):
     )
     permanently_closed = models.BooleanField(
         default=False,
-        verbose_name=translate_lazy("Définitivement clôt"),
+        verbose_name=translate_lazy("Définitivement clos"),
         help_text=translate_lazy(
-            "Statut de fermeture de cet ERP: si la case est cochée, l'ERP est définitivement clôt et ne peut pas être inséré à nouveau."
+            "Statut de fermeture de cet ERP: si la case est cochée, l'ERP est définitivement clos et ne peut pas être inséré à nouveau."
         ),
     )
 

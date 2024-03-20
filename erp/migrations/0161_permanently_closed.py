@@ -14,8 +14,8 @@ class Migration(migrations.Migration):
             name="permanently_closed",
             field=models.BooleanField(
                 default=False,
-                help_text="Statut de fermeture de cet ERP: si la case est cochée, l'ERP est définitivement clôt et ne peut pas être inséré à nouveau.",
-                verbose_name="Définitivement clôt",
+                help_text="Statut de fermeture de cet ERP: si la case est cochée, l'ERP est définitivement clos et ne peut pas être inséré à nouveau.",
+                verbose_name="Définitivement clos",
             ),
         ),
     ]
