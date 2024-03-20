@@ -499,6 +499,7 @@ class Erp(models.Model):
     asp_id = models.CharField(
         max_length=255,
         null=True,
+        blank=True,
         verbose_name=translate_lazy("ASP ID"),
         help_text=translate_lazy("Identifiant de l'ERP dans la base Service Public"),
     )
