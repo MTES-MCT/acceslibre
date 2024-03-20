@@ -166,6 +166,7 @@ Paramètres de lancement du script :
                                                 template="erp_imported",
                                                 context={"erp_url": new_erp.get_absolute_uri()},
                                             )
+                                            print_success("\t   ** Mail envoyé")
                                     except Exception as e:
                                         print_error(
                                             f"Une erreur est survenue lors de l'import de la ligne {_}: {e}. Passage à la ligne suivante."
