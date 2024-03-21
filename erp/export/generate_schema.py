@@ -1,3 +1,4 @@
+import json
 from typing import Any
 
 from frictionless import Field, Schema
@@ -131,5 +132,5 @@ def generate_example_text(field):
     if field.get("type") == "string" and not enum:
         return ""
     if enum:
-        return str([value for value, _ in enum])
+        return json.dumps([value for value, _ in enum if value is not None])
     return ""
