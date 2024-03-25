@@ -6,7 +6,7 @@
   "keywords": ["accessibilite", "access", "a11y"],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.15/schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -18,7 +18,7 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.15/exemple-valide.csv"
     },
     {
       "title": "Schéma au format XLS",
@@ -28,8 +28,8 @@
   ],
   "sources": [],
   "created": "2021-03-10",
-  "lastModified": "2022-04-11",
-  "version": "0.0.10",
+  "lastModified": "2024-03-21",
+  "version": "0.0.15",
   "contributors": [
     {
       "title": "Christophe Vanfrackem",
@@ -52,6 +52,12 @@
     {
       "title": "Marie-Laure Vernay",
       "email": "marielaure.vernay@beta.gouv.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    },
+    {
+      "title": "Antonin Morel",
+      "email": "antonin.morel@beta.gouv.fr",
       "organisation": "MTES-MCT",
       "role": "author"
     }
@@ -174,7 +180,7 @@
           "Achat or",
           "Achat, vente, réparation de matériel informatique et téléphonique",
           "Administration publique",
-          "Aéroport",
+          "Aéroport, aérodrome",
           "Agence départementale d'information sur le logement",
           "Agence de publicité",
           "Agence de travail temporaire",
@@ -215,6 +221,7 @@
           "Bazar",
           "Bibliothèque médiathèque",
           "Bien-être",
+          "Bijouterie fantaisie",
           "Bijouterie joaillerie",
           "Biscuiterie",
           "Blanchisserie teinturerie",
@@ -255,8 +262,8 @@
           "Centre social",
           "Chambre agriculture",
           "Chambre de commerce et d'industrie",
+          "Chambre d'hôtes, gîte, pension, meublé de tourisme",
           "Chambre metier",
-          "Chambres d'hôtes, gîte, pension",
           "Chapeaux et couvre-chefs",
           "Charcuterie",
           "Château",
@@ -270,6 +277,7 @@
           "Cinéma",
           "Circuit sportif deux roues / voiture",
           "Clinique",
+          "Club de sport",
           "Coiffure",
           "Collectivité territoriale",
           "Collège",
@@ -290,7 +298,6 @@
           "Coworking",
           "Crèche",
           "Crèmerie Fromagerie",
-          "Cure thermale",
           "Cycle vente et entretien",
           "Cyclisme",
           "Déchetterie",
@@ -313,6 +320,7 @@
           "Emploi, formation",
           "Encadreur enlumineur",
           "Endocrinologue",
+          "Entretien de piscine",
           "Épicerie",
           "Epicerie fine",
           "Équipements du foyer",
@@ -325,6 +333,7 @@
           "Établissement de santé",
           "Établissement militaire",
           "Etablissement pénitentiaire",
+          "Établissement thermal",
           "Evénement culturel",
           "Fédération départementale pour la pêche et la protection du milieu aquatique",
           "Ferme",
@@ -334,9 +343,9 @@
           "Galerie d'art",
           "Garage automobile",
           "Garderie",
-          "Gare avec desserte train à grande vitesse (TAGV)",
           "Gare routière",
-          "Gare sans desserte train à grande vitesse (TAGV)",
+          "Gare sncf",
+          "Gare tgv",
           "Gastro-entérologie hépatologie",
           "Gendarmerie",
           "Géomètre",
@@ -345,6 +354,7 @@
           "Guichet france services",
           "Gymnase",
           "Gynécologie",
+          "Hébergement insolite",
           "Hématologie",
           "Herboristerie naturopathie",
           "Hôpital",
@@ -376,6 +386,7 @@
           "Literie",
           "Location articles loisirs et sport",
           "Location de matériels",
+          "Location saisonnière",
           "Location véhicules",
           "Loisirs créatifs",
           "Luminaire",
@@ -408,6 +419,7 @@
           "Neurologie",
           "Notaire",
           "Numérique",
+          "Oenotourisme",
           "Office du tourisme",
           "Opéra",
           "Ophtalmologie",
@@ -425,7 +437,7 @@
           "Parc",
           "Parc d’attraction",
           "Parc des expositions",
-          "Parfumerie beauté",
+          "Parfumerie, cosmétique",
           "Parking & stationnement",
           "Patinoire",
           "Pédiatrie",
@@ -461,6 +473,7 @@
           "Refuge animalier",
           "Rempailleur tapissier chaises fauteuils",
           "Réparation auto et de matériel agricole",
+          "Résidence de tourisme",
           "Résidence, foyer",
           "Ressourcerie",
           "Restaurant",
@@ -474,12 +487,12 @@
           "Salle de concert",
           "Salle de danse",
           "Salle de jeux",
-          "Salle de réception",
+          "Salle de remise en forme",
+          "Salle de réunion ou réception",
           "Salle des fêtes",
           "Salle de spectacle",
           "Salle multisports",
           "Salle non spécialisée",
-          "Salles de remise en forme",
           "Salle spécialisée",
           "Salon de thé",
           "Sécurité sociale, mutuelle santé",
@@ -487,7 +500,7 @@
           "Services techniques",
           "Sex shop",
           "Skatepark",
-          "Soins de beauté",
+          "Soins de beauté, esthétique",
           "Sophrologue",
           "Spa",
           "Sports et loisirs",
@@ -508,6 +521,7 @@
           "Textile hors habillement",
           "Thalassothérapie",
           "Théâtre",
+          "Tiers lieu",
           "Toilettes publiques",
           "Toiletteur",
           "Traiteur",
@@ -523,7 +537,8 @@
           "Vente de matériel médical",
           "Vente de matériel pour piscine",
           "Vêtements",
-          "Vétérinaire"
+          "Vétérinaire",
+          "Village de vacances"
         ]
       },
       "example": ""
@@ -853,7 +868,7 @@
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "['montant', 'descendant', None]"
+      "example": "[\"montant\", \"descendant\"]"
     },
     {
       "name": "cheminement_ext_main_courante",
@@ -894,7 +909,7 @@
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "['aucune', 'fixe', 'amovible', None]"
+      "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
     {
       "name": "cheminement_ext_pente_presence",
@@ -935,7 +950,7 @@
       "constraints": {
         "enum": ["légère", "importante"]
       },
-      "example": "['légère', 'importante', None]"
+      "example": "[\"l\\u00e9g\\u00e8re\", \"importante\"]"
     },
     {
       "name": "cheminement_ext_pente_longueur",
@@ -945,7 +960,7 @@
       "constraints": {
         "enum": ["courte", "moyenne", "longue"]
       },
-      "example": "['courte', 'moyenne', 'longue', None]"
+      "example": "[\"courte\", \"moyenne\", \"longue\"]"
     },
     {
       "name": "cheminement_ext_devers",
@@ -955,7 +970,7 @@
       "constraints": {
         "enum": ["aucun", "léger", "important"]
       },
-      "example": "['aucun', 'léger', 'important', None]"
+      "example": "[\"aucun\", \"l\\u00e9ger\", \"important\"]"
     },
     {
       "name": "cheminement_ext_bande_guidage",
@@ -1251,7 +1266,7 @@
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "['aucune', 'fixe', 'amovible', None]"
+      "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
     {
       "name": "entree_marches_sens",
@@ -1261,7 +1276,7 @@
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "['montant', 'descendant', None]"
+      "example": "[\"montant\", \"descendant\"]"
     },
     {
       "name": "entree_dispositif_appel",
@@ -1303,7 +1318,7 @@
         "type": "string",
         "enum": ["bouton", "interphone", "visiophone"]
       },
-      "example": "['bouton', 'interphone', 'visiophone']"
+      "example": "[\"bouton\", \"interphone\", \"visiophone\"]"
     },
     {
       "name": "entree_balise_sonore",
@@ -1444,7 +1459,7 @@
       "constraints": {
         "enum": ["battante", "coulissante", "tourniquet", "tambour"]
       },
-      "example": "['battante', 'coulissante', 'tourniquet', 'tambour', None]"
+      "example": "[\"battante\", \"coulissante\", \"tourniquet\", \"tambour\"]"
     },
     {
       "name": "entree_porte_type",
@@ -1454,7 +1469,7 @@
       "constraints": {
         "enum": ["manuelle", "automatique"]
       },
-      "example": "['manuelle', 'automatique', None]"
+      "example": "[\"manuelle\", \"automatique\"]"
     },
     {
       "name": "accueil_visibilite",
@@ -1495,7 +1510,7 @@
       "constraints": {
         "enum": ["aucun", "formés", "non-formés"]
       },
-      "example": "['aucun', 'formés', 'non-formés', None]"
+      "example": "[\"aucun\", \"form\\u00e9s\", \"non-form\\u00e9s\"]"
     },
     {
       "name": "accueil_audiodescription_presence",
@@ -1542,7 +1557,7 @@
           "sans_équipement"
         ]
       },
-      "example": "['avec_équipement_permanent', 'avec_app', 'avec_équipement_occasionnel', 'sans_équipement']"
+      "example": "[\"avec_\\u00e9quipement_permanent\", \"avec_app\", \"avec_\\u00e9quipement_occasionnel\", \"sans_\\u00e9quipement\"]"
     },
     {
       "name": "accueil_equipements_malentendants_presence",
@@ -1584,7 +1599,7 @@
         "type": "string",
         "enum": ["bim", "bmp", "lsf", "lpc", "sts", "autres"]
       },
-      "example": "['bim', 'bmp', 'lsf', 'lpc', 'sts', 'autres']"
+      "example": "[\"bim\", \"bmp\", \"lsf\", \"lpc\", \"sts\", \"autres\"]"
     },
     {
       "name": "accueil_cheminement_plain_pied",
@@ -1725,7 +1740,7 @@
       "constraints": {
         "enum": ["aucune", "fixe", "amovible"]
       },
-      "example": "['aucune', 'fixe', 'amovible', None]"
+      "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
     {
       "name": "accueil_cheminement_sens_marches",
@@ -1735,7 +1750,7 @@
       "constraints": {
         "enum": ["montant", "descendant"]
       },
-      "example": "['montant', 'descendant', None]"
+      "example": "[\"montant\", \"descendant\"]"
     },
     {
       "name": "accueil_chambre_nombre_accessibles",
@@ -2094,7 +2109,7 @@
         "type": "string",
         "enum": ["autre", "dpt", "mobalib", "th", "handiplage"]
       },
-      "example": "['autre', 'dpt', 'mobalib', 'th', 'handiplage']"
+      "example": "[\"autre\", \"dpt\", \"mobalib\", \"th\", \"handiplage\"]"
     },
     {
       "name": "labels_familles_handicap",
@@ -2105,7 +2120,7 @@
         "type": "string",
         "enum": ["auditif", "mental", "moteur", "visuel"]
       },
-      "example": "['auditif', 'mental', 'moteur', 'visuel']"
+      "example": "[\"auditif\", \"mental\", \"moteur\", \"visuel\"]"
     },
     {
       "name": "registre_url",

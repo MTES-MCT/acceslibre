@@ -22,9 +22,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         base = options.get("base-file", self.default_dir + "/base-schema.json")
         outfile = options.get("out-file", self.default_dir + "/schema.json")
-        repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/"
+        repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.15/"
         try:
             generate_schema(base=base, outfile=outfile, repository=repository)
             print(f"Schema generated to: {outfile}")
+
         except KeyboardInterrupt:
             raise CommandError("Interrompu.")
