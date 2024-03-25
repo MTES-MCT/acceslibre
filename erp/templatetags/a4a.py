@@ -12,6 +12,7 @@ from django.utils.translation import gettext as translate
 
 from erp import forms, schema, serializers
 from erp.models import Erp
+from erp.schema import FIELDS
 
 register = template.Library()
 
@@ -119,6 +120,46 @@ def format_username(value):
 @register.filter(name="get_field_label")
 def get_field_label(value):
     return schema.get_label(value) or forms.get_label(value)
+
+
+@register.filter(name="positive_text")
+def positive_text(value):
+    try:
+        field = FIELDS[value]
+    except KeyError:
+        return None
+    if field.get("help_text_ui_v2"):
+        return field.get("help_text_ui_v2")
+    if field.get("help_text_ui"):
+        return field.get("help_text_ui")
+    return None
+
+
+@register.filter(name="negative_text")
+def negative_text(value):
+    try:
+        field = FIELDS[value]
+    except KeyError:
+        return None
+    if field.get("help_text_ui_neg_v2"):
+        return field.get("help_text_ui_neg_v2")
+    if field.get("help_text_ui_neg"):
+        return field.get("help_text_ui_neg")
+    return None
+
+
+@register.simple_tag
+def access_text(value_name, access):
+    value = getattr(access, value_name)
+    if value is True:
+        return positive_text(value_name)
+    if value is False:
+        return negative_text(value_name)
+
+
+@register.inclusion_tag("erp/includes/access_value.html")
+def render_access_value(value_name, access):
+    return {"value_name": value_name, "access": access, "value": getattr(access, value_name)}
 
 
 @register.simple_tag

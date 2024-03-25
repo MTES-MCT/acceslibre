@@ -908,3 +908,9 @@ div.equipments-selected
 .team .fr-card {
   min-height: 10rem;
 }
+
+.remove-title-if-empty {
+  h4:has(+ ul:empty) {
+    display: none;
+  }
+}

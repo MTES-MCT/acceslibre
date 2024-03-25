@@ -1,0 +1,49 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+<h4 class="pt-2 h4">
+    <i aria-hidden="true" class="icon icon-users mr-1 larger-font"></i>{% translate "Accueil et équipement" %}
+</h4>
+{% spaceless %}
+    <ul>
+        {% render_access_value "accueil_visibilite" access %}
+        {% if access.accueil_cheminement_plain_pied %}
+            <li>{{ "accueil_cheminement_plain_pied"|positive_text }}</li>
+        {% elif access.accueil_cheminement_plain_pied is False %}
+            {% translate "pour atteindre l'accueil" as extra_context %}
+            <li>
+                {% include "erp/includes/access_stairs.html" with steps_direction=access.accueil_cheminement_sens_marches nb_steps=access.accueil_cheminement_nombre_marches extra_context=extra_context %}
+            </li>
+        {% endif %}
+        <li>
+            {% include "erp/includes/access_steps.html" with main_courante_data=access.accueil_cheminement_main_courante reperage=access.accueil_cheminement_reperage_marches %}
+        </li>
+        {% render_access_value "accueil_cheminement_rampe" access %}
+        {% if access.accueil_cheminement_ascenseur %}<li>{{ "accueil_cheminement_ascenseur"|positive_text }}</li>{% endif %}
+        {% render_access_value "accueil_retrecissement" access %}
+        {% if access.accueil_personnels %}<li>{{ access.get_accueil_personnels_display }}</li>{% endif %}
+        {% if access.accueil_audiodescription %}
+            <li>{{ access.get_accueil_audiodescription_display }}</li>
+        {% elif access.accueil_audiodescription is False %}
+            <li>{{ "accueil_audiodescription_presence"|negative_text }}</li>
+        {% endif %}
+        {% if access.accueil_equipements_malentendants_presence %}
+            {% if access.accueil_equipements_malentendants %}
+                {% for equipment in access.accueil_equipements_malentendants %}<li>{{ equipment|title }}</li>{% endfor %}
+            {% else %}
+                <li>{{ "accueil_equipements_malentendants_presence"|positive_text }}</li>
+            {% endif %}
+        {% elif access.accueil_equipements_malentendants_presence is False %}
+            <li>{{ "accueil_equipements_malentendants_presence"|negative_text }}</li>
+        {% endif %}
+        {% if access.sanitaires_presence %}
+            {% if access.sanitaires_adaptes %}
+                <li>{% translate "Toilettes PMR" %}</li>
+            {% else %}
+                <li>{% translate "Toilettes classiques" %}</li>
+            {% endif %}
+        {% elif access.sanitaires_presence is False %}
+            <li>{{ "sanitaires_presence"|negative_text }}</li>
+        {% endif %}
+    </ul>
+{% endspaceless %}
