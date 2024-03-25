@@ -2614,11 +2614,12 @@
         },
         "pytest-mock": {
             "hashes": [
-                "sha256:0972719a7263072da3a21c7f4773069bcc7486027d7e8e1f81d98a47e701bc4f",
-                "sha256:31a40f038c22cad32287bb43932054451ff5583ff094bca6f675df2f8bc1a6e9"
+                "sha256:0b72c38033392a5f4621342fe11e9219ac11ec9d375f8e2a0c164539e0d70f6f",
+                "sha256:2719255a1efeceadbc056d6bf3df3d1c5015530fb40cf347c0f9afac88410bd0"
             ],
             "index": "pypi",
-            "version": "==3.12.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==3.14.0"
         },
         "pytest-xdist": {
             "hashes": [
