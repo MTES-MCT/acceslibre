@@ -149,7 +149,7 @@ def challenge_detail(request, challenge_slug=None):
     today = datetime.datetime.today()
     return render(
         request,
-        "challenge/detail.html",
+        f"challenge/detail_{challenge.version}.html",
         context={
             "challenge": challenge,
             "start_date": challenge.start_date,

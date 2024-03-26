@@ -1,8 +1,14 @@
+import json
+from collections import defaultdict
+
 from django.contrib.auth import get_user_model
 from django.db.models import Count, Q
+from reversion.models import ContentType, Version
 
 from core.lib import sql
-from erp.models import Erp
+from erp import schema
+from erp.models import Accessibilite, Erp
+from erp.versioning import get_previous_version
 
 
 def get_erp_counts_histogram():
@@ -46,18 +52,43 @@ def get_top_contributors():
     )
 
 
-def get_count_challenge(start_date, stop_date, emails_players_list):
-    filters = Q(
-        erp__published=True,
-        erp__user__email__in=emails_players_list,
-        erp__created_at__gte=start_date,
-        erp__created_at__lt=stop_date,
+def _get_nb_filled_in_info(access_fields):
+    fields_to_count = set(schema.get_a11y_fields()) - set(schema.get_free_text_fields())
+    values = [access_fields.get(f) for f in fields_to_count]
+    return len([value for value in values if value not in [None, "", []]])
+
+
+def _get_score(version, previous=None):
+    current_access_fields = json.loads(version.serialized_data)[0]["fields"]
+    score_current = _get_nb_filled_in_info(current_access_fields)
+    score_previous = 0
+    if previous:
+        previous_access_fields = json.loads(previous.serialized_data)[0]["fields"]
+        score_previous = _get_nb_filled_in_info(previous_access_fields)
+
+    return score_current - score_previous
+
+
+def get_challenge_scores(start_date, stop_date, player_ids):
+
+    access_content_type = ContentType.objects.get_for_model(Accessibilite)
+
+    scores_per_user_id = defaultdict(int)
+    versions = (
+        Version.objects.select_related("revision")
+        .filter(
+            content_type_id=access_content_type,
+            revision__date_created__gte=start_date,
+            revision__date_created__lt=stop_date,
+            revision__user_id__in=player_ids,
+        )
+        .order_by("revision__date_created")
     )
-    challengers = get_user_model().objects.filter(email__in=emails_players_list)
-    top_contribs = (
-        challengers.annotate(erp_count_published=Count("erp", filter=filters, distinct=True))
-        .filter(erp_count_published__gt=0)
-        .order_by("-erp_count_published")
-    )
-    total_contributions = sum([c.erp_count_published for c in top_contribs])
-    return top_contribs, total_contributions
+    for version in versions:
+        user_id = version.revision.user_id
+        previous = get_previous_version(version)
+
+        scores_per_user_id[user_id] += _get_score(version, previous)
+
+    scores_per_user_id = sorted(scores_per_user_id.items(), key=lambda k_v: k_v[1], reverse=True)
+    return scores_per_user_id
