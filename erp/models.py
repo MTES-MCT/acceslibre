@@ -870,6 +870,9 @@ class Erp(models.Model):
         if editor and not self.user:
             self.user = editor
 
+        if self.permanently_closed:
+            self.published = False
+
         if self.pk:
             if self.__original_user_id is None:
                 if self.user:

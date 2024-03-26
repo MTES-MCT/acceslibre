@@ -35,10 +35,11 @@ class Command(BaseCommand):
             help="Check the ERPs which have not been checked in the last nb_days.",
         )
 
-    def _delete_erp(self, existing_erp):
-        print(f"Delete permanently closed ERP: {existing_erp}")
+    def _flag_erp_as_closed(self, existing_erp):
+        print(f"Flag permanently closed ERP: {existing_erp}")
         if self.write:
-            existing_erp.delete()
+            existing_erp.permanently_closed = True
+            existing_erp.save()
         else:
             print("Dry run mode, no DB action, use --write to apply this deletion")
 
@@ -61,7 +62,7 @@ class Command(BaseCommand):
 
             results = client.google_maps_search(query, limit=1, language="fr", region="FR", fields="business_status")[0]
             if results and results[0].get("business_status") == "CLOSED_PERMANENTLY":
-                self._delete_erp(erp)
+                self._flag_erp_as_closed(erp)
                 continue
 
             if self.write:

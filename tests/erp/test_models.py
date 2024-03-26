@@ -167,6 +167,13 @@ class TestErp:
         assert access.accueil_chambre_numero_visible is None, "should wipe conditional questions' answers"
         assert erp.activite.nom == "Accessoires"
 
+        assert erp.published
+        erp.permanently_closed = True
+        erp.save()
+
+        erp.refresh_from_db()
+        assert erp.published is False, "ERP should have been unpublished as it is flagged permanently closed"
+
 
 @pytest.mark.usefixtures("data")
 class TestActivitySuggestion:
