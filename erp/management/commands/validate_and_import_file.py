@@ -158,6 +158,7 @@ Paramètres de lancement du script :
                                     try:
                                         with reversion.create_revision():
                                             new_erp = validated_erp_data.save()
+                                            print_success(f"\t    -> {new_erp.get_absolute_uri()}")
                                             reversion.set_comment("Created via import")
 
                                         if self.send_emails and new_erp.import_email:

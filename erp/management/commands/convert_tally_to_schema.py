@@ -8,16 +8,17 @@ from erp.models import Erp
 from erp.provider.geocoder import geocode
 
 with_activity = True
-with_comment = True
+with_comment = False
+with_siret = False
 
 # 3 kinds of templates : basic, hosting, culture
 with_room_accessible = False
 with_culture = True
 
 to_ignore_headers = [
-    # "Submission ID",
-    # "Respondent ID",
-    # "Submitted at",
+    "Submission ID",
+    "Respondent ID",
+    "Submitted at",
     "Votre établissement :",
 ]
 
@@ -242,6 +243,10 @@ if with_comment:
 if with_activity:
     basic_mapped_headers |= {
         "Quelle est l'activité de votre établissement ?": "activite",
+    }
+if with_siret:
+    basic_mapped_headers |= {
+        "Votre Siret (facultatif)": "siret",
     }
 
 
