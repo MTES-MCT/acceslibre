@@ -1694,3 +1694,12 @@ class Accessibilite(models.Model):
 
     def has_camber(self):
         return self.cheminement_ext_devers and self.cheminement_ext_devers != schema.DEVERS_AUCUN
+
+    def has_ramp_exterior_path(self):
+        return self.cheminement_ext_rampe and self.cheminement_ext_rampe != schema.RAMPE_AUCUNE
+
+    def has_ramp_entry(self):
+        return self.entree_marches_rampe and self.entree_marches_rampe != schema.RAMPE_AUCUNE
+
+    def has_ramp_reception(self):
+        return self.accueil_cheminement_rampe and self.accueil_cheminement_rampe != schema.RAMPE_AUCUNE

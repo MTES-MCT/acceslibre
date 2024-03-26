@@ -15,10 +15,12 @@
                 {% include "erp/includes/access_stairs.html" with steps_direction=access.accueil_cheminement_sens_marches nb_steps=access.accueil_cheminement_nombre_marches extra_context=extra_context %}
             </li>
         {% endif %}
-        <li>
-            {% include "erp/includes/access_steps.html" with main_courante_data=access.accueil_cheminement_main_courante reperage=access.accueil_cheminement_reperage_marches %}
-        </li>
-        {% render_access_value "accueil_cheminement_rampe" access %}
+        {% include "erp/includes/access_steps.html" with main_courante_data=access.accueil_cheminement_main_courante reperage=access.accueil_cheminement_reperage_marches %}
+        {% if access.has_ramp_reception %}
+            <li>{{ "accueil_cheminement_rampe"|positive_text }}</li>
+        {% else %}
+            <li>{{ "accueil_cheminement_rampe"|negative_text }}</li>
+        {% endif %}
         {% if access.accueil_cheminement_ascenseur %}<li>{{ "accueil_cheminement_ascenseur"|positive_text }}</li>{% endif %}
         {% render_access_value "accueil_retrecissement" access %}
         {% if access.accueil_personnels %}<li>{{ access.get_accueil_personnels_display }}</li>{% endif %}

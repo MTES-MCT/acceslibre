@@ -34,11 +34,15 @@
         {% endif %}
         {% if access.entree_largeur_mini >= 80 %}
             <li>{{ "entree_largeur_mini"|positive_text }}</li>
-        {% else %}
+        {% elif access.entree_largeur_mini < 80 %}
             <li>{{ "entree_largeur_mini"|negative_text }}</li>
         {% endif %}
         {% if access.entree_vitree %}
-            <li>{{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}</li>
+            {% if access.entree_vitree_vitrophanie is True %}
+                <li>{{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}</li>
+            {% else %}
+                <li>{{ "entree_vitree"|positive_text }}</li>
+            {% endif %}
         {% elif access.entree_vitree is False %}
             <li>{{ "entree_vitree"|negative_text }}</li>
         {% endif %}
@@ -50,10 +54,12 @@
                 {% include "erp/includes/access_stairs.html" with steps_direction=access.entree_marches_sens nb_steps=access.entree_marches %}
             </li>
         {% endif %}
-        <li>
-            {% include "erp/includes/access_steps.html" with main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
-        </li>
-        {% render_access_value "entree_marches_rampe" access %}
+        {% include "erp/includes/access_steps.html" with main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
+        {% if access.has_ramp_entry %}
+            <li>{{ "entree_marches_rampe"|positive_text }}</li>
+        {% else %}
+            <li>{{ "entree_marches_rampe"|negative_text }}</li>
+        {% endif %}
         {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
         {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
         {% if access.entree_dispositif_appel %}
@@ -68,7 +74,7 @@
                 {{ "entree_pmr"|positive_text }}
                 {% if access.entree_pmr_informations %}
                     <br />
-                    {{ entree_pmr_informations }}
+                    {{ access.entree_pmr_informations }}
                 {% endif %}
             </li>
         {% endif %}
