@@ -29,11 +29,15 @@ class NullBooleanField(serializers.Field):
 
 
 class DuplicatedExceptionErp(serializers.ValidationError):
+    default_detail = "Doublon avec un ERP en base"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs, code="duplicate")
 
 
 class PermanentlyClosedExceptionErp(serializers.ValidationError):
+    default_detail = "Doublon avec un ERP définitivement clôs"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs, code="permanently_closed")
 
