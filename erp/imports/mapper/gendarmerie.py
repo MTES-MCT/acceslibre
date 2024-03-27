@@ -5,6 +5,7 @@ from datetime import datetime
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 
+from erp.exceptions import PermanentlyClosedException
 from erp.imports.mapper.generic import GenericMapper
 from erp.models import Accessibilite, Erp
 
@@ -39,7 +40,12 @@ class GendarmerieMapper(GenericMapper):
 
         # already imported erps
         if not erp:
-            erp = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]).first()
+            erps = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"])
+            try:
+                self._ensure_not_permanently_closed(erps)
+            except PermanentlyClosedException:
+                return None, None
+            erp = erps.first()
 
         # new erp
         if not erp:

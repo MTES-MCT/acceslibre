@@ -400,10 +400,12 @@ class TestOutscraperCleaning:
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
 
         call_command("outscraper_clean_closed", nb_days=0, write=False)
-        assert Erp.objects.filter(nom="Le lard").count() == 1, "should not have deleted it, no write param"
+        assert (
+            Erp.objects.filter(nom="Le lard", published=True, permanently_closed=False).count() == 1
+        ), "should not have flag it, no write param"
 
         call_command("outscraper_clean_closed", nb_days=0, write=True)
-        assert Erp.objects.filter(nom="Le lard").count() == 0, "should have deleted it"
+        assert Erp.objects.filter(nom="Le lard", published=True).count() == 0, "should have glag & unpublish it"
 
     @pytest.mark.django_db
     def test_no_response(self, mocker):
