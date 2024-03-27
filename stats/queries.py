@@ -55,7 +55,7 @@ def get_top_contributors():
 def _get_nb_filled_in_info(access_fields):
     fields_to_count = set(schema.get_a11y_fields()) - set(schema.get_free_text_fields())
     values = [access_fields.get(f) for f in fields_to_count]
-    return len([value for value in values if value not in [None, "", []]])
+    return len([value for value in values if value not in [None, "", [], "[]"]])
 
 
 def _get_score(version, previous=None):
