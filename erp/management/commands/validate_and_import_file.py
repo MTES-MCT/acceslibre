@@ -136,6 +136,7 @@ Paramètres de lancement du script :
                 print_success(f"\t * Validation du fichier {self.input_file} ({total_line} ligne(s) détectée(s))")
                 self.results = {
                     "duplicated": {"count": 0, "msgs": []},
+                    "permanently_closed": {"count": 0, "msgs": []},
                     "in_error": {"count": 0, "msgs": []},
                     "validated": {"count": 0},
                     "imported": {"count": 0},
@@ -150,20 +151,36 @@ Paramètres de lancement du script :
                             if (
                                 isinstance(e, ValidationError)
                                 and "non_field_errors" in e.get_codes()
-                                and "duplicate" in e.get_codes()["non_field_errors"]
+                                and (
+                                    any(
+                                        [
+                                            reason in e.get_codes()["non_field_errors"]
+                                            for reason in ("duplicate", "permanently_closed")
+                                        ]
+                                    )
+                                )
                             ):
-                                self.results["duplicated"]["count"] += 1
-                                self.results["duplicated"]["msgs"].append(
-                                    {"line": _, "name": row.get("name"), "error": e, "data": row}
-                                )
-                                if self.force_update is True:
-                                    existing_erp_pk = int(e.detail["non_field_errors"][1])
-                                    erp_duplicated = Erp.objects.get(pk=existing_erp_pk)
-                                    continue
+                                if "duplicate" in e.get_codes()["non_field_errors"]:
+                                    self.results["duplicated"]["count"] += 1
+                                    self.results["duplicated"]["msgs"].append(
+                                        {"line": _, "name": row.get("name"), "error": e, "data": row}
+                                    )
+                                    if self.force_update is True:
+                                        existing_erp_pk = int(e.detail["non_field_errors"][1])
+                                        erp_duplicated = Erp.objects.get(pk=existing_erp_pk)
+                                        continue
 
-                                print_error(
-                                    f"Non importé car doublon été détecté lors du traitement de la ligne {_}: {e}."
-                                )
+                                    print_error(
+                                        f"Non importé car doublon été détecté lors du traitement de la ligne {_}: {e}."
+                                    )
+                                if "permanently_closed" in e.get_codes()["non_field_errors"]:
+                                    self.results["permanently_closed"]["count"] += 1
+                                    self.results["permanently_closed"]["msgs"].append(
+                                        {"line": _, "name": row.get("name"), "error": e, "data": row}
+                                    )
+                                    print_error(
+                                        f"Non importé car clôs définitivement du traitement de la ligne {_}: {e}."
+                                    )
                             else:
                                 print_error(
                                     f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
@@ -185,7 +202,7 @@ Paramètres de lancement du script :
 
         print(self.build_summary())
         if self.generate_errors_file and (
-            self.results["in_error"]["count"] or self.results["duplicated"]["count"] and not self.force_update
+            any([self.results[item]["count"] for item in ("in_error", "duplicated", "permanently_closed")])
         ):
             error_file = self.write_error_file()
             print_success(f"Le fichier d'erreurs '{error_file}' est disponible.")
@@ -208,9 +225,10 @@ Paramètres de lancement du script :
 
             writer = csv.DictWriter(self.error_file, fieldnames=fieldnames, delimiter=";")
             writer.writeheader()
-            if self.results["duplicated"]["count"] and not self.force_update:
-                for line in self.results["duplicated"]["msgs"]:
-                    writer.writerow(line)
+            for item in ("duplicated", "permanently_closed"):
+                if self.results[item]["count"] and not self.force_update:
+                    for line in self.results[item]["msgs"]:
+                        writer.writerow(line)
             for line in self.results["in_error"]["msgs"]:
                 writer.writerow(line)
         return self.error_file_path
@@ -223,4 +241,5 @@ Paramètres de lancement du script :
     - Validés: {self.results['validated']['count']}
     - Importés: {self.results['imported']['count']}
     - Dupliqués: {self.results['duplicated']['count']}
+    - Définitivement clôs : {self.results['permanently_closed']['count']}
     - Erreurs: {self.results['in_error']['count']}"""
