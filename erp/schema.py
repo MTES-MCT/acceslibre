@@ -385,6 +385,7 @@ FIELDS = {
         "help_text_ui_neg": translate_lazy(
             "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement"
         ),
+        "help_text_ui_neg_v2": translate_lazy("Pas de transport en commun à proximité"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -1171,7 +1172,7 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
         ),
-        "help_text_ui_v2": translate_lazy("Accueil à proximité direct de l'entrée"),
+        "help_text_ui_v2": translate_lazy("Accueil à proximité directe de l'entrée"),
         "help_text_ui_neg": translate_lazy(
             "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) n'est pas visible depuis l'entrée du bâtiment"
         ),
@@ -1633,7 +1634,7 @@ FIELDS = {
         "help_text": mark_safe(translate_lazy("Y a-t-il des sanitaires mis à disposition du public&nbsp;?")),
         "help_text_ui": translate_lazy("Des sanitaires sont mis à disposition dans l'établissement"),
         "help_text_ui_neg": translate_lazy("Pas de sanitaires mis à disposition dans l'établissement"),
-        "help_text_ui_neg_v2": translate_lazy("Absence de toilettes"),
+        "help_text_ui_neg_v2": translate_lazy("Pas de toilettes"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,

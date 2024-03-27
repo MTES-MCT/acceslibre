@@ -11,6 +11,8 @@
                 {{ "transport_station_presence"|positive_text }}
                 {% if access.transport_information %}: {{ access.transport_information }}{% endif %}
             </li>
+        {% elif access.transport_station_presence is False %}
+            <li>{{ "transport_station_presence"|negative_text }}</li>
         {% endif %}
         {% if access.stationnement_presence %}
             {% if access.stationnement_pmr %}
@@ -27,7 +29,7 @@
             {% else %}
                 <li>{{ "stationnement_ext_presence"|positive_text }}</li>
             {% endif %}
-        {% elif stationnement_ext_presence is False %}
+        {% elif access.stationnement_ext_presence is False %}
             <li>{{ "stationnement_ext_presence"|negative_text }}</li>
         {% endif %}
     </ul>
