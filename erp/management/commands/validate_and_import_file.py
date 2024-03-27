@@ -7,16 +7,9 @@ from rest_framework.exceptions import ValidationError
 
 from core.mailer import BrevoMailer
 from erp.imports.mapper.base import BaseMapper
-from erp.imports.mapper.typeform import TypeFormBase, TypeFormMairie
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
 from erp.models import Erp
-
-mapper_choices = {
-    "base": BaseMapper,
-    "typeform_mairie": TypeFormMairie,
-    "typeform_base": TypeFormBase,
-}
 
 
 class Command(BaseCommand):
@@ -48,17 +41,10 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            "--mapper",
-            type=str,
-            default="base",
-            help="Mapper à utiliser. Au choix : base (par défaut), typeform_mairie, typeform_base",
-        )
-
-        parser.add_argument(
             "--activite",
             type=str,
             default=None,
-            help="Activité à spécifier si l'on est sur le mapper typeform_base",
+            help="Activité des ERPs à insérer",
         )
 
         parser.add_argument(
@@ -102,7 +88,6 @@ class Command(BaseCommand):
         self.verbose = options.get("verbose", False)
         self.skip_import = options.get("skip_import", False)
         self.generate_errors_file = options.get("generate_errors_file", False)
-        self.mapper = options.get("mapper")
         self.activite = options.get("activite", None)
         self.force_update = options.get("force_update", False)
         self.send_emails = options.get("send_emails", False)
@@ -113,7 +98,6 @@ class Command(BaseCommand):
 Paramètres de lancement du script :
 
     File : {self.input_file}
-    Mapper : {self.mapper}
     Activité : {self.activite}
     Verbose : {self.verbose}
     Skip import : {self.skip_import}
@@ -208,8 +192,7 @@ Paramètres de lancement du script :
             print_success(f"Le fichier d'erreurs '{error_file}' est disponible.")
 
     def validate_data(self, row, duplicated_erp=None):
-        mapper = mapper_choices.get(self.mapper)
-        data = mapper().csv_to_erp(record=row, activite=self.activite)
+        data = BaseMapper().csv_to_erp(record=row, activite=self.activite)
         serializer = ErpImportSerializer(instance=duplicated_erp, data=data)
         serializer.is_valid(raise_exception=True)
         return serializer
