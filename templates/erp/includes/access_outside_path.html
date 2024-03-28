@@ -16,10 +16,12 @@
                 {% include "erp/includes/access_stairs.html" with steps_direction=access.cheminement_ext_sens_marches nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
             </li>
         {% endif %}
-        <li>
-            {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
-        </li>
-        {% render_access_value "cheminement_ext_rampe" access %}
+        {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
+        {% if access.has_ramp_exterior_path %}
+            <li>{{ "cheminement_ext_rampe"|positive_text }}</li>
+        {% else %}
+            <li>{{ "cheminement_ext_rampe"|negative_text }}</li>
+        {% endif %}
         {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
         {% if access.cheminement_ext_pente_presence %}
             {% if access.cheminement_ext_pente_degre_difficulte %}
