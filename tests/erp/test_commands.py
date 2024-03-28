@@ -405,7 +405,7 @@ class TestOutscraperCleaning:
         ), "should not have flag it, no write param"
 
         call_command("outscraper_clean_closed", nb_days=0, write=True)
-        assert Erp.objects.filter(nom="Le lard", published=True).count() == 0, "should have glag & unpublish it"
+        assert Erp.objects.filter(nom="Le lard", published=True).count() == 0, "should have flagged & unpublished it"
 
     @pytest.mark.django_db
     def test_no_response(self, mocker):
