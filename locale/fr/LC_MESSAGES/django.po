@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 14:25+0200\n"
+"POT-Creation-Date: 2024-04-04 15:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -518,6 +518,10 @@ msgid "ex: nom@domain.tld"
 msgstr ""
 
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
+msgstr ""
+
+#, python-format
+msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
 #, python-brace-format
