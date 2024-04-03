@@ -37,7 +37,7 @@ def get_outside_path_label(access):
         and access.little_or_no_camber
         and not access.cheminement_ext_retrecissement
     ):
-        equipement = translate("rampe") if access.cheminement_ext_rampe else translate("ascenseur")
+        equipement = translate("rampe") if access.has_ramp_exterior_path() else translate("ascenseur")
         return translate("Chemin rendu accessible (%s)") % (equipement)
 
     if (
