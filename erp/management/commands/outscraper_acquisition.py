@@ -107,7 +107,7 @@ class Command(BaseCommand):
             accessibility["accueil_equipements_malentendants"] = ["bim"]
 
         if access.get("Places assises accessibles en fauteuil roulant") is True:
-            accessibility["accueil_chemin_plain_pied"] = True
+            accessibility["accueil_cheminement_plain_pied"] = True
             accessibility["accueil_retrecissement"] = False
 
         for key in access:
