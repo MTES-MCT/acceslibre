@@ -4,6 +4,7 @@ from datetime import datetime
 import reversion
 from rest_framework.exceptions import ValidationError
 
+from erp.exceptions import PermanentlyClosedException
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Activite, Commune, Erp
 
@@ -214,11 +215,17 @@ class ServicePublicMapper:
         ):
             return None, None
 
+        def _ensure_not_permanently_closed(qs):
+            if any([erp.permanently_closed for erp in qs]):
+                raise PermanentlyClosedException()
+
         def _search_by_asp_id(asp_id):
             if not asp_id:
                 return
 
-            return Erp.objects.filter(asp_id=asp_id).first()
+            qs = Erp.objects.filter(asp_id=asp_id)
+            _ensure_not_permanently_closed(qs)
+            return qs.first()
 
         # NOTE: we search on both gendarmerie and service_public datasets as the gendarmerie import is taking
         # ownership on all the gendarmeries even on those initially coming from the service_public import
@@ -226,19 +233,23 @@ class ServicePublicMapper:
             if not old_code:
                 return
 
-            return Erp.objects.find_by_source_id(
+            qs = Erp.objects.find_by_source_id(
                 [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], old_code, published=True
-            ).first()
+            )
+            _ensure_not_permanently_closed(qs)
+            return qs.first()
 
         def _search_by_partner_id(partner_id):
             if not partner_id:
                 return
 
-            return Erp.objects.find_by_source_id(
+            qs = Erp.objects.find_by_source_id(
                 [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE],
                 partner_id,
                 published=True,
-            ).first()
+            )
+            _ensure_not_permanently_closed(qs)
+            return qs.first()
 
         def _search_by_name_address(name, address):
             if not address[0]:
@@ -246,18 +257,20 @@ class ServicePublicMapper:
 
             postal_code = address[0]["code_postal"]
             commune = address[0]["nom_commune"]
-            return (
-                Erp.objects.search_what(name)
-                .filter(code_postal=postal_code, commune__iexact=commune, published=True)
-                .first()
-            )
+            qs = Erp.objects.search_what(name).filter(code_postal=postal_code, commune__iexact=commune, published=True)
+            _ensure_not_permanently_closed(qs)
+            return qs.first()
 
-        erp = self.erp or (
-            _search_by_asp_id(self.record["id"])
-            or _search_by_old_code(self.record["ancien_code_pivot"])
-            or _search_by_partner_id(self.record["partenaire_identifiant"])
-            or _search_by_name_address(self.record["nom"], self.record["adresse"])
-        )
+        try:
+            erp = self.erp or (
+                _search_by_asp_id(self.record["id"])
+                or _search_by_old_code(self.record["ancien_code_pivot"])
+                or _search_by_partner_id(self.record["partenaire_identifiant"])
+                or _search_by_name_address(self.record["nom"], self.record["adresse"])
+            )
+        except PermanentlyClosedException:
+            logger.info("Ignore ERP because flagged as permanently closed.")
+            return None, None
 
         commune_ext_id = Commune.objects.filter(
             code_postaux__contains=[self.record["adresse"][0]["code_postal"]]

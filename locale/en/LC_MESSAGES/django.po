@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 14:25+0200\n"
-"PO-Revision-Date: 2024-02-28 10:26+0100\n"
+"POT-Creation-Date: 2024-04-04 15:20+0200\n"
+"PO-Revision-Date: 2024-04-04 15:19+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -520,6 +520,10 @@ msgstr "ex: name@domain.com"
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
 msgstr "You must suggest an activity name for the facility"
 
+#, python-format
+msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+msgstr "This establishment cannot be created as it has been reported as permanently closed. <a href='%(url_contact)s'>Contact the accèslibre team</a> if this is an error."
+
 #, python-brace-format
 msgid "L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
 msgstr "The <b>{erp_display}</b> facility already exists in the database."
@@ -890,7 +894,7 @@ msgid "Identifiant de la BAN"
 msgstr "BAN Identifier"
 
 msgid "Dernière vérification des informations"
-msgstr ""
+msgstr "Last information check"
 
 msgid "Dernière vérification de clôture"
 msgstr "Last closed check"
@@ -1409,7 +1413,7 @@ msgid "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établis
 msgstr "No public transportation stops within 200 meters of the facility"
 
 msgid "Pas de transport en commun à proximité"
-msgstr ""
+msgstr "No public transport nearby"
 
 msgid "Informations complémentaires"
 msgstr "Additional information"
@@ -2157,7 +2161,7 @@ msgid "Autour de moi"
 msgstr "Around me"
 
 msgid "Merci de votre contribution."
-msgstr ""
+msgstr "Thank you for your contribution."
 
 msgid "L'établissement a été supprimé."
 msgstr "The facility has been deleted."
@@ -3991,11 +3995,11 @@ msgid "Ajoutez un nouvel établissement"
 msgstr "Add a new facility"
 
 msgid "Informations sur l'accessibilité"
-msgstr ""
+msgstr "Accessibility information"
 
 #, python-format
 msgid "- mises à jour le %(date)s"
-msgstr ""
+msgstr "- updated on %(date)s"
 
 #, python-format
 msgid ""
@@ -4475,3 +4479,30 @@ msgid ""
 msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no reason to refuse :-)"
+
+#~ msgid "Seuls les utilisateurs actifs peuvent voter."
+#~ msgstr "Only active users can vote."
+
+#~ msgid "Vous ne pouvez pas voter sur votre établissement"
+#~ msgstr "You cannot vote on your facility"
+
+#~ msgid "Votre vote a bien été effacé."
+#~ msgstr "Your vote has been deleted."
+
+#~ msgid "Votre vote a été enregistré."
+#~ msgstr "Your vote has been saved."
+
+#~ msgid "Ces informations sont-elles fiables&nbsp;?"
+#~ msgstr "Is this information reliable?"
+
+#~ msgid "oui"
+#~ msgstr "yes"
+
+#~ msgid "non"
+#~ msgstr "no"
+
+#~ msgid "Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."
+#~ msgstr "Please tell us the reason for your dissatisfaction so that we can improve."
+
+#~ msgid "Connectez-vous pour pouvoir voter"
+#~ msgstr "Log in to vote"

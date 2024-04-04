@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.db.models import Q
 from geopy import distance
 
 from erp.duplicates import check_for_automatic_merge, find_main_erp_and_duplicates, merge_accessibility_with
@@ -78,9 +79,12 @@ class Command(BaseCommand):
             duplicates[0].delete()
         self.to_delete += 1
 
+    def _has_a_permanently_closed(self, erps):
+        return any([erp.permanently_closed for erp in erps])
+
     def handle(self, *args, **options):
         self.should_write = options["write"]
-        queryset = Erp.objects.filter(published=True).order_by("created_at")
+        queryset = Erp.objects.filter(Q(published=True) | Q(permanently_closed=True)).order_by("created_at")
         for erp in queryset.iterator():
             try:
                 erp.refresh_from_db()
@@ -95,6 +99,17 @@ class Command(BaseCommand):
             if not duplicates:
                 continue
             print(main_erp, duplicates)
+
+            if self._has_a_permanently_closed([main_erp, *duplicates]):
+                # Assuming we will delete all duplicates except the one flagged as permanently_closed
+                self.to_delete += len(duplicates)
+                if self.should_write:
+                    print("One duplicate is permanently closed, all duplicates will deleted")
+                    for erp in [main_erp, *duplicates]:
+                        if erp.permanently_closed:
+                            continue
+                        erp.delete()
+
             self._keep_asp_id(main_erp, duplicates)
             self._keep_street_number(main_erp, duplicates)
 

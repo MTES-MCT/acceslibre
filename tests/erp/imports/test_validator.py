@@ -58,7 +58,7 @@ class TestValidator:
         erp = Erp.objects.last()
         assert Version.objects.get_for_object(erp).count() == 1
 
-    def test_duplicate_with_OK_file(self, activite, neufchateau):
+    def test_duplicate_and_permanently_closed_with_OK_file(self, activite, neufchateau):
         cm = Command()
         call_command(
             cm,
@@ -68,6 +68,7 @@ class TestValidator:
         assert cm.results["in_error"]["count"] == 0
         assert cm.results["imported"]["count"] == 1
         assert cm.results["duplicated"]["count"] == 0
+        assert cm.results["permanently_closed"]["count"] == 0
 
         call_command(
             cm,
@@ -75,8 +76,23 @@ class TestValidator:
         )
 
         assert cm.results["in_error"]["count"] == 0
-        assert cm.results["duplicated"]["count"] == 1
         assert cm.results["imported"]["count"] == 0
+        assert cm.results["duplicated"]["count"] == 1
+        assert cm.results["permanently_closed"]["count"] == 0
+
+        erp = Erp.objects.get(nom="400C Scotta!")
+        erp.permanently_closed = True
+        erp.save()
+
+        call_command(
+            cm,
+            file="data/tests/generic_test_ok.csv",
+        )
+
+        assert cm.results["in_error"]["count"] == 0
+        assert cm.results["imported"]["count"] == 0
+        assert cm.results["duplicated"]["count"] == 0
+        assert cm.results["permanently_closed"]["count"] == 1
 
     def test_duplicate_with_OK_file_force(self, activite, neufchateau):
         cm = Command()

@@ -564,13 +564,26 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         activite = self.cleaned_data.get("activite")
         adresse = get_address_query_to_geocode(self.cleaned_data)
         if activite and adresse and not self.ignore_duplicate_check:
-            existing = Erp.objects.find_duplicate(
+            existing_erps = Erp.objects.find_duplicate(
                 numero=self.cleaned_data.get("numero"),
                 commune=self.cleaned_data.get("commune"),
                 activite=self.cleaned_data.get("activite"),
                 voie=self.cleaned_data.get("voie"),
                 lieu_dit=self.cleaned_data.get("lieu_dit"),
-            ).first()
+            )
+
+            if any([erp.permanently_closed for erp in existing_erps]):
+                url_contact = reverse("contact_topic", kwargs={"topic": "deletion"})
+                raise ValidationError(
+                    mark_safe(
+                        translate(
+                            "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+                            % ({"url_contact": url_contact})
+                        )
+                    )
+                )
+
+            existing = existing_erps.first()
 
             if existing:
                 if existing.published:

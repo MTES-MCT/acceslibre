@@ -29,8 +29,17 @@ class NullBooleanField(serializers.Field):
 
 
 class DuplicatedExceptionErp(serializers.ValidationError):
+    default_detail = "Doublon avec un ERP en base"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs, code="duplicate")
+
+
+class PermanentlyClosedExceptionErp(serializers.ValidationError):
+    default_detail = "Doublon avec un ERP définitivement clôs"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs, code="permanently_closed")
 
 
 class AccessibilityImportSerializer(serializers.ModelSerializer):
@@ -122,6 +131,30 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "ban_id",
         )
 
+    def _ensure_no_duplicate(self, obj):
+        existing = Erp.objects.find_duplicate(
+            numero=obj.get("numero"),
+            commune=obj["commune"],
+            activite=obj["activite"],
+            voie=obj.get("voie"),
+            lieu_dit=obj.get("lieu_dit"),
+        )
+        if any([erp.permanently_closed for erp in existing]):
+            raise PermanentlyClosedExceptionErp()
+
+        if erp := existing.first():
+            raise DuplicatedExceptionErp([f"Potentiel doublon par activité/adresse postale avec l'ERP : {erp}", erp.pk])
+
+        existing = Erp.objects.nearest(point=self._geom, max_radius_km=0.075).filter(
+            nom__lower__in=(obj["nom"].lower(), obj["nom"].lower().replace("-", " "))
+        )
+
+        if any([erp.permanently_closed for erp in existing]):
+            raise PermanentlyClosedExceptionErp()
+
+        if erp := existing.first():
+            raise DuplicatedExceptionErp([f"Potentiel doublon par nom/75m alentours avec l'ERP : {erp}", erp.pk])
+
     def validate_nom(self, value):
         cleaned = (
             str(value).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
@@ -206,29 +239,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
         ).first()
 
-        existing = Erp.objects.find_duplicate(
-            numero=obj.get("numero"),
-            commune=obj["commune"],
-            activite=obj["activite"],
-            voie=obj.get("voie"),
-            lieu_dit=obj.get("lieu_dit"),
-        ).first()
-
-        if existing:
-            raise DuplicatedExceptionErp(
-                [f"Potentiel doublon par activité/adresse postale avec l'ERP : {existing}", existing.pk]
-            )
-
-        existing = (
-            Erp.objects.nearest(point=self._geom, max_radius_km=0.075)
-            .filter(nom__lower__in=(obj["nom"].lower(), obj["nom"].lower().replace("-", " ")))
-            .first()
-        )
-
-        if existing:
-            raise DuplicatedExceptionErp(
-                [f"Potentiel doublon par nom/75m alentours avec l'ERP : {existing}", existing.pk]
-            )
+        self._ensure_no_duplicate(obj)
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")

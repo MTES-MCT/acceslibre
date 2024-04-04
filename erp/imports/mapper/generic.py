@@ -7,6 +7,7 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.db.models import Q
 
+from erp.exceptions import PermanentlyClosedException
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
 from erp.schema import get_nullable, get_type
@@ -110,6 +111,10 @@ class GenericMapper:
         self.today = today if today is not None else datetime.today()
         self.activite = activite
 
+    def _ensure_not_permanently_closed(self, qs):
+        if any([erp.permanently_closed for erp in qs]):
+            raise PermanentlyClosedException()
+
     def process(self):
         try:
             basic_fields = self._extract_basic_fields(self.record)
@@ -125,7 +130,12 @@ class GenericMapper:
         # already imported erps
 
         if not erp:
-            erp = Erp.objects.find_by_source_id(self.source, self.record["id"]).first()
+            erps = Erp.objects.find_by_source_id(self.source, self.record["id"])
+            try:
+                self._ensure_not_permanently_closed(erps)
+            except PermanentlyClosedException:
+                return None, None
+            erp = erps.first()
 
         # new erp
         if not erp:

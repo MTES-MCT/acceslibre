@@ -11,7 +11,6 @@ from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.nestenn import NestennMapper
 from erp.imports.mapper.service_public import ServicePublicMapper
-from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Accessibilite, Activite
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
@@ -110,16 +109,6 @@ def import_gendarmeries(verbose=False):
         fetcher.CsvFetcher(delimiter=";"),
         GendarmerieMapper,
         Activite.objects.get(slug="gendarmerie"),
-        verbose=verbose,
-    ).process()
-
-
-def import_vaccination(verbose=False):
-    return Importer(
-        "d0566522-604d-4af6-be44-a26eefa01756",
-        fetcher.JsonFetcher(hook=lambda x: x["features"]),
-        VaccinationMapper,
-        Activite.objects.get(slug="centre-de-vaccination"),
         verbose=verbose,
     ).process()
 

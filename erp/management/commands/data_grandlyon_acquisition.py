@@ -3,12 +3,17 @@ from collections import defaultdict
 import requests
 from django.core.management.base import BaseCommand
 
+from erp.exceptions import PermanentlyClosedException
 from erp.models import Activite, Erp
 from erp.provider import geocoder
 
 
 class Command(BaseCommand):
     help = "Import data from GrandLyon datasets"
+
+    def _ensure_not_permanently_closed(self, qs):
+        if any([erp.permanently_closed for erp in qs]):
+            raise PermanentlyClosedException()
 
     def _set_sound_beacon(self):
         url = "https://data.grandlyon.com/fr/datapusher/ws/grandlyon/car_care.balise_sonore_erp/all.json?maxfeatures=-1"
@@ -39,20 +44,30 @@ class Command(BaseCommand):
 
             erp = None
             if activity:
-                erp = Erp.objects.find_duplicate(
+                erps = Erp.objects.find_duplicate(
                     numero=obj.get("numero"),
                     commune=obj["commune"],
                     activite=activity,
                     voie=obj.get("voie"),
                     lieu_dit=obj.get("lieu_dit"),
-                ).first()
+                )
+                try:
+                    self._ensure_not_permanently_closed(erps)
+                except PermanentlyClosedException:
+                    continue
+                erp = erps.first()
 
             if not erp:
-                erp = (
+                erps = (
                     Erp.objects.nearest(point=locdata["geom"], max_radius_km=0.075)
                     .filter(nom__lower__in=(obj["nom"].lower(), obj["nom"].lower().replace("-", " ")))
                     .first()
                 )
+                try:
+                    self._ensure_not_permanently_closed(erps)
+                except PermanentlyClosedException:
+                    continue
+                erp = erps.first()
 
             if not erp:
                 print("Not found on acceslibre, skipping...")

@@ -16,3 +16,7 @@ class NeedsManualInspectionException(Exception):
 
 class NotDuplicatesException(Exception):
     pass
+
+
+class PermanentlyClosedException(Exception):
+    pass
