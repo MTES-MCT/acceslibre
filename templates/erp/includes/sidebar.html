@@ -17,8 +17,18 @@
             <a class="fr-btn text-wrap mx-auto"
                href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorez ces informations" %}</a>
         </p>
+        <form method="post"
+              action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}">
+            {% csrf_token %}
+            <p class="text-center">
+                <button class="fr-btn fr-btn--secondary" type="submit">
+                    {% translate "Confirmer que les informations sont à jour" %}
+                </button>
+            </p>
+        </form>
         <p class="text-center">
-            <a href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème" %}</a>
+            <a class="fr-btn fr-btn--secondary"
+               href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème" %}</a>
         </p>
         {% if not erp.user %}
             <p class="text-center mb-O">

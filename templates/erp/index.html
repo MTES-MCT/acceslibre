@@ -40,6 +40,14 @@
             <aside class="mb-4 mt-2 order-1">
                 {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
             </aside>
+            <div class="d-flex mb-2">
+                <h5 class="h5 inline mr-2">{% translate "Informations sur l'accessibilité" %}</h5>
+                {% if erp.checked_up_to_date_at %}
+                    {% blocktranslate trimmed with date=erp.checked_up_to_date_at|date %}
+                        - mises à jour le {{ date }}
+                    {% endblocktranslate %}
+                {% endif %}
+            </div>
             <div class="d-flex flex-column">
                 <div class="row order-2">
                     <section id="a11y" class="col-lg-7 col-xl-8 remove-title-if-empty">
