@@ -13,10 +13,10 @@
         {% elif access.cheminement_ext_plain_pied is False %}
             <li>
                 {% translate "sur le chemin" as extra_context %}
-                {% include "erp/includes/access_stairs.html" with steps_direction=access.cheminement_ext_sens_marches nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
+                {% include "erp/includes/access_stairs.html" with steps_direction=access.get_outside_steps_direction_text nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
             </li>
         {% endif %}
-        {% include "erp/includes/access_steps.html" with main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
+        {% include "erp/includes/access_steps.html" with nb_marches=access.cheminement_ext_nombre_marches main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
         {% if access.has_ramp_exterior_path %}
             <li>{{ "cheminement_ext_rampe"|positive_text }}</li>
         {% else %}

@@ -1,26 +1,43 @@
 {% load a4a %}
 {% load i18n %}
-{% if reperage %}
+{% if nb_marches %}
+    {% if reperage is True %}
+        {% blocktranslate trimmed count nb_marches=nb_marches asvar reperage_marches %}
+            Marche sécurisée
+        {% plural %}
+            Marches sécurisées
+        {% endblocktranslate %}
+    {% elif reperage is False %}
+        {% blocktranslate trimmed count nb_marches=nb_marches asvar reperage_marches %}
+            Marche non sécurisée
+        {% plural %}
+            Marches non sécurisées
+        {% endblocktranslate %}
+    {% endif %}
+{% else %}
+    {% if reperage is True %}
+        {% blocktranslate trimmed asvar reperage_marches %}
+            Marche(s) sécurisée(s)
+        {% endblocktranslate %}
+    {% elif reperage is False %}
+        {% blocktranslate trimmed asvar reperage_marches %}
+            Marche(s) non sécurisée(s)
+        {% endblocktranslate %}
+    {% endif %}
+{% endif %}
+{% if reperage_marches %}
     <li>
         {% if main_courante_data %}
-            {% blocktranslate trimmed with reperage_marches="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|positive_text|lower %}
+            {% blocktranslate trimmed with main_courante="cheminement_ext_main_courante"|positive_text|lower %}
                 {{ reperage_marches }} et {{ main_courante }}
             {% endblocktranslate %}
         {% elif main_courante_data is False %}
-            {% blocktranslate trimmed with reperage_marches="cheminement_ext_reperage_marches"|positive_text main_courante="cheminement_ext_main_courante"|negative_text|lower %}
+            {% blocktranslate trimmed with main_courante="cheminement_ext_main_courante"|negative_text|lower %}
                 {{ reperage_marches }} et {{ main_courante }}
             {% endblocktranslate %}
-        {% endif %}
-    </li>
-{% elif reperage is False %}
-    <li>
-        {% if main_courante_data %}
-            {% blocktranslate trimmed with reperage_marches="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|positive_text|lower %}
-                {{ reperage_marches }} et {{ main_courante }}
-            {% endblocktranslate %}
-        {% elif main_courante_data is False %}
-            {% blocktranslate trimmed with reperage_marches="cheminement_ext_reperage_marches"|negative_text main_courante="cheminement_ext_main_courante"|negative_text|lower %}
-                {{ reperage_marches }} et {{ main_courante }}
+        {% else %}
+            {% blocktranslate trimmed %}
+                {{ reperage_marches }}
             {% endblocktranslate %}
         {% endif %}
     </li>

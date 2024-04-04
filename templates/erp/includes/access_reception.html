@@ -12,10 +12,10 @@
         {% elif access.accueil_cheminement_plain_pied is False %}
             {% translate "pour atteindre l'accueil" as extra_context %}
             <li>
-                {% include "erp/includes/access_stairs.html" with steps_direction=access.accueil_cheminement_sens_marches nb_steps=access.accueil_cheminement_nombre_marches extra_context=extra_context %}
+                {% include "erp/includes/access_stairs.html" with steps_direction=access.get_reception_steps_direction_text nb_steps=access.accueil_cheminement_nombre_marches extra_context=extra_context %}
             </li>
         {% endif %}
-        {% include "erp/includes/access_steps.html" with main_courante_data=access.accueil_cheminement_main_courante reperage=access.accueil_cheminement_reperage_marches %}
+        {% include "erp/includes/access_steps.html" with nb_marches=access.accueil_nombre_marches main_courante_data=access.accueil_cheminement_main_courante reperage=access.accueil_cheminement_reperage_marches %}
         {% if access.has_ramp_reception %}
             <li>{{ "accueil_cheminement_rampe"|positive_text }}</li>
         {% else %}

@@ -17,6 +17,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
+from django.utils.translation import ngettext
 from reversion.models import Version
 
 from compte.service import increment_nb_erp_created, increment_nb_erp_edited
@@ -1683,3 +1684,20 @@ class Accessibilite(models.Model):
 
     def has_ramp_reception(self):
         return self.accueil_cheminement_rampe and self.accueil_cheminement_rampe != schema.RAMPE_AUCUNE
+
+    def _get_steps_direction_text(self, nb_steps, direction):
+        if direction == schema.ESCALIER_MONTANT:
+            return ngettext("montante", "montantes", nb_steps)
+        if direction == schema.ESCALIER_DESCENDANT:
+            return ngettext("descendante", "descendantes", nb_steps)
+
+    def get_outside_steps_direction_text(self):
+        return self._get_steps_direction_text(self.cheminement_ext_nombre_marches, self.cheminement_ext_sens_marches)
+
+    def get_entry_steps_direction_text(self):
+        return self._get_steps_direction_text(self.entree_marches, self.entree_marches_sens)
+
+    def get_reception_steps_direction_text(self):
+        return self._get_steps_direction_text(
+            self.accueil_cheminement_nombre_marches, self.accueil_cheminement_sens_marches
+        )

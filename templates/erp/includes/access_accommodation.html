@@ -11,7 +11,9 @@
                 {% if access.access.accueil_chambre_nombre_accessibles == 1 %}
                     {% translate "Au moins une chambre accessible à une personne en fauteuil roulant" %}
                 {% else %}
-                    {% blocktranslate trimmed with nb=access.accueil_chambre_nombre_accessibles %}
+                    {% blocktranslate trimmed count nb=access.accueil_chambre_nombre_accessibles with nb=access.accueil_chambre_nombre_accessibles %}
+                        {{ nb }} chambre accessible à une personne en fauteuil roulant
+                    {% plural %}
                         {{ nb }} chambres accessibles à une personne en fauteuil roulant
                     {% endblocktranslate %}
                 {% endif %}
