@@ -105,6 +105,14 @@ class ChallengePlayer(models.Model):
         on_delete=models.PROTECT,
         related_name="inscriptions",
     )
+    team = models.ForeignKey(
+        "stats.ChallengeTeam",
+        verbose_name=translate("Challenge Team"),
+        on_delete=models.PROTECT,
+        related_name="players",
+        blank=True,
+        null=True,
+    )
     inscription_date = models.DateTimeField(verbose_name=translate("Date d'inscription"), auto_now_add=True)
 
     class Meta:
@@ -113,7 +121,17 @@ class ChallengePlayer(models.Model):
         verbose_name_plural = translate("Challenges Players")
 
     def __str__(self):
-        return f"{self.player} - {self.challenge}"
+        str_repr = f"{self.player} - {self.challenge}"
+        if self.team:
+            str_repr = f"{str_repr} (team {self.team})"
+        return str_repr
+
+
+class ChallengeTeam(models.Model):
+    name = models.CharField(max_length=255, help_text=translate("Nom de l'équipe"))
+
+    def __str__(self):
+        return f"ChallengeTeam {self.nom}"
 
 
 class WidgetEvent(models.Model):
