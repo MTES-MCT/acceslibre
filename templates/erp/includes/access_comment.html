@@ -1,0 +1,7 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+<h4 class="pt-2 h4">
+    <i aria-hidden="true" class="icon icon-info-circled mr-1 larger-font"></i>{% translate "Commentaire" %}
+</h4>
+<p>{{ access.commentaire|wordwrap:70|linebreaksbr }}</p>
