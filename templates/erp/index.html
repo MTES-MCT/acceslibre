@@ -59,8 +59,11 @@
                             {% if erp.is_accommodation %}
                                 {% include "erp/includes/access_accommodation.html" %}
                             {% endif %}
-                            {% if access.registre_url or acces.conformite %}
+                            {% if access.registre_url or access.conformite %}
                                 {% include "erp/includes/access_legal.html" %}
+                            {% endif %}
+                            {% if access.commentaire %}
+                                {% include "erp/includes/access_comment.html" %}
                             {% endif %}
                         {% else %}
                             {% if accessibilite_data %}
