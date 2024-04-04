@@ -82,7 +82,6 @@ urlpatterns = [
         views.confirm_up_to_date,
         name="confirm_up_to_date",
     ),
-    path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
     path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
     path("uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"),
     ############################################################################
