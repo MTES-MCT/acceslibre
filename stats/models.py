@@ -2,7 +2,6 @@ import uuid
 
 from autoslug import AutoSlugField
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -79,13 +78,10 @@ class Challenge(models.Model):
         return "v2" if self.end_date.year >= 2024 else "v1"
 
     def refresh_stats(self):
-        players_ids = list(set(self.players.all().values_list("id", flat=True)))
-
-        scores_per_user_id = get_challenge_scores(self.start_date, self.end_date, players_ids)
-        users = get_user_model().objects.filter(pk__in=players_ids).only("username")
-        usernames_by_user_id = {user.pk: user.username for user in users}
+        players = {user.pk: user.username for user in self.players.all()}
+        scores_per_user_id = get_challenge_scores(self.start_date, self.end_date, players.keys())
         self.classement = [
-            {"username": usernames_by_user_id.get(user_id), "nb_access_info_changed": max(score, 0)}
+            {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
             for user_id, score in scores_per_user_id
         ]
         self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
