@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from rest_framework.exceptions import ValidationError
 
+from erp.exceptions import PermanentlyClosedException
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Activite, Erp
@@ -64,13 +65,18 @@ class Command(BaseCommand):
         entry["source"] = Erp.SOURCE_TH
         entry["accessibilite"] = {"entree_porte_presence": True}
 
-        existing = Erp.objects.find_duplicate(
+        existing_erps = Erp.objects.find_duplicate(
             numero=clean(entry.get("numero")),
             commune=clean(entry.get("ville")),
             activite=entry["activite"],
             voie=clean(entry.get("voie")),
             lieu_dit=clean(entry.get("lieu_dit")),
         ).first()
+
+        if any([erp.permanently_closed for erp in existing_erps]):
+            raise PermanentlyClosedException()
+
+        existing = existing_erps.first()
 
         if existing:
             print("Found in DB, same activity & address")
