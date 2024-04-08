@@ -31,3 +31,23 @@ label {
   // Make sure we can mix a a tag and a btn tag in a btn group
   line-height: 2.5rem;
 }
+
+.labels {
+  .fr-card__body {
+    padding: 0 1rem;
+  }
+
+  .fr-card__header {
+    .fr-responsive-img {
+      height: 100px;
+      width: auto;
+    }
+  }
+
+  @media (width >= 48em) {
+    .fr-card--horizontal .fr-card__header {
+      flex: 0 0 30%;
+      width: 30%;
+    }
+  }
+}
