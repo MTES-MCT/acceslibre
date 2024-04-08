@@ -4,7 +4,7 @@ function refreshSearchURL() {
     let inputs = document.querySelectorAll(`input[name=${inputName}]:checked`)
     inputs.forEach((input) => queryParams.append(inputName, input.value))
   })
-  ;['what', 'where', 'lat', 'lon', 'code', 'postcocde', 'search_type', 'municipality'].forEach(function (inputName) {
+  ;['what', 'where', 'lat', 'lon', 'code', 'postcode', 'search_type', 'municipality'].forEach(function (inputName) {
     let inputs = document.querySelectorAll(`input[name=${inputName}]`)
     inputs.forEach((input) => (input.value ? queryParams.append(inputName, input.value) : ''))
   })
