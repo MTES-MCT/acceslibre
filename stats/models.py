@@ -54,6 +54,7 @@ class Challenge(models.Model):
     )
     nb_erp_total_added = models.BigIntegerField(default=0)
     classement = models.JSONField(default=dict)
+    classement_team = models.JSONField(default=dict)
 
     active = models.BooleanField(default=True)
 
@@ -79,11 +80,25 @@ class Challenge(models.Model):
 
     def refresh_stats(self):
         players = {user.pk: user.username for user in self.players.all()}
-        scores_per_user_id = get_challenge_scores(self.start_date, self.end_date, players.keys())
+        teams = {
+            team_pk: team_name for team_pk, team_name in self.inscriptions.all().values_list("team__pk", "team__name")
+        }
+
+        scores_per_user_id, scores_per_team_id = get_challenge_scores(
+            self, self.start_date, self.end_date, players.keys()
+        )
         self.classement = [
             {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
             for user_id, score in scores_per_user_id
         ]
+        self.classement_team = (
+            [
+                {"team": teams.get(team_id), "nb_access_info_changed": max(score, 0)}
+                for team_id, score in scores_per_team_id
+            ]
+            if scores_per_team_id
+            else None
+        )
         self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
         self.save()
 
@@ -127,7 +142,7 @@ class ChallengeTeam(models.Model):
     name = models.CharField(max_length=255, help_text=translate("Nom de l'équipe"))
 
     def __str__(self):
-        return f"ChallengeTeam {self.nom}"
+        return f"Team {self.name}"
 
 
 class WidgetEvent(models.Model):

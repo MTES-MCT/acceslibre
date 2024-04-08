@@ -37,4 +37,9 @@ class Migration(migrations.Migration):
                 verbose_name="Challenge Team",
             ),
         ),
+        migrations.AddField(
+            model_name="challenge",
+            name="classement_team",
+            field=models.JSONField(default=dict),
+        ),
     ]

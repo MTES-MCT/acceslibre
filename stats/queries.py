@@ -69,11 +69,13 @@ def _get_score(version, previous=None):
     return score_current - score_previous
 
 
-def get_challenge_scores(start_date, stop_date, player_ids):
+def get_challenge_scores(challenge, start_date, stop_date, player_ids):
 
     access_content_type = ContentType.objects.get_for_model(Accessibilite)
 
     scores_per_user_id = defaultdict(int)
+    scores_per_team_id = defaultdict(int)
+
     versions = (
         Version.objects.select_related("revision")
         .filter(
@@ -87,8 +89,13 @@ def get_challenge_scores(start_date, stop_date, player_ids):
     for version in versions:
         user_id = version.revision.user_id
         previous = get_previous_version(version)
-
         scores_per_user_id[user_id] += _get_score(version, previous)
 
+    for sub in challenge.inscriptions.all():
+        if sub.team_id:
+            scores_per_team_id[sub.team_id] += scores_per_user_id.get(sub.player_id) or 0
+
     scores_per_user_id = sorted(scores_per_user_id.items(), key=lambda k_v: k_v[1], reverse=True)
-    return scores_per_user_id
+    scores_per_team_id = sorted(scores_per_team_id.items(), key=lambda k_v: k_v[1], reverse=True)
+
+    return scores_per_user_id, scores_per_team_id
