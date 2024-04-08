@@ -41,15 +41,17 @@ mapping = {
     },
     "Ce chemin n'est pas praticable car :": {
         "Problème de pente": [
+            ("cheminement_ext_presence", True),
             ("cheminement_ext_pente_presence", True),
             ("cheminement_ext_pente_degre_difficulte", "importante"),
         ],
         "Problème de marche": [
+            ("cheminement_ext_presence", True),
             ("cheminement_ext_plain_pied", False),
             ("cheminement_ext_ascenseur", False),
             ("cheminement_ext_rampe", "aucune"),
         ],
-        "Terrain non roulant": [("cheminement_ext_terrain_stable", False)],
+        "Terrain non roulant": [("cheminement_ext_presence", True), ("cheminement_ext_terrain_stable", False)],
         "Autre": [],
         "Je ne suis pas sûr": [],
     },
@@ -68,7 +70,7 @@ mapping = {
         "Non": [("entree_dispositif_appel", False)],
     },
     "Avez-vous un parking réservé à vos visiteurs ?": {
-        "Oui, nous avons un parking réservé": [("stationnement_presence", True)],
+        "Oui, nous avons un parking réservé": [("stationnement_presence", True), ("cheminement_ext_presence", True)],
         "Non, nous n'avons pas de parking réservé": [("stationnement_presence", False)],
         "Je ne sais pas": [],
     },
