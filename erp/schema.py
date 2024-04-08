@@ -646,11 +646,9 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
         ),
-        "help_text_ui_v2": translate_lazy("Escalier sécurisé"),
         "help_text_ui_neg": translate_lazy(
             "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
         ),
-        "help_text_ui_neg_v2": translate_lazy("Escalier non sécurisé"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,

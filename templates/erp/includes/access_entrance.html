@@ -51,10 +51,10 @@
         {% elif access.entree_plain_pied is False %}
             <li>
                 {% translate "pour atteindre l'entrée" as extra_context %}
-                {% include "erp/includes/access_stairs.html" with steps_direction=access.entree_marches_sens nb_steps=access.entree_marches %}
+                {% include "erp/includes/access_stairs.html" with steps_direction=access.get_entry_steps_direction_text nb_steps=access.entree_marches %}
             </li>
         {% endif %}
-        {% include "erp/includes/access_steps.html" with main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
+        {% include "erp/includes/access_steps.html" with nb_marches=access.entree_marches main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
         {% if access.has_ramp_entry %}
             <li>{{ "entree_marches_rampe"|positive_text }}</li>
         {% else %}

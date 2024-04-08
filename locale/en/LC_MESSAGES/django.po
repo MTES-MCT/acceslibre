@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 15:20+0200\n"
+"POT-Creation-Date: 2024-04-08 14:29+0200\n"
 "PO-Revision-Date: 2024-04-04 15:19+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1120,6 +1120,16 @@ msgstr "Accessibility of the facility \"{self.erp.nom}\" ({self.erp.code_postal}
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr "Accessibility details of this ERP"
 
+msgid "montante"
+msgid_plural "montantes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "descendante"
+msgid_plural "descendantes"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Accès"
 msgstr "Access"
 
@@ -1568,14 +1578,8 @@ msgstr "Is the staircase safe: contrasting stair nosings, warning strips at the 
 msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
 msgstr "Presence of contrasting stair nosings, a warning strip at the top of the stairs and/or contrasting first and last risers"
 
-msgid "Escalier sécurisé"
-msgstr ""
-
 msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
 msgstr "No contrasting stair nosing, warning strips at the top of the stairs or contrasting first and last risers"
-
-msgid "Escalier non sécurisé"
-msgstr ""
 
 msgid "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
 msgstr "Is the staircase equipped with one or more handrails?"
@@ -3770,8 +3774,10 @@ msgid "Au moins une chambre accessible à une personne en fauteuil roulant"
 msgstr ""
 
 #, python-format
-msgid "%(nb)s chambres accessibles à une personne en fauteuil roulant"
-msgstr ""
+msgid "%(nb)s chambre accessible à une personne en fauteuil roulant"
+msgid_plural "%(nb)s chambres accessibles à une personne en fauteuil roulant"
+msgstr[0] ""
+msgstr[1] ""
 
 #, python-format
 msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
@@ -3849,8 +3855,28 @@ msgstr ""
 msgid "Présence de marches %(extra_context)s"
 msgstr ""
 
+msgid "Marche sécurisée"
+msgid_plural "Marches sécurisées"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Marche non sécurisée"
+msgid_plural "Marches non sécurisées"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Marche(s) sécurisée(s)"
+msgstr ""
+
+msgid "Marche(s) non sécurisée(s)"
+msgstr ""
+
 #, python-format
 msgid "%(reperage_marches)s et %(main_courante)s"
+msgstr ""
+
+#, python-format
+msgid "%(reperage_marches)s"
 msgstr ""
 
 msgid "Ce bâtiment est labellisé Tourisme et handicap"
@@ -4479,30 +4505,3 @@ msgid ""
 msgstr ""
 "\n"
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no reason to refuse :-)"
-
-#~ msgid "Seuls les utilisateurs actifs peuvent voter."
-#~ msgstr "Only active users can vote."
-
-#~ msgid "Vous ne pouvez pas voter sur votre établissement"
-#~ msgstr "You cannot vote on your facility"
-
-#~ msgid "Votre vote a bien été effacé."
-#~ msgstr "Your vote has been deleted."
-
-#~ msgid "Votre vote a été enregistré."
-#~ msgstr "Your vote has been saved."
-
-#~ msgid "Ces informations sont-elles fiables&nbsp;?"
-#~ msgstr "Is this information reliable?"
-
-#~ msgid "oui"
-#~ msgstr "yes"
-
-#~ msgid "non"
-#~ msgstr "no"
-
-#~ msgid "Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."
-#~ msgstr "Please tell us the reason for your dissatisfaction so that we can improve."
-
-#~ msgid "Connectez-vous pour pouvoir voter"
-#~ msgstr "Log in to vote"

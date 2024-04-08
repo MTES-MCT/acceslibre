@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 15:18+0200\n"
+"POT-Creation-Date: 2024-04-08 14:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1116,6 +1116,16 @@ msgstr ""
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr ""
 
+msgid "montante"
+msgid_plural "montantes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "descendante"
+msgid_plural "descendantes"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Accès"
 msgstr ""
 
@@ -1564,13 +1574,7 @@ msgstr ""
 msgid "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées"
 msgstr ""
 
-msgid "Escalier sécurisé"
-msgstr ""
-
 msgid "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées"
-msgstr ""
-
-msgid "Escalier non sécurisé"
 msgstr ""
 
 msgid "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
@@ -3617,8 +3621,10 @@ msgid "Au moins une chambre accessible à une personne en fauteuil roulant"
 msgstr ""
 
 #, python-format
-msgid "%(nb)s chambres accessibles à une personne en fauteuil roulant"
-msgstr ""
+msgid "%(nb)s chambre accessible à une personne en fauteuil roulant"
+msgid_plural "%(nb)s chambres accessibles à une personne en fauteuil roulant"
+msgstr[0] ""
+msgstr[1] ""
 
 #, python-format
 msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
@@ -3696,8 +3702,28 @@ msgstr ""
 msgid "Présence de marches %(extra_context)s"
 msgstr ""
 
+msgid "Marche sécurisée"
+msgid_plural "Marches sécurisées"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Marche non sécurisée"
+msgid_plural "Marches non sécurisées"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Marche(s) sécurisée(s)"
+msgstr ""
+
+msgid "Marche(s) non sécurisée(s)"
+msgstr ""
+
 #, python-format
 msgid "%(reperage_marches)s et %(main_courante)s"
+msgstr ""
+
+#, python-format
+msgid "%(reperage_marches)s"
 msgstr ""
 
 msgid "Ce bâtiment est labellisé Tourisme et handicap"
