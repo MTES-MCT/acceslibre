@@ -233,23 +233,17 @@ class ServicePublicMapper:
             if not old_code:
                 return
 
-            qs = Erp.objects.find_by_source_id(
-                [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], old_code, published=True
-            )
+            qs = Erp.objects.find_by_source_id([Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], old_code)
             _ensure_not_permanently_closed(qs)
-            return qs.first()
+            return qs.published().first()
 
         def _search_by_partner_id(partner_id):
             if not partner_id:
                 return
 
-            qs = Erp.objects.find_by_source_id(
-                [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE],
-                partner_id,
-                published=True,
-            )
+            qs = Erp.objects.find_by_source_id([Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], partner_id)
             _ensure_not_permanently_closed(qs)
-            return qs.first()
+            return qs.published().first()
 
         def _search_by_name_address(name, address):
             if not address[0]:
@@ -257,9 +251,9 @@ class ServicePublicMapper:
 
             postal_code = address[0]["code_postal"]
             commune = address[0]["nom_commune"]
-            qs = Erp.objects.search_what(name).filter(code_postal=postal_code, commune__iexact=commune, published=True)
+            qs = Erp.objects.search_what(name).filter(code_postal=postal_code, commune__iexact=commune)
             _ensure_not_permanently_closed(qs)
-            return qs.first()
+            return qs.published().first()
 
         try:
             erp = self.erp or (

@@ -71,7 +71,7 @@ class Command(BaseCommand):
             activite=entry["activite"],
             voie=clean(entry.get("voie")),
             lieu_dit=clean(entry.get("lieu_dit")),
-        ).first()
+        )
 
         if any([erp.permanently_closed for erp in existing_erps]):
             raise PermanentlyClosedException()
