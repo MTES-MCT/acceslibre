@@ -142,7 +142,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if any([erp.permanently_closed for erp in existing]):
             raise PermanentlyClosedExceptionErp()
 
-        if erp := existing.first():
+        if erp := existing.published().first():
             raise DuplicatedExceptionErp([f"Potentiel doublon par activité/adresse postale avec l'ERP : {erp}", erp.pk])
 
         existing = Erp.objects.nearest(point=self._geom, max_radius_km=0.075).filter(
@@ -152,7 +152,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if any([erp.permanently_closed for erp in existing]):
             raise PermanentlyClosedExceptionErp()
 
-        if erp := existing.first():
+        if erp := existing.published().first():
             raise DuplicatedExceptionErp([f"Potentiel doublon par nom/75m alentours avec l'ERP : {erp}", erp.pk])
 
     def validate_nom(self, value):

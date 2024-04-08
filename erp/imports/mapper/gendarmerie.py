@@ -35,10 +35,8 @@ class GendarmerieMapper(GenericMapper):
     def process(self):
         basic_fields = self._extract_basic_fields(self.record)
 
-        # check for a preexisting match (before we had imports)
         erp = self._process_preexisting(basic_fields["geom"])
 
-        # already imported erps
         if not erp:
             erps = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"])
             try:
