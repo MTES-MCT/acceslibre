@@ -1013,6 +1013,12 @@ class Erp(models.Model):
         if needs_save:
             access_destination.save()
 
+    @property
+    def displayed_last_updated_date(self):
+        dates = [d for d in [self.checked_up_to_date_at, self.created_at, self.updated_at] if d]
+        if dates:
+            return max(dates)
+
 
 @reversion.register(
     ignore_duplicates=True,

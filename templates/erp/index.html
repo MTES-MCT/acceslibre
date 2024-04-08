@@ -41,11 +41,13 @@
                 {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
             </aside>
             <div class="d-flex mb-2">
-                <h5 class="h5 inline mr-2">{% translate "Informations sur l'accessibilité" %}</h5>
-                {% if erp.checked_up_to_date_at %}
-                    {% blocktranslate trimmed with date=erp.checked_up_to_date_at|date %}
-                        - mises à jour le {{ date }}
-                    {% endblocktranslate %}
+                <h5 class="h5 inline bold mr-2">{% translate "Informations sur l'accessibilité" %}</h5>
+                {% if erp.displayed_last_updated_date %}
+                    <span class="d-flex align-items-center">
+                        {% blocktranslate trimmed with date=erp.displayed_last_updated_date|date %}
+                            - mises à jour le {{ date }}
+                        {% endblocktranslate %}
+                    </span>
                 {% endif %}
             </div>
             <div class="d-flex flex-column">
