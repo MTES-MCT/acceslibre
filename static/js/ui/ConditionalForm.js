@@ -72,7 +72,7 @@ const rules = [
     source: 'entree_vitree',
     values: ['True'],
     targets: ['entree_vitree_vitrophanie'],
-    indent: 1,
+    indent: 2,
   },
   {
     source: 'entree_dispositif_appel',

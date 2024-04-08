@@ -1344,7 +1344,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
         "free_text": False,
-        "root": False,
+        "root": True,
         "conditional": True,
     },
     "accueil_chambre_douche_plain_pied": {
@@ -1366,7 +1366,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": True,
         "free_text": False,
-        "root": True,
+        "root": False,
         "conditional": True,
     },
     "accueil_chambre_douche_siege": {
