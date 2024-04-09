@@ -1,8 +1,10 @@
 import random
+from datetime import timedelta
 
 import factory
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import Point
+from django.utils import timezone
 from factory.fuzzy import BaseFuzzyAttribute
 from faker import Factory as FakerFactory
 
@@ -51,13 +53,13 @@ class ErpFactory(factory.django.DjangoModelFactory):
         django_get_or_create = ("nom",)
 
     class Params:
-        with_accessbilite = factory.Trait(
+        with_accessibilite = factory.Trait(
             accessibilite=factory.SubFactory("tests.factories.AccessibiliteFactory"),
         )
 
 
 class ErpWithAccessibiliteFactory(ErpFactory):
-    with_accessbilite = True
+    with_accessibilite = True
 
 
 class AccessibiliteFactory(factory.django.DjangoModelFactory):
@@ -74,3 +76,28 @@ class CommuneFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = "erp.Commune"
+
+
+class ChallengeFactory(factory.django.DjangoModelFactory):
+    nom = factory.LazyAttribute(lambda x: faker.name())
+    created_by = factory.SubFactory(UserFactory)
+    start_date = factory.LazyAttribute(lambda x: timezone.now() - timedelta(days=1))
+    end_date = factory.LazyAttribute(lambda x: timezone.now() + timedelta(days=1))
+
+    class Meta:
+        model = "stats.Challenge"
+
+    @factory.post_generation
+    def players(self, create, extracted, **kwargs):
+        if not create or not extracted:
+            return
+
+        for player in extracted:
+            self.players.add(player)
+
+
+class ChallengeTeamFactory(factory.django.DjangoModelFactory):
+    name = factory.LazyAttribute(lambda x: faker.name())
+
+    class Meta:
+        model = "stats.ChallengeTeam"

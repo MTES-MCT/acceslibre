@@ -97,7 +97,7 @@ class Challenge(models.Model):
                 for team_id, score in scores_per_team_id
             ]
             if scores_per_team_id
-            else None
+            else []
         )
         self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
         self.save()
