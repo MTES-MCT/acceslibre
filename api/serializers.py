@@ -185,6 +185,8 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
 
 class WidgetSerializer(serializers.Serializer):
     slug = serializers.CharField()
+    created_at = serializers.DateTimeField()
+    updated_at = serializers.DateTimeField()
     sections = serializers.SerializerMethodField()
 
     def get_sections(self, instance):
