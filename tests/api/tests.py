@@ -647,6 +647,8 @@ class TestWidgetApi:
 
         expected = {
             "slug": erp.slug,
+            "created_at": ANY,
+            "updated_at": ANY,
             "sections": [
                 {
                     "title": "stationnement",
@@ -716,6 +718,8 @@ class TestWidgetApi:
 
         expected = {
             "slug": erp.slug,
+            "created_at": ANY,
+            "updated_at": ANY,
             "sections": [
                 {
                     "title": "accès",
