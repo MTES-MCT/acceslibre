@@ -1707,3 +1707,7 @@ class Accessibilite(models.Model):
         return self._get_steps_direction_text(
             self.accueil_cheminement_nombre_marches, self.accueil_cheminement_sens_marches
         )
+
+    def get_labels_display(self):
+        label_to_text = {k: str(v) for k, v in schema.LABEL_CHOICES}
+        return [(label, label_to_text.get(label)) for label in self.labels]
