@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from stats.models import Challenge, ChallengePlayer, WidgetEvent
+from stats.models import Challenge, ChallengePlayer, ChallengeTeam, WidgetEvent
 
 
 @admin.register(Challenge)
@@ -23,6 +23,9 @@ class ChallengePlayerAdmin(admin.ModelAdmin):
     ordering = ("inscription_date",)
     search_fields = ("player", "challenge")
     list_filter = ("challenge",)
+
+
+admin.site.register(ChallengeTeam)
 
 
 @admin.register(WidgetEvent)

@@ -2,7 +2,6 @@ import uuid
 
 from autoslug import AutoSlugField
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -55,6 +54,7 @@ class Challenge(models.Model):
     )
     nb_erp_total_added = models.BigIntegerField(default=0)
     classement = models.JSONField(default=dict)
+    classement_team = models.JSONField(default=dict)
 
     active = models.BooleanField(default=True)
 
@@ -79,15 +79,26 @@ class Challenge(models.Model):
         return "v2" if self.end_date.year >= 2024 else "v1"
 
     def refresh_stats(self):
-        players_ids = list(set(self.players.all().values_list("id", flat=True)))
+        players = {user.pk: user.username for user in self.players.all()}
+        teams = {
+            team_pk: team_name for team_pk, team_name in self.inscriptions.all().values_list("team__pk", "team__name")
+        }
 
-        scores_per_user_id = get_challenge_scores(self.start_date, self.end_date, players_ids)
-        users = get_user_model().objects.filter(pk__in=players_ids).only("username")
-        usernames_by_user_id = {user.pk: user.username for user in users}
+        scores_per_user_id, scores_per_team_id = get_challenge_scores(
+            self, self.start_date, self.end_date, players.keys()
+        )
         self.classement = [
-            {"username": usernames_by_user_id.get(user_id), "nb_access_info_changed": max(score, 0)}
+            {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
             for user_id, score in scores_per_user_id
         ]
+        self.classement_team = (
+            [
+                {"team": teams.get(team_id), "nb_access_info_changed": max(score, 0)}
+                for team_id, score in scores_per_team_id
+            ]
+            if scores_per_team_id
+            else []
+        )
         self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
         self.save()
 
@@ -105,6 +116,14 @@ class ChallengePlayer(models.Model):
         on_delete=models.PROTECT,
         related_name="inscriptions",
     )
+    team = models.ForeignKey(
+        "stats.ChallengeTeam",
+        verbose_name=translate("Challenge Team"),
+        on_delete=models.PROTECT,
+        related_name="players",
+        blank=True,
+        null=True,
+    )
     inscription_date = models.DateTimeField(verbose_name=translate("Date d'inscription"), auto_now_add=True)
 
     class Meta:
@@ -113,7 +132,17 @@ class ChallengePlayer(models.Model):
         verbose_name_plural = translate("Challenges Players")
 
     def __str__(self):
-        return f"{self.player} - {self.challenge}"
+        str_repr = f"{self.player} - {self.challenge}"
+        if self.team:
+            str_repr = f"{str_repr} (team {self.team})"
+        return str_repr
+
+
+class ChallengeTeam(models.Model):
+    name = models.CharField(max_length=255, help_text=translate("Nom de l'équipe"))
+
+    def __str__(self):
+        return f"Team {self.name}"
 
 
 class WidgetEvent(models.Model):
