@@ -429,7 +429,12 @@ def widget_from_uuid(request, uuid):
     access_sections = WidgetSerializer(erp).data["sections"]
     access_data = {}
     for entry in access_sections:
-        access_data[entry["title"]] = {"label": " \n ".join(entry["labels"]), "icon": entry["icon"]}
+        separator = (
+            ", "
+            if entry["title"] in [translate("équipements sourd et malentendant"), translate("audiodescription")]
+            else " \n "
+        )
+        access_data[entry["title"]] = {"label": separator.join(entry["labels"]), "icon": entry["icon"]}
 
     return render(
         request,

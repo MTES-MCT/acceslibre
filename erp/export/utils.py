@@ -42,12 +42,12 @@ def map_list_from_schema(schema_enum, data, verbose=False):
     if not data:
         return None
 
-    result = set()
+    result = []
     for d in data:
         choice = schema_enum[[y[0] for y in schema_enum].index(d)][index]
-        result.add(str(choice))
+        result.append(str(choice))
 
-    return list(result)
+    return list(dict.fromkeys(result))
 
 
 def map_coords(geom, index) -> Optional[float]:
