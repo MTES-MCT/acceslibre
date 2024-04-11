@@ -99,30 +99,27 @@ def get_sound_beacon_label(access):
     return translate("Balise sonore") if access.entree_balise_sonore else ""
 
 
-def get_audiodescription_label(access):
-    label = ""
+def get_audiodescription_labels(access):
+    labels = []
     if access.accueil_audiodescription_presence and access.accueil_audiodescription:
-        label = ", ".join(
-            map_list_from_schema(
-                schema.AUDIODESCRIPTION_CHOICES,
-                access.accueil_audiodescription,
-                verbose=True,
-            )
+        labels = map_list_from_schema(
+            schema.AUDIODESCRIPTION_CHOICES,
+            access.accueil_audiodescription,
+            verbose=True,
         )
-    return label
+
+    return labels
 
 
-def get_deaf_equipment_label(access):
-    label = ""
+def get_deaf_equipment_labels(access):
+    labels = []
     if access.accueil_equipements_malentendants_presence and access.accueil_equipements_malentendants:
-        label = ", ".join(
-            map_list_from_schema(
-                schema.EQUIPEMENT_MALENTENDANT_CHOICES,
-                access.accueil_equipements_malentendants,
-                verbose=True,
-            )
+        labels = map_list_from_schema(
+            schema.EQUIPEMENT_MALENTENDANT_CHOICES,
+            access.accueil_equipements_malentendants,
+            verbose=True,
         )
-    return label
+    return labels
 
 
 def get_wc_label(access):

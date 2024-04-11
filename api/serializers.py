@@ -7,8 +7,8 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.widget_utils import (
-    get_audiodescription_label,
-    get_deaf_equipment_label,
+    get_audiodescription_labels,
+    get_deaf_equipment_labels,
     get_entrance_label,
     get_outside_path_label,
     get_parking_label,
@@ -214,12 +214,12 @@ class WidgetSerializer(serializers.Serializer):
             },
             {
                 "title": translate("audiodescription"),
-                "labels": [get_audiodescription_label(access)],
+                "labels": get_audiodescription_labels(access),
                 "icon": f"{settings.SITE_ROOT_URL}/static/img/audiodescription.png",
             },
             {
                 "title": translate("équipements sourd et malentendant"),
-                "labels": [get_deaf_equipment_label(access)],
+                "labels": get_deaf_equipment_labels(access),
                 "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
             },
             {

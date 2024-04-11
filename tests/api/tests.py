@@ -677,7 +677,10 @@ class TestWidgetApi:
                 },
                 {
                     "title": "équipements sourd et malentendant",
-                    "labels": ANY,  # tested later on
+                    "labels": [
+                        "boucle à induction magnétique fixe",
+                        "boucle à induction magnétique portative",
+                    ],
                     "icon": "http://testserver/static/img/assistive-listening-systems.png",
                 },
                 {
@@ -694,12 +697,6 @@ class TestWidgetApi:
         }
 
         assert response.json() == expected
-        # isolated test for unordered string on "équipements sourd et malentendant"
-        for entry in response.json()["sections"]:
-            if entry["title"] == "équipements sourd et malentendant":
-                assert "boucle à induction magnétique fixe" in entry["labels"][0]
-                assert "boucle à induction magnétique portative" in entry["labels"][0]
-                break
 
     @pytest.mark.django_db
     def test_low_completion_case(self, api_client):
