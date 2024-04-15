@@ -6,6 +6,7 @@ from urllib.parse import quote
 import phonenumbers
 from django import template
 from django.conf import settings
+from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
@@ -219,3 +220,15 @@ def get_list(dictionary, key):
     if not isinstance(dictionary, dict):
         return []
     return dictionary.getlist(key)
+
+
+@register.filter
+def label_to_image(label):
+    if label == "Destination pour Tous":
+        return static("img/labels/dpt.jpg")
+    if label == "Mobalib":
+        return static("img/labels/mobalib.jpg")
+    if label == "Tourisme & Handicap":
+        return static("img/labels/th.jpg")
+    if label == "Handiplage":
+        return static("img/labels/handiplage.jpg")
