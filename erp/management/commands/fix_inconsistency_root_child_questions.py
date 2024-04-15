@@ -222,7 +222,13 @@ class Command(BaseCommand):
             qs.update(sanitaires_adaptes=None)
             print_success("Fixed")
 
-        qs = Accessibilite.objects.filter(labels=[]).exclude(labels_familles_handicap=[]).exclude(labels_autre=[])
+        qs = (
+            Accessibilite.objects.filter(labels=[])
+            .exclude(labels_familles_handicap=[])
+            .exclude(labels_familles_handicap=None)
+            .exclude(labels_autre=[])
+            .exclude(labels_autre=None)
+        )
         print_error(f"Found {qs.count()} ERPs with inconsistent info on labels and its sub answers")
         self.print_example(qs)
         if write:
