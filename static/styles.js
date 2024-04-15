@@ -9,6 +9,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 // Here leaflet.locatecontrol/dist/L.Control.Locate.min.js exists
 // so we MUST skip the file extension.
 import 'leaflet.locatecontrol/dist/L.Control.Locate.min'
+import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 // Acceslibre own styles
 import './scss/style.scss'
