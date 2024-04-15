@@ -17,9 +17,27 @@ csv_file_contents = """"Libéllé de l'entité","Type de l'entité","Numéro et 
 
 @pytest.mark.django_db
 def test_nominal_case(mocker):
-    CommuneFactory(nom="AMBERIEU EN BUGEY")
-    CommuneFactory(nom="AMBERIEUX EN DOMBES")
-    CommuneFactory(nom="CEYZERIAT")
+    CommuneFactory(
+        nom="AMBERIEU EN BUGEY",
+        departement="01",
+        code_postaux=[
+            "01500",
+        ],
+    )
+    CommuneFactory(
+        nom="AMBERIEUX EN DOMBES",
+        departement="01",
+        code_postaux=[
+            "01330",
+        ],
+    )
+    CommuneFactory(
+        nom="CEYZERIAT",
+        departement="01",
+        code_postaux=[
+            "01250",
+        ],
+    )
     ActiviteFactory(nom="Bureau de Poste")
 
     # random geo coords to avoid a matching by name.
