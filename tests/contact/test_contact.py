@@ -1,5 +1,6 @@
 from unittest.mock import ANY
 
+from django.conf import settings
 from django.core import mail
 from django.urls import reverse
 
@@ -31,7 +32,7 @@ def test_contact(mocker, data, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _args == ([settings.DEFAULT_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
@@ -107,7 +108,7 @@ def test_contact_authenticated(mocker, data, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _args == ([settings.DEFAULT_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
@@ -159,7 +160,7 @@ def test_contact_topic(mocker, data, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == (["acceslibre@beta.gouv.fr"],)
+    assert _args == ([settings.DEFAULT_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
