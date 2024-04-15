@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="fr-card__header d-flex align-items-center">
                                     <img class="fr-responsive-img"
-                                         src="{% static '/img/labels/'|add:label|add:'.jpg' %}"
+                                         src="{{ label|label_to_image }}"
                                          alt="Logo {{ label }}" />
                                 </div>
                             </div>
