@@ -14,6 +14,19 @@
             Marches non sécurisées
         {% endblocktranslate %}
     {% endif %}
+    {% if main_courante_data is True %}
+        {% blocktranslate trimmed count nb_marches=nb_marches asvar main_courante %}
+            équipé d'une ou plusieurs mains courantes
+        {% plural %}
+            équipées d'une ou plusieurs mains courantes
+        {% endblocktranslate %}
+    {% elif main_courante_data is False %}
+        {% blocktranslate trimmed count nb_marches=nb_marches asvar main_courante %}
+            non équipée de main courante
+        {% plural %}
+            non équipées de main courante
+        {% endblocktranslate %}
+    {% endif %}
 {% else %}
     {% if reperage is True %}
         {% blocktranslate trimmed asvar reperage_marches %}
@@ -27,12 +40,8 @@
 {% endif %}
 {% if reperage_marches %}
     <li>
-        {% if main_courante_data %}
-            {% blocktranslate trimmed with main_courante="cheminement_ext_main_courante"|positive_text|lower %}
-                {{ reperage_marches }} et {{ main_courante }}
-            {% endblocktranslate %}
-        {% elif main_courante_data is False %}
-            {% blocktranslate trimmed with main_courante="cheminement_ext_main_courante"|negative_text|lower %}
+        {% if main_courante %}
+            {% blocktranslate trimmed with main_courante=main_courante %}
                 {{ reperage_marches }} et {{ main_courante }}
             {% endblocktranslate %}
         {% else %}

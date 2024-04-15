@@ -56,11 +56,15 @@
         {% endif %}
         {% include "erp/includes/access_steps.html" with nb_marches=access.entree_marches main_courante_data=access.entree_marches_main_courante reperage=access.entree_marches_reperage %}
         {% if access.has_ramp_entry %}
-            <li>{{ "entree_marches_rampe"|positive_text }}</li>
-        {% else %}
+            <li>
+                {% blocktranslate trimmed with sentence="entree_marches_rampe"|positive_text rampe=access.entree_marches_rampe %}
+                    {{ sentence }} {{ rampe }}
+                {% endblocktranslate %}
+            </li>
+        {% elif access.entree_marches_rampe is False %}
             <li>{{ "entree_marches_rampe"|negative_text }}</li>
         {% endif %}
-        {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+        {% if access.entree_ascenseur %}<li>{{ "entree_ascenseur"|positive_text }}</li>{% endif %}
         {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
         {% if access.entree_dispositif_appel %}
             {% if access.entree_dispositif_appel_type %}
@@ -73,8 +77,10 @@
             <li>
                 {{ "entree_pmr"|positive_text }}
                 {% if access.entree_pmr_informations %}
-                    <br />
-                    {{ access.entree_pmr_informations }}
+                    :
+                    <div class="a4a-comment-block d-inline">
+                        <p class="d-inline">{{ access.entree_pmr_informations }}</p>
+                    </div>
                 {% endif %}
             </li>
         {% endif %}

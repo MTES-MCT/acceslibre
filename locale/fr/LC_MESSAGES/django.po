@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-09 14:55+0200\n"
+"POT-Creation-Date: 2024-04-15 16:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1517,13 +1517,13 @@ msgstr ""
 msgid "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
 msgstr ""
 
-msgid "Revêtement stable"
+msgid "Revêtement adapté au passage d’un fauteuil roulant"
 msgstr ""
 
 msgid "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
 msgstr ""
 
-msgid "Revêtement meuble"
+msgid "Revêtement non adapté au passage d'un fauteuil roulant"
 msgstr ""
 
 msgid "Chemin extérieur de plain-pied"
@@ -1596,6 +1596,9 @@ msgid "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nb
 msgstr ""
 
 msgid "Présence d'une rampe fixe ou amovible"
+msgstr ""
+
+msgid "Présence d'une rampe"
 msgstr ""
 
 msgid "Pas de rampe fixe ou amovible"
@@ -3658,6 +3661,10 @@ msgstr ""
 msgid "pour atteindre l'entrée"
 msgstr ""
 
+#, python-format
+msgid "%(sentence)s %(rampe)s"
+msgstr ""
+
 msgid "Registre d'accessibilité et conformité"
 msgstr ""
 
@@ -3696,12 +3703,20 @@ msgid "pour atteindre l'accueil"
 msgstr ""
 
 #, python-format
-msgid "Présence de %(nb)s marches %(sens)s %(extra_context)s"
+msgid "Audiodescription via : %(equipements)s"
 msgstr ""
 
 #, python-format
-msgid "Présence de %(nb)s marches %(extra_context)s"
-msgstr ""
+msgid "Présence de %(nb)s marche %(sens)s %(extra_context)s"
+msgid_plural "Présence de %(nb)s marches %(sens)s %(extra_context)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "Présence de %(nb)s marche %(extra_context)s"
+msgid_plural "Présence de %(nb)s marches %(extra_context)s"
+msgstr[0] ""
+msgstr[1] ""
 
 #, python-format
 msgid "Présence de marches %(sens)s %(extra_context)s"
@@ -3718,6 +3733,16 @@ msgstr[1] ""
 
 msgid "Marche non sécurisée"
 msgid_plural "Marches non sécurisées"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "équipé d'une ou plusieurs mains courantes"
+msgid_plural "équipées d'une ou plusieurs mains courantes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "non équipée de main courante"
+msgid_plural "non équipées de main courante"
 msgstr[0] ""
 msgstr[1] ""
 

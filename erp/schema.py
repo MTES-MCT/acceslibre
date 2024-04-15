@@ -550,11 +550,11 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
         ),
-        "help_text_ui_v2": translate_lazy("Revêtement stable"),
+        "help_text_ui_v2": translate_lazy("Revêtement adapté au passage d’un fauteuil roulant"),
         "help_text_ui_neg": translate_lazy(
             "Le revêtement n'est pas stable (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
         ),
-        "help_text_ui_neg_v2": translate_lazy("Revêtement meuble"),
+        "help_text_ui_neg_v2": translate_lazy("Revêtement non adapté au passage d'un fauteuil roulant"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -680,6 +680,7 @@ FIELDS = {
             translate_lazy("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?")
         ),
         "help_text_ui": translate_lazy("Présence d'une rampe fixe ou amovible"),
+        "help_text_ui_v2": translate_lazy("Présence d'une rampe"),
         "help_text_ui_neg": translate_lazy("Pas de rampe fixe ou amovible"),
         "help_text_ui_neg_v2": translate_lazy("Pas de rampe"),
         "choices": RAMPE_CHOICES,
@@ -1013,6 +1014,7 @@ FIELDS = {
             translate_lazy("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?")
         ),
         "help_text_ui": translate_lazy("Présence d'une rampe fixe ou amovible"),
+        "help_text_ui_v2": translate_lazy("Présence d'une rampe"),
         "help_text_ui_neg": translate_lazy("Pas de rampe fixe ou amovible"),
         "help_text_ui_neg_v2": translate_lazy("Pas de rampe"),
         "choices": RAMPE_CHOICES,
@@ -1294,6 +1296,7 @@ FIELDS = {
             translate_lazy("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?")
         ),
         "help_text_ui": translate_lazy("Présence d'une rampe fixe ou amovible"),
+        "help_text_ui_v2": translate_lazy("Présence d'une rampe"),
         "help_text_ui_neg": translate_lazy("Pas de rampe fixe ou amovible"),
         "choices": RAMPE_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -1558,6 +1561,7 @@ FIELDS = {
         "label": translate_lazy("Audiodescription"),
         "help_text": mark_safe(translate_lazy("L'établissement propose-t-il de l’audiodescription&nbsp?")),
         "help_text_ui": translate_lazy("L'établissement propose l'audiodescription"),
+        "help_text_ui_v2": translate_lazy("Audiodescription"),
         "help_text_ui_neg": translate_lazy("L'établissement ne propose pas l’audiodescription"),
         "help_text_ui_neg_v2": translate_lazy("Pas d'audiodescription"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
