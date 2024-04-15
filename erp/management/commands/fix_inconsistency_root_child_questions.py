@@ -226,7 +226,7 @@ class Command(BaseCommand):
         print_error(f"Found {qs.count()} ERPs with inconsistent info on labels and its sub answers")
         self.print_example(qs)
         if write:
-            qs.update(labels=None)
+            qs.update(labels_familles_handicap=None, labels_autre=None)
             print_success("Fixed")
 
         print_warning("Conditional questions")
