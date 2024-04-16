@@ -9,7 +9,12 @@
         {% if access.transport_station_presence %}
             <li>
                 {{ "transport_station_presence"|positive_text }}
-                {% if access.transport_information %}: {{ access.transport_information }}{% endif %}
+                {% if access.transport_information %}
+                    :
+                    <div class="a4a-comment-block d-inline">
+                        <p class="d-inline">{{ access.transport_information }}</p>
+                    </div>
+                {% endif %}
             </li>
         {% elif access.transport_station_presence is False %}
             <li>{{ "transport_station_presence"|negative_text }}</li>

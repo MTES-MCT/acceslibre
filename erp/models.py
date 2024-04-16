@@ -1711,3 +1711,7 @@ class Accessibilite(models.Model):
     def get_labels_display(self):
         label_to_text = {k: str(v) for k, v in schema.LABEL_CHOICES}
         return [(label, label_to_text.get(label)) for label in self.labels]
+
+    def get_accueil_audiodescription_text(self):
+        equipment_to_text = {k: str(v) for k, v in schema.AUDIODESCRIPTION_CHOICES}
+        return ",".join([equipment_to_text.get(equipment) for equipment in self.accueil_audiodescription])
