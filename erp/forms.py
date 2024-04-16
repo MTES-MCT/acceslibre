@@ -92,6 +92,11 @@ class ContribAccessibiliteForm(forms.ModelForm):
         self._user = kwargs.pop("user", False)
         super().__init__(*args, **kwargs)
 
+    def clean_entree_dispositif_appel_type(self):
+        if "entree_dispositif_appel" in self.cleaned_data and self.cleaned_data["entree_dispositif_appel"] is not True:
+            return None
+        return self.cleaned_data["entree_dispositif_appel_type"]
+
     def clean_accueil_equipements_malentendants(self):
         if (
             "accueil_equipements_malentendants_presence" in self.cleaned_data

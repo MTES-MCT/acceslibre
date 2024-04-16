@@ -411,8 +411,8 @@ def test_ajout_erp(data, client):
             "entree_marches_main_courante": True,
             "entree_marches_rampe": "aucune",
             "entree_balise_sonore": True,
-            "entree_dispositif_appel": True,
-            "entree_dispositif_appel_type": ["bouton", "visiophone"],
+            "entree_dispositif_appel": False,
+            "entree_dispositif_appel_type": ["bouton", "visiophone"],  # inconsistent as mother question is False
             "entree_aide_humaine": True,
             "entree_largeur_mini": 80,
             "entree_pmr": True,
@@ -433,8 +433,8 @@ def test_ajout_erp(data, client):
     assert accessibilite.entree_marches_main_courante is True
     assert accessibilite.entree_marches_rampe == "aucune"
     assert accessibilite.entree_balise_sonore is True
-    assert accessibilite.entree_dispositif_appel is True
-    assert accessibilite.entree_dispositif_appel_type == ["bouton", "visiophone"]
+    assert accessibilite.entree_dispositif_appel is False
+    assert accessibilite.entree_dispositif_appel_type is None, "should have been wiped as mother is False"
     assert accessibilite.entree_aide_humaine is True
     assert accessibilite.entree_largeur_mini == 80
     assert accessibilite.entree_pmr is True
