@@ -99,7 +99,6 @@ urlpatterns = [
         views.contrib_global_search,
         name="contrib_global_search",
     ),
-    path("contrib/claim/<str:erp_slug>/", views.contrib_claim, name="contrib_claim"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
     path("contrib/v2/", include("erp.contribution.urls")),
     # NOTE: The next 8 URLs should not be renamed (at least without any back compatibility), used by Service Public.

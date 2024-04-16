@@ -1,0 +1,99 @@
+{% load i18n %}
+{% load static %}
+<div id="widget-a11y-container"
+     data-pk="{{ erp.uuid }}"
+     data-baseurl="{{ root_url }}"></div>
+<script src="{{ url_widget_js }}" type="text/javascript"></script>
+<div class="card h-100 lg:ml-4">
+    <div class="card-body pb-2 d-flex flex-column">
+        <img alt="Exemple de widget"
+             class="mx-auto w-auto d-block"
+             height="200px"
+             src="{% static 'img/widget-acceslibre.png' %}">
+        <h2 class="h4 text-center my-3">{% translate "Voulez-vous partager ces informations sur votre site ?" %}</h2>
+        <p>{% translate "En un copier-coller, affichez les informations principales de votre établissement." %}</p>
+        <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb text-center fr-btns-group mt-auto">
+            <button type="button"
+                    class="fr-btn fr-btn--secondary"
+                    data-toggle="modal"
+                    data-target="#widgetmodal">{% translate "Comment faire ?" %}</button>
+            <!-- Modal -->
+            <div class="modal fade"
+                 id="widgetmodal"
+                 tabindex="-1"
+                 role="dialog"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="fr-h5 modal-title">{% translate "Intégrez acceslibre sur votre site !" %}</h3>
+                            <button type="button"
+                                    title="Fermer la fenêtre"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="{% translate "Fermer" %}">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-left" id="widget-code">
+                            <p>{% translate "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :" %}</p>
+                            <div style="background-color: black; padding: 1rem;">
+                                <code style="color:lightgrey"
+                                      class="Code__Text-sc-1wllvkx-1 dNGlgo"
+                                      id="tocopy">{{ widget_tag }}</code>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
+                               href="#"
+                               aria-haspopup="dialog"
+                               aria-controls="dialog">{% translate "Tester le widget" %}</a>
+                            <button type="button" class="fr-btn fr-btn--secondary" data-dismiss="modal">{% translate "Fermer" %}</button>
+                            <button type="button" class="fr-btn js-copy" data-target="#tocopy">{% translate "Copier" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var btncopy = document.querySelector('.js-copy');
+    if(btncopy) {
+        btncopy.addEventListener('click', docopy);
+    }
+
+    function docopy() {
+        var range = document.createRange();
+        var target = this.dataset.target;
+        var fromElement = document.querySelector(target);
+        var selection = window.getSelection();
+
+        range.selectNode(fromElement);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            var result = document.execCommand('copy');
+            if (result) {
+               var tag = document.createElement("p");
+               tag.className = "text-center text-success"
+               var text = document.createTextNode('{% translate "Copié avec succès" %}');
+               tag.appendChild(text);
+               var element = document.getElementById("widget-code");
+               element.appendChild(tag);
+            }
+        }
+        catch(err) {
+            alert('{% translate "Une erreur s’est produite lors de la copie." %}')
+        }
+        selection = window.getSelection();
+
+        if (typeof selection.removeRange === 'function') {
+            selection.removeRange(range);
+        } else if (typeof selection.removeAllRanges === 'function') {
+            selection.removeAllRanges();
+        }
+    }
+
+</script>

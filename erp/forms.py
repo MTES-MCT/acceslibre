@@ -741,13 +741,6 @@ class PublicPublicationForm(forms.ModelForm):
     )
 
 
-class PublicClaimForm(forms.Form):
-    ok = forms.BooleanField(
-        required=True,
-        label=translate_lazy("Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement."),
-    )
-
-
 FORM_FIELDS = {
     "user_type": {"label": PublicAProposForm.declared_fields["user_type"].label},
 }

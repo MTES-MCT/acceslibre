@@ -151,40 +151,6 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
     ), "Missing info for encode_provider_data"
 
 
-def test_claim(client, user, data):
-    erp = Erp.objects.create(user=user, nom="test", commune="lyon", published=True, geom=Point(0, 0))
-
-    user.stats.refresh_from_db()
-    initial_nb_attributed = user.stats.nb_erp_attributed
-
-    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), follow=True)
-    assert response.redirect_chain == [
-        ("/contrib/edit-infos/test/", 302)
-    ], "ERP is already attributed, should redirect to edition"
-
-    user.stats.refresh_from_db()
-    assert user.stats.nb_erp_attributed == initial_nb_attributed
-
-    erp.user = None
-    erp.save()
-
-    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), data={"ok": False}, follow=True)
-    assert response.context["form"].is_valid() is False
-    erp.refresh_from_db()
-    assert erp.user is None, "User has not certified he is the owner and did not check the tickbox."
-
-    user.stats.refresh_from_db()
-    assert user.stats.nb_erp_attributed == initial_nb_attributed
-
-    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), data={"ok": True}, follow=True)
-    erp.refresh_from_db()
-    assert erp.user == user
-    assert erp.user_type == Erp.USER_ROLE_GESTIONNAIRE
-
-    user.stats.refresh_from_db()
-    assert user.stats.nb_erp_attributed == initial_nb_attributed + 1
-
-
 @pytest.mark.django_db
 def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(django_app, activite_other):
     erp = AccessibiliteFactory(erp__published=True).erp

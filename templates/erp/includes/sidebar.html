@@ -1,192 +1,30 @@
 {% load a4a static %}
 {% load i18n %}
-<div id="widget-a11y-container"
-     data-pk="{{ erp.uuid }}"
-     data-baseurl="{{ root_url }}"></div>
-<script src="{{ url_widget_js }}" type="text/javascript"></script>
-<div class="card shadow-sm">
-    <div class="card-body pb-2">
-        <h2 class="h4 text-center mb-3">
-            <i aria-hidden="true" class="icon icon-pencil mr-1"></i>
-            {% translate "Contribuez&nbsp;!" %}
-        </h2>
-        <p class="my-3">
-            {% translate "Si la description de l'accessibilité de cet établissement est incomplète ou inexacte, contribuez à l'améliorer." %}
-        </p>
-        <p class="text-center">
-            <a class="fr-btn text-wrap mx-auto"
+<div class="card">
+    <div class="card-body">
+        <img src="{% static 'img/data_quality.jpeg' %}"
+             alt="{% translate "Une personne inspectant des données à la loupe" %}"
+             class="w-100 px-5 d-none d-lg-block">
+        <h2 class="h5 text-center mb-4">{% translate "Voulez-vous améliorer la qualité des informations ?" %}</h2>
+        <div class="fr-btns-group">
+            <a class="fr-btn"
                href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorez ces informations" %}</a>
-        </p>
-        <form method="post"
-              action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}">
-            {% csrf_token %}
-            <p class="text-center">
+            <form method="post"
+                  action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}"
+                  class="w-100">
+                {% csrf_token %}
                 <button class="fr-btn fr-btn--secondary" type="submit">
                     {% translate "Confirmer que les informations sont à jour" %}
                 </button>
-            </p>
-        </form>
-        <p class="text-center">
+            </form>
             <a class="fr-btn fr-btn--secondary"
-               href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème" %}</a>
-        </p>
-        {% if not erp.user %}
-            <p class="text-center mb-O">
-                <a href="{% url 'contrib_claim' erp_slug=erp.slug %}">{% translate "Je gère cet établissement" %}</a>
-            </p>
-        {% endif %}
-        <p class="text-center mb-O">
-            {% if user.is_authenticated %}
-                {% if user_is_subscribed %}
-                    <a href="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
-                       title="Recevoir des notifications par email lorsque cet établissement est mis à jour">
-                        <i aria-hidden="true" class="icon icon-bell-mute"></i>
-                        {% translate "Se désabonner des mises à jour" %}
-                    </a>
-                {% else %}
-                    <a href="{% url 'subscribe_erp' erp_slug=erp.slug %}"
-                       title="{% translate "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour" %}">
-                        <i aria-hidden="true" class="icon icon-bell"></i>
-                        {% translate "S'abonner aux mises à jour" %}
-                    </a>
-                {% endif %}
-            {% endif %}
-        </p>
-        {% if user.is_superuser %}
-            <p class="text-center mb-O">
+               href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème ou une erreur" %}</a>
+            {% if user.is_superuser %}
                 <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}"
                    target="_blank"
-                   rel="noopener noreferrer">
-                    <i aria-hidden="true" class="icon icon-lock"></i>
-                    {% translate "Administrer cette fiche" %}
-                </a>
-            </p>
-        {% endif %}
-    </div>
-    <div class="card-footer">
-        <div class="a4a-text-smaller">
-            {% spaceless %}
-                {% with erp.get_global_timestamps as timestamps %}
-                    {% translate "Informations initialement fournies" %}
-                    {% if erp.user %}
-                        {% translate "par" %} <strong>{{ erp.user.username|format_username }}</strong>
-                    {% endif %}
-                    {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ timestamps.created_at|date:"j/m/Y" }}
-                    {% if erp.user_type == "gestionnaire" %}
-                        {% translate "en tant que gestionnaire de l'établissement" %}
-                    {% elif erp.user_type == "admin" %}
-                        {% translate "en tant qu'administration" %}
-                    {% elif erp.user_type == "public" %}
-                        {% translate "en tant qu'usager de l'établissement" %}
-                    {% endif %}
-                    {% if timestamps.created_at != timestamps.updated_at %}
-                        {% translate "et mises à jour le" %} {{ timestamps.updated_at|date:"j/m/Y" }}
-                    {% endif %}
-                {% endwith %}
-            {% endspaceless %}
-            .
-            <br>
-            <details>
-                <summary class="no-ouline text-primary mt-1">
-                    <i aria-hidden="true" class="icon icon-clock"></i>
-                    {% translate "Historique des modifications" %}
-                </summary>
-                <section id="history" class="mt-2">
-                    {% include "erp/includes/history.html" %}
-                </section>
-            </details>
+                   class="fr-btn fr-btn--secondary"
+                   rel="noopener noreferrer">{% translate "Administrer cette fiche" %}</a>
+            {% endif %}
         </div>
     </div>
 </div>
-<div class="card shadow-sm mt-5">
-    <div class="card-body pb-2">
-        <h2 class="h4 text-center mb-3">{% translate "Affichez ces informations sur votre site" %}</h2>
-        <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb text-center">
-            <p>{% translate "En un copier-coller, affichez les informations principales de votre établissement." %}</p>
-            <img alt="Exemple de widget"
-                 class="img-thumbnail mb-3"
-                 src="{% static 'img/widget-acceslibre.png' %}">
-            <button type="button"
-                    class="fr-btn"
-                    data-toggle="modal"
-                    data-target="#widgetmodal">{% translate "Comment faire ?" %}</button>
-            <!-- Modal -->
-            <div class="modal fade"
-                 id="widgetmodal"
-                 tabindex="-1"
-                 role="dialog"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="fr-h5 modal-title">{% translate "Intégrez acceslibre sur votre site !" %}</h3>
-                            <button type="button"
-                                    title="Fermer la fenêtre"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="{% translate "Fermer" %}">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-left" id="widget-code">
-                            <p>{% translate "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :" %}</p>
-                            <div style="background-color: black; padding: 1rem;">
-                                <code style="color:lightgrey"
-                                      class="Code__Text-sc-1wllvkx-1 dNGlgo"
-                                      id="tocopy">{{ widget_tag }}</code>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
-                               href="#"
-                               aria-haspopup="dialog"
-                               aria-controls="dialog">{% translate "Tester le widget" %}</a>
-                            <button type="button" class="fr-btn fr-btn--secondary" data-dismiss="modal">{% translate "Fermer" %}</button>
-                            <button type="button" class="fr-btn js-copy" data-target="#tocopy">{% translate "Copier" %}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    var btncopy = document.querySelector('.js-copy');
-    if(btncopy) {
-        btncopy.addEventListener('click', docopy);
-    }
-
-    function docopy() {
-        var range = document.createRange();
-        var target = this.dataset.target;
-        var fromElement = document.querySelector(target);
-        var selection = window.getSelection();
-
-        range.selectNode(fromElement);
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        try {
-            var result = document.execCommand('copy');
-            if (result) {
-               var tag = document.createElement("p");
-               tag.className = "text-center text-success"
-               var text = document.createTextNode('{% translate "Copié avec succès" %}');
-               tag.appendChild(text);
-               var element = document.getElementById("widget-code");
-               element.appendChild(tag);
-            }
-        }
-        catch(err) {
-            alert('{% translate "Une erreur s’est produite lors de la copie." %}')
-        }
-        selection = window.getSelection();
-
-        if (typeof selection.removeRange === 'function') {
-            selection.removeRange(range);
-        } else if (typeof selection.removeAllRanges === 'function') {
-            selection.removeAllRanges();
-        }
-    }
-
-</script>
