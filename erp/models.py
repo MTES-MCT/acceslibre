@@ -1692,6 +1692,8 @@ class Accessibilite(models.Model):
         return self.accueil_cheminement_rampe and self.accueil_cheminement_rampe != schema.RAMPE_AUCUNE
 
     def _get_steps_direction_text(self, nb_steps, direction):
+        if not nb_steps:
+            return
         if direction == schema.ESCALIER_MONTANT:
             return ngettext("montante", "montantes", nb_steps)
         if direction == schema.ESCALIER_DESCENDANT:
