@@ -68,7 +68,7 @@
         {% if access.entree_aide_humaine %}<li>{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
         {% if access.entree_dispositif_appel %}
             {% if access.entree_dispositif_appel_type %}
-                {% for equipment in access.entree_dispositif_appel_type %}<li>{{ equipment|title }}</li>{% endfor %}
+                {% for equipment in access.get_entree_dispositif_appel_type_text %}<li>{{ equipment }}</li>{% endfor %}
             {% else %}
                 <li>{{ "entree_dispositif_appel"|positive_text }}</li>
             {% endif %}
