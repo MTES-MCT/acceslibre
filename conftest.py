@@ -65,6 +65,7 @@ def mock_geocode(request, mocker):
 def mock_brevo(mocker):
     mocker.patch("sib_api_v3_sdk.ContactsApi.get_contact_info", return_value=MagicMock(id=1))
     mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
+    mocker.patch("sib_api_v3_sdk.ContactsApi.add_contact_to_list", return_value=True)
     mocker.patch("sib_api_v3_sdk.TransactionalEmailsApi.send_transac_email", return_value=True)
 
 

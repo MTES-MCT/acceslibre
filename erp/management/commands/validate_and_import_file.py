@@ -60,6 +60,18 @@ class Command(BaseCommand):
             help="Whether we have to send an email to the mail address attached to the newly importer erp (import_email)",
         )
 
+        parser.add_argument(
+            "--skip-brevo-list-update",
+            action="store_true",
+            help="Skip update of the Brevo tally respondents list",
+        )
+
+    def _update_brevo_list(self, email):
+        if self.skip_brevo_list_update or not email:
+            return
+
+        BrevoMailer().add_to_list(list_name="tally-respondents", email=email)
+
     def _save_erp(self, erp):
         if self.skip_import:
             return
@@ -79,7 +91,9 @@ class Command(BaseCommand):
                 )
                 print_success("\t   ** Mail envoyé")
         except Exception as e:
-            print_error(f"Une erreur est survenue lors de l'import de la ligne: {e}. Passage à la ligne suivante.")
+            print_error(
+                f"Une erreur est survenue lors de l'import de la ligne / save_erp: {e}. Passage à la ligne suivante."
+            )
         else:
             self.results["imported"]["count"] += 1
 
@@ -91,6 +105,7 @@ class Command(BaseCommand):
         self.activite = options.get("activite", None)
         self.force_update = options.get("force_update", False)
         self.send_emails = options.get("send_emails", False)
+        self.skip_brevo_list_update = options.get("skip_brevo_list_update", False)
 
         print("Démarrage du script")
         print_success(
@@ -104,6 +119,7 @@ Paramètres de lancement du script :
     Generate Errors file : {self.generate_errors_file}
     Force update duplicate erp : {self.force_update}
     Send emails to contributor : {self.send_emails}
+    Skip Brevo respondent list update : {self.skip_brevo_list_update}
 
         """
         )
@@ -128,6 +144,7 @@ Paramètres de lancement du script :
                 for _, row in enumerate(lines, 1):
                     print_success(f"\t     -> Validation ligne {_}/{total_line} ...")
                     erp_duplicated = None
+                    self._update_brevo_list(email=row.get("import_email"))
                     while True:
                         try:
                             validated_erp_data = self.validate_data(row, duplicated_erp=erp_duplicated)
