@@ -45,3 +45,6 @@ BREVO_TEMPLATE_IDS = {
     "email_change_activation": 15,
     "password_reset": 17,
 }
+BREVO_CONTACT_LIST_IDS = {
+    "tally-respondents": 11,
+}

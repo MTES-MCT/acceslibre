@@ -3,7 +3,9 @@ import os
 
 import pytest
 from django.core.management import CommandError, call_command
+from django.test import override_settings
 from reversion.models import Version
+from sib_api_v3_sdk import AddContactToList
 
 from erp.management.commands.validate_and_import_file import Command
 from erp.models import Erp
@@ -44,7 +46,9 @@ class TestValidator:
         assert cm.results["in_error"]["count"] == 0
         assert cm.results["validated"]["count"] == 1
 
-    def test_with_OK_file(self, activite, neufchateau):
+    @override_settings(BREVO_CONTACT_LIST_IDS={"tally-respondents": 11})
+    def test_with_OK_file(self, mocker, activite, neufchateau):
+        mock_brevo = mocker.patch("sib_api_v3_sdk.ContactsApi.add_contact_to_list", return_value=True)
         cm = Command()
         call_command(
             cm,
@@ -57,6 +61,8 @@ class TestValidator:
         assert cm.results["imported"]["count"] == 1
         erp = Erp.objects.last()
         assert Version.objects.get_for_object(erp).count() == 1
+
+        mock_brevo.assert_called_once_with(11, AddContactToList(emails=["test@gmail.com"]))
 
     def test_duplicate_and_permanently_closed_with_OK_file(self, activite, neufchateau):
         cm = Command()

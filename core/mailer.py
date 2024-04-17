@@ -3,6 +3,7 @@ import logging
 from django.conf import settings
 from django_registration.backends.activation.views import RegistrationView
 from sib_api_v3_sdk import (
+    AddContactToList,
     ApiClient,
     Configuration,
     ContactsApi,
@@ -128,3 +129,19 @@ class BrevoMailer(Mailer):
         )
         api_instance.update_contact(contact.id, update_contact)
         return True
+
+    def add_to_list(self, list_name, email):
+        if not list_name or not email:
+            return False
+
+        if not (list_id := settings.BREVO_CONTACT_LIST_IDS.get(list_name)):
+            return False
+
+        api_instance = ContactsApi(ApiClient(self.configuration))
+        contact_emails = AddContactToList(emails=[email])
+
+        try:
+            api_instance.add_contact_to_list(list_id, contact_emails)
+            return True
+        except ApiException:
+            return False

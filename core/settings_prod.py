@@ -56,5 +56,7 @@ BREVO_TEMPLATE_IDS = {
     "email_change_activation": 356,
     "password_reset": 376,
 }
-
+BREVO_CONTACT_LIST_IDS = {
+    "tally-respondents": 262,
+}
 REAL_USER_NOTIFICATION = True
