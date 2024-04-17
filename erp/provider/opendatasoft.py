@@ -73,7 +73,7 @@ def parse_etablissement(record):
         lieu_dit=etablissement.get("complementadresseetablissement"),
         code_postal=etablissement.get("codepostaletablissement"),
         commune=etablissement.get("libellecommuneetablissement"),
-        code_insee=etablissement.get("codecommuneetablissement"),
+        code_insee=str(etablissement.get("codecommuneetablissement") or ""),
     )
 
 
