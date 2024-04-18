@@ -52,8 +52,9 @@ def login(browser, username, password, next=None):
     button.click()
 
 
-def test_home(data, browser):
-    browser.visit(reverse("home"))
+def test_home(data, browser, django_assert_max_num_queries):
+    with django_assert_max_num_queries(2):
+        browser.visit(reverse("home"))
 
     assert browser.title.startswith("acceslibre")
 
@@ -66,8 +67,10 @@ def test_communes(data, browser):
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
 
-def test_erp_details(data, browser, erp_domtom):
-    browser.visit(data.erp.get_absolute_url())
+def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
+
+    with django_assert_max_num_queries(6):
+        browser.visit(data.erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title
     assert "Boulangerie" in browser.title
@@ -78,7 +81,8 @@ def test_erp_details(data, browser, erp_domtom):
     assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui("sanitaires_presence"))))
     assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))))
 
-    browser.visit(erp_domtom.get_absolute_url())
+    with django_assert_max_num_queries(5):
+        browser.visit(erp_domtom.get_absolute_url())
 
     assert "Lycée Joseph Zobel" in browser.title
     assert "Lycée" in browser.title
