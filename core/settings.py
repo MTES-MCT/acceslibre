@@ -265,7 +265,8 @@ DATETIME_FORMAT = "Y-m-d, H:i:s"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-DEEPL_API_KEY = env("DEEPL_API_KEY", default=None)
+DEEPL_AUTH_KEY = env("DEEPL_AUTH_KEY", default=None)
+DEEPL_LANGUAGES = {"EN_GB": "en"}
 DEEPL_MAPPING = {"en": "EN-GB"}
 
 OUTSCRAPER_API_KEY = env("OUTSCRAPER_API_KEY", default=None)
