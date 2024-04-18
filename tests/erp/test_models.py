@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import AccessibiliteFactory
+from tests.factories import AccessibiliteFactory, CommuneFactory, ErpFactory
 
 
 class TestAccessibility:
@@ -173,6 +173,16 @@ class TestErp:
 
         erp.refresh_from_db()
         assert erp.published is False, "ERP should have been unpublished as it is flagged permanently closed"
+
+    @pytest.mark.django_db
+    def test_get_absolute_url(self):
+        commune = CommuneFactory(departement="974", nom="Saint Paul")
+        erp = ErpFactory(commune_ext=commune)
+        assert "974-saint-paul" in erp.get_absolute_url()
+
+        commune = CommuneFactory(departement="2B", nom="Calenzana")
+        erp = ErpFactory(commune_ext=commune)
+        assert "2b-calenzana" in erp.get_absolute_url()
 
 
 @pytest.mark.usefixtures("data")
