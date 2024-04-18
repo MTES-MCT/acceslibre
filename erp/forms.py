@@ -588,7 +588,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                     )
                 )
 
-            existing = existing_erps.first()
+            existing = existing_erps.published().first()
 
             if existing:
                 if existing.published:
