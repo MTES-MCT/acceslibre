@@ -3,9 +3,21 @@ from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
+from splinter import Browser
 
 from stats.models import GlobalStats, WidgetEvent
 from stats.queries import _get_nb_filled_in_info
+
+
+@pytest.fixture
+def browser():
+    return Browser("django")
+
+
+@pytest.mark.django_db
+def test_stats_page(data, browser, django_assert_max_num_queries):
+    with django_assert_max_num_queries(3):
+        browser.visit(reverse("stats_home"))
 
 
 @pytest.mark.django_db

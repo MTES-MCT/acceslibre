@@ -333,6 +333,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "accessibilite",
             "activite",
             "user",
+            "commune_ext",
         )
         .published()
         .filter(slug=erp_slug)
