@@ -4,6 +4,7 @@ import 'leaflet'
 import 'leaflet.markercluster'
 import 'leaflet.locatecontrol'
 import 'leaflet-center-cross'
+import { GestureHandling } from 'leaflet-gesture-handling'
 import Chart from 'chart.js/auto'
 window.Chart = Chart
 

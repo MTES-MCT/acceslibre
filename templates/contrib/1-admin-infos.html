@@ -148,14 +148,13 @@
             <h3 class="h3 mb-3">
                 {% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
             </h3>
-            <div aria-hidden="true" class="alert alert-info">
-                <i class="icon icon-info-circled"></i>
-                {% blocktranslate %}
-      Merci de bien vérifier la bonne géolocalisation de votre établissement sur
-      la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte
-      pour faire correspondre le pointeur central sur sa position précise.</strong>
-      {% endblocktranslate %}
-            </div>
+            {# djlint:off #}
+            {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement" %}
+            {# djlint:on #}
+            <ul>
+                <li>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte" %}</li>
+                <li>{% translate "Si vous êtes sur ordinateur fixe, utilisez la touche Ctrl + souris" %}</li>
+            </ul>
             {% if erp or external_erp %}
                 <h2 class="h5 mb-3">
                     {% if erp %}
@@ -164,9 +163,7 @@
                         {{ external_erp.nom }}
                     {% endif %}
                     <small class="text-muted">
-                        {% if erp.activite %}
-                            - {{ erp.activite.nom }}
-                        {% endif %}
+                        {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
                         - <em>
                         {% if erp %}
                             {{ erp.adresse }}

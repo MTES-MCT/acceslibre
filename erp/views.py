@@ -625,7 +625,8 @@ def contrib_admin_infos(request):
             "duplicated": duplicated,
             "map_options": json.dumps(
                 {
-                    "scrollWheelZoom": False,  # Zoom in/out is not permitted in contrib mode as it would result into a position change of the cross
+                    # Makes sure the movements on the map are made on purpose
+                    "gestureHandling": True,
                 }
             ),
         },
