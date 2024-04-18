@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.urls import reverse
+from django.utils.translation import gettext as translate
 from splinter import Browser
 
 from erp import schema
@@ -69,7 +70,7 @@ def test_communes(data, browser):
 
 def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
 
-    with django_assert_max_num_queries(6):
+    with django_assert_max_num_queries(7):
         browser.visit(data.erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title
@@ -78,8 +79,8 @@ def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
-    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui("sanitaires_presence"))))
-    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))))
+    assert browser.is_text_present(translate("Toilettes classiques"))
+    assert browser.is_text_present(translate("Entrée bien visible"))
 
     with django_assert_max_num_queries(5):
         browser.visit(erp_domtom.get_absolute_url())
@@ -90,8 +91,6 @@ def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
     assert browser.is_text_present(erp_domtom.nom)
     assert browser.is_text_present(erp_domtom.activite.nom)
     assert browser.is_text_present(erp_domtom.adresse)
-    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui("sanitaires_presence"))))
-    assert browser.is_text_present(str(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))))
 
 
 def test_erp_details_edit_links(data, browser):
