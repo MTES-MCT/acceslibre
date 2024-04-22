@@ -11,8 +11,8 @@ from erp.contribution import (
     get_next_question_number,
     get_previous_question_number,
 )
-from erp.models import Accessibilite, Erp
 from erp.contribution.access_utils import UNSURE_ANSWER
+from erp.models import Accessibilite, Erp
 
 from .exceptions import ContributionStopIteration
 from .forms import ContributionForm

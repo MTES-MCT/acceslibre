@@ -50,7 +50,7 @@
                     </span>
                 {% endif %}
             </div>
-            {% if show_new_access_data and access.labels %}
+            {% if access.labels %}
                 <div class="fr-grid-row fr-grid-row--gutters mb-2 labels">
                     {% for value, label in access.get_labels_display %}
                         <div class="fr-col fr-col-md-4">
@@ -78,31 +78,18 @@
             <div class="d-flex flex-column">
                 <div class="row order-2">
                     <section id="a11y" class="col-lg-7 col-xl-8 remove-title-if-empty">
-                        {% if show_new_access_data %}
-                            {% include "erp/includes/access_parking.html" %}
-                            {% include "erp/includes/access_outside_path.html" %}
-                            {% include "erp/includes/access_entrance.html" %}
-                            {% include "erp/includes/access_reception.html" %}
-                            {% if erp.is_accommodation %}
-                                {% include "erp/includes/access_accommodation.html" %}
-                            {% endif %}
-                            {% if access.registre_url or access.conformite %}
-                                {% include "erp/includes/access_legal.html" %}
-                            {% endif %}
-                            {% if access.commentaire %}
-                                {% include "erp/includes/access_comment.html" %}
-                            {% endif %}
-                        {% else %}
-                            {% if accessibilite_data %}
-                                {% include "erp/includes/accessibilite.html" %}
-                            {% else %}
-                                <div class="alert alert-info">
-                                    <i aria-hidden="true" class="icon icon-info-circled"></i>
-                                    {% url "contrib_edit_infos" erp_slug=erp.slug as url_contrib %}
-                                    {% blocktranslate %}Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
-            mais <a href="{{url_contrib}}">vous pouvez les ajouter</a>.{% endblocktranslate %}
-                                </div>
-                            {% endif %}
+                        {% include "erp/includes/access_parking.html" %}
+                        {% include "erp/includes/access_outside_path.html" %}
+                        {% include "erp/includes/access_entrance.html" %}
+                        {% include "erp/includes/access_reception.html" %}
+                        {% if erp.is_accommodation %}
+                            {% include "erp/includes/access_accommodation.html" %}
+                        {% endif %}
+                        {% if access.registre_url or access.conformite %}
+                            {% include "erp/includes/access_legal.html" %}
+                        {% endif %}
+                        {% if access.commentaire %}
+                            {% include "erp/includes/access_comment.html" %}
                         {% endif %}
                     </section>
                     <aside class="col-lg-5 col-xl-4">

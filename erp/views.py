@@ -399,7 +399,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                     "dragging": False,
                 }
             ),
-            "show_new_access_data": request.GET.get("v2", "") != "",
         },
     )
 
