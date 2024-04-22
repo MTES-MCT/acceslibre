@@ -756,7 +756,7 @@ class Erp(models.Model):
         return f"{self.get_absolute_url()}?success=true"
 
     def get_absolute_url(self):
-        commune_slug = slugify(f"{self.departement}-{self.commune}")
+        commune_slug = self.commune_ext.slug if self.commune_ext else slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
                 "commune_erp",
