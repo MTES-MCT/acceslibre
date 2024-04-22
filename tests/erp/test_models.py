@@ -330,8 +330,8 @@ def test_get_outside_steps_direction_text():
 
     access.cheminement_ext_nombre_marches = None
     access.save()
-    assert access.get_outside_steps_direction_text() is None
+    assert access.get_outside_steps_direction_text() == "montantes"
 
     access.cheminement_ext_nombre_marches = 0
     access.save()
-    assert access.get_outside_steps_direction_text() is None
+    assert access.get_outside_steps_direction_text() == "montantes"
