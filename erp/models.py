@@ -1693,7 +1693,7 @@ class Accessibilite(models.Model):
 
     def _get_steps_direction_text(self, nb_steps, direction):
         if not nb_steps:
-            return
+            nb_steps = 2  # Business rule: let assume it is plural
         if direction == schema.ESCALIER_MONTANT:
             return ngettext("montante", "montantes", nb_steps)
         if direction == schema.ESCALIER_DESCENDANT:

@@ -32,7 +32,7 @@
             <li>
                 {% if access.accueil_audiodescription %}
                     {% blocktranslate trimmed with equipements=access.get_accueil_audiodescription_text %}
-                        Audiodescription via : {{ equipements }}
+                        Audiodescription : {{ equipements }}
                     {% endblocktranslate %}
                 {% else %}
                     {{ "accueil_audiodescription_presence"|positive_text }}

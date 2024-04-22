@@ -17,11 +17,11 @@
 {% else %}
     {% if steps_direction %}
         {% blocktranslate trimmed with sens=steps_direction extra_context=extra_context %}
-            Présence de marches {{ sens }} {{ extra_context }}
+            Présence d'une ou plusieurs marches {{ sens }} {{ extra_context }}
         {% endblocktranslate %}
     {% else %}
         {% blocktranslate trimmed with extra_context=extra_context %}
-            Présence de marches {{ extra_context }}
+            Présence d'une ou plusieurs marches {{ extra_context }}
         {% endblocktranslate %}
     {% endif %}
 {% endif %}

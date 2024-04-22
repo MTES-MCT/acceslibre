@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 15:01+0200\n"
+"POT-Creation-Date: 2024-04-22 10:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3690,8 +3690,11 @@ msgstr ""
 msgid "Présence d'une pente de longueur %(longueur)s"
 msgstr ""
 
+msgid "Présence d'une pente"
+msgstr ""
+
 #, python-format
-msgid "Dévers %(difficulty)s </li>"
+msgid "Dévers %(difficulty)s"
 msgstr ""
 
 msgid "Transport et stationnement"
@@ -3704,7 +3707,7 @@ msgid "pour atteindre l'accueil"
 msgstr ""
 
 #, python-format
-msgid "Audiodescription via : %(equipements)s"
+msgid "Audiodescription : %(equipements)s"
 msgstr ""
 
 #, python-format
@@ -3720,11 +3723,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #, python-format
-msgid "Présence de marches %(sens)s %(extra_context)s"
+msgid "Présence d'une ou plusieurs marches %(sens)s %(extra_context)s"
 msgstr ""
 
 #, python-format
-msgid "Présence de marches %(extra_context)s"
+msgid "Présence d'une ou plusieurs marches %(extra_context)s"
 msgstr ""
 
 msgid "Marche sécurisée"
@@ -3737,7 +3740,7 @@ msgid_plural "Marches non sécurisées"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "équipé d'une ou plusieurs mains courantes"
+msgid "équipée d'une ou plusieurs mains courantes"
 msgid_plural "équipées d'une ou plusieurs mains courantes"
 msgstr[0] ""
 msgstr[1] ""

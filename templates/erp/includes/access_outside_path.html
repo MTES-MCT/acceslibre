@@ -44,12 +44,14 @@
                     </li>
                 {% endif %}
             {% else %}
-                <li>
-                    {% if access.cheminement_ext_pente_longueur %}
+                {% if access.cheminement_ext_pente_longueur %}
+                    <li>
                         {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur %}
                             Présence d'une pente de longueur {{ longueur }}
                         {% endblocktranslate %}
                     </li>
+                {% else %}
+                    <li>{% translate "Présence d'une pente" %}</li>
                 {% endif %}
             {% endif %}
         {% endif %}
@@ -57,8 +59,8 @@
             <li>
                 {% blocktranslate trimmed with difficulty=access.cheminement_ext_devers %}
                     Dévers {{ difficulty }}
-                </li>
-            {% endblocktranslate %}
+                {% endblocktranslate %}
+            </li>
         {% elif access.has_camber is False %}
             <li>{{ "cheminement_ext_devers"|negative_text }}</li>
         {% endif %}
