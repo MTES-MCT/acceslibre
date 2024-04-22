@@ -1669,6 +1669,7 @@
                 "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==2.31.0"
         },
         "rfc3986": {
@@ -1802,11 +1803,12 @@
         },
         "scrapfly-sdk": {
             "hashes": [
-                "sha256:0188622627a1f716b7d065aebbd281245daf31899591ee4236b7b8d036088125",
-                "sha256:33c8aa75303b4e0ba53632a3f33c1ab0f726aca9ab809742b6953eb19de8d5ea"
+                "sha256:4b5e5f060c02eeffb6859aea10a3f945e1988750b664968b116fb5f798f1c050",
+                "sha256:e77b5645e2516a1c73ef454fb3b51715c9e9e4264a59ae9cb4b065000e00c211"
             ],
             "index": "pypi",
-            "version": "==0.8.15"
+            "markers": "python_version >= '3.6'",
+            "version": "==0.8.16"
         },
         "sentry-sdk": {
             "hashes": [
