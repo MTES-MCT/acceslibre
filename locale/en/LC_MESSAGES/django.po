@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-22 14:25+0200\n"
-"PO-Revision-Date: 2024-04-18 15:04+0200\n"
+"POT-Creation-Date: 2024-04-22 15:25+0200\n"
+"PO-Revision-Date: 2024-04-22 15:24+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.9.9\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -1216,13 +1216,13 @@ msgstr "Accessibility details of this ERP"
 
 msgid "montante"
 msgid_plural "montantes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ascending"
+msgstr[1] "ascending"
 
 msgid "descendante"
 msgid_plural "descendantes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "descending"
+msgstr[1] "descending"
 
 msgid "Accès"
 msgstr "Access"
@@ -4488,8 +4488,8 @@ msgstr "At least one room accessible to a person in a wheelchair"
 #, python-format
 msgid "%(nb)s chambre accessible à une personne en fauteuil roulant"
 msgid_plural "%(nb)s chambres accessibles à une personne en fauteuil roulant"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(nb)s wheelchair-accessible room"
+msgstr[1] "%(nb)s wheelchair-accessible rooms"
 
 #, python-format
 msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
@@ -4542,9 +4542,12 @@ msgstr "Presence of a slope %(difficulte)s"
 msgid "Présence d'une pente de longueur %(longueur)s"
 msgstr "Presence of a slope of length %(longueur)s"
 
+msgid "Présence d'une pente"
+msgstr "Presence of a slope"
+
 #, python-format
-msgid "Dévers %(difficulty)s </li>"
-msgstr "Slope %(difficulty)s </li>"
+msgid "Dévers %(difficulty)s"
+msgstr "Camber %(difficulty)s"
 
 msgid "Transport et stationnement"
 msgstr "Transportation and parking"
@@ -4556,40 +4559,40 @@ msgid "pour atteindre l'accueil"
 msgstr "to reach reception"
 
 #, python-format
-msgid "Audiodescription via : %(equipements)s"
-msgstr "Audio description via: %(equipements)s"
+msgid "Audiodescription : %(equipements)s"
+msgstr "Audiodescription: %(equipements)s"
 
 #, python-format
 msgid "Présence de %(nb)s marche %(sens)s %(extra_context)s"
 msgid_plural "Présence de %(nb)s marches %(sens)s %(extra_context)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Presence of %(nb)s walk %(sens)s %(extra_context)s"
+msgstr[1] "Presence of %(nb)s steps %(sens)s %(extra_context)s"
 
 #, python-format
 msgid "Présence de %(nb)s marche %(extra_context)s"
 msgid_plural "Présence de %(nb)s marches %(extra_context)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Presence of %(nb)s walk %(extra_context)s"
+msgstr[1] "Presence of %(nb)s steps %(extra_context)s"
 
 #, python-format
-msgid "Présence de marches %(sens)s %(extra_context)s"
-msgstr "Presence of steps %(sens)s %(extra_context)s"
+msgid "Présence d'une ou plusieurs marches %(sens)s %(extra_context)s"
+msgstr "Presence of one or more steps %(sens)s %(extra_context)s"
 
 #, python-format
-msgid "Présence de marches %(extra_context)s"
-msgstr "Presence of steps %(extra_context)s"
+msgid "Présence d'une ou plusieurs marches %(extra_context)s"
+msgstr "Presence of one or more %(extra_context)s steps"
 
 msgid "Marche sécurisée"
 msgid_plural "Marches sécurisées"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Safe walking"
+msgstr[1] "Safe walking"
 
 msgid "Marche non sécurisée"
 msgid_plural "Marches non sécurisées"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Unsafe walking"
+msgstr[1] "Unsafe walking"
 
-msgid "équipé d'une ou plusieurs mains courantes"
+msgid "équipée d'une ou plusieurs mains courantes"
 msgid_plural "équipées d'une ou plusieurs mains courantes"
 msgstr[0] "Equipped with one or more handrails"
 msgstr[1] "Equipped with one or more handrails"
