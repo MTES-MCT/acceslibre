@@ -12,7 +12,8 @@ from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
-from django.db.models import Value
+from django.db.models import Q, Value
+from django.db.models.constraints import CheckConstraint
 from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -1060,6 +1061,172 @@ class Accessibilite(models.Model):
     class Meta:
         verbose_name = translate_lazy("Accessibilité")
         verbose_name_plural = translate_lazy("Accessibilité")
+
+        # To understand why we are using Q(field=True) & Q(field__isnull=False), see https://code.djangoproject.com/ticket/33595
+        constraints = [
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_transport_consistency",
+                check=(
+                    (Q(transport_station_presence=True) & Q(transport_station_presence__isnull=False))
+                    | (Q(transport_information="") | Q(transport_information__isnull=True))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_stationnement_consistency",
+                check=(
+                    (Q(stationnement_presence=True) & Q(stationnement_presence__isnull=False))
+                    | Q(stationnement_pmr=None)
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_stationnement_ext_consistency",
+                check=(
+                    (Q(stationnement_ext_presence=True) & Q(stationnement_ext_presence__isnull=False))
+                    | Q(stationnement_ext_pmr=None)
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_cheminement_ext_plain_pied_consistency",
+                check=(
+                    (Q(cheminement_ext_plain_pied=False) & Q(cheminement_ext_plain_pied__isnull=False))
+                    | (
+                        Q(cheminement_ext_ascenseur=None)
+                        & Q(cheminement_ext_nombre_marches__isnull=True)
+                        & Q(cheminement_ext_sens_marches__isnull=True)
+                        & Q(cheminement_ext_reperage_marches__isnull=True)
+                        & Q(cheminement_ext_main_courante__isnull=True)
+                        & Q(cheminement_ext_rampe__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_cheminement_ext_pente_consistency",
+                check=(
+                    (Q(cheminement_ext_pente_presence=True) & Q(cheminement_ext_pente_presence__isnull=False))
+                    | (
+                        Q(cheminement_ext_pente_degre_difficulte__isnull=True)
+                        & Q(cheminement_ext_pente_longueur__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_cheminement_ext_presence_consistency",
+                check=(
+                    (Q(cheminement_ext_presence=True) & Q(cheminement_ext_presence__isnull=False))
+                    | (
+                        Q(cheminement_ext_terrain_stable__isnull=True)
+                        & Q(cheminement_ext_plain_pied__isnull=True)
+                        & Q(cheminement_ext_pente_presence__isnull=True)
+                        & Q(cheminement_ext_devers__isnull=True)
+                        & Q(cheminement_ext_bande_guidage__isnull=True)
+                        & Q(cheminement_ext_retrecissement__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_entree_vitree_consistency",
+                check=(
+                    (Q(entree_vitree=True) & Q(entree_vitree__isnull=False)) | Q(entree_vitree_vitrophanie__isnull=True)
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_entree_porte_presence_consistency",
+                check=(
+                    (Q(entree_porte_presence=True) & Q(entree_porte_presence__isnull=False))
+                    | (
+                        Q(entree_porte_manoeuvre__isnull=True)
+                        & Q(entree_porte_type__isnull=True)
+                        & Q(entree_vitree__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_entree_plain_pied_consistency",
+                check=(
+                    (Q(entree_plain_pied=False) & Q(entree_plain_pied__isnull=False))
+                    | (
+                        Q(entree_ascenseur__isnull=True)
+                        & (Q(entree_marches__isnull=True) | Q(entree_marches=0))
+                        & Q(entree_marches_sens__isnull=True)
+                        & Q(entree_marches_reperage__isnull=True)
+                        & Q(entree_marches_main_courante__isnull=True)
+                        & Q(entree_marches_rampe__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_entree_dispositif_appel_consistency",
+                check=(
+                    (Q(entree_dispositif_appel=True) & Q(entree_dispositif_appel__isnull=False))
+                    | (Q(entree_dispositif_appel_type__isnull=True) | Q(entree_dispositif_appel_type=[]))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_entree_pmr_consistency",
+                check=(
+                    (Q(entree_pmr=True) & Q(entree_pmr__isnull=False))
+                    | (Q(entree_pmr_informations__isnull=True) | Q(entree_pmr_informations=""))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_cheminement_plain_pied_consistency",
+                check=(
+                    ~Q(accueil_cheminement_plain_pied=True)
+                    | (
+                        Q(accueil_cheminement_ascenseur__isnull=True)
+                        & Q(accueil_cheminement_nombre_marches__isnull=True)
+                        & Q(accueil_cheminement_sens_marches__isnull=True)
+                        & Q(accueil_cheminement_reperage_marches__isnull=True)
+                        & Q(accueil_cheminement_main_courante__isnull=True)
+                        & Q(accueil_cheminement_rampe__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_audiodescription_consistency",
+                check=(
+                    (Q(accueil_audiodescription_presence=True) & Q(accueil_audiodescription_presence__isnull=False))
+                    | (Q(accueil_audiodescription__isnull=True) | Q(accueil_audiodescription=[]))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_equipements_malentendants_consistency",
+                check=(
+                    (
+                        Q(accueil_equipements_malentendants_presence=True)
+                        & Q(accueil_equipements_malentendants_presence__isnull=False)
+                    )
+                    | (Q(accueil_equipements_malentendants__isnull=True) | Q(accueil_equipements_malentendants=[]))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_sanitaires_presence_consistency",
+                check=(Q(sanitaires_presence=True) & Q(sanitaires_presence__isnull=False)) | Q(sanitaires_adaptes=None),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_labels_consistency",
+                check=(
+                    ~(Q(labels=[]) | Q(labels__isnull=True))
+                    | (
+                        (Q(labels_familles_handicap=[]) | Q(labels_familles_handicap__isnull=True))
+                        & (Q(labels_autre__isnull=True) | Q(labels_autre=""))
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_chambre_consistency",
+                check=(
+                    ~(Q(accueil_chambre_nombre_accessibles=0) | Q(accueil_chambre_nombre_accessibles__isnull=True))
+                    | (
+                        Q(accueil_chambre_douche_plain_pied__isnull=True)
+                        & Q(accueil_chambre_douche_siege__isnull=True)
+                        & Q(accueil_chambre_douche_barre_appui__isnull=True)
+                        & Q(accueil_chambre_sanitaires_barre_appui__isnull=True)
+                        & Q(accueil_chambre_sanitaires_espace_usage__isnull=True)
+                    )
+                ),
+            ),
+        ]
 
     erp = models.OneToOneField(
         Erp,
