@@ -780,9 +780,23 @@ class TestAccessibility:
                 id="nominal",
             ),
             pytest.param(
+                {"labels": ["th"], "labels_familles_handicap": ["auditif", "mental"], "labels_autre": "autre"},
+                False,
+                id="nominal",
+            ),
+            pytest.param(
                 {
                     "labels": ["th"],
                     "labels_familles_handicap": [],
+                },
+                False,
+                id="nominal_empty",
+            ),
+            pytest.param(
+                {
+                    "labels": [],
+                    "labels_familles_handicap": [],
+                    "labels_autre": None,
                 },
                 False,
                 id="nominal_empty",
@@ -878,6 +892,23 @@ class TestAccessibility:
 
         with raiser:
             AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    def test_constraint_scenario(self):
+        access = AccessibiliteFactory()
+        access.labels = ["th"]
+        access.labels_familles_handicap = ["auditif"]
+        access.save()
+
+        access.labels_familles_handicap = []
+        access.save()
+
+        access.labels_autre = "autre"
+        access.save()
+
+        with pytest.raises(IntegrityError):
+            access.labels = []
+            access.save()
 
 
 class TestErp:
@@ -1068,6 +1099,7 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
         reversion.set_user(data.niko)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = False
+        accessibilite.sanitaires_adaptes = None
         accessibilite.transport_station_presence = True
         accessibilite.save()
 
@@ -1075,6 +1107,7 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
         reversion.set_user(data.niko)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = True
+        accessibilite.sanitaires_adaptes = None
         accessibilite.transport_station_presence = False
         accessibilite.save()
 
@@ -1110,8 +1143,19 @@ def test_merge_does_not_take_nullable_value_from_b_object():
 
 
 @pytest.mark.django_db
-def test_merge_respects_fields():
+def test_merge_respects_parent_child_consistency():
     a_access = AccessibiliteFactory(stationnement_presence=None, stationnement_pmr=None)
+    b_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=True)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    with pytest.raises(IntegrityError):
+        a_erp.merge_accessibility_with(b_erp, fields=["stationnement_pmr"])
+
+
+@pytest.mark.django_db
+def test_merge_respects_fields():
+    a_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=None)
     b_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=True)
 
     a_erp = a_access.erp
@@ -1119,7 +1163,7 @@ def test_merge_respects_fields():
     a_erp.merge_accessibility_with(b_erp, fields=["stationnement_pmr"])
 
     a_erp.refresh_from_db()
-    assert a_erp.accessibilite.stationnement_presence is None
+    assert a_erp.accessibilite.stationnement_presence is True
     assert a_erp.accessibilite.stationnement_pmr is True
 
 
@@ -1139,7 +1183,12 @@ def test_merge_cant_handle_conflicting_values():
 
 @pytest.mark.django_db
 def test_get_outside_steps_direction_text():
-    access = AccessibiliteFactory(cheminement_ext_nombre_marches=10, cheminement_ext_sens_marches="montant")
+    access = AccessibiliteFactory(
+        cheminement_ext_presence=True,
+        cheminement_ext_plain_pied=False,
+        cheminement_ext_nombre_marches=10,
+        cheminement_ext_sens_marches="montant",
+    )
 
     assert access.get_outside_steps_direction_text() == "montantes"
 

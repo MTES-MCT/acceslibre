@@ -342,7 +342,7 @@ class TestErpApi:
                 "stationnement_ext_presence": True,
                 "stationnement_ext_pmr": True,
                 "cheminement_ext_presence": True,
-                "cheminement_ext_plain_pied": True,
+                "cheminement_ext_plain_pied": False,
                 "cheminement_ext_terrain_stable": True,
                 "cheminement_ext_nombre_marches": 32767,
                 "cheminement_ext_sens_marches": "montant",
@@ -362,7 +362,7 @@ class TestErpApi:
                 "entree_porte_type": "manuelle",
                 "entree_vitree": True,
                 "entree_vitree_vitrophanie": True,
-                "entree_plain_pied": True,
+                "entree_plain_pied": False,
                 "entree_marches": 32767,
                 "entree_marches_sens": "montant",
                 "entree_marches_reperage": True,
@@ -382,7 +382,7 @@ class TestErpApi:
                 "accueil_audiodescription": ["avec_équipement_permanent"],
                 "accueil_equipements_malentendants_presence": True,
                 "accueil_equipements_malentendants": ["bim"],
-                "accueil_cheminement_plain_pied": True,
+                "accueil_cheminement_plain_pied": False,
                 "accueil_cheminement_nombre_marches": 32767,
                 "accueil_cheminement_sens_marches": "montant",
                 "accueil_cheminement_reperage_marches": True,
@@ -394,7 +394,7 @@ class TestErpApi:
                 "sanitaires_adaptes": True,
                 "labels": ["th"],
                 "labels_familles_handicap": ["auditif"],
-                "labels_autre": "string",
+                "labels_autre": "autre_label",
                 "commentaire": "string",
                 "conformite": True,
             },
@@ -428,7 +428,13 @@ class TestErpApi:
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data={}, format="json")
         assert response.status_code == 400, "invalid payload should raise a 400 error"
 
-        payload = {"accessibilite": {"transport_station_presence": False, "commentaire": "New comment"}}
+        payload = {
+            "accessibilite": {
+                "transport_station_presence": False,
+                "transport_information": "",
+                "commentaire": "New comment",
+            }
+        }
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()

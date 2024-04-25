@@ -798,6 +798,8 @@ def test_history_human_readable_diff(data, client):
 
         erp.save()
 
+        erp.accessibilite.cheminement_ext_presence = True
+        erp.accessibilite.cheminement_ext_plain_pied = False
         erp.accessibilite.cheminement_ext_nombre_marches = 42
         erp.accessibilite.labels = ["dpt", "th"]
         erp.accessibilite.save()
@@ -824,7 +826,7 @@ def test_history_human_readable_diff(data, client):
 
     a11y_diff = history[1]["diff"]
 
-    assert len(a11y_diff) == 2
+    assert len(a11y_diff) == 4
 
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Vide"
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
