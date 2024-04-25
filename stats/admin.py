@@ -21,7 +21,7 @@ class ChallengeAdmin(admin.ModelAdmin):
 class ChallengePlayerAdmin(admin.ModelAdmin):
     list_display = ("player", "challenge", "inscription_date")
     ordering = ("inscription_date",)
-    search_fields = ("player", "challenge")
+    search_fields = ("player__username", "player__email", "challenge__nom")
     list_filter = ("challenge",)
     autocomplete_fields = ["player"]
 
