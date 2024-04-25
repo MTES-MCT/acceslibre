@@ -23,6 +23,7 @@ class ChallengePlayerAdmin(admin.ModelAdmin):
     ordering = ("inscription_date",)
     search_fields = ("player", "challenge")
     list_filter = ("challenge",)
+    autocomplete_fields = ["player"]
 
 
 admin.site.register(ChallengeTeam)
