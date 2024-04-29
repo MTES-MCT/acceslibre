@@ -17,7 +17,7 @@
         <br>
         {% if challenge.text_reserve %}<small class="text-muted">{{ challenge.text_reserve }}</small>{% endif %}
     </h2>
-    {% if challenge.has_open_inscription and request.user not in challenge.players.all %}
+    {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
         <div class="row">
             <div class="col-8 offset-2">
                 <a class="btn-block btn btn-outline-primary"
