@@ -259,7 +259,7 @@ def _get_or_create_api_key():
 
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
-    base_queryset = Erp.objects.published().with_activity().select_related("commune_ext")
+    base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
     queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
@@ -297,7 +297,7 @@ def search_in_municipality(request, commune_slug):
     filters = _cleaned_search_params_as_dict(request.GET)
     filters["search_type"] = settings.IN_MUNICIPALITY_SEARCH_TYPE
     filters["municipality"] = municipality
-    base_queryset = Erp.objects.published().with_activity().select_related("commune_ext")
+    base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
 
