@@ -149,12 +149,9 @@
                 {% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
             </h3>
             {# djlint:off #}
-            {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement" %}
+            {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement." %}
             {# djlint:on #}
-            <ul>
-                <li>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte" %}</li>
-                <li>{% translate "Si vous êtes sur ordinateur fixe, utilisez la touche Ctrl + souris" %}</li>
-            </ul>
+            <p>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte." %}</p>
             {% if erp or external_erp %}
                 <h2 class="h5 mb-3">
                     {% if erp %}
