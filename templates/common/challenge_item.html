@@ -19,7 +19,7 @@
                                 <small>
                                     <i aria-hidden="true" class="text-success icon icon-check mr-1"></i>{% translate "Vous êtes inscrits à ce challenge !" %}
                                 </small>
-                            {% elif challenge.has_open_inscription %}
+                            {% elif challenge.has_open_subscriptions %}
                                 <a class="btn-block btn btn-outline-primary"
                                    href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
                             {% endif %}

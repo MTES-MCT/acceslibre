@@ -56,6 +56,11 @@ class Challenge(models.Model):
     classement = models.JSONField(default=dict)
     classement_team = models.JSONField(default=dict)
 
+    users_can_register = models.BooleanField(
+        default=True,
+        verbose_name=translate("Les utilisateur s'auto inscrivent"),
+        help_text=translate("Les utilisateurs peuvent-ils s'inscrire d'eux mêmes au challenge?"),
+    )
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -70,8 +75,8 @@ class Challenge(models.Model):
         return reverse("challenge-detail", kwargs={"challenge_slug": self.slug})
 
     @property
-    def has_open_inscription(self):
-        return timezone.now() < self.end_date and timezone.now() >= self.start_date
+    def has_open_subscriptions(self):
+        return self.users_can_register and timezone.now() < self.end_date and timezone.now() >= self.start_date
 
     @property
     def version(self):
