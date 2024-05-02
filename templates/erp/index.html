@@ -76,8 +76,9 @@
                 </div>
             {% endif %}
             <div class="d-flex flex-column">
-                <div class="row order-2">
+                <div class="row order-2"  id="filter-controller">
                     <section id="a11y" class="col-lg-7 col-xl-8 remove-title-if-empty">
+                        {% include "erp/includes/filters.html" %}
                         {% include "erp/includes/access_parking.html" %}
                         {% include "erp/includes/access_outside_path.html" %}
                         {% include "erp/includes/access_entrance.html" %}
