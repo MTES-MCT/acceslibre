@@ -1838,7 +1838,9 @@
             "version": "==1.2.0"
         },
         "tablib": {
-            "extras": [],
+            "extras": [
+
+            ],
             "hashes": [
                 "sha256:9821caa9eca6062ff7299fa645e737aecff982e6b2b42046928a6413c8dabfd9",
                 "sha256:f6661dfc45e1d4f51fa8a6239f9c8349380859a5bfaa73280645f046d6c96e33"
@@ -2961,11 +2963,12 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:1ee4f8a893eb9bef51c6e35730cebf234d5d0b6bd112b0271e10ed7c24a02bd9",
-                "sha256:6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"
+                "sha256:23097a41eba115ba99ecae40d06444c15d1c0c698d527a01c6c8bd1c5d0647e5",
+                "sha256:4f41d54107ff9a223dca80b53efe4fb654c67efaba7f47bada3ee9d50e05bd53"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==4.66.2"
+            "version": "==4.66.3"
         },
         "traitlets": {
             "hashes": [
