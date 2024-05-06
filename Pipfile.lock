@@ -1180,11 +1180,11 @@
         },
         "phonenumbers": {
             "hashes": [
-                "sha256:58286a8e617bd75f541e04313b28c36398be6d4443a778c85e9617a93c391310",
-                "sha256:64f061a967dcdae11e1c59f3688649e697b897110a33bb74d5a69c3e35321245"
+                "sha256:68e06d20ae2f8fe5c7c7fd5b433f4257bc3cc747dc5196a029c7898ea449b012",
+                "sha256:b4e2371e35a1172aa2c91c9200b1e48e87b9355eb575768dd38058fc8d72c9ff"
             ],
             "index": "pypi",
-            "version": "==8.13.35"
+            "version": "==8.13.36"
         },
         "pillow": {
             "hashes": [
@@ -1838,7 +1838,9 @@
             "version": "==1.2.0"
         },
         "tablib": {
-            "extras": [],
+            "extras": [
+
+            ],
             "hashes": [
                 "sha256:9821caa9eca6062ff7299fa645e737aecff982e6b2b42046928a6413c8dabfd9",
                 "sha256:f6661dfc45e1d4f51fa8a6239f9c8349380859a5bfaa73280645f046d6c96e33"
