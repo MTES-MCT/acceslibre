@@ -22,7 +22,7 @@
                     {{ sentence }} {{ rampe }}
                 {% endblocktranslate %}
             </li>
-        {% elif access.accueil_cheminement_rampe is False %}
+        {% elif access.accueil_cheminement_rampe == "aucune" %}
             <li data-filters="walking">{{ "accueil_cheminement_rampe"|negative_text }}</li>
         {% endif %}
         {% if access.accueil_cheminement_ascenseur %}<li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|positive_text }}</li>{% endif %}

@@ -67,7 +67,7 @@
                     {{ sentence }} {{ rampe }}
                 {% endblocktranslate %}
             </li>
-        {% elif access.entree_marches_rampe is False %}
+        {% elif access.entree_marches_rampe == "aucune" %}
             <li data-filters="walking">{{ "entree_marches_rampe"|negative_text }}</li>
         {% endif %}
         {% if access.entree_ascenseur %}<li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>{% endif %}
