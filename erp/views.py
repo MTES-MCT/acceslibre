@@ -231,9 +231,6 @@ def _filter_erp_by_location(queryset, **kwargs):
     location = _parse_location_or_404(lat, lon)
     postcode = kwargs.get("postcode")
 
-    if search_type == settings.IN_MUNICIPALITY_SEARCH_TYPE:
-        return queryset.filter(commune=kwargs.get("municipality").nom)
-
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
         city, code_departement = _clean_address(kwargs.get("where"))
         return queryset.filter(commune__iexact=city, code_postal__startswith=code_departement)
@@ -295,12 +292,9 @@ def search(request):
 def search_in_municipality(request, commune_slug):
     municipality = get_object_or_404(Commune, slug=commune_slug)
     filters = _cleaned_search_params_as_dict(request.GET)
-    filters["search_type"] = settings.IN_MUNICIPALITY_SEARCH_TYPE
-    filters["municipality"] = municipality
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
-    queryset = _filter_erp_by_location(base_queryset, **filters)
-
+    queryset = base_queryset.filter(commune=municipality.nom, code_postal__startswith=municipality.departement)
     paginator = Paginator(queryset, 10)
     pager = paginator.get_page(request.GET.get("page") or 1)
 
