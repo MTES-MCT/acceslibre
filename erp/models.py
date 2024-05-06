@@ -1145,7 +1145,7 @@ class Accessibilite(models.Model):
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name=translate_lazy("Main courante"),
     )
-    # Rampe – oui / non / inconnu / sans objet
+    # Rampe – aucune / fixe / amovible / sans objet
     cheminement_ext_rampe = models.CharField(
         max_length=20,
         null=True,
