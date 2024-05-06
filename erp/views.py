@@ -446,8 +446,7 @@ def confirm_up_to_date(request, erp_slug):
     if not request.method == "POST":
         return redirect(erp.get_absolute_url())
 
-    erp.checked_up_to_date_at = datetime.datetime.now()
-    erp.save()
+    erp.confirm_up_to_date(request.user)
     messages.add_message(request, messages.SUCCESS, translate("Merci de votre contribution."))
     return redirect(erp.get_absolute_url())
 

@@ -1,3 +1,4 @@
+import datetime
 import random
 import string
 import unicodedata
@@ -49,6 +50,8 @@ def humanize_value(value, choices=None):
         value = "Non"
     elif isinstance(value, (int, float)):
         value = str(value)
+    elif isinstance(value, datetime.datetime):
+        value = value.strftime("%Y-%m-%d à %H:%M")
     else:
         raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
 

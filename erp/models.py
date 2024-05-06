@@ -1,10 +1,12 @@
 import json
 import uuid
+from datetime import datetime
 
 import reversion
 from autoslug import AutoSlugField
 from deepl import QuotaExceededException
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
@@ -682,6 +684,7 @@ class Erp(models.Model):
     __original_activite_id = None
     __original_user_id = None
     __original_user_type = None
+    __confirmation_message = "Created via confirmation button"
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
@@ -712,6 +715,8 @@ class Erp(models.Model):
                 "source",
                 "source_id",
                 "search_vector",
+                "updated_at",
+                "created_at",
             ),
             exclude_changes_from=exclude_changes_from,
         )
@@ -1031,6 +1036,14 @@ class Erp(models.Model):
         dates = [d for d in [self.checked_up_to_date_at, self.created_at, self.updated_at] if d]
         if dates:
             return max(dates)
+
+    def confirm_up_to_date(self, user):
+        self.checked_up_to_date_at = datetime.now()
+        with reversion.create_revision():
+            self.save()
+            reversion.set_comment(self.__confirmation_message)
+            if isinstance(user, get_user_model()):
+                reversion.set_user(user)
 
 
 @reversion.register(

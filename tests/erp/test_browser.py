@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
+from reversion.models import Version
 
 from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
@@ -972,6 +973,7 @@ def test_get_erp_by_uuid(client):
 @pytest.mark.django_db
 def test_can_update_checked_up_to_date_at_from_erp(client):
     erp = ErpFactory(published=True)
+    assert Version.objects.get_for_object(erp).count() == 0
 
     assert erp.checked_up_to_date_at is None
 
@@ -981,6 +983,7 @@ def test_can_update_checked_up_to_date_at_from_erp(client):
 
     erp.refresh_from_db()
     assert erp.checked_up_to_date_at is not None
+    assert Version.objects.get_for_object(erp).count() == 1
 
 
 @pytest.mark.django_db
