@@ -119,6 +119,7 @@ class BrevoMailer(Mailer):
         update_contact = UpdateContact(
             attributes={
                 "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
+                "DATE_LAST_LOGIN": user.last_login.strftime("%Y-%m-%d"),
                 "IS_ACTIVE": user.is_active,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
