@@ -10,7 +10,7 @@ from django.urls import reverse
 
 from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import ErpFactory
+from tests.factories import ActiviteFactory, ErpFactory
 from tests.utils import assert_redirect
 
 
@@ -970,3 +970,43 @@ def test_can_update_checked_up_to_date_at_from_erp(client):
 
     erp.refresh_from_db()
     assert erp.checked_up_to_date_at is not None
+
+
+@pytest.mark.django_db
+def test_contrib_start_pass_postcode(client):
+    ActiviteFactory(nom="Restaurant", pk=123)
+    payload = {
+        "what": ["creperie"],
+        "new_activity": [""],
+        "activite": ["Restaurant"],
+        "where": ["Brest (29)"],
+        "lat": ["48.4084"],
+        "lon": ["-4.4996"],
+        "code": ["29019"],
+        "ban_id": [""],
+        "postcode": ["29200"],
+        "search_type": ["municipality"],
+        "street_name": [""],
+        "municipality": ["Brest"],
+    }
+    url = reverse("contrib_start")
+    response = client.get(url, payload)
+
+    assert response.status_code == 302
+    assert (
+        response.url
+        == "/contrib/start/recherche/?new_activity=&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29&activite=Restaurant"
+    )
+
+    response = client.get(url, payload, follow=True)
+    assert response.status_code == 200
+    assert response.context["query"] == {
+        "nom": "creperie",
+        "commune": "Brest",
+        "lat": "48.4084",
+        "lon": "-4.4996",
+        "activite": 123,
+        "activite_slug": "restaurant",
+        "new_activity": "",
+        "code_postal": "29200",
+    }
