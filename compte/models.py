@@ -70,6 +70,7 @@ class UserStats(models.Model):
     nb_erp_created = models.IntegerField(default=0)
     nb_erp_edited = models.IntegerField(default=0)
     nb_erp_attributed = models.IntegerField(default=0)
+    nb_erp_administrator = models.IntegerField(default=0)
     nb_profanities = models.IntegerField(default=0)
 
     def __str__(self) -> str:

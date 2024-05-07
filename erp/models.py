@@ -20,7 +20,7 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from django.utils.translation import ngettext
 from reversion.models import Version
 
-from compte.service import increment_nb_erp_created, increment_nb_erp_edited
+from compte.service import increment_nb_erp_administrator, increment_nb_erp_created, increment_nb_erp_edited
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
@@ -681,6 +681,7 @@ class Erp(models.Model):
 
     __original_activite_id = None
     __original_user_id = None
+    __original_user_type = None
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
@@ -689,6 +690,7 @@ class Erp(models.Model):
         super().__init__(*args, **kwargs)
         self.__original_activite_id = self.activite_id
         self.__original_user_id = self.user_id
+        self.__original_user_type = self.user_type
 
     def get_activite_vector_icon(self):
         default = "building"
@@ -867,13 +869,7 @@ class Erp(models.Model):
                 raise ValidationError({"siret": translate("Ce numéro SIRET est invalide.")})
             self.siret = siret
 
-    def save(self, *args, editor=None, **kwargs):
-        if editor and not self.user:
-            self.user = editor
-
-        if self.permanently_closed:
-            self.published = False
-
+    def _increment_stats(self, editor=None):
         if self.pk:
             if self.__original_user_id is None:
                 if self.user:
@@ -881,8 +877,24 @@ class Erp(models.Model):
                     increment_nb_erp_created(self.user)
             elif editor:
                 increment_nb_erp_edited(editor)
+
+            if self.__original_user_type != self.user_type and self.user_type == self.USER_ROLE_GESTIONNAIRE:
+                # ERP has just been changed to user_type=GESTIONNAIRE
+                increment_nb_erp_administrator(self.user)
+
         elif self.user:
             increment_nb_erp_created(self.user)
+            if self.user_type == self.USER_ROLE_GESTIONNAIRE:
+                increment_nb_erp_administrator(self.user)
+
+    def save(self, *args, editor=None, **kwargs):
+        if editor and not self.user:
+            self.user = editor
+
+        if self.permanently_closed:
+            self.published = False
+
+        self._increment_stats(editor)
 
         if (
             self.__original_activite_id is not None

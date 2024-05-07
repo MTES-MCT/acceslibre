@@ -279,6 +279,7 @@ def test_ajout_erp(data, client):
     data.niko.stats.refresh_from_db()
     initial_nb_created = data.niko.stats.nb_erp_created
     initial_nb_edited = data.niko.stats.nb_erp_edited
+    initial_nb_administrator = data.niko.stats.nb_erp_administrator
 
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
@@ -526,6 +527,16 @@ def test_ajout_erp(data, client):
     data.niko.stats.refresh_from_db()
     assert data.niko.stats.nb_erp_created == initial_nb_created + 1
     assert data.niko.stats.nb_erp_edited == initial_nb_edited
+    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator
+
+    response = client.post(
+        reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
+        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE},
+        follow=True,
+    )
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
+    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator + 1
 
 
 def test_ajout_erp_a11y_vide(data, client):

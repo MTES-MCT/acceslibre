@@ -22,6 +22,7 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
         "get_nb_erp_created",
         "get_nb_erp_edited",
         "get_nb_erp_attributed",
+        "get_nb_erp_administrator",
     )
     list_per_page = 20
 
@@ -36,6 +37,12 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
 
     get_nb_erp_edited.short_description = "Nb ERP édités"
     get_nb_erp_edited.admin_order_field = "stats__nb_erp_edited"
+
+    def get_nb_erp_administrator(self, obj):
+        return obj.stats.nb_erp_administrator
+
+    get_nb_erp_administrator.short_description = "Nb ERP gestionnaire"
+    get_nb_erp_administrator.admin_order_field = "stats__nb_erp_administrator"
 
     def get_nb_erp_attributed(self, obj):
         return obj.stats.nb_erp_attributed

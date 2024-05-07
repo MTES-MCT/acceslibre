@@ -9,6 +9,7 @@ class UserAdminResource(resources.ModelResource):
     nb_erp_created = Field()
     nb_erp_edited = Field()
     nb_erp_attributed = Field()
+    nb_erp_administrator = Field()
 
     class Meta:
         model = User
@@ -21,7 +22,7 @@ class UserAdminResource(resources.ModelResource):
             "is_active",
             "is_staff",
         ]
-        export_order = fields + ["nb_erp_created", "nb_erp_edited", "nb_erp_attributed"]
+        export_order = fields + ["nb_erp_created", "nb_erp_edited", "nb_erp_attributed", "nb_erp_administrator"]
 
     def dehydrate_nb_erp_created(self, user):
         try:
@@ -32,6 +33,12 @@ class UserAdminResource(resources.ModelResource):
     def dehydrate_nb_erp_edited(self, user):
         try:
             return user.stats.nb_erp_edited
+        except UserStats.DoesNotExist:
+            return "N/A"
+
+    def dehydrate_nb_erp_administrator(self, user):
+        try:
+            return user.stats.nb_erp_administrator
         except UserStats.DoesNotExist:
             return "N/A"
 
