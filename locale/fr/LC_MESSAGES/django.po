@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-14 14:59+0200\n"
+"POT-Creation-Date: 2024-05-15 11:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4040,6 +4040,14 @@ msgid "%(nb)s chambre accessible à une personne en fauteuil roulant"
 msgid_plural "%(nb)s chambres accessibles à une personne en fauteuil roulant"
 msgstr[0] ""
 msgstr[1] ""
+
+#, python-format
+msgid "Toilettes %(espace)s"
+msgstr ""
+
+#, python-format
+msgid "Toilettes %(appui)s"
+msgstr ""
 
 #, python-format
 msgid "Toilettes %(espace)s et %(appui)s"

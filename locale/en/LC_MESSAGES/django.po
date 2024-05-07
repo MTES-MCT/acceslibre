@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-14 14:59+0200\n"
+"POT-Creation-Date: 2024-05-15 11:49+0200\n"
 "PO-Revision-Date: 2024-04-30 17:38+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1225,10 +1225,10 @@ msgstr[0] "descending"
 msgstr[1] "descending"
 
 msgid "Douche"
-msgstr ""
+msgstr "Shower"
 
 msgid " et "
-msgstr ""
+msgstr "And"
 
 msgid "Accès"
 msgstr "Access"
@@ -4499,6 +4499,14 @@ msgstr[0] "%(nb)s wheelchair-accessible room"
 msgstr[1] "%(nb)s wheelchair-accessible rooms"
 
 #, python-format
+msgid "Toilettes %(espace)s"
+msgstr "Toilets %(espace)s"
+
+#, python-format
+msgid "Toilettes %(appui)s"
+msgstr "Toilets %(appui)s"
+
+#, python-format
 msgid "Toilettes %(espace)s et %(appui)s"
 msgstr "Toilets %(espace)s and %(appui)s"
 
@@ -5341,3 +5349,7 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#, python-format
+#~ msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
+#~ msgstr "%(plain_pied_text)s %(seat)s and %(support)s"
