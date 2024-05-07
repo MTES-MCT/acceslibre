@@ -27,6 +27,7 @@ import ui from './js/ui'
 import cloneFilter from './js/ui/CloneFilter'
 import Autocomplete from './js/ui/AutocompleteActivity'
 import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
+import StoreFilters from './js/ui/StoreFilters'
 
 // Initializations
 dom.ready(() => {
@@ -47,6 +48,8 @@ dom.ready(() => {
   dom.mountOne('#filter-controller', ui.filterData)
 })
 
+ui.StoreFilters()
+
 // expose general namespaced lib for usage within pages
 window.a4a = {
   dom,
@@ -64,4 +67,5 @@ window.onload = function () {
   }
 
   ui.listenToLabelEvents()
+  ui.LoadFilters()
 }
