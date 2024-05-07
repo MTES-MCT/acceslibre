@@ -1,6 +1,7 @@
 import csv
 import json
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from erp.imports.mapper.base import BaseMapper
@@ -11,9 +12,15 @@ with_activity = True
 with_comment = False
 with_siret = False
 
-# 3 kinds of templates : basic, hosting, culture
-with_room_accessible = False
-with_culture = True
+# 4 kinds of templates : basic, hosting, culture, ath
+hosting = True
+culture = False
+ath = True
+
+if settings.TEST:
+    hosting = False
+    culture = True
+    ath = False
 
 to_ignore_headers = [
     "Submission ID",
@@ -61,6 +68,7 @@ mapping = {
             ("stationnement_ext_pmr", True),
         ],
         "Non, pas de place handicapé pas loin": [
+            ("stationnement_ext_presence", True),
             ("stationnement_ext_pmr", False),
         ],
         "Je ne suis pas sûr": [],
@@ -104,7 +112,7 @@ mapping = {
         "Je ne suis pas sûr": [],
     },
 }
-if with_room_accessible:
+if hosting:
     mapping |= {
         "La douche est-elle utilisable par une personne en fauteuil roulant, (c'est à dire à l'italienne ou équipée d'un bac extra plat) ?": {
             "Douche à l'italienne ou équipée d'un bac extra plat": [("accueil_chambre_douche_plain_pied", True)],
@@ -130,7 +138,7 @@ if with_room_accessible:
         "Avez-vous des chambres pour accueillir des clients dans votre établissement ?",
     ]
 
-if with_culture:
+if culture:
     mapping |= {
         # TEMP entree_porte, will disappear with new templated forms
         "Comment s'ouvre la porte ?": {
@@ -217,12 +225,31 @@ if with_culture:
         "type d'équipements pour l'audiodescription",
         "liste des équipements d'aide à l'audition et à la communication ?",
     ]
-
+if ath:
+    mapping |= {
+        "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Auditif)": {
+            "true": [("labels", ["th"]), ("labels_familles_handicap", ["auditif"])],
+            "false": [("labels", ["th"])],
+        },
+        "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Mental)": {
+            "true": [("labels", ["th"]), ("labels_familles_handicap", ["mental"])],
+            "false": [("labels", ["th"])],
+        },
+        "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Moteur)": {
+            "true": [("labels", ["th"]), ("labels_familles_handicap", ["moteur"])],
+            "false": [("labels", ["th"])],
+        },
+        "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Visuel)": {
+            "true": [("labels", ["th"]), ("labels_familles_handicap", ["visuel"])],
+            "false": [("labels", ["th"])],
+        },
+    }
+    to_ignore_headers += ["Quelle est votre marque Tourisme &amp; handicap ?"]
 
 to_int_headers = {
     "Combien de marches y a-t-il pour entrer dans votre établissement ?": "entree_marches",
 }
-if with_room_accessible:
+if hosting:
     to_int_headers |= {
         "Combien de chambres accessibles avez-vous dans votre établissement ?": "accueil_chambre_nombre_accessibles",
     }
@@ -283,8 +310,9 @@ class Command(BaseCommand):
                     if line[cell] and mapping[cell][line[cell]]:
                         for k, v in mapping[cell][line[cell]]:
                             if isinstance(v, (list, set, tuple)):
-                                new_line[k] = new_line.get(k) or []
-                                new_line[k].extend(v)
+                                new_line[k] = set(new_line.get(k) or [])
+                                new_line[k] = new_line[k].union(set(v))
+                                new_line[k] = list(new_line[k])
                             else:
                                 new_line[k] = v
                 except KeyError:
