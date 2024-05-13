@@ -46,6 +46,10 @@
                 <li data-filters="visual,understand">
                     {{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|positive_text|lower }}
                 </li>
+            {% elif access.entree_vitree_vitrophanie is False %}
+                <li data-filters="visual,understand">
+                    {{ "entree_vitree"|positive_text }} {{ "entree_vitree_vitrophanie"|negative_text|lower }}
+                </li>
             {% else %}
                 <li data-filters="visual,understand">{{ "entree_vitree"|positive_text }}</li>
             {% endif %}
@@ -70,11 +74,15 @@
         {% elif access.entree_marches_rampe == "aucune" %}
             <li data-filters="walking">{{ "entree_marches_rampe"|negative_text }}</li>
         {% endif %}
-        {% if access.entree_ascenseur %}<li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>{% endif %}
+        {% if access.entree_ascenseur %}
+            <li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>
+        {% endif %}
         {% if access.entree_aide_humaine %}<li data-filters="all">{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
         {% if access.entree_dispositif_appel %}
             {% if access.entree_dispositif_appel_type %}
-                {% for equipment in access.get_entree_dispositif_appel_type_text %}<li data-filters="walking">{{ equipment }}</li>{% endfor %}
+                {% for equipment in access.get_entree_dispositif_appel_type_text %}
+                    <li data-filters="walking">{{ equipment }}</li>
+                {% endfor %}
             {% else %}
                 <li data-filters="all">{{ "entree_dispositif_appel"|positive_text }}</li>
             {% endif %}
