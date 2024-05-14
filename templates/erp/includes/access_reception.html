@@ -56,12 +56,12 @@
         {% endif %}
         {% if access.sanitaires_presence %}
             {% if access.sanitaires_adaptes %}
-                <li data-filters="walking">{% translate "Toilettes PMR" %}</li>
+                <li data-filters="all">{% translate "Toilettes PMR" %}</li>
             {% else %}
-                <li data-filters="walking">{% translate "Toilettes classiques" %}</li>
+                <li data-filters="all">{% translate "Toilettes classiques" %}</li>
             {% endif %}
         {% elif access.sanitaires_presence is False %}
-            <li data-filters="walking">{{ "sanitaires_presence"|negative_text }}</li>
+            <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
         {% endif %}
     </ul>
 {% endspaceless %}
