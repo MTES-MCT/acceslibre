@@ -2634,11 +2634,12 @@
         },
         "pre-commit": {
             "hashes": [
-                "sha256:5eae9e10c2b5ac51577c3452ec0a490455c45a0533f7960f993a0d01e59decab",
-                "sha256:e209d61b8acdcf742404408531f0c37d49d2c734fd7cff2d6076083d191cb060"
+                "sha256:8ca3ad567bc78a4972a3f1a477e94a79d4597e8140a6e0b651c5e33899c3654a",
+                "sha256:fae36fd1d7ad7d6a5a1c0b0d5adb2ed1a3bda5a21bf6c3e5372073d7a11cd4c5"
             ],
             "index": "pypi",
-            "version": "==3.7.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==3.7.1"
         },
         "prompt-toolkit": {
             "hashes": [
@@ -2795,7 +2796,7 @@
                 "sha256:fd1592b3fdf65fff2ad0004b5e363300ef59ced41c2e6b3a99d4089fa8c5435d",
                 "sha256:fd66fc5d0da6d9815ba2cebeb4205f95818ff4b79c3ebe268e75d961704af52f"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==6.0.1"
         },
         "regex": {
