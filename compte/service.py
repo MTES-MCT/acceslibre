@@ -94,3 +94,12 @@ def increment_nb_erp_edited(user):
     user_stats, _ = UserStats.objects.get_or_create(user=user)
     user_stats.nb_erp_edited = F("nb_erp_edited") + 1
     user_stats.save()
+
+
+def increment_nb_erp_administrator(user):
+    if not user:
+        return
+
+    user_stats, _ = UserStats.objects.get_or_create(user=user)
+    user_stats.nb_erp_administrator = F("nb_erp_administrator") + 1
+    user_stats.save()
