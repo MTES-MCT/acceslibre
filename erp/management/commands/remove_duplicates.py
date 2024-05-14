@@ -27,14 +27,16 @@ class Command(BaseCommand):
         duplicates = []
         qs = (
             Erp.objects.exclude(pk=erp.pk)
-            .filter(nom__lower__in=(erp.nom.lower(), erp.nom.lower().replace("-", " ")))
+            .filter(nom__unaccent__lower__in=(erp.nom.lower(), erp.nom.lower().replace("-", " ")))
             .filter(commune=erp.commune, published=True)
             .select_related("accessibilite")
             .exclude(accessibilite__isnull=True)
         )
 
         for potential_duplicate in qs:
-            distance_diff = distance.distance(erp.geom, potential_duplicate.geom).m
+            distance_diff = distance.distance(
+                (erp.geom.y, erp.geom.x), (potential_duplicate.geom.y, potential_duplicate.geom.x)
+            ).m
             if distance_diff <= MAX_DISTANCE_FOR_DUPLICATE:
                 duplicates.append(potential_duplicate.pk)
             elif MAX_DISTANCE_FOR_DUPLICATE < distance_diff <= MAX_DISTANCE_FOR_DUPLICATE_WITH_CRITERIA:

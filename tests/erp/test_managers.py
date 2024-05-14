@@ -142,6 +142,32 @@ def test_ErpQuerySet_find_duplicate():
 
 
 @pytest.mark.django_db
+def test_find_duplicate_voie_accent_insensitive():
+    erp = ErpFactory(
+        numero="4",
+        voie="Rue de l'égalité",
+        code_postal="34830",
+        commune="Jacou",
+    )
+
+    queryset = Erp.objects.find_duplicate(numero=4, commune="Jacou", activite=erp.activite, voie="Rue de l'egalite")
+    assert queryset.exists() is True
+
+
+@pytest.mark.django_db
+def test_find_duplicate_lieu_dit_accent_insensitive():
+    erp = ErpFactory(
+        numero="4",
+        lieu_dit="La fôret",
+        code_postal="34830",
+        commune="Jacou",
+    )
+
+    queryset = Erp.objects.find_duplicate(numero=4, commune="Jacou", activite=erp.activite, lieu_dit="La fôret")
+    assert queryset.exists() is True
+
+
+@pytest.mark.django_db
 class TestErpQuerySetFilters:
     @pytest.mark.parametrize(
         "access_attrs, should_be_returned",

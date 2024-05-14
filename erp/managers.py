@@ -67,9 +67,9 @@ class ErpQuerySet(models.QuerySet):
         if voie or lieu_dit:
             clause = Q()
             if voie:
-                clause = clause | Q(voie__iexact=voie)
+                clause = clause | Q(voie__unaccent__iexact=voie)
             if lieu_dit:
-                clause = clause | Q(lieu_dit__iexact=lieu_dit)
+                clause = clause | Q(lieu_dit__unaccent__iexact=lieu_dit)
             qs = qs.filter(clause)
         return qs
 
