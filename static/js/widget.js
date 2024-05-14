@@ -27,7 +27,6 @@
 
   function closeModal(dialog, trigger) {
     dialog.setAttribute('aria-hidden', true)
-    dialog.parentNode.setAttribute('aria-hidden', false)
 
     // restoring focus
     if (trigger) {
@@ -65,7 +64,6 @@
     const lastFocusableElement = focusableElements[focusableElements.length - 1]
 
     dialog.setAttribute('aria-hidden', false)
-    dialog.parentNode.setAttribute('aria-hidden', true)
 
     // return if no focusable element
     if (!firstFocusableElement) {
@@ -214,8 +212,7 @@
           bodyDom.appendChild(newDiv)
 
           let dialogModal = newDiv.querySelector('#dialog')
-          dialogModal.setAttribute('aria-hidden', true)
-          dialogModal.parentNode.setAttribute('aria-hidden', true)
+          dialogModal.setAttribute('aria-hidden', false)
 
           const dismissTrigger = dialogModal.querySelector('[data-dismiss]')
           dismissTrigger.addEventListener('click', (event) => {
