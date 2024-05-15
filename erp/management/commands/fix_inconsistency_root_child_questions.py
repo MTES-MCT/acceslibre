@@ -254,6 +254,10 @@ class Command(BaseCommand):
                 | Q(accueil_chambre_douche_barre_appui__in=[True, False])
                 | Q(accueil_chambre_sanitaires_barre_appui__in=[True, False])
                 | Q(accueil_chambre_sanitaires_espace_usage__in=[True, False])
+                | Q(accueil_chambre_equipement_alerte__isnull=False)
+                | Q(accueil_chambre_numero_visible__isnull=False)
+                | Q(accueil_chambre_sanitaires_espace_usage__isnull=False)
+                | Q(accueil_chambre_accompagnement__isnull=False)
             )
         )
         print_error(
