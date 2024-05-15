@@ -1752,3 +1752,28 @@ class Accessibilite(models.Model):
             return
         equipment_to_text = {k: str(v) for k, v in schema.DISPOSITIFS_APPEL_CHOICES}
         return [equipment_to_text.get(equipment) for equipment in self.entree_dispositif_appel_type]
+
+    def get_shower_text(self):
+        text = ""
+        needs_stopword = False
+        if self.accueil_chambre_douche_plain_pied is True:
+            text += schema.FIELDS["accueil_chambre_douche_plain_pied"]["help_text_ui_v2"]
+        elif self.accueil_chambre_douche_plain_pied is False:
+            text += schema.FIELDS["accueil_chambre_douche_plain_pied"]["help_text_ui_neg_v2"]
+        else:
+            text += translate_lazy("Douche")
+
+        if self.accueil_chambre_douche_siege is True:
+            needs_stopword = True
+            text += " " + schema.FIELDS["accueil_chambre_douche_siege"]["help_text_ui_v2"].lower()
+        elif self.accueil_chambre_douche_siege is False:
+            text += " " + schema.FIELDS["accueil_chambre_douche_siege"]["help_text_ui_neg_v2"].lower()
+
+        if self.accueil_chambre_douche_barre_appui is True:
+            text += translate_lazy(" et ") if needs_stopword else " "
+            text += schema.FIELDS["accueil_chambre_douche_barre_appui"]["help_text_ui_v2"].lower()
+        elif self.accueil_chambre_douche_barre_appui is False:
+            text += translate_lazy(" et ") if needs_stopword else " "
+            text += schema.FIELDS["accueil_chambre_douche_barre_appui"]["help_text_ui_neg_v2"].lower()
+
+        return text if text != translate_lazy("Douche") else None
