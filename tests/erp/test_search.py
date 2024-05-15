@@ -6,6 +6,7 @@ from django.urls import reverse
 
 from erp.models import Accessibilite, Erp
 from erp.views import _clean_address
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
 def test_search_clean_params(data, client):
@@ -320,3 +321,29 @@ def test_search_in_municipality_not_found(data, client):
 def test_invalid_search_params_404(data, client):
     response = client.get(reverse("search") + "?where=&what=&lat=INVALID&lon=INVALID")
     assert response.status_code == 404
+
+
+@pytest.mark.django_db
+def test_search_in_municipality_with_identical_names(client):
+    CommuneFactory(
+        nom="Saint-Pierre",
+        code_postaux=[
+            "67140",
+        ],
+        departement="67",
+    )
+    CommuneFactory(
+        nom="Saint-Pierre",
+        code_postaux=[
+            "97410",
+        ],
+        departement="974",
+    )
+    ErpFactory(nom="ERP en Outre Mer", published=True, commune="Saint-Pierre", code_postal="97410")
+    ErpFactory(nom="ERP en métropole", published=True, commune="Saint-Pierre", code_postal="67140")
+    response = client.get(reverse("search_commune", kwargs={"commune_slug": "974-saint-pierre"}))
+
+    assert response.status_code == 200
+    assert response.context["where"] == "Saint-Pierre (974)"
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "ERP en Outre Mer"

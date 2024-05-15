@@ -1,10 +1,12 @@
 import json
 import uuid
+from datetime import datetime
 
 import reversion
 from autoslug import AutoSlugField
 from deepl import QuotaExceededException
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
@@ -20,7 +22,7 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from django.utils.translation import ngettext
 from reversion.models import Version
 
-from compte.service import increment_nb_erp_created, increment_nb_erp_edited
+from compte.service import increment_nb_erp_administrator, increment_nb_erp_created, increment_nb_erp_edited
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
@@ -681,6 +683,8 @@ class Erp(models.Model):
 
     __original_activite_id = None
     __original_user_id = None
+    __original_user_type = None
+    __confirmation_message = "Created via confirmation button"
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
@@ -689,6 +693,7 @@ class Erp(models.Model):
         super().__init__(*args, **kwargs)
         self.__original_activite_id = self.activite_id
         self.__original_user_id = self.user_id
+        self.__original_user_type = self.user_type
 
     def get_activite_vector_icon(self):
         default = "building"
@@ -710,6 +715,8 @@ class Erp(models.Model):
                 "source",
                 "source_id",
                 "search_vector",
+                "updated_at",
+                "created_at",
             ),
             exclude_changes_from=exclude_changes_from,
         )
@@ -867,13 +874,7 @@ class Erp(models.Model):
                 raise ValidationError({"siret": translate("Ce numéro SIRET est invalide.")})
             self.siret = siret
 
-    def save(self, *args, editor=None, **kwargs):
-        if editor and not self.user:
-            self.user = editor
-
-        if self.permanently_closed:
-            self.published = False
-
+    def _increment_stats(self, editor=None):
         if self.pk:
             if self.__original_user_id is None:
                 if self.user:
@@ -881,8 +882,24 @@ class Erp(models.Model):
                     increment_nb_erp_created(self.user)
             elif editor:
                 increment_nb_erp_edited(editor)
+
+            if self.__original_user_type != self.user_type and self.user_type == self.USER_ROLE_GESTIONNAIRE:
+                # ERP has just been changed to user_type=GESTIONNAIRE
+                increment_nb_erp_administrator(self.user)
+
         elif self.user:
             increment_nb_erp_created(self.user)
+            if self.user_type == self.USER_ROLE_GESTIONNAIRE:
+                increment_nb_erp_administrator(self.user)
+
+    def save(self, *args, editor=None, **kwargs):
+        if editor and not self.user:
+            self.user = editor
+
+        if self.permanently_closed:
+            self.published = False
+
+        self._increment_stats(editor)
 
         if (
             self.__original_activite_id is not None
@@ -1020,6 +1037,14 @@ class Erp(models.Model):
         if dates:
             return max(dates)
 
+    def confirm_up_to_date(self, user):
+        self.checked_up_to_date_at = datetime.now()
+        with reversion.create_revision():
+            self.save()
+            reversion.set_comment(self.__confirmation_message)
+            if isinstance(user, get_user_model()):
+                reversion.set_user(user)
+
 
 @reversion.register(
     ignore_duplicates=True,
@@ -1145,7 +1170,7 @@ class Accessibilite(models.Model):
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name=translate_lazy("Main courante"),
     )
-    # Rampe – oui / non / inconnu / sans objet
+    # Rampe – aucune / fixe / amovible / sans objet
     cheminement_ext_rampe = models.CharField(
         max_length=20,
         null=True,
@@ -1727,3 +1752,28 @@ class Accessibilite(models.Model):
             return
         equipment_to_text = {k: str(v) for k, v in schema.DISPOSITIFS_APPEL_CHOICES}
         return [equipment_to_text.get(equipment) for equipment in self.entree_dispositif_appel_type]
+
+    def get_shower_text(self):
+        text = ""
+        needs_stopword = False
+        if self.accueil_chambre_douche_plain_pied is True:
+            text += schema.FIELDS["accueil_chambre_douche_plain_pied"]["help_text_ui_v2"]
+        elif self.accueil_chambre_douche_plain_pied is False:
+            text += schema.FIELDS["accueil_chambre_douche_plain_pied"]["help_text_ui_neg_v2"]
+        else:
+            text += translate_lazy("Douche")
+
+        if self.accueil_chambre_douche_siege is True:
+            needs_stopword = True
+            text += " " + schema.FIELDS["accueil_chambre_douche_siege"]["help_text_ui_v2"].lower()
+        elif self.accueil_chambre_douche_siege is False:
+            text += " " + schema.FIELDS["accueil_chambre_douche_siege"]["help_text_ui_neg_v2"].lower()
+
+        if self.accueil_chambre_douche_barre_appui is True:
+            text += translate_lazy(" et ") if needs_stopword else " "
+            text += schema.FIELDS["accueil_chambre_douche_barre_appui"]["help_text_ui_v2"].lower()
+        elif self.accueil_chambre_douche_barre_appui is False:
+            text += translate_lazy(" et ") if needs_stopword else " "
+            text += schema.FIELDS["accueil_chambre_douche_barre_appui"]["help_text_ui_neg_v2"].lower()
+
+        return text if text != translate_lazy("Douche") else None

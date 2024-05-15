@@ -15,17 +15,6 @@
         <div>
             <address class="d-inline font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
         </div>
-        {% with erp.metadata.centre_vaccination as cv %}
-            {% if cv %}
-                <div class="alert alert-warning d-flex align-items-center mt-2 mb-1"
-                     role="alert"
-                     aria-live="assertive"
-                     style="font-size:.9em">
-                    <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
-                    {% translate "Cet établissement est centre de vaccination dans le cadre de la campagne nationale de vaccination contre la COVID-19." %}
-                </div>
-            {% endif %}
-        {% endwith %}
         <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
             {% if erp.site_internet %}
                 <span class="mr-3 mt-2">

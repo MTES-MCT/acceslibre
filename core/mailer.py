@@ -119,11 +119,13 @@ class BrevoMailer(Mailer):
         update_contact = UpdateContact(
             attributes={
                 "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
+                "DATE_LAST_LOGIN": user.last_login.strftime("%Y-%m-%d") if user.last_login else "",
                 "IS_ACTIVE": user.is_active,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
                 "NB_ERPS": user.stats.nb_erp_created if hasattr(user, "stats") else 0,
+                "NB_ERPS_ADMINISTRATOR": user.stats.nb_erp_administrator if hasattr(user, "stats") else 0,
                 "NEWSLETTER_OPT_IN": user.preferences.get().newsletter_opt_in,
             }
         )

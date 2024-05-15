@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-30 17:37+0200\n"
+"POT-Creation-Date: 2024-05-15 14:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1182,6 +1182,12 @@ msgid_plural "descendantes"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "Douche"
+msgstr ""
+
+msgid " et "
+msgstr ""
+
 msgid "Accès"
 msgstr ""
 
@@ -2115,7 +2121,7 @@ msgstr ""
 msgid "La douche est équipée d'une barre d'appui horizontale"
 msgstr ""
 
-msgid "Barre d'appui"
+msgid "Avec Barre d'appui"
 msgstr ""
 
 msgid "La douche n'est pas équipée d'une barre d'appui horizontale"
@@ -2131,9 +2137,6 @@ msgid "Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?"
 msgstr ""
 
 msgid "Le toilette est équipé d'une barre d'appui horizontale"
-msgstr ""
-
-msgid "Avec Barre d'appui"
 msgstr ""
 
 msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
@@ -4036,7 +4039,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #, python-format
-msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
+msgid "Toilettes %(espace)s"
+msgstr ""
+
+#, python-format
+msgid "Toilettes %(appui)s"
 msgstr ""
 
 #, python-format
@@ -4166,9 +4173,7 @@ msgstr ""
 msgid "pour les familles de handicap suivantes :"
 msgstr ""
 
-msgid ""
-"Cet établissement est centre de vaccination dans le cadre de la campagne "
-"nationale de vaccination contre la COVID-19."
+msgid "Filtres des informations par besoin"
 msgstr ""
 
 msgid "Écrire un message"

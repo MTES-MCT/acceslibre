@@ -159,8 +159,8 @@ def access_text(value_name, access):
 
 
 @register.inclusion_tag("erp/includes/access_value.html")
-def render_access_value(value_name, access):
-    return {"value_name": value_name, "access": access, "value": getattr(access, value_name)}
+def render_access_value(value_name, access, filters=None):
+    return {"value_name": value_name, "access": access, "value": getattr(access, value_name), "filters": filters}
 
 
 @register.simple_tag

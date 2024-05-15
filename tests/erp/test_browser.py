@@ -7,10 +7,11 @@ from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
+from reversion.models import Version
 
 from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import ErpFactory
+from tests.factories import ActiviteFactory, ErpFactory
 from tests.utils import assert_redirect
 
 
@@ -279,6 +280,7 @@ def test_ajout_erp(data, client):
     data.niko.stats.refresh_from_db()
     initial_nb_created = data.niko.stats.nb_erp_created
     initial_nb_edited = data.niko.stats.nb_erp_edited
+    initial_nb_administrator = data.niko.stats.nb_erp_administrator
 
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
@@ -526,6 +528,16 @@ def test_ajout_erp(data, client):
     data.niko.stats.refresh_from_db()
     assert data.niko.stats.nb_erp_created == initial_nb_created + 1
     assert data.niko.stats.nb_erp_edited == initial_nb_edited
+    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator
+
+    response = client.post(
+        reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
+        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE},
+        follow=True,
+    )
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
+    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator + 1
 
 
 def test_ajout_erp_a11y_vide(data, client):
@@ -961,6 +973,7 @@ def test_get_erp_by_uuid(client):
 @pytest.mark.django_db
 def test_can_update_checked_up_to_date_at_from_erp(client):
     erp = ErpFactory(published=True)
+    assert Version.objects.get_for_object(erp).count() == 0
 
     assert erp.checked_up_to_date_at is None
 
@@ -970,3 +983,44 @@ def test_can_update_checked_up_to_date_at_from_erp(client):
 
     erp.refresh_from_db()
     assert erp.checked_up_to_date_at is not None
+    assert Version.objects.get_for_object(erp).count() == 1
+
+
+@pytest.mark.django_db
+def test_contrib_start_pass_postcode(client):
+    ActiviteFactory(nom="Restaurant", pk=123)
+    payload = {
+        "what": ["creperie"],
+        "new_activity": [""],
+        "activite": ["Restaurant"],
+        "where": ["Brest (29)"],
+        "lat": ["48.4084"],
+        "lon": ["-4.4996"],
+        "code": ["29019"],
+        "ban_id": [""],
+        "postcode": ["29200"],
+        "search_type": ["municipality"],
+        "street_name": [""],
+        "municipality": ["Brest"],
+    }
+    url = reverse("contrib_start")
+    response = client.get(url, payload)
+
+    assert response.status_code == 302
+    assert (
+        response.url
+        == "/contrib/start/recherche/?new_activity=&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29&activite=Restaurant"
+    )
+
+    response = client.get(url, payload, follow=True)
+    assert response.status_code == 200
+    assert response.context["query"] == {
+        "nom": "creperie",
+        "commune": "Brest",
+        "lat": "48.4084",
+        "lon": "-4.4996",
+        "activite": 123,
+        "activite_slug": "restaurant",
+        "new_activity": "",
+        "code_postal": "29200",
+    }

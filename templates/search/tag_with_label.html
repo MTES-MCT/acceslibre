@@ -1,16 +1,14 @@
-<span {% if input_name == "equipments" and slug not in params %}class="hidden"{% endif %}>
+<span>
     <input type="checkbox"
            id="{{ slug }}"
            name="{{ input_name }}"
            class="hidden"
-           value="{{ slug }}"
-           {% if slug in params %}checked{% endif %}>
-    <label class="fr-label invisible ml-0" for="{{ slug }}"></label>
-    <button class="fr-tag a4a-label-tag mb-1 {% if icon %}tag-picto tag-picto-{{ icon }}{% endif %} fr-tag--icon-left {% if is_default_suggestion %}default-suggestion{% endif %}"
+           autocomplete="off"
+           value="{{ slug }}">
+    <label class="fr-label ml-0" for="{{ slug }}"></label>
+    <button class="fr-tag a4a-label-tag mb-1 mr-2 {% if icon %}tag-picto tag-picto-{{ icon }}{% endif %} fr-tag--icon-left"
             aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
             data-fr-js-toggle="true"
             type="button"
-            data-event-type="{{ eventType }}"
-            {% if children_list %}data-children="{{ children_list }}"{% endif %}
-            {% if suggestions_list %}data-suggestions="{{ suggestions_list }}"{% endif %}>{{ name }}</button>
+            data-event-type="{{ eventType }}">{{ name }}</button>
 </span>

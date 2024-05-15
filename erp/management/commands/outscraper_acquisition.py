@@ -89,7 +89,7 @@ class Command(BaseCommand):
         accessibility = {"entree_porte_presence": True}
         if access.get("Entrée accessible en fauteuil roulant") is True:
             accessibility["entree_plain_pied"] = True
-            accessibility["entree_largeur_mini"] = 90
+            accessibility["entree_largeur_mini"] = 80
 
         if access.get("Équipé pour les malentendants") is True:
             accessibility["accueil_equipements_malentendants_presence"] = True

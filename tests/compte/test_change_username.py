@@ -2,6 +2,7 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.test import Client
 from django.urls import reverse
+from django.utils import timezone
 from sib_api_v3_sdk import UpdateContact
 
 from tests.utils import assert_redirect
@@ -36,11 +37,13 @@ def test_update_username_authenticated(mocker, client, data):
         UpdateContact(
             attributes={
                 "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
+                "DATE_LAST_LOGIN": timezone.now().strftime("%Y-%m-%d"),
                 "IS_ACTIVE": True,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": "",
                 "NB_ERPS": 1,
+                "NB_ERPS_ADMINISTRATOR": 0,
                 "NEWSLETTER_OPT_IN": False,
             }
         ),

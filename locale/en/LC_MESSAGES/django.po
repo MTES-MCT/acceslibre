@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-30 17:38+0200\n"
+"POT-Creation-Date: 2024-05-15 14:28+0200\n"
 "PO-Revision-Date: 2024-04-30 17:38+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1224,6 +1224,12 @@ msgid_plural "descendantes"
 msgstr[0] "descending"
 msgstr[1] "descending"
 
+msgid "Douche"
+msgstr "Shower"
+
+msgid " et "
+msgstr "And"
+
 msgid "Accès"
 msgstr "Access"
 
@@ -2267,8 +2273,8 @@ msgstr ""
 msgid "La douche est équipée d'une barre d'appui horizontale"
 msgstr "The shower is equipped with a horizontal grab bar"
 
-msgid "Barre d'appui"
-msgstr "Grab bar"
+msgid "Avec Barre d'appui"
+msgstr "With grab bar"
 
 msgid "La douche n'est pas équipée d'une barre d'appui horizontale"
 msgstr "The shower is not equipped with a horizontal grab bar"
@@ -2284,9 +2290,6 @@ msgstr "Is the toilet equipped with a horizontal grab bar?"
 
 msgid "Le toilette est équipé d'une barre d'appui horizontale"
 msgstr "The toilet is equipped with a horizontal grab bar"
-
-msgid "Avec Barre d'appui"
-msgstr "With grab bar"
 
 msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
 msgstr "The toilet is not equipped with a horizontal grab bar"
@@ -4493,8 +4496,12 @@ msgstr[0] "%(nb)s wheelchair-accessible room"
 msgstr[1] "%(nb)s wheelchair-accessible rooms"
 
 #, python-format
-msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
-msgstr "%(plain_pied_text)s %(siege)s and %(appui)s"
+msgid "Toilettes %(espace)s"
+msgstr "Toilets %(espace)s"
+
+#, python-format
+msgid "Toilettes %(appui)s"
+msgstr "Toilets %(appui)s"
 
 #, python-format
 msgid "Toilettes %(espace)s et %(appui)s"
@@ -4623,12 +4630,8 @@ msgstr "This building has been awarded the Tourisme & Handicap label"
 msgid "pour les familles de handicap suivantes :"
 msgstr "for the following disability families:"
 
-msgid ""
-"Cet établissement est centre de vaccination dans le cadre de la campagne "
-"nationale de vaccination contre la COVID-19."
-msgstr ""
-"This facility is a vaccination center for the national COVID-19 vaccination "
-"campaign."
+msgid "Filtres des informations par besoin"
+msgstr "Filter information by need"
 
 msgid "Écrire un message"
 msgstr "Send a message"

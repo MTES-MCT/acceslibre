@@ -1,43 +1,47 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h4 class="pt-2 h4">
+<h4 class="pt-2 h4" data-filter-title="true">
     <i aria-hidden="true" class="icon icon-road mr-1 larger-font"></i>{% translate "Chemin vers l'entrée" %}
 </h4>
 {% spaceless %}
     <ul>
-        {% if access.has_outside_path_and_no_other_data %}<li>{{ "cheminement_ext_presence"|positive_text }}</li>{% endif %}
-        {% if access.cheminement_ext_bande_guidage %}<li>{{ "cheminement_ext_bande_guidage"|positive_text }}</li>{% endif %}
+        {% if access.has_outside_path_and_no_other_data %}
+            <li data-filters="all">{{ "cheminement_ext_presence"|positive_text }}</li>
+        {% endif %}
+        {% if access.cheminement_ext_bande_guidage %}
+            <li data-filters="visual">{{ "cheminement_ext_bande_guidage"|positive_text }}</li>
+        {% endif %}
         {% if access.cheminement_ext_plain_pied %}
-            <li>{{ "cheminement_ext_plain_pied"|positive_text }}</li>
+            <li data-filters="visual,walking">{{ "cheminement_ext_plain_pied"|positive_text }}</li>
         {% elif access.cheminement_ext_plain_pied is False %}
-            <li>
+            <li data-filters="visual,walking">
                 {% translate "sur le chemin" as extra_context %}
                 {% include "erp/includes/access_stairs.html" with steps_direction=access.get_outside_steps_direction_text nb_steps=access.cheminement_ext_nombre_marches extra_context=extra_context %}
             </li>
         {% endif %}
         {% include "erp/includes/access_steps.html" with nb_marches=access.cheminement_ext_nombre_marches main_courante_data=access.cheminement_ext_main_courante reperage=access.cheminement_ext_reperage_marches %}
         {% if access.has_ramp_exterior_path %}
-            <li>
+            <li data-filters="walking">
                 {% blocktranslate trimmed with sentence="entree_marches_rampe"|positive_text rampe=access.cheminement_ext_rampe %}
                     {{ sentence }} {{ rampe }}
                 {% endblocktranslate %}
             </li>
-        {% elif access.cheminement_ext_rampe is False %}
-            <li>{{ "cheminement_ext_rampe"|negative_text }}</li>
+        {% elif access.cheminement_ext_rampe == "aucune" %}
+            <li data-filters="walking">{{ "cheminement_ext_rampe"|negative_text }}</li>
         {% endif %}
-        {% if access.cheminement_ext_ascenseur %}<li>{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
-        {% render_access_value "cheminement_ext_terrain_stable" access %}
+        {% if access.cheminement_ext_ascenseur %}<li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+        {% render_access_value "cheminement_ext_terrain_stable" access "walking" %}
         {% if access.cheminement_ext_pente_presence %}
             {% if access.cheminement_ext_pente_degre_difficulte %}
                 {% if access.cheminement_ext_pente_longueur %}
-                    <li>
+                    <li data-filters="walking">
                         {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur difficulte=access.cheminement_ext_pente_degre_difficulte %}
                             Présence d'une pente {{ difficulte }} de longueur {{ longueur }}
                         {% endblocktranslate %}
                     </li>
                 {% else %}
-                    <li>
+                    <li data-filters="walking">
                         {% blocktranslate trimmed with difficulte=access.cheminement_ext_pente_degre_difficulte %}
                             Présence d'une pente {{ difficulte }}
                         {% endblocktranslate %}
@@ -45,7 +49,7 @@
                 {% endif %}
             {% else %}
                 {% if access.cheminement_ext_pente_longueur %}
-                    <li>
+                    <li data-filters="walking">
                         {% blocktranslate trimmed with longueur=access.cheminement_ext_pente_longueur %}
                             Présence d'une pente de longueur {{ longueur }}
                         {% endblocktranslate %}
@@ -56,14 +60,14 @@
             {% endif %}
         {% endif %}
         {% if access.has_camber %}
-            <li>
+            <li data-filters="walking">
                 {% blocktranslate trimmed with difficulty=access.cheminement_ext_devers %}
                     Dévers {{ difficulty }}
                 {% endblocktranslate %}
             </li>
         {% elif access.has_camber is False %}
-            <li>{{ "cheminement_ext_devers"|negative_text }}</li>
+            <li data-filters="walking">{{ "cheminement_ext_devers"|negative_text }}</li>
         {% endif %}
-        {% render_access_value "cheminement_ext_retrecissement" access %}
+        {% render_access_value "cheminement_ext_retrecissement" access "walking" %}
     </ul>
 {% endspaceless %}
