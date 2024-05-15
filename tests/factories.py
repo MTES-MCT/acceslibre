@@ -52,21 +52,26 @@ class ErpFactory(factory.django.DjangoModelFactory):
         model = "erp.Erp"
         django_get_or_create = ("nom",)
 
-    def __init__(self, *args, **kwargs):
-        self.with_accessibilite = kwargs.pop("with_accessibilite", False)
-        super().__init__(*args, **kwargs)
-
     @classmethod
     def create(cls, **kwargs):
+        accessibilite_kwargs = {}
+        erp_kwargs = {}
+
         with_accessibilite = kwargs.pop("with_accessibilite", False)
-        erp = super().create(**kwargs)
+
+        for key, value in kwargs.items():
+            if key.startswith("accessibilite__"):
+                accessibilite_kwargs[key.replace("accessibilite__", "")] = value
+            else:
+                erp_kwargs[key] = value
+
+        with_accessibilite = accessibilite_kwargs or with_accessibilite
+        erp = super().create(**erp_kwargs)
+
         if with_accessibilite:
-            AccessibiliteFactory(erp=erp)
+            AccessibiliteFactory(erp=erp, **accessibilite_kwargs)
+
         return erp
-
-
-class ErpWithAccessibiliteFactory(ErpFactory):
-    with_accessibilite = True
 
 
 class AccessibiliteFactory(factory.django.DjangoModelFactory):
