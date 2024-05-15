@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 11:49+0200\n"
+"POT-Creation-Date: 2024-05-15 14:28+0200\n"
 "PO-Revision-Date: 2024-04-30 17:38+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2273,8 +2273,8 @@ msgstr ""
 msgid "La douche est équipée d'une barre d'appui horizontale"
 msgstr "The shower is equipped with a horizontal grab bar"
 
-msgid "Barre d'appui"
-msgstr "Grab bar"
+msgid "Avec Barre d'appui"
+msgstr "With grab bar"
 
 msgid "La douche n'est pas équipée d'une barre d'appui horizontale"
 msgstr "The shower is not equipped with a horizontal grab bar"
@@ -2290,9 +2290,6 @@ msgstr "Is the toilet equipped with a horizontal grab bar?"
 
 msgid "Le toilette est équipé d'une barre d'appui horizontale"
 msgstr "The toilet is equipped with a horizontal grab bar"
-
-msgid "Avec Barre d'appui"
-msgstr "With grab bar"
 
 msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
 msgstr "The toilet is not equipped with a horizontal grab bar"
@@ -5349,7 +5346,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#, python-format
-#~ msgid "%(plain_pied_text)s %(siege)s et %(appui)s"
-#~ msgstr "%(plain_pied_text)s %(seat)s and %(support)s"

@@ -1405,7 +1405,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("La douche est équipée d'une barre d'appui horizontale"),
-        "help_text_ui_v2": translate_lazy("Barre d'appui"),
+        "help_text_ui_v2": translate_lazy("Avec Barre d'appui"),
         "help_text_ui_neg": translate_lazy("La douche n'est pas équipée d'une barre d'appui horizontale"),
         "help_text_ui_neg_v2": translate_lazy("Sans barre d'appui"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
