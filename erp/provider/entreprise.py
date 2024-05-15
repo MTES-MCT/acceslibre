@@ -9,7 +9,7 @@ from erp.provider import arrondissements, voies
 logger = logging.getLogger(__name__)
 
 # See api doc here: https://api.gouv.fr/documentation/api-recherche-entreprises
-BASE_URL_ENTERPRISE_API = "https://recherche-entreprises.api.gouv.fr/search"
+BASE_URL_ENTERPRISE_API = "https://recherche-entreprises.api.gouv.fr/search?mtm_campaign=acces-libre"
 MAX_PER_PAGE = 5
 
 
