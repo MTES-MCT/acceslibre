@@ -26,9 +26,21 @@
             <li data-filters="walking">
                 {% access_text "accueil_chambre_sanitaires_espace_usage" access as espace_text %}
                 {% access_text "accueil_chambre_sanitaires_barre_appui" access as appui_text %}
-                {% blocktranslate trimmed with espace=espace_text|lower appui=appui_text|lower %}
-                    Toilettes {{ espace }} et {{ appui }}
-                {% endblocktranslate %}
+                {% if access.accueil_chambre_sanitaires_barre_appui is None %}
+                    {% blocktranslate trimmed with espace=espace_text|lower %}
+                        Toilettes {{ espace }}
+                    {% endblocktranslate %}
+                {% else %}
+                    {% if access.accueil_chambre_sanitaires_espace_usage is None %}
+                        {% blocktranslate trimmed with appui=appui_text|lower %}
+                            Toilettes {{ appui }}
+                        {% endblocktranslate %}
+                    {% else %}
+                        {% blocktranslate trimmed with espace=espace_text|default_if_none:""|lower appui=appui_text|lower|default_if_none:"" %}
+                            Toilettes {{ espace }} et {{ appui }}
+                        {% endblocktranslate %}
+                    {% endif %}
+                {% endif %}
             </li>
         {% endif %}
         {% render_access_value "accueil_chambre_numero_visible" access "all" %}
