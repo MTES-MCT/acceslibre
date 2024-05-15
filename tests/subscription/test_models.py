@@ -1,37 +1,50 @@
 import pytest
 
 from subscription.models import ErpSubscription
+from tests.factories import ErpFactory, UserFactory
 
 
-def test_subscribe(data):
-    assert ErpSubscription.objects.count() == 0
-
-    ErpSubscription.subscribe(data.erp, data.sophie)
-
-    assert ErpSubscription.objects.count() == 1
-    assert ErpSubscription.objects.filter(user=data.sophie, erp=data.erp).count() == 1
-
-    ErpSubscription.subscribe(data.erp, data.sophie)
-
-    assert ErpSubscription.objects.count() == 1
-    assert ErpSubscription.objects.filter(user=data.sophie, erp=data.erp).count() == 1
-
-
-def test_unsubscribe(data):
-    assert ErpSubscription.objects.count() == 0
-
-    ErpSubscription.subscribe(data.erp, data.sophie)
-
-    assert ErpSubscription.objects.count() == 1
-
-    ErpSubscription.unsubscribe(data.erp, data.sophie)
+@pytest.mark.django_db
+def test_subscribe():
+    erp = ErpFactory()
+    sophie = UserFactory()
 
     assert ErpSubscription.objects.count() == 0
 
+    ErpSubscription.subscribe(erp, sophie)
 
-def test_Erp_is_subscribed_by(data):
-    assert data.erp.is_subscribed_by(data.sophie) is False
+    assert ErpSubscription.objects.count() == 1
+    assert ErpSubscription.objects.filter(user=sophie, erp=erp).count() == 1
 
-    ErpSubscription.subscribe(data.erp, data.sophie)
+    ErpSubscription.subscribe(erp, sophie)
 
-    assert data.erp.is_subscribed_by(data.sophie) is True
+    assert ErpSubscription.objects.count() == 1
+    assert ErpSubscription.objects.filter(user=sophie, erp=erp).count() == 1
+
+
+@pytest.mark.django_db
+def test_unsubscribe():
+    erp = ErpFactory()
+    sophie = UserFactory()
+
+    assert ErpSubscription.objects.count() == 0
+
+    ErpSubscription.subscribe(erp, sophie)
+
+    assert ErpSubscription.objects.count() == 1
+
+    ErpSubscription.unsubscribe(erp, sophie)
+
+    assert ErpSubscription.objects.count() == 0
+
+
+@pytest.mark.django_db
+def test_Erp_is_subscribed_by():
+    erp = ErpFactory()
+    sophie = UserFactory()
+
+    assert erp.is_subscribed_by(sophie) is False
+
+    ErpSubscription.subscribe(erp, sophie)
+
+    assert erp.is_subscribed_by(sophie) is True

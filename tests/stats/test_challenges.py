@@ -3,7 +3,7 @@ import reversion
 from django.core.management import call_command
 
 from erp.schema import get_nullable_bool_fields
-from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpWithAccessibiliteFactory, UserFactory
+from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpFactory, UserFactory
 
 
 @pytest.fixture()
@@ -29,7 +29,10 @@ class TestChallenge:
 
     @pytest.mark.django_db
     def test_nominal_case(self, challenge):
-        erp1, erp2 = [ErpWithAccessibiliteFactory(), ErpWithAccessibiliteFactory()]
+        erp1, erp2 = [
+            ErpFactory(with_accessibilite=True),
+            ErpFactory(with_accessibilite=True),
+        ]
 
         player1, player2 = challenge.players.all()
 

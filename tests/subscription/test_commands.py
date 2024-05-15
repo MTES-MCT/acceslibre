@@ -4,8 +4,9 @@ from django.test import Client, override_settings
 from django.urls import reverse
 from reversion.models import Version
 
-from erp.models import Accessibilite, Erp
+from erp.models import Erp
 from subscription.models import ErpSubscription
+from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 
 
 @pytest.fixture
@@ -13,10 +14,15 @@ def client():
     return Client()
 
 
-def niko_create_erp_and_subscribe_updates(client, data):
-    "TODO: make this a reusable test helper"
-    # auth user
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def niko_create_erp_and_subscribe_updates(client):
+    niko = UserFactory(is_staff=True, email="niko@niko.tld", username="niko")
+    boulangerie = ActiviteFactory(nom="boulangerie")
+    sophie = UserFactory(username="sophie")
+    ActiviteFactory(slug="autre")
+    CommuneFactory(nom="Jacou", departement=34)
+
+    client.force_login(niko)
     # create erp admin data
     response = client.post(
         reverse("contrib_admin_infos"),
@@ -24,7 +30,7 @@ def niko_create_erp_and_subscribe_updates(client, data):
             "source": "sirene",
             "source_id": "xxx",
             "nom": "niko erp",
-            "activite": data.boulangerie.nom,
+            "activite": boulangerie.nom,
             "numero": "5",
             "voie": "Grand rue",
             "lieu_dit": "",
@@ -68,23 +74,24 @@ def niko_create_erp_and_subscribe_updates(client, data):
     erp = Erp.objects.get(nom="niko erp")
     assert erp.published is True
     # subscribe user
-    ErpSubscription.subscribe(erp, data.niko)
-    return erp
+    ErpSubscription.subscribe(erp, niko)
+    return erp, boulangerie, niko, sophie
 
 
+@pytest.mark.django_db
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_erp(mocker, mock_geocode, client, data):
+def test_notification_erp(mocker, mock_geocode, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
-    erp = niko_create_erp_and_subscribe_updates(client, data)
+    erp, boulangerie, niko, sophie = niko_create_erp_and_subscribe_updates(client)
 
     # sophie updates this erp data
-    client.force_login(data.sophie)
+    client.force_login(sophie)
     payload = {
         "source": "sirene",
         "source_id": "xxx",
         "nom": "sophie erp",
-        "activite": data.boulangerie.nom,
+        "activite": boulangerie.nom,
         "site_internet": "http://google.com/",
         "action": "contribute",
         "numero": "4",
@@ -120,7 +127,7 @@ def test_notification_erp(mocker, mock_geocode, client, data):
     assert mock_mail.call_count == 1
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == ([data.niko.email],)
+    assert _args == ([niko.email],)
     assert _kwargs == {
         "template": "changed_erp_notification",
         "context": {
@@ -163,14 +170,15 @@ def test_notification_erp(mocker, mock_geocode, client, data):
     }
 
 
+@pytest.mark.django_db
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_accessibilite(client, data, mocker):
+def test_notification_accessibilite(client, mocker):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
-    erp = niko_create_erp_and_subscribe_updates(client, data)
+    erp, _, niko, sophie = niko_create_erp_and_subscribe_updates(client)
 
     # sophie updates this erp accessibilite data
-    client.force_login(data.sophie)
+    client.force_login(sophie)
 
     response = client.post(
         reverse("contrib_accueil", kwargs={"erp_slug": erp.slug}),
@@ -189,7 +197,7 @@ def test_notification_accessibilite(client, data, mocker):
     assert mock_mail.call_count == 1
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == ([data.niko.email],)
+    assert _args == ([niko.email],)
     assert _kwargs == {
         "template": "changed_erp_notification",
         "context": {
@@ -274,12 +282,17 @@ def test_notification_skip_owner(mocker, client, data):
     mock_mail.assert_not_called
 
 
-def test_erp_publication_subscription_option(data, client):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_erp_publication_subscription_option(client):
+    niko = UserFactory(is_staff=True, email="niko@niko.tld", username="niko")
+    CommuneFactory(nom="Jacou", departement=34)
+    erp = ErpFactory(with_accessibilite=True, commune="Jacou", user=niko)
+
+    client.force_login(niko)
 
     # user subscribes to updates
     response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
             "user_type": Erp.USER_ROLE_PUBLIC,
             "published": "on",
@@ -289,11 +302,11 @@ def test_erp_publication_subscription_option(data, client):
         follow=True,
     )
     assert response.status_code == 200
-    assert ErpSubscription.objects.filter(erp=data.erp, user=data.niko).count() == 1
+    assert ErpSubscription.objects.filter(erp=erp, user=niko).count() == 1
 
     # user unsubscribes from updates
     response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
             "user_type": Erp.USER_ROLE_PUBLIC,
             "published": "on",
@@ -303,4 +316,4 @@ def test_erp_publication_subscription_option(data, client):
         follow=True,
     )
     assert response.status_code == 200
-    assert ErpSubscription.objects.filter(erp=data.erp, user=data.niko).count() == 1
+    assert ErpSubscription.objects.filter(erp=erp, user=niko).count() == 1
