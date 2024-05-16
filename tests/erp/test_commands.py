@@ -2,6 +2,7 @@ import copy
 import uuid
 from datetime import timedelta
 from io import StringIO
+from unittest.mock import ANY
 
 import pytest
 from django.core.management import call_command
@@ -15,39 +16,34 @@ from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactor
 
 
 class TestConvertTallyToSchema:
-    @pytest.mark.parametrize(
-        "line, expected_line",
-        (
-            pytest.param(
-                {
-                    "Est-ce qu’il y a au moins une place handicapé dans votre parking ?": "Oui, nous avons une place handicapé",
-                    "cp": "4100",
-                    "adresse": "7 grande rue, Saint Martin en Haut",
-                    "Combien de marches y a-t-il pour entrer dans votre établissement ?": "124",
-                    "email": "contrib@beta.gouv.fr",
-                    "Boucle à induction magnétique portative": "true",
-                    "Boucle à induction magnétique fixe": "true",
-                },
-                {
-                    "stationnement_presence": True,
-                    "stationnement_pmr": True,
-                    "code_postal": "04100",
-                    "code_insee": "04100",
-                    "lieu_dit": None,
-                    "numero": "7",
-                    "voie": "Grande rue",
-                    "commune": "Saint Martin en Haut",
-                    "entree_marches": 124,
-                    "import_email": "contrib@beta.gouv.fr",
-                    "source": "tally",
-                    "accueil_equipements_malentendants": ["bmp", "bim"],
-                },
-                id="nominal_case",
-            ),
-        ),
-    )
-    def test_process_line(self, line, expected_line):
-        assert CommandConvertTallyToSchema()._process_line(line) == expected_line
+    def test_process_line(self):
+        line = {
+            "Est-ce qu’il y a au moins une place handicapé dans votre parking ?": "Oui, nous avons une place handicapé",
+            "cp": "4100",
+            "adresse": "7 grande rue, Saint Martin en Haut",
+            "Combien de marches y a-t-il pour entrer dans votre établissement ?": "124",
+            "email": "contrib@beta.gouv.fr",
+            "Boucle à induction magnétique portative": "true",
+            "Boucle à induction magnétique fixe": "true",
+        }
+        expected_line = {
+            "stationnement_presence": True,
+            "stationnement_pmr": True,
+            "code_postal": "04100",
+            "code_insee": "04100",
+            "lieu_dit": None,
+            "numero": "7",
+            "voie": "Grande rue",
+            "commune": "Saint Martin en Haut",
+            "entree_marches": 124,
+            "import_email": "contrib@beta.gouv.fr",
+            "source": "tally",
+            "accueil_equipements_malentendants": ANY,  # checked above as it is not ordered
+        }
+        result = CommandConvertTallyToSchema()._process_line(line)
+        assert result == expected_line
+        result["accueil_equipements_malentendants"].sort()
+        assert result["accueil_equipements_malentendants"] == ["bim", "bmp"]
 
 
 class TestNotifyDraft:
