@@ -1,8 +1,9 @@
-import datetime
 import logging
+from datetime import timedelta
 
 from django.core.management import BaseCommand, CommandError
 from django.db.models import Q
+from django.utils import timezone
 
 from stats.models import Challenge, GlobalStats
 
@@ -20,13 +21,14 @@ class Command(BaseCommand):
             raise CommandError("Interrompu.")
 
         # Compute challenges stats
-        today = datetime.datetime.today()
+        today = timezone.now().date()
+        yesterday = today - timedelta(days=1)
 
         for challenge in Challenge.objects.filter(
             Q(
                 start_date__gt=today,
             )
-            | Q(start_date__lte=today, end_date__gt=today)
+            | Q(start_date__lte=today, end_date__gt=yesterday)  # We compute figures for day D-1
         ):
             try:
                 challenge.refresh_stats()

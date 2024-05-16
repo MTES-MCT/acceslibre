@@ -138,7 +138,7 @@ def challenge_ddt(request):
             "start_date": challenge.start_date,
             "stop_date": challenge.end_date,
             "today": today,
-            "top_contribs": challenge.classement,
+            "top_contribs": challenge.get_classement(),
             "total_contributions": challenge.nb_erp_total_added,
         },
     )
@@ -155,7 +155,7 @@ def challenge_detail(request, challenge_slug=None):
             "start_date": challenge.start_date,
             "stop_date": challenge.end_date,
             "today": today,
-            "top_contribs": challenge.classement,
+            "top_contribs": challenge.get_classement(),
             "total_contributions": challenge.nb_erp_total_added,
         },
     )
