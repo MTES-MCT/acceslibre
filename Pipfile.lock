@@ -289,6 +289,7 @@
                 "sha256:ddc24a0a8280a0430baa37aff11f28574720af05888c62b7cfe71d219f4599d3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.2.11"
         },
         "django-admin-autocomplete-filter": {
@@ -362,11 +363,12 @@
         },
         "django-import-export": {
             "hashes": [
-                "sha256:0c342c48fdf70e4e65f0bb22c136508835a91664222d3b1da56e3c9059423756",
-                "sha256:8e6194c952e29efc6851a2a4796a3dce13022ae8aa04a2cb8c2ecd6be4320fad"
+                "sha256:9762babf66e34da194f96ada2d133585f25c065d237d749a424319a0ddef7e23",
+                "sha256:d55193414cb86994a2dfef47670c6887ee1ab8e5efab4ff0a7335c9cad6418c0"
             ],
             "index": "pypi",
-            "version": "==4.0.2"
+            "markers": "python_version >= '3.8'",
+            "version": "==4.0.3"
         },
         "django-logentry-admin": {
             "hashes": [
