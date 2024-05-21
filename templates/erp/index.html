@@ -20,7 +20,7 @@
     </a>
 {% endblock skiplinks %}
 {% block editorial_content %}
-    <main role="main" id="content">
+    <main role="main" id="content" class="erp-details">
         <article class="mt-5">
             {% if 'success' in request.GET and messages %}
                 <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
@@ -97,6 +97,10 @@
                         {% include "erp/includes/sidebar.html" %}
                     </aside>
                 </div>
+            </div>
+            <div class="fr-grid-row fr-grid-row--gutters lg:mb-2 lg:mt-2">
+                <div class="fr-col-12 fr-col-md-6">{% include "erp/includes/versions_block.html" %}</div>
+                <div class="fr-col-12 fr-col-md-6">{% include "erp/includes/widget_block.html" %}</div>
             </div>
         </article>
     </main>

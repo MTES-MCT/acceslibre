@@ -22,7 +22,6 @@ from django.views.generic import TemplateView
 from reversion.views import create_revision
 
 from api.views import WidgetSerializer
-from compte.signals import erp_claimed
 from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
@@ -956,32 +955,6 @@ def contrib_publication(request, erp_slug):
             "form": form,
             "prev_route": reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
         },
-    )
-
-
-@login_required
-def contrib_claim(request, erp_slug):
-    erp = Erp.objects.filter(slug=erp_slug, user__isnull=True, published=True).first()
-    if not erp:
-        erp = get_object_or_404(Erp, slug=erp_slug, published=True)
-        return redirect("contrib_edit_infos", erp_slug=erp.slug)
-
-    if request.method == "POST":
-        form = forms.PublicClaimForm(request.POST)
-        if form.is_valid() and form.cleaned_data["ok"] is True:
-            erp.user = request.user
-            erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
-            erp.save()
-            erp_claimed.send(sender=Erp, instance=erp)
-            messages.add_message(request, messages.SUCCESS, translate("Opération effectuée avec succès."))
-            return redirect("contrib_edit_infos", erp_slug=erp.slug)
-    else:
-        form = forms.PublicClaimForm()
-
-    return render(
-        request,
-        template_name="contrib/claim.html",
-        context={"erp": erp, "form": form},
     )
 
 

@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load static %}
+{% load a4a %}
+<div class="card lg:mr-4">
+    <div class="card-body pb-2">
+        <img alt="Des personnages cochant une liste"
+             src="{% static 'img/history.png' %}"
+             class="mx-auto w-auto d-none d-lg-block"
+             height="200px">
+        <h2 class="h4 text-center my-3">{% translate "Vous voulez suivre les évolutions de cette fiche&nbsp;?" %}</h2>
+        {% with erp.get_global_timestamps as timestamps %}
+            {% spaceless %}
+                {% translate "Fiche créé" %}
+                {% if erp.user %}
+                    {% translate " par " %} <strong>{{ erp.user.username|format_username }}</strong>{% translate ", " %}
+                {% endif %}
+                {% if erp.user_type == "gestionnaire" %}
+                    {% translate "gestionnaire" %}
+                {% elif erp.user_type == "admin" %}
+                    {% translate "administration" %}
+                {% elif erp.user_type == "public" %}
+                    {% translate "usager" %}
+                {% endif %}
+                {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %}
+                {{ timestamps.created_at|date:"j/m/Y" }}
+            {% endspaceless %}
+            {% if timestamps.created_at != timestamps.updated_at %}
+                <br />
+                {% translate "Dernière mise à jour le" %} {{ timestamps.updated_at|date:"j/m/Y" }}
+            {% endif %}
+        {% endwith %}
+        <details class="mb-4">
+            <summary class="no-ouline text-primary mt-1">{% translate "Voir l'historique" %}</summary>
+            <section id="history" class="mt-2">
+                {% include "erp/includes/history.html" %}
+            </section>
+        </details>
+        {% if user.is_authenticated %}
+            <div class="fr-btns-group">
+                {% if user_is_subscribed %}
+                    <a href="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
+                       class="fr-btn fr-btn--secondary fr-btn--lg"
+                       title="Recevoir des notifications par email lorsque cet établissement est mis à jour">
+                        {% translate "Desabonnez vous des mises à jour" %}
+                    </a>
+                {% else %}
+                    <a href="{% url 'subscribe_erp' erp_slug=erp.slug %}"
+                       class="fr-btn fr-btn--secondary fr-btn--lg"
+                       title="{% translate "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour" %}">
+                        {% translate "Abonnez vous aux mises à jour" %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>

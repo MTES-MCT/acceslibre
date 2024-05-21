@@ -920,3 +920,19 @@ div.equipments-selected
 .indented2 {
   margin-left: 4rem;
 }
+
+@media screen and (max-width: $viewport-md) {
+  .erp-details {
+    .card {
+      border-left: 0px;
+      border-right: 0px;
+      border-top: 1px solid #00000020;
+      border-bottom: 1px solid #00000020;
+      border-radius: 0px;
+    }
+
+    .fr-col-md-6 {
+      padding: 0px;
+    }
+  }
+}

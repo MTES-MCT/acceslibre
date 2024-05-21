@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import F
 from django.db.models.signals import post_save
-from django.dispatch import Signal, receiver
+from django.dispatch import receiver
 
 from compte.models import UserStats
 from erp.models import Accessibilite
@@ -45,17 +45,3 @@ def save_access_update_stats(sender, instance, created, **kwargs):
     user_stats, _ = UserStats.objects.get_or_create(user=instance.erp.user)
     user_stats.nb_erp_edited = F("nb_erp_edited") + 1
     user_stats.save(update_fields=("nb_erp_edited",))
-
-
-erp_claimed = Signal()
-
-
-@receiver(erp_claimed, dispatch_uid="update_stats_after_erp_claimed")
-def erp_claimed_update_stats(sender, instance, **kwargs):
-    if not instance.user:
-        # This case should never happen, as user is here to self assign the ERP
-        return
-
-    user_stats, _ = UserStats.objects.get_or_create(user=instance.user)
-    user_stats.nb_erp_attributed = F("nb_erp_attributed") + 1
-    user_stats.save(update_fields=("nb_erp_attributed",))
