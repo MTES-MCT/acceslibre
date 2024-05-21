@@ -1,4 +1,5 @@
 import pytest
+import reversion
 from django.contrib.auth import get_user_model
 from django.test import Client
 from django.urls import reverse
@@ -23,7 +24,10 @@ def test_update_username_anonymous(client):
 @pytest.mark.django_db
 def test_update_username_authenticated(mocker, client):
     user = UserFactory()
-    ErpFactory(user=user)
+    with reversion.create_revision():
+        reversion.set_user(user)
+        ErpFactory(user=user)
+
     client.force_login(user)
     response = client.get(reverse("mon_identifiant"))
 
@@ -43,6 +47,7 @@ def test_update_username_authenticated(mocker, client):
             attributes={
                 "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
                 "DATE_LAST_LOGIN": timezone.now().strftime("%Y-%m-%d"),
+                "DATE_LAST_CONTRIB": timezone.now().strftime("%Y-%m-%d"),
                 "IS_ACTIVE": True,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,

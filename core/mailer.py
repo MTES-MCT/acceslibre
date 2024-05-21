@@ -82,6 +82,13 @@ class BrevoMailer(Mailer):
                 create_attribute=CreateAttribute(type="date"),
             )
 
+        if "DATE_LAST_CONTRIB" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="DATE_LAST_CONTRIB",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="date"),
+            )
+
         if "IS_ACTIVE" not in current_attributes:
             api_instance.create_attribute(
                 attribute_name="IS_ACTIVE",
@@ -116,16 +123,26 @@ class BrevoMailer(Mailer):
             else:
                 return False
 
+        nb_erps = nb_erps_administrator = 0
+        date_last_contrib = ""
+        if hasattr(user, "stats"):
+            user_stats = user.stats
+            nb_erps = user_stats.nb_erp_created
+            nb_erps_administrator = user_stats.nb_erp_administrator
+            if last := user_stats.get_date_last_contrib():
+                date_last_contrib = last.strftime("%Y-%m-%d")
+
         update_contact = UpdateContact(
             attributes={
                 "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
                 "DATE_LAST_LOGIN": user.last_login.strftime("%Y-%m-%d") if user.last_login else "",
+                "DATE_LAST_CONTRIB": date_last_contrib,
                 "IS_ACTIVE": user.is_active,
                 "NOM": user.last_name,
                 "PRENOM": user.first_name,
                 "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
-                "NB_ERPS": user.stats.nb_erp_created if hasattr(user, "stats") else 0,
-                "NB_ERPS_ADMINISTRATOR": user.stats.nb_erp_administrator if hasattr(user, "stats") else 0,
+                "NB_ERPS": nb_erps,
+                "NB_ERPS_ADMINISTRATOR": nb_erps_administrator,
                 "NEWSLETTER_OPT_IN": user.preferences.get().newsletter_opt_in,
             }
         )

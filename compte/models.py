@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as translate_lazy
+from reversion.models import Revision
 
 from compte.tasks import sync_user_attributes
 
@@ -78,3 +79,7 @@ class UserStats(models.Model):
             f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"
             f"/{self.nb_profanities}"
         )
+
+    def get_date_last_contrib(self):
+        last = Revision.objects.filter(user_id=self.user.pk).order_by("date_created").last()
+        return last.date_created if last else None
