@@ -92,8 +92,8 @@
                 {{ "entree_pmr"|positive_text }}
                 {% if access.entree_pmr_informations %}
                     :
-                    <div class="a4a-comment-block d-inline">
-                        <p class="d-inline">{{ access.entree_pmr_informations }}</p>
+                    <div class="a4a-comment-block">
+                        <p>{{ access.entree_pmr_informations|linebreaksbr }}</p>
                     </div>
                 {% endif %}
             </li>
