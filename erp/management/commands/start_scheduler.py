@@ -94,9 +94,7 @@ class Command(BaseCommand):
                 call_command(task["command"], **task["command_args"])
 
     def setup(self):
-        for hour in ("00:00", "12:00"):
-            schedule.every().day.at(hour).do(call_command, "refresh_stats")
-
+        schedule.every().day.at("04:00").do(call_command, "refresh_stats")
         schedule.every().day.at("03:35").do(call_command, "purge_obsolete_objects_in_base")
         schedule.every().day.at("03:55").do(call_command, "deleterevisions", keep=20, days=70)
         schedule.every().day.at("05:10").do(call_command, "import_dataset", "gendarmerie")

@@ -1,6 +1,9 @@
+from datetime import datetime, timedelta
+
 import pytest
 import reversion
 from django.core.management import call_command
+from reversion.models import Revision
 
 from erp.schema import get_nullable_bool_fields
 from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpWithAccessibiliteFactory, UserFactory
@@ -9,7 +12,9 @@ from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpWithAcces
 @pytest.fixture()
 def challenge():
     players = [UserFactory(), UserFactory()]
-    yield ChallengeFactory(players=players)
+    yesterday = datetime.now() - timedelta(days=2)
+    tomorrow = datetime.now() + timedelta(days=1)
+    yield ChallengeFactory(players=players, start_date=yesterday, end_date=tomorrow)
 
 
 class TestChallenge:
@@ -27,6 +32,9 @@ class TestChallenge:
 
             erp.accessibilite.save()
 
+        yesterday = datetime.now() - timedelta(days=1)
+        Revision.objects.all().update(date_created=yesterday)
+
     @pytest.mark.django_db
     def test_nominal_case(self, challenge):
         erp1, erp2 = [ErpWithAccessibiliteFactory(), ErpWithAccessibiliteFactory()]
@@ -39,11 +47,12 @@ class TestChallenge:
         call_command("refresh_stats")
 
         challenge.refresh_from_db()
-        assert challenge.classement == [
+
+        assert challenge.get_classement() == [
             {"username": player2.username, "nb_access_info_changed": 3},
             {"username": player1.username, "nb_access_info_changed": 2},
         ]
-        assert not challenge.classement_team
+        assert not challenge.get_classement_team()
 
         team = ChallengeTeamFactory()
 
@@ -53,4 +62,4 @@ class TestChallenge:
         call_command("refresh_stats")
 
         challenge.refresh_from_db()
-        assert not challenge.classement_team == [{"team": team.name, "nb_access_info_changed": 2}]
+        assert not challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}]
