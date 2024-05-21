@@ -1,16 +1,11 @@
 import pytest
-from django.contrib.admin.models import CHANGE, LogEntry
+from django.contrib.admin.models import LogEntry
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import check_password
-from django.test import Client
 from django.urls import reverse
 
 from compte import service
-
-
-@pytest.fixture
-def client():
-    return Client()
+from tests.factories import UserFactory
 
 
 @pytest.fixture
@@ -20,15 +15,19 @@ def pseudo_random_string(mocker):
     return pseudo_random_string
 
 
+@pytest.mark.django_db
 def test_delete_account_anonymize_user(data, pseudo_random_string):
-    anonymized_user = service.anonymize_user(data.niko)
+    user = UserFactory(is_staff=True, is_active=True)
+    anonymized_user = service.anonymize_user(user)
 
-    assert anonymized_user.pk == data.niko.pk
-    assert_user_anonymized(data.niko, pseudo_random_string)
+    assert anonymized_user.pk == user.pk
+    assert_user_anonymized(user, pseudo_random_string)
 
 
-def test_delete_account_e2e(client, data, pseudo_random_string):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_delete_account_e2e(client, pseudo_random_string):
+    user = UserFactory(is_staff=True, is_active=True, username="niko")
+    client.force_login(user)
 
     response = client.post(
         reverse("delete_account"),
@@ -40,7 +39,7 @@ def test_delete_account_e2e(client, data, pseudo_random_string):
     assert response.wsgi_request.user.username == ""
 
     anonymized_user = get_user_model().objects.get(
-        pk=data.niko.pk,
+        pk=user.pk,
         username__startswith=service.DELETED_ACCOUNT_USERNAME,
     )
     assert_user_anonymized(anonymized_user, pseudo_random_string)
@@ -54,8 +53,10 @@ def test_delete_account_e2e(client, data, pseudo_random_string):
     )
 
 
+@pytest.mark.django_db
 def test_delete_account_no_confirm_e2e(client, data):
-    client.force_login(data.niko)
+    user = UserFactory(is_staff=True, is_active=True)
+    client.force_login(user)
 
     response = client.post(
         reverse("delete_account"),
@@ -65,7 +66,7 @@ def test_delete_account_no_confirm_e2e(client, data):
 
     assert response.status_code == 200
     assert "confirm" in response.context["form"].errors
-    assert response.wsgi_request.user == data.niko
+    assert response.wsgi_request.user == user
 
 
 def assert_user_anonymized(user, random_string):
