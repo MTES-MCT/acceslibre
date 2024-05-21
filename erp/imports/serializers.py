@@ -228,7 +228,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                     continue
 
                 if obj.get("latitude") is not None and obj.get("longitude") is not None:
-                    self._geom = Point((obj["latitude"], obj["longitude"]), srid=4326)
+                    self._geom = Point((obj["longitude"], obj["latitude"]), srid=4326)
                     obj.pop("latitude")
                     obj.pop("longitude")
                     break
