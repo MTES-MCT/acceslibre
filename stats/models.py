@@ -1,4 +1,6 @@
 import uuid
+from collections import defaultdict
+from datetime import timedelta
 
 from autoslug import AutoSlugField
 from django.conf import settings
@@ -83,28 +85,65 @@ class Challenge(models.Model):
         # NOTE: naive versionning, v1 challenges are intended to be deprecated soon, just here to manage a distinct display
         return "v2" if self.end_date.year >= 2024 else "v1"
 
+    def get_classement(self):
+        if self.version == "v1":
+            return self.classement
+
+        classement = defaultdict(int)
+        for scores in self.classement.values():
+            for score in scores:
+                classement[score["username"]] += score["nb_access_info_changed"]
+
+        classement = [{"username": k, "nb_access_info_changed": v} for k, v in classement.items()]
+        return sorted(classement, key=lambda elt: elt["nb_access_info_changed"], reverse=True)
+
+    def get_classement_team(self):
+        if self.version == "v1":
+            return self.classement_team
+
+        classement = defaultdict(int)
+        for scores in self.classement_team.values():
+            for score in scores:
+                classement[score["team"]] += score["nb_access_info_changed"]
+
+        classement = [{"team": k, "nb_access_info_changed": v} for k, v in classement.items()]
+        return sorted(classement, key=lambda elt: elt["nb_access_info_changed"], reverse=True)
+
     def refresh_stats(self):
         players = {user.pk: user.username for user in self.players.all()}
         teams = {
             team_pk: team_name for team_pk, team_name in self.inscriptions.all().values_list("team__pk", "team__name")
         }
 
-        scores_per_user_id, scores_per_team_id = get_challenge_scores(
-            self, self.start_date, self.end_date, players.keys()
-        )
-        self.classement = [
-            {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
-            for user_id, score in scores_per_user_id
-        ]
-        self.classement_team = (
-            [
-                {"team": teams.get(team_id), "nb_access_info_changed": max(score, 0)}
-                for team_id, score in scores_per_team_id
+        for nb_days_diff in range(1, (self.end_date - self.start_date).days + 2):
+            from_date = (self.start_date + timedelta(days=nb_days_diff)).replace(hour=0, minute=0, second=0)
+            to_date = from_date + timedelta(days=1)
+
+            if f"{from_date}" in self.classement:
+                continue
+
+            if to_date > timezone.now():
+                continue
+
+            scores_per_user_id, scores_per_team_id = get_challenge_scores(self, from_date, to_date, players.keys())
+
+            self.classement[f"{from_date}"] = [
+                {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
+                for user_id, score in scores_per_user_id.items()
             ]
-            if scores_per_team_id
-            else []
-        )
-        self.nb_erp_total_added = sum([score for _, score in scores_per_user_id])
+
+            self.classement_team[f"{from_date}"] = (
+                [
+                    {"team": teams.get(team_id), "nb_access_info_changed": max(score, 0)}
+                    for team_id, score in scores_per_team_id.items()
+                ]
+                if scores_per_team_id
+                else []
+            )
+
+        self.nb_erp_total_added = 0
+        for day in self.classement:
+            self.nb_erp_total_added += sum([score["nb_access_info_changed"] for score in self.classement[day]])
         self.save()
 
 

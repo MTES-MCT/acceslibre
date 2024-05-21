@@ -116,10 +116,10 @@
                     <li>{{ top_contrib.username }} ({{ top_contrib.nb_access_info_changed }})</li>
                 {% endfor %}
             </ol>
-            {% if challenge.classement_team %}
+            {% if challenge.get_classement_team %}
                 <h3 class="mt-5 mb-3">{% translate "Classement par équipe" %}</h3>
                 <ol>
-                    {% for top_contrib in challenge.classement_team %}
+                    {% for top_contrib in challenge.get_classement_team %}
                         <li>{{ top_contrib.team }} ({{ top_contrib.nb_access_info_changed }})</li>
                     {% endfor %}
                 </ol>
