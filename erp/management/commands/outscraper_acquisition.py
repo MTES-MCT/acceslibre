@@ -151,6 +151,9 @@ class Command(BaseCommand):
         access = result["about"]["Accessibilité"]
 
         erp["accessibilite"] = self._convert_access(access)
+        if len(erp["accessibilite"]) <= 1:
+            # Completion rate is too low, we have only 'entree_porte_presence'
+            return None
 
         serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": True})
         try:
