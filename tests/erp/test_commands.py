@@ -338,6 +338,46 @@ class TestOutscraperAcquisition:
         assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
 
     @pytest.mark.django_db
+    def test_not_enough_info(self, mocker):
+
+        outscraper_response = [
+            [
+                {
+                    "query": "restaurant, Lyon",
+                    "name": "Le Troisième Art - Restaurant Gastronomique Lyon",
+                    "place_id": "ChIJzZhX5juz9UcR74W_abcd",
+                    "google_id": "0x47f5b33be65798cd:0x8ac44e3b5cbfabcd",
+                    "full_address": "173 Rue des tournesols, 69006 Lyon, France",
+                    "street": "173 Rue des tournesols",
+                    "postal_code": "69006",
+                    "country_code": "FR",
+                    "country": "France",
+                    "city": "Lyon",
+                    "latitude": 45.767984399999996,
+                    "longitude": 4.8563522,
+                    "site": "https://www.troisiemeart.fr",
+                    "phone": "+33 4 72 14 12 14",
+                    "type": "Restaurant",
+                    "description": "Restaurant chic",
+                    "category": "restaurants",
+                    "subtypes": "Restaurant, Restaurant français, Restaurant gastronomique",
+                    "cid": "9999203089535436271",
+                    "business_status": "OPERATIONAL",
+                    "about": {
+                        "Accessibilité": {},
+                    },
+                }
+            ]
+        ]
+
+        ActiviteFactory(nom="Restaurant")
+        CommuneFactory(nom="Lyon")
+        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=outscraper_response)
+        call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
+
+        assert not Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
+
+    @pytest.mark.django_db
     def test_max_results(self, mocker):
         mock = mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
 
