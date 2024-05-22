@@ -29,103 +29,104 @@ from erp.models import Accessibilite, Activite, Erp
 # - documenting your views: https://www.django-rest-framework.org/coreapi/from-documenting-your-api/#documenting-your-views
 
 API_DOC_SUMMARY = f"""
-{settings.SITE_NAME.title()} expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation)
-publique permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
-[REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) autant que possible et
-expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation) ou [geoJSON](https://fr.wikipedia.org/wiki/GeoJSON).
+{settings.SITE_NAME.title()} is exposing a public [API](https://en.wikipedia.org/wiki/API)
+allowing to programmatically query its database. This API embraces the
+[REST paradigm](https://en.wikipedia.org/wiki/Representational_state_transfer) as much as possible and
+exposes results in [JSON](https://en.wikipedia.org/wiki/JavaScript_Object_Notation) or [geoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
 
-Le point d'entrée racine de l'API est accessible à l'adresse
+The API root entry point can be accessed at
 [`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
-- Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
-- Une réponse de type `application/json` est restituée par défaut.
-- Une réponse de type `application/geo+json` est restituée si explicitement demandée par le client et si disponible.
-
+- An HTML view is presented when requested through a web browser,
+- A response of type `application/json` is returned by default.
+- A response of type `application/geo+json` is returned if explicitly requested by the client and if available.
 ## Identification
 
-Si vous voulez utiliser notre API, nous pouvons vous fournir une clef, à joindre à chaque requête à l'API via l'entête suivante :
+If you want to use our API, we can provide you with a key, to attach to each request to the API via the following header:
 ```
-Authorization: Api-Key <VOTRE_CLEF_API>
+Authorization: Api-Key <YOUR_API_KEY>
 ```
 
-Pour demander votre clef API, [contactez-nous]({settings.SITE_ROOT_URL}/contact/api_key), nous n'avons, à priori, pas de raison de refuser :-)
+To request your API key, [contact us]({settings.SITE_ROOT_URL}/contact/api_key), we have no reason to refuse :-)
 
 ## Limitation
 
-Afin de garantir la disponibilité de l'API pour tous, un nombre maximum de requêtes par seconde est défini.
-Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence et le nombre de vos requêtes.
+In order to guarantee the availability of the API for everyone, a maximum number of requests per second is defined.
+If you reach this limit, an `HTTP 429 (Too many requests)` will be responded, inviting you to reduce the frequency and number of your requests.
 
-## Règles métier
+## Business rules
 
-- Il n'est possible de modifier via l'API que les données d'accessibilité d'un ERP, les infos portées par l'ERP ne sont pas modifiables.
-- Il n'est autorisé que l'enrichissement de la donnée, il n'est pas possible de supprimer de la donnée (un élément à `true` ou `false` ne peut pas passer à `null`).
+- It is only possible to modify the accessibility data of an ERP via the API, the information on the ERP cannot be modified.
+- It is only possible to enrich the data, it is not possible to delete any data (an element with a `true` or `false` value cannot go to `null`).
 
-## Quelques exemples d'utilisation
+## Some examples of use
 
-### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
-
-```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "Authorization: Api-Key <VOTRE_CLEF_API>"
-```
-
-Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
-Cette URL peut également être dynamiquement construite à partir de l'UUID de l'établissement : `{settings.SITE_ROOT_URL}/uuid/<uuid_de_l_erp>/`
-
-
-### Rechercher les établissements contenu dans un cadre englobant Valence et les récupérer au format geoJSON en vue de les afficher sur une carte :
+### Search for establishments with the name containing or being close to `piscine`, in Villeurbanne:
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?zone=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
-Notez que le cadre est définit par 2 coordonnées :
+Note that each result exposes a `url` key, which is a retrieval point for the establishment detail page.
+This URL can also be dynamically constructed from the establishment UUID: `{settings.SITE_ROOT_URL}/uuid/<establishment_uuid>/`
+
+
+### Search for establishments contained in a box encompassing Valence (France) and retrieve them in geoJSON format in order to display them on a map:
+
+```
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?zone=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <YOUR_API_KEY>"
+```
+
+Note that the box is defined by 2 coordinates:
 - min longitude, min latitude
 - max longitude, max latitude
 
-Notez également que vous pouvez combiner les filtres (`code_postal`, `q`, `commune`, ...) et la recherche geospatiale décrite ici.
+Also note that you can combine the filters (`code_postal`, `q`, `commune`, ...) and the geospatial search described here.
 
 ---
 
-### Récupérer les détails d'un établissement particulier
+### Retrieve details of a given establishment
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
-Notez la présence de la clé `accessibilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
+Note the presence of the `accessibility` key which exposes the URL of the accessibility data retrieval point for this establishment.
 
 ---
 
-### Récupérer les détails d'accessibilité pour cet ERP
+### Retrieve accessibility details for this ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/<ID_OBJET>/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
-```
-
----
-
-### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
-
-```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/<ID_OBJET>/?readable=true -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibility/<OBJECT_ID>/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
 ---
 
-### Modifier les détails d'accessibilité d'un ERP
+### Retrieve accessibility details for this ERP in readable and accessible format
 
 ```
-$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-Type: application/json' -H 'Authorization: Api-Key <VOTRE_CLEF_API>' -d '{{"accessibilite": {{"transport_station_presence": "true"}}}}'
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibility/<OBJECT_ID>/?readable=true -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
-
-Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
 
 ---
 
-### Récupérer les phrases du widget d'un ERP
+### Edit accessibility details of an ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <VOTRE_CLEF_API>"
+$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-Type: application/json' -H 'Authorization: Api-Key <YOUR_API_KEY>' -d '{{"accessibility" : {{"transport_station_presence": "true"}}}}'
 ```
+
+---
+
+### Retrieve sentences from an ERP widget
+
+```
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <YOUR_API_KEY>"
+```
+
+---
+
+Below you will find the exhaustive technical documentation of the entry points exposed by the API.
 """
 
 
@@ -157,7 +158,7 @@ class AccessibiliteSchema(A4aAutoSchema):
                 "name": "clean",
                 "in": "query",
                 "required": False,
-                "description": "Écarter les valeurs nulles ou non-renseignées",
+                "description": "Discard null or non filled values",
                 "schema": {"type": "boolean"},
             },
         },
@@ -168,7 +169,7 @@ class AccessibiliteSchema(A4aAutoSchema):
                 "name": "readable",
                 "in": "query",
                 "required": False,
-                "description": "Formater les données d'accessibilité pour une lecture humaine",
+                "description": "Render a human readable version of accessibility data",
                 "schema": {"type": "boolean"},
             },
         },
@@ -184,14 +185,10 @@ class AccessibilitePagination(PageNumberPagination):
 class AccessibiliteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     list:
-    Ce point d'accès liste les **critères d'accessibilité** des ERP.
+    This endpoint lists the establishments' **accessibility data**.
 
     retrieve:
-    Ce point d'accès permet de récupérer les informations d'accessibilité d'un ERP
-    spécifique, à partir de son identifiant.
-
-    **L'obtention de cette URL s'obtient en interrogeant la propriété `accessibilite`
-    d'un objet *Erp*.**
+    This endpoint allows to retrieve accessibility data of a given establishment, identified by its ID.
     """
 
     queryset = Accessibilite.objects.select_related("erp").filter(erp__published=True).order_by("-updated_at")
@@ -239,7 +236,7 @@ class ActiviteSchema(A4aAutoSchema):
                 "name": "commune",
                 "in": "query",
                 "required": False,
-                "description": "Nom de la commune (ex. *Clichy*)",
+                "description": "Municipality name (ex. *Clichy*)",
                 "schema": {"type": "string"},
             },
         },
@@ -249,13 +246,13 @@ class ActiviteSchema(A4aAutoSchema):
 class ActiviteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     list:
-    Ce point d'accès liste les **activités d'ERP**. Il accepte les filtres suivants :
+    This endpoint lists the **establishments activities**. It supports following filters:
 
-    - `?commune=Lyon` remonte la liste des activités de l'ensemble des ERP de la ville de *Lyon*
+    - `?commune=Lyon` lists activities of all establishments in the city of *Lyon*
 
     retrieve:
-    Ce point d'accès permet de récupérer les informations liées à une **activité d'ERP**
-    spécifique, identifiée par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
+    This endpoint is here to retrieve info about a given **establishment activity**,
+    identified by its [URL slug](https://en.wikipedia.org/wiki/Slug_(publishing))
     (*slug*).
     """
 
@@ -293,7 +290,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "q",
                 "in": "query",
                 "required": False,
-                "description": "Termes de recherche",
+                "description": "Search query",
                 "schema": {"type": "string"},
             },
         },
@@ -304,7 +301,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "commune",
                 "in": "query",
                 "required": False,
-                "description": "Nom de la commune (ex. *Clichy*)",
+                "description": "Municipality name (ex. *Clichy*)",
                 "schema": {"type": "string"},
             },
         },
@@ -315,7 +312,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "code_postal",
                 "in": "query",
                 "required": False,
-                "description": "Code postal de la commune (ex. *92120*)",
+                "description": "Municipality postal code (ex. *92120*)",
                 "schema": {"type": "string"},
             },
         },
@@ -326,7 +323,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "code_insee",
                 "in": "query",
                 "required": False,
-                "description": "Code INSEE de la commune (ex. *59359*)",
+                "description": "Municipality INSEE code (ex. *59359*)",
                 "schema": {"type": "string"},
             },
         },
@@ -337,7 +334,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "activite",
                 "in": "query",
                 "required": False,
-                "description": "Identifiant d'URL de l'activité (slug)",
+                "description": "Activity slug",
                 "schema": {"type": "string"},
             },
         },
@@ -348,7 +345,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "siret",
                 "in": "query",
                 "required": False,
-                "description": "Numéro SIRET de l'établissement",
+                "description": "Establishment SIRET number",
                 "schema": {"type": "string"},
             },
         },
@@ -359,7 +356,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "source",
                 "in": "query",
                 "required": False,
-                "description": "Nom du fournisseur tier",
+                "description": "Name of the third partner",
                 "schema": {"type": "string"},
             },
         },
@@ -370,7 +367,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "source_id",
                 "in": "query",
                 "required": False,
-                "description": "ID unique fourni par un fournisseur tier",
+                "description": "Unique ID provided by a third partner",
                 "schema": {"type": "string"},
             },
         },
@@ -381,7 +378,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "asp_id",
                 "in": "query",
                 "required": False,
-                "description": "ID ASP unique fourni par Service Public",
+                "description": "Unique ASP ID provided by Service Public",
                 "schema": {"type": "string"},
             },
         },
@@ -392,7 +389,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "asp_id_not_null",
                 "in": "query",
                 "required": False,
-                "description": "Une valeur vraie ne renvoit que les établissement dont l'ID ASP est fournit",
+                "description": "A true value will return only establishment having an ASP ID",
                 "schema": {"type": "boolean"},
             },
         },
@@ -403,7 +400,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "uuid",
                 "in": "query",
                 "required": False,
-                "description": "Identifiant unique OpenData",
+                "description": "Unique OpenData identifier",
                 "schema": {"type": "string"},
             },
         },
@@ -414,7 +411,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "around",
                 "in": "query",
                 "required": False,
-                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=45.76,4.83`)",
+                "description": "Geo area, following format `latitude,longitude` (for ex. `?around=45.76,4.83`)",
                 "schema": {"type": "string"},
             },
         },
@@ -425,7 +422,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "ban_id",
                 "in": "query",
                 "required": False,
-                "description": "Identifiant BAN de l'adresse",
+                "description": "BAN address identifier",
                 "schema": {"type": "string"},
             },
         },
@@ -436,7 +433,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "clean",
                 "in": "query",
                 "required": False,
-                "description": "Une valeur vraie écarte les valeurs d'accessibilité nulles ou non-renseignées",
+                "description": "A true value will drop null or non filled accessibilities values.",
                 "schema": {"type": "boolean"},
             },
         },
@@ -447,7 +444,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "readable",
                 "in": "query",
                 "required": False,
-                "description": "Une valeur vraie formate les données d'accessibilité pour une lecture humaine",
+                "description": "A true value will render a human readable version of accessibilities data.",
                 "schema": {"type": "boolean"},
             },
         },
@@ -458,7 +455,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "with_drafts",
                 "in": "query",
                 "required": False,
-                "description": "Une valeur vraie permet de voir les établissements en brouillon (non publiés)",
+                "description": "A true value will also return establishments which are in a draft state (non published).",
                 "schema": {"type": "boolean"},
             },
         },
@@ -469,7 +466,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "created_or_updated_in_last_days",
                 "in": "query",
                 "required": False,
-                "description": "Filtre sur les établissements créés ou mis à jour dans les X derniers jours",
+                "description": "Filter establishments which have been created or updated during the last X days.",
                 "schema": {"type": "integer"},
             },
         },
@@ -485,36 +482,27 @@ class ErpViewSet(
 ):
     """
     list:
-    Ce point d'accès liste les ERP. Il accepte et permet de combiner plusieurs
-    filtres via des paramètres spécifiques :
+    This endpoint lists the establishments (ERPs). It supports the following filters:
 
-    - `?q=impôts` recherche les ERP contenant le terme *impôts* dans son nom ou son activité
-    - `?commune=Lyon` remonte les ERP de la ville de *Lyon*
-    - `?activite=administration-publique` remonte les ERP ayant
-      *Administration publique* pour activité
-    - `?q=impôts&commune=Lyon&activite=administration-publique` remonte les
-      *administrations publiques* contenant le terme *impôts* situés dans la ville
-      de *Lyon*. Vous pouvez également filtrer par ville plus précisément en utilisant
-      au choix les champs `code_postal` ou `code_insee`.
-    - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
-      par source et identifiant dans la source.
-    - `?source=sp&asp_id=00033429-1b83-46b4-9101-3a2ad178af79` permet de rechercher un enregistrement
-      pour la source Service Public et identifiant ASP de la source.
-    - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` permet de rechercher un enregistrement
-      par son [identifiant unique OpenData](https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html#propri%C3%A9t%C3%A9-id).
+    - `?q=impôts` search the establishments containing the *impôts* term in their name or activity
+    - `?commune=Lyon` returns establishments in *Lyon* city
+    - `?activite=administration-publique` returns the establishments having *Administration publique* as activity
+    - `?q=impôts&commune=Lyon&activite=administration-publique` returns *administrations publiques* establishments containing
+      *impôts* term and located in the city of *Lyon*. You can also filter by city to have more precise results, by using `code_postal` or `code_insee` fields.
+    - `?source=gendarmerie&source_id=1002326` returns a record identified by its `source` and `source_id`.
+    - `?source=sp&asp_id=00033429-1b83-46b4-9101-3a2ad178af79` allows to search for an establishment by its Service Public ID (ASP_ID).
+    - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` allows to search for an establishment idendified by its [unique OpenData identifier](https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html#propri%C3%A9t%C3%A9-id).
 
     retrieve:
-    Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
-    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
+    This endpoint returns data for a given establishment identified by its [slug](https://en.wikipedia.org/wiki/Slug_(publishing))
     (*slug*).
 
     create:
-    Ce point d'accès permet de créer un ERP, pour une activité existante, identifiée par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
-    (*slug*) et possédant des infos d'accessibilité.
+    This endpoint is used to create an establishment, for an existing activity, identified by its [slug](https://en.wikipedia.org/wiki/Slug_(publishing))
+    (*slug*) having accessibility data.
 
     update:
-    Ce point d'accès permet de mettre à jour partiellement les données d'accessibilité d'un ERP identifié
-    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme)).
+    This endpoint is used to partially update accessibility data of a given establishment, identified by its [slug](https://en.wikipedia.org/wiki/Slug_(publishing)).
     """
 
     serializers = {
