@@ -6,6 +6,7 @@ from django.test import Client
 from django.urls import reverse
 
 from erp.models import Erp
+from tests.factories import CommuneFactory, ErpFactory, UserFactory
 
 
 @pytest.fixture
@@ -53,38 +54,52 @@ def test_response(client, mocker, sample_result):
     return _factory
 
 
-def test_owner_published_listed(data, test_response):
-    data.erp.published = True
-    data.erp.save()
-    response_content = test_response(data.niko)
+def test_owner_published_listed(test_response):
+    user = UserFactory()
+    ErpFactory(published=True, user=user)
+
+    response_content = test_response(user)
 
     assert "Voir cet établissement" in response_content
 
 
-def test_user_published_listed(data, test_response):
-    data.erp.published = True
-    data.erp.save()
-    response_content = test_response(data.sophie)
+def test_user_published_listed(test_response):
+    user = UserFactory()
+    other_user = UserFactory()
+    ErpFactory(published=True, user=user)
+
+    response_content = test_response(other_user)
 
     assert "Voir cet établissement" in response_content
 
 
-def test_delete_similar_draft(mocker, data, client):
+@pytest.mark.django_db
+def test_delete_similar_draft(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
-    data.erp.published = False
-    data.erp.save()
+    user = UserFactory()
+    other_user = UserFactory()
+    erp = ErpFactory(
+        published=False,
+        accessibilite__entree_porte_presence=True,
+        accessibilite__transport_station_presence=True,
+        accessibilite__stationnement_presence=True,
+        accessibilite__stationnement_pmr=True,
+        accessibilite__cheminement_ext_presence=True,
+        user=user,
+    )
+    CommuneFactory(nom=erp.commune, departement=erp.code_postal[0:2])
 
-    erp2 = deepcopy(data.erp)
+    erp2 = deepcopy(erp)
     erp2.pk = None
     erp2.uuid = uuid.uuid4()
     erp2.save()
 
-    access2 = deepcopy(data.erp.accessibilite)
+    access2 = deepcopy(erp.accessibilite)
     access2.pk = None
     access2.erp = erp2
     access2.save()
 
-    client.force_login(data.sophie)
+    client.force_login(other_user)
     client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp2.slug}),
         data={
@@ -94,13 +109,13 @@ def test_delete_similar_draft(mocker, data, client):
     )
 
     mock_mail.assert_called_once_with(
-        to_list=data.erp.user.email,
+        to_list=erp.user.email,
         template="draft_deleted",
-        context={"commune": "Jacou", "draft_nom": "Aux bons croissants", "erp_url": erp2.get_absolute_uri()},
+        context={"commune": erp.commune, "draft_nom": erp.nom, "erp_url": erp2.get_absolute_uri()},
     )
 
     with pytest.raises(Erp.DoesNotExist):
-        data.erp.refresh_from_db()
+        erp.refresh_from_db()
 
     erp2.refresh_from_db()
     assert erp2.published is True
