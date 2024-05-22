@@ -3,6 +3,7 @@ from unittest.mock import MagicMock, Mock
 import pytest
 
 from erp.provider import entreprise
+from tests.factories import CommuneFactory
 
 
 @pytest.fixture
@@ -28,7 +29,9 @@ def sample_response():
     }
 
 
-def test_normalize_commune_ext(data):
+@pytest.mark.django_db
+def test_normalize_commune_ext():
+    CommuneFactory(nom="Jacou", code_insee="34120")
     assert entreprise.normalize_commune("34120") == "Jacou"
 
 

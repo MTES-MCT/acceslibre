@@ -1,6 +1,9 @@
 import json
 
+import pytest
+
 from erp.provider import public_erp
+from tests.factories import ActiviteFactory, CommuneFactory
 
 
 def test_find_public_types_simple():
@@ -56,7 +59,10 @@ def test_extract_numero_voie():
         assert public_erp.extract_numero_voie(case[0]) == case[1]
 
 
-def test_parse_etablissement_jacou(data, activite_mairie):
+@pytest.mark.django_db
+def test_parse_etablissement_jacou():
+    mairie = ActiviteFactory(nom="Mairie")
+    commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
     json_feature = json.loads(
         """
         {
@@ -83,27 +89,31 @@ def test_parse_etablissement_jacou(data, activite_mairie):
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature, activite_mairie, None) == {
+    assert public_erp.parse_etablissement(json_feature, mairie, None) == {
         "source": "public_erp",
         "source_id": "mairie-34120-01",
         "coordonnees": [3.9106014, 43.6609939],
         "naf": None,
-        "activite": activite_mairie.pk,
+        "activite": mairie.pk,
         "nom": "Mairie - Jacou",
         "siret": None,
         "numero": "4",
         "voie": "rue de l'Hôtel-de-Ville",
         "lieu_dit": None,
-        "code_postal": data.jacou.code_postaux[0],
-        "commune": data.jacou.nom,
-        "code_insee": data.jacou.code_insee,
+        "code_postal": commune.code_postaux[0],
+        "commune": commune.nom,
+        "code_insee": commune.code_insee,
         "contact_email": "mairie@ville-jacou.fr",
         "telephone": "04 67 55 88 55",
         "site_internet": "http://www.ville-jacou.fr",
     }
 
 
-def test_parse_etablissement_gendarmerie_castelnau(data, commune_castelnau, activite_administration_publique):
+@pytest.mark.django_db
+def test_parse_etablissement_gendarmerie_castelnau():
+    commune = CommuneFactory(nom="Castelnau-le-Lez", code_postaux=["34170"], code_insee="34057", departement="93")
+    public_admin = ActiviteFactory(nom="Administration Publique")
+
     json_feature = json.loads(
         """
         {
@@ -140,27 +150,32 @@ def test_parse_etablissement_gendarmerie_castelnau(data, commune_castelnau, acti
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature, None, activite_administration_publique) == {
+    assert public_erp.parse_etablissement(json_feature, None, public_admin) == {
         "source": "public_erp",
         "source_id": "gendarmerie-34057-01",
         "coordonnees": [3.91375272, 43.64536644],
         "naf": None,
-        "activite": activite_administration_publique.pk,
+        "activite": public_admin.pk,
         "nom": "Brigade de gendarmerie - Castelnau-le-Lez",
         "siret": None,
         "numero": "635",
         "voie": "Avenue de la Monnaie",
         "lieu_dit": None,
-        "code_postal": commune_castelnau.code_postaux[0],
-        "commune": commune_castelnau.nom,
-        "code_insee": commune_castelnau.code_insee,
+        "code_postal": commune.code_postaux[0],
+        "commune": commune.nom,
+        "code_insee": commune.code_insee,
         "contact_email": None,
         "telephone": "04 99 74 29 50",
         "site_internet": "http://www.gendarmerie.interieur.gouv.fr",
     }
 
 
-def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie):
+@pytest.mark.django_db
+def test_parse_etablissement_montreuil():
+    commune = CommuneFactory(nom="Montreuil", code_postaux=["93100"], code_insee="93048", departement="93")
+
+    mairie = ActiviteFactory(nom="Mairie")
+
     json_feature = json.loads(
         """
         {
@@ -199,27 +214,31 @@ def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie)
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature, activite_mairie, None) == {
+    assert public_erp.parse_etablissement(json_feature, mairie, None) == {
         "source": "public_erp",
         "source_id": "mairie-93048-01",
         "coordonnees": [2.441878, 48.860395],
         "naf": None,
-        "activite": activite_mairie.pk,
+        "activite": mairie.pk,
         "nom": "Mairie - Montreuil",
         "siret": None,
         "numero": "1",
         "voie": "place Aimé Césaire",
         "lieu_dit": "Centre administratif - Tour Altaïs",
-        "code_postal": commune_montreuil.code_postaux[0],
-        "commune": commune_montreuil.nom,
-        "code_insee": commune_montreuil.code_insee,
+        "code_postal": commune.code_postaux[0],
+        "commune": commune.nom,
+        "code_insee": commune.code_insee,
         "contact_email": None,
         "telephone": "01 48 70 60 00",
         "site_internet": "http://www.montreuil.fr",
     }
 
 
-def test_parse_prefecture_montpellier(data, commune_montpellier, activite_administration_publique):
+@pytest.mark.django_db
+def test_parse_prefecture_montpellier():
+    commune = CommuneFactory(nom="Montpellier", code_postaux=["34000"], code_insee="34172", departement="34")
+    public_admin = ActiviteFactory(nom="Administration Publique")
+
     json_feature = json.loads(
         """
         {
@@ -255,20 +274,20 @@ def test_parse_prefecture_montpellier(data, commune_montpellier, activite_admini
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature, None, activite_administration_publique) == {
+    assert public_erp.parse_etablissement(json_feature, None, public_admin) == {
         "source": "public_erp",
         "source_id": "prefecture-34172-01",
         "coordonnees": [3.87658905983, 43.6109542847],
         "naf": None,
-        "activite": activite_administration_publique.pk,
+        "activite": public_admin.pk,
         "nom": "Préfecture de l'Hérault",
         "siret": None,
         "numero": "34",
         "voie": "place des Martyrs-de-la-Résistance",
         "lieu_dit": None,
         "code_postal": "34062",
-        "commune": commune_montpellier.nom,
-        "code_insee": commune_montpellier.code_insee,
+        "commune": commune.nom,
+        "code_insee": commune.code_insee,
         "contact_email": None,
         "telephone": "04 67 61 61 61",
         "site_internet": "http://www.herault.gouv.fr",

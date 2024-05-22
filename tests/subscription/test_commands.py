@@ -249,18 +249,23 @@ def test_notification_accessibilite(client, mocker):
     }
 
 
+@pytest.mark.django_db
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_skip_owner(mocker, client, data):
+def test_notification_skip_owner(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+    user = UserFactory()
+    boulangerie = ActiviteFactory(nom="boulangerie")
+    ActiviteFactory(slug="autre")
+    erp = ErpFactory(user=user)
 
-    client.force_login(data.niko)
+    client.force_login(user)
     response = client.post(
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
         data={
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test update",
-            "activite": data.boulangerie.pk,
+            "activite": boulangerie.pk,
             "numero": "12",
             "voie": "GRAND RUE",
             "lieu_dit": "",
