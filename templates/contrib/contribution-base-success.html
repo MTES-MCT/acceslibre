@@ -4,7 +4,7 @@
 {% block editorial_content %}
     {% if erp.published %}
         <span class="contribution-result">
-            <h2 class="fr-h2 text-center">{% translate "Merci !" %}</h2>
+            <h2 class="text-center">{% translate "Merci !" %}</h2>
             <p class="text-center bold">
                 {% blocktranslate with erp_nom=erp.nom.title %}{{ erp_nom }} est en ligne{% endblocktranslate %}
             </p>
