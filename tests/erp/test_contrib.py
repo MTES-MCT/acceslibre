@@ -79,7 +79,7 @@ def test_contrib_start_home(client):
     assert response.status_code == 200
 
 
-def test_empty_search_results(data, client):
+def test_empty_search_results(client):
     response = client.get(
         reverse("contrib_global_search"),
         data={
