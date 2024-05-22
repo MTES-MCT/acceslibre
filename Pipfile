@@ -72,6 +72,7 @@ outscraper = "*"
 scrapfly-sdk = "*"
 parsel = "*"
 schedule = "*"
+inflection = "*"  # Used by DRF but not in its dependancies
 
 [requires]
 python_version = "3.11"
