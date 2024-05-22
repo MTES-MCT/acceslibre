@@ -10,13 +10,13 @@
         <div class="fr-col-12 fr-col-md-6 ">
             <section class="row mt-4">
                 <div class="col-12">
-                    <h1 class="text-center text-md-right fr-h1 ">{% translate "Challenges" %}</h1>
+                    <h1 class="text-center text-md-right">{% translate "Challenges" %}</h1>
                 </div>
             </section>
             {% if challenges_en_cours %}
                 <section class="row justify-content-start mt-4">
                     <div class="col-12">
-                        <h2 class="fr-h2">
+                        <h2>
                             <strong>{% translate "Challenges en cours" %}</strong>
                         </h2>
                         {% include "common/challenge_item.html" with challenges=challenges_en_cours %}
@@ -26,7 +26,7 @@
             {% if challenges_termines %}
                 <section class="row justify-content-start mt-4">
                     <div class="col-12">
-                        <h2 class="fr-h2">
+                        <h2>
                             <strong>{% translate "Challenges terminés" %}</strong>
                         </h2>
                         {% include "common/challenge_item.html" with challenges=challenges_termines %}
@@ -36,7 +36,7 @@
             {% if challenges_a_venir %}
                 <section class="row justify-content-start mt-4">
                     <div class="col-12">
-                        <h2 class="fr-h2">
+                        <h2">
                             <strong>{% translate "Prochains challenges" %}</strong>
                         </h2>
                         {% include "common/challenge_item.html" with challenges=challenges_a_venir %}

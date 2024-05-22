@@ -348,19 +348,6 @@ select[name='language'] {
     }
   }
 
-  h1,
-  .h1,
-  h2,
-  .h2,
-  h3,
-  .h3,
-  h4,
-  .h4,
-  h6,
-  .h6 {
-    font-weight: 400;
-  }
-
   .no-list {
     list-style-type: none;
   }
@@ -393,11 +380,6 @@ select[name='language'] {
     list-style-type: none;
     margin: 0;
     padding: 0.27rem 0;
-
-    h3,
-    h4 {
-      line-height: 1.5em;
-    }
   }
 
   &-text-smaller {
@@ -634,12 +616,6 @@ select[name='language'] {
   &-app-title {
     @media screen and (min-width: $viewport-lg) {
       max-height: 58px;
-    }
-
-    h2 {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
   }
 
