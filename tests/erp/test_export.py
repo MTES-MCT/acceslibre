@@ -17,7 +17,9 @@ from erp.models import Erp
 from tests.factories import ActiviteFactory, ErpFactory
 
 
-def test_csv_creation(data):
+@pytest.mark.django_db
+def test_csv_creation():
+    ErpFactory(accessibilite__entree_porte_presence=True)
     dest_path = NamedTemporaryFile(suffix=".csv").name
 
     try:

@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.utils import timezone
 from sib_api_v3_sdk import UpdateContact
 
+from tests.factories import ErpFactory, UserFactory
 from tests.utils import assert_redirect
 
 
@@ -13,13 +14,17 @@ def client():
     return Client()
 
 
-def test_update_username_anonymous(client, data):
+@pytest.mark.django_db
+def test_update_username_anonymous(client):
     response = client.get(reverse("mon_identifiant"), follow=True)
     assert_redirect(response, "/compte/login/")
 
 
-def test_update_username_authenticated(mocker, client, data):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_update_username_authenticated(mocker, client):
+    user = UserFactory()
+    ErpFactory(user=user)
+    client.force_login(user)
     response = client.get(reverse("mon_identifiant"))
 
     assert response.status_code == 200
@@ -30,7 +35,7 @@ def test_update_username_authenticated(mocker, client, data):
     assert response.status_code == 200
 
     # this raises if not found
-    user = get_user_model().objects.get(id=data.niko.id, username="coucou")
+    user = get_user_model().objects.get(id=user.id, username="coucou")
 
     mock_update_brevo.assert_called_once_with(
         1,  # global mock on get_contact_info

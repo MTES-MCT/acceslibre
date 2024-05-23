@@ -3,8 +3,7 @@ from django.contrib.gis.geos import Point
 
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Erp
-from tests.erp.imports.mapper.fixtures import jacou, paris
-from tests.factories import ActiviteFactory
+from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
 
 
 @pytest.mark.django_db
@@ -58,7 +57,12 @@ from tests.factories import ActiviteFactory
         pytest.param({"accessibilite": {"entree_porte_presence": "faux"}}, True, None, id="boolean_choices"),
     ),
 )
-def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_result, jacou, paris):
+def test_erp_import_serializer(mocker, erp_values, is_valid, geocoder_result):
+    activite = ActiviteFactory(nom="Boulangerie")
+    CommuneFactory(nom="Jacou")
+    CommuneFactory(nom="Paris")
+    erp = ErpFactory(commune="Jacou", numero="4", voie="grand rue", code_postal="34380", activite=activite, siret="")
+
     mocker.patch(
         "erp.provider.geocoder.geocode",
         return_value=geocoder_result
@@ -86,7 +90,7 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
     }
     serializer = ErpImportSerializer(data=initial_values | erp_values)
 
-    assert serializer.is_valid() is is_valid, serializer.errors
+    assert serializer.is_valid() is is_valid, f"{serializer.errors}"
 
     if is_valid:
         erp = serializer.save()
@@ -98,40 +102,40 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         assert erp.import_email == erp_values.get("email")
 
 
-def test_erp_update_serializer(data):
-    assert data.erp.nom != "Aux bons pains"
-    assert not data.accessibilite.accueil_equipements_malentendants_presence
+@pytest.mark.django_db
+def test_erp_update_serializer():
+    erp = ErpFactory(nom="Initial name", accessibilite__accueil_equipements_malentendants_presence=False)
 
     serializer = ErpImportSerializer(
-        instance=data.erp,
+        instance=erp,
         data={"accessibilite": {"accueil_equipements_malentendants_presence": True}, "nom": "Aux bons pains"},
         partial=True,
     )
     assert serializer.is_valid(), serializer.errors
     serializer.save()
 
-    data.erp.refresh_from_db()
-    assert data.erp.nom != "Aux bons pains", "Name should not be editable"
-    assert data.accessibilite.accueil_equipements_malentendants_presence is True
+    erp.refresh_from_db()
+    assert erp.nom != "Aux bons pains", "Name should not be editable"
+    assert erp.accessibilite.accueil_equipements_malentendants_presence is True
 
 
-def test_erp_duplicate(data):
+@pytest.mark.django_db
+def test_erp_duplicate():
+    boulangerie = ActiviteFactory(nom="Boulangerie")
     # 3/43 must match geocode mock coordinates
-    data.erp.geom.x = 3
-    data.erp.geom.y = 43
-    data.erp.save()
+    erp = ErpFactory(geom=Point(3, 43), activite=boulangerie)
 
     ActiviteFactory(nom="Piscine")
     initial_values = {
-        "numero": data.erp.numero,
-        "voie": data.erp.voie,
-        "code_postal": data.erp.code_postal,
-        "commune": data.erp.commune,
+        "numero": erp.numero,
+        "voie": erp.voie,
+        "code_postal": erp.code_postal,
+        "commune": erp.commune,
         "nom": "Marie Blachère",
         "activite": "Boulangerie",
         "accessibilite": {"entree_porte_presence": True},
-        "latitude": data.erp.geom.x,
-        "longitude": data.erp.geom.y,
+        "latitude": erp.geom.x,
+        "longitude": erp.geom.y,
     }
     serializer = ErpImportSerializer(data=initial_values)
 
@@ -139,15 +143,15 @@ def test_erp_duplicate(data):
     assert "Potentiel doublon par activité/adresse postale" in str(serializer.errors["non_field_errors"])
 
     initial_values = {
-        "numero": data.erp.numero,
-        "voie": data.erp.voie,
-        "code_postal": data.erp.code_postal,
-        "commune": data.erp.commune,
-        "nom": data.erp.nom,
+        "numero": erp.numero,
+        "voie": erp.voie,
+        "code_postal": erp.code_postal,
+        "commune": erp.commune,
+        "nom": erp.nom,
         "activite": "Piscine",
         "accessibilite": {"entree_porte_presence": True},
-        "latitude": data.erp.geom.x,
-        "longitude": data.erp.geom.y,
+        "latitude": erp.geom.x,
+        "longitude": erp.geom.y,
     }
     serializer = ErpImportSerializer(data=initial_values)
 

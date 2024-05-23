@@ -6,7 +6,7 @@ from django.contrib.gis.geos import Point
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider.search import get_equipments
-from tests.factories import AccessibiliteFactory, ErpFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, ErpFactory
 
 
 @pytest.fixture
@@ -115,36 +115,27 @@ def test_ErpQuerySet_nearest_point(jacou_erp, paris_point, vendargues_point):
     assert Erp.objects.nearest(vendargues_point, max_radius_km=5).first() == jacou_erp
 
 
-def test_ErpQuerySet_find_duplicate(data):
-    other_activity = Activite.objects.create(nom="Garage")
+@pytest.mark.django_db
+def test_ErpQuerySet_find_duplicate():
+    other_activity = ActiviteFactory(nom="Garage")
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    erp = ErpFactory(activite=boulangerie)
 
-    erp = data.erp
     assert (
-        Erp.objects.find_duplicate(
-            numero=erp.numero,
-            commune=erp.commune,
-            activite=data.boulangerie,
-            voie=erp.voie,
-        ).exists()
+        Erp.objects.find_duplicate(numero=erp.numero, commune=erp.commune, activite=boulangerie, voie=erp.voie).exists()
         is True
     )
 
     assert (
         Erp.objects.find_duplicate(
-            numero=int(erp.numero) + 1,
-            commune=erp.commune,
-            activite=data.boulangerie,
-            voie=erp.voie,
+            numero=int(erp.numero) + 1, commune=erp.commune, activite=boulangerie, voie=erp.voie
         ).exists()
         is False
     )
 
     assert (
         Erp.objects.find_duplicate(
-            numero=erp.numero,
-            commune=erp.commune,
-            activite=other_activity,
-            voie=erp.voie,
+            numero=erp.numero, commune=erp.commune, activite=other_activity, voie=erp.voie
         ).exists()
         is False
     )
