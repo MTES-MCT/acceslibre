@@ -22,13 +22,16 @@ class Command(BaseCommand):
             today = datetime.fromisoformat(options["today"])
         else:
             today = timezone.now()
+
         outdated_qs = (
             get_user_model()
             .objects.annotate(erps_count=Count("erp"))
+            .annotate(challenges_count=Count("inscriptions"))
             .filter(
                 last_login=None,
                 date_joined__lt=today - timedelta(days=options["days"]),
                 erps_count=0,
+                challenges_count=0,
             )
         )
         nb_deleted, _ = outdated_qs.delete()
