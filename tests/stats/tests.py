@@ -7,6 +7,7 @@ from splinter import Browser
 
 from stats.models import GlobalStats, WidgetEvent
 from stats.queries import _get_nb_filled_in_info
+from tests.factories import ErpFactory
 
 
 @pytest.fixture
@@ -15,19 +16,20 @@ def browser():
 
 
 @pytest.mark.django_db
-def test_stats_page(data, browser, django_assert_max_num_queries):
+def test_stats_page(browser, django_assert_max_num_queries):
     with django_assert_max_num_queries(3):
         browser.visit(reverse("stats_home"))
 
 
 @pytest.mark.django_db
-def test_widget_tracking(data):
+def test_widget_tracking():
+    erp = ErpFactory(with_accessibilite=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
     assert WidgetEvent.objects.all().count() == 0
-    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
 
     event = WidgetEvent.objects.get()
@@ -37,13 +39,14 @@ def test_widget_tracking(data):
 
 
 @pytest.mark.django_db
-def test_widget_tracking_with_long_url(data):
+def test_widget_tracking_with_long_url():
+    erp = ErpFactory(with_accessibilite=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/" + 200 * "#",
     }
     assert WidgetEvent.objects.all().count() == 0
-    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
 
     event = WidgetEvent.objects.get()
@@ -53,11 +56,12 @@ def test_widget_tracking_with_long_url(data):
 
 
 @pytest.mark.django_db
-def test_widget_tracking_remove_query_string(data):
+def test_widget_tracking_remove_query_string():
+    erp = ErpFactory(with_accessibilite=True)
     c = Client()
     headers = {"HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=foo"}
     assert WidgetEvent.objects.all().count() == 0
-    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
 
     event = WidgetEvent.objects.get()
@@ -67,15 +71,16 @@ def test_widget_tracking_remove_query_string(data):
 
 
 @pytest.mark.django_db
-def test_widget_tracking_multiple_views(data):
+def test_widget_tracking_multiple_views():
+    erp = ErpFactory(with_accessibilite=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
     assert WidgetEvent.objects.all().count() == 0
-    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
+    c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
 
     event = WidgetEvent.objects.get()
     assert event.views == 3
@@ -84,13 +89,14 @@ def test_widget_tracking_multiple_views(data):
 
 
 @pytest.mark.django_db
-def test_widget_tracking_with_same_origin_site(data):
+def test_widget_tracking_with_same_origin_site():
+    erp = ErpFactory(with_accessibilite=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": f"http://{Site.objects.get_current().domain}/test/",
     }
     assert WidgetEvent.objects.all().count() == 0
-    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
     assert WidgetEvent.objects.all().count() == 0
 
