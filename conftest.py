@@ -70,54 +70,6 @@ def mock_brevo(mocker):
 
 
 @pytest.fixture
-def activite_other():
-    Activite.objects.create(nom="Autre")
-
-
-@pytest.fixture
-def activite_administration_publique():
-    return Activite.objects.create(nom="Administration Publique")
-
-
-@pytest.fixture
-def activite_mairie():
-    return Activite.objects.create(nom="Mairie")
-
-
-@pytest.fixture
-def commune_castelnau():
-    return Commune.objects.create(
-        nom="Castelnau-le-Lez",
-        code_postaux=["34170"],
-        code_insee="34057",
-        departement="93",
-        geom=Point(0, 0),
-    )
-
-
-@pytest.fixture
-def commune_montpellier():
-    return Commune.objects.create(
-        nom="Montpellier",
-        code_postaux=["34000"],
-        code_insee="34172",
-        departement="34",
-        geom=Point(0, 0),
-    )
-
-
-@pytest.fixture
-def commune_montreuil():
-    return Commune.objects.create(
-        nom="Montreuil",
-        code_postaux=["93100"],
-        code_insee="93048",
-        departement="93",
-        geom=Point(0, 0),
-    )
-
-
-@pytest.fixture
 def activite(db):
     list_activite = [
         "Accessoires",
@@ -563,7 +515,6 @@ def data(db):
         niko = obj_niko
         julia = obj_julia
         sophie = obj_sophie
-        jacou = obj_jacou
         boulangerie = obj_boulangerie
         accessibilite = obj_accessibilite
         erp = obj_erp

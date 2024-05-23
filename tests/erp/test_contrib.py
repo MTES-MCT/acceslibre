@@ -155,7 +155,8 @@ def test_contrib_start_global_search_with_existing(client, mocker, akei_result, 
 
 
 @pytest.mark.django_db
-def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(django_app, activite_other):
+def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(django_app):
+    ActiviteFactory(slug="autre")
     erp = AccessibiliteFactory(erp__published=True).erp
     CommuneFactory(nom=erp.commune)
     initial_updated_at = erp.updated_at
@@ -173,7 +174,8 @@ def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(dja
 
 
 @pytest.mark.django_db
-def test_submitting_contrib_edit_info_form_with_info_does_trigger_save(django_app, activite_other):
+def test_submitting_contrib_edit_info_form_with_info_does_trigger_save(django_app):
+    ActiviteFactory(slug="autre")
     erp = AccessibiliteFactory(erp__published=True).erp
     CommuneFactory(nom=erp.commune)
     initial_updated_at = erp.updated_at

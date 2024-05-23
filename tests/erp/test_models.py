@@ -7,7 +7,7 @@ from django.db.utils import IntegrityError
 
 from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import AccessibiliteFactory, CommuneFactory, ErpFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 
 
 @pytest.mark.django_db
@@ -926,14 +926,16 @@ class TestAccessibility:
             access.save()
 
 
+@pytest.mark.django_db
 class TestErp:
-    def test_clean_validates_code_postal(self, data):
+    def test_clean_validates_code_postal(self):
         erp = Erp.objects.create(nom="x", code_postal="1234")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()
         assert "code_postal" in excinfo.value.error_dict
 
-    def test_clean_validates_commune_ext(self, data):
+    def test_clean_validates_commune_ext(self):
+        commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
         erp = Erp.objects.create(nom="x", code_postal="12345", voie="y", commune="missing")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()
@@ -941,34 +943,38 @@ class TestErp:
 
         erp = Erp.objects.create(nom="x", code_postal="34830", voie="y", commune="jacou")
         erp.clean()
-        assert erp.commune_ext == data.jacou
+        assert erp.commune_ext == commune
 
-    def test_clean_validates_siret(self, data):
-        data.erp.siret = "invalid siret"
+    def test_clean_validates_siret(self):
+        CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
+        erp = ErpFactory(siret="invalid siret", commune="Jacou")
         with pytest.raises(ValidationError) as excinfo:
-            data.erp.clean()
+            erp.clean()
         assert "siret" in excinfo.value.error_dict
 
-        data.erp.siret = "88076068100010"
-        data.erp.clean()
-        assert data.erp.siret == "88076068100010"
+        erp.siret = "88076068100010"
+        erp.clean()
+        assert erp.siret == "88076068100010"
 
-        data.erp.siret = "880 760 681 00010"
-        data.erp.clean()
-        assert data.erp.siret == "88076068100010"
+        erp.siret = "880 760 681 00010"
+        erp.clean()
+        assert erp.siret == "88076068100010"
 
-    def test_clean_validates_voie(self, data):
+    def test_clean_validates_voie(self):
         erp = Erp.objects.create(nom="x", code_postal="12345")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()
         assert "voie" in excinfo.value.error_dict
         assert "lieu_dit" in excinfo.value.error_dict
 
-    def test_editable_by(self, data):
-        assert data.erp.editable_by(data.niko) is True
-        assert data.erp.editable_by(data.sophie) is False
+    def test_editable_by(self):
+        owner = UserFactory()
+        other_user = UserFactory()
+        erp = ErpFactory(user=owner)
+        assert erp.editable_by(owner) is True
+        assert erp.editable_by(other_user) is False
 
-    def test_metadata_tags_update_key(self, data):
+    def test_metadata_tags_update_key(self):
         erp = Erp.objects.create(nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]})
 
         erp.metadata["tags"].append("plop")
@@ -977,7 +983,7 @@ class TestErp:
         erp = Erp.objects.get(metadata__tags__contains=["plop"])  # raises if not found
         assert erp.metadata["keepme"] == 42
 
-    def test_metadata_tags_delete_key(self, data):
+    def test_metadata_tags_delete_key(self):
         erp = Erp.objects.create(nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]})
 
         del erp.metadata["keepme"]
@@ -986,7 +992,7 @@ class TestErp:
         erp = Erp.objects.get(metadata__tags__contains=["foo"])  # raises if not found
         assert "keepme" not in erp.metadata
 
-    def test_metadata_tags_filter(self, data):
+    def test_metadata_tags_filter(self):
         Erp.objects.create(nom="erp1", metadata={"tags": ["foo", "bar"]})
         Erp.objects.create(nom="erp2", metadata={"tags": ["bar", "baz"]})
 
@@ -994,7 +1000,7 @@ class TestErp:
         assert Erp.objects.filter(metadata__tags__contains=["baz"]).count() == 1
         assert Erp.objects.filter(metadata__tags__contains=["bar"]).count() == 2
 
-    def test_metadata_update_nested_key(self, data):
+    def test_metadata_update_nested_key(self):
         erp = Erp.objects.create(nom="erp1", metadata={"foo": {"bar": 42}})
 
         erp.metadata["foo"]["bar"] = 43
@@ -1002,21 +1008,21 @@ class TestErp:
 
         Erp.objects.get(metadata__foo__bar=43)  # raises if not found
 
-    def test_save(self, data, activite):
+    def test_save(self, activite):
         # test activity change, should wipe answers to conditional questions if we change the activity group
-        data.erp.activite = Activite.objects.get(nom="Hôtel")
-        data.erp.save()
-        assert data.erp.activite.groups.first().name == "Hébergement", "Conditions for test not met"
+        hotel = Activite.objects.get(nom="Hôtel")
+        erp = ErpFactory(activite=hotel, with_accessibilite=True)
+        assert erp.activite.groups.first().name == "Hébergement", "Conditions for test not met"
 
-        access = data.erp.accessibilite
+        access = erp.accessibilite
         access.accueil_chambre_numero_visible = True
         access.save()
 
-        erp = Erp.objects.get(pk=data.erp.pk)
+        erp = Erp.objects.get(pk=erp.pk)
         erp.activite = Activite.objects.get(nom="Hôtel restaurant")
         erp.save()
 
-        erp = Erp.objects.get(pk=data.erp.pk)
+        erp = Erp.objects.get(pk=erp.pk)
         access = erp.accessibilite
         assert (
             access.accueil_chambre_numero_visible is True
@@ -1026,7 +1032,7 @@ class TestErp:
         erp.activite = Activite.objects.get(nom="Accessoires")
         erp.save()
 
-        erp = Erp.objects.get(pk=data.erp.pk)
+        erp = Erp.objects.get(pk=erp.pk)
 
         access = erp.accessibilite
         assert access.accueil_chambre_numero_visible is None, "should wipe conditional questions' answers"
@@ -1050,68 +1056,76 @@ class TestErp:
         assert "2b-calenzana" in erp.get_absolute_url()
 
 
-@pytest.mark.usefixtures("data")
+@pytest.mark.django_db
 class TestActivitySuggestion:
-    def test_save(self, data, mocker):
+    def test_save(self, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
         mock_mail_admins = mocker.patch("core.mailer.BrevoMailer.mail_admins", return_value=True)
 
-        assert data.erp.activite.nom != "Autre"
-        activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp)
+        niko = UserFactory()
+        sophie = UserFactory()
+
+        ActiviteFactory(slug="autre", nom="Autre")
+        boulangerie = ActiviteFactory(nom="Boulangerie")
+        erp = ErpFactory(activite=boulangerie)
+        activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp)
         activity_suggest.mapped_activity = Activite.objects.create(nom="Bisounours")
         activity_suggest.save()
 
-        data.erp.refresh_from_db()
-        data.erp.activite.refresh_from_db()
+        erp.refresh_from_db()
+        erp.activite.refresh_from_db()
 
-        assert data.erp.activite.nom == "Boulangerie", "ERP should not be affected as it was not in Other activity."
+        assert erp.activite.nom == "Boulangerie", "ERP should not be affected as it was not in Other activity."
 
-        data.erp.activite = Activite.objects.get(nom="Autre")
-        data.erp.save()
-        activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves2", erp=data.erp)
+        erp.activite = Activite.objects.get(slug="autre")
+        erp.save()
+        activity_suggest = ActivitySuggestion.objects.create(name="Vendeur de rêves2", erp=erp)
 
-        data.erp.refresh_from_db()
-        data.erp.activite.refresh_from_db()
-        assert data.erp.activite.nom == "Autre", "ERP should not be affected as there is not new mapped activity."
+        erp.refresh_from_db()
+        erp.activite.refresh_from_db()
+        assert erp.activite.nom == "Autre", "ERP should not be affected as there is not new mapped activity."
 
         activity_suggest.mapped_activity = Activite.objects.create(nom="Bisounours2")
         activity_suggest.save()
         assert (
-            data.erp.activite.nom == "Bisounours2"
+            erp.activite.nom == "Bisounours2"
         ), "ERP should be impacted as it was in Other activity with a new mapped activity"
 
         mock_mail.assert_not_called()
 
         # spamming suggestions
-        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
-        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
-        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.sophie)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp, user=niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp, user=niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp, user=sophie)
         mock_mail.assert_not_called()
 
-        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp, user=niko)
         mock_mail.assert_called_once_with(
-            to_list=data.niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
+            to_list=niko.email, template="spam_activities_suggestion", context={"nb_times": 3}
         )
         mock_mail_admins.assert_called_once_with(
             template="spam_activities_suggestion_admin",
-            context={"nb_times": 3, "username": data.niko.username, "email": data.niko.email},
+            context={"nb_times": 3, "username": niko.username, "email": niko.email},
         )
-        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=data.erp, user=data.niko)
+        ActivitySuggestion.objects.create(name="Vendeur de rêves", erp=erp, user=niko)
         assert mock_mail.call_count == 2
         assert mock_mail_admins.call_count == 2
 
 
-def test_get_global_timestamps_no_history(data):
-    erp = data.erp
+@pytest.mark.django_db
+def test_get_global_timestamps_no_history():
+    erp = ErpFactory()
     global_timestamps = erp.get_global_timestamps()
     assert global_timestamps["created_at"] == global_timestamps["updated_at"]
 
 
-def test_get_global_timestamps_with_history(data, django_assert_num_queries):
-    erp = data.erp
+@pytest.mark.django_db
+def test_get_global_timestamps_with_history(django_assert_num_queries):
+    erp = ErpFactory(with_accessibilite=True)
+    user = UserFactory()
 
     with reversion.create_revision():
-        reversion.set_user(data.niko)
+        reversion.set_user(user)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = False
         accessibilite.sanitaires_adaptes = None
@@ -1119,7 +1133,7 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
         accessibilite.save()
 
     with reversion.create_revision():
-        reversion.set_user(data.niko)
+        reversion.set_user(user)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = True
         accessibilite.sanitaires_adaptes = None
