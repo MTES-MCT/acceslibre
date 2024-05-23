@@ -36,19 +36,14 @@ class Command(BaseCommand):
             qs.update(transport_information="")
             print_success("Fixed")
 
-        qs = Accessibilite.objects.filter(
-            ~(Q(stationnement_presence=True) | Q(stationnement_presence__isnull=False)), ~Q(stationnement_pmr=None)
-        )
+        qs = Accessibilite.objects.filter(~Q(stationnement_presence=True), ~Q(stationnement_pmr=None))
         print_error(f"Found {qs.count()} ERPs with inconsistent info on stationnement and its sub answers")
         self.print_example(qs)
         if write:
             qs.update(stationnement_pmr=None)
             print_success("Fixed")
 
-        qs = Accessibilite.objects.filter(
-            ~(Q(stationnement_ext_presence=True) | Q(stationnement_ext_presence__isnull=False)),
-            ~Q(stationnement_ext_pmr=None),
-        )
+        qs = Accessibilite.objects.filter(~Q(stationnement_ext_presence=True), ~Q(stationnement_ext_pmr=None))
         print_error(f"Found {qs.count()} ERPs with inconsistent info on stationnement_ext and its sub answers")
         self.print_example(qs)
         if write:
@@ -235,8 +230,8 @@ class Command(BaseCommand):
             qs.update(sanitaires_adaptes=None)
             print_success("Fixed")
 
-        qs = Accessibilite.objects.filter(labels=[]).filter(
-            ~Q(labels_familles_handicap=[]) | ~Q(labels_autre__isnull=True)
+        qs = Accessibilite.objects.filter(Q(labels=[]) | Q(labels=None)).filter(
+            ~(Q(labels_familles_handicap=[]) | Q(labels_familles_handicap=None)) | ~Q(labels_autre__isnull=True)
         )
         print_error(f"Found {qs.count()} ERPs with inconsistent info on labels and its sub answers")
         self.print_example(qs)
