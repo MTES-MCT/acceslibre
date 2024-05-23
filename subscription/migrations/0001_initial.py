@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("erp", "0102_auto_20201215_1647"),
+        ("erp", "0001_squashed_0140_auto_20220901_1426"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

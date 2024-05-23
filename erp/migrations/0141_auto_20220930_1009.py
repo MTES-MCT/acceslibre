@@ -8,7 +8,7 @@ import erp.models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("erp", "0140_auto_20220901_1426"),
+        ("erp", "0001_squashed_0140_auto_20220901_1426"),
     ]
 
     operations = [

@@ -1,6 +1,9 @@
+from contextlib import nullcontext as does_not_raise
+
 import pytest
 import reversion
 from django.core.exceptions import ValidationError
+from django.db.utils import IntegrityError
 
 from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
@@ -59,6 +62,853 @@ class TestAccessibility:
 
         acc = Accessibilite(id=1337, erp=data.erp, stationnement_presence=True)
         assert acc.has_data() is True
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "transport_station_presence": False,
+                    "transport_information": "A côté de l'arrêt de bus",
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "transport_station_presence": None,
+                    "transport_information": "A côté de l'arrêt de bus",
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "transport_station_presence": False,
+                    "transport_information": "",
+                },
+                False,
+                id="empty_valid",
+            ),
+            pytest.param(
+                {
+                    "transport_station_presence": False,
+                    "transport_information": None,
+                },
+                False,
+                id="null_valid",
+            ),
+            pytest.param(
+                {
+                    "transport_station_presence": True,
+                    "transport_information": None,
+                },
+                False,
+                id="nominal",
+            ),
+        ),
+    )
+    def test_constraint_transport(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "stationnement_presence": False,
+                    "stationnement_pmr": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "stationnement_presence": False,
+                    "stationnement_pmr": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "stationnement_presence": False,
+                    "stationnement_pmr": None,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "stationnement_presence": True,
+                    "stationnement_pmr": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "stationnement_ext_presence": False,
+                    "stationnement_ext_pmr": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "stationnement_ext_presence": None,
+                    "stationnement_ext_pmr": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "stationnement_ext_presence": False,
+                    "stationnement_ext_pmr": None,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "stationnement_ext_presence": True,
+                    "stationnement_ext_pmr": True,
+                },
+                False,
+                id="nominal",
+            ),
+        ),
+    )
+    def test_constraint_stationnement_and_ext(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_plain_pied": False,
+                    "cheminement_ext_nombre_marches": 2,
+                    "cheminement_ext_reperage_marches": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_plain_pied": True,
+                    "cheminement_ext_nombre_marches": 0,
+                },
+                True,
+                id="valid_0",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_plain_pied": True,
+                    "cheminement_ext_nombre_marches": 2,
+                    "cheminement_ext_reperage_marches": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_plain_pied": None,
+                    "cheminement_ext_nombre_marches": 2,
+                    "cheminement_ext_reperage_marches": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_pente_presence": True,
+                    "cheminement_ext_pente_longueur": 2,
+                },
+                False,
+                id="nominal_pente",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_pente_presence": True,
+                    "cheminement_ext_pente_longueur": None,
+                },
+                False,
+                id="nominal_pente_none",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_pente_presence": False,
+                    "cheminement_ext_pente_longueur": 2,
+                },
+                True,
+                id="invalid_pente",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_pente_presence": None,
+                    "cheminement_ext_pente_longueur": 2,
+                },
+                True,
+                id="invalid_pente_none",
+            ),
+        ),
+    )
+    def test_constraint_cheminement_ext_plain_pied_and_pente(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_terrain_stable": True,
+                    "cheminement_ext_plain_pied": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": False,
+                    "cheminement_ext_terrain_stable": True,
+                    "cheminement_ext_plain_pied": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": None,
+                    "cheminement_ext_terrain_stable": True,
+                    "cheminement_ext_plain_pied": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_cheminement_ext_presence(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_vitree": True,
+                    "entree_vitree_vitrophanie": None,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_vitree": None,
+                    "entree_vitree_vitrophanie": None,
+                },
+                False,
+                id="nominal_none",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_vitree": False,
+                    "entree_vitree_vitrophanie": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_vitree": False,
+                    "entree_vitree_vitrophanie": False,
+                },
+                True,
+                id="invalid_all_false",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_vitree": None,
+                    "entree_vitree_vitrophanie": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_entree_vitree(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "entree_porte_presence": True,
+                    "entree_porte_type": "automatique",
+                    "entree_vitree": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": False,
+                    "entree_porte_type": "automatique",
+                    "entree_vitree": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "entree_porte_presence": None,
+                    "entree_porte_type": "automatique",
+                    "entree_vitree": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_entree_porte_presence(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "entree_plain_pied": False,
+                    "entree_ascenseur": True,
+                    "entree_marches": 1,
+                    "entree_marches_main_courante": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "entree_plain_pied": False,
+                    "entree_marches": 0,
+                },
+                False,
+                id="nominal_zero",
+            ),
+            pytest.param(
+                {
+                    "entree_plain_pied": True,
+                    "entree_marches": 0,
+                },
+                False,
+                id="nominal_zero",
+            ),
+            pytest.param(
+                {
+                    "entree_plain_pied": True,
+                    "entree_ascenseur": True,
+                    "entree_marches": 1,
+                    "entree_marches_main_courante": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "entree_plain_pied": None,
+                    "entree_ascenseur": True,
+                    "entree_marches": 1,
+                    "entree_marches_main_courante": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_entree_plain_pied(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "entree_dispositif_appel": True,
+                    "entree_dispositif_appel_type": ["visiophone"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "entree_dispositif_appel": False,
+                    "entree_dispositif_appel_type": ["visiophone"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "entree_dispositif_appel": None,
+                    "entree_dispositif_appel_type": ["visiophone"],
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "entree_dispositif_appel": False,
+                    "entree_dispositif_appel_type": None,
+                },
+                False,
+                id="valid_none",
+            ),
+            pytest.param(
+                {
+                    "entree_dispositif_appel": False,
+                    "entree_dispositif_appel_type": [],
+                },
+                False,
+                id="valid_empty",
+            ),
+        ),
+    )
+    def test_constraint_entree_dispositif_appel(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "entree_pmr": True,
+                    "entree_pmr_informations": "entrée spécifique",
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "entree_pmr": False,
+                    "entree_pmr_informations": "entrée spécifique",
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "entree_pmr": None,
+                    "entree_pmr_informations": "entrée spécifique",
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "entree_pmr": False,
+                    "entree_pmr_informations": None,
+                },
+                False,
+                id="valid_none",
+            ),
+            pytest.param(
+                {
+                    "entree_pmr": False,
+                    "entree_pmr_informations": "",
+                },
+                False,
+                id="valid_empty",
+            ),
+        ),
+    )
+    def test_constraint_entree_pmr(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_cheminement_plain_pied": False,
+                    "accueil_cheminement_ascenseur": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_cheminement_plain_pied": None,
+                    "accueil_cheminement_ascenseur": True,
+                },
+                False,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_cheminement_plain_pied": True,
+                    "accueil_cheminement_ascenseur": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_cheminement_plain_pied": True,
+                    "accueil_cheminement_ascenseur": None,
+                },
+                False,
+                id="valid_none",
+            ),
+        ),
+    )
+    def test_constraint_accueil_cheminement_plain_pied(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_audiodescription_presence": True,
+                    "accueil_audiodescription": ["visiophone"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_audiodescription_presence": False,
+                    "accueil_audiodescription": ["visiophone"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_audiodescription_presence": None,
+                    "accueil_audiodescription": ["visiophone"],
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_audiodescription_presence": False,
+                    "accueil_audiodescription": None,
+                },
+                False,
+                id="valid_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_audiodescription_presence": False,
+                    "accueil_audiodescription": [],
+                },
+                False,
+                id="valid_empty",
+            ),
+        ),
+    )
+    def test_constraint_accueil_audiodescription(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_equipements_malentendants_presence": True,
+                    "accueil_equipements_malentendants": ["visiophone"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_equipements_malentendants_presence": False,
+                    "accueil_equipements_malentendants": ["visiophone"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_equipements_malentendants_presence": None,
+                    "accueil_equipements_malentendants": ["visiophone"],
+                },
+                True,
+                id="invalid_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_equipements_malentendants_presence": False,
+                    "accueil_equipements_malentendants": None,
+                },
+                False,
+                id="valid_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_equipements_malentendants_presence": False,
+                    "accueil_equipements_malentendants": [],
+                },
+                False,
+                id="valid_empty",
+            ),
+        ),
+    )
+    def test_constraint_accueil_equipements_malentendants(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "sanitaires_presence": True,
+                    "sanitaires_adaptes": None,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "sanitaires_presence": False,
+                    "sanitaires_adaptes": None,
+                },
+                False,
+                id="nominal_false",
+            ),
+            pytest.param(
+                {
+                    "sanitaires_presence": False,
+                    "sanitaires_adaptes": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "sanitaires_presence": None,
+                    "sanitaires_adaptes": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_sanitaires_presence(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "labels": ["th"],
+                    "labels_familles_handicap": ["auditif", "mental"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {"labels": ["th"], "labels_familles_handicap": ["auditif", "mental"], "labels_autre": "autre"},
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "labels": ["th"],
+                    "labels_familles_handicap": [],
+                },
+                False,
+                id="nominal_empty",
+            ),
+            pytest.param(
+                {
+                    "labels": [],
+                    "labels_familles_handicap": [],
+                    "labels_autre": None,
+                },
+                False,
+                id="nominal_empty",
+            ),
+            pytest.param(
+                {
+                    "labels": ["th"],
+                    "labels_familles_handicap": None,
+                },
+                False,
+                id="nominal_none",
+            ),
+            pytest.param(
+                {
+                    "labels": [],
+                    "labels_familles_handicap": ["auditif", "mental"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "labels": [],
+                    "labels_autre": "autre chose",
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "labels": None,
+                    "labels_familles_handicap": ["auditif", "mental"],
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_labels(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_chambre_nombre_accessibles": 1,
+                    "accueil_chambre_douche_plain_pied": True,
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_chambre_nombre_accessibles": 2,
+                    "accueil_chambre_douche_plain_pied": False,
+                },
+                False,
+                id="nominal_false",
+            ),
+            pytest.param(
+                {
+                    "accueil_chambre_nombre_accessibles": 2,
+                    "accueil_chambre_douche_plain_pied": None,
+                },
+                False,
+                id="nominal_none",
+            ),
+            pytest.param(
+                {
+                    "accueil_chambre_nombre_accessibles": 0,
+                    "accueil_chambre_douche_plain_pied": True,
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_chambre_nombre_accessibles": None,
+                    "accueil_chambre_douche_siege": True,
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_chambres(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    def test_constraint_scenario(self):
+        access = AccessibiliteFactory()
+        access.labels = ["th"]
+        access.labels_familles_handicap = ["auditif"]
+        access.save()
+
+        access.labels_familles_handicap = []
+        access.save()
+
+        access.labels_autre = "autre"
+        access.save()
+
+        with pytest.raises(IntegrityError):
+            access.labels = []
+            access.save()
 
 
 class TestErp:
@@ -249,6 +1099,7 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
         reversion.set_user(data.niko)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = False
+        accessibilite.sanitaires_adaptes = None
         accessibilite.transport_station_presence = True
         accessibilite.save()
 
@@ -256,6 +1107,7 @@ def test_get_global_timestamps_with_history(data, django_assert_num_queries):
         reversion.set_user(data.niko)
         accessibilite = erp.accessibilite
         accessibilite.sanitaires_presence = True
+        accessibilite.sanitaires_adaptes = None
         accessibilite.transport_station_presence = False
         accessibilite.save()
 
@@ -291,8 +1143,19 @@ def test_merge_does_not_take_nullable_value_from_b_object():
 
 
 @pytest.mark.django_db
-def test_merge_respects_fields():
+def test_merge_respects_parent_child_consistency():
     a_access = AccessibiliteFactory(stationnement_presence=None, stationnement_pmr=None)
+    b_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=True)
+
+    a_erp = a_access.erp
+    b_erp = b_access.erp
+    with pytest.raises(IntegrityError):
+        a_erp.merge_accessibility_with(b_erp, fields=["stationnement_pmr"])
+
+
+@pytest.mark.django_db
+def test_merge_respects_fields():
+    a_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=None)
     b_access = AccessibiliteFactory(stationnement_presence=True, stationnement_pmr=True)
 
     a_erp = a_access.erp
@@ -300,7 +1163,7 @@ def test_merge_respects_fields():
     a_erp.merge_accessibility_with(b_erp, fields=["stationnement_pmr"])
 
     a_erp.refresh_from_db()
-    assert a_erp.accessibilite.stationnement_presence is None
+    assert a_erp.accessibilite.stationnement_presence is True
     assert a_erp.accessibilite.stationnement_pmr is True
 
 
@@ -320,7 +1183,12 @@ def test_merge_cant_handle_conflicting_values():
 
 @pytest.mark.django_db
 def test_get_outside_steps_direction_text():
-    access = AccessibiliteFactory(cheminement_ext_nombre_marches=10, cheminement_ext_sens_marches="montant")
+    access = AccessibiliteFactory(
+        cheminement_ext_presence=True,
+        cheminement_ext_plain_pied=False,
+        cheminement_ext_nombre_marches=10,
+        cheminement_ext_sens_marches="montant",
+    )
 
     assert access.get_outside_steps_direction_text() == "montantes"
 

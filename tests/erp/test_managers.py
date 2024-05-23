@@ -48,6 +48,7 @@ def test_ErpQuerySet_having_a11y_data_array(erp_with_a11y):
 
     erp_with_a11y(
         "test",
+        accueil_equipements_malentendants_presence=True,
         accueil_equipements_malentendants=[schema.EQUIPEMENT_MALENTENDANT_LPC],
     )
     assert Erp.objects.having_a11y_data().count() == 1
@@ -57,7 +58,7 @@ def test_ErpQuerySet_having_a11y_data_string(erp_with_a11y):
     erp_with_a11y("test", transport_information="")
     assert Erp.objects.having_a11y_data().count() == 0
 
-    erp_with_a11y("test", transport_information="coucou")
+    erp_with_a11y("test", transport_station_presence=True, transport_information="coucou")
     assert Erp.objects.having_a11y_data().count() == 1
 
 
@@ -65,7 +66,7 @@ def test_ErpQuerySet_having_a11y_data_number(erp_with_a11y):
     erp_with_a11y("test", entree_marches=0)
     assert Erp.objects.having_a11y_data().count() == 1
 
-    erp_with_a11y("test", entree_marches=1)
+    erp_with_a11y("test", entree_plain_pied=False, entree_marches=1)
     assert Erp.objects.having_a11y_data().count() == 2
 
 
@@ -177,7 +178,9 @@ class TestErpQuerySetFilters:
         ),
     )
     def test_having_adapted_parking(self, access_attrs, should_be_returned):
-        access = AccessibiliteFactory(**access_attrs)
+        access = AccessibiliteFactory(
+            **access_attrs | {"stationnement_presence": True, "stationnement_ext_presence": True}
+        )
         assert list(Erp.objects.having_adapted_parking().all()) == ([access.erp] if should_be_returned else [])
 
     @pytest.mark.parametrize(
