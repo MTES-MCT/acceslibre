@@ -85,10 +85,12 @@ def test_user_validate_email_expired_token(db):
     assert failure == "Token expiré"
 
 
-def test_user_validate_email_no_token(db, data):
+@pytest.mark.django_db
+def test_user_validate_email_no_token(db):
+    user = UserFactory()
     activation_token = None
     today = datetime.now(timezone.utc)
-    create_token(data.niko, "newemail@gmail.com", activation_token, today=today)
+    create_token(user, "newemail@gmail.com", activation_token, today=today)
 
     user, failure = validate_from_token(activation_token=activation_token, today=today)
 
@@ -96,8 +98,10 @@ def test_user_validate_email_no_token(db, data):
     assert failure == "Token invalide"
 
 
-def test_user_validate_email_change_e2e(db, client, data):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_user_validate_email_change_e2e(db, client):
+    user = UserFactory()
+    client.force_login(user)
 
     new_email = "test@test.com"
     _change_client_email(client, new_email)
@@ -108,15 +112,17 @@ def test_user_validate_email_change_e2e(db, client, data):
         follow=True,
     )
 
-    data.niko.refresh_from_db()
+    user.refresh_from_db()
     assert response.status_code == 200
     assert "Mon compte" in response.content.decode()
     assert len(EmailToken.objects.all()) == 0
-    assert data.niko.email == new_email
+    assert user.email == new_email
 
 
-def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_user_validate_email_change_not_logged_in_e2e(db, client):
+    user = UserFactory()
+    client.force_login(user)
 
     new_email = "test@test.com"
     _change_client_email(client, new_email)
@@ -129,18 +135,20 @@ def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
         follow=True,
     )
 
-    data.niko.refresh_from_db()
+    user.refresh_from_db()
     assert response.status_code == 200
     assert "avec votre nouvelle adresse." in response.content.decode()
     assert reverse("login") in response.content.decode()
     assert len(EmailToken.objects.all()) == 0
-    assert data.niko.email == new_email
+    assert user.email == new_email
 
 
-def test_deleting_unused_tokens(data):
+@pytest.mark.django_db
+def test_deleting_unused_tokens():
+    user = UserFactory()
     activation_token = "a603ae0a-4188-4098-99ca-3b853642c1c7"
     last_week = datetime.now(timezone.utc) - timedelta(days=settings.EMAIL_ACTIVATION_DAYS + 1)
-    create_token(data.niko, "newemail@gmail.com", activation_token, today=last_week)
+    create_token(user, "newemail@gmail.com", activation_token, today=last_week)
     email_tokens = EmailToken.objects.all()
     assert len(email_tokens) == 1
 

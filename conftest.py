@@ -2,16 +2,13 @@ import os
 from unittest.mock import MagicMock
 
 import pytest
-from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.db import connection
 from pytest_factoryboy import register
 
-from erp.models import Accessibilite, Activite, ActivitiesGroup, Commune, Erp
+from erp.models import Activite, ActivitiesGroup
 from erp.provider import geocoder
 from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
-
-TEST_PASSWORD = "Abc12345!"
 
 
 @pytest.fixture(scope="session")
@@ -444,82 +441,6 @@ def activite(db):
         activity, created = Activite.objects.get_or_create(nom=name)
         if created and name in ("Hôtel", "Hôtel restaurant", "Chambres d'hôtes, gîte, pension"):
             group.activities.add(activity.pk)
-
-
-@pytest.fixture
-def data(db):
-    Activite.objects.create(nom="Autre")
-    obj_admin = User.objects.create_user(
-        username="admin",
-        password=TEST_PASSWORD,
-        email="admin@admin.tld",
-        is_staff=True,
-        is_superuser=True,
-        is_active=True,
-    )
-    obj_niko = User.objects.create_user(
-        username="niko",
-        password=TEST_PASSWORD,
-        email="niko@niko.tld",
-        is_staff=True,
-        is_active=True,
-    )
-    obj_julia = User.objects.create_user(
-        username="julia",
-        password=TEST_PASSWORD,
-        email="julia@julia.tld",
-        is_staff=True,
-        is_active=True,
-    )
-    obj_sophie = User.objects.create_user(
-        username="sophie",
-        password=TEST_PASSWORD,
-        email="sophie@sophie.tld",
-        is_staff=True,
-        is_active=True,
-    )
-    obj_jacou = Commune.objects.create(
-        nom="Jacou",
-        code_postaux=["34830"],
-        code_insee="34120",
-        departement="34",
-        geom=Point((3.9047933, 43.6648217)),
-    )
-    obj_boulangerie = Activite.objects.create(nom="Boulangerie")
-    obj_erp = Erp.objects.create(
-        nom="Aux bons croissants",
-        siret="52128577500016",
-        numero="4",
-        voie="grand rue",
-        code_postal="34830",
-        commune="Jacou",
-        commune_ext=obj_jacou,
-        ban_id="abcd_12345",
-        geom=Point((3.9047933, 43.6648217)),
-        activite=obj_boulangerie,
-        published=True,
-        user=obj_niko,
-    )
-    obj_accessibilite = Accessibilite.objects.create(
-        erp=obj_erp,
-        sanitaires_presence=True,
-        sanitaires_adaptes=False,
-        commentaire="foo",
-        entree_porte_presence=True,
-        entree_reperage=True,
-        # 4 access info min to reach the min required for publication.
-    )
-
-    class Data:
-        admin = obj_admin
-        niko = obj_niko
-        julia = obj_julia
-        sophie = obj_sophie
-        boulangerie = obj_boulangerie
-        accessibilite = obj_accessibilite
-        erp = obj_erp
-
-    return Data()
 
 
 register(ErpFactory)

@@ -11,7 +11,7 @@ from requests import Response
 
 from erp.management.commands.notify_weekly_unpublished_erps import Command
 from erp.models import Accessibilite, Erp
-from tests.factories import CommuneFactory
+from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 
 
 @pytest.fixture
@@ -20,28 +20,38 @@ def client() -> Client:
 
 
 @pytest.fixture
-def unpublished_erp(data) -> Erp:
+def unpublished_erp() -> Erp:
     commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
+    boulangerie = ActiviteFactory(nom="Boulangerie")
     erp = Erp.objects.create(
         nom="Croissants chauds",
-        activite=data.boulangerie,
+        activite=boulangerie,
         geom=Point(6.09523, 46.27591, srid=4326),
         published=False,
         commune=commune,
-        user=data.niko,
+        user=UserFactory(),
     )
 
     Accessibilite.objects.create(erp=erp, commentaire="simple commentaire")
     return erp
 
 
-def test_get_notification_on7days(mocker, unpublished_erp, data):
+@pytest.fixture
+def published_erp() -> Erp:
+    user = UserFactory()
+    activite = ActiviteFactory(nom="Boulangerie")
+    erp = ErpFactory(user=user, nom="Aux bons croissants", commune="Jacou", activite=activite)
+    return erp
+
+
+@pytest.mark.django_db
+def test_get_notification_on7days(mocker, published_erp, unpublished_erp):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notifs = Command(now=futur).get_notifications()
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
-    assert notifs[0]["user"] == data.niko
+    assert notifs[0]["user"] == unpublished_erp.user
     assert notifs[0]["erps"] == [
         {
             "commune": "Jacou (34)",
@@ -53,20 +63,23 @@ def test_get_notification_on7days(mocker, unpublished_erp, data):
     ]
 
 
-def test_get_notification_before7days(unpublished_erp, data):
+@pytest.mark.django_db
+def test_get_notification_before7days(unpublished_erp):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS - 1)
     notifs = Command(now=futur).get_notifications()
 
     assert len(notifs) == 0
 
 
-def test_get_notification_after7days(unpublished_erp, data):
+@pytest.mark.django_db
+def test_get_notification_after7days(published_erp, unpublished_erp):
+
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS + 3)
     notifs = Command(now=futur).get_notifications()
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
-    assert notifs[0]["user"] == data.niko
+    assert notifs[0]["user"] == unpublished_erp.user
     assert notifs[0]["erps"] == [
         {
             "commune": "Jacou (34)",
@@ -78,8 +91,10 @@ def test_get_notification_after7days(unpublished_erp, data):
     ]
 
 
+@pytest.mark.django_db
 @override_settings(REAL_USER_NOTIFICATION=True)
-def test_notification_unpublished_erp_command(mocker, unpublished_erp, data):
+def test_notification_unpublished_erp_command(mocker, unpublished_erp):
+
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
 
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
@@ -99,25 +114,28 @@ def test_notification_unpublished_erp_command(mocker, unpublished_erp, data):
             ],
             "url_mes_erps_draft": "/compte/erps/?published=0",
             "url_mes_preferences": "/compte/preferences/",
-            "username": "niko",
+            "username": unpublished_erp.user.username,
         },
         template="notif_weekly_unpublished",
-        to_list=["niko@niko.tld"],
+        to_list=[unpublished_erp.user.email],
     )
 
 
-def test_notifications_default_settings(data):
-    assert data.niko.preferences.get().notify_on_unpublished_erps is True
+@pytest.mark.django_db
+def test_notifications_default_settings():
+    assert UserFactory().preferences.get().notify_on_unpublished_erps is True
 
 
-def test_notifications_edit_settings(client, data):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_notifications_edit_settings(client):
+    user = UserFactory()
+    client.force_login(user)
     response: Response = client.post(
         reverse("mes_preferences"),
         {"notify_on_unpublished_erps": False},
         follow=True,
     )
 
-    data.niko.refresh_from_db()
+    user.refresh_from_db()
     assert response.status_code == 200
-    assert data.niko.preferences.get().notify_on_unpublished_erps is False
+    assert user.preferences.get().notify_on_unpublished_erps is False
