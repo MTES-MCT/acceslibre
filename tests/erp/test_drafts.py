@@ -15,9 +15,10 @@ def client():
 
 
 @pytest.fixture
-def sample_result(data):
+def sample_result():
+    erp = ErpFactory(nom="Aux bons croissants", code_postal="34120")
     return {
-        "exists": data.erp,
+        "exists": erp,
         "source": "entreprise_api",
         "source_id": "63015890",
         "coordonnees": [3.913557, 43.657028],
@@ -54,6 +55,7 @@ def test_response(client, mocker, sample_result):
     return _factory
 
 
+@pytest.mark.django_db
 def test_owner_published_listed(test_response):
     user = UserFactory()
     ErpFactory(published=True, user=user)
@@ -63,6 +65,7 @@ def test_owner_published_listed(test_response):
     assert "Voir cet établissement" in response_content
 
 
+@pytest.mark.django_db
 def test_user_published_listed(test_response):
     user = UserFactory()
     other_user = UserFactory()

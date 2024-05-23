@@ -7,12 +7,14 @@ from unittest.mock import ANY
 
 import pytest
 import requests
+from django.contrib.gis.geos import Point
 from django.core import management
 
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
 from erp.models import Erp
+from tests.factories import ActiviteFactory, ErpFactory
 
 
 def test_csv_creation(data):
@@ -27,25 +29,39 @@ def test_csv_creation(data):
         os.remove(dest_path)
 
 
-def test_export_command(mocker, data, settings):
+@pytest.mark.django_db
+def test_export_command(mocker, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch("requests.post")
+    activity = ActiviteFactory(nom="Boulangerie")
+    ErpFactory(
+        nom="Aux bons croissants",
+        code_postal="34830",
+        commune="Jacou",
+        numero=4,
+        voie="grand rue",
+        siret="52128577500016",
+        geom=Point(3.9047933, 43.6648217),
+        activite=activity,
+        accessibilite__accueil_audiodescription_presence=True,
+        accessibilite__accueil_audiodescription=["avec_app"],
+        accessibilite__accueil_chambre_nombre_accessibles=12,
+        accessibilite__accueil_chambre_douche_plain_pied=True,
+        accessibilite__accueil_chambre_douche_siege=True,
+        accessibilite__accueil_chambre_douche_barre_appui=True,
+        accessibilite__accueil_chambre_sanitaires_barre_appui=False,
+        accessibilite__accueil_chambre_sanitaires_espace_usage=True,
+        accessibilite__accueil_chambre_numero_visible=True,
+        accessibilite__accueil_chambre_equipement_alerte=False,
+        accessibilite__accueil_chambre_accompagnement=True,
+        accessibilite__sanitaires_presence=True,
+        accessibilite__sanitaires_adaptes=False,
+        accessibilite__commentaire="foo",
+        accessibilite__entree_porte_presence=True,
+        accessibilite__entree_reperage=True,
+    )
 
-    # tweak the existing ERP to have some fields to export
-    data.erp.accessibilite.accueil_audiodescription_presence = True
-    data.erp.accessibilite.accueil_audiodescription = ["avec_app"]
-    data.erp.accessibilite.accueil_chambre_nombre_accessibles = 12
-    data.erp.accessibilite.accueil_chambre_douche_plain_pied = True
-    data.erp.accessibilite.accueil_chambre_douche_siege = True
-    data.erp.accessibilite.accueil_chambre_douche_barre_appui = True
-    data.erp.accessibilite.accueil_chambre_sanitaires_barre_appui = False
-    data.erp.accessibilite.accueil_chambre_sanitaires_espace_usage = True
-    data.erp.accessibilite.accueil_chambre_numero_visible = True
-    data.erp.accessibilite.accueil_chambre_equipement_alerte = False
-    data.erp.accessibilite.accueil_chambre_accompagnement = True
-    data.erp.accessibilite.save()
-
-    assert Erp.objects.all(), "No ERP"
+    assert Erp.objects.count(), "We should have ERPs in DB"
 
     expected = [
         ANY,
@@ -152,7 +168,8 @@ def test_export_command(mocker, data, settings):
     os.unlink("acceslibre-with-web-url.csv")
 
 
-def test_export_failure(mocker, data, settings):
+@pytest.mark.django_db
+def test_export_failure(mocker, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
         "requests.post",
