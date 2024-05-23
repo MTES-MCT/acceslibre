@@ -3,7 +3,6 @@ from datetime import timedelta
 import pytest
 from django.conf import settings
 from django.contrib.gis.geos import Point
-from django.core import mail
 from django.core.management import call_command
 from django.test import Client, override_settings
 from django.urls import reverse
@@ -12,6 +11,7 @@ from requests import Response
 
 from erp.management.commands.notify_weekly_unpublished_erps import Command
 from erp.models import Accessibilite, Erp
+from tests.factories import CommuneFactory
 
 
 @pytest.fixture
@@ -21,12 +21,13 @@ def client() -> Client:
 
 @pytest.fixture
 def unpublished_erp(data) -> Erp:
+    commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
     erp = Erp.objects.create(
         nom="Croissants chauds",
         activite=data.boulangerie,
         geom=Point(6.09523, 46.27591, srid=4326),
         published=False,
-        commune=data.jacou,
+        commune=commune,
         user=data.niko,
     )
 

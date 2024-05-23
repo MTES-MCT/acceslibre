@@ -19,11 +19,12 @@ def test_search_clean_params(data, client):
 
 
 def test_search_pagination(data, client):
+    commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
     data.erp.delete()
     for i in range(1, 102):
         erp = Erp.objects.create(
             nom=f"e{i}",
-            commune_ext=data.jacou,
+            commune_ext=commune,
             commune="jacou",
             geom=data.erp.geom,
             published=True,
@@ -44,10 +45,11 @@ def test_search_pagination(data, client):
 
 
 def test_search_pagination_performances(data, client, django_assert_max_num_queries):
+    commune = CommuneFactory(nom="Jacou", code_postaux=["34830"], code_insee="34120", departement="34")
     data.erp.delete()
     erp = Erp.objects.create(
         nom="ERP",
-        commune_ext=data.jacou,
+        commune_ext=commune,
         commune="jacou",
         geom=data.erp.geom,
         published=True,
@@ -62,7 +64,7 @@ def test_search_pagination_performances(data, client, django_assert_max_num_quer
     for i in range(1, 10):
         erp = Erp.objects.create(
             nom=f"e{i}",
-            commune_ext=data.jacou,
+            commune_ext=commune,
             commune="jacou",
             geom=data.erp.geom,
             published=True,
@@ -133,7 +135,8 @@ def test_search_whole_country(data, client):
     assert len(response.context["pager"]) == 2
 
 
-def test_search_respects_what_clause(data, client, activite_mairie):
+def test_search_respects_what_clause(data, client):
+    activite_mairie = ActiviteFactory(nom="Mairie")
     Erp.objects.create(
         nom="Different activity",
         commune=data.erp.commune,
@@ -286,7 +289,8 @@ def test_search_in_municipality_performances(data, client, django_assert_max_num
     assert len(response.context["pager"]) == 6
 
 
-def test_search_in_municipality_respects_what_clause(data, client, activite_mairie):
+def test_search_in_municipality_respects_what_clause(data, client):
+    activite_mairie = ActiviteFactory(nom="Mairie")
     Erp.objects.create(
         nom="Out of town",
         commune=data.erp.commune,

@@ -2,22 +2,25 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 from django.conf import settings
-from django.core import mail, management
+from django.core import management
 from django.test import Client
 from django.urls import reverse
 
 from compte.models import EmailToken
 from compte.service import create_token, validate_from_token
+from tests.factories import UserFactory
 
 
 def client():
     return Client()
 
 
-def test_create_token_function(db, data):
+@pytest.mark.django_db
+def test_create_token_function(db):
+    user = UserFactory()
     activation_token = "a603ae0a-4188-4098-99ca-3b853642c1c7"
     today = datetime.now(timezone.utc)
-    token = create_token(data.niko, "newemail@gmail.com", activation_token, today=today)
+    token = create_token(user, "newemail@gmail.com", activation_token, today=today)
     email_token = EmailToken.objects.get(activation_token=activation_token)
 
     assert token == "a603ae0a-4188-4098-99ca-3b853642c1c7"
@@ -25,9 +28,13 @@ def test_create_token_function(db, data):
     assert today + timedelta(settings.EMAIL_ACTIVATION_DAYS) == email_token.expire_at
 
 
-def test_user_change_email_e2e(mocker, client, data):
+@pytest.mark.django_db
+def test_user_change_email_e2e(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
-    _login_client(client, data)
+    user = UserFactory(username="niko")
+    client.force_login(user)
+    response = client.get(reverse("mon_identifiant"))
+    assert response.status_code == 200
 
     new_email = "test@test.com"
     _change_client_email(client, new_email)
@@ -50,27 +57,31 @@ def test_user_change_email_e2e(mocker, client, data):
     }
 
 
-def test_user_validate_email_change(db, data):
+@pytest.mark.django_db
+def test_user_validate_email_change(db):
+    niko = UserFactory()
     activation_token = "a603ae0a-4188-4098-99ca-3b853642c1c7"
     today = datetime.now(timezone.utc)
-    create_token(data.niko, "newemail@gmail.com", activation_token, today=today)
+    create_token(niko, "newemail@gmail.com", activation_token, today=today)
 
     user, failure = validate_from_token(activation_token=activation_token, today=today)
 
-    assert user == data.niko
+    assert user == niko
     assert failure is None
     assert len(EmailToken.objects.all()) == 0
 
 
-def test_user_validate_email_expired_token(db, data):
+@pytest.mark.django_db
+def test_user_validate_email_expired_token(db):
+    niko = UserFactory()
     activation_token = "a603ae0a-4188-4098-99ca-3b853642c1c7"
     past = datetime.now(timezone.utc)
     future = datetime.now(timezone.utc) + timedelta(days=7)
-    create_token(data.niko, "newemail@gmail.com", activation_token, today=past)
+    create_token(niko, "newemail@gmail.com", activation_token, today=past)
 
     user, failure = validate_from_token(activation_token=activation_token, today=future)
 
-    assert user == data.niko
+    assert user == niko
     assert failure == "Token expiré"
 
 
@@ -146,9 +157,3 @@ def _change_client_email(client, new_email):
     )
     assert response.status_code == 200
     assert "Email d'activation envoyé" in response.content.decode()
-
-
-def _login_client(client, data):
-    client.force_login(data.niko)
-    response = client.get(reverse("mon_identifiant"))
-    assert response.status_code == 200

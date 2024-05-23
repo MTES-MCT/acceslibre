@@ -8,7 +8,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from erp.models import Accessibilite, Erp
-from tests.factories import AccessibiliteFactory, ActiviteFactory, ErpFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
 @pytest.fixture
@@ -17,7 +17,6 @@ def api_client():
 
 
 @pytest.mark.usefixtures("api_client")
-@pytest.mark.usefixtures("data")
 class TestApi:
     @pytest.mark.django_db
     @pytest.mark.parametrize(
@@ -40,9 +39,25 @@ class TestApi:
 
 
 @pytest.mark.usefixtures("api_client")
-@pytest.mark.usefixtures("data")
+@pytest.mark.django_db
 class TestErpApi:
-    def test_list(self, api_client, data):
+    def test_list(self, api_client):
+        boulangerie = ActiviteFactory(nom="Boulangerie")
+        commune = CommuneFactory(nom="Jacou", departement="34")
+
+        ErpFactory(
+            nom="Aux bons croissants",
+            code_postal="34830",
+            commune="Jacou",
+            activite=boulangerie,
+            commune_ext=commune,
+            accessibilite__sanitaires_presence=True,
+            accessibilite__sanitaires_adaptes=False,
+            accessibilite__commentaire="foo",
+            accessibilite__entree_porte_presence=True,
+            accessibilite__entree_reperage=True,
+        )
+
         response = api_client.get(reverse("erp-list"))
 
         content = json.loads(response.content)
@@ -321,7 +336,8 @@ class TestErpApi:
             "asp_id": None,
         }
 
-    def test_post_patch(self, api_client, activite, commune_montreuil):
+    def test_post_patch(self, api_client, activite):
+        CommuneFactory(nom="Montreuil", code_postaux=["93100"], code_insee="93048", departement="93")
         assert not Erp.objects.filter(nom="Mairie de Montreuil").first()
         payload = {
             "activite": "Mairie",

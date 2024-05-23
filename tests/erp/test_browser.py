@@ -30,6 +30,7 @@ def test_communes(client):
     assert len(response.context["latest"]) == 1
 
 
+@pytest.mark.django_db
 @pytest.mark.parametrize(
     "url",
     [
@@ -72,7 +73,17 @@ def test_communes(client):
         "/robots.txt",
     ],
 )
-def test_urls_ok(data, url, client):
+def test_urls_ok(url, client):
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    commune = CommuneFactory(nom="Jacou", departement="34")
+    ErpFactory(
+        nom="Aux bons croissants",
+        code_postal="34830",
+        commune="Jacou",
+        activite=boulangerie,
+        commune_ext=commune,
+        with_accessibilite=True,
+    )
     response = client.get(url)
     assert response.status_code == 200
 
@@ -150,7 +161,11 @@ def test_auth(client):
     assert response.context["pager"][0].nom == "Aux bons croissants"
 
 
-def test_auth_using_email(data, client):
+@pytest.mark.django_db
+def test_auth_using_email(client):
+    user = UserFactory(username="niko", email="niko@niko.tld")
+    user.set_password("Abc12345!")
+    user.save()
     response = client.post(
         reverse("login"),
         data={"username": "niko@niko.tld", "password": "Abc12345!"},
@@ -567,39 +582,30 @@ def test_ajout_erp(client):
 
 
 @pytest.mark.django_db
-def test_ajout_erp_a11y_vide(data, client):
+def test_ajout_erp_a11y_vide(client):
     user = UserFactory()
     client.force_login(user)
 
-    data.erp.published = False
-    data.erp.save()
-    # empty a11y data
-    data.erp.accessibilite.sanitaires_presence = None
-    data.erp.accessibilite.sanitaires_adaptes = None
-    data.erp.accessibilite.entree_porte_presence = None
-    data.erp.accessibilite.entree_reperage = None
-    data.erp.accessibilite.commentaire = None
-    data.erp.accessibilite.save()
-    data.erp.save()
+    erp = ErpFactory(published=False, with_accessibilite=True)
 
-    assert data.erp.accessibilite.has_data() is False
+    assert erp.accessibilite.has_data() is False
 
     # published field on
     response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
             "published": "on",
         },
         follow=True,
     )
 
-    assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": data.erp.slug}))
+    assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200
     assert (
         str(response.context["messages"]._get()[0][0])
         == "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."
     )
-    erp = Erp.objects.get(slug=data.erp.slug)
+    erp = Erp.objects.get(slug=erp.slug)
     assert erp.accessibilite.has_data() is False
     assert erp.published is False
 
