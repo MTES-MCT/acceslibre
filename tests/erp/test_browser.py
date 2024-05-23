@@ -5,27 +5,25 @@ import pytest
 import reversion
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
-from django.test import Client
 from django.urls import reverse
 from reversion.models import Version
 
 from compte.models import UserStats
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import ActiviteFactory, ErpFactory
+from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 from tests.utils import assert_redirect
 
 
-@pytest.fixture
-def client():
-    return Client()
-
-
-def test_home(data, client):
+@pytest.mark.django_db
+def test_home(client):
     response = client.get(reverse("home"))
     assert response.status_code == 200
 
 
-def test_communes(data, client):
+@pytest.mark.django_db
+def test_communes(client):
+    CommuneFactory(nom="Jacou")
+    ErpFactory()
     response = client.get(reverse("communes"))
     assert len(response.context["communes"]) == 1
     assert response.context["communes"][0].nom == "Jacou"
@@ -92,12 +90,14 @@ def test_urls_ok(data, url, client):
         reverse("admin:erp_erp_changelist"),
     ],
 )
-def test_admin_urls_ok(data, url, client):
-    client.force_login(data.admin)
+@pytest.mark.django_db
+def test_admin_urls_ok(url, client):
+    client.force_login(UserFactory(is_superuser=True, is_staff=True))
     response = client.get(url)
     assert response.status_code == 200
 
 
+@pytest.mark.django_db
 @pytest.mark.parametrize(
     "url",
     [
@@ -108,12 +108,13 @@ def test_admin_urls_ok(data, url, client):
         reverse("mes_contributions_recues"),
     ],
 )
-def test_admin_urls_ok(data, url, client):
-    client.force_login(data.niko)
+def test_user_urls_ok(url, client):
+    client.force_login(UserFactory())
     response = client.get(url)
     assert response.status_code == 200
 
 
+@pytest.mark.django_db
 @pytest.mark.parametrize(
     "url",
     [
@@ -123,12 +124,17 @@ def test_admin_urls_ok(data, url, client):
         ),
     ],
 )
-def test_urls_404(data, url, client):
+def test_urls_404(url, client):
     response = client.get(url)
     assert response.status_code == 404
 
 
-def test_auth(data, client):
+@pytest.mark.django_db
+def test_auth(client):
+    user = UserFactory(username="niko")
+    user.set_password("Abc12345!")
+    user.save()
+    ErpFactory(nom="Aux bons croissants", user=user)
     response = client.post(
         reverse("login"),
         data={"username": "niko", "password": "Abc12345!"},
@@ -153,7 +159,8 @@ def test_auth_using_email(data, client):
     assert response.wsgi_request.user.username == "niko"
 
 
-def test_registration(data, client):
+@pytest.mark.django_db
+def test_registration(client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -169,7 +176,8 @@ def test_registration(data, client):
     assert User.objects.filter(username="julien", is_active=False).count() == 1
 
 
-def test_registration_with_first_and_last_name(data, client):
+@pytest.mark.django_db
+def test_registration_with_first_and_last_name(client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -184,7 +192,8 @@ def test_registration_with_first_and_last_name(data, client):
     assert User.objects.filter(username="julien", first_name="", last_name="", is_active=False).count() == 1
 
 
-def test_registration_not_a_robot(data, client):
+@pytest.mark.django_db
+def test_registration_not_a_robot(client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -199,6 +208,7 @@ def test_registration_not_a_robot(data, client):
     assert User.objects.filter(username="julien").count() == 0
 
 
+@pytest.mark.django_db
 @pytest.mark.parametrize(
     "username",
     [
@@ -209,7 +219,7 @@ def test_registration_not_a_robot(data, client):
         "  Commercial  ",
     ],
 )
-def test_registration_username_blacklisted(username, data, client):
+def test_registration_username_blacklisted(username, client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -225,9 +235,11 @@ def test_registration_username_blacklisted(username, data, client):
     assert "username" in response.context["form"].errors
 
 
-def test_admin_with_regular_user(data, client):
+@pytest.mark.django_db
+def test_admin_with_regular_user(client):
     # test that regular frontend user don't have access to the admin
-    client.force_login(data.samuel)
+    user = UserFactory(is_active=True, is_staff=False)
+    client.force_login(user)
 
     response = client.get(reverse("admin:index"), follow=True)
     # ensure user is redirected to admin login page
@@ -236,9 +248,11 @@ def test_admin_with_regular_user(data, client):
     assert "admin/login.html" in [t.name for t in response.templates]
 
 
-def test_admin_with_staff_user(data, client):
+@pytest.mark.django_db
+def test_admin_with_staff_user(client):
     # the staff flag is for partners (gestionnaire ou territoire)
-    client.force_login(data.niko)
+    user = UserFactory(is_active=True, is_staff=True)
+    client.force_login(user)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
@@ -247,8 +261,11 @@ def test_admin_with_staff_user(data, client):
     assert response.status_code == 403
 
 
-def test_admin_with_admin_user(data, client):
-    client.force_login(data.admin)
+@pytest.mark.django_db
+def test_admin_with_admin_user(client):
+    user = UserFactory(is_staff=True, is_superuser=True, is_active=True)
+    erp = ErpFactory()
+    client.force_login(user)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
@@ -259,28 +276,37 @@ def test_admin_with_admin_user(data, client):
     response = client.get(reverse("admin:erp_erp_add"))
     assert response.status_code == 200
 
-    response = client.get(data.erp.get_admin_url())
+    response = client.get(erp.get_admin_url())
     assert response.status_code == 200
 
 
-def test_ajout_erp_without_auth(data, client):
+@pytest.mark.django_db
+def test_ajout_erp_without_auth(client):
     response = client.get(reverse("contrib_start"), follow=True)
 
     assert response.status_code == 200
     assert "contrib/0-start.html" in [t.name for t in response.templates]
 
 
-def test_erp_edit_can_be_contributed(data, client):
-    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True)
+@pytest.mark.django_db
+def test_erp_edit_can_be_contributed(client):
+    erp = ErpFactory()
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}), follow=True)
 
     assert response.status_code == 200
 
 
-def test_ajout_erp(data, client):
-    data.niko.stats.refresh_from_db()
-    initial_nb_created = data.niko.stats.nb_erp_created
-    initial_nb_edited = data.niko.stats.nb_erp_edited
-    initial_nb_administrator = data.niko.stats.nb_erp_administrator
+@pytest.mark.django_db
+def test_ajout_erp(client):
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    ActiviteFactory(slug="autre")
+    CommuneFactory(nom="JACOU")
+
+    user = UserFactory()
+    user.stats.refresh_from_db()
+    initial_nb_created = user.stats.nb_erp_created
+    initial_nb_edited = user.stats.nb_erp_edited
+    initial_nb_administrator = user.stats.nb_erp_administrator
 
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
@@ -295,7 +321,7 @@ def test_ajout_erp(data, client):
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test ERP",
-            "activite": data.boulangerie.nom,
+            "activite": boulangerie.nom,
             "numero": "12",
             "voie": "GRAND RUE",
             "lieu_dit": "",
@@ -306,7 +332,9 @@ def test_ajout_erp(data, client):
         },
         follow=True,
     )
+    assert response.status_code == 200
     erp = Erp.objects.get(nom="Test ERP")
+    assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert erp.user is None
     assert erp.published is False
     assert erp.geom.x == 3
@@ -316,8 +344,6 @@ def test_ajout_erp(data, client):
     assert erp.ban_id == "abcd_12345"
     assert not hasattr(erp, "accessibilite")
     assert erp.activite is not None
-    assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
-    assert response.status_code == 200
 
     # A propos
     response = client.post(
@@ -511,7 +537,7 @@ def test_ajout_erp(data, client):
 
     # Publication
     # Public user
-    client.force_login(data.niko)
+    client.force_login(user)
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
@@ -521,27 +547,29 @@ def test_ajout_erp(data, client):
     )
     erp = Erp.objects.get(slug=erp.slug)
     assert erp.published is True
-    assert erp.user == data.niko
+    assert erp.user == user
     assert_redirect(response, erp.get_absolute_url())
     assert response.status_code == 200
 
-    data.niko.stats.refresh_from_db()
-    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
-    assert data.niko.stats.nb_erp_edited == initial_nb_edited
-    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_created == initial_nb_created + 1
+    assert user.stats.nb_erp_edited == initial_nb_edited
+    assert user.stats.nb_erp_administrator == initial_nb_administrator
 
     response = client.post(
         reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
         data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE},
         follow=True,
     )
-    data.niko.stats.refresh_from_db()
-    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
-    assert data.niko.stats.nb_erp_administrator == initial_nb_administrator + 1
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_created == initial_nb_created + 1
+    assert user.stats.nb_erp_administrator == initial_nb_administrator + 1
 
 
+@pytest.mark.django_db
 def test_ajout_erp_a11y_vide(data, client):
-    client.force_login(data.niko)
+    user = UserFactory()
+    client.force_login(user)
 
     data.erp.published = False
     data.erp.save()
@@ -577,9 +605,10 @@ def test_ajout_erp_a11y_vide(data, client):
 
 
 def test_add_erp_duplicate(data, client):
-    client.force_login(data.niko)
-    data.niko.stats.refresh_from_db()
-    initial_nb_created = data.niko.stats.nb_erp_created
+    user = UserFactory()
+    client.force_login(user)
+    user.stats.refresh_from_db()
+    initial_nb_created = user.stats.nb_erp_created
 
     response = client.post(
         reverse("contrib_admin_infos"),
@@ -601,12 +630,16 @@ def test_add_erp_duplicate(data, client):
 
     assert "existe déjà dans la base de données" in response.context["form"].errors["__all__"][0]
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
-    data.niko.stats.refresh_from_db()
-    assert data.niko.stats.nb_erp_created == initial_nb_created
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_created == initial_nb_created
 
 
-def test_add_erp_missing_activity(data, client):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_add_erp_missing_activity(client):
+    ActiviteFactory(slug="autre")
+    CommuneFactory(nom="JACOU")
+    user = UserFactory()
+    client.force_login(user)
 
     response = client.post(
         reverse("contrib_admin_infos"),
@@ -629,12 +662,16 @@ def test_add_erp_missing_activity(data, client):
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
 
 
-def test_add_erp_other_activity(data, client):
+@pytest.mark.django_db
+def test_add_erp_other_activity(client):
+    other = ActiviteFactory(slug="autre")
+    CommuneFactory(nom="JACOU")
     assert ActivitySuggestion.objects.count() == 0
 
-    client.force_login(data.niko)
-    data.niko.stats.refresh_from_db()
-    initial_nb_created = data.niko.stats.nb_erp_created
+    user = UserFactory()
+    client.force_login(user)
+    user.stats.refresh_from_db()
+    initial_nb_created = user.stats.nb_erp_created
 
     client.post(
         reverse("contrib_admin_infos"),
@@ -649,41 +686,44 @@ def test_add_erp_other_activity(data, client):
             "commune": "JACOU",
             "lat": 43,
             "lon": 3,
-            "activite": Activite.objects.get(nom="Autre").nom,
+            "activite": other.nom,
             "nouvelle_activite": "My suggestion",
         },
         follow=True,
     )
 
-    assert Erp.objects.get(nom="Test ERP", user=data.niko), "ERP should have been created and attributed to niko"
+    assert Erp.objects.get(nom="Test ERP", user=user), "ERP should have been created and attributed to niko"
 
     assert ActivitySuggestion.objects.count() == 1
     activity_suggest = ActivitySuggestion.objects.last()
     assert activity_suggest.erp is not None
     assert activity_suggest.name == "My suggestion"
-    assert activity_suggest.user == data.niko
+    assert activity_suggest.user == user
 
-    data.niko.stats.refresh_from_db()
-    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_created == initial_nb_created + 1
 
 
-def test_add_erp_with_profanities(data, client):
-    assert UserStats.objects.get(user=data.sophie).nb_profanities == 0
+@pytest.mark.django_db
+def test_add_erp_with_profanities(client):
+    user = UserFactory(is_active=True)
+    assert UserStats.objects.get(user=user).nb_profanities == 0
 
-    client.force_login(data.sophie)
-    erp = data.erp
+    client.force_login(user)
+    CommuneFactory(nom="Paris")
+    erp = ErpFactory(commune="Paris")
 
     client.post(
         reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
         data={"labels_autre": "barrez-vous, cons de mimes", "commentaire": "foo"},
         follow=True,
     )
-    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    accessibilite = erp.accessibilite
     assert not accessibilite.labels_autre, "Comment with profanities should not be stored"
 
-    assert UserStats.objects.get(user=data.sophie).nb_profanities == 1
-    data.sophie.refresh_from_db()
-    assert data.sophie.is_active is True
+    assert UserStats.objects.get(user=user).nb_profanities == 1
+    user.refresh_from_db()
+    assert user.is_active is True
 
     client.post(
         reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
@@ -692,33 +732,37 @@ def test_add_erp_with_profanities(data, client):
         },
         follow=True,
     )
-    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    accessibilite = erp.accessibilite
     assert (
         accessibilite.commentaire == "foo"
     ), "Comment with profanities should be ignored and reversed to the previous stored comment"
-    assert UserStats.objects.get(user=data.sophie).nb_profanities == 2
-    data.sophie.refresh_from_db()
-    assert data.sophie.is_active is False
+    assert UserStats.objects.get(user=user).nb_profanities == 2
+    user.refresh_from_db()
+    assert user.is_active is False
 
 
+@pytest.mark.django_db
 def test_delete_erp_unauthorized(data, client):
-    client.force_login(data.sophie)
+    client.force_login(UserFactory())
 
     response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
     assert response.status_code == 404
 
 
-def test_delete_erp_owner(data, client):
-    client.force_login(data.niko)
+@pytest.mark.django_db
+def test_delete_erp_owner(client):
+    user = UserFactory()
+    erp = ErpFactory(user=user)
+    client.force_login(user)
 
-    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
+    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200
 
-    assert Erp.objects.filter(slug=data.erp.slug).count() == 1
+    assert Erp.objects.filter(slug=erp.slug).count() == 1
 
     # non-confirmed submission
     response = client.post(
-        reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_delete", kwargs={"erp_slug": erp.slug}),
         data={"confirm": False},
     )
 
@@ -727,34 +771,37 @@ def test_delete_erp_owner(data, client):
 
     # confirmed submission
     response = client.post(
-        reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_delete", kwargs={"erp_slug": erp.slug}),
         data={"confirm": True},
         follow=True,
     )
     assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
-    assert Erp.objects.filter(slug=data.erp.slug).count() == 0
+    assert Erp.objects.filter(slug=erp.slug).count() == 0
 
 
-def test_accessibilite_history(data, client):
-    accessibilite = Accessibilite.objects.get(erp__slug=data.erp.slug)
+@pytest.mark.django_db
+def test_accessibilite_history(client):
+    user = UserFactory()
+    erp = ErpFactory(user=user, with_accessibilite=True)
+    accessibilite = erp.accessibilite
 
     assert 0 == len(accessibilite.get_history())
 
-    client.force_login(data.niko)
+    client.force_login(user)
     client.post(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
         data={"transport_station_presence": True},
     )
     client.post(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
         data={"transport_station_presence": False},
     )
     accessibilite.refresh_from_db()
     history = accessibilite.get_history()
 
     assert 1 == len(history)
-    assert history[0]["user"] == data.niko
+    assert history[0]["user"] == user
     assert history[0]["diff"] == [
         {
             "field": "transport_station_presence",
@@ -765,19 +812,24 @@ def test_accessibilite_history(data, client):
     ]
 
 
-def test_history_metadata_not_versioned(data, client):
-    with reversion.create_revision():
-        data.erp.metadata = {"a": 1}
-        data.erp.save()
+@pytest.mark.django_db
+def test_history_metadata_not_versioned():
+    erp = ErpFactory(with_accessibilite=True)
 
     with reversion.create_revision():
-        data.erp.metadata = {"a": 2}
-        data.erp.save()
+        erp.metadata = {"a": 1}
+        erp.save()
 
-    assert 0 == len(data.erp.get_history())
+    with reversion.create_revision():
+        erp.metadata = {"a": 2}
+        erp.save()
+
+    assert 0 == len(erp.get_history())
 
 
-def test_history_human_readable_diff(data, client):
+@pytest.mark.django_db
+def test_history_human_readable_diff():
+    user = UserFactory()
     with reversion.create_revision():
         erp = Erp(
             nom="test erp",
@@ -785,7 +837,7 @@ def test_history_human_readable_diff(data, client):
             published=True,
             geom=Point(0, 0),
         )
-        reversion.set_user(data.niko)
+        reversion.set_user(user)
         erp.save()
         accessibilite = Accessibilite(erp=erp)
         accessibilite.save()
@@ -794,7 +846,7 @@ def test_history_human_readable_diff(data, client):
         erp.siret = "52128577500017"
         erp.published = False
         erp.geom = Point(1, 1)
-        reversion.set_user(data.niko)
+        reversion.set_user(user)
 
         erp.save()
 
@@ -834,23 +886,32 @@ def test_history_human_readable_diff(data, client):
     assert str(get_entry("labels", a11y_diff)["new"]) == "Destination pour Tous, Tourisme & Handicap"
 
 
-def test_contribution_flow_administrative_data(data, client):
-    data.sophie.stats.refresh_from_db()
-    initial_nb_created = data.sophie.stats.nb_erp_created
-    initial_nb_edited = data.sophie.stats.nb_erp_edited
+@pytest.mark.django_db
+def test_contribution_flow_administrative_data(client):
+    user = UserFactory()
+    user.stats.refresh_from_db()
 
-    client.force_login(data.sophie)
-    response = client.get(reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}))
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    ActiviteFactory(slug="autre")
+    CommuneFactory(nom="JACOU")
+
+    erp = ErpFactory(nom="Aux bons croissants")
+
+    initial_nb_created = user.stats.nb_erp_created
+    initial_nb_edited = user.stats.nb_erp_edited
+
+    client.force_login(user)
+    response = client.get(reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}))
 
     assert response.status_code == 200
 
     response = client.post(
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
         data={
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test contribution",
-            "activite": data.boulangerie.nom,
+            "activite": boulangerie.nom,
             "numero": "12",
             "voie": "GRAND RUE",
             "lieu_dit": "",
@@ -858,45 +919,52 @@ def test_contribution_flow_administrative_data(data, client):
             "commune": "JACOU",
             "site_internet": "http://google.com/",
             "action": "contribute",
-            "lat": data.erp.geom.x,
-            "lon": data.erp.geom.y,
+            "lat": erp.geom.x,
+            "lon": erp.geom.y,
         },
         follow=True,
     )
 
-    updated_erp = Erp.objects.get(slug=data.erp.slug)
+    updated_erp = Erp.objects.get(slug=erp.slug)
     assert response.context["form"].errors == {}
     assert updated_erp.nom == "Test contribution"
-    assert updated_erp.user == data.erp.user  # original owner is preserved
+    assert updated_erp.user == erp.user  # original owner is preserved
     assert_redirect(response, "/contrib/transport/aux-bons-croissants/")
     assert response.status_code == 200
 
-    data.sophie.stats.refresh_from_db()
-    assert data.sophie.stats.nb_erp_created == initial_nb_created
-    assert data.sophie.stats.nb_erp_edited == initial_nb_edited + 1
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_created == initial_nb_created
+    assert user.stats.nb_erp_edited == initial_nb_edited + 1
 
 
-def test_contribution_flow_accessibilite_data(data, client):
-    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}))
+@pytest.mark.django_db
+def test_contribution_flow_accessibilite_data(client):
+    activite = ActiviteFactory(nom="Boulangerie")
+    ActiviteFactory(slug="autre")
+    CommuneFactory(nom="Jacou")
+    user = UserFactory()
+    erp = ErpFactory(user=user, nom="Aux bons croissants", commune="Jacou", activite=activite, with_accessibilite=True)
+
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200
 
-    data.niko.stats.refresh_from_db()
-    initial_nb_edited = data.niko.stats.nb_erp_edited
+    user.stats.refresh_from_db()
+    initial_nb_edited = user.stats.nb_erp_edited
 
     client.post(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
         data={
             "transport_station_presence": "False",
             "contribute": "Continuer",
         },
         follow=True,
     )
-    updated_erp = Erp.objects.get(slug=data.erp.slug)
+    updated_erp = Erp.objects.get(slug=erp.slug)
     assert updated_erp.accessibilite.transport_station_presence is None
 
-    client.force_login(data.niko)
+    client.force_login(user)
     response = client.post(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
         data={
             "transport_station_presence": "False",
             "contribute": "Continuer",
@@ -904,55 +972,63 @@ def test_contribution_flow_accessibilite_data(data, client):
         follow=True,
     )
 
-    updated_erp = Erp.objects.get(slug=data.erp.slug)
-    assert updated_erp.user == data.erp.user  # original owner is preserved
+    updated_erp = Erp.objects.get(slug=erp.slug)
+    assert updated_erp.user == erp.user  # original owner is preserved
     assert updated_erp.accessibilite.transport_station_presence is False
     assert_redirect(
         response,
         reverse("contrib_exterieur", kwargs={"erp_slug": updated_erp.slug}),
     )
     assert response.status_code == 200
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_edited == initial_nb_edited + 1
 
-    data.niko.stats.refresh_from_db()
-    assert data.niko.stats.nb_erp_edited == initial_nb_edited + 1
 
-
-def test_erp_redirect(client, data):
+@pytest.mark.django_db
+def test_erp_redirect(client):
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    erp = ErpFactory(
+        with_accessibilite=True, nom="Aux bons croissants", commune="Jacou", code_postal="34120", activite=boulangerie
+    )
     response = client.get(
-        reverse("erp_uuid", kwargs={"uuid": str(data.erp.uuid)}),
+        reverse("erp_uuid", kwargs={"uuid": str(erp.uuid)}),
         follow=True,
     )
 
     assert response.status_code == 200
-    assert response.context["erp"] == data.erp
+    assert response.context["erp"] == erp
 
     response = client.get(
         reverse(
             "commune_activite_erp",
-            kwargs={"commune": "foo", "activite_slug": "bar", "erp_slug": data.erp.slug},
+            kwargs={"commune": "foo", "activite_slug": "bar", "erp_slug": erp.slug},
         ),
         follow=True,
     )
     assert response.status_code == 200
-    assert response.context["erp"] == data.erp
+    assert response.context["erp"] == erp
     assert response.redirect_chain == [("/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/", 302)]
 
 
-def test_edit_erp_invalid_data(data, client):
-    client.force_login(data.niko)
-    initial_erp = copy(data.erp)
+@pytest.mark.django_db
+def test_edit_erp_invalid_data(client):
+    ActiviteFactory(slug="autre")
+    user = UserFactory()
+    client.force_login(user)
+    erp = ErpFactory()
+    initial_erp = copy(erp)
     payload = {
         "lat": "http://i-want-to-hack-you.com/spam.exe",
     }
     response = client.post(
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
         payload,
         follow=True,
     )
 
-    data.erp.refresh_from_db()
+    erp.refresh_from_db()
     assert "lat" in response.context["form"].errors
-    assert data.erp.geom.x == initial_erp.geom.x
+    assert erp.geom.x == initial_erp.geom.x
 
 
 @pytest.mark.django_db

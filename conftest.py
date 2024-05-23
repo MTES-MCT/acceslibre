@@ -526,13 +526,6 @@ def data(db):
         is_staff=True,
         is_active=True,
     )
-    obj_samuel = User.objects.create_user(
-        username="samuel",
-        password=TEST_PASSWORD,
-        email="samuel@samuel.tld",
-        is_staff=False,
-        is_active=True,
-    )
     obj_jacou = Commune.objects.create(
         nom="Jacou",
         code_postaux=["34830"],
@@ -570,7 +563,6 @@ def data(db):
         niko = obj_niko
         julia = obj_julia
         sophie = obj_sophie
-        samuel = obj_samuel
         jacou = obj_jacou
         boulangerie = obj_boulangerie
         accessibilite = obj_accessibilite
