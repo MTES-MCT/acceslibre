@@ -101,7 +101,8 @@ def test_widget_tracking_with_same_origin_site():
     assert WidgetEvent.objects.all().count() == 0
 
 
-def test_command_refresh_stats(client, data):
+@pytest.mark.django_db
+def test_command_refresh_stats(client):
     call_command("refresh_stats")
     assert GlobalStats.objects.count() == 1
     stat = GlobalStats.objects.get()

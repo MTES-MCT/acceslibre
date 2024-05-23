@@ -10,6 +10,7 @@ from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
 from tests.factories import AccessibiliteFactory, CommuneFactory, ErpFactory
 
 
+@pytest.mark.django_db
 class TestAccessibility:
     @pytest.mark.parametrize(
         "other, expected",
@@ -51,16 +52,30 @@ class TestAccessibility:
             pytest.param({"sanitaires_adaptes": False}, False, id="less_attrs"),
         ),
     )
-    def test_equals(self, data, other, expected):
+    def test_equals(self, other, expected):
+        access = AccessibiliteFactory(
+            sanitaires_presence=True,
+            sanitaires_adaptes=False,
+            commentaire="foo",
+            entree_porte_presence=True,
+            entree_reperage=True,
+        )
         other = Accessibilite(**other)
-        access = data.erp.accessibilite
         assert (access == other) is expected
 
-    def test_has_data(self, data):
-        acc = Accessibilite(id=1337, erp=data.erp)
+    def test_has_data(self):
+        erp = ErpFactory(
+            accessibilite__sanitaires_presence=True,
+            accessibilite__sanitaires_adaptes=False,
+            accessibilite__commentaire="foo",
+            accessibilite__entree_porte_presence=True,
+            accessibilite__entree_reperage=True,
+        )
+
+        acc = Accessibilite(id=1337, erp=erp)
         assert acc.has_data() is False
 
-        acc = Accessibilite(id=1337, erp=data.erp, stationnement_presence=True)
+        acc = Accessibilite(id=1337, erp=erp, stationnement_presence=True)
         assert acc.has_data() is True
 
     @pytest.mark.django_db

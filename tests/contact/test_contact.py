@@ -1,10 +1,12 @@
 from unittest.mock import ANY
 
+import pytest
 from django.conf import settings
 from django.core import mail
 from django.urls import reverse
 
 from contact.models import Message
+from tests.factories import ErpFactory, UserFactory
 
 TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
@@ -14,7 +16,8 @@ RECEIPT_CONTENT_NORMAL = "contacter directement les gestionnaires de l'établiss
 RECEIPT_CONTENT_VACCINATION = "prise de rendez-vous de vaccination"
 
 
-def test_contact(mocker, data, client):
+@pytest.mark.django_db
+def test_contact(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     response = client.post(
@@ -66,7 +69,8 @@ def test_contact(mocker, data, client):
     )
 
 
-def test_contact_antispam(data, client):
+@pytest.mark.django_db
+def test_contact_antispam(client):
     response = client.post(
         reverse("contact_form"),
         {
@@ -83,13 +87,16 @@ def test_contact_antispam(data, client):
     assert 0 == Message.objects.count()
 
 
-def test_contact_authenticated(mocker, data, client):
+@pytest.mark.django_db
+def test_contact_authenticated(mocker, client):
+    user = UserFactory(email="niko@niko.tld", username="niko")
+    erp = ErpFactory(user=user)
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
-    client.force_login(data.niko)
+    client.force_login(user)
 
     response = client.get(reverse("contact_form"))
-    assert response.context["form"].initial["user"] == data.niko
+    assert response.context["form"].initial["user"] == user
     assert 'value="niko@niko.tld"' in response.content.decode()
 
     response = client.post(
@@ -99,7 +106,7 @@ def test_contact_authenticated(mocker, data, client):
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
-            "user": str(data.erp.user.pk),
+            "user": str(erp.user.pk),
             "robot": "on",
         },
     )
@@ -142,7 +149,8 @@ def test_contact_authenticated(mocker, data, client):
     )
 
 
-def test_contact_topic(mocker, data, client):
+@pytest.mark.django_db
+def test_contact_topic(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     response = client.post(

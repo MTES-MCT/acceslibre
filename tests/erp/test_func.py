@@ -1,16 +1,14 @@
-import html
 from unittest.mock import ANY
 
 import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
-from django.core import mail
 from django.urls import reverse
 from django.utils.translation import gettext as translate
 from splinter import Browser
 
-from erp import schema
 from erp.models import Accessibilite, Activite, Commune, Erp
+from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
 
 
 @pytest.fixture
@@ -60,7 +58,10 @@ def test_home(data, browser, django_assert_max_num_queries):
     assert browser.title.startswith("acceslibre")
 
 
-def test_communes(data, browser):
+@pytest.mark.django_db
+def test_communes(browser):
+    CommuneFactory(nom="Jacou")
+    ErpFactory()
     browser.visit(reverse("communes"))
 
     assert browser.title.startswith("Communes")
@@ -68,17 +69,29 @@ def test_communes(data, browser):
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
 
-def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
-
+@pytest.mark.django_db
+def test_erp_details(browser, erp_domtom, django_assert_max_num_queries):
+    activite = ActiviteFactory(nom="Boulangerie")
+    commune = CommuneFactory(nom="Jacou")
+    erp = ErpFactory(
+        nom="Aux bons croissants",
+        activite=activite,
+        commune="Jacou",
+        commune_ext=commune,
+        accessibilite__sanitaires_presence=True,
+        accessibilite__sanitaires_adaptes=False,
+        accessibilite__entree_porte_presence=True,
+        accessibilite__entree_reperage=True,
+    )
     with django_assert_max_num_queries(7):
-        browser.visit(data.erp.get_absolute_url())
+        browser.visit(erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title
     assert "Boulangerie" in browser.title
     assert "Jacou" in browser.title
-    assert browser.is_text_present(data.erp.nom)
-    assert browser.is_text_present(data.erp.activite.nom)
-    assert browser.is_text_present(data.erp.adresse)
+    assert browser.is_text_present(erp.nom)
+    assert browser.is_text_present(erp.activite.nom)
+    assert browser.is_text_present(erp.adresse)
     assert browser.is_text_present(translate("Toilettes classiques"))
     assert browser.is_text_present(translate("Entrée bien visible"))
 
@@ -93,19 +106,22 @@ def test_erp_details(data, browser, erp_domtom, django_assert_max_num_queries):
     assert browser.is_text_present(erp_domtom.adresse)
 
 
-def test_erp_details_edit_links(data, browser):
-    browser.visit(data.erp.get_absolute_url())
+@pytest.mark.django_db
+def test_erp_details_edit_links(browser):
+    erp = ErpFactory(with_accessibilite=True)
+    browser.visit(erp.get_absolute_url())
 
-    assert browser.title.startswith(data.erp.nom)
+    assert browser.title.startswith(erp.nom)
     edit_urls = [
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
     ]
     for edit_url in edit_urls:
         matches = browser.links.find_by_href(edit_url)
         assert len(matches) > 0, f'Edit url "{edit_url}" not found'
 
 
-def test_registration_flow_without_next(mocker, data, browser):
+@pytest.mark.django_db
+def test_registration_flow_without_next(mocker, browser):
     brevo_mock = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     browser.visit(reverse("django_registration_register"))
@@ -136,7 +152,8 @@ def test_registration_flow_without_next(mocker, data, browser):
     assert user.is_active is True
 
 
-def test_registration_flow(mocker, data, browser):
+@pytest.mark.django_db
+def test_registration_flow(mocker, browser):
     brevo_mock = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
 
     browser.visit(reverse("django_registration_register") + "?next=/contact/")

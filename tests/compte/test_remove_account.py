@@ -16,7 +16,7 @@ def pseudo_random_string(mocker):
 
 
 @pytest.mark.django_db
-def test_delete_account_anonymize_user(data, pseudo_random_string):
+def test_delete_account_anonymize_user(pseudo_random_string):
     user = UserFactory(is_staff=True, is_active=True)
     anonymized_user = service.anonymize_user(user)
 
@@ -54,7 +54,7 @@ def test_delete_account_e2e(client, pseudo_random_string):
 
 
 @pytest.mark.django_db
-def test_delete_account_no_confirm_e2e(client, data):
+def test_delete_account_no_confirm_e2e(client):
     user = UserFactory(is_staff=True, is_active=True)
     client.force_login(user)
 

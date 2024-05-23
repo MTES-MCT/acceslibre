@@ -6,8 +6,7 @@ from django.test import Client
 from django.urls import reverse
 from reversion.models import Version
 
-from erp.models import Activite, Erp
-from tests.factories import AccessibiliteFactory, CommuneFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 
 AKEI_SIRET = "88076068100010"
 
@@ -110,25 +109,29 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
     assert response.context["results"] == [mairie_jacou_result, akei_result]
 
 
-def test_contrib_start_global_search_with_existing(client, data, mocker, akei_result, mairie_jacou_result):
+@pytest.mark.django_db
+def test_contrib_start_global_search_with_existing(client, mocker, akei_result, mairie_jacou_result):
+    commune = CommuneFactory(nom="Jacou")
+    mairie = ActiviteFactory(nom="Mairie")
+    user = UserFactory()
+
     mocker.patch(
         "erp.provider.search.global_search",
         return_value=[mairie_jacou_result, akei_result],
     )
 
-    mairie = Activite.objects.create(nom="Mairie")
-    obj_erp = Erp.objects.create(
+    obj_erp = ErpFactory(
         nom="Mairie - Jacou",
         siret=None,
         numero="2",
         voie="place de la Mairie",
         code_postal="34830",
         commune="Jacou",
-        commune_ext=data.jacou,
+        commune_ext=commune,
         geom=Point((3.9047933, 43.6648217)),
         activite=mairie,
         published=True,
-        user=data.niko,
+        user=user,
     )
 
     response = client.get(
