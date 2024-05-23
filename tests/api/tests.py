@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from unittest.mock import ANY
 
 import pytest
+from django.contrib.gis.geos import Point
 from django.urls import reverse
 from rest_framework.test import APIClient
 
@@ -14,6 +15,30 @@ from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactor
 @pytest.fixture
 def api_client():
     return APIClient()
+
+
+@pytest.fixture
+def initial_erp():
+    boulangerie = ActiviteFactory(nom="Boulangerie")
+    commune = CommuneFactory(nom="Jacou", departement="34")
+
+    return ErpFactory(
+        nom="Aux bons croissants",
+        numero="4",
+        voie="grand rue",
+        code_postal="34830",
+        commune="Jacou",
+        activite=boulangerie,
+        commune_ext=commune,
+        siret="52128577500016",
+        ban_id="abcd_12345",
+        geom=Point((3.9047933, 43.6648217)),
+        accessibilite__sanitaires_presence=True,
+        accessibilite__sanitaires_adaptes=False,
+        accessibilite__commentaire="foo",
+        accessibilite__entree_porte_presence=True,
+        accessibilite__entree_reperage=True,
+    )
 
 
 @pytest.mark.usefixtures("api_client")
@@ -41,22 +66,7 @@ class TestApi:
 @pytest.mark.usefixtures("api_client")
 @pytest.mark.django_db
 class TestErpApi:
-    def test_list(self, api_client):
-        boulangerie = ActiviteFactory(nom="Boulangerie")
-        commune = CommuneFactory(nom="Jacou", departement="34")
-
-        ErpFactory(
-            nom="Aux bons croissants",
-            code_postal="34830",
-            commune="Jacou",
-            activite=boulangerie,
-            commune_ext=commune,
-            accessibilite__sanitaires_presence=True,
-            accessibilite__sanitaires_adaptes=False,
-            accessibilite__commentaire="foo",
-            accessibilite__entree_porte_presence=True,
-            accessibilite__entree_reperage=True,
-        )
+    def test_list(self, api_client, initial_erp):
 
         response = api_client.get(reverse("erp-list"))
 
@@ -115,7 +125,7 @@ class TestErpApi:
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
 
-    def test_list_geojson(self, api_client, data):
+    def test_list_geojson(self, api_client, initial_erp):
         geojson_expected_for_erp = {
             "type": "FeatureCollection",
             "count": 1,
@@ -126,7 +136,7 @@ class TestErpApi:
                     "type": "Feature",
                     "geometry": {"type": "Point", "coordinates": [3.9047933, 43.6648217]},
                     "properties": {
-                        "uuid": str(data.erp.uuid),
+                        "uuid": str(initial_erp.uuid),
                         "nom": "Aux bons croissants",
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
@@ -165,7 +175,7 @@ class TestErpApi:
         )
         assert response.json() == geojson_expected_for_no_results
 
-    def test_list_can_show_drafts(self, api_client, data):
+    def test_list_can_show_drafts(self, api_client, initial_erp):
         ErpFactory(published=False)
 
         response = api_client.get(reverse("erp-list"))
@@ -179,13 +189,13 @@ class TestErpApi:
         assert len(content["results"]) == 2
         assert len([erp for erp in content["results"] if erp["published"] is False]) == 1
 
-    def test_list_page_size(self, api_client, data):
+    def test_list_page_size(self, api_client, initial_erp):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
         assert content["page_size"] == 25
 
-    def test_list_qs(self, api_client, data):
+    def test_list_qs(self, api_client, initial_erp):
         response = api_client.get(reverse("erp-list") + "?q=croissants")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
@@ -194,9 +204,8 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 0
 
-    def test_list_postal_code(self, api_client, data):
-        # TODO: use several fixtures when we will have a real mechanism
-        erp2 = data.erp
+    def test_list_postal_code(self, api_client, initial_erp):
+        erp2 = initial_erp
         erp2.pk = None
         erp2.uuid = uuid.uuid4()
         erp2.save()
@@ -212,7 +221,7 @@ class TestErpApi:
         assert len(content["results"]) == 1
         assert all([e["code_postal"] == "34830" for e in content["results"]])
 
-    def test_list_asp_id(self, api_client, data):
+    def test_list_asp_id(self, api_client, initial_erp):
         response = api_client.get(reverse("erp-list") + "?asp_id_not_null=true")
         content = json.loads(response.content)
         assert len(content["results"]) == 0
@@ -221,8 +230,8 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-    def test_detail(self, api_client, data):
-        response = api_client.get(reverse("erp-detail", kwargs={"slug": data.erp.slug}))
+    def test_detail(self, api_client, initial_erp):
+        response = api_client.get(reverse("erp-detail", kwargs={"slug": initial_erp.slug}))
         assert response.json() == {
             "url": "http://testserver/api/erps/aux-bons-croissants/",
             "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
@@ -246,7 +255,7 @@ class TestErpApi:
             "updated_at": ANY,
             "published": True,
             "accessibilite": {
-                "url": f"http://testserver/api/accessibilite/{data.erp.accessibilite.id}/",
+                "url": f"http://testserver/api/accessibilite/{initial_erp.accessibilite.id}/",
                 "erp": "http://testserver/api/erps/aux-bons-croissants/",
                 "transport": {
                     "transport_station_presence": None,
@@ -507,9 +516,9 @@ class TestErpApi:
 
 
 @pytest.mark.usefixtures("api_client")
-@pytest.mark.usefixtures("data")
+@pytest.mark.django_db
 class TestActiviteApi:
-    def test_get(self, api_client, data):
+    def test_get(self, api_client, initial_erp):
         response = api_client.get(reverse("activite-list"))
         assert response.json() == {
             "count": 1,
@@ -520,9 +529,9 @@ class TestActiviteApi:
 
 
 @pytest.mark.usefixtures("api_client")
-@pytest.mark.usefixtures("data")
+@pytest.mark.django_db
 class TestAccessibiliteApi:
-    def test_get(self, api_client, data):
+    def test_get(self, api_client, initial_erp):
         response = api_client.get(reverse("accessibilite-list"))
         assert response.json() == {
             "count": 1,
@@ -530,7 +539,7 @@ class TestAccessibiliteApi:
             "previous": None,
             "results": [
                 {
-                    "url": f"http://testserver/api/accessibilite/{data.erp.accessibilite.id}/",
+                    "url": f"http://testserver/api/accessibilite/{initial_erp.accessibilite.id}/",
                     "erp": "http://testserver/api/erps/aux-bons-croissants/",
                     "transport": {
                         "transport_station_presence": None,

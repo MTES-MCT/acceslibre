@@ -51,7 +51,8 @@ def login(browser, username, password, next=None):
     button.click()
 
 
-def test_home(data, browser, django_assert_max_num_queries):
+@pytest.mark.django_db
+def test_home(browser, django_assert_max_num_queries):
     with django_assert_max_num_queries(2):
         browser.visit(reverse("home"))
 

@@ -610,24 +610,29 @@ def test_ajout_erp_a11y_vide(client):
     assert erp.published is False
 
 
-def test_add_erp_duplicate(data, client):
+@pytest.mark.django_db
+def test_add_erp_duplicate(client):
     user = UserFactory()
     client.force_login(user)
     user.stats.refresh_from_db()
     initial_nb_created = user.stats.nb_erp_created
-
+    ActiviteFactory(slug="autre")
+    activity = ActiviteFactory(nom="Boulangerie")
+    erp = ErpFactory(
+        nom="Aux bons croissants", code_postal="34830", commune="Jacou", numero=4, voie="grand rue", activite=activity
+    )
     response = client.post(
         reverse("contrib_admin_infos"),
         data={
             "source": "sirene",
             "source_id": "xxx",
             "nom": "Test ERP",
-            "activite": data.erp.activite.nom,
-            "numero": data.erp.numero,
-            "voie": data.erp.voie,
+            "activite": erp.activite.nom,
+            "numero": erp.numero,
+            "voie": erp.voie,
             "lieu_dit": "",
-            "code_postal": data.erp.code_postal,
-            "commune": data.erp.commune,
+            "code_postal": erp.code_postal,
+            "commune": erp.commune,
             "lat": 43,
             "lon": 3,
         },
@@ -748,10 +753,11 @@ def test_add_erp_with_profanities(client):
 
 
 @pytest.mark.django_db
-def test_delete_erp_unauthorized(data, client):
+def test_delete_erp_unauthorized(client):
     client.force_login(UserFactory())
+    erp = ErpFactory()
 
-    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
+    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 404
 
 
