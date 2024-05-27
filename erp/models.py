@@ -332,52 +332,6 @@ class Commune(models.Model):
         )
 
 
-class Vote(models.Model):
-    NEGATIVE_VALUE = -1
-    POSITIVE_VALUE = 1
-
-    VOTE_UP_ACTION = "UP"
-    VOTE_DOWN_ACTION = "DOWN"
-    UNVOTE_UP_ACTION = "UNVOTE_UP"
-    UNVOTE_DOWN_ACTION = "UNVOTE_DOWN"
-
-    class Meta:
-        indexes = [
-            models.Index(fields=["value"]),
-            models.Index(fields=["erp", "value"]),
-            models.Index(fields=["erp", "user", "value"]),
-        ]
-        unique_together = [["erp", "user"]]
-
-    erp = models.ForeignKey(
-        "Erp",
-        verbose_name=translate_lazy("Établissement"),
-        on_delete=models.CASCADE,
-    )
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        verbose_name=translate_lazy("Utilisateur"),
-        on_delete=models.CASCADE,
-    )
-    value = models.SmallIntegerField(
-        verbose_name=translate_lazy("Valeur"),
-        choices=[(-1, "-1"), (1, "+1")],
-        default=1,
-    )
-    comment = models.TextField(
-        max_length=5000,
-        null=True,
-        blank=True,
-        verbose_name=translate_lazy("Commentaire"),
-    )
-    # datetimes
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
-
-    def __str__(self):
-        return translate(f"Vote {self.value} de {self.user.username} pour {self.erp.nom}")
-
-
 @reversion.register(
     ignore_duplicates=True,
     exclude=[
