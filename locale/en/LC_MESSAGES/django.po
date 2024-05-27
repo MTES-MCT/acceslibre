@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 13:04+0200\n"
+"POT-Creation-Date: 2024-05-28 14:31+0200\n"
 "PO-Revision-Date: 2024-04-30 17:38+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4627,6 +4627,10 @@ msgid ""
 msgstr ""
 "There is no change history yet for the accessibility data for this facility."
 
+#, python-format
+msgid "Label %(name)s"
+msgstr "Label %(name)s"
+
 msgid "Une personne inspectant des données à la loupe"
 msgstr ""
 
@@ -4733,10 +4737,6 @@ msgstr "Accessibility information"
 #, python-format
 msgid "- mises à jour le %(date)s"
 msgstr "- updated on %(date)s"
-
-#, python-format
-msgid "Label %(name)s"
-msgstr "Label %(name)s"
 
 msgid "Fermer la fenêtre"
 msgstr "Close the window"
