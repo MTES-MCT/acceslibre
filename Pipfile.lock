@@ -1758,11 +1758,11 @@
         },
         "schedule": {
             "hashes": [
-                "sha256:14cdeb083a596aa1de6dc77639a1b2ac8bf6eaafa82b1c9279d3612823063d01",
-                "sha256:843bc0538b99c93f02b8b50e3e39886c06f2d003b24f48e1aa4cadfa3f341279"
+                "sha256:5bef4a2a0183abf44046ae0d164cadcac21b1db011bdd8102e4a0c1e91e06a7d"
             ],
             "index": "pypi",
-            "version": "==1.2.1"
+            "markers": "python_version >= '3.7'",
+            "version": "==1.2.2"
         },
         "scrapfly-sdk": {
             "hashes": [
