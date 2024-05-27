@@ -61,7 +61,7 @@ class StaticViewSitemap(Sitemap):
             ("home", 1),
             ("communes", 0.9),
             ("apidocs", 0.8),
-            ("cgu", 0.5),
+            ("mentions-legales", 0.5),
             ("accessibilite", 0.5),
             ("partenaires", 0.4),
             ("stats_home", 0.1),

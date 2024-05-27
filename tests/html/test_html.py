@@ -92,8 +92,8 @@ def test_editorial_accessibilite(client):
     validate_url_get(client, reverse("accessibilite"))
 
 
-def test_editorial_cgu(client):
-    validate_url_get(client, reverse("cgu"))
+def test_editorial_mentions_legales(client):
+    validate_url_get(client, reverse("mentions-legales"))
 
 
 def test_editorial_partenaires(client):

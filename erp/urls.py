@@ -22,9 +22,9 @@ urlpatterns = [
         name="home",
     ),
     path(
-        "conditions-generales-d-utilisation",
-        editorial_page("editorial/cgu.html"),
-        name="cgu",
+        "mentions-legales",
+        editorial_page("editorial/mention-legales.html"),
+        name="mentions-legales",
     ),
     path(
         "accessibilite",
