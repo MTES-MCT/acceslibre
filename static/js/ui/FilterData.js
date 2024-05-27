@@ -8,18 +8,18 @@ function hasVisibleChildren(element) {
   return visibleChildren
 }
 
-function filterData(root) {
+function listenToFilterClicked(root) {
   const dataToToogle = root.querySelectorAll('[data-filters]')
   document.addEventListener('filterClicked', () => {
     const inputFilters = document.querySelectorAll('[name=erp_filter]:checked')
     const activeFilters = Array.from(inputFilters).map((filter) => filter.value)
-    const titlesToToogle = root.querySelectorAll('[data-filter-title]')
+    const titlesToToggle = root.querySelectorAll('[data-filter-title]')
 
     if (activeFilters.length === 0) {
       dataToToogle.forEach((element) => {
         element.classList.remove('hidden')
       })
-      titlesToToogle.forEach((element) => {
+      titlesToToggle.forEach((element) => {
         element.classList.remove('hidden')
       })
       return
@@ -36,15 +36,25 @@ function filterData(root) {
       }
     })
 
-    titlesToToogle.forEach((titleElement) => {
-      const shouldBeVisible = hasVisibleChildren(titleElement.nextElementSibling)
-      if (shouldBeVisible === true) {
-        titleElement.classList.remove('hidden')
-      } else {
-        titleElement.classList.add('hidden')
-      }
-    })
+    hideEmptyTitles(root)
   })
+}
+
+function hideEmptyTitles(root) {
+  const titlesToToggle = root.querySelectorAll('[data-filter-title]')
+  titlesToToggle.forEach((titleElement) => {
+    const shouldBeVisible = hasVisibleChildren(titleElement.nextElementSibling)
+    if (shouldBeVisible === true) {
+      titleElement.classList.remove('hidden')
+    } else {
+      titleElement.classList.add('hidden')
+    }
+  })
+}
+
+function filterData(root) {
+  hideEmptyTitles(root)
+  listenToFilterClicked(root)
 }
 
 export default filterData
