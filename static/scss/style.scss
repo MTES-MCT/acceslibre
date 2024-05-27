@@ -84,10 +84,6 @@ a.btn {
   background-image: none !important;
 }
 
-.elt-bigger {
-  font-size: 1.1em !important;
-}
-
 #home-latest-erps-list {
   & ul {
     padding-left: 0px;
@@ -352,14 +348,6 @@ select[name='language'] {
     list-style-type: none;
   }
 
-  .text-bigger {
-    font-size: 2em;
-  }
-
-  .text-count {
-    font-size: 4.5em !important;
-  }
-
   .text-overlay {
     overflow: overlay;
   }
@@ -404,26 +392,9 @@ select[name='language'] {
     }
   }
 
-  &-icon-small-top {
-    font-size: 0.85em;
-  }
-
   &-tab-content-section {
     min-height: 100%;
     background: $white;
-  }
-
-  &-erp-details-link {
-    font-size: 0.9em;
-
-    @media screen and (max-width: $viewport-md) {
-      font-size: 0.85em;
-      padding: 4px;
-    }
-
-    .icon {
-      vertical-align: inherit;
-    }
   }
 
   &-localisation-map {
@@ -562,11 +533,6 @@ select[name='language'] {
     left: 0;
   }
 
-  &-backlink {
-    border-bottom: 1px solid #ddd;
-    background: #fafafa;
-  }
-
   &-cluster-icon {
     background-color: #13629a;
     border-radius: 50%;
@@ -581,44 +547,6 @@ select[name='language'] {
     width: 32px;
   }
 
-  &-large-breadcrumb {
-    font-size: 32px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    @media only screen and (max-width: $viewport-sm) {
-      font-size: 24px;
-    }
-  }
-
-  &-handicap-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-  }
-
-  &-accessibility-group {
-    background: $white;
-  }
-
-  &-accessibility-label {
-    text-align: center;
-    margin-left: 2px;
-  }
-
-  &-accessibility-label-logo {
-    border-radius: 8px;
-    width: 100px;
-    height: 100px;
-  }
-
-  &-app-title {
-    @media screen and (min-width: $viewport-lg) {
-      max-height: 58px;
-    }
-  }
-
   &-icon-btn {
     display: inline;
     padding-bottom: 1px;
@@ -627,31 +555,6 @@ select[name='language'] {
 
   &-locate-icon::before {
     line-height: inherit !important;
-  }
-
-  &-center-icon {
-    color: red;
-    font-size: 1rem;
-    opacity: 0.5;
-  }
-
-  &-warn-icon {
-    color: #aaa;
-    display: inline-block;
-  }
-
-  /* Notifs */
-
-  &-notifs {
-    position: fixed;
-    right: 10px;
-    top: 60px;
-    z-index: 1999;
-  }
-
-  &-notif {
-    max-width: 600px;
-    min-width: 350px;
   }
 
   /* Forms */
