@@ -1,11 +1,6 @@
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as translate_lazy
-
-from compte.tasks import sync_user_attributes
 
 
 class EmailToken(models.Model):
@@ -46,14 +41,6 @@ class UserPreferences(models.Model):
     newsletter_opt_in = models.BooleanField(
         default=False, verbose_name=translate_lazy("Accepte de recevoir la newsletter")
     )
-
-    @receiver(post_save, sender=get_user_model())
-    def save_profile(sender, instance, created, **kwargs):
-        if created:
-            user_prefs = UserPreferences(user=instance)
-            user_prefs.save()
-
-        sync_user_attributes.delay(instance.pk)
 
 
 class UserStats(models.Model):

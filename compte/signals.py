@@ -4,7 +4,8 @@ from django.db.models import F
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from compte.models import UserStats
+from compte.models import UserPreferences, UserStats
+from compte.tasks import sync_user_attributes
 from erp.models import Accessibilite
 
 
@@ -45,3 +46,12 @@ def save_access_update_stats(sender, instance, created, **kwargs):
     user_stats, _ = UserStats.objects.get_or_create(user=instance.erp.user)
     user_stats.nb_erp_edited = F("nb_erp_edited") + 1
     user_stats.save(update_fields=("nb_erp_edited",))
+
+
+@receiver(post_save, sender=get_user_model())
+def save_profile(sender, instance, created, **kwargs):
+    if created:
+        user_prefs = UserPreferences(user=instance)
+        user_prefs.save()
+
+    sync_user_attributes.delay(instance.pk)
