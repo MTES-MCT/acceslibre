@@ -6,21 +6,21 @@
 </h3>
 {% spaceless %}
     <ul>
-        <li data-filters="walking">
-            {% if access.accueil_chambre_nombre_accessibles %}
+        {% if access.accueil_chambre_nombre_accessibles %}
+            <li data-filters="walking">
                 {% if access.access.accueil_chambre_nombre_accessibles == 1 %}
                     {% translate "Au moins une chambre accessible à une personne en fauteuil roulant" %}
+                {% elif access.access.accueil_chambre_nombre_accessibles == 0 %}
+                    {{ "accueil_chambre_nombre_accessibles"|negative_text }}
                 {% else %}
                     {% blocktranslate trimmed count nb=access.accueil_chambre_nombre_accessibles with nb=access.accueil_chambre_nombre_accessibles %}
                         {{ nb }} chambre accessible à une personne en fauteuil roulant
                     {% plural %}
                         {{ nb }} chambres accessibles à une personne en fauteuil roulant
                     {% endblocktranslate %}
-                {% endif %}
-            {% else %}
-                {{ "accueil_chambre_nombre_accessibles"|negative_text }}
+                </li>
             {% endif %}
-        </li>
+        {% endif %}
         {% if access.get_shower_text %}<li data-filters="walking">{{ access.get_shower_text }}</li>{% endif %}
         {% if access.accueil_chambre_sanitaires_barre_appui is not None or access.accueil_chambre_sanitaires_espace_usage is not None %}
             <li data-filters="walking">
