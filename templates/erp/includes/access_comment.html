@@ -1,9 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h4 class="pt-2 h4" data-filter-title="true">
+<h3 class="pt-2 fr-h6 mb-0" data-filter-title="true">
     <i aria-hidden="true" class="icon icon-info-circled mr-1 larger-font"></i>{% translate "Commentaire" %}
-</h4>
+</h3>
 <blockquote class="a4a-comment-block">
     <p>{{ access.commentaire|wordwrap:70|linebreaksbr }}</p>
 </blockquote>

@@ -1,9 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h4 class="pt-2 h4" data-filter-title="true">
+<h3 class="pt-2 fr-h6 mb-0" data-filter-title="true">
     <i aria-hidden="true" class="icon icon-road mr-1 larger-font"></i>{% translate "Chemin vers l'entrée" %}
-</h4>
+</h3>
 {% spaceless %}
     <ul>
         {% if access.has_outside_path_and_no_other_data %}
@@ -30,7 +30,9 @@
         {% elif access.cheminement_ext_rampe == "aucune" %}
             <li data-filters="walking">{{ "cheminement_ext_rampe"|negative_text }}</li>
         {% endif %}
-        {% if access.cheminement_ext_ascenseur %}<li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>{% endif %}
+        {% if access.cheminement_ext_ascenseur %}
+            <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>
+        {% endif %}
         {% render_access_value "cheminement_ext_terrain_stable" access "walking" %}
         {% if access.cheminement_ext_pente_presence %}
             {% if access.cheminement_ext_pente_degre_difficulte %}

@@ -787,7 +787,7 @@ div.equipments-selected
 }
 
 .remove-title-if-empty {
-  h4:has(+ ul:empty) {
+  h3:has(+ ul:empty) {
     display: none;
   }
 }
