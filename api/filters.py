@@ -18,7 +18,7 @@ class ZoneFilter(InBBoxFilter):
                 "name": self.bbox_param,
                 "required": False,
                 "in": "query",
-                "description": "Coordonnées du cadre englobant la recherche au format `min_longitude,min_latitude,max_longitude,max_latitude` (par ex. ?zone=4.849022,44.885530,4.982661,44.963994)",
+                "description": "Bounding box to search on, following format `min_longitude,min_latitude,max_longitude,max_latitude` (for ex. ?zone=4.849022,44.885530,4.982661,44.963994)",
                 "schema": {
                     "type": "array",
                     "items": {"type": "float"},
@@ -140,7 +140,7 @@ class EquipmentFilter(BaseFilterBackend):
                 "name": "equipments",
                 "in": "query",
                 "required": False,
-                "description": "Liste d'équipements que doivent posséder les établissements retournés (par ex. `?equipments=having_public_transportation&equipments=having_adapted_parking`)",
+                "description": "List of equipments to filter on (for ex. `?equipments=having_public_transportation&equipments=having_adapted_parking`)",
                 "schema": {
                     "type": "array",
                     "items": {"type": "string"},
