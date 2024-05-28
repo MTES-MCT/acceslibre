@@ -9,7 +9,7 @@ from core.mailer import BrevoMailer
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        since = timezone.now() - timedelta(hours=25)
+        since = timezone.now() - timedelta(days=20)
         users = User.objects.filter(last_login__gte=since)
         for user in users:
             BrevoMailer().sync_user(user)
