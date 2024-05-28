@@ -47,7 +47,7 @@ def test_communes(client):
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"}),
         # Editorial
         reverse("accessibilite"),
-        reverse("cgu"),
+        reverse("mentions-legales"),
         reverse("partenaires"),
         reverse("contact_form"),
         # Auth
