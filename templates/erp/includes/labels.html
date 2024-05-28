@@ -1,0 +1,28 @@
+{% load a4a %}
+{% load static %}
+{% load i18n %}
+<div class="fr-grid-row fr-grid-row--gutters mb-2 labels">
+    {% for value, label in access.get_labels_display_text %}
+        <div class="fr-col fr-col-md-4">
+            <div class="fr-card p-2 fr-card--horizontal">
+                <div class="fr-card__body">
+                    <p class="my-auto">
+                        {% blocktranslate trimmed with name=label %}
+                            Label {{ name }}
+                        {% endblocktranslate %}
+                        {% if value == "th" and th_labels %}
+                            {% if th_labels %}{{ th_labels|join:", " }}{% endif %}
+                        {% endif %}
+                    </p>
+                </div>
+                {% if label|label_to_image %}
+                    <div class="fr-card__header d-flex align-items-center">
+                        <img class="fr-responsive-img"
+                             src="{{ label|label_to_image }}"
+                             alt="Logo {{ label }}" />
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

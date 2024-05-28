@@ -1898,3 +1898,13 @@ class Accessibilite(models.Model):
             text += schema.FIELDS["accueil_chambre_douche_barre_appui"]["help_text_ui_neg_v2"].lower()
 
         return text if text != translate_lazy("Douche") else None
+
+    def get_labels_display_text(self):
+        results = []
+        for k, v in self.get_labels_display():
+            if k == schema.LABEL_AUTRE:
+                if self.labels_autre:
+                    results.append((k, self.labels_autre))
+            else:
+                results.append((k, v))
+        return results
