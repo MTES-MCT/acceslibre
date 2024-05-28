@@ -40,7 +40,7 @@ class UserStatsSerializer(serializers.ModelSerializer):
         return last.date_created.strftime("%Y-%m-%d") if last else ""
 
     def get_date_joined(self, instance):
-        return instance.user.last_login.strftime("%Y-%m-%d")
+        return instance.user.date_joined.strftime("%Y-%m-%d")
 
     def get_activation_key(self, instance):
         return RegistrationView().get_activation_key(instance.user) if not instance.user.is_active else ""
