@@ -1,16 +1,16 @@
 {% if not debug and SENTRY_DSN %}
     <!-- Sentry -->
     <script>
-  (function(Sentry, Integrations) {
+  (function(Sentry) {
     if (!Sentry) {
       return;
     }
     Sentry.init({
       dsn: "{{ SENTRY_DSN }}",
       environment: "{% if STAGING %}recette{% else %}production{% endif %}",
-      integrations: [new Integrations.BrowserTracing()],
+      integrations: [Sentry.browserTracingIntegration()],
     });
-  })(window.Sentry, window.SentryIntegrations);
+  })(window.Sentry);
     </script>
     <!-- End Sentry Code -->
 {% endif %}
