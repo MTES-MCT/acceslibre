@@ -354,8 +354,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if current_language != "fr":
         erp.translate(current_language)
 
-    form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
-    accessibilite_data = form.get_accessibilite_data()
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
@@ -373,7 +371,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         request,
         "erp/index.html",
         context={
-            "accessibilite_data": accessibilite_data,
             "activite": erp.activite,
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
@@ -385,7 +382,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
             "th_labels": th_labels,
-            "has_th": has_th,
             "map_options": json.dumps(
                 {
                     "scrollWheelZoom": False,
