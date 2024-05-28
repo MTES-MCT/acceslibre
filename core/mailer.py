@@ -1,7 +1,6 @@
 import logging
 
 from django.conf import settings
-from django_registration.backends.activation.views import RegistrationView
 from sib_api_v3_sdk import (
     AddContactToList,
     ApiClient,
@@ -18,6 +17,8 @@ from sib_api_v3_sdk import (
 )
 from sib_api_v3_sdk.rest import ApiException
 from waffle import switch_is_active
+
+from compte.serializers import UserStatsSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -123,29 +124,11 @@ class BrevoMailer(Mailer):
             else:
                 return False
 
-        nb_erps = nb_erps_administrator = 0
-        date_last_contrib = ""
-        if hasattr(user, "stats"):
-            user_stats = user.stats
-            nb_erps = user_stats.nb_erp_created
-            nb_erps_administrator = user_stats.nb_erp_administrator
-            if last := user_stats.get_date_last_contrib():
-                date_last_contrib = last.strftime("%Y-%m-%d")
+        if not hasattr(user, "stats"):
+            return False
 
-        update_contact = UpdateContact(
-            attributes={
-                "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
-                "DATE_LAST_LOGIN": user.last_login.strftime("%Y-%m-%d") if user.last_login else "",
-                "DATE_LAST_CONTRIB": date_last_contrib,
-                "IS_ACTIVE": user.is_active,
-                "NOM": user.last_name,
-                "PRENOM": user.first_name,
-                "ACTIVATION_KEY": RegistrationView().get_activation_key(user) if not user.is_active else "",
-                "NB_ERPS": nb_erps,
-                "NB_ERPS_ADMINISTRATOR": nb_erps_administrator,
-                "NEWSLETTER_OPT_IN": user.preferences.get().newsletter_opt_in,
-            }
-        )
+        serializer = UserStatsSerializer(instance=user.stats)
+        update_contact = UpdateContact(attributes=serializer.data)
         api_instance.update_contact(contact.id, update_contact)
         return True
 

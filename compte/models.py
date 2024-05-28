@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as translate_lazy
-from reversion.models import Revision
 
 
 class EmailToken(models.Model):
@@ -66,7 +65,3 @@ class UserStats(models.Model):
             f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"
             f"/{self.nb_profanities}"
         )
-
-    def get_date_last_contrib(self):
-        last = Revision.objects.filter(user_id=self.user.pk).order_by("date_created").last()
-        return last.date_created if last else None
