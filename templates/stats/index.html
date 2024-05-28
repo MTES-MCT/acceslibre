@@ -15,7 +15,7 @@
     <div class="card-group my-4">
         <div class="card col-md-6 p-0">
             <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-                <p class="fr-h4 text-center text-count font-weight-bold">{{ nb_published_erps }}</p>
+                <p class="fr-h1 text-center">{{ nb_published_erps }}</p>
                 <div class="h4 px-4 text-center">
                     {% blocktranslate count counter=nb_published_erps %}
           établissement publié
@@ -27,7 +27,7 @@
         </div>
         <div class="card md-6 p-0">
             <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-                <p class="fr-h4 text-center text-count font-weight-bold">{{ nb_contributors }}</p>
+                <p class="fr-h1 text-center">{{ nb_contributors }}</p>
                 <div class="h4 px-4 text-center">
                     {% translate "contributeur" %}{{ nb_contributors|pluralize:"s" }} {% blocktranslate with site=SITE_NAME|title %}sur {{ site }}{% endblocktranslate %}
                 </div>
