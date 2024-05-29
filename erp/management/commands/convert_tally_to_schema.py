@@ -12,10 +12,10 @@ with_activity = True
 with_comment = False
 with_siret = False
 
-# 4 kinds of templates : basic, hosting, culture, ath
-hosting = True
+# 4 kinds of templates : basic (default), hosting, culture, ath
+hosting = False
 culture = False
-ath = True
+ath = False
 
 if settings.TEST:
     hosting = False
