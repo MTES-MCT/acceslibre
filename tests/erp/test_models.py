@@ -1011,7 +1011,7 @@ class TestErp:
     def test_save(self, activite):
         # test activity change, should wipe answers to conditional questions if we change the activity group
         hotel = Activite.objects.get(nom="Hôtel")
-        erp = ErpFactory(activite=hotel, with_accessibilite=True)
+        erp = ErpFactory(activite=hotel, accessibilite__accueil_chambre_nombre_accessibles=1)
         assert erp.activite.groups.first().name == "Hébergement", "Conditions for test not met"
 
         access = erp.accessibilite
