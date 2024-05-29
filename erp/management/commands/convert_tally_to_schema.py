@@ -67,9 +67,18 @@ mapping = {
             ("stationnement_ext_presence", True),
             ("stationnement_ext_pmr", True),
         ],
+        # DEPRECATED ANSWER, just here for back compatibility but not used in new tally templates.
         "Non, pas de place handicapé pas loin": [
             ("stationnement_ext_presence", True),
             ("stationnement_ext_pmr", False),
+        ],
+        # END DEPRECATED
+        "Non, il y a une place de stationnement classique pas loin uniquement": [
+            ("stationnement_ext_presence", True),
+            ("stationnement_ext_pmr", False),
+        ],
+        "Non, il n'y a aucune place de stationnement pas loin": [
+            ("stationnement_ext_presence", False),
         ],
         "Je ne suis pas sûr": [],
     },
