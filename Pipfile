@@ -73,6 +73,7 @@ scrapfly-sdk = "*"
 parsel = "*"
 schedule = "*"
 inflection = "*"  # Used by DRF but not in its dependancies
+django-admin-two-factor = "*"
 
 [requires]
 python_version = "3.11"

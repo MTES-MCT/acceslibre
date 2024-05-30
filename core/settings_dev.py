@@ -5,6 +5,7 @@ DEBUG = True
 
 SITE_HOST = "127.0.0.1"
 SITE_ROOT_URL = f"http://{SITE_HOST}:8000"
+ADMIN_TWO_FACTOR_NAME = f"{SITE_NAME}_localhost"
 
 ALLOWED_HOSTS = [
     SITE_HOST,
