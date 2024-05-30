@@ -1177,10 +1177,6 @@ class Accessibilite(models.Model):
                         & Q(accueil_chambre_douche_barre_appui__isnull=True)
                         & Q(accueil_chambre_sanitaires_barre_appui__isnull=True)
                         & Q(accueil_chambre_sanitaires_espace_usage__isnull=True)
-                        & Q(accueil_chambre_equipement_alerte__isnull=True)
-                        & Q(accueil_chambre_numero_visible__isnull=True)
-                        & Q(accueil_chambre_sanitaires_espace_usage__isnull=True)
-                        & Q(accueil_chambre_accompagnement__isnull=True)
                     )
                 ),
             ),
