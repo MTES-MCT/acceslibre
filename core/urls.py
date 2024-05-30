@@ -59,6 +59,7 @@ urlpatterns = [
     path("compte/", include("django.contrib.auth.urls")),
     path("compte/", include("compte.urls")),
     path("admin/", admin.site.urls),
+    path("two_factor/", include(("admin_two_factor.urls", "admin_two_factor"), namespace="two_factor")),
     path(
         "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
     ),
