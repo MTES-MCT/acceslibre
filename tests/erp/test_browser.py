@@ -282,9 +282,6 @@ def test_admin_with_admin_user(client):
     erp = ErpFactory()
     client.force_login(user)
 
-    # Disable 2FA for the test
-    user.two_step.delete()
-
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
 
