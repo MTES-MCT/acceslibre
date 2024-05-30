@@ -56,6 +56,7 @@ def validate_url_get(client, url):
 
 
 @pytest.mark.django_db
+@pytest.mark.enable_socket
 def test_home(client):
     admin = UserFactory(is_staff=True)
     validate_url_get(client, reverse("home"))
@@ -64,42 +65,51 @@ def test_home(client):
 
 
 @pytest.mark.django_db
+@pytest.mark.enable_socket
 def test_home_auth(auth_client):
     validate_url_get(auth_client, reverse("home"))
 
 
 @pytest.mark.django_db
+@pytest.mark.enable_socket
 def test_search_empty(client):
     validate_url_get(client, reverse("search"))
 
 
+@pytest.mark.enable_socket
 @pytest.mark.django_db
 def test_search_result(client, mocker):
     validate_url_get(client, reverse("search") + "?where=jacou")
 
 
+@pytest.mark.enable_socket
 def fix_test_erp_details(client):
     erp = ErpFactory()
     validate_url_get(client, erp.get_absolute_url())
 
 
+@pytest.mark.enable_socket
 def fix_test_erp_details_auth(auth_client):
     erp = ErpFactory()
     validate_url_get(auth_client, erp.get_absolute_url())
 
 
+@pytest.mark.enable_socket
 def test_editorial_accessibilite(client):
     validate_url_get(client, reverse("accessibilite"))
 
 
+@pytest.mark.enable_socket
 def test_editorial_mentions_legales(client):
     validate_url_get(client, reverse("mentions-legales"))
 
 
+@pytest.mark.enable_socket
 def test_editorial_partenaires(client):
     validate_url_get(client, reverse("partenaires"))
 
 
+@pytest.mark.enable_socket
 @pytest.mark.django_db
 def test_login(client):
     validate_url_get(client, reverse("login"))
