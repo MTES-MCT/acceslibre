@@ -3,7 +3,10 @@
 <div id="widget-a11y-container"
      data-pk="{{ erp.uuid }}"
      data-baseurl="{{ root_url }}"></div>
-<script src="{{ url_widget_js }}" type="text/javascript"></script>
+<script src="{{ url_widget_js }}"
+        nonce="{{request.csp_nonce }}"
+        id="demo-widget"
+        type="text/javascript"></script>
 <div class="card h-100 lg:ml-4">
     <div class="card-body pb-2 d-flex flex-column">
         <img alt="Exemple de widget"
@@ -37,10 +40,8 @@
                         </div>
                         <div class="modal-body text-left" id="widget-code">
                             <p>{% translate "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :" %}</p>
-                            <div style="background-color: black; padding: 1rem;">
-                                <code style="color:lightgrey"
-                                      class="Code__Text-sc-1wllvkx-1 dNGlgo"
-                                      id="tocopy">{{ widget_tag }}</code>
+                            <div>
+                                <code class="Code__Text-sc-1wllvkx-1 dNGlgo" id="tocopy">{{ widget_tag }}</code>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -57,7 +58,7 @@
         </div>
     </div>
 </div>
-<script>
+<script nonce="{{ request.csp_nonce }}">
     var btncopy = document.querySelector('.js-copy');
     if(btncopy) {
         btncopy.addEventListener('click', docopy);

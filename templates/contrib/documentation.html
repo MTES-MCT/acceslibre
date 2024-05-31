@@ -25,8 +25,8 @@
                 </tr>
                 {% for field in fields %}
                     <tr>
-                        <th style="width:28%" class="pl-5">{{ field.label }}</th>
-                        <td style="width:40%">
+                        <th class="pl-5">{{ field.label }}</th>
+                        <td>
                             {% if field.help_text_ui %}
                                 {{ field.help_text_ui }}
                             {% else %}

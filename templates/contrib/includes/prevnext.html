@@ -2,10 +2,7 @@
 <div class="d-flex flex-column d-lg-block">
     <nav aria-label='{% translate "Parcours de contribution" %}'
          role="navigation">
-        <ul class="no-list p-0"
-            style="display:flex;
-                   flex-wrap: wrap;
-                   text-align: center">
+        <ul class="no-list p-0 flex">
             {% if prev_route %}
                 <li>
                     <a class="btn btn-link" href="{{ prev_route }}">« {% translate "Précédent" %}</a>

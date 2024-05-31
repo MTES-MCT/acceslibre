@@ -1,9 +1,14 @@
 {% load static %}
 {% load i18n %}
-<style>
+<style nonce="{{ request.GET.nonce }}">
 /*
 Minimal content of DSFR to apply style on widget
 */
+
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .p-0 {
+    padding: 0px;
+}
+
 
 :is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-modal__body {
 flex: 1 1 auto;
@@ -26,6 +31,11 @@ display: flex;
 margin: 0;
 padding: 0;
 }
+
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-grid-row .modal__text .label {
+    color: #3A3A3A;
+}
+
 
 :is(.widget-a11y-container, [id^='widget-a11y-container']) .fr-grid-row--center {
 justify-content: center;
@@ -203,6 +213,11 @@ box-shadow: none;
 color: inherit;
 }
 
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .modal__footer_link img {
+    vertical-align: text-bottom
+}
+
+
 :is(.widget-a11y-container, [id^='widget-a11y-container']) :root:not([data-fr-theme="dark"]) .fr-btn--secondary {
 --color-hover: var(--block-color-hover);
 --color-active: var(--block-color-active);
@@ -306,6 +321,11 @@ flex: 0 0 calc(500% / 12);
 width: calc(500% / 12);
 max-width: calc(500% / 12);
 }
+
+:is(.widget-a11y-container, [id^='widget-a11y-container']) .full-width {
+    width: 100%;
+}
+
 }
 </style>
 <div class="js-document" data-fr-theme="dark">
@@ -316,7 +336,7 @@ max-width: calc(500% / 12);
          aria-modal="true"
          aria-hidden="true"
          tabindex="-1">
-        <div id="1" class="fr-grid-row fr-grid-row--center" style="width:100%">
+        <div id="1" class="fr-grid-row fr-grid-row--center full-width">
             <div class="fr-col-12 fr-col-md-5">
                 <div class="fr-modal__body">
                     <div class="fr-modal__header text-right">

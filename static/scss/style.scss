@@ -169,6 +169,18 @@ select[name='language'] {
     }
   }
 
+  .full-width {
+    width: 100%;
+  }
+
+  .full-max-width {
+    max-width: 100%;
+  }
+
+  .flex {
+    display: flex;
+  }
+
   .larger-font {
     font-size: 1.2rem;
   }
@@ -264,6 +276,10 @@ select[name='language'] {
       height: 96px;
       padding: 7px;
     }
+  }
+
+  .crisp-client .cc-1kgzy {
+    background-color: #e51e0f !important;
   }
 
   svg {
@@ -813,5 +829,19 @@ div.equipments-selected
     .fr-col-md-6 {
       padding: 0px;
     }
+  }
+}
+
+#map-demo {
+  width: 100%;
+  height: 400px;
+}
+
+#widget-code > div {
+  background-color: black;
+  padding: 1rem;
+
+  code {
+    color: lightgrey;
   }
 }

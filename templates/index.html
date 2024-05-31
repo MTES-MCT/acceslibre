@@ -16,11 +16,11 @@
                     <p class="fr-mb-3w fr-text--lead">
                         {% translate "Partagez les informations indispensables aux déplacements des personnes en situation de handicap" %}
                     </p>
-                    <ul class="fr-mb-5w fr-btns-group--inline" style="padding-left: 0px;">
-                        <li style="list-style-type: none;display:inline;">
+                    <ul class="fr-mb-5w fr-btns-group--inline pl-0">
+                        <li>
                             <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Contribuer" %}</a>
                         </li>
-                        <li style="list-style-type: none;display:inline;">
+                        <li>
                             <a class="fr-btn fr-btn--secondary" href="{% url "search" %}">{% translate "Rechercher" %}</a>
                         </li>
                     </ul>
@@ -38,19 +38,19 @@
     {% cache 3600 homepage_statistics LANGUAGE_CODE %}
     <div class="fr-container">
         <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <p class="fr-h1">{{ erps.count|intcomma }}</p>
                 <p class="fr-text--xl fr-text--heavy">
                     {% translate "lieux<br> référencés" %}
                 </p>
             </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <p class="fr-h1">{{ contributors.count|intcomma }}</p>
                 <p class="fr-text--xl fr-text--heavy">
                     {% translate "contributrices<br> et contributeurs" %}
                 </p>
             </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <p class="fr-h1">{% translate "12 millions" %}</p>
                 <p class="fr-text--xl fr-text--heavy">
                     {% translate "de personnes<br> concernées" %}
@@ -86,21 +86,21 @@
             </div>
         </div>
         <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v fr-grid-row--bottom">
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block icon-difference" src="{% static "img/landing/puzzle.png" %}" alt="" aria-hidden="true" />
                 <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "À votre niveau" %}</p>
                 <p>
                     {% translate "Toute information est utile,<br> même partielle" %}
                 </p>
             </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/check.png" %}" alt="" aria-hidden="true" />
                 <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "En quelques secondes" %}</p>
                 <p>
                     {% translate "Enrichir les informations se fait <br>en quelques clics" %}
                 </p>
             </div>
-            <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/heart.png" %}" alt="" aria-hidden="true" />
                 <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "Pour le bien de tous" %}</p>
                 <p>
@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <div class="fr-grid-row">
                     <div class="fr-col-2 d-none d-sm-block">
                         <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
@@ -192,7 +192,7 @@
                     </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <div class="fr-grid-row">
                     <div class="fr-col-2 d-none d-sm-block">
                         <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
@@ -205,7 +205,7 @@
                     </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+            <div class="fr-col-12 fr-col-sm-4 text-center">
                 <div class="fr-grid-row">
                     <div class="fr-col-2 d-none d-sm-block">
                         <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">

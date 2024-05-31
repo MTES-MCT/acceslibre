@@ -60,8 +60,12 @@
                 </div>
             </div>
             {% if not light %}
-                <div class="col-lg-6 a4a-result-map"
-                     {% if result.coordonnees %} style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')" {% endif %}>
+                <div class="col-lg-6 a4a-result-map">
+                    <img class="ml-3"
+                         src="{% result_map_img result.coordonnees size="400x300" %}"
+                         width="400"
+                         height="300"
+                         alt="{{ result.nom }}">
                 </div>
             {% endif %}
         </div>

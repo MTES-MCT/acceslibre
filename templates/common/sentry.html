@@ -1,7 +1,7 @@
 {% if not debug and SENTRY_DSN %}
     <!-- Sentry -->
-    <script>
-  (function(Sentry) {
+    <script nonce="{{ request.csp_nonce }}">
+  (function (Sentry) {
     if (!Sentry) {
       return;
     }
