@@ -371,11 +371,12 @@
         },
         "django-import-export": {
             "hashes": [
-                "sha256:098ab4943edb93d6333aa8f6c97fb6a527d1d70a57f6a014f615c6f5ff5dd559",
-                "sha256:7b170abd992c071fa221fa6bf1822abfee1518720d07cedeba4702bbac5f119d"
+                "sha256:173d165b85774a3f8327b58af89ed2d6d95547f668dba39b8c9eceb8870d32a4",
+                "sha256:63f0c8add728aafc82bcb7c53ec9f66528a9556c4786ef28f5f8b8eb662a7021"
             ],
             "index": "pypi",
-            "version": "==4.0.6"
+            "markers": "python_version >= '3.8'",
+            "version": "==4.0.7"
         },
         "django-logentry-admin": {
             "hashes": [
