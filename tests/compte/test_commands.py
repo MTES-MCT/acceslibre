@@ -77,6 +77,7 @@ def test_sync_brevo(mocker, client):
         "NEWSLETTER_OPT_IN": False,
         "NOM": user.last_name,
         "PRENOM": user.first_name,
+        "AVERAGE_COMPLETION_RATE": 0,
     }
 
     erp = ErpFactory(with_accessibilite=True, user=None)
@@ -109,4 +110,5 @@ def test_sync_brevo(mocker, client):
         "NEWSLETTER_OPT_IN": False,
         "NOM": user.last_name,
         "PRENOM": user.first_name,
+        "AVERAGE_COMPLETION_RATE": 4.0,
     }

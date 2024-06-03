@@ -111,6 +111,13 @@ class BrevoMailer(Mailer):
                 create_attribute=CreateAttribute(type="float"),
             )
 
+        if "AVERAGE_COMPLETION_RATE" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="AVERAGE_COMPLETION_RATE",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="float"),
+            )
+
     def sync_user(self, user):
         if not user.email:
             return False
