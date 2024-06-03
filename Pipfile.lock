@@ -631,11 +631,12 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:010db3f8a728a578bb641fdd06c063b9fb8e96a9464c63aec6310fbcb5e80501",
-                "sha256:d7bf2f6c4314984e3e02393213bab8703cf163ede39672ce5918c51fe253a2a3"
+                "sha256:53eee7ad44df903a06655871cbab66d156a051fd86f3ec6750470ac9604ac1ab",
+                "sha256:c6ed726a140b6e725b911528f80439c534fac915246af3efc39440a6b0f9d716"
             ],
             "index": "pypi",
-            "version": "==8.24.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==8.25.0"
         },
         "isodate": {
             "hashes": [
@@ -1909,11 +1910,11 @@
         },
         "typing-extensions": {
             "hashes": [
-                "sha256:8cbcdc8606ebcb0d95453ad7dc5065e6237b6aa230a31e81d0f440c30fed5fd8",
-                "sha256:b349c66bea9016ac22978d800cfff206d5f9816951f12a7d0ec5578b0a819594"
+                "sha256:6024b58b69089e5a89c347397254e35f1bf02a907728ec7fee9bf0fe837d203a",
+                "sha256:915f5e35ff76f56588223f15fdd5938f9a1cf9195c0de25130c627e4d597f6d1"
             ],
             "markers": "python_version < '3.12'",
-            "version": "==4.12.0"
+            "version": "==4.12.1"
         },
         "tzdata": {
             "hashes": [
