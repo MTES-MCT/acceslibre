@@ -34,6 +34,9 @@ class ActiviteAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     ordering = ("position",)
     search_fields = ("nom",)
 
+    class Media:
+        css = {"all": ("/static/css/admin.css",)}
+
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
         queryset = queryset.annotate(
@@ -46,9 +49,7 @@ class ActiviteAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
     def icon_img(self, obj):
         icon = obj.vector_icon if obj.vector_icon else "building"
-        return mark_safe(
-            f'<img src="/static/img/mapicons.svg#{icon}" style="width:16px;height:16px;background:#075ea2;padding:3px;border-radius:25%">'
-        )
+        return mark_safe(f'<img src="/static/img/mapicons.svg#{icon}" class="img-mapicons">')
 
 
 admin.site.register(ActivitiesGroup)

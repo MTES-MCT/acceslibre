@@ -37,6 +37,24 @@ ADMIN_TWO_FACTOR_NAME = SITE_NAME
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
+CSP_DEFAULT_SRC = (
+    "'self'",
+    "data:",  # used for Leaflet CenterCross plugin.
+    "*.mapbox.com",
+    "*.gouv.fr",
+    "*.incubateur.net",
+    "acceslibre.matomo.cloud",
+    "*.tile.openstreetmap.org",
+    "client.crisp.chat",
+    "image.crisp.chat",
+    "storage.crisp.chat",
+    "game.crisp.chat",
+    "wss://client.relay.crisp.chat",
+    "wss://stream.relay.crisp.chat",
+)
+
+CSP_EXCLUDE_URL_PREFIXES = ("/api",)  # swagger uses scripts from remote cdns
+
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 
@@ -127,6 +145,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    "csp.middleware.CSPMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -149,6 +168,7 @@ CORS_ALLOW_HEADERS = (
     *default_headers,
     "X-OriginUrl",
 )
+
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",

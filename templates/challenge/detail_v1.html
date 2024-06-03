@@ -57,8 +57,8 @@
                     {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté d'établissement." %}
                 </div>
             {% endif %}
-            <ul class="list-group" style="min-width:320px">
-                <li class="list-group-item font-weight-bold" style="font-size:1.2em">
+            <ul class="list-group">
+                <li class="list-group-item font-weight-bold larger-font">
                     <span class="badge badge-primary badge-pill">1</span>
                     {% if top_contribs.0 %}
                         {{ top_contribs.0.username }}
@@ -75,7 +75,7 @@
                         ???
                     {% endif %}
                 </li>
-                <li class="list-group-item" style="font-size:1.1em">
+                <li class="list-group-item larger-font">
                     <span class="badge badge-primary badge-pill">2</span>
                     {% if top_contribs.1 %}
                         {{ top_contribs.1.username }}

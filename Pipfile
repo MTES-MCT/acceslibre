@@ -22,7 +22,6 @@ django-webtest = "*"
 django-deep-translator = "*"
 pytest-socket = "*"
 
-
 [packages]
 coreapi = "*"
 Django = "==4.2.11"
@@ -76,6 +75,7 @@ parsel = "*"
 schedule = "*"
 inflection = "*"  # Used by DRF but not in its dependancies
 django-admin-two-factor = "*"
+django-csp = "*"
 
 [requires]
 python_version = "3.11"

@@ -6,19 +6,20 @@
         <h1 class="fr-h4 fr-col-offset-1">{% translate "Accessibilité" %}</h1>
         <h2 class="fr-col-offset-1 modal__subtitle fr-text--lg">{{ erp.nom }}</h2>
         {% if accessibilite_data %}
-            <ul style="padding:0px">
+            <ul class="p-0">
                 {% for item, data in accessibilite_data.items %}
                     <li class="modal__item fr-grid-row">
                         <div class="fr-col-md-2 modal__icon">
                             <img aria-hidden="true"
+                                 width="40"
+                                 height="40"
                                  src="{{ data.icon }}"
-                                 style="width:40px"
                                  alt="{{ data.label }}">
                         </div>
                         <div class="fr-col-md-10 modal__text">
                             <span class="fr-text--heavy">{{ item|capfirst }}</span>
                             <br>
-                            <span style="color: #3A3A3A;">{{ data.label|linebreaks }}</span>
+                            <span class="label">{{ data.label|linebreaks }}</span>
                         </div>
                     </li>
                     {% if not forloop.last %}<hr class="modal__hr" aria-hidden="true">{% endif %}
@@ -34,8 +35,8 @@
                 <span>{% translate "Voir plus sur" %}</span>
                 <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
                      alt="acceslibre"
-                     style="height:50px;
-                            vertical-align: text-bottom">
+                     width="140"
+                     height="50">
             </a>
         </p>
     </div>
