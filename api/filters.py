@@ -48,8 +48,8 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
         ordered = False
         use_distinct = False
 
-        with_drafts = request.query_params.get("with_drafts", False)
-        if not with_drafts:
+        with_drafts = request.query_params.get("with_drafts", "false")
+        if with_drafts != "true":
             queryset = queryset.published()
 
         commune = request.query_params.get("commune", None)

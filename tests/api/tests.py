@@ -183,7 +183,12 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-        response = api_client.get(reverse("erp-list") + "?with_drafts=True")
+        response = api_client.get(reverse("erp-list") + "?with_drafts=false")
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+
+        response = api_client.get(reverse("erp-list") + "?with_drafts=true")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
