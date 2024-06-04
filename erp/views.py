@@ -897,8 +897,12 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    referer = reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})
+    if (request.META.get("HTTP_REFERER") or "").startswith(settings.SITE_ROOT_URL):
+        referer = request.META.get("HTTP_REFERER")
+
     if not ensure_min_nb_answers(request, erp):
-        return redirect(request.META.get("HTTP_REFERER", reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})))
+        return redirect(referer)
 
     if request.method == "POST":
         form = forms.PublicPublicationForm(request.POST, instance=erp)
