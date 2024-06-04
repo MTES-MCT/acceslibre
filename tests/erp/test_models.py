@@ -925,6 +925,24 @@ class TestAccessibility:
             access.labels = []
             access.save()
 
+    @pytest.mark.django_db
+    def test_constraint_asp_id(self):
+        with pytest.raises(IntegrityError):
+            ErpFactory(asp_id="0000774e-c649-4f14-855f-5fc83429b778")
+            ErpFactory(asp_id="0000774e-c649-4f14-855f-5fc83429b778")
+
+        assert Erp.objects.count() == 1
+
+        ErpFactory(asp_id="0000774e-c649-4f14-855f-5fc83429b778", published=False)
+        ErpFactory(asp_id="0000774e-c649-4f14-855f-5fc83429b778", published=False)
+
+        assert Erp.objects.count() == 3
+
+        ErpFactory(asp_id="", published=True)
+        ErpFactory(asp_id="", published=True)
+
+        assert Erp.objects.count() == 5
+
 
 @pytest.mark.django_db
 class TestErp:
