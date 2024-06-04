@@ -43,17 +43,17 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
 BREVO_TEMPLATE_IDS = {
-    "draft_deleted": 16,
-    "spam_activities_suggestion": 87,
-    "spam_activities_suggestion_admin": 88,
+    "draft_deleted": 457,
+    "spam_activities_suggestion": 454,
+    "spam_activities_suggestion_admin": 455,
     "draft": 139,
     "erp_imported": 271,
-    "account_activation": 348,
-    "notif_weekly_unpublished": 352,
-    "contact_to_admins": 353,
-    "contact_receipt": 354,
-    "changed_erp_notification": 355,
-    "email_change_activation": 356,
+    "account_activation": 432,
+    "notif_weekly_unpublished": 456,
+    "contact_to_admins": 453,
+    "contact_receipt": 440,
+    "changed_erp_notification": 458,
+    "email_change_activation": 439,
     "password_reset": 376,
 }
 BREVO_CONTACT_LIST_IDS = {
