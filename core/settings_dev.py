@@ -61,17 +61,17 @@ if SQL_LOGS:
     }
 
 BREVO_TEMPLATE_IDS = {
-    "draft_deleted": 4,
-    "spam_activities_suggestion": 6,
-    "spam_activities_suggestion_admin": 7,
+    "draft_deleted": 27,
+    "spam_activities_suggestion": 24,
+    "spam_activities_suggestion_admin": 25,
     "draft": 8,
     "erp_imported": 9,
-    "account_activation": 10,
-    "notif_weekly_unpublished": 11,
-    "contact_to_admins": 12,
-    "contact_receipt": 13,
-    "changed_erp_notification": 14,
-    "email_change_activation": 15,
+    "account_activation": 20,
+    "notif_weekly_unpublished": 26,
+    "contact_to_admins": 23,
+    "contact_receipt": 21,
+    "changed_erp_notification": 28,
+    "email_change_activation": 22,
     "password_reset": 17,
 }
 BREVO_CONTACT_LIST_IDS = {
