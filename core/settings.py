@@ -53,7 +53,7 @@ CSP_DEFAULT_SRC = (
     "wss://stream.relay.crisp.chat",
 )
 
-CSP_EXCLUDE_URL_PREFIXES = ("/api",)  # swagger uses scripts from remote cdns
+CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin")  # swagger and admin uses scripts from remote cdns
 
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
