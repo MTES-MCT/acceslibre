@@ -89,6 +89,9 @@ def get_challenge_scores(challenge, start_date, stop_date, player_ids):
     for version in versions.iterator():
         user_id = version.revision.user_id
         previous = get_previous_version(version)
+        if not Accessibilite.objects.filter(id=version.object_id, erp__published=True).first():
+            # increment score only if the erp is published
+            continue
         scores_per_user_id[user_id] += _get_score(version, previous)
 
     for sub in challenge.inscriptions.all():
