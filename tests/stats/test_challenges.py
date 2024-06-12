@@ -37,15 +37,17 @@ class TestChallenge:
 
     @pytest.mark.django_db
     def test_nominal_case(self, challenge):
-        erp1, erp2 = [
+        erp1, erp2, erp3 = [
             ErpFactory(with_accessibilite=True),
             ErpFactory(with_accessibilite=True),
+            ErpFactory(with_accessibilite=True, published=False),
         ]
 
         player1, player2 = challenge.players.all()
 
         self._do_access_changes(user=player1, erp=erp1, nb_changes=2)
         self._do_access_changes(user=player2, erp=erp2, nb_changes=3)
+        self._do_access_changes(user=player1, erp=erp3, nb_changes=3)  # should not be counted as erp3 is draft
 
         call_command("refresh_stats")
 
