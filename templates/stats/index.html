@@ -47,7 +47,7 @@
                         alt="{% translate "Graphique représentant l'évolution du nombre d'établissements publiés" %}">
                     {% blocktranslate %}Graphique représentant l'évolution du nombre d'établissements publiés sur l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés.{% endblocktranslate %}
                 </canvas>
-                <script>
+                <script nonce="{{ request.csp_nonce }}">
         {% translate "Nombre d'établissements" as translate_np_erps %}
         const ctx = document.getElementById('erpCountChart').getContext('2d');
         var erpCountChart = new window.Chart(ctx, {
