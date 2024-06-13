@@ -54,7 +54,7 @@ BREVO_TEMPLATE_IDS = {
     "contact_receipt": 440,
     "changed_erp_notification": 458,
     "email_change_activation": 439,
-    "password_reset": 376,
+    "password_reset": 463,
 }
 BREVO_CONTACT_LIST_IDS = {
     "tally-respondents": 262,
