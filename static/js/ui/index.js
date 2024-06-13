@@ -11,6 +11,8 @@ import listenToLabelEvents from './GroupLabelTag'
 import ProgressBar from './ProgressBar'
 import PickAnswerAndSubmit from './PickAnswerAndSubmit'
 import filterData from './FilterData'
+import StoreFilters from './StoreFilters'
+import LoadFilters from './LoadFilters'
 
 export default {
   AsteriskField,
@@ -26,4 +28,6 @@ export default {
   ProgressBar,
   PickAnswerAndSubmit,
   filterData: filterData,
+  StoreFilters: StoreFilters,
+  LoadFilters: LoadFilters,
 }
