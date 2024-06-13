@@ -243,7 +243,7 @@
   document.querySelectorAll('[data-pk]').forEach(function (container) {
     const nonce = document.getElementById('demo-widget')?.nonce
     var erpPK = container.getAttribute('data-pk')
-    fetch(_getBaseURL() + '/uuid/' + erpPK + '/widget/?nonce=' + nonce, {
+    fetch(_getBaseURL() + '/uuid/' + erpPK + '/widget/?nonce=' + encodeURIComponent(nonce), {
       method: 'GET',
       headers: { 'X-OriginUrl': window.location },
     })
