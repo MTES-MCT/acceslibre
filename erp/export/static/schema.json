@@ -903,7 +903,8 @@
       "name": "cheminement_ext_pente_longueur",
       "type": "string",
       "title": "Longueur de la pente",
-      "description": "Longueur de la pente. Valeurs possibles: courte -> < 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> > 2 mètres",
+      "description": "Longueur de la pente. Valeurs possibles: courte -> inférieure à 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> supérieure 2 mètres",
+      "type": "string",
       "constraints": {
         "enum": ["courte", "moyenne", "longue"]
       },
