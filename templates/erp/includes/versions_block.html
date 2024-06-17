@@ -7,19 +7,19 @@
              src="{% static 'img/history.png' %}"
              class="mx-auto w-auto d-none d-lg-block"
              height="200px">
-        <h3 class="fr-h4 text-center my-3">{% translate "Vous voulez suivre les évolutions de cette fiche&nbsp;?" %}</h3>
+        <h3 class="fr-h6 text-center my-3">{% translate "Vous voulez suivre les évolutions de cette fiche&nbsp;?" %}</h3>
         {% with erp.get_global_timestamps as timestamps %}
             {% spaceless %}
-                {% translate "Fiche créé" %}
+                {% translate "Fiche créée" %}
                 {% if erp.user %}
                     {% translate " par " %} <strong>{{ erp.user.username|format_username }}</strong>{% translate ", " %}
                 {% endif %}
                 {% if erp.user_type == "gestionnaire" %}
-                    {% translate "gestionnaire" %}
+                    {% translate "en tant que gestionnaire" %}
                 {% elif erp.user_type == "admin" %}
-                    {% translate "administration" %}
+                    {% translate "en tant qu'administration" %}
                 {% elif erp.user_type == "public" %}
-                    {% translate "usager" %}
+                    {% translate "en tant qu'usager" %}
                 {% endif %}
                 {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %}
                 {{ timestamps.created_at|date:"j/m/Y" }}
