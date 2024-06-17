@@ -9,6 +9,8 @@
         {% render_access_value "entree_reperage" access "all" %}
         {% if access.entree_balise_sonore %}
             <li data-filters="visual">{{ "entree_balise_sonore"|positive_text }}</li>
+        {% elif access.entree_balise_sonore is False %}
+            <li data-filters="visual">{{ "entree_balise_sonore"|negative_text }}</li>
         {% endif %}
         {% if access.entree_porte_presence is False %}
             <li data-filters="all">{{ "entree_porte_presence"|negative_text }}</li>
@@ -76,16 +78,24 @@
         {% endif %}
         {% if access.entree_ascenseur %}
             <li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>
+        {% elif access.entree_ascenseur is False %}
+            <li data-filters="walking,understand">{{ "entree_ascenseur"|negative_text }}</li>
         {% endif %}
-        {% if access.entree_aide_humaine %}<li data-filters="all">{{ "entree_aide_humaine"|positive_text }}</li>{% endif %}
+        {% if access.entree_aide_humaine %}
+            <li data-filters="all">{{ "entree_aide_humaine"|positive_text }}</li>
+        {% elif access.entree_aide_humaine is False %}
+            <li data-filters="all">{{ "entree_aide_humaine"|negative_text }}</li>
+        {% endif %}
         {% if access.entree_dispositif_appel %}
             {% if access.entree_dispositif_appel_type %}
                 {% for equipment in access.get_entree_dispositif_appel_type_text %}
-                    <li data-filters="walking">{{ equipment }}</li>
+                    <li data-filters="all">{{ equipment }}</li>
                 {% endfor %}
             {% else %}
                 <li data-filters="all">{{ "entree_dispositif_appel"|positive_text }}</li>
             {% endif %}
+        {% elif access.entree_dispositif_appel is False %}
+            <li data-filters="all">{{ "entree_dispositif_appel"|negative_text }}</li>
         {% endif %}
         {% if access.entree_pmr %}
             <li data-filters="all">
@@ -97,6 +107,8 @@
                     </div>
                 {% endif %}
             </li>
+        {% elif access.entre_pmr is False %}
+            <li data-filters="all">{{ "entree_pmr"|negative_text }}</li>
         {% endif %}
     </ul>
 {% endspaceless %}

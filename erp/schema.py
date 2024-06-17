@@ -766,6 +766,7 @@ FIELDS = {
         "help_text_ui_neg": translate_lazy(
             "Pas de bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
         ),
+        "help_text_ui_neg_v2": translate_lazy("Pas de bande de guidage"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -1036,6 +1037,7 @@ FIELDS = {
         "help_text_ui": translate_lazy("Présence d'un dispositif comme une sonnette pour signaler sa présence"),
         "help_text_ui_v2": translate_lazy("Dispositif d'appel à l'entrée"),
         "help_text_ui_neg": translate_lazy("Pas de dispositif comme une sonnette pour signaler sa présence"),
+        "help_text_ui_neg_v2": translate_lazy("Pas de dispositif d'appel"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -1074,6 +1076,7 @@ FIELDS = {
         "help_text_ui_neg": translate_lazy(
             "Pas de balise sonore facilitant son repérage par une personne aveugle ou malvoyante"
         ),
+        "help_text_ui_neg_v2": translate_lazy("Pas de balise sonore"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -1090,6 +1093,7 @@ FIELDS = {
         "help_text_ui": translate_lazy("Possibilité d'une aide humaine au déplacement"),
         "help_text_ui_v2": translate_lazy("Aide humaine possible"),
         "help_text_ui_neg": translate_lazy("Pas de possibilité d'aide humaine au déplacement"),
+        "help_text_ui_neg_v2": translate_lazy("Pas de possibilité d'aide humaine"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -1136,6 +1140,7 @@ FIELDS = {
         "help_text_ui_neg": translate_lazy(
             "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
         ),
+        "help_text_ui_neg_v2": translate_lazy("Pas d’entrée dédiée aux personnes en situation de handicap"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
