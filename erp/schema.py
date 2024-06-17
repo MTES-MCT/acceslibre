@@ -97,9 +97,9 @@ PENTE_LONGUEUR_COURTE = "courte"
 PENTE_LONGUEUR_MOYENNE = "moyenne"
 PENTE_LONGUEUR_LONGUE = "longue"
 PENTE_LENGTH_CHOICES = [
-    (PENTE_LONGUEUR_COURTE, translate_lazy("< 0,5 mètres")),
+    (PENTE_LONGUEUR_COURTE, translate_lazy("inférieure à 0,5 mètres")),
     (PENTE_LONGUEUR_MOYENNE, translate_lazy("entre 0,5 et 2 mètres")),
-    (PENTE_LONGUEUR_LONGUE, translate_lazy("> 2 mètres")),
+    (PENTE_LONGUEUR_LONGUE, translate_lazy("supérieure 2 mètres")),
     (None, UNKNOWN),
 ]
 
