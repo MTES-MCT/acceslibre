@@ -73,6 +73,7 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
                     "date": version.revision.date_created,
                     "comment": version.revision.get_comment(),
                     "diff": [entry for entry in final_diff if entry["field"] not in exclude_fields],
+                    "revision": version.revision,
                 },
             )
         current_fields_dict = fields
