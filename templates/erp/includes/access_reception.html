@@ -48,7 +48,7 @@
         {% if access.accueil_equipements_malentendants_presence %}
             {% if access.accueil_equipements_malentendants %}
                 <li data-filters="hearing">
-                    {{ "accueil_equipements_malentendants_presence"|positive_text }} : {{ access.accueil_equipements_malentendants|join:", " }}
+                    {{ "accueil_equipements_malentendants_presence"|positive_text }} : {{ access.get_accueil_equipements_malentendants_text|join:", " }}
                 </li>
             {% else %}
                 <li data-filters="hearing">{{ "accueil_equipements_malentendants_presence"|positive_text }}</li>
@@ -58,7 +58,7 @@
         {% endif %}
         {% if access.sanitaires_presence %}
             {% if access.sanitaires_adaptes %}
-                <li data-filters="all">{% translate "Toilettes PMR" %}</li>
+                <li data-filters="all">{% translate "Toilettes adaptées" %}</li>
             {% else %}
                 <li data-filters="all">{% translate "Toilettes classiques" %}</li>
             {% endif %}

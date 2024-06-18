@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-05 10:43+0200\n"
+"POT-Creation-Date: 2024-06-18 16:56+0200\n"
 "PO-Revision-Date: 2024-04-30 17:38+0200\n"
 "Last-Translator: Marie-Laure3 Vernay <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1335,6 +1335,18 @@ msgstr "subtitling or simultaneous transcription"
 msgid "autres"
 msgstr "others"
 
+msgid "Boucle à induction magnétique"
+msgstr "Magnetic induction loop"
+
+msgid "Langue des signes française"
+msgstr "French sign language"
+
+msgid "Langue parlée complétée"
+msgstr "Completed spoken French"
+
+msgid "Sous-titrage et transcription simultanée"
+msgstr "Subtitling or simultaneous transcription"
+
 msgid "Handicap auditif"
 msgstr "Hearing disability"
 
@@ -1585,8 +1597,10 @@ msgid ""
 "de l'établissement"
 msgstr "Suitable parking spaces are available within the property's grounds"
 
-msgid "Places de parking au sein de l'établissement comprenant des places PMR"
-msgstr "Parking spaces within the establishment including PRM spaces"
+msgid ""
+"Places de parking au sein de l'établissement comprenant des places adaptées "
+"et réservées"
+msgstr "Parking spaces within the establishment including adapted and reserved spaces"
 
 msgid ""
 "Pas de place de stationnement disponible adaptée au sein de la parcelle de "
@@ -1635,8 +1649,9 @@ msgid ""
 msgstr ""
 "Suitable parking spaces are available within 200 meters of the property"
 
-msgid "Places de parking à proximité comprenant des places PMR"
-msgstr "Parking spaces nearby including PRM spaces"
+msgid ""
+"Places de parking à proximité comprenant des places adaptées et réservées"
+msgstr "Parking spaces nearby including adapted and reserved spaces"
 
 msgid ""
 "Pas de place de stationnement disponible adaptée à moins de 200 mètres de "
@@ -2107,8 +2122,9 @@ msgstr ""
 "Presence of a specific secondary entrance dedicated to people with reduced "
 "mobility"
 
-msgid "Présence d'une entrée PMR"
-msgstr "Presence of a PMR entry"
+msgid "Présence d'une entrée dédiée aux personnes en situation de handicap"
+msgstr ""
+"Presence of a specific secondary entrance dedicated to people with a disability "
 
 msgid ""
 "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
@@ -2428,15 +2444,14 @@ msgstr "Type of equipment for audio description"
 msgid "Équipements disponibles"
 msgstr "Available equipment"
 
-msgid "Présence d'équipements d'aide à l'audition et à la communication"
-msgstr "Presence of hearing and communication aids"
+msgid "Présence d’équipements d’aide à l’audition et à la compréhension"
+msgstr "Presence of hearing and comprehension aids"
 
 msgid ""
-"L'accueil est-il équipé de produits ou prestations dédiés aux personnes "
-"sourdes ou malentendantes&nbsp?"
+"L’accueil est-il équipé de produits dédiés à faciliter la communication "
+"entre le personnel et les personnes ayant des difficultés à entendre, à "
+"comprendre ou à parler ?"
 msgstr ""
-"Is the reception area equipped with products or services dedicated to the "
-"deaf or hard of hearing?"
 
 msgid ""
 "Présence de produits ou prestations dédiés aux personnes sourdes ou "
@@ -2444,8 +2459,9 @@ msgid ""
 msgstr ""
 "Presence of products or services dedicated to deaf or hard of hearing people"
 
-msgid "Présence d'équipement d'aide à l'audition"
-msgstr "Presence of hearing aid equipment"
+
+msgid "Présence d'équipement d'aide à l'audition et à la compréhension"
+msgstr "Presence of hearing and comprehension aids"
 
 msgid ""
 "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
@@ -4554,6 +4570,9 @@ msgstr "to reach reception"
 #, python-format
 msgid "Audiodescription : %(equipements)s"
 msgstr "Audiodescription: %(equipements)s"
+
+msgid "Toilettes adaptées"
+msgstr "Adapted toilets"
 
 #, python-format
 msgid "Présence de %(nb)s marche %(sens)s %(extra_context)s"

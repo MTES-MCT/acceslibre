@@ -1875,6 +1875,12 @@ class Accessibilite(models.Model):
         equipment_to_text = {k: str(v) for k, v in schema.AUDIODESCRIPTION_CHOICES}
         return ",".join([equipment_to_text.get(equipment) for equipment in self.accueil_audiodescription])
 
+    def get_accueil_equipements_malentendants_text(self):
+        if not self.accueil_equipements_malentendants:
+            return
+        equipment_to_text = {k: str(v) for k, v in schema.EQUIPEMENT_MALENTENDANTS_TO_SHORT_TEXT}
+        return [equipment_to_text.get(equipment).lower() for equipment in self.accueil_equipements_malentendants]
+
     def get_entree_dispositif_appel_type_text(self):
         if not self.entree_dispositif_appel_type:
             return

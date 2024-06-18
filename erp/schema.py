@@ -51,6 +51,14 @@ EQUIPEMENT_MALENTENDANT_CHOICES = [
     (EQUIPEMENT_MALENTENDANT_STS, translate_lazy("sous-titrage ou transcription simultanée")),
     (EQUIPEMENT_MALENTENDANT_AUTRES, translate_lazy("autres")),
 ]
+EQUIPEMENT_MALENTENDANTS_TO_SHORT_TEXT = {
+    (EQUIPEMENT_MALENTENDANT_BIM, translate_lazy("Boucle à induction magnétique")),
+    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, translate_lazy("Boucle à induction magnétique")),
+    (EQUIPEMENT_MALENTENDANT_LSF, translate_lazy("Langue des signes française")),
+    (EQUIPEMENT_MALENTENDANT_LPC, translate_lazy("Langue parlée complétée")),
+    (EQUIPEMENT_MALENTENDANT_STS, translate_lazy("Sous-titrage et transcription simultanée")),
+    (EQUIPEMENT_MALENTENDANT_AUTRES, translate_lazy("Autres")),
+}
 
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
@@ -452,7 +460,9 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement"
         ),
-        "help_text_ui_v2": translate_lazy("Places de parking au sein de l'établissement comprenant des places PMR"),
+        "help_text_ui_v2": translate_lazy(
+            "Places de parking au sein de l'établissement comprenant des places adaptées et réservées"
+        ),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement"
         ),
@@ -501,7 +511,7 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement"
         ),
-        "help_text_ui_v2": translate_lazy("Places de parking à proximité comprenant des places PMR"),
+        "help_text_ui_v2": translate_lazy("Places de parking à proximité comprenant des places adaptées et réservées"),
         "help_text_ui_neg": translate_lazy(
             "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
         ),
@@ -1136,7 +1146,7 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
         ),
-        "help_text_ui_v2": translate_lazy("Présence d'une entrée PMR"),
+        "help_text_ui_v2": translate_lazy("Présence d'une entrée dédiée aux personnes en situation de handicap"),
         "help_text_ui_neg": translate_lazy(
             "Pas d'entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
         ),
@@ -1593,16 +1603,16 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Présence d'équipements d'aide à l'audition et à la communication"),
+        "label": translate_lazy("Présence d’équipements d’aide à l’audition et à la compréhension"),
         "help_text": mark_safe(
             translate_lazy(
-                "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
+                "L’accueil est-il équipé de produits dédiés à faciliter la communication entre le personnel et les personnes ayant des difficultés à entendre, à comprendre ou à parler ?"
             )
         ),
         "help_text_ui": translate_lazy(
             "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
         ),
-        "help_text_ui_v2": translate_lazy("Présence d'équipement d'aide à l'audition"),
+        "help_text_ui_v2": translate_lazy("Présence d'équipement d'aide à l'audition et à la compréhension"),
         "help_text_ui_neg": translate_lazy(
             "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
         ),
