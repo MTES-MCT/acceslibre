@@ -6,7 +6,7 @@ from erp.models import Erp
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        parser.add_argument("username", help="Adresse email de la personne")
+        parser.add_argument("username", help="Username of the given person")
         parser.add_argument(
             "--write",
             action="store_true",
