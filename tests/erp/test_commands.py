@@ -255,6 +255,7 @@ class TestOutscraperAcquisition:
                     "Accessibilité": {
                         "Entrée accessible en fauteuil roulant": True,
                         "Toilettes accessibles en fauteuil roulant": True,
+                        "Parking accessible en fauteuil roulant": True,
                     },
                 },
             }
@@ -279,6 +280,8 @@ class TestOutscraperAcquisition:
         assert erp.accessibilite.entree_plain_pied is True
         assert erp.accessibilite.sanitaires_presence is True
         assert erp.accessibilite.sanitaires_adaptes is True
+        assert erp.accessibilite.stationnement_ext_presence is True
+        assert erp.accessibilite.stationnement_ext_pmr is True
 
         # call the command twice, it should not create a second erp
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
