@@ -404,7 +404,7 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(accessibilite__entree_dispositif_appel=True)
 
     def having_adapted_wc(self):
-        return self.filter(accessibilite__sanitaires_adaptes__gte=1)
+        return self.filter(accessibilite__sanitaires_adaptes=True)
 
     def having_adapted_entry(self):
         return self.filter(accessibilite__entree_pmr=True)
