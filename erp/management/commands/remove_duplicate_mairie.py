@@ -87,19 +87,19 @@ class Command(BaseCommand):
             if erp.shares_same_accessibility_data_with(duplicates):
                 try:
                     asp_id = self._get_asp_id(duplicates)
+                    self._delete_duplicates(duplicates)
                     if asp_id:
                         erp.asp_id = asp_id
                         erp.save()
-                    self._delete_duplicates(duplicates)
                 except MultipleAspIdForDuplicates:
                     self.stderr.write(f"Can't find the correct ASP ID for {duplicates}")
             else:
                 try:
                     asp_id = self._get_asp_id(duplicates)
+                    self._merge_and_delete(erp, duplicates)
                     if asp_id:
                         erp.asp_id = asp_id
                         erp.save()
-                    self._merge_and_delete(erp, duplicates)
                 except MultipleAspIdForDuplicates:
                     self.stderr.write(f"Can't find the correct ASP ID for {duplicates}")
                 except MergeException:

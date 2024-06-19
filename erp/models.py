@@ -13,7 +13,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Q, Value
-from django.db.models.constraints import CheckConstraint
+from django.db.models.constraints import CheckConstraint, UniqueConstraint
 from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -421,6 +421,13 @@ class Erp(models.Model):
             GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
             GinIndex(fields=["metadata"], name="gin_metadata"),
+        ]
+        constraints = [
+            UniqueConstraint(
+                fields=["asp_id"],
+                name="unique_asp_id_published",
+                condition=(Q(published=True) & Q(asp_id__isnull=False) & ~Q(asp_id="")),
+            ),
         ]
 
     objects = managers.ErpQuerySet.as_manager()
