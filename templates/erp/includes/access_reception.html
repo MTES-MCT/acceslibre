@@ -27,6 +27,8 @@
         {% endif %}
         {% if access.accueil_cheminement_ascenseur %}
             <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|positive_text }}</li>
+        {% elif access.accueil_cheminement_ascenseur is False %}
+            <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|negative_text }}</li>
         {% endif %}
         {% render_access_value "accueil_retrecissement" access "walking" %}
         {% if access.accueil_personnels %}<li data-filters="all">{{ access.get_accueil_personnels_display }}</li>{% endif %}

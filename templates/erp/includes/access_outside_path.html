@@ -11,6 +11,8 @@
         {% endif %}
         {% if access.cheminement_ext_bande_guidage %}
             <li data-filters="visual">{{ "cheminement_ext_bande_guidage"|positive_text }}</li>
+        {% elif access.cheminement_ext_bande_guidage is False %}
+            <li data-filters="visual">{{ "cheminement_ext_bande_guidage"|negative_text }}</li>
         {% endif %}
         {% if access.cheminement_ext_plain_pied %}
             <li data-filters="visual,walking">{{ "cheminement_ext_plain_pied"|positive_text }}</li>
@@ -32,6 +34,8 @@
         {% endif %}
         {% if access.cheminement_ext_ascenseur %}
             <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>
+        {% elif access.cheminement_ext_ascenseur is False %}
+            <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|negative_text }}</li>
         {% endif %}
         {% render_access_value "cheminement_ext_terrain_stable" access "walking" %}
         {% if access.cheminement_ext_pente_presence %}
@@ -57,9 +61,11 @@
                         {% endblocktranslate %}
                     </li>
                 {% else %}
-                    <li>{% translate "Présence d'une pente" %}</li>
+                    <li data-filters="walking">{% translate "Présence d'une pente" %}</li>
                 {% endif %}
             {% endif %}
+        {% elif access.cheminement_ext_pente_presence is False %}
+            <li data-filters="walking">{% translate "Pas de pente" %}</li>
         {% endif %}
         {% if access.has_camber %}
             <li data-filters="walking">
