@@ -50,7 +50,7 @@ class ContributionStepMixin(FormView):
         fields_to_check = [f.name for f in Accessibilite._meta.get_fields() if f.name not in fields_to_exclude]
         access = self.erp.accessibilite
         fields_values = [getattr(access, f) for f in fields_to_check if getattr(access, f) not in (None, [], "")]
-        return len(fields_values) >= settings.MIN_NB_ANSWERS_IN_CONTRIB_V2
+        return len(fields_values) >= settings.MIN_NB_ANSWERS_IN_CONTRIB
 
     def get_success_url(self):
         try:
