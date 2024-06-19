@@ -95,8 +95,8 @@ class Command(BaseCommand):
             accessibility["accueil_equipements_malentendants_presence"] = True
 
         if access.get("Parking accessible en fauteuil roulant") is True:
-            accessibility["stationnement_presence"] = True
-            accessibility["stationnement_pmr"] = True
+            accessibility["stationnement_ext_presence"] = True
+            accessibility["stationnement_ext_pmr"] = True
 
         if access.get("Toilettes accessibles en fauteuil roulant") is True:
             accessibility["sanitaires_presence"] = True
