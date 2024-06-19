@@ -363,8 +363,15 @@ class Command(BaseCommand):
             reader = csv.DictReader(file)
             if set(expected_headers) != set(reader.fieldnames):
                 missing = set(expected_headers) - set(reader.fieldnames)
+                missing = "".join(["\n\t - {elt}".format(elt=elt) for elt in missing])
                 extra = set(reader.fieldnames) - set(expected_headers)
-                print(f"ERROR - Invalid headers, missing {missing} or extra headers: {extra}.")
+                extra = "".join(["\n\t - {elt}".format(elt=elt) for elt in extra])
+                if missing:
+                    print(f"ERROR - Invalid headers, missing: {missing}.")
+
+                if extra:
+                    print(f"ERROR - Invalid headers, non expected headers: {extra}.")
+
                 return
 
             with open(self.input_file.replace(".csv", "_converted.csv"), "w") as new_file:
