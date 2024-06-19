@@ -489,7 +489,7 @@ def contrib_global_search(request):
     need_external_api_search = True
     if request.GET.get("search_type") in ("housenumber", "street"):
         # Business rule: we do not want to search in external API if the user is providing a full address. We are
-        # assuming he knows what he does and does not need help with some external API results.
+        # assuming he knows what he is doing and does not need help with some external API results.
         need_external_api_search = False
 
     activite = None

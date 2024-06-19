@@ -25,6 +25,7 @@ QUERIES = [
     ("Agence immobilière", "Agence immobilière"),
     ("Office du tourisme", "Office du tourisme"),
     ("Kebab", "Restauration rapide"),
+    ("Pizzeria", "Restauration rapide"),
     ("Pompes funèbres", "Pompes funèbres"),
     ("Coiffeur", "Coiffure"),
     ("Fleuriste", "Fleuriste"),
