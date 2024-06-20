@@ -611,6 +611,54 @@ def test_ajout_erp_a11y_vide(client):
 
 
 @pytest.mark.django_db
+def test_ajout_erp_a11y_low_completion(client):
+    user = UserFactory()
+    client.force_login(user)
+
+    commune = CommuneFactory()
+    erp = ErpFactory(
+        commune=commune.nom,
+        published=False,
+        with_accessibilite=True,
+        accessibilite__stationnement_presence=True,
+        accessibilite__cheminement_ext_presence=True,
+    )
+
+    # published field on
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+        data={
+            "published": "on",
+        },
+        follow=True,
+    )
+
+    assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
+    assert response.status_code == 200
+    assert (
+        str(response.context["messages"]._get()[0][0])
+        == "Vous n'avez pas fourni assez d'infos d'accessibilité. Votre établissement ne peut pas être publié."
+    )
+    erp = Erp.objects.get(slug=erp.slug)
+    assert erp.accessibilite.has_data() is True
+    assert erp.published is False
+
+    erp.accessibilite.stationnement_ext_presence = True
+    erp.accessibilite.save()
+
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+        data={
+            "published": "on",
+        },
+        follow=True,
+    )
+
+    erp.refresh_from_db()
+    assert erp.published is True
+
+
+@pytest.mark.django_db
 def test_add_erp_duplicate(client):
     user = UserFactory()
     client.force_login(user)

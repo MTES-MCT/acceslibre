@@ -862,6 +862,7 @@ def ensure_min_nb_answers(request, erp):
     # check that we have 4 root answers min, on contrib mode only (not on edit mode).
     form_fields = get_contrib_form_for_activity(erp.activite).base_fields.keys()
     root_fields = [field for field in form_fields if schema.FIELDS.get(field, {}).get("root") is True]
+    root_fields.remove("entree_porte_presence")
 
     nb_filled_in_fields = 0
     for attr in root_fields:
