@@ -15,7 +15,7 @@ AKEI_SIRET = "88076068100010"
 def user(db):
     return User.objects.create_user(
         username="jean-pierre",
-        password="Abc12345!",
+        password="Abc123456789!",
         email="user@user.tld",
         is_staff=False,
         is_active=True,
@@ -25,7 +25,7 @@ def user(db):
 @pytest.fixture
 def client(user):
     client = Client()
-    client.login(username="jean-pierre", password="Abc12345!")
+    client.login(username="jean-pierre", password="Abc123456789!")
     return client
 
 
