@@ -367,10 +367,10 @@ class Command(BaseCommand):
                 extra = set(reader.fieldnames) - set(expected_headers)
                 extra = "".join(["\n\t - {elt}".format(elt=elt) for elt in extra])
                 if missing:
-                    print(f"ERROR - Invalid headers, missing: {missing}.")
+                    print(f"ERROR - Invalid headers, missing: {missing}")
 
                 if extra:
-                    print(f"ERROR - Invalid headers, non expected headers: {extra}.")
+                    print(f"ERROR - Invalid headers, non expected headers: {extra}")
 
                 return
 
