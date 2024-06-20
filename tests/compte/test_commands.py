@@ -16,7 +16,7 @@ User = get_user_model()
 def spambot(db):
     return User.objects.create_user(
         username="spambot",
-        password="Abc12345!",
+        password="Abc123456789!",
         email="spam@bot.tld",
         is_staff=False,
         is_active=False,

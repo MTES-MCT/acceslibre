@@ -9,7 +9,7 @@ from django.urls import reverse
 from reversion.models import Version
 
 from compte.models import UserStats
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
+from erp.models import Accessibilite, ActivitySuggestion, Erp
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 from tests.utils import assert_redirect
 
@@ -143,12 +143,12 @@ def test_urls_404(url, client):
 @pytest.mark.django_db
 def test_auth(client):
     user = UserFactory(username="niko")
-    user.set_password("Abc12345!")
+    user.set_password("Abc123456789!")
     user.save()
     ErpFactory(nom="Aux bons croissants", user=user)
     response = client.post(
         reverse("login"),
-        data={"username": "niko", "password": "Abc12345!"},
+        data={"username": "niko", "password": "Abc123456789!"},
     )
     assert response.status_code == 302
     assert response.wsgi_request.user.username == "niko"
@@ -164,11 +164,11 @@ def test_auth(client):
 @pytest.mark.django_db
 def test_auth_using_email(client):
     user = UserFactory(username="niko", email="niko@niko.tld")
-    user.set_password("Abc12345!")
+    user.set_password("Abc123456789!")
     user.save()
     response = client.post(
         reverse("login"),
-        data={"username": "niko@niko.tld", "password": "Abc12345!"},
+        data={"username": "niko@niko.tld", "password": "Abc123456789!"},
     )
     assert response.status_code == 302
     assert response.wsgi_request.user.username == "niko"
@@ -181,8 +181,8 @@ def test_registration(client):
         data={
             "username": "julien",
             "email": "julien@julien.tld",
-            "password1": "Abc12345!",
-            "password2": "Abc12345!",
+            "password1": "Abc123456789!",
+            "password2": "Abc123456789!",
             "robot": "on",
         },
     )
@@ -198,8 +198,8 @@ def test_registration_with_first_and_last_name(client):
         data={
             "username": "julien",
             "email": "julien@julien.tld",
-            "password1": "Abc12345!",
-            "password2": "Abc12345!",
+            "password1": "Abc123456789!",
+            "password2": "Abc123456789!",
             "robot": "on",
         },
     )
@@ -214,8 +214,8 @@ def test_registration_not_a_robot(client):
         data={
             "username": "julien",
             "email": "julien@julien.tld",
-            "password1": "Abc12345!",
-            "password2": "Abc12345!",
+            "password1": "Abc123456789!",
+            "password2": "Abc123456789!",
         },
     )
     assert response.status_code == 200
@@ -240,8 +240,8 @@ def test_registration_username_blacklisted(username, client):
         data={
             "username": username,
             "email": "hacker@yoyo.tld",
-            "password1": "Abc12345!",
-            "password2": "Abc12345!",
+            "password1": "Abc123456789!",
+            "password2": "Abc123456789!",
             "robot": "on",
         },
     )
