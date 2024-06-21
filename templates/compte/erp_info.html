@@ -1,13 +1,18 @@
 {% load static %}
-{% if not erp.published or not erp.geom or not erp.accessibilite %}
-    <img alt="" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-    {{ erp.nom }}
+{% load i18n %}
+{% if not erp %}
+    {% translate "L'établissement a été supprimé." %}
 {% else %}
-    <a href="{{ erp.get_absolute_url }}#history">
+    {% if not erp.published or not erp.geom or not erp.accessibilite %}
         <img alt="" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
         {{ erp.nom }}
-    </a>
+    {% else %}
+        <a href="{{ erp.get_absolute_url }}#history">
+            <img alt="" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+            {{ erp.nom }}
+        </a>
+    {% endif %}
+    {% if erp.activite %}<small class="text-muted">({{ erp.activite.nom }})</small>{% endif %}
+    <br>
+    <address class="mb-0">{{ erp.adresse }}</address>
 {% endif %}
-{% if erp.activite %}<small class="text-muted">({{ erp.activite.nom }})</small>{% endif %}
-<br>
-<address class="mb-0">{{ erp.adresse }}</address>
