@@ -149,36 +149,6 @@ if hosting:
 
 if culture:
     mapping |= {
-        # TEMP entree_porte, will disappear with new templated forms
-        "Comment s'ouvre la porte ?": {
-            "Porte coulissante": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "coulissante")],
-            "Porte battante": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "battante")],
-            "Porte tourniquet": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "tourniquet")],
-            "Porte tambour": [("entree_porte_presence", True), ("entree_porte_manoeuvre", "tambour")],
-            "Autre": [("entree_porte_presence", True)],
-        },
-        "Quel est le type de porte ?": {
-            "Manuelle": [("entree_porte_presence", True), ("entree_porte_type", "manuelle")],
-            "Automatique": [("entree_porte_presence", True), ("entree_porte_type", "automatique")],
-            "Autre": [("entree_porte_presence", True)],
-        },
-        "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée ?": {
-            "Oui": [("entree_dispositif_appel", True)],
-            "Non": [("entree_dispositif_appel", False)],
-            "Je ne sais pas": [],
-        },
-        "Quel(s) type(s) de dispositifs d'appel sont présents ?": {
-            "Bouton d'appel": [("entree_dispositif_appel_type", "bouton")],
-            "Interphone": [("entree_dispositif_appel_type", "interphone")],
-            "Visiophone": [("entree_dispositif_appel_type", "visiophone")],
-        },
-        "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées ?": {
-            "Oui": [("accueil_personnels", "formés")],
-            "Non": [("accueil_personnels", "non-formés")],
-            "Aucun personnel": [("accueil_personnels", "aucun")],
-            "Je ne sais pas": [],
-        },
-        # ENDTEMP
         "L'établissement propose-t-il de l'audiodescription ?": {
             "Oui": [("accueil_audiodescription_presence", True)],
             "Non": [("accueil_audiodescription_presence", False)],
@@ -251,6 +221,10 @@ if ath:
         "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Visuel)": {
             "true": [("labels", ["th"]), ("labels_familles_handicap", ["visuel"])],
             "false": [("labels", ["th"])],
+        },
+        "Quelle est votre marque Tourisme &amp; handicap ? (Non, je n'ai pas de label T&H)": {
+            "true": [],
+            "false": [],
         },
     }
     to_ignore_headers += ["Quelle est votre marque Tourisme &amp; handicap ?"]
