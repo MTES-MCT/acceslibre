@@ -1,3 +1,5 @@
+from unittest.mock import MagicMock, call, patch
+
 import pytest
 from django.contrib.sites.models import Site
 from django.core.management import call_command
@@ -16,9 +18,42 @@ def browser():
 
 
 @pytest.mark.django_db
-def test_stats_page(browser, django_assert_max_num_queries):
+@patch("stats.matomo.requests.post")
+def test_stats_page(mocked, browser, django_assert_max_num_queries):
+    mocked.side_effect = MagicMock(status_code=200, json=lambda: {})
     with django_assert_max_num_queries(3):
         browser.visit(reverse("stats_home"))
+
+    assert mocked.call_count == 2
+
+    get_visitors = call(
+        "https://acceslibre.matomo.cloud/index.php",
+        data={
+            "module": "API",
+            "idSite": 1,
+            "period": "day",
+            "date": "last30",
+            "format": "JSON",
+            "token_auth": "XXXX",
+            "method": "VisitsSummary.getUniqueVisitors",
+        },
+        timeout=2,
+    )
+    assert mocked.mock_calls[0] == get_visitors
+    get_actions = call(
+        "https://acceslibre.matomo.cloud/index.php",
+        data={
+            "module": "API",
+            "idSite": 1,
+            "period": "day",
+            "date": "last30",
+            "format": "JSON",
+            "token_auth": "XXXX",
+            "method": "Events.getAction",
+        },
+        timeout=2,
+    )
+    assert mocked.mock_calls[1] == get_actions
 
 
 @pytest.mark.django_db

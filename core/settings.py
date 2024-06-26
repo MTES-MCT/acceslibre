@@ -51,6 +51,7 @@ CSP_DEFAULT_SRC = (
     "game.crisp.chat",
     "wss://client.relay.crisp.chat",
     "wss://stream.relay.crisp.chat",
+    "*.acceslibre.info",
 )
 
 CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin")  # swagger and admin uses scripts from remote cdns
@@ -411,3 +412,5 @@ ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY = "municipality"
 ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER = "housenumber"
 ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET = "street"
 IN_MUNICIPALITY_SEARCH_TYPE = "in_municipality"
+
+MATOMO = {"URL": "https://acceslibre.matomo.cloud/", "SITE_ID": 1, "TOKEN": env("MATOMO_API_TOKEN", default=None)}

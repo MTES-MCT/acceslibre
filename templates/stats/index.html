@@ -2,6 +2,7 @@
 {% load waffle_tags %}
 {% load i18n %}
 {% load l10n %}
+{% load static %}
 {% block page_title %}
     {% translate "Statistiques" %}
 {% endblock page_title %}
@@ -9,107 +10,80 @@
     noindex, nofollow
 {% endblock robots %}
 {% block editorial_content %}
-    <h1 class="my-3">
-        {% translate "Statistiques <small>- au" %} {{ current_date|date:"SHORT_DATE_FORMAT" }}</small>
-    </h1>
-    <div class="card-group my-4">
-        <div class="card col-md-6 p-0">
-            <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-                <p class="fr-h1 text-center">{{ nb_published_erps }}</p>
-                <div class="h4 px-4 text-center">
-                    {% blocktranslate count counter=nb_published_erps %}
-          établissement publié
-          {% plural %}
-          établissements publiés
-          {% endblocktranslate %}
-                </div>
-            </div>
+    <h1 class="fr-display--xl">{% translate "Statistiques d'Acceslibre" %}</h1>
+    <div class="fr-grid-row fr-grid-row--gutters">
+        <div class="fr-col-12 fr-col-lg-6 text-center">
+            <span class="fr-display--xl">{{ nb_published_erps }}</span><span class="fr-h4 ml-2">{% translate "lieux référencés" %}</span>
         </div>
-        <div class="card md-6 p-0">
-            <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-                <p class="fr-h1 text-center">{{ nb_contributors }}</p>
-                <div class="h4 px-4 text-center">
-                    {% translate "contributeur" %}{{ nb_contributors|pluralize:"s" }} {% blocktranslate with site=SITE_NAME|title %}sur {{ site }}{% endblocktranslate %}
+        <div class="fr-col-12 fr-col-lg-6 text-center">
+            <span class="fr-display--xl">{{ nb_contributors }}</span><span class="fr-h4 ml-2">{% translate "contributeurs" %}</span>
+        </div>
+    </div>
+    <div class="fr-grid-row fr-grid-row--gutters">
+        <div class="fr-col-12">
+            <iframe src="https://metabase.acceslibre.info/public/dashboard/0cef84d8-a977-4d6e-8060-82c596a23173"
+                    frameborder="0"
+                    width="100%"
+                    height="600"
+                    allowtransparency></iframe>
+        </div>
+    </div>
+    <div class="bg-alt-blue-france-975 p-4 mt-4">
+        <h2 class="fr-h2">{% translate "Consultation des données" %}</h2>
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-lg-6">
+                <h3 class="fr-h3 text-center">{% translate "Sur acceslibre" %}</h3>
+                <iframe width="100%"
+                        height="260"
+                        src="https://stats.beta.gouv.fr/index.php?forceView=1&viewDataTable=graphEvolution&module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=3&period=day&date=yesterday"
+                        scrolling="yes"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"></iframe>
+                {% if nb_unique_visitors %}
+                    <span class="fr-display--xl mt-4">{{ nb_unique_visitors }}</span>
+                    <br />
+                    <span class="fr-h4 ml-2">{% translate "visiteurs uniques sur les 30 derniers jours" %}</span>
+                {% endif %}
+            </div>
+            <div class="fr-col-12 fr-col-lg-6">
+                <h3 class="fr-h3 text-center">{% translate "Sites réutilisateurs" %}</h3>
+                <div class="fr-grid-row fr-grid-row--gutters">
+                    <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
+                        <img class="a4a-partenaire-logo"
+                             alt="Logo d'Allociné"
+                             src="{% static 'img/partenaires/allocine.png' %}">
+                    </div>
+                    <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
+                        <img class="a4a-partenaire-logo"
+                             alt="Logo de sortir a Paris"
+                             src="{% static 'img/partenaires/sortir-a-paris_avatar.png' %}">
+                    </div>
+                    <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
+                        <img class="a4a-partenaire-logo"
+                             alt="Logo de Nestenn"
+                             src="{% static 'img/partenaires/nestenn.png' %}">
+                    </div>
+                    <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
+                        <img class="a4a-partenaire-logo"
+                             alt="Logo de solocal"
+                             src="{% static 'img/partenaires/solocal.png' %}">
+                    </div>
                 </div>
+                {% if nb_widget_open %}
+                    <span class="fr-display--xl mt-4">{{ nb_widget_open }}</span>
+                    <br />
+                    <span class="fr-h4 ml-2">{% translate "consultations des données sur des sites partenaires" %}</span>
+                {% endif %}
             </div>
         </div>
     </div>
-    <div class="card-group my-4">
-        <div class="card shadow-sm col-md-7 p-0">
-            <div class="card-header text-truncate">
-                <h2 class="fr-h4 fr-text--sm">{% translate "Évolution du nombre d'établissements publiés" %}</h2>
-            </div>
-            <div class="card-body p-2">
-                <canvas id="erpCountChart"
-                        width="100%"
-                        height="250"
-                        role="img"
-                        alt="{% translate "Graphique représentant l'évolution du nombre d'établissements publiés" %}">
-                    {% blocktranslate %}Graphique représentant l'évolution du nombre d'établissements publiés sur l'année. Nous atteignons ce mois-ci {{ nb_published_erps }} ERPs publiés.{% endblocktranslate %}
-                </canvas>
-                <script nonce="{{ request.csp_nonce }}">
-        {% translate "Nombre d'établissements" as translate_np_erps %}
-        const ctx = document.getElementById('erpCountChart').getContext('2d');
-        var erpCountChart = new window.Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: {{ erp_counts_histogram.labels|safe }},
-            datasets: [
-              {
-                label: "{{ translate_np_erps }}",
-                data: {{ erp_counts_histogram.totals|escapejs }},
-                backgroundColor: "#075ea2",
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false
-          }
-        });
-                </script>
-            </div>
-        </div>
-        <div class="card shadow-sm col-md-5 p-0">
-            <div class="card-header">
-                <h2 class="fr-h4 fr-text--sm">{% translate "Top contributeurs" %}</h2>
-            </div>
-            <div class="card-body">
-                <ol class="mb-0">
-                    {% for contributor in top_contributors %}
-                        <li>
-                            <strong>{{ contributor.username }}</strong>
-                            <small class="text-muted">
-                                {{ contributor.erp_count_published }}
-                                {% if contributor.erp_count_published != contributor.erp_count_total %}/{{ contributor.erp_count_total }}{% endif %}
-                                {% blocktranslate count counter=contributor.erp_count_published %}
-              fiche publiée
-              {% plural %}
-              fiches publiées
-              {% endblocktranslate %}
-                            </small>
-                        </li>
-                    {% endfor %}
-                </ol>
-            </div>
-        </div>
-    </div>
-    <aside class="fr-container-fluid mb-0 shadow-sm text-left card shadow-sm pt-2 pb-2">
-        <div class="fr-container">
-            <h2 class="fr-h3">{% translate "Challenges" %}</h2>
-            <a class="btn-link fr-text--heavy" href="{% url 'challenges' %}">{% translate "Tout savoir" %}</a> {% translate "sur les challenges" %}
-        </div>
-    </aside>
-    <div class="mt-3">
-        <h2 class="h5 my-3">
-            {% translate "Fréquentation" %} <small class="text-muted">{% translate "sur les 30 derniers jours" %}</small>
-        </h2>
-        <iframe width="100%"
-                height="350"
-                src="https://stats.beta.gouv.fr/index.php?forceView=1&viewDataTable=graphEvolution&module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=3&period=day&date=yesterday"
-                scrolling="yes"
+    <div class="mt-4">
+        <h2 class="fr-h2">{% translate "Qualité des données" %}</h2>
+        <iframe src="https://metabase.acceslibre.info/public/dashboard/f7251584-a95f-493f-8dac-a3575caec3b2"
                 frameborder="0"
-                marginheight="0"
-                marginwidth="0"></iframe>
+                width="100%"
+                height="600"
+                allowtransparency></iframe>
     </div>
 {% endblock editorial_content %}

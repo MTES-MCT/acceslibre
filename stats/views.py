@@ -1,23 +1,32 @@
-import datetime
-
 from django.shortcuts import render
 
 from erp.models import Erp
 from stats import queries
+from stats.matomo import MatomoException, get_number_widget_open, get_unique_visitors
 from stats.models import GlobalStats
 
 
 def stats(request):
-    erp_qs = Erp.objects.published()
     global_stat = GlobalStats.objects.get()
+
+    try:
+        nb_unique_visitors = get_unique_visitors()
+    except MatomoException:
+        nb_unique_visitors = None
+
+    try:
+        nb_widget_open = get_number_widget_open()
+    except MatomoException:
+        nb_widget_open = None
+
     return render(
         request,
         "stats/index.html",
         context={
-            "current_date": datetime.datetime.now(),
-            "nb_published_erps": erp_qs.count(),
+            "nb_published_erps": Erp.objects.published().count(),
             "nb_contributors": queries.get_active_contributors_ids().count(),
             "top_contributors": global_stat.top_contributors,
-            "erp_counts_histogram": global_stat.erp_counts_histogram,
+            "nb_unique_visitors": nb_unique_visitors,
+            "nb_widget_open": nb_widget_open,
         },
     )
