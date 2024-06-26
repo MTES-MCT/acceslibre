@@ -1,3 +1,4 @@
+from django.apps import apps
 from django.db.models import Avg
 from django_registration.backends.activation.views import RegistrationView
 from rest_framework import serializers
@@ -6,7 +7,13 @@ from reversion.models import Revision
 from compte.models import UserStats
 
 
-class UserStatsSerializer(serializers.ModelSerializer):
+class BrevoSerializer(serializers.ModelSerializer):
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        return {k.upper(): v for k, v in representation.items()}
+
+
+class UserStatsForBrevoSerializer(BrevoSerializer):
     date_joined = serializers.SerializerMethodField()
     date_last_login = serializers.SerializerMethodField()
     date_last_contrib = serializers.SerializerMethodField()
@@ -57,6 +64,18 @@ class UserStatsSerializer(serializers.ModelSerializer):
     def get_newsletter_opt_in(self, instance):
         return instance.user.preferences.get().newsletter_opt_in
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        return {k.upper(): v for k, v in representation.items()}
+
+class ErpSerializerForBrevo(BrevoSerializer):
+    erp_url = serializers.URLField(source="get_absolute_uri", read_only=True)
+
+    @classmethod
+    def get_model(cls):
+        return apps.get_model("erp", "Erp")
+
+    class Meta:
+        model = None
+        fields = ("erp_url",)
+
+    def __new__(cls, *args, **kwargs):
+        cls.Meta.model = cls.get_model()
+        return super().__new__(cls, *args, **kwargs)
