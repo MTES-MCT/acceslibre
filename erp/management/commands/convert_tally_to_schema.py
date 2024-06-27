@@ -208,19 +208,19 @@ if ath:
     mapping |= {
         "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Auditif)": {
             "true": [("labels", ["th"]), ("labels_familles_handicap", ["auditif"])],
-            "false": [("labels", ["th"])],
+            "false": [],
         },
         "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Mental)": {
             "true": [("labels", ["th"]), ("labels_familles_handicap", ["mental"])],
-            "false": [("labels", ["th"])],
+            "false": [],
         },
         "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Moteur)": {
             "true": [("labels", ["th"]), ("labels_familles_handicap", ["moteur"])],
-            "false": [("labels", ["th"])],
+            "false": [],
         },
         "Quelle est votre marque Tourisme &amp; handicap ? (Handicap Visuel)": {
             "true": [("labels", ["th"]), ("labels_familles_handicap", ["visuel"])],
-            "false": [("labels", ["th"])],
+            "false": [],
         },
         "Quelle est votre marque Tourisme &amp; handicap ? (Non, je n'ai pas de label T&H)": {
             "true": [],
