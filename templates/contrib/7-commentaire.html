@@ -24,7 +24,7 @@
     {% include "fields/checkbox.html" with field=form.labels inline=True %}
     {% include "fields/textarea.html" with field=form.labels_autre extraclasses="hidden" extraid="field-labels_autre" %}
     {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraclasses="hidden" extraid="field-labels_familles_handicap" %}
-    <script>
+    <script nonce="{{ request.csp_nonce }}">
      document.addEventListener("DOMContentLoaded", function () {
       const fieldFamilles = document.querySelector("#field-labels_familles_handicap");
       const fieldAutre = document.querySelector("#field-labels_autre");
