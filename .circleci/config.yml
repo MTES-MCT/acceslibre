@@ -17,7 +17,7 @@ executors:
           BREVO_API_KEY: xxx
           OUTSCRAPER_API_KEY: xxx
           SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
-      - image: cimg/postgres:12.12-postgis
+      - image: cimg/postgres:14.12-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
