@@ -3,6 +3,7 @@ import logging
 import pandas as pd
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
+from sentry_sdk import monitor
 
 from core import mattermost
 from erp.export.export import export_schema_to_csv, upload_to_datagouv
@@ -32,6 +33,7 @@ class Command(BaseCommand):
         if self.verbose:
             print(msg)
 
+    @monitor(monitor_slug="export_to_datagouv")
     def handle(self, *args, **options):
         self.verbose = options.get("verbose", False)
         skip_upload = options.get("skip_upload", False)
