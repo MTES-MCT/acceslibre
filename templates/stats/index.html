@@ -1,5 +1,4 @@
 {% extends "editorial/base.html" %}
-{% load waffle_tags %}
 {% load i18n %}
 {% load l10n %}
 {% load static %}
@@ -11,12 +10,19 @@
 {% endblock robots %}
 {% block editorial_content %}
     <h1>{% translate "Statistiques d'Acceslibre" %}</h1>
-    <div class="fr-grid-row fr-grid-row--gutters">
-        <div class="fr-col-12 fr-col-lg-6 text-center">
-            <span class="fr-display--xs">{{ nb_published_erps }}</span><span class="fr-h4 ml-2">{% translate "lieux référencés" %}</span>
-        </div>
-        <div class="fr-col-12 fr-col-lg-6 text-center">
-            <span class="fr-display--xs">{{ nb_contributors }}</span><span class="fr-h4 ml-2">{% translate "contributeurs" %}</span>
+    <div>
+        <h2 class="fr-h2 fr-mb-5w">{% translate "Contribution" %}</h2>
+        <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+            <div class="fr-col-12 fr-col-lg-6 text-center">
+                <div class="fr-card">
+                    <span class="fr-h1 fr-pt-3w">{{ nb_published_erps }}</span><span class="fr-h4 ml-2">{% translate "lieux référencés" %}</span>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-lg-6 text-center">
+                <div class="fr-card">
+                    <span class="fr-h1 fr-pt-3w">{{ nb_contributors }}</span><span class="fr-h4 ml-2">{% translate "contributeurs" %}</span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="fr-grid-row fr-grid-row--gutters">
@@ -31,7 +37,7 @@
     <div class="bg-alt-blue-france-975 mt-4 pt-2">
         <h2 class="fr-h2">{% translate "Consultation des données" %}</h2>
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-lg-6">
+            <div class="fr-col-12 fr-col-lg-6 fr-pr-4w">
                 <h3 class="fr-h3 text-center">{% translate "Sur acceslibre" %}</h3>
                 <iframe width="100%"
                         height="260"
@@ -46,26 +52,26 @@
                     <span class="fr-h4 ml-2">{% translate "visiteurs uniques sur les 30 derniers jours" %}</span>
                 {% endif %}
             </div>
-            <div class="fr-col-12 fr-col-lg-6">
+            <div class="fr-col-12 fr-col-lg-6 fr-pl-4w">
                 <h3 class="fr-h3 text-center">{% translate "Sites réutilisateurs" %}</h3>
-                <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-grid-row fr-grid-row--gutters fr-mb-5w">
                     <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                        <img class="a4a-partenaire-logo"
+                        <img class="a4a-partenaire-logo-small"
                              alt="Logo d'Allociné"
                              src="{% static 'img/partenaires/allocine.png' %}">
                     </div>
                     <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                        <img class="a4a-partenaire-logo"
+                        <img class="a4a-partenaire-logo-small"
                              alt="Logo de sortir a Paris"
                              src="{% static 'img/partenaires/sortir-a-paris_avatar.png' %}">
                     </div>
                     <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                        <img class="a4a-partenaire-logo"
+                        <img class="a4a-partenaire-logo-small"
                              alt="Logo de Nestenn"
                              src="{% static 'img/partenaires/nestenn.png' %}">
                     </div>
                     <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                        <img class="a4a-partenaire-logo"
+                        <img class="a4a-partenaire-logo-small"
                              alt="Logo de solocal"
                              src="{% static 'img/partenaires/solocal.png' %}">
                     </div>
