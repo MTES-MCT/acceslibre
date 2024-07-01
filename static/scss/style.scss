@@ -298,6 +298,11 @@ select[name='language'] {
     max-height: 120px;
   }
 
+  &-partenaire-logo-small {
+    max-width: 100%;
+    max-height: 90px;
+  }
+
   .nav-tabs .active {
     font-weight: bold;
   }
