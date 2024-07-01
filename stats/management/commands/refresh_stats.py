@@ -6,23 +6,16 @@ from django.db.models import Q
 from django.utils import timezone
 from sentry_sdk import monitor
 
-from stats.models import Challenge, GlobalStats
+from stats.models import Challenge
 
 logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    help = "Calcule les statistiques globales affichées sur la page Statistiques et les stats des challenge en cours"
+    help = "Calcule les statistiques des challenge en cours"
 
     @monitor(monitor_slug="refresh_stats")
     def handle(self, *args, **options):
-        try:
-            GlobalStats.objects.get().refresh_stats()
-            logger.info("STATS updated succesfully")
-        except KeyboardInterrupt:
-            raise CommandError("Interrompu.")
-
-        # Compute challenges stats
         today = timezone.now().date()
         yesterday = today - timedelta(days=1)
 

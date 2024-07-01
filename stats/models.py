@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as translate
 
-from stats.queries import get_challenge_scores, get_erp_counts_histogram, get_top_contributors
+from stats.queries import get_challenge_scores
 
 
 class GlobalStats(models.Model):
@@ -25,8 +25,6 @@ class GlobalStats(models.Model):
     @classmethod
     def refresh_stats(cls):
         self, _ = cls.objects.get_or_create()
-        self.erp_counts_histogram = get_erp_counts_histogram()
-        self.top_contributors = list(get_top_contributors())
         self.save()
 
 

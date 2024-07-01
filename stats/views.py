@@ -3,12 +3,9 @@ from django.shortcuts import render
 from erp.models import Erp
 from stats import queries
 from stats.matomo import MatomoException, get_number_widget_open, get_unique_visitors
-from stats.models import GlobalStats
 
 
 def stats(request):
-    global_stat = GlobalStats.objects.get()
-
     try:
         nb_unique_visitors = get_unique_visitors()
     except MatomoException:
@@ -25,7 +22,6 @@ def stats(request):
         context={
             "nb_published_erps": Erp.objects.published().count(),
             "nb_contributors": queries.get_active_contributors_ids().count(),
-            "top_contributors": global_stat.top_contributors,
             "nb_unique_visitors": nb_unique_visitors,
             "nb_widget_open": nb_widget_open,
         },

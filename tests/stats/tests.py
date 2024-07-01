@@ -2,12 +2,11 @@ from unittest.mock import MagicMock, call, patch
 
 import pytest
 from django.contrib.sites.models import Site
-from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 from splinter import Browser
 
-from stats.models import GlobalStats, WidgetEvent
+from stats.models import WidgetEvent
 from stats.queries import _get_nb_filled_in_info
 from tests.factories import ErpFactory
 
@@ -134,14 +133,6 @@ def test_widget_tracking_with_same_origin_site():
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
     assert WidgetEvent.objects.all().count() == 0
-
-
-@pytest.mark.django_db
-def test_command_refresh_stats(client):
-    call_command("refresh_stats")
-    assert GlobalStats.objects.count() == 1
-    stat = GlobalStats.objects.get()
-    assert stat.top_contributors is not dict()
 
 
 def test_get_nb_filled_in_infos():
