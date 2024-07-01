@@ -34,7 +34,7 @@
                     allowtransparency></iframe>
         </div>
     </div>
-    <div class="bg-alt-blue-france-975 mt-4 pt-2">
+    <div class="bg-alt-blue-france-975 fr-mt-4w fr-p-4w fr-mb-8w">
         <h2 class="fr-h2">{% translate "Consultation des données" %}</h2>
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-lg-6 fr-pr-4w">
@@ -45,16 +45,17 @@
                         scrolling="yes"
                         frameborder="0"
                         marginheight="0"
-                        marginwidth="0"></iframe>
+                        marginwidth="0"
+                        class="fr-mb-2w"></iframe>
                 {% if nb_unique_visitors %}
-                    <span class="fr-display--xl mt-4">{{ nb_unique_visitors }}</span>
+                    <span class="fr-h1 fr-pt-3w">{{ nb_unique_visitors }}</span>
                     <br />
-                    <span class="fr-h4 ml-2">{% translate "visiteurs uniques sur les 30 derniers jours" %}</span>
+                    <span class="fr-h4">{% translate "visiteurs uniques sur les 30 derniers jours" %}</span>
                 {% endif %}
             </div>
             <div class="fr-col-12 fr-col-lg-6 fr-pl-4w">
                 <h3 class="fr-h3 text-center">{% translate "Sites réutilisateurs" %}</h3>
-                <div class="fr-grid-row fr-grid-row--gutters fr-mb-5w">
+                <div class="fr-grid-row fr-grid-row--gutters fr-mb-8w">
                     <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
                         <img class="a4a-partenaire-logo-small"
                              alt="Logo d'Allociné"
@@ -77,9 +78,9 @@
                     </div>
                 </div>
                 {% if nb_widget_open %}
-                    <span class="fr-display--xl mt-4">{{ nb_widget_open }}</span>
+                    <span class="fr-h1">{{ nb_widget_open }}</span>
                     <br />
-                    <span class="fr-h4 ml-2">{% translate "consultations des données sur des sites partenaires" %}</span>
+                    <span class="fr-h4">{% translate "consultations des données sur des sites partenaires" %}</span>
                 {% endif %}
             </div>
         </div>

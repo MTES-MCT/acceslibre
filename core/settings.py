@@ -413,4 +413,15 @@ ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER = "housenumber"
 ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET = "street"
 IN_MUNICIPALITY_SEARCH_TYPE = "in_municipality"
 
-MATOMO = {"URL": "https://acceslibre.matomo.cloud/", "SITE_ID": 1, "TOKEN": env("MATOMO_API_TOKEN", default=None)}
+MATOMO = {
+    "CLOUD": {
+        "URL": "https://acceslibre.matomo.cloud/",
+        "SITE_ID": 1,
+        "TOKEN": env("CLOUD_MATOMO_API_TOKEN", default=None),
+    },
+    "BETA": {
+        "URL": "https://stats.beta.gouv.fr/",
+        "SITE_ID": 3,
+        "TOKEN": env("BETA_MATOMO_API_TOKEN", default=None),
+    },
+}
