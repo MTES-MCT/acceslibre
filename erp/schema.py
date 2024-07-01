@@ -1425,8 +1425,10 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Toilette sécurisé"),
-        "help_text": mark_safe(translate_lazy("Le toilette est-il équipé d'une barre d'appui horizontale&nbsp;?")),
+        "label": translate_lazy("Toilettes sécurisées"),
+        "help_text": mark_safe(
+            translate_lazy("Les toilettes sont-elles équipées d'une barre d'appui horizontale&nbsp;?")
+        ),
         "help_text_ui": translate_lazy("Le toilette est équipé d'une barre d'appui horizontale"),
         "help_text_ui_v2": translate_lazy("Avec Barre d'appui"),
         "help_text_ui_neg": translate_lazy("Le toilette n'est pas équipé d'une barre d'appui horizontale"),
@@ -1443,9 +1445,11 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Toilette accessible"),
+        "label": translate_lazy("Toilettes accessibles"),
         "help_text": mark_safe(
-            translate_lazy("Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?")
+            translate_lazy(
+                "Les toilettes disposent-t-elles d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette ?"
+            )
         ),
         "help_text_ui": translate_lazy("Le toilette dispose d'un espace d'usage à côté de la cuvette"),
         "help_text_ui_v2": translate_lazy("Avec espace d'usage"),
