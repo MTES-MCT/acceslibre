@@ -640,11 +640,12 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:53eee7ad44df903a06655871cbab66d156a051fd86f3ec6750470ac9604ac1ab",
-                "sha256:c6ed726a140b6e725b911528f80439c534fac915246af3efc39440a6b0f9d716"
+                "sha256:1cec0fbba8404af13facebe83d04436a7434c7400e59f47acf467c64abd0956c",
+                "sha256:e6b347c27bdf9c32ee9d31ae85defc525755a1869f14057e900675b9e8d6e6ff"
             ],
             "index": "pypi",
-            "version": "==8.25.0"
+            "markers": "python_version >= '3.10'",
+            "version": "==8.26.0"
         },
         "isodate": {
             "hashes": [
