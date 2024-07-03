@@ -47,6 +47,7 @@ Authorization: Api-Key <YOUR_API_KEY>
 ```
 
 To request your API key, [contact us]({settings.SITE_ROOT_URL}/contact/api_key), we have no reason to refuse :-)
+If you plan to do some insertions and/or updates, during your developments, we are highly recommanding to use our `staging` platform (dedicated API key).
 
 ## Limitation
 

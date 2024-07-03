@@ -118,6 +118,13 @@ class BrevoMailer(Mailer):
                 create_attribute=CreateAttribute(type="float"),
             )
 
+        if "ERP_URL" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="ERP_URL",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="text"),
+            )
+
     def sync_user(self, user):
         if not user.email:
             return False
