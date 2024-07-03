@@ -1120,11 +1120,11 @@
         },
         "outscraper": {
             "hashes": [
-                "sha256:83824031a8324442573ae581f95201223f1136bdec2c010acb646f4aaaa7a658",
-                "sha256:f12fc09742b3698700e8a09717660e7088beb360a9c8296a56df781b3acc9c18"
+                "sha256:1005842df3452176a7f86c881de2e957c62295fbf494eeac08713fb5bbd490a3",
+                "sha256:8f3bcb79b8ee7e3b80f3f3484107bc5eac39b03d93f7b439b63f257092797f89"
             ],
             "index": "pypi",
-            "version": "==5.1.0"
+            "version": "==5.2.0"
         },
         "packaging": {
             "hashes": [
@@ -1681,6 +1681,7 @@
                 "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.32.3"
         },
         "rfc3986": {
