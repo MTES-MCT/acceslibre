@@ -60,7 +60,10 @@ class ErpQuerySet(models.QuerySet):
         lieu_dit: str = None,
         published: bool = None,
     ):
-        qs = self.filter(commune__iexact=commune, numero=numero, activite_id=activite.pk)
+        qs = self.filter(commune__iexact=commune, activite_id=activite.pk)
+        if numero is not None:
+            qs = qs.filter(Q(numero=numero) | Q(numero__isnull=True))
+
         if published is not None:
             qs = qs.filter(published=published)
 

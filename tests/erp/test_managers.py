@@ -168,6 +168,28 @@ def test_find_duplicate_lieu_dit_accent_insensitive():
 
 
 @pytest.mark.django_db
+def test_find_duplicate_without_numero():
+    erp = ErpFactory(
+        numero="4",
+        voie="Rue Centrale",
+        code_postal="34830",
+        commune="Jacou",
+    )
+
+    queryset = Erp.objects.find_duplicate(numero=16, commune="Jacou", activite=erp.activite, voie="Rue Centrale")
+    assert queryset.exists() is False
+
+    queryset = Erp.objects.find_duplicate(numero=None, commune="Jacou", activite=erp.activite, voie="Rue Centrale")
+    assert queryset.exists() is True
+
+    erp.numero = None
+    erp.save()
+
+    queryset = Erp.objects.find_duplicate(numero=6, commune="Jacou", activite=erp.activite, voie="Rue Centrale")
+    assert queryset.exists() is True
+
+
+@pytest.mark.django_db
 class TestErpQuerySetFilters:
     @pytest.mark.parametrize(
         "access_attrs, should_be_returned",
