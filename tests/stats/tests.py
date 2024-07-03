@@ -26,14 +26,14 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
     assert mocked.call_count == 2
 
     get_visitors = call(
-        "https://acceslibre.matomo.cloud/index.php",
+        "https://stats.beta.gouv.fr/index.php",
         data={
             "module": "API",
-            "idSite": 1,
+            "idSite": 3,
             "period": "day",
             "date": "last30",
             "format": "JSON",
-            "token_auth": "XXXX",
+            "token_auth": "YYYY",
             "method": "VisitsSummary.getUniqueVisitors",
         },
         timeout=2,
