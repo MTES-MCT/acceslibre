@@ -112,3 +112,14 @@ def test_sync_brevo(mocker, client):
         "PRENOM": user.first_name,
         "AVERAGE_COMPLETION_RATE": 4.0,
     }
+
+    erp = ErpFactory(import_email=user.email, source=Erp.SOURCE_TALLY)
+
+    mock.reset_mock()
+    call_command("sync_brevo")
+    assert mock.call_count == 2
+    _, _kwargs = mock.call_args_list[1][0]
+
+    assert _kwargs.attributes == {
+        "ERP_URL": erp.get_absolute_uri(),
+    }

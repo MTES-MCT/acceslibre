@@ -18,7 +18,7 @@ from sib_api_v3_sdk import (
 from sib_api_v3_sdk.rest import ApiException
 from waffle import switch_is_active
 
-from compte.serializers import UserStatsSerializer
+from compte.serializers import ErpSerializerForBrevo, UserStatsForBrevoSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -134,7 +134,22 @@ class BrevoMailer(Mailer):
         if not hasattr(user, "stats"):
             return False
 
-        serializer = UserStatsSerializer(instance=user.stats)
+        serializer = UserStatsForBrevoSerializer(instance=user.stats)
+        update_contact = UpdateContact(attributes=serializer.data)
+        api_instance.update_contact(contact.id, update_contact)
+        return True
+
+    def sync_erp(self, erp):
+        if not erp.import_email:
+            return False
+
+        api_instance = ContactsApi(ApiClient(self.configuration))
+        try:
+            contact = api_instance.get_contact_info(erp.import_email)
+        except ApiException:
+            return False
+
+        serializer = ErpSerializerForBrevo(instance=erp)
         update_contact = UpdateContact(attributes=serializer.data)
         api_instance.update_contact(contact.id, update_contact)
         return True
