@@ -39,7 +39,7 @@ django-reversion = "==5.0.12"
 djangorestframework = "*"
 djangorestframework-gis = "*"
 django-waffle = "*"
-frictionless = "==4.40.11"  # generate_schema to rewrite to be able to bump it to 5.x.x
+frictionless = "==5.17.0"
 fuzzywuzzy = "*"
 ipython = "*"
 Markdown = "*"
@@ -73,7 +73,7 @@ outscraper = "*"
 scrapfly-sdk = "*"
 parsel = "*"
 schedule = "*"
-inflection = "*"  # Used by DRF but not in its dependancies
+inflection = "*"  # Used by DRF but not in its dependencies
 django-admin-two-factor = "*"
 django-csp = "*"
 

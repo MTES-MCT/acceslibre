@@ -2,6 +2,7 @@ import json
 from typing import Any
 
 from frictionless import Field, Schema
+from frictionless.fields import ArrayField, BooleanField
 
 from erp.export.mappers import EtalabMapper
 from erp.schema import FIELDS, get_bdd_values
@@ -37,10 +38,13 @@ def generate_schema(
     outfile="static/schema.json",
     repository="",
 ):
-    table_schema = Schema(base)
-    table_schema["path"] = repository + "schema.json"
-    table_schema.get("resources")[0]["path"] = repository + "exemple-valide.csv"
+    table_schema = Schema.from_descriptor(base)
 
+    descriptor = table_schema.to_descriptor()
+    descriptor["path"] = repository + "schema.json"
+    descriptor["resources"][0]["path"] = repository + "exemple-valide.csv"
+
+    field_types = []
     for field_name in EtalabMapper.headers():
         f = FIELDS.get(field_name)
         if not f:
@@ -51,28 +55,55 @@ def generate_schema(
             if f.get(attr):
                 f[attr] = str(f[attr])
 
-        table_schema.add_field(create_field(field_name, f))
+        field_types, field = create_field(field_types, field_name, f)
+        descriptor["fields"].append(field.to_descriptor())
 
-    table_schema.to_json(outfile)
+    new_schema = Schema.from_descriptor(descriptor)
+    for field_name, field_type in field_types:
+        new_schema.set_field_type(field_name, field_type)
+
+    new_schema.to_json(outfile)
 
 
-def create_field(field_name, field):
+def create_field(field_types, field_name, field):
     constraints = get_constraints(field_name, field)
-    schema_field = Field(
-        name=field_name,
-        type=map_types(field.get("type")),
-        description=get_description(field_name, field),
-        title=field.get("label"),
-        true_values=constraints.get("boolTrue", None),
-        false_values=constraints.get("boolFalse", None),
-        constraints=constraints.get("simple", None),
-        array_item=constraints.get("arrayItem", None),
-        format=constraints.get("format", None),
+    field_type = map_types(field.get("type"))
+
+    if field_type == "boolean":
+        schema_field = BooleanField(
+            name=field_name,
+            description=get_description(field_name, field),
+            title=field.get("label"),
+            constraints=constraints.get("simple", None),
+            format=constraints.get("format", None),
+            true_values=constraints.get("boolTrue", None),
+            false_values=constraints.get("boolFalse", None),
+        )
+    elif constraints.get("arrayItem"):
+        schema_field = ArrayField(
+            name=field_name,
+            description=get_description(field_name, field),
+            title=field.get("label"),
+            constraints=constraints.get("simple", None),
+            format=constraints.get("format", None),
+            array_item=constraints.get("arrayItem", None),
+        )
+    else:
+        schema_field = Field(
+            name=field_name,
+            description=get_description(field_name, field),
+            title=field.get("label"),
+            constraints=constraints.get("simple", None),
+            format=constraints.get("format", None),
+        )
+
+    field_types.append(
+        (field_name, field_type),
     )
 
-    schema_field["example"] = field.get("example", generate_example_text(field))
+    schema_field.example = field.get("example", generate_example_text(field))
 
-    return schema_field
+    return field_types, schema_field
 
 
 def get_description(field_name, field):
