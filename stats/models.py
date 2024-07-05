@@ -12,22 +12,6 @@ from django.utils.translation import gettext as translate
 from stats.queries import get_challenge_scores
 
 
-class GlobalStats(models.Model):
-    _singleton = models.BooleanField(default=True, editable=False, unique=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    erp_counts_histogram = models.JSONField(default=dict)
-    top_contributors = models.JSONField(default=dict)
-
-    class Meta:
-        verbose_name = translate("Statistiques")
-        verbose_name_plural = translate("Statistiques")
-
-    @classmethod
-    def refresh_stats(cls):
-        self, _ = cls.objects.get_or_create()
-        self.save()
-
-
 class Challenge(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
