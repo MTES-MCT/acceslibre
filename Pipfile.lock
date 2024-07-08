@@ -2359,16 +2359,17 @@
                 "sha256:6e6ff3db2d8dd0c986b4eec8554c8e4f919b5c1ff62a5b4390c17aff2ed6e5c4",
                 "sha256:ddc24a0a8280a0430baa37aff11f28574720af05888c62b7cfe71d219f4599d3"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.2.11"
         },
         "django-debug-toolbar": {
             "hashes": [
-                "sha256:5d7afb2ea5f8730241e5b0735396e16cd1fd8c6b53a2f3e1e30bbab9abb23728",
-                "sha256:9204050fcb1e4f74216c5b024bc76081451926a6303993d6c513f5e142675927"
+                "sha256:8298ce966b4c8fc71430082dd4739ef2badb5f867734e1973a413c4ab2ea81b7",
+                "sha256:91425606673ee674d780f7aeedf3595c264eb382dcf41f55c6779577900904c0"
             ],
             "index": "pypi",
-            "version": "==4.4.2"
+            "markers": "python_version >= '3.8'",
+            "version": "==4.4.5"
         },
         "django-deep-translator": {
             "hashes": [
