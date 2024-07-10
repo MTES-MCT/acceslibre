@@ -361,7 +361,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     th_labels = []
     if has_th:
         th_labels = [
-            value for key, value in schema.HANDICAP_CHOICES if key in erp.accessibilite.labels_familles_handicap
+            value for key, value in schema.HANDICAP_CHOICES if key in (erp.accessibilite.labels_familles_handicap or [])
         ]
     # NOTE: if the widget code is edited it should be also reflected in metabase
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
