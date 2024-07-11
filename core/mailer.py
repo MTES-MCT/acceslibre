@@ -19,8 +19,14 @@ from sib_api_v3_sdk.rest import ApiException
 from waffle import switch_is_active
 
 from compte.serializers import ErpSerializerForBrevo, UserStatsForBrevoSerializer
+from celery import shared_task
 
 logger = logging.getLogger(__name__)
+
+
+@shared_task()
+def send_async_email(to_list, template, context):
+    BrevoMailer().send_email(to_list=to_list, template=template, context=context)
 
 
 class Mailer:
@@ -64,9 +70,11 @@ class BrevoMailer(Mailer):
         )
         api_instance = TransactionalEmailsApi(ApiClient(self.configuration))
 
+        if not switch_is_active("USE_REAL_EMAILS"):
+            return True
+
         try:
-            if switch_is_active("USE_REAL_EMAILS"):
-                api_instance.send_transac_email(send_smtp_email)
+            api_instance.send_transac_email(send_smtp_email)
             return True
         except ApiException:
             return False
