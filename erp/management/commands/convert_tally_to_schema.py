@@ -149,24 +149,24 @@ if hosting:
 
 if culture:
     mapping |= {
-        "L'établissement propose-t-il de l'audiodescription ?": {
+        "L'établissement propose-t-il de l'audiodescription, selon la programmation ?": {
             "Oui": [("accueil_audiodescription_presence", True)],
             "Non": [("accueil_audiodescription_presence", False)],
             "Je ne sais pas": [],
         },
-        "sans équipement, audiodescription audible par toute la salle (selon la programmation)": {
+        "Si oui, type d'équipements pour l'audiodescription ? (sans équipement, audiodescription audible par toute la salle (selon la programmation))": {
             "true": [("accueil_audiodescription", ["sans_équipement"])],
             "false": [],
         },
-        "avec équipement permanent, casques et boîtiers disponibles à l'accueil": {
+        "Si oui, type d'équipements pour l'audiodescription ? (avec équipement permanent, casques et boîtiers disponibles à l'accueil)": {
             "true": [("accueil_audiodescription", ["avec_équipement_permanent"])],
             "false": [],
         },
-        "avec équipement permanent nécessitant le téléchargement d'une application sur smartphone": {
+        "Si oui, type d'équipements pour l'audiodescription ? (avec équipement permanent nécessitant le téléchargement d'une application sur smartphone)": {
             "true": [("accueil_audiodescription", ["avec_app"])],
             "false": [],
         },
-        "avec équipement occasionnel selon la programmation": {
+        "Si oui, type d'équipements pour l'audiodescription ? (avec équipement occasionnel selon la programmation)": {
             "true": [("accueil_audiodescription", ["avec_équipement_occasionnel"])],
             "false": [],
         },
@@ -175,34 +175,34 @@ if culture:
             "Non": [("accueil_equipements_malentendants_presence", False)],
             "Je ne sais pas": [],
         },
-        "Langue française parlée complétée (LFPC)": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Langue française parlée complétée (LFPC))": {
             "true": [("accueil_equipements_malentendants", ["lpc"])],
             "false": [],
         },
-        "Boucle à induction magnétique portative": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Boucle à induction magnétique portative)": {
             "true": [("accueil_equipements_malentendants", ["bmp"])],
             "false": [],
         },
-        "Boucle à induction magnétique fixe": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Boucle à induction magnétique fixe)": {
             "true": [("accueil_equipements_malentendants", ["bim"])],
             "false": [],
         },
-        "Langue des signes française (LSF)": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Langue des signes française (LSF))": {
             "true": [("accueil_equipements_malentendants", ["lsf"])],
             "false": [],
         },
-        "Sous-titrage ou transcription simultanée": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Sous-titrage ou transcription simultanée)": {
             "true": [("accueil_equipements_malentendants", ["sts"])],
             "false": [],
         },
-        "Autre": {
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ? (Autre)": {
             "true": [("accueil_equipements_malentendants", ["autres"])],
             "false": [],
         },
     }
     to_ignore_headers += [
-        "type d'équipements pour l'audiodescription",
-        "liste des équipements d'aide à l'audition et à la communication ?",
+        "Si oui, type d'équipements pour l'audiodescription ?",
+        "Si oui, liste des équipements d'aide à l'audition et à la communication ?",
     ]
 if ath:
     mapping |= {
