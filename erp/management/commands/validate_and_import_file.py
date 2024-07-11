@@ -88,8 +88,9 @@ class Command(BaseCommand):
                     to_list=new_erp.import_email,
                     template="erp_imported",
                     context={"erp_url": new_erp.get_absolute_uri()},
+                    async_req=True,
                 )
-                print_success("\t   ** Mail envoyé")
+                print_success("\t   ** Mail envoyé en asynchrone")
         except Exception as e:
             print_error(
                 f"Une erreur est survenue lors de l'import de la ligne / save_erp: {e}. Passage à la ligne suivante."

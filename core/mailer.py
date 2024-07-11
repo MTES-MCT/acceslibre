@@ -39,7 +39,7 @@ class BrevoMailer(Mailer):
         self.configuration.api_key["api-key"] = settings.BREVO_API_KEY
         super().__init__()
 
-    def send_email(self, to_list, template, context=None, reply_to=None):
+    def send_email(self, to_list, template, context=None, reply_to=None, async_req=False):
         if not to_list:
             return False
 
@@ -66,7 +66,7 @@ class BrevoMailer(Mailer):
 
         try:
             if switch_is_active("USE_REAL_EMAILS"):
-                api_instance.send_transac_email(send_smtp_email)
+                api_instance.send_transac_email(send_smtp_email, async_req=async_req)
             return True
         except ApiException:
             return False
