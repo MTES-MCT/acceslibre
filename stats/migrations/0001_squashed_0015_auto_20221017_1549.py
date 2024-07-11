@@ -7,12 +7,6 @@ import django.db.models.deletion
 from django.conf import settings
 from django.db import migrations, models
 
-from stats.models import GlobalStats
-
-
-def create_global_stats(*args, **kwargs):
-    GlobalStats.refresh_stats()
-
 
 def dedoublonnage_referer(apps, schema_editor):
     Referer = apps.get_model("stats", "referer")
@@ -227,9 +221,6 @@ class Migration(migrations.Migration):
                 "verbose_name": "Statistiques",
                 "verbose_name_plural": "Statistiques",
             },
-        ),
-        migrations.RunPython(
-            code=create_global_stats,
         ),
         migrations.AddField(
             model_name="challenge",
