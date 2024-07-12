@@ -76,6 +76,7 @@ schedule = "*"
 inflection = "*"  # Used by DRF but not in its dependencies
 django-admin-two-factor = "*"
 django-csp = "*"
+colorama = "*"
 
 [requires]
 python_version = "3.11"
