@@ -53,7 +53,7 @@ def login(browser, username, password, next=None):
 
 @pytest.mark.django_db
 def test_home(browser, django_assert_max_num_queries):
-    with django_assert_max_num_queries(2):
+    with django_assert_max_num_queries(3):
         browser.visit(reverse("home"))
 
     assert browser.title.startswith("acceslibre")

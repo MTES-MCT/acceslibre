@@ -82,6 +82,7 @@ def home(request):
         context={
             "erps": Erp.objects.published(),
             "contributors": get_active_contributors_ids(),
+            "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
         },
     )
 
