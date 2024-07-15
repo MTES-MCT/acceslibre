@@ -12,214 +12,170 @@
         <div class="fr-container ">
             <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
                 <div class="fr-col-12 fr-col-sm-7">
-                    <h1 class="blue-fr-500 " tabindex="0">{% translate "Rendez votre ville plus accessible" %}</h1>
-                    <p class="fr-mb-3w fr-text--lead">
-                        {% translate "Partagez les informations indispensables aux déplacements des personnes en situation de handicap" %}
-                    </p>
-                    <ul class="fr-mb-5w fr-btns-group--inline pl-0">
+                    <h1 class="fr-h1" tabindex="0">
+                        {% translate "Toutes les informations sur l'accessibilité des lieux ouverts au public" %}
+                    </h1>
+                    <ul class="fr-mb-5w fr-btns-group fr-btns-group--equisized">
                         <li>
-                            <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Contribuer" %}</a>
+                            <a class="fr-btn fr-px-8w" href="{% url "search" %}">{% translate "Rechercher un lieu" %}</a>
                         </li>
                         <li>
-                            <a class="fr-btn fr-btn--secondary" href="{% url "search" %}">{% translate "Rechercher" %}</a>
+                            <a class="fr-btn fr-btn--secondary" href="{% url "contrib_start" %}">{% translate "Ajouter un lieu" %}</a>
                         </li>
                     </ul>
                 </div>
-                <div class="fr-col-offset-sm-2 fr-col-12 fr-col-sm-3">
-                    <figure class="fr-content-media d-none d-sm-block">
+                <div class="fr-col-offset-sm-1 fr-col-12 fr-col-sm-3">
+                    <figure class="fr-content-media d-none d-sm-block fr-mb-0">
                         <div class="fr-content-media__img">
-                            <img src="{% static "img/landing/formulaire.png" %}" aria-hidden="true" alt="">
+                            <img src="{% static "img/landing/widget.png" %}" aria-hidden="true" alt="">
                         </div>
                     </figure>
                 </div>
             </div>
         </div>
     </div>
-    {% cache 3600 homepage_statistics LANGUAGE_CODE %}
-    <div class="fr-container">
-        <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <p class="fr-h1">{{ erps.count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "lieux<br> référencés" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <p class="fr-h1">{{ contributors.count|intcomma }}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "contributrices<br> et contributeurs" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <p class="fr-h1">{% translate "12 millions" %}</p>
-                <p class="fr-text--xl fr-text--heavy">
-                    {% translate "de personnes<br> concernées" %}
-                </p>
-            </div>
-        </div>
-    </div>
-{% endcache %}
-<div class="fr-grid-row bg-alt-blue-france-975">
-    <div class="fr-container ">
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-6">
-                <h2 class="fr-h2 fr-mb-5w">{% translate "Faire une vraie différence" %}</h2>
-                <p class="fr-mt-5v fr-mb-5v">
-                    <b>{% translate "En France, près d'une personne sur 5 est ou sera en situation de handicap au cours de sa vie." %}</b>
-                </p>
-                <p class="fr-mt-5w fr-mb-5w">
-                    {% translate "Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu sera accueillant et adapté." %}
-                </p>
-                <p class="fr-mb-0">
-                    <b>{% translate "« Pour trouver les tarifs et les horaires d’ouverture, pas de souci ! Mais savoir si je peux rentrer en fauteuil, c'est une vraie galère ! »" %}</b>
-                </p>
-                <blockquote class="fr-text--xs">
-                    {% translate "Amélie" %}
-                </blockquote>
-            </div>
-            <div class="fr-col-12 fr-col-sm-6">
-                <figure class="fr-content-media d-none d-sm-block">
-                    <div class="fr-content-media__img ">
-                        <img class="auto-height" src="{% static "img/landing/widget.png" %}" alt="" aria-hidden="true">
-                    </div>
-                </figure>
-            </div>
-        </div>
-        <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v fr-grid-row--bottom">
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block icon-difference" src="{% static "img/landing/puzzle.png" %}" alt="" aria-hidden="true" />
-                <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "À votre niveau" %}</p>
-                <p>
-                    {% translate "Toute information est utile,<br> même partielle" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/check.png" %}" alt="" aria-hidden="true" />
-                <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "En quelques secondes" %}</p>
-                <p>
-                    {% translate "Enrichir les informations se fait <br>en quelques clics" %}
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <img class="fr-col-offset-sm-4 fr-col-6 fr-col-sm-4 d-none d-sm-block" src="{% static "img/landing/heart.png" %}" alt="" aria-hidden="true" />
-                <p class="fr-text--lead fr-text--heavy fr-mb-0">{% translate "Pour le bien de tous" %}</p>
-                <p>
-                    {% translate "Les données d’accessibilités<br> sont indispensables" %}
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="fr-grid-row">
-    <div class="fr-container ">
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-7">
-                <h2 class="fr-h2">{% translate "Partager des connaissances" %}</h2>
-                <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "1. Recherchez" %}</h3>
-                <p class="fr-mb-3w fr-text--sm">
-                    {% translate "Retrouvez de nombreux lieux ouverts au public : cafés, restaurants, administrations..." %}
-                </p>
-                <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "2. Renseignez les informations" %}</h3>
-                <p class="fr-mb-3w fr-text--sm">
-                    {% translate "Répondez à quelques questions : y a-t-il une marche pour entrer ? des places de parking à proximité ?" %}
-                </p>
-                <h3 class="fr-h5 fr-text--heavy fr-mb-0">{% translate "3. Et recommencez" %}</h3>
-                <p class="fr-mb-3w fr-text--sm">
-                    {% translate "Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire attention !" %}
-                </p>
-                <p class="fr-mb-5w">
-                    <a class="fr-btn " href="{% url "contrib_start" %}">{% translate "Contribuer" %}</a>
-                </p>
-            </div>
-            <div class="fr-col-12 fr-col-sm-5">
-                <figure class="fr-content-media d-none d-sm-block">
-                    <div class="fr-content-media__img">
-                        <img class="auto-height" src="{% static "img/landing/partage.png" %}" alt="" aria-hidden="true">
-                    </div>
-                </figure>
-            </div>
-        </div>
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-lg-3">
-                <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
-                    <div class="fr-card__body">
-                        <h3 class="fr-h4 fr-card__title">
-                            <a href="{% url "communes" %}" class="fr-card__link">{% translate "Voir les lieux près de chez moi" %}</a>
-                        </h3>
-                        <p class="fr-card__desc">{% translate "Renseignez les informations des lieux que vous connaissez le mieux" %}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-lg-3 ">
-                <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
-                    <div class="fr-card__body">
-                        <h3 class="fr-h4 fr-card__title">
-                            <a href="{% url "contrib_start" %}" class="fr-card__link">{% translate "Compléter une fiche incomplète" %}</a>
-                        </h3>
-                        <p class="fr-card__desc">{% translate "Enrichissez les informations des fiches incomplètes" %}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-lg-3">
-                <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
-                    <div class="fr-card__body">
-                        <h3 class="fr-h4 fr-card__title">
-                            <a href="{% url "contrib_start" %}" class="fr-card__link">{% translate "Référencer un nouveau lieu" %}</a>
-                        </h3>
-                        <p class="fr-card__desc">{% translate "Ajoutez un lieu ouvert au public manquant" %}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="fr-grid-row bg-alt-blue-france-975">
-    <div class="fr-container fr-mb-5w">
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-            <div class="fr-col-lg-12">
-                <h4 class="fr-h2 fr-mb-5w">{% translate "Vous êtes responsable d’un lieu ouvert au public ?" %}</h4>
-            </div>
-        </div>
-        <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v ">
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <div class="fr-grid-row">
-                    <div class="fr-col-2 d-none d-sm-block">
-                        <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
-                    </div>
-                    <div class="fr-col-12 fr-col-sm-10">
-                        <p class="fr-text--heavy fr-mb-0">{% translate "Facilitez l’accès à votre établissement" %}</p>
-                        <p class="fr-text--md">{% translate "Remplissez votre fiche en quelques clics" %}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <div class="fr-grid-row">
-                    <div class="fr-col-2 d-none d-sm-block">
-                        <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
-                    </div>
-                    <div class="fr-col-12 fr-col-sm-10">
-                        <p class="fr-text--heavy fr-mb-0">{% translate "Touchez une plus large clientèle" %}</p>
-                        <p class="fr-text--md">
-                            {% translate "Communiquez sur l'accessibilité de votre établissement grâce au widget acceslibre" %}
+    <div class="fr-grid-row">
+        <div class="fr-container ">
+            <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+                <div class="fr-col-12 fr-col-sm-6">
+                    <div class="fr-card fr-p-4w">
+                        <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Notre mission" %}</h2>
+                        <p class="fr-mb-2w">
+                            {% translate "En France,  12 millions de personnes, soit 1 sur 5, sont en situation de handicap." %}
                         </p>
+                        <p class="fr-mb-2w">
+                            {% translate "Sortir, aller dans un lieu nouveau peut devenir un vrai casse-tête. Avoir les informations avant de se déplacer est indispensable pour permettre à chacun de savoir si tel restaurant, tel cinéma lui est accessible." %}
+                        </p>
+                        <p class="fr-mb-2w blue-title fr-text--heavy">
+                            {% translate "Que vous soyez en situation de handicap, proches, amis, aidants, consultez les informations d'accessibilité, de manière simple et rapide !" %}
+                        </p>
+                        <a class="fr-btn fr-btn--secondary d-block mx-auto mt-auto"
+                           href="{% url "search" %}">{% translate "Rechercher un lieu" %}</a>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-sm-6 ">
+                    <div class="fr-card fr-p-4w">
+                        <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Notre communauté" %}</h2>
+                        <div class="fr-grid-row fr-grid-row--gutters">
+                            <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
+                                <div class="fr-text--heavy text-center">{{ contributors.count|intcomma }}</div>
+                                <p class="text-center fr-mb-0">{% translate "contributeurs et contributrices" %}</p>
+                                <img src="{% static 'img/contributeurs.png' %}"
+                                     aria-hidden="true"
+                                     alt=""
+                                     class="w-100">
+                                <a href="#"
+                                   class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto">{% translate "Rejoindre la communauté" %}</a>
+                            </div>
+                            <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
+                                <div class="fr-text--heavy text-center">{{ erps.count|intcomma }}</div>
+                                <p class="text-center fr-mb-0">{% translate "lieux référencés" %}</p>
+                                <div id="home-latest-erps-list">
+                                    <ul class="fr-mt-0">
+                                        {% for erp in latest %}
+                                            <li>
+                                                <a href="{{ erp.get_absolute_url }}"
+                                                   class="list-group-item list-group-item-action">
+                                                    <img alt=""
+                                                         class="act-icon act-icon-20 mb-1"
+                                                         src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
+                                                    {% if erp.commune_ext %}
+                                                        {{ erp.commune_ext.nom }}
+                                                    {% else %}
+                                                        erp.commune
+                                                    {% endif %}
+                                                    {% if erp.activite %}» <span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
+                                                    <br>
+                                                    <strong>{{ erp.nom }}</strong>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <a href="#"
+                                   class="fr-btn fr-btn--secondary d-block mx-auto text-center mt-auto">{% translate "Voir les derniers lieux référencés" %}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-4 text-center">
-                <div class="fr-grid-row">
-                    <div class="fr-col-2 d-none d-sm-block">
-                        <img src="{% static "img/landing/icon-check.png" %}" aria-hidden="true" alt="">
+            <hr>
+            <div>
+                <h2 class="fr-h2 fr-mb-5w text-center blue-title">
+                    {% translate "Des informations affichées sur les grands sites web" %}
+                </h2>
+                <div class="d-flex flex-column flex-md-row">
+                    <img src="{% static "img/partenaires/sortir-a-paris_avatar.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/allocine.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/solocal.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/nestenn.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
+                </div>
+                <p class="fr-mt-4w">
+                    {% blocktranslate trimmed %}
+                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont automatiquement et instantanément affichées sur les sites de nos partenaires.'
+                    {% endblocktranslate %}
+                </p>
+            </div>
+            <hr>
+            <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "A vous de jouer !" %}</h2>
+            <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
+                <div class="fr-col-12 fr-col-sm-6">
+                    <div class="fr-card fr-p-4w bg-alt-green-tilleul-verveine">
+                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Contributrices, contributeurs, " %}</h2>
+                        <p>{% translate "Au gré d'une sortie, chacun peut contribuer !" %}</p>
+                        <p>{% translate "Ajoutez un lieu ou complétez une fiche existante, chaque information est précieuse." %}</p>
+                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-auto">{% translate "Ajoutez un établissement" %}</a>
                     </div>
-                    <div class="fr-col-12 fr-col-sm-10">
-                        <p class="fr-text--heavy fr-mb-0">{% translate "Suivez les modifications de votre fiche" %}</p>
-                        <p class="fr-text--md">{% translate "Abonnez-vous à votre fiche acceslibre" %}</p>
+                </div>
+                <div class="fr-col-12 fr-col-sm-6">
+                    <div class="fr-card fr-p-4w bg-alt-green-archipel">
+                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Collectivités locales" %}</h2>
+                        <p>{% translate "Pilote de l'accessibilité sur vos territoires, profitez d'acceslibre pour&nbsp;:" %}</p>
+                        <ul>
+                            <li>{% translate "avoir une meilleure vision de l'accessibilité réelle de vos commerces," %}</li>
+                            <li>{% translate "valoriser votre territoire avec un gain de visibilité sur le web" %}</li>
+                            <li>{% translate "collecter les informations et mettre à jours les fiches" %}</li>
+                        </ul>
+                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-sm-6">
+                    <div class="fr-card fr-p-4w bg-low-green-bourgeon">
+                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Gestionnaires d'établissement" %}</h2>
+                        <p>{% translate "Grâce à acceslibre, augmentez votre visibilité sur internet" %}</p>
+                        <p>{% translate "Mettez en valeur les services que vous proposez pour l'accueil de tous vos clients" %}</p>
+                        <p>{% translate "Compléter les informations de votre établissement ne vous prendra que quelques minutes." %}</p>
+                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Ajoutez votre établissement" %}</a>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-sm-6">
+                    <div class="fr-card fr-p-4w bg-low-orange-terre-battue">
+                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Sites internet, plateformes web" %}</h2>
+                        <p>
+                            {% translate "Toutes les données d'accessibilité collectées par acceslibre sont libres et gratuites. Elles sont à votre disposition via notre API ou notre jeu de données mis à jour quotidiennement (liens en base de page)." %}
+                        </p>
+                        <p>
+                            {% translate "Rendez votre site plus inclusif et plus riche en intégrant nos informations, grâce à notre widget." %}
+                        </p>
+                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="fr-grid-row--center">
-            <a class="fr-btn fr-btn--secondary" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
+            <hr>
+            <div>
+                <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Un projet qui rassemble" %}</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <img src="{% static "img/partenaires/cfpsaa.png" %}" alt="Logo CFPSAA" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/laposte.png" %}" alt="Logo La poste" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/avh.png" %}" alt="Logo Valentin HAUT" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/partenaires/dge.png" %}" alt="Logo de DGE" class="a4a-partenaire-logo-small fr-mx-4w">
+                </div>
+                <p class="fr-mt-4w text-center">
+                    {% translate "Associations, collectivités, gestionnaires... L'union fait la force !" %}
+                    <br />
+                    {% translate "C'est grâce à la collaboration de tous qu'acceslibre vit et grandit." %}
+                </p>
+            </div>
         </div>
     </div>
-</div>
 {% endblock top_fluid_content %}
