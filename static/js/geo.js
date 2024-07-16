@@ -19,12 +19,12 @@ let currentErpIdentifier,
   map,
   satelliteTiles,
   streetTiles,
-  mapMovedDueToPopup,
+  shouldRefreshMap,
   shouldTryToBroadenSearchToGetOneResult,
   currentPage,
   geoJsonLayer
 
-mapMovedDueToPopup = false
+shouldRefreshMap = true
 shouldTryToBroadenSearchToGetOneResult = false
 currentPage = 1
 
@@ -286,8 +286,8 @@ function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
 }
 
 function refreshData(map, refreshApiUrl, apiKey, page = 1) {
-  if (mapMovedDueToPopup) {
-    mapMovedDueToPopup = false
+  if (!shouldRefreshMap) {
+    shouldRefreshMap = true
     return
   }
   const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page)
@@ -400,6 +400,10 @@ function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
 
 function AppMap(root) {
   const erpIdentifier = root.dataset.erpIdentifier
+  shouldRefreshMap = true
+  if (root.dataset.shouldNotRefreshOnMapLoad == 'true') {
+    shouldRefreshMap = false
+  }
   const erpData = root.querySelector('#erps-data').textContent
   const options = root.querySelector('#map-options')
   var mapOptions = {}
@@ -477,7 +481,7 @@ function openMarkerPopup(erpIdentifier, options = {}) {
   currentErpIdentifier = erpIdentifier
   layers.forEach((layer) => {
     if (layer.identifier === erpIdentifier) {
-      mapMovedDueToPopup = true
+      shouldRefreshMap = false
       layer.__parent._group._map = map
       markers.zoomToShowLayer(layer, () => {
         layer.openPopup()
