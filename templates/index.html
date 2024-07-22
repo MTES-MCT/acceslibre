@@ -8,10 +8,10 @@
     acceslibre, la plateforme collaborative de l'accessibilité
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <div class="fr-grid-row bg-alt-blue-france-975">
+    <div class="fr-grid-row bg-alt-blue-france-975 homepage-hero">
         <div class="fr-container ">
             <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-                <div class="fr-col-12 fr-col-sm-7">
+                <div class="fr-col-12 fr-col-sm-8">
                     <h1 class="fr-h1" tabindex="0">
                         {% translate "Toutes les informations sur l'accessibilité des lieux ouverts au public" %}
                     </h1>
@@ -24,7 +24,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="fr-col-offset-sm-1 fr-col-12 fr-col-sm-3">
+                <div class="fr-col-12 fr-col-sm-4">
                     <figure class="fr-content-media d-none d-sm-block fr-mb-0">
                         <div class="fr-content-media__img">
                             <img src="{% static "img/landing/widget.png" %}" aria-hidden="true" alt="">
@@ -46,6 +46,7 @@
                         <p class="fr-mb-2w">
                             {% translate "Sortir, aller dans un lieu nouveau peut devenir un vrai casse-tête. Avoir les informations avant de se déplacer est indispensable pour permettre à chacun de savoir si tel restaurant, tel cinéma lui est accessible." %}
                         </p>
+                        <p class="fr-display--xl text-center down-arrow">⬇</p>
                         <p class="fr-mb-2w blue-title fr-text--heavy">
                             {% translate "Que vous soyez en situation de handicap, proches, amis, aidants, consultez les informations d'accessibilité, de manière simple et rapide !" %}
                         </p>
@@ -58,17 +59,17 @@
                         <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Notre communauté" %}</h2>
                         <div class="fr-grid-row fr-grid-row--gutters">
                             <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
-                                <div class="fr-text--heavy text-center">{{ contributors.count|intcomma }}</div>
+                                <div class="fr-h3 text-center fr-mb-0">{{ contributors.count|intcomma }}</div>
                                 <p class="text-center fr-mb-0">{% translate "contributeurs et contributrices" %}</p>
                                 <img src="{% static 'img/contributeurs.png' %}"
                                      aria-hidden="true"
                                      alt=""
                                      class="w-100">
                                 <a href="#"
-                                   class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto">{% translate "Rejoindre la communauté" %}</a>
+                                   class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto text-center">{% translate "Rejoindre<br />la communauté" %}</a>
                             </div>
                             <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
-                                <div class="fr-text--heavy text-center">{{ erps.count|intcomma }}</div>
+                                <div class="fr-h3 text-center fr-mb-0">{{ erps.count|intcomma }}</div>
                                 <p class="text-center fr-mb-0">{% translate "lieux référencés" %}</p>
                                 <div id="home-latest-erps-list">
                                     <ul class="fr-mt-0">
@@ -121,7 +122,7 @@
             <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
                 <div class="fr-col-12 fr-col-sm-6">
                     <div class="fr-card fr-p-4w bg-alt-green-tilleul-verveine">
-                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Contributrices, contributeurs, " %}</h2>
+                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Contributrices, contributeurs" %}</h2>
                         <p>{% translate "Au gré d'une sortie, chacun peut contribuer !" %}</p>
                         <p>{% translate "Ajoutez un lieu ou complétez une fiche existante, chaque information est précieuse." %}</p>
                         <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-auto">{% translate "Ajoutez un établissement" %}</a>
@@ -166,9 +167,15 @@
                 <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Un projet qui rassemble" %}</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between">
                     <img src="{% static "img/partenaires/cfpsaa.png" %}" alt="Logo CFPSAA" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/landing/paris.png" %}" alt="Logo ville de Paris" class="a4a-partenaire-logo-small fr-mx-4w">
                     <img src="{% static "img/partenaires/laposte.png" %}" alt="Logo La poste" class="a4a-partenaire-logo-small fr-mx-4w">
                     <img src="{% static "img/partenaires/avh.png" %}" alt="Logo Valentin HAUT" class="a4a-partenaire-logo-small fr-mx-4w">
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between fr-mt-4w">
+                    <img src="{% static "img/landing/lorient.jpg" %}" alt="Logo Lorient agglomération" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/landing/UMIH.png" %}" alt="Logo UMIH" class="a4a-partenaire-logo-small fr-mx-4w">
                     <img src="{% static "img/partenaires/dge.png" %}" alt="Logo de DGE" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <img src="{% static "img/landing/accord.png" %}" alt="Logo d'Accor" class="a4a-partenaire-logo-small fr-mx-4w">
                 </div>
                 <p class="fr-mt-4w text-center">
                     {% translate "Associations, collectivités, gestionnaires... L'union fait la force !" %}
