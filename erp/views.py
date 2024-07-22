@@ -234,7 +234,9 @@ def _filter_erp_by_location(queryset, **kwargs):
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
         city, code_departement = _clean_address(kwargs.get("where"))
         return queryset.filter(commune__iexact=city, code_postal__startswith=code_departement)
-
+    if search_type == settings.IN_DEPARTEMENT_SEARCH_TYPE:
+        code = "20" if kwargs.get("code").lower() in ["2a", "2b"] else kwargs.get("code")
+        return queryset.filter(code_postal__startswith=code)
     if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
         return queryset.nearest(location, max_radius_km=0.2)
 
@@ -285,6 +287,7 @@ def search(request):
         "equipments": get_equipments(),
         "zoom_level": zoom_level,
         "geojson_list": make_geojson(pager),
+        "should_not_refresh_map_on_load": request.GET.get("search_type") == settings.IN_DEPARTEMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)
 
