@@ -1964,11 +1964,12 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:0bea5fa8b564cc0d09f2e6f55893e8f70286048b0ffb3a341d5b695d1af0e6ee",
-                "sha256:4c85bad74df9767976afb3eeddc33e0e153300e887d637775a753a35ef99bee6"
+                "sha256:4ca16e9f5c7c6bc2fb2d5c956219f4926b148e511fffdbbde711dc94f1e0468f",
+                "sha256:d964710e2dbe015d9dc4ff0ad16225d68c3b36936b742a6fe0504565b760a3b7"
             ],
             "index": "pypi",
-            "version": "==2.9.0"
+            "markers": "python_version >= '3.6'",
+            "version": "==2.11.0"
         },
         "shellingham": {
             "hashes": [
