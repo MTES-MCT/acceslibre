@@ -65,7 +65,7 @@
                                      aria-hidden="true"
                                      alt=""
                                      class="w-100">
-                                <a href="#"
+                                <a href="{% if request.user.is_anonymous %}{% url "django_registration_register" %}{% else %} {% url 'contrib_start' %}{% endif %}"
                                    class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto text-center">{% translate "Rejoindre<br />la communauté" %}</a>
                             </div>
                             <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
@@ -93,7 +93,7 @@
                                         {% endfor %}
                                     </ul>
                                 </div>
-                                <a href="#"
+                                <a href="{% url 'communes' %}"
                                    class="fr-btn fr-btn--secondary d-block mx-auto text-center mt-auto">{% translate "Voir les derniers lieux référencés" %}</a>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                 </div>
                 <p class="fr-mt-4w">
                     {% blocktranslate trimmed %}
-                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont automatiquement et instantanément affichées sur les sites de nos partenaires.'
+                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont automatiquement et instantanément affichées sur les sites de nos partenaires.
                     {% endblocktranslate %}
                 </p>
             </div>
@@ -125,19 +125,21 @@
                         <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Contributrices, contributeurs" %}</h2>
                         <p>{% translate "Au gré d'une sortie, chacun peut contribuer !" %}</p>
                         <p>{% translate "Ajoutez un lieu ou complétez une fiche existante, chaque information est précieuse." %}</p>
-                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-auto">{% translate "Ajoutez un établissement" %}</a>
+                        <a href="{% url "contrib_start" %}"
+                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-auto">{% translate "Ajoutez un établissement" %}</a>
                     </div>
                 </div>
                 <div class="fr-col-12 fr-col-sm-6">
                     <div class="fr-card fr-p-4w bg-alt-green-archipel">
                         <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Collectivités locales" %}</h2>
-                        <p>{% translate "Pilote de l'accessibilité sur vos territoires, profitez d'acceslibre pour&nbsp;:" %}</p>
+                        <p>{% translate "Pilotes de l'accessibilité sur vos territoires, profitez d'acceslibre pour&nbsp;:" %}</p>
                         <ul>
+                            <li>{% translate "collecter les informations et mettre à jour les fiches" %}</li>
                             <li>{% translate "avoir une meilleure vision de l'accessibilité réelle de vos commerces," %}</li>
                             <li>{% translate "valoriser votre territoire avec un gain de visibilité sur le web" %}</li>
-                            <li>{% translate "collecter les informations et mettre à jours les fiches" %}</li>
                         </ul>
-                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
+                        <a href="{% url 'contact_form' %}"
+                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
                     </div>
                 </div>
                 <div class="fr-col-12 fr-col-sm-6">
@@ -146,19 +148,21 @@
                         <p>{% translate "Grâce à acceslibre, augmentez votre visibilité sur internet" %}</p>
                         <p>{% translate "Mettez en valeur les services que vous proposez pour l'accueil de tous vos clients" %}</p>
                         <p>{% translate "Compléter les informations de votre établissement ne vous prendra que quelques minutes." %}</p>
-                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Ajoutez votre établissement" %}</a>
+                        <a href="{% url 'contrib_start' %}"
+                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Ajoutez votre établissement" %}</a>
                     </div>
                 </div>
                 <div class="fr-col-12 fr-col-sm-6">
                     <div class="fr-card fr-p-4w bg-low-orange-terre-battue">
                         <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Sites internet, plateformes web" %}</h2>
                         <p>
-                            {% translate "Toutes les données d'accessibilité collectées par acceslibre sont libres et gratuites. Elles sont à votre disposition via notre API ou notre jeu de données mis à jour quotidiennement (liens en base de page)." %}
+                            {% translate "Toutes les données d'accessibilité collectées par acceslibre sont libres et gratuites. Elles sont à votre disposition via notre API ou notre jeu de données mis à jour quotidiennement (liens en bas de page)." %}
                         </p>
                         <p>
                             {% translate "Rendez votre site plus inclusif et plus riche en intégrant nos informations, grâce à notre widget." %}
                         </p>
-                        <a href="#" class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
+                        <a href="{% url 'contact_form' %}"
+                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
                     </div>
                 </div>
             </div>
