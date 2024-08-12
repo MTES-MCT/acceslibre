@@ -367,6 +367,7 @@ class Erp(models.Model):
     SOURCE_DELL = "dell"
     SOURCE_OUTSCRAPER = "outscraper"
     SOURCE_SCRAPFLY = "scrapfly"
+    SOURCE_SCRAPFLY2 = "scrapfly2"
     SOURCE_TALLY = "tally"
     SOURCE_LAPOSTE = "laposte"
     SOURCE_CHOICES = (
@@ -392,6 +393,7 @@ class Erp(models.Model):
         (SOURCE_DELL, translate_lazy("Dell")),
         (SOURCE_OUTSCRAPER, translate_lazy("Outscraper")),
         (SOURCE_SCRAPFLY, translate_lazy("Scrapfly")),
+        (SOURCE_SCRAPFLY2, translate_lazy("Scrapfly2")),
         (SOURCE_TALLY, translate_lazy("Tally")),
         (SOURCE_LAPOSTE, translate_lazy("La Poste")),
     )
