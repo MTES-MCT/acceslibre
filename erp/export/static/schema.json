@@ -904,7 +904,6 @@
       "type": "string",
       "title": "Longueur de la pente",
       "description": "Longueur de la pente. Valeurs possibles: courte -> inférieure à 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> supérieure 2 mètres",
-      "type": "string",
       "constraints": {
         "enum": ["courte", "moyenne", "longue"]
       },
@@ -1340,7 +1339,7 @@
     {
       "name": "entree_pmr",
       "type": "boolean",
-      "title": "Entrée spécifique PMR",
+      "title": "Entrée dédiée aux personnes en situation de handicap",
       "description": "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite",
       "example": "True",
       "trueValues": [
@@ -1803,7 +1802,7 @@
     {
       "name": "accueil_chambre_sanitaires_barre_appui",
       "type": "boolean",
-      "title": "Toilette sécurisé",
+      "title": "Toilettes sécurisées",
       "description": "Les toilettes sont équipées d'une barre d'appui horizontale",
       "example": "True",
       "trueValues": [
@@ -1834,7 +1833,7 @@
     {
       "name": "accueil_chambre_sanitaires_espace_usage",
       "type": "boolean",
-      "title": "Toilette accessible",
+      "title": "Toilettes accessibles",
       "description": "Le toilette dispose d'un espace d'usage à côté de la cuvette",
       "example": "True",
       "trueValues": [
@@ -1989,7 +1988,7 @@
     {
       "name": "sanitaires_presence",
       "type": "boolean",
-      "title": "Sanitaires",
+      "title": "Toilettes",
       "description": "Des sanitaires sont mis à disposition dans l'établissement",
       "example": "True",
       "trueValues": [
@@ -2020,7 +2019,7 @@
     {
       "name": "sanitaires_adaptes",
       "type": "boolean",
-      "title": "Sanitaires adaptés",
+      "title": "Toilettes adaptées",
       "description": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
       "example": "True",
       "trueValues": [

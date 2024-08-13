@@ -1137,7 +1137,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Entrée spécifique PMR"),
+        "label": translate_lazy("Entrée dédiée aux personnes en situation de handicap"),
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
@@ -1162,7 +1162,9 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Informations complémentaires concernant l'entrée PMR"),
+        "label": translate_lazy(
+            "Informations complémentaires concernant l'entrée dédiée aux personnes en situation de handicap"
+        ),
         "help_text": mark_safe(translate_lazy("Précisions sur les modalités d'accès de l'entrée spécifique PMR")),
         "help_text_ui": translate_lazy("Précisions sur les modalités d'accès de l'entrée spécifique PMR"),
         "help_text_ui_neg": translate_lazy("Précisions sur les modalités d'accès de l'entrée spécifique PMR"),
@@ -1435,7 +1437,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Toilette sécurisé"),
+        "label": translate_lazy("Toilettes sécurisées"),
         "help_text": mark_safe(translate_lazy("Les toilettes sont-elles équipées d'une barre d'appui horizontal ?")),
         "help_text_ui": translate_lazy("Les toilettes sont équipées d'une barre d'appui horizontale"),
         "help_text_ui_v2": translate_lazy("Avec Barre d'appui"),
@@ -1453,9 +1455,11 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Toilette accessible"),
+        "label": translate_lazy("Toilettes accessibles"),
         "help_text": mark_safe(
-            translate_lazy("Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?")
+            translate_lazy(
+                "Les toilettes disposent-elles d'un espace d'usage (80 cm x 130 cm) à côté de la cuvette&nbsp;?"
+            )
         ),
         "help_text_ui": translate_lazy("Le toilette dispose d'un espace d'usage à côté de la cuvette"),
         "help_text_ui_v2": translate_lazy("Avec espace d'usage"),
@@ -1647,8 +1651,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Sanitaires"),
-        "help_text": mark_safe(translate_lazy("Y a-t-il des sanitaires mis à disposition du public&nbsp;?")),
+        "label": translate_lazy("Toilettes"),
+        "help_text": mark_safe(translate_lazy("Y a-t-il des toilettes mises à disposition du public&nbsp;?")),
         "help_text_ui": translate_lazy("Des sanitaires sont mis à disposition dans l'établissement"),
         "help_text_ui_neg": translate_lazy("Pas de sanitaires mis à disposition dans l'établissement"),
         "help_text_ui_neg_v2": translate_lazy("Pas de toilettes"),
@@ -1663,8 +1667,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Sanitaires adaptés"),
-        "help_text": mark_safe(translate_lazy("Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?")),
+        "label": translate_lazy("Toilettes adaptées"),
+        "help_text": mark_safe(translate_lazy("Y a-t-il des toilettes adaptées mises à disposition du public&nbsp;?")),
         "help_text_ui": translate_lazy("Des sanitaires adaptés sont mis à disposition dans l'établissement"),
         "help_text_ui_neg": translate_lazy("Aucun sanitaire adapté mis à disposition dans l'établissement"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
