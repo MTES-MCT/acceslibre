@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-12 15:22+0200\n"
+"POT-Creation-Date: 2024-08-13 16:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1990,6 +1990,9 @@ msgstr ""
 msgid "Largeur inférieure à 80 cm"
 msgstr ""
 
+msgid "Entrée dédiée aux personnes en situation de handicap"
+msgstr ""
+
 msgid ""
 "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité "
 "réduite&nbsp;?"
@@ -2010,7 +2013,9 @@ msgstr ""
 msgid "Pas d’entrée dédiée aux personnes en situation de handicap"
 msgstr ""
 
-msgid "Informations complémentaires concernant l'entrée PMR"
+msgid ""
+"Informations complémentaires concernant l'entrée dédiée aux personnes en "
+"situation de handicap"
 msgstr ""
 
 msgid "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
@@ -2151,7 +2156,7 @@ msgstr ""
 msgid "Sans barre d'appui"
 msgstr ""
 
-msgid "Toilette sécurisé"
+msgid "Toilettes sécurisées"
 msgstr ""
 
 msgid "Les toilettes sont-elles équipées d'une barre d'appui horizontal ?"
@@ -2163,12 +2168,12 @@ msgstr ""
 msgid "Le toilette n'est pas équipé d'une barre d'appui horizontale"
 msgstr ""
 
-msgid "Toilette accessible"
+msgid "Toilettes accessibles"
 msgstr ""
 
 msgid ""
-"Le toilette dispose-t-il d'un espace d'usage (80 cm x 130 cm) à côté de la "
-"cuvette&nbsp;?"
+"Les toilettes disposent-elles d'un espace d'usage (80 cm x 130 cm) à côté de "
+"la cuvette&nbsp;?"
 msgstr ""
 
 msgid "Le toilette dispose d'un espace d'usage à côté de la cuvette"
@@ -2314,7 +2319,10 @@ msgstr ""
 msgid "Équipements ou prestations disponibles"
 msgstr ""
 
-msgid "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
+msgid "Toilettes"
+msgstr ""
+
+msgid "Y a-t-il des toilettes mises à disposition du public&nbsp;?"
 msgstr ""
 
 msgid "Des sanitaires sont mis à disposition dans l'établissement"
@@ -2323,10 +2331,10 @@ msgstr ""
 msgid "Pas de sanitaires mis à disposition dans l'établissement"
 msgstr ""
 
-msgid "Sanitaires adaptés"
+msgid "Toilettes adaptées"
 msgstr ""
 
-msgid "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
+msgid "Y a-t-il des toilettes adaptées mises à disposition du public&nbsp;?"
 msgstr ""
 
 msgid "Des sanitaires adaptés sont mis à disposition dans l'établissement"
@@ -4115,9 +4123,6 @@ msgstr ""
 
 #, python-format
 msgid "Audiodescription : %(equipements)s"
-msgstr ""
-
-msgid "Toilettes adaptées"
 msgstr ""
 
 #, python-format

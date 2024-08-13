@@ -237,7 +237,7 @@ def test_notification_accessibilite(client, mocker):
                                     "new": "Inconnu",
                                     "label": "Rétrécissement du chemin",
                                 },
-                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Sanitaires"},
+                                {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Toilettes"},
                             ],
                         }
                     ],
