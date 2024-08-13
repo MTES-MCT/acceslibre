@@ -234,7 +234,7 @@ def _filter_erp_by_location(queryset, **kwargs):
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
         city, code_departement = _clean_address(kwargs.get("where"))
         return queryset.filter(commune__iexact=city, code_postal__startswith=code_departement)
-    if search_type == settings.IN_DEPARTEMENT_SEARCH_TYPE:
+    if search_type == settings.IN_DEPARTMENT_SEARCH_TYPE:
         code = "20" if kwargs.get("code").lower() in ["2a", "2b"] else kwargs.get("code")
         return queryset.filter(code_postal__startswith=code)
     if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
@@ -267,9 +267,13 @@ def search(request):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
             zoom_level = municipality.get_zoom()
-    elif request.GET.get("search_type") in ("street", "locality"):
+    elif request.GET.get("search_type") in (
+        settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET,
+        settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
+        settings.IN_DEPARTMENT_SEARCH_TYPE,
+    ):
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
-    elif request.GET.get("search_type") == "housenumber":
+    elif request.GET.get("search_type") == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
     paginator = Paginator(queryset, 50)
@@ -287,7 +291,7 @@ def search(request):
         "equipments": get_equipments(),
         "zoom_level": zoom_level,
         "geojson_list": make_geojson(pager),
-        "should_not_refresh_map_on_load": request.GET.get("search_type") == settings.IN_DEPARTEMENT_SEARCH_TYPE,
+        "should_not_refresh_map_on_load": request.GET.get("search_type") == settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)
 

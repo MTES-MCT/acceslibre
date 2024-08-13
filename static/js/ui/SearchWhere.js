@@ -118,11 +118,11 @@ function SearchWhere(root) {
       if (input.length < 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults
       }
-      var { results } = await api.searchLocation(input, loc, 'departementNumber')
+      var { results } = await api.searchLocation(input, loc, 'departmentNumber')
       if (results.length) {
         return results
       }
-      var { results } = await api.searchLocation(input, loc, 'departement')
+      var { results } = await api.searchLocation(input, loc, 'department')
       if (results.length) {
         return results
       }

@@ -95,11 +95,11 @@ function getMunicipalityApi(q) {
   )}&boost=population&fields=centre,codesPostaux,codeDepartement&limit=10`
 }
 
-function getDepartementApi(q) {
+function getDepartmentApi(q) {
   return `https://geo.api.gouv.fr/departements?nom=${encodeURIComponent(q)}&limit=10`
 }
 
-function getDepartementNumberApi(q) {
+function getDepartmentNumberApi(q) {
   return `https://geo.api.gouv.fr/departements?code=${encodeURIComponent(q)}&limit=10`
 }
 
@@ -131,10 +131,10 @@ function buildResultFromAddressApi({
   }
 }
 
-function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeDepartement }) {
+function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeDepartement: codeDepartment }) {
   return {
     id: 'loc',
-    text: `${nom} (${codeDepartement})`,
+    text: `${nom} (${codeDepartment})`,
     context: '',
     code: code,
     lat: centre['coordinates'][1],
@@ -146,13 +146,13 @@ function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeD
   }
 }
 
-function buildResultFromDepartementApi({ code, nom }) {
+function buildResultFromDepartmentApi({ code, nom }) {
   return {
     id: 'loc',
     text: `${nom} (${code})`,
     context: '',
     code: code,
-    search_type: 'departement',
+    search_type: 'department',
   }
 }
 
@@ -173,17 +173,17 @@ async function searchAddress(q, loc) {
   return { q, results }
 }
 
-async function searchDepartement(q) {
-  const response = await fetch(getDepartementApi(q))
+async function searchDepartment(q) {
+  const response = await fetch(getDepartmentApi(q))
   const json = await response.json()
-  const results = json.map(buildResultFromDepartementApi)
+  const results = json.map(buildResultFromDepartmentApi)
   return { q, results }
 }
 
-async function searchDepartementNumber(q) {
-  const response = await fetch(getDepartementNumberApi(q))
+async function searchDepartmentNumber(q) {
+  const response = await fetch(getDepartmentNumberApi(q))
   const json = await response.json()
-  const results = json.map(buildResultFromDepartementApi)
+  const results = json.map(buildResultFromDepartmentApi)
   return { q, results }
 }
 
@@ -195,11 +195,11 @@ async function searchLocation(q, loc, kind = '') {
   if (kind === 'municipality') {
     return await searchMunicipality(q)
   }
-  if (kind === 'departement') {
-    return await searchDepartement(q)
+  if (kind === 'department') {
+    return await searchDepartment(q)
   }
-  if (kind === 'departementNumber') {
-    return await searchDepartementNumber(q)
+  if (kind === 'departmentNumber') {
+    return await searchDepartmentNumber(q)
   }
   return searchAddress(q, loc)
 }
