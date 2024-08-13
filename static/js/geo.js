@@ -401,7 +401,7 @@ function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
 function AppMap(root) {
   const erpIdentifier = root.dataset.erpIdentifier
   shouldRefreshMap = true
-  if (root.dataset.shouldNotRefreshOnMapLoad == 'true') {
+  if (root.dataset.shouldRefreshOnMapLoad == 'False') {
     shouldRefreshMap = false
   }
   const erpData = root.querySelector('#erps-data').textContent

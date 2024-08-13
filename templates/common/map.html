@@ -9,7 +9,7 @@
      data-should-refresh="{{ dynamic_map|default:'False' }}"
      data-api-key="{{ map_api_key|default:'' }}"
      data-erp-identifier="{{ erp.uuid }}"
-     {% if should_not_refresh_map_on_load %}data-should-not-refresh-on-map-load="true"{% endif %}
+     data-should-refresh-on-map-load="{{ should_refresh_map_on_load|default:'True' }}"
      data-default-zoom="{% if zoom_level %}{{ zoom_level }}{% elif not lat and not lon %}{{ MAP_DEFAULT_ZOOM }}{% else %}{{ MAP_DEFAULT_ZOOM_LARGE_CITY }}{% endif %}">
     <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}

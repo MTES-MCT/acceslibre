@@ -291,7 +291,7 @@ def search(request):
         "equipments": get_equipments(),
         "zoom_level": zoom_level,
         "geojson_list": make_geojson(pager),
-        "should_not_refresh_map_on_load": request.GET.get("search_type") == settings.IN_DEPARTMENT_SEARCH_TYPE,
+        "should_refresh_map_on_load": request.GET.get("search_type") != settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)
 
