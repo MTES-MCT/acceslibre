@@ -75,7 +75,7 @@ function SearchWhere(root) {
       if (!result) {
         return
       }
-      if (result.lat && result.lon) {
+      if ((result.lat && result.lon) || result.code) {
         setSearchData(result)
       } else if (result.text.startsWith(AROUND_ME)) {
         if ((await api.hasPermission('geolocation')) !== 'granted') {
@@ -115,15 +115,21 @@ function SearchWhere(root) {
     search: async (input) => {
       const loc = await api.loadUserLocation({ retrieve: false })
       const commonResults = await getCommonResults(loc)
-      if (input.length <= 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
+      if (input.length < 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults
       }
-
+      var { results } = await api.searchLocation(input, loc, 'departmentNumber')
+      if (results.length) {
+        return results
+      }
+      var { results } = await api.searchLocation(input, loc, 'department')
+      if (results.length) {
+        return results
+      }
       var { results } = await api.searchLocation(input, loc, 'municipality')
       if (results.length) {
         return results
       }
-
       var { results } = await api.searchLocation(input, loc)
       return results
     },

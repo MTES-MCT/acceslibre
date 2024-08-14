@@ -95,6 +95,14 @@ function getMunicipalityApi(q) {
   )}&boost=population&fields=centre,codesPostaux,codeDepartement&limit=10`
 }
 
+function getDepartmentApi(q) {
+  return `https://geo.api.gouv.fr/departements?nom=${encodeURIComponent(q)}&limit=10`
+}
+
+function getDepartmentNumberApi(q) {
+  return `https://geo.api.gouv.fr/departements?code=${encodeURIComponent(q)}&limit=10`
+}
+
 function getAddressApi(q, loc) {
   let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=10`
   const { lat, lon } = loc || {}
@@ -123,10 +131,10 @@ function buildResultFromAddressApi({
   }
 }
 
-function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeDepartement }) {
+function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeDepartement: codeDepartment }) {
   return {
     id: 'loc',
-    text: `${nom} (${codeDepartement})`,
+    text: `${nom} (${codeDepartment})`,
     context: '',
     code: code,
     lat: centre['coordinates'][1],
@@ -138,33 +146,62 @@ function buildResultFromMunicipalityApi({ code, nom, centre, codesPostaux, codeD
   }
 }
 
+function buildResultFromDepartmentApi({ code, nom }) {
+  return {
+    id: 'loc',
+    text: `${nom} (${code})`,
+    context: '',
+    code: code,
+    search_type: 'department',
+  }
+}
+
+async function searchMunicipality(q) {
+  const response = await fetch(getMunicipalityApi(q))
+  const json = await response.json()
+  const results = json.map(buildResultFromMunicipalityApi)
+  return { q, results }
+}
+
+async function searchAddress(q, loc) {
+  const response = await fetch(getAddressApi(q, loc))
+  const { features } = await response.json()
+  let results = features.filter(({ properties: { score } }) => {
+    return score > 0.4
+  })
+  results = results.map(buildResultFromAddressApi)
+  return { q, results }
+}
+
+async function searchDepartment(q) {
+  const response = await fetch(getDepartmentApi(q))
+  const json = await response.json()
+  const results = json.map(buildResultFromDepartmentApi)
+  return { q, results }
+}
+
+async function searchDepartmentNumber(q) {
+  const response = await fetch(getDepartmentNumberApi(q))
+  const json = await response.json()
+  const results = json.map(buildResultFromDepartmentApi)
+  return { q, results }
+}
+
 async function searchLocation(q, loc, kind = '') {
-  if (q.trim().length <= 2) {
+  if (q.trim().length < 2) {
     return { q, results: [] }
   }
 
-  let url = ''
-  if (kind == 'municipality') {
-    url = getMunicipalityApi(q)
-  } else {
-    url = getAddressApi(q, loc)
+  if (kind === 'municipality') {
+    return await searchMunicipality(q)
   }
-
-  const response = await fetch(url)
-  let results = null
-
-  if (kind == 'municipality') {
-    let json = await response.json()
-    results = json.map(buildResultFromMunicipalityApi)
-  } else {
-    const { features } = await response.json()
-    results = features.filter(({ properties: { score } }) => {
-      return score > 0.4
-    })
-    results = results.map(buildResultFromAddressApi)
+  if (kind === 'department') {
+    return await searchDepartment(q)
   }
-
-  return { q, results }
+  if (kind === 'departmentNumber') {
+    return await searchDepartmentNumber(q)
+  }
+  return searchAddress(q, loc)
 }
 
 async function getCoordinate(q) {
