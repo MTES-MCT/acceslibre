@@ -9,7 +9,7 @@ from sib_api_v3_sdk import AddContactToList
 
 from erp.management.commands.validate_and_import_file import Command
 from erp.models import Erp
-from tests.erp.imports.mapper.fixtures import neufchateau
+from tests.erp.imports.mapper.fixtures import neufchateau  # noqa
 
 
 class TestValidator:
@@ -38,7 +38,9 @@ class TestValidator:
             reader = csv.DictReader(error_file, delimiter=";")
             assert len(list(reader)) == 5
 
-    def test_skip_import_with_OK_file(self, activite, neufchateau):
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
+    def test_skip_import_with_OK_file(self):
         cm = Command()
         call_command(cm, file="data/tests/generic_test_ok.csv", skip_import=True)
 
@@ -46,8 +48,10 @@ class TestValidator:
         assert cm.results["in_error"]["count"] == 0
         assert cm.results["validated"]["count"] == 1
 
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
     @override_settings(BREVO_CONTACT_LIST_IDS={"tally-respondents": 11})
-    def test_with_OK_file(self, mocker, activite, neufchateau):
+    def test_with_OK_file(self, mocker):
         mock_brevo = mocker.patch("sib_api_v3_sdk.ContactsApi.add_contact_to_list", return_value=True)
         cm = Command()
         call_command(
@@ -64,7 +68,9 @@ class TestValidator:
 
         mock_brevo.assert_called_once_with(11, AddContactToList(emails=["test@gmail.com"]))
 
-    def test_duplicate_and_permanently_closed_with_OK_file(self, activite, neufchateau):
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
+    def test_duplicate_and_permanently_closed_with_OK_file(self):
         cm = Command()
         call_command(
             cm,
@@ -100,7 +106,9 @@ class TestValidator:
         assert cm.results["duplicated"]["count"] == 0
         assert cm.results["permanently_closed"]["count"] == 1
 
-    def test_duplicate_with_OK_file_force(self, activite, neufchateau):
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
+    def test_duplicate_with_OK_file_force(self):
         cm = Command()
         call_command(
             cm,

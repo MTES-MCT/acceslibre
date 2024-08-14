@@ -17,11 +17,10 @@ from django.contrib.admin.models import ADDITION, LogEntry
 from django.db import migrations, models
 from django.db.models import Q
 
-import erp.models
 from core.db import OperationIgnoredInTest
 from erp import schema
 from erp.models import Activite as Activite_class
-from erp.models import get_last_position
+from erp.models import generate_commune_slug, get_last_position
 
 
 def run_python(*args, **kwargs):
@@ -2687,7 +2686,7 @@ class Migration(migrations.Migration):
                     autoslug.fields.AutoSlugField(
                         editable=False,
                         help_text="Identifiant d'URL (slug)",
-                        populate_from=erp.models.generate_commune_slug,
+                        populate_from=generate_commune_slug,
                         unique_with=["departement", "nom"],
                     ),
                 ),

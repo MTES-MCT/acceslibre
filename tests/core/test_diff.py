@@ -1,5 +1,3 @@
-import pytest
-
 from core.lib import diff
 
 

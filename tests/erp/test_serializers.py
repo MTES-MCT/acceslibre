@@ -1,5 +1,4 @@
 import pytest
-from django.contrib.gis.geos import Point
 
 from erp import serializers
 

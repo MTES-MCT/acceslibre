@@ -4,7 +4,7 @@ import pytest
 
 from erp.imports.mapper.service_public import ServicePublicMapper
 from erp.models import Erp
-from tests.erp.imports.mapper.fixtures import service_public_valid
+from tests.erp.imports.mapper.fixtures import service_public_valid  # noqa
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
@@ -20,7 +20,7 @@ def test_init(mapper):
     assert mapper({}).process() == (None, None)
 
 
-def test_save_non_existing_erp(mapper, service_public_valid):
+def test_save_non_existing_erp(mapper, service_public_valid):  # noqa
     CommuneFactory(nom="Fontaine-le-Port")
     ActiviteFactory(nom="Mairie", slug="mairie")
     erp, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
@@ -45,7 +45,8 @@ def test_save_non_existing_erp(mapper, service_public_valid):
     assert erp.accessibilite.entree_aide_humaine is True
 
 
-def test_update_existing_erp(mapper, service_public_valid):
+@pytest.mark.usefixtures("service_public_valid")
+def test_update_existing_erp(mapper, service_public_valid):  # noqa
     CommuneFactory(nom="Fontaine-le-Port")
 
     ActiviteFactory(nom="Mairie", slug="mairie")

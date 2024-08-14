@@ -182,6 +182,7 @@ Paramètres de lancement du script :
                                     print_error(
                                         f"Non importé car clôs définitivement du traitement de la ligne {_}: {e}."
                                     )
+
                             else:
                                 print_error(
                                     f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."

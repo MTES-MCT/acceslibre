@@ -4,7 +4,7 @@ import pytest
 from django.contrib.gis.geos import Point
 
 from erp import schema
-from erp.models import Accessibilite, Activite, Erp
+from erp.models import Accessibilite, Erp
 from erp.provider.search import get_equipments
 from tests.factories import AccessibiliteFactory, ActiviteFactory, ErpFactory
 

@@ -3,7 +3,7 @@ from django.contrib.gis.geos import Point
 
 from erp import forms
 from erp.imports.utils import get_address_query_to_geocode
-from erp.models import Commune, Erp
+from erp.models import Erp
 from tests.factories import ActiviteFactory, CommuneFactory, UserFactory
 
 POINT = Point((0, 0))
