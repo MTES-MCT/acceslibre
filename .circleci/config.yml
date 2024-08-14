@@ -66,10 +66,6 @@ jobs:
           paths:
             - 'node_modules'
       - run:
-          name: Run Flake8
-          command: |
-            pipenv run flake8
-      - run:
           name: Check production security
           command: |
             DJANGO_SETTINGS_MODULE=core.settings_prod pipenv run ./manage.py check --deploy

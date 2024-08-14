@@ -1,11 +1,6 @@
 default_language_version:
   python: python3.11
 repos:
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
-    hooks:
-      - id: flake8
-        entry: bash -c "flake8"
   - repo: https://github.com/asottile/seed-isort-config
     rev: v2.2.0
     hooks:
@@ -14,7 +9,7 @@ repos:
     rev: v0.5.7
     hooks:
       - id: ruff
-        args: [ --fix ]
+        args: [--fix]
       - id: ruff-format
   - repo: https://github.com/Riverside-Healthcare/djLint
     rev: v1.34.1
