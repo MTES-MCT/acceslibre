@@ -150,7 +150,9 @@ class Command(BaseCommand):
             feats = [f.strip() for f in box.css("li ::text").getall() if f.strip()]
             features[type_] = feats
 
-        css = lambda selector, sep="": sep.join(sel.css(selector).getall()).strip()
+        def css(selector, sep=""):
+            return sep.join(sel.css(selector).getall()).strip()
+
         data = {
             "url": result.context["url"],
             "id": re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)[0],

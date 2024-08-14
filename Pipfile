@@ -4,11 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
-flake8 = "*"
+ruff = "*"
 ipdb = "*"
 pre-commit = "*"
-pylint = "*"
 pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
 pytest-circleci-parallelized = "*"

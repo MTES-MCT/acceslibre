@@ -1,10 +1,10 @@
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from django.core.management import call_command
 
 from erp.models import Commune
-from tests.factories import CommuneFactory, ErpFactory
+from tests.factories import CommuneFactory
 
 DETAILS_JSON = {
     "centre": {"type": "Point", "coordinates": [2.1191, 48.8039]},

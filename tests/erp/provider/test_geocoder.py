@@ -1,5 +1,4 @@
 import pytest
-from django.contrib.gis.geos import Point
 
 from erp.provider import geocoder
 from erp.provider.generic_geoloc import GeolocRequester
