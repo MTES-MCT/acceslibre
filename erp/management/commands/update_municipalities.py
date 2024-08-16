@@ -20,7 +20,7 @@ class Command(BaseCommand):
         )
 
     def _get_file(self):
-        remote_url = "https://unpkg.com/@etalab/decoupage-administratif@3.1.1/data/communes.json"
+        remote_url = "https://unpkg.com/@etalab/decoupage-administratif@latest/data/communes.json"
         local_file = "communes.json"
         data = requests.get(remote_url)
         with open(local_file, "wb") as file:
