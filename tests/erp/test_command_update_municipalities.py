@@ -53,13 +53,14 @@ def test_command_will_create_unknown_commune(mocked_file, mocked_details):
 @pytest.mark.django_db
 @patch("erp.management.commands.update_municipalities.json.load")
 def test_command_will_update_commune(mocked_file):
-    CommuneFactory(
+    commune = CommuneFactory(
         nom="Outdated commune",
         code_insee="01001",
         departement="02",
         population=10,
         code_postaux=["01401"],
     )
+    assert commune.slug == "02-outdated-commune"
 
     mocked_file.return_value = LIST_JSON
     call_command("update_municipalities", write=True)
@@ -71,6 +72,7 @@ def test_command_will_update_commune(mocked_file):
     assert commune.departement == "01"
     assert commune.code_postaux == ["01400"]
     assert commune.population == 806
+    assert commune.slug == "01-labergement-clemenciat"
 
 
 @pytest.mark.django_db
