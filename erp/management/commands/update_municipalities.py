@@ -78,6 +78,7 @@ class Command(BaseCommand):
                 commune.departement = validated_data.departement
                 commune.code_postaux = validated_data.postal_codes
                 commune.population = validated_data.population
+                commune.slug = None  # will be re-slugified on save()
                 if self.write:
                     commune.save()
             elif validated_data.type_of == "commune-deleguee":
