@@ -248,8 +248,8 @@ function refreshList(data, clearHTML = true) {
 
 function updateNumberOfResults(data) {
   const numberContainer = document.querySelector('#number-of-results')
-  const translation = ngettext(' établissement', ' établissements', data.count)
-  numberContainer.innerHTML = data.count + translation
+  const translation = ngettext('établissement', 'établissements', data.count)
+  numberContainer.innerHTML = data.count + ' ' + translation
 }
 
 function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
