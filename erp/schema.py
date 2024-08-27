@@ -309,6 +309,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/solocal.html",
         "url": "https://www.solocal.com",
     },
+    "SERVICE_PUBLIC": {
+        "avatar": "sp.png",
+        "logo": "img/partenaires/sp.png",
+        "name": "Service-Public.fr",
+        "short_description": translate_lazy("L'annuaire de l'administration française"),
+        "template": "editorial/partenaires/sp.html",
+        "url": "https://lannuaire.service-public.fr/",
+    },
 }
 
 SECTION_A_PROPOS = "a_propos"
