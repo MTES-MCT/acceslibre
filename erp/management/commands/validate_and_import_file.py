@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils.timezone import now
 from rest_framework.exceptions import ValidationError
 
-from core.mailer import BrevoMailer
+from core.mailer import BrevoMailer, send_async_email
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
@@ -84,12 +84,13 @@ class Command(BaseCommand):
                 reversion.set_comment("Created via import")
 
             if self.send_emails and new_erp.import_email:
-                BrevoMailer().send_email(
+                send_async_email.delay(
                     to_list=new_erp.import_email,
                     template="erp_imported",
                     context={"erp_url": new_erp.get_absolute_uri()},
                 )
-                print_success("\t   ** Mail envoyé")
+
+                print_success("\t   ** Mail envoyé en asynchrone")
         except Exception as e:
             print_error(
                 f"Une erreur est survenue lors de l'import de la ligne / save_erp: {e}. Passage à la ligne suivante."
