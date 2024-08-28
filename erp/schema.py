@@ -179,9 +179,7 @@ ESCALIER_SENS = [
     (None, UNKNOWN),
 ]
 
-REGISTRE_INFO_URL = (
-    "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
-)
+REGISTRE_INFO_URL = "https://www.ecologie.gouv.fr/politiques-publiques/laccessibilite-etablissements-recevant-du-public-erp#le-registre-public-daccessibilite-6"
 
 PARTENAIRES = {
     "DGE": {
