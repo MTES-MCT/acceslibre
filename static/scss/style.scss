@@ -886,8 +886,15 @@ div.equipments-selected
 }
 
 .homepage-hero {
+  .fr-content-media__img {
+    height: 100%;
+  }
   .fr-content-media__img img {
     max-width: 100%;
+    height: 100%;
+  }
+  figure.fr-content-media {
+    height: 100%;
   }
 }
 
