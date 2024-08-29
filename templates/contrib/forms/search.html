@@ -52,6 +52,7 @@
                        spellcheck="false"
                        autocomplete="off"
                        autocapitalize="off"
+                       data-autocomplete-departments="off"
                        {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
                        name="where"
                        placeholder="Lyon, 12 rue des prés Nantes"
