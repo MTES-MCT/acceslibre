@@ -25,6 +25,8 @@ function SearchWhere(root) {
     street_name: root.querySelector('input[name=street_name]'),
     municipality: root.querySelector('input[name=municipality]'),
   }
+  const searchInDepartmentsAllowed = input.dataset.autocompleteDepartments === 'on'
+
   input.addEventListener('input', activateSubmitBtn, false)
   activateSubmitBtn(null, false)
 
@@ -118,13 +120,15 @@ function SearchWhere(root) {
       if (input.length < 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults
       }
-      var { results } = await api.searchLocation(input, loc, 'departmentNumber')
-      if (results.length) {
-        return results
-      }
-      var { results } = await api.searchLocation(input, loc, 'department')
-      if (results.length) {
-        return results
+      if (searchInDepartmentsAllowed) {
+        var { results } = await api.searchLocation(input, loc, 'departmentNumber')
+        if (results.length) {
+          return results
+        }
+        var { results } = await api.searchLocation(input, loc, 'department')
+        if (results.length) {
+          return results
+        }
       }
       var { results } = await api.searchLocation(input, loc, 'municipality')
       if (results.length) {
