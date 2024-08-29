@@ -106,10 +106,26 @@
                     {% translate "Des informations affichées sur les grands sites web" %}
                 </h2>
                 <div class="d-flex flex-column flex-md-row">
-                    <img src="{% static "img/partenaires/sortir-a-paris_avatar.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/allocine.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/solocal.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/nestenn.png" %}" alt="Logo de sortir a paris" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <a href="{{ partners.SORTIRAPARIS.url }}" target="_blank">
+                        <img src="{% static partners.SORTIRAPARIS.logo %}"
+                             alt="{% translate 'Logo de sortir à paris' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.ALLOCINE.url }}" target="_blank">
+                        <img src="{% static partners.ALLOCINE.logo %}"
+                             alt="{% translate 'Logo de allocine' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.SOLOCAL.url }}" target="_blank">
+                        <img src="{% static partners.SOLOCAL.logo %}"
+                             alt="{% translate 'Logo de solocal' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.SERVICE_PUBLIC.url }}" target="_blank">
+                        <img src="{% static partners.SERVICE_PUBLIC.logo %}"
+                             alt="{% translate 'Logo de service-public.fr' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
                 </div>
                 <p class="fr-mt-4w">
                     {% blocktranslate trimmed %}
@@ -170,16 +186,40 @@
             <div>
                 <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Un projet qui rassemble" %}</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <img src="{% static "img/partenaires/cfpsaa.png" %}" alt="Logo CFPSAA" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/landing/paris.png" %}" alt="Logo ville de Paris" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/laposte.png" %}" alt="Logo La poste" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/avh.png" %}" alt="Logo Valentin HAUT" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <a href="{{ partners.CFPSAA.url }}" target="_blank">
+                        <img src="{% static partners.CFPSAA.logo %}"
+                             alt="{% translate 'Logo CFPSAA' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="https://www.paris.fr" target="_blank">
+                        <img src="{% static "img/landing/paris.png" %}" alt="{% translate 'Logo ville de Paris' %}" class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.LAPOSTE.url }}" target="_blank">
+                        <img src="{% static partners.LAPOSTE.logo %}"
+                             alt="{% translate 'Logo La poste' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.AVH.url }}" target="_blank">
+                        <img src="{% static partners.AVH.logo %}"
+                             alt="{% translate 'Logo Valentin HAUT' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between fr-mt-4w">
-                    <img src="{% static "img/landing/lorient.jpg" %}" alt="Logo Lorient agglomération" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/landing/UMIH.png" %}" alt="Logo UMIH" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/partenaires/dge.png" %}" alt="Logo de DGE" class="a4a-partenaire-logo-small fr-mx-4w">
-                    <img src="{% static "img/landing/accord.png" %}" alt="Logo d'Accor" class="a4a-partenaire-logo-small fr-mx-4w">
+                    <a href="https://www.lorient-agglo.bzh/" target="_blank">
+                        <img src="{% static "img/landing/lorient.jpg" %}" alt="{% translate 'Logo Lorient agglomération' %}" class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="https://umih.fr/fr/" target="_blank">
+                        <img src="{% static "img/landing/UMIH.png" %}" alt="{% translate 'Logo UMIH' %}" class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="{{ partners.DGE.url }}" target="_blank">
+                        <img src="{% static partners.DGE.logo %}"
+                             alt="{% translate 'Logo de DGE' %}"
+                             class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
+                    <a href="https://group.accor.com/fr-FR" target="_blank">
+                        <img src="{% static "img/landing/accor.png" %}" alt="{% translate 'Logo d\'Accor' %}" class="a4a-partenaire-logo-small fr-mx-4w">
+                    </a>
                 </div>
                 <p class="fr-mt-4w text-center">
                     {% translate "Associations, collectivités, gestionnaires... L'union fait la force !" %}
