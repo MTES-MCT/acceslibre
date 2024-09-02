@@ -7,7 +7,7 @@
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div class="fr-mx-0 w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-left fr-pr-1">
+            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-start fr-pr-1v">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Nom de l'établissement" %}</strong></span>
                     <br>
@@ -20,7 +20,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-left px-1">
+            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-start px-1">
                 <label for="activite">
                     <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                 </label>
@@ -84,7 +84,7 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-col-2 fr-input-group input-form fr-search-bar fr-search-bar--lg text-left fr-mt-4v pl-1">
+            <div class="fr-col-2 fr-input-group input-form fr-search-bar fr-search-bar--lg text-start fr-mt-6v fr-pl-1v">
                 <button type="submit"
                         disabled
                         class="fr-text--sm fr-btn"

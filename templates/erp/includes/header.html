@@ -18,7 +18,7 @@
         </div>
         <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
             {% if erp.site_internet %}
-                <span class="mr-3 fr-mt-2v">
+                <span class="fr-mr-3v fr-mt-2v">
                     <i aria-hidden="true" class="icon icon-globe"></i>
                     <a href="{{ erp.site_internet }}"
                        target="_blank"
@@ -26,25 +26,25 @@
                 </span>
             {% endif %}
             {% if erp.telephone %}
-                <span class="mr-3 fr-mt-2v">
+                <span class="fr-mr-3v fr-mt-2v">
                     <i aria-hidden="true" class="icon icon-phone"></i>
                     <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
                 </span>
             {% endif %}
             {% if erp.contact_url %}
-                <span class="mr-3 fr-mt-2v">
+                <span class="fr-mr-3v fr-mt-2v">
                     <i aria-hidden="true" class="icon icon-mail"></i>
                     <a href="{{ erp.contact_url }}"
                        target="_blank"
                        rel="noopener noreferrer">{% translate "Écrire un message" %}</a>
                 </span>
             {% elif erp.contact_email %}
-                <span class="mr-3 fr-mt-2v">
+                <span class="fr-mr-3v fr-mt-2v">
                     <i aria-hidden="true" class="icon icon-mail"></i>
                     <a href="mailto:{{ erp.contact_email }}">{% translate "Écrire un message" %}</a>
                 </span>
             {% endif %}
-            <span class="ml-auto fr-mt-2v">
+            <span class="fr-ml-auto fr-mt-2v">
                 <i aria-hidden="true" class="icon icon-zoom-in"></i>
                 <a href="" id="map-height-toggle-link">{% translate "Agrandir la carte" %}</a>
             </span>

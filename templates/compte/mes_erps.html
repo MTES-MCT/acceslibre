@@ -9,14 +9,14 @@
 {% endblock robots %}
 {% block compte_content %}
     <div class="row fr-mb-3v">
-        <h1 class="h3 col-sm-6">{% translate "Mes établissements" %}</h1>
-        <div class="col-sm-6 text-right">
+        <h1 class="h3 fr-col-sm-6">{% translate "Mes établissements" %}</h1>
+        <div class="fr-col-sm-6 text-right">
             <button class="fr-btn fr-btn--icon-left fr-icon-add-circle-line"
                     href="{% url 'contrib_start' %}">{% translate "Ajouter un nouvel établissement" %}</button>
         </div>
     </div>
-    <form action="{% url 'mes_erps' %}" class="form-inline" method="get">
-        <div class="form-group mx-sm-3 fr-mb-2v">
+    <form action="{% url 'mes_erps' %}" class="d-flex fr-mb-3v" method="get">
+        <div class="form-group fr-mx-sm-3v">
             <label for="q" class="fr-sr-only">{% translate "Recherche dans mes ERPs" %}</label>
             <input name="q"
                    type=""
@@ -24,7 +24,7 @@
                    placeholder='{% translate "Nom" %}'
                    value="{{ q }}">
         </div>
-        <button type="submit" class="fr-btn fr-mb-2v">{% translate "Rechercher" %}</button>
+        <button type="submit" class="fr-btn fr-ml-2w">{% translate "Rechercher" %}</button>
     </form>
     {% if erp_total_count > 0 %}
         <nav class="nav nav-tabs nav-fill">

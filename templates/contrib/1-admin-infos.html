@@ -22,7 +22,7 @@
     noindex, nofollow
 {% endblock robots %}
 {% block contrib_content %}
-    <div class="col-md-9">
+    <div class="fr-col-md-9">
         <h3 class="h3 fr-mb-3v">{% translate "Adresse de l'établissement" %}</h3>
         <form id="contrib-edit-form"
               action=""
@@ -57,12 +57,12 @@
                 <div class="list-group list-group-flush">
                     {% if existing_matches %}
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="fr-col-md-12">
                                 {% for erp in existing_matches %}
-                                    <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+                                    <div class="d-flex justify-content-between align-items-center fr-pt-2v fr-pr-2v fr-pb-1v fr-pl-0">
                                         <div>
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h2 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                                                <h2 class="h6 font-weight-bold w-100 mb-0 fr-pb-0">
                                                     <!-- rank: {{ erp.rank }} -->
                                                     <a href="{{ erp.get_absolute_url }}">
                                                         <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="text-left">
+                                    <p class="text-start">
                                         <a class="btn btn-outline-primary text-wrap mx-auto"
                                            href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
                                             <i aria-hidden="true" class="icon icon-pencil"></i>
@@ -105,8 +105,8 @@
                 </div>
             {% endif %}
             <div class="row fr-mt-4v">
-                <div class="col-sm-6">{{ form.nom|as_crispy_field }}</div>
-                <div class="col-sm-6">
+                <div class="fr-col-sm-6">{{ form.nom|as_crispy_field }}</div>
+                <div class="fr-col-sm-6">
                     <label for="activite">
                         <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                         <br>
@@ -129,20 +129,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3">{{ form.numero|as_crispy_field }}</div>
-                <div class="col-sm-9">{{ form.voie|as_crispy_field }}</div>
+                <div class="fr-col-sm-3">{{ form.numero|as_crispy_field }}</div>
+                <div class="fr-col-sm-9">{{ form.voie|as_crispy_field }}</div>
             </div>
             {{ form.lieu_dit|as_crispy_field }}
             <div class="row">
-                <div class="col-sm-4">{{ form.code_postal|as_crispy_field }}</div>
-                <div class="col-sm-8">{{ form.commune|as_crispy_field }}</div>
+                <div class="fr-col-sm-4">{{ form.code_postal|as_crispy_field }}</div>
+                <div class="fr-col-sm-8">{{ form.commune|as_crispy_field }}</div>
             </div>
             <hr>
             <h2 class="h3">Contact</h2>
             <div class="row">
-                <div class="col-lg-4">{{ form.site_internet|as_crispy_field }}</div>
-                <div class="col-lg-4">{{ form.telephone|as_crispy_field }}</div>
-                <div class="col-lg-4">{{ form.contact_email|as_crispy_field }}</div>
+                <div class="fr-col-lg-4">{{ form.site_internet|as_crispy_field }}</div>
+                <div class="fr-col-lg-4">{{ form.telephone|as_crispy_field }}</div>
+                <div class="fr-col-lg-4">{{ form.contact_email|as_crispy_field }}</div>
             </div>
             {{ form.contact_url|as_crispy_field }}
             <h3 class="h3 fr-mb-3v">

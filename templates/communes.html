@@ -9,9 +9,9 @@
 {% endblock page_title %}
 {% block editorial_content %}
     {% cache 500 communes LANGUAGE_CODE %}
-    <h1 class="mb-3">{% translate "Communes et territoires pilotes" %}</h1>
+    <h1 class="fr-mb-3v">{% translate "Communes et territoires pilotes" %}</h1>
     <div class="row">
-        <div class="col-md-8">
+        <div class="fr-col-md-8">
             <h2 class="fr-sr-only">{% translate "Communes renseignées" %}</h2>
             <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
                 {% for commune in communes %}
@@ -34,7 +34,7 @@
                 <a href="{% url "annuaire_home" %}">{% translate "Toutes les communes, par département" %}&nbsp;»</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="fr-col-md-4">
             <ul class="fr-btns-group fr-mr-2v">
                 <li>
                     <button class="fr-btn w-100 text-center" href="{% url 'contrib_start' %}">

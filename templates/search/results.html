@@ -13,7 +13,7 @@
     {% endspaceless %}
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <aside class="fr-container-fluid bg-light py-4v">
+    <aside class="fr-container-fluid bg-light fr-py-4v">
         <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
     </aside>
 {% endblock top_fluid_content %}
@@ -41,7 +41,7 @@
                rel="noopener noreferrer">{% translate "suivez notre guide de contribution" %}</a>.
         </div>
     {% endif %}
-    <section class="pt-2" id="results">
+    <section class="fr-pt-2v" id="results">
         <div id="no-results"
              class="{% if paginator.count != 0 %}hidden{% endif %}">
             <h3 class="h5">
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="row fr-mt-2v">
-            <div class="col-sm-6">
+            <div class="fr-col-sm-6">
                 <h2 class="h4 m-0 fr-mb-3v">
                     <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
                     {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
@@ -98,19 +98,19 @@
                 </li>
             </ul>
             <div id="tabpanel-404-panel"
-                 class="fr-tabs__panel fr-tabs__panel--selected col col-12 col-md-5 p-0"
+                 class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-col-md-5 fr-p-0"
                  role="tabpanel"
                  aria-labelledby="tabpanel-404"
                  tabindex="0">
                 <div class="list-group list-group-flush" id="erp-results-list"></div>
                 {% if not dynamic_map %}
-                    <div class="pt-2 pr-2">
+                    <div class="fr-pt-2v fr-pr-2v">
                         {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
                     </div>
                 {% endif %}
             </div>
             <div id="tabpanel-405-panel"
-                 class="fr-tabs__panel col col-12 col-md-7 a4a-search-map-area"
+                 class="fr-tabs__panel fr-col fr-col-12 fr-col-md-7 a4a-search-map-area"
                  role="tabpanel"
                  aria-labelledby="tabpanel-405"
                  tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>

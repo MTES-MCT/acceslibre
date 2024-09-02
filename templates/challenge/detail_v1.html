@@ -10,7 +10,7 @@
         <a href="{% url 'challenges' %}">« {% translate "Retour aux challenges" %}</a>
     </p>
     <h1 class="text-center">{{ challenge }}</h1>
-    <h2 class="text-center py-4v">
+    <h2 class="text-center fr-py-4v">
         {{ challenge.accroche }}
         <br>
         <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small>

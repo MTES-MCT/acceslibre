@@ -113,7 +113,7 @@
         const triggerPk = trigger.getAttribute('data-erp-pk')
         dialog = document.querySelector(`[data-pk="${triggerPk}"]`).querySelector('[id=dialog]')
       }
-      const dismissTriggers = dialog.querySelectorAll('[data-dismiss]')
+      const dismissTriggers = dialog.querySelectorAll('[data-bs-dismiss]')
 
       trigger.addEventListener('click', (event) => {
         event.preventDefault()
@@ -134,7 +134,7 @@
       })
 
       dismissTriggers.forEach((dismissTrigger) => {
-        const closeTriggerPk = dismissTrigger.dataset.dismiss
+        const closeTriggerPk = dismissTrigger.dataset.bsDismiss
         const dismissDialog = document.querySelector(`[data-pk="${closeTriggerPk}"]`).querySelector('[id=dialog]')
 
         dismissTrigger.addEventListener('click', (event) => {
@@ -214,7 +214,7 @@
           let dialogModal = newDiv.querySelector('#dialog')
           dialogModal.setAttribute('aria-hidden', false)
 
-          const dismissTrigger = dialogModal.querySelector('[data-dismiss]')
+          const dismissTrigger = dialogModal.querySelector('[data-bs-dismiss]')
           dismissTrigger.addEventListener('click', (event) => {
             event.preventDefault()
             closeModal(dialogModal, null)

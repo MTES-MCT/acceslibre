@@ -52,7 +52,7 @@
                       id="registration">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next|urlencode }}">
-                    <h1 class="h3 text-left fr-mb-4v">{% translate "Je crée un compte" %}</h1>
+                    <h1 class="h3 text-start fr-mb-4v">{% translate "Je crée un compte" %}</h1>
                     <div>
                         {{ form.non_field_errors }}
                         {{ form.email|as_crispy_field }}
