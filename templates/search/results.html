@@ -13,12 +13,12 @@
     {% endspaceless %}
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <aside class="fr-container-fluid bg-light py-4">
+    <aside class="fr-container-fluid bg-light py-4v">
         <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
     </aside>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    <h1 class="mt-3 mb-2 text-muted results-title">
+    <h1 class="mt-3 fr-mb-2v text-muted results-title">
         {% if what %}
             {% blocktranslate %}Résultats pour «{{what}}» autour de «{{where}}»{% endblocktranslate %}
         {% else %}
@@ -29,7 +29,7 @@
         <div class="loader"></div>
     </div>
     {% if what and "centres de vaccination" in what %}
-        <div class="alert alert-warning mt-3">
+        <div class="alert alert-warning fr-mt-3v">
             {% blocktranslate %}
             Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
             {% endblocktranslate %}
@@ -47,9 +47,9 @@
             <h3 class="h5">
                 <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
             </h3>
-            <div class="d-flex justify-content-between w-75 mb-4" id="cta">
+            <div class="d-flex justify-content-between w-75 fr-mb-4v" id="cta">
                 <div class="mt-2">
-                    <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
+                    <a class="fr-btn fr-btn btn-lg fr-mr-4v" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
                     <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
                     <span>{% translate "ou" %}</span>
                     <a class="fr-btn fr-btn--secondary btn-lg"
@@ -59,12 +59,12 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row fr-mt-2v">
             <div class="col-sm-6">
-                <h2 class="h4 m-0 mb-3">
+                <h2 class="h4 m-0 fr-mb-3v">
                     <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
                     {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
+                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="fr-sr-only">{% translate "kilomètres" %}</span>
                     {% endif %}
                     {% if not dynamic_map %}
                         <small class="text-muted">

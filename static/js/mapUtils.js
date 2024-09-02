@@ -19,11 +19,11 @@ function generateHTMLForResult(result) {
     <div>
         <div class="d-flex w-100 justify-content-between">
             <a href="${link}">
-                <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
-                    <img alt="" class="act-icon act-icon-20 mb-1" src="/static/img/mapicons.svg#${icon}">
+                <h3 class="h6 font-weight-bold w-100 fr-mb-0 fr-pb-0">
+                    <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="/static/img/mapicons.svg#${icon}">
                    ${result.properties.nom}
                 </h3>
-                <span class="sr-only">
+                <span class="fr-sr-only">
                     ${activity_name}
                     ${result.properties.adresse}
                 </span>
@@ -36,7 +36,7 @@ function generateHTMLForResult(result) {
             </address>
         </div>
     </div>
-    <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+    <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link fr-ml-2w"
             title="${gettext('Localiser sur la carte')}"
             data-erp-identifier="${result.properties.uuid}">
         ${gettext('Localiser')}

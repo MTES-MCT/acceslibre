@@ -12,10 +12,10 @@
     {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom }}
 {% endblock page_description %}
 {% block skiplinks %}
-    <a class="skippy sr-only sr-only-focusable" href="#app-map">
+    <a class="skippy fr-sr-only sr-only-focusable" href="#app-map">
         <span class="skippy-text">{% translate "Aller à la carte" %}</span>
     </a>
-    <a class="skippy sr-only sr-only-focusable" href="#a11y">
+    <a class="skippy fr-sr-only sr-only-focusable" href="#a11y">
         <span class="skippy-text">{% translate "Aller aux informations d'accessibilité" %}</span>
     </a>
 {% endblock skiplinks %}
@@ -23,11 +23,11 @@
     <main role="main" id="content" class="erp-details">
         <article class="mt-5">
             {% if 'success' in request.GET and messages %}
-                <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center mb-5">
+                <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center fr-mb-5v">
                     <span class="h1 mb-0">{% translate "Merci !" %}</span>
                     <img src="{% static 'img/merci.png' %}"
                          height="60"
-                         class="d-none d-md-inline-block mb-2"
+                         class="d-none d-md-inline-block fr-mb-2v"
                          alt=""
                          aria-hidden="true" />
                     <br>
@@ -37,11 +37,11 @@
                 </div>
             {% endif %}
             {% include "erp/includes/header.html" %}
-            <aside class="mb-4 mt-2 order-1">
+            <aside class="mb-4 fr-mt-2v order-1">
                 {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
             </aside>
             <div class="mb-2">
-                <h2 class="fr-h4 inline mr-2 d-inline">{% translate "Informations sur l'accessibilité" %}</h2>
+                <h2 class="fr-h4 inline fr-mr-2v d-inline">{% translate "Informations sur l'accessibilité" %}</h2>
                 {% if erp.displayed_last_updated_date %}
                     <span class="align-bottom">
                         {% blocktranslate trimmed with date=erp.displayed_last_updated_date|date %}

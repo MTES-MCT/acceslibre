@@ -5,9 +5,9 @@
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
-    <div class="no-gutters">
+    <div class="fr-mx-0">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-lg-4 input-group input-form text-left pr-1">
+            <div class="fr-col-12 fr-col-lg-4 fr-input-group input-form text-left fr-pr-1">
                 <label for="what-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Quoi</strong> (activité, enseigne)" %}</span>
                     <br>
@@ -22,11 +22,11 @@
                        autocomplete="off"
                        {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
             </div>
-            <div class="fr-col-10 fr-col-lg-6 input-group input-form search-where-field text-left px-1">
+            <div class="fr-col-10 fr-col-lg-6 fr-input-group input-form search-where-field text-left px-1">
                 <label for="where-input">
                     <span class="larger-font{% if dark %} text-light{% endif %}">{% translate "<strong>Où</strong> (adresse, ville)" %}</span>
                     <br>
-                    <span class="sr-only">{% translate "Commencer la saisie puis sélectionner dans la liste" %}</span>
+                    <span class="fr-sr-only">{% translate "Commencer la saisie puis sélectionner dans la liste" %}</span>
                 </label>
                 <input id="where-input"
                        class="autocomplete-input fr-input"
@@ -66,11 +66,11 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-col-2 input-group input-form fr-search-bar fr-search-bar--lg text-left mt-4 pl-1">
+            <div class="fr-col-2 fr-input-group input-form fr-search-bar fr-search-bar--lg text-left fr-mt-4v pl-1">
                 <button type="submit"
                         class="fr-text--sm fr-btn"
                         title="{% translate "Rechercher" %}">{% translate "Rechercher" %}</button>
-                <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+                <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
                     {% translate "Autoriser l'obtention de ma localisation géographique" %}
                 </button>
             </div>
@@ -78,7 +78,7 @@
         {% if equipments_shortcuts or equipments %}
             <div>
                 <div class="fr-checkbox-group row equipments equipments-shortcuts">
-                    <span class="mr-2 mt-1 section-text">{% translate "Adaptés pour" %}</span>
+                    <span class="fr-mr-2v fr-mt-1v fr-p-0 section-text">{% translate "Adaptés pour" %}</span>
                     {% with request.GET|get_list:"equipments_shortcuts" as params %}
                         {% for shortcut in equipments_shortcuts %}
                             {% include "search/filter_tag.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
@@ -86,7 +86,7 @@
                     {% endwith %}
                 </div>
                 <div class="fr-checkbox-group row equipments equipments-selected">
-                    <span class="mr-2 mt-1 section-text">{% translate "Filtres" %}</span>
+                    <span class="mr-2 fr-mt-1v section-text">{% translate "Filtres" %}</span>
                     {% with request.GET|get_list:"equipments" as equipment_params %}
                         {% for label_slug, label in equipments.items %}
                             {% include "search/filter_tag.html" with slug=label_slug params=equipment_params input_name="equipments" eventType="equipmentClicked" name=label.name is_default_suggestion=label.is_default_suggestion %}
@@ -94,14 +94,16 @@
                     {% endwith %}
                 </div>
                 <div class="row equipments">
-                    <span class="mr-2 mt-1 section-text"></span>
+                    <span class="fr-mr-2v fr-mt-1v fr-p-0 section-text"></span>
                     <button type="button"
                             class="fr-btn--tertiary"
                             data-toggle="modal"
                             data-target="#equipmentsmodal">
                         <span aria-hidden="true">+&nbsp;</span>{% translate "Voir tous les filtres" %}
                     </button>
-                    <button type="button" class="fr-btn--tertiary ml-2" id="remove-all-filters">
+                    <button type="button"
+                            class="fr-btn--tertiary fr-ml-2v"
+                            id="remove-all-filters">
                         <span aria-hidden="true">x&nbsp;</span>{% translate "Supprimer tous les filtres" %}
                     </button>
                 </div>
@@ -126,13 +128,13 @@
                         {% with request.GET|get_list:"equipments" as equipment_params %}
                             {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
                             {% for group in equipments_by_group %}
-                                <h3 class="{% if not forloop.first %}mt-4{% endif %} mb-2 w-100">{{ group.grouper }}</h3>
+                                <h3 class="{% if not forloop.first %}mt-4{% endif %} fr-mb-2v w-100">{{ group.grouper }}</h3>
                                 {% for equipement in group.list %}
                                     {% include "search/filter_clone.html" with slug=equipement.slug params=equipment_params eventType="equipmentClicked" name=equipement.name %}
                                 {% endfor %}
                             {% endfor %}
                         {% endwith %}
-                        <button class="fr-btn mt-4"
+                        <button class="fr-btn fr-mt-4v"
                                 type="button"
                                 id="clone-filter-submit"
                                 data-dismiss="modal">{% trans "Rechercher" %}</button>

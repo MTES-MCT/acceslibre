@@ -10,7 +10,7 @@
         <a href="{% url 'challenges' %}">« {% translate "Retour aux challenges" %}</a>
     </p>
     <h1 class="text-center">{{ challenge }}</h1>
-    <h2 class="text-center py-4">
+    <h2 class="text-center py-4v">
         {{ challenge.accroche }}
         <br>
         <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small>
@@ -26,7 +26,7 @@
         </div>
     {% endif %}
     {% if challenge.objectif %}<p>{{ challenge.objectif | safe }}</p>{% endif %}
-    <section class="row justify-content-center mt-4">
+    <section class="row justify-content-center fr-mt-4v">
         <h3 class="fr-h1">
             <strong>{{ total_contributions }}
                 {% if total_contributions > 1 %}
@@ -41,7 +41,7 @@
         <img src="{% static 'img/hands-challenge.png' %}"
              alt="{% translate "Merci" %}" />
     </div>
-    <section class="row justify-content-center mt-4">
+    <section class="row justify-content-center fr-mt-4v">
         <div>
             {% if today < start_date %}
                 <div class="alert alert-info">{% translate "Le concours n'a pas encore démarré" %}</div>
@@ -105,7 +105,7 @@
                     {% endif %}
                 </li>
             </ul>
-            <h3 class="mt-5 mb-3">{% translate "Classement général" %}</h3>
+            <h3 class="mt-5 fr-mb-3v">{% translate "Classement général" %}</h3>
             {% if not top_contribs %}
                 <div class="alert alert-info">
                     {% translate "Aucun participant n'a ajouté ou complété d'établissement pour le moment" %}
@@ -117,7 +117,7 @@
                 {% endfor %}
             </ol>
             {% if challenge.get_classement_team %}
-                <h3 class="mt-5 mb-3">{% translate "Classement par équipe" %}</h3>
+                <h3 class="mt-5 fr-mb-3v">{% translate "Classement par équipe" %}</h3>
                 <ol>
                     {% for top_contrib in challenge.get_classement_team %}
                         <li>{{ top_contrib.team }} ({{ top_contrib.nb_access_info_changed }})</li>

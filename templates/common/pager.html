@@ -1,7 +1,7 @@
 {% load i18n %}
 {% if pager and pager.has_other_pages %}
     <nav aria-label="Pagination des résultats">
-        <ul class="pagination {% if css_classes %}{{ css_classes }}{% else %}justify-content-end mt-3{% endif %}">
+        <ul class="pagination {% if css_classes %}{{ css_classes }}{% else %}justify-content-end fr-mt-3v{% endif %}">
             {% if pager.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
@@ -22,7 +22,7 @@
                         <li class="page-item{% if pager.number == i %} active{% endif %}">
                             <a class="page-link" href="{{ pager_base_url }}&page={{ i }}">
                                 {% if pager.number == i %}
-                                    <span class="sr-only">{% translate "(page courante)" %}</span>
+                                    <span class="fr-sr-only">{% translate "(page courante)" %}</span>
                                 {% endif %}
                                 {{ i }}
                             </a>

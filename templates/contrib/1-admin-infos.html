@@ -23,7 +23,7 @@
 {% endblock robots %}
 {% block contrib_content %}
     <div class="col-md-9">
-        <h3 class="h3 mb-3">{% translate "Adresse de l'établissement" %}</h3>
+        <h3 class="h3 fr-mb-3v">{% translate "Adresse de l'établissement" %}</h3>
         <form id="contrib-edit-form"
               action=""
               method="post"
@@ -65,14 +65,14 @@
                                                 <h2 class="h6 font-weight-bold w-100 mb-0 pb-0">
                                                     <!-- rank: {{ erp.rank }} -->
                                                     <a href="{{ erp.get_absolute_url }}">
-                                                        <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                                                        <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
                                                         {% if where|startswith:"Autour de moi" and erp.distance %}
                                                             <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
                                                         {% endif %}
                                                         {{ erp.nom }}
                                                     </a>
                                                 </h2>
-                                                <span class="sr-only">{{ erp.adresse }}</span>
+                                                <span class="fr-sr-only">{{ erp.adresse }}</span>
                                             </div>
                                             <div aria-hidden="true">
                                                 {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
@@ -104,13 +104,13 @@
                     {% endif %}
                 </div>
             {% endif %}
-            <div class="row mt-4">
+            <div class="row fr-mt-4v">
                 <div class="col-sm-6">{{ form.nom|as_crispy_field }}</div>
                 <div class="col-sm-6">
                     <label for="activite">
                         <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
                         <br>
-                        <span class="sr-only">{% translate "Sélectionner dans la liste" %}</span>
+                        <span class="fr-sr-only">{% translate "Sélectionner dans la liste" %}</span>
                     </label>
                     <div id="autocomplete-activity" class="autocomplete">
                         {{ form.activite }}
@@ -121,7 +121,7 @@
                         <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
                     {% endif %}
                     <a href="#"
-                       class="small ml-2 {% if request.GET.new_activity %}hidden{% endif %}"
+                       class="small fr-ml-2v {% if request.GET.new_activity %}hidden{% endif %}"
                        id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
                     <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
                           id="activity_suggested">{% translate "Votre suggestion :" %}<span>{{ request.GET.new_activity }}</span></span>
@@ -145,15 +145,15 @@
                 <div class="col-lg-4">{{ form.contact_email|as_crispy_field }}</div>
             </div>
             {{ form.contact_url|as_crispy_field }}
-            <h3 class="h3 mb-3">
-                {% translate "Emplacement de l'établissement" %} <span class="sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
+            <h3 class="h3 fr-mb-3v">
+                {% translate "Emplacement de l'établissement" %} <span class="fr-sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
             </h3>
             {# djlint:off #}
             {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement." %}
             {# djlint:on #}
             <p>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte." %}</p>
             {% if erp or external_erp %}
-                <h2 class="h5 mb-3">
+                <h2 class="h5 fr-mb-3v">
                     {% if erp %}
                         {{ erp.nom }}
                     {% elif external_erp %}

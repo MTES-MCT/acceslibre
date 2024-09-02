@@ -20,7 +20,7 @@
         {% csrf_token %}
         {% for field in form %}
             {% if form.easy_skip_for_screen_readers %}
-                <div class="sr-only sr-only-focusable">
+                <div class="fr-sr-only sr-only-focusable">
                     <button id="unsure-and-submit" data-answer-to-pick="{{ unsure_answer }}">
                         {{ field.label }} - {% translate "Je ne suis par sûr et continuer" %}
                     </button>

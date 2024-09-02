@@ -1,8 +1,8 @@
 {% load a4a static %}
 {% load i18n %}
 {% for result in results %}
-    <div class="card mb-3">
-        <div class="row no-gutters">
+    <div class="card fr-mb-3v">
+        <div class="row fr-mx-0">
             <div class="{% if light %}col-12{% else %}col-12 col-md-6{% endif %}">
                 <div class="card-body">
                     <h3 class="h6 card-title font-weight-bold {% if light %}mb-1{% endif %}">
@@ -11,7 +11,7 @@
                                target="_blank"
                                rel="noopener noreferrer">
                                 <img alt=""
-                                     class="d-inline act-icon act-icon-24 act-icon-black mr-1"
+                                     class="d-inline act-icon act-icon-24 act-icon-black fr-mr-1v"
                                      src="{% static 'img/mapicons.svg' %}#{{ result.exists.icon }}">
                                 {{ result.nom }}
                             </a>
@@ -34,7 +34,7 @@
                             </small>
                         </p>
                     {% else %}
-                        <p class="card-text mb-2">
+                        <p class="card-text fr-mb-2v">
                             <small>
                                 {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }},
                                 {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }},{% endif %}

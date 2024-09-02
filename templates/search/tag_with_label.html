@@ -6,7 +6,7 @@
            autocomplete="off"
            value="{{ slug }}">
     <label class="fr-label ml-0" for="{{ slug }}"></label>
-    <button class="fr-tag a4a-label-tag mb-1 mr-2 {% if icon %}tag-picto tag-picto-{{ icon }}{% endif %} fr-tag--icon-left"
+    <button class="fr-tag a4a-label-tag fr-mb-1v fr-mr-2v {% if icon %}tag-picto tag-picto-{{ icon }}{% endif %} fr-tag--icon-left"
             aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
             data-fr-js-toggle="true"
             type="button"
