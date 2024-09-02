@@ -482,7 +482,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
             if existing:
                 if existing.published:
-                    erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
+                    erp_display = f'<a href="{existing.get_absolute_url()}" target="_blank" class="fr-link">{activite} - {adresse}</a>'
                 else:
                     erp_display = f"{activite} - {adresse}"
                 raise ValidationError(
