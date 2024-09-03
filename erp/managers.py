@@ -3,7 +3,7 @@ from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Count, F, Max, Q
+from django.db.models import Count, F, Max, Q, Case, When, IntegerField
 from django.db.models.functions import Length
 
 from erp import schema
@@ -110,6 +110,24 @@ class ErpQuerySet(models.QuerySet):
 
     def in_code_postal(self, commune):
         return self.filter(code_postal__in=commune.code_postaux)
+
+    def with_municipality_first(self, municipality):
+        return self.order_by(
+            Case(
+                When(commune__lower=municipality.lower(), then=0),
+                default=1,
+                output_field=IntegerField(),
+            )
+        )
+
+    def with_departement_first(self, department_code):
+        return self.order_by(
+            Case(
+                When(code_postal__startswith=department_code, then=0),
+                default=1,
+                output_field=IntegerField(),
+            )
+        )
 
     def having_a11y_data(self):
         """Filter ERPs having at least one a11y data filled in. A11y fields are defined

@@ -184,7 +184,7 @@ function _displayCustomMenu(root, { latlng, target: map }) {
   })
 }
 
-function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
+function _loadMoreWhenLastElementIsDisplayed(map) {
   const container = document.querySelector('#erp-results-list')
   if (!container) {
     return
@@ -194,7 +194,7 @@ function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
   container.addEventListener('scroll', () => {
     if (container.offsetHeight + container.scrollTop >= container.scrollHeight) {
       currentPage += 1
-      refreshData(map, refreshApiUrl, apiKey, currentPage)
+      refreshData(map, currentPage)
     }
   })
 
@@ -206,7 +206,7 @@ function _loadMoreWhenLastElementIsDisplayed(map, refreshApiUrl, apiKey) {
   }
   lastElement.addEventListener('focusin', function () {
     currentPage += 1
-    refreshData(map, refreshApiUrl, apiKey, currentPage)
+    refreshData(map, currentPage)
   })
 }
 
@@ -252,45 +252,57 @@ function updateNumberOfResults(data) {
   numberContainer.innerHTML = data.count + ' ' + translation
 }
 
-function _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page) {
+function _getDataPromiseFromAPI(map, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
-  const queryTerm = document.querySelector('#what-input').value
   let equipments = document.querySelectorAll('input[name=equipments]:checked')
   let equipmentsQuery = ''
   equipments.forEach(function (eq) {
     equipmentsQuery += '&equipments=' + eq.value
   })
-  let url =
-    refreshApiUrl +
-    '?q=' +
-    queryTerm +
-    '&zone=' +
-    southWest.lng +
-    ',' +
-    southWest.lat +
-    ',' +
-    northEast.lng +
-    ',' +
-    northEast.lat +
-    equipmentsQuery +
-    '&page=' +
-    page
-  return fetch(url, {
+  urlParams = new URLSearchParams({
+    q: document.querySelector('#what-input').value,
+    zone: southWest.lng + ',' + southWest.lat + ',' + northEast.lng + ',' + northEast.lat,
+    equipmentsQuery: equipmentsQuery,
+    page: page,
+    sortType: _getSortType(),
+    where: _getWhere(),
+  })
+  return fetch(_getRefreshApiUrl() + '?' + urlParams.toString(), {
     timeout: 10000,
     headers: {
       Accept: 'application/geo+json',
-      Authorization: 'Api-Key ' + apiKey,
+      Authorization: 'Api-Key ' + _getApiKey(),
     },
   })
 }
 
-function refreshData(map, refreshApiUrl, apiKey, page = 1) {
+function _getRoot() {
+  return document.querySelector('#app-map')
+}
+
+function _getRefreshApiUrl() {
+  return _getRoot().dataset.refreshApiUrl
+}
+
+function _getApiKey() {
+  return _getRoot().dataset.apiKey
+}
+
+function _getSortType() {
+  return _getRoot().dataset.sortType
+}
+
+function _getWhere() {
+  return _getRoot().dataset.where
+}
+
+function refreshData(map, page = 1) {
   if (!shouldRefreshMap) {
     shouldRefreshMap = true
     return
   }
-  const fetchPromise = _getDataPromiseFromAPI(map, refreshApiUrl, apiKey, page)
+  const fetchPromise = _getDataPromiseFromAPI(map, page)
   const clearOldResults = page == 1
   document.querySelector('#loading-spinner').classList.toggle('show-loader')
   fetchPromise.then((response) => {
@@ -325,11 +337,11 @@ function refreshData(map, refreshApiUrl, apiKey, page = 1) {
   })
 }
 
-function refreshDataOnMove(map, refreshApiUrl, apiKey) {
+function refreshDataOnMove(map) {
   const debouncedFunction = debounce(refreshData, 300)
   map.on('moveend', function () {
     currentPage = 0
-    debouncedFunction(map, refreshApiUrl, apiKey)
+    debouncedFunction(map)
   })
 }
 
@@ -391,9 +403,9 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
   })
 }
 
-function refreshMapOnEquipmentsChange(equipmentsInputs, map, root) {
+function refreshMapOnEquipmentsChange(equipmentsInputs, map) {
   document.addEventListener('filterChanged', async function () {
-    refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    refreshData(map)
     url.refreshSearchURL()
   })
 }
@@ -438,7 +450,7 @@ function AppMap(root) {
 
   const equipmentsInputs = document.querySelectorAll('input[name=equipments]')
   if (equipmentsInputs) {
-    refreshMapOnEquipmentsChange(equipmentsInputs, map, root)
+    refreshMapOnEquipmentsChange(equipmentsInputs, map)
   }
 
   if (geoJson) {
@@ -446,7 +458,7 @@ function AppMap(root) {
     _addMarkerAtCenterOfSearch(root.dataset, markers)
     map.addLayer(markers)
     refreshList(geoJson)
-    _loadMoreWhenLastElementIsDisplayed(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    _loadMoreWhenLastElementIsDisplayed(map)
   }
 
   if (geoJson && geoJson.features.length > 0) {
@@ -458,7 +470,7 @@ function AppMap(root) {
       L.latLng(root.dataset.lat || DEFAULT_LAT, root.dataset.lon || DEFAULT_LON),
       root.dataset.defaultZoom || 14
     )
-    refreshData(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    refreshData(map)
   }
 
   _addLocateButton(map)
@@ -468,7 +480,7 @@ function AppMap(root) {
   }
 
   if (root.dataset.shouldRefresh == 'True') {
-    refreshDataOnMove(map, root.dataset.refreshApiUrl, root.dataset.apiKey)
+    refreshDataOnMove(map)
   }
   return map
 }
