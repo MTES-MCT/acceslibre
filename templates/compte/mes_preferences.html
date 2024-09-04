@@ -9,12 +9,12 @@
     noindex, nofollow
 {% endblock robots %}
 {% block compte_content %}
-    <h1 class="h3 mb-3">{% translate "Mes préférences" %}</h1>
+    <h1 class="h3 fr-mb-3v">{% translate "Mes préférences" %}</h1>
     <form action="{% url 'mes_preferences' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <p>
-            <button type="submit" class="btn btn-primary w-100">{% translate "Mettre à jour mes préférences" %}</button>
+            <button type="submit" class="fr-btn w-100">{% translate "Mettre à jour mes préférences" %}</button>
         </p>
     </form>
 {% endblock compte_content %}

@@ -2,7 +2,7 @@
 {% load static %}
 {% load a4a %}
 <div class="card lg:mr-4">
-    <div class="card-body pb-2">
+    <div class="card-body fr-pb-2v">
         <img alt="Des personnages cochant une liste"
              src="{% static 'img/history.png' %}"
              class="mx-auto w-auto d-none d-lg-block"
@@ -30,7 +30,7 @@
             {% endif %}
         {% endwith %}
         <details class="mb-4">
-            <summary class="no-ouline text-primary mt-1">{% translate "Voir l'historique" %}</summary>
+            <summary class="no-ouline text-primary fr-mt-1v">{% translate "Voir l'historique" %}</summary>
             <section id="history" class="mt-2">
                 {% include "erp/includes/history.html" %}
             </section>

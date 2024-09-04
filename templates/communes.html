@@ -9,20 +9,20 @@
 {% endblock page_title %}
 {% block editorial_content %}
     {% cache 500 communes LANGUAGE_CODE %}
-    <h1 class="mb-3">{% translate "Communes et territoires pilotes" %}</h1>
+    <h1 class="fr-mb-3v">{% translate "Communes et territoires pilotes" %}</h1>
     <div class="row">
-        <div class="col-md-8">
-            <h2 class="sr-only">{% translate "Communes renseignées" %}</h2>
+        <div class="fr-col-md-8">
+            <h2 class="fr-sr-only">{% translate "Communes renseignées" %}</h2>
             <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
                 {% for commune in communes %}
-                    <div class="col mb-4">
+                    <div class="col fr-mb-4v">
                         <a class="a4a-home-commune-link" href="{{ commune.get_absolute_url }}">
                             <div class="card shadow-sm">
                                 <img class="d-none d-md-block card-img-top"
                                      alt=""
                                      src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
                                 <div class="card-body p-3">
-                                    <h3 class="h5 card-title mb-0 mr-1">{{ commune.nom }}</h3>
+                                    <h3 class="h5 card-title mb-0 fr-mr-1v">{{ commune.nom }}</h3>
                                     <small class="text-muted">{{ commune.departement_nom }}</small>
                                 </div>
                             </div>
@@ -34,10 +34,14 @@
                 <a href="{% url "annuaire_home" %}">{% translate "Toutes les communes, par département" %}&nbsp;»</a>
             </p>
         </div>
-        <div class="col-md-4">
-            <p>
-                <a class="btn btn-block btn-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
-            </p>
+        <div class="fr-col-md-4">
+            <ul class="fr-btns-group fr-mr-2v">
+                <li>
+                    <button class="fr-btn w-100 text-center" href="{% url 'contrib_start' %}">
+                        {% translate "Ajouter un établissement" %}
+                    </button>
+                </li>
+            </ul>
             <aside class="card">
                 <div class="card-header">
                     <h2 class="h6 m-0 font-weight-normal">{% translate "Derniers établissements renseignés" %}</h2>
@@ -50,7 +54,7 @@
                                 <a href="{{ erp.get_absolute_url }}"
                                    class="list-group-item list-group-item-action">
                                     <img alt=""
-                                         class="act-icon act-icon-20 mb-1"
+                                         class="act-icon act-icon-20 fr-mb-1v"
                                          src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
                                     {% if erp.commune_ext %}
                                         {{ erp.commune_ext.nom }}

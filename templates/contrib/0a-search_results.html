@@ -13,9 +13,9 @@
 {% block navbar %}
 {% endblock navbar %}
 {% block contrib_content %}
-    <div class="col-md-12">
+    <div class="fr-col-md-12">
         <div class="mt-5">{% include "contrib/forms/search.html" with search_action="." %}</div>
-        <h3 class="mt-3 mb-2">
+        <h3 class="mt-3 fr-mb-2v">
             <small class="text-muted">{% translate "Votre recherche" %}</small>
             <br>
             {% if what %}{{ what|capfirst }}{% endif %}
@@ -23,17 +23,19 @@
             {{ commune_search }} ({{ results_global_count }} {% translate "résultat" %}{{ results_global_count|pluralize }})
         </h3>
         {% if results_bdd %}
-            <div class="pt-3 pb-3 col-md-9">{% include "contrib/includes/result_search_erps.html" with results=results_bdd %}</div>
+            <div class="fr-pt-3v fr-pb-3v fr-col-md-9">
+                {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
+            </div>
         {% endif %}
         {% if results %}
-            <div class="pt-3 pb-3 col-md-9">
+            <div class="fr-pt-3v fr-pb-3v fr-col-md-9">
                 {% include "contrib/includes/result_search_erps.html" with results=results light=True %}
             </div>
         {% endif %}
         <div>
             {% if results or results_bdd %}
                 <hr>
-                <h3 class="h5 mt-5 mb-3">
+                <h3 class="h5 fr-mt-5v fr-mb-3v">
                     <b>{% translate "L'établissement que je souhaite ajouter n’est pas dans cette liste." %}</b>
                 </h3>
             {% else %}
@@ -41,12 +43,12 @@
                     <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche." %}</b>
                 </h3>
             {% endif %}
-            <div class="row mb-3">
-                <div class="mt-1 pr-4 ml-3">
+            <div class="row fr-mb-3v">
+                <div class="mt-1 fr-pr-4v fr-ml-3v">
                     <a class="fr-btn btn-lg"
                        href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}#content">{% translate "Ajouter cet établissement" %}</a>
                 </div>
-                <div class="ml-3 mt-1 pr-4">
+                <div class="ml-3 fr-mt-1v fr-pr-4v">
                     <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
                 </div>
             </div>

@@ -13,12 +13,12 @@
     {% endspaceless %}
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <aside class="fr-container-fluid bg-light py-4">
+    <aside class="fr-container-fluid bg-light fr-py-4v">
         <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
     </aside>
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    <h1 class="mt-3 mb-2 text-muted results-title">
+    <h1 class="mt-3 fr-mb-2v text-muted results-title">
         {% if what %}
             {% blocktranslate %}Résultats pour «{{what}}» autour de «{{where}}»{% endblocktranslate %}
         {% else %}
@@ -29,7 +29,7 @@
         <div class="loader"></div>
     </div>
     {% if what and "centres de vaccination" in what %}
-        <div class="alert alert-warning mt-3">
+        <div class="alert alert-warning fr-mt-3v">
             {% blocktranslate %}
             Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
             {% endblocktranslate %}
@@ -41,15 +41,15 @@
                rel="noopener noreferrer">{% translate "suivez notre guide de contribution" %}</a>.
         </div>
     {% endif %}
-    <section class="pt-2" id="results">
+    <section class="fr-pt-2v" id="results">
         <div id="no-results"
              class="{% if paginator.count != 0 %}hidden{% endif %}">
             <h3 class="h5">
                 <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
             </h3>
-            <div class="d-flex justify-content-between w-75 mb-4" id="cta">
+            <div class="d-flex justify-content-between w-75 fr-mb-4v" id="cta">
                 <div class="mt-2">
-                    <a class="fr-btn fr-btn btn-lg mr-4" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
+                    <a class="fr-btn fr-btn btn-lg fr-mr-4v" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
                     <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
                     <span>{% translate "ou" %}</span>
                     <a class="fr-btn fr-btn--secondary btn-lg"
@@ -59,12 +59,12 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-sm-6">
-                <h2 class="h4 m-0 mb-3">
+        <div class="row fr-mt-2v">
+            <div class="fr-col-sm-6">
+                <h2 class="h4 m-0 fr-mb-3v">
                     <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
                     {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="sr-only">{% translate "kilomètres" %}</span>
+                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="fr-sr-only">{% translate "kilomètres" %}</span>
                     {% endif %}
                     {% if not dynamic_map %}
                         <small class="text-muted">
@@ -98,19 +98,19 @@
                 </li>
             </ul>
             <div id="tabpanel-404-panel"
-                 class="fr-tabs__panel fr-tabs__panel--selected col col-12 col-md-5 p-0"
+                 class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-col-md-5 fr-p-0"
                  role="tabpanel"
                  aria-labelledby="tabpanel-404"
                  tabindex="0">
                 <div class="list-group list-group-flush" id="erp-results-list"></div>
                 {% if not dynamic_map %}
-                    <div class="pt-2 pr-2">
+                    <div class="fr-pt-2v fr-pr-2v">
                         {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
                     </div>
                 {% endif %}
             </div>
             <div id="tabpanel-405-panel"
-                 class="fr-tabs__panel col col-12 col-md-7 a4a-search-map-area"
+                 class="fr-tabs__panel fr-col fr-col-12 fr-col-md-7 a4a-search-map-area"
                  role="tabpanel"
                  aria-labelledby="tabpanel-405"
                  tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>

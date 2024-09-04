@@ -3,14 +3,14 @@
 {% load static %}
 {% load i18n %}
 {% block contrib_content %}
-    <div class="col-md-9">
+    <div class="fr-col-md-9">
         <form action=""
               method="post"
-              class="a4a-form a4a-conditional-form mb-4"
+              class="a4a-form a4a-conditional-form fr-mb-4v"
               novalidate>
             {% csrf_token %}
             {% block full_infos %}
-                <h1 class="h3 mb-3" tabindex="0">
+                <h1 class="h3 fr-mb-3v" tabindex="0">
                     {% block page_title %}
                     {% endblock page_title %}
                 </h1>
@@ -22,7 +22,7 @@
                     {% endif %}
                     {% if erp.activite %}<small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
                 </h2>
-                <address class="text-muted mb-2">
+                <address class="text-muted fr-mb-2v">
                     <em>{{ erp.adresse }}</em>
                 </address>
                 {% if erp.user != user %}

@@ -10,7 +10,7 @@
     noindex, nofollow
 {% endblock robots %}
 {% block compte_content %}
-    <h1 class="h3 mb-3">{% translate "Changer mon adresse email" %}</h1>
+    <h1 class="h3 fr-mb-3v">{% translate "Changer mon adresse email" %}</h1>
     <form action="{% url 'mon_email' %}" method="post">
         <p>
             {% blocktranslate with email=request.user.email %}

@@ -48,11 +48,11 @@
                 <form action="."
                       method="post"
                       novalidate
-                      class="registration-form mb-4"
+                      class="registration-form fr-mb-4v"
                       id="registration">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next|urlencode }}">
-                    <h1 class="h3 text-left mb-4">{% translate "Je crée un compte" %}</h1>
+                    <h1 class="h3 text-start fr-mb-4v">{% translate "Je crée un compte" %}</h1>
                     <div>
                         {{ form.non_field_errors }}
                         {{ form.email|as_crispy_field }}
@@ -68,7 +68,7 @@
                     </button>
                 </form>
             </div>
-            <div class="fr-col-5 fr-col-offset-1 mt-20">
+            <div class="fr-col-5 fr-col-offset-1 fr-mt-2v0">
                 <figure class="fr-content-media d-none d-sm-block">
                     <div class="fr-content-media__img ">
                         <img class="auto-height"

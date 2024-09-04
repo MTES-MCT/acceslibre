@@ -70,13 +70,17 @@ def format_distance(value):
     if value.m == 0:
         return translate("Au même endroit")
     elif value.m < 1500:
-        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> {translate("mètres")}</i>')
+        return mark_safe(
+            f'À {round(value.m)}<i aria-hidden="true">m</i><i class="fr-sr-only"> {translate("mètres")}</i>'
+        )
     elif value.m < 10000:
         formatted = f"{value.km:.2f}".replace(".", ",")
-        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> {translate("kilomètres")}</i>')
+        return mark_safe(
+            f'À {formatted}<i aria-hidden="true">km</i><i class="fr-sr-only"> {translate("kilomètres")}</i>'
+        )
     else:
         return mark_safe(
-            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> {translate("kilomètres")}</i>'
+            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="fr-sr-only"> {translate("kilomètres")}</i>'
         )
 
 

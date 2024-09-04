@@ -3,14 +3,14 @@
     Mentions légales
 {% endblock page_title %}
 {% block editorial_content %}
-    <div class="cgu row justify-content-center mt-5">
-        <div class="col-md-9">
-            <h1 class="mb-3">Mentions légales</h1>
+    <div class="cgu row justify-content-center fr-mt-5v">
+        <div class="fr-col-md-9">
+            <h1 class="fr-mb-3v">Mentions légales</h1>
             <p>
                 <strong>{{ SITE_NAME.title }} est un service numérique du Ministère de la transition écologique et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales.</strong>
             </p>
             <hr class="my-5">
-            <h2 class="h4 my-4">Présentation du service</h2>
+            <h2 class="h4 fr-my-4v">Présentation du service</h2>
             <p>
                 {{ SITE_NAME.title }} est un service numérique du Ministère de la Transition écologique et solidaire. Ce service est destiné aux gestionnaires d’établissements recevant du public (ERP), publics ou privés, ainsi qu’aux particuliers en situation de handicap ou non. {{ SITE_NAME.title }} a pour objectif principal de permettre à l’usager en situation de handicap d’avoir accès aux informations indispensables pour savoir s’il pourra accéder à tel ou tel établissement.
             </p>
@@ -22,7 +22,7 @@
                 L’utilisation du service est libre, facultative et gratuite.
                 Toute utilisation du service est subordonnée à l’acceptation préalable et au respect intégral des présentes mentions légales par l’utilisateur.
             </p>
-            <h3 class="h5 my-4">Vocabulaire&nbsp;:</h3>
+            <h3 class="h5 fr-my-4v">Vocabulaire&nbsp;:</h3>
             <ul>
                 <li>
                     <q>Nous</q> se réfère à l’éditeur du service.
@@ -38,7 +38,7 @@
                 </li>
             </ul>
             <hr class="my-5">
-            <h2 class="h4 my-4">Objet</h2>
+            <h2 class="h4 fr-my-4v">Objet</h2>
             <p>
                 Le service est composé, d’une part, d’une <a class="bold" href="{% url "home" %}">application Web</a> qui vous permet de&nbsp;:
             </p>
@@ -54,7 +54,7 @@
                 <li>Contribuer de la données ERP et d’accessibilité.</li>
             </ol>
             <hr class="my-5">
-            <h2 class="h4 my-4">Qualité des données publiées</h2>
+            <h2 class="h4 fr-my-4v">Qualité des données publiées</h2>
             <p>
                 Nous publions sur {{ SITE_NAME.title }} des données publiques à titre informatif. Seules les publications légales font foi, notamment au Journal officiel de la République française ou aux recueils des actes administratifs des préfectures.
             </p>
@@ -65,7 +65,7 @@
                 Nous nous efforçons de livrer des données de la meilleure qualité possible. Toutefois, malgré toute notre attention, elles peuvent encore comporter des erreurs ou omissions. Si vous constatez une erreur ou omission parmi ces données, nous vous invitons à nous la signaler à l’aide du <a class="bold" href="{% url "contact_topic" topic="signalement" %}">formulaire de contact</a> ou à l’adresse <a class="bold" href="mailto:support@acceslibre.beta.gouv.fr">support@acceslibre.beta.gouv.fr</a> disponible sur le site.
             </p>
             <hr class="my-5">
-            <h2 class="h4 my-4">Propriété intellectuelle</h2>
+            <h2 class="h4 fr-my-4v">Propriété intellectuelle</h2>
             <p>
                 Ce site est la propriété exclusive du ministère de la transition écologique et solidaire et ministère de la cohésion des territoires et des relations avec les collectivités territoriales. Toute reproduction ou représentation totale ou partielle de ce site par quelque procédé que ce soit, sans l’autorisation expresse de son propriétaire est interdite et constituerait une contrefaçon sanctionnée par les articles L. 335-2 du Code de la propriété intellectuelle.
             </p>
@@ -82,24 +82,24 @@
             <p>
                 Les bases de données figurant, le cas échéant, sur ce site Internet sont reproductibles, copiables, adaptables et communicables sous réserve de mentionner la paternité de celles-ci et la date de dernière mise à jour de l’information utilisée. Par exemple, sur la forme <q>Ministère de la Transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales – Téléchargées sur acceslibre.beta.gouv.fr mise à jour du &lt;date&gt;</q>.
             </p>
-            <h3 class="h5 my-4">Code source</h3>
+            <h3 class="h5 fr-my-4v">Code source</h3>
             <p>
                 Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a class="bold" href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont disponibles sur Github à l'adresse <a class="bold" href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.
             </p>
-            <h3 class="h5 my-4">Données administratives publiques relatives</h3>
+            <h3 class="h5 fr-my-4v">Données administratives publiques relatives</h3>
             <p>
                 Les informations publiques délivrées par le service le sont sous Licence Ouverte V 2.0. Vous êtes donc libres de réutiliser ces informations sous réserve de mentionner la paternité de l’information et la date de dernière mise à jour de l’information utilisée. Par exemple, sur la forme <q>Ministère de la Transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales – Téléchargées sur acceslibre.beta.gouv.fr mise à jour du &lt;date&gt;</q>.
             </p>
             <hr class="my-5">
-            <h2 class="h4 my-4">Vie privée</h2>
-            <h3 class="h5 my-4">Données à caractère personnel</h3>
+            <h2 class="h4 fr-my-4v">Vie privée</h2>
+            <h3 class="h5 fr-my-4v">Données à caractère personnel</h3>
             <p>
                 Nous nous engageons à ce que la collecte et le traitement de vos données, effectués à partir du site soient conformes au règlement général sur la protection des données du 27 avril 2016, applicable depuis le 25 mai 2018, et à la loi Informatique et Libertés dans sa dernière version modifiée du 20 juin 2018.
             </p>
             <p>
                 Ces dispositions fixent des règles strictes de confidentialité et de sécurité à toute organisation, publique et privée, dans le cadre du traitement des données à caractère personnel de leurs utilisateurs, et ce afin de protéger la vie privée de ceux-ci.
             </p>
-            <h3 class="h5 my-4">Responsable du traitement</h3>
+            <h3 class="h5 fr-my-4v">Responsable du traitement</h3>
             <p>Le responsable du traitement de vos données à caractère personnel est&nbsp;:</p>
             <div class="bl-highlight">
                 <address>
@@ -116,7 +116,7 @@
                     92055 La Défense Cedex
                 </address>
             </div>
-            <h3 class="h5 my-4">Traitement des données et utilisation</h3>
+            <h3 class="h5 fr-my-4v">Traitement des données et utilisation</h3>
             <p>
                 Nous ne pouvons utiliser vos données à caractère personnel qu’à des fins à la fois légitimes et  nécessaires. Cela signifie concrètement que nous traitons vos données à caractère personnel pour les finalités suivantes&nbsp;:
             </p>
@@ -137,7 +137,7 @@
                     Adresse IP (collectée automatiquement lors de la navigation et stockée temporairement dans les journaux d’accès)
                 </li>
             </ul>
-            <h3 class="h5 my-4">Vos droits</h3>
+            <h3 class="h5 fr-my-4v">Vos droits</h3>
             <p>
                 Nous nous engageons à prendre les mesures techniques et organisationnelles appropriées afin de garantir la sécurité du traitement des données à caractère personnel de chacun.
             </p>
@@ -185,14 +185,14 @@
             <p>
                 Les modalités de réclamation sont précisées sur le site de la CNIL&nbsp;: <a class="bold" href="https://www.cnil.fr">www.cnil.fr</a>.
             </p>
-            <h3 class="h5 my-4">Procédure en cas de violations de données à caractère personnel</h3>
+            <h3 class="h5 fr-my-4v">Procédure en cas de violations de données à caractère personnel</h3>
             <p>
                 En cas de destruction, de perte, d'altération, de divulgation non autorisée de données à caractère personnel transmises, conservées ou traitées d'une autre manière, ou d'accès non autorisé à de telles données, de manière accidentelle ou illicite, susceptible d'engendrer un risque élevé pour les droits et libertés de l’utilisateur, nous vous en informerons des faits et des mesures prises, dans les meilleurs délais.
             </p>
             <p>
                 Nous nous assurerons également que le nécessaire soit fait quant à la notification de la violation en question à la CNIL dans les 72 heures après en avoir pris connaissance, à moins que la violation ne présente pas un risque élevé pour vos droits et libertés.
             </p>
-            <h3 class="h5 my-4">Cookies</h3>
+            <h3 class="h5 fr-my-4v">Cookies</h3>
             <p>
                 Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation <q>Cookies</q> de la <a class="bold" href="https://www.cnil.fr/">Commission nationale informatique et libertés (CNIL)</a>. Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.
             </p>
@@ -201,12 +201,12 @@
             </p>
             <p>Les adresses IP sont collectées et conservées pour une durée de six (6) mois.</p>
             <hr class="my-5">
-            <h2 class="h4 my-4">Évolution du service</h2>
+            <h2 class="h4 fr-my-4v">Évolution du service</h2>
             <p>
                 Nous pouvons faire évoluer {{ SITE_NAME.title }} sans information préalable ou préavis. Nous ajoutons régulièrement des données, retravaillons l’interface et modifions les formulations sur la base de vos retours et des évolutions réglementaires et législatives.
             </p>
             <hr class="my-5">
-            <h2 class="h4 my-4">Disponibilité du service</h2>
+            <h2 class="h4 fr-my-4v">Disponibilité du service</h2>
             <p>
                 Nous pouvons suspendre l’accès à {{ SITE_NAME.title }} sans information préalable ni préavis, notamment pour des raisons de maintenance. Nous mettons l’application à jour régulièrement. L’indisponibilité ne dépasse généralement pas une dizaine de secondes.
             </p>
@@ -217,7 +217,7 @@
                 Nous nous réservons également le droit de bloquer, sans information préalable ni compensation financière, les usages mettant en péril l’utilisation du logiciel par d’autres usagers. Cela nous permet d’anticiper d’éventuelles attaques par déni de service.
             </p>
             <hr class="my-5">
-            <h2 class="h4 mb-3">Hébergement du service</h2>
+            <h2 class="h4 fr-mb-3v">Hébergement du service</h2>
             <p>
                 {{ SITE_NAME.title }} est hébergé en France sur l'infrastructure <a class="bold" href="https://scalingo.com/fr">Scalingo</a>.
             </p>
@@ -235,7 +235,7 @@
                 </address>
             </div>
             <hr class="my-5">
-            <h2 class="h4 my-4">Évolution des mentions légales</h2>
+            <h2 class="h4 fr-my-4v">Évolution des mentions légales</h2>
             <p>
                 Les termes des présentes mentions légales peuvent être modifiés ou complétés à tout moment, sans préavis, en fonction des modifications apportées au service, de l’évolution de la législation ou pour tout autre motif jugé nécessaire. Ces modifications et mises à jour s’imposent à l’utilisateur qui doit, en conséquence, se référer régulièrement à cette rubrique pour vérifier les mention légales en vigueur.
             </p>

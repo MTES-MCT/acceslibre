@@ -13,19 +13,19 @@
     noindex, nofollow
 {% endblock robots %}
 {% block editorial_content %}
-    <h1 class="h3 text-center mb-4">{% translate "Contactez-nous" %}</h1>
-    <div class="row justify-content-md-center p-2">
+    <h1 class="h3 text-center fr-mb-4v">{% translate "Contactez-nous" %}</h1>
+    <div class="row justify-content-md-center fr-p-2v">
         <form id="contact-form"
               action="."
               method="post"
               novalidate
               autocomplete
-              class="fr-col-md-12 mb-4">
+              class="fr-col-md-12 fr-mb-4v">
             {% csrf_token %}
             {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
-            <div class="row m-0">
-                <div class="fr-col-12 fr-col-lg-6 pl-1 pr-1">{{ form.email|as_crispy_field }}</div>
-                <div class="fr-col-12 fr-col-lg-6 pl-1 pr-1">{{ form.name|as_crispy_field }}</div>
+            <div class="row fr-m-0 fr-mb-2v">
+                <div class="fr-col-12 fr-col-lg-6 fr-pl-1v fr-pr-1v">{{ form.email|as_crispy_field }}</div>
+                <div class="fr-col-12 fr-col-lg-6 fr-pl-1v fr-pr-1v">{{ form.name|as_crispy_field }}</div>
             </div>
             <div class="fr-select-group fr-col-lg-6">
                 <select class="fr-select" id="topic" name="topic">
@@ -37,12 +37,12 @@
             </div>
             {{ form.erp|as_crispy_field }}
             {% if erp %}
-                <div class="fr-highlight m-2 mb-4">
+                <div class="fr-highlight fr-m-2v fr-mb-4v">
                     <span>{% translate "Établissement :" %} {{ erp.nom }} ({{ erp.commune_ext.nom }})</span>
                     <span><a class="bold" href="{{ erp.get_absolute_url }}">» {% translate "Retour à la fiche" %}</a></span>
                 </div>
                 {% if erp.activite %}
-                    <div class="fr-alert fr-alert--info mb-2">
+                    <div class="fr-alert fr-alert--info fr-mb-2v">
                         <p>
                             {% blocktranslate %}
                         Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class="bold" href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank" rel="noopener noreferrer">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée.{% endblocktranslate %}
@@ -56,7 +56,10 @@
             {{ form.next|as_crispy_field }}
             {{ form.robot|as_crispy_field }}
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">{% translate "Envoyer" %}</button>
+                <button type="submit"
+                        class="fr-btn fr-btn-primary d-block w-100 text-center fr-mt-2v">
+                    {% translate "Envoyer" %}
+                </button>
             </div>
         </form>
     </div>

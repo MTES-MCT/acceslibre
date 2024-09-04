@@ -1,6 +1,6 @@
 {% load a4a %}
 {% load i18n %}
-<h3 class="sr-only">{% translate "Historique des modifications" %}</h3>
+<h3 class="fr-sr-only">{% translate "Historique des modifications" %}</h3>
 <div class="list-group list-group-flush">
     {% for entry in erp.get_history %}
         <details class="list-group-item text-overlay">
@@ -11,7 +11,7 @@
                 {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ entry.date|date:"j/m/Y à H:i"|lower }}
             </summary>
             {% if entry.diff %}
-                <table class="table table-sm table-striped mt-3 mb-0">
+                <table class="table table-sm table-striped fr-mt-3v mb-0">
                     <tr>
                         <th>{% translate "Champ" %}</th>
                         <th>{% translate "Ancienne valeur" %}</th>

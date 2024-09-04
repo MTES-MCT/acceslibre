@@ -1,7 +1,7 @@
 {% load a4a %}
 {% load i18n %}
 {% if field %}
-    <div class="a4a-form-field field-{{ field.name }} mb-3">
+    <div class="a4a-form-field field-{{ field.name }} fr-mb-3v">
         {% if field.id_for_label %}
             <label for="{{ field.id_for_label }}" class="mb-0">
                 <strong tabindex="0">{{ field.label }}
@@ -17,7 +17,7 @@
                 <br>
             </span>
         {% endif %}
-        <div class="fr-form-group mb-1">
+        <div class="fr-form-group fr-mb-1v">
             <p tabindex="0">{{ field.help_text|safe }}</p>
             <fieldset class="fr-fieldset">
                 <div class="fr-fieldset__content">

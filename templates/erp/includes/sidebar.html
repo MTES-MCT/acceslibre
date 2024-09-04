@@ -1,11 +1,11 @@
 {% load a4a static %}
 {% load i18n %}
-<div class="card mb-4">
+<div class="card fr-mb-4v">
     <div class="card-body">
         <img src="{% static 'img/data_quality.jpeg' %}"
              alt="{% translate "Une personne inspectant des données à la loupe" %}"
-             class="w-100 px-5 d-none d-lg-block">
-        <h3 class="fr-h6 text-center mb-4">{% translate "Voulez-vous améliorer la qualité des informations ?" %}</h3>
+             class="w-100 fr-px-5 d-none d-lg-block">
+        <h3 class="fr-h6 text-center fr-mb-4">{% translate "Voulez-vous améliorer la qualité des informations ?" %}</h3>
         <div class="fr-btns-group">
             <a class="fr-btn"
                href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ces informations" %}</a>

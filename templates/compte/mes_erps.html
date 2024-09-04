@@ -8,25 +8,23 @@
     noindex, nofollow
 {% endblock robots %}
 {% block compte_content %}
-    <div class="row mb-3">
-        <h1 class="h3 col-sm-6">{% translate "Mes établissements" %}</h1>
-        <div class="col-sm-6 text-right">
-            <a class="btn btn-primary mb-1" href="{% url 'contrib_start' %}">
-                <i aria-hidden="true" class="icon icon-plus-circle"></i>
-                {% translate "Ajouter un nouvel établissement" %}
-            </a>
+    <div class="row fr-mb-3v">
+        <h1 class="h3 fr-col-sm-6">{% translate "Mes établissements" %}</h1>
+        <div class="fr-col-sm-6 text-right">
+            <button class="fr-btn fr-btn--icon-left fr-icon-add-circle-line"
+                    href="{% url 'contrib_start' %}">{% translate "Ajouter un nouvel établissement" %}</button>
         </div>
     </div>
-    <form action="{% url 'mes_erps' %}" class="form-inline" method="get">
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="q" class="sr-only">{% translate "Recherche dans mes ERPs" %}</label>
+    <form action="{% url 'mes_erps' %}" class="d-flex fr-mb-3v" method="get">
+        <div class="form-group fr-mx-sm-3v">
+            <label for="q" class="fr-sr-only">{% translate "Recherche dans mes ERPs" %}</label>
             <input name="q"
                    type=""
                    class="form-control"
                    placeholder='{% translate "Nom" %}'
                    value="{{ q }}">
         </div>
-        <button type="submit" class="btn btn-success btn-lg mb-2">{% translate "Rechercher" %}</button>
+        <button type="submit" class="fr-btn fr-ml-2w">{% translate "Rechercher" %}</button>
     </form>
     {% if erp_total_count > 0 %}
         <nav class="nav nav-tabs nav-fill">
@@ -52,13 +50,13 @@
                         <div class="font-weight-bold">
                             {% if not erp.published or not erp.geom or not erp.accessibilite %}
                                 <img alt=""
-                                     class="act-icon act-icon-20 mb-1"
+                                     class="act-icon act-icon-20 fr-mb-1v"
                                      src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
                                 <span class="text-muted">{{ erp.nom }}</span>
                             {% else %}
                                 <a href="{{ erp.get_absolute_url }}">
                                     <img alt=""
-                                         class="act-icon act-icon-20 mb-1"
+                                         class="act-icon act-icon-20 fr-mb-1v"
                                          src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
                                     {{ erp.nom }}
                                 </a>
@@ -87,7 +85,7 @@
                             </div>
                         {% endif %}
                     </div>
-                    <div class="btn-group d-flex justify-content-between mt-1"
+                    <div class="btn-group d-flex justify-content-between fr-mt-1v"
                          role="group"
                          aria-label="{% translate "Actions" %}">
                         <a class="btn btn-sm btn-outline-primary"

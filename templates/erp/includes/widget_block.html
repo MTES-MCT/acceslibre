@@ -8,7 +8,7 @@
         id="demo-widget"
         type="text/javascript"></script>
 <div class="card h-100 lg:ml-4">
-    <div class="card-body pb-2 d-flex flex-column">
+    <div class="card-body fr-pb-2v d-flex flex-column">
         <img alt="Exemple de widget"
              class="mx-auto w-auto d-block"
              height="200px"
@@ -18,8 +18,8 @@
         <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb text-center fr-btns-group mt-auto">
             <button type="button"
                     class="fr-btn fr-btn--secondary"
-                    data-toggle="modal"
-                    data-target="#widgetmodal">{% translate "Comment faire ?" %}</button>
+                    data-bs-toggle="modal"
+                    data-bs-target="#widgetmodal">{% translate "Comment faire ?" %}</button>
             <!-- Modal -->
             <div class="modal fade"
                  id="widgetmodal"
@@ -32,13 +32,11 @@
                             <h3 class="fr-h5 modal-title">{% translate "Intégrez acceslibre sur votre site !" %}</h3>
                             <button type="button"
                                     title="Fermer la fenêtre"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="{% translate "Fermer" %}">
-                                <span aria-hidden="true">×</span>
-                            </button>
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="{% translate "Fermer" %}"></button>
                         </div>
-                        <div class="modal-body text-left" id="widget-code">
+                        <div class="modal-body text-start" id="widget-code">
                             <p>{% translate "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :" %}</p>
                             <div>
                                 <code class="Code__Text-sc-1wllvkx-1 dNGlgo" id="tocopy">{{ widget_tag }}</code>
@@ -49,8 +47,10 @@
                                href="#"
                                aria-haspopup="dialog"
                                aria-controls="dialog">{% translate "Tester le widget" %}</a>
-                            <button type="button" class="fr-btn fr-btn--secondary" data-dismiss="modal">{% translate "Fermer" %}</button>
-                            <button type="button" class="fr-btn js-copy" data-target="#tocopy">{% translate "Copier" %}</button>
+                            <button type="button"
+                                    class="fr-btn fr-btn--secondary"
+                                    data-bs-dismiss="modal">{% translate "Fermer" %}</button>
+                            <button type="button" class="fr-btn js-copy" data-bs-target="#tocopy">{% translate "Copier" %}</button>
                         </div>
                     </div>
                 </div>

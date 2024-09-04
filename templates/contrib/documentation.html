@@ -5,8 +5,8 @@
     {% translate "Documentation des champs d'accessibilité" %}
 {% endblock page_title %}
 {% block editorial_content %}
-    <h2 class="h3 mb-3">{% translate "Documentation des champs d'accessibilité" %}</h2>
-    <div class="alert alert-info mb-3">
+    <h2 class="h3 fr-mb-3v">{% translate "Documentation des champs d'accessibilité" %}</h2>
+    <div class="alert alert-info fr-mb-3v">
         {% translate "Vous souhaitez étudier ces entités au format tableur&nbsp;?" %} <a href="{% url 'contact_form' %}">{% translate "Demandez le nous" %}</a>&nbsp;!
     </div>
     <table class="table table-responsive">
@@ -18,7 +18,7 @@
                 <th>{% translate "Attributs" %}</th>
             </tr>
             {% for section, fields in sections.items %}
-                <tr class="table-light mt-2">
+                <tr class="table-light fr-mt-2v">
                     <th colspan="4">
                         <h3 class="h4 m-0">{{ section }}</h3>
                     </th>

@@ -8,13 +8,13 @@
 {% block editorial_content %}
     <div class="row">
         <div class="fr-col-12 fr-col-md-6 ">
-            <section class="row mt-4">
+            <section class="row fr-mt-4v">
                 <div class="col-12">
                     <h1 class="text-center text-md-right">{% translate "Challenges" %}</h1>
                 </div>
             </section>
             {% if challenges_en_cours %}
-                <section class="row justify-content-start mt-4">
+                <section class="row justify-content-start fr-mt-4v">
                     <div class="col-12">
                         <h2>
                             <strong>{% translate "Challenges en cours" %}</strong>
@@ -24,7 +24,7 @@
                 </section>
             {% endif %}
             {% if challenges_termines %}
-                <section class="row justify-content-start mt-4">
+                <section class="row justify-content-start fr-mt-4v">
                     <div class="col-12">
                         <h2>
                             <strong>{% translate "Challenges terminés" %}</strong>
@@ -34,7 +34,7 @@
                 </section>
             {% endif %}
             {% if challenges_a_venir %}
-                <section class="row justify-content-start mt-4">
+                <section class="row justify-content-start fr-mt-4v">
                     <div class="col-12">
                         <h2">
                             <strong>{% translate "Prochains challenges" %}</strong>
@@ -44,7 +44,7 @@
                 </section>
             {% endif %}
         </div>
-        <div class="fr-col-5 fr-col-offset-1 mt-20">
+        <div class="fr-col-5 fr-col-offset-1 fr-mt-2v0">
             <figure class="fr-content-media d-none d-sm-block">
                 <div class="fr-content-media__img ">
                     <img class="auto-height"
