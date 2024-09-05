@@ -30,17 +30,17 @@
         <nav class="nav nav-tabs nav-fill">
             <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}"
                href=".">
-                {% translate "Tous" %} <span class="badge badge-pill badge-primary">{{ erp_total_count }}</span>
+                {% translate "Tous" %} <span class="badge rounded-pill bg-primary">{{ erp_total_count }}</span>
             </a>
             <a class="nav-item nav-link{% if filter_published == '1' %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
                href="./?published=1"
                {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
-                {% translate "Publiés" %} <span class="badge badge-pill badge-primary">{{ erp_published_count }}</span>
+                {% translate "Publiés" %} <span class="badge rounded-pill bg-primary">{{ erp_published_count }}</span>
             </a>
             <a class="nav-item nav-link{% if filter_published == '0' %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
                href="./?published=0"
                {% if erp_non_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
-                {% translate "Non-publiés" %} <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
+                {% translate "Non-publiés" %} <span class="badge rounded-pill bg-primary">{{ erp_non_published_count }}</span>
             </a>
         </nav>
         <ul class="list-group">

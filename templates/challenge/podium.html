@@ -41,7 +41,7 @@
             {% endif %}
             <ul class="list-group">
                 <li class="list-group-item font-weight-bold larger-font">
-                    <span class="badge badge-primary badge-pill">1</span>
+                    <span class="badge bg-primary rounded-pill">1</span>
                     {% if top_contribs.0 %}
                         {{ top_contribs.0.username }}
                         <br>
@@ -58,7 +58,7 @@
                     {% endif %}
                 </li>
                 <li class="list-group-item larger-font">
-                    <span class="badge badge-primary badge-pill">2</span>
+                    <span class="badge bg-primary rounded-pill">2</span>
                     {% if top_contribs.1 %}
                         {{ top_contribs.1.username }}
                         <br>
@@ -75,7 +75,7 @@
                     {% endif %}
                 </li>
                 <li class="list-group-item">
-                    <span class="badge badge-primary badge-pill">3</span>
+                    <span class="badge bg-primary rounded-pill">3</span>
                     {% if top_contribs.2 %}
                         {{ top_contribs.2.username }}
                         <br>
@@ -92,7 +92,7 @@
                     {% endif %}
                 </li>
             </ul>
-            <h3 class="mt-5 fr-mb-3v">{% translate "Classement général" %}</h3>
+            <h3 class="fr-mt-5v fr-mb-3v">{% translate "Classement général" %}</h3>
             {% if not top_contribs %}
                 <div class="alert alert-info">{% translate "Aucun participant n'a ajouté d'établissement pour le moment" %}</div>
             {% endif %}

@@ -64,6 +64,9 @@ iframe {
 a.btn {
   text-decoration: none;
 }
+a:hover {
+  text-decoration: underline;
+}
 
 .btn:hover,
 .btn:focus {

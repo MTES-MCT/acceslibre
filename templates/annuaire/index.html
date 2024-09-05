@@ -25,7 +25,7 @@
                     {% translate "Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés." %}
                 </p>
             {% else %}
-                <h2 class="mt-2 fr-mb-3v">
+                <h2 class="fr-mt-2v fr-mb-3v">
                     {{ current_departement.code }} - {{ current_departement.nom }}
                     <small class="text-muted">{{ current_departement_erp_count }} {% translate "établissement" %}{{ current_departement_erp_count|pluralize:"s" }}</small>
                 </h2>
