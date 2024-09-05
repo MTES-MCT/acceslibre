@@ -189,7 +189,7 @@ def _cleaned_search_params_as_dict(get_parameters):
         for k, v in get_parameters.items()
         if k in allow_list
     }
-    cleaned_dict["where"] = cleaned_dict.get("where") or "France entière"
+    cleaned_dict["where"] = cleaned_dict.get("where") or translate("France entière")
     return cleaned_dict
 
 
