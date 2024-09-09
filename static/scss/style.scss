@@ -36,6 +36,9 @@ $viewport-xl: 1200px;
 }
 
 #content {
+  .fr-btn:hover {
+    text-decoration: underline;
+  }
   .fr-btn:not(.fr-btn--secondary):not(.fr-btn--tertiary):hover {
     color: white !important;
   }
@@ -144,6 +147,7 @@ select[name='language'] {
   &-comment-block {
     p {
       margin: 0;
+      overflow-wrap: break-word;
 
       &::before {
         content: '« ';
