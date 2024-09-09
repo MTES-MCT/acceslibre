@@ -162,8 +162,8 @@ select[name='language'] {
 
     &:hover {
       color: $white;
-      background-color: theme-color('primary');
-      border-color: theme-color('primary');
+      background-color: $primary;
+      border-color: $primary;
     }
   }
 
