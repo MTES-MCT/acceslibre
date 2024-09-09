@@ -4,48 +4,48 @@
         <button class="fr-sidemenu__btn"
                 aria-controls="fr-sidemenu-wrapper"
                 aria-expanded="false">{% translate "Navigation" %}</button>
-        <div class="fr-collapse" id="fr-sidemenu-wrapper">
+        <div id="fr-sidemenu-wrapper">
             <div class="fr-sidemenu__title" id="fr-sidemenu-title">{% translate "Étapes d'ajout d'un établissement" %}</div>
             <ul class="fr-sidemenu__list">
-                <li class="fr-sidemenu__item {% if step == 1 %}fr-sidemenu__item--active{% endif %} {% if step > 1 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 1 %} fr-sidemenu__item--active{% endif %}{% if step > 1 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link"
                        {% if erp %}href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"
                        {% if step == 1 %}aria-current="page"{% endif %}>{% translate "Informations" %}</a>
                 </li>
                 {% if not erp.user or erp.user == request.user %}
-                    <li class="fr-sidemenu__item {% if step == 2 %}fr-sidemenu__item--active{% endif %} {% if step > 2 %}is-done{% endif %}">
+                    <li class="fr-sidemenu__item{% if step == 2 %} fr-sidemenu__item--active{% endif %}{% if step > 2 %} is-done{% endif %}">
                         <a class="fr-sidemenu__link"
                            {% if erp %}href="{% url 'contrib_a_propos' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                            target="_self"
                            {% if step == 2 %}aria-current="page"{% endif %}>{% translate "À propos" %}</a>
                     </li>
                 {% endif %}
-                <li class="fr-sidemenu__item {% if step == 3 %}fr-sidemenu__item--active{% endif %} {% if step > 3 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 3 %} fr-sidemenu__item--active{% endif %}{% if step > 3 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link"
                        {% if erp %}href="{% url 'contrib_transport' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"
                        {% if step == 3 %}aria-current="page"{% endif %}>{% translate "Accès" %}</a>
                 </li>
-                <li class="fr-sidemenu__item {% if step == 4 %}fr-sidemenu__item--active{% endif %} {% if step > 4 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 4 %} fr-sidemenu__item--active{% endif %}{% if step > 4 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link"
                        {% if erp %}href="{% url 'contrib_exterieur' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"
                        {% if step == 4 %}aria-current="page"{% endif %}>{% translate "Extérieur" %}</a>
                 </li>
-                <li class="fr-sidemenu__item  {% if step == 5 %}fr-sidemenu__item--active{% endif %} {% if step > 5 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 5 %} fr-sidemenu__item--active{% endif %}{% if step > 5 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link"
                        {% if erp %}href="{% url 'contrib_entree' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"
                        {% if step == 5 %}aria-current="page"{% endif %}>{% translate "Entrée" %}</a>
                 </li>
-                <li class="fr-sidemenu__item {% if step == 6 %}fr-sidemenu__item--active{% endif %} {% if step > 6 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 6 %} fr-sidemenu__item--active{% endif %}{% if step > 6 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link"
                        {% if erp %}href="{% url 'contrib_accueil' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"
                        {% if step == 6 %}aria-current="page"{% endif %}>{% translate "Accueil et prestations" %}</a>
                 </li>
-                <li class="fr-sidemenu__item {% if step == 7 %}fr-sidemenu__item--active{% endif %} {% if step > 7 %}is-done{% endif %}">
+                <li class="fr-sidemenu__item{% if step == 7 %} fr-sidemenu__item--active{% endif %}{% if step > 7 %} is-done{% endif %}">
                     <a class="fr-sidemenu__link "
                        {% if erp %}href="{% url 'contrib_commentaire' erp_slug=erp.slug %}"{% else %}role="link" aria-disabled="true"{% endif %}
                        target="_self"

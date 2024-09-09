@@ -64,7 +64,7 @@
                                 <img src="{% static 'img/contributeurs.png' %}"
                                      aria-hidden="true"
                                      alt=""
-                                     class="w-100">
+                                     class="w-100 fr-mb-4v">
                                 <a href="{% if request.user.is_anonymous %}{% url "django_registration_register" %}{% else %} {% url 'contrib_start' %}{% endif %}"
                                    class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto text-center">{% translate "Rejoindre<br />la communauté" %}</a>
                             </div>
