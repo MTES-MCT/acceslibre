@@ -15,16 +15,22 @@
                     href="{% url 'contrib_start' %}">{% translate "Ajouter un nouvel établissement" %}</button>
         </div>
     </div>
-    <form action="{% url 'mes_erps' %}" class="d-flex fr-mb-3v" method="get">
-        <div class="form-group fr-mx-sm-3v">
-            <label for="q" class="fr-sr-only">{% translate "Recherche dans mes ERPs" %}</label>
-            <input name="q"
-                   type=""
-                   class="form-control"
-                   placeholder='{% translate "Nom" %}'
-                   value="{{ q }}">
+    <form action="{% url 'mes_erps' %}"
+          class="d-flex fr-mb-3v fr-mx-sm-3v"
+          method="get">
+        <div class="fr-grid-row fr-grid-row--gutters fr-col-12">
+            <div class="fr-col-4">
+                <label for="q" class="fr-sr-only">{% translate "Recherche dans mes ERPs" %}</label>
+                <input name="q"
+                       type=""
+                       class="form-control"
+                       placeholder='{% translate "Nom" %}'
+                       value="{{ q }}">
+            </div>
+            <div class="fr-col">
+                <button type="submit" class="fr-btn fr-ml-2w">{% translate "Rechercher" %}</button>
+            </div>
         </div>
-        <button type="submit" class="fr-btn fr-ml-2w">{% translate "Rechercher" %}</button>
     </form>
     {% if erp_total_count > 0 %}
         <nav class="nav nav-tabs nav-fill">
