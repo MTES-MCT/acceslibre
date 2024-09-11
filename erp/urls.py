@@ -50,6 +50,11 @@ urlpatterns = [
         views.challenge_inscription,
         name="challenge-inscription",
     ),
+    path(
+        "challenge/<str:challenge_slug>/desinscription/",
+        views.challenge_unsubscription,
+        name="challenge-unsubscription",
+    ),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
     path(

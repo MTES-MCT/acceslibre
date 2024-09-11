@@ -7,6 +7,7 @@ from reversion.models import Revision
 
 from erp.schema import get_nullable_bool_fields
 from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpFactory, UserFactory
+from django.urls import reverse
 
 
 @pytest.fixture()
@@ -68,3 +69,43 @@ class TestChallenge:
 
         challenge.refresh_from_db()
         assert not challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}]
+
+    @pytest.mark.django_db
+    def test_sub_and_unsubscription(self, client):
+        challenge1 = ChallengeFactory()
+        # create a second challenge we will not register to
+        challenge2 = ChallengeFactory()
+
+        user = UserFactory()
+
+        # anonymous
+        response = client.post(
+            reverse("challenge-inscription", kwargs={"challenge_slug": challenge1.slug}),
+            data={"confirm": True},
+            follow=True,
+        )
+
+        assert challenge1.players.count() == 0
+
+        client.force_login(user)
+        response = client.post(
+            reverse("challenge-inscription", kwargs={"challenge_slug": challenge1.slug}),
+            data={"confirm": True},
+            follow=True,
+        )
+
+        assert response.status_code == 200
+
+        assert user in challenge1.players.all()
+        assert challenge1.players.count() == 1
+
+        assert challenge2.players.count() == 0
+
+        client.force_login(user)
+        response = client.post(
+            reverse("challenge-unsubscription", kwargs={"challenge_slug": challenge1.slug}),
+            data={"confirm": True},
+            follow=True,
+        )
+
+        assert challenge1.players.count() == 0

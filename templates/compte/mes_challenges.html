@@ -30,10 +30,15 @@
                     </div>
                 </div>
                 <div class="flex-fill text-right">
-                    <a class="btn btn-outline-primary"
+                    <a class="fr-btn btn-outline-primary fr-my-2v"
                        target="_blank"
                        rel="noopener noreferrer"
                        href="{{ challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
+                    <form action="{% url 'challenge-unsubscription' challenge_slug=challenge.slug %}"
+                          method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Se désinscrire" %}</button>
+                    </form>
                 </div>
             </li>
         {% empty %}
