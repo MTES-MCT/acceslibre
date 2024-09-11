@@ -15,7 +15,7 @@ class Command(BaseCommand):
             BrevoMailer().sync_user(user)
 
     def _sync_erps(self, since):
-        erps = Erp.objects.filter(created_at__gte=since, source=Erp.SOURCE_TALLY, import_email__isnull=False)
+        erps = Erp.objects.filter(created_at__gte=since, import_email__isnull=False)
         for erp in erps:
             BrevoMailer().sync_erp(erp)
 
