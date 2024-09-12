@@ -30,7 +30,7 @@ from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
-from stats.models import Challenge
+from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
 
@@ -127,6 +127,19 @@ def challenge_inscription(request, challenge_slug=None):
     else:
         messages.add_message(request, messages.INFO, translate("Vous êtes déjà inscrit au challenge."))
     return redirect("challenges")
+
+
+@login_required
+def challenge_unsubscription(request, challenge_slug):
+    challenge = get_object_or_404(Challenge, slug=challenge_slug)
+
+    if request.user not in challenge.players.all():
+        messages.add_message(request, messages.ERROR, translate("Votre inscription à ce challenge n'a pas été trouvée"))
+
+    ChallengePlayer.objects.filter(player=request.user, challenge=challenge).delete()
+    messages.add_message(request, messages.SUCCESS, translate("Vous n'êtes plus inscrit à ce challenge."))
+
+    return redirect("mes_challenges")
 
 
 def challenge_ddt(request):
