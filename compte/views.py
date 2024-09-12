@@ -15,6 +15,7 @@ from django_registration.backends.activation.views import ActivationView, Regist
 from compte import forms, service
 from compte.forms import CustomPasswordResetForm
 from compte.models import UserPreferences
+from stats.models import ChallengePlayer
 from core.mailer import BrevoMailer
 from erp import versioning
 from erp.models import Erp
@@ -305,7 +306,7 @@ def mes_abonnements(request):
 
 @login_required
 def mes_challenges(request):
-    qs = request.user.challenge_players.all().order_by("-inscriptions__inscription_date")
+    qs = ChallengePlayer.objects.filter(player=request.user).order_by("-inscription_date")
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
     return render(
