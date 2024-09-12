@@ -14,18 +14,18 @@
         {% translate "Les challenges sur lesquels vous êtes inscrit." %}
     </p>
     <ul class="list-group">
-        {% for challenge in pager %}
+        {% for challenge_sub in pager %}
             <li class="list-group-item d-lg-flex justify-content-between align-items-center shadow-sm">
                 <div class="flex-fill">
                     <div class="font-weight-bold">
-                        <a href="{{ challenge.get_absolute_url }}">{{ challenge.nom }}</a>
+                        <a href="{{ challenge_sub.challenge.get_absolute_url }}">{{ challenge_sub.challenge.nom }}</a>
                     </div>
                     <address class="mb-0">
-                        <small class="text-muted">{% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}Du {{ start }} au {{ end }} inclus{% endblocktranslate %}</small>
+                        <small class="text-muted">{% blocktranslate with start=challenge_sub.challenge.start_date|date:"d F Y" end=challenge_sub.challenge.end_date|date:"d F Y" %}Du {{ start }} au {{ end }} inclus{% endblocktranslate %}</small>
                     </address>
                     <div>
                         <small class="text-success">
-                            {% translate "Inscrit depuis le" %} {{ request.user.inscriptions.last.inscription_date|date:"d F Y" }}
+                            {% translate "Inscrit depuis le" %} {{ challenge_sub.inscription_date|date:"d F Y" }}
                         </small>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                     <a class="fr-btn btn-outline-primary fr-my-2v"
                        target="_blank"
                        rel="noopener noreferrer"
-                       href="{{ challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
-                    <form action="{% url 'challenge-unsubscription' challenge_slug=challenge.slug %}"
+                       href="{{ challenge_sub.challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
+                    <form action="{% url 'challenge-unsubscription' challenge_slug=challenge_sub.challenge.slug %}"
                           method="post">
                         {% csrf_token %}
                         <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Se désinscrire" %}</button>
