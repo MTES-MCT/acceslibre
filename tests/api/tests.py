@@ -67,7 +67,6 @@ class TestApi:
 @pytest.mark.django_db
 class TestErpApi:
     def test_list(self, api_client, initial_erp):
-
         response = api_client.get(reverse("erp-list"))
 
         content = json.loads(response.content)
@@ -193,6 +192,28 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert len([erp for erp in content["results"] if erp["published"] is False]) == 1
+
+    def test_list_with_ordering_municipality(self, api_client):
+        ErpFactory(commune="Foo")
+        ErpFactory(commune="Bar")
+
+        response = api_client.get(reverse("erp-list") + "?sortType=municipality&where=Foo")
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 2
+        assert content["results"][0]["commune"] == "Foo"
+        assert content["results"][1]["commune"] == "Bar"
+
+    def test_list_with_ordering_departement(self, api_client):
+        ErpFactory(code_postal=62000)
+        ErpFactory(code_postal=59000)
+
+        response = api_client.get(reverse("erp-list") + "?sortType=departement&where=59")
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 2
+        assert content["results"][0]["code_postal"] == "59000"
+        assert content["results"][1]["code_postal"] == "62000"
 
     def test_list_page_size(self, api_client, initial_erp):
         response = api_client.get(reverse("erp-list") + "?page_size=25")
@@ -736,7 +757,6 @@ class TestWidgetApi:
 
     @pytest.mark.django_db
     def test_low_completion_case(self, api_client):
-
         access_infos = {
             "entree_plain_pied": False,
             "entree_marches_rampe": "fixe",

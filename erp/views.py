@@ -272,6 +272,8 @@ def _get_or_create_api_key():
 
 def search(request):
     filters = _cleaned_search_params_as_dict(request.GET)
+    search_type = filters.get("search_type")
+    where_keyword = filters.get("municipality") or filters.get("code")
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = _filter_erp_by_location(base_queryset, **filters)
@@ -305,6 +307,8 @@ def search(request):
         "equipments": get_equipments(),
         "zoom_level": zoom_level,
         "geojson_list": make_geojson(pager),
+        "search_type": search_type,
+        "where_keyword": where_keyword,
         "should_refresh_map_on_load": request.GET.get("search_type") != settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)

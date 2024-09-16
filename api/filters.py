@@ -127,8 +127,15 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
             queryset = queryset.distinct("id", "nom")
 
         if not ordered:
-            ordering = self.get_ordering(request, queryset, view)
-            queryset = queryset.order_by(*ordering)
+            if request.GET.get("sortType") == "municipality":
+                municipality = request.query_params.get("where")
+                queryset = queryset.with_municipality_first(municipality)
+            elif request.GET.get("searchType") == "department":
+                department_code = request.query_params.get("where")
+                queryset = queryset.with_departement_first(department_code)
+            else:
+                ordering = self.get_ordering(request, queryset, view)
+                queryset = queryset.order_by(*ordering)
 
         return queryset
 
