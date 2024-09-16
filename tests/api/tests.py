@@ -204,6 +204,17 @@ class TestErpApi:
         assert content["results"][0]["commune"] == "Foo"
         assert content["results"][1]["commune"] == "Bar"
 
+    def test_list_with_ordering_municipality_with_empty_query(self, api_client):
+        ErpFactory(commune="Bar")
+        ErpFactory(commune="Foo")
+
+        response = api_client.get(reverse("erp-list") + "?sortType=municipality&where=Foo&q=")
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert len(content["results"]) == 2
+        assert content["results"][0]["commune"] == "Foo"
+        assert content["results"][1]["commune"] == "Bar"
+
     def test_list_with_ordering_departement(self, api_client):
         ErpFactory(code_postal=62000)
         ErpFactory(code_postal=59000)
