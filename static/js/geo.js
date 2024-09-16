@@ -431,17 +431,6 @@ function AppMap(root) {
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
 
   const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
-  if (municipalityData) {
-    map.setMinZoom(municipalityData.zoom - 2)
-    if (municipalityData.contour) {
-      L.polygon(municipalityData.contour, {
-        color: '#075ea2',
-        opacity: 0.6,
-        weight: 3,
-        fillOpacity: 0.05,
-      }).addTo(map)
-    }
-  }
 
   const broaderSearchButton = document.querySelector('#broaderSearch')
   if (broaderSearchButton) {
@@ -461,10 +450,21 @@ function AppMap(root) {
     _loadMoreWhenLastElementIsDisplayed(map)
   }
 
-  if (geoJson && geoJson.features.length > 0) {
-    map.fitBounds(markers.getBounds(), { padding: [70, 70] })
-  } else if (municipalityData) {
+  if (municipalityData) {
+    map.setMinZoom(municipalityData.zoom - 2)
     map.setView(municipalityData.center, municipalityData.zoom)
+    if (municipalityData.contour) {
+      const poly = L.polygon(municipalityData.contour, {
+        color: '#075ea2',
+        opacity: 0.6,
+        weight: 3,
+        fillOpacity: 0.05,
+      })
+      poly.addTo(map)
+      map.fitBounds(poly.getBounds())
+    }
+  } else if (geoJson && geoJson.features.length > 0) {
+    map.fitBounds(markers.getBounds(), { padding: [70, 70] })
   } else {
     map.setView(
       L.latLng(root.dataset.lat || DEFAULT_LAT, root.dataset.lon || DEFAULT_LON),
