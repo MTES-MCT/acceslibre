@@ -542,11 +542,11 @@
         },
         "idna": {
             "hashes": [
-                "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc",
-                "sha256:82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"
+                "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9",
+                "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==3.7"
+            "markers": "python_version >= '3.6'",
+            "version": "==3.10"
         },
         "ijson": {
             "hashes": [
@@ -1842,6 +1842,7 @@
                 "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.32.3"
         },
         "rfc3986": {
@@ -1979,11 +1980,12 @@
         },
         "scrapfly-sdk": {
             "hashes": [
-                "sha256:442437a301a68b76755ff1bdc3cb7156b481ce54b9575dcfa2c090322ac7905f",
-                "sha256:97d07f62806c240f24f347d09ea83f287a06ebad1e55178d524b3123bfc42224"
+                "sha256:568f9939ff06458453e31d7eb98ba6254c58d69f3975cbdea062abc4148cd812",
+                "sha256:57b12461d773937fd0a0c11d262a11afb2518f9fd98718f1966ab180f182f1e8"
             ],
             "index": "pypi",
-            "version": "==0.8.17"
+            "markers": "python_version >= '3.6'",
+            "version": "==0.8.18"
         },
         "sentry-sdk": {
             "hashes": [
