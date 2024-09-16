@@ -77,7 +77,7 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
             queryset = queryset.filter(siret=siret)
 
         search_terms = request.query_params.get("q", None)
-        if search_terms is not None:
+        if search_terms not in (None, ""):
             use_distinct = False
             ordered = True
             queryset = queryset.search_what(search_terms)
