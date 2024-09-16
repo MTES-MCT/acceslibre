@@ -1923,3 +1923,12 @@ class Accessibilite(models.Model):
             else:
                 results.append((k, v))
         return results
+
+
+class Departement(models.Model):
+    code = models.CharField(max_length=3, null=False, blank=False)
+    contour = models.MultiPolygonField(
+        verbose_name=translate_lazy("Contour"),
+        help_text=translate_lazy("Contour du département"),
+        null=False,
+    )
