@@ -43,7 +43,7 @@ class Command(BaseCommand):
         self.log("Starting export")
         try:
             self.log("Récupération des ERPs")
-            erps = Erp.objects.published()
+            erps = Erp.objects.published().select_related("accessibilite", "activite")
             self.log(f"{erps.count()} ERP(s) trouvé(s)")
             export_schema_to_csv(csv_path_with_url, erps, EtalabMapper, logger=self.log)
             self.log(f"Local export successful: '{csv_path_with_url}'")
