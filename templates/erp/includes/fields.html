@@ -23,7 +23,7 @@
             </p>
             {% if field.is_comment %}
                 <blockquote class="a4a-comment-block mb-0 my-1">
-                    {{ field.value|urlizetrunc:25|linebreaks }}
+                    {{ field.value|urlizetrunc:25 }}
                 </blockquote>
             {% endif %}
         </li>
