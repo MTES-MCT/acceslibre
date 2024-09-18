@@ -34,11 +34,13 @@
                        target="_blank"
                        rel="noopener noreferrer"
                        href="{{ challenge_sub.challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
-                    <form action="{% url 'challenge-unsubscription' challenge_slug=challenge_sub.challenge.slug %}"
-                          method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Se désinscrire" %}</button>
-                    </form>
+                    {% if challenge.is_in_progress %}
+                        <form action="{% url 'challenge-unsubscription' challenge_slug=challenge_sub.challenge.slug %}"
+                              method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Se désinscrire" %}</button>
+                        </form>
+                    {% endif %}
                 </div>
             </li>
         {% empty %}

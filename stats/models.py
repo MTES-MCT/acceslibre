@@ -60,7 +60,11 @@ class Challenge(models.Model):
 
     @property
     def has_open_subscriptions(self):
-        return self.users_can_register and timezone.now() < self.end_date and timezone.now() >= self.start_date
+        return self.users_can_register and self.is_in_progress
+
+    @property
+    def is_in_progress(self):
+        return timezone.now() < self.end_date and timezone.now() >= self.start_date
 
     @property
     def version(self):
