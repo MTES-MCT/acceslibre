@@ -69,7 +69,7 @@ class TestChallenge:
 
         challenge.refresh_from_db()
         assert not challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}]
-        assert challenge.is_in_progress
+        assert not challenge.is_finished
         assert challenge.has_open_subscriptions
 
     @pytest.mark.django_db
