@@ -34,7 +34,7 @@
                        target="_blank"
                        rel="noopener noreferrer"
                        href="{{ challenge_sub.challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
-                    {% if challenge.is_in_progress %}
+                    {% if not challenge_sub.challenge.is_finished %}
                         <form action="{% url 'challenge-unsubscription' challenge_slug=challenge_sub.challenge.slug %}"
                               method="post">
                             {% csrf_token %}

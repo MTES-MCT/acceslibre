@@ -64,7 +64,11 @@ class Challenge(models.Model):
 
     @property
     def is_in_progress(self):
-        return timezone.now() < self.end_date and timezone.now() >= self.start_date
+        return not self.is_finished and timezone.now() >= self.start_date
+
+    @property
+    def is_finished(self):
+        return timezone.now() > self.end_date
 
     @property
     def version(self):
