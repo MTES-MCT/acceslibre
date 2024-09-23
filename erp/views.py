@@ -279,7 +279,7 @@ def search(request):
     queryset = _filter_erp_by_location(base_queryset, **filters)
     queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
     zoom_level = settings.MAP_DEFAULT_ZOOM
-    departement_json = None
+    department_json = None
     if request.GET.get("municipality"):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
@@ -291,8 +291,8 @@ def search(request):
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
     elif request.GET.get("search_type") == settings.IN_DEPARTMENT_SEARCH_TYPE:
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
-        departement = Departement.objects.filter(code=filters.get("code")).first()
-        departement_json = geo.lonlat_to_latlon(departement.contour.coords) if departement.contour else None
+        department = Departement.objects.filter(code=filters.get("code")).first()
+        department_json = geo.lonlat_to_latlon(department.contour.coords) if department and department.contour else None
     elif request.GET.get("search_type") == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
@@ -313,7 +313,7 @@ def search(request):
         "geojson_list": make_geojson(pager),
         "search_type": search_type,
         "where_keyword": where_keyword,
-        "departement_json": departement_json,
+        "departement_json": department_json,
         "should_refresh_map_on_load": request.GET.get("search_type") != settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)

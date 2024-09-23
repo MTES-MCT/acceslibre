@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 10:21+0200\n"
-"PO-Revision-Date: 2024-09-19 10:08+0200\n"
+"POT-Creation-Date: 2024-09-23 11:45+0200\n"
+"PO-Revision-Date: 2024-09-23 11:44+0200\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1220,6 +1220,10 @@ msgstr "And"
 
 msgid "Contour du département"
 msgstr "Department outline"
+
+#, python-brace-format
+msgid "Département {self.code}"
+msgstr "Department {self.code}"
 
 msgid "Accès"
 msgstr "Access"

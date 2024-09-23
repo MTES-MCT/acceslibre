@@ -1932,3 +1932,6 @@ class Departement(models.Model):
         help_text=translate_lazy("Contour du département"),
         null=False,
     )
+
+    def __str__(self):
+        return translate(f"Département {self.code}")
