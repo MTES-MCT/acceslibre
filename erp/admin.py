@@ -16,7 +16,7 @@ from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneFor
 from erp.resources import ErpAdminResource
 
 from . import schema
-from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp
+from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp, Departement
 
 
 @admin.register(Activite)
@@ -149,6 +149,10 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
             return "-"
 
     voir_les_erps.short_description = "Action"
+
+
+@admin.register(Departement)
+class DepartementAdmin(OSMGeoAdmin, admin.ModelAdmin): ...
 
 
 @admin.register(Accessibilite)
