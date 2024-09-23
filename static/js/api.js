@@ -196,7 +196,14 @@ async function searchLocation(q, loc, kind = '') {
     return await searchMunicipality(q)
   }
   if (kind === 'department') {
-    return await searchDepartment(q)
+    let departmentResult = await searchDepartment(q)
+
+    let remainingSlots = 10 - departmentResult.results.length
+    if (remainingSlots > 0) {
+      const municipalityResult = await searchMunicipality(q)
+      departmentResult.results = departmentResult.results.concat(municipalityResult.results.slice(0, remainingSlots))
+    }
+    return departmentResult
   }
   if (kind === 'departmentNumber') {
     return await searchDepartmentNumber(q)
