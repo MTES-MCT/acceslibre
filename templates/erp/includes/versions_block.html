@@ -12,7 +12,7 @@
             {% spaceless %}
                 {% translate "Fiche créée" %}
                 {% if erp.user %}
-                    {% translate " par " %} <strong>{{ erp.user.username|format_username }}</strong>{% translate ", " %}
+                    {% translate " par " %} <strong>{{ erp.user.username|format_username }}</strong>,
                 {% endif %}
                 {% if erp.user_type == "gestionnaire" %}
                     {% translate "en tant que gestionnaire" %}
