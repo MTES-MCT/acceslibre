@@ -15,6 +15,9 @@
     <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
     </script>
+    <script id="departement-data" type="application/json">
+      {% if departement_json %}{{ departement_json|safe }}{% else %}null{% endif %}
+    </script>
     <script id="erps-data" type="application/json">{{ geojson_list | safe }}</script>
     {% if map_options %}<script id="map-options" type="application/json">{{ map_options | safe }}</script>{% endif %}
     <noscript>

@@ -410,6 +410,43 @@ function refreshMapOnEquipmentsChange(equipmentsInputs, map) {
   })
 }
 
+function _setZoomLevel(map, geoJson) {
+  const root = _getRoot()
+  const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
+  const departementData = JSON.parse(root.querySelector('#departement-data').textContent)
+  if (municipalityData) {
+    map.setMinZoom(municipalityData.zoom - 2)
+    map.setView(municipalityData.center, municipalityData.zoom)
+    if (municipalityData.contour) {
+      const poly = L.polygon(municipalityData.contour, {
+        color: '#075ea2',
+        opacity: 0.6,
+        weight: 3,
+        fillOpacity: 0.05,
+      })
+      poly.addTo(map)
+      map.fitBounds(poly.getBounds())
+    }
+  } else if (departementData) {
+    const poly = L.polygon(departementData, {
+      color: '#075ea2',
+      opacity: 0.6,
+      weight: 3,
+      fillOpacity: 0.05,
+    })
+    poly.addTo(map)
+    map.fitBounds(poly.getBounds())
+  } else if (geoJson && geoJson.features.length > 0) {
+    map.fitBounds(markers.getBounds(), { padding: [70, 70] })
+  } else {
+    map.setView(
+      L.latLng(root.dataset.lat || DEFAULT_LAT, root.dataset.lon || DEFAULT_LON),
+      root.dataset.defaultZoom || 14
+    )
+    refreshData(map)
+  }
+}
+
 function AppMap(root) {
   const erpIdentifier = root.dataset.erpIdentifier
   shouldRefreshMap = true
@@ -430,8 +467,6 @@ function AppMap(root) {
   map = createMap(root, mapOptions)
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
 
-  const municipalityData = JSON.parse(root.querySelector('#commune-data').textContent)
-
   const broaderSearchButton = document.querySelector('#broaderSearch')
   if (broaderSearchButton) {
     broadenSearchOnClick(broaderSearchButton, map, root)
@@ -450,29 +485,7 @@ function AppMap(root) {
     _loadMoreWhenLastElementIsDisplayed(map)
   }
 
-  if (municipalityData) {
-    map.setMinZoom(municipalityData.zoom - 2)
-    map.setView(municipalityData.center, municipalityData.zoom)
-    if (municipalityData.contour) {
-      const poly = L.polygon(municipalityData.contour, {
-        color: '#075ea2',
-        opacity: 0.6,
-        weight: 3,
-        fillOpacity: 0.05,
-      })
-      poly.addTo(map)
-      map.fitBounds(poly.getBounds())
-    }
-  } else if (geoJson && geoJson.features.length > 0) {
-    map.fitBounds(markers.getBounds(), { padding: [70, 70] })
-  } else {
-    map.setView(
-      L.latLng(root.dataset.lat || DEFAULT_LAT, root.dataset.lon || DEFAULT_LON),
-      root.dataset.defaultZoom || 14
-    )
-    refreshData(map)
-  }
-
+  _setZoomLevel(map, geoJson)
   _addLocateButton(map)
 
   if (erpIdentifier) {

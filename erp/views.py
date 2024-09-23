@@ -26,7 +26,7 @@ from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.forms import get_contrib_form_for_activity
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Departement
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
@@ -279,6 +279,7 @@ def search(request):
     queryset = _filter_erp_by_location(base_queryset, **filters)
     queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
     zoom_level = settings.MAP_DEFAULT_ZOOM
+    departement_json = None
     if request.GET.get("municipality"):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
@@ -286,9 +287,12 @@ def search(request):
     elif request.GET.get("search_type") in (
         settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET,
         settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
-        settings.IN_DEPARTMENT_SEARCH_TYPE,
     ):
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
+    elif request.GET.get("search_type") == settings.IN_DEPARTMENT_SEARCH_TYPE:
+        zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
+        departement = Departement.objects.filter(code=filters.get("code")).first()
+        departement_json = geo.lonlat_to_latlon(departement.contour.coords) if departement.contour else None
     elif request.GET.get("search_type") == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
@@ -309,6 +313,7 @@ def search(request):
         "geojson_list": make_geojson(pager),
         "search_type": search_type,
         "where_keyword": where_keyword,
+        "departement_json": departement_json,
         "should_refresh_map_on_load": request.GET.get("search_type") != settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)
