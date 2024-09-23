@@ -591,6 +591,7 @@ FIELDS = {
         "help_text_ui": translate_lazy(
             "L'accès à cet espace se fait de plain-pied, c'est à dire sans rupture brutale de niveau"
         ),
+        "help_text_ui_v2": translate_lazy("Chemin extérieur de plain pied"),
         "help_text_ui_neg": translate_lazy(
             "L'accès à cet espace n'est pas de plain-pied et présente une rupture brutale de niveau"
         ),
