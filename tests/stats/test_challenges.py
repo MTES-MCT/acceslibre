@@ -3,11 +3,11 @@ from datetime import datetime, timedelta
 import pytest
 import reversion
 from django.core.management import call_command
+from django.urls import reverse
 from reversion.models import Revision
 
 from erp.schema import get_nullable_bool_fields
 from tests.factories import ChallengeFactory, ChallengeTeamFactory, ErpFactory, UserFactory
-from django.urls import reverse
 
 
 @pytest.fixture()
@@ -37,7 +37,7 @@ class TestChallenge:
         Revision.objects.all().update(date_created=yesterday)
 
     @pytest.mark.django_db
-    def test_nominal_case(self, challenge):
+    def test_nominal_case(self, challenge, client):
         erp1, erp2, erp3 = [
             ErpFactory(with_accessibilite=True),
             ErpFactory(with_accessibilite=True),
@@ -62,15 +62,35 @@ class TestChallenge:
 
         team = ChallengeTeamFactory()
 
-        player1.team = team
-        player1.save()
+        challenge.classement = {}  # force recompute
+        challenge.save()
+        challenge_player = player1.inscriptions.first()
+        challenge_player.team = team
+        challenge_player.save()
 
         call_command("refresh_stats")
 
         challenge.refresh_from_db()
-        assert not challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}]
+        assert challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}]
         assert not challenge.is_finished
         assert challenge.has_open_subscriptions
+
+        client.force_login(player1)
+        client.post(
+            reverse("challenge-unsubscription", kwargs={"challenge_slug": challenge.slug}),
+            data={"confirm": True},
+            follow=True,
+        )
+
+        call_command("refresh_stats")
+
+        challenge.refresh_from_db()
+        assert challenge.get_classement() == [
+            {"username": player2.username, "nb_access_info_changed": 3},
+        ], "player1 is unsubscribed, he should have been removed from previously computed leaderboard"
+        assert challenge.get_classement_team() == [
+            {"team": team.name, "nb_access_info_changed": 2}
+        ], "team leaderboard should not be impacted, business rule"
 
     @pytest.mark.django_db
     def test_sub_and_unsubscription(self, client):
@@ -103,7 +123,6 @@ class TestChallenge:
 
         assert challenge2.players.count() == 0
 
-        client.force_login(user)
         response = client.post(
             reverse("challenge-unsubscription", kwargs={"challenge_slug": challenge1.slug}),
             data={"confirm": True},
