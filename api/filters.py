@@ -130,7 +130,7 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
             if request.GET.get("sortType") == "municipality":
                 municipality = request.query_params.get("where")
                 queryset = queryset.with_municipality_first(municipality)
-            elif request.GET.get("searchType") == "department":
+            elif request.GET.get("sortType") == "department":
                 department_code = request.query_params.get("where")
                 queryset = queryset.with_departement_first(department_code)
             else:
