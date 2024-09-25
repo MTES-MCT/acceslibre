@@ -19,7 +19,7 @@
             </form>
             <a class="fr-btn fr-btn--secondary"
                href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème ou une erreur" %}</a>
-            {% if user.is_superuser %}
+            {% if user.is_staff %}
                 <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}"
                    target="_blank"
                    class="fr-btn fr-btn--secondary"
