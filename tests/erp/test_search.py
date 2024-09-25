@@ -5,7 +5,7 @@ from django.contrib.gis.geos import Point
 from django.urls import reverse
 
 from erp.models import Accessibilite, Erp
-from erp.views import _clean_address
+from erp.utils import clean_address
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
 
 
@@ -57,7 +57,8 @@ def test_search_pagination_performances(client, django_assert_max_num_queries):
     )
     Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
 
-    with django_assert_max_num_queries(12):
+    # NOTE: all assert_max_num_queries will have to be decreased to 12 when the EXPORT_RESULTS feature flag is dropped
+    with django_assert_max_num_queries(13):
         response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 1
@@ -72,7 +73,7 @@ def test_search_pagination_performances(client, django_assert_max_num_queries):
         )
         Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
 
-    with django_assert_max_num_queries(12):
+    with django_assert_max_num_queries(13):
         response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
     assert response.status_code == 200
     assert len(response.context["pager"]) == 10
@@ -195,7 +196,6 @@ def test_search_respects_what_clause(client):
 
 @pytest.mark.django_db
 def test_search_exact_housenumber(client):
-
     boulangerie = ActiviteFactory(nom="Boulangerie")
     ErpFactory(
         nom="Aux bons croissants",
@@ -412,7 +412,7 @@ def test_search_in_municipality_respects_what_clause(client):
     ),
 )
 def test_clean_address(where, expected):
-    assert _clean_address(where) == expected
+    assert clean_address(where) == expected
 
 
 @pytest.mark.django_db

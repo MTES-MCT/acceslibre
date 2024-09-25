@@ -1,6 +1,5 @@
 import datetime
 import json
-import re
 import urllib
 from decimal import Decimal
 from uuid import UUID
@@ -13,7 +12,6 @@ from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.forms import modelform_factory
-from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import get_language
@@ -25,11 +23,13 @@ from api.views import WidgetSerializer
 from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
+from erp.export.tasks import generate_csv_file
 from erp.forms import get_contrib_form_for_activity
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Departement
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Departement, Erp
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
-from erp.provider.search import filter_erps_by_equipments, get_equipments, get_equipments_shortcuts
+from erp.provider.search import get_equipments, get_equipments_shortcuts
+from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -195,71 +195,6 @@ def _search_commune_code_postal(qs, code_insee):
     )
 
 
-def _cleaned_search_params_as_dict(get_parameters):
-    allow_list = ("where", "what", "lat", "lon", "code", "search_type", "postcode", "street_name", "municipality")
-    cleaned_dict = {
-        k: "" if get_parameters.get(k, "") == "None" else get_parameters.get(k, "")
-        for k, v in get_parameters.items()
-        if k in allow_list
-    }
-    cleaned_dict["where"] = cleaned_dict.get("where") or translate("France entière")
-    return cleaned_dict
-
-
-def _clean_address(where):
-    """
-    where is a string as returned by geoloc API on frontend side. It returns city and code_departement, this is pure string
-    work, nothing coming from a database or elsewhere.
-    For ex:
-        "Paris (75006)" returns ("Paris", "75")
-        "Lille (59)" returns ("Lille", "59")
-        "Strasbourg" returns ("Strasbourg", "")
-        "10 Rue Marin 69160 Tassin-la-Demi-Lune" returns ("Tassin-la-Demi-Lune", "")
-    """
-    where = (where or "()").strip()
-
-    # remove code departement in where
-    address = re.split(r"\(|\)", where)
-    city = where
-    code_departement = ""
-    if len(address) >= 2:
-        city = address[0].strip()
-        code_departement = address[1]
-    elif found := re.search(r".* [0-9]{5} (.*)", where):
-        city = found.groups(1)[0]
-    return city, code_departement
-
-
-def _parse_location_or_404(lat, lon):
-    if not lat or not lon:
-        return None
-    try:
-        return geo.parse_location((lat, lon))
-    except RuntimeError as err:
-        raise Http404(err)
-
-
-def _filter_erp_by_location(queryset, **kwargs):
-    search_type = kwargs.get("search_type")
-    lat, lon = kwargs.get("lat"), kwargs.get("lon")
-    location = _parse_location_or_404(lat, lon)
-    postcode = kwargs.get("postcode")
-
-    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
-        city, code_departement = _clean_address(kwargs.get("where"))
-        return queryset.filter(commune__iexact=city, code_postal__startswith=code_departement)
-    if search_type == settings.IN_DEPARTMENT_SEARCH_TYPE:
-        code = "20" if kwargs.get("code").lower() in ["2a", "2b"] else kwargs.get("code")
-        return queryset.filter(code_postal__startswith=code)
-    if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
-        return queryset.nearest(location, max_radius_km=0.2)
-
-    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET:
-        street_name = kwargs.get("street_name")
-        return queryset.filter(code_postal=postcode, voie__icontains=street_name)
-    return queryset
-
-
 def _get_or_create_api_key():
     api_key = cache.get(settings.INTERNAL_API_KEY_NAME)
     if api_key:
@@ -271,29 +206,26 @@ def _get_or_create_api_key():
 
 
 def search(request):
-    filters = _cleaned_search_params_as_dict(request.GET)
+    filters = cleaned_search_params_as_dict(request.GET)
+    queryset = build_queryset(filters, request.GET)
+    zoom_level = settings.MAP_DEFAULT_ZOOM
     search_type = filters.get("search_type")
     where_keyword = filters.get("municipality") or filters.get("code")
-    base_queryset = Erp.objects.published().with_activity()
-    base_queryset = base_queryset.search_what(filters.get("what"))
-    queryset = _filter_erp_by_location(base_queryset, **filters)
-    queryset = filter_erps_by_equipments(queryset, request.GET.getlist("equipments", []))
-    zoom_level = settings.MAP_DEFAULT_ZOOM
     department_json = None
     if request.GET.get("municipality"):
         municipality = Commune.objects.filter(nom=request.GET["municipality"]).first()
         if municipality:
             zoom_level = municipality.get_zoom()
-    elif request.GET.get("search_type") in (
+    elif search_type in (
         settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET,
         settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
     ):
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
-    elif request.GET.get("search_type") == settings.IN_DEPARTMENT_SEARCH_TYPE:
+    elif search_type == settings.IN_DEPARTMENT_SEARCH_TYPE:
         zoom_level = settings.MAP_DEFAULT_ZOOM_STREET
         department = Departement.objects.filter(code=filters.get("code")).first()
         department_json = geo.lonlat_to_latlon(department.contour.coords) if department and department.contour else None
-    elif request.GET.get("search_type") == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
+    elif search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
     paginator = Paginator(queryset, 50)
@@ -314,14 +246,35 @@ def search(request):
         "search_type": search_type,
         "where_keyword": where_keyword,
         "departement_json": department_json,
-        "should_refresh_map_on_load": request.GET.get("search_type") != settings.IN_DEPARTMENT_SEARCH_TYPE,
+        "should_refresh_map_on_load": search_type != settings.IN_DEPARTMENT_SEARCH_TYPE,
     }
     return render(request, "search/results.html", context=context)
 
 
+def export(request):
+    query_params = request.GET.urlencode()
+    filters = cleaned_search_params_as_dict(request.GET)
+    queryset = build_queryset(filters, request.GET)
+    if queryset.count() > 20000:
+        messages.error(
+            request, translate("L'export demandé est trop volumineux, veuillez utiliser notre jeu de données complet.")
+        )
+
+    else:
+        generate_csv_file.delay(query_params)
+
+        messages.success(
+            request,
+            translate("L'export a été lancé avec succès. Vous recevrez un email avec un lien vers le fichier CSV."),
+        )
+
+    search_url = f"{reverse('search')}?{query_params}"
+    return redirect(search_url)
+
+
 def search_in_municipality(request, commune_slug):
     municipality = get_object_or_404(Commune, slug=commune_slug)
-    filters = _cleaned_search_params_as_dict(request.GET)
+    filters = cleaned_search_params_as_dict(request.GET)
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     queryset = base_queryset.filter(commune=municipality.nom, code_postal__startswith=municipality.departement)
@@ -548,7 +501,7 @@ def contrib_global_search(request):
         commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
-    city, _ = _clean_address(request.GET.get("where"))
+    city, _ = clean_address(request.GET.get("where"))
 
     return render(
         request,

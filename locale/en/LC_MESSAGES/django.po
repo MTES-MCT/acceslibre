@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-23 14:43+0200\n"
-"PO-Revision-Date: 2024-09-23 11:44+0200\n"
+"POT-Creation-Date: 2024-09-30 10:05+0200\n"
+"PO-Revision-Date: 2024-09-30 10:05+0200\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1315,6 +1315,9 @@ msgstr "Difficulty hearing"
 msgid "Difficulté à comprendre"
 msgstr "Difficulty understanding"
 
+msgid "Autour de moi"
+msgstr "Around me"
+
 msgid "Inconnu"
 msgstr "Unknown"
 
@@ -2616,6 +2619,9 @@ msgstr "Unable to encode data provider information"
 msgid "Au même endroit"
 msgstr "In the same place"
 
+msgid "France entière"
+msgstr "Whole France"
+
 msgid "Vous participez déjà à un autre challenge."
 msgstr "You are already participating in another challenge."
 
@@ -2631,11 +2637,17 @@ msgstr "Your registration for this challenge has not been found."
 msgid "Vous n'êtes plus inscrit à ce challenge."
 msgstr "You are no longer registered to this challenge."
 
-msgid "France entière"
-msgstr "Whole France"
+msgid ""
+"L'export demandé est trop volumineux, veuillez utiliser notre jeu de données "
+"complet."
+msgstr "The requested export is too large, please use our full dataset."
 
-msgid "Autour de moi"
-msgstr "Around me"
+msgid ""
+"L'export a été lancé avec succès. Vous recevrez un email avec un lien vers "
+"le fichier CSV."
+msgstr ""
+"The export has been launched successfully. You will receive an email with a "
+"link to the CSV file."
 
 msgid "Merci de votre contribution."
 msgstr "Thank you for your contribution."
@@ -5416,22 +5428,6 @@ msgstr "Results for «%(what)s» around «%(where)s»"
 msgid "Résultats autour de «%(where)s»"
 msgstr "Results around «%(where)s»"
 
-msgid ""
-"\n"
-"            Découvrez l'information d'accessibilité actuellement disponible "
-"pour chaque centre de vaccination (la collecte d'information est en cours).\n"
-"            "
-msgstr ""
-"\n"
-"Find out what accessibility information is currently available for each "
-"vaccination center (information collection is ongoing)."
-
-msgid "Si vous gérez un centre de vaccination,"
-msgstr "If you manage a vaccination center,"
-
-msgid "suivez notre guide de contribution"
-msgstr "follow our contribution guide"
-
 msgid "Il n'y a pas de résultat correspondant à votre recherche"
 msgstr "There are no results matching your search"
 
@@ -5447,6 +5443,9 @@ msgstr "km"
 
 msgid "kilomètres"
 msgstr "kilometers"
+
+msgid "Exporter les résultats"
+msgstr "Export results"
 
 msgid "Liste des résultats"
 msgstr "Results list"

@@ -1,8 +1,11 @@
 from collections import namedtuple
 from dataclasses import dataclass
 
+from django.conf import settings
+from django.http import Http404
 from django.utils.translation import gettext as translate
 
+from core.lib import geo
 from erp.managers import ErpQuerySet
 from erp.models import Commune, Erp
 from erp.provider import arrondissements, entreprise, opendatasoft, public_erp
@@ -354,3 +357,34 @@ def get_equipments_shortcuts():
         icon="diff-understand",
     )
     return [difficulty_of_vision, wheeling_chair, difficulty_walking, deaf_person, hard_to_understand]
+
+
+def _parse_location_or_404(lat, lon):
+    if not lat or not lon:
+        return None
+    try:
+        return geo.parse_location((lat, lon))
+    except RuntimeError as err:
+        raise Http404(err)
+
+
+def filter_erp_by_location(queryset, **kwargs):
+    search_type = kwargs.get("search_type")
+    lat, lon = kwargs.get("lat"), kwargs.get("lon")
+    location = _parse_location_or_404(lat, lon)
+    postcode = kwargs.get("postcode")
+
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY:
+        return queryset.filter(
+            commune__iexact=kwargs.get("city"), code_postal__startswith=kwargs.get("code_departement")
+        )
+    if search_type == settings.IN_DEPARTMENT_SEARCH_TYPE:
+        code = "20" if kwargs.get("code").lower() in ["2a", "2b"] else kwargs.get("code")
+        return queryset.filter(code_postal__startswith=code)
+    if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
+        return queryset.nearest(location, max_radius_km=0.2)
+
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET:
+        street_name = kwargs.get("street_name")
+        return queryset.filter(code_postal=postcode, voie__icontains=street_name)
+    return queryset

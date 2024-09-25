@@ -16,6 +16,8 @@ from erp.export.mappers import EtalabMapper
 from erp.models import Erp
 from tests.factories import ActiviteFactory, ErpFactory
 
+from erp.export.tasks import generate_csv_file
+
 
 @pytest.mark.django_db
 def test_csv_creation():
@@ -198,3 +200,25 @@ def test_generate_schema(db, activite):
             assert json.loads(test_schema.read()) == json.loads(actual_schema.read().strip())
     finally:
         os.remove(test_schema.name)
+
+
+@pytest.mark.django_db
+def test_generate_csv_export():
+    ErpFactory(nom="Mairie1", with_accessibilite=True)
+    ErpFactory(nom="Mairie2", with_accessibilite=True)
+    ErpFactory(nom="Boulangerie", with_accessibilite=True)
+    generate_csv_file(query_params="what=Mairie")
+
+    with open("temp_export.csv", "r") as csvfile:  # FIXME
+        reader = csv.reader(csvfile)
+        header = next(reader)
+        assert "name" in header, "The 'name' header is missing."
+        assert "user_type" in header
+        assert "username" in header
+
+        rows = list(reader)
+        assert len(rows) == 2, "There should be at 2 rows of data."
+
+        names = [row[header.index("name")] for row in rows]
+        assert "Mairie1" in names, "The row with 'Mairie1' is missing."
+        assert "Mairie2" in names, "The row with 'Mairie2' is missing."

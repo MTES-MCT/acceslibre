@@ -63,6 +63,11 @@ urlpatterns = [
         name="communes",
     ),
     path(
+        "export/",
+        views.export,
+        name="export",
+    ),
+    path(
         "recherche/",
         views.search,
         name="search",
