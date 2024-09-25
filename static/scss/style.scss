@@ -303,10 +303,6 @@ select[name='language'] {
   &-partenaire-logo-small {
     max-width: 100%;
     max-height: 80px;
-
-    @media screen and (max-width: $viewport-md) {
-      max-height: unset;
-    }
   }
 
   .nav-tabs .active {
