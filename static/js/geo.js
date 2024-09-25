@@ -256,18 +256,17 @@ function _getDataPromiseFromAPI(map, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
   let equipments = document.querySelectorAll('input[name=equipments]:checked')
-  let equipmentsQuery = ''
+  let urlParams = new URLSearchParams()
+
+  urlParams.set('q', document.querySelector('#what-input').value)
+  urlParams.set('zone', `${southWest.lng},${southWest.lat},${northEast.lng},${northEast.lat}`)
+  urlParams.set('page', page)
+  urlParams.set('sortType', _getSortType())
+  urlParams.set('where', _getWhere())
   equipments.forEach(function (eq) {
-    equipmentsQuery += '&equipments=' + eq.value
+    urlParams.append('equipments', eq.value)
   })
-  urlParams = new URLSearchParams({
-    q: document.querySelector('#what-input').value,
-    zone: southWest.lng + ',' + southWest.lat + ',' + northEast.lng + ',' + northEast.lat,
-    equipmentsQuery: equipmentsQuery,
-    page: page,
-    sortType: _getSortType(),
-    where: _getWhere(),
-  })
+
   return fetch(_getRefreshApiUrl() + '?' + urlParams.toString(), {
     timeout: 10000,
     headers: {
