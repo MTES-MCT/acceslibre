@@ -36,48 +36,29 @@
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
             {% blocktranslate %}
-    Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
-    vous ne pouvez donc pas vous authentifier avec un nouveau compte.
-    Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
-    ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
-    {% endblocktranslate %}
+        Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
+        vous ne pouvez donc pas vous authentifier avec un nouveau compte.
+        Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
+        ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
+      {% endblocktranslate %}
         </p>
     {% else %}
-        <div class="row">
-            <div class="fr-col-12 fr-col-md-6">
-                <form action="." method="post" novalidate class="login-form">
-                    <input type="hidden" name="next" value="{{ next }}">
-                    {% csrf_token %}
-                    <h1 class="h3 text-start fr-mb-4v">{% translate "Je me connecte" %}</h1>
-                    {% for error in form.non_field_errors %}<p class="form-text text-danger" role="alert">{{ error }}</p>{% endfor %}
-                    {{ form.username|as_crispy_field }}
-                    {{ form.password|as_crispy_field }}
-                    <div class="text-center fr-mb-5v">
-                        <a class="small" href="{% url "password_reset" %}">{% translate "Mot de passe oublié ?" %}</a>
+        <main role="main" id="content">
+            <div class="fr-container fr-container--fluid fr-mb-md-14v">
+                <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
+                    {% include "registration/_login_form.html" %}
+                    <div class="fr-col-5 fr-col-offset-1 fr-mt-32v">
+                        <figure class="fr-content-media d-none d-sm-block">
+                            <div class="fr-content-media__img ">
+                                <img class="auto-height"
+                                     src="{% static 'img/login.jpg' %}"
+                                     alt=""
+                                     aria-hidden="true">
+                            </div>
+                        </figure>
                     </div>
-                    <div class="form-group">
-                        <button type="submit"
-                                class="fr-btn fr-btns-group--center btn-block text-center">
-                            {% translate "Se connecter" %}
-                        </button>
-                        <span class="text-center m-4">{% translate "ou" %}</span>
-                        <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}"
-                           class="fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
-                            {% translate "S'inscrire" %}
-                        </a>
-                    </div>
-                </form>
+                </div>
             </div>
-            <div class="fr-col-5 fr-col-offset-1 fr-mt-1v0">
-                <figure class="fr-content-media d-none d-sm-block">
-                    <div class="fr-content-media__img ">
-                        <img class="auto-height"
-                             src="{% static 'img/login.jpg' %}"
-                             alt=""
-                             aria-hidden="true">
-                    </div>
-                </figure>
-            </div>
-        </div>
-    {% endif %}
+        </main>
+{% endif %}
 {% endblock editorial_content %}
