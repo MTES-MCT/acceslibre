@@ -2348,7 +2348,7 @@
                 "sha256:1ddc333a16fc139fd253035a1606bb24261951bbc3a6ca256717fa06cc41a898",
                 "sha256:6f1616c2786c408ce86ab7e10f792b8f15742f7b7b7460243929cb371e7f1dad"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.2.16"
         },
         "django-debug-toolbar": {
@@ -2369,11 +2369,11 @@
         },
         "django-rosetta": {
             "hashes": [
-                "sha256:a42ed265a976a8e5e907f20bad56239e701084a4b9936810e85ffb27bf9a1f15",
-                "sha256:e0380c456e807b5954afaa54ed43c1dbaf29a2af8dd773ec332c8c2fe5465418"
+                "sha256:6ce84312773ec5d0f3a911a1d50e9db30f93bda704c6e63d2d35be40843fbeb8",
+                "sha256:9a41140cf18c80127835ae5c648c99528fc03ed0b15a6d74cb6102f45b506cd0"
             ],
             "index": "pypi",
-            "version": "==0.10.0"
+            "version": "==0.10.1"
         },
         "django-webtest": {
             "hashes": [
@@ -2995,7 +2995,7 @@
                 "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760",
                 "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.32.3"
         },
         "ruff": {
