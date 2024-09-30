@@ -251,6 +251,7 @@ def search(request):
     return render(request, "search/results.html", context=context)
 
 
+@login_required
 def export(request):
     query_params = request.GET.urlencode()
     filters = cleaned_search_params_as_dict(request.GET)
@@ -261,7 +262,7 @@ def export(request):
         )
 
     else:
-        generate_csv_file.delay(query_params)
+        generate_csv_file.delay(query_params, request.user.email)
 
         messages.success(
             request,

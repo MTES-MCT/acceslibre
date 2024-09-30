@@ -1,9 +1,12 @@
 import csv
+import hashlib
+import io
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from unittest.mock import ANY
+from unittest.mock import ANY, MagicMock, patch
 
 import pytest
 import requests
@@ -13,10 +16,9 @@ from django.core import management
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
+from erp.export.tasks import generate_csv_file
 from erp.models import Erp
 from tests.factories import ActiviteFactory, ErpFactory
-
-from erp.export.tasks import generate_csv_file
 
 
 @pytest.mark.django_db
@@ -203,22 +205,35 @@ def test_generate_schema(db, activite):
 
 
 @pytest.mark.django_db
-def test_generate_csv_export():
+@patch("boto3.client")
+def test_generate_csv_export(mock_boto_client):
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
     ErpFactory(nom="Mairie1", with_accessibilite=True)
     ErpFactory(nom="Mairie2", with_accessibilite=True)
     ErpFactory(nom="Boulangerie", with_accessibilite=True)
-    generate_csv_file(query_params="what=Mairie")
 
-    with open("temp_export.csv", "r") as csvfile:  # FIXME
-        reader = csv.reader(csvfile)
-        header = next(reader)
-        assert "name" in header, "The 'name' header is missing."
-        assert "user_type" in header
-        assert "username" in header
+    generate_csv_file(query_params="what=Mairie", user_email="user@example.com")
 
-        rows = list(reader)
-        assert len(rows) == 2, "There should be at 2 rows of data."
+    put_object_call = mock_s3.put_object.call_args
+    filename = put_object_call[1]["Key"]
+    now = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    email_hash = hashlib.sha256("user@example.com".encode()).hexdigest()[:10]
+    expected_filename = f"export_{now}_{email_hash}.csv"
+    assert filename == expected_filename
 
-        names = [row[header.index("name")] for row in rows]
-        assert "Mairie1" in names, "The row with 'Mairie1' is missing."
-        assert "Mairie2" in names, "The row with 'Mairie2' is missing."
+    csv_content = put_object_call[1]["Body"]
+    csv_reader = csv.reader(io.StringIO(csv_content))
+    header = next(csv_reader)
+
+    assert "name" in header, "The 'name' header is missing."
+    assert "user_type" in header
+    assert "username" in header
+
+    rows = list(csv_reader)
+    assert len(rows) == 2, "There should be at 2 rows of data."
+
+    names = [row[header.index("name")] for row in rows]
+    assert "Mairie1" in names, "The row with 'Mairie1' is missing."
+    assert "Mairie2" in names, "The row with 'Mairie2' is missing."

@@ -15,20 +15,29 @@ def factory(data):
     return dict([(x[0], json.dumps(x[1])) if isinstance(x[1], list) else x for x in data])
 
 
+def _write_csv(csv_writer, erps: List[Erp], model: Type[BaseExportMapper], logger=None):
+    if logger:
+        logger("Écriture des entêtes")
+    csv_writer.writeheader()
+
+    for erp_data in map_erps_to_json_schema(erps, model):
+        if logger:
+            logger(f"\t * Ajout de l'ERP {erp_data.name}")
+        data = asdict(erp_data, dict_factory=factory)
+        csv_writer.writerow(data)
+
+
 def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMapper], logger=None):
     with open(file_path, "w", newline="") as csv_file:
         if logger:
             logger(f"Initialisation du csv {file_path}")
         csv_writer = csv.DictWriter(csv_file, fieldnames=model.headers())
-        if logger:
-            logger("Écriture des entêtes")
-        csv_writer.writeheader()
+        _write_csv(csv_writer, erps, model, logger)
 
-        for erp_data in map_erps_to_json_schema(erps, model):
-            if logger:
-                logger(f"\t * Ajout de l'ERP {erp_data.name}")
-            data = asdict(erp_data, dict_factory=factory)
-            csv_writer.writerow(data)
+
+def export_schema_to_buffer(buffer, erps: List[Erp], model: Type[BaseExportMapper]):
+    csv_writer = csv.DictWriter(buffer, fieldnames=model.headers())
+    _write_csv(csv_writer, erps, model)
 
 
 def upload_to_datagouv(
