@@ -10,6 +10,7 @@ from unittest.mock import ANY, MagicMock, patch
 
 import pytest
 import requests
+from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import management
 
@@ -205,16 +206,18 @@ def test_generate_schema(db, activite):
 
 
 @pytest.mark.django_db
+@patch("core.mailer.BrevoMailer.send_email")
 @patch("boto3.client")
-def test_generate_csv_export(mock_boto_client):
+def test_generate_csv_export(mock_boto_client, mock_send_email):
     mock_s3 = MagicMock()
     mock_boto_client.return_value = mock_s3
+    mock_s3.generate_presigned_url.return_value = "https://mock-s3-url.com/download.csv"
 
     ErpFactory(nom="Mairie1", with_accessibilite=True)
     ErpFactory(nom="Mairie2", with_accessibilite=True)
     ErpFactory(nom="Boulangerie", with_accessibilite=True)
 
-    generate_csv_file(query_params="what=Mairie", user_email="user@example.com")
+    generate_csv_file(query_params="what=Mairie", user_email="user@example.com", username="User Name")
 
     put_object_call = mock_s3.put_object.call_args
     filename = put_object_call[1]["Key"]
@@ -237,3 +240,18 @@ def test_generate_csv_export(mock_boto_client):
     names = [row[header.index("name")] for row in rows]
     assert "Mairie1" in names, "The row with 'Mairie1' is missing."
     assert "Mairie2" in names, "The row with 'Mairie2' is missing."
+
+    mock_s3.generate_presigned_url.assert_called_once_with(
+        "get_object",
+        Params={
+            "Bucket": settings.S3_EXPORT_BUCKET_NAME,
+            "Key": expected_filename,
+        },
+        ExpiresIn=86400,
+    )
+
+    mock_send_email.assert_called_once_with(
+        to_list="user@example.com",
+        template="export-results",
+        context={"file_url": "https://mock-s3-url.com/download.csv", "username": "User Name"},
+    )

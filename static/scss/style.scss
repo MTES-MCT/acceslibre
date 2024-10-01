@@ -39,6 +39,7 @@ $viewport-xl: 1200px;
   .fr-btn:hover {
     text-decoration: underline;
   }
+
   .fr-btn:not(.fr-btn--secondary):not(.fr-btn--tertiary):hover {
     color: white !important;
   }
@@ -67,6 +68,7 @@ iframe {
 a.btn {
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -417,6 +419,7 @@ select[name='language'] {
       color: #444;
       font-weight: 500;
     }
+
     margin-bottom: 2em;
   }
 
@@ -658,6 +661,14 @@ select[name='language'] {
 @media (min-width: 768px) {
   #erp-results-list {
     margin-right: 10px;
+  }
+}
+
+#export-results {
+  display: none;
+
+  @media screen and (min-width: $viewport-lg) {
+    display: block;
   }
 }
 

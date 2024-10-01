@@ -7,13 +7,14 @@ from celery import shared_task
 from django.conf import settings
 from django.http import QueryDict
 
+from core.mailer import BrevoMailer
 from erp.export.export import export_schema_to_buffer
 from erp.export.mappers import ExportMapper
 from erp.utils import build_queryset, cleaned_search_params_as_dict
 
 
 @shared_task()
-def generate_csv_file(query_params, user_email):
+def generate_csv_file(query_params, user_email, username):
     decoded_params = QueryDict(query_params)
 
     filters = cleaned_search_params_as_dict(decoded_params)
@@ -32,5 +33,10 @@ def generate_csv_file(query_params, user_email):
     s3 = boto3.client("s3", endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL)
     s3.put_object(Bucket=bucket_name, Key=file_name, Body=csv_buffer.getvalue(), ContentType="text/csv")
 
-    # FIXME send email
-    ...
+    file_url = s3.generate_presigned_url(
+        "get_object", Params={"Bucket": bucket_name, "Key": file_name}, ExpiresIn=86400
+    )
+    result = BrevoMailer().send_email(
+        to_list=user_email, template="export-results", context={"file_url": file_url, "username": username}
+    )
+    print(f"{user_email} {file_url} RESULT {result} ")
