@@ -1,22 +1,30 @@
 version: 2.1
 
+env_vars: &shared_env_vars
+  PIPENV_VENV_IN_PROJECT: true
+  DJANGO_SETTINGS_MODULE: core.settings_test
+  SECRET_KEY: secret-key
+  DATABASE_URL: postgres://root:password@localhost/circle_test
+  EMAIL_HOST: host
+  EMAIL_PORT: 587
+  EMAIL_HOST_USER: xxx
+  EMAIL_HOST_PASSWORD: xxx
+  SCALINGO_APP: access4all
+  BREVO_API_KEY: xxx
+  OUTSCRAPER_API_KEY: xxx
+  SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
+  S3_EXPORT_BUCKET_NAME: xxx
+  S3_EXPORT_BUCKET_ENDPOINT_URL: xxx
+  AWS_ACCESS_KEY_ID: xxx
+  AWS_SECRET_ACCESS_KEY: xxx
+  AWS_DEFAULT_REGION: xxx
+
 executors:
   for_tests:
     docker:
       - image: cimg/python:3.11.2-node
         environment:
-          PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgres://root:password@localhost/circle_test
-          DJANGO_SETTINGS_MODULE: core.settings_test
-          SECRET_KEY: secret-key
-          EMAIL_HOST: host
-          EMAIL_PORT: 587
-          EMAIL_HOST_USER: xxx
-          EMAIL_HOST_PASSWORD: xxx
-          SCALINGO_APP: access4all
-          BREVO_API_KEY: xxx
-          OUTSCRAPER_API_KEY: xxx
-          SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
+          <<: *shared_env_vars
       - image: cimg/postgres:15.8-postgis
         environment:
           POSTGRES_USER: root
@@ -28,11 +36,7 @@ executors:
     docker:
       - image: cimg/python:3.11.2-node
         environment:
-          PIPENV_VENV_IN_PROJECT: true
-          DJANGO_SETTINGS_MODULE: core.settings_test
-          SECRET_KEY: secret-key
-          DATABASE_URL: postgres://root:password@localhost/circle_test
-          OUTSCRAPER_API_KEY: xxx
+          <<: *shared_env_vars
 jobs:
   checks:
     executor:
