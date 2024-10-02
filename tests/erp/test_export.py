@@ -3,7 +3,7 @@ import hashlib
 import io
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from unittest.mock import ANY, MagicMock, patch
@@ -13,6 +13,7 @@ import requests
 from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import management
+from django.core.management import call_command
 
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
@@ -255,3 +256,38 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
         template="export-results",
         context={"file_url": "https://mock-s3-url.com/download.csv", "username": "User Name"},
     )
+
+
+CURRENT_TIME = datetime(2024, 10, 1, tzinfo=timezone.utc)
+
+
+@patch("boto3.client")
+@patch("datetime.datetime")
+def test_clean_s3_export_bucket(mock_datetime, mock_boto_client):
+    mock_datetime.now.return_value = CURRENT_TIME
+    mock_datetime.side_effect = lambda *args, **kw: datetime(*args, **kw)
+
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": "file1.csv", "LastModified": CURRENT_TIME - timedelta(hours=26)},
+            {"Key": "file2.csv", "LastModified": CURRENT_TIME - timedelta(hours=27)},
+            {"Key": "file3.csv", "LastModified": CURRENT_TIME - timedelta(hours=24)},
+        ]
+    }
+
+    mock_s3.delete_objects.return_value = {"Deleted": [{"Key": "file1.csv"}, {"Key": "file2.csv"}]}
+
+    call_command("clean_S3_export_bucket")
+
+    mock_s3.list_objects_v2.assert_called_once_with(Bucket=settings.S3_EXPORT_BUCKET_NAME)
+
+    delete_call = mock_s3.delete_objects.call_args[1]
+    files_to_delete = delete_call["Delete"]["Objects"]
+
+    assert len(files_to_delete) == 2
+    assert {"Key": "file1.csv"} in files_to_delete
+    assert {"Key": "file2.csv"} in files_to_delete
+    assert {"Key": "file3.csv"} not in files_to_delete
