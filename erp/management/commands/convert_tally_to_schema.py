@@ -13,7 +13,7 @@ with_comment = False
 with_siret = False
 
 # 4 kinds of templates : basic (default), hosting, culture, ath
-hosting = False
+hosting = True
 culture = False
 ath = False
 

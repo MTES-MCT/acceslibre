@@ -332,6 +332,11 @@ AUTHENTICATION_BACKENDS = (
     "compte.auth.EmailOrUsernameModelBackend",
 )
 
+# CSV exports / S3 bucket conf
+S3_EXPORT_BUCKET_NAME = env("S3_EXPORT_BUCKET_NAME")
+S3_EXPORT_BUCKET_ENDPOINT_URL = env("S3_EXPORT_BUCKET_ENDPOINT_URL")
+
+
 # graphviz
 GRAPH_MODELS = {
     "all_applications": True,

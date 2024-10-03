@@ -102,6 +102,7 @@ class Command(BaseCommand):
         schedule.every(30).days.at("04:15").do(call_command, "data_grandlyon_acquisition")
         schedule.every().day.at("23:50").do(call_command, "sync_brevo")
         schedule.every(30).days.at("01:10").do(call_command, "update_municipalities", write=True)
+        schedule.every().day.at("02:30").do(call_command, "clean_S3_export_bucket")
 
         if not settings.STAGING:
             schedule.every().day.at("00:40").do(call_command, "export_to_datagouv")

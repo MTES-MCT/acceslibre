@@ -44,6 +44,7 @@ BREVO_TEMPLATE_IDS = {
     "changed_erp_notification": 28,
     "email_change_activation": 22,
     "password_reset": 29,
+    "export-results": 33,
 }
 BREVO_CONTACT_LIST_IDS = {
     "tally-respondents": 11,

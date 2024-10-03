@@ -28,19 +28,6 @@
     <div class="spinner" id="loading-spinner">
         <div class="loader"></div>
     </div>
-    {% if what and "centres de vaccination" in what %}
-        <div class="alert alert-warning fr-mt-3v">
-            {% blocktranslate %}
-            Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
-            {% endblocktranslate %}
-            <br class="d-none d-md-block">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
-            {% translate "Si vous gérez un centre de vaccination," %}
-            <a href="https://fabrique-numerique.gitbook.io/acceslibre/guides/centre-vaccination"
-               target="_blank"
-               rel="noopener noreferrer">{% translate "suivez notre guide de contribution" %}</a>.
-        </div>
-    {% endif %}
     <section class="fr-pt-2v" id="results">
         <div id="no-results"
              class="{% if paginator.count != 0 %}hidden{% endif %}">
@@ -60,7 +47,7 @@
             </div>
         </div>
         <div class="row fr-mt-2v">
-            <div class="fr-col-sm-6">
+            <div class="fr-col-sm-5">
                 <h2 class="h4 m-0 fr-mb-3v">
                     <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
                     {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
@@ -75,45 +62,57 @@
                     {% endif %}
                 </h2>
             </div>
+            {% flag "EXPORT_RESULTS" %}
+            {% if request.user.is_authenticated %}
+                <div id="export-results" class="fr-col-sm-7">
+                    <form method="get" action="{% url 'export' %}">
+                        {% for key, value in request.GET.items %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
+                        <button type="submit" class="fr-link fr-link--download">
+                            {% translate "Exporter les résultats" %} <span class="fr-link__detail">CSV</span>
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        {% endflag %}
+    </div>
+    <div class="fr-tabs row">
+        <ul class="fr-tabs__list"
+            role="tablist"
+            aria-label="Résultats de recherche">
+            <li role="presentation">
+                <button id="tabpanel-404"
+                        class="fr-tabs__tab fr-tabs__tab--icon-left"
+                        tabindex="0"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
+            </li>
+            <li role="presentation">
+                <button id="tabpanel-405"
+                        class="fr-tabs__tab fr-tabs__tab--icon-left"
+                        tabindex="-1"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
+            </li>
+        </ul>
+        <div id="tabpanel-404-panel"
+             class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-col-md-5 fr-p-0"
+             role="tabpanel"
+             aria-labelledby="tabpanel-404"
+             tabindex="0">
+            <div class="list-group list-group-flush" id="erp-results-list"></div>
+            {% if not dynamic_map %}
+                <div class="fr-pt-2v fr-pr-2v">
+                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+                </div>
+            {% endif %}
         </div>
-        <div class="fr-tabs row">
-            <ul class="fr-tabs__list"
-                role="tablist"
-                aria-label="Résultats de recherche">
-                <li role="presentation">
-                    <button id="tabpanel-404"
-                            class="fr-tabs__tab fr-tabs__tab--icon-left"
-                            tabindex="0"
-                            role="tab"
-                            aria-selected="true"
-                            aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
-                </li>
-                <li role="presentation">
-                    <button id="tabpanel-405"
-                            class="fr-tabs__tab fr-tabs__tab--icon-left"
-                            tabindex="-1"
-                            role="tab"
-                            aria-selected="false"
-                            aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
-                </li>
-            </ul>
-            <div id="tabpanel-404-panel"
-                 class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-col-md-5 fr-p-0"
-                 role="tabpanel"
-                 aria-labelledby="tabpanel-404"
-                 tabindex="0">
-                <div class="list-group list-group-flush" id="erp-results-list"></div>
-                {% if not dynamic_map %}
-                    <div class="fr-pt-2v fr-pr-2v">
-                        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                    </div>
-                {% endif %}
-            </div>
-            <div id="tabpanel-405-panel"
-                 class="fr-tabs__panel fr-col fr-col-12 fr-col-md-7 a4a-search-map-area"
-                 role="tabpanel"
-                 aria-labelledby="tabpanel-405"
-                 tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
-        </div>
-    </section>
+        <div id="tabpanel-405-panel"
+             class="fr-tabs__panel fr-col fr-col-12 fr-col-md-7 a4a-search-map-area"
+             role="tabpanel"
+             aria-labelledby="tabpanel-405"
+             tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
+    </div>
+</section>
 {% endblock editorial_content %}

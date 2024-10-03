@@ -221,6 +221,26 @@ class EtalabMapper(BaseExportMapper):
 
 
 @dataclass(frozen=True)
+class ExportMapper(EtalabMapper):
+    username: str
+    user_type: str
+
+    @staticmethod
+    def headers():
+        return [x.name for x in fields(ExportMapper)]
+
+    @staticmethod
+    def map_from(erp):
+        parent_mapper = EtalabMapper.map_from(erp)
+
+        kwargs = {field.name: getattr(parent_mapper, field.name) for field in fields(EtalabMapper)}
+        kwargs["username"] = erp.user.username if erp.user else ""
+        kwargs["user_type"] = erp.get_user_type_display()
+
+        return ExportMapper(**kwargs)
+
+
+@dataclass(frozen=True)
 class PartooMapper(BaseExportMapper):
     id: str
     name: str

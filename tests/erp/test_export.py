@@ -1,18 +1,24 @@
 import csv
+import hashlib
+import io
 import json
 import os
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from unittest.mock import ANY
+from unittest.mock import ANY, MagicMock, patch
 
 import pytest
 import requests
+from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import management
+from django.core.management import call_command
 
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
+from erp.export.tasks import generate_csv_file
 from erp.models import Erp
 from tests.factories import ActiviteFactory, ErpFactory
 
@@ -198,3 +204,90 @@ def test_generate_schema(db, activite):
             assert json.loads(test_schema.read()) == json.loads(actual_schema.read().strip())
     finally:
         os.remove(test_schema.name)
+
+
+@pytest.mark.django_db
+@patch("core.mailer.BrevoMailer.send_email")
+@patch("boto3.client")
+def test_generate_csv_export(mock_boto_client, mock_send_email):
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+    mock_s3.generate_presigned_url.return_value = "https://mock-s3-url.com/download.csv"
+
+    ErpFactory(nom="Mairie1", with_accessibilite=True)
+    ErpFactory(nom="Mairie2", with_accessibilite=True)
+    ErpFactory(nom="Boulangerie", with_accessibilite=True)
+
+    generate_csv_file(query_params="what=Mairie", user_email="user@example.com", username="User Name")
+
+    put_object_call = mock_s3.put_object.call_args
+    filename = put_object_call[1]["Key"]
+    now = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    email_hash = hashlib.sha256("user@example.com".encode()).hexdigest()[:10]
+    expected_filename = f"export_{now}_{email_hash}.csv"
+    assert filename == expected_filename
+
+    csv_content = put_object_call[1]["Body"]
+    csv_reader = csv.reader(io.StringIO(csv_content))
+    header = next(csv_reader)
+
+    assert "name" in header, "The 'name' header is missing."
+    assert "user_type" in header
+    assert "username" in header
+
+    rows = list(csv_reader)
+    assert len(rows) == 2, "There should be at 2 rows of data."
+
+    names = [row[header.index("name")] for row in rows]
+    assert "Mairie1" in names, "The row with 'Mairie1' is missing."
+    assert "Mairie2" in names, "The row with 'Mairie2' is missing."
+
+    mock_s3.generate_presigned_url.assert_called_once_with(
+        "get_object",
+        Params={
+            "Bucket": settings.S3_EXPORT_BUCKET_NAME,
+            "Key": expected_filename,
+        },
+        ExpiresIn=86400,
+    )
+
+    mock_send_email.assert_called_once_with(
+        to_list="user@example.com",
+        template="export-results",
+        context={"file_url": "https://mock-s3-url.com/download.csv", "username": "User Name"},
+    )
+
+
+CURRENT_TIME = datetime(2024, 10, 1, tzinfo=timezone.utc)
+
+
+@patch("boto3.client")
+@patch("datetime.datetime")
+def test_clean_s3_export_bucket(mock_datetime, mock_boto_client):
+    mock_datetime.now.return_value = CURRENT_TIME
+    mock_datetime.side_effect = lambda *args, **kw: datetime(*args, **kw)
+
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": "file1.csv", "LastModified": CURRENT_TIME - timedelta(hours=26)},
+            {"Key": "file2.csv", "LastModified": CURRENT_TIME - timedelta(hours=27)},
+            {"Key": "file3.csv", "LastModified": CURRENT_TIME - timedelta(hours=24)},
+        ]
+    }
+
+    mock_s3.delete_objects.return_value = {"Deleted": [{"Key": "file1.csv"}, {"Key": "file2.csv"}]}
+
+    call_command("clean_S3_export_bucket")
+
+    mock_s3.list_objects_v2.assert_called_once_with(Bucket=settings.S3_EXPORT_BUCKET_NAME)
+
+    delete_call = mock_s3.delete_objects.call_args[1]
+    files_to_delete = delete_call["Delete"]["Objects"]
+
+    assert len(files_to_delete) == 2
+    assert {"Key": "file1.csv"} in files_to_delete
+    assert {"Key": "file2.csv"} in files_to_delete
+    assert {"Key": "file3.csv"} not in files_to_delete
