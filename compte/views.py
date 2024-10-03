@@ -15,10 +15,11 @@ from django_registration.backends.activation.views import ActivationView, Regist
 from compte import forms, service
 from compte.forms import CustomPasswordResetForm
 from compte.models import UserPreferences
-from stats.models import ChallengePlayer
+from compte.tasks import sync_user_attributes
 from core.mailer import BrevoMailer
 from erp import versioning
 from erp.models import Erp
+from stats.models import ChallengePlayer
 from subscription.models import ErpSubscription
 
 logger = logging.getLogger(__name__)
@@ -324,6 +325,7 @@ def mes_preferences(request):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
+            sync_user_attributes.delay(request.user.pk)
             return redirect("mes_preferences")
     else:
         form = forms.PreferencesForm(instance=preferences)
