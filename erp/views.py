@@ -14,6 +14,7 @@ from django.db.models import Q
 from django.forms import modelform_factory
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
@@ -260,9 +261,11 @@ def export(request):
         messages.error(
             request,
             translate(
-                "Nous ne pouvons exporter la liste. L’export est limité à 40 000 établissements maximum. "
-                "Un export complet de nos données est téléchargeable "
-                '<a href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">ici</a>.'
+                mark_safe(
+                    "Nous ne pouvons exporter la liste. L’export est limité à 40 000 établissements maximum. "
+                    "Un export complet de nos données est téléchargeable "
+                    '<a href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">ici</a>.'
+                )
             ),
         )
 
