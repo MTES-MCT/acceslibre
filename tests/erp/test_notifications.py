@@ -73,7 +73,6 @@ def test_get_notification_before7days(unpublished_erp):
 
 @pytest.mark.django_db
 def test_get_notification_after7days(published_erp, unpublished_erp):
-
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS + 3)
     notifs = Command(now=futur).get_notifications()
 
@@ -94,7 +93,6 @@ def test_get_notification_after7days(published_erp, unpublished_erp):
 @pytest.mark.django_db
 @override_settings(REAL_USER_NOTIFICATION=True)
 def test_notification_unpublished_erp_command(mocker, unpublished_erp):
-
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
 
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
@@ -127,7 +125,9 @@ def test_notifications_default_settings():
 
 
 @pytest.mark.django_db
-def test_notifications_edit_settings(client):
+def test_notifications_edit_settings(mocker, client):
+    brevo_mock = mocker.patch("core.mailer.BrevoMailer.sync_user", return_value=True)
+
     user = UserFactory()
     client.force_login(user)
     response: Response = client.post(
@@ -139,3 +139,5 @@ def test_notifications_edit_settings(client):
     user.refresh_from_db()
     assert response.status_code == 200
     assert user.preferences.get().notify_on_unpublished_erps is False
+
+    assert brevo_mock.called
