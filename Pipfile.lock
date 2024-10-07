@@ -286,11 +286,12 @@
         },
         "crispy-bootstrap5": {
             "hashes": [
-                "sha256:3867e320920a6ef156e94f9e0f06a80344c453e1b3bd96cd9dc0522ae9e9afb8",
-                "sha256:7d1fa40c6faf472e30e85c72551a3d2c9eedbf0abfff920683315e4e6f670f2b"
+                "sha256:55b442fe675dd95ad280123c7fe464f454186e90b8e5642e751f436c87627c44",
+                "sha256:59e91dac5e45a8c954af3fbcaa6804cd5aef4402f027af2f99a352b096c4016f"
             ],
             "index": "pypi",
-            "version": "==2024.2"
+            "markers": "python_version >= '3.8'",
+            "version": "==2024.10"
         },
         "cssselect": {
             "hashes": [
@@ -337,6 +338,7 @@
                 "sha256:6f1616c2786c408ce86ab7e10f792b8f15742f7b7b7460243929cb371e7f1dad"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.2.16"
         },
         "django-admin-autocomplete-filter": {
@@ -390,6 +392,7 @@
                 "sha256:efc4c31e5202bbec6af70d383a35e12fc80ea769d464fb0e7fe21768bb138a20"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.3"
         },
         "django-csp": {
