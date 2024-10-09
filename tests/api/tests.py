@@ -495,13 +495,15 @@ class TestErpApi:
                 "transport_station_presence": False,
                 "transport_information": "",
                 "commentaire": "New comment",
-            }
+                "registre_url": "https://domain.tld/path_to_file.pdf",
+            },
         }
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should change access info"
         assert erp.accessibilite.commentaire == "New comment"
+        assert erp.accessibilite.registre_url == "https://domain.tld/path_to_file.pdf"
 
         payload = {"accessibilite": {"commentaire": "Updated comment"}}
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
