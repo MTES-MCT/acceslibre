@@ -252,6 +252,19 @@ function updateNumberOfResults(data) {
   numberContainer.innerHTML = data.count + ' ' + translation
 }
 
+function _updateExportForm(urlParams) {
+  const form = document.getElementById('export-results').querySelector('form')
+
+  form.querySelectorAll('input[type="hidden"]').forEach((input) => input.remove())
+  urlParams.forEach((value, key) => {
+    let hiddenInput = document.createElement('input')
+    hiddenInput.type = 'hidden'
+    hiddenInput.name = key
+    hiddenInput.value = value
+    form.appendChild(hiddenInput)
+  })
+}
+
 function _getDataPromiseFromAPI(map, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
@@ -266,6 +279,8 @@ function _getDataPromiseFromAPI(map, page) {
   equipments.forEach(function (eq) {
     urlParams.append('equipments', eq.value)
   })
+
+  _updateExportForm(urlParams)
 
   return fetch(_getRefreshApiUrl() + '?' + urlParams.toString(), {
     timeout: 10000,
@@ -289,11 +304,11 @@ function _getApiKey() {
 }
 
 function _getSortType() {
-  return _getRoot().dataset.sortType
+  return _getRoot().dataset.sortType || ''
 }
 
 function _getWhere() {
-  return _getRoot().dataset.where
+  return _getRoot().dataset.where || ''
 }
 
 function refreshData(map, page = 1) {

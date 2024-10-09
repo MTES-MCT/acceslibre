@@ -1,5 +1,6 @@
 import re
 
+from django.contrib.gis.geos import Polygon
 from django.utils.translation import gettext as translate
 
 from erp.models import Erp
@@ -17,13 +18,19 @@ def cleaned_search_params_as_dict(get_parameters):
     return cleaned_dict
 
 
-def build_queryset(filters, request_get):
+def build_queryset(filters, request_get, with_zone=False):
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
     if "where" in filters:
         filters["city"], filters["code_departement"] = clean_address(filters.get("where"))
+
     queryset = filter_erp_by_location(base_queryset, **filters)
     queryset = filter_erps_by_equipments(queryset, request_get.getlist("equipments", []))
+    if with_zone and "zone" in request_get:
+        min_lng, min_lat, max_lng, max_lat = map(float, request_get["zone"].split(","))
+        bbox_polygon = Polygon.from_bbox((min_lng, min_lat, max_lng, max_lat))
+        queryset = queryset.filter(geom__within=bbox_polygon)
+
     return queryset
 
 

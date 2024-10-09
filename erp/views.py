@@ -256,12 +256,12 @@ def search(request):
 def export(request):
     query_params = request.GET.urlencode()
     filters = cleaned_search_params_as_dict(request.GET)
-    queryset = build_queryset(filters, request.GET)
+    queryset = build_queryset(filters, request.GET, with_zone=True)
     if queryset.count() > 40000:
         messages.error(
             request,
-            translate(
-                mark_safe(
+            mark_safe(
+                translate(
                     "Nous ne pouvons exporter la liste. L’export est limité à 40 000 établissements maximum. "
                     "Un export complet de nos données est téléchargeable "
                     '<a href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">ici</a>.'
