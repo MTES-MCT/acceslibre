@@ -286,7 +286,8 @@ def search_in_municipality(request, commune_slug):
     filters = cleaned_search_params_as_dict(request.GET)
     base_queryset = Erp.objects.published().with_activity()
     base_queryset = base_queryset.search_what(filters.get("what"))
-    queryset = base_queryset.filter(commune=municipality.nom, code_postal__startswith=municipality.departement)
+    postal_code_prefix = municipality.departement.replace("2A", "20").replace("2B", "20")
+    queryset = base_queryset.filter(commune=municipality.nom, code_postal__startswith=postal_code_prefix)
     paginator = Paginator(queryset, 10)
     pager = paginator.get_page(request.GET.get("page") or 1)
 
