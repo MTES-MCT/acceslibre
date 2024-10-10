@@ -18,7 +18,9 @@ def generate_csv_file(query_params, user_email, username):
     decoded_params = QueryDict(query_params)
 
     filters = cleaned_search_params_as_dict(decoded_params)
-    queryset = build_queryset(filters, decoded_params).select_related("user", "accessibilite", "activite")
+    queryset = build_queryset(filters, decoded_params, with_zone=True).select_related(
+        "user", "accessibilite", "activite"
+    )
 
     csv_buffer = io.StringIO()
 
@@ -36,7 +38,6 @@ def generate_csv_file(query_params, user_email, username):
     file_url = s3.generate_presigned_url(
         "get_object", Params={"Bucket": bucket_name, "Key": file_name}, ExpiresIn=86400
     )
-    result = BrevoMailer().send_email(
+    BrevoMailer().send_email(
         to_list=user_email, template="export-results", context={"file_url": file_url, "username": username}
     )
-    print(f"{user_email} {file_url} RESULT {result} ")
