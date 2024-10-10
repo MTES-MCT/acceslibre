@@ -7,9 +7,13 @@ from datetime import datetime, timedelta, timezone
 import boto3
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from sentry_sdk import monitor
 
 
 class Command(BaseCommand):
+    help = "Clean the S3 bucket storing search results exports."
+
+    @monitor(monitor_slug="clean_S3_export_bucket")
     def handle(self, *args, **kwargs):
         s3 = boto3.client("s3", endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL)
         bucket_name = settings.S3_EXPORT_BUCKET_NAME
