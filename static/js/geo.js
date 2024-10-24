@@ -253,7 +253,12 @@ function updateNumberOfResults(data) {
 }
 
 function _updateExportForm(urlParams) {
-  const form = document.getElementById('export-results').querySelector('form')
+  let form = document.getElementById('export-results')
+  if (!form) {
+    return
+  }
+
+  form = form.querySelector('form')
 
   form.querySelectorAll('input[type="hidden"]').forEach((input) => input.remove())
   urlParams.forEach((value, key) => {
