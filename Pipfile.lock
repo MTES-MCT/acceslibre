@@ -2028,11 +2028,12 @@
         },
         "sentry-sdk": {
             "hashes": [
-                "sha256:1e0e2eaf6dad918c7d1e0edac868a7bf20017b177f242cefe2a6bcd47955961d",
-                "sha256:b8bc3dc51d06590df1291b7519b85c75e2ced4f28d9ea655b6d54033503b5bf4"
+                "sha256:625955884b862cc58748920f9e21efdfb8e0d4f98cca4ab0d3918576d5b606ad",
+                "sha256:dd0a05352b78ffeacced73a94e86f38b32e2eae15fff5f30ca5abb568a72eacf"
             ],
             "index": "pypi",
-            "version": "==2.14.0"
+            "markers": "python_version >= '3.6'",
+            "version": "==2.17.0"
         },
         "shellingham": {
             "hashes": [
