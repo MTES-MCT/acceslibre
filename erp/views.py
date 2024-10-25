@@ -14,6 +14,7 @@ from django.db.models import Q
 from django.forms import modelform_factory
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
@@ -278,7 +279,10 @@ def export(request):
         )
 
     search_url = f"{reverse('search')}?{query_params}"
-    return redirect(search_url)
+    if url_has_allowed_host_and_scheme(search_url, allowed_hosts=settings.ALLOWED_HOSTS):
+        return redirect(search_url)
+    else:
+        return redirect("/")
 
 
 def search_in_municipality(request, commune_slug):
@@ -893,8 +897,10 @@ def contrib_commentaire(request, erp_slug):
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     referer = reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})
-    if (request.META.get("HTTP_REFERER") or "").startswith(settings.SITE_ROOT_URL):
-        referer = request.META.get("HTTP_REFERER")
+
+    referer = "/"
+    if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
+        referer = request.META.get("HTTP_REFERER") or "/"
 
     if not ensure_min_nb_answers(request, erp):
         return redirect(referer)

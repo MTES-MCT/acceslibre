@@ -10,6 +10,7 @@ ADMIN_TWO_FACTOR_NAME = f"{SITE_NAME}_localhost"
 ALLOWED_HOSTS = [
     SITE_HOST,
     "127.0.0.1",
+    "127.0.0.1:8000",
     "localhost",
 ]
 

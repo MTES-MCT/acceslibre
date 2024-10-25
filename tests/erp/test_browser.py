@@ -597,6 +597,7 @@ def test_ajout_erp_a11y_vide(client):
             "published": "on",
         },
         follow=True,
+        HTTP_REFERER=reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
     )
 
     assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
@@ -631,6 +632,7 @@ def test_ajout_erp_a11y_low_completion(client):
             "published": "on",
         },
         follow=True,
+        HTTP_REFERER=reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
     )
 
     assert_redirect(response, reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}))
