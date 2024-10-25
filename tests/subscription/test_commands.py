@@ -7,6 +7,7 @@ from reversion.models import Version
 from erp.models import Erp
 from subscription.models import ErpSubscription
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from unittest.mock import ANY
 
 
 @pytest.fixture
@@ -141,6 +142,7 @@ def test_notification_erp(mocker, mock_geocode, client):
                     "changes_by_others": [
                         {
                             "user": "sophie",
+                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {
@@ -153,6 +155,7 @@ def test_notification_erp(mocker, mock_geocode, client):
                         },
                         {
                             "user": "sophie",
+                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
@@ -211,6 +214,7 @@ def test_notification_accessibilite(client, mocker):
                     "changes_by_others": [
                         {
                             "user": "sophie",
+                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {
