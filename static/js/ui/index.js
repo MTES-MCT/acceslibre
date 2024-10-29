@@ -2,6 +2,7 @@ import AsteriskField from './AsteriskField'
 import ConditionalForm from './ConditionalForm.js'
 import GeoLink from './GeoLink.js'
 import GetGeolocBtn from './GetGeolocBtn'
+import ExportResultsBtn from './ExportResultsBtn.js'
 import LocalisationMap from './LocalisationMap'
 import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
@@ -19,6 +20,7 @@ export default {
   ConditionalForm,
   GeoLink,
   GetGeolocBtn,
+  ExportResultsBtn,
   LocalisationMap,
   MapExpander,
   SearchWhere,
@@ -27,7 +29,7 @@ export default {
   listenToLabelEvents,
   ProgressBar,
   PickAnswerAndSubmit,
-  filterData: filterData,
-  StoreFilters: StoreFilters,
-  LoadFilters: LoadFilters,
+  filterData,
+  StoreFilters,
+  LoadFilters,
 }

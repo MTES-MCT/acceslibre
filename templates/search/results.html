@@ -67,7 +67,9 @@
                 <div id="export-results" class="fr-col-sm-7">
                     <form method="get" action="{% url 'export' %}">
                         {% for key, value in request.GET.items %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
-                        <button type="submit" class="fr-link fr-link--download">
+                        <button type="submit"
+                                class="fr-link fr-link--download"
+                                id="export-results-btn">
                             {% translate "Exporter les résultats" %} <span class="fr-link__detail">CSV</span>
                         </button>
                     </form>

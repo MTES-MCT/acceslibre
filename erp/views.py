@@ -12,6 +12,7 @@ from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.forms import modelform_factory
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
@@ -259,30 +260,20 @@ def export(request):
     filters = cleaned_search_params_as_dict(request.GET)
     queryset = build_queryset(filters, request.GET, with_zone=True)
     if queryset.count() > 40000:
-        messages.error(
-            request,
-            mark_safe(
-                translate(
-                    "Nous ne pouvons exporter la liste. L’export est limité à 40 000 établissements maximum. "
-                    "Un export complet de nos données est téléchargeable "
-                    '<a href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">ici</a>.'
-                )
-            ),
+        message = mark_safe(
+            translate(
+                "Nous ne pouvons exporter la liste. L’export est limité à 40 000 établissements maximum. "
+                "Un export complet de nos données est téléchargeable "
+                '<a href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">ici</a>.'
+            )
         )
 
-    else:
-        generate_csv_file.delay(query_params, request.user.email, request.user.username)
+        return JsonResponse({"success": False, "message": message}, status=400)
 
-        messages.success(
-            request,
-            translate("L'export a été lancé avec succès. Vous recevrez un email avec un lien vers le fichier CSV."),
-        )
+    generate_csv_file.delay(query_params, request.user.email, request.user.username)
 
-    search_url = f"{reverse('search')}?{query_params}"
-    if url_has_allowed_host_and_scheme(search_url, allowed_hosts=settings.ALLOWED_HOSTS):
-        return redirect(search_url)
-    else:
-        return redirect("/")
+    message = translate("L'export a été lancé avec succès. Vous recevrez un email avec un lien vers le fichier CSV.")
+    return JsonResponse({"success": True, "message": message}, status=200)
 
 
 def search_in_municipality(request, commune_slug):
