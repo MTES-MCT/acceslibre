@@ -10,6 +10,6 @@ def manage_challenge_player_unsubscription(challenge_player_data):
         return
 
     for key, value in challenge.classement.items():
-        challenge.classement[key] = [item for item in value if item["username"] != challenge_player_data["username"]]
+        challenge.classement[key] = [item for item in value if item["user_id"] != challenge_player_data["user_id"]]
 
     challenge.save()
