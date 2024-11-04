@@ -3,7 +3,7 @@ from django.contrib.gis.geos import Point
 
 from erp import forms
 from erp.imports.utils import get_address_query_to_geocode
-from erp.models import Erp
+from erp.models import Erp, ExternalSource
 from tests.factories import ActiviteFactory, CommuneFactory, UserFactory
 
 POINT = Point((0, 0))
@@ -206,7 +206,7 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input():
     CommuneFactory(nom="Jacou")
     form = forms.PublicErpAdminInfosForm(
         {
-            "source": Erp.SOURCE_PUBLIC,
+            "source": ExternalSource.SOURCE_PUBLIC,
             "source_id": "",
             "geom": None,
             "nom": "xxx jacou",

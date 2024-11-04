@@ -474,6 +474,9 @@ class TestErpApi:
         assert erp.published is True
         assert erp.activite.slug == "mairie"
         assert erp.accessibilite.transport_station_presence is True
+        assert erp.sources.count() == 1
+        assert erp.sources.first().source == "acceslibre"
+        assert erp.sources.first().source_id == "string"
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()

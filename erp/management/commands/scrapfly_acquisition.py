@@ -14,7 +14,7 @@ from rest_framework.exceptions import ValidationError
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Commune, Erp
+from erp.models import Commune, Erp, ExternalSource
 from erp.provider import geocoder
 
 # NOTE: mainly based on https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/bookingcom.py
@@ -183,7 +183,7 @@ class Command(BaseCommand):
         erp = {}
 
         erp["activite"] = self.activity_name
-        erp["source"] = Erp.SOURCE_SCRAPFLY
+        erp["source"] = ExternalSource.SOURCE_SCRAPFLY
         erp["source_id"] = result["id"]
         erp["nom"] = result["title"]
         erp["adresse"] = result["address"]

@@ -333,19 +333,7 @@ class Commune(models.Model):
         )
 
 
-@reversion.register(
-    ignore_duplicates=True,
-    exclude=[
-        "id",
-        "uuid",
-        "source",
-        "source_id",
-        "search_vector",
-    ],
-)
-class Erp(models.Model):
-    HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
-
+class ExternalSource(models.Model):
     SOURCE_ACCESLIBRE = "acceslibre"
     SOURCE_ACCEO = "acceo"
     SOURCE_ADMIN = "admin"
@@ -398,6 +386,39 @@ class Erp(models.Model):
         (SOURCE_TALLY, translate_lazy("Tally")),
         (SOURCE_LAPOSTE, translate_lazy("La Poste")),
     )
+
+    erp = models.ForeignKey(
+        "Erp", verbose_name=translate_lazy("Établissement"), on_delete=models.CASCADE, related_name="sources"
+    )
+    source = models.CharField(
+        max_length=100,
+        null=True,
+        verbose_name=translate_lazy("Source"),
+        default=SOURCE_PUBLIC,
+        choices=SOURCE_CHOICES,
+        help_text=translate_lazy("Nom de la source de données dont est issu cet ERP"),
+    )
+    source_id = models.CharField(max_length=64, help_text=translate_lazy("Identifiant externe de cet ERP"))
+
+    unique_together = {("source", "erp")}
+
+    def __str__(self):
+        return translate(f"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self.source_id}")
+
+
+@reversion.register(
+    ignore_duplicates=True,
+    exclude=[
+        "id",
+        "uuid",
+        "source",
+        "source_id",
+        "search_vector",
+    ],
+)
+class Erp(models.Model):
+    HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
+
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
     USER_ROLE_PUBLIC = "public"
@@ -437,12 +458,13 @@ class Erp(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
+    # FIXME to be deprecated, will be dropped once all data will be stored on ExternalSource and all usages removed.
     source = models.CharField(
         max_length=100,
         null=True,
         verbose_name=translate_lazy("Source"),
-        default=SOURCE_PUBLIC,
-        choices=SOURCE_CHOICES,
+        default=ExternalSource.SOURCE_PUBLIC,
+        choices=ExternalSource.SOURCE_CHOICES,
         help_text=translate_lazy("Nom de la source de données dont est issu cet ERP"),
     )
     source_id = models.CharField(
@@ -649,6 +671,7 @@ class Erp(models.Model):
     __original_activite_id = None
     __original_user_id = None
     __original_user_type = None
+    __original_source_id = None
     __confirmation_message = "Created via confirmation button"
 
     def __str__(self):
@@ -948,9 +971,9 @@ class Erp(models.Model):
     @property
     def is_human_source(self):
         return bool(
-            self.source == self.SOURCE_PUBLIC
+            self.source == ExternalSource.SOURCE_PUBLIC
             or self.user
-            or (self.import_email and not self.source == self.SOURCE_SERVICE_PUBLIC)
+            or (self.import_email and not self.source == ExternalSource.SOURCE_SERVICE_PUBLIC)
         )
 
     @property

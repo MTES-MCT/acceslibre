@@ -10,7 +10,7 @@ from rest_framework.exceptions import ValidationError
 from erp.exceptions import PermanentlyClosedException
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Activite, Erp
+from erp.models import Activite, Erp, ExternalSource
 from erp.tasks import compute_access_completion_rate
 
 VALEURS_VIDES = ["-", "https://", "http://"]
@@ -62,7 +62,7 @@ class Command(BaseCommand):
         entry["commune"] = entry["ville"]
         entry["code_postal"] = BaseMapper.handle_5digits_code(entry["code_postal"])
         entry["site_internet"] = clean_website(entry["site_internet"])
-        entry["source"] = Erp.SOURCE_TH
+        entry["source"] = ExternalSource.SOURCE_TH
         entry["accessibilite"] = {"entree_porte_presence": True}
 
         existing_erps = Erp.objects.find_duplicate(

@@ -3,9 +3,11 @@ from datetime import datetime
 import pytest
 
 from erp.imports.mapper.service_public import ServicePublicMapper
-from erp.models import Erp
-from tests.erp.imports.mapper.fixtures import service_public_valid  # noqa
+from erp.models import ExternalSource
+from tests.erp.imports.mapper.fixtures import service_public_valid
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
+
+_ = service_public_valid  # Hack to avoid removal of the "unused" import
 
 
 @pytest.fixture
@@ -27,7 +29,7 @@ def test_save_non_existing_erp(mapper, service_public_valid):  # noqa
 
     assert erp.published is True
     assert erp.user_id is None
-    assert erp.source == Erp.SOURCE_SERVICE_PUBLIC
+    assert erp.source == ExternalSource.SOURCE_SERVICE_PUBLIC
     assert erp.source_id == "mairie-77188-01"
     assert erp.activite.slug == "mairie"
     assert erp.numero == "3"
@@ -51,7 +53,7 @@ def test_update_existing_erp(mapper, service_public_valid):  # noqa
 
     ActiviteFactory(nom="Mairie", slug="mairie")
 
-    existing_erp = ErpFactory(source=Erp.SOURCE_SERVICE_PUBLIC, source_id="mairie-77188-01")
+    existing_erp = ErpFactory(source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id="mairie-77188-01")
     AccessibiliteFactory(erp=existing_erp, entree_plain_pied=True, entree_aide_humaine=False)
     erp, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
 

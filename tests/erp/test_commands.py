@@ -12,7 +12,7 @@ from django.utils import timezone
 from erp.management.commands.convert_tally_to_schema import Command as CommandConvertTallyToSchema
 from erp.management.commands.notify_daily_draft import Command as CommandNotifyDailyDraft
 from erp.management.commands.outscraper_clean_closed import IGNORED_ACTIVITIES
-from erp.models import Erp
+from erp.models import Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
@@ -176,7 +176,7 @@ def test_leave_untouched_multiple_duplicates():
     for _ in range(0, 3):
         duplicate = main_erp
         duplicate.pk = None
-        duplicate.source = Erp.SOURCE_PUBLIC
+        duplicate.source = ExternalSource.SOURCE_PUBLIC
         duplicate.uuid = uuid.uuid4()
         duplicate.nom = "Mairie - Lyon"
         duplicate.save()
@@ -271,7 +271,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
 
         erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
-        assert erp.source == Erp.SOURCE_OUTSCRAPER
+        assert erp.source == ExternalSource.SOURCE_OUTSCRAPER
         assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
         assert erp.site_internet == "https://www.troisiemeart.fr"
         assert erp.numero == "173"
@@ -506,7 +506,7 @@ class TestScrapflyAcquisition:
         call_command("scrapfly_acquisition", query="Lyon")
 
         erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
-        assert erp.source == Erp.SOURCE_SCRAPFLY
+        assert erp.source == ExternalSource.SOURCE_SCRAPFLY
         assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
         assert erp.site_internet is None
         assert erp.numero == "173"

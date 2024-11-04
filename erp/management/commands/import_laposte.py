@@ -7,7 +7,7 @@ from rest_framework.exceptions import ValidationError
 
 from erp import schema
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Activite, Commune, Erp
+from erp.models import Activite, Commune, Erp, ExternalSource
 
 mapping = {
     "ACH00001": {
@@ -140,7 +140,7 @@ class Command(BaseCommand):
         erp = {
             "nom": "La Poste",
             "activite": self.activite.nom,
-            "source": Erp.SOURCE_LAPOSTE,
+            "source": ExternalSource.SOURCE_LAPOSTE,
         }
 
         erp["voie"], erp["code_postal"], erp["commune"] = self._get_address_parts(line)
