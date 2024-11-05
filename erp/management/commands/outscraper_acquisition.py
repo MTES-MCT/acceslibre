@@ -5,7 +5,7 @@ from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Commune, Erp
+from erp.models import Commune, Erp, ExternalSource
 from erp.provider.departements import DEPARTEMENTS
 
 QUERIES = [
@@ -140,7 +140,7 @@ class Command(BaseCommand):
             erp[acceslibre_key] = result[outscraper_key]
 
         erp["activite"] = self.activity_name
-        erp["source"] = Erp.SOURCE_OUTSCRAPER
+        erp["source"] = ExternalSource.SOURCE_OUTSCRAPER
         erp["source_id"] = result["place_id"]
 
         if not existing_erp:

@@ -7,7 +7,7 @@ from django.contrib.gis.measure import Distance
 
 from erp.exceptions import PermanentlyClosedException
 from erp.imports.mapper.generic import GenericMapper
-from erp.models import Accessibilite, Erp
+from erp.models import Accessibilite, Erp, ExternalSource
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +38,9 @@ class GendarmerieMapper(GenericMapper):
         erp = self._process_preexisting(basic_fields["geom"])
 
         if not erp:
-            erps = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"])
+            erps = Erp.objects.find_by_source_id(
+                ExternalSource.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
+            )
             try:
                 self._ensure_not_permanently_closed(erps)
             except PermanentlyClosedException:
@@ -48,7 +50,7 @@ class GendarmerieMapper(GenericMapper):
         # new erp
         if not erp:
             erp = Erp(
-                source=Erp.SOURCE_GENDARMERIE,
+                source=ExternalSource.SOURCE_GENDARMERIE,
                 source_id=self.record["identifiant_public_unite"],
                 activite=self.activite,
             )
@@ -64,7 +66,7 @@ class GendarmerieMapper(GenericMapper):
 
     def _process_preexisting(self, location):
         erp = (
-            Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
+            Erp.objects.exclude(source=ExternalSource.SOURCE_GENDARMERIE)
             .filter(
                 activite=self.activite,
                 geom__distance_lte=(location, Distance(m=2000)),
@@ -74,7 +76,7 @@ class GendarmerieMapper(GenericMapper):
         if erp:
             # unpublish already imported duplicate
             old_erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_GENDARMERIE,
+                ExternalSource.SOURCE_GENDARMERIE,
                 self.record["identifiant_public_unite"],
                 published=True,
             ).first()
@@ -83,7 +85,7 @@ class GendarmerieMapper(GenericMapper):
                 old_erp.save()
                 logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
             # update preexisting erp with new import information
-            erp.source = Erp.SOURCE_GENDARMERIE
+            erp.source = ExternalSource.SOURCE_GENDARMERIE
             erp.source_id = self.record["identifiant_public_unite"]
         return erp
 

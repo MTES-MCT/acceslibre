@@ -6,7 +6,7 @@ from rest_framework.exceptions import ValidationError
 
 from erp.exceptions import PermanentlyClosedException
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Activite, Commune, Erp
+from erp.models import Activite, Commune, Erp, ExternalSource
 
 logger = logging.getLogger(__name__)
 
@@ -233,7 +233,9 @@ class ServicePublicMapper:
             if not old_code:
                 return
 
-            qs = Erp.objects.find_by_source_id([Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], old_code)
+            qs = Erp.objects.find_by_source_id(
+                [ExternalSource.SOURCE_SERVICE_PUBLIC, ExternalSource.SOURCE_GENDARMERIE], old_code
+            )
             _ensure_not_permanently_closed(qs)
             return qs.published().first()
 
@@ -241,7 +243,9 @@ class ServicePublicMapper:
             if not partner_id:
                 return
 
-            qs = Erp.objects.find_by_source_id([Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], partner_id)
+            qs = Erp.objects.find_by_source_id(
+                [ExternalSource.SOURCE_SERVICE_PUBLIC, ExternalSource.SOURCE_GENDARMERIE], partner_id
+            )
             _ensure_not_permanently_closed(qs)
             return qs.published().first()
 
@@ -281,7 +285,7 @@ class ServicePublicMapper:
 
         data["asp_id"] = self.record["id"]
         if not erp:
-            data["source"] = Erp.SOURCE_SERVICE_PUBLIC
+            data["source"] = ExternalSource.SOURCE_SERVICE_PUBLIC
             data["source_id"] = self.record["ancien_code_pivot"]
             data["user_type"] = Erp.USER_ROLE_SYSTEM
             data["published"] = False  # will be set to True later on, if we have access info
