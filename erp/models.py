@@ -398,7 +398,7 @@ class ExternalSource(models.Model):
         choices=SOURCE_CHOICES,
         help_text=translate_lazy("Nom de la source de données dont est issu cet ERP"),
     )
-    source_id = models.CharField(max_length=64, help_text=translate_lazy("Identifiant externe de cet ERP"))
+    source_id = models.CharField(max_length=255, help_text=translate_lazy("Identifiant externe de cet ERP"))
 
     unique_together = {("source", "erp")}
 
