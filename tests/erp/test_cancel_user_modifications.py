@@ -32,13 +32,13 @@ def test_will_revert_user_changes(django_app):
     assert erp.accessibilite.transport_information == ""
 
     # Dry run
-    call_command("cancel_user_modifications", bad_user.username, write=False)
+    call_command("cancel_user_modifications", bad_user.email, write=False)
     erp = Erp.objects.get()
     assert erp.accessibilite.transport_station_presence is False
     assert erp.accessibilite.transport_information == ""
 
     # Real run
-    call_command("cancel_user_modifications", bad_user.username, write=True)
+    call_command("cancel_user_modifications", bad_user.email, write=True)
     erp = Erp.objects.get()
     assert erp.accessibilite.transport_station_presence is True
     assert erp.accessibilite.transport_information == "Pas loin du métro république"
@@ -74,7 +74,7 @@ def test_will_not_revert_user_changes_when_edited(django_app):
     assert erp.accessibilite.transport_station_presence is True
     assert erp.accessibilite.transport_information == "Pas loin du métro république"
 
-    call_command("cancel_user_modifications", bad_user.username, write=True)
+    call_command("cancel_user_modifications", bad_user.email, write=True)
     erp = Erp.objects.get()
     assert erp.accessibilite.transport_station_presence is True
     assert erp.accessibilite.transport_information == "Pas loin du métro république"
@@ -102,7 +102,7 @@ def test_will_not_revert_user_changes_when_confirmed(django_app):
     erp.confirm_up_to_date(user=None)
     erp.refresh_from_db()
 
-    call_command("cancel_user_modifications", bad_user.username, write=True)
+    call_command("cancel_user_modifications", bad_user.email, write=True)
     erp = Erp.objects.get()
     assert erp.accessibilite.transport_station_presence is False
     assert erp.accessibilite.transport_information == ""

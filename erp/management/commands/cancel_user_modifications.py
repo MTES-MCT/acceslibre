@@ -8,7 +8,7 @@ from erp.models import Accessibilite, Erp
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        parser.add_argument("username")
+        parser.add_argument("email")
         parser.add_argument(
             "--write",
             action="store_true",
@@ -52,15 +52,15 @@ class Command(BaseCommand):
                 else:
                     print(f"Would have reverted {list_of_good_entries[0]['revision']}")
 
-        print(f"Will have reverted {to_revert} revisions")
+        print(f"Have reverted {to_revert} revisions")
 
     def handle(self, *args, **options):
         self.should_write = options["write"]
-        username = options["username"]
+        email = options["email"]
         try:
-            user = User.objects.get(username__icontains=username)
+            user = User.objects.get(email=email)
         except User.DoesNotExist:
-            self.stderr.write(f"User with username {username} not found")
+            self.stderr.write(f"User with email {email} not found")
             return
         self._revert_changes_on_erp(user)
 
