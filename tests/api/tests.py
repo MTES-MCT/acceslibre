@@ -8,7 +8,7 @@ from django.contrib.gis.geos import Point
 from django.urls import reverse
 from rest_framework.test import APIClient
 
-from erp.models import Accessibilite, Erp
+from erp.models import Accessibilite, Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
@@ -380,6 +380,7 @@ class TestErpApi:
             "distance": None,
             "source_id": None,
             "asp_id": None,
+            "sources": [],
         }
 
     def test_post_patch(self, api_client, activite):
@@ -460,9 +461,12 @@ class TestErpApi:
                 "commentaire": "string",
                 "conformite": True,
             },
-            "source": "acceslibre",
+            "source": ExternalSource.SOURCE_ACCESLIBRE,
             "source_id": "string",
             "asp_id": "string",
+            "sources": [
+                {"source": ExternalSource.SOURCE_API, "source_id": "456"},
+            ],
         }
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
@@ -474,9 +478,11 @@ class TestErpApi:
         assert erp.published is True
         assert erp.activite.slug == "mairie"
         assert erp.accessibilite.transport_station_presence is True
-        assert erp.sources.count() == 1
-        assert erp.sources.first().source == "acceslibre"
-        assert erp.sources.first().source_id == "string"
+        assert erp.sources.count() == 2
+        assert (
+            erp.sources.filter(source=ExternalSource.SOURCE_ACCESLIBRE).first().source_id == "string"
+        ), "Signal should have maintained the synch between erp.source and erp.sources"
+        assert erp.sources.filter(source=ExternalSource.SOURCE_API).first().source_id == "456"
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
