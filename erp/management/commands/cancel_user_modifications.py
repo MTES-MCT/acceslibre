@@ -8,7 +8,7 @@ from erp.models import Accessibilite, Erp
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        parser.add_argument("username")
+        parser.add_argument("email")
         parser.add_argument(
             "--write",
             action="store_true",
@@ -31,38 +31,47 @@ class Command(BaseCommand):
         erps = set(erp_edited_by_user | erp_access_edited_by_user)
         print(f"Total number of ERPs with modifications from the user: {len(erps)}")
 
-        to_revert = 0
         for erp in erps:
-            history = erp.get_history()
-            if not history:
+            versions = Version.objects.filter(object_id__in=(erp.pk, erp.accessibilite.pk))
+            if not versions:
                 continue
 
-            last_entry = history[0]
-            if last_entry["user"] != user:
+            last_entry = versions.first()
+            if last_entry.revision.user != user:
                 continue
 
-            if erp.checked_up_to_date_at and last_entry["date"] < erp.checked_up_to_date_at:
+            if erp.checked_up_to_date_at and last_entry.date < erp.checked_up_to_date_at:
                 continue
 
-            list_of_good_entries = [h for h in history if h["user"] != user]
-            if list_of_good_entries:
-                to_revert += 1
+            version_to_revert_to = None
+            for version in versions:
+                if version.revision.user != user:
+                    version_to_revert_to = version
+                    break
+
+            if not version_to_revert_to:
                 if self.should_write:
-                    list_of_good_entries[0]["revision"].revert()
+                    print(f"Deleting ERP {erp} with no other changes...")
+                    erp.delete()
+                    print("...Deleted")
                 else:
-                    print(f"Would have reverted {list_of_good_entries[0]['revision']}")
+                    print(f"Would have deleted ERP {erp}")
+                continue
 
-        print(f"Will have reverted {to_revert} revisions")
+            if self.should_write:
+                print(f"Reverting {version_to_revert_to.revision.__dict__} ...")
+                version_to_revert_to.revision.revert()
+                print("... Reverted.")
+            else:
+                print(f"Would have reverted {version_to_revert_to.revision}")
 
     def handle(self, *args, **options):
         self.should_write = options["write"]
-        username = options["username"]
+        email = options["email"]
         try:
-            user = User.objects.get(username__icontains=username)
+            user = User.objects.get(email=email)
         except User.DoesNotExist:
-            self.stderr.write(f"User with username {username} not found")
+            self.stderr.write(f"User with email {email} not found")
             return
+
         self._revert_changes_on_erp(user)
-
-
-# TODO change tests
