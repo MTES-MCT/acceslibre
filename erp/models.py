@@ -400,7 +400,8 @@ class ExternalSource(models.Model):
     )
     source_id = models.CharField(max_length=255, help_text=translate_lazy("Identifiant externe de cet ERP"))
 
-    unique_together = {("source", "erp")}
+    class Meta:
+        unique_together = ("source", "erp")
 
     def __str__(self):
         return translate(f"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self.source_id}")
