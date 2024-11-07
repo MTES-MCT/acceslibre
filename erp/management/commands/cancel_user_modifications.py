@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import BaseCommand
+from django.db.models import Q
 from reversion.models import Version
 
 from erp.models import Accessibilite, Erp
@@ -32,7 +33,10 @@ class Command(BaseCommand):
         print(f"Total number of ERPs with modifications from the user: {len(erps)}")
 
         for erp in erps:
-            versions = Version.objects.filter(object_id__in=(erp.pk, erp.accessibilite.pk))
+            versions = Version.objects.filter(
+                Q(object_id=erp.pk, content_type=erp_content_type)
+                | Q(object_id=erp.accessibilite.pk, content_type=access_content_type)
+            )
             if not versions:
                 continue
 
