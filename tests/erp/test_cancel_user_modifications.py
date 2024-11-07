@@ -8,6 +8,23 @@ from tests.factories import ErpFactory, UserFactory
 
 
 @pytest.mark.django_db
+def test_will_revert_user_created_erp(django_app):
+    bad_user = UserFactory()
+    with reversion.create_revision():
+        reversion.set_user(bad_user)
+        ErpFactory(with_accessibilite=True)
+    assert Erp.objects.count() == 1
+
+    # Dry run
+    call_command("cancel_user_modifications", bad_user.email, write=False)
+    assert Erp.objects.count() == 1
+
+    # Real run
+    call_command("cancel_user_modifications", bad_user.email, write=True)
+    assert not Erp.objects.exists()
+
+
+@pytest.mark.django_db
 def test_will_revert_user_changes(django_app):
     with reversion.create_revision():
         erp = ErpFactory(with_accessibilite=True)
