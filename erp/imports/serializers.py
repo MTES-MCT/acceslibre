@@ -4,8 +4,9 @@ from django.contrib.gis.geos import Point
 from django.forms.models import model_to_dict
 from rest_framework import serializers
 
+from api.serializers import ExternalSourceSerializer
 from erp.imports.utils import get_address_query_to_geocode
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.models import Accessibilite, Activite, Commune, Erp, ExternalSource
 from erp.provider import geocoder, sirene
 
 TRUE_VALUES = ["true", "True", "TRUE", "1", "vrai", "Vrai", "VRAI", "oui", "Oui", "OUI", True]
@@ -102,6 +103,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False, allow_null=True, default=None)
     longitude = serializers.FloatField(min_value=-180, max_value=180, required=False, allow_null=True, default=None)
+    sources = ExternalSourceSerializer(many=True, required=False, default=[])
+
     _geom: Point = None
 
     class Meta:
@@ -129,6 +132,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "source",
             "source_id",
             "ban_id",
+            "sources",
         )
 
     def _ensure_no_duplicate(self, obj):
@@ -243,8 +247,15 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")
+        erp_data.pop("sources")
+
         Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
         Accessibilite(**obj["accessibilite"]).full_clean()
+
+        sources_data = obj.get("sources") or []
+        for source_data in sources_data:
+            ExternalSource(**source_data).full_clean(exclude=("erp",))
+
         return obj
 
     def update(self, instance, validated_data, partial=True):
@@ -267,11 +278,22 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 setattr(accessibilite, attr, validated_data["accessibilite"][attr])
 
         accessibilite.save()
+
+        sources_data = validated_data.pop("sources", [])
+        self._create_or_update_sources(instance, sources_data)
         return instance
 
     def create(self, validated_data):
         accessibilite_data = validated_data.pop("accessibilite")
+        sources_data = validated_data.pop("sources", [])
+
         erp = Erp.objects.create(**validated_data, geom=self._geom)
         Accessibilite.objects.create(erp=erp, **accessibilite_data)
+        self._create_or_update_sources(erp, sources_data)
 
         return erp
+
+    def _create_or_update_sources(self, erp, sources_data):
+        for source_data in sources_data:
+            ExternalSource.objects.filter(erp=erp, source=source_data["source"]).delete()
+            ExternalSource.objects.create(erp=erp, **source_data)

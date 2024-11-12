@@ -5,7 +5,7 @@ from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from erp import schema
-from erp.models import Accessibilite, Activite, Erp
+from erp.models import Accessibilite, Activite, Erp, ExternalSource
 from erp.widget_utils import (
     get_audiodescription_labels,
     get_deaf_equipment_labels,
@@ -122,12 +122,19 @@ class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
     count = serializers.IntegerField()
 
 
+class ExternalSourceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ExternalSource
+        fields = ["id", "source", "source_id"]
+
+
 class ErpSerializer(serializers.HyperlinkedModelSerializer):
     activite = ActiviteSerializer(many=False, read_only=True)
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
     web_url = serializers.SerializerMethodField()
     accessibilite = AccessibiliteSerializer(many=False, read_only=True)
+    sources = ExternalSourceSerializer(many=True, required=False, default=[])
 
     class Meta:
         model = Erp
@@ -157,6 +164,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "updated_at",
             "created_at",
             "published",
+            "sources",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}

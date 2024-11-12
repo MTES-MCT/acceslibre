@@ -28,7 +28,7 @@
   "dependencies": {
     "@gouvfr/dsfr": "1.10.2",
     "@parcel/transformer-sass": "^2.10.2",
-    "@sentry/browser": "^8.33.1",
+    "@sentry/browser": "^8.36.0",
     "@sentry/tracing": "^7.114.0",
     "@trevoreyre/autocomplete-js": "^3.0.3",
     "bootstrap": "^5.0.2",
@@ -36,14 +36,14 @@
     "leaflet": "^1.9.4",
     "leaflet-center-cross": "0.0.8",
     "leaflet-gesture-handling": "^1.2.2",
-    "leaflet.locatecontrol": "^0.81.1",
+    "leaflet.locatecontrol": "0.81.0",
     "leaflet.markercluster": "^1.4.1",
     "npm": "^10.9.0",
     "parcel": "^2.10.2",
     "process": "^0.11.10"
   },
   "devDependencies": {
-    "eslint": "^9.12.0",
+    "eslint": "^9.14.0",
     "prettier": "3.3.3"
   }
 }

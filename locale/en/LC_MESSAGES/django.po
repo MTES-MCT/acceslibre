@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 10:50+0200\n"
-"PO-Revision-Date: 2024-09-30 10:05+0200\n"
-"Last-Translator: <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2024-11-05 10:31+0100\n"
+"PO-Revision-Date: 2024-11-05 10:31+0100\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.0\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -837,6 +837,23 @@ msgstr "Tally"
 msgid "La Poste"
 msgstr "La Poste"
 
+msgid "Source"
+msgstr "Source"
+
+msgid "Nom de la source de données dont est issu cet ERP"
+msgstr "Name of the data source from which this ERP is derived"
+
+msgid "Identifiant externe de cet ERP"
+msgstr "External identifier of this ERP"
+
+#, python-brace-format
+msgid ""
+"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self."
+"source_id}"
+msgstr ""
+"External source for ERP#{self.erp_id} on {self.source} with id {self."
+"source_id}"
+
 msgid "Administration"
 msgstr "Administration"
 
@@ -851,12 +868,6 @@ msgstr "System"
 
 msgid "Établissements"
 msgstr "Facilities"
-
-msgid "Source"
-msgstr "Source"
-
-msgid "Nom de la source de données dont est issu cet ERP"
-msgstr "Name of the data source from which this ERP is derived"
 
 msgid "Source ID"
 msgstr "Source ID"

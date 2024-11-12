@@ -5,8 +5,8 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from erp.imports.mapper.base import BaseMapper
-from erp.models import Erp
 from erp.provider.geocoder import geocode
+from erp.models import ExternalSource
 
 with_activity = True
 with_comment = False
@@ -313,7 +313,7 @@ class Command(BaseCommand):
 
             new_line.pop(cell, None)
 
-        new_line["source"] = Erp.SOURCE_TALLY
+        new_line["source"] = ExternalSource.SOURCE_TALLY
         new_line["code_postal"] = BaseMapper.handle_5digits_code(new_line["code_postal"])
         geo = self._do_geocode(new_line["adresse"], new_line["code_postal"])
         if geo:

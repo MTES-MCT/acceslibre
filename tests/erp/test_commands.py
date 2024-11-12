@@ -11,7 +11,8 @@ from django.utils import timezone
 
 from erp.management.commands.convert_tally_to_schema import Command as CommandConvertTallyToSchema
 from erp.management.commands.notify_daily_draft import Command as CommandNotifyDailyDraft
-from erp.models import Erp
+from erp.management.commands.outscraper_clean_closed import IGNORED_ACTIVITIES
+from erp.models import Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
 
@@ -175,7 +176,7 @@ def test_leave_untouched_multiple_duplicates():
     for _ in range(0, 3):
         duplicate = main_erp
         duplicate.pk = None
-        duplicate.source = Erp.SOURCE_PUBLIC
+        duplicate.source = ExternalSource.SOURCE_PUBLIC
         duplicate.uuid = uuid.uuid4()
         duplicate.nom = "Mairie - Lyon"
         duplicate.save()
@@ -270,7 +271,7 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
 
         erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
-        assert erp.source == Erp.SOURCE_OUTSCRAPER
+        assert erp.source == ExternalSource.SOURCE_OUTSCRAPER
         assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
         assert erp.site_internet == "https://www.troisiemeart.fr"
         assert erp.numero == "173"
@@ -342,7 +343,6 @@ class TestOutscraperAcquisition:
 
     @pytest.mark.django_db
     def test_not_enough_info(self, mocker):
-
         outscraper_response = [
             [
                 {
@@ -433,9 +433,13 @@ class TestOutscraperCleaning:
         ]
     ]
 
+    def setup_method(self, method):
+        for name in IGNORED_ACTIVITIES:
+            ActiviteFactory(nom=name)
+
     @pytest.mark.django_db
     def test_initial(self, mocker):
-        ErpFactory(nom="Le lard", commune="Lyon", voie="Rue Trouvier", numero=173)
+        ErpFactory(nom="Le lard", commune="Lyon", voie="Rue Trouvier", numero=173, activite__nom="Restaurant")
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
 
         call_command("outscraper_clean_closed", nb_days=0, write=False)
@@ -455,6 +459,17 @@ class TestOutscraperCleaning:
 
         erp.refresh_from_db()
         assert erp.check_closed_at is not None, "should have set a check_closed_at date"
+
+    @pytest.mark.django_db
+    def test_to_ignore(self, mocker):
+        erp = ErpFactory(nom="Le lard", commune="Lyon", voie="Rue Trouvier", numero=173, activite__nom="Mairie")
+        google_maps_mock = mocker.patch("outscraper.ApiClient.google_maps_search", return_value=[{}])
+
+        call_command("outscraper_clean_closed", nb_days=0, write=True)
+
+        assert not google_maps_mock.called
+        erp.refresh_from_db()
+        assert erp.check_closed_at is None
 
 
 class TestScrapflyAcquisition:
@@ -491,7 +506,7 @@ class TestScrapflyAcquisition:
         call_command("scrapfly_acquisition", query="Lyon")
 
         erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
-        assert erp.source == Erp.SOURCE_SCRAPFLY
+        assert erp.source == ExternalSource.SOURCE_SCRAPFLY
         assert erp.source_id == "ChIJzZhX5juz9UcR74W_abcd"
         assert erp.site_internet is None
         assert erp.numero == "173"

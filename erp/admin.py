@@ -16,7 +16,16 @@ from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneFor
 from erp.resources import ErpAdminResource
 
 from . import schema
-from .models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Commune, Erp, Departement
+from .models import (
+    Accessibilite,
+    Activite,
+    ActivitiesGroup,
+    ActivitySuggestion,
+    Commune,
+    Departement,
+    Erp,
+    ExternalSource,
+)
 
 
 @admin.register(Activite)
@@ -198,6 +207,12 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
         elif self.value() == "False":
             queryset = queryset.filter(accessibilite__isnull=True)
         return queryset
+
+
+@admin.register(ExternalSource)
+class ExternalSourceAdmin(admin.ModelAdmin):
+    search_fields = ("erp__nom", "source", "source_id")
+    readonly_fields = ("erp", "source")
 
 
 @admin.register(Erp)

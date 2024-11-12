@@ -6,7 +6,7 @@ from django.core.management import call_command
 from django.urls import reverse
 from django.utils import timezone
 
-from erp.models import Erp
+from erp.models import Erp, ExternalSource
 from tests.factories import CommuneFactory, ErpFactory, UserFactory
 
 User = get_user_model()
@@ -113,7 +113,7 @@ def test_sync_brevo(mocker, client):
         "AVERAGE_COMPLETION_RATE": 4.0,
     }
 
-    erp = ErpFactory(import_email=user.email, source=Erp.SOURCE_TALLY)
+    erp = ErpFactory(import_email=user.email, source=ExternalSource.SOURCE_TALLY)
 
     mock.reset_mock()
     call_command("sync_brevo")

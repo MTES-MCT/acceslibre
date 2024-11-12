@@ -6,7 +6,9 @@ from django.db.models import Q
 from django.utils import timezone
 from outscraper import ApiClient
 
-from erp.models import Erp
+from erp.models import Activite, Erp
+
+IGNORED_ACTIVITIES = ["Administration publique", "Mairie", "Gendarmerie", "Bureau de poste"]
 
 
 class Command(BaseCommand):
@@ -36,21 +38,28 @@ class Command(BaseCommand):
         )
 
     def _flag_erp_as_closed(self, existing_erp):
-        print(f"Flag permanently closed ERP: {existing_erp}")
-        if self.write:
-            existing_erp.permanently_closed = True
-            existing_erp.save()
-        else:
+        print(f"Flag permanently closed ERP: {existing_erp} - {existing_erp.get_absolute_uri()}")
+        if not self.write:
             print("Dry run mode, no DB action, use --write to apply this deletion")
+            return
+
+        existing_erp.permanently_closed = True
+        existing_erp.save()
 
     def handle(self, *args, **options):
         self.write = options["write"]
         self.start_pk = options.get("start_pk")
 
+        ignored_activities = Activite.objects.filter(nom__in=IGNORED_ACTIVITIES)
+        if ignored_activities.count() != len(IGNORED_ACTIVITIES):
+            print("Please check the IGNORED_ACTIVITIES list, at least one activity has not been found. Exit...")
+            return
+
         client = ApiClient(api_key=settings.OUTSCRAPER_API_KEY)
 
         limit_date = timezone.now() - timedelta(days=options["nb_days"])
         qs = Erp.objects.published().filter(Q(check_closed_at=None) | Q(check_closed_at__lte=limit_date))
+        qs = qs.exclude(activite__in=ignored_activities)
         if self.start_pk:
             qs = qs.filter(pk__gte=self.start_pk)
         qs = qs.order_by("pk")

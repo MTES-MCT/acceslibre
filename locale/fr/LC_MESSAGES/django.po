@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 10:48+0200\n"
+"POT-Creation-Date: 2024-11-05 10:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -802,6 +802,21 @@ msgstr ""
 msgid "La Poste"
 msgstr ""
 
+msgid "Source"
+msgstr ""
+
+msgid "Nom de la source de données dont est issu cet ERP"
+msgstr ""
+
+msgid "Identifiant externe de cet ERP"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self."
+"source_id}"
+msgstr ""
+
 msgid "Administration"
 msgstr ""
 
@@ -815,12 +830,6 @@ msgid "Système"
 msgstr ""
 
 msgid "Établissements"
-msgstr ""
-
-msgid "Source"
-msgstr ""
-
-msgid "Nom de la source de données dont est issu cet ERP"
 msgstr ""
 
 msgid "Source ID"

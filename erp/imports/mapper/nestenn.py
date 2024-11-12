@@ -5,7 +5,7 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 
 from erp.imports.mapper.generic import GenericMapper
-from erp.models import Accessibilite, Erp
+from erp.models import Accessibilite, Erp, ExternalSource
 
 logger = logging.getLogger(__name__)
 
@@ -45,12 +45,12 @@ class NestennMapper(GenericMapper):
         erp = None
         # already imported erps
         if not erp:
-            erp = Erp.objects.find_by_source_id(Erp.SOURCE_NESTENN, self.record["id"]).first()
+            erp = Erp.objects.find_by_source_id(ExternalSource.SOURCE_NESTENN, self.record["id"]).first()
 
         # new erp
         if not erp:
             erp = Erp(
-                source=Erp.SOURCE_NESTENN,
+                source=ExternalSource.SOURCE_NESTENN,
                 source_id=self.record["id"],
                 activite=self.activite,
             )
@@ -67,7 +67,7 @@ class NestennMapper(GenericMapper):
 
     def _process_preexisting(self, location):
         erp = (
-            Erp.objects.exclude(source=Erp.SOURCE_NESTENN)
+            Erp.objects.exclude(source=ExternalSource.SOURCE_NESTENN)
             .filter(
                 activite=self.activite,
                 geom__distance_lte=(location, Distance(m=2000)),
@@ -77,7 +77,7 @@ class NestennMapper(GenericMapper):
         if erp:
             # unpublish already imported duplicate
             old_erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_NESTENN,
+                ExternalSource.SOURCE_NESTENN,
                 self.record["id"],
                 published=True,
             ).first()
@@ -86,7 +86,7 @@ class NestennMapper(GenericMapper):
                 old_erp.save()
                 logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
             # update preexisting erp with new import information
-            erp.source = Erp.SOURCE_NESTENN
+            erp.source = ExternalSource.SOURCE_NESTENN
             erp.source_id = self.record["id"]
         return erp
 
