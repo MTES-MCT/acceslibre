@@ -5,8 +5,7 @@ from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Commune, Erp, ExternalSource
-from erp.provider.departements import DEPARTEMENTS
+from erp.models import Erp, ExternalSource
 
 QUERIES = [
     ("Boulangerie", "Boulangerie Pâtisserie"),
@@ -142,6 +141,7 @@ class Command(BaseCommand):
         erp["activite"] = self.activity_name
         erp["source"] = ExternalSource.SOURCE_OUTSCRAPER
         erp["source_id"] = result["place_id"]
+        erp["sources"] = [{"source": ExternalSource.SOURCE_OUTSCRAPER, "source_id": result["place_id"]}]
 
         if not existing_erp:
             print(f"Managing {erp['nom']}, {result['street']} {result['postal_code']} {result['city']}")
@@ -206,21 +206,3 @@ class Command(BaseCommand):
         limit = 20
 
         self._search(query=options["query"], limit=limit, skip=options["skip"], max_results=options["max_results"])
-
-
-def print_commands():
-    for term, activity in QUERIES:
-        for num, data in DEPARTEMENTS.items():
-            if any([str(num).startswith(x) for x in ["97", "98"]]):
-                # ignore DOM, no data for them
-                continue
-            print(f'python manage.py outscraper_acquisition --query="{term}, {data["nom"]}" --activity="{activity}"')
-
-        for commune in Commune.objects.filter(population__gte=50000):
-            if any([str(commune.code_postaux[0]).startswith(x) for x in ["97", "98"]]):
-                # ignore DOM, no data for them
-                continue
-            if "arrondissement" in commune.nom:
-                # ignore, will be managed while processing the whole city
-                continue
-            print(f'python manage.py outscraper_acquisition --query="{term}, {commune.nom}" --activity="{activity}"')
