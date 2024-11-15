@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ptlzo9');
-  src:  url('fonts/icomoon.eot?ptlzo9#iefix') format('embedded-opentype'),
+  src: url('fonts/icomoon.eot?ptlzo9');
+  src:
+    url('fonts/icomoon.eot?ptlzo9#iefix') format('embedded-opentype'),
     url('fonts/icomoon.ttf?ptlzo9') format('truetype'),
     url('fonts/icomoon.woff?ptlzo9') format('woff'),
     url('fonts/icomoon.svg?ptlzo9#icomoon') format('svg');
@@ -10,7 +11,8 @@
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
@@ -19,14 +21,14 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  
+
   /* Enable Ligatures ================ */
   letter-spacing: 0;
-  -webkit-font-feature-settings: "liga";
-  -moz-font-feature-settings: "liga=1";
-  -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
-  font-feature-settings: "liga";
+  -webkit-font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga=1';
+  -moz-font-feature-settings: 'liga';
+  -ms-font-feature-settings: 'liga' 1;
+  font-feature-settings: 'liga';
   -webkit-font-variant-ligatures: discretionary-ligatures;
   font-variant-ligatures: discretionary-ligatures;
 
@@ -36,242 +38,242 @@
 }
 
 .icon-france:before {
-  content: "\e92f";
+  content: '\e92f';
 }
 .icon-screen:before {
-  content: "\e901";
+  content: '\e901';
 }
 .icon-warning:before {
-  content: "\e918";
+  content: '\e918';
 }
 .icon-pencil:before {
-  content: "\e902";
+  content: '\e902';
 }
 .icon-exterieur-target:before {
-  content: "\e903";
+  content: '\e903';
 }
 .icon-check:before {
-  content: "\e904";
+  content: '\e904';
 }
 .icon-house:before {
-  content: "\e900";
+  content: '\e900';
 }
 .icon-commercial:before {
-  content: "\e905";
+  content: '\e905';
 }
 .icon-registre:before {
-  content: "\e925";
+  content: '\e925';
 }
 .icon-phone:before {
-  content: "\e942";
+  content: '\e942';
 }
 .icon-map:before {
-  content: "\e94b";
+  content: '\e94b';
 }
 .icon-clock:before {
-  content: "\e94e";
+  content: '\e94e';
 }
 .icon-contribute-in:before {
-  content: "\e960";
+  content: '\e960';
 }
 .icon-contribute-out:before {
-  content: "\e961";
+  content: '\e961';
 }
 .icon-bubble:before {
-  content: "\e96e";
+  content: '\e96e';
 }
 .icon-dialog:before {
-  content: "\e96f";
+  content: '\e96f';
 }
 .icon-user:before {
-  content: "\e971";
+  content: '\e971';
 }
 .icon-users:before {
-  content: "\e972";
+  content: '\e972';
 }
 .icon-gestionnaire:before {
-  content: "\e976";
+  content: '\e976';
 }
 .icon-torso-business:before {
-  content: "\e976";
+  content: '\e976';
 }
 .icon-magnifying-glass:before {
-  content: "\e986";
+  content: '\e986';
 }
 .icon-zoom-in:before {
-  content: "\e987";
+  content: '\e987';
 }
 .icon-shrink:before {
-  content: "\e98a";
+  content: '\e98a';
 }
 .icon-key:before {
-  content: "\e98d";
+  content: '\e98d';
 }
 .icon-lock:before {
-  content: "\e98f";
+  content: '\e98f';
 }
 .icon-unlock:before {
-  content: "\e990";
+  content: '\e990';
 }
 .icon-trophy:before {
-  content: "\e99e";
+  content: '\e99e';
 }
 .icon-road:before {
-  content: "\e9b1";
+  content: '\e9b1';
 }
 .icon-globe:before {
-  content: "\e9ca";
+  content: '\e9ca';
 }
 .icon-link:before {
-  content: "\e9cb";
+  content: '\e9cb';
 }
 .icon-flag:before {
-  content: "\e9cc";
+  content: '\e9cc';
 }
 .icon-paperclip:before {
-  content: "\e9cd";
+  content: '\e9cd';
 }
 .icon-handicap-visuel:before {
-  content: "\e9ce";
+  content: '\e9ce';
 }
 .icon-star-o:before {
-  content: "\e9d7";
+  content: '\e9d7';
 }
 .icon-star:before {
-  content: "\e9d9";
+  content: '\e9d9';
 }
 .icon-male-female:before {
-  content: "\e9de";
+  content: '\e9de';
 }
 .icon-toilets:before {
-  content: "\e9de";
+  content: '\e9de';
 }
 .icon-plus:before {
-  content: "\ea0a";
+  content: '\ea0a';
 }
 .icon-entrance:before {
-  content: "\ea13";
+  content: '\ea13';
 }
 .icon-circle:before {
-  content: "\ea56";
+  content: '\ea56';
 }
 .icon-whatsapp:before {
-  content: "\ea93";
+  content: '\ea93';
 }
 .icon-bulb:before {
-  content: "\e906";
+  content: '\e906';
 }
 .icon-upvote:before {
-  content: "\e907";
+  content: '\e907';
 }
 .icon-vaccin:before {
-  content: "\e90d";
+  content: '\e90d';
 }
 .icon-exclamation-circle:before {
-  content: "\e908";
+  content: '\e908';
 }
 .icon-downsize:before {
-  content: "\e909";
+  content: '\e909';
 }
 .icon-upsize:before {
-  content: "\e90a";
+  content: '\e90a';
 }
 .icon-map-pin:before {
-  content: "\e90b";
+  content: '\e90b';
 }
 .icon-info-circled:before {
-  content: "\e90c";
+  content: '\e90c';
 }
 .icon-conformite:before {
-  content: "\e90e";
+  content: '\e90e';
 }
 .icon-plus-circle:before {
-  content: "\e90f";
+  content: '\e90f';
 }
 .icon-zoom:before {
-  content: "\e910";
+  content: '\e910';
 }
 .icon-mail:before {
-  content: "\e911";
+  content: '\e911';
 }
 .icon-bus:before {
-  content: "\e912";
+  content: '\e912';
 }
 .icon-target:before {
-  content: "\e913";
+  content: '\e913';
 }
 .icon-checklist:before {
-  content: "\e914";
+  content: '\e914';
 }
 .icon-parking:before {
-  content: "\e915";
+  content: '\e915';
 }
 .icon-thumbs-down:before {
-  content: "\e92d";
+  content: '\e92d';
 }
 .icon-thumbs-up:before {
-  content: "\e92e";
+  content: '\e92e';
 }
 .icon-bell-mute:before {
-  content: "\e916";
+  content: '\e916';
 }
 .icon-bell:before {
-  content: "\e917";
+  content: '\e917';
 }
 .icon-administration:before {
-  content: "\e919";
+  content: '\e919';
 }
 .icon-identity:before {
-  content: "\e91a";
+  content: '\e91a';
 }
 .icon-expand-h:before {
-  content: "\e91b";
+  content: '\e91b';
 }
 .icon-expand-v:before {
-  content: "\e91c";
+  content: '\e91c';
 }
 .icon-arrow-right:before {
-  content: "\e91d";
+  content: '\e91d';
 }
 .icon-arrow-left:before {
-  content: "\e91e";
+  content: '\e91e';
 }
 .icon-arrow-down:before {
-  content: "\e91f";
+  content: '\e91f';
 }
 .icon-arrow-up:before {
-  content: "\e920";
+  content: '\e920';
 }
 .icon-downvote:before {
-  content: "\e921";
+  content: '\e921';
 }
 .icon-exterieur-trees:before {
-  content: "\e922";
+  content: '\e922';
 }
 .icon-orientation:before {
-  content: "\e923";
+  content: '\e923';
 }
 .icon-handicap-mental:before {
-  content: "\e924";
+  content: '\e924';
 }
 .icon-handicap-auditif:before {
-  content: "\e926";
+  content: '\e926';
 }
 .icon-certificate:before {
-  content: "\e927";
+  content: '\e927';
 }
 .icon-handicap-moteur:before {
-  content: "\e928";
+  content: '\e928';
 }
 .icon-car:before {
-  content: "\e929";
+  content: '\e929';
 }
 .icon-times-circle:before {
-  content: "\e92a";
+  content: '\e92a';
 }
 .icon-check-circle:before {
-  content: "\e92b";
+  content: '\e92b';
 }
 .icon-street-view:before {
-  content: "\e92c";
+  content: '\e92c';
 }

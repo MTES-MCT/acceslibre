@@ -1,63 +1,18 @@
-// Acceslibre styles
-
-$white: #fff;
-$body-color: #111;
-$dark: #333;
-$primary: #075ea2;
-$success: #167d2e;
-$info: #097182;
-$warning: #ffc107;
-$input-border-color: #969696;
-$navbar-dark-color: rgba($white, 0.8);
-$text-dark: #343a40;
-$blue-france: #000091;
-$text-muted: rgb(104, 104, 104);
-$border-radius: 0.25rem !default;
-// Responsive texts
-$enable-responsive-font-sizes: true;
-// Viewports
-$viewport-xs: 320px;
-$viewport-sm: 576px;
-$viewport-md: 768px;
-$viewport-lg: 992px;
-$viewport-xl: 1200px;
-
+@import 'variables';
+@import 'utilities';
+@import 'breakpoints';
 @import '~bootstrap/scss/bootstrap';
-// App specific styles
 
-@import 'loader.scss';
-@import 'contribution.scss';
-@import 'half-circle-progress-bar.scss';
+// App specific styles
+@import 'loader';
+@import 'contribution';
+@import 'half-circle-progress-bar';
+@import 'leaflet';
 
 #cta .fr-btn {
   @media screen and (max-width: $viewport-md) {
     margin-bottom: 0.5rem;
   }
-}
-
-#content {
-  .fr-btn:hover {
-    text-decoration: underline;
-  }
-
-  .fr-btn:not(.fr-btn--secondary):not(.fr-btn--tertiary):hover {
-    color: white !important;
-  }
-}
-
-.text-center {
-  text-align: center;
-}
-
-// SPACING
-.mt-10,
-.my-10 {
-  margin-top: 9rem !important;
-}
-
-.mt-20,
-.my-20 {
-  margin-top: 15rem !important;
 }
 
 iframe {
@@ -69,10 +24,6 @@ a.btn {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .btn:hover,
 .btn:focus {
   background-color: white;
@@ -81,10 +32,6 @@ a:hover {
   --color-hover: rgba(41, 41, 255, 0.5);
   --color-active: rgba(41, 41, 255, 0.5);
   border: 2px solid rgba(41, 41, 255, 0.5);
-}
-
-[href]:not(.leaflet-control-layers-toggle) {
-  background-image: none !important;
 }
 
 #home-latest-erps-list {
@@ -670,20 +617,6 @@ select[name='language'] {
   @media screen and (min-width: $viewport-lg) {
     display: block;
   }
-}
-
-.leaflet-container .a4a-map-popup-content a {
-  text-decoration: underline;
-}
-
-.leaflet-control-layers-base input[type='radio'] {
-  appearance: auto;
-}
-
-.leaflet-control-layers-toggle {
-  background-image: url('../../node_modules/leaflet/dist/images/layers.png') !important;
-  background-size: auto !important;
-  background-position: 50% !important;
 }
 
 div.equipments {

@@ -7,8 +7,7 @@
                 <div class="fr-header__brand fr-enlarge-link">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
-                            <a href="{% url 'home' %}"
-                               aria-label="République Française, aller a l'accueil">
+                            <a href="{% url 'home' %}" aria-label="{% translate "République Française, aller a l'accueil" %}">
                                 <p class="fr-logo">
                                     République
                                     <br>
@@ -26,24 +25,37 @@
                         <div class="fr-header__navbar">
                             <button class="fr-btn--menu fr-btn"
                                     data-fr-opened="false"
-                                    aria-controls="modal-577"
+                                    aria-controls="menu-modal-controls"
                                     aria-haspopup="menu"
-                                    id="button-578"
-                                    title="Menu">{% translate "Menu" %}</button>
+                                    id="menu-controls-label"
+                                    title="{% translate "Menu" %}">{% translate "Menu" %}</button>
                         </div>
+                    </div>
+                    <div class="fr-header__service">
+                        <a href="{% url 'home' %}" title="{% translate "Retourner sur la page d'accueil de Acceslibre" %}">
+                            <p class="fr-header__service-title">Acceslibre</p>
+                        </a>
+                        <p class="fr-header__service-tagline">{% translate "La plateforme collaborative de l’accessibilité" %}</p>
                     </div>
                 </div>
                 <div class="fr-header__tools">
                     <div class="fr-header__tools-links">
                         <ul class="fr-btns-group">
                             <li>
+                                <a class="fr-btn fr-btn--tertiary fr-icon-add-line"
+                                   href="{% url 'contrib_start' %}"
+                                   target="_self">{% translate "Ajouter un établissement" %}</a>
+                            </li>
+                            <li>
                                 {% if user.is_authenticated %}
                                     <a class="fr-btn fr-icon-lock-line"
                                        href="{% url 'mon_compte' %}?next={{ request.path }}">{% translate "Mon compte" %}
                                     </a>
                                 {% else %}
-                                    <a class="fr-btn fr-icon-lock-line"
-                                       href="{% url 'login' %}?next={{ request.path }}">{% translate "Se connecter" %}</a>
+                                    <a class="fr-btn fr-icon-lock-line fr-btn--tertiary"
+                                       href="{% url 'login' %}?next={{ request.path }}">
+                                        {% translate "Se connecter" %}
+                                    </a>
                                 {% endif %}
                             </li>
                         </ul>
@@ -56,39 +68,45 @@
         </div>
     </div>
     <div class="fr-header__menu fr-modal"
-         id="modal-577"
-         aria-labelledby="button-578">
+         id="menu-modal-controls"
+         aria-labelledby="menu-controls-label">
         <div class="fr-container">
-            <button class="fr-btn--close fr-btn"
-                    aria-controls="modal-577"
-                    title="{% translate "Fermer" %}">{% translate "Fermer" %}</button>
+            <button class="fr-btn--close fr-btn" aria-controls="menu-modal-controls">{% translate "Fermer" %}</button>
             <div class="fr-header__menu-links"></div>
             <nav class="fr-nav"
                  id="navigation-581"
                  role="navigation"
-                 aria-label="Menu principal">
+                 aria-label="{% translate "Menu principal" %}">
                 <ul class="fr-nav__list">
                     <li class="fr-nav__item">
-                        <a class="fr-nav__link" href="{% url "contrib_start" %}" target="_self">{% translate "Ajouter un établissement" %}</a>
+                        <a class="fr-nav__link" href="{% url 'home' %}" target="_self">{% translate "Accueil" %}</a>
                     </li>
                     <li class="fr-nav__item">
-                        <a class="fr-nav__link" href="{% url "search" %}" target="_self">{% translate "Rechercher" %}</a>
-                    </li>
-                    <li class="fr-nav__item">
-                        <button class="fr-nav__btn" aria-expanded="false" aria-controls="menu-774">{% translate "Voir aussi" %}</button>
-                        <div class="fr-collapse fr-menu" id="menu-774">
-                            <ul class="fr-menu__list">
-                                <li>
-                                    <a class="fr-nav__link" href="{% url 'abous-us' %}" target="_self">{% translate "Qui sommes-nous ?" %}</a>
-                                </li>
-                                <li>
-                                    <a class="fr-nav__link" href="{% url 'challenges' %}" target="_self">{% translate "Challenges" %}</a>
-                                </li>
-                                <li>
-                                    <a class="fr-nav__link" href="{% url 'partenaires' %}" target="_self">{% translate "Partenaires" %}</a>
-                                </li>
-                            </ul>
+                        <div class="fr-nav__item-spacer">
+                            <span aria-hidden="true"></span>
                         </div>
+                        <a href="{% url 'search' %}" class="fr-nav__link" target="_self">{% translate "Nos établissements" %}</a>
+                    </li>
+                    <li class="fr-mav__item">
+                        <div class="fr-nav__item-spacer">
+                            <span aria-hidden="true"></span>
+                        </div>
+                        <a href="{% url 'abous-us' %}" class="fr-nav__link" target="_self">{% translate "Qui sommes-nous ?" %}</a>
+                    </li>
+                    <li class="fr-mav__item">
+                        <a href="{% url 'partenaires' %}" class="fr-nav__link" target="_self">{% translate "Partenaires" %}</a>
+                    </li>
+                    {# TODO: Uncomment once the FAQ page has been implemented #}
+                    {#                    <li class="fr-mav__item">#}
+                    {#                        <a href="" class="fr-nav__link" target="_self">#}
+                    {#                            {% translate "Une question ?" %}#}
+                    {#                        </a>#}
+                    {#                    </li>#}
+                    <li class="fr-mav__item">
+                        <div class="fr-nav__item-spacer">
+                            <span aria-hidden="true"></span>
+                        </div>
+                        <a href="{% url 'challenges' %}" class="fr-nav__link" target="_self">{% translate "Challenges" %}</a>
                     </li>
                 </ul>
             </nav>

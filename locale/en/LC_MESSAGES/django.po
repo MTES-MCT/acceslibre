@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-05 10:31+0100\n"
-"PO-Revision-Date: 2024-11-05 10:31+0100\n"
+"POT-Creation-Date: 2024-11-21 11:58+0100\n"
+"PO-Revision-Date: 2024-11-21 10:50+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3928,6 +3928,9 @@ msgstr "I create an account"
 msgid "Créer mon compte"
 msgstr "Create my account"
 
+msgid "Accès rapide"
+msgstr "Quick access"
+
 msgid "Contenu"
 msgstr "Content"
 
@@ -3978,17 +3981,35 @@ msgstr "Unless otherwise stated, all contents of this site are under"
 msgid "licence etalab-2.0"
 msgstr "etalab-2.0 license"
 
+msgid "République Française, aller a l'accueil"
+msgstr "French Republic, back to the homepage"
+
 msgid "acceslibre aller à l'accueil"
 msgstr "acceslibre back to home"
 
-msgid "Voir aussi"
-msgstr "See more"
+msgid "Retourner sur la page d'accueil de Acceslibre"
+msgstr "Go back to Acceslibre's homepage"
+
+msgid "La plateforme collaborative de l’accessibilité"
+msgstr "The collaborative accessibility platform"
+
+msgid "Menu principal"
+msgstr "Main menu"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Nos établissements"
+msgstr "Our facilities"
 
 msgid "Qui sommes-nous ?"
 msgstr "Who are we?"
 
 msgid "Partenaires"
 msgstr "Partners"
+
+msgid "Sélectionner une langue"
+msgstr "Pick a language"
 
 msgid "Nos partenaires"
 msgstr "Our partners"
@@ -5518,8 +5539,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#~ msgid ""
-#~ "L'export demandé est trop volumineux, veuillez utiliser notre jeu de "
-#~ "données complet."
-#~ msgstr "The requested export is too large, please use our full dataset."
