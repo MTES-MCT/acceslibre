@@ -327,11 +327,12 @@
         },
         "deepl": {
             "hashes": [
-                "sha256:870bb9edca00ba0b014e57160deb1fe97accf8d67eafa2a2402c6b765811a602",
-                "sha256:b9fb2291681c42c73f7b1fcb3f93f97d537722f7c00fd64e3dab7018cf9bb2a6"
+                "sha256:2eae46d8f0279b00bce4686ec018bb5757a0ad0cc036616ef00ad12f9758955b",
+                "sha256:69f93a26d70bff6e2204a71f2e601c4b826cbad1ff6f0e3065cbf5d17a0662d9"
             ],
             "index": "pypi",
-            "version": "==1.19.1"
+            "markers": "python_version < '4' and python_full_version >= '3.6.2'",
+            "version": "==1.20.0"
         },
         "diff-match-patch": {
             "hashes": [
