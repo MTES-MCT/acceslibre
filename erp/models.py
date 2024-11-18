@@ -398,7 +398,9 @@ class ExternalSource(models.Model):
         choices=SOURCE_CHOICES,
         help_text=translate_lazy("Nom de la source de données dont est issu cet ERP"),
     )
-    source_id = models.CharField(max_length=255, help_text=translate_lazy("Identifiant externe de cet ERP"))
+    source_id = models.CharField(
+        max_length=255, blank=True, null=True, default=None, help_text=translate_lazy("Identifiant externe de cet ERP")
+    )
 
     class Meta:
         unique_together = ("source", "erp")
@@ -672,7 +674,6 @@ class Erp(models.Model):
     __original_activite_id = None
     __original_user_id = None
     __original_user_type = None
-    __original_source_id = None
     __confirmation_message = "Created via confirmation button"
 
     def __str__(self):
