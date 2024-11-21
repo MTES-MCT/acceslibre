@@ -20,7 +20,7 @@
     {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
         <div class="row">
             <div class="col-8 offset-2">
-                <a class="btn-block btn btn-outline-primary"
+                <a class="fr-btn"
                    href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
             </div>
         </div>

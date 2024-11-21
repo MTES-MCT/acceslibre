@@ -4,8 +4,7 @@
         <ul class="row no-list">
             {% for challenge in challenges %}
                 <li>
-                    <a class="btn-link fr-text--heavy"
-                       href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>:
+                    <a class="fr-text--heavy" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>:
                     {% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}
               {{ start }} au {{ end }} inclus
               {% endblocktranslate %}
@@ -20,7 +19,7 @@
                                     <i aria-hidden="true" class="text-success icon icon-check fr-mr-1v"></i>{% translate "Vous êtes inscrits à ce challenge !" %}
                                 </small>
                             {% elif challenge.has_open_subscriptions %}
-                                <a class="btn-block btn btn-outline-primary"
+                                <a class="fr-btn"
                                    href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
                             {% endif %}
                         </div>

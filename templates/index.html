@@ -65,27 +65,26 @@
                                      aria-hidden="true"
                                      alt=""
                                      class="w-100 fr-mb-4v">
-                                <a href="{% if request.user.is_anonymous %}{% url "django_registration_register" %}{% else %} {% url 'contrib_start' %}{% endif %}"
+                                <a href=" {% if request.user.is_anonymous %}{% url "django_registration_register" %}{% else %} {% url 'contrib_start' %}{% endif %}"
                                    class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto text-center">{% translate "Rejoindre<br />la communauté" %}</a>
                             </div>
                             <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
                                 <div class="fr-h3 text-center fr-mb-0">{{ erps.count|intcomma }}</div>
                                 <p class="text-center fr-mb-0">{% translate "lieux référencés" %}</p>
-                                <div id="home-latest-erps-list">
-                                    <ul class="fr-mt-0">
+                                <div>
+                                    <ul class="fr-raw-list fr-mt-0 fr-px-5v">
                                         {% for erp in latest %}
-                                            <li>
-                                                <a href="{{ erp.get_absolute_url }}"
-                                                   class="list-group-item list-group-item-action">
-                                                    <img alt=""
-                                                         class="act-icon act-icon-20 fr-mb-1v"
-                                                         src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
+                                            <li class="fr-my-3v">
+                                                <img alt=""
+                                                     class="act-icon act-icon-20 fr-mb-1v"
+                                                     src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
+                                                <a href="{{ erp.get_absolute_url }}" class="fr-link">
                                                     {% if erp.commune_ext %}
                                                         {{ erp.commune_ext.nom }}
                                                     {% else %}
                                                         erp.commune
                                                     {% endif %}
-                                                    {% if erp.activite %}» <span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
+                                                    {% if erp.activite %}»<span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
                                                     <br>
                                                     <strong>{{ erp.nom }}</strong>
                                                 </a>
@@ -106,22 +105,30 @@
                     {% translate "Des informations affichées sur les grands sites web" %}
                 </h2>
                 <div class="d-flex flex-column flex-md-row">
-                    <a href="{{ partners.SORTIRAPARIS.url }}" target="_blank">
+                    <a href="{{ partners.SORTIRAPARIS.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.SORTIRAPARIS.logo %}"
                              alt="{% translate "Logo de sortir à paris" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.ALLOCINE.url }}" target="_blank">
+                    <a href="{{ partners.ALLOCINE.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.ALLOCINE.logo %}"
                              alt="{% translate "Logo de allocine" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.SOLOCAL.url }}" target="_blank">
+                    <a href="{{ partners.SOLOCAL.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.SOLOCAL.logo %}"
                              alt="{% translate "Logo de solocal" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.SERVICE_PUBLIC.url }}" target="_blank">
+                    <a href="{{ partners.SERVICE_PUBLIC.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.SERVICE_PUBLIC.logo %}"
                              alt="{% translate "Logo de service-public.fr" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
@@ -129,7 +136,8 @@
                 </div>
                 <p class="fr-mt-4w">
                     {% blocktranslate trimmed %}
-                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont automatiquement et instantanément affichées sur les sites de nos partenaires.
+                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont
+                        automatiquement et instantanément affichées sur les sites de nos partenaires.
                     {% endblocktranslate %}
                 </p>
             </div>
@@ -186,47 +194,64 @@
             <div>
                 <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Un projet qui rassemble" %}</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <a href="{{ partners.CFPSAA.url }}" target="_blank">
+                    <a href="{{ partners.CFPSAA.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.CFPSAA.logo %}"
                              alt="{% translate "Logo CFPSAA" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="https://www.paris.fr" target="_blank">
+                    <a href="https://www.paris.fr"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static "img/landing/paris.png" %}" alt="{% translate "Logo ville de Paris" %}" class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.LAPOSTE.url }}" target="_blank">
+                    <a href="{{ partners.LAPOSTE.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.LAPOSTE.logo %}"
                              alt="{% translate "Logo La poste" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.AVH.url }}" target="_blank">
+                    <a href="{{ partners.AVH.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.AVH.logo %}"
                              alt="{% translate "Logo Valentin HAUT" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between fr-mt-4w">
-                    <a href="https://www.lorient-agglo.bzh/" target="_blank">
+                    <a href="https://www.lorient-agglo.bzh/"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static "img/landing/lorient.jpg" %}" alt="{% translate "Logo Lorient agglomération" %}" class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="https://umih.fr/fr/" target="_blank">
+                    <a href="https://umih.fr/fr/"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static "img/landing/UMIH.png" %}" alt="{% translate "Logo UMIH" %}" class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="{{ partners.DGE.url }}" target="_blank">
+                    <a href="{{ partners.DGE.url }}"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
                         <img src="{% static partners.DGE.logo %}"
                              alt="{% translate "Logo de DGE" %}"
                              class="a4a-partenaire-logo-small fr-mx-4w">
                     </a>
-                    <a href="https://group.accor.com/fr-FR" target="_blank">
-                        <img src="{% static "img/landing/accor.png" %}" alt="{% translate "Logo d'Accor" %}" class="a4a-partenaire-logo-small fr-mx-4w">
-                    </a>
+                    <a href="https://group.accor.com/fr-FR"
+                       class="fr-link fr-raw-link"
+                       target="_blank">
+                        <img src="{% static "img/landing/accor.png" %}" alt="{% translate "Logo d'Accor" %}"
+                            class="a4a-partenaire-logo-small fr-mx-4w">
+                        </a>
+                    </div>
+                    <p class="fr-mt-4w text-center">
+                        {% translate "Associations, collectivités, gestionnaires... L'union fait la force !" %}
+                        <br />
+                        {% translate "C'est grâce à la collaboration de tous qu'acceslibre vit et grandit." %}
+                    </p>
                 </div>
-                <p class="fr-mt-4w text-center">
-                    {% translate "Associations, collectivités, gestionnaires... L'union fait la force !" %}
-                    <br />
-                    {% translate "C'est grâce à la collaboration de tous qu'acceslibre vit et grandit." %}
-                </p>
             </div>
         </div>
-    </div>
-{% endblock top_fluid_content %}
+    {% endblock top_fluid_content %}

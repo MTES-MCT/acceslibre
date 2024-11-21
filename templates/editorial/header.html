@@ -48,11 +48,11 @@
                             </li>
                             <li>
                                 {% if user.is_authenticated %}
-                                    <a class="fr-btn fr-icon-lock-line"
+                                    <a class="fr-btn fr-icon-user-line fr-btn--tertiary"
                                        href="{% url 'mon_compte' %}?next={{ request.path }}">{% translate "Mon compte" %}
                                     </a>
                                 {% else %}
-                                    <a class="fr-btn fr-icon-lock-line fr-btn--tertiary"
+                                    <a class="fr-btn fr-icon-user-line fr-btn--tertiary"
                                        href="{% url 'login' %}?next={{ request.path }}">
                                         {% translate "Se connecter" %}
                                     </a>
@@ -79,7 +79,8 @@
                  aria-label="{% translate "Menu principal" %}">
                 <ul class="fr-nav__list">
                     <li class="fr-nav__item">
-                        <a class="fr-nav__link" href="{% url 'home' %}" target="_self">{% translate "Accueil" %}</a>
+                        <a class="fr-nav__link" href="{% url 'home' %}" target="_self">
+                            <span class="fr-pr-1w fr-icon-home-4-line" aria-hidden="true"></span>{% translate "Accueil" %}</a>
                     </li>
                     <li class="fr-nav__item">
                         <div class="fr-nav__item-spacer">

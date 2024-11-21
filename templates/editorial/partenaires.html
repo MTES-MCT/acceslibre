@@ -23,7 +23,7 @@
         <div class="fr-grid-row">
             {% for pid, partenaire in partenaires.items|shuffle %}
                 <div class="fr-col-lg-3 fr-col-12 text-center fr-p-2w">
-                    <a class="m-2" href="#{{ pid }}">
+                    <a class="fr-raw-link" href="#{{ pid }}">
                         <img class="a4a-partenaire-logo"
                              src="{% static partenaire.logo %}"
                              alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
@@ -35,7 +35,8 @@
             <div class="card fr-mb-3v" id="{{ pid }}">
                 <div class="card-body">
                     <h2 class="h5 card-title">
-                        <a rel="noopener"
+                        <a class="fr-raw-link"
+                           rel="noopener"
                            aria-describedby="new_target"
                            target="_blank"
                            href="{{ partenaire.url }}">
@@ -49,7 +50,7 @@
             </div>
         {% endfor %}
         <p>
-            <a href="{% url "home" %}">« {% translate "Retour à l'accueil" %}</a>
+            <a href="{% url "home" %}" class="fr-btn">{% translate "Retour à l'accueil" %}</a>
         </p>
     </div>
 {% endblock editorial_content %}
