@@ -581,14 +581,6 @@ select[name='language'] {
     border-bottom: 1px solid #ddd;
   }
 
-  &-form-field
-    .fr-fieldset__content
-    .fr-checkbox-group
-    input[type='checkbox']
-    + label:before {
-    top: 0;
-  }
-
   &-form-input-number {
     width: 100px;
   }

@@ -5,7 +5,8 @@
         <ul class="no-list p-0 flex">
             {% if prev_route %}
                 <li>
-                    <a class="btn btn-link" href="{{ prev_route }}">« {% translate "Précédent" %}</a>
+                    <a class="fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-arrow-left-line fr-mr-1w"
+                       href="{{ prev_route }}">{% translate "Précédent" %}</a>
                 </li>
             {% endif %}
             {% if next_step_title %}
@@ -20,14 +21,15 @@
             {% if publier_route %}
                 <li>
                     <input type="submit"
-                           class="{% if next_step_title %}btn btn-link {% else %}fr-btn btn-primary{% endif %}"
+                           class="{% if next_step_title %}fr-btn fr-btn--secondary fr-mx-1w {% else %}fr-btn btn-primary{% endif %}"
                            name="publier"
                            value='{% translate "Publier" %}'>
                 </li>
             {% endif %}
             {% if erp and erp.published %}
                 <li>
-                    <a class="btn btn-link" href="{{ erp.get_absolute_url }}">{% translate "Revenir à la fiche" %}</a>
+                    <a class="fr-btn fr-btn--tertiary-no-outline"
+                       href="{{ erp.get_absolute_url }}">{% translate "Revenir à la fiche" %}</a>
                 </li>
             {% endif %}
         </ul>
