@@ -44,7 +44,7 @@ class Command(BaseCommand):
             if last_entry.revision.user != user:
                 continue
 
-            if erp.checked_up_to_date_at and last_entry.date < erp.checked_up_to_date_at:
+            if erp.checked_up_to_date_at and last_entry.revision.date_created < erp.checked_up_to_date_at:
                 continue
 
             version_to_revert_to = None
