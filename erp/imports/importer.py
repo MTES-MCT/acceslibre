@@ -9,9 +9,8 @@ from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.generic import GenericMapper
-from erp.imports.mapper.nestenn import NestennMapper
 from erp.imports.mapper.service_public import ServicePublicMapper
-from erp.models import Accessibilite, Activite
+from erp.models import Accessibilite, Activite, ExternalSource
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
 
@@ -59,7 +58,7 @@ class Importer:
             erp = None
             try:
                 mapper = self.mapper(record, self.activite, self.today)
-                (erp, unpublish_reason) = mapper.process()
+                (erp, sources, unpublish_reason) = mapper.process()
                 if not erp:
                     self.print_char("X")
                     continue
@@ -67,6 +66,12 @@ class Importer:
                     if unpublish_reason:
                         erp.published = False
                     erp.save()
+
+                    if sources:
+                        ExternalSource.objects.filter(source=mapper.source, erp_id=erp.id).delete()
+                        for source in sources:
+                            source.erp = erp
+                            source.save()
 
                     # Attach an Accessibilite to newly created Erps
                     if not erp.has_accessibilite():
@@ -110,17 +115,6 @@ def import_gendarmeries(verbose=False):
         GendarmerieMapper,
         Activite.objects.get(slug="gendarmerie"),
         verbose=verbose,
-    ).process()
-
-
-def import_nestenn(verbose=False):
-    return Importer(
-        "d0566522-604d-4af6-be44-a26eefa01756",
-        fetcher.CsvFileFetcher(delimiter=";"),
-        NestennMapper,
-        Activite.objects.get(slug="agence-immobiliere"),
-        verbose=verbose,
-        filepath="nestenn.csv",
     ).process()
 
 
