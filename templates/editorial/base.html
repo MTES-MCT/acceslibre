@@ -2,7 +2,9 @@
 {% load i18n %}
 {% block content %}
     <div class="fr-skiplinks">
-        <nav class="fr-container" role="navigation" aria-label="{% translate "Accès rapide" %}">
+        <nav class="fr-container"
+             role="navigation"
+             aria-label="{% translate "Accès rapide" %}">
             <ul class="fr-skiplinks__list">
                 <li>
                     <a class="fr-link" href="#content">{% translate "Contenu" %}</a>
@@ -32,6 +34,7 @@
         {% block bottom_fluid_content %}
         {% endblock bottom_fluid_content %}
     </main>
+    {% include "common/news_letter_banner.html" %}
     <!-- {% comment %}Common page footer{% endcomment %} -->
     {% include "editorial/footer.html" %}
 {% endblock content %}

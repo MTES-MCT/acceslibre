@@ -7,26 +7,23 @@
                 <div class="fr-header__brand fr-enlarge-link">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
-                            <a href="{% url 'home' %}" aria-label="{% translate "République Française, aller a l'accueil" %}">
-                                <p class="fr-logo">
-                                    République
-                                    <br>
-                                    Française
-                                </p>
-                            </a>
+                            <p class="fr-logo">
+                                République
+                                <br>
+                                Française
+                            </p>
                         </div>
                         <div class="fr-header__operator">
-                            <a href="{% url 'home' %}" aria-label="acceslibre, Aller a l'accueil">
-                                <img class="fr-responsive-img"
-                                     src="{% static 'img/logo-acceslibre-solo.svg' %}"
-                                     alt="{% blocktranslate %}acceslibre aller à l'accueil{% endblocktranslate %}">
-                            </a>
+                            <img class="fr-responsive-img"
+                                 src="{% static 'img/logo-acceslibre-solo.svg' %}"
+                                 alt="{% blocktranslate %}acceslibre aller à l'accueil{% endblocktranslate %}">
                         </div>
                         <div class="fr-header__navbar">
                             <button class="fr-btn--menu fr-btn"
                                     data-fr-opened="false"
                                     aria-controls="menu-modal-controls"
                                     aria-haspopup="menu"
+                                    aria-label="{% translate "Menu de navigation" %}"
                                     id="menu-controls-label"
                                     title="{% translate "Menu" %}">{% translate "Menu" %}</button>
                         </div>
@@ -71,7 +68,9 @@
          id="menu-modal-controls"
          aria-labelledby="menu-controls-label">
         <div class="fr-container">
-            <button class="fr-btn--close fr-btn" aria-controls="menu-modal-controls">{% translate "Fermer" %}</button>
+            <button class="fr-btn--close fr-btn"
+                    aria-controls="menu-modal-controls"
+                    aria-label="{% translate "Fermer le menu de navigation" %}">{% translate "Fermer" %}</button>
             <div class="fr-header__menu-links"></div>
             <nav class="fr-nav"
                  id="navigation-581"

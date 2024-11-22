@@ -1,14 +1,61 @@
 {% load static %}
 {% load i18n %}
 <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-footer__top">
+        <div class="fr-container">
+            <div class="fr-grid-row fr-grid-row--start fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-sm-3 fr-col-md-2">
+                    <p class="fr-footer__top-cat">{% translate "Liens du site" %}</p>
+                    <ul class="fr-footer__top-list">
+                        <li>
+                            <a href="{% url 'search' %}" class="fr-footer__top-link">{% translate "Nos établissements" %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'abous-us' %}" class="fr-footer__top-link">{% translate "Qui sommes-nous" %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'partenaires' %}" class="fr-footer__top-link">{% translate "Partenaires" %}</a>
+                        </li>
+                        {# TODO: Uncomment once the FAQ page has been implemented #}
+                        {#                        <li>#}
+                        {#                            <a class="fr-footer__top-link" href="#">{% translate "Une question ?" %}</a>#}
+                        {#                        </li>#}
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'contact_form' %}">{% translate "Contactez nous" %}</a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url "challenges" %}">{% translate "Challenges" %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fr-col-12 fr-col-sm-3 fr-col-md-2">
+                    <p class="fr-footer__top-cat">{% translate "Liens externes" %}</p>
+                    <ul class="fr-footer__top-list">
+                        <li>
+                            <a class="fr-footer__top-link"
+                               href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/"
+                               target="_blank">{% translate "Jeu de données" %}</a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'apidocs' %}">{% translate "API" %}</a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'stats_home' %}">{% translate "Statistiques" %}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="fr-container">
         <div class="fr-footer__body">
             <div class="fr-footer__brand fr-enlarge-link">
-                <a class="d-flex align-items-center text-decoration-none"
-                   href="{% url "home" %}">
-                    <img src="{% static 'img/logo-acceslibre.svg' %}"
-                         alt="{% translate "acceslibre, République Française" %}"
-                         height="75">
+                <a href="{% url "home" %}"
+                    title="{% translate "Retour à l'accueil du site - AccesLibre" %}">
+                    <p class="fr-logo">
+                        <span class="display--block">République</span>
+                        <span class="display--block">Française</span>
+                    </p>
                 </a>
             </div>
             <div class="fr-footer__content">
@@ -43,38 +90,101 @@
                 </ul>
             </div>
         </div>
+        <div class="fr-footer__partners">
+            <h2 class="fr-footer__partners-title">{% translate "Nos partenaires" %}</h2>
+            <div class="fr-footer__partners-logos">
+                <div class="fr-footer__partners-sub">
+                    <ul>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://www.paris.fr/"
+                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la ville de Paris" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/ville_de_paris.png' %}"
+                                     alt="{% translate "Ville de Paris" %}" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://www.avh.asso.fr/"
+                               aria-label="{% translate "ouvrir une nouvelle fenêtre vers Valentin Haüy" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/avh.png' %}"
+                                     alt="{% translate "Association Valentin Haüy" %}" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://laposte.fr/"
+                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la Poste" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/laposte.png' %}"
+                                     alt="{% translate "La Poste" %}" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://www.cfpsaa.fr/"
+                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers le site de la Confédération Française pour la Promotion Sociale des Aveugles et Amblyopes" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/cfpsaa.png' %}"
+                                     alt="{% translate "CFPSAA" %}" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://www.lorient-agglo.bzh/"
+                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers Lorient agglomération" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/lorient.png' %}"
+                                     alt="{% translate "Lorient" %}" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__partners-link"
+                               href="https://group.accor.com/fr-FR"
+                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers Accor" %}"
+                               target="_blank">
+                                <img class="fr-responsive-img"
+                                     src="{% static 'img/partenaires/accor.png' %}"
+                                     alt="{% translate "Accor" %}" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="fr-footer__bottom">
             <ul class="fr-footer__bottom-list">
+                {#                TODO: Uncomment once the sitemap has been implemented #}
+                {#                <li class="fr-footer__bottom-item">#}
+                {#                    <a class="fr-footer__bottom-link" href="">{% translate "Plan du site" %}</a>#}
+                {#                </li>#}
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url 'accessibilite' %}">{% translate "Accessibilité : partiellement conforme" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'stats_home' %}">{% translate "Statistiques" %}</a>
+                    <a class="fr-footer__bottom-link"
+                       href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
+                       target="_blank">{% translate "Schéma" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
-                       href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/">{% translate "Jeu de données" %}</a>
+                       href="https://fabrique-numerique.gitbook.io/acceslibre-technique/"
+                       target="_blank">{% translate "Documentation technique" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
-                       href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html">{% translate "Schéma" %}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'apidocs' %}">{% translate "API" %}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link"
-                       href="https://fabrique-numerique.gitbook.io/acceslibre-technique/">{% translate "Documentation technique" %}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link"
-                       href="https://github.com/MTES-MCT/acceslibre">{% translate "Code source" %}</a>
+                       href="https://github.com/MTES-MCT/acceslibre"
+                       target="_blank">{% translate "Code source" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url 'mentions-legales' %}">{% translate "Mentions légales" %}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'contact_form' %}">{% translate "Contactez nous" %}</a>
                 </li>
             </ul>
             <div class="fr-footer__bottom-copy">
