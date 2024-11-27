@@ -12,7 +12,7 @@
                 {% if access.transport_information %}
                     :
                     <div class="a4a-comment-block">
-                        <p>{{ access.transport_information }}</p>
+                        <p>{{ access.transport_information|linebreaksbr }}</p>
                     </div>
                 {% endif %}
             </li>
