@@ -5,6 +5,8 @@ from django.db.models import Q
 from reversion.models import Version
 
 from erp.models import Accessibilite, Erp
+from django.db.utils import IntegrityError
+from reversion.errors import RevertError
 
 
 class Command(BaseCommand):
@@ -64,7 +66,14 @@ class Command(BaseCommand):
 
             if self.should_write:
                 print(f"Reverting {version_to_revert_to.revision.__dict__} ...")
-                version_to_revert_to.revision.revert()
+                try:
+                    version_to_revert_to.revision.revert()
+                except IntegrityError:
+                    print("... Cannot be reverted due to accessibility inconsistencies.")
+                    continue
+                except RevertError:
+                    print("... Cannot be reverted, old version not valid anymore.")
+                    continue
                 print("... Reverted.")
             else:
                 print(f"Would have reverted {version_to_revert_to.revision}")
