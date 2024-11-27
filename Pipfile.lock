@@ -2022,11 +2022,12 @@
         },
         "scrapfly-sdk": {
             "hashes": [
-                "sha256:568f9939ff06458453e31d7eb98ba6254c58d69f3975cbdea062abc4148cd812",
-                "sha256:57b12461d773937fd0a0c11d262a11afb2518f9fd98718f1966ab180f182f1e8"
+                "sha256:7bb8fa10503a02f2f5981ccb4bd765b910be63a4fb9fd7a1d59c98b72d4ea29c",
+                "sha256:fec3f83116a3b0270ce8574abbf166400d7a437101718b5537eef93193b2cf28"
             ],
             "index": "pypi",
-            "version": "==0.8.18"
+            "markers": "python_version >= '3.6'",
+            "version": "==0.8.19"
         },
         "sentry-sdk": {
             "hashes": [
