@@ -325,6 +325,8 @@ class TestOutscraperAcquisition:
             erp__numero=173,
             erp__voie="Rue des tournesols",
             erp__activite=activite,
+            erp__source="gendarmerie",
+            erp__source_id="abc",
         ).erp
         CommuneFactory(nom="Lyon")
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
@@ -340,6 +342,8 @@ class TestOutscraperAcquisition:
         existing_erp.refresh_from_db()
 
         assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
+
+        assert existing_erp.sources.count() == 2
 
     @pytest.mark.django_db
     def test_not_enough_info(self, mocker):

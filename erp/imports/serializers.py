@@ -204,7 +204,19 @@ class ErpImportSerializer(serializers.ModelSerializer):
             self.instance.import_email = obj.get("import_email")
             accessibilite = Accessibilite(**obj["accessibilite"])
             accessibilite.full_clean()
-            return model_to_dict(self.instance) | {"accessibilite": model_to_dict(accessibilite)}
+
+            sources_data_list = []
+            sources_data = obj.get("sources") or []
+            for source_data in sources_data:
+                external_source = ExternalSource(**source_data)
+                external_source.full_clean(exclude=("erp",))
+                sources_data_list.append(model_to_dict(external_source))
+
+            return (
+                model_to_dict(self.instance)
+                | {"accessibilite": model_to_dict(accessibilite)}
+                | {"sources": sources_data_list}
+            )
 
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
@@ -296,4 +308,4 @@ class ErpImportSerializer(serializers.ModelSerializer):
     def _create_or_update_sources(self, erp, sources_data):
         for source_data in sources_data:
             ExternalSource.objects.filter(erp=erp, source=source_data["source"]).delete()
-            ExternalSource.objects.create(erp=erp, **source_data)
+            ExternalSource.objects.create(erp_id=erp.pk, **source_data)

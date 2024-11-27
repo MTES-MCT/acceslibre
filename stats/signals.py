@@ -8,7 +8,7 @@ from stats.tasks import manage_challenge_player_unsubscription
 @receiver(post_delete, sender=ChallengePlayer)
 def challenge_player_deletion(sender, instance, **kwargs):
     challenge_player_data = {
-        "username": instance.player.username,
+        "user_id": instance.player.pk,
         "challenge_id": instance.challenge.pk,
     }
     manage_challenge_player_unsubscription.delay(challenge_player_data)

@@ -1,5 +1,6 @@
 import logging
 
+from celery import shared_task
 from django.conf import settings
 from sib_api_v3_sdk import (
     AddContactToList,
@@ -19,7 +20,6 @@ from sib_api_v3_sdk.rest import ApiException
 from waffle import switch_is_active
 
 from compte.serializers import ErpSerializerForBrevo, UserStatsForBrevoSerializer
-from celery import shared_task
 
 logger = logging.getLogger(__name__)
 
@@ -94,6 +94,13 @@ class BrevoMailer(Mailer):
         if "DATE_LAST_CONTRIB" not in current_attributes:
             api_instance.create_attribute(
                 attribute_name="DATE_LAST_CONTRIB",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="date"),
+            )
+
+        if "DATE_LAST_LOGIN" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="DATE_LAST_LOGIN",
                 attribute_category="normal",
                 create_attribute=CreateAttribute(type="date"),
             )

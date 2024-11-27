@@ -74,7 +74,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "--file",
             type=str,
-            help="Chemin du fichier à traiter",
+            help="CSV file to ingest (separator: ,)",
         )
 
     def _convert_access(self, line):
@@ -141,6 +141,7 @@ class Command(BaseCommand):
             "nom": "La Poste",
             "activite": self.activite.nom,
             "source": ExternalSource.SOURCE_LAPOSTE,
+            "sources": [{"source": ExternalSource.SOURCE_LAPOSTE}],
         }
 
         erp["voie"], erp["code_postal"], erp["commune"] = self._get_address_parts(line)

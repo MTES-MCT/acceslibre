@@ -4,6 +4,7 @@ from datetime import timedelta
 
 from autoslug import AutoSlugField
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -75,16 +76,28 @@ class Challenge(models.Model):
         # NOTE: naive versionning, v1 challenges are intended to be deprecated soon, just here to manage a distinct display
         return "v2" if self.end_date.year >= 2024 else "v1"
 
+    def _get_users_indexed_user_by_id(self, user_ids):
+        users = User.objects.filter(pk__in=user_ids).values("id", "username")
+        users_by_id = {user["id"]: user["username"] for user in users}
+        return users_by_id
+
     def get_classement(self):
         if self.version == "v1":
-            return self.classement
+            user_ids = [entry["user_id"] for entry in self.classement]
+            users_by_id = self._get_users_indexed_user_by_id(user_ids)
+            classement = [
+                {"username": users_by_id.get(k["user_id"]), "erp_count_published": k["erp_count_published"]}
+                for k in self.classement
+            ]
+            return classement
 
         classement = defaultdict(int)
         for scores in self.classement.values():
             for score in scores:
-                classement[score["username"]] += score["nb_access_info_changed"]
+                classement[score["user_id"]] += score["nb_access_info_changed"]
 
-        classement = [{"username": k, "nb_access_info_changed": v} for k, v in classement.items()]
+        users_by_id = self._get_users_indexed_user_by_id(user_ids=classement.keys())
+        classement = [{"username": users_by_id.get(k), "nb_access_info_changed": v} for k, v in classement.items()]
         return sorted(classement, key=lambda elt: elt["nb_access_info_changed"], reverse=True)
 
     def get_classement_team(self):
@@ -100,7 +113,7 @@ class Challenge(models.Model):
         return sorted(classement, key=lambda elt: elt["nb_access_info_changed"], reverse=True)
 
     def refresh_stats(self):
-        players = {user.pk: user.username for user in self.players.all()}
+        player_ids = list(self.players.values_list("id", flat=True))
         teams = {
             team_pk: team_name for team_pk, team_name in self.inscriptions.all().values_list("team__pk", "team__name")
         }
@@ -115,10 +128,10 @@ class Challenge(models.Model):
             if to_date > timezone.now():
                 continue
 
-            scores_per_user_id, scores_per_team_id = get_challenge_scores(self, from_date, to_date, players.keys())
+            scores_per_user_id, scores_per_team_id = get_challenge_scores(self, from_date, to_date, player_ids)
 
             self.classement[f"{from_date}"] = [
-                {"username": players.get(user_id), "nb_access_info_changed": max(score, 0)}
+                {"user_id": user_id, "nb_access_info_changed": max(score, 0)}
                 for user_id, score in scores_per_user_id.items()
             ]
 

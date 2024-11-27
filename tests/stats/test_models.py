@@ -15,4 +15,4 @@ class ChallengePlayerSignalTest(TestCase):
         player.delete()
 
         self.assertTrue(mock_tasks.called)
-        mock_tasks.assert_called_once_with({"username": user.username, "challenge_id": challenge.pk})
+        mock_tasks.assert_called_once_with({"user_id": user.pk, "challenge_id": challenge.pk})

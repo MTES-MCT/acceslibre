@@ -1,0 +1,23 @@
+@import 'breakpoints';
+
+.fr-header {
+  .fr-responsive-img {
+    max-width: 128px;
+  }
+
+  .fr-nav__item-spacer {
+    position: relative;
+
+    span {
+      display: none;
+      @media (min-width: $viewport-lg) {
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 14px;
+        height: 30px;
+        border-right: 1px solid #3a3a3a;
+      }
+    }
+  }
+}

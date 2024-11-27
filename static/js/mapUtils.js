@@ -17,17 +17,18 @@ function generateHTMLForResult(result) {
   return `
     <div class="list-group-item d-flex justify-content-between align-items-center fr-pt-2v fr-pr-2v fr-pb-1v fr-pl-0 map-results">
     <div>
-        <div class="d-flex w-100 justify-content-between">
-            <a href="${link}">
-                <h3 class="h6 font-weight-bold w-100 fr-mb-0 fr-pb-0">
-                    <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="/static/img/mapicons.svg#${icon}">
-                   ${result.properties.nom}
-                </h3>
+        <div>
+          <h3 class="h6 font-weight-bold w-100 fr-mb-0 fr-pb-0">
+            <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="/static/img/mapicons.svg#${icon}">
+            
+            <a class="fr-link" href="${link}">
+               ${result.properties.nom}
                 <span class="fr-sr-only">
                     ${activity_name}
                     ${result.properties.adresse}
                 </span>
             </a>
+          </h3>
         </div>
         <div aria-hidden="true">
             <small class="font-weight-bold">${activity_name}</small>
