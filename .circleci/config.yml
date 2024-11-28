@@ -22,7 +22,7 @@ env_vars: &shared_env_vars
 executors:
   for_tests:
     docker:
-      - image: cimg/python:3.11.2-node
+      - image: cimg/python:3.12-node
         environment:
           <<: *shared_env_vars
       - image: cimg/postgres:15.8-postgis
@@ -34,7 +34,7 @@ executors:
 
   for_checks:
     docker:
-      - image: cimg/python:3.11.2-node
+      - image: cimg/python:3.12-node
         environment:
           <<: *shared_env_vars
 jobs:
@@ -56,7 +56,7 @@ jobs:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - '.venv'
-            - '/usr/local/lib/python3.11/site-packages'
+            - '/usr/local/lib/python3.12/site-packages'
       - restore_cache:
           name: Restore Node cached dependencies
           keys:

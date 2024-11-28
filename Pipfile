@@ -33,7 +33,7 @@ crispy-bootstrap5 = "*"
 django-extensions = "*"
 django-import-export = "*"
 django-logentry-admin = "*"
-django-registration = "*"
+django-registration = "==3.4"  # FIXME TemplateDoesNotExist in v 5.1.0, see https://django-registration.readthedocs.io/en/stable/quickstart.html#default-templates
 django-reversion = "==5.1.0"
 djangorestframework = "*"
 djangorestframework-gis = "*"
@@ -64,7 +64,6 @@ pandas = "*"
 django-maintenance-mode = "*"
 djangorestframework-api-key = "*"
 django-modeltranslation = "*"
-better-profanity = "*"
 django-environ = "*"
 deepl = "*"
 django-filter = "*"
@@ -78,9 +77,10 @@ django-admin-two-factor = "*"
 django-csp = "*"
 colorama = "*"
 boto3 = "*"
+magic-profanity = "*"
 
 [requires]
-python_version = "3.11"
+python_version = "3.12"
 
 [pipenv]
 allow_prereleases = false
