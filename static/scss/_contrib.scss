@@ -1,0 +1,16 @@
+.contrib {
+  &-container {
+    background-color: var(--background-action-low-brown-opera);
+  }
+  &-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

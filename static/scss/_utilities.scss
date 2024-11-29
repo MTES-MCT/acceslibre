@@ -16,3 +16,17 @@
 .display--block {
   display: block;
 }
+
+.justify {
+  &--self {
+    &-end {
+      justify-self: flex-end;
+    }
+  }
+}
+
+.display {
+  &--flex {
+    display: flex;
+  }
+}

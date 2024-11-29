@@ -14,7 +14,7 @@
 {% endblock navbar %}
 {% block contrib_content %}
     <div class="fr-col-md-12">
-        <div class="mt-5">{% include "contrib/forms/search.html" with search_action="." %}</div>
+        {% include "contrib/includes/contrib-search-section.html" %}
         <h3 class="mt-3 fr-mb-2v">
             <small class="text-muted">{% translate "Votre recherche" %}</small>
             <br>

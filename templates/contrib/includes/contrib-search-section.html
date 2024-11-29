@@ -1,0 +1,12 @@
+{% load a4a static %}
+{% load i18n %}
+<div class="contrib-section">
+    <div class="bg-white fr-col-12  fr-px-2w fr-py-3w fr-pt-md-7w fr-pb-md-3w fr-px-md-12w">
+        <h2 class="text-center fr-mb-9w">{% translate "Vérifiez si l'établissement existe déjà dans notre base" %}</h2>
+        {% include "contrib/forms/search.html" with search_action="." %}
+    </div>
+    <div class="bg-white fr-col-12 fr-py-3w fr-px-2w fr-pt-lg-7w fr-px-lg-12w fr-pb-lg-3w">
+        <h2 class="text-center">{% translate "Vous n’avez pas trouvé votre établissement ci-dessus ?" %}</h2>
+        {% include "contrib/includes/contrib-cta.html" %}
+    </div>
+</div>

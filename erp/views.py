@@ -462,10 +462,7 @@ def contrib_start(request):
     return render(
         request,
         template_name="contrib/0-start.html",
-        context={
-            "form": form,
-            "step": 0,
-        },
+        context={"form": form, "step": 0, "page_type": "contrib-form"},
     )
 
 
@@ -531,6 +528,7 @@ def contrib_global_search(request):
                 "new_activity": request.GET.get("new_activity"),
                 "code_postal": request.GET.get("postcode"),
             },
+            "page_type": "contrib-form",
         },
     )
 
