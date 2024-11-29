@@ -11,9 +11,6 @@
                             <a href="{% url 'search' %}" class="fr-footer__top-link">{% translate "Nos établissements" %}</a>
                         </li>
                         <li>
-                            <a href="{% url 'abous-us' %}" class="fr-footer__top-link">{% translate "Qui sommes-nous" %}</a>
-                        </li>
-                        <li>
                             <a href="{% url 'partenaires' %}" class="fr-footer__top-link">{% translate "Partenaires" %}</a>
                         </li>
                         {# TODO: Uncomment once the FAQ page has been implemented #}
@@ -21,26 +18,43 @@
                         {#                            <a class="fr-footer__top-link" href="#">{% translate "Une question ?" %}</a>#}
                         {#                        </li>#}
                         <li>
-                            <a class="fr-footer__top-link" href="{% url 'contact_form' %}">{% translate "Contactez nous" %}</a>
-                        </li>
-                        <li>
                             <a class="fr-footer__top-link" href="{% url "challenges" %}">{% translate "Challenges" %}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="fr-col-12 fr-col-sm-3 fr-col-md-2">
-                    <p class="fr-footer__top-cat">{% translate "Liens externes" %}</p>
+                    <p class="fr-footer__top-cat">{% translate "Données ouvertes" %}</p>
                     <ul class="fr-footer__top-list">
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'apidocs' %}">{% translate "API" %}</a>
+                        </li>
+                        <li>
+                            <a class="fr-footer__top-link"
+                               href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
+                               target="_blank">{% translate "Schéma" %}</a>
+                        </li>
                         <li>
                             <a class="fr-footer__top-link"
                                href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/"
                                target="_blank">{% translate "Jeu de données" %}</a>
                         </li>
+                    </ul>
+                </div>
+                <div class="fr-col-12 fr-col-sm-3 fr-col-md-2">
+                    <p class="fr-footer__top-cat">{% translate "En savoir plus" %}</p>
+                    <ul class="fr-footer__top-list">
                         <li>
-                            <a class="fr-footer__top-link" href="{% url 'apidocs' %}">{% translate "API" %}</a>
+                            <a href="{% url 'abous-us' %}" class="fr-footer__top-link">{% translate "Qui sommes-nous ?" %}</a>
                         </li>
                         <li>
                             <a class="fr-footer__top-link" href="{% url 'stats_home' %}">{% translate "Statistiques" %}</a>
+                        </li>
+                        {# TODO: Uncomment once the FAQ page has been implemented #}
+                        {#                        <li>#}
+                        {#                            <a class="fr-footer__top-link" href="#">{% translate "Une question ?" %}</a>#}
+                        {#                        </li>#}
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'contact_form' %}">{% translate "Contactez-nous" %}</a>
                         </li>
                     </ul>
                 </div>
@@ -91,7 +105,7 @@
             </div>
         </div>
         <div class="fr-footer__partners">
-            <h2 class="fr-footer__partners-title">{% translate "Nos partenaires" %}</h2>
+            <h1 class="fr-footer__partners-title">{% translate "Nos partenaires" %}</h1>
             <div class="fr-footer__partners-logos">
                 <div class="fr-footer__partners-sub">
                     <ul>
