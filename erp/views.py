@@ -497,6 +497,7 @@ def contrib_global_search(request):
         except RuntimeError as err:
             error = err
 
+        # FIXME CONTRIBV3 do not query bdd anymore, will be done async
         qs_results_bdd = (
             Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
         )
