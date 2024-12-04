@@ -479,8 +479,8 @@ def contrib_global_search(request):
         need_external_api_search = False
 
     activite = None
-    if request.GET.get("activite"):
-        activite = Activite.objects.filter(nom=request.GET.get("activite")).first()
+    if request.GET.get("activity_slug"):
+        activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
 
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
@@ -505,6 +505,7 @@ def contrib_global_search(request):
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = clean_address(request.GET.get("where"))
+    pagination_size = 6
 
     return render(
         request,
@@ -514,10 +515,13 @@ def contrib_global_search(request):
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
+            # todo: Get rid of results_bdd
             "results_bdd": results_bdd,
+            "has_more_results_bdd": True if len(results_bdd) > pagination_size else False,
             "results": results,
             "error": error,
             "results_global_count": len(results) + len(results_bdd),
+            "api_key": _get_or_create_api_key(),
             "query": {
                 "nom": request.GET.get("what"),
                 "commune": city,

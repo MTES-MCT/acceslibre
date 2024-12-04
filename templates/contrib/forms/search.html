@@ -25,6 +25,10 @@
                     {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
                 </label>
                 <input type="text" class="fr-input hidden" id="new_activity" name="new_activity" placeholder="{% translate "Entrez votre activité" %}" value="{{ request.GET.new_activity }}" aria-label="{% translate "Commencer la saisie puis sélectionner l'activité dans la liste." %}">
+                <input type="hidden"
+                       name="activity_slug"
+                       id="activity_slug"
+                       value="{{ query.activite_slug }}">
                 <div id="autocomplete-activity" class="autocomplete">
                     {{ form.activite }}
                     <ul class="list-group">

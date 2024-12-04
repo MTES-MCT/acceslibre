@@ -2,10 +2,12 @@ import Autocomplete from '@trevoreyre/autocomplete-js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('autocomplete-activity')
+
   if (!root) {
     return
   }
-  const inputElement = root.querySelector('input')
+
+  const inputElement = root.querySelector('input[name="activite"]')
   const activities = JSON.parse(inputElement.dataset.searchLookup)
 
   new Autocomplete(root, {
@@ -49,13 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
       `
     },
     onSubmit: (result) => {
-      if (result != gettext('Autre')) {
-        document.querySelector('#activity_suggested>span').innerHTML = ''
-        document.getElementById('activity_suggested').classList.add('hidden')
+      const activitySlugInput = document.querySelector('input[type="hidden"][name="activity_slug"]')
 
-        const noActivity = document.getElementById('no_activity')
-        noActivity.value = ''
-        noActivity.classList.remove('hidden')
+      if (activitySlugInput) {
+        activitySlugInput.value = result.slug
       }
     },
   })

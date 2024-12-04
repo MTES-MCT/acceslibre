@@ -5,53 +5,16 @@
     {% translate "Rechercher un établissement" %}
 {% endblock page_title %}
 {% block contrib_title %}
-    {% translate "Ajouter les données d'accessibilité d'un établissement" %}
+    {% translate "Ajouter un établissement" %}
 {% endblock contrib_title %}
 {% block contrib_subtitle %}
-    {% translate "L'établissement" %}
+    {% translate "Merci de contribuer à l’évolution de notre projet, la force du collaboratif prendra le relais et quelqu'un pourra compléter après toi." %}
 {% endblock contrib_subtitle %}
 {% block navbar %}
 {% endblock navbar %}
 {% block contrib_content %}
-    <div class="fr-col-md-12">
-        {% include "contrib/includes/contrib-search-section.html" %}
-        <h3 class="mt-3 fr-mb-2v">
-            <small class="text-muted">{% translate "Votre recherche" %}</small>
-            <br>
-            {% if what %}{{ what|capfirst }}{% endif %}
-            {% if commune_search and what %}<small class="text-muted">/</small>{% endif %}
-            {{ commune_search }} ({{ results_global_count }} {% translate "résultat" %}{{ results_global_count|pluralize }})
-        </h3>
-        {% if results_bdd %}
-            <div class="fr-pt-3v fr-pb-3v fr-col-md-9">
-                {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
-            </div>
-        {% endif %}
-        {% if results %}
-            <div class="fr-pt-3v fr-pb-3v fr-col-md-9">
-                {% include "contrib/includes/result_search_erps.html" with results=results light=True %}
-            </div>
-        {% endif %}
-        <div>
-            {% if results or results_bdd %}
-                <hr>
-                <h3 class="h5 fr-mt-5v fr-mb-3v">
-                    <b>{% translate "L'établissement que je souhaite ajouter n’est pas dans cette liste." %}</b>
-                </h3>
-            {% else %}
-                <h3 class="h5">
-                    <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche." %}</b>
-                </h3>
-            {% endif %}
-            <div class="row fr-mb-3v">
-                <div class="fr-mt-1v fr-pr-4v fr-ml-3v">
-                    <a class="fr-btn btn-lg"
-                       href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}#content">{% translate "Ajouter cet établissement" %}</a>
-                </div>
-                <div class="ml-3 fr-mt-1v fr-pr-4v">
-                    <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="fr-col-md-12"
+         data-api-key="{{ api_key|default:'' }}"
+         data-api-url="{% url "erp-list" %}"
+         data-commune="{{ commune_search }}">{% include "contrib/includes/contrib-search-section.html" %}</div>
 {% endblock contrib_content %}

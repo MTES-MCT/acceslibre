@@ -1,0 +1,15 @@
+{% load a4a %}
+{% load i18n %}
+<div class="fr-col-md-12"
+     data-api-key="{{ api_key|default:'' }}"
+     data-api-url="{% url "erp-list" %}"
+     data-commune="{{ commune_search }}">
+    <h2 class="fr-mb-0 fr-h3">{% translate "Autres établissements non répertoriés à ajouter et compléter" %}</h2>
+    <p class="fr-mb-0 fr-text--xl">
+        {% translate "Les établissements suivants ne sont pas renseignés sur notre site. Voulez-vous en compléter un ?" %}
+    </p>
+    <p class="fr-mb-2w fr-text--xl">{{ results|length }} {% translate "résultat" %}{{ results|pluralize }}</p>
+    <div class="fr-pt-3v fr-pb-3v fr-col-md-12">
+        {% include "contrib/includes/result_external_search_erps.html" with results=results light=True %}
+    </div>
+</div>

@@ -1,10 +1,9 @@
 {% load a4a static %}
 {% load i18n %}
 <div class="contrib-cta">
-    <p>
+    <p class="fr-mb-3v">
         {% translate "L'établissement que vous souhaitez ajouter ne fait pas partie des résultats trouvés juste au dessus." %}
     </p>
-    <pre>{{  query }}</pre>
     <a class="fr-btn fr-btn-"
        {% if not query %}disabled="true"{% endif %}
        {% if query %}href="{% url 'contrib_admin_infos' %}?data={{ query|encode_provider_data }}"{% endif %}>{% translate "Ajouter un nouvel établissement" %}</a>
