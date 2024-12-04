@@ -145,8 +145,12 @@ def test_registration_flow_without_next(mocker, browser):
     )
 
     key = brevo_mock.call_args_list[0][1]["context"]["activation_key"]
-    activation_url = f"http://testserver/compte/activate/{key}"
+    activation_url = f"http://testserver/compte/activate/?activation_key={key}"
     browser.visit(activation_url)
+
+    assert browser.is_text_present("Activer votre compte")
+    button = browser.find_by_css("form#activation button")
+    button.click()
 
     assert browser.is_text_present("Votre compte est désormais actif")
     user = User.objects.get(username="johndoe")
@@ -180,8 +184,12 @@ def test_registration_flow(mocker, browser):
     assert user.preferences.get().newsletter_opt_in is True
 
     key = brevo_mock.call_args_list[0][1]["context"]["activation_key"]
-    activation_url = f"http://testserver/compte/activate/{key}?next=/contact/"
+    activation_url = f"http://testserver/compte/activate/?activation_key={key}&next=/contact/"
     browser.visit(activation_url)
+
+    assert browser.is_text_present("Activer votre compte")
+    button = browser.find_by_css("form#activation button")
+    button.click()
 
     user = User.objects.get(username="johndoe")
     assert user.is_active is True

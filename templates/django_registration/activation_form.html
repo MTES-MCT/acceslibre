@@ -1,0 +1,34 @@
+{% extends "editorial/base.html" %}
+{% load a4a %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Activer votre compte" %}
+{% endblock page_title %}
+{% block editorial_content %}
+    <div class="container">
+        <h1 class="h3 text-start fr-mb-4v">{% translate "Activer votre compte" %}</h1>
+        {% if activation_error %}
+            <div class="alert alert-danger" role="alert">
+                <strong>{% translate "Erreur d'activation" %}</strong>
+                <br>
+                {% if activation_error.key_invalid %}
+                    {% translate "La clé d'activation est invalide ou expirée." %}
+                {% elif activation_error.already_activated %}
+                    {% translate "Ce compte a déjà été activé." %}
+                {% endif %}
+            </div>
+        {% endif %}
+        <form action="."
+              method="post"
+              novalidate
+              class="activation-form fr-mb-4v"
+              id="activation">
+            {% csrf_token %}
+            <input type="hidden"
+                   name="activation_key"
+                   value="{{ request.GET.activation_key }}">
+            <button type="submit" class="fr-btn fr-btn-primary fr-btn-block">{% translate "Activer mon compte" %}</button>
+        </form>
+    </div>
+{% endblock editorial_content %}

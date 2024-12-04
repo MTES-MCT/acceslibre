@@ -48,7 +48,7 @@ BREVO_TEMPLATE_IDS = {
     "spam_activities_suggestion_admin": 455,
     "draft": 139,
     "erp_imported": 271,
-    "account_activation": 432,
+    "account_activation": 532,
     "notif_weekly_unpublished": 456,
     "contact_to_admins": 453,
     "contact_receipt": 440,
