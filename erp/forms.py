@@ -1,4 +1,3 @@
-from better_profanity import profanity
 from django import forms
 from django.conf import settings
 from django.contrib.gis.geos import Point
@@ -10,6 +9,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
+from magic_profanity import ProfanityFilter
 
 from compte.models import UserStats
 from erp import schema
@@ -113,20 +113,22 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        profanity_word_loaded = False
+
+        profanity_filter = ProfanityFilter()
+        profanity_filter.load_words_from_file(settings.FRENCH_PROFANITY_WORDLIST)
+
         for free_text in schema.get_free_text_fields():
             if not cleaned_data.get(free_text):
                 continue
 
-            if not profanity_word_loaded:
-                profanity.load_censor_words_from_file(settings.FRENCH_PROFANITY_WORDLIST)
-
-            if profanity.contains_profanity(cleaned_data[free_text]):
+            if profanity_filter.has_profanity(cleaned_data[free_text]):
                 cleaned_data.pop(free_text)
+
                 if self._user:
                     user_stats, _ = UserStats.objects.get_or_create(user=self._user)
                     user_stats.nb_profanities = F("nb_profanities") + 1
                     user_stats.save(update_fields=("nb_profanities",))
+
         return cleaned_data
 
 
