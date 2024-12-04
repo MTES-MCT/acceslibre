@@ -33,7 +33,7 @@ crispy-bootstrap5 = "*"
 django-extensions = "*"
 django-import-export = "*"
 django-logentry-admin = "*"
-django-registration = "==3.4"  # FIXME TemplateDoesNotExist in v 5.1.0, see https://django-registration.readthedocs.io/en/stable/quickstart.html#default-templates
+django-registration = "*"
 django-reversion = "==5.1.0"
 djangorestframework = "*"
 djangorestframework-gis = "*"
