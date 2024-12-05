@@ -65,6 +65,7 @@ urlpatterns = [
     ),
     path("sitemap-<section>.xml", cache_page(ONE_DAY)(sitemap_views.sitemap), {"sitemaps": SITEMAPS}, name="sitemap"),
     path("maintenance-mode/", include("maintenance_mode.urls")),
+    path("summernote/", include("django_summernote.urls")),
     path("i18n/", include("django.conf.urls.i18n")),
     path("jsi18n/", cache_page(ONE_HOUR, key_prefix="jsi18n")(JavaScriptCatalog.as_view()), name="javascript-catalog"),
     path("robots.txt", robots_txt),

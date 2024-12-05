@@ -1,7 +1,10 @@
 from django.contrib import admin
+from django.db import models
 from django.utils.safestring import mark_safe
+from django_summernote.widgets import SummernoteWidget
+from modeltranslation.admin import TranslationAdmin
 
-from .models import Message
+from .models import FAQ, Message
 
 
 @admin.register(Message)
@@ -42,3 +45,10 @@ class MessageAdmin(admin.ModelAdmin):
         return ""
 
     get_erp.short_description = "ERP"
+
+
+@admin.register(FAQ)
+class FAQAdmin(TranslationAdmin):
+    formfield_overrides = {
+        models.TextField: {"widget": SummernoteWidget},
+    }

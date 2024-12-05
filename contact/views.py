@@ -1,3 +1,5 @@
+from itertools import groupby
+
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -6,7 +8,7 @@ from core.mailer import BrevoMailer
 from erp.models import Erp
 
 from .forms import ContactForm
-from .models import Message
+from .models import FAQ, Message
 
 
 def send_receipt(message):
@@ -71,6 +73,22 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
         form = ContactForm(request=request, initial=initial)
     return render(
         request,
-        "contact_form/contact_form.html",
+        "contact/contact_form.html",
         context={"form": form, "erp": erp},
     )
+
+
+def faq(request):
+    faqs = FAQ.objects.all().order_by("section")
+
+    faq_by_section = {
+        section_name: list(items)
+        for section, section_name in FAQ.SECTION_CHOICES
+        for key, items in groupby(faqs, lambda x: x.section)
+        if key == section
+    }
+
+    context = {
+        "faq_by_section": faq_by_section,
+    }
+    return render(request, "contact/faq.html", context)

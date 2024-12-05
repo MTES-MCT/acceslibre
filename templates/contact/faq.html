@@ -1,0 +1,32 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% load a4a %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Questions fréquentes" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block editorial_content %}
+    <div class="fr-accordions-group">
+        {% for section_name, faqs in faq_by_section.items %}
+            <section class="fr-accordion-group">
+                <h2 class="fr-h2">{{ section_name }}</h2>
+                {% for faq in faqs %}
+                    <section class="fr-accordion">
+                        <h3 class="fr-accordion__title">
+                            <button class="fr-accordion__btn"
+                                    aria-expanded="false"
+                                    aria-controls="accordion-{{ faq.id }}">{{ faq.title }}</button>
+                        </h3>
+                        <div class="fr-collapse" id="accordion-{{ faq.id }}">
+                            <p>{{ faq.description|safe }}</p>
+                        </div>
+                    </section>
+                {% endfor %}
+            </section>
+        {% endfor %}
+    </div>
+{% endblock editorial_content %}
