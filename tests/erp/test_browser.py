@@ -776,9 +776,10 @@ def test_add_erp_with_profanities(client):
 
     client.post(
         reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
-        data={"labels_autre": "barrez-vous, cons de mimes", "commentaire": "foo"},
+        data={"labels": ["th"], "labels_autre": "barrez-vous, cons de mimes", "commentaire": "foo"},
         follow=True,
     )
+
     accessibilite = erp.accessibilite
     assert not accessibilite.labels_autre, "Comment with profanities should not be stored"
 
