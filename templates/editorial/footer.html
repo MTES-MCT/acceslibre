@@ -13,10 +13,9 @@
                         <li>
                             <a href="{% url 'partenaires' %}" class="fr-footer__top-link">{% translate "Partenaires" %}</a>
                         </li>
-                        {# TODO: Uncomment once the FAQ page has been implemented #}
-                        {#                        <li>#}
-                        {#                            <a class="fr-footer__top-link" href="#">{% translate "Une question ?" %}</a>#}
-                        {#                        </li>#}
+                        <li>
+                            <a class="fr-footer__top-link" href="{% url 'questions-frequentes' %}">{% translate "Une question ?" %}</a>
+                        </li>
                         <li>
                             <a class="fr-footer__top-link" href="{% url "challenges" %}">{% translate "Challenges" %}</a>
                         </li>

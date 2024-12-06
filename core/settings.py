@@ -52,9 +52,11 @@ CSP_DEFAULT_SRC = (
     "wss://client.relay.crisp.chat",
     "wss://stream.relay.crisp.chat",
     "*.acceslibre.info",
+    # "code.jquery.com",
+    # "stackpath.bootstrapcdn.com",
 )
 
-CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin")  # swagger and admin uses scripts from remote cdns
+CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
 
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
@@ -143,6 +145,7 @@ INSTALLED_APPS = [
     "waffle",
     "reversion",
     "maintenance_mode",
+    "django_summernote",
 ]
 
 

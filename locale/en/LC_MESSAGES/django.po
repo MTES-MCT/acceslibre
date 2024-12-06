@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-06 14:20+0100\n"
-"PO-Revision-Date: 2024-12-06 14:19+0100\n"
+"POT-Creation-Date: 2024-12-06 17:43+0100\n"
+"PO-Revision-Date: 2024-12-06 17:43+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -192,6 +192,18 @@ msgstr "Creation date"
 
 msgid "Dernière modification"
 msgstr "Last modification"
+
+msgid "Utilisation générale d'acceslibre"
+msgstr "General use of acceslibre"
+
+msgid "Contribution"
+msgstr "Contribution"
+
+msgid "Accès aux données"
+msgstr "Data access"
+
+msgid "Titre"
+msgstr "Title"
 
 msgid "French"
 msgstr "French"
@@ -3429,6 +3441,40 @@ msgstr "Your message has been sent"
 msgid "Nous vous répondrons dans les plus brefs délais."
 msgstr "We will answer you as soon as possible."
 
+msgid "Questions fréquentes"
+msgstr "Frequently Asked Questions"
+
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Vous avez une question ?"
+msgstr "Do you have a question?"
+
+msgid ""
+"Consultez nos questions fréquentes, la réponse à votre question s’y trouve "
+"peut-être. "
+msgstr ""
+"Take a look at our frequently asked questions, where you may find the answer "
+"to your question."
+
+msgid "Mise à jour le"
+msgstr "Updated on"
+
+msgid "Vous ne trouvez pas de réponse satisfaisante."
+msgstr "You can't find a satisfactory answer."
+
+msgid "Contactez-nous par e-mail pour que nous puissions trouver une solution."
+msgstr "Contact us by e-mail so that we can find a solution."
+
+msgid "Nous contacter par mail"
+msgstr "Contact us by e-mail"
+
 msgid ""
 "Merci de contribuer à l’évolution de notre projet, la force du collaboratif "
 "prendra le relais et quelqu'un pourra compléter après toi."
@@ -3544,15 +3590,6 @@ msgstr "Step 7 of 7"
 
 msgid "Publication"
 msgstr "Publication"
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
-
-msgid "Accueil"
-msgstr "Home"
 
 #, python-format
 msgid ""
@@ -3974,6 +4011,9 @@ msgstr "Our facilities"
 
 msgid "Partenaires"
 msgstr "Partners"
+
+msgid "Une question ?"
+msgstr "Any questions?"
 
 msgid "Données ouvertes"
 msgstr "Open data"
@@ -5537,9 +5577,6 @@ msgstr "Map"
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
 
-msgid "Contribution"
-msgstr "Contribution"
-
 msgid "contributeurs"
 msgstr "contributors"
 
@@ -5580,3 +5617,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Contribuer"
+#~ msgstr "Contribute"
+
+#~ msgid "Quel est l'établissement concerné ?"
+#~ msgstr "Which establishment is involved?"
