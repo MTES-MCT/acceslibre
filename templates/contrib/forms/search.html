@@ -28,7 +28,7 @@
                 <input type="hidden"
                        name="activity_slug"
                        id="activity_slug"
-                       value="{{ query.activite_slug }}">
+                       {% if "activity_slug" in request.GET %}value="{{ request.GET.activity_slug }}"{% endif %}>
                 <div id="autocomplete-activity" class="autocomplete">
                     {{ form.activite }}
                     <ul class="list-group">

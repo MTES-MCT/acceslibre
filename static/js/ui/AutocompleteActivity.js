@@ -9,8 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const inputElement = root.querySelector('input[name="activite"]')
   const activities = JSON.parse(inputElement.dataset.searchLookup)
+  const onSubmit = (slug) => {
+    const activitySlugInput = document.querySelector('input[type="hidden"][name="activity_slug"]')
 
-  new Autocomplete(root, {
+    if (activitySlugInput) {
+      activitySlugInput.value = slug
+    }
+  }
+
+  const autocomplete = new Autocomplete(root, {
     getResultValue: (result) => result.name,
     search: (searchTerm) => {
       if (searchTerm.length < 3) {
@@ -50,12 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
         </li>
       `
     },
-    onSubmit: (result) => {
-      const activitySlugInput = document.querySelector('input[type="hidden"][name="activity_slug"]')
+    onSubmit: ({ slug }) => onSubmit(slug),
+  })
 
-      if (activitySlugInput) {
-        activitySlugInput.value = result.slug
+  // Dirty hack to support press Key enter (Lib is broken)
+  autocomplete.input.addEventListener('keydown', (event) => {
+    const { key } = event
+    const isDropdownExpanded = !!autocomplete?.expanded
+
+    // We do not want to submit the form if the suggestion list is opened, only when it's closed.
+    if (key === 'Enter' && isDropdownExpanded) {
+      // Prevent form submission
+      event.preventDefault()
+
+      const slug = autocomplete?.core?.selectedResult?.slug
+
+      if (slug) {
+        // Populate hidden input
+        onSubmit(slug)
       }
-    },
+    }
   })
 })
