@@ -1,0 +1,22 @@
+#faq {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .fr-collapse--expanded {
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .faq__article {
+      background-color: #eeeeee;
+
+      footer {
+        color: var(--text-mention-grey);
+        border-top: 1px solid var(--border-default-grey);
+        border-bottom: 1px solid var(--border-default-grey);
+      }
+    }
+  }
+}

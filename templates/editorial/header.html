@@ -96,12 +96,11 @@
                     <li class="fr-mav__item">
                         <a href="{% url 'partenaires' %}" class="fr-nav__link" target="_self">{% translate "Partenaires" %}</a>
                     </li>
-                    {# TODO: Uncomment once the FAQ page has been implemented #}
-                    {#                    <li class="fr-mav__item">#}
-                    {#                        <a href="" class="fr-nav__link" target="_self">#}
-                    {#                            {% translate "Une question ?" %}#}
-                    {#                        </a>#}
-                    {#                    </li>#}
+                    <li class="fr-mav__item">
+                        <a href="{% url 'questions-frequentes' %}"
+                           class="fr-nav__link"
+                           target="_self">{% translate "Une question ?" %}</a>
+                    </li>
                     <li class="fr-mav__item">
                         <div class="fr-nav__item-spacer">
                             <span aria-hidden="true"></span>
