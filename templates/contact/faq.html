@@ -35,7 +35,7 @@
     <p class="fr-text--xl">
         {% translate "Consultez nos questions fréquentes, la réponse à votre question s’y trouve peut-être. " %}
     </p>
-    <div id="faq-container" class="fr-grid fr-mt-6w fr-px-4w">
+    <div id="faq-container" class="fr-grid fr-mt-6w fr-px-0 fr-px-sm-4w">
         {% for section_name, faqs in faq_by_section.items %}
             <div class="fr-accordions-group">
                 <section class="fr-accordion-group">
@@ -48,7 +48,7 @@
                                         aria-controls="accordion-{{ faq.id }}">{{ faq.title }}</button>
                             </h3>
                             <div class="fr-collapse" id="accordion-{{ faq.id }}">
-                                <article class="faq__article fr-px-6w fr-py-2w">
+                                <article class="faq__article fr-px-2w fr-px-sm-6w fr-py-2w">
                                     <p>{{ faq.description|safe }}</p>
                                     <footer class="fr-text--lg fr-grey fr-py-2w text-center">
                                         {% translate "Mise à jour le" %} {{ faq.updated_at|date:"j/m/Y" }}
