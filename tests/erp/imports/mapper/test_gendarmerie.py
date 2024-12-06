@@ -23,19 +23,25 @@ def mapper(db, activite_gendarmerie):
 
 def test_basic_stats(mapper, gendarmeries_valid):  # noqa
     sample = gendarmeries_valid[0].copy()
-    erp, reason = mapper(sample).process()
+    erp, sources, reason = mapper(sample).process()
 
     assert erp.code_insee == gendarmeries_valid[0]["code_commune_insee"]
     assert reason is None
+    assert len(sources) == 1
+    assert sources[0].source == "gendarmerie"
+    assert sources[0].source_id == "1008620"
 
 
 def test_updated_data(mapper, gendarmeries_valid):  # noqa
     sample = gendarmeries_valid[0].copy()
     sample["code_commune_insee"] = "01283"
 
-    erp, _ = mapper(sample).process()
+    erp, sources, _ = mapper(sample).process()
 
     assert erp.code_insee == "01283"
+    assert len(sources) == 1
+    assert sources[0].source == "gendarmerie"
+    assert sources[0].source_id == "1008620"
 
 
 def test_invalid_data(mapper, gendarmeries_valid):  # noqa
@@ -61,17 +67,19 @@ def test_fail_on_key_change(mapper, gendarmeries_valid):  # noqa
 
 def test_horaires(mapper, gendarmeries_valid):  # noqa
     sample = gendarmeries_valid[0].copy()
-    erp, _ = mapper(sample).process()
+    erp, sources, _ = mapper(sample).process()
 
     assert "Horaires d'accueil" in erp.accessibilite.commentaire
     assert "Lundi : 8h00-12h00 14h00-18h00" in erp.accessibilite.commentaire
+    assert len(sources) == 1
 
 
 def test_horaires_missing(mapper, gendarmeries_valid):  # noqa
     sample = gendarmeries_valid[2].copy()
-    erp, _ = mapper(sample).process()
+    erp, sources, _ = mapper(sample).process()
 
     assert "Horaires d'accueil" not in erp.accessibilite.commentaire
+    assert len(sources) == 1
 
 
 def test_unpublish_preexisting_duplicate_import(mapper, activite_gendarmerie, gendarmeries_valid):  # noqa
@@ -92,7 +100,7 @@ def test_unpublish_preexisting_duplicate_import(mapper, activite_gendarmerie, ge
     )
 
     sample = gendarmeries_valid[0].copy()
-    erp, _ = mapper(sample).process()
+    erp, sources, _ = mapper(sample).process()
 
     erp.refresh_from_db()
     assert erp.pk == preexisting.pk
@@ -100,3 +108,4 @@ def test_unpublish_preexisting_duplicate_import(mapper, activite_gendarmerie, ge
 
     already_imported.refresh_from_db()
     assert already_imported.published is False
+    assert len(sources) == 1

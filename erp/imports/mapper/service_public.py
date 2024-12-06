@@ -216,7 +216,7 @@ class ServicePublicMapper:
         if not self.erp and not (
             all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])
         ):
-            return None, None
+            return None, [], None
 
         def _ensure_not_permanently_closed(qs):
             if any([erp.permanently_closed for erp in qs]):
@@ -271,7 +271,7 @@ class ServicePublicMapper:
             )
         except PermanentlyClosedException:
             logger.info("Ignore ERP because flagged as permanently closed.")
-            return None, None
+            return None, [], None
 
         commune_ext_id = Commune.objects.filter(
             code_postaux__contains=[self.record["adresse"][0]["code_postal"]]
@@ -280,7 +280,7 @@ class ServicePublicMapper:
         activite = mapping_service_public_to_acceslibre.get(self.record["pivot"][0]["type_service_local"])
         if not activite:
             logger.info("Ignore ERP with unknown/unmapped activity %s", self.record["pivot"][0]["type_service_local"])
-            return None, None
+            return None, [], None
 
         data = {}
         for field in ("nom",):
@@ -302,7 +302,7 @@ class ServicePublicMapper:
             data["activite"] = Activite.objects.get(nom__iexact=activite)
         except Activite.DoesNotExist:
             logger.info("Activity with name %s not found", activite)
-            return None, None
+            return None, [], None
 
         data["voie"] = self.record["adresse"][0]["complement1"] or self.record["adresse"][0]["numero_voie"]
         data["code_postal"] = self.record["adresse"][0]["code_postal"]
@@ -343,7 +343,7 @@ class ServicePublicMapper:
                 logger.info("Duplicated, setting asp_id and updating it")
                 return ServicePublicMapper(record=self.record, erp=existing_erp).process()
             logger.info("Validation error : %s", e)
-            return erp, None
+            return erp, [], None  # TODO manage sources here?
 
         try:
             with reversion.create_revision():
@@ -352,4 +352,9 @@ class ServicePublicMapper:
         except reversion.errors.RevertError:
             erp = serializer.save()
 
-        return erp, None
+        sources = [
+            ExternalSource(
+                erp=erp, source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id=self.record["ancien_code_pivot"]
+            )
+        ]
+        return erp, sources, None

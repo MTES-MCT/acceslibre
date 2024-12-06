@@ -26,6 +26,7 @@ class GendarmerieMapper(GenericMapper):
         "service",
         "horaires_accueil",
     ]
+    source = ExternalSource.SOURCE_GENDARMERIE
 
     def __init__(self, record, activite=None, today=None):
         self.record = record
@@ -36,11 +37,10 @@ class GendarmerieMapper(GenericMapper):
         basic_fields = self._extract_basic_fields(self.record)
 
         erp = self._process_preexisting(basic_fields["geom"])
+        sources = []
 
         if not erp:
-            erps = Erp.objects.find_by_source_id(
-                ExternalSource.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
-            )
+            erps = Erp.objects.find_by_source_id(self.source, self.record["identifiant_public_unite"])
             try:
                 self._ensure_not_permanently_closed(erps)
             except PermanentlyClosedException:
@@ -50,11 +50,12 @@ class GendarmerieMapper(GenericMapper):
         # new erp
         if not erp:
             erp = Erp(
-                source=ExternalSource.SOURCE_GENDARMERIE,
+                source=self.source,
                 source_id=self.record["identifiant_public_unite"],
                 activite=self.activite,
             )
 
+        sources.append(ExternalSource(erp=erp, source=self.source, source_id=self.record["identifiant_public_unite"]))
         self.erp = erp
         for name, value in basic_fields.items():
             setattr(self.erp, name, value)
@@ -62,31 +63,33 @@ class GendarmerieMapper(GenericMapper):
         self._retrieve_commune_ext(self.record.get("commune"))
         self._populate_accessibilite(self.record)
 
-        return self.erp, None
+        return self.erp, sources, None
 
     def _process_preexisting(self, location):
         erp = (
-            Erp.objects.exclude(source=ExternalSource.SOURCE_GENDARMERIE)
+            Erp.objects.exclude(source=self.source)
             .filter(
                 activite=self.activite,
                 geom__distance_lte=(location, Distance(m=2000)),
             )
             .first()
         )
-        if erp:
-            # unpublish already imported duplicate
-            old_erp = Erp.objects.find_by_source_id(
-                ExternalSource.SOURCE_GENDARMERIE,
-                self.record["identifiant_public_unite"],
-                published=True,
-            ).first()
-            if old_erp:
-                old_erp.published = False
-                old_erp.save()
-                logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
-            # update preexisting erp with new import information
-            erp.source = ExternalSource.SOURCE_GENDARMERIE
-            erp.source_id = self.record["identifiant_public_unite"]
+        if not erp:
+            return
+
+        # unpublish already imported duplicate
+        old_erp = Erp.objects.find_by_source_id(
+            self.source,
+            self.record["identifiant_public_unite"],
+            published=True,
+        ).first()
+        if old_erp:
+            old_erp.published = False
+            old_erp.save()
+            logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
+        # update preexisting erp with new import information
+        erp.source = self.source
+        erp.source_id = self.record["identifiant_public_unite"]
         return erp
 
     def _parse_address(self, record):
