@@ -523,7 +523,6 @@ def contrib_global_search(request):
             "has_more_results_bdd": nb_results_bdd > pagination_size,
             "results": results,
             "error": error,
-            "results_global_count": len(results) + nb_results_bdd,
             "api_key": _get_or_create_api_key(),
             "query": {
                 "nom": request.GET.get("what"),
