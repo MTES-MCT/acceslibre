@@ -482,6 +482,9 @@ def contrib_global_search(request):
     if request.GET.get("activity_slug"):
         activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
 
+    nb_results_bdd = 0
+    pagination_size = 6
+
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
         try:
@@ -501,10 +504,11 @@ def contrib_global_search(request):
             qs_results_bdd = qs_results_bdd.filter(activite=activite)
 
         commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+        nb_results_bdd = qs_results_bdd.count()
+        qs_results_bdd = qs_results_bdd[:pagination_size]
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = clean_address(request.GET.get("where"))
-    pagination_size = 6
 
     return render(
         request,
@@ -515,10 +519,11 @@ def contrib_global_search(request):
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
             "results_bdd": results_bdd,
-            "has_more_results_bdd": len(results_bdd) > pagination_size,
+            "nb_results_bdd": nb_results_bdd,
+            "has_more_results_bdd": nb_results_bdd > pagination_size,
             "results": results,
             "error": error,
-            "results_global_count": len(results) + len(results_bdd),
+            "results_global_count": len(results) + nb_results_bdd,
             "api_key": _get_or_create_api_key(),
             "query": {
                 "nom": request.GET.get("what"),
