@@ -8,6 +8,8 @@ from django.utils import timezone
 from factory.fuzzy import BaseFuzzyAttribute
 from faker import Factory as FakerFactory
 
+from erp.models import ExternalSource
+
 faker = FakerFactory.create()
 
 
@@ -72,6 +74,15 @@ class ErpFactory(factory.django.DjangoModelFactory):
             AccessibiliteFactory(erp=erp, **accessibilite_kwargs)
 
         return erp
+
+
+class ExternalSourceFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = "erp.ExternalSource"
+
+    erp = factory.SubFactory(ErpFactory)
+    source = factory.LazyAttribute(lambda _: random.choice([choice[0] for choice in ExternalSource.SOURCE_CHOICES]))
+    source_id = factory.Faker("uuid4")
 
 
 class AccessibiliteFactory(factory.django.DjangoModelFactory):

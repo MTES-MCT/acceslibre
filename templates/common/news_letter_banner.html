@@ -1,0 +1,32 @@
+{% load i18n %}
+<aside class="fr-follow newsletter-banner">
+    <div class="fr-container">
+        <div class="fr-grid-row">
+            <div class="fr-col-12 fr-col-md-8">
+                <div class="fr-follow__newsletter">
+                    <div>
+                        <h1 class="fr-h5">{% translate "Abonnez-vous à notre lettre d’information" %}</h1>
+                    </div>
+                    <div class="fr-btns-group fr-btns-group--inline-md">
+                        <a href="{% if not user.is_authenticated %}{% url 'login' %}?next={% url 'mes_preferences' %}{% else %}{% url 'mes_preferences' %}{% endif %}"
+                           class="fr-btn">{% translate "S'abonner à la newsletter" %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-follow__social">
+                    <h1 class="fr-h5">{% translate "Suivez-nous" %}</h1>
+                    <ul class="fr-btns-group">
+                        <li>
+                            <a class="fr-btn--linkedin fr-btn"
+                               title="{% translate "Ouvrir une nouvelle fenêtre vers notre page LinkedIn" %}"
+                               rel="noopener external"
+                               href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A26702140&keywords=ACCESLIBRE&origin=ENTITY_SEARCH_HOME_HISTORY&sid=wM1"
+                               target="_blank">{% translate "LinkedIn" %}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

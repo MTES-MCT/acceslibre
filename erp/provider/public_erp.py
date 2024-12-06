@@ -464,7 +464,7 @@ def find_public_types(terms):
     clean = text.remove_accents(terms).lower()
     for key, val in TYPES.items():
         searches = [key, val["description"]] + val.get("searches", [])
-        (found, score) = fuzzy_process.extractOne(clean, searches)
+        _, score = fuzzy_process.extractOne(clean, searches)
         results.append({"score": score, "type": key})
     _sorted = sorted(results, key=lambda x: x["score"], reverse=True)
     return [r["type"] for r in _sorted if r["score"] > MIN_SCORE][:MAX_TYPES]

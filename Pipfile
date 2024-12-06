@@ -64,7 +64,6 @@ pandas = "*"
 django-maintenance-mode = "*"
 djangorestframework-api-key = "*"
 django-modeltranslation = "*"
-better-profanity = "*"
 django-environ = "*"
 deepl = "*"
 django-filter = "*"
@@ -78,9 +77,10 @@ django-admin-two-factor = "*"
 django-csp = "*"
 colorama = "*"
 boto3 = "*"
+magic-profanity = "*"
 
 [requires]
-python_version = "3.11"
+python_version = "3.12"
 
 [pipenv]
 allow_prereleases = false

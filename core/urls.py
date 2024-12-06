@@ -41,7 +41,7 @@ urlpatterns = [
         ),
         name="django_registration_activation_complete",
     ),
-    path("compte/activate/<str:activation_key>/", CustomActivationView.as_view(), name="django_registration_activate"),
+    path("compte/activate/", CustomActivationView.as_view(), name="django_registration_activate"),
     path(
         "compte/register/",
         CustomRegistrationView.as_view(form_class=CustomRegistrationForm),
