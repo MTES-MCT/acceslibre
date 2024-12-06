@@ -58,22 +58,22 @@ def test_response(client, mocker, sample_result):
 @pytest.mark.django_db
 def test_owner_published_listed(test_response):
     user = UserFactory()
-    ErpFactory(published=True, user=user)
+    erp = ErpFactory(nom="Super les croissants", code_postal="34120", published=True, user=user)
 
     response_content = test_response(user)
 
-    assert "Voir cet établissement" in response_content
+    assert erp.nom in response_content
 
 
 @pytest.mark.django_db
 def test_user_published_listed(test_response):
     user = UserFactory()
     other_user = UserFactory()
-    ErpFactory(published=True, user=user)
+    erp = ErpFactory(nom="Super les croissants", code_postal="34120", published=True, user=user)
 
     response_content = test_response(other_user)
 
-    assert "Voir cet établissement" in response_content
+    assert erp.nom in response_content
 
 
 @pytest.mark.django_db
