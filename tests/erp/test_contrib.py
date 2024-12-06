@@ -110,7 +110,9 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
 
 
 @pytest.mark.django_db
-def test_contrib_start_global_search_with_existing(client, mocker, akei_result, mairie_jacou_result):
+def test_contrib_start_global_search_with_existing(
+    client, mocker, akei_result, mairie_jacou_result, django_assert_num_queries
+):
     commune = CommuneFactory(nom="Jacou")
     mairie = ActiviteFactory(nom="Mairie")
     user = UserFactory()
@@ -134,14 +136,15 @@ def test_contrib_start_global_search_with_existing(client, mocker, akei_result, 
         user=user,
     )
 
-    response = client.get(
-        reverse("contrib_global_search"),
-        data={
-            "code": "34120",
-            "what": "mairie",
-        },
-        follow=True,
-    )
+    with django_assert_num_queries(7):
+        response = client.get(
+            reverse("contrib_global_search"),
+            data={
+                "code": "34120",
+                "what": "mairie",
+            },
+            follow=True,
+        )
 
     assert response.status_code == 200
     assert response.context["results"] == [akei_result]

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-04 14:44+0100\n"
-"PO-Revision-Date: 2024-12-04 14:44+0100\n"
+"POT-Creation-Date: 2024-12-06 14:20+0100\n"
+"PO-Revision-Date: 2024-12-06 14:19+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3429,87 +3429,28 @@ msgstr "Your message has been sent"
 msgid "Nous vous répondrons dans les plus brefs délais."
 msgstr "We will answer you as soon as possible."
 
-msgid "Contribuer"
-msgstr "Contribute"
-
-msgid "Étape 1 sur 7"
-msgstr "Step 1 of 7"
-
-msgid "Quel est l'établissement concerné ?"
-msgstr "Which establishment is involved?"
-
 msgid ""
-"Vérifiez si l'établissement existe déjà ou si des informations sont "
-"disponibles"
+"Merci de contribuer à l’évolution de notre projet, la force du collaboratif "
+"prendra le relais et quelqu'un pourra compléter après toi."
 msgstr ""
-"Check whether the facility already exists or whether information is available"
-
-msgid "La charte du contributeur"
-msgstr "The contributor's charter"
-
-msgid "N'aie pas peur"
-msgstr "Do not be afraid"
-
-msgid "tu en sais plus que ce que tu penses"
-msgstr "you know more than you think"
-
-msgid "Le mieux est l'ennemi du bien"
-msgstr "The best is the enemy of the good"
-
-msgid "ne jamais enjoliver la situation afin de ne pas créer de faux espoirs"
-msgstr "never embellish the situation so as not to create false hopes"
-
-msgid "Chaque information est précieuse"
-msgstr "Every piece of information is valuable"
-
-msgid ""
-"\n"
-"                    n'hésite pas à publier une fiche même si elle est "
-"incomplète ... La force du collaboratif\n"
-"                    prendra le relais et quelqu'un pourra compléter après "
-"toi\n"
-"                    "
-msgstr ""
-"\n"
-"don't hesitate to publish a file even if it is incomplete... The power of "
-"collaboration\n"
-"will take over and someone will be able to complete it after you"
-
-msgid "5 minutes de ton temps"
-msgstr "5 minutes of your time"
-
-msgid "1 nouveau lieu à visiter pour 12 millions de personnes"
-msgstr "1 new place to visit for 12 million people"
+"Thank you for contributing to the evolution of our project, the strength of "
+"collaboration will take over and someone will be able to complete it after "
+"you."
 
 msgid "Rechercher un établissement"
 msgstr "Search for a facility"
 
+msgid "Modifier un établissement"
+msgstr "Edit a facility"
+
 msgid "Ajouter les données d'accessibilité d'un établissement"
 msgstr "Add accessibility data for a facility"
 
+msgid "Étape 1 sur 7"
+msgstr "Step 1 of 7"
+
 msgid "L'établissement"
 msgstr "The facility"
-
-msgid "Votre recherche"
-msgstr "Your search"
-
-msgid "résultat"
-msgstr "result"
-
-msgid "L'établissement que je souhaite ajouter n’est pas dans cette liste."
-msgstr "The establishment I wish to add is not in this list."
-
-msgid "Il n'y a pas de résultat correspondant à votre recherche."
-msgstr "There are no results matching your search"
-
-msgid "Ajouter cet établissement"
-msgstr "Add this facility"
-
-msgid "Nouvelle recherche"
-msgstr "New search"
-
-msgid "Modifier un établissement"
-msgstr "Edit a facility"
 
 msgid "Adresse de l'établissement"
 msgstr "Address of the facility"
@@ -3603,6 +3544,15 @@ msgstr "Step 7 of 7"
 
 msgid "Publication"
 msgstr "Publication"
+
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
+msgid "Accueil"
+msgstr "Home"
 
 #, python-format
 msgid ""
@@ -3750,13 +3700,22 @@ msgstr "Free text"
 msgid "N/A"
 msgstr "N/A"
 
-msgid "Nom de l'établissement"
-msgstr "Name of the establishment"
+msgid "Quel nom ?"
+msgstr "What name?"
+
+msgid "Quel est le nom de l’établissement ?"
+msgstr "What is the name of the establishment?"
 
 #. Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents
 msgid "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare"
 msgstr ""
 "Enter the name of the establishment. Example: Le Louvre, Café de la gare"
+
+msgid "Quelle activité ?"
+msgstr "What kind of activity?"
+
+msgid "Par exemple : cinéma, pharmacie..."
+msgstr "For example: cinema, pharmacy..."
 
 msgid "Entrez votre activité"
 msgstr "Enter your activity"
@@ -3764,14 +3723,51 @@ msgstr "Enter your activity"
 msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
 msgstr "Start typing, then select the activity from the list."
 
-msgid "Adresse ou commune"
-msgstr "Address or municipality"
+msgid "Où ?"
+msgstr "Or ?"
+
+msgid "Adresse, département ou commune"
+msgstr "Address, department or municipality"
 
 msgid "Commencer la saisie puis sélectionner la ville ou adresse dans la liste"
 msgstr "Start typing, then select the city or address from the list"
 
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr "Allow me to obtain my geographical location"
+
+msgid ""
+"L'établissement que vous souhaitez ajouter ne fait pas partie des résultats "
+"trouvés juste au dessus."
+msgstr ""
+"The establishment you wish to add is not among the results found just above."
+
+msgid "Autres établissements non répertoriés à ajouter et compléter"
+msgstr "Other establishments not listed to add and complete"
+
+msgid ""
+"Les établissements suivants ne sont pas renseignés sur notre site. Voulez-"
+"vous en compléter un ?"
+msgstr ""
+"The following establishments are not listed on our site. Would you like to "
+"complete one?"
+
+msgid "résultat"
+msgstr "result"
+
+msgid "Résultats trouvés pour "
+msgstr "Results found for"
+
+msgid "Aucun établissement n'a pu être trouvé"
+msgstr "No establishment could be found"
+
+msgid "Établissements déjà existants sur AccesLibre"
+msgstr "Establishments already existing on AccesLibre"
+
+msgid "Étape 1 : vérifiez si l'établissement existe déjà dans notre base"
+msgstr "Step 1: Check if the establishment already exists in our database"
+
+msgid "Étape 2 : vous n’avez pas trouvé votre établissement ci-dessus"
+msgstr "Step 2: You did not find your establishment above"
 
 msgid "Navigation"
 msgstr "Navigation"
@@ -3797,11 +3793,11 @@ msgstr "Publish"
 msgid "Revenir à la fiche"
 msgstr "Back to the record"
 
-msgid "Voir cet établissement"
-msgstr "View this facility"
+msgid "Ajouter l'établissement"
+msgstr "Add the establishment"
 
-msgid "Cet établissement est pris en charge par un autre contributeur"
-msgstr "This facility is supported by another contributor"
+msgid "Afficher plus d’établissements"
+msgstr "Show more establishments"
 
 msgid "Compte activé"
 msgstr "Account activated"
@@ -4083,9 +4079,6 @@ msgstr "Close the navigation menu"
 
 msgid "Menu principal"
 msgstr "Main menu"
-
-msgid "Accueil"
-msgstr "Home"
 
 msgid "Sélectionner une langue"
 msgstr "Pick a language"
@@ -5081,6 +5074,9 @@ msgstr "Accessibility information"
 msgid "- mises à jour le %(date)s"
 msgstr "- updated on %(date)s"
 
+msgid "Ajouter cet établissement"
+msgstr "Add this facility"
+
 msgid "Fermer la fenêtre"
 msgstr "Close the window"
 
@@ -5515,6 +5511,9 @@ msgstr "There are no results matching your search"
 
 msgid "Elargir la zone de recherche"
 msgstr "Widen the search area"
+
+msgid "Nouvelle recherche"
+msgstr "New search"
 
 #, python-format
 msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"

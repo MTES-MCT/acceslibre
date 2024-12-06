@@ -1,0 +1,36 @@
+{% load a4a static %}
+{% load i18n %}
+{% if results %}
+    <div id="internal-results-container"
+         class="fr-grid-row fr-grid-row--gutters">
+        {% for result in results %}
+            <div class="fr-col-12 fr-col-sm-6 fr-col-lg-4">
+                <div class="fr-card fr-enlarge-link">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title fr-h6">
+                                <a href="{{ result.exists.get_absolute_url }}">{{ result.nom }}</a>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}
+                                {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}{% endif %}
+                                {{ result.commune|default_if_none:"" }}
+                            </p>
+                            <div class="fr-card__start">
+                                <p class="fr-tag fr-mb-1w">{{ result.exists.activite }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if has_more_results_bdd %}
+    <div class="fr-grid-row fr-grid-row--center">
+        <button id="contrib-view-more-button"
+                class="fr-btn fr-btn--secondary fr-btn--lg fr-mt-6w">
+            {% translate "Afficher plus d’établissements" %}
+        </button>
+    </div>
+{% endif %}

@@ -1,0 +1,26 @@
+{% load a4a static %}
+{% load i18n %}
+{% if results %}
+    <div class="fr-grid-row fr-grid-row--gutters">
+        {% for result in results %}
+            <div class="fr-col-12 fr-col-sm-6 fr-col-lg-4">
+                <div class="fr-card fr-card--lg">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title fr-h6 text--clamp-2">{{ result.nom }}</h3>
+                            <p class="fr-card__desc text--clamp-3">
+                                {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}
+                                {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}{% endif %}
+                                {{ result.commune|default_if_none:"" }}
+                            </p>
+                        </div>
+                        <div class="fr-card__footer">
+                            <a href="{% url 'contrib_admin_infos' %}?data={{ result|encode_provider_data }}#content"
+                               class="fr-btn fr-btn--secondary fr-btn--sm">{% translate "Ajouter l'établissement" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

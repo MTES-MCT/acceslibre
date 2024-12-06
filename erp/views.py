@@ -462,10 +462,7 @@ def contrib_start(request):
     return render(
         request,
         template_name="contrib/0-start.html",
-        context={
-            "form": form,
-            "step": 0,
-        },
+        context={"form": form, "step": 0, "page_type": "contrib-form"},
     )
 
 
@@ -482,8 +479,11 @@ def contrib_global_search(request):
         need_external_api_search = False
 
     activite = None
-    if request.GET.get("activite"):
-        activite = Activite.objects.filter(nom=request.GET.get("activite")).first()
+    if request.GET.get("activity_slug"):
+        activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
+
+    nb_results_bdd = 0
+    pagination_size = 6
 
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
@@ -497,7 +497,6 @@ def contrib_global_search(request):
         except RuntimeError as err:
             error = err
 
-        # FIXME CONTRIBV3 do not query bdd anymore, will be done async
         qs_results_bdd = (
             Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
         )
@@ -505,6 +504,8 @@ def contrib_global_search(request):
             qs_results_bdd = qs_results_bdd.filter(activite=activite)
 
         commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+        nb_results_bdd = qs_results_bdd.count()
+        qs_results_bdd = qs_results_bdd[:pagination_size]
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = clean_address(request.GET.get("where"))
@@ -518,9 +519,11 @@ def contrib_global_search(request):
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
             "results_bdd": results_bdd,
+            "nb_results_bdd": nb_results_bdd,
+            "has_more_results_bdd": nb_results_bdd > pagination_size,
             "results": results,
             "error": error,
-            "results_global_count": len(results) + len(results_bdd),
+            "api_key": _get_or_create_api_key(),
             "query": {
                 "nom": request.GET.get("what"),
                 "commune": city,
@@ -531,6 +534,7 @@ def contrib_global_search(request):
                 "new_activity": request.GET.get("new_activity"),
                 "code_postal": request.GET.get("postcode"),
             },
+            "page_type": "contrib-form",
         },
     )
 

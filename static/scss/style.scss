@@ -55,6 +55,10 @@ select[name='language'] {
 
 .autocomplete-result-list {
   z-index: 1001 !important;
+  padding-left: inherit;
+  padding-right: inherit;
+  left: 0;
+  right: 0;
 }
 
 .a4a {

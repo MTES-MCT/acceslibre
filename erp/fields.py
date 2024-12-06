@@ -10,7 +10,7 @@ class BaseActivityField:
     @property
     def _get_search_lookup(self):
         queryset = Activite.objects.order_by("position")
-        search_lookup = [{"name": a.nom, "keywords": a.keyword_with_name} for a in queryset]
+        search_lookup = [{"name": a.nom, "keywords": a.keyword_with_name, "slug": a.slug} for a in queryset]
         return json.dumps(search_lookup, ensure_ascii=False)
 
     def get_widget(self):

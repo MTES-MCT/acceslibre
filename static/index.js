@@ -30,6 +30,7 @@ import StoreFilters from './js/ui/StoreFilters'
 // Initializations
 dom.ready(() => {
   dom.mountOne('#app-map', geo.AppMap)
+  dom.mountOne('.contrib-container', ui.ContribPagination)
   dom.mountOne('#localisation-map', ui.LocalisationMap)
   dom.mountOne('#map-height-toggle-link', ui.MapExpander)
   dom.mountOne('.a4a-conditional-form', ui.ConditionalForm)
