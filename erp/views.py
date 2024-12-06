@@ -515,9 +515,8 @@ def contrib_global_search(request):
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
-            # todo: Get rid of results_bdd
             "results_bdd": results_bdd,
-            "has_more_results_bdd": True if len(results_bdd) > pagination_size else False,
+            "has_more_results_bdd": len(results_bdd) > pagination_size,
             "results": results,
             "error": error,
             "results_global_count": len(results) + len(results_bdd),
