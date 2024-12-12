@@ -582,6 +582,12 @@ class ProviderGlobalSearchForm(forms.Form):
 
         self.fields["activite"] = ActivityCharField()
 
+    def clean_postcode(self):
+        postcodes = self.cleaned_data["postcode"].split(",")
+        if len(postcodes) == 1:
+            return self.cleaned_data["postcode"]
+        return postcodes[0][0:2] + "000"
+
 
 class PublicAProposForm(forms.ModelForm):
     class Meta:
