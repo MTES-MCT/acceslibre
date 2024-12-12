@@ -49,7 +49,7 @@
                             </h3>
                             <div class="fr-collapse" id="accordion-{{ faq.id }}">
                                 <article class="faq__article fr-px-3w fr-px-md-8w fr-px-sm-6w fr-py-1w">
-                                    <p>{{ faq.description|safe }}</p>
+                                    {{ faq.description|safe }}
                                     <footer class="fr-text--lg fr-grey fr-py-2w text-center">
                                         {% translate "Mise à jour le" %} {{ faq.updated_at|date:"j/m/Y" }}
                                     </footer>
