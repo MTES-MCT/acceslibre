@@ -521,7 +521,7 @@ def contrib_global_search(request):
             "results_bdd": results_bdd,
             "nb_results_bdd": nb_results_bdd,
             "has_more_results_bdd": nb_results_bdd > pagination_size,
-            "results": results,
+            "results": results[:pagination_size],
             "error": error,
             "api_key": _get_or_create_api_key(),
             "query": {

@@ -31,7 +31,7 @@
     </div>
 {% endblock breadcrumb %}
 {% block editorial_content %}
-    <h1 class="fr-h2 fr-mb-3v">{% translate "Vous avez une question ?" %}</h1>
+    <h1 class="fr-mb-3v">{% translate "Vous avez une question ?" %}</h1>
     <p class="fr-text--xl">
         {% translate "Consultez nos questions fréquentes, la réponse à votre question s’y trouve peut-être. " %}
     </p>
@@ -48,7 +48,7 @@
                                         aria-controls="accordion-{{ faq.id }}">{{ faq.title }}</button>
                             </h3>
                             <div class="fr-collapse" id="accordion-{{ faq.id }}">
-                                <article class="faq__article fr-px-3w fr-px-md-8w fr-px-sm-6w fr-py-1w">
+                                <article class="faq__article fr-px-3w fr-px-md-8w fr-px-sm-6w fr-pb-1w fr-pt-3w">
                                     {{ faq.description|safe }}
                                     <footer class="fr-text--lg fr-grey fr-py-2w text-center">
                                         {% translate "Mise à jour le" %} {{ faq.updated_at|date:"j/m/Y" }}

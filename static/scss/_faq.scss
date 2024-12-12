@@ -4,6 +4,10 @@
     flex-direction: column;
     gap: 48px;
 
+    section.fr-accordion-group h2 {
+      color: var(--text-label-blue-france);
+    }
+
     .fr-collapse--expanded {
       padding-top: 1rem;
       padding-bottom: 1.5rem;
