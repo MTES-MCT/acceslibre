@@ -21,8 +21,11 @@ class UserAdminResource(resources.ModelResource):
             "last_login",
             "is_active",
             "is_staff",
+            "nb_erp_created",
+            "nb_erp_edited",
+            "nb_erp_attributed",
+            "nb_erp_administrator",
         ]
-        export_order = fields + ["nb_erp_created", "nb_erp_edited", "nb_erp_attributed", "nb_erp_administrator"]
 
     def dehydrate_nb_erp_created(self, user):
         try:
