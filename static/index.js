@@ -6,9 +6,6 @@ import 'leaflet.locatecontrol'
 import 'leaflet-center-cross'
 import { GestureHandling } from 'leaflet-gesture-handling'
 
-import { Crisp } from 'crisp-sdk-web'
-Crisp.configure('600aff6d-b1eb-414c-a186-233177221bbf')
-
 // Bootstrap
 import * as bootstrap from 'bootstrap'
 
