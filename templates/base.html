@@ -20,7 +20,7 @@
               content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock page_description %}">
         <meta name="theme-color" content="#075ea2">
         <link rel="manifest" href="{% static 'manifest.webmanifest' %}">
-        <script src="{% url 'javascript-catalog' %}"></script>
+        <script src="{% url 'javascript-catalog' %}?lang={{ request.LANGUAGE_CODE }}"></script>
         <link rel="shortcut icon"
               type="image/x-icon"
               href="{% static 'img/favicon.ico' %}">
