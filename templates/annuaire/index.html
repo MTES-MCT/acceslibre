@@ -27,13 +27,13 @@
             {% else %}
                 <h2 class="fr-mt-2v fr-mb-3v">
                     {{ current_departement.code }} - {{ current_departement.nom }}
-                    <small class="text-muted">{{ current_departement_erp_count }} {% translate "établissement" %}{{ current_departement_erp_count|pluralize:"s" }}</small>
+                    <small class="text-muted">{{ current_departement_erp_count }} {% blocktranslate count counter=current_departement_erp_count %}établissement{% plural %}établissements{% endblocktranslate %}</small>
                 </h2>
                 {% for commune in communes %}
                     <p>
                         {{ commune.code_postaux|join:", " }} -
                         <a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a>
-                        <small class="text-muted">({{ commune.erp_access_count }} {% translate "établissement" %}{{ commune.erp_access_count|pluralize }})</small>
+                        <small class="text-muted">({{ commune.erp_access_count }} {% blocktranslate count counter=commune.erp_access_count %}établissement{% plural %}établissements{% endblocktranslate %})</small>
                     </p>
                 {% empty %}
                     <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
