@@ -122,7 +122,7 @@ def test_contrib_start_global_search_with_existing(
         return_value=[mairie_jacou_result, akei_result],
     )
 
-    obj_erp = ErpFactory(
+    ErpFactory(
         nom="Mairie - Jacou",
         siret=None,
         numero="2",
@@ -148,10 +148,6 @@ def test_contrib_start_global_search_with_existing(
 
     assert response.status_code == 200
     assert response.context["results"] == [akei_result]
-    assert len(response.context["results_bdd"]) == 1
-    assert "exists" in response.context["results_bdd"][0]
-    assert response.context["results_bdd"][0]["source"] == "acceslibre"
-    assert response.context["results_bdd"][0]["id"] == obj_erp.id
     assert all(
         [x in response.context["query"] for x in ("nom", "commune", "activite", "code_postal", "lat", "lon")]
     ), "Missing info for encode_provider_data"

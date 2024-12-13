@@ -12,14 +12,6 @@
         {% if form.activite.value %}{{ form.activite.value|capfirst }}{% endif %}
         "
     </h2>
-    {% if results_bdd|length_is:0 %}
-        {% translate "Aucun établissement n'a pu être trouvé" %}
-    {% endif %}
-    {% if results_bdd %}
-        <h2 class="mt-3 fr-mb-0 fr-h3">{% translate "Établissements enregistrés sur AccesLibre" %}</h2>
-        <p class="fr-text--xl">{{ nb_results_bdd }} {% translate "résultat" %}{{ nb_results_bdd|pluralize }}</p>
-        <div class="fr-pt-3v fr-pb-3v fr-col-md-12">
-            {% include "contrib/includes/result_internal_search_erps.html" with results=results_bdd %}
-        </div>
-    {% endif %}
+    <div id="internal-results-count-container"></div>
+    <div class="fr-pt-3v fr-pb-3v fr-col-md-12">{% include "contrib/includes/result_internal_search_erps.html" %}</div>
 </div>

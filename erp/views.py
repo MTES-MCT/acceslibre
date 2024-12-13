@@ -518,8 +518,6 @@ def contrib_global_search(request):
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
-            "results_bdd": results_bdd,
-            "nb_results_bdd": nb_results_bdd,
             "has_more_results_bdd": nb_results_bdd > pagination_size,
             "results": results[:pagination_size],
             "error": error,
