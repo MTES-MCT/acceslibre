@@ -45,12 +45,6 @@ CSP_DEFAULT_SRC = (
     "*.incubateur.net",
     "acceslibre.matomo.cloud",
     "*.tile.openstreetmap.org",
-    "client.crisp.chat",
-    "image.crisp.chat",
-    "storage.crisp.chat",
-    "game.crisp.chat",
-    "wss://client.relay.crisp.chat",
-    "wss://stream.relay.crisp.chat",
     "*.acceslibre.info",
 )
 CSP_SCRIPT_SRC = (
