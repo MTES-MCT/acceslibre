@@ -27,6 +27,13 @@ import Autocomplete from './js/ui/AutocompleteActivity'
 import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 import StoreFilters from './js/ui/StoreFilters'
 
+import posthog from 'posthog-js'
+
+posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
+  api_host: 'https://eu.i.posthog.com',
+  person_profiles: 'always',
+})
+
 // Initializations
 dom.ready(() => {
   dom.mountOne('#app-map', geo.AppMap)

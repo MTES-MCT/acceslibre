@@ -52,8 +52,14 @@ CSP_DEFAULT_SRC = (
     "wss://client.relay.crisp.chat",
     "wss://stream.relay.crisp.chat",
     "*.acceslibre.info",
-    # "code.jquery.com",
-    # "stackpath.bootstrapcdn.com",
+)
+CSP_SCRIPT_SRC = (
+    "'self'",
+    "*.posthog.com",
+)
+CSP_CONNECT_SRC = (
+    "'self'",
+    "*.posthog.com",
 )
 
 CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
