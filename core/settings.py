@@ -52,13 +52,6 @@ CSP_DEFAULT_SRC = (
     "wss://client.relay.crisp.chat",
     "wss://stream.relay.crisp.chat",
     "*.acceslibre.info",
-)
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "*.posthog.com",
-)
-CSP_CONNECT_SRC = (
-    "'self'",
     "*.posthog.com",
 )
 
