@@ -543,7 +543,7 @@ class ProviderGlobalSearchForm(forms.Form):
     activity_slug = forms.CharField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
-    code = forms.CharField(required=True, widget=forms.HiddenInput)
+    code = forms.CharField(required=False, widget=forms.HiddenInput)
     postcode = forms.CharField(required=False, widget=forms.HiddenInput)
     what = forms.CharField(
         help_text=mark_safe(
