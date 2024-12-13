@@ -45,16 +45,11 @@ CSP_DEFAULT_SRC = (
     "*.incubateur.net",
     "acceslibre.matomo.cloud",
     "*.tile.openstreetmap.org",
-    "client.crisp.chat",
-    "image.crisp.chat",
-    "storage.crisp.chat",
-    "game.crisp.chat",
-    "wss://client.relay.crisp.chat",
-    "wss://stream.relay.crisp.chat",
     "*.acceslibre.info",
+    "*.posthog.com",
 )
 
-CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin")  # swagger and admin uses scripts from remote cdns
+CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
 
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
@@ -143,6 +138,7 @@ INSTALLED_APPS = [
     "waffle",
     "reversion",
     "maintenance_mode",
+    "django_summernote",
 ]
 
 
@@ -312,7 +308,7 @@ EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_PORT = env.int("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-DEFAULT_EMAIL = "support@acceslibre.beta.gouv.fr"
+DEFAULT_EMAIL = "contact@acceslibre.beta.gouv.fr"
 DEFAULT_FROM_EMAIL = f"L'équipe {SITE_NAME} <{DEFAULT_EMAIL}>"
 MANAGERS = [("Acceslibre", DEFAULT_EMAIL)]
 EMAIL_FILE_PATH = "/tmp/django_emails"

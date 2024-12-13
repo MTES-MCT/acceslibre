@@ -6,9 +6,6 @@ import 'leaflet.locatecontrol'
 import 'leaflet-center-cross'
 import { GestureHandling } from 'leaflet-gesture-handling'
 
-import { Crisp } from 'crisp-sdk-web'
-Crisp.configure('600aff6d-b1eb-414c-a186-233177221bbf')
-
 // Bootstrap
 import * as bootstrap from 'bootstrap'
 
@@ -27,9 +24,17 @@ import Autocomplete from './js/ui/AutocompleteActivity'
 import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 import StoreFilters from './js/ui/StoreFilters'
 
+import posthog from 'posthog-js'
+
+posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
+  api_host: 'https://eu.i.posthog.com',
+  person_profiles: 'always',
+})
+
 // Initializations
 dom.ready(() => {
   dom.mountOne('#app-map', geo.AppMap)
+  dom.mountOne('.contrib-container', ui.ContribPagination)
   dom.mountOne('#localisation-map', ui.LocalisationMap)
   dom.mountOne('#map-height-toggle-link', ui.MapExpander)
   dom.mountOne('.a4a-conditional-form', ui.ConditionalForm)

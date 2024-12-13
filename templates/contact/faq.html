@@ -1,0 +1,74 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% load a4a %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Questions fréquentes" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Questions fréquentes" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <h1 class="fr-mb-3v">{% translate "Vous avez une question ?" %}</h1>
+    <p class="fr-text--xl">
+        {% translate "Consultez nos questions fréquentes, vous y trouverez peut-être la réponse. " %}
+    </p>
+    <div id="faq-container" class="fr-grid fr-mt-6w fr-px-0 fr-px-sm-4w">
+        {% for section_name, faqs in faq_by_section.items %}
+            <div class="fr-accordions-group">
+                <section class="fr-accordion-group">
+                    <h2 class="fr-h2">{{ section_name }}</h2>
+                    {% for faq in faqs %}
+                        <section class="fr-accordion">
+                            <h3 class="fr-accordion__title">
+                                <button class="fr-accordion__btn"
+                                        aria-expanded="false"
+                                        aria-controls="accordion-{{ faq.id }}">{{ faq.title }}</button>
+                            </h3>
+                            <div class="fr-collapse" id="accordion-{{ faq.id }}">
+                                <article class="faq__article fr-px-3w fr-px-md-8w fr-px-sm-6w fr-pb-1w fr-pt-3w">
+                                    {{ faq.description|safe }}
+                                    <footer class="fr-text--lg fr-grey fr-py-2w text-center">
+                                        {% translate "Mise à jour le" %} {{ faq.updated_at|date:"j/m/Y" }}
+                                    </footer>
+                                </article>
+                            </div>
+                        </section>
+                    {% endfor %}
+                </section>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock editorial_content %}
+{% block bottom_fluid_content %}
+    <div class="fr-container fr-my-8w">
+        <h2 class="fr-mb-3v">{% translate "Vous ne trouvez pas de réponse satisfaisante." %}</h2>
+        <p class="fr-text--xl fr-mb-2w">
+            {% translate "Contactez-nous par e-mail pour que nous puissions trouver une solution." %}
+        </p>
+        <a href="{% url "contact_form" %}"
+           class="fr-btn fr-icon-mail-line fr-btn--icon-left">{% translate "Nous contacter par mail" %}</a>
+    </div>
+{% endblock bottom_fluid_content %}

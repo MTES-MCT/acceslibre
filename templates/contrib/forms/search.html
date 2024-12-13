@@ -1,30 +1,34 @@
 {% load static %}
 {% load i18n %}
 {% load a4a %}
-<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg"
+<form class="fr-col-12 "
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div class="fr-mx-0 w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-start fr-pr-1v">
+            <div class="fr-col-12 fr-col-lg-4">
                 <label for="what-input">
-                    <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Nom de l'établissement" %}</strong></span>
-                    <br>
+                    {% translate "Quel nom ?" %}
+                    <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
                 </label>
                 {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                <input type="search" id="what-input" name="what" class="fr-input" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" required {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" required {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                 <div>
                     {% if form.errors.what %}
                         <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
                     {% endif %}
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-sm-3 fr-input-group input-form text-start px-1">
+            <div class="fr-col-12 fr-col-lg-4">
                 <label for="activite">
-                    <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
+                    {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
                 </label>
                 <input type="text" class="fr-input hidden" id="new_activity" name="new_activity" placeholder="{% translate "Entrez votre activité" %}" value="{{ request.GET.new_activity }}" aria-label="{% translate "Commencer la saisie puis sélectionner l'activité dans la liste." %}">
+                <input type="hidden"
+                       name="activity_slug"
+                       id="activity_slug"
+                       {% if "activity_slug" in request.GET %}value="{{ request.GET.activity_slug }}"{% endif %}>
                 <div id="autocomplete-activity" class="autocomplete">
                     {{ form.activite }}
                     <ul class="list-group">
@@ -34,16 +38,14 @@
                     {% if form.errors.activite %}
                         <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
                     {% endif %}
-                    <a href="#"
-                       class="small fr-ml-2v {% if request.GET.new_activity %}hidden{% endif %}"
-                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
                     <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
                           id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
                 </div>
             </div>
-            <div class="fr-col-10 fr-col-sm-4 fr-input-group input-form search-where-field px-1">
+            <div class="fr-col-12 fr-col-lg-4 search-where-field">
                 <label for="where-input">
-                    <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Adresse ou commune" %}</strong></span>
+                    {% translate "Où ?" %}
+                    <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
                 </label>
                 <input id="where-input"
                        class="autocomplete-input fr-input"
@@ -84,15 +86,17 @@
                        name="municipality"
                        {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
-            <div class="fr-col-2 fr-input-group input-form fr-search-bar fr-search-bar--lg text-start fr-mt-6v fr-pl-1v">
+        </div>
+        <div>
+            <div class="display--flex justify--self-end">
                 <button type="submit"
                         disabled
-                        class="fr-text--sm fr-btn"
+                        class="fr-text--sm fr-btn fr-mt-2w"
                         title="{% translate "Rechercher" %}">{% translate "Rechercher" %}</button>
-                <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
-                    {% translate "Autoriser l'obtention de ma localisation géographique" %}
-                </button>
             </div>
+            <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
+                {% translate "Autoriser l'obtention de ma localisation géographique" %}
+            </button>
         </div>
         {% if equipments_shortcuts or equipments %}
             <div class="fr-checkbox-group fr-row equipments">

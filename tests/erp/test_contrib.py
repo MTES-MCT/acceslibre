@@ -110,7 +110,9 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
 
 
 @pytest.mark.django_db
-def test_contrib_start_global_search_with_existing(client, mocker, akei_result, mairie_jacou_result):
+def test_contrib_start_global_search_with_existing(
+    client, mocker, akei_result, mairie_jacou_result, django_assert_num_queries
+):
     commune = CommuneFactory(nom="Jacou")
     mairie = ActiviteFactory(nom="Mairie")
     user = UserFactory()
@@ -120,7 +122,7 @@ def test_contrib_start_global_search_with_existing(client, mocker, akei_result, 
         return_value=[mairie_jacou_result, akei_result],
     )
 
-    obj_erp = ErpFactory(
+    ErpFactory(
         nom="Mairie - Jacou",
         siret=None,
         numero="2",
@@ -134,21 +136,18 @@ def test_contrib_start_global_search_with_existing(client, mocker, akei_result, 
         user=user,
     )
 
-    response = client.get(
-        reverse("contrib_global_search"),
-        data={
-            "code": "34120",
-            "what": "mairie",
-        },
-        follow=True,
-    )
+    with django_assert_num_queries(7):
+        response = client.get(
+            reverse("contrib_global_search"),
+            data={
+                "code": "34120",
+                "what": "mairie",
+            },
+            follow=True,
+        )
 
     assert response.status_code == 200
     assert response.context["results"] == [akei_result]
-    assert len(response.context["results_bdd"]) == 1
-    assert "exists" in response.context["results_bdd"][0]
-    assert response.context["results_bdd"][0]["source"] == "acceslibre"
-    assert response.context["results_bdd"][0]["id"] == obj_erp.id
     assert all(
         [x in response.context["query"] for x in ("nom", "commune", "activite", "code_postal", "lat", "lon")]
     ), "Missing info for encode_provider_data"

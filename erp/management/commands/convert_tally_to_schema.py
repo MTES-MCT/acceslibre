@@ -5,15 +5,15 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from erp.imports.mapper.base import BaseMapper
-from erp.provider.geocoder import geocode
 from erp.models import ExternalSource
+from erp.provider.geocoder import geocode
 
 with_activity = True
 with_comment = False
 with_siret = False
 
 # 4 kinds of templates : basic (default), hosting, culture, ath
-hosting = True
+hosting = False
 culture = False
 ath = False
 

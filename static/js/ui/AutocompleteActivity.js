@@ -2,13 +2,22 @@ import Autocomplete from '@trevoreyre/autocomplete-js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('autocomplete-activity')
+
   if (!root) {
     return
   }
-  const inputElement = root.querySelector('input')
-  const activities = JSON.parse(inputElement.dataset.searchLookup)
 
-  new Autocomplete(root, {
+  const inputElement = root.querySelector('input[name="activite"]')
+  const activities = JSON.parse(inputElement.dataset.searchLookup)
+  const onSubmit = (slug) => {
+    const activitySlugInput = document.querySelector('input[type="hidden"][name="activity_slug"]')
+
+    if (activitySlugInput) {
+      activitySlugInput.value = slug
+    }
+  }
+
+  const autocomplete = new Autocomplete(root, {
     getResultValue: (result) => result.name,
     search: (searchTerm) => {
       if (searchTerm.length < 3) {
@@ -48,15 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
         </li>
       `
     },
-    onSubmit: (result) => {
-      if (result != gettext('Autre')) {
-        document.querySelector('#activity_suggested>span').innerHTML = ''
-        document.getElementById('activity_suggested').classList.add('hidden')
+    onSubmit: ({ slug }) => onSubmit(slug),
+  })
 
-        const noActivity = document.getElementById('no_activity')
-        noActivity.value = ''
-        noActivity.classList.remove('hidden')
+  // Dirty hack to support press Key enter (Lib is broken)
+  autocomplete.input.addEventListener('keydown', (event) => {
+    const { key } = event
+    const isDropdownExpanded = !!autocomplete?.expanded
+
+    // We do not want to submit the form if the suggestion list is opened, only when it's closed.
+    if (key === 'Enter' && isDropdownExpanded) {
+      // Prevent form submission
+      event.preventDefault()
+
+      const slug = autocomplete?.core?.selectedResult?.slug
+
+      if (slug) {
+        // Populate hidden input
+        onSubmit(slug)
       }
-    },
+    }
   })
 })

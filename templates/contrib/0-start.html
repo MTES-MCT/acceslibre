@@ -5,61 +5,13 @@
     {% translate "Ajouter un établissement" %}
 {% endblock page_title %}
 {% block contrib_title %}
-    {% translate "Contribuer" %}
+    {% translate "Ajouter un établissement" %}
 {% endblock contrib_title %}
-{% block contrib_step %}
-    <small>{% translate "Étape 1 sur 7" %}</small>
-{% endblock contrib_step %}
 {% block contrib_subtitle %}
-    {% translate "Quel est l'établissement concerné ?" %}
+    {% translate "Merci de contribuer à l’évolution de notre projet, la force du collaboratif prendra le relais et quelqu'un pourra compléter après vous." %}
 {% endblock contrib_subtitle %}
 {% block navbar %}
 {% endblock navbar %}
 {% block contrib_content %}
-    <div class="mt-5">
-        <h3>{% translate "Vérifiez si l'établissement existe déjà ou si des informations sont disponibles" %}</h3>
-        {% include "contrib/forms/search.html" with search_action="." %}
-    </div>
-    <div class="fr-grid-row fr-mb-2v fr-mt-3v">
-        <div class="fr-col-12 fr-pr-0">
-            <div class="fr-card bg-alt-blue-france-975 fr-card--no-arrow">
-                <div class="fr-card__body">
-                    <h3 class="fr-h4 fr-mt-6v">{% translate "La charte du contributeur" %}</h3>
-                    <div class="row fr-mt-3v">
-                        <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
-                            <img class="d-none d-sm-block full-max-width" height="200" width="200"
-                                src="{% static 'img/contrib/ampoule.png' %}" alt="{% translate "N'aie pas peur" %}">
-                                <h4 class="mt-3 mt-sm-0 h5 bold">{% translate "N'aie pas peur" %}</h4>
-                                <p>{% translate "tu en sais plus que ce que tu penses" %}</p>
-                            </div>
-                            <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
-                                <img class="d-none d-sm-block full-max-width" height="200" width="200"
-                                    src="{% static 'img/contrib/balance.png' %}" alt="{% translate "Le mieux est l'ennemi du bien" %}">
-                                    <h4 class="mt-3 mt-sm-0 h5 bold">{% translate "Le mieux est l'ennemi du bien" %}</h4>
-                                    <p>{% translate "ne jamais enjoliver la situation afin de ne pas créer de faux espoirs" %}</p>
-                                </div>
-                                <div class="fr-col-12 fr-col-md-3 text-center p-0 p-sm-3">
-                                    <img class="d-none d-sm-block full-max-width" height="200" width="200" src="{% static "img/contrib/colibri.png" %}" alt="{% translate "Chaque information est précieuse" %}">
-                                    <h4 class="mt-3 mt-sm-0 h5 bold">{% translate "Chaque information est précieuse" %}</h4>
-                                    <p>
-                                        {% blocktranslate %}
-                    n'hésite pas à publier une fiche même si elle est incomplète ... La force du collaboratif
-                    prendra le relais et quelqu'un pourra compléter après toi
-                    {% endblocktranslate %}
-                                    </p>
-                                </div>
-                                <div class="fr-col-12 fr-col-md-3 text-center fr-p-0 p-sm-3">
-                                    <img class="d-none d-sm-block full-max-width"
-                                         height="200"
-                                         width="200"
-                                         src="{% static 'img/contrib/sablier.png' %}"
-                                         alt="{% translate "5 minutes de ton temps" %}">
-                                    <h4 class="mt-3 mt-sm-0 h5 bold">{% translate "5 minutes de ton temps" %}</h4>
-                                    <p>{% translate "1 nouveau lieu à visiter pour 12 millions de personnes" %}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endblock contrib_content %}
+    {% include "contrib/includes/contrib-search-section.html" %}
+{% endblock contrib_content %}

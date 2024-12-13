@@ -21,8 +21,12 @@
     {% block header %}
         {% include "editorial/header.html" %}
     {% endblock header %}
+    {% block breadcrumb %}
+    {% endblock breadcrumb %}
     <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
-    <main role="main" id="content">
+    <main role="main"
+          id="content"
+          {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}>
         {% block top_fluid_content %}
         {% endblock top_fluid_content %}
         <!-- {% comment %}Main content area{% endcomment %} -->

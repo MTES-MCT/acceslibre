@@ -10,7 +10,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "dataset",
             type=str,
-            help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
+            help="Identifiant du jeu de données à importer (gendarmerie, service_public, ...)",
         )
 
         parser.add_argument(
@@ -27,8 +27,6 @@ class Command(BaseCommand):
             raise CommandError("Identifiant du jeu de données à importer manquant")
         if dataset == "gendarmerie":
             results = importer.import_gendarmeries(verbose=verbose)
-        elif dataset == "vaccination":
-            results = importer.import_vaccination(verbose=verbose)
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
         elif dataset == "generic":

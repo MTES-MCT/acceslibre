@@ -8,7 +8,7 @@ from django.contrib.gis.measure import Distance
 from django.db.models import Q
 
 from erp.exceptions import PermanentlyClosedException
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.models import Erp, ExternalSource, Activite, Commune, Accessibilite
 from erp.provider import arrondissements
 from erp.schema import get_nullable, get_type
 
@@ -127,6 +127,7 @@ class GenericMapper:
         # check for a preexisting match (before we had imports)
         # erp = self._process_preexisting(basic_fields["geom"])
         erp = None
+        sources = []
         # already imported erps
 
         if not erp:
@@ -134,7 +135,7 @@ class GenericMapper:
             try:
                 self._ensure_not_permanently_closed(erps)
             except PermanentlyClosedException:
-                return None, None
+                return None, sources, None
             erp = erps.first()
 
         # new erp
@@ -144,6 +145,7 @@ class GenericMapper:
                 source_id=self.record["id"],
                 activite=self.activite,
             )
+            sources.append(ExternalSource(erp=erp, source=self.source, source_id=self.record["id"]))
 
         self.erp = erp
         for name, value in basic_fields.items():
@@ -152,7 +154,7 @@ class GenericMapper:
         self._retrieve_commune_ext()
         self._populate_accessibilite()
 
-        return self.erp, None
+        return self.erp, sources, None
 
     def _process_preexisting(self, location):
         erp = (

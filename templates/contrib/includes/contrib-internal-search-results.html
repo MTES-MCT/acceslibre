@@ -1,0 +1,17 @@
+{% load a4a %}
+{% load i18n %}
+<div class="fr-col-md-12"
+     data-api-key="{{ api_key|default:'' }}"
+     data-api-url="{% url "erp-list" %}"
+     data-commune="{{ commune_search }}">
+    <h2 class="fr-mb-5w">
+        {% translate "Résultats trouvés pour " %}
+        "
+        {% if query.commune %}{{ query.commune|capfirst|add:' - ' }}{% endif %}
+        {% if query.nom %}{{ query.nom|add:' - ' }}{% endif %}
+        {% if form.activite.value %}{{ form.activite.value|capfirst }}{% endif %}
+        "
+    </h2>
+    <div id="internal-results-count-container"></div>
+    <div class="fr-pt-3v fr-pb-3v fr-col-md-12">{% include "contrib/includes/result_internal_search_erps.html" %}</div>
+</div>

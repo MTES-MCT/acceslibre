@@ -22,7 +22,7 @@ pytest-socket = "*"
 
 [packages]
 coreapi = "*"
-Django = "==4.2.16"
+Django = "==4.2.17"
 django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
@@ -78,6 +78,7 @@ django-csp = "*"
 colorama = "*"
 boto3 = "*"
 magic-profanity = "*"
+django-summernote = "*"
 
 [requires]
 python_version = "3.12"

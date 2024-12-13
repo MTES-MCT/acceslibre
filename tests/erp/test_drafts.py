@@ -38,44 +38,6 @@ def sample_result():
     }
 
 
-@pytest.fixture
-def test_response(client, mocker, sample_result):
-    def _factory(user_to_log_in):
-        mocker.patch("erp.provider.search.global_search", return_value=[sample_result])
-        client.force_login(user_to_log_in)
-        return client.get(
-            reverse("contrib_global_search"),
-            data={
-                "code": "34120",
-                "what": "croissants",
-            },
-            follow=True,
-        ).content.decode()
-
-    return _factory
-
-
-@pytest.mark.django_db
-def test_owner_published_listed(test_response):
-    user = UserFactory()
-    ErpFactory(published=True, user=user)
-
-    response_content = test_response(user)
-
-    assert "Voir cet établissement" in response_content
-
-
-@pytest.mark.django_db
-def test_user_published_listed(test_response):
-    user = UserFactory()
-    other_user = UserFactory()
-    ErpFactory(published=True, user=user)
-
-    response_content = test_response(other_user)
-
-    assert "Voir cet établissement" in response_content
-
-
 @pytest.mark.django_db
 def test_delete_similar_draft(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)

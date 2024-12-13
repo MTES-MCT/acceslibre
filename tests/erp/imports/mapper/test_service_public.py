@@ -19,13 +19,13 @@ def mapper(db):
 
 
 def test_init(mapper):
-    assert mapper({}).process() == (None, None)
+    assert mapper({}).process() == (None, [], None)
 
 
 def test_save_non_existing_erp(mapper, service_public_valid):  # noqa
     CommuneFactory(nom="Fontaine-le-Port")
     ActiviteFactory(nom="Mairie", slug="mairie")
-    erp, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
+    erp, sources, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
 
     assert erp.published is True
     assert erp.user_id is None
@@ -46,6 +46,12 @@ def test_save_non_existing_erp(mapper, service_public_valid):  # noqa
     assert erp.accessibilite.entree_marches_rampe == "amovible"
     assert erp.accessibilite.entree_aide_humaine is True
 
+    assert len(sources) == 1
+    assert sources[0].source == ExternalSource.SOURCE_SERVICE_PUBLIC
+    assert sources[0].source_id == "mairie-77188-01"
+
+    assert erp.sources.count() == 1
+
 
 @pytest.mark.usefixtures("service_public_valid")
 def test_update_existing_erp(mapper, service_public_valid):  # noqa
@@ -55,10 +61,15 @@ def test_update_existing_erp(mapper, service_public_valid):  # noqa
 
     existing_erp = ErpFactory(source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id="mairie-77188-01")
     AccessibiliteFactory(erp=existing_erp, entree_plain_pied=True, entree_aide_humaine=False)
-    erp, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
+    erp, sources, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
 
     assert erp.pk == existing_erp.pk
-
     assert erp.accessibilite.entree_plain_pied is False
     assert erp.accessibilite.entree_marches_rampe == "amovible"
     assert erp.accessibilite.entree_aide_humaine is True
+
+    assert len(sources) == 1
+    assert sources[0].source == ExternalSource.SOURCE_SERVICE_PUBLIC
+    assert sources[0].source_id == "mairie-77188-01"
+
+    assert erp.sources.count() == 1

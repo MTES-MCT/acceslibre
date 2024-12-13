@@ -14,6 +14,7 @@ import PickAnswerAndSubmit from './PickAnswerAndSubmit'
 import filterData from './FilterData'
 import StoreFilters from './StoreFilters'
 import LoadFilters from './LoadFilters'
+import ContribPagination from './ContribPagination'
 
 export default {
   AsteriskField,
@@ -32,4 +33,5 @@ export default {
   filterData,
   StoreFilters,
   LoadFilters,
+  ContribPagination,
 }
