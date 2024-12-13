@@ -49,7 +49,9 @@
         <div class="row fr-mt-2v">
             <div class="fr-col-sm-5">
                 <h2 class="h4 m-0 fr-mb-3v">
-                    <span id="number-of-results">{{ paginator.count }} {% translate "établissement" %}{{ paginator.count|pluralize:"s" }}</span>
+                    <span id="number-of-results">{{ paginator.count }}
+                        {% blocktranslate count counter=paginator.count %}établissement{% plural %}établissements{% endblocktranslate %}
+                    </span>
                     {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
                         {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="fr-sr-only">{% translate "kilomètres" %}</span>
                     {% endif %}
