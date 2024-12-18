@@ -469,7 +469,6 @@ def contrib_start(request):
 def contrib_global_search(request):
     results = error = None
     commune = ""
-    results_bdd = []
     results = []
 
     need_external_api_search = True
@@ -482,7 +481,6 @@ def contrib_global_search(request):
     if request.GET.get("activity_slug"):
         activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
 
-    nb_results_bdd = 0
     pagination_size = 6
 
     if request.GET.get("what"):
@@ -504,9 +502,8 @@ def contrib_global_search(request):
             qs_results_bdd = qs_results_bdd.filter(activite=activite)
 
         commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
-        nb_results_bdd = qs_results_bdd.count()
         qs_results_bdd = qs_results_bdd[:pagination_size]
-        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
+        results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = clean_address(request.GET.get("where"))
 
@@ -518,7 +515,6 @@ def contrib_global_search(request):
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
-            "has_more_results_bdd": nb_results_bdd > pagination_size,
             "results": results[:pagination_size],
             "error": error,
             "api_key": _get_or_create_api_key(),
