@@ -1,3 +1,4 @@
+import time
 from unittest.mock import ANY
 
 import pytest
@@ -5,10 +6,25 @@ from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.urls import reverse
 from django.utils.translation import gettext as translate
+from selenium.webdriver.chrome.options import Options
 from splinter import Browser
 
 from erp.models import Accessibilite, Activite, Commune, Erp
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
+
+
+@pytest.fixture
+def browser_chrome():
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-extensions")
+
+    browser = Browser(driver_name="chrome", headless=True, options=options)
+    return browser
 
 
 @pytest.fixture
@@ -197,3 +213,56 @@ def test_registration_flow(mocker, browser):
     # ensure we've been redirected to where we registered initially from
     assert browser.url == "/contact/"
     assert browser.is_text_present("Contactez-nous")
+
+
+@pytest.mark.django_db
+def test_contribution_anonymous(mocker, browser_chrome, mairie_jacou_result, akei_result, live_server):
+    activity = ActiviteFactory(nom="Boulangerie Pâtisserie")
+    erp = ErpFactory(commune="Lyon", activite=activity, nom="La super boulang' de Solange")
+    mocker.patch(
+        "erp.provider.search.global_search",
+        return_value=[mairie_jacou_result, akei_result],
+    )
+
+    browser_chrome.visit(live_server.url + reverse("contrib_start"))
+
+    assert browser_chrome.is_text_present("Ajouter un établissement")
+
+    browser_chrome.fill("what", "boulangerie")
+    browser_chrome.fill("activite", "Boulangerie Pâtisserie")
+    browser_chrome.fill("where", "Lyon")
+
+    assert browser_chrome.find_by_css(".autocomplete-result-list > li")
+    time.sleep(2)  # FIXME to remove after mock ?
+    lyon = browser_chrome.find_by_css(".autocomplete-result-list > li").first
+    assert lyon.text == "Lyon (69)"
+    lyon.click()
+
+    time.sleep(1)
+
+    button = browser_chrome.find_by_css("form#search-form button[type=submit]").first
+    button.click()
+
+    assert reverse("contrib_global_search") in browser_chrome.url
+    assert "activite=Boulangerie+P%C3%A2tisserie" in browser_chrome.url
+    assert "where=Lyon" in browser_chrome.url
+    assert "what=boulangerie" in browser_chrome.url
+
+    h2s = browser_chrome.find_by_css("h2")
+    assert h2s[0].html == "Étape 1 : vérifiez si l'établissement est déjà enregistré dans notre base"
+    assert (
+        h2s[1].html
+        == '\n        Résultats trouvés pour \n        "\n        Lyon - \n        boulangerie - \n        Boulangerie Pâtisserie\n        "\n    '
+    )
+    assert h2s[2].html == "Autres établissements connus à ajouter et compléter"
+    assert h2s[3].html == "Étape 2 : vous n’avez pas trouvé votre établissement ci-dessus"
+
+    # </div> containing internal DB results
+    div_internal_results = browser_chrome.find_by_css("#internal-results-count-container").first
+    assert erp.nom in div_internal_results
+    ...
+
+    # </div> containing external results
+    div_external_results = browser_chrome.find_by_xpath("(//h2)[3]/following-sibling::div[1]").first
+    assert "1 résultat" in div_external_results.html
+    ...
