@@ -35,6 +35,8 @@ posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
 dom.ready(() => {
   dom.mountOne('#app-map', geo.AppMap)
   dom.mountOne('.contrib-container', ui.ContribPagination)
+  dom.mountOne('.contrib-container', ui.FormContribEditNotification)
+  dom.mountOne('#contrib-edit-form', ui.FormContribDirtyChecker)
   dom.mountOne('#localisation-map', ui.LocalisationMap)
   dom.mountOne('#map-height-toggle-link', ui.MapExpander)
   dom.mountOne('.a4a-conditional-form', ui.ConditionalForm)
