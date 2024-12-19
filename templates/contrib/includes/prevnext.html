@@ -1,37 +1,35 @@
 {% load i18n %}
-<div class="d-flex flex-column d-lg-block">
-    <nav aria-label='{% translate "Parcours de contribution" %}'
-         role="navigation">
-        <ul class="no-list p-0 flex">
-            {% if prev_route %}
-                <li>
-                    <a class="fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-arrow-left-line fr-mr-1w"
-                       href="{{ prev_route }}">{% translate "Précédent" %}</a>
-                </li>
-            {% endif %}
-            {% if next_step_title %}
-                <li>
-                    <input type="submit"
-                           class="fr-btn btn-primary"
-                           name="contribute"
-                           value='{% translate "Continuer" %}'
-                           aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ next_step_title|capfirst }} ">
-                </li>
-            {% endif %}
-            {% if publier_route %}
-                <li>
-                    <input type="submit"
-                           class="{% if next_step_title %}fr-btn fr-btn--secondary fr-mx-1w {% else %}fr-btn btn-primary{% endif %}"
-                           name="publier"
-                           value='{% translate "Publier" %}'>
-                </li>
-            {% endif %}
-            {% if erp and erp.published %}
-                <li>
-                    <a class="fr-btn fr-btn--tertiary-no-outline"
-                       href="{{ erp.get_absolute_url }}">{% translate "Revenir à la fiche" %}</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
+<div class="fr-grid-row fr-col-12 fr-mt-2w fr-grid-row--center">
+    <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
+        {% if prev_route %}
+            <li>
+                <a class="fr-btn fr-btn--secondary fr-btn--icon-left"
+                   href="{{ prev_route }}">{% translate "Précédent" %}</a>
+            </li>
+        {% endif %}
+        {% if next_step_title %}
+            <li>
+                <input type="submit"
+                       class="fr-btn btn-primary"
+                       name="contribute"
+                       value="{% if step == 1 %} {% translate "Passer à l’étape suivante" %} {% else %} {% blocktranslate with step=step|add:"1"%}Passer à l’étape {{ step }}{% endblocktranslate %} {% endif %}  "
+                       aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ next_step_title|capfirst }} ">
+            </li>
+        {% endif %}
+        {% if publier_route %}
+            <li>
+                <input id="contrib-edit-publish-btn"
+                       type="submit"
+                       class="{% if next_step_title %}fr-btn fr-btn--secondary {% else %}fr-btn btn-primary{% endif %}"
+                       name="publier"
+                       value='{% translate "Valider et publier" %}'>
+            </li>
+        {% endif %}
+        {% if erp and erp.published and next_step_title %}
+            <li>
+                <a class="fr-btn fr-btn--tertiary-no-outline"
+                   href="{{ erp.get_absolute_url }}">{% translate "Revenir à la fiche" %}</a>
+            </li>
+        {% endif %}
+    </ul>
 </div>

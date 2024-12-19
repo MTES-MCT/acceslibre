@@ -6,37 +6,101 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block contrib_title %}
-    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de
+        {{ erp_commune }}{% endblocktranslate %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 5 sur 7" %}</small>
+    {% translate "L’entrée" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="5" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="5" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block contrib_subtitle %}
-    {% translate "Informations d'accessibilité" %}
 {% endblock contrib_subtitle %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    <h3 class="h4">{% translate "Entrée" %}</h3>
-    {% include "fields/boolradio.html" with field=form.entree_reperage inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_porte_manoeuvre inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_porte_type inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_vitree inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True %}
-    {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_ascenseur inline=True %}
-    {% include "fields/number.html" with field=form.entree_marches %}
-    {% include "fields/boolradio.html" with field=form.entree_marches_sens inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_marches_reperage inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_marches_main_courante inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_marches_rampe inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True %}
-    {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True %}
-    {% include "fields/number.html" with field=form.entree_largeur_mini %}
-    {% include "fields/boolradio.html" with field=form.entree_pmr inline=True %}
-    {% include "fields/textarea.html" with field=form.entree_pmr_informations %}
+    <div class="contrib-inputs-section-wrapper">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_reperage inline=True key="entree_reperage" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True key="entree_porte_presence" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_porte_manoeuvre inline=True key="entree_porte_manoeuvre" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_porte_type inline=True key="entree_porte_type" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_vitree inline=True key="entree_vitree" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie inline=True key="entree_vitree_vitrophanie" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.entree_largeur_mini key="entree_largeur_mini" %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True key="entree_dispositif_appel" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True key="entree_dispositif_appel_type" %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True key="entree_plain_pied" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_ascenseur inline=True key="entree_ascenseur" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.entree_marches key="entree_marches" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_marches_sens inline=True key="entree_marches_sens" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_marches_reperage inline=True key="entree_marches_reperage" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_marches_main_courante inline=True key="entree_marches_main_courante" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.entree_marches_rampe inline=True key="entree_marches_rampe" %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True key="entree_aide_humaine" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.entree_pmr inline=True key="entree_pmr" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.entree_pmr_informations key="entree_pmr_informations" %}
+            </div>
+        </div>
+    </div>
 {% endblock fields_content %}

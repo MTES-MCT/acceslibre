@@ -1,33 +1,43 @@
 {% load a4a %}
 {% load i18n %}
 {% if field %}
-    <div class="a4a-form-field field-{{ field.name }} fr-mb-3v">
-        {% if field.id_for_label %}
+    <div class="field-{{ field.name }} fr-mb-3v">
+        {% if field.id_for_label and key|should_display_label %}
+            {% if heading_level == 4 %}
+                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
+            {% else %}
+                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+            {% endif %}
             <label for="{{ field.id_for_label }}" class="mb-0">
-                <strong tabindex="0">{{ field.label }}
-                    {% if field.field.required %}
-                        <small>({% translate "requis" %})</small>
-                    {% endif %}
-                </strong>
-                <br>
+                {% if field.field.required %}
+                    <small>({% translate "requis" %})</small>
+                {% endif %}
             </label>
-        {% else %}
-            <span class="mb-0">
-                <strong tabindex="0">{{ field.label }}</strong>
-                <br>
-            </span>
+        {% elif field.label and key|should_display_label %}
+            {% if heading_level == 4 %}
+                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
+            {% else %}
+                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+            {% endif %}
         {% endif %}
-        <div class="fr-form-group fr-mb-1v">
-            <p tabindex="0">{{ field.help_text|safe }}</p>
+        <div class="fr-mb-1v">
             <fieldset class="fr-fieldset">
-                <div class="fr-fieldset__content">
-                    {% for choice in field %}
-                        <div class="fr-radio-group fr-radio-group--sm">
-                            {{ choice.tag }}
-                            <label class="fr-label" for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice.choice_label }}</label>
+                {% if field.help_text %}
+                    <legend class="fr-fieldset__legend fr-fieldset__legend--regular">{{ field.help_text|safe }}</legend>
+                {% endif %}
+                {% for choice in field %}
+                    <div class="fr-fieldset__element">
+                        <div class="fr-grid-row fr-grid-row--middle">
+                            {% with key|field_image_url:forloop.counter0 as image_url %}
+                                {% if image_url %}<img src="{{ image_url }}" class="contrib-input-image fr-mr-3v" alt="">{% endif %}
+                            {% endwith %}
+                            <div class="fr-radio-group fr-col">
+                                {{ choice.tag }}
+                                <label class="fr-label" for="id_{{ field.name }}_{{ forloop.counter0 }}">{{ choice.choice_label|capfirst }}</label>
+                            </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </fieldset>
             {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
         </div>

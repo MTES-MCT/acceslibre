@@ -74,6 +74,12 @@
   }
 }
 
+.position {
+  &--relative {
+    position: relative;
+  }
+}
+
 .direction {
   &--column {
     flex-direction: column;

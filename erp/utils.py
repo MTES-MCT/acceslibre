@@ -1,6 +1,7 @@
 import re
 
 from django.contrib.gis.geos import Polygon
+from django.urls import reverse
 from django.utils.translation import gettext as translate
 
 from erp.models import Erp
@@ -56,3 +57,57 @@ def clean_address(where):
     elif found := re.search(r".* [0-9]{5} (.*)", where):
         city = found.groups(1)[0]
     return city, code_departement
+
+
+def get_contrib_steps_with_url(erp_slug: str):
+    return [
+        (
+            {
+                "url": reverse("contrib_edit_infos", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("Informations"),
+                "step": 1,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_a_propos", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("À propos"),
+                "step": 2,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_transport", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("Transport et stationnement"),
+                "step": 3,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_exterieur", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("Chemin extérieur vers l’entrée"),
+                "step": 4,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_entree", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("L’entrée"),
+                "step": 5,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_accueil", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("Accueil et prestations"),
+                "step": 6,
+            }
+        ),
+        (
+            {
+                "url": reverse("contrib_commentaire", kwargs={"erp_slug": erp_slug}),
+                "step_name": translate("Informations complémentaires"),
+                "step": 7,
+            }
+        ),
+    ]

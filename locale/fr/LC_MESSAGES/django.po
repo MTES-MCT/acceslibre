@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 13:46+0100\n"
+"POT-Creation-Date: 2025-02-20 15:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -591,9 +591,6 @@ msgid ""
 msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
-msgstr ""
-
-msgid "ex: nom@domain.tld"
 msgstr ""
 
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
@@ -1453,12 +1450,6 @@ msgstr ""
 msgid "Amovible"
 msgstr ""
 
-msgid "Montant"
-msgstr ""
-
-msgid "Descendant"
-msgstr ""
-
 msgid "Direction Générale des Entreprises"
 msgstr ""
 
@@ -1512,7 +1503,7 @@ msgstr ""
 msgid "à proximité"
 msgstr ""
 
-msgid "Chemin extérieur"
+msgid "Extérieur entre le trottoir et l’entrée principale du bâtiment"
 msgstr ""
 
 msgid "depuis la voirie jusqu'à l'entrée"
@@ -1574,7 +1565,7 @@ msgstr ""
 msgid "Informations sur l'accessibilité par les transports en commun"
 msgstr ""
 
-msgid "Stationnement dans l'établissement"
+msgid "Stationnement privé dans l'établissement"
 msgstr ""
 
 msgid ""
@@ -1751,13 +1742,13 @@ msgstr ""
 msgid "Combien y'a t'il de marches&nbsp;?"
 msgstr ""
 
-msgid "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
+msgid "Faut-il monter ou descendre  les marches pour atteindre l'entrée ?"
 msgstr ""
 
 msgid "Sens de circulation des marches ou de l'escalier"
 msgstr ""
 
-msgid "Marches ou escalier sécurisé(es)"
+msgid "Repérage des marches"
 msgstr ""
 
 msgid ""
@@ -1826,8 +1817,8 @@ msgid "Quel est son degré de difficulté&nbsp;?"
 msgstr ""
 
 msgid ""
-"Un dévers est une inclinaison transversale du chemin. S'il en existe un, "
-"quel est son degré de difficulté&nbsp;?"
+"Existe t-il un dévers sur le chemin ? Quel est son degré de difficulté ? Un "
+"dévers est une inclinaison transversale du chemin."
 msgstr ""
 
 msgid "Dévers ou inclinaison transversale du chemin"
@@ -1876,6 +1867,9 @@ msgstr ""
 msgid "Largeur minimale de 90 cm sur tout le chemin"
 msgstr ""
 
+msgid "L’entrée de l’établissement"
+msgstr ""
+
 msgid ""
 "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement "
 "(numéro de rue à proximité, enseigne, végétaux, éléments architecturaux "
@@ -1897,7 +1891,7 @@ msgstr ""
 msgid "L'entrée n'est pas bien visible"
 msgstr ""
 
-msgid "Y a-t-il une porte ?"
+msgid "Porte d'entrée"
 msgstr ""
 
 msgid "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
@@ -1979,7 +1973,7 @@ msgstr ""
 msgid "Pas de marches d'escalier"
 msgstr ""
 
-msgid "Repérage des marches"
+msgid "Type de dispositif d'appel à l'entrée"
 msgstr ""
 
 msgid ""
@@ -1996,10 +1990,10 @@ msgstr ""
 msgid "Pas de dispositif d'appel"
 msgstr ""
 
-msgid "Type de dispositif d'appel à l'entrée"
+msgid "Dispositif d’appel à l’entrée"
 msgstr ""
 
-msgid "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
+msgid "De quel type est le dispositif d’appel ?"
 msgstr ""
 
 msgid "Dispositifs d'appels présents"
@@ -2041,7 +2035,7 @@ msgstr ""
 msgid "Pas de possibilité d'aide humaine"
 msgstr ""
 
-msgid "Largeur de la porte"
+msgid "Largeur de la porte ou de l'entrée"
 msgstr ""
 
 msgid ""
@@ -2095,7 +2089,10 @@ msgstr ""
 
 msgid ""
 "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle "
-"visible depuis l'entrée du bâtiment&nbsp;?"
+"visible depuis l'entrée du bâtiment ? (Cette information est utile aux "
+"personnes aveugles ou malvoyantes qui peuvent être directement prises en "
+"charge par le personnel d'accueil si l'accueil se trouve à proximité direct "
+"de l'entrée)"
 msgstr ""
 
 msgid ""
@@ -2126,6 +2123,9 @@ msgid ""
 msgstr ""
 
 msgid "Chemin vers l'accueil de plain pied"
+msgstr ""
+
+msgid "Oui, sans rupture de niveau brutale"
 msgstr ""
 
 msgid "Repérage des marches ou de l'escalier"
@@ -2350,6 +2350,9 @@ msgstr ""
 msgid "Type d'équipements pour l'audiodescription"
 msgstr ""
 
+msgid "L'établissement propose-t-il de l’audiodescription ?"
+msgstr ""
+
 msgid "Équipements disponibles"
 msgstr ""
 
@@ -2403,7 +2406,7 @@ msgstr ""
 msgid "Toilettes adaptées"
 msgstr ""
 
-msgid "Y a-t-il des toilettes adaptées mises à disposition du public&nbsp;?"
+msgid "Y a-t-il des toilettes adaptées PMR (personne à mobilité réduite)"
 msgstr ""
 
 msgid "Des sanitaires adaptés sont mis à disposition dans l'établissement"
@@ -2434,8 +2437,7 @@ msgstr ""
 msgid "Autre marque ou label obtenus"
 msgstr ""
 
-msgid ""
-"<strong>Informations complémentaires et prestations spécifiques</strong>"
+msgid "Autres remarques"
 msgstr ""
 
 msgid ""
@@ -2494,6 +2496,21 @@ msgid "En savoir plus sur"
 msgstr ""
 
 msgid "France entière"
+msgstr ""
+
+msgid "Informations"
+msgstr ""
+
+msgid "À propos"
+msgstr ""
+
+msgid "Transport et stationnement"
+msgstr ""
+
+msgid "Chemin extérieur vers l’entrée"
+msgstr ""
+
+msgid "L’entrée"
 msgstr ""
 
 msgid "Vous participez déjà à un autre challenge."
@@ -3255,16 +3272,7 @@ msgstr ""
 msgid "Modifier un établissement"
 msgstr ""
 
-msgid "Ajouter les données d'accessibilité d'un établissement"
-msgstr ""
-
-msgid "Étape 1 sur 7"
-msgstr ""
-
-msgid "L'établissement"
-msgstr ""
-
-msgid "Adresse de l'établissement"
+msgid "Attention : Établissement(s) existant(s)"
 msgstr ""
 
 msgid ""
@@ -3279,13 +3287,70 @@ msgstr ""
 msgid "Continuer ma saisie d'un nouvel établissement"
 msgstr ""
 
-msgid "Sélectionner dans la liste"
+msgid "Nom et adresse de l'établissement"
+msgstr ""
+
+msgid "Champs obligatoires *"
+msgstr ""
+
+msgid "Nom *"
+msgstr ""
+
+msgid "Nom obligatoire"
+msgstr ""
+
+msgid "Activité *"
+msgstr ""
+
+msgid "Activité obligatoire"
 msgstr ""
 
 msgid "Je ne trouve pas l'activité"
 msgstr ""
 
-msgid "Votre suggestion :"
+msgid "Votre suggestion : "
+msgstr ""
+
+msgid "Numéro de la voie"
+msgstr ""
+
+msgid "Voie *"
+msgstr ""
+
+msgid "Voie obligatoire"
+msgstr ""
+
+msgid "Code postal *"
+msgstr ""
+
+msgid "Code postal obligatoire"
+msgstr ""
+
+msgid "Lieu dit obligatoire"
+msgstr ""
+
+msgid "Commune *"
+msgstr ""
+
+msgid "Commune obligatoire"
+msgstr ""
+
+msgid "Contact de l'établissement"
+msgstr ""
+
+msgid "ex: http://etablissement.com"
+msgstr ""
+
+msgid "Format attendu : 01.02.03.04.05"
+msgstr ""
+
+msgid "Format attendu : nom@domaine.com"
+msgstr ""
+
+msgid "Lien vers le contact de l’établissement"
+msgstr ""
+
+msgid "ex: http://etablissement.com/contactez-nous.html"
 msgstr ""
 
 msgid "Emplacement de l'établissement"
@@ -3311,46 +3376,39 @@ msgid "acceslibre"
 msgstr ""
 
 #, python-format
-msgid "%(erp_nom)s de %(erp_commune)s"
-msgstr ""
-
-msgid "Étape 2 sur 7"
+msgid ""
+"%(erp_nom)s de\n"
+"        %(erp_commune)s"
 msgstr ""
 
 msgid "Venir dans l'établissement"
 msgstr ""
 
-msgid "Étape 3 sur 7"
-msgstr ""
-
-msgid "Stationnement"
-msgstr ""
-
 msgid "Espace et chemin extérieur"
-msgstr ""
-
-msgid "Étape 4 sur 7"
 msgstr ""
 
 msgid "L'entrée de l'établissement"
 msgstr ""
 
-msgid "Étape 5 sur 7"
-msgstr ""
-
 msgid "L'accueil de l'établissement"
 msgstr ""
 
-msgid "Étape 6 sur 7"
+msgid "ERP avec une activité d'hebergement"
 msgstr ""
 
 msgid "Commentaire et informations complémentaires"
 msgstr ""
 
-msgid "Étape 7 sur 7"
+msgid "Informations complémentaires et prestations spécifiques"
 msgstr ""
 
 msgid "Publication"
+msgstr ""
+
+msgid "Fiche d’établissement modifiée avec succès !"
+msgstr ""
+
+msgid "Fiche d’établissement créée avec succès !"
 msgstr ""
 
 msgid "Merci pour votre contribution"
@@ -3359,10 +3417,18 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"    Selon les informations que vous avez fournies, la fiche %(name)s est "
-"maintenant complétée à :\n"
-"    %(completion_rate)s%%\n"
-"    "
+"                Selon les informations que vous avez fournies, la fiche "
+"<span class=\"fr-text--bold\">%(name)s</span>\n"
+"                est maintenant complétée à :\n"
+"                <span class=\"fr-grid-row fr-grid-row--center fr-text--xl fr-"
+"h1 fr-mt-1v\">%(completion_rate)s%%</span>\n"
+"            "
+msgstr ""
+
+msgid "Voir l'établissement"
+msgstr ""
+
+msgid "Masquer le message"
 msgstr ""
 
 #, python-format
@@ -3538,6 +3604,9 @@ msgstr ""
 msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
 msgstr ""
 
+msgid "Votre suggestion :"
+msgstr ""
+
 msgid "Où ?"
 msgstr ""
 
@@ -3548,6 +3617,29 @@ msgid "Commencer la saisie puis sélectionner la ville ou adresse dans la liste"
 msgstr ""
 
 msgid "Autoriser l'obtention de ma localisation géographique"
+msgstr ""
+
+msgid "Étape"
+msgstr ""
+
+msgid "Valider et publier"
+msgstr ""
+
+msgid "Fermer la fenêtre modale"
+msgstr ""
+
+msgid "Enregistrement"
+msgstr ""
+
+msgid ""
+"Vous êtes sur le point de changer d’étape. Voulez-vous valider les "
+"modifications apportées ?"
+msgstr ""
+
+msgid "Ne pas enregistrer les modifications"
+msgstr ""
+
+msgid "Enregistrer les modifications"
 msgstr ""
 
 msgid "Autres établissements connus à ajouter et compléter"
@@ -3577,25 +3669,24 @@ msgstr ""
 msgid "Étapes d'ajout d'un établissement"
 msgstr ""
 
-msgid "Informations"
+msgid "Passer à l’étape suivante"
 msgstr ""
 
-msgid "À propos"
-msgstr ""
-
-msgid "Parcours de contribution"
+#, python-format
+msgid "Passer à l’étape %(step)s"
 msgstr ""
 
 msgid "Continuez sur l'étape"
-msgstr ""
-
-msgid "Publier"
 msgstr ""
 
 msgid "Revenir à la fiche"
 msgstr ""
 
 msgid "Ajouter l'établissement"
+msgstr ""
+
+#, python-format
+msgid "Étape %(current_step)s sur %(total_steps)s"
 msgstr ""
 
 msgid "Compte activé"
@@ -4409,9 +4500,6 @@ msgstr ""
 
 #, python-format
 msgid "Dévers %(difficulty)s"
-msgstr ""
-
-msgid "Transport et stationnement"
 msgstr ""
 
 msgid "Accueil et équipement"

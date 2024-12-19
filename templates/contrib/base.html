@@ -26,6 +26,26 @@
                     {% block contrib_title %}
                     {% endblock contrib_title %}
                 </h1>
+                {% if erp.published %}
+                    <div id="contrib-edit-notification"
+                         class="fr-alert fr-mb-2w hidden"
+                         aria-live="polite">
+                        <h3 id="contrib-edit-notification-title" class="fr-alert__title"></h3>
+                        <p id="contrib-edit-notification-message"></p>
+                        {% if form.errors %}
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>
+                                            <span class="fr-text--bold">{{ field }} :</span> {{ error }}
+                                        </li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <button class="fr-btn--close fr-btn">{% translate "Masquer le message" %}</button>
+                    </div>
+                {% endif %}
                 {% block contrib_step %}
                 {% endblock contrib_step %}
                 <p class="fr-mt-2v fr-text--lg">
@@ -39,7 +59,6 @@
 {% block editorial_content %}
     <div {% if step != 0 %}class="row"{% endif %}>
         {% block navbar %}
-            <div class="fr-col-md-3 fr-mb-3v">{% include "contrib/includes/nav.html" %}</div>
         {% endblock navbar %}
         {% block contrib_content %}
         {% endblock contrib_content %}
