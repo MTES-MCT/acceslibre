@@ -561,19 +561,22 @@ class TestErpApi:
         ),
     )
     @pytest.mark.django_db
-    def test_search_name_ranking(self, api_client, names, q, expected):
+    def test_search_name_ranking_and_municipality(self, api_client, names, q, expected):
         activity = ActiviteFactory(nom="Culture", mots_cles=["culture", "musée", "exposition"])
+        initial = {"commune": "Francheville", "code_postal": "69340"}
         for name in names:
-            ErpFactory(nom=name, activite=activity)
+            ErpFactory(nom=name, activite=activity, **initial)
 
-        unrelated_erp = ErpFactory(nom="nothing related")
+        unrelated_erp = ErpFactory(nom="nothing related", **initial)
+        far_away_erp = ErpFactory(commune="Craponne", code_postal="69290")
 
-        response = api_client.get(f"{reverse('erp-list')}?q={q}")
+        response = api_client.get(f"{reverse('erp-list')}?q={q}&search_type=municipality&where=Craponne")
 
         assert response.status_code == 200
         response_names = [erp["nom"] for erp in response.json()["results"]]
         assert response_names == expected
         assert unrelated_erp.nom not in response_names
+        assert far_away_erp.nom not in response_names
 
 
 @pytest.mark.usefixtures("api_client")
