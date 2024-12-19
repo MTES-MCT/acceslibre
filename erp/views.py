@@ -539,12 +539,23 @@ def contrib_admin_infos(request):
     data_error = None
     existing_matches = None
     duplicated = False
+    suggested_activity = None
+
     if request.method == "POST":
         form = forms.PublicErpAdminInfosForm(request.POST, ignore_duplicate_check=request.POST.get("force") == "1")
         if form.is_valid():
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
             ).with_activity()
+
+            suggested_activity = form.data["nouvelle_activite"]
+
+            if suggested_activity:
+                widget = form.fields["nouvelle_activite"].widget
+                widget.attrs["class"] = " ".join(
+                    [cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"]
+                )
+
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
@@ -585,6 +596,11 @@ def contrib_admin_infos(request):
             external_erp = Erp(**data_erp)
         form = forms.PublicErpAdminInfosForm(initial=data)
 
+        if data["nouvelle_activite"]:
+            widget = form.fields["nouvelle_activite"].widget
+            widget.attrs["class"] = " ".join([cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"])
+            suggested_activity = data["nouvelle_activite"]
+
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -596,6 +612,7 @@ def contrib_admin_infos(request):
             "existing_matches": existing_matches,
             "erp": erp,
             "external_erp": external_erp,
+            "suggested_activity": suggested_activity,
             "other_activity": Activite.objects.only("id").get(slug=Activite.SLUG_MISCELLANEOUS),
             "duplicated": duplicated,
             "map_options": json.dumps(
@@ -604,6 +621,7 @@ def contrib_admin_infos(request):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -654,6 +672,7 @@ def contrib_edit_infos(request, erp_slug):
             "erp": erp,
             "form": form,
             "other_activity": Activite.objects.only("id").get(slug="autre"),
+            "suggested_activity": None,
             # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
             "map_options": json.dumps(
                 {
@@ -661,6 +680,7 @@ def contrib_edit_infos(request, erp_slug):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -702,6 +722,7 @@ def contrib_a_propos(request, erp_slug):
             "next_step_title": schema.SECTION_TRANSPORT,
             "erp": erp,
             "form": form,
+            "page_type": "contrib-form",
         },
     )
 
@@ -782,6 +803,7 @@ def process_accessibilite_form(
             "accessibilite": accessibilite,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
+            "page_type": "contrib-form",
         },
     )
 
@@ -962,6 +984,7 @@ def contrib_completion_rate(request, erp_slug):
         context={
             "step": 9,
             "erp": erp,
+            "page_type": "contrib-form",
         },
     )
 
