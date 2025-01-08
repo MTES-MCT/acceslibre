@@ -5,7 +5,7 @@ from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Erp, ExternalSource
+from erp.models import Accessibilite, Erp, ExternalSource
 
 QUERIES = [
     ("Boulangerie", "Boulangerie Pâtisserie"),
@@ -154,7 +154,7 @@ class Command(BaseCommand):
         erp["accessibilite"] = self._convert_access(access)
         if len(erp["accessibilite"]) <= 1:
             # Completion rate is too low, we have only 'entree_porte_presence'
-            return None
+            return
 
         serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": True})
         try:
@@ -169,11 +169,18 @@ class Command(BaseCommand):
                 if result["business_status"] == "CLOSED_PERMANENTLY":
                     return self._delete_erp(erp_duplicated)
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
-            return None
+            return
 
         action = "CREATED"
         if existing_erp:
             action = "UPDATED"
+            # check if we have modifications which need a revision creation
+            initial_access_data = existing_erp.accessibilite
+            updated_access_data = Accessibilite(**serializer.validated_data.get("accessibilite"))
+
+            if not self._is_enriching_access_data(initial_access_data, updated_access_data):
+                print(f"No changes detected for ERP {existing_erp.pk}, skipping revision creation.")
+                return
 
         try:
             with reversion.create_revision():
@@ -183,6 +190,27 @@ class Command(BaseCommand):
             new_erp = serializer.save()
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
+
+    def _is_enriching_access_data(self, initial_access_data, updated_access_data):
+        if not initial_access_data:
+            return True
+
+        initial_data_dict = initial_access_data.__dict__
+        updated_data_dict = updated_access_data.__dict__
+
+        ignored_keys = {"id", "_state", "erp_id", "updated_at", "created_at", "completion_rate"}
+
+        for key in updated_data_dict:
+            if key in ignored_keys:
+                continue
+
+            initial_value = initial_data_dict.get(key)
+            updated_value = updated_data_dict.get(key)
+
+            if updated_value and initial_value is None:
+                return True
+
+        return False
 
     def _search(self, query, limit=20, skip=0, max_results=None, total_results=0):
         client = ApiClient(api_key=settings.OUTSCRAPER_API_KEY)

@@ -14,6 +14,7 @@ from erp.management.commands.notify_daily_draft import Command as CommandNotifyD
 from erp.management.commands.outscraper_clean_closed import IGNORED_ACTIVITIES
 from erp.models import Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
+from reversion.models import Revision
 
 
 class TestConvertTallyToSchema:
@@ -268,6 +269,8 @@ class TestOutscraperAcquisition:
         ActiviteFactory(nom="Restaurant")
         CommuneFactory(nom="Lyon")
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+        assert not Revision.objects.exists()
+
         call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
 
         erp = Erp.objects.get(nom="Le Troisième Art - Restaurant Gastronomique Lyon")
@@ -290,6 +293,9 @@ class TestOutscraperAcquisition:
         assert (
             Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1
         ), "should not create a second ERP"
+
+        assert Revision.objects.count() == 1
+        assert Revision.objects.get().comment == "CREATED via outscraper"
 
     @pytest.mark.django_db
     def test_deletion(self, mocker):
@@ -317,6 +323,7 @@ class TestOutscraperAcquisition:
     @pytest.mark.django_db
     def test_update(self, mocker):
         activite = ActiviteFactory(nom="Restaurant")
+        assert not Revision.objects.exists()
 
         existing_erp = AccessibiliteFactory(
             entree_plain_pied=None,
@@ -335,6 +342,8 @@ class TestOutscraperAcquisition:
         existing_erp.refresh_from_db()
 
         assert existing_erp.accessibilite.entree_plain_pied is True, "should have updated access info"
+        assert Revision.objects.count() == 1, "should have created a revision as we changed info"
+        assert Revision.objects.get().comment == "UPDATED via outscraper"
 
         existing_erp.accessibilite.entree_plain_pied = False
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
@@ -342,6 +351,7 @@ class TestOutscraperAcquisition:
         existing_erp.refresh_from_db()
 
         assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
+        assert Revision.objects.count() == 1, "should not have created a new revision, no info changed"
 
         assert existing_erp.sources.count() == 2
 
