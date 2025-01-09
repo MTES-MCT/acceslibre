@@ -7,13 +7,15 @@
     </div>
     {# Only display results section if filters have been used#}
     {% if query %}
-        <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+        <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w"
+             id="internal-results">
             {% include "contrib/includes/contrib-internal-search-results.html" with search_action="." %}
         </div>
     {% endif %}
     {# We only want to display external results if there are any, otherwise just display the internal results no matter what#}
     {% if results %}
-        <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+        <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w"
+             id="external-results">
             {% include "contrib/includes/contrib-external-search-results.html" with search_action="." %}
         </div>
     {% endif %}
