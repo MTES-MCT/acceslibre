@@ -1,10 +1,10 @@
 import reversion
 from django.conf import settings
-from django.core.management.base import BaseCommand
 from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
+from erp.management.base_acquisition import BaseAcquisitionCommand
 from erp.models import Accessibilite, Erp, ExternalSource
 
 QUERIES = [
@@ -46,7 +46,7 @@ QUERIES = [
 ]
 
 
-class Command(BaseCommand):
+class Command(BaseAcquisitionCommand):
     help = "Create ERPs from outscraper API"
 
     def add_arguments(self, parser):
@@ -190,27 +190,6 @@ class Command(BaseCommand):
             new_erp = serializer.save()
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
-
-    def _is_enriching_access_data(self, initial_access_data, updated_access_data):
-        if not initial_access_data:
-            return True
-
-        initial_data_dict = initial_access_data.__dict__
-        updated_data_dict = updated_access_data.__dict__
-
-        ignored_keys = {"id", "_state", "erp_id", "updated_at", "created_at", "completion_rate"}
-
-        for key in updated_data_dict:
-            if key in ignored_keys:
-                continue
-
-            initial_value = initial_data_dict.get(key)
-            updated_value = updated_data_dict.get(key)
-
-            if updated_value and initial_value is None:
-                return True
-
-        return False
 
     def _search(self, query, limit=20, skip=0, max_results=None, total_results=0):
         client = ApiClient(api_key=settings.OUTSCRAPER_API_KEY)

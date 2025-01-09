@@ -346,12 +346,22 @@ class TestOutscraperAcquisition:
         assert Revision.objects.get().comment == "UPDATED via outscraper"
 
         existing_erp.accessibilite.entree_plain_pied = False
+        existing_erp.accessibilite.save()
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
         existing_erp.refresh_from_db()
 
-        assert existing_erp.accessibilite.entree_plain_pied is True, "should not alter existing access info"
+        assert existing_erp.accessibilite.entree_plain_pied is False, "should not alter existing access info"
         assert Revision.objects.count() == 1, "should not have created a new revision, no info changed"
+
+        existing_erp.accessibilite.entree_plain_pied = None
+        existing_erp.accessibilite.save()
+        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
+
+        existing_erp.refresh_from_db()
+
+        assert existing_erp.accessibilite.entree_plain_pied is True, "should have filled in access info"
+        assert Revision.objects.count() == 2, "should have created a new revision"
 
         assert existing_erp.sources.count() == 2
 
