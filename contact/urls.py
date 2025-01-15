@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from . import views
 
 urlpatterns = [
-    path("questions-frequentes/", views.faq, name="questions-frequentes"),
+    path("questions-frequentes/", views.faq, name="faq"),
     path("", views.contact, name="contact_form"),
     path("<str:topic>/", views.contact, name="contact_topic"),
     path("<str:topic>/<str:erp_slug>/", views.contact, name="contact_topic_erp"),
