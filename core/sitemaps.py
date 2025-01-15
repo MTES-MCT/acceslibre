@@ -1,5 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
+from django.utils.translation import gettext as translate
 
 from erp.models import Commune, Erp
 from erp.provider import departements
@@ -58,13 +59,17 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return [
-            ("home", 1),
-            ("communes", 0.9),
-            ("apidocs", 0.8),
-            ("mentions-legales", 0.5),
-            ("accessibilite", 0.5),
-            ("partenaires", 0.4),
-            ("stats_home", 0.1),
+            ("home", 1, translate("Accueil")),
+            ("search", 0.9, translate("Nos établissements")),
+            ("communes", 0.9, translate("Communes et territoires pilotes")),
+            ("apidocs", 0.5, translate("Documentation API")),
+            ("mentions-legales", 0.5, translate("Mentions légales")),
+            ("accessibilite", 0.5, translate("Accessibilité")),
+            ("partenaires", 0.4, translate("Partenaires")),
+            ("stats_home", 0.1, translate("Statistiques")),
+            ("challenges", 0.2, translate("Challenges")),
+            ("faq", 0.5, translate("Questions fréquentes")),
+            ("about-us", 0.1, translate("Qui sommes-nous ?")),
         ]
 
     def location(self, item):
@@ -72,6 +77,9 @@ class StaticViewSitemap(Sitemap):
 
     def priority(self, item):
         return item[1]
+
+    def title(self, item):
+        return item[2]
 
 
 SITEMAPS = {

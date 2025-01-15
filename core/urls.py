@@ -16,7 +16,7 @@ from compte.views import (
     CustomRegistrationView,
 )
 from core.sitemaps import SITEMAPS
-from core.views import robots_txt
+from core.views import html_sitemap, robots_txt
 
 # in seconds
 ONE_HOUR = 60 * 60
@@ -64,6 +64,7 @@ urlpatterns = [
         "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
     ),
     path("sitemap-<section>.xml", cache_page(ONE_DAY)(sitemap_views.sitemap), {"sitemaps": SITEMAPS}, name="sitemap"),
+    path("plan-du-site/", html_sitemap, name="html_sitemap"),
     path("maintenance-mode/", include("maintenance_mode.urls")),
     path("summernote/", include("django_summernote.urls")),
     path("i18n/", include("django.conf.urls.i18n")),

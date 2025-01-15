@@ -14,7 +14,7 @@
                             <a href="{% url 'partenaires' %}" class="fr-footer__top-link">{% translate "Partenaires" %}</a>
                         </li>
                         <li>
-                            <a class="fr-footer__top-link" href="{% url 'questions-frequentes' %}">{% translate "Une question ?" %}</a>
+                            <a class="fr-footer__top-link" href="{% url 'faq' %}">{% translate "Une question ?" %}</a>
                         </li>
                         <li>
                             <a class="fr-footer__top-link" href="{% url "challenges" %}">{% translate "Challenges" %}</a>
@@ -43,15 +43,11 @@
                     <p class="fr-footer__top-cat">{% translate "En savoir plus" %}</p>
                     <ul class="fr-footer__top-list">
                         <li>
-                            <a href="{% url 'abous-us' %}" class="fr-footer__top-link">{% translate "Qui sommes-nous ?" %}</a>
+                            <a href="{% url 'about-us' %}" class="fr-footer__top-link">{% translate "Qui sommes-nous ?" %}</a>
                         </li>
                         <li>
                             <a class="fr-footer__top-link" href="{% url 'stats_home' %}">{% translate "Statistiques" %}</a>
                         </li>
-                        {# TODO: Uncomment once the FAQ page has been implemented #}
-                        {#                        <li>#}
-                        {#                            <a class="fr-footer__top-link" href="#">{% translate "Une question ?" %}</a>#}
-                        {#                        </li>#}
                         <li>
                             <a class="fr-footer__top-link" href="{% url 'contact_form' %}">{% translate "Contactez-nous" %}</a>
                         </li>
@@ -174,10 +170,9 @@
         </div>
         <div class="fr-footer__bottom">
             <ul class="fr-footer__bottom-list">
-                {#                TODO: Uncomment once the sitemap has been implemented #}
-                {#                <li class="fr-footer__bottom-item">#}
-                {#                    <a class="fr-footer__bottom-link" href="">{% translate "Plan du site" %}</a>#}
-                {#                </li>#}
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="{% url 'html_sitemap' %}">{% translate "Plan du site" %}</a>
+                </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url 'accessibilite' %}">{% translate "Accessibilité : partiellement conforme" %}</a>
                 </li>
