@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-13 14:59+0100\n"
+"POT-Creation-Date: 2025-01-15 10:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3326,6 +3326,18 @@ msgstr ""
 msgid "Publication"
 msgstr ""
 
+msgid "Merci pour votre contribution"
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"    Selon les informations que vous avez fournies, la fiche %(name)s est "
+"maintenant complétée à :\n"
+"    %(completion_rate)s%%\n"
+"    "
+msgstr ""
+
 #, python-format
 msgid ""
 "Vous vous apprêtez à modifier les informations initialement fournies par "
@@ -3342,6 +3354,12 @@ msgid ""
 msgstr ""
 
 msgid "Les champs marqué d'une astérique (*) sont obligatoires."
+msgstr ""
+
+msgid ""
+"Aucun champ n'est obligatoire. Si\n"
+"                            vous ne disposez pas des informations demandées, "
+"cliquez sur <em>Suivant</em>."
 msgstr ""
 
 msgid "Bravo !"
