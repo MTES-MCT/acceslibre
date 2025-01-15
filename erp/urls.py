@@ -152,6 +152,11 @@ urlpatterns = [
         views.contrib_publication,
         name="contrib_publication",
     ),
+    path(
+        "contrib/completion/<str:erp_slug>/",
+        views.contrib_completion_rate,
+        name="contrib_completion_rate",
+    ),
     ############################################################################
     # Admin stuff
     ############################################################################
