@@ -24,7 +24,7 @@ XPATH_CSS_SELECTORS_DETAIL = {
     "hotel_box": '//div[@data-testid="property-section--content"]/div[2]/div',
     "hotel_type": './/span[contains(@data-testid, "facility-group-icon")]/../text()',
     "hotel_name": "h2.pp-header__title::text",
-    "hotel_address": ".hp_address_subtitle::text",
+    "hotel_address": ".//a[@data-atlas-latlng]/following-sibling::span/div/text()",
 }
 
 XPATH_CSS_SELECTORS_LIST = {
@@ -157,7 +157,7 @@ class Command(BaseAcquisitionCommand):
             "url": result.context["url"],
             "id": re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)[0],
             "title": sel.css(XPATH_CSS_SELECTORS_DETAIL["hotel_name"]).get(),
-            "address": css(XPATH_CSS_SELECTORS_DETAIL["hotel_address"]),
+            "address": sel.xpath(XPATH_CSS_SELECTORS_DETAIL["hotel_address"]).get(),
             "features": dict(features),
         }
         return data
