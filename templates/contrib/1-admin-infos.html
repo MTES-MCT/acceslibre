@@ -161,27 +161,29 @@
                     {% endif %}
                     <small class="text-muted">
                         {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
-                        - <em>
+                        - <em><span id="erp-address"
+      data-input-names="numero,voie,lieu_dit,code_postal,commune">
                         {% if erp %}
                             {{ erp.adresse }}
                         {% elif external_erp %}
                             {{ external_erp.adresse }}
                         {% endif %}
-                    </em>
-                </small>
-            </h2>
-        {% endif %}
-        <div id="localisation-map" aria-hidden="true">
-            <div class="a4a-localisation-map"></div>
-            {{ form.lat }}
-            {{ form.lon }}
-            <script id="map-options" type="application/json">
+                    </span>
+                </em>
+            </small>
+        </h2>
+    {% endif %}
+    <div id="localisation-map" aria-hidden="true">
+        <div class="a4a-localisation-map"></div>
+        {{ form.lat }}
+        {{ form.lon }}
+        <script id="map-options" type="application/json">
         {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-            </script>
-        </div>
-        {% if not existing_matches %}
-            {% include "contrib/includes/prevnext.html" %}
-        {% endif %}
-    </form>
+        </script>
+    </div>
+    {% if not existing_matches %}
+        {% include "contrib/includes/prevnext.html" %}
+    {% endif %}
+</form>
 </div>
 {% endblock contrib_content %}
