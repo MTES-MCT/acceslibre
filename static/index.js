@@ -43,6 +43,7 @@ dom.ready(() => {
   dom.mountAll('.a4a-geo-link', ui.GeoLink)
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
   dom.mountOne('#export-results-btn', ui.ExportResultsBtn)
+  dom.mountOne('#erp-address', ui.SyncInputsWithElement)
   dom.mountAll('.half-progress', ui.ProgressBar)
   dom.mountAll('.a4a-label-tag', ui.LabelTag)
   dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
