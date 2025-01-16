@@ -84,7 +84,7 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
 
         source = request.query_params.get("source", None)
         if source is not None:
-            queryset = queryset.filter(source__iexact=source)
+            queryset = queryset.filter(Q(source__iexact=source) | Q(sources__source__iexact=source))
 
         source_id = request.query_params.get("source_id", None)
         if source_id is not None:
