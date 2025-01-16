@@ -8,7 +8,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 // MUST omit the .css suffix IF there's a similary named .js file.
 // Here leaflet.locatecontrol/dist/L.Control.Locate.min.js exists
 // so we MUST skip the file extension.
-import 'leaflet.locatecontrol/dist/L.Control.Locate.min'
+import 'leaflet.locatecontrol/dist/L.Control.Locate.mapbox.min.css'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 // Acceslibre own styles
