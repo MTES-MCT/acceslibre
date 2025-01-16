@@ -6,6 +6,7 @@ import mapUtils from './mapUtils'
 import dom from './dom'
 import ui from './ui'
 import url from './url.js'
+import { LocateControl } from 'leaflet.locatecontrol'
 
 // Default coords used when we have no result and no selected city
 const DEFAULT_LAT = 46.7
@@ -393,12 +394,10 @@ function _createMarkersFromGeoJson(geoJson) {
 }
 
 function _addLocateButton(map) {
-  L.control
-    .locate({
-      icon: 'icon icon-street-view a4a-locate-icon',
-      strings: { title: 'Localisez moi' },
-    })
-    .addTo(map)
+  new LocateControl({
+    icon: 'icon icon-street-view a4a-locate-icon',
+    strings: { title: 'Localisez moi' },
+  })?.addTo(map)
 }
 
 function _addMarkerAtCenterOfSearch(dataset, markers) {
