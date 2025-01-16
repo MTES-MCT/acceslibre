@@ -262,6 +262,9 @@ function _updateExportForm(urlParams) {
 
   form.querySelectorAll('input[type="hidden"]').forEach((input) => input.remove())
   urlParams.forEach((value, key) => {
+    if (key == 'q') {
+      key = 'what'
+    }
     let hiddenInput = document.createElement('input')
     hiddenInput.type = 'hidden'
     hiddenInput.name = key
