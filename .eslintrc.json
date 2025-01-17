@@ -4,13 +4,9 @@
     "es6": true,
     "browser": true
   },
-  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2023,
-    "sourceType": "module",
-      "babelOptions": {
-      "presets": ["@babel/preset-env"]
-    }
+    "sourceType": "module"
   },
   "extends": "eslint:recommended",
   "globals": {
