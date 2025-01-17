@@ -19,7 +19,6 @@ from django.db.models import Q
 
 from core.db import OperationIgnoredInTest
 from erp import schema
-from erp.models import Activite as Activite_class
 from erp.models import generate_commune_slug, get_last_position
 
 
@@ -244,16 +243,6 @@ def update_activite_position(apps, schema_editor):
 def add_activite_autre(apps, schema_editor):
     Activite = apps.get_model("erp", "Activite")
     Activite.objects.create(nom="Autre", vector_icon="building", position=get_last_position())
-
-
-def reorder(apps, schema_editor):
-    Activite = apps.get_model("erp", "Activite")
-
-    for act in Activite.objects.all():
-        if act.nom[0].islower():
-            act.nom = act.nom.capitalize()
-            act.save()
-    Activite_class.reorder()
 
 
 class Migration(migrations.Migration):
@@ -4454,8 +4443,5 @@ class Migration(migrations.Migration):
         ),
         run_python(
             code=add_activite_autre,
-        ),
-        run_python(
-            code=reorder,
         ),
     ]

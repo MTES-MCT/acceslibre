@@ -140,6 +140,16 @@ def positive_text(value):
     return None
 
 
+@register.filter(name="field_image_url")
+def field_image_url(key, index=0):
+    try:
+        field = FIELDS[key]
+        result = field.get("choices_images", [])[index]
+        return result
+    except (KeyError, IndexError):
+        return None
+
+
 @register.filter(name="negative_text")
 def negative_text(value):
     try:

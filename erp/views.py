@@ -604,6 +604,7 @@ def contrib_admin_infos(request):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -661,6 +662,7 @@ def contrib_edit_infos(request, erp_slug):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -702,6 +704,7 @@ def contrib_a_propos(request, erp_slug):
             "next_step_title": schema.SECTION_TRANSPORT,
             "erp": erp,
             "form": form,
+            "page_type": "contrib-form",
         },
     )
 
@@ -782,6 +785,7 @@ def process_accessibilite_form(
             "accessibilite": accessibilite,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
+            "page_type": "contrib-form",
         },
     )
 
@@ -962,6 +966,7 @@ def contrib_completion_rate(request, erp_slug):
         context={
             "step": 9,
             "erp": erp,
+            "page_type": "contrib-form",
         },
     )
 
