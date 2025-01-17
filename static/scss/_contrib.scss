@@ -1,7 +1,9 @@
 .contrib {
   &-container {
     background-color: var(--background-action-low-brown-opera);
+    overflow: hidden;
   }
+
   &-section {
     display: flex;
     flex-direction: column;

@@ -3,14 +3,22 @@
 {% if field %}
     <div class="field-{{ field.name }} fr-mb-3v">
         {% if field.id_for_label %}
-            <p class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</p>
+            {% if heading_level == 4 %}
+                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
+            {% else %}
+                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+            {% endif %}
             <label for="{{ field.id_for_label }}" class="mb-0">
                 {% if field.field.required %}
                     <small>({% translate "requis" %})</small>
                 {% endif %}
             </label>
-        {% else %}
-            <p class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</p>
+        {% elif field.label %}
+            {% if heading_level == 4 %}
+                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
+            {% else %}
+                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+            {% endif %}
         {% endif %}
         <div class="fr-mb-1v">
             <fieldset class="fr-fieldset">

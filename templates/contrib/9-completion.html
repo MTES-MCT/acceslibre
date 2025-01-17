@@ -12,13 +12,19 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block fields_content %}
-    <h1>{% translate "Fiche d’établissement créé avec succès !" %}</h1>
+    <h1>
+        {% if erp.published %}
+            {% translate "Fiche d’établissement modifiée avec succès !" %}
+        {% else %}
+            {% translate "Fiche d’établissement créée avec succès !" %}
+        {% endif %}
+    </h1>
     <div class="contrib-completion-container fr-p-3w">
         <p class="fr-text--xl fr-text--bold">{% translate "Merci pour votre contribution" %}</p>
         <p>
             {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
-    Selon les informations que vous avez fournies, la fiche {{ name }} est maintenant complétée à :
-        <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1">{{ completion_rate }}%</span>
+                Selon les informations que vous avez fournies, la fiche <span class="fr-text--bold">{{ name }}</span> est maintenant complétée à :
+        <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
     {% endblocktranslate %}
         </p>
         <div class="fr-grid-row  fr-grid-row--center">
@@ -32,8 +38,9 @@
             </ul>
         </div>
     </div>
-    <div>
-        <img src="{% static 'img/contrib/completion-rate-illustration.png' %}"
+    <div class="fr-grid-row fr-grid-row--center">
+        <img class="fr-responsive-img fr-responsive-img--32x9"
+             src="{% static 'img/contrib/completion-rate-illustration.png' %}"
              alt="" />
     </div>
 {% endblock fields_content %}

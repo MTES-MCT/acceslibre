@@ -5,13 +5,13 @@
          {% if extraid %}id="{{ extraid }}"{% endif %}>
         {% if field.id_for_label %}
             <label for="{{ field.id_for_label }}" class="mb-0">
-                <h2 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h2>
+                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
                 {% if field.field.required %}
                     <small>({% translate "requis" %})</small>
                 {% endif %}
             </label>
-        {% else %}
-            <h2 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h2>
+        {% elif field.label %}
+            <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
         {% endif %}
         <div class="fr-mb-1v">
             <fieldset class="fr-fieldset">
