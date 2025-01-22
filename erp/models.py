@@ -22,6 +22,7 @@ from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from django.utils.translation import ngettext
 from reversion.models import Version
+from waffle import switch_is_active
 
 from compte.service import increment_nb_erp_administrator, increment_nb_erp_created, increment_nb_erp_edited
 from core.lib import diff as diffutils
@@ -752,6 +753,8 @@ class Erp(models.Model):
         return f"{settings.SITE_ROOT_URL}{self.get_absolute_url()}"
 
     def get_success_url(self):
+        if switch_is_active("LAST_CONTRIB_PAGE_COMPLETION_RATE"):
+            return reverse("contrib_completion_rate", kwargs={"erp_slug": self.slug})
         return f"{self.get_absolute_url()}?success=true"
 
     def get_absolute_url(self):

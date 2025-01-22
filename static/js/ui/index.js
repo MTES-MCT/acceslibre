@@ -3,6 +3,7 @@ import ConditionalForm from './ConditionalForm.js'
 import GeoLink from './GeoLink.js'
 import GetGeolocBtn from './GetGeolocBtn'
 import ExportResultsBtn from './ExportResultsBtn.js'
+import SyncInputsWithElement from './SyncInputsWithElement.js'
 import LocalisationMap from './LocalisationMap'
 import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
@@ -34,4 +35,5 @@ export default {
   StoreFilters,
   LoadFilters,
   ContribPagination,
+  SyncInputsWithElement,
 }

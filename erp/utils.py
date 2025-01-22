@@ -11,7 +11,7 @@ def cleaned_search_params_as_dict(get_parameters):
     allow_list = ("where", "what", "lat", "lon", "code", "search_type", "postcode", "street_name", "municipality")
     cleaned_dict = {
         k: "" if get_parameters.get(k, "") == "None" else get_parameters.get(k, "")
-        for k, v in get_parameters.items()
+        for k, _ in get_parameters.items()
         if k in allow_list
     }
     cleaned_dict["where"] = cleaned_dict.get("where") or translate("France entière")

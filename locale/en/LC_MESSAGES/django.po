@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-13 15:00+0100\n"
-"PO-Revision-Date: 2024-12-13 14:59+0100\n"
+"POT-Creation-Date: 2025-01-15 16:05+0100\n"
+"PO-Revision-Date: 2025-01-15 16:04+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -210,6 +210,39 @@ msgstr "French"
 
 msgid "English"
 msgstr "English"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Nos établissements"
+msgstr "Our facilities"
+
+msgid "Communes et territoires pilotes"
+msgstr "Pilot communes and territories"
+
+msgid "Documentation API"
+msgstr "Technical documentation (in french)"
+
+msgid "Mentions légales"
+msgstr "Legal notices"
+
+msgid "Accessibilité"
+msgstr "Accessibility"
+
+msgid "Partenaires"
+msgstr "Partners"
+
+msgid "Statistiques"
+msgstr "Statistics"
+
+msgid "Challenges"
+msgstr "Challenges"
+
+msgid "Questions fréquentes"
+msgstr "Frequently Asked Questions"
+
+msgid "Qui sommes-nous ?"
+msgstr "Who are we?"
 
 msgid "Un bac extra plat (douche à l'italienne)"
 msgstr "An extra flat tray (Italian shower)"
@@ -1032,9 +1065,6 @@ msgstr "Municipality {self.commune} not found, please check your entry."
 
 msgid "Ce numéro SIRET est invalide."
 msgstr "This SIRET number is invalid."
-
-msgid "Accessibilité"
-msgstr "Accessibility"
 
 msgid "ERP"
 msgstr "ERP"
@@ -2787,9 +2817,6 @@ msgstr "Can users register for the challenge themselves?"
 msgid "Challenge"
 msgstr "Challenge"
 
-msgid "Challenges"
-msgstr "Challenges"
-
 msgid "Joueur"
 msgstr "Player"
 
@@ -3091,9 +3118,6 @@ msgstr "(current page)"
 
 msgid "Page suivante"
 msgstr "Next page"
-
-msgid "Communes et territoires pilotes"
-msgstr "Pilot communes and territories"
 
 msgid "Communes renseignées"
 msgstr "Communes filled"
@@ -3443,17 +3467,11 @@ msgstr "Your message has been sent"
 msgid "Nous vous répondrons dans les plus brefs délais."
 msgstr "We will answer you as soon as possible."
 
-msgid "Questions fréquentes"
-msgstr "Frequently Asked Questions"
-
 msgid "Vous êtes ici :"
 msgstr "You are here:"
 
 msgid "Voir le fil d'Ariane"
 msgstr "See the breadcrumb"
-
-msgid "Accueil"
-msgstr "Home"
 
 msgid "Vous avez une question ?"
 msgstr "Do you have a question?"
@@ -3592,6 +3610,22 @@ msgstr "Step 7 of 7"
 msgid "Publication"
 msgstr "Publication"
 
+msgid "Merci pour votre contribution"
+msgstr "Thank you for your contribution."
+
+#, python-format
+msgid ""
+"\n"
+"    Selon les informations que vous avez fournies, la fiche %(name)s est "
+"maintenant complétée à :\n"
+"    %(completion_rate)s%%\n"
+"    "
+msgstr ""
+"\n"
+"According to the information you provided, the %(name)s file is now "
+"completed at:\n"
+"%(completion_rate)s%%"
+
 #, python-format
 msgid ""
 "Vous vous apprêtez à modifier les informations initialement fournies par "
@@ -3611,6 +3645,14 @@ msgstr "Please ensure that the information you contribute is reliable."
 
 msgid "Les champs marqué d'une astérique (*) sont obligatoires."
 msgstr "Fields marked with an asterisk (*) are required."
+
+msgid ""
+"Aucun champ n'est obligatoire. Si\n"
+"                            vous ne disposez pas des informations demandées, "
+"cliquez sur <em>Suivant</em>."
+msgstr ""
+"No field is mandatory. If you do not have the requested information, click "
+"on <em>Next</em>."
 
 msgid "Bravo !"
 msgstr "Well done !"
@@ -3993,12 +4035,6 @@ msgstr "Footer"
 msgid "Liens du site"
 msgstr "Site Links"
 
-msgid "Nos établissements"
-msgstr "Our facilities"
-
-msgid "Partenaires"
-msgstr "Partners"
-
 msgid "Une question ?"
 msgstr "Any questions?"
 
@@ -4013,12 +4049,6 @@ msgstr "Data set"
 
 msgid "En savoir plus"
 msgstr "Learn more"
-
-msgid "Qui sommes-nous ?"
-msgstr "Who are we?"
-
-msgid "Statistiques"
-msgstr "Statistics"
 
 msgid "Retour à l'accueil du site - AccesLibre"
 msgstr "Back to the site home page - AccesLibre"
@@ -4071,6 +4101,9 @@ msgstr "Open a new window to Accor"
 msgid "Accor"
 msgstr "Accor"
 
+msgid "Plan du site"
+msgstr "Sitemap"
+
 msgid "Accessibilité : partiellement conforme"
 msgstr "Accessibility: partially compliant"
 
@@ -4079,9 +4112,6 @@ msgstr "Technical documentation (in french)"
 
 msgid "Code source"
 msgstr "Source code"
-
-msgid "Mentions légales"
-msgstr "Legal notices"
 
 msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
 msgstr "Unless otherwise stated, all contents of this site are under"

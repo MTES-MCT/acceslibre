@@ -1,0 +1,21 @@
+{% extends "contrib/base_access_form.html" %}
+{% load a4a %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block page_title %}
+    {% translate "Publication" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block full_infos %}
+{% endblock full_infos %}
+{% block fields_content %}
+    <p>{% translate "Merci pour votre contribution" %}</p>
+    <p>
+        {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
+    Selon les informations que vous avez fournies, la fiche {{ name }} est maintenant complétée à :
+    {{ completion_rate }}%
+    {% endblocktranslate %}
+    </p>
+{% endblock fields_content %}

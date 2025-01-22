@@ -1,0 +1,21 @@
+{% extends "editorial/base.html" %}
+{% load i18n %}
+{% load a4a %}
+{% load static %}
+{% load cache %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block page_title %}
+    {% translate "Plan du site" %}
+{% endblock page_title %}
+{% block editorial_content %}
+    <div class="sitemap">
+        <h1>{% translate "Plan du site" %}</h1>
+        <ul>
+            {% for url in sitemap_urls %}
+                <li>
+                    <a href="{{ url.location }}"><strong>{{ url.title }}</strong></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock editorial_content %}

@@ -267,6 +267,21 @@ class TestErpApi:
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
+    def test_list_filters(self, api_client, initial_erp):
+        response = api_client.get(reverse("erp-list") + "?source=public")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+
+        response = api_client.get(reverse("erp-list") + "?source=rnb")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 0
+
+        ExternalSource.objects.create(source=ExternalSource.SOURCE_RNB, source_id="abc", erp=initial_erp)
+
+        response = api_client.get(reverse("erp-list") + "?source=rnb")
+        content = json.loads(response.content)
+        assert len(content["results"]) == 1
+
     def test_detail(self, api_client, initial_erp):
         response = api_client.get(reverse("erp-detail", kwargs={"slug": initial_erp.slug}))
         assert response.json() == {

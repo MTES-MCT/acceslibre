@@ -9,12 +9,12 @@ from uuid import uuid4
 
 import reversion
 from django.conf import settings
-from django.core.management.base import BaseCommand
 from rest_framework.exceptions import ValidationError
 from scrapfly import ScrapeConfig, ScrapflyClient, ScrapflyScrapeError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Commune, Erp, ExternalSource
+from erp.management.base_acquisition import BaseAcquisitionCommand
+from erp.models import Accessibilite, Commune, Erp, ExternalSource
 from erp.provider import geocoder
 
 # NOTE: mainly based on https://github.com/scrapfly/scrapfly-scrapers/blob/main/bookingcom-scraper/bookingcom.py
@@ -24,7 +24,7 @@ XPATH_CSS_SELECTORS_DETAIL = {
     "hotel_box": '//div[@data-testid="property-section--content"]/div[2]/div',
     "hotel_type": './/span[contains(@data-testid, "facility-group-icon")]/../text()',
     "hotel_name": "h2.pp-header__title::text",
-    "hotel_address": ".hp_address_subtitle::text",
+    "hotel_address": ".//a[@data-atlas-latlng]/following-sibling::span/div/text()",
 }
 
 XPATH_CSS_SELECTORS_LIST = {
@@ -34,7 +34,7 @@ XPATH_CSS_SELECTORS_LIST = {
 }
 
 
-class Command(BaseCommand):
+class Command(BaseAcquisitionCommand):
     help = "Create ERPs using scrapfly"
 
     headers = {
@@ -157,7 +157,7 @@ class Command(BaseCommand):
             "url": result.context["url"],
             "id": re.findall(r"b_hotel_id:\s*'(.+?)'", result.content)[0],
             "title": sel.css(XPATH_CSS_SELECTORS_DETAIL["hotel_name"]).get(),
-            "address": css(XPATH_CSS_SELECTORS_DETAIL["hotel_address"]),
+            "address": sel.xpath(XPATH_CSS_SELECTORS_DETAIL["hotel_address"]).get(),
             "features": dict(features),
         }
         return data
@@ -201,7 +201,12 @@ class Command(BaseCommand):
         if not erp["accessibilite"]:
             return
 
-        locdata = geocoder.geocode(erp["adresse"])
+        try:
+            locdata = geocoder.geocode(erp["adresse"])
+        except RuntimeError:
+            print("Error locating ERP, skipping")
+            return
+
         for key in ("numero", "voie", "lieu_dit", "code_postal", "commune"):
             erp[key] = locdata.get(key)
 
@@ -218,7 +223,16 @@ class Command(BaseCommand):
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
             return
 
-        action = "UPDATED" if existing_erp else "CREATED"
+        action = "CREATED"
+        if existing_erp:
+            action = "UPDATED"
+            # check if we have modifications which need a revision creation
+            initial_access_data = existing_erp.accessibilite
+            updated_access_data = Accessibilite(**serializer.validated_data.get("accessibilite"))
+
+            if not self._is_enriching_access_data(initial_access_data, updated_access_data):
+                print(f"No changes detected for ERP {existing_erp.pk}, skipping revision creation.")
+                return
 
         try:
             with reversion.create_revision():

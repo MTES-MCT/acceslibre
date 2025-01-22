@@ -1,11 +1,11 @@
 import reversion
 from django.conf import settings
-from django.core.management.base import BaseCommand
 from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
-from erp.models import Erp, ExternalSource
+from erp.management.base_acquisition import BaseAcquisitionCommand
+from erp.models import Accessibilite, Erp, ExternalSource
 
 QUERIES = [
     ("Boulangerie", "Boulangerie Pâtisserie"),
@@ -46,7 +46,7 @@ QUERIES = [
 ]
 
 
-class Command(BaseCommand):
+class Command(BaseAcquisitionCommand):
     help = "Create ERPs from outscraper API"
 
     def add_arguments(self, parser):
@@ -154,7 +154,7 @@ class Command(BaseCommand):
         erp["accessibilite"] = self._convert_access(access)
         if len(erp["accessibilite"]) <= 1:
             # Completion rate is too low, we have only 'entree_porte_presence'
-            return None
+            return
 
         serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": True})
         try:
@@ -169,11 +169,18 @@ class Command(BaseCommand):
                 if result["business_status"] == "CLOSED_PERMANENTLY":
                     return self._delete_erp(erp_duplicated)
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
-            return None
+            return
 
         action = "CREATED"
         if existing_erp:
             action = "UPDATED"
+            # check if we have modifications which need a revision creation
+            initial_access_data = existing_erp.accessibilite
+            updated_access_data = Accessibilite(**serializer.validated_data.get("accessibilite"))
+
+            if not self._is_enriching_access_data(initial_access_data, updated_access_data):
+                print(f"No changes detected for ERP {existing_erp.pk}, skipping revision creation.")
+                return
 
         try:
             with reversion.create_revision():

@@ -954,6 +954,18 @@ def contrib_publication(request, erp_slug):
     )
 
 
+def contrib_completion_rate(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    return render(
+        request,
+        template_name="contrib/9-completion.html",
+        context={
+            "step": 9,
+            "erp": erp,
+        },
+    )
+
+
 @login_required
 def mapicons(request):
     mapicons = [
