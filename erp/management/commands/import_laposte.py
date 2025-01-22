@@ -2,6 +2,7 @@ import csv
 
 import reversion
 from django.core.management.base import BaseCommand, CommandError
+from django.db.utils import IntegrityError
 from django.utils.text import slugify
 from rest_framework.exceptions import ValidationError
 
@@ -151,7 +152,7 @@ class Command(BaseCommand):
         if not erp["accessibilite"]:
             return
 
-        serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": True})
+        serializer = ErpImportSerializer(data=erp, instance=existing_erp, context={"enrich_only": False})
         try:
             serializer.is_valid(raise_exception=True)
         except Exception as e:
@@ -170,11 +171,15 @@ class Command(BaseCommand):
             action = "UPDATED"
 
         try:
-            with reversion.create_revision():
+            try:
+                with reversion.create_revision():
+                    new_erp = serializer.save()
+                    reversion.set_comment(f"{action} via laposte import")
+            except reversion.errors.RevertError:
                 new_erp = serializer.save()
-                reversion.set_comment(f"{action} via laposte import")
-        except reversion.errors.RevertError:
-            new_erp = serializer.save()
+        except IntegrityError:
+            print(f"Inconsistency between accessibility fields, {erp} cannot be saved")
+            return
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
 
