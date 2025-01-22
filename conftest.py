@@ -450,6 +450,50 @@ def activite(db):
             group.activities.add(activity.pk)
 
 
+@pytest.fixture
+def akei_result():
+    return dict(
+        source="entreprise_api",
+        source_id="12345",
+        coordonnees=None,
+        naf="62.02A",
+        activite=None,
+        nom="AKEI",
+        siret="88076068100010",
+        numero="4",
+        voie="GRAND RUE",
+        lieu_dit=None,
+        code_postal="34830",
+        commune="JACOU",
+        code_insee="34120",
+        contact_email=None,
+        telephone=None,
+        site_internet=None,
+    )
+
+
+@pytest.fixture
+def mairie_jacou_result():
+    return dict(
+        source="public_erp",
+        source_id="mairie-jacou-34120-01",
+        coordonnees=[3, 42],
+        naf=None,
+        activite=None,
+        nom="Mairie - Jacou",
+        siret=None,
+        numero="2",
+        voie="Place de la Mairie",
+        lieu_dit=None,
+        code_postal="34830",
+        commune="Jacou",
+        code_insee="34120",
+        contact_email="jacou@jacou.fr",
+        telephone="01 02 03 04 05",
+        site_internet="https://ville-jacou.fr/",
+    )
+
+
 register(ErpFactory)
 register(AccessibiliteFactory)
 register(UserFactory)
