@@ -123,3 +123,25 @@ def search(terms, code_insee, activities):
         return []
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"entreprise api error: {err}")
+
+
+def check_closed(term, code_insee):
+    payload = {
+        "per_page": MAX_PER_PAGE,
+        "page": 1,
+        "q": term,
+        "code_insee": code_insee,
+        "categorie_entreprise": "PME,ETI",
+    }
+    res = requests.get(
+        f"{BASE_URL_ENTERPRISE_API}",
+        payload,
+        timeout=5,
+    )
+    try:
+        if not (len(results := (res.json().get("results") or [])) == 1):
+            return False
+    except (requests.exceptions.JSONDecodeError, requests.exceptions.ReadTimeout):
+        return False
+
+    return results[0].get("siege", {}).get("date_fermeture") is not None
