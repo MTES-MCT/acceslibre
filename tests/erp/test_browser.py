@@ -1167,3 +1167,38 @@ def test_contrib_start_pass_postcode(client):
         "new_activity": "",
         "code_postal": "29200",
     }
+
+
+@pytest.mark.django_db
+def test_contrib_start_pass_postcode_with_districts(client):
+    ActiviteFactory(nom="Restaurant", slug="restaurant", pk=123)
+    payload = {
+        "what": ["creperie"],
+        "new_activity": [""],
+        "activite": ["Restaurant"],
+        "where": ["Lyon (69)"],
+        "lat": ["45.758"],
+        "lon": ["4.8351"],
+        "code": ["69123"],
+        "ban_id": [""],
+        "postcode": ["69001,69002,69003,69004,69005,69006,69007,69008,69009"],
+        "search_type": ["municipality"],
+        "street_name": [""],
+        "municipality": ["Lyon"],
+        "activity_slug": ["restaurant"],
+    }
+
+    url = reverse("contrib_start")
+
+    response = client.get(url, payload, follow=True)
+    assert response.status_code == 200
+    assert response.context["query"] == {
+        "nom": "creperie",
+        "commune": "Lyon",
+        "lat": "45.758",
+        "lon": "4.8351",
+        "activite": 123,
+        "activite_slug": "restaurant",
+        "new_activity": "",
+        "code_postal": "69000",
+    }
