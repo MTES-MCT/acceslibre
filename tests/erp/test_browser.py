@@ -1170,8 +1170,8 @@ def test_contrib_start_pass_postcode(client):
 
 
 @pytest.mark.django_db
-def test_contrib_start_pass_postcode_with_arrondissement(client):
-    ActiviteFactory(nom="Restaurant", pk=123)
+def test_contrib_start_pass_postcode_with_districts(client):
+    ActiviteFactory(nom="Restaurant", slug="restaurant", pk=123)
     payload = {
         "what": ["creperie"],
         "new_activity": [""],
@@ -1185,7 +1185,9 @@ def test_contrib_start_pass_postcode_with_arrondissement(client):
         "search_type": ["municipality"],
         "street_name": [""],
         "municipality": ["Lyon"],
+        "activity_slug": ["restaurant"],
     }
+
     url = reverse("contrib_start")
 
     response = client.get(url, payload, follow=True)
