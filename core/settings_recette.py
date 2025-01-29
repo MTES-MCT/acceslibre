@@ -39,7 +39,7 @@ BREVO_TEMPLATE_IDS = {
     "erp_imported": 9,
     "account_activation": 34,
     "notif_weekly_unpublished": 26,
-    "contact_to_admins": 23,
+    "contact_to_admins": 35,
     "contact_receipt": 21,
     "changed_erp_notification": 28,
     "email_change_activation": 22,
