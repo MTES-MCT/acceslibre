@@ -354,7 +354,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         ]
     # NOTE: if the widget code is edited it should be also reflected in metabase
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<a href="#" aria-haspopup="dialog" data-erp-pk="{erp.uuid}" aria-controls="dialog">{translate('Accessibilité')}</a>
+<a href="#" aria-haspopup="dialog" data-erp-pk="{erp.uuid}" aria-controls="dialog">{translate("Accessibilité")}</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>"""
     return render(
         request,
@@ -749,7 +749,15 @@ def process_accessibilite_form(
         if request.GET:
             form = Form(request.GET, instance=accessibilite, user=request.user)
         else:
-            form = contrib_form(instance=accessibilite, initial={"entree_porte_presence": True}, user=request.user)
+            form = contrib_form(
+                instance=accessibilite,
+                initial={
+                    "entree_porte_presence": False
+                    if accessibilite and accessibilite.entree_porte_presence is False
+                    else True
+                },
+                user=request.user,
+            )
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)
