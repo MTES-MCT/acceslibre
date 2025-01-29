@@ -32,7 +32,7 @@ from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Dep
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import get_equipments, get_equipments_shortcuts
-from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict
+from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -607,6 +607,8 @@ def contrib_admin_infos(request):
         context={
             "step": 1,
             "next_step_title": schema.SECTION_A_PROPOS,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
+            "current_step_url": reverse("contrib_admin_infos", kwargs={"erp_slug": erp.slug}),
             "form": form,
             "data_error": data_error,
             "existing_matches": existing_matches,
@@ -669,6 +671,8 @@ def contrib_edit_infos(request, erp_slug):
         context={
             "step": 1,
             "next_step_title": libelle_next,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
+            "current_step_url": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
             "other_activity": Activite.objects.only("id").get(slug="autre"),
@@ -720,6 +724,8 @@ def contrib_a_propos(request, erp_slug):
             "step": 2,
             "prev_route": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
             "next_step_title": schema.SECTION_TRANSPORT,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
+            "current_step_url": reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
             "page_type": "contrib-form",
@@ -748,6 +754,7 @@ def process_accessibilite_form(
     form_fields,
     template_name,
     redirect_route,
+    current_step_url,
     prev_route=None,
     next_step_title=None,
 ):
@@ -798,6 +805,8 @@ def process_accessibilite_form(
         context={
             "step": step,
             "next_step_title": next_step_title,
+            "current_step_url": current_step_url,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
@@ -825,6 +834,7 @@ def contrib_transport(request, erp_slug):
         "contrib_exterieur",
         prev_route=prev_route,
         next_step_title=schema.SECTION_CHEMINEMENT_EXT,
+        current_step_url=reverse("contrib_transport", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -839,6 +849,7 @@ def contrib_exterieur(request, erp_slug):
         "contrib_entree",
         prev_route="contrib_transport",
         next_step_title=schema.SECTION_ENTREE,
+        current_step_url=reverse("contrib_exterieur", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -853,6 +864,7 @@ def contrib_entree(request, erp_slug):
         "contrib_accueil",
         prev_route="contrib_exterieur",
         next_step_title=schema.SECTION_ACCUEIL,
+        current_step_url=reverse("contrib_entree", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -867,6 +879,7 @@ def contrib_accueil(request, erp_slug):
         "contrib_commentaire",
         prev_route="contrib_entree",
         next_step_title=schema.SECTION_COMMENTAIRE,
+        current_step_url=reverse("contrib_accueil", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -907,6 +920,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib_publication",
         prev_route="contrib_accueil",
         next_step_title=None,
+        current_step_url=reverse("contrib_commentaire", kwargs={"erp_slug": erp_slug}),
     )
 
 

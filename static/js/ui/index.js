@@ -16,6 +16,7 @@ import filterData from './FilterData'
 import StoreFilters from './StoreFilters'
 import LoadFilters from './LoadFilters'
 import ContribPagination from './ContribPagination'
+import FormContribDirtyChecker from './FormContribDirtyChecker'
 
 export default {
   AsteriskField,
@@ -36,4 +37,5 @@ export default {
   LoadFilters,
   ContribPagination,
   SyncInputsWithElement,
+  FormContribDirtyChecker,
 }

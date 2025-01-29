@@ -25,6 +25,7 @@ import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 import StoreFilters from './js/ui/StoreFilters'
 
 import posthog from 'posthog-js'
+import FormContribDirtyChecker from './js/ui/FormContribDirtyChecker'
 
 posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
   api_host: 'https://eu.i.posthog.com',
@@ -51,6 +52,7 @@ dom.ready(() => {
   dom.mountOne('#no_activity', ui.NewActivity)
   dom.mountOne('#unsure-and-submit', ui.PickAnswerAndSubmit)
   dom.mountOne('#filter-controller', ui.filterData)
+  dom.mountOne('#contrib-edit-form', ui.FormContribDirtyChecker)
 })
 
 ui.StoreFilters()

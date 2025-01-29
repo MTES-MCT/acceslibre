@@ -11,8 +11,17 @@
 {% endblock contrib_title %}
 {% block contrib_step %}
     {% translate "Transport et stationnement" as step_name %}
-    {% include "contrib/includes/stepper.html" with step_name=step_name current_step="3" total_steps="7" %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="3" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="3" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}

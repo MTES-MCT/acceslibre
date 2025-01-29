@@ -14,8 +14,17 @@
 {% endblock contrib_title %}
 {% block contrib_step %}
     {% translate "Informations" as step_name %}
-    {% include "contrib/includes/stepper.html" with step_name=step_name current_step="1" total_steps="7" %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="1" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="1" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
@@ -228,7 +237,7 @@
                             {# djlint:on #}
                             <p>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte." %}</p>
                             {% if erp or external_erp %}
-                                <h2 class="h5 fr-mb-3v">
+                                <h4 class="fr-h5 fr-mb-3v">
                                     {% if erp %}
                                         {{ erp.nom }}
                                     {% elif external_erp %}
@@ -246,7 +255,7 @@
                                     </span>
                                 </em>
                             </small>
-                        </h2>
+                        </h4>
                     {% endif %}
                     <div id="localisation-map" aria-hidden="true">
                         <div class="a4a-localisation-map"></div>

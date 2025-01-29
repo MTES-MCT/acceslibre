@@ -1,7 +1,10 @@
 .contrib {
   &-container {
     background-color: var(--background-action-low-brown-opera);
-    overflow: hidden;
+  }
+
+  &-edit-container {
+    background-color: var(--grey-1000-100);
   }
 
   &-section {
