@@ -14,7 +14,6 @@ const BLACKLISTED_CLASS_SELECTORS = ['leaflet-control-layers-selector']
 async function FormContribDirtyChecker(root) {
   const dropdown = document.querySelector('#contrib-edit-cta')
   const csrfToken = document.querySelector('input[type="hidden"][name="csrfmiddlewaretoken"]')?.value
-  // const modal = document.querySelector('')
 
   // URL used for subsequent call to update current step's values
   const currentStepUrl = dropdown?.dataset?.currentUrl
@@ -47,8 +46,27 @@ async function FormContribDirtyChecker(root) {
         return !BLACKLISTED_CLASS_SELECTORS.includes(input.classList.value) && (input.name || input.id)
       })
 
-  // TODO: Handle checkboxes since there are multiple choices
-  const getMapInputs = () => new Map(getInputNodes().map((input) => [input.name || input.id, input.value]))
+  const getMapInputs = () => {
+    const map = new Map()
+
+    getInputNodes().forEach((input) => {
+      const identifier = input.name || input.id
+      const isCheckbox = input.type === 'checkbox'
+      const { value } = input
+
+      if (map.has(identifier) && isCheckbox) {
+        map.set(identifier, [...map.get(identifier), value])
+      } else {
+        if (isCheckbox) {
+          map.set(identifier, [value])
+        } else {
+          map.set(identifier, value)
+        }
+      }
+    })
+
+    return map
+  }
 
   // Make it immutable as it will serve as a base for subsequent comparisons
   const originalInputsMap = Object.freeze(getMapInputs())
@@ -61,9 +79,6 @@ async function FormContribDirtyChecker(root) {
     const original = Array.from(originalInputsMap.values()).join()
     const updated = Array.from(updatedInputsMap.values()).join()
     const hasDiffs = original !== updated
-
-    console.log({ original, updated, hasDiffs, updatedInputsMap })
-    console.log({ hasDiffs })
 
     if (!hasDiffs) {
       const redirectionUrl = e.target.value
@@ -86,8 +101,13 @@ async function FormContribDirtyChecker(root) {
     const formData = new URLSearchParams()
 
     entries.forEach(([key, value]) => {
-      console.log(key, value)
-      formData.append(key, value)
+      if (Array.isArray(value) && value.length > 0) {
+        value.forEach((v) => {
+          formData.append(key, v)
+        })
+      } else {
+        formData.append(key, value)
+      }
     })
 
     fetch(currentStepUrl, {
