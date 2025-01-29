@@ -1,48 +1,72 @@
 {% extends "editorial/base.html" %}
+{% load i18n %}
 {% block page_title %}
     Mentions légales
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Mentions légales" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="cgu justify-content-center fr-mt-5w">
+    <div>
         <h1 class="fr-mb-3v">Mentions légales</h1>
         <h2 class="h4 fr-my-4v">Editeur de la Plateforme</h2>
-        <p>La plateforme “Acceslibre” est éditée par :</p>
+        <p class="fr-mb-2w">La plateforme “Acceslibre” est éditée par :</p>
         <address>
-            Le Secrétariat général des ministères Écologie Énergie Climat
-            <br>
-            Grande Arche Paroi Sud
-            <br>
-            1 Le Parvis
-            <br>
-            92000 Puteaux
-            <br>
-            France
-            <br>
+            <span class="display--block">Le Secrétariat général des ministères Écologie Énergie Climat</span>
+            <span class="display--block">Grande Arche Paroi Sud</span>
+            <span class="display--block">1 Le Parvis</span>
+            <span class="display--block">92000 Puteaux</span>
+            <span class="display--block">France</span>
+        </address>
+        <p>
+            Téléphone :
             <a aria-label="Ouvrir une application pour appeler le 01 40 81 38 70"
                href="tel:+33140813870">01 40 81 38 70</a>
-        </address>
-        <h2 class="h4 fr-my-4v">Directeur de la publication</h2>
+        </p>
+        <h2 class="fr-my-4v">Directeur de la publication</h2>
         <p>
             Le directeur de la publication est M. Jean-Philippe Papillon sous-directeur de la direction numérique Usages
             Numériques et Innovation.
         </p>
-        <h2 class="h4 fr-my-4v">Hébergeur de la Plateforme</h2>
+        <h2 class="fr-my-4v">Hébergeur de la Plateforme</h2>
         <p>
-            Le site acceslibre.beta.gouv.fr est hébergé par la société Scalingo SAS, inscrite au RCS (Strasbourg B 808
+            Le site <a href="https://acceslibre.beta.gouv.fr/" target="_blank">acceslibre.beta.gouv.fr</a> est hébergé par la société Scalingo SAS, inscrite au RCS (Strasbourg B 808
             665 483) et dont les serveurs se situent en France.
         </p>
         <address>
-            SIREN : 808665483
-            <br>
-            Siège social :15 avenue du Rhin, 67100 Strasbourg, France.
-            <br>
-            <a target="_blank"
-               aria-label="Ouvrir une nouvelle fenêtre vers la page de contact de Scalingo"
-               href="https://scalingo.com/fr/contact">https://scalingo.com/fr/contact</a>
+            <span class="display--block">15 avenue du Rhin</span>
+            <span class="display--block">67100 Strasbourg</span>
+            <span class="display--block">France</span>
         </address>
-        <h2 class="h4 fr-my-4v">Accessibilité</h2>
+        <p class="fr-mb-0">
+            <span>SIREN : 808665483</span>
+        </p>
+        <p>
+            Contact : <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers la page de contact de Scalingo"
+    href="https://scalingo.com/fr/contact">https://scalingo.com/fr/contact</a>
+        </p>
+        <h2 class="fr-my-4v">Accessibilité</h2>
         <p>La plateforme est partiellement conforme, nous tâchons de la rendre accessible à toutes et à tous.</p>
-        <h2 class="h4 fr-my-4v">En savoir plus</h2>
+        <h2 class="fr-my-4v">En savoir plus</h2>
         <p>
             Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a target="_blank"
     aria-label="Ouvrir une nouvelle fenêtre vers accessibilite.numerique.gouv.fr"
@@ -53,7 +77,7 @@
     aria-label="Ouvrir une nouvelle fenêtre vers la page accessibilité d'Acceslibre"
     href="https://acceslibre.beta.gouv.fr/accessibilite">https://acceslibre.beta.gouv.fr/accessibilite</a>
         </p>
-        <h2 class="h4 fr-my-4v">Signaler un disfonctionnement</h2>
+        <h2 class="fr-my-4v">Signaler un dysfonctionnement</h2>
         <p>
             Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité de la
             plateforme, merci de nous en faire part : <a href="mailto:support@acceslibre.beta.gouv.fr">support@acceslibre.beta.gouv.fr</a>
@@ -62,7 +86,8 @@
             Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une
             demande de saisine au Défenseur des droits.
         </p>
-        <h2 class="h4 fr-my-4v">Sécurité</h2>
+        <a class="fr-btn fr-btn--lg fr-mb-2w" href="{% url 'faq' %}">Contacter le support</a>
+        <h2 class="fr-my-4v">Sécurité</h2>
         <p>
             La plateforme est protégée par un certificat électronique, matérialisé pour la grande majorité des navigateurs
             par un cadenas. Cette protection participe à la confidentialité des échanges.
@@ -72,7 +97,7 @@
             la saisie d’informations personnelles.
         </p>
         <h1 class="fr-mb-3v">Conditions générales d’utilisation de la plateforme</h1>
-        <h2 class="h4 fr-my-4v">Présentation d’Acceslibre</h2>
+        <h2 class="fr-my-4v">Présentation d’Acceslibre</h2>
         <p>
             Acceslibre est un service numérique du Ministère de la Transition écologique. Il a pour objectif principal de
             permettre à l’usager en situation de handicap d’avoir accès aux informations sur les conditions d’accès à un
@@ -88,7 +113,7 @@
     href="https://acceslibre.beta.gouv.fr/">application Web</a> qui
             permet de :
         </p>
-        <ul>
+        <ul class="fr-pl-4w fr-mb-4w">
             <li>Renseigner un formulaire décrivant l’accessibilité d’un ERP via l’interface dédiée aux contributeurs</li>
             <li>Consulter les informations d’accessibilité via l’interface utilisateur</li>
         </ul>
@@ -98,7 +123,7 @@
     href="https://acceslibre.beta.gouv.fr/api/docs/">interface de programmation applicative
             (API)</a> qui permet de :
         </p>
-        <ul>
+        <ul class="fr-pl-4w fr-mb-2w">
             <li>
                 Obtenir une liste des ERP et leurs informations d’accessibilité à partir de différents critères de
                 recherche.
@@ -109,7 +134,7 @@
             L’utilisation du service est libre, facultative et gratuite. Toute utilisation du service est subordonnée à
             l’acceptation préalable et au respect intégral des présentes mentions légales par l’utilisateur.
         </p>
-        <h2 class="h4 fr-my-4v">Qualité des données publiées</h2>
+        <h2 class="fr-my-4v">Qualité des données publiées</h2>
         <p>
             Nous publions sur Acceslibre des données publiques à titre informatif. Seules les publications légales font foi,
             notamment au Journal officiel de la République française ou aux recueils des actes administratifs des
@@ -126,31 +151,34 @@
             parmi ces données, nous vous invitons à nous la signaler à l’aide du formulaire de contact ou à l’adresse
             support@acceslibre.beta.gouv.fr disponible sur le site.
         </p>
-        <h2 class="h4 fr-my-4v">Open data</h2>
-        <h3 class="h5 fr-my-4v">Code source</h3>
+        <h2 class="fr-my-4v">Open data</h2>
+        <h3 class="fr-my-4v">Code source</h3>
         <p>
             Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent
             donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a target="_blank"
     aria-label="Ouvrir une nouvelle fenêtre vers la page définissant MIT"
-    href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont
+    href="https://spdx.org/licenses/MIT.html">licence MIT</a>.
+        </p>
+        <p>
+            Ils sont
             disponibles sur Github à l'adresse <a target="_blank"
     aria-label="Ouvrir une nouvelle fenêtre vers la page github d'Acceslibre"
     href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.
         </p>
-        <h3 class="h5 fr-my-4v">Données administratives publiques relatives</h3>
+        <h3 class="fr-my-4v">Données administratives publiques relatives</h3>
         <p>
             Les informations publiques délivrées par le service le sont sous Licence Ouverte V 2.0. Vous êtes donc libres de
             réutiliser ces informations sous réserve de mentionner la paternité de l’information et la date de dernière mise
             à jour de l’information utilisée. Par exemple, sur la forme Ministère de la Transition écologique et solidaire –
             Téléchargées sur acceslibre.beta.gouv.fr mise à jour du [date].
         </p>
-        <h3 class="h5 fr-my-4v">Liens hypertexte</h3>
+        <h3 class="fr-my-4v">Liens hypertexte</h3>
         <p>
             Les liens hypertextes susceptibles d’être mis en place sur la plateforme dirigeant vers d'autres sites ont fait
             l'objet d'une autorisation.
             La mise en place de lien vers le site Acceslibre n’est conditionnée à aucun accord préalable.
         </p>
-        <h2 class="h4 fr-my-4v">Obligation de l'utilisateur</h2>
+        <h2 class="fr-my-4v">Obligation de l'utilisateur</h2>
         <p>
             Les utilisateurs s’engagent à ne jamais fournir d’information, fichiers, pièces jointes ou commentaires
             susceptibles de porter atteinte aux droits d’un tiers, notamment en matière de protection des données, ou
@@ -168,19 +196,19 @@
             Enfin, il est strictement interdit aux utilisateurs d’entraver ou de perturber, par quelques procédés que ce
             soient, le fonctionnement de l’application.
         </p>
-        <h2 class="h4 fr-my-4v">Suppression de compte en cas de violation des CGU</h2>
+        <h2 class="fr-my-4v">Suppression de compte en cas de violation des CGU</h2>
         <p>
             En cas de violation d'une ou de plusieurs dispositions des présentes CGU, l’équipe Acceslibre se réserve le
             droit, sans aucun avertissement préalable et à sa seule discrétion, de supprimer votre compte ou de restreindre
             votre usage et accès à un compte utilisateur sur la plateforme.
         </p>
-        <h2 class="h4 fr-my-4v">Évolution du service</h2>
+        <h2 class="fr-my-4v">Évolution du service</h2>
         <p>
             Nous pouvons faire évoluer Acceslibre sans information préalable ou préavis. Nous ajoutons régulièrement des
             données, retravaillons l’interface et modifions les formulations sur la base de vos retours et des évolutions
             réglementaires et législatives.
         </p>
-        <h2 class="h4 fr-my-4v">Disponibilité du service</h2>
+        <h2 class="fr-my-4v">Disponibilité du service</h2>
         <p>
             Nous pouvons suspendre l’accès à Acceslibre sans information préalable ni préavis, notamment pour des raisons de
             maintenance. Nous mettons l’application à jour régulièrement. L’indisponibilité ne dépasse généralement pas une
@@ -194,15 +222,17 @@
             usages mettant en péril l’utilisation du logiciel par d’autres usagers. Cela nous permet d’anticiper
             d’éventuelles attaques par déni de service.
         </p>
-        <h2 class="h4 fr-my-4v">Évolution des conditions générales d’utilisation</h2>
+        <h2 class="fr-my-4v">Évolution des conditions générales d’utilisation</h2>
         <p>
             Les termes des présentes conditions générales d’utilisation peuvent être modifiés ou complétés à tout moment,
             sans préavis, en fonction des modifications apportées au service, de l’évolution de la législation ou pour tout
             autre motif jugé nécessaire. Ces modifications et mises à jour s’imposent à l’utilisateur qui doit, en
             conséquence, se référer régulièrement à cette rubrique pour vérifier les mentions légales en vigueur.
-            Nous rendons librement accessible l’<a target="_blank"
-   aria-label="Ouvrir une nouvelle fenêtre vers l'historique des révisions de la page des mentions légales d'Acceslibre"
-   href="https://github.com/MTES-MCT/acceslibre/commits/master/templates/editorial/cgu.html">historique de ces
+        </p>
+        <p>
+            Nous rendons librement accessible <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers l'historique des révisions de la page des mentions légales d'Acceslibre"
+    href="https://github.com/MTES-MCT/acceslibre/commits/master/templates/editorial/cgu.html">l’historique de ces
             conditions</a>.
         </p>
     </div>
