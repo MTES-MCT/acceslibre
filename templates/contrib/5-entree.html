@@ -29,10 +29,10 @@
 {% endblock robots %}
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_reperage inline=True key="entree_reperage" %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -55,14 +55,14 @@
                 {% include "fields/textarea.html" with field=form.entree_largeur_mini %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True key="entree_dispositif_appel_type" %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -89,13 +89,13 @@
                 {% include "fields/boolradio.html" with field=form.entree_marches_rampe inline=True key="entree_marches_rampe" %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_pmr inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />

@@ -88,11 +88,19 @@ async function FormContribDirtyChecker(root) {
       const redirectionUrl = e.target.value
 
       if (redirectionUrl) {
-        window.location.assign(`${redirectionUrl}`)
+        window.location.assign(redirectionUrl)
       }
     } else {
       openModalBtn.click()
     }
+  })
+
+  cancelBtn.addEventListener('click', () => {
+    const redirectionUrl = dropdown.value
+
+    if (!redirectionUrl) return
+
+    window.location.assign(redirectionUrl)
   })
 
   saveBtn.addEventListener('click', async () => {

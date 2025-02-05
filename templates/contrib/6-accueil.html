@@ -27,10 +27,10 @@
 {% endblock robots %}
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True key="accueil_cheminement_plain_pied" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -45,23 +45,23 @@
                 {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True key="accueil_cheminement_reperage_marches" %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True key="accueil_cheminement_main_courante" %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
         </div>
         {% if form.accueil_audiodescription_presence %}
-            <div class="contrib-inputs-section fr-px-2w fr-py-3w ">
+            <div class="contrib-inputs-section fr-px-4w fr-py-3w ">
                 {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True %}
                 {% if form.accueil_audiodescription %}
                     <div class="contrib-inputs-section">
@@ -71,22 +71,22 @@
                 {% endif %}
             </div>
         {% endif %}
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
             <div class="contrib-inputs-section ">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
+                {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True key="sanitaires_adaptes" %}
             </div>
         </div>
         {% if form.accueil_chambre_nombre_accessibles %}
-            <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 <h3 class="fr-text--xl fr-mb-2w">{% translate "ERP avec une activité d'hebergement" %}</h3>
                 <hr class="fr-hr" />
                 {% include "fields/textarea.html" with field=form.accueil_chambre_nombre_accessibles heading_level=4 %}

@@ -4,6 +4,9 @@ function FormContribEditNotification(root) {
   if (!root) return
 
   const notificationNode = root.querySelector('#contrib-edit-notification')
+
+  if (!notificationNode) return
+
   const notification = JSON.parse(window.localStorage.getItem(EDIT_CONTRIB_NOTIFICATION_KEY))
   const notificationHasError = !!notification?.hasError
   const closeBtn = notificationNode.querySelector('button.fr-btn--close')

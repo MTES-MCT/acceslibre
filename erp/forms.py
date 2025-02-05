@@ -364,6 +364,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             attrs={
                 "class": "fr-input hidden",
                 "id": "new_activity",
+                "aria-describedby": "nouvelle-activite-error-message",
             }
         ),
     )
@@ -409,12 +410,30 @@ class BasePublicErpInfosForm(BaseErpForm):
             "source": forms.HiddenInput(),
             "source_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
-            "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs", "class": "fr-input"}),
+            "nom": forms.TextInput(
+                attrs={
+                    "placeholder": "ex: La ronde des fleurs",
+                    "class": "fr-input",
+                    "aria-describedby": "nom-error-message",
+                }
+            ),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis", "class": "fr-input"}),
-            "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés", "class": "fr-input"}),
-            "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits", "class": "fr-input"}),
-            "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001", "class": "fr-input"}),
-            "commune": forms.TextInput(attrs={"placeholder": "ex: Paris", "class": "fr-input"}),
+            "voie": forms.TextInput(
+                attrs={"placeholder": "ex: rue des prés", "class": "fr-input", "aria-describedby": "voie-error-message"}
+            ),
+            "lieu_dit": forms.TextInput(
+                attrs={
+                    "placeholder": "ex: le Val du Puits",
+                    "class": "fr-input",
+                    "aria-describedby": "lieu-dit-error-message",
+                }
+            ),
+            "code_postal": forms.TextInput(
+                attrs={"placeholder": "ex: 75001", "class": "fr-input", "aria-describedby": "code-postal-error-message"}
+            ),
+            "commune": forms.TextInput(
+                attrs={"placeholder": "ex: Paris", "class": "fr-input", "aria-describedby": "commune-error-message"}
+            ),
             "contact_email": forms.EmailInput(attrs={"class": "fr-input"}),
             "site_internet": forms.URLInput(attrs={"class": "fr-input"}),
             "telephone": forms.TextInput(attrs={"class": "fr-input"}),

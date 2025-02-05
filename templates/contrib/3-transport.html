@@ -27,21 +27,21 @@
 {% endblock robots %}
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.transport_station_presence key="transport_station_presence" inline=True %}
             {% translate "Informations complémentaires" as transport_information_label %}
             <div class="contrib-inputs-section">
                 {% include "fields/textarea.html" with field=form.transport_information label=transport_information_label %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.stationnement_presence key="stationnement_presence" inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/boolradio.html" with field=form.stationnement_pmr key="stationnement_pmr" inline=True %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.stationnement_ext_presence key="stationnement_ext_presence" inline=True %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />

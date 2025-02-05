@@ -30,7 +30,7 @@
 {% endblock robots %}
 {% block contrib_content %}
     <div class="fr-col-12">
-        {% if existing_matches or duplicated %}
+        {% if existing_matches %}
             <div class="fr-alert fr-alert--warning fr-mb-4w">
                 <h3 class="fr-alert__title">{% translate "Attention : Établissement(s) existant(s)" %}</h3>
                 <p>
@@ -38,7 +38,7 @@
                 </p>
             </div>
         {% endif %}
-        {% if existing_matches or duplicated %}
+        {% if existing_matches %}
             <div class="fr-grid-row fr-grid-row--gutters">
                 {% for erp in existing_matches %}
                     <div class="fr-col-12 fr-col-sm-6 fr-col-lg-4">
@@ -103,17 +103,17 @@
             <div class="contrib-inputs-section-wrapper fr-col-12">
                 <div class="contrib-inputs-section fr-py-3w fr-px-2w">
                     <fieldset class="fr-fieldset">
-                        <legend class="fr-fieldset__legend">
+                        <legend class="fr-fieldset__legend fr-px-3w fr-mx-0">
                             <h3 class="fr-mb-0">{% translate "Nom et adresse de l'établissement" %}</h3>
                         </legend>
+                        <p class="fr-px-3w">{% translate "Champs obligatoires *" %}</p>
                         <div class="fr-fieldset__content">
-                            <p>{% translate "Champs obligatoires *" %}</p>
-                            <div class="fr-grid-row fr-grid-row--gutters">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
                                 <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group {% if form.errors.nom %}fr-input-group--error{% endif %}">
                                     <label class="fr-label" for="id_nom">{% translate "Nom *" %}</label>
                                     {{ form.nom }}
                                     {% if form.errors.nom %}
-                                        <p class="fr-error-text">{% translate "Nom obligatoire" %}</p>
+                                        <p class="fr-error-text" id="nom-error-message">{% translate "Nom obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                                 {# Activity section #}
@@ -123,7 +123,7 @@
                                         <label class="fr-label" for="id_activite">{% translate "Activité *" %}</label>
                                         {{ form.activite }}
                                         {% if form.errors.activite %}
-                                            <p class="fr-error-text">{% translate "Activité obligatoire" %}</p>
+                                            <p class="fr-error-text" id="activite-error-message">{% translate "Activité obligatoire" %}</p>
                                         {% endif %}
                                         <ul class="list-group">
                                         </ul>
@@ -144,48 +144,48 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="fr-grid-row fr-grid-row--gutters">
-                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-mb-3w">
                                     <label class="fr-label" for="id_numero">{% translate "Numéro de la voie" %}</label>
                                     {{ form.numero }}
                                 </div>
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group {% if form.errors.voie %}fr-input-group--error{% endif %}">
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.voie %}fr-input-group--error{% endif %}">
                                     <label class="fr-label" for="id_voie">{% translate "Voie *" %}</label>
                                     {{ form.voie }}
                                     {% if form.errors.voie %}
-                                        <p class="fr-error-text">{% translate "Voie obligatoire" %}</p>
+                                        <p class="fr-error-text" id="voie-error-message">{% translate "Voie obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="fr-grid-row fr-grid-row--gutters">
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-pr-md-4w {% if form.errors.code_postal %}fr-input-group--error fr-mb-0{% endif %}">
+                            <div class="fr-grid-row fr-px-2w">
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-pr-md-4w fr-mb-3w {% if form.errors.code_postal %}fr-input-group--error fr-mb-0{% endif %}">
                                     <label class="fr-label" for="id_code_postal">{% translate "Code postal *" %}</label>
                                     {{ form.code_postal }}
                                     {% if form.errors.code_postal %}
-                                        <p class="fr-error-text">{% translate "Code postal obligatoire" %}</p>
+                                        <p class="fr-error-text" id="code-postal-error-message">{% translate "Code postal obligatoire" %}</p>
                                     {% endif %}
                                 </div>
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
                                     <label class="fr-label" for="id_lieu_dit">{% translate "Lieu dit" %}</label>
                                     {{ form.lieu_dit }}
                                     {% if form.errors.lieu_dit %}
-                                        <p class="fr-error-text">{% translate "Lieu dit obligatoire" %}</p>
+                                        <p class="fr-error-text" id="lieu-dit-error-message">{% translate "Lieu dit obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="fr-grid-row fr-grid-row--gutters">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
                                 <div class="fr-col-12 fr-input-group {% if form.errors.commune %}fr-input-group--error{% endif %}">
                                     <label class="fr-label" for="id_commune">{% translate "Commune *" %}</label>
                                     {{ form.commune }}
                                     {% if form.errors.commune %}
-                                        <p class="fr-error-text">{% translate "Commune obligatoire" %}</p>
+                                        <p class="fr-error-text" id="commune-error-message">{% translate "Commune obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                             </div>
                         </div>
                     </fieldset>
                 </div>
-                <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+                <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                     <fieldset class="fr-fieldset">
                         <legend class="fr-fieldset__legend">
                             <h3 class="fr-mb-0">{% translate "Contact de l'établissement" %}</h3>
@@ -201,7 +201,7 @@
                                 </div>
                                 <div class="fr-col-12 fr-col-md-4">
                                     <label class="fr-label" for="id_telephone">
-                                        {% translate "Telephone" %}
+                                        {% translate "Téléphone" %}
                                         <span class="fr-hint-text">{% translate "Format attendu : 01.02.03.04.05" %}</span>
                                     </label>
                                     {{ form.telephone }}
@@ -224,7 +224,7 @@
                         </div>
                     </fieldset>
                 </div>
-                <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+                <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                     <fieldset class="fr-fieldset">
                         <legend class="fr-fieldset__legend">
                             <h3>

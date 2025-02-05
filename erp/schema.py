@@ -1176,9 +1176,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": translate_lazy("Dispositif d’appel à l’entrée"),
-        "help_text": mark_safe(
-            translate_lazy("Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée ?")
-        ),
+        "help_text": mark_safe(translate_lazy("De quel type est le dispositif d’appel ?")),
         "help_text_ui": translate_lazy("Dispositifs d'appels présents"),
         "help_text_ui_neg": translate_lazy("Dispositifs d'appels présents"),
         "choices": DISPOSITIFS_APPEL_CHOICES,
@@ -1243,7 +1241,7 @@ FIELDS = {
         "type": "number",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Largeur de la porte"),
+        "label": translate_lazy("Largeur de la porte ou de l'entrée"),
         "help_text": mark_safe(
             translate_lazy(
                 "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
@@ -1865,6 +1863,11 @@ FIELDS = {
         "help_text_ui": translate_lazy("Des sanitaires adaptés sont mis à disposition dans l'établissement"),
         "help_text_ui_neg": translate_lazy("Aucun sanitaire adapté mis à disposition dans l'établissement"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/toilette-adaptees.jpg"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,

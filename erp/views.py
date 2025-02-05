@@ -607,8 +607,10 @@ def contrib_admin_infos(request):
         context={
             "step": 1,
             "next_step_title": schema.SECTION_A_PROPOS,
-            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
-            "current_step_url": reverse("contrib_admin_infos", kwargs={"erp_slug": erp.slug}),
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug) if erp and hasattr(erp, "slug") else None,
+            "current_step_url": reverse("contrib_admin_infos", kwargs={"erp_slug": erp.slug})
+            if erp and hasattr(erp, "slug")
+            else None,
             "form": form,
             "data_error": data_error,
             "existing_matches": existing_matches,
