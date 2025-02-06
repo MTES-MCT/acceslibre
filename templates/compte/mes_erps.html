@@ -11,8 +11,8 @@
     <div class="row fr-mb-3v">
         <h1 class="h3 fr-col-sm-6">{% translate "Mes établissements" %}</h1>
         <div class="fr-col-sm-6 text-right">
-            <button class="fr-btn fr-btn--icon-left fr-icon-add-circle-line"
-                    href="{% url 'contrib_start' %}">{% translate "Ajouter un nouvel établissement" %}</button>
+            <a class="fr-btn fr-btn-outline-primary fr-btn--icon-left fr-icon-add-circle-line"
+               href="{% url 'contrib_start' %}">{% translate "Ajouter un nouvel établissement" %}</a>
         </div>
     </div>
     <form action="{% url 'mes_erps' %}"
