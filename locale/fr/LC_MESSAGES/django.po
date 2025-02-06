@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 16:04+0100\n"
+"POT-Creation-Date: 2025-02-06 17:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1590,6 +1590,9 @@ msgstr ""
 msgid "Pas de places de parking au sein de l'établissement"
 msgstr ""
 
+msgid "Stationnements adaptés dans l'établissement"
+msgstr ""
+
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées dans "
 "l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
@@ -1634,6 +1637,9 @@ msgstr ""
 msgid "Pas de places de parking à proximité"
 msgstr ""
 
+msgid "Stationnements adaptés à proximité de l'établissement"
+msgstr ""
+
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou "
 "en parking à moins de 200 mètres de l'établissement&nbsp;?"
@@ -1669,6 +1675,9 @@ msgid ""
 "Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
 msgstr ""
 
+msgid "Revêtement extérieur"
+msgstr ""
+
 msgid ""
 "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de "
 "l'établissement) est-il stable (sol roulable, absence de pavés ou de "
@@ -1689,6 +1698,9 @@ msgid ""
 msgstr ""
 
 msgid "Revêtement non adapté au passage d'un fauteuil roulant"
+msgstr ""
+
+msgid "Chemin extérieur de plain-pied"
 msgstr ""
 
 msgid ""
@@ -1797,6 +1809,9 @@ msgid "Le chemin est en pente"
 msgstr ""
 
 msgid "Le chemin n'est pas en pente"
+msgstr ""
+
+msgid "Degré de difficulté de la pente"
 msgstr ""
 
 msgid "Quel est son degré de difficulté&nbsp;?"
@@ -1911,6 +1926,9 @@ msgid "Porte vitrée"
 msgstr ""
 
 msgid "La porte d'entrée n'est pas vitrée"
+msgstr ""
+
+msgid "Repérage de la vitre"
 msgstr ""
 
 msgid ""
@@ -2330,6 +2348,9 @@ msgstr ""
 msgid "Pas d'audiodescription"
 msgstr ""
 
+msgid "Type d'équipements pour l'audiodescription"
+msgstr ""
+
 msgid "L'établissement propose-t-il de l’audiodescription ?"
 msgstr ""
 
@@ -2381,6 +2402,9 @@ msgid "Des sanitaires sont mis à disposition dans l'établissement"
 msgstr ""
 
 msgid "Pas de sanitaires mis à disposition dans l'établissement"
+msgstr ""
+
+msgid "Toilettes adaptées"
 msgstr ""
 
 msgid "Y a-t-il des toilettes adaptées PMR (personne à mobilité réduite)"
@@ -4474,9 +4498,6 @@ msgstr ""
 
 #, python-format
 msgid "Audiodescription : %(equipements)s"
-msgstr ""
-
-msgid "Toilettes adaptées"
 msgstr ""
 
 #, python-format

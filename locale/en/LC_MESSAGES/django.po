@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-06 16:12+0100\n"
-"PO-Revision-Date: 2025-02-06 16:12+0100\n"
+"POT-Creation-Date: 2025-02-06 18:11+0100\n"
+"PO-Revision-Date: 2025-02-06 18:10+0100\n"
 "Last-Translator:   <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1645,6 +1645,9 @@ msgstr "No parking space available within the establishment's plot"
 msgid "Pas de places de parking au sein de l'établissement"
 msgstr "No parking spaces within the establishment"
 
+msgid "Stationnements adaptés dans l'établissement"
+msgstr "Adapted parking in the establishment"
+
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées dans "
 "l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
@@ -1694,6 +1697,9 @@ msgstr "No parking space available within 200 meters of the property"
 msgid "Pas de places de parking à proximité"
 msgstr "No adapted parking spaces nearby"
 
+msgid "Stationnements adaptés à proximité de l'établissement"
+msgstr "Suitable parking close to the establishment"
+
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou "
 "en parking à moins de 200 mètres de l'établissement&nbsp;?"
@@ -1737,6 +1743,9 @@ msgid ""
 msgstr ""
 "No exterior path from the sidewalk to the main entrance of the building"
 
+msgid "Revêtement extérieur"
+msgstr "Exterior cladding"
+
 msgid ""
 "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de "
 "l'établissement) est-il stable (sol roulable, absence de pavés ou de "
@@ -1765,6 +1774,9 @@ msgstr ""
 
 msgid "Revêtement non adapté au passage d'un fauteuil roulant"
 msgstr "Covering not suitable for a wheelchair"
+
+msgid "Chemin extérieur de plain-pied"
+msgstr "Outside walkway on ground-level"
 
 msgid ""
 "Le chemin est-il de plain-pied, c'est-à-dire sans marche ni ressaut "
@@ -1886,6 +1898,9 @@ msgstr "The path is on a slope"
 
 msgid "Le chemin n'est pas en pente"
 msgstr "The path is not on a slope"
+
+msgid "Degré de difficulté de la pente"
+msgstr "Degree of difficulty of the slope"
 
 msgid "Quel est son degré de difficulté&nbsp;?"
 msgstr "What is its degree of difficulty?"
@@ -2018,6 +2033,9 @@ msgstr "Glass door"
 
 msgid "La porte d'entrée n'est pas vitrée"
 msgstr "The front door is not glazed"
+
+msgid "Repérage de la vitre"
+msgstr "Identification of the glass"
 
 msgid ""
 "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou "
@@ -2507,6 +2525,9 @@ msgstr "The establishment does not offer audio description"
 msgid "Pas d'audiodescription"
 msgstr "No audio description"
 
+msgid "Type d'équipements pour l'audiodescription"
+msgstr "Type of equipment for audio description"
+
 msgid "L'établissement propose-t-il de l’audiodescription ?"
 msgstr "Does the establishment offer audio description?"
 
@@ -2564,6 +2585,9 @@ msgstr "Sanitary facilities are available in the facility"
 
 msgid "Pas de sanitaires mis à disposition dans l'établissement"
 msgstr "No sanitary facilities provided in the establishment"
+
+msgid "Toilettes adaptées"
+msgstr "Adapted toilets"
 
 msgid "Y a-t-il des toilettes adaptées PMR (personne à mobilité réduite)"
 msgstr "Are there toilets suitable for people with reduced mobility?"
@@ -5008,9 +5032,6 @@ msgstr "to reach reception"
 #, python-format
 msgid "Audiodescription : %(equipements)s"
 msgstr "Audiodescription: %(equipements)s"
-
-msgid "Toilettes adaptées"
-msgstr "Adapted toilets"
 
 #, python-format
 msgid "Présence de %(nb)s marche %(sens)s %(extra_context)s"
