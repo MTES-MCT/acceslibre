@@ -548,7 +548,7 @@ def contrib_admin_infos(request):
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
             ).with_activity()
 
-            suggested_activity = form.data["nouvelle_activite"]
+            suggested_activity = form.data.get("nouvelle_activite")
 
             if suggested_activity:
                 widget = form.fields["nouvelle_activite"].widget
@@ -564,7 +564,7 @@ def contrib_admin_infos(request):
                 erp.save(editor=request.user if request.user.is_authenticated else None)
                 if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
-                        name=form.cleaned_data["nouvelle_activite"],
+                        name=form.cleaned_data.get("nouvelle_activite"),
                         erp=erp,
                         user=request.user if request.user.is_authenticated else None,
                     )
