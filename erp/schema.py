@@ -467,7 +467,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Stationnements adaptés dans l'établissement"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
@@ -528,7 +529,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Stationnements adaptés à proximité de l'établissement"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
@@ -587,7 +589,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Revêtement extérieur"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
@@ -617,7 +620,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Chemin extérieur de plain-pied"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Le chemin est-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 centimètres&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
@@ -646,7 +650,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Ascenseur/élévateur"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?")),
         "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur"),
         "help_text_ui_v2": translate_lazy("Ascenseur ou élévateur"),
@@ -726,7 +731,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Main courante"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?")),
         "help_text_ui": translate_lazy("L'escalier est équipé d'une ou plusieurs main-courantes"),
         "help_text_ui_v2": translate_lazy("Équipé d'une ou plusieurs mains courantes"),
@@ -785,7 +791,8 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Degré de difficulté de la pente"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Quel est son degré de difficulté&nbsp;?")),
         "help_text_ui": translate_lazy("Difficulté de la pente"),
         "help_text_ui_neg": translate_lazy("Difficulté de la pente"),
@@ -804,7 +811,8 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Longueur de la pente"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Longueur de la pente")),
         "choices": PENTE_LENGTH_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
@@ -961,7 +969,8 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Type de porte"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Quel est le type de la porte&nbsp;?")),
         "help_text_ui": translate_lazy("Type de porte"),
         "help_text_ui_neg": translate_lazy("Type de porte"),
@@ -975,7 +984,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Entrée vitrée"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("La porte d'entrée est-elle vitrée&nbsp;?")),
         "help_text_ui": translate_lazy("La porte d'entrée est vitrée"),
         "help_text_ui_v2": translate_lazy("Porte vitrée"),
@@ -990,7 +1000,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Repérage de la vitre"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
@@ -1036,7 +1047,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Ascenseur/élévateur"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?")),
         "help_text_ui": translate_lazy("Présence d'un ascenseur ou d'un élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
@@ -1111,7 +1123,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Main courante"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?")),
         "help_text_ui": translate_lazy("L'escalier est équipé d'une ou plusieurs main-courantes"),
         "help_text_ui_neg": translate_lazy("L'escalier n'est pas équipé de main-courante"),
@@ -1364,7 +1377,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Ascenseur/élévateur"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?")),
         "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
@@ -1439,7 +1453,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Main courante"),
+        "should_display_label": False,
         "help_text": mark_safe(translate_lazy("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?")),
         "help_text_ui": translate_lazy("L'escalier est équipé d'une ou plusieurs main-courantes"),
         "help_text_ui_neg": translate_lazy("L'escalier n'est pas équipé de main-courante"),
@@ -1474,7 +1489,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Rétrécissement du chemin"),
+        "should_display_label": False,
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
@@ -1779,7 +1795,8 @@ FIELDS = {
         "type": "array",
         "nullable": False,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Type d'équipements pour l'audiodescription"),
+        "should_display_label": False,
         "help_text": translate_lazy("L'établissement propose-t-il de l’audiodescription ?"),
         "help_text_ui": translate_lazy("Équipements disponibles"),
         "help_text_ui_neg": translate_lazy("Équipements disponibles"),
@@ -1858,7 +1875,8 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "",
+        "label": translate_lazy("Toilettes adaptées"),
+        "should_display_label": False,
         "help_text": translate_lazy("Y a-t-il des toilettes adaptées PMR (personne à mobilité réduite)"),
         "help_text_ui": translate_lazy("Des sanitaires adaptés sont mis à disposition dans l'établissement"),
         "help_text_ui_neg": translate_lazy("Aucun sanitaire adapté mis à disposition dans l'établissement"),

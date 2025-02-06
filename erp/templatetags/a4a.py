@@ -150,6 +150,11 @@ def field_image_url(key, index=0):
         return None
 
 
+@register.filter(name="should_display_label")
+def should_display_label(field):
+    return FIELDS.get(field, {}).get("should_display_label", True)
+
+
 @register.filter(name="negative_text")
 def negative_text(value):
     try:

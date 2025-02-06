@@ -33,48 +33,48 @@
             {% include "fields/boolradio.html" with field=form.entree_reperage inline=True key="entree_reperage" %}
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True %}
+            {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True key="entree_porte_presence" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/boolradio.html" with field=form.entree_porte_manoeuvre inline=True key="entree_porte_manoeuvre" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.entree_porte_type inline=True %}
+                {% include "fields/boolradio.html" with field=form.entree_porte_type inline=True key="entree_porte_type" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.entree_vitree inline=True %}
+                {% include "fields/boolradio.html" with field=form.entree_vitree inline=True key="entree_vitree" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie inline=True %}
+                {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie inline=True key="entree_vitree_vitrophanie" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.entree_largeur_mini %}
+                {% include "fields/textarea.html" with field=form.entree_largeur_mini key="entree_largeur_mini" %}
             </div>
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True %}
+            {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True key="entree_dispositif_appel" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True key="entree_dispositif_appel_type" %}
             </div>
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True %}
+            {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True key="entree_plain_pied" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/boolradio.html" with field=form.entree_ascenseur inline=True key="entree_ascenseur" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.entree_marches %}
+                {% include "fields/textarea.html" with field=form.entree_marches key="entree_marches" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.entree_marches_sens inline=True %}
+                {% include "fields/boolradio.html" with field=form.entree_marches_sens inline=True key="entree_marches_sens" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -93,13 +93,13 @@
             {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True %}
+            {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True key="entree_aide_humaine" %}
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_pmr inline=True %}
+            {% include "fields/boolradio.html" with field=form.entree_pmr inline=True key="entree_pmr" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.entree_pmr_informations %}
+                {% include "fields/textarea.html" with field=form.entree_pmr_informations key="entree_pmr_informations" %}
             </div>
         </div>
     </div>

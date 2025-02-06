@@ -43,11 +43,11 @@
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.cheminement_ext_nombre_marches %}
+                {% include "fields/textarea.html" with field=form.cheminement_ext_nombre_marches key="cheminement_ext_nombre_marches" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.cheminement_ext_sens_marches inline=True %}
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_sens_marches inline=True key="cheminement_ext_sens_marches" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -71,7 +71,7 @@
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_longueur inline=True %}
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_longueur inline=True key="cheminement_ext_pente_longueur" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
@@ -83,7 +83,7 @@
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.cheminement_ext_retrecissement inline=True %}
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_retrecissement inline=True key="cheminement_ext_retrecissement" %}
             </div>
         </div>
     </div>

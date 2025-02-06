@@ -3,14 +3,14 @@
 {% if field %}
     <div class="field-{{ field.name }}"
          {% if extraid %}id="{{ extraid }}"{% endif %}>
-        {% if field.id_for_label %}
+        {% if field.id_for_label and key|should_display_label %}
             <label for="{{ field.id_for_label }}" class="mb-0">
                 <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
                 {% if field.field.required %}
                     <small>({% translate "requis" %})</small>
                 {% endif %}
             </label>
-        {% elif field.label %}
+        {% elif field.label and key|should_display_label %}
             <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
         {% endif %}
         <div class="fr-mb-1v">

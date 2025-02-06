@@ -31,7 +31,7 @@
             {% include "fields/boolradio.html" with field=form.transport_station_presence key="transport_station_presence" inline=True %}
             {% translate "Informations complémentaires" as transport_information_label %}
             <div class="contrib-inputs-section">
-                {% include "fields/textarea.html" with field=form.transport_information label=transport_information_label %}
+                {% include "fields/textarea.html" with field=form.transport_information label=transport_information_label key="transport_information" %}
             </div>
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">

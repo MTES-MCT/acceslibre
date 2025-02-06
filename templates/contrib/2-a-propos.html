@@ -30,14 +30,14 @@
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.user_type %}
+            {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.registre_url %}
+                {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.conformite inline=True %}
+                {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
             </div>
         </div>
     </div>
