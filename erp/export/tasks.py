@@ -3,7 +3,6 @@ import io
 from datetime import datetime, timezone
 
 import boto3
-from botocore.config import Config
 from celery import shared_task
 from django.conf import settings
 from django.http import QueryDict
@@ -36,7 +35,8 @@ def generate_csv_file(query_params, user_email, username):
     s3 = boto3.client(
         "s3",
         endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL,
-        config=Config(request_checksum_calculation="when_required", response_checksum_validation="when_required"),
+        # NOTE: following line required with boto3 1.36.x
+        # config=Config(request_checksum_calculation="when_required", response_checksum_validation="when_required"),
     )
     s3.put_object(Bucket=bucket_name, Key=file_name, Body=csv_buffer.getvalue(), ContentType="text/csv")
 
