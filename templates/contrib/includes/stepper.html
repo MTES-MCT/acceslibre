@@ -1,0 +1,10 @@
+{% load a4a static %}
+{% load i18n %}
+<div id="contrib-stepper" class="fr-stepper">
+    <h2 class="fr-stepper__title">
+        {{ step_name }}
+        <span class="fr-stepper__state">{% blocktranslate %}Étape {{ current_step }} sur {{ total_steps }}{% endblocktranslate %}</span>
+    </h2>
+    <div class="fr-stepper__steps" data-fr-current-step="{{ current_step }}" data-fr-steps={{ total_steps }}>
+    </div>
+</div>

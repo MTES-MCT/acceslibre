@@ -6,32 +6,85 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block contrib_title %}
-    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de
+        {{ erp_commune }}{% endblocktranslate %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 4 sur 7" %}</small>
+    {% translate "Chemin extérieur vers l’entrée" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="4" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="4" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
-{% block contrib_subtitle %}
-    {% translate "Informations d'accessibilité" %}
-{% endblock contrib_subtitle %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    <h3 class="h4">{% translate "Extérieur" %}</h3>
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_presence inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_terrain_stable inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_plain_pied inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_ascenseur inline=True %}
-    {% include "fields/number.html" with field=form.cheminement_ext_nombre_marches %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_sens_marches inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_reperage_marches inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_main_courante inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_rampe inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_presence inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_degre_difficulte inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_longueur inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_devers inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_bande_guidage inline=True %}
-    {% include "fields/boolradio.html" with field=form.cheminement_ext_retrecissement inline=True %}
+    <div class="contrib-inputs-section-wrapper">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.cheminement_ext_presence inline=True key="cheminement_ext_presence" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr " />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_terrain_stable inline=True key="cheminement_ext_terrain_stable" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_plain_pied inline=True key="cheminement_ext_plain_pied" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_ascenseur inline=True key="cheminement_ext_ascenseur" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.cheminement_ext_nombre_marches key="cheminement_ext_nombre_marches" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_sens_marches inline=True key="cheminement_ext_sens_marches" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_reperage_marches inline=True key="cheminement_ext_reperage_marches" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_main_courante inline=True key="cheminement_ext_main_courante" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_rampe inline=True key="cheminement_ext_rampe" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_presence inline=True key="cheminement_ext_pente_presence" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_degre_difficulte inline=True key="cheminement_ext_pente_degre_difficulte" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_pente_longueur inline=True key="cheminement_ext_pente_longueur" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_devers inline=True key="cheminement_ext_devers" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_bande_guidage inline=True key="cheminement_ext_bande_guidage" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_retrecissement inline=True key="cheminement_ext_retrecissement" %}
+            </div>
+        </div>
+    </div>
 {% endblock fields_content %}

@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4">
-                <label for="activite">
+                <label for="new_activity" class="hidden">
                     {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
                 </label>
                 <input type="text" class="fr-input hidden" id="new_activity" name="new_activity" placeholder="{% translate "Entrez votre activité" %}" value="{{ request.GET.new_activity }}" aria-label="{% translate "Commencer la saisie puis sélectionner l'activité dans la liste." %}">
@@ -30,16 +30,27 @@
                        id="activity_slug"
                        {% if "activity_slug" in request.GET %}value="{{ request.GET.activity_slug }}"{% endif %}>
                 <div id="autocomplete-activity" class="autocomplete">
+                    <label for="id_activite">
+                        {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
+                    </label>
                     {{ form.activite }}
                     <ul class="list-group">
                     </ul>
                 </div>
-                <div>
+                <div class="fr-mt-1w">
                     {% if form.errors.activite %}
                         <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
                     {% endif %}
-                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
-                          id="activity_suggested">{% translate "Votre suggestion :" %} <span>{{ request.GET.new_activity }}</span></span>
+                    <p class="fr-text--sm fr-mb-0 {% if not request.GET.new_activity %}hidden{% endif %}"
+                       id="activity_suggested">
+                        {% translate "Votre suggestion :" %} <span class="fr-text--bold">{{ request.GET.new_activity }}</span>
+                    </p>
+                </div>
+                <div class="fr-checkbox-group fr-mt-3v">
+                    <input type="checkbox"
+                           id="no_activity"
+                           {% if request.GET.new_activity %}checked{% endif %} />
+                    <label class="fr-label" for="no_activity">{% translate "Je ne trouve pas l'activité" %}</label>
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4 search-where-field">
@@ -47,20 +58,22 @@
                     {% translate "Où ?" %}
                     <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
                 </label>
-                <input id="where-input"
-                       class="autocomplete-input fr-input"
-                       type="search"
-                       dir="ltr"
-                       spellcheck="false"
-                       autocomplete="off"
-                       autocapitalize="off"
-                       data-autocomplete-departments="off"
-                       {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
-                       name="where"
-                       placeholder="Lyon, 12 rue des prés Nantes"
-                       aria-label="{% translate "Commencer la saisie puis sélectionner la ville ou adresse dans la liste" %}">
-                <ul class="list-group autocomplete-result-list rounded-only-bottom">
-                </ul>
+                <div class="position--relative">
+                    <input id="where-input"
+                           class="autocomplete-input fr-input"
+                           type="search"
+                           dir="ltr"
+                           spellcheck="false"
+                           autocomplete="off"
+                           autocapitalize="off"
+                           data-autocomplete-departments="off"
+                           {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
+                           name="where"
+                           placeholder="Lyon, 12 rue des prés Nantes"
+                           aria-label="{% translate "Commencer la saisie puis sélectionner la ville ou adresse dans la liste" %}">
+                    <ul class="list-group autocomplete-result-list rounded-only-bottom">
+                    </ul>
+                </div>
                 <input type="hidden"
                        name="lat"
                        {% if "lat" in request.GET %} value="{{ lat|default:request.GET.lat }}" {% else %} value="{{ lat }}" {% endif %}>

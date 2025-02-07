@@ -8,19 +8,37 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block contrib_title %}
-    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de
+        {{ erp_commune }}{% endblocktranslate %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 2 sur 7" %}</small>
+    {% translate "À propos" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="2" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="2" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
-{% block contrib_subtitle %}
-    {% translate "A propos de vous" %}
-{% endblock contrib_subtitle %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    {% include "fields/boolradio.html" with field=form.user_type %}
-    {% include "fields/textarea.html" with field=form.registre_url %}
-    {% include "fields/boolradio.html" with field=form.conformite inline=True %}
+    <div class="contrib-inputs-section-wrapper">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
+            </div>
+        </div>
+    </div>
 {% endblock fields_content %}

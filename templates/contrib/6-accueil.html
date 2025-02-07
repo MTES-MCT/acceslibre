@@ -6,42 +6,139 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block contrib_title %}
-    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de
+        {{ erp_commune }}{% endblocktranslate %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 6 sur 7" %}</small>
+    {% translate "Accueil et prestations" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="6" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="6" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
-{% block contrib_subtitle %}
-    {% translate "Informations d'accessibilité" %}
-{% endblock contrib_subtitle %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    <h3 class="h4">{% translate "Accueil et prestations" %}</h3>
-    {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
-    {% include "fields/number.html" with field=form.accueil_cheminement_nombre_marches %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True %}
-    {% include "fields/checkbox.html" with field=form.accueil_audiodescription inline=False %}
-    {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True %}
-    {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
-    {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
-    {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
-    {% include "fields/number.html" with field=form.accueil_chambre_nombre_accessibles %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_plain_pied inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_siege inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_barre_appui inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_barre_appui inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_espace_usage inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_numero_visible inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_equipement_alerte inline=True %}
-    {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True %}
+    <div class="contrib-inputs-section-wrapper">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True key="accueil_visibilite" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True key="accueil_cheminement_plain_pied" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True key="accueil_cheminement_ascenseur" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.accueil_cheminement_nombre_marches key="accueil_cheminement_nombre_marches" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True key="accueil_retrecissement" %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True key="accueil_cheminement_sens_marches" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True key="accueil_cheminement_reperage_marches" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True key="accueil_cheminement_main_courante" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True key="accueil_cheminement_rampe" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True key="accueil_personnels" %}
+        </div>
+        {% if form.accueil_audiodescription_presence %}
+            <div class="contrib-inputs-section fr-px-4w fr-py-3w ">
+                {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True key="accueil_audiodescription_presence" %}
+                {% if form.accueil_audiodescription %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/checkbox.html" with field=form.accueil_audiodescription inline=False key="accueil_audiodescription" %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
+            <div class="contrib-inputs-section ">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True key="sanitaires_adaptes" %}
+            </div>
+        </div>
+        {% if form.accueil_chambre_nombre_accessibles %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                <h3 class="fr-text--xl fr-mb-2w">{% translate "ERP avec une activité d'hebergement" %}</h3>
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.accueil_chambre_nombre_accessibles heading_level=4 %}
+                {% if form.accueil_chambre_douche_plain_pied %}
+                    <div class="contrib-inputs-section fr-mt-2w">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_plain_pied inline=True key="accueil_chambre_douche_plain_pied" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_douche_siege %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_siege inline=True key="accueil_chambre_douche_siege" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_douche_barre_appui %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_douche_barre_appui inline=True key="accueil_chambre_douche_barre_appui" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_sanitaires_barre_appui %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_barre_appui inline=True key="accueil_chambre_sanitaires_barre_appui" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_sanitaires_espace_usage %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_sanitaires_espace_usage inline=True key="accueil_chambre_sanitaires_espace_usage" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_numero_visible %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_numero_visible inline=True key="accueil_chambre_numero_visible" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_equipement_alerte %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_equipement_alerte inline=True key="accueil_chambre_equipement_alerte" heading_level=4 %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_chambre_accompagnement %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True heading_level=4 %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
 {% endblock fields_content %}

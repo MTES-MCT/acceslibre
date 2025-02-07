@@ -17,6 +17,7 @@ class BaseActivityField:
         return forms.TextInput(
             attrs={
                 "class": "fr-input",
+                "aria-describedby": "activite-error-message",
                 "data-search-lookup": self._get_search_lookup,
                 "placeholder": translate_lazy("Cinéma, mairie, ..."),
             }

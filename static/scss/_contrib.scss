@@ -2,6 +2,11 @@
   &-container {
     background-color: var(--background-action-low-brown-opera);
   }
+
+  &-edit-container {
+    background-color: var(--grey-1000-100);
+  }
+
   &-section {
     display: flex;
     flex-direction: column;
@@ -12,5 +17,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &-input-image {
+    width: 132px;
+    height: 132px;
+  }
+
+  &-inputs-section {
+    background-color: var(--grey-1000-100);
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &-completion-container {
+    background-color: var(--grey-1000-100);
   }
 }
