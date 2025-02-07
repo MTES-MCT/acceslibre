@@ -189,7 +189,7 @@ class ActivitiesGroup(models.Model):
     activities = models.ManyToManyField(Activite, related_name="groups")
 
     def __str__(self):
-        return translate(f"Groupe d'activités : {self.name}")
+        return translate("Groupe d'activités : {name}".format(name=self.name))
 
 
 class ActivitySuggestion(models.Model):
@@ -209,7 +209,7 @@ class ActivitySuggestion(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
 
     def __str__(self):
-        return translate(f"Suggestion d'activité : {self.name}")
+        return translate("Suggestion d'activité : {name}".format(name=self.name))
 
     class Meta:
         verbose_name = translate_lazy("Suggestion d'activité")
@@ -409,7 +409,11 @@ class ExternalSource(models.Model):
         unique_together = ("source", "erp")
 
     def __str__(self):
-        return translate(f"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self.source_id}")
+        return translate(
+            "Source externe pour ERP#{erp_id} sur {source} avec id {source_id}".format(
+                erp_id=self.erp_id, source=self.source, source_id=self.source_id
+            )
+        )
 
 
 @reversion.register(
@@ -857,7 +861,13 @@ class Erp(models.Model):
                 )
             if not matches:
                 raise ValidationError(
-                    {"commune": translate(f"Commune {self.commune} introuvable, veuillez vérifier votre saisie.")}
+                    {
+                        "commune": translate(
+                            "Commune {commune} introuvable, veuillez vérifier votre saisie.".format(
+                                commune=self.commune
+                            )
+                        )
+                    }
                 )
 
             self.commune_ext = matches[0]
@@ -1792,7 +1802,11 @@ class Accessibilite(models.Model):
 
     def __str__(self):
         if self.erp:
-            return translate(f'Accessibilité de l\'établissement "{self.erp.nom}" ({self.erp.code_postal})')
+            return translate(
+                'Accessibilité de l\'établissement "{nom}" ({code_postal})'.format(
+                    nom=self.erp.nom, code_postal=self.erp.code_postal
+                )
+            )
         else:
             return translate("Caractéristiques d'accessibilité de cet ERP")
 
@@ -1965,4 +1979,4 @@ class Departement(models.Model):
     )
 
     def __str__(self):
-        return translate(f"Département {self.code}")
+        return translate("Département {code}").format(code=self.code)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 16:03+0100\n"
+"POT-Creation-Date: 2025-02-07 15:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -585,7 +585,9 @@ msgid ""
 msgstr ""
 
 #, python-brace-format
-msgid "Cette adresse n'est pas localisable au code postal {code_postal} "
+msgid ""
+"Cette adresse n'est pas localisable au code postal {code_postal} (mais l'est "
+"au code {loc_code_postal})"
 msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
@@ -694,7 +696,7 @@ msgid "Nom du groupe d'activités"
 msgstr ""
 
 #, python-brace-format
-msgid "Groupe d'activités : {self.name}"
+msgid "Groupe d'activités : {name}"
 msgstr ""
 
 msgid "Établissement"
@@ -707,7 +709,7 @@ msgid "Activité attribuée"
 msgstr ""
 
 #, python-brace-format
-msgid "Suggestion d'activité : {self.name}"
+msgid "Suggestion d'activité : {name}"
 msgstr ""
 
 msgid "Suggestion d'activité"
@@ -860,9 +862,7 @@ msgid "Identifiant externe de cet ERP"
 msgstr ""
 
 #, python-brace-format
-msgid ""
-"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self."
-"source_id}"
+msgid "Source externe pour ERP#{erp_id} sur {source} avec id {source_id}"
 msgstr ""
 
 msgid "Administration"
@@ -1017,7 +1017,7 @@ msgid "Veuillez entrer une voie ou un lieu-dit"
 msgstr ""
 
 #, python-brace-format
-msgid "Commune {self.commune} introuvable, veuillez vérifier votre saisie."
+msgid "Commune {commune} introuvable, veuillez vérifier votre saisie."
 msgstr ""
 
 msgid "Ce numéro SIRET est invalide."
@@ -1207,8 +1207,7 @@ msgid "Taux de complétion"
 msgstr ""
 
 #, python-brace-format
-msgid ""
-"Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
+msgid "Accessibilité de l'établissement \"{nom}\" ({code_postal})"
 msgstr ""
 
 msgid "Caractéristiques d'accessibilité de cet ERP"
@@ -1234,7 +1233,7 @@ msgid "Contour du département"
 msgstr ""
 
 #, python-brace-format
-msgid "Département {self.code}"
+msgid "Département {code}"
 msgstr ""
 
 msgid "Accès"
@@ -2452,8 +2451,8 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "Si l'établissement en dispose, adresse internet (URL) à laquelle le <a "
-"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">registre d'accessibilité</a> "
-"de l'établissement est consultable."
+"href=\"{registre_url}\" target=\"_blank\">registre d'accessibilité</a> de "
+"l'établissement est consultable."
 msgstr ""
 
 msgid "Adresse internet à laquelle le registre est consultable"
@@ -2482,7 +2481,16 @@ msgstr ""
 msgid "Impossible d'encoder les informations du fournisseur de données"
 msgstr ""
 
+msgid "kilomètres"
+msgstr ""
+
 msgid "Au même endroit"
+msgstr ""
+
+msgid "mètres"
+msgstr ""
+
+msgid "En savoir plus sur"
 msgstr ""
 
 msgid "France entière"
@@ -3468,6 +3476,9 @@ msgstr ""
 msgid "Documentation des champs d'accessibilité"
 msgstr ""
 
+msgid "Documentation sur les champs d'accessibilité"
+msgstr ""
+
 msgid "Vous souhaitez étudier ces entités au format tableur&nbsp;?"
 msgstr ""
 
@@ -3718,6 +3729,9 @@ msgid "Je crée un compte"
 msgstr ""
 
 msgid "Créer mon compte"
+msgstr ""
+
+msgid "Déclaration d'accessibilité"
 msgstr ""
 
 msgid "Accès rapide"
@@ -5001,9 +5015,6 @@ msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
 msgstr ""
 
 msgid "km"
-msgstr ""
-
-msgid "kilomètres"
 msgstr ""
 
 msgid "Exporter les résultats"

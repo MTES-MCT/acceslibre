@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-15 16:05+0100\n"
-"PO-Revision-Date: 2025-01-15 16:04+0100\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-02-07 15:33+0100\n"
+"PO-Revision-Date: 2025-02-07 15:33+0100\n"
+"Last-Translator:   <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -609,8 +609,12 @@ msgstr ""
 "target=\"_blank\">report an error</a>."
 
 #, python-brace-format
-msgid "Cette adresse n'est pas localisable au code postal {code_postal} "
-msgstr "This address cannot be located at the postal code {code_postal}"
+msgid ""
+"Cette adresse n'est pas localisable au code postal {code_postal} (mais l'est "
+"au code {loc_code_postal})"
+msgstr ""
+"This address cannot be found in the {code_postal} zip code (but can be found "
+"in the {loc_code_postal} zip code)."
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
@@ -728,8 +732,8 @@ msgid "Nom du groupe d'activités"
 msgstr "Name of the activity group"
 
 #, python-brace-format
-msgid "Groupe d'activités : {self.name}"
-msgstr "Activity group: {self.name}"
+msgid "Groupe d'activités : {name}"
+msgstr "Activity group: {name}"
 
 msgid "Établissement"
 msgstr "Facility"
@@ -741,8 +745,8 @@ msgid "Activité attribuée"
 msgstr "Attributed activity"
 
 #, python-brace-format
-msgid "Suggestion d'activité : {self.name}"
-msgstr "Activity suggestion: {self.name}"
+msgid "Suggestion d'activité : {name}"
+msgstr "Activity suggestion: {name}"
 
 msgid "Suggestion d'activité"
 msgstr "Activity suggestion"
@@ -895,12 +899,8 @@ msgid "Identifiant externe de cet ERP"
 msgstr "External identifier of this ERP"
 
 #, python-brace-format
-msgid ""
-"Source externe pour ERP#{self.erp_id} sur {self.source} avec id {self."
-"source_id}"
-msgstr ""
-"External source for ERP#{self.erp_id} on {self.source} with id {self."
-"source_id}"
+msgid "Source externe pour ERP#{erp_id} sur {source} avec id {source_id}"
+msgstr "External source for ERP#{erp_id} on {source} with id {source_id}"
 
 msgid "Administration"
 msgstr "Administration"
@@ -1060,8 +1060,8 @@ msgid "Veuillez entrer une voie ou un lieu-dit"
 msgstr "Please enter a street or a locality"
 
 #, python-brace-format
-msgid "Commune {self.commune} introuvable, veuillez vérifier votre saisie."
-msgstr "Municipality {self.commune} not found, please check your entry."
+msgid "Commune {commune} introuvable, veuillez vérifier votre saisie."
+msgstr "Municipality {commune} not found, please check your entry."
 
 msgid "Ce numéro SIRET est invalide."
 msgstr "This SIRET number is invalid."
@@ -1250,10 +1250,8 @@ msgid "Taux de complétion"
 msgstr "Completion rate"
 
 #, python-brace-format
-msgid ""
-"Accessibilité de l'établissement \"{self.erp.nom}\" ({self.erp.code_postal})"
-msgstr ""
-"Accessibility of the facility \"{self.erp.nom}\" ({self.erp.code_postal})"
+msgid "Accessibilité de l'établissement \"{nom}\" ({code_postal})"
+msgstr "Accessibility of the facility \"{nom}\" ({code_postal})"
 
 msgid "Caractéristiques d'accessibilité de cet ERP"
 msgstr "Accessibility details of this ERP"
@@ -1278,8 +1276,8 @@ msgid "Contour du département"
 msgstr "Department outline"
 
 #, python-brace-format
-msgid "Département {self.code}"
-msgstr "Department {self.code}"
+msgid "Département {code}"
+msgstr "Department {code}"
 
 msgid "Accès"
 msgstr "Access"
@@ -2637,12 +2635,11 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "Si l'établissement en dispose, adresse internet (URL) à laquelle le <a "
-"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">registre d'accessibilité</a> "
-"de l'établissement est consultable."
+"href=\"{registre_url}\" target=\"_blank\">registre d'accessibilité</a> de "
+"l'établissement est consultable."
 msgstr ""
-"If available, internet address (URL) at which the <a "
-"href=\"{REGISTRE_INFO_URL}\" target=\"_blank\">accessibility registry</a> of "
-"the facility is searchable."
+"If available, internet address (URL) at which the <a href=\"{registre_url}\" "
+"target=\"_blank\">accessibility registry</a> of the facility is searchable."
 
 msgid "Adresse internet à laquelle le registre est consultable"
 msgstr "Internet address where the register can be consulted"
@@ -2672,8 +2669,17 @@ msgstr "Unable to decode information from data provider"
 msgid "Impossible d'encoder les informations du fournisseur de données"
 msgstr "Unable to encode data provider information"
 
+msgid "kilomètres"
+msgstr "kilometers"
+
 msgid "Au même endroit"
 msgstr "In the same place"
+
+msgid "mètres"
+msgstr "meters"
+
+msgid "En savoir plus sur"
+msgstr "Learn more on"
 
 msgid "France entière"
 msgstr "Whole France"
@@ -3744,6 +3750,9 @@ msgstr "Delete the facility"
 msgid "Documentation des champs d'accessibilité"
 msgstr "Documentation of accessibility fields"
 
+msgid "Documentation sur les champs d'accessibilité"
+msgstr "Accessibility fields documentation"
+
 msgid "Vous souhaitez étudier ces entités au format tableur&nbsp;?"
 msgstr "You want to study these entities in spreadsheet format?"
 
@@ -4022,6 +4031,9 @@ msgstr "I create an account"
 
 msgid "Créer mon compte"
 msgstr "Create my account"
+
+msgid "Déclaration d'accessibilité"
+msgstr "Accessibility declaration"
 
 msgid "Accès rapide"
 msgstr "Quick access"
@@ -5588,9 +5600,6 @@ msgstr "less than %(MAP_SEARCH_RADIUS_KM)s"
 
 msgid "km"
 msgstr "km"
-
-msgid "kilomètres"
-msgstr "kilometers"
 
 msgid "Exporter les résultats"
 msgstr "Export results"

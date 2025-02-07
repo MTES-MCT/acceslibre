@@ -1768,8 +1768,10 @@ FIELDS = {
         "label": translate_lazy("Registre"),
         "help_text": mark_safe(
             translate_lazy(
-                f'Si l\'établissement en dispose, adresse internet (URL) à laquelle le <a href="{REGISTRE_INFO_URL}" target="_blank">registre d\'accessibilité</a> de l\'établissement est consultable.'
-            ),
+                'Si l\'établissement en dispose, adresse internet (URL) à laquelle le <a href="{registre_url}" target="_blank">registre d\'accessibilité</a> de l\'établissement est consultable.'.format(
+                    registre_url=REGISTRE_INFO_URL
+                )
+            )
         ),
         "help_text_ui": translate_lazy("Adresse internet à laquelle le registre est consultable"),
         "help_text_ui_neg": translate_lazy("Adresse internet à laquelle le registre est consultable"),

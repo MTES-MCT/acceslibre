@@ -266,8 +266,9 @@ class BaseErpForm(forms.ModelForm):
         contact_bug_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
             translate(
-                f'{message}. Veuillez vérifier votre saisie ou <a href="{contact_bug_url}" '
-                'target="_blank">signaler une erreur</a>.'
+                '{message}. Veuillez vérifier votre saisie ou <a href="{contact_bug_url}" target="_blank">signaler une erreur</a>.'.format(
+                    message=message, contact_bug_url=contact_bug_url
+                )
             )
         )
 
@@ -306,8 +307,10 @@ class BaseErpForm(forms.ModelForm):
                     "code_postal",
                     mark_safe(
                         translate(
-                            f"Cette adresse n'est pas localisable au code postal {code_postal} "
-                            f"(mais l'est au code {locdata['code_postal']})"
+                            "Cette adresse n'est pas localisable au code postal {code_postal} "
+                            "(mais l'est au code {loc_code_postal})".format(
+                                code_postal=code_postal, loc_code_postal=locdata["code_postal"]
+                            )
                         )
                     ),
                 )
@@ -496,7 +499,13 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 else:
                     erp_display = f"{activite} - {adresse}"
                 raise ValidationError(
-                    mark_safe(translate(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."))
+                    mark_safe(
+                        translate(
+                            "L'établissement <b>{erp_display}</b> existe déjà dans la base de données.".format(
+                                erp_display=erp_display
+                            )
+                        )
+                    )
                 )
 
 
