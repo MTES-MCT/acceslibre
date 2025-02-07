@@ -524,7 +524,7 @@
     {
       "name": "stationnement_presence",
       "type": "boolean",
-      "title": "Stationnement dans l'établissement",
+      "title": "Stationnement privé dans l'établissement",
       "description": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
       "example": "True",
       "trueValues": [
@@ -648,7 +648,7 @@
     {
       "name": "cheminement_ext_presence",
       "type": "boolean",
-      "title": "Chemin extérieur",
+      "title": "Extérieur entre le trottoir et l’entrée principale du bâtiment",
       "description": "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur",
       "example": "True",
       "trueValues": [
@@ -779,7 +779,7 @@
     {
       "name": "cheminement_ext_reperage_marches",
       "type": "boolean",
-      "title": "Marches ou escalier sécurisé(es)",
+      "title": "Repérage des marches",
       "description": "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
       "example": "True",
       "trueValues": [
@@ -811,7 +811,7 @@
       "name": "cheminement_ext_sens_marches",
       "type": "string",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
@@ -984,7 +984,7 @@
     {
       "name": "entree_reperage",
       "type": "boolean",
-      "title": "Entrée facilement repérable",
+      "title": "L’entrée de l’établissement",
       "description": "L'entrée de l'établissement est facilement repérable",
       "example": "True",
       "trueValues": [
@@ -1219,7 +1219,7 @@
       "name": "entree_marches_sens",
       "type": "string",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
@@ -1228,7 +1228,7 @@
     {
       "name": "entree_dispositif_appel",
       "type": "boolean",
-      "title": "Dispositif d'appel à l'entrée",
+      "title": "Type de dispositif d'appel à l'entrée",
       "description": "Présence d'un dispositif comme une sonnette pour signaler sa présence",
       "example": "True",
       "trueValues": [
@@ -1259,7 +1259,7 @@
     {
       "name": "entree_dispositif_appel_type",
       "type": "array",
-      "title": "Type de dispositif d'appel à l'entrée",
+      "title": "Dispositif d’appel à l’entrée",
       "description": "Dispositifs d'appels présents. Valeurs possibles: bouton -> Bouton d'appel, interphone -> Interphone, visiophone -> Visiophone",
       "example": "[\"bouton\", \"interphone\", \"visiophone\"]",
       "arrayItem": {
@@ -1332,7 +1332,7 @@
     {
       "name": "entree_largeur_mini",
       "type": "integer",
-      "title": "Largeur de la porte",
+      "title": "Largeur de la porte ou de l'entrée",
       "description": "Largeur minimale de la porte d'entrée",
       "example": "0"
     },
@@ -1370,7 +1370,7 @@
     {
       "name": "entree_porte_presence",
       "type": "boolean",
-      "title": "Y a-t-il une porte ?",
+      "title": "Porte d'entrée",
       "description": "Présence d'une porte à l'entrée de l'établissement",
       "example": "True",
       "trueValues": [
@@ -1693,7 +1693,7 @@
       "name": "accueil_cheminement_sens_marches",
       "type": "string",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Montant, descendant -> Descendant",
+      "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
         "enum": ["montant", "descendant"]
       },
