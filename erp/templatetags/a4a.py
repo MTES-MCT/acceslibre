@@ -67,21 +67,18 @@ def format_distance(value):
         return value
     elif isinstance(value, float):
         return str(value)
+
+    unit = translate("kilomètres")
     if value.m == 0:
         return translate("Au même endroit")
     elif value.m < 1500:
-        return mark_safe(
-            f'À {round(value.m)}<i aria-hidden="true">m</i><i class="fr-sr-only"> {translate("mètres")}</i>'
-        )
+        unit = translate("mètres")
+        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="fr-sr-only"> {unit}</i>')
     elif value.m < 10000:
         formatted = f"{value.km:.2f}".replace(".", ",")
-        return mark_safe(
-            f'À {formatted}<i aria-hidden="true">km</i><i class="fr-sr-only"> {translate("kilomètres")}</i>'
-        )
+        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="fr-sr-only"> {unit}</i>')
     else:
-        return mark_safe(
-            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="fr-sr-only"> {translate("kilomètres")}</i>'
-        )
+        return mark_safe(f'À {round(value.km)}<i aria-hidden="true">km</i><i class="fr-sr-only"> {unit}</i>')
 
 
 @register.filter(name="format_isodate")
@@ -112,9 +109,10 @@ def format_username(value):
         info = schema.PARTENAIRES[username]
         avatar = f"/static/img/partenaires/{info['avatar']}"
         url = reverse("partenaires") + f"#{username}"
+        title = translate("En savoir plus sur")
         return mark_safe(
             f"""
-            <a href="{url}" title="{translate('En savoir plus sur')} {username}">
+            <a href="{url}" title="{title} {username}">
               <img src="{avatar}" alt="" width="16" height="16">&nbsp;{username}</a>
             </a>
             """

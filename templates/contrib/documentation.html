@@ -4,62 +4,85 @@
 {% block page_title %}
     {% translate "Documentation des champs d'accessibilité" %}
 {% endblock page_title %}
-{% block editorial_content %}
-    <h2 class="h3 fr-mb-3v">{% translate "Documentation des champs d'accessibilité" %}</h2>
-    <div class="alert alert-info fr-mb-3v">
-        {% translate "Vous souhaitez étudier ces entités au format tableur&nbsp;?" %} <a href="{% url 'contact_form' %}">{% translate "Demandez le nous" %}</a>&nbsp;!
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Documentation sur les champs d'accessibilité" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
     </div>
-    <table class="table table-responsive">
-        <tbody>
-            <tr class="table-light">
-                <th>{% translate "Entité" %}</th>
-                <th>{% translate "Description" %}</th>
-                <th>{% translate "Type de données" %}</th>
-                <th>{% translate "Attributs" %}</th>
-            </tr>
-            {% for section, fields in sections.items %}
-                <tr class="table-light fr-mt-2v">
-                    <th colspan="4">
-                        <h3 class="h4 m-0">{{ section }}</h3>
-                    </th>
-                </tr>
-                {% for field in fields %}
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <h1>{% translate "Documentation des champs d'accessibilité" %}</h1>
+    <div class="fr-alert fr-alert--info">
+        {% translate "Vous souhaitez étudier ces entités au format tableur&nbsp;?" %} <a class="fr-link" href="{% url 'contact_form' %}">{% translate "Demandez le nous" %}</a>&nbsp;!
+    </div>
+    {% for section, fields in sections.items %}
+        <div class="fr-table">
+            <table>
+                <caption>
+                    <h2>{{ section }}</h2>
+                </caption>
+                <thead>
                     <tr>
-                        <th class="pl-5">{{ field.label }}</th>
-                        <td>
-                            {% if field.help_text_ui %}
-                                {{ field.help_text_ui }}
-                            {% else %}
-                                {{ field.help_text }}
-                            {% endif %}
-                        </td>
-                        <td class="text-center">
-                            {% if field.type == "boolean" %}
-                                {% translate "Booléen optionnel" %}
-                            {% elif field.type == "number" %}
-                                {% translate "Nombre entier positif" %}
-                            {% elif field.type == "array" %}
-                                {% translate "Choix multiple" %}
-                            {% elif field.type == "string" %}
-                                {% if field.choices %}
-                                    {% translate "Choix simple" %}
-                                {% else %}
-                                    {% translate "Texte libre" %}
-                                {% endif %}
-                            {% else %}
-                                {% translate "N/A" %}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if field.choices %}
-                                <ul class="p-0 pl-3 m-0">
-                                    {% for choice in field.choices %}<li>{{ choice.1 }}</li>{% endfor %}
-                                </ul>
-                            {% endif %}
-                        </td>
+                        <th>{% translate "Entité" %}</th>
+                        <th>{% translate "Description" %}</th>
+                        <th>{% translate "Type de données" %}</th>
+                        <th>{% translate "Attributs" %}</th>
                     </tr>
-                {% endfor %}
-            {% endfor %}
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    {% for field in fields %}
+                        <tr>
+                            <td>{{ field.label }}</td>
+                            <td>
+                                {% if field.help_text_ui %}
+                                    {{ field.help_text_ui }}
+                                {% else %}
+                                    {{ field.help_text }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if field.type == "boolean" %}
+                                    {% translate "Booléen optionnel" %}
+                                {% elif field.type == "number" %}
+                                    {% translate "Nombre entier positif" %}
+                                {% elif field.type == "array" %}
+                                    {% translate "Choix multiple" %}
+                                {% elif field.type == "string" %}
+                                    {% if field.choices %}
+                                        {% translate "Choix simple" %}
+                                    {% else %}
+                                        {% translate "Texte libre" %}
+                                    {% endif %}
+                                {% else %}
+                                    {% translate "N/A" %}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if field.choices %}
+                                    <ul>
+                                        {% for choice in field.choices %}<li>{{ choice.1 }}</li>{% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
 {% endblock editorial_content %}

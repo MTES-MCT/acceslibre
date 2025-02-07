@@ -1,16 +1,38 @@
 {% extends "editorial/base.html" %}
+{% load i18n %}
 {% block page_title %}
     Accessibilité
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Déclaration d'accessibilité" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="cgu row justify-content-center fr-mt-5w">
-        <div class="fr-col-md-9">
-            <h1 class="fr-mb-3v">Accessibilité</h1>
-            <p>
-                <strong>Le <span class="basic-information organization-name">Ministère de l'Écologie et de la Transition Solidaire</span> s’engage à rendre son service accessible, conformément à <a class="bold"
+    <div>
+        <h1 class="fr-mb-3v">Accessibilité</h1>
+        <p>
+            <strong>Le <span class="basic-information organization-name">Ministère de l'Écologie et de la Transition Solidaire</span> s’engage à rendre son service accessible, conformément à <a class="bold"
     href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647">l’article 47 de la loi n° 2005-102 du 11 février 2005</a>.</strong>
-            </p>
-            <h2 class="fr-my-4v">Déclaration d'accessibilité</h2>
+        </p>
+        <h2 class="fr-my-4v">Déclaration d'accessibilité</h2>
+        <section>
             <h3 class="fr-my-4v">État de conformité</h3>
             <p>
                 <span class="basic-information website-name">Acceslibre</span> est
@@ -18,110 +40,120 @@
       data-printfilter="lowercase">partiellement conforme</span></b> avec le RGAA 4.0.
                 <span><span class="basic-information conformance-status">Partiellement conforme</span> veut dire que <span class="basic-information conformance-meaning">certaines sections du contenu ne sont pas entièrement conformes aux standards d'accessibilité</span>.</span>
             </p>
+        </section>
+        <section>
             <h3 class="fr-my-4v">Résultats des tests</h3>
             <p>
                 L’audit de conformité réalisé le 09 Juin 2022 par la société Access42 révèle que le site est conforme à 79,59% du RGAA version 4.0.
             </p>
-            <table class="table table-striped table-responsive">
-                <caption>
-                    Tableau 1 : Échantillon de test
-                </caption>
-                <thead>
-                    <tr>
-                        <th>Page</th>
-                        <th>Titre</th>
-                        <th>Url</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>P01</td>
-                        <td>Accueil</td>
-                        <td>https://acceslibre.beta.gouv.fr/</td>
-                    </tr>
-                    <tr>
-                        <td>P02</td>
-                        <td>Contact</td>
-                        <td>https://acceslibre.beta.gouv.fr/contact/</td>
-                    </tr>
-                    <tr>
-                        <td>P03</td>
-                        <td>Mention légales</td>
-                        <td>https://acceslibre.beta.gouv.fr/conditions-generales-d-utilisation</td>
-                    </tr>
-                    <tr>
-                        <td>P04</td>
-                        <td>Accessibilité</td>
-                        <td>https://acceslibre.beta.gouv.fr/accessibilite</td>
-                    </tr>
-                    <tr>
-                        <td>P05</td>
-                        <td>Partenaires</td>
-                        <td>https://acceslibre.beta.gouv.fr/partenaires</td>
-                    </tr>
-                    <tr>
-                        <td>P06</td>
-                        <td>Authentification</td>
-                        <td>https://acceslibre.beta.gouv.fr/compte/login/?next=/</td>
-                    </tr>
-                    <tr>
-                        <td>P07</td>
-                        <td>Création de compte</td>
-                        <td>https://acceslibre.beta.gouv.fr/compte/register/?next=/</td>
-                    </tr>
-                    <tr>
-                        <td>P08</td>
-                        <td>Statistiques</td>
-                        <td>https://acceslibre.beta.gouv.fr/stats/</td>
-                    </tr>
-                    <tr>
-                        <td>P09</td>
-                        <td>Résultats de recherche</td>
-                        <td>https://acceslibre.beta.gouv.fr/recherche/?what=&where=Poitiers+(86)&lat=46.586616&lon=0.356849&code=86194</td>
-                    </tr>
-                    <tr>
-                        <td>P10</td>
-                        <td>Détails d'un ERP</td>
-                        <td>
-                            https://acceslibre.beta.gouv.fr/app/86-poitiers/a/gendarmerie/erp/gendarmerie-centre-dinformation-et-de-recrutement-de-poitiers/
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>P11</td>
-                        <td>Page introuvable</td>
-                        <td>https://acceslibre.beta.gouv.fr/404/</td>
-                    </tr>
-                    <tr>
-                        <td>P12</td>
-                        <td>Territoires pilotes</td>
-                        <td>https://acceslibre.beta.gouv.fr/communes/</td>
-                    </tr>
-                    <tr>
-                        <td>P13</td>
-                        <td>Ajout d'un établissement</td>
-                        <td>https://acceslibre.beta.gouv.fr/contrib/start/</td>
-                    </tr>
-                    <tr>
-                        <td>P14</td>
-                        <td>Modification d'un établissement</td>
-                        <td>https://acceslibre.beta.gouv.fr/contrib/localisation/gendarmerie-brigade-de-soultz-sous-forets/</td>
-                    </tr>
-                    <tr>
-                        <td>P15</td>
-                        <td>Signaler une malveillance sur un établissement</td>
-                        <td>https://acceslibre.beta.gouv.fr/contact/signalement/patisserie-salon-de-the-meyer/</td>
-                    </tr>
-                </tbody>
-            </table>
+        </section>
+        <section>
+            <div class="fr-table">
+                <table>
+                    <caption>
+                        Tableau 1 : Échantillon de test
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Page</th>
+                            <th>Titre</th>
+                            <th>Url</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>P01</td>
+                            <td>Accueil</td>
+                            <td>https://acceslibre.beta.gouv.fr/</td>
+                        </tr>
+                        <tr>
+                            <td>P02</td>
+                            <td>Contact</td>
+                            <td>https://acceslibre.beta.gouv.fr/contact/</td>
+                        </tr>
+                        <tr>
+                            <td>P03</td>
+                            <td>Mention légales</td>
+                            <td>https://acceslibre.beta.gouv.fr/conditions-generales-d-utilisation</td>
+                        </tr>
+                        <tr>
+                            <td>P04</td>
+                            <td>Accessibilité</td>
+                            <td>https://acceslibre.beta.gouv.fr/accessibilite</td>
+                        </tr>
+                        <tr>
+                            <td>P05</td>
+                            <td>Partenaires</td>
+                            <td>https://acceslibre.beta.gouv.fr/partenaires</td>
+                        </tr>
+                        <tr>
+                            <td>P06</td>
+                            <td>Authentification</td>
+                            <td>https://acceslibre.beta.gouv.fr/compte/login/?next=/</td>
+                        </tr>
+                        <tr>
+                            <td>P07</td>
+                            <td>Création de compte</td>
+                            <td>https://acceslibre.beta.gouv.fr/compte/register/?next=/</td>
+                        </tr>
+                        <tr>
+                            <td>P08</td>
+                            <td>Statistiques</td>
+                            <td>https://acceslibre.beta.gouv.fr/stats/</td>
+                        </tr>
+                        <tr>
+                            <td>P09</td>
+                            <td>Résultats de recherche</td>
+                            <td>https://acceslibre.beta.gouv.fr/recherche/?what=&where=Poitiers+(86)&lat=46.586616&lon=0.356849&code=86194</td>
+                        </tr>
+                        <tr>
+                            <td>P10</td>
+                            <td>Détails d'un ERP</td>
+                            <td>
+                                https://acceslibre.beta.gouv.fr/app/86-poitiers/a/gendarmerie/erp/gendarmerie-centre-dinformation-et-de-recrutement-de-poitiers/
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P11</td>
+                            <td>Page introuvable</td>
+                            <td>https://acceslibre.beta.gouv.fr/404/</td>
+                        </tr>
+                        <tr>
+                            <td>P12</td>
+                            <td>Territoires pilotes</td>
+                            <td>https://acceslibre.beta.gouv.fr/communes/</td>
+                        </tr>
+                        <tr>
+                            <td>P13</td>
+                            <td>Ajout d'un établissement</td>
+                            <td>https://acceslibre.beta.gouv.fr/contrib/start/</td>
+                        </tr>
+                        <tr>
+                            <td>P14</td>
+                            <td>Modification d'un établissement</td>
+                            <td>https://acceslibre.beta.gouv.fr/contrib/localisation/gendarmerie-brigade-de-soultz-sous-forets/</td>
+                        </tr>
+                        <tr>
+                            <td>P15</td>
+                            <td>Signaler une malveillance sur un établissement</td>
+                            <td>https://acceslibre.beta.gouv.fr/contact/signalement/patisserie-salon-de-the-meyer/</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
             <h3 class="fr-my-4v">Contenus inaccessibles</h3>
             <h4>Non conformité</h4>
-            <ul>
+            <ul class="fr-pl-4w">
                 <li>Absence d’aide et de contrôle des saisies dans certains formulaires ;</li>
                 <li>Des champs de formulaire dont la nature de saisie n’est pas indiquée ;</li>
                 <li>Un rapport de contraste entre la couleur du texte et de l’arrière-plan insuffisant pour certains composants ;</li>
                 <li>Des liens signalisés uniquement par la couleur avec un rapport de contraste insuffisant ;</li>
                 <li>Des champs de formulaires qui nécessitent d’être regroupés ;</li>
             </ul>
+        </section>
+        <section>
             <h3 class="fr-my-4v">Dérogation</h3>
             <h4>Contenu tiers</h4>
             <p>
@@ -131,13 +163,15 @@
     rel="noopener noreferrer">le guide des dérogations</a>.
             </p>
             <p>Les contenus suivants n’entrent pas dans le périmètre des éléments à rendre accessible, ils sont dérogés :</p>
-            <ul>
+            <ul class="fr-pl-4w">
                 <li>Cartes OpenStreetMap (motif : service externe) ;</li>
                 <li>Autocomplétion « Autocomplete JS » (motif : service externe) ;</li>
                 <li>Graphique des fréquentations dans la page « Statistiques » (motif : service externe) ;</li>
             </ul>
-            <h3>Technologies utilisées pour la réalisation du site</h3>
-            <ul class="technical-information technologies-used">
+        </section>
+        <section>
+            <h3 class="fr-my-2w">Technologies utilisées pour la réalisation du site</h3>
+            <ul class="fr-pl-4w">
                 <li>
                     <a title="HTML (ouverture dans une nouvelle fenêtre)"
                        href="https://developer.mozilla.org/fr/docs/Web/HTML"
@@ -163,38 +197,46 @@
                        rel="noopener noreferrer">Outil de gestion de contenu : Django</a>
                 </li>
             </ul>
-            <h3>Agents utilisateurs et technologies d’assistance utilisées pour vérifier l’accessibilité des contenus</h3>
+        </section>
+        <section>
+            <h3 class="fr-my-2w">
+                Agents utilisateurs et technologies d’assistance utilisées pour vérifier l’accessibilité des contenus
+            </h3>
             <p>
                 La vérification de l’accessibilité est le résultat de tests manuels, assistés par des outils (feuilles CSS dédiés, extensions HeadingsMaps et WebDeveloper Toolbar, Color Contrast Analyser).
             </p>
             <p>
                 Les vérifications de restitution de contenus ont été réalisées sur la base de la combinaison fournie par la base de référence du RGAA, avec les versions suivantes :
             </p>
-            <table class="table table-striped table-responsive">
-                <caption>
-                    Tableau 2 : Base de référence utilisée pour vérifier la compatibilité avec l'accessibilité
-                </caption>
-                <thead>
-                    <tr>
-                        <th>Technologie d'assistance</th>
-                        <th>Navigateur</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>NVDA 2020.1</td>
-                        <td>Firefox 90</td>
-                    </tr>
-                    <tr>
-                        <td>JAWS 2019</td>
-                        <td>Firefox 90</td>
-                    </tr>
-                    <tr>
-                        <td>VoiceOver (OSX 11.4)</td>
-                        <td>Safari 14.1</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="fr-table">
+                <table>
+                    <caption>
+                        Tableau 2 : Base de référence utilisée pour vérifier la compatibilité avec l'accessibilité
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Technologie d'assistance</th>
+                            <th>Navigateur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NVDA 2020.1</td>
+                            <td>Firefox 90</td>
+                        </tr>
+                        <tr>
+                            <td>JAWS 2019</td>
+                            <td>Firefox 90</td>
+                        </tr>
+                        <tr>
+                            <td>VoiceOver (OSX 11.4)</td>
+                            <td>Safari 14.1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
             <h3 class="fr-my-4v">Amélioration et contact</h3>
             <p>
                 Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter l'équipe en charge de la gestion du site <a href="mailto:contact@acceslibre.beta.gouv.fr">(contact@acceslibre.beta.gouv.fr)</a> pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.
@@ -206,7 +248,7 @@
                 Cette procédure est à utiliser dans le cas suivant&nbsp;: vous avez signalé au responsable du site internet un défaut d’accessibilité qui vous empêche d’accéder à un contenu ou à un des services du portail et vous n’avez pas obtenu de réponse satisfaisante.
             </p>
             <p>Vous pouvez&nbsp;:</p>
-            <ul>
+            <ul class="fr-pl-4w">
                 <li>
                     Écrire un message au <a class="bold" href="https://formulaire.defenseurdesdroits.fr/">Défenseur des droits</a>
                 </li>
@@ -225,6 +267,6 @@
                     </address>
                 </li>
             </ul>
-        </div>
+        </section>
     </div>
 {% endblock editorial_content %}
