@@ -64,6 +64,7 @@ class StaticViewSitemap(Sitemap):
             ("communes", 0.9, translate("Communes et territoires pilotes")),
             ("apidocs", 0.5, translate("Documentation API")),
             ("mentions-legales", 0.5, translate("Mentions légales")),
+            ("politique-confidentialite", 0.5, translate("Politique de confidentialité")),
             ("accessibilite", 0.5, translate("Accessibilité")),
             ("partenaires", 0.4, translate("Partenaires")),
             ("stats_home", 0.1, translate("Statistiques")),
