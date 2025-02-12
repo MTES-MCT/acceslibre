@@ -71,13 +71,14 @@ async function ContribPagination(root) {
 
     try {
       const { results, status } = await getInternalResults({ apiKey, apiUrl, params })
-      const shouldDeleteViewMoreButton = currentCount >= totalCount
 
       // If there are results, continue filling in the list of ERP cards
       if (results?.length > 0) {
         currentCount += results.length
         populateInternalResults({ resultsContainer, results })
       }
+
+      const shouldDeleteViewMoreButton = currentCount >= totalCount
 
       if (status === 200) {
         if (results.length >= PAGINATION_SIZE) {
@@ -138,8 +139,11 @@ function getParams({ root, currentPage, paginationSize }) {
 
   const paramsForApiCall = new URLSearchParams()
 
+  if (params.get('code')) {
+    paramsForApiCall.append('code_insee', params.get('code'))
+  }
+
   paramsForApiCall.append('q', q)
-  paramsForApiCall.append('around', `${params.get('lat')},${params.get('lon')}`)
   paramsForApiCall.append('activite', activitySlug || params.get('activite'))
   paramsForApiCall.append('page_size', paginationSize)
   paramsForApiCall.append('page', currentPage)
