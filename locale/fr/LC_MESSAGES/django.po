@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 15:32+0100\n"
+"POT-Creation-Date: 2025-02-19 11:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4480,13 +4480,36 @@ msgstr ""
 msgid "%(reperage_marches)s"
 msgstr ""
 
-msgid "Filtres des informations par besoin"
+msgid "Voulez-vous améliorer la qualité des informations ?"
 msgstr ""
 
-msgid "Écrire un message"
+msgid "Améliorer ou modifier ces informations"
 msgstr ""
 
-msgid "Agrandir la carte"
+msgid "Confirmer ces informations"
+msgstr ""
+
+msgid "Signaler un problème ou une erreur"
+msgstr ""
+
+msgid "Administrer cette fiche"
+msgstr ""
+
+msgid "Filtrer par type de handicap :"
+msgstr ""
+
+msgid ""
+"Affichez uniquement les infos d'accessibilité qui vous concernent, en "
+"fonction de votre handicap"
+msgstr ""
+
+msgid "Taux de remplissage des informations : "
+msgstr ""
+
+msgid "Modifier ces informations"
+msgstr ""
+
+msgid "Itinéraire"
 msgstr ""
 
 msgid "Historique des modifications"
@@ -4513,27 +4536,6 @@ msgstr ""
 msgid "Label %(name)s"
 msgstr ""
 
-msgid "Une personne inspectant des données à la loupe"
-msgstr ""
-
-msgid "Voulez-vous améliorer la qualité des informations ?"
-msgstr ""
-
-msgid "Améliorer ces informations"
-msgstr ""
-
-msgid "Confirmer que les informations sont à jour"
-msgstr ""
-
-msgid "Signaler un problème ou une erreur"
-msgstr ""
-
-msgid "Administrer cette fiche"
-msgstr ""
-
-msgid "Vous voulez suivre les évolutions de cette fiche&nbsp;?"
-msgstr ""
-
 msgid "Fiche créée"
 msgstr ""
 
@@ -4549,10 +4551,14 @@ msgstr ""
 msgid "en tant qu'usager"
 msgstr ""
 
-msgid "Dernière mise à jour le"
+msgid "Dernière modification le"
 msgstr ""
 
 msgid "Voir l'historique"
+msgstr ""
+
+msgid ""
+"Recevoir des notifications par email lorsque cet établissement est mis à jour"
 msgstr ""
 
 msgid "Désabonnez vous des mises à jour"
@@ -4566,7 +4572,9 @@ msgstr ""
 msgid "Abonnez vous aux mises à jour"
 msgstr ""
 
-msgid "Voulez-vous partager ces informations sur votre site ?"
+msgid ""
+"Vous êtes le gérant de l’établissement, partager ces informations sur votre "
+"site"
 msgstr ""
 
 msgid ""
@@ -4578,6 +4586,9 @@ msgid "Comment faire ?"
 msgstr ""
 
 msgid "Intégrez acceslibre sur votre site !"
+msgstr ""
+
+msgid "Fermer la fenêtre"
 msgstr ""
 
 msgid ""
@@ -4597,7 +4608,10 @@ msgstr ""
 msgid "Une erreur s’est produite lors de la copie."
 msgstr ""
 
-msgid "Découvrez l'accessibilité de l'établissement"
+#, python-format
+msgid ""
+"Découvrez l'accessibilité de l'établissement %(erp_name)s à %(city_name)s - "
+"%(department_name)s"
 msgstr ""
 
 msgid "Aller à la carte"
@@ -4612,17 +4626,7 @@ msgstr ""
 msgid "Ajoutez un nouvel établissement"
 msgstr ""
 
-msgid "Informations sur l'accessibilité"
-msgstr ""
-
-#, python-format
-msgid "- mises à jour le %(date)s"
-msgstr ""
-
 msgid "Ajouter cet établissement"
-msgstr ""
-
-msgid "Fermer la fenêtre"
 msgstr ""
 
 msgid "Voir plus sur"
