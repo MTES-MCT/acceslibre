@@ -8,8 +8,33 @@
     {% if activite %}{{ activite.nom }},{% endif %}
     {{ commune.nom }}, {% translate "Accessibilité" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'search' %}">{% translate "Nos établissements" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{{ erp.nom }}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block page_description %}
-    {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom }}
+    {% translate "Découvrez l'accessibilité de l'établissement" %} {{ erp.nom }} à {{ commune.nom }} -
+    {{ commune.departement_nom }}
 {% endblock page_description %}
 {% block skiplinks %}
     <a class="skippy fr-sr-only sr-only-focusable" href="#app-map">
@@ -20,7 +45,9 @@
     </a>
 {% endblock skiplinks %}
 {% block editorial_content %}
-    <main role="main" id="content" class="erp-details">
+    <main role="main" id="content">
+        <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line"
+           href="{% url 'contrib_global_search' %}">{% translate 'Retour' %}</a>
         <article class="fr-mt-5v">
             {% if 'success' in request.GET and messages %}
                 <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center fr-mb-5v">
@@ -37,25 +64,23 @@
                 </div>
             {% endif %}
             {% include "erp/includes/header.html" %}
-            <aside class="fr-mb-4v fr-mt-2v order-1">
-                {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-            </aside>
-            <div class="fr-mb-2v">
-                <h2 class="fr-h4 inline fr-mr-2v d-inline">{% translate "Informations sur l'accessibilité" %}</h2>
-                {% if erp.displayed_last_updated_date %}
-                    <span class="align-bottom">
-                        {% blocktranslate trimmed with date=erp.displayed_last_updated_date|date %}
-                            - mises à jour le {{ date }}
-                        {% endblocktranslate %}
-                    </span>
-                {% endif %}
+            <div class="fr-grid-row fr-grid-row--center fr-mb-4w">
+                <h2 class="fr-mb-0">{% translate "Informations sur l'accessibilité" %}</h2>
+                {#                todo: move this shit below #}
+                {#                {% if erp.displayed_last_updated_date %}#}
+                {#                    <span class="align-bottom">#}
+                {#                        {% blocktranslate trimmed with date=erp.displayed_last_updated_date|date %}#}
+                {#                            - mises à jour le {{ date }}#}
+                {#                        {% endblocktranslate %}#}
+                {#                    </span>#}
+                {#                {% endif %}#}
             </div>
             {% if access.labels %}
                 {% include "erp/includes/labels.html" %}
             {% endif %}
-            <div class="d-flex flex-column">
-                <div class="row order-2"  id="filter-controller">
-                    <section id="a11y" class="fr-col-lg-7 fr-col-xl-8 remove-title-if-empty">
+            <div class="fr-grid-row fr-col-10 justify-self--center">
+                <div id="filter-controller">
+                    <section id="a11y" class="remove-title-if-empty">
                         {% include "erp/includes/filters.html" %}
                         {% include "erp/includes/access_parking.html" %}
                         {% include "erp/includes/access_outside_path.html" %}
@@ -71,12 +96,13 @@
                             {% include "erp/includes/access_comment.html" %}
                         {% endif %}
                     </section>
-                    <aside class="fr-col-lg-5 fr-col-xl-4">
-                        {% include "erp/includes/sidebar.html" %}
-                    </aside>
                 </div>
             </div>
-            <div class="fr-grid-row fr-grid-row--gutters lg:mb-2 lg:mt-2">
+            {% include "erp/includes/sidebar.html" %}
+            <section>
+                {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+            </section>
+            <div class="fr-grid-row">
                 <div class="fr-col-md-1"></div>
                 <div class="fr-col-12 fr-col-md-5">{% include "erp/includes/versions_block.html" %}</div>
                 <div class="fr-col-12 fr-col-md-5">{% include "erp/includes/widget_block.html" %}</div>

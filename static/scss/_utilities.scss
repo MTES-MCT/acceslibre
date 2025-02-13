@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+.text {
+  &--ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.overflow {
+  &--hidden {
+    overflow: hidden;
+  }
+}
+
 // SPACING
 .mt-10,
 .my-10 {
@@ -59,3 +73,31 @@
     line-clamp: 3;
   }
 }
+
+.direction {
+  &--column {
+    flex-direction: column;
+  }
+}
+
+.justify {
+  &-self {
+    &--center {
+      justify-self: center;
+    }
+  }
+}
+
+@mixin generate-gap-classes {
+  @for $i from 1 through 10 {
+    .gap-#{$i}w {
+      gap: calc($i * 0.5rem);
+    }
+
+    .gap-#{$i}v {
+      gap: calc($i * 0.25rem);
+    }
+  }
+}
+
+@include generate-gap-classes();

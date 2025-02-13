@@ -1,6 +1,9 @@
 {% load i18n %}
-<h3 class="fr-h6 inline fr-mr-2v d-inline">{% translate "Filtres des informations par besoin" %}</h3>
-<div class="d-flex row p-2">
+<p class="fr-mb-1v">{% translate "Filtrer par type de handicap :" %}</p>
+<p class="fr-mb-2w">
+    {% translate "Affichez uniquement les infos d'accessibilité qui vous concernent, en fonction de votre handicap" %}
+</p>
+<div class="fr-grid-row fr-mb-2w">
     {% translate "Difficulté à voir" as visual_text %}
     {% translate "Difficulté à marcher" as walking_text %}
     {% translate "En fauteuil roulant" as wheelchair_text %}
