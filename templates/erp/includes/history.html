@@ -11,20 +11,22 @@
                 {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ entry.date|date:"j/m/Y à H:i"|lower }}
             </summary>
             {% if entry.diff %}
-                <table class="table table-sm table-striped fr-mt-3v mb-0">
-                    <tr>
-                        <th>{% translate "Champ" %}</th>
-                        <th>{% translate "Ancienne valeur" %}</th>
-                        <th>{% translate "Nouvelle valeur" %}</th>
-                    </tr>
-                    {% for field in entry.diff %}
-                        <tr>
-                            <td>{{ field.label }}</td>
-                            <td class="text-danger">{{ field.old }}</td>
-                            <td class="text-success">{{ field.new }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
+                <div class="fr-table">
+                    <table>
+                        <thead>
+                            <th>{% translate "Champ" %}</th>
+                            <th>{% translate "Ancienne valeur" %}</th>
+                            <th>{% translate "Nouvelle valeur" %}</th>
+                        </thead>
+                        {% for field in entry.diff %}
+                            <tr>
+                                <td>{{ field.label }}</td>
+                                <td class="text-danger">{{ field.old }}</td>
+                                <td class="text-success">{{ field.new }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             {% endif %}
         </details>
     {% empty %}

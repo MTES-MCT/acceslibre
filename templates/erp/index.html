@@ -48,7 +48,7 @@
     <main role="main" id="content">
         <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line"
            href="{% url 'contrib_global_search' %}">{% translate 'Retour' %}</a>
-        <article class="fr-mt-5v">
+        <section class="fr-mt-5v">
             {% if 'success' in request.GET and messages %}
                 <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center fr-mb-5v">
                     <span class="h1 mb-0">{% translate "Merci !" %}</span>
@@ -78,36 +78,48 @@
             {% if access.labels %}
                 {% include "erp/includes/labels.html" %}
             {% endif %}
-            <div class="fr-grid-row fr-col-10 justify-self--center">
-                <div id="filter-controller">
-                    <section id="a11y" class="remove-title-if-empty">
-                        {% include "erp/includes/filters.html" %}
+            <div class="fr-grid-row fr-col-12 fr-col-md-10 justify-self--center fr-mb-6w">
+                {% include "erp/includes/filters.html" %}
+                <div id="filter-controller"
+                     class="fr-col fr-accordions-group  remove-section-if-empty"
+                     data-fr-group="false">
+                    <section class="fr-accordion">
                         {% include "erp/includes/access_parking.html" %}
-                        {% include "erp/includes/access_outside_path.html" %}
-                        {% include "erp/includes/access_entrance.html" %}
-                        {% include "erp/includes/access_reception.html" %}
-                        {% if erp.is_accommodation %}
-                            {% include "erp/includes/access_accommodation.html" %}
-                        {% endif %}
-                        {% if access.registre_url or access.conformite %}
-                            {% include "erp/includes/access_legal.html" %}
-                        {% endif %}
-                        {% if access.commentaire %}
-                            {% include "erp/includes/access_comment.html" %}
-                        {% endif %}
                     </section>
+                    <section class="fr-accordion">
+                        {% include "erp/includes/access_outside_path.html" %}
+                    </section>
+                    <section class="fr-accordion">
+                        {% include "erp/includes/access_entrance.html" %}
+                    </section>
+                    <section class="fr-accordion">
+                        {% include "erp/includes/access_reception.html" %}
+                    </section>
+                    {% if erp.is_accommodation %}
+                        <section class="fr-accordion">
+                            {% include "erp/includes/access_accommodation.html" %}
+                        </section>
+                    {% endif %}
+                    {% if access.registre_url or access.conformite %}
+                        <section class="fr-accordion">
+                            {% include "erp/includes/access_legal.html" %}
+                        </section>
+                    {% endif %}
+                    {% if access.commentaire %}
+                        <section class="fr-accordion">
+                            {% include "erp/includes/access_comment.html" %}
+                        </section>
+                    {% endif %}
                 </div>
             </div>
-            {% include "erp/includes/sidebar.html" %}
-            <section>
-                {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-            </section>
-            <div class="fr-grid-row">
-                <div class="fr-col-md-1"></div>
-                <div class="fr-col-12 fr-col-md-5">{% include "erp/includes/versions_block.html" %}</div>
-                <div class="fr-col-12 fr-col-md-5">{% include "erp/includes/widget_block.html" %}</div>
-                <div class="fr-col-md-1"></div>
-            </div>
-        </article>
+        </section>
+        {% include "erp/includes/sidebar.html" %}
+        <div class="fr-grid-row">
+            <div class="fr-col-12">{% include "erp/includes/widget_block.html" %}</div>
+        </div>
+        <section class="fr-my-6w">
+            {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+        </section>
+        <div class="fr-col-12">{% include "erp/includes/versions_block.html" %}</div>
     </main>
 {% endblock editorial_content %}
