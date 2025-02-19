@@ -1,53 +1,68 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<header id="article-header" class="d-flex">
-    {% if activite %}
-        <img alt="" class="d-none d-md-block act-icon act-icon-erp act-icon-black" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-    {% endif %}
-    <div class="w-100">
-        <h1 class="h2 d-flex align-items-start align-items-md-center font-weight-bold">
-            {% if activite %}
-                <img alt="" class="d-inline d-md-none act-icon act-icon-24 act-icon-black fr-mr-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-            {% endif %}
-            {{ erp.nom }}
-        </h1>
-        <h2 class="h6 text-muted">{{ erp.activite.nom }}</h2>
-        <div>
-            <address class="d-inline font-weight-bold m-0 fr-mb-2v p-0">{{ erp.adresse }}</address>
+<header id="article-header">
+    <div class="fr-grid-row fr-grid-row--center">
+        <h1 class="fr-mb-3v">{{ erp.nom }}</h1>
+    </div>
+    <div class="fr-grid-row fr-grid-row--center">
+        <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
+    </div>
+    <div class="fr-grid-row fr-grid-row--middle gap-2w">
+        {% if erp.accessibilite.completion_rate %}
+            <div>
+                {% translate "Taux de remplissage des informations : " %}
+                <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
+            </div>
+        {% endif %}
+        <div class="fr-col fr-hidden fr-unhidden-sm"></div>
+        <div class="fr-hidden fr-unhidden-md">
+            <a class="fr-btn"
+               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier ces informations" %}</a>
         </div>
-        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
-            {% if erp.site_internet %}
-                <span class="fr-mr-3v fr-mt-2v">
-                    <i aria-hidden="true" class="icon icon-globe"></i>
-                    <a href="{{ erp.site_internet }}"
-                       target="_blank"
-                       rel="noopener noreferrer">{% translate "Site internet" %}</a>
-                </span>
-            {% endif %}
-            {% if erp.telephone %}
-                <span class="fr-mr-3v fr-mt-2v">
-                    <i aria-hidden="true" class="icon icon-phone"></i>
-                    <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
-                </span>
-            {% endif %}
-            {% if erp.contact_url %}
-                <span class="fr-mr-3v fr-mt-2v">
-                    <i aria-hidden="true" class="icon icon-mail"></i>
-                    <a href="{{ erp.contact_url }}"
-                       target="_blank"
-                       rel="noopener noreferrer">{% translate "Écrire un message" %}</a>
-                </span>
-            {% elif erp.contact_email %}
-                <span class="fr-mr-3v fr-mt-2v">
-                    <i aria-hidden="true" class="icon icon-mail"></i>
-                    <a href="mailto:{{ erp.contact_email }}">{% translate "Écrire un message" %}</a>
-                </span>
-            {% endif %}
-            <span class="fr-ml-auto fr-mt-2v">
-                <i aria-hidden="true" class="icon icon-zoom-in"></i>
-                <a href="" id="map-height-toggle-link">{% translate "Agrandir la carte" %}</a>
-            </span>
+        <div class="fr-hidden-md">
+            <a class="fr-btn text-center"
+               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
         </div>
     </div>
+    <hr class="fr-hr fr-mt-2w" />
+    <div class="fr-grid-row">
+        <address class="fr-m-0 overflow--hidden">
+            <p class="fr-mb-3w text--ellipsis">
+                <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
+                <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
+            </p>
+            {% if erp.telephone %}
+                <p class="fr-mb-3w">
+                    <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
+                </p>
+            {% endif %}
+            {% if erp.contact_url %}
+                <p class="fr-mb-3w text--ellipsis">
+                    <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
+                    <a class="fr-link fr-ml-n1v"
+                       href="{{ erp.contact_url }}"
+                       target="_blank"
+                       rel="noopener noreferrer">{{ erp.contact_url }}</a>
+                </p>
+            {% endif %}
+            {% if erp.site_internet %}
+                <p class="fr-mb-3w text--ellipsis">
+                    <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
+                    <a class="fr-link fr-ml-n1v"
+                       href="{{ erp.site_internet }}"
+                       target="_blank"
+                       rel="noopener noreferrer">{% translate "Site internet" %}</a>
+                </p>
+            {% endif %}
+        </address>
+        {% if erp.adresse %}
+            <div class="fr-col"></div>
+            <div class="fr-mb-2w">
+                <a href="https://www.google.com/maps/place/{{ erp.adresse }}"
+                   target="_blank">{% translate "Itinéraire" %}</a>
+            </div>
+        </div>
+    {% endif %}
+    <hr class="fr-hr" />
 </header>

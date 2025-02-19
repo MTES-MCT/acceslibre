@@ -6,7 +6,7 @@
         <div class="fr-col fr-col-md-4">
             <div class="fr-card p-2 fr-card--horizontal">
                 <div class="fr-card__body">
-                    <p class="my-auto">
+                    <p class="fr-m-auto text--center">
                         {% blocktranslate trimmed with name=label %}
                             Label {{ name }}
                         {% endblocktranslate %}
@@ -16,7 +16,7 @@
                     </p>
                 </div>
                 {% if label|label_to_image %}
-                    <div class="fr-card__header d-flex align-items-center">
+                    <div class="fr-grid-row fr-card__header fr-grid-row--center">
                         <img class="fr-responsive-img"
                              src="{{ label|label_to_image }}"
                              alt="Logo {{ label }}" />

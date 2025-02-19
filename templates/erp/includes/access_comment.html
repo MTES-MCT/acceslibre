@@ -1,10 +1,14 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3 class="fr-pt-2v fr-h6 mb-0" data-filter-title="true">
-    <i aria-hidden="true"
-       class="icon icon-info-circled fr-mr-1v larger-font"></i>{% translate "Commentaire" %}
-</h3>
-<blockquote class="a4a-comment-block">
-    <p>{{ access.commentaire|linebreaksbr }}</p>
-</blockquote>
+<h2 class="fr-accordion__title" data-filter-title="true">
+    <button type="button"
+            class="fr-accordion__btn"
+            aria-expanded="true"
+            aria-controls="access_comment">{% translate "Commentaire" %}</button>
+</h2>
+<div id="access_comment" class="fr-collapse">
+    <ul>
+        <li>{{ access.commentaire|linebreaksbr }}</li>
+    </ul>
+</div>

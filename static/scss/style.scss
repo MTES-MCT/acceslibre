@@ -764,8 +764,8 @@ div.equipments > span:not(.hidden, .section-text) {
   min-height: 10rem;
 }
 
-.remove-title-if-empty {
-  h3:has(+ ul:empty) {
+.remove-section-if-empty {
+  section:has(ul:empty) {
     display: none;
   }
 }

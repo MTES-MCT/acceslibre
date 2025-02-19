@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 15:33+0100\n"
-"PO-Revision-Date: 2025-02-07 15:33+0100\n"
+"POT-Creation-Date: 2025-02-19 11:02+0100\n"
+"PO-Revision-Date: 2025-02-19 11:02+0100\n"
 "Last-Translator:   <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -5002,14 +5002,39 @@ msgstr "%(reperage_marches)s and %(main_courante)s"
 msgid "%(reperage_marches)s"
 msgstr "%(reperage_marches)s"
 
-msgid "Filtres des informations par besoin"
-msgstr "Filter information by need"
+msgid "Voulez-vous améliorer la qualité des informations ?"
+msgstr "Do you want to improve the quality of information?"
 
-msgid "Écrire un message"
-msgstr "Send a message"
+msgid "Améliorer ou modifier ces informations"
+msgstr "Improve or update this information"
 
-msgid "Agrandir la carte"
-msgstr "Enlarge the map"
+msgid "Confirmer ces informations"
+msgstr "Confirm this information"
+
+msgid "Signaler un problème ou une erreur"
+msgstr "Report a problem or a mistake"
+
+msgid "Administrer cette fiche"
+msgstr "Manage this record"
+
+msgid "Filtrer par type de handicap :"
+msgstr "Filter by type of handicap:"
+
+msgid ""
+"Affichez uniquement les infos d'accessibilité qui vous concernent, en "
+"fonction de votre handicap"
+msgstr ""
+"Display only accessibility information that concerns you, depending on your "
+"handicap"
+
+msgid "Taux de remplissage des informations : "
+msgstr "Information completion rate:"
+
+msgid "Modifier ces informations"
+msgstr "Change this information"
+
+msgid "Itinéraire"
+msgstr "Itinerary"
 
 msgid "Historique des modifications"
 msgstr "Changes history"
@@ -5036,27 +5061,6 @@ msgstr ""
 msgid "Label %(name)s"
 msgstr "Label %(name)s"
 
-msgid "Une personne inspectant des données à la loupe"
-msgstr "A person inspecting data under a magnifying glass"
-
-msgid "Voulez-vous améliorer la qualité des informations ?"
-msgstr "Do you want to improve the quality of information?"
-
-msgid "Améliorer ces informations"
-msgstr "Improve this information"
-
-msgid "Confirmer que les informations sont à jour"
-msgstr "Confirm that the information is up to date"
-
-msgid "Signaler un problème ou une erreur"
-msgstr "Report a problem or a mistake"
-
-msgid "Administrer cette fiche"
-msgstr "Manage this record"
-
-msgid "Vous voulez suivre les évolutions de cette fiche&nbsp;?"
-msgstr "Do you want to follow the developments of this file?"
-
 msgid "Fiche créée"
 msgstr "Created by"
 
@@ -5072,11 +5076,15 @@ msgstr "as an administration"
 msgid "en tant qu'usager"
 msgstr "as a user"
 
-msgid "Dernière mise à jour le"
-msgstr "Last update on"
+msgid "Dernière modification le"
+msgstr "Last modification"
 
 msgid "Voir l'historique"
 msgstr "View history"
+
+msgid ""
+"Recevoir des notifications par email lorsque cet établissement est mis à jour"
+msgstr "Receive email notifications when this establishment is updated"
 
 msgid "Désabonnez vous des mises à jour"
 msgstr "Unsubscribe from updates"
@@ -5089,8 +5097,11 @@ msgstr "No longer receive email notifications when this facility is updated"
 msgid "Abonnez vous aux mises à jour"
 msgstr "Subscribe to updates"
 
-msgid "Voulez-vous partager ces informations sur votre site ?"
-msgstr "Do you want to share this information on your site ?"
+msgid ""
+"Vous êtes le gérant de l’établissement, partager ces informations sur votre "
+"site"
+msgstr ""
+"You are the manager of the establishment, share this information on your site"
 
 msgid ""
 "En un copier-coller, affichez les informations principales de votre "
@@ -5102,6 +5113,9 @@ msgstr "How to do it?"
 
 msgid "Intégrez acceslibre sur votre site !"
 msgstr "Integrate acceslibre on your website!"
+
+msgid "Fermer la fenêtre"
+msgstr "Close the window"
 
 msgid ""
 "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site "
@@ -5121,8 +5135,13 @@ msgstr "Successfully copied"
 msgid "Une erreur s’est produite lors de la copie."
 msgstr "An error occurred while copying."
 
-msgid "Découvrez l'accessibilité de l'établissement"
-msgstr "Discover the accessibility of the facility"
+#, python-format
+msgid ""
+"Découvrez l'accessibilité de l'établissement %(erp_name)s à %(city_name)s - "
+"%(department_name)s"
+msgstr ""
+"Discover the accessibility of %(erp_name)s in %(city_name)s - "
+"%(department_name)s"
 
 msgid "Aller à la carte"
 msgstr "Go to the map"
@@ -5136,18 +5155,8 @@ msgstr "The form is published. Thank you for your contribution."
 msgid "Ajoutez un nouvel établissement"
 msgstr "Add a new facility"
 
-msgid "Informations sur l'accessibilité"
-msgstr "Accessibility information"
-
-#, python-format
-msgid "- mises à jour le %(date)s"
-msgstr "- updated on %(date)s"
-
 msgid "Ajouter cet établissement"
 msgstr "Add this facility"
-
-msgid "Fermer la fenêtre"
-msgstr "Close the window"
 
 msgid "Voir plus sur"
 msgstr "See more on"

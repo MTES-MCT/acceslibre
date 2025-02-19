@@ -1,50 +1,55 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h3 class="fr-pt-2v fr-h6 mb-0" data-filter-title="true">
-    <i aria-hidden="true" class="icon icon-house fr-mr-1v larger-font"></i>{% translate "Hébergement" %}
-</h3>
+<h2 class="fr-accordion__title" data-filter-title="true">
+    <button type="button"
+            class="fr-accordion__btn"
+            aria-expanded="true"
+            aria-controls="access_accommodation">{% translate "Hébergement" %}</button>
+</h2>
 {% spaceless %}
-    <ul>
-        {% if access.accueil_chambre_nombre_accessibles %}
-            <li data-filters="walking">
-                {% if access.access.accueil_chambre_nombre_accessibles == 1 %}
-                    {% translate "Au moins une chambre accessible à une personne en fauteuil roulant" %}
-                {% elif access.access.accueil_chambre_nombre_accessibles == 0 %}
-                    {{ "accueil_chambre_nombre_accessibles"|negative_text }}
-                {% else %}
-                    {% blocktranslate trimmed count nb=access.accueil_chambre_nombre_accessibles with nb=access.accueil_chambre_nombre_accessibles %}
-                        {{ nb }} chambre accessible à une personne en fauteuil roulant
-                    {% plural %}
-                        {{ nb }} chambres accessibles à une personne en fauteuil roulant
-                    {% endblocktranslate %}
-                </li>
+    <div id="access_accommodation" class="fr-collapse">
+        <ul>
+            {% if access.accueil_chambre_nombre_accessibles %}
+                <li data-filters="walking">
+                    {% if access.access.accueil_chambre_nombre_accessibles == 1 %}
+                        {% translate "Au moins une chambre accessible à une personne en fauteuil roulant" %}
+                    {% elif access.access.accueil_chambre_nombre_accessibles == 0 %}
+                        {{ "accueil_chambre_nombre_accessibles"|negative_text }}
+                    {% else %}
+                        {% blocktranslate trimmed count nb=access.accueil_chambre_nombre_accessibles with nb=access.accueil_chambre_nombre_accessibles %}
+                            {{ nb }} chambre accessible à une personne en fauteuil roulant
+                        {% plural %}
+                            {{ nb }} chambres accessibles à une personne en fauteuil roulant
+                        {% endblocktranslate %}
+                    </li>
+                {% endif %}
             {% endif %}
-        {% endif %}
-        {% if access.get_shower_text %}<li data-filters="walking">{{ access.get_shower_text }}</li>{% endif %}
-        {% if access.accueil_chambre_sanitaires_barre_appui is not None or access.accueil_chambre_sanitaires_espace_usage is not None %}
-            <li data-filters="walking">
-                {% access_text "accueil_chambre_sanitaires_espace_usage" access as espace_text %}
-                {% access_text "accueil_chambre_sanitaires_barre_appui" access as appui_text %}
-                {% if access.accueil_chambre_sanitaires_barre_appui is None %}
-                    {% blocktranslate trimmed with espace=espace_text|lower %}
-                        Toilettes {{ espace }}
-                    {% endblocktranslate %}
-                {% else %}
-                    {% if access.accueil_chambre_sanitaires_espace_usage is None %}
-                        {% blocktranslate trimmed with appui=appui_text|lower %}
-                            Toilettes {{ appui }}
+            {% if access.get_shower_text %}<li data-filters="walking">{{ access.get_shower_text }}</li>{% endif %}
+            {% if access.accueil_chambre_sanitaires_barre_appui is not None or access.accueil_chambre_sanitaires_espace_usage is not None %}
+                <li data-filters="walking">
+                    {% access_text "accueil_chambre_sanitaires_espace_usage" access as espace_text %}
+                    {% access_text "accueil_chambre_sanitaires_barre_appui" access as appui_text %}
+                    {% if access.accueil_chambre_sanitaires_barre_appui is None %}
+                        {% blocktranslate trimmed with espace=espace_text|lower %}
+                            Toilettes {{ espace }}
                         {% endblocktranslate %}
                     {% else %}
-                        {% blocktranslate trimmed with espace=espace_text|default_if_none:""|lower appui=appui_text|lower|default_if_none:"" %}
-                            Toilettes {{ espace }} et {{ appui }}
-                        {% endblocktranslate %}
+                        {% if access.accueil_chambre_sanitaires_espace_usage is None %}
+                            {% blocktranslate trimmed with appui=appui_text|lower %}
+                                Toilettes {{ appui }}
+                            {% endblocktranslate %}
+                        {% else %}
+                            {% blocktranslate trimmed with espace=espace_text|default_if_none:""|lower appui=appui_text|lower|default_if_none:"" %}
+                                Toilettes {{ espace }} et {{ appui }}
+                            {% endblocktranslate %}
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-            </li>
-        {% endif %}
-        {% render_access_value "accueil_chambre_numero_visible" access "all" %}
-        {% render_access_value "accueil_chambre_equipement_alerte" access "hearing" %}
-        {% render_access_value "accueil_chambre_accompagnement" access "all" %}
-    </ul>
+                </li>
+            {% endif %}
+            {% render_access_value "accueil_chambre_numero_visible" access "all" %}
+            {% render_access_value "accueil_chambre_equipement_alerte" access "hearing" %}
+            {% render_access_value "accueil_chambre_accompagnement" access "all" %}
+        </ul>
+    </div>
 {% endspaceless %}
