@@ -5,7 +5,7 @@ ALTER ROLE access4all SET default_transaction_isolation TO 'read committed';
 ALTER ROLE access4all SET timezone TO 'UTC';
 ALTER DATABASE access4all OWNER TO access4all;
 GRANT ALL PRIVILEGES ON DATABASE access4all TO access4all;
-GRANT ALL PRIVILEGES IN SCHEMA public GRANT
+GRANT ALL PRIVILEGES IN SCHEMA public TO access4all;
 \c access4all;
 CREATE EXTENSION postgis;
 CREATE EXTENSION pg_trgm;
