@@ -454,6 +454,7 @@ def contrib_delete(request, erp_slug):
     )
 
 
+@login_required
 def contrib_start(request):
     form = forms.ProviderGlobalSearchForm(request.GET or None)
     if form.is_valid():
@@ -466,6 +467,7 @@ def contrib_start(request):
     )
 
 
+@login_required
 def contrib_global_search(request):
     results = error = None
     commune = ""
@@ -533,6 +535,7 @@ def contrib_global_search(request):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_admin_infos(request):
     data = erp = external_erp = None
@@ -550,12 +553,10 @@ def contrib_admin_infos(request):
                 erp.published = False
                 activite = form.cleaned_data.get("activite")
                 erp.activite = activite
-                erp.save(editor=request.user if request.user.is_authenticated else None)
+                erp.save(editor=request.user)
                 if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
-                        name=form.cleaned_data["nouvelle_activite"],
-                        erp=erp,
-                        user=request.user if request.user.is_authenticated else None,
+                        name=form.cleaned_data["nouvelle_activite"], erp=erp, user=request.user
                     )
                 messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
@@ -608,11 +609,12 @@ def contrib_admin_infos(request):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": Decimal(erp.geom.y), "lon": Decimal(erp.geom.x)}
-    if request.user.is_authenticated and erp.user is request.user:
+    if erp.user is request.user:
         libelle_next = schema.SECTION_A_PROPOS
         next_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
     else:
@@ -628,13 +630,13 @@ def contrib_edit_infos(request, erp_slug):
             erp = form.save(commit=False)
             activite = form.cleaned_data.get("activite")
             erp.activite = activite
-            erp.save(editor=request.user if request.user.is_authenticated else None)
+            erp.save(editor=request.user)
 
             if erp.has_miscellaneous_activity:
                 ActivitySuggestion.objects.create(
                     name=form.cleaned_data["nouvelle_activite"],
                     erp=erp,
-                    user=request.user if request.user.is_authenticated else None,
+                    user=request.user,
                 )
             messages.add_message(
                 request,
@@ -665,6 +667,7 @@ def contrib_edit_infos(request, erp_slug):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
@@ -681,7 +684,7 @@ def contrib_a_propos(request, erp_slug):
             accessibilite.erp = erp
             accessibilite.save()
 
-            erp.save(editor=request.user if request.user.is_authenticated else None)
+            erp.save(editor=request.user)
             messages.add_message(
                 request,
                 messages.SUCCESS,
@@ -706,20 +709,7 @@ def contrib_a_propos(request, erp_slug):
     )
 
 
-def check_authentication(request, erp, form, check_online=True):
-    redirect_path = redirect(
-        reverse("login")
-        + "?"
-        + urllib.parse.urlencode({"next": request.path + "?" + urllib.parse.urlencode(form.data)})
-    )
-    if check_online:
-        if erp.published and not request.user.is_authenticated:
-            return redirect_path
-    else:
-        if not request.user.is_authenticated:
-            return redirect_path
-
-
+@login_required
 def process_accessibilite_form(
     request,
     erp_slug,
@@ -759,12 +749,12 @@ def process_accessibilite_form(
                 user=request.user,
             )
     if form.is_valid():
-        if check_authentication(request, erp, form):
-            return check_authentication(request, erp, form)
+        # if check_authentication(request, erp, form):
+        #     return check_authentication(request, erp, form)
         accessibilite = form.save(commit=False)
         accessibilite.erp = erp
         accessibilite.save()
-        if request.user.is_authenticated and accessibilite.erp.user is None:
+        if accessibilite.erp.user is None:
             accessibilite.erp.user = request.user
             accessibilite.erp.save()
         form.save_m2m()
@@ -794,10 +784,11 @@ def process_accessibilite_form(
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    if request.user.is_authenticated and erp.user is request.user:
+    if erp.user is request.user:
         prev_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
     else:
         prev_route = "contrib_edit_infos"
@@ -814,6 +805,7 @@ def contrib_transport(request, erp_slug):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
@@ -828,6 +820,7 @@ def contrib_exterieur(request, erp_slug):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
@@ -842,6 +835,7 @@ def contrib_entree(request, erp_slug):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
@@ -882,6 +876,7 @@ def ensure_min_nb_answers(request, erp):
     return False
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
@@ -896,6 +891,7 @@ def contrib_commentaire(request, erp_slug):
     )
 
 
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
@@ -914,9 +910,6 @@ def contrib_publication(request, erp_slug):
         form = forms.PublicPublicationForm(request.GET or {"published": True}, instance=erp)
 
     if form.is_valid():
-        if check_auth := check_authentication(request, erp, form, check_online=False):
-            return check_auth
-
         erp = form.save()
         if erp.user is None:
             erp.user = request.user
@@ -962,6 +955,7 @@ def contrib_publication(request, erp_slug):
     )
 
 
+@login_required
 def contrib_completion_rate(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     return render(

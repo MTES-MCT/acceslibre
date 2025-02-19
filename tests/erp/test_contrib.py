@@ -162,7 +162,7 @@ def test_submitting_contrib_edit_info_form_without_info_does_no_trigger_save(dja
     assert Version.objects.get_for_object(erp).count() == 0
 
     url = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
-    page = django_app.get(url)
+    page = django_app.get(url, user=UserFactory())
     edit_page_form = page.forms["contrib-edit-form"]
     response = edit_page_form.submit().follow()
     assert response.status_code == 200
@@ -181,7 +181,7 @@ def test_submitting_contrib_edit_info_form_with_info_does_trigger_save(django_ap
     assert Version.objects.get_for_object(erp).count() == 0
 
     url = reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug})
-    page = django_app.get(url)
+    page = django_app.get(url, user=UserFactory())
     edit_page_form = page.forms["contrib-edit-form"]
     edit_page_form["site_internet"] = "https://example.com"
     response = edit_page_form.submit().follow()

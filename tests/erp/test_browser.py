@@ -300,7 +300,7 @@ def test_ajout_erp_without_auth(client):
     response = client.get(reverse("contrib_start"), follow=True)
 
     assert response.status_code == 200
-    assert "contrib/0-start.html" in [t.name for t in response.templates]
+    assert "registration/login.html" in [t.name for t in response.templates]
 
 
 @pytest.mark.django_db
@@ -317,12 +317,15 @@ def test_ajout_erp(client):
     ActiviteFactory(slug="autre")
     CommuneFactory(nom="JACOU")
 
+    owner = UserFactory()
+
     user = UserFactory()
     user.stats.refresh_from_db()
     initial_nb_created = user.stats.nb_erp_created
     initial_nb_edited = user.stats.nb_erp_edited
     initial_nb_administrator = user.stats.nb_erp_administrator
 
+    client.force_login(owner)
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
 
@@ -350,7 +353,7 @@ def test_ajout_erp(client):
     assert response.status_code == 200
     erp = Erp.objects.get(nom="Test ERP")
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
-    assert erp.user is None
+    assert erp.user.email == owner.email
     assert erp.published is False
     assert erp.geom.x == 3
     assert erp.geom.y == 43
@@ -550,8 +553,11 @@ def test_ajout_erp(client):
     assert_redirect(response, "/contrib/publication/test-erp/")
     assert response.status_code == 200
 
+    # wipe erp owner to check erp attribution
+    erp.user = None
+    erp.save()
+
     # Publication
-    # Public user
     client.force_login(user)
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
@@ -1009,21 +1015,10 @@ def test_contribution_flow_accessibilite_data(client):
     erp = ErpFactory(user=user, nom="Aux bons croissants", commune="Jacou", activite=activite, with_accessibilite=True)
 
     response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
-    assert response.status_code == 200
+    assert response.status_code == 302, "should redirect to login"
 
     user.stats.refresh_from_db()
     initial_nb_edited = user.stats.nb_erp_edited
-
-    client.post(
-        reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
-        data={
-            "transport_station_presence": "False",
-            "contribute": "Continuer",
-        },
-        follow=True,
-    )
-    updated_erp = Erp.objects.get(slug=erp.slug)
-    assert updated_erp.accessibilite.transport_station_presence is None
 
     client.force_login(user)
     response = client.post(
@@ -1147,6 +1142,7 @@ def test_contrib_start_pass_postcode(client):
         "municipality": ["Brest"],
     }
     url = reverse("contrib_start")
+    client.force_login(UserFactory())
     response = client.get(url, payload)
 
     assert response.status_code == 302
@@ -1190,6 +1186,7 @@ def test_contrib_start_pass_postcode_with_districts(client):
 
     url = reverse("contrib_start")
 
+    client.force_login(UserFactory())
     response = client.get(url, payload, follow=True)
     assert response.status_code == 200
     assert response.context["query"] == {
