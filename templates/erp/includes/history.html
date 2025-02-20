@@ -4,9 +4,9 @@
 <div class="list-group list-group-flush">
     {% for entry in erp.get_history %}
         <details class="list-group-item text-overlay">
-            <summary class="no-ouline">
+            <summary>
                 {% if entry.user %}
-                    {% translate "par" %} <strong>{{ entry.user.username|format_username }}</strong>
+                    {% translate "par" %} <span class="fr-text--bold">{{ entry.user.username|format_username }}</span>
                 {% endif %}
                 {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %} {{ entry.date|date:"j/m/Y à H:i"|lower }}
             </summary>

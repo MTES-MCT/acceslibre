@@ -1,11 +1,11 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<header id="article-header">
+<header>
     <div class="fr-grid-row fr-grid-row--center">
-        <h1 class="fr-mb-3v">{{ erp.nom }}</h1>
+        <h1 class="fr-mb-4v text-center">{{ erp.nom }}</h1>
     </div>
-    <div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
     </div>
     <div class="fr-grid-row fr-grid-row--middle gap-2w">
@@ -26,8 +26,8 @@
         </div>
     </div>
     <hr class="fr-hr fr-mt-2w" />
-    <div class="fr-grid-row">
-        <address class="fr-m-0 overflow--hidden">
+    <div class="fr-grid-row address-container">
+        <address class="fr-m-0 overflow--hidden fr-col">
             <p class="fr-mb-3w text--ellipsis">
                 <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
                 <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
@@ -57,12 +57,12 @@
             {% endif %}
         </address>
         {% if erp.adresse %}
-            <div class="fr-col"></div>
+            {#            <div class="fr-col"></div>#}
             <div class="fr-mb-2w">
                 <a href="https://www.google.com/maps/place/{{ erp.adresse }}"
                    target="_blank">{% translate "Itinéraire" %}</a>
             </div>
         </div>
     {% endif %}
-    <hr class="fr-hr" />
+    <hr class="fr-hr fr-pb-0-5v" />
 </header>
