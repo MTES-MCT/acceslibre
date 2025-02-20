@@ -361,6 +361,7 @@ class ExternalSource(models.Model):
     SOURCE_TALLY = "tally"
     SOURCE_LAPOSTE = "laposte"
     SOURCE_RNB = "rnb"
+    SOURCE_AUTO_ECOLE = "auto-ecole"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, translate_lazy("Base de données Acceslibre")),
         (SOURCE_ACCEO, translate_lazy("Acceo")),
@@ -388,6 +389,7 @@ class ExternalSource(models.Model):
         (SOURCE_TALLY, translate_lazy("Tally")),
         (SOURCE_LAPOSTE, translate_lazy("La Poste")),
         (SOURCE_RNB, translate_lazy("Référentiel National des Bâtiments")),
+        (SOURCE_AUTO_ECOLE, translate_lazy("Auto-école")),
     )
 
     erp = models.ForeignKey(
