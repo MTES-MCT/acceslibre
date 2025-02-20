@@ -35,12 +35,12 @@
         <p class="alert alert-warning">
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
-            {% blocktranslate %}
-    Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
-    vous ne pouvez donc pas vous authentifier avec un nouveau compte.
-    Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
-    ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
-    {% endblocktranslate %}
+            {% blocktranslate with username=user.username trimmed %}
+                Vous êtes déjà authentifié en tant que <strong>{{ username }}</strong>,
+                vous ne pouvez donc pas vous authentifier avec un nouveau compte.
+                Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
+                ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
+            {% endblocktranslate %}
         </p>
     {% else %}
         <div class="row">
