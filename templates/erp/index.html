@@ -46,10 +46,13 @@
     </a>
 {% endblock skiplinks %}
 {% block editorial_content %}
-    <main role="main" id="content">
-        <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line"
-           href="{% url 'contrib_global_search' %}">{% translate "Retour" %}</a>
-        <section class="fr-mt-5v">
+    <main role="main" id="content" class="erp-details-container">
+        <section>
+            <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line fr-mb-2w"
+               href="{% url 'contrib_global_search' %}">{% translate "Retour" %}</a>
+            {% include "erp/includes/header.html" %}
+        </section>
+        <section>
             {% if 'success' in request.GET and messages %}
                 <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center fr-mb-5v">
                     <span class="h1 mb-0">{% translate "Merci !" %}</span>
@@ -64,11 +67,11 @@
                     <a class="fr-mt-2v fr-btn" href="{% url 'contrib_start' %}">{% translate "Ajoutez un nouvel établissement" %}</a>
                 </div>
             {% endif %}
-            {% include "erp/includes/header.html" %}
             {% if access.labels %}
                 {% include "erp/includes/labels.html" %}
             {% endif %}
-            <div class="fr-grid-row fr-col-12 fr-col-md-10 justify-self--center fr-mb-6w">
+            <h2 class="text-center fr-mb-4w fr-mb-md-6w">{% translate "Informations sur l’accessibilité" %}</h2>
+            <div class="fr-grid-row fr-col-12 fr-col-md-10 justify-self--center">
                 {% include "erp/includes/filters.html" %}
                 <div id="filter-controller"
                      class="fr-col fr-accordions-group  remove-section-if-empty"
@@ -104,12 +107,14 @@
             </div>
         </section>
         {% include "erp/includes/ctas.html" %}
-        <div class="fr-grid-row">
+        <section class="fr-grid-row">
             <div class="fr-col-12">{% include "erp/includes/widget_block.html" %}</div>
-        </div>
-        <section class="fr-my-6w">
+        </section>
+        <section>
             {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
         </section>
-        <div class="fr-col-12">{% include "erp/includes/versions_block.html" %}</div>
+        <section>
+            {% include "erp/includes/versions_block.html" %}
+        </section>
     </main>
 {% endblock editorial_content %}
