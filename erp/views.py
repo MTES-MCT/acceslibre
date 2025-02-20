@@ -738,6 +738,7 @@ def contrib_a_propos(request, erp_slug):
             "current_step_url": reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
+            "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "page_type": "contrib-form",
         },
     )
