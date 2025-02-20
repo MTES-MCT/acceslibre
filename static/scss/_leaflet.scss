@@ -19,3 +19,8 @@
     background-image: none;
   }
 }
+
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+  background-color: #f4f4f4 !important;
+}
