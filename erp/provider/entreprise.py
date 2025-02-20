@@ -125,7 +125,8 @@ def search(terms, code_insee, activities):
         raise RuntimeError(f"entreprise api error: {err}")
 
 
-def check_closed(term, code_insee):
+def check_closed(name, address, code_insee):
+    term = f"{name}, {address}"
     payload = {
         "per_page": MAX_PER_PAGE,
         "page": 1,
@@ -133,15 +134,27 @@ def check_closed(term, code_insee):
         "code_insee": code_insee,
         "categorie_entreprise": "PME,ETI",
     }
-    res = requests.get(
-        f"{BASE_URL_ENTERPRISE_API}",
-        payload,
-        timeout=5,
-    )
+    res = requests.get(f"{BASE_URL_ENTERPRISE_API}", payload, timeout=5)
     try:
         if not (len(results := (res.json().get("results") or [])) == 1):
             return False
     except (requests.exceptions.JSONDecodeError, requests.exceptions.ReadTimeout):
         return False
 
-    return results[0].get("siege", {}).get("date_fermeture") is not None
+    closed = results[0].get("siege", {}).get("date_fermeture") is not None
+    if not closed:
+        return False
+
+    # Do the same request without the erp name parameter nor the code_insee to obtain other ERPs at the same address.
+    # If we have more than one result, we can't consider the ERP as closed.
+    payload["q"] = address
+    del payload["code_insee"]
+
+    res = requests.get(f"{BASE_URL_ENTERPRISE_API}", payload, timeout=5)
+    try:
+        if len(res.json().get("results") or []) > 1:
+            return False
+    except (requests.exceptions.JSONDecodeError, requests.exceptions.ReadTimeout):
+        return False
+
+    return True

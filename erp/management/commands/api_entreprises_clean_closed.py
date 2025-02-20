@@ -66,7 +66,9 @@ class Command(BaseCommand):
             query = f"{erp.numero} {erp.voie}" if erp.numero else erp.lieu_dit
             query = f"{erp.nom}, {query} {erp.code_postal} {erp.commune}"
 
-            if check_closed(query, erp.commune_ext.code_insee):
+            query_address = f"{erp.numero} {erp.voie}" if erp.numero else erp.lieu_dit
+            query_address = f"{query_address} {erp.code_postal} {erp.commune}"
+            if check_closed(erp.nom, query_address, erp.commune_ext.code_insee):
                 self._flag_erp_as_closed(erp)
                 continue
 
