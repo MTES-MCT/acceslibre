@@ -23,7 +23,7 @@ pytest-socket = "*"
 [packages]
 coreapi = "*"
 Django = "==4.2.18"
-django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
+django-admin-autocomplete-filter = "*"
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
 django-better-admin-arrayfield = "*"
