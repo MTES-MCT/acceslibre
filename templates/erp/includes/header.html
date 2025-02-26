@@ -27,13 +27,13 @@
     </div>
     <hr class="fr-hr fr-mt-2w" />
     <div class="fr-grid-row address-container">
-        <address class="fr-m-0 overflow--hidden fr-col">
+        <address class="fr-m-0 fr-col">
             <p class="fr-mb-3w text--ellipsis">
                 <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
                 <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
             </p>
             {% if erp.telephone %}
-                <p class="fr-mb-3w">
+                <p class="fr-mb-3w text--ellipsis">
                     <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
                 </p>
             {% endif %}
@@ -59,7 +59,8 @@
         {% if erp.adresse %}
             {#            <div class="fr-col"></div>#}
             <div class="fr-mb-2w">
-                <a href="https://www.google.com/maps/place/{{ erp.adresse }}"
+                <a class="fr-link"
+                   href="https://www.google.com/maps/place/{{ erp.adresse }}"
                    target="_blank">{% translate "Itinéraire" %}</a>
             </div>
         </div>
