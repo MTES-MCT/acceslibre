@@ -12,55 +12,106 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Contactez-nous" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <h1 class="h3 text-center fr-mb-4v">{% translate "Contactez-nous" %}</h1>
-    <div class="row justify-content-md-center fr-p-2v">
-        <form id="contact-form"
-              action="."
-              method="post"
-              novalidate
-              autocomplete
-              class="fr-col-md-12 fr-mb-4v">
+    <h1>{% translate "Contactez-nous" %}</h1>
+    <p>{% translate "* Tous les champs sont obligatoires" %}</p>
+    <div>
+        <form id="contact-form" action="." method="post" autocomplete>
             {% csrf_token %}
             {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
-            <div class="row fr-m-0 fr-mb-2v">
-                <div class="fr-col-12 fr-col-lg-6 fr-pl-1v fr-pr-1v">{{ form.email|as_crispy_field }}</div>
-                <div class="fr-col-12 fr-col-lg-6 fr-pl-1v fr-pr-1v">{{ form.name|as_crispy_field }}</div>
-            </div>
-            <div class="fr-select-group fr-col-lg-6">
-                <select class="fr-select" id="topic" name="topic">
-                    {% for value, name in form.fields.topic.choices %}
-                        <option value="{{ value }}"
-                                {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            {{ form.erp|as_crispy_field }}
-            {% if erp %}
-                <div class="fr-highlight fr-m-2v fr-mb-4v">
-                    <span>{% translate "Établissement :" %} {{ erp.nom }} ({{ erp.commune_ext.nom }})</span>
-                    <span><a class="bold" href="{{ erp.get_absolute_url }}">» {% translate "Retour à la fiche" %}</a></span>
-                </div>
-                {% if erp.activite %}
-                    <div class="fr-alert fr-alert--info fr-mb-2v">
-                        <p>
-                            {% blocktranslate %}
-                        Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class="bold" href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank" rel="noopener noreferrer">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée.{% endblocktranslate %}
-                            <br>
-                        </p>
+            <div class="display--flex direction--column gap-4w">
+                <div class="display--flex gap-3w flex--wrap">
+                    <div class="fr-col-12 fr-col-lg">
+                        <div class="fr-input-group">
+                            <label for="id_email" class="fr-label">
+                                {% translate "Adresse e-mail*" %} <span class="fr-hint-text">{% translate "Format attendu : adresse@herbergeur.com" %}</span>
+                            </label>
+                            {{ form.email }}
+                        </div>
                     </div>
+                    <div class="fr-col-12 fr-col-lg align-self--end">
+                        <div class="fr-input-group">
+                            <label for="id_name" class="fr-label">
+                                {% translate "Nom*" %}<span class="fr-hint-text"></span>
+                            </label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="fr-select-group fr-col-lg-7">
+                        <label class="fr-label" for="topic">{% translate "Sujet de votre demande*" %}</label>
+                        <select class="fr-select" id="topic" name="topic">
+                            {% for value, name in form.fields.topic.choices %}
+                                <option value="{{ value }}"
+                                        {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                {{ form.erp }}
+                {% if erp %}
+                    <div class="fr-highlight fr-m-2v fr-mb-4v">
+                        <span>{% translate "Établissement :" %} {{ erp.nom }} ({{ erp.commune_ext.nom }})</span>
+                        <span><a class="bold" href="{{ erp.get_absolute_url }}">» {% translate "Retour à la fiche" %}</a></span>
+                    </div>
+                    {% if erp.activite %}
+                        <div class="fr-alert fr-alert--info fr-mb-2v">
+                            <p>
+                                {% blocktranslate %}
+                        Votre message sera transmis à l'équipe d'acceslibre qui gère les informations d'<a class="bold" href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank" rel="noopener noreferrer">accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée.{% endblocktranslate %}
+                                <br>
+                            </p>
+                        </div>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-            {{ form.body|as_crispy_field }}
-            {{ form.user|as_crispy_field }}
-            {{ form.next|as_crispy_field }}
-            {{ form.robot|as_crispy_field }}
-            <div class="form-group">
-                <button type="submit"
-                        class="fr-btn fr-btn-primary d-block w-100 text-center fr-mt-2v">
-                    {% translate "Envoyer" %}
-                </button>
+                <div class="fr-col-12">
+                    <div class="fr-input-group">
+                        <label for="id_body" class="fr-label">
+                            {% translate "Message*" %}
+                            <span class="fr-hint-text">{% translate "Texte de description additionnel" %}</span>
+                        </label>
+                        {{ form.body }}
+                    </div>
+                </div>
+                {{ form.user }}
+                {{ form.next }}
+                <div class="fr-checkbox-group">
+                    <input type="checkbox"
+                           id="{{ form.robot.id_for_label }}"
+                           name="{{ form.robot.name }}" />
+                    <label for="{{ form.robot.id_for_label }}" class="fr-label">{{ form.robot.label }}*</label>
+                </div>
+                <div class="align-self--end">
+                    <button type="submit" class="fr-btn">{% translate "Envoyer ma demande" %}</button>
+                </div>
             </div>
         </form>
+        <div class="fr-mt-2w">
+            <p class="fr-mb-2w">{% translate "Une question ? Avez-vous parcouru notre page de questions fréquentes ?" %}</p>
+            <a href="{% url "faq" %}"
+               class="fr-link fr-link--icon-right fr-icon-arrow-right-line">{% translate "Aller aux questions fréquentes" %}</a>
+        </div>
     </div>
 {% endblock editorial_content %}

@@ -45,6 +45,12 @@
   }
 }
 
+.flex {
+  &--wrap {
+    flex-wrap: wrap;
+  }
+}
+
 @mixin line-clamp($lines) {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,12 +90,23 @@
   &--column {
     flex-direction: column;
   }
+  &--row {
+    flex-direction: row;
+  }
 }
 
 .justify {
   &-self {
     &--center {
       justify-self: center;
+    }
+  }
+}
+
+.align {
+  &-self {
+    &--end {
+      align-self: end;
     }
   }
 }
