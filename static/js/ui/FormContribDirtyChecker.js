@@ -15,6 +15,13 @@ const INPUT_SELECTORS = [
 
 const BLACKLISTED_CLASS_SELECTORS = ['leaflet-control-layers-selector']
 
+function purifyRedirectionUrl(content) {
+  const el = document.createElement('span')
+  el.textContent = content
+
+  return el.textContent
+}
+
 async function FormContribDirtyChecker(root) {
   const dropdown = document.querySelector('#contrib-edit-cta')
   const csrfToken = document.querySelector('input[type="hidden"][name="csrfmiddlewaretoken"]')?.value
@@ -92,7 +99,7 @@ async function FormContribDirtyChecker(root) {
       const redirectionUrl = e.target.value
 
       if (redirectionUrl) {
-        window.location.assign(new URL(redirectionUrl, window.location.origin))
+        window.location.assign(new URL(purifyRedirectionUrl(redirectionUrl), window.location.origin))
       }
     } else {
       openModalBtn.click()
@@ -104,7 +111,7 @@ async function FormContribDirtyChecker(root) {
 
     if (!redirectionUrl) return
 
-    window.location.assign(new URL(redirectionUrl, window.location.origin))
+    window.location.assign(new URL(purifyRedirectionUrl(redirectionUrl), window.location.origin))
   })
 
   saveBtn.addEventListener('click', async () => {
@@ -159,7 +166,7 @@ async function FormContribDirtyChecker(root) {
           dom.mountOne('.contrib-container', ui.FormContribDirtyChecker)
         } else {
           setLocalStorageNotificationSuccess()
-          window.location.assign(new URL(redirectionUrl, window.location.origin))
+          window.location.assign(new URL(purifyRedirectionUrl(redirectionUrl), window.location.origin))
         }
       })
       .catch(() => {
