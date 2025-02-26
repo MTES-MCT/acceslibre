@@ -127,7 +127,6 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "accessibilite",
             "latitude",
             "longitude",
-            "source",
             "geoloc_provider",
             "source",
             "source_id",
