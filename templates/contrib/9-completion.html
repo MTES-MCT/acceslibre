@@ -1,4 +1,5 @@
 {% extends "contrib/base_access_form.html" %}
+{% load static %}
 {% load a4a %}
 {% load i18n %}
 {% load crispy_forms_tags %}
@@ -11,11 +12,36 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block fields_content %}
-    <p>{% translate "Merci pour votre contribution" %}</p>
-    <p>
-        {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
-    Selon les informations que vous avez fournies, la fiche {{ name }} est maintenant complétée à :
-    {{ completion_rate }}%
-    {% endblocktranslate %}
-    </p>
+    <h1>
+        {% if erp.published %}
+            {% translate "Fiche d’établissement modifiée avec succès !" %}
+        {% else %}
+            {% translate "Fiche d’établissement créée avec succès !" %}
+        {% endif %}
+    </h1>
+    <div class="contrib-completion-container fr-p-3w">
+        <p class="fr-text--xl fr-text--bold">{% translate "Merci pour votre contribution" %}</p>
+        <p>
+            {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
+                Selon les informations que vous avez fournies, la fiche <span class="fr-text--bold">{{ name }}</span>
+                est maintenant complétée à :
+                <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
+            {% endblocktranslate %}
+        </p>
+        <div class="fr-grid-row  fr-grid-row--center">
+            <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
+                <li>
+                    <a class="fr-btn" href="{{ erp.get_absolute_url }}">{% translate "Voir l'établissement" %}</a>
+                </li>
+                <li>
+                    <a class="fr-btn fr-btn--secondary" href="{% url "home" %} ">{% translate "Retour à l'accueil" %}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="fr-grid-row fr-grid-row--center fr-mt-2w">
+        <img class="fr-responsive-img fr-responsive-img--32x9"
+             src="{% static 'img/contrib/completion-rate-illustration.png' %}"
+             alt="" />
+    </div>
 {% endblock fields_content %}

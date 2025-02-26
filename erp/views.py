@@ -32,7 +32,7 @@ from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Dep
 from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import get_equipments, get_equipments_shortcuts
-from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict
+from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -547,12 +547,23 @@ def contrib_admin_infos(request):
     data_error = None
     existing_matches = None
     duplicated = False
+    suggested_activity = None
+
     if request.method == "POST":
         form = forms.PublicErpAdminInfosForm(request.POST, ignore_duplicate_check=request.POST.get("force") == "1")
         if form.is_valid():
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
             ).with_activity()
+
+            suggested_activity = form.data.get("nouvelle_activite")
+
+            if suggested_activity:
+                widget = form.fields["nouvelle_activite"].widget
+                widget.attrs["class"] = " ".join(
+                    [cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"]
+                )
+
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
@@ -561,7 +572,7 @@ def contrib_admin_infos(request):
                 erp.save(editor=request.user)
                 if erp.has_miscellaneous_activity:
                     ActivitySuggestion.objects.create(
-                        name=form.cleaned_data["nouvelle_activite"], erp=erp, user=request.user
+                        name=form.cleaned_data.get("nouvelle_activite"), erp=erp, user=request.user
                     )
                 messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
@@ -591,17 +602,27 @@ def contrib_admin_infos(request):
             external_erp = Erp(**data_erp)
         form = forms.PublicErpAdminInfosForm(initial=data)
 
+        if data["nouvelle_activite"]:
+            widget = form.fields["nouvelle_activite"].widget
+            widget.attrs["class"] = " ".join([cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"])
+            suggested_activity = data["nouvelle_activite"]
+
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
             "next_step_title": schema.SECTION_A_PROPOS,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug) if erp and hasattr(erp, "slug") else None,
+            "current_step_url": reverse("contrib_admin_infos", kwargs={"erp_slug": erp.slug})
+            if erp and hasattr(erp, "slug")
+            else None,
             "form": form,
             "data_error": data_error,
             "existing_matches": existing_matches,
             "erp": erp,
             "external_erp": external_erp,
+            "suggested_activity": suggested_activity,
             "other_activity": Activite.objects.only("id").get(slug=Activite.SLUG_MISCELLANEOUS),
             "duplicated": duplicated,
             "map_options": json.dumps(
@@ -610,6 +631,7 @@ def contrib_admin_infos(request):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -648,7 +670,11 @@ def contrib_edit_infos(request, erp_slug):
                 messages.SUCCESS,
                 translate("Les données ont été enregistrées."),
             )
-            return redirect(next_route, erp_slug=erp.slug)
+
+            if "publier" in request.POST and erp.published:
+                return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
+            else:
+                return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
 
@@ -658,9 +684,13 @@ def contrib_edit_infos(request, erp_slug):
         context={
             "step": 1,
             "next_step_title": libelle_next,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
+            "current_step_url": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
             "other_activity": Activite.objects.only("id").get(slug="autre"),
+            "suggested_activity": None,
+            "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
             "map_options": json.dumps(
                 {
@@ -668,6 +698,7 @@ def contrib_edit_infos(request, erp_slug):
                     "gestureHandling": True,
                 }
             ),
+            "page_type": "contrib-form",
         },
     )
 
@@ -708,8 +739,12 @@ def contrib_a_propos(request, erp_slug):
             "step": 2,
             "prev_route": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
             "next_step_title": schema.SECTION_TRANSPORT,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
+            "current_step_url": reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
+            "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+            "page_type": "contrib-form",
         },
     )
 
@@ -722,6 +757,7 @@ def process_accessibilite_form(
     form_fields,
     template_name,
     redirect_route,
+    current_step_url,
     prev_route=None,
     next_step_title=None,
 ):
@@ -780,11 +816,14 @@ def process_accessibilite_form(
         context={
             "step": step,
             "next_step_title": next_step_title,
+            "current_step_url": current_step_url,
+            "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
+            "page_type": "contrib-form",
         },
     )
 
@@ -807,6 +846,7 @@ def contrib_transport(request, erp_slug):
         "contrib_exterieur",
         prev_route=prev_route,
         next_step_title=schema.SECTION_CHEMINEMENT_EXT,
+        current_step_url=reverse("contrib_transport", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -822,6 +862,7 @@ def contrib_exterieur(request, erp_slug):
         "contrib_entree",
         prev_route="contrib_transport",
         next_step_title=schema.SECTION_ENTREE,
+        current_step_url=reverse("contrib_exterieur", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -837,6 +878,7 @@ def contrib_entree(request, erp_slug):
         "contrib_accueil",
         prev_route="contrib_exterieur",
         next_step_title=schema.SECTION_ACCUEIL,
+        current_step_url=reverse("contrib_entree", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -852,6 +894,7 @@ def contrib_accueil(request, erp_slug):
         "contrib_commentaire",
         prev_route="contrib_entree",
         next_step_title=schema.SECTION_COMMENTAIRE,
+        current_step_url=reverse("contrib_accueil", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -893,6 +936,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib_publication",
         prev_route="contrib_accueil",
         next_step_title=None,
+        current_step_url=reverse("contrib_commentaire", kwargs={"erp_slug": erp_slug}),
     )
 
 
@@ -968,6 +1012,7 @@ def contrib_completion_rate(request, erp_slug):
         context={
             "step": 9,
             "erp": erp,
+            "page_type": "contrib-form",
         },
     )
 

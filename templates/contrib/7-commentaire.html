@@ -1,6 +1,5 @@
 {% extends "contrib/base_access_form.html" %}
 {% load a4a %}
-{% load crispy_forms_tags %}
 {% load i18n %}
 {% block page_title %}
     {% translate "Commentaire et informations complémentaires" %}
@@ -8,68 +7,92 @@
 {% block full_infos %}
 {% endblock full_infos %}
 {% block contrib_title %}
-    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de {{ erp_commune }}{% endblocktranslate %}
+    {% blocktranslate with erp_nom=erp.nom erp_commune=erp.commune_ext %}{{ erp_nom }} de
+        {{ erp_commune }}{% endblocktranslate %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 7 sur 7" %}</small>
+    {% translate "Informations complémentaires" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="7" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="7" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
-{% block contrib_subtitle %}
-    {% translate "Informations d'accessibilité" %}
-{% endblock contrib_subtitle %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    <h3 class="h4">{% translate "Informations complémentaires" %}</h3>
-    {% include "fields/checkbox.html" with field=form.labels inline=True %}
-    {% include "fields/textarea.html" with field=form.labels_autre extraclasses="hidden" extraid="field-labels_autre" %}
-    {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraclasses="hidden" extraid="field-labels_familles_handicap" %}
+    <div class="contrib-inputs-section-wrapper">
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/checkbox.html" with field=form.labels inline=True %}
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
+            </div>
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            <h2 class="fr-text--xl fr-text--bold fr-mb-1w">
+                {% translate "Informations complémentaires et prestations spécifiques" %}
+            </h2>
+            {% include "fields/textarea.html" with field=form.commentaire %}
+        </div>
+    </div>
     <script nonce="{{ request.csp_nonce }}">
-     document.addEventListener("DOMContentLoaded", function () {
-      const fieldFamilles = document.querySelector("#field-labels_familles_handicap");
-      const fieldAutre = document.querySelector("#field-labels_autre");
-      const otherInput = document.querySelector("#id_labels_autre");
+      document.addEventListener('DOMContentLoaded', function() {
 
-      function getCheckedLabels() {
-        const checkedCheckboxes = document.querySelectorAll("input[name=labels]:checked");
-        const valuesArray = [];
+        const fieldFamilles = document.querySelector('#field-labels_familles_handicap')
+        const fieldAutre = document.querySelector('#field-labels_autre')
+        const otherInput = document.querySelector('#id_labels_autre')
 
-        checkedCheckboxes.forEach(function (checkbox) {
-          valuesArray.push(checkbox.value);
-        });
+        function getCheckedLabels() {
+          const checkedCheckboxes = document.querySelectorAll('input[name=labels]:checked')
+          const valuesArray = []
 
-        return valuesArray;
-      }
+          checkedCheckboxes.forEach(function(checkbox) {
+            valuesArray.push(checkbox.value)
+          })
 
-      function checkDisplay() {
-        const checkedLabels = getCheckedLabels();
-        if (checkedLabels.includes("autre") || checkedLabels.includes("other")) {
-          fieldAutre.classList.remove("hidden");
-          otherInput.setAttribute("required", "required");
-        } else {
-          fieldAutre.classList.add("hidden");
-          otherInput.value = "";
-          otherInput.removeAttribute("required");
+          return valuesArray
         }
 
-        if (checkedLabels.includes("th")) {
-          fieldFamilles.classList.remove("hidden");
-        } else {
-          fieldFamilles.classList.add("hidden");
-          const checkboxes = fieldFamilles.querySelectorAll("input[type=checkbox]");
-          checkboxes.forEach(function (input) {
-            input.checked = false;
-          });
+        function checkDisplay() {
+          const checkedLabels = getCheckedLabels()
+
+          if (checkedLabels.includes('autre') || checkedLabels.includes('other')) {
+            fieldAutre.closest('.contrib-inputs-section').classList.remove('hidden')
+            otherInput.setAttribute('required', 'required')
+          } else {
+            fieldAutre.closest('.contrib-inputs-section').classList.add('hidden')
+            otherInput.value = ''
+            otherInput.removeAttribute('required')
+          }
+
+          if (checkedLabels.includes('th')) {
+            fieldFamilles.closest('.contrib-inputs-section').classList.remove('hidden')
+          } else {
+            fieldFamilles.closest('.contrib-inputs-section').classList.add('hidden')
+            const checkboxes = fieldFamilles.querySelectorAll('input[type=checkbox]')
+            checkboxes.forEach(function(input) {
+              input.checked = false
+            })
+          }
         }
-      }
 
-      document.querySelectorAll("input[name=labels]").forEach(function (input) {
-        input.addEventListener("change", checkDisplay);
-      });
+        document.querySelectorAll('input[name=labels]').forEach(function(input) {
+          input.addEventListener('change', checkDisplay)
+        })
 
-      checkDisplay();
-    });
+        checkDisplay()
+      })
 
     </script>
-    {{ form.commentaire|as_crispy_field }}
 {% endblock fields_content %}

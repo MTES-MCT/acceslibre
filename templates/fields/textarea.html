@@ -1,13 +1,16 @@
 {% load a4a %}
-<div class="field-{{ field.name }} fr-mb-3v {{ extraclasses }}"
+<div class="field-{{ field.name }} fr-mb-3w"
      {% if extraid %}id="{{ extraid }}"{% endif %}>
-    <label for="{{ field.id_for_label }}" class="mb-0">
-        <strong tabindex="0">{{ field.label }}</strong>
-        <br>
-    </label>
-    <div class="form-group">
-        <p tabindex="0">{{ field.help_text|safe }}</p>
-        {{ field|addclass:"form-control" }}
-        {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
-    </div>
+    <fieldset class="fr-fieldset">
+        <div class="fr-fieldset__content">
+            <div class="fr-input-group">
+                <label class="fr-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                    <span class="fr-hint-text">{{ field.help_text|safe }}</span>
+                </label>
+                {{ field|addclass:"fr-input" }}
+                {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
+            </div>
+        </div>
+    </fieldset>
 </div>

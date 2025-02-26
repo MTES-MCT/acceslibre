@@ -1,0 +1,36 @@
+{% load a4a static %}
+{% load i18n %}
+{% block contrib_step %}
+    <div class="contrib-edit-container fr-p-4w">
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step=current_step total_steps="7" %}
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-md-6">
+                <div class="fr-select-group">
+                    <label class="fr-label" for="contrib-edit-cta">{% translate "Étape" %}</label>
+                    <select class="fr-select"
+                            id="contrib-edit-cta"
+                            data-current-url="{{ current_step_url }}">
+                        {% for option in contrib_steps_with_url %}
+                            <option value="{{ option.url }}"
+                                    {% if current_step_url == option.url %}selected{% endif %}>
+                                {{ forloop.counter }}.
+                                {{ option.step_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md fr-grid-row fr-col--bottom fr-grid-row--right">
+                <button id="contrib-edit-open-btn"
+                        class="fr-btn hidden"
+                        aria-controls="contrib-edit-modal-controls"
+                        data-fr-opened="false"></button>
+                <input id="contrib-edit-modal-validate-btn"
+                       type="submit"
+                       class="fr-btn"
+                       name="publier"
+                       value="{% translate "Valider et publier" %}">
+            </div>
+        </div>
+    </div>
+{% endblock contrib_step %}

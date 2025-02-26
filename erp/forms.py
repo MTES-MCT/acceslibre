@@ -365,8 +365,9 @@ class BasePublicErpInfosForm(BaseErpForm):
         label="",
         widget=forms.TextInput(
             attrs={
-                "class": "hidden",
+                "class": "fr-input hidden",
                 "id": "new_activity",
+                "aria-describedby": "nouvelle-activite-error-message",
             }
         ),
     )
@@ -412,16 +413,34 @@ class BasePublicErpInfosForm(BaseErpForm):
             "source": forms.HiddenInput(),
             "source_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
-            "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
-            "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
-            "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés"}),
-            "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
-            "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
-            "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
-            "contact_email": forms.EmailInput(attrs={"placeholder": translate_lazy("ex: nom@domain.tld")}),
-            "site_internet": forms.URLInput(attrs={"placeholder": "ex: http://etablissement.com"}),
-            "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
-            "contact_url": forms.URLInput(attrs={"placeholder": "https://mon-etablissement.fr/contactez-nous.html"}),
+            "nom": forms.TextInput(
+                attrs={
+                    "placeholder": "ex: La ronde des fleurs",
+                    "class": "fr-input",
+                    "aria-describedby": "nom-error-message",
+                }
+            ),
+            "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis", "class": "fr-input"}),
+            "voie": forms.TextInput(
+                attrs={"placeholder": "ex: rue des prés", "class": "fr-input", "aria-describedby": "voie-error-message"}
+            ),
+            "lieu_dit": forms.TextInput(
+                attrs={
+                    "placeholder": "ex: le Val du Puits",
+                    "class": "fr-input",
+                    "aria-describedby": "lieu-dit-error-message",
+                }
+            ),
+            "code_postal": forms.TextInput(
+                attrs={"placeholder": "ex: 75001", "class": "fr-input", "aria-describedby": "code-postal-error-message"}
+            ),
+            "commune": forms.TextInput(
+                attrs={"placeholder": "ex: Paris", "class": "fr-input", "aria-describedby": "commune-error-message"}
+            ),
+            "contact_email": forms.EmailInput(attrs={"class": "fr-input"}),
+            "site_internet": forms.URLInput(attrs={"class": "fr-input"}),
+            "telephone": forms.TextInput(attrs={"class": "fr-input"}),
+            "contact_url": forms.URLInput(attrs={"class": "fr-input"}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -432,12 +451,16 @@ class BasePublicErpInfosForm(BaseErpForm):
         if instance and instance.activite:
             self.fields["activite"] = ActivityField(initial=instance.activite)
             if instance.has_miscellaneous_activity:
-                self.fields["nouvelle_activite"].widget = forms.TextInput(attrs={"id": "new_activity"})
+                self.fields["nouvelle_activite"].widget = forms.TextInput(
+                    attrs={"id": "new_activity", "class": "fr-input hidden"}
+                )
         elif initial:
             self.fields["activite"] = ActivityField(initial=initial.get("activite_slug"))
             if initial.get("activite_slug") == Activite.SLUG_MISCELLANEOUS and initial.get("new_activity"):
                 self.fields["nouvelle_activite"].initial = initial.get("new_activity")
-                self.fields["nouvelle_activite"].widget = forms.TextInput(attrs={"id": "new_activity"})
+                self.fields["nouvelle_activite"].widget = forms.TextInput(
+                    attrs={"id": "new_activity", "class": "fr-input hidden"}
+                )
         else:
             self.fields["activite"] = ActivityField()
 
@@ -631,7 +654,7 @@ class PublicAProposForm(forms.ModelForm):
     registre_url = forms.URLField(
         label=translate_lazy("Registre d'accessibilité"),
         help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}),
+        widget=forms.TextInput(attrs={"type": "url", "autocomplete": "off"}),
         required=False,
     )
     conformite = forms.ChoiceField(

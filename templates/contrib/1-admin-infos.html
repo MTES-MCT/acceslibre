@@ -10,176 +10,268 @@
     {% endif %}
 {% endblock page_title %}
 {% block contrib_title %}
-    {% translate "Ajouter les données d'accessibilité d'un établissement" %}
+    {% if erp %}
+        {% translate "Modifier un établissement" %}
+    {% else %}
+        {% translate "Ajouter un établissement" %}
+    {% endif %}
 {% endblock contrib_title %}
 {% block contrib_step %}
-    <small>{% translate "Étape 1 sur 7" %}</small>
+    {% translate "Informations" as step_name %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-block.html" with step_name=step_name current_step="1" %}
+    {% else %}
+        {% include "contrib/includes/stepper.html" with step_name=step_name current_step="1" total_steps="7" %}
+    {% endif %}
 {% endblock contrib_step %}
-{% block contrib_subtitle %}
-    {% translate "L'établissement" %}
-{% endblock contrib_subtitle %}
+{% block contrib_modal %}
+    {% if erp.published %}
+        {% include "contrib/includes/contrib-edit-modal.html" %}
+    {% endif %}
+{% endblock contrib_modal %}
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
 {% block contrib_content %}
-    <div class="fr-col-md-9">
-        <h3 class="h3 fr-mb-3v">{% translate "Adresse de l'établissement" %}</h3>
-        <form id="contrib-edit-form"
-              action=""
-              method="post"
-              class="mb-4"
-              novalidate>
+    <div class="fr-col-12">
+        {% if existing_matches %}
+            <div class="fr-alert fr-alert--warning fr-mb-4w">
+                <h3 class="fr-alert__title">{% translate "Attention : Établissement(s) existant(s)" %}</h3>
+                <p>
+                    {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
+                </p>
+            </div>
+        {% endif %}
+        {% if existing_matches %}
+            <div class="fr-grid-row fr-grid-row--gutters">
+                {% for erp in existing_matches %}
+                    <div class="fr-col-12 fr-col-sm-6 fr-col-lg-4">
+                        <div class="fr-card fr-card--lg">
+                            <div class="fr-card__body">
+                                <div class="fr-card__content">
+                                    <h3 class="fr-card__title">
+                                        <!-- rank: {{ erp.rank }} -->
+                                        <a href="{{ erp.get_absolute_url }}">
+                                            <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                                            {% if where|startswith:"Autour de moi" and erp.distance %}
+                                                <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
+                                            {% endif %}
+                                            {{ erp.nom }}
+                                        </a>
+                                    </h3>
+                                    <div class="fr-card__desc">
+                                        {% if erp.adresse %}<address>{{ erp.adresse }}</address>{% endif %}
+                                        {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+                                    </div>
+                                </div>
+                                <div class="fr-card__footer">
+                                    <a class="fr-btn fr-btn--secondary fr-btn--sm fr-btn--icon-left fr-icon-pencil-line"
+                                       href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
+                                        {% translate "Améliorez ces informations" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form id="contrib-edit-form" action="" method="post" novalidate>
             {% csrf_token %}
-            {{ form.geom|as_crispy_field }}
-            {{ form.source|as_crispy_field }}
-            {{ form.source_id|as_crispy_field }}
-            {{ form.asp_id|as_crispy_field }}
-            {{ form.user_type|as_crispy_field }}
+            {{ form.geom }}
+            {{ form.source }}
+            {{ form.source_id }}
+            {{ form.asp_id }}
+            {{ form.user_type }}
             {% if form.non_field_errors %}
-                <div class="alert alert-warning" role="alert">
-                    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-                    {% translate "Attention, des erreurs ont été rencontrées." %}
-                    <ul class="my-1">
+                <div class="fr-alert fr-alert--warning fr-mb-4w">
+                    <p>{% translate "Attention, des erreurs ont été rencontrées." %}</p>
+                    <ul>
                         {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
                     </ul>
                 </div>
             {% endif %}
             {% if data_error %}<div class="alert alert-danger">{{ data_error }}</div>{% endif %}
             {% if existing_matches or duplicated %}
-                {% if existing_matches %}
-                    <div class="alert alert-warning">
-                        <p>
-                            <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-                            {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
+                {% if duplicated or existing_matches %}
+                    <div class="fr-col-12">
+                        <p class="fr-col-12 fr-my-4w">
+                            <button class="fr-btn fr-btn--icon-left fr-icon-pencil-line"
+                                    type="submit"
+                                    name="force"
+                                    value="1">{% translate "Continuer ma saisie d'un nouvel établissement" %}</button>
                         </p>
                     </div>
                 {% endif %}
-                <div class="list-group list-group-flush">
-                    {% if existing_matches %}
-                        <div class="row">
-                            <div class="fr-col-md-12">
-                                {% for erp in existing_matches %}
-                                    <div class="d-flex justify-content-between align-items-center fr-pt-2v fr-pr-2v fr-pb-1v fr-pl-0">
-                                        <div>
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h2 class="h6 font-weight-bold w-100 mb-0 fr-pb-0">
-                                                    <!-- rank: {{ erp.rank }} -->
-                                                    <a href="{{ erp.get_absolute_url }}">
-                                                        <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                                                        {% if where|startswith:"Autour de moi" and erp.distance %}
-                                                            <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
-                                                        {% endif %}
-                                                        {{ erp.nom }}
-                                                    </a>
-                                                </h2>
-                                                <span class="fr-sr-only">{{ erp.adresse }}</span>
-                                            </div>
-                                            <div aria-hidden="true">
-                                                {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
-                                                <address class="d-inline mb-0">
-                                                    <small>{{ erp.adresse }}</small>
-                                                </address>
-                                            </div>
-                                        </div>
+            {% endif %}
+            <div class="contrib-inputs-section-wrapper fr-col-12">
+                <div class="contrib-inputs-section fr-py-3w fr-px-2w">
+                    <fieldset class="fr-fieldset">
+                        <legend class="fr-fieldset__legend fr-px-3w fr-mx-0">
+                            <h3 class="fr-mb-0">{% translate "Nom et adresse de l'établissement" %}</h3>
+                        </legend>
+                        <p class="fr-px-3w">{% translate "Champs obligatoires *" %}</p>
+                        <div class="fr-fieldset__content">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group {% if form.errors.nom %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_nom">{% translate "Nom *" %}</label>
+                                    {{ form.nom }}
+                                    {% if form.errors.nom %}
+                                        <p class="fr-error-text" id="nom-error-message">{% translate "Nom obligatoire" %}</p>
+                                    {% endif %}
+                                </div>
+                                {# Activity section #}
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group {% if form.errors.activite %}fr-input-group--error{% endif %}">
+                                    <div id="autocomplete-activity"
+                                         class="autocomplete {% if suggested_activity %}hidden{% endif %}">
+                                        <label class="fr-label" for="id_activite">{% translate "Activité *" %}</label>
+                                        {{ form.activite }}
+                                        {% if form.errors.activite %}
+                                            <p class="fr-error-text" id="activite-error-message">{% translate "Activité obligatoire" %}</p>
+                                        {% endif %}
+                                        <ul class="list-group">
+                                        </ul>
                                     </div>
-                                    <p class="text-start">
-                                        <a class="btn btn-outline-primary text-wrap mx-auto"
-                                           href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">
-                                            <i aria-hidden="true" class="icon icon-pencil"></i>
-                                            {% translate "Améliorez ces informations" %}
-                                        </a>
-                                    </p>
-                                {% endfor %}
+                                    <label class="fr-label {% if not suggested_activity %}hidden{% endif %}"
+                                           for="new_activity">{% translate "Activité *" %}</label>
+                                    {{ form.nouvelle_activite }}
+                                    <div class="fr-checkbox-group">
+                                        <input type="checkbox"
+                                               id="no_activity"
+                                               {% if suggested_activity or has_other_activity %}checked{% endif %} />
+                                        <label class="fr-label" for="no_activity">{% translate "Je ne trouve pas l'activité" %}</label>
+                                    </div>
+                                    {% if suggested_activity %}
+                                        <p class="fr-text--sm fr-mb-0" id="activity_suggested">
+                                            {% translate "Votre suggestion : " %}<span class="fr-text--bold">{{ suggested_activity }}</span>
+                                        </p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-mb-3w">
+                                    <label class="fr-label" for="id_numero">{% translate "Numéro de la voie" %}</label>
+                                    {{ form.numero }}
+                                </div>
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.voie %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_voie">{% translate "Voie *" %}</label>
+                                    {{ form.voie }}
+                                    {% if form.errors.voie %}
+                                        <p class="fr-error-text" id="voie-error-message">{% translate "Voie obligatoire" %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-grid-row fr-px-2w">
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-pr-md-4w fr-mb-3w {% if form.errors.code_postal %}fr-input-group--error fr-mb-0{% endif %}">
+                                    <label class="fr-label" for="id_code_postal">{% translate "Code postal *" %}</label>
+                                    {{ form.code_postal }}
+                                    {% if form.errors.code_postal %}
+                                        <p class="fr-error-text" id="code-postal-error-message">{% translate "Code postal obligatoire" %}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_lieu_dit">{% translate "Lieu dit" %}</label>
+                                    {{ form.lieu_dit }}
+                                    {% if form.errors.lieu_dit %}
+                                        <p class="fr-error-text" id="lieu-dit-error-message">{% translate "Lieu dit obligatoire" %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
+                                <div class="fr-col-12 fr-input-group {% if form.errors.commune %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_commune">{% translate "Commune *" %}</label>
+                                    {{ form.commune }}
+                                    {% if form.errors.commune %}
+                                        <p class="fr-error-text" id="commune-error-message">{% translate "Commune obligatoire" %}</p>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    {% endif %}
-                    {% if duplicated or existing_matches %}
-                        <hr class="my-5 full-width">
-                        <p class="mb-0">
-                            <button class="btn btn-primary" type="submit" name="force" value="1">
-                                <i aria-hidden="true" class="icon icon-pencil"></i>
-                                {% translate "Continuer ma saisie d'un nouvel établissement" %}
-                            </button>
-                        </p>
-                    {% endif %}
+                    </fieldset>
                 </div>
-            {% endif %}
-            <div class="row fr-mt-4v">
-                <div class="fr-col-sm-6">{{ form.nom|as_crispy_field }}</div>
-                <div class="fr-col-sm-6">
-                    <label for="activite">
-                        <span class="larger-font{% if dark %} text-light{% endif %}"><strong>{% translate "Activité" %}</strong></span>
-                        <br>
-                        <span class="fr-sr-only">{% translate "Sélectionner dans la liste" %}</span>
-                    </label>
-                    <div id="autocomplete-activity" class="autocomplete">
-                        {{ form.activite }}
-                        <ul class="list-group">
-                        </ul>
-                    </div>
-                    {% if form.errors.activite %}
-                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
-                    {% endif %}
-                    <a href="#"
-                       class="small fr-ml-2v {% if request.GET.new_activity %}hidden{% endif %}"
-                       id="no_activity">{% translate "Je ne trouve pas l'activité" %}</a>
-                    <span class="small {% if not request.GET.new_activity %}hidden{% endif %}"
-                          id="activity_suggested">{% translate "Votre suggestion :" %}<span>{{ request.GET.new_activity }}</span></span>
-                    {{ form.nouvelle_activite|as_crispy_field }}
+                <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                    <fieldset class="fr-fieldset">
+                        <legend class="fr-fieldset__legend">
+                            <h3 class="fr-mb-0">{% translate "Contact de l'établissement" %}</h3>
+                        </legend>
+                        <div class="fr-fieldset__content">
+                            <div class="fr-grid-row fr-grid-row--gutters">
+                                <div class="fr-col-12 fr-col-md-4">
+                                    <label class="fr-label" for="id_site_internet">
+                                        {% translate "Site internet" %}
+                                        <span class="fr-hint-text">{% translate "ex: http://etablissement.com" %}</span>
+                                    </label>
+                                    {{ form.site_internet }}
+                                </div>
+                                <div class="fr-col-12 fr-col-md-4">
+                                    <label class="fr-label" for="id_telephone">
+                                        {% translate "Téléphone" %}
+                                        <span class="fr-hint-text">{% translate "Format attendu : 01.02.03.04.05" %}</span>
+                                    </label>
+                                    {{ form.telephone }}
+                                </div>
+                                <div class="fr-col-12  fr-col-md-4">
+                                    <label class="fr-label" for="id_contact_email">
+                                        {% translate "Courriel" %}
+                                        <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.com" %}</span>
+                                    </label>
+                                    {{ form.contact_email }}
+                                </div>
+                                <div class="fr-col-12">
+                                    <label class="fr-label fr-mt-2w" for="id_contact_url">
+                                        {% translate "Lien vers le contact de l’établissement" %}
+                                        <span class="fr-hint-text">{% translate "ex: http://etablissement.com/contactez-nous.html" %}</span>
+                                    </label>
+                                    {{ form.contact_url }}
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
                 </div>
-            </div>
-            <div class="row">
-                <div class="fr-col-sm-3">{{ form.numero|as_crispy_field }}</div>
-                <div class="fr-col-sm-9">{{ form.voie|as_crispy_field }}</div>
-            </div>
-            {{ form.lieu_dit|as_crispy_field }}
-            <div class="row">
-                <div class="fr-col-sm-4">{{ form.code_postal|as_crispy_field }}</div>
-                <div class="fr-col-sm-8">{{ form.commune|as_crispy_field }}</div>
-            </div>
-            <hr>
-            <h2 class="h3">Contact</h2>
-            <div class="row">
-                <div class="fr-col-lg-4">{{ form.site_internet|as_crispy_field }}</div>
-                <div class="fr-col-lg-4">{{ form.telephone|as_crispy_field }}</div>
-                <div class="fr-col-lg-4">{{ form.contact_email|as_crispy_field }}</div>
-            </div>
-            {{ form.contact_url|as_crispy_field }}
-            <h3 class="h3 fr-mb-3v">
-                {% translate "Emplacement de l'établissement" %} <span class="fr-sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
-            </h3>
-            {# djlint:off #}
-            {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement." %}
-            {# djlint:on #}
-            <p>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte." %}</p>
-            {% if erp or external_erp %}
-                <h2 class="h5 fr-mb-3v">
-                    {% if erp %}
-                        {{ erp.nom }}
-                    {% elif external_erp %}
-                        {{ external_erp.nom }}
-                    {% endif %}
-                    <small class="text-muted">
-                        {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
-                        - <em><span id="erp-address"
+                <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                    <fieldset class="fr-fieldset">
+                        <legend class="fr-fieldset__legend">
+                            <h3>
+                                {% translate "Emplacement de l'établissement" %} <span class="fr-sr-only">{% translate "cette étape de vérification de l'emplacement n'est pas obligatoire" %}</span>
+                            </h3>
+                        </legend>
+                        <div class="fr-fieldset__content">
+                            {# djlint:off #}
+                            {% translate "Vous pouvez déplacer le curseur pour qu'il corresponde exactement à l'entrée exacte de l'établissement." %}
+                            {# djlint:on #}
+                            <p>{% translate "Si vous êtes sur mobile ou smartphone, utilisez deux doigts pour déplacer la carte." %}</p>
+                            {% if erp or external_erp %}
+                                <h4 class="fr-h5 fr-mb-3v">
+                                    {% if erp %}
+                                        {{ erp.nom }}
+                                    {% elif external_erp %}
+                                        {{ external_erp.nom }}
+                                    {% endif %}
+                                    <small class="text-muted">
+                                        {% if erp.activite %}- {{ erp.activite.nom }}{% endif %}
+                                        - <em><span id="erp-address"
       data-input-names="numero,voie,lieu_dit,code_postal,commune">
-                        {% if erp %}
-                            {{ erp.adresse }}
-                        {% elif external_erp %}
-                            {{ external_erp.adresse }}
-                        {% endif %}
-                    </span>
-                </em>
-            </small>
-        </h2>
-    {% endif %}
-    <div id="localisation-map" aria-hidden="true">
-        <div class="a4a-localisation-map"></div>
-        {{ form.lat }}
-        {{ form.lon }}
-        <script id="map-options" type="application/json">
+                                        {% if erp %}
+                                            {{ erp.adresse }}
+                                        {% elif external_erp %}
+                                            {{ external_erp.adresse }}
+                                        {% endif %}
+                                    </span>
+                                </em>
+                            </small>
+                        </h4>
+                    {% endif %}
+                    <div id="localisation-map" aria-hidden="true">
+                        <div class="a4a-localisation-map"></div>
+                        {{ form.lat }}
+                        {{ form.lon }}
+                        <script id="map-options" type="application/json">
         {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-        </script>
+                        </script>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
     </div>
     {% if not existing_matches %}
         {% include "contrib/includes/prevnext.html" %}

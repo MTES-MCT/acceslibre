@@ -1,0 +1,33 @@
+{% load static %}
+{% load i18n %}
+<dialog aria-labelledby="contrib-edit-modal-title"
+        id="contrib-edit-modal-controls"
+        class="fr-modal">
+    <div class="fr-container fr-container--fluid fr-container-md">
+        <div class="fr-grid-row fr-grid-row--center">
+            <div class="fr-col-12 fr-col-md-8">
+                <div class="fr-modal__body">
+                    <div class="fr-modal__header">
+                        <button class="fr-btn--close fr-btn"
+                                title="{% translate "Fermer la fenêtre modale" %}"
+                                aria-controls="contrib-edit-modal-controls">{% translate "Fermer" %}</button>
+                    </div>
+                    <div class="fr-modal__content">
+                        <h1 id="contrib-edit-modal-title" class="fr-modal__title">
+                            <span class="fr-icon-edit-line fr-icon--lg fr-mr-1w"></span>{% translate "Enregistrement" %}
+                        </h1>
+                        <p>{% translate "Vous êtes sur le point de changer d’étape. Voulez-vous valider les modifications apportées ?" %}</p>
+                    </div>
+                    <div class="fr-modal__footer">
+                        <div class="fr-btns-group fr-btns-group--right fr-btns-group--inline-lg fr-btns-group--icon-left">
+                            <button id="contrib-edit-modal-cancel-btn" class="fr-btn fr-btn--secondary">
+                                {% translate "Ne pas enregistrer les modifications" %}
+                            </button>
+                            <button id="contrib-edit-modal-save-btn" class="fr-btn">{% translate "Enregistrer les modifications" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>

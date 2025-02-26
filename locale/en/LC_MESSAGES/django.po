@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 13:47+0100\n"
-"PO-Revision-Date: 2025-02-20 13:47+0100\n"
+"POT-Creation-Date: 2025-02-20 16:05+0100\n"
+"PO-Revision-Date: 2025-02-20 16:05+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -618,9 +618,6 @@ msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
-
-msgid "ex: nom@domain.tld"
-msgstr "ex: name@domain.com"
 
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
 msgstr "You must suggest an activity name for the facility"
@@ -1499,12 +1496,6 @@ msgstr "Stationary"
 msgid "Amovible"
 msgstr "Removable"
 
-msgid "Montant"
-msgstr "Ascendant"
-
-msgid "Descendant"
-msgstr "Descendant"
-
 msgid "Direction Générale des Entreprises"
 msgstr "Direction Générale des Entreprises"
 
@@ -1560,8 +1551,8 @@ msgstr "The French administration directory"
 msgid "à proximité"
 msgstr "near"
 
-msgid "Chemin extérieur"
-msgstr "Outside path"
+msgid "Extérieur entre le trottoir et l’entrée principale du bâtiment"
+msgstr "Exterior between the sidewalk and the main entrance of the building"
 
 msgid "depuis la voirie jusqu'à l'entrée"
 msgstr "from the road to the entrance"
@@ -1626,8 +1617,8 @@ msgstr ""
 msgid "Informations sur l'accessibilité par les transports en commun"
 msgstr "Information on accessibility by public transportation"
 
-msgid "Stationnement dans l'établissement"
-msgstr "Parking in the facility"
+msgid "Stationnement privé dans l'établissement"
+msgstr "Private parking on site"
 
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou "
@@ -1653,7 +1644,7 @@ msgid "Pas de places de parking au sein de l'établissement"
 msgstr "No parking spaces within the establishment"
 
 msgid "Stationnements adaptés dans l'établissement"
-msgstr "Adapted parkings in the facility"
+msgstr "Adapted parking in the establishment"
 
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées dans "
@@ -1705,7 +1696,7 @@ msgid "Pas de places de parking à proximité"
 msgstr "No adapted parking spaces nearby"
 
 msgid "Stationnements adaptés à proximité de l'établissement"
-msgstr "Adapted parking close to the facility"
+msgstr "Suitable parking close to the establishment"
 
 msgid ""
 "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou "
@@ -1832,14 +1823,14 @@ msgstr "No stairs"
 msgid "Combien y'a t'il de marches&nbsp;?"
 msgstr "How many steps are there?"
 
-msgid "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-msgstr "What is the direction of circulation of the steps or staircase?"
+msgid "Faut-il monter ou descendre  les marches pour atteindre l'entrée ?"
+msgstr "Do you have to go up or down the steps to reach the entrance?"
 
 msgid "Sens de circulation des marches ou de l'escalier"
 msgstr "Direction of movement of the steps or staircase"
 
-msgid "Marches ou escalier sécurisé(es)"
-msgstr "Secure steps or staircase"
+msgid "Repérage des marches"
+msgstr "Identification of the steps"
 
 msgid ""
 "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à "
@@ -1913,11 +1904,11 @@ msgid "Quel est son degré de difficulté&nbsp;?"
 msgstr "What is its degree of difficulty?"
 
 msgid ""
-"Un dévers est une inclinaison transversale du chemin. S'il en existe un, "
-"quel est son degré de difficulté&nbsp;?"
+"Existe t-il un dévers sur le chemin ? Quel est son degré de difficulté ? Un "
+"dévers est une inclinaison transversale du chemin."
 msgstr ""
-"A camber is a transverse inclination of the path. If there is one, what is "
-"its degree of difficulty?"
+"Is there a slope on the path? How difficult is it? A slope is a transverse "
+"inclination of the path."
 
 msgid "Dévers ou inclinaison transversale du chemin"
 msgstr "Camber or cross slope of the road"
@@ -1975,6 +1966,9 @@ msgstr ""
 msgid "Largeur minimale de 90 cm sur tout le chemin"
 msgstr "Minimum width of 90 cm all the way"
 
+msgid "L’entrée de l’établissement"
+msgstr "The entrance to the establishment"
+
 msgid ""
 "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement "
 "(numéro de rue à proximité, enseigne, végétaux, éléments architecturaux "
@@ -2002,8 +1996,8 @@ msgstr ""
 msgid "L'entrée n'est pas bien visible"
 msgstr "The entrance is not clearly visible"
 
-msgid "Y a-t-il une porte ?"
-msgstr "Is there a door?"
+msgid "Porte d'entrée"
+msgstr "Front door"
 
 msgid "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
 msgstr "Is there a door at the facility entrance?"
@@ -2094,8 +2088,8 @@ msgstr "Presence of an elevator"
 msgid "Pas de marches d'escalier"
 msgstr "No stairs"
 
-msgid "Repérage des marches"
-msgstr "Identification of the steps"
+msgid "Type de dispositif d'appel à l'entrée"
+msgstr "Type of call device at the entrance"
 
 msgid ""
 "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à "
@@ -2112,11 +2106,11 @@ msgstr "No device such as a doorbell to signal its presence"
 msgid "Pas de dispositif d'appel"
 msgstr "No calling device"
 
-msgid "Type de dispositif d'appel à l'entrée"
-msgstr "Type of call device at the entrance"
+msgid "Dispositif d’appel à l’entrée"
+msgstr "Entrance call device"
 
-msgid "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
-msgstr "What type(s) of calling devices are present?"
+msgid "De quel type est le dispositif d’appel ?"
+msgstr "What type is the calling device?"
 
 msgid "Dispositifs d'appels présents"
 msgstr "Calling devices present"
@@ -2163,8 +2157,8 @@ msgstr "No possibility of human assistance to move"
 msgid "Pas de possibilité d'aide humaine"
 msgstr "No possibility of human assistance"
 
-msgid "Largeur de la porte"
-msgstr "Width of the door"
+msgid "Largeur de la porte ou de l'entrée"
+msgstr "Width of door or entrance"
 
 msgid ""
 "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. "
@@ -2226,10 +2220,16 @@ msgstr "Visibility of the reception area"
 
 msgid ""
 "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle "
-"visible depuis l'entrée du bâtiment&nbsp;?"
+"visible depuis l'entrée du bâtiment ? (Cette information est utile aux "
+"personnes aveugles ou malvoyantes qui peuvent être directement prises en "
+"charge par le personnel d'accueil si l'accueil se trouve à proximité direct "
+"de l'entrée)"
 msgstr ""
-"Is the reception area (reception desk, cashier, secretary, etc.) visible "
-"from the building entrance?"
+"Is the reception area (reception desk, cash register, secretariat, etc.) "
+"visible from the entrance to the building? (This information is useful for "
+"blind or visually impaired people who can be directly assisted by the "
+"reception staff if the reception is located in the immediate vicinity of the "
+"entrance)"
 
 msgid ""
 "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible "
@@ -2270,6 +2270,9 @@ msgstr ""
 
 msgid "Chemin vers l'accueil de plain pied"
 msgstr "Path to reception on one level"
+
+msgid "Oui, sans rupture de niveau brutale"
+msgstr "Yes, without any sudden level break."
 
 msgid "Repérage des marches ou de l'escalier"
 msgstr "Identification of the steps or staircase"
@@ -2523,6 +2526,9 @@ msgstr "No audio description"
 msgid "Type d'équipements pour l'audiodescription"
 msgstr "Type of equipment for audio description"
 
+msgid "L'établissement propose-t-il de l’audiodescription ?"
+msgstr "Does the establishment offer audio description?"
+
 msgid "Équipements disponibles"
 msgstr "Available equipment"
 
@@ -2581,8 +2587,8 @@ msgstr "No sanitary facilities provided in the establishment"
 msgid "Toilettes adaptées"
 msgstr "Adapted toilets"
 
-msgid "Y a-t-il des toilettes adaptées mises à disposition du public&nbsp;?"
-msgstr "Are there adapted toilets available to the public?"
+msgid "Y a-t-il des toilettes adaptées PMR (personne à mobilité réduite)"
+msgstr "Are there toilets suitable for people with reduced mobility?"
 
 msgid "Des sanitaires adaptés sont mis à disposition dans l'établissement"
 msgstr "Adapted sanitary facilities are available in the facility"
@@ -2614,9 +2620,8 @@ msgstr "If other, specify the name of the label"
 msgid "Autre marque ou label obtenus"
 msgstr "Other brand or label obtained"
 
-msgid ""
-"<strong>Informations complémentaires et prestations spécifiques</strong>"
-msgstr "<strong>Additional information and special services</strong>"
+msgid "Autres remarques"
+msgstr "Other remarks"
 
 msgid ""
 "Ajoutez ici toute information supplémentaire concernant l'accessibilité du "
@@ -2683,6 +2688,21 @@ msgstr "Learn more on"
 
 msgid "France entière"
 msgstr "Whole France"
+
+msgid "Informations"
+msgstr "Information"
+
+msgid "À propos"
+msgstr "About"
+
+msgid "Transport et stationnement"
+msgstr "Transportation and parking"
+
+msgid "Chemin extérieur vers l’entrée"
+msgstr "Exterior path to the entrance"
+
+msgid "L’entrée"
+msgstr "The entrance"
 
 msgid "Vous participez déjà à un autre challenge."
 msgstr "You are already participating in another challenge."
@@ -3515,17 +3535,8 @@ msgstr "Search for a facility"
 msgid "Modifier un établissement"
 msgstr "Edit a facility"
 
-msgid "Ajouter les données d'accessibilité d'un établissement"
-msgstr "Add accessibility data for a facility"
-
-msgid "Étape 1 sur 7"
-msgstr "Step 1 of 7"
-
-msgid "L'établissement"
-msgstr "The facility"
-
-msgid "Adresse de l'établissement"
-msgstr "Address of the facility"
+msgid "Attention : Établissement(s) existant(s)"
+msgstr "Attention: Existing establishment(s)"
 
 msgid ""
 "Des établissements correspondant à votre saisie sont déjà présents sur "
@@ -3542,14 +3553,71 @@ msgstr "Improve this information"
 msgid "Continuer ma saisie d'un nouvel établissement"
 msgstr "Continue my entry of a new facility"
 
-msgid "Sélectionner dans la liste"
-msgstr "Select from the list"
+msgid "Nom et adresse de l'établissement"
+msgstr "Name and address of the establishment"
+
+msgid "Champs obligatoires *"
+msgstr "Required fields *"
+
+msgid "Nom *"
+msgstr "Name *"
+
+msgid "Nom obligatoire"
+msgstr "Name required"
+
+msgid "Activité *"
+msgstr "Activity *"
+
+msgid "Activité obligatoire"
+msgstr "Mandatory activity"
 
 msgid "Je ne trouve pas l'activité"
 msgstr "I can't find the activity"
 
-msgid "Votre suggestion :"
+msgid "Votre suggestion : "
 msgstr "Your suggestion:"
+
+msgid "Numéro de la voie"
+msgstr "Street number"
+
+msgid "Voie *"
+msgstr "Street *"
+
+msgid "Voie obligatoire"
+msgstr "Mandatory route"
+
+msgid "Code postal *"
+msgstr "Postal code *"
+
+msgid "Code postal obligatoire"
+msgstr "Postal code required"
+
+msgid "Lieu dit obligatoire"
+msgstr "Mandatory place name"
+
+msgid "Commune *"
+msgstr "Municipality *"
+
+msgid "Commune obligatoire"
+msgstr "Mandatory municipality"
+
+msgid "Contact de l'établissement"
+msgstr "Contact the establishment"
+
+msgid "ex: http://etablissement.com"
+msgstr "ex: http://etablissement.com"
+
+msgid "Format attendu : 01.02.03.04.05"
+msgstr "Expected format: 01.02.03.04.05"
+
+msgid "Format attendu : nom@domaine.com"
+msgstr "Expected format: name@domain.com"
+
+msgid "Lien vers le contact de l’établissement"
+msgstr "Link to the establishment contact"
+
+msgid "ex: http://etablissement.com/contactez-nous.html"
+msgstr "ex: http://etablissement.com/contactez-nous.html"
 
 msgid "Emplacement de l'établissement"
 msgstr "Location of the facility"
@@ -3575,47 +3643,42 @@ msgid "acceslibre"
 msgstr "acceslibre"
 
 #, python-format
-msgid "%(erp_nom)s de %(erp_commune)s"
-msgstr "%(erp_nom)s of %(erp_commune)s"
-
-msgid "Étape 2 sur 7"
-msgstr "Step 2 of 7"
+msgid ""
+"%(erp_nom)s de\n"
+"        %(erp_commune)s"
+msgstr ""
+"%(erp_nom)s of\n"
+"%(erp_commune)s"
 
 msgid "Venir dans l'établissement"
 msgstr "Coming to the facility"
 
-msgid "Étape 3 sur 7"
-msgstr "Step 3 of 7"
-
-msgid "Stationnement"
-msgstr "Parking"
-
 msgid "Espace et chemin extérieur"
 msgstr "Outdoor space and path"
-
-msgid "Étape 4 sur 7"
-msgstr "Step 4 of 7"
 
 msgid "L'entrée de l'établissement"
 msgstr "Entrance of the facility"
 
-msgid "Étape 5 sur 7"
-msgstr "Step 5 of 7"
-
 msgid "L'accueil de l'établissement"
 msgstr "Reception of the facility"
 
-msgid "Étape 6 sur 7"
-msgstr "Step 6 of 7"
+msgid "ERP avec une activité d'hebergement"
+msgstr "ERP with a hosting activity"
 
 msgid "Commentaire et informations complémentaires"
 msgstr "Comments and additional information"
 
-msgid "Étape 7 sur 7"
-msgstr "Step 7 of 7"
+msgid "Informations complémentaires et prestations spécifiques"
+msgstr "Additional information and specific services"
 
 msgid "Publication"
 msgstr "Publication"
+
+msgid "Fiche d’établissement modifiée avec succès !"
+msgstr "Establishment sheet successfully modified!"
+
+msgid "Fiche d’établissement créée avec succès !"
+msgstr "Establishment sheet created successfully!"
 
 msgid "Merci pour votre contribution"
 msgstr "Thank you for your contribution."
@@ -3623,15 +3686,25 @@ msgstr "Thank you for your contribution."
 #, python-format
 msgid ""
 "\n"
-"    Selon les informations que vous avez fournies, la fiche %(name)s est "
-"maintenant complétée à :\n"
-"    %(completion_rate)s%%\n"
-"    "
+"                Selon les informations que vous avez fournies, la fiche "
+"<span class=\"fr-text--bold\">%(name)s</span>\n"
+"                est maintenant complétée à :\n"
+"                <span class=\"fr-grid-row fr-grid-row--center fr-text--xl fr-"
+"h1 fr-mt-1v\">%(completion_rate)s%%</span>\n"
+"            "
 msgstr ""
 "\n"
-"According to the information you provided, the %(name)s file is now "
-"completed at:\n"
-"%(completion_rate)s%%"
+"According to the information you provided, the <span class=\"en-text--"
+"bold\">%(name)s</span>\n"
+"record is now completed at:\n"
+"<span class=\"en-grid-row en-grid-row--center en-text--xl en-h1 en-"
+"mt-1v\">%(completion_rate)s%%</span>"
+
+msgid "Voir l'établissement"
+msgstr "View the establishment"
+
+msgid "Masquer le message"
+msgstr "Hide message"
 
 #, python-format
 msgid ""
@@ -3813,6 +3886,9 @@ msgstr "Enter your activity"
 msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
 msgstr "Start typing, then select the activity from the list."
 
+msgid "Votre suggestion :"
+msgstr "Your suggestion:"
+
 msgid "Où ?"
 msgstr "Or ?"
 
@@ -3824,6 +3900,31 @@ msgstr "Start typing, then select the city or address from the list"
 
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr "Allow me to obtain my geographical location"
+
+msgid "Étape"
+msgstr "Step"
+
+msgid "Valider et publier"
+msgstr "Validate and publish"
+
+msgid "Fermer la fenêtre modale"
+msgstr "Close the modal window"
+
+msgid "Enregistrement"
+msgstr "Registration"
+
+msgid ""
+"Vous êtes sur le point de changer d’étape. Voulez-vous valider les "
+"modifications apportées ?"
+msgstr ""
+"You are about to change steps. Would you like to validate the changes you "
+"have made?"
+
+msgid "Ne pas enregistrer les modifications"
+msgstr "Do not save changes"
+
+msgid "Enregistrer les modifications"
+msgstr "Save changes"
 
 msgid "Autres établissements connus à ajouter et compléter"
 msgstr "Other establishments not listed to add and complete"
@@ -3854,26 +3955,25 @@ msgstr "Navigation"
 msgid "Étapes d'ajout d'un établissement"
 msgstr "Steps to add a facility"
 
-msgid "Informations"
-msgstr "Information"
+msgid "Passer à l’étape suivante"
+msgstr "Go to the next step"
 
-msgid "À propos"
-msgstr "About"
-
-msgid "Parcours de contribution"
-msgstr "Contribution path"
+#, python-format
+msgid "Passer à l’étape %(step)s"
+msgstr "Go to step %(step)s"
 
 msgid "Continuez sur l'étape"
 msgstr "Continue on step"
-
-msgid "Publier"
-msgstr "Publish"
 
 msgid "Revenir à la fiche"
 msgstr "Back to the record"
 
 msgid "Ajouter l'établissement"
 msgstr "Add the establishment"
+
+#, python-format
+msgid "Étape %(current_step)s sur %(total_steps)s"
+msgstr "Step %(current_step)s of %(total_steps)s"
 
 msgid "Compte activé"
 msgstr "Account activated"
@@ -4018,10 +4118,9 @@ msgid ""
 "href=\"%(url_logout)s\">vous déconnecter</a> ou revenir à la <a "
 "href=\"%(url_home)s\">page d'accueil</a>."
 msgstr ""
-"You are already authenticated as <strong>%(username)s</strong>,\n"
-"so you cannot create a new account.\n"
-"Please <a href=\"%(url_logout)s\">log out</a>\n"
-"or return to the <a href=\"%(url_home)s\">home page</a>."
+"You are already authenticated as <strong>%(username)s</strong>, so you "
+"cannot create a new account. Please <a href = \"%(url_logout)s\">Disconnect "
+"</a> or return to <a href = \"%(url_home)s\">Home page </a>."
 
 msgid "Je crée un compte"
 msgstr "I create an account"
@@ -4932,9 +5031,6 @@ msgstr "No slope"
 msgid "Dévers %(difficulty)s"
 msgstr "Slope %(difficulty)s"
 
-msgid "Transport et stationnement"
-msgstr "Transportation and parking"
-
 msgid "Accueil et équipement"
 msgstr "Reception and equipment"
 
@@ -5025,10 +5121,10 @@ msgstr ""
 "handicap"
 
 msgid "Taux de remplissage des informations : "
-msgstr "Information completion rate:"
+msgstr "Information filling rate:"
 
 msgid "Modifier ces informations"
-msgstr "Change this information"
+msgstr "Update this information"
 
 msgid "Itinéraire"
 msgstr "Itinerary"
@@ -5081,7 +5177,7 @@ msgstr "View history"
 
 msgid ""
 "Recevoir des notifications par email lorsque cet établissement est mis à jour"
-msgstr "Receive email notifications when this establishment is updated"
+msgstr "Receive notifications by email when this establishment is updated"
 
 msgid "Désabonnez vous des mises à jour"
 msgstr "Unsubscribe from updates"
@@ -5137,8 +5233,8 @@ msgid ""
 "Découvrez l'accessibilité de l'établissement %(erp_name)s à %(city_name)s - "
 "%(department_name)s"
 msgstr ""
-"Discover the accessibility of %(erp_name)s in %(city_name)s - "
-"%(department_name)s"
+"Discover the accessibility of the establishment %(erp_name)s at "
+"%(city_name)s - %(department_name)s"
 
 msgid "Aller à la carte"
 msgstr "Go to the map"
@@ -5348,10 +5444,10 @@ msgid ""
 "href=\"%(url_logout)s\">d'abord vous déconnecter</a> ou revenir à la <a "
 "href=\"%(url_home)s\">page d'accueil</a>."
 msgstr ""
-"You are already authenticated as <strong>%(username)s</strong>,\n"
-"so you cannot authenticate with a new account.\n"
-"Please <a href=\"%(url_logout)s\">log out first</a>\n"
-"or return to the <a href=\"%(url_home)s\">home page</a>."
+"You are already authenticated as <strong>%(username)s </strong>, so you "
+"cannot authenticate with a new account. Please <a href = "
+"\"%(url_logout)s\">first disconnect</a> or come back to <a href = "
+"\"%(url_home)s\">Home page</a>."
 
 msgid "Je me connecte"
 msgstr "Sign in"
@@ -5658,3 +5754,28 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Filtres des informations par besoin"
+#~ msgstr "Information filters out of need"
+
+#~ msgid "Écrire un message"
+#~ msgstr "Write a message"
+
+#~ msgid "Agrandir la carte"
+#~ msgstr "Enlarge the card"
+
+#~ msgid "Une personne inspectant des données à la loupe"
+#~ msgstr "A person inspecting data with a magnifying glass"
+
+#~ msgid "Confirmer que les informations sont à jour"
+#~ msgstr "Confirm that the information is up to date"
+
+#~ msgid "Vous voulez suivre les évolutions de cette fiche&nbsp;?"
+#~ msgstr "Do you want to follow the developments in this sheet & nbsp;?"
+
+#~ msgid "Dernière mise à jour le"
+#~ msgstr "Last update"
+
+#, python-format
+#~ msgid "- mises à jour le %(date)s"
+#~ msgstr "- Updates the %(date) s"
