@@ -92,7 +92,7 @@ async function FormContribDirtyChecker(root) {
       const redirectionUrl = e.target.value
 
       if (redirectionUrl) {
-        window.location.assign(redirectionUrl)
+        window.location.assign(new URL(redirectionUrl, window.location.origin))
       }
     } else {
       openModalBtn.click()
@@ -104,7 +104,7 @@ async function FormContribDirtyChecker(root) {
 
     if (!redirectionUrl) return
 
-    window.location.assign(redirectionUrl)
+    window.location.assign(new URL(redirectionUrl, window.location.origin))
   })
 
   saveBtn.addEventListener('click', async () => {
@@ -159,7 +159,7 @@ async function FormContribDirtyChecker(root) {
           dom.mountOne('.contrib-container', ui.FormContribDirtyChecker)
         } else {
           setLocalStorageNotificationSuccess()
-          window.location.assign(redirectionUrl)
+          window.location.assign(new URL(redirectionUrl, window.location.origin))
         }
       })
       .catch(() => {
