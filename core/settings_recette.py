@@ -11,8 +11,7 @@ SITE_ROOT_URL = f"https://{SITE_HOST}"
 ALLOWED_HOSTS = [
     SITE_HOST,
     "recette.acceslibre.info",
-    "recette-access4all-pr1853.osc-fr1.scalingo.io",
-]  # FIXME: remove review app after QA
+]
 ADMIN_TWO_FACTOR_NAME = SITE_NAME
 
 if SENTRY_DSN is not None:
