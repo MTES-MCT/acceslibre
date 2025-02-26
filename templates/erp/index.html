@@ -49,7 +49,7 @@
     <main role="main" id="content" class="erp-details-container">
         <section>
             <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line fr-mb-2w"
-               href="{% url 'contrib_global_search' %}">{% translate "Retour" %}</a>
+               href="{{ previous_url }}">{% translate "Retour" %}</a>
             {% include "erp/includes/header.html" %}
         </section>
         <section>

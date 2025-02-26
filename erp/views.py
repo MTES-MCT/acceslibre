@@ -310,6 +310,10 @@ class EditorialView(TemplateView):
 
 
 def erp_details(request, commune, erp_slug, activite_slug=None):
+    referer = "/"
+    if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
+        referer = request.META.get("HTTP_REFERER") or "/"
+
     base_qs = (
         Erp.objects.select_related(
             "accessibilite",
@@ -377,6 +381,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                     "dragging": False,
                 }
             ),
+            "previous_url": referer,
         },
     )
 
@@ -895,7 +900,6 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    referer = reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug})
 
     referer = "/"
     if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
