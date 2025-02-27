@@ -74,7 +74,7 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     return render(
         request,
         "contact/contact_form.html",
-        context={"form": form, "erp": erp},
+        context={"form": form, "erp": erp, "page_type": "contact-form"},
     )
 
 

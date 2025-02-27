@@ -24,7 +24,8 @@
     <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
     <main role="main"
           id="content"
-          {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}>
+          {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}
+          {% if page_type == 'contact-form' %}class="contact-container"{% endif %}>
         {% block breadcrumb %}
         {% endblock breadcrumb %}
         {% block top_fluid_content %}

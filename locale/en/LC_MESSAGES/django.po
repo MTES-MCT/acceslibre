@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-26 17:36+0100\n"
-"PO-Revision-Date: 2025-02-20 16:05+0100\n"
-"Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-02-27 14:53+0100\n"
+"PO-Revision-Date: 2025-02-27 14:50+0100\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -138,9 +138,6 @@ msgstr "UserStats"
 
 msgid "UsersStats"
 msgstr "UsersStats"
-
-msgid "Merci de cocher cette case pour envoyer votre message"
-msgstr "Please check this box to send your message"
 
 msgid "Cochez cette case pour soumettre le formulaire."
 msgstr "Check this box to submit the form."
@@ -3462,8 +3459,29 @@ msgstr "Contact"
 msgid "Signaler une malveillance pour l'établissement"
 msgstr "Report a malicious act for this facility"
 
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
 msgid "Contactez-nous"
 msgstr "Contact us"
+
+msgid "*Tous les champs sont obligatoires"
+msgstr "*Required fields"
+
+msgid "Adresse e-mail*"
+msgstr "Email address*"
+
+msgid "Format attendu : adresse@herbergeur.com"
+msgstr "Expected format: name@domain.com"
+
+msgid "Nom*"
+msgstr "Name*"
+
+msgid "Sujet de votre demande*"
+msgstr "Subject*"
 
 msgid "Établissement :"
 msgstr "Facility:"
@@ -3475,9 +3493,9 @@ msgstr "Back to the record"
 msgid ""
 "\n"
 "                        Votre message sera transmis à l'équipe d'acceslibre "
-"qui gère les informations d'<a class=\"bold\" href=\"https://fr.wikipedia."
-"org/wiki/Accessibilit%%C3%%A9\" target=\"_blank\" rel=\"noopener "
-"noreferrer\">accessibilité de cet établissement</a>. Toute demande ne "
+"qui gère les informations <a class=\"fr-link\" href=\"https://"
+"fr.wikipedia.org/wiki/Accessibilit%%C3%%A9\" "
+"target=\"_blank\">d'accessibilité de cet établissement</a>. Toute demande ne "
 "portant pas sur les informations d'accessibilité ne pourra pas être traitée."
 msgstr ""
 "\n"
@@ -3487,20 +3505,27 @@ msgstr ""
 "facility</a>. Any request that does not relate to accessibility information "
 "cannot be processed."
 
-msgid "Envoyer"
-msgstr "Send"
+msgid "Message*"
+msgstr "Message*"
+
+msgid "Texte de description additionnel"
+msgstr "Additional description*"
+
+msgid "Envoyer ma demande"
+msgstr "Send your request"
+
+msgid "Une question ? Avez-vous parcouru notre page de questions fréquentes ?"
+msgstr ""
+"Any questions? Have you skimmed through our frequently asked questions?"
+
+msgid "Aller aux questions fréquentes"
+msgstr "Navigate to the frequently asked questions"
 
 msgid "Votre message a été envoyé"
 msgstr "Your message has been sent"
 
 msgid "Nous vous répondrons dans les plus brefs délais."
 msgstr "We will answer you as soon as possible."
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
 
 msgid "Vous avez une question ?"
 msgstr "Do you have a question?"
@@ -5756,6 +5781,12 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Merci de cocher cette case pour envoyer votre message"
+#~ msgstr "Please check this box to send your message"
+
+#~ msgid "Envoyer"
+#~ msgstr "Send"
 
 #~ msgid "Filtres des informations par besoin"
 #~ msgstr "Information filters out of need"
