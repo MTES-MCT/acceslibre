@@ -3,12 +3,13 @@ import csv
 import requests
 import reversion
 from django.core.management.base import BaseCommand
+from django.db import IntegrityError
 from rest_framework.exceptions import ValidationError
 
+from erp import schema
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Activite, Erp, ExternalSource
 from erp.provider.geocoder import geocode
-from django.db import IntegrityError
 
 
 class Command(BaseCommand):
@@ -64,7 +65,7 @@ class Command(BaseCommand):
 
             handicaps = []
             accessibilite = dict()
-            accessibilite["accueil_personnel"] = "personnel sensibilisé ou formé"
+            accessibilite["accueil_personnels"] = schema.PERSONNELS_FORMES
             accessibilite["commentaire"] = (
                 "Auto-école adaptée à l’apprentissage de la conduite en situation handicap {handicap} (source : https://autoecoles.securite-routiere.gouv.fr/#/ )"
             )
@@ -110,4 +111,4 @@ class Command(BaseCommand):
         except IntegrityError:
             print(f"Inconsistency in ERP accesibility {erp.nom}")
 
-        print(f"ERP {erp.nom} {action}")
+        print(f"ERP {erp.nom} {action} available at: {erp.get_absolute_uri()}")
