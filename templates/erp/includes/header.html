@@ -28,17 +28,17 @@
     <hr class="fr-hr fr-mt-2w" />
     <div class="fr-grid-row address-container">
         <address class="fr-m-0 fr-col">
-            <p class="fr-mb-3w text--ellipsis">
+            <p class="fr-mb-3w word-break--all">
                 <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
                 <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
             </p>
             {% if erp.telephone %}
-                <p class="fr-mb-3w text--ellipsis">
+                <p class="fr-mb-3w">
                     <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
                 </p>
             {% endif %}
             {% if erp.contact_url %}
-                <p class="fr-mb-3w text--ellipsis">
+                <p class="fr-mb-3w word-break--all">
                     <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
                     <a class="fr-link fr-ml-n1v"
                        href="{{ erp.contact_url }}"
@@ -47,7 +47,7 @@
                 </p>
             {% endif %}
             {% if erp.site_internet %}
-                <p class="fr-mb-3w text--ellipsis">
+                <p class="fr-mb-3w">
                     <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
                     <a class="fr-link fr-ml-n1v"
                        href="{{ erp.site_internet }}"

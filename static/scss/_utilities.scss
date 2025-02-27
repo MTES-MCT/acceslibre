@@ -94,6 +94,12 @@
   }
 }
 
+.word-break {
+  &--all {
+    word-break: break-all;
+  }
+}
+
 @mixin generate-gap-classes {
   @for $i from 1 through 10 {
     .gap-#{$i}w {
