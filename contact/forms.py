@@ -28,7 +28,6 @@ class ContactForm(forms.ModelForm):
     # hide relations
     user = forms.ModelChoiceField(queryset=get_user_model().objects, widget=forms.HiddenInput, required=False)
     erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput, required=False)
-    # email = forms.EmailField(error_messages={"invalid": translate("Format de l'email attendu : nom@domaine.tld")})
 
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
