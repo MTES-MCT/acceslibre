@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as translate
+from django.utils.translation import gettext_lazy as translate_lazy
 
 from erp.models import Erp
 
@@ -18,21 +18,21 @@ class ContactForm(forms.ModelForm):
             "sent_ok",
         )
         widgets = {
-            "email": forms.TextInput(attrs={"autocomplete": "email"}),
-            "name": forms.TextInput(attrs={"autocomplete": "family-name"}),
+            "email": forms.TextInput(
+                attrs={"autocomplete": "email", "class": "fr-input", "type": "email", "required": True}
+            ),
+            "name": forms.TextInput(attrs={"autocomplete": "family-name", "class": "fr-input", "required": True}),
+            "body": forms.Textarea(attrs={"class": "fr-input", "required": True}),
         }
 
     # hide relations
     user = forms.ModelChoiceField(queryset=get_user_model().objects, widget=forms.HiddenInput, required=False)
     erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput, required=False)
 
-    email = forms.EmailField(error_messages={"invalid": translate("Format de l'email attendu : nom@domaine.tld")})
-
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
     robot = forms.BooleanField(
-        label=translate("Je ne suis pas un robot"),
-        help_text=translate("Merci de cocher cette case pour envoyer votre message"),
+        label=translate_lazy("Je ne suis pas un robot"),
         required=True,
     )
 
@@ -56,5 +56,5 @@ class ContactForm(forms.ModelForm):
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
         if not robot:
-            raise ValidationError(mark_safe(translate("Cochez cette case pour soumettre le formulaire.")))
+            raise ValidationError(mark_safe(translate_lazy("Cochez cette case pour soumettre le formulaire.")))
         return robot

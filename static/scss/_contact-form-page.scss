@@ -1,0 +1,27 @@
+@import 'breakpoints';
+
+.contact-container {
+  @media (min-width: $viewport-xl) {
+    position: relative;
+    background-image: url(/static/img/contact/contact-background.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: 428px 100%;
+
+    &::after {
+      z-index: -1;
+      position: absolute;
+      content: '';
+      background-color: #f27189;
+      height: 100%;
+      width: 428px;
+      right: 0;
+      top: 0;
+    }
+
+    #contact-form-container {
+      max-width: 700px;
+    }
+  }
+}
