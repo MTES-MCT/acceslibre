@@ -81,14 +81,6 @@
                                 <span><a class="fr-link" href="{{ erp.get_absolute_url }}">{% translate "Retour à la fiche" %}</a></span>
                             </p>
                         </div>
-                        {% if erp.activite %}
-                            <div class="fr-alert fr-alert--info fr-mb-2v">
-                                <p>
-                                    {% blocktranslate %}
-                        Votre message sera transmis à l'équipe d'acceslibre qui gère les informations <a class="fr-link" href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank">d'accessibilité de cet établissement</a>. Toute demande ne portant pas sur les informations d'accessibilité ne pourra pas être traitée.{% endblocktranslate %}
-                                </p>
-                            </div>
-                        {% endif %}
                     {% endif %}
                     <div class="fr-col-12">
                         <div class="fr-input-group">
@@ -113,7 +105,7 @@
                     </div>
                 </div>
             </form>
-            <div class="fr-mt-2w">
+            <div class="fr-mt-3w">
                 <p class="fr-mb-2w">{% translate "Une question ? Avez-vous parcouru notre page de questions fréquentes ?" %}</p>
                 <a href="{% url "faq" %}"
                    class="fr-link fr-link--icon-right fr-icon-arrow-right-line">{% translate "Aller aux questions fréquentes" %}</a>
