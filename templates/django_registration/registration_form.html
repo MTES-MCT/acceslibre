@@ -9,6 +9,27 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Créer un compte" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block top_fluid_content %}
     {% if 'contrib/publication/' in request.GET.next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
@@ -32,14 +53,14 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     {% if user.is_authenticated %}
-        <p class="alert alert-warning" role="alert">
+        <p class="fr-alert fr-alert--warning fr-mb-3w" role="alert">
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
             {% blocktranslate with username=user.username trimmed %}
                 Vous êtes déjà authentifié en tant que <strong>{{ username }}</strong>,
                 vous ne pouvez donc pas créer un nouveau compte.
-                Veuillez <a href="{{ url_logout }}">vous déconnecter</a>
-                ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
+                Veuillez <a class="fr-link" href="{{ url_logout }}">vous déconnecter</a>
+                ou revenir à la <a class="fr-link" href="{{ url_home }}">page d'accueil</a>.
             {% endblocktranslate %}
         </p>
     {% else %}
@@ -47,34 +68,82 @@
             <div class="fr-col-12 fr-col-md-6">
                 <form action="."
                       method="post"
-                      novalidate
-                      class="registration-form fr-mb-4v"
+                      class="registration-form fr-mb-4v flex direction--column"
                       id="registration">
                     {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ next|urlencode }}">
-                    <h1 class="h3 text-start fr-mb-4v">{% translate "Je crée un compte" %}</h1>
+                    <input type="hidden"
+                           name="{{ form.next.name }}"
+                           value="{{ next|urlencode }}">
+                    <h1 class="fr-mb-4v">{% translate "Créer un compte" %}</h1>
+                    <p>{% blocktranslate %}Les champs avec "*" sont obligatoires{% endblocktranslate %}</p>
                     <div>
-                        {{ form.non_field_errors }}
-                        {{ form.email|as_crispy_field }}
-                        {{ form.username|as_crispy_field }}
-                        {{ form.password1|as_crispy_field }}
-                        {{ form.password2|as_crispy_field }}
-                        {{ form.robot|as_crispy_field }}
-                        {{ form.newsletter_opt_in|as_crispy_field }}
+                        {% if form.non_field_errors %}<div class="fr-alert fr-alert--error">{{ form.non_field_errors }}</div>{% endif %}
+                        <div class="display--flex direction--column gap-4w fr-mb-2w">
+                            <div class="fr-col-12 fr-col-lg">
+                                <div class="fr-input-group {% if form.errors.email %}fr-input-group--error{% endif %}">
+                                    <label for={{ form.email.id_for_label }} class="fr-label">
+                                        {% translate "Adresse e-mail*" %} <span class="fr-hint-text">{% translate "Format attendu : adresse@herbergeur.com" %}</span>
+                                    </label>
+                                    {{ form.email }}
+                                    {% if form.errors.email %}<p id="email-desc-error" class="fr-error-text">{{ form.errors.email.0 }}</p>{% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-col-12 fr-col-lg">
+                                <div class="fr-input-group {% if form.errors.username %}fr-input-group--error{% endif %}">
+                                    <label for={{ form.username.id_for_label }} class="fr-label">{% translate "Nom d'utilisateur*" %}
+                                    </label>
+                                    {{ form.username }}
+                                    {% if form.errors.username %}
+                                        <p id="username-desc-error" class="fr-error-text">{{ form.errors.username.0 }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-col-12 fr-col-lg">
+                                <div class="fr-input-group {% if form.errors.password1 %}fr-input-group--error{% endif %}">
+                                <label for={{ form.password1.id_for_label }} class="fr-label">{% translate "Mot de passe*" %}<span class="fr-hint-text">{% translate "Format attendu : Votre mot de passe ne peut pas être entièrement numérique et doit contenir au minimum 12 caractères." %}</span>
+                            </label>
+                            {{ form.password1 }}
+                            {% if form.errors.password1 %}
+                                <p id="password1-desc-error" class="fr-error-text">{{ form.errors.password1.0 }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="fr-input-group {% if form.errors.password2 %}fr-input-group--error{% endif %}">
+                            <label for={{ form.password2.id_for_label }} class="fr-label">{% translate "Confirmation du mot de passe*" %}
+                            </label>
+                            {{ form.password2 }}
+                            {% if form.errors.password2 %}
+                                <p id="password2-desc-error" class="fr-error-text">{{ form.errors.password2.0 }}</p>
+                            {% endif %}
+                        </div>
                     </div>
-                    <button type="submit" class="fr-btn">{% translate "Créer mon compte" %}</button>
-                </form>
-            </div>
-            <div class="fr-col-5 fr-col-offset-1 fr-mt-20v">
-                <figure class="fr-content-media d-none d-sm-block">
-                    <div class="fr-content-media__img ">
-                        <img class="auto-height"
-                             src="{% static 'img/login.jpg' %}"
-                             alt=""
-                             aria-hidden="true">
+                    <div class="fr-grid-row direction--column gap-2w">
+                        <div class="fr-checkbox-group">
+                            <input type="checkbox"
+                                   {% if form.robot.field.required %}required{% endif %}
+                                   id="{{ form.robot.id_for_label }}"
+                                   name="{{ form.robot.name }}" />
+                            <label for="{{ form.robot.id_for_label }}" class="fr-label">{{ form.robot.label }}</label>
+                        </div>
+                        <div class="fr-checkbox-group">
+                            <input type="checkbox"
+                                   {% if form.newsletter_opt_in.field.required %}required{% endif %}
+                                   id="{{ form.newsletter_opt_in.id_for_label }}"
+                                   name="{{ form.newsletter_opt_in.name }}" />
+                            <label for="{{ form.newsletter_opt_in.id_for_label }}" class="fr-label">{{ form.newsletter_opt_in.label }}</label>
+                        </div>
                     </div>
-                </figure>
+                </div>
             </div>
-        </div>
-    {% endif %}
+            <button type="submit" class="fr-btn fr-mt-2w align-self--end">{% translate "Créer mon compte" %}</button>
+        </form>
+    </div>
+    <div class="align-self--center fr-col-md-6 fr-hidden fr-unhidden-md">
+        <figure class="fr-content-media">
+            <div class="fr-content-media__img ">
+                <img class="fr-responsive-img" src="{% static 'img/login.jpg' %}" alt="">
+            </div>
+        </figure>
+    </div>
+</div>
+{% endif %}
 {% endblock editorial_content %}

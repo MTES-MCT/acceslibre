@@ -24,7 +24,7 @@ USERNAME_RULES = translate(
 
 def validate_username_whitelisted(value):
     if value.lower() in settings.USERNAME_BLACKLIST:
-        raise ValidationError(translate("Ce nom d'utilisateur est réservé"), params={"value": value})
+        raise ValidationError(translate_lazy("Ce nom d'utilisateur est réservé"), params={"value": value})
 
 
 def define_username_field():
@@ -74,26 +74,22 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "next",
             "newsletter_opt_in",
         ]
-        widgets = {
-            "email": forms.TextInput(attrs={"autocomplete": "email", "autofocus": True}),
-            "username": forms.TextInput(attrs={"autocomplete": "username"}),
-        }
 
     email = forms.EmailField(
         error_messages={
-            "invalid": translate("Format de l'email attendu : nom@domaine.tld"),
-            "unique": translate("Cet email est déja utilisé. Merci de fournir un email différent."),
+            "invalid": translate_lazy("Format de l'email attendu : nom@domaine.tld"),
+            "unique": translate_lazy("Cet email est déja utilisé. Merci de fournir un email différent."),
         },
     )
     password1 = forms.CharField(
-        label=translate("Password"),
+        label=translate_lazy("Password"),
         required=True,
         widget=forms.PasswordInput,
         strip=False,
         help_text=custom_validators_help_text_html(),
     )
     password2 = forms.CharField(
-        label=translate("Confirmation du mot de passe"),
+        label=translate_lazy("Confirmation du mot de passe"),
         required=True,
         widget=forms.PasswordInput,
         strip=False,
@@ -102,15 +98,15 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
     next = forms.CharField(required=False)
 
     robot = forms.BooleanField(
-        label=translate("Je ne suis pas un robot"),
+        label=translate_lazy("Je ne suis pas un robot*"),
         initial=False,
-        required=False,
+        required=True,
     )
 
     newsletter_opt_in = forms.BooleanField(
         initial=False,
         required=False,
-        label=translate("J'accepte de recevoir la newsletter"),
+        label=translate_lazy("J'accepte de recevoir la newsletter"),
     )
 
     def __init__(self, *args, **kwargs):
@@ -119,11 +115,45 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         self.fields[email_field].validators = (
             validators.CaseInsensitiveUnique(get_user_model(), email_field, validators.DUPLICATE_EMAIL),
         )
+        self.fields["email"].widget = forms.TextInput(
+            attrs={
+                "autocomplete": "email",
+                "class": "fr-input",
+                "autofocus": True,
+                "required": True,
+                "type": "email",
+                "aria-describedby": "email-desc-error",
+            }
+        )
+        self.fields["username"].widget = forms.TextInput(
+            attrs={
+                "autocomplete": "username",
+                "class": "fr-input",
+                "required": True,
+                "aria-describedby": "username-desc-error",
+            }
+        )
+        self.fields["password1"].widget = forms.TextInput(
+            attrs={
+                "class": "fr-input",
+                "type": "password",
+                "required": True,
+                "aria-describedby": "password1-desc-error",
+            }
+        )
+        self.fields["password2"].widget = forms.TextInput(
+            attrs={
+                "class": "fr-input",
+                "type": "password",
+                "required": True,
+                "aria-describedby": "password2-desc-error",
+            }
+        )
 
     def clean_robot(self):
         robot = self.cleaned_data["robot"]
         if not robot:
-            raise ValidationError(translate("Vous devez cocher cette case pour soumettre le formulaire"))
+            raise ValidationError(translate_lazy("Vous devez cocher cette case pour soumettre le formulaire"))
         return robot
 
 
@@ -133,7 +163,7 @@ class UsernameChangeForm(forms.Form):
     def clean_username(self):
         username = self.cleaned_data["username"]
         if get_user_model().objects.filter(username__iexact=username).count():
-            raise ValidationError(translate("Ce nom d'utilisateur est déjà pris."))
+            raise ValidationError(translate_lazy("Ce nom d'utilisateur est déjà pris."))
         return username
 
 
@@ -151,14 +181,14 @@ class EmailChangeForm(forms.Form):
         email2 = self.cleaned_data.get("email2")
 
         if self.user and email1 == self.user.email:
-            raise ValidationError(translate("Vous n'avez pas modifié votre adresse email"))
+            raise ValidationError(translate_lazy("Vous n'avez pas modifié votre adresse email"))
 
         if email1 != email2:
-            raise ValidationError(translate("Les emails ne correspondent pas"))
+            raise ValidationError(translate_lazy("Les emails ne correspondent pas"))
 
         if get_user_model().objects.filter(email__iexact=email1).count():
             raise ValidationError(
-                translate("Cette adresse email existe déjà, veuillez choisir une adresse email différente")
+                translate_lazy("Cette adresse email existe déjà, veuillez choisir une adresse email différente")
             )
 
         return email1
@@ -175,7 +205,7 @@ class AccountDeleteForm(forms.Form):
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError(translate("Vous devez confirmer la suppression pour la rendre effective."))
+            raise ValidationError(translate_lazy("Vous devez confirmer la suppression pour la rendre effective."))
         return confirm
 
 

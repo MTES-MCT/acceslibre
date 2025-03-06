@@ -40,12 +40,12 @@
         <div>
             <form id="contact-form" action="." method="post" autocomplete>
                 {% csrf_token %}
-                {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+                {% if form.non_field_errors %}<div class="fr-alert fr-alert--error">{{ form.non_field_errors }}</div>{% endif %}
                 <div class="display--flex direction--column gap-4w fr-mb-2w">
                     <div class="display--flex gap-3w flex--wrap">
                         <div class="fr-col-12 fr-col-lg">
                             <div class="fr-input-group">
-                                <label for="id_email" class="fr-label">
+                                <label for="{{ form.email.id_for_label }}" class="fr-label">
                                     {% translate "Adresse e-mail*" %} <span class="fr-hint-text">{% translate "Format attendu : adresse@herbergeur.com" %}</span>
                                 </label>
                                 {{ form.email }}
@@ -53,7 +53,7 @@
                         </div>
                         <div class="fr-col-12 fr-col-lg align-self--end">
                             <div class="fr-input-group">
-                                <label for="id_name" class="fr-label">
+                                <label for="{{ form.name.id_for_label }}" class="fr-label">
                                     {% translate "Nom*" %}<span class="fr-hint-text"></span>
                                 </label>
                                 {{ form.name }}
@@ -62,8 +62,10 @@
                     </div>
                     <div>
                         <div class="fr-select-group fr-col-lg-7">
-                            <label class="fr-label" for="topic">{% translate "Sujet de votre demande*" %}</label>
-                            <select class="fr-select" id="topic" name="topic">
+                            <label class="fr-label" for="{{ form.topic.id_for_label }}">{% translate "Sujet de votre demande*" %}</label>
+                            <select class="fr-select"
+                                    id="{{ form.topic.id_for_label }}"
+                                    name="{{ form.topic.name }}">
                                 {% for value, name in form.fields.topic.choices %}
                                     <option value="{{ value }}"
                                             {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
@@ -84,7 +86,7 @@
                     {% endif %}
                     <div class="fr-col-12">
                         <div class="fr-input-group">
-                            <label for="id_body" class="fr-label">
+                            <label for="{{ form.body.id_for_label }}" class="fr-label">
                                 {% translate "Message*" %}
                                 <span class="fr-hint-text">{% translate "Texte de description additionnel" %}</span>
                             </label>
@@ -95,7 +97,7 @@
                     {{ form.next }}
                     <div class="fr-checkbox-group">
                         <input type="checkbox"
-                               required="{{ form.robot.required }}"
+                               required="{{ form.robot.field.required }}"
                                id="{{ form.robot.id_for_label }}"
                                name="{{ form.robot.name }}" />
                         <label for="{{ form.robot.id_for_label }}" class="fr-label">{{ form.robot.label }}*</label>
