@@ -1,7 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, UsernameField
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -139,6 +139,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
                 "type": "password",
                 "required": True,
                 "aria-describedby": "password1-desc-error",
+                "autocomplete": "new-password",
             }
         )
         self.fields["password2"].widget = forms.TextInput(
@@ -147,6 +148,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
                 "type": "password",
                 "required": True,
                 "aria-describedby": "password2-desc-error",
+                "autocomplete": "new-password",
             }
         )
 
@@ -216,7 +218,12 @@ class PreferencesForm(forms.ModelForm):
 
 
 class CustomAuthenticationForm(AuthenticationForm):
-    username = UsernameField(label=translate_lazy("Adresse e-mail"), widget=forms.TextInput(attrs={"autofocus": True}))
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget = forms.EmailInput(attrs={"class": "fr-input", "autocomplete": "username"})
+        self.fields["password"].widget.attrs.update(
+            {"class": "fr-password__input fr-input", "autocomplete": "current-password"}
+        )
 
 
 class CustomPasswordResetForm(PasswordResetForm):
