@@ -25,7 +25,8 @@
     <main role="main"
           id="content"
           {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}
-          {% if page_type == 'contact-form' %}class="contact-container"{% endif %}>
+          {% if page_type == 'contact-form' %}class="contact-container"{% endif %}
+          {% if page_type == 'login-form' %}class="login-container"{% endif %}>
         {% block breadcrumb %}
         {% endblock breadcrumb %}
         {% block top_fluid_content %}

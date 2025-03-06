@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetView, LoginView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 from django_registration.backends.activation.views import ActivationView, RegistrationView
 
 from compte import forms, service
-from compte.forms import CustomPasswordResetForm
+from compte.forms import CustomPasswordResetForm, CustomAuthenticationForm
 from compte.models import UserPreferences
 from compte.tasks import sync_user_attributes
 from core.mailer import BrevoMailer
@@ -344,3 +344,12 @@ def set_api_key(request):
 
 class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
+
+
+class CustomLoginView(LoginView):
+    form_class = CustomAuthenticationForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page_type"] = "login-form"
+        return context

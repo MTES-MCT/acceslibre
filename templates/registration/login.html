@@ -9,6 +9,27 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Connexion" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block top_fluid_content %}
     {% if 'contrib/publication/' in next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
@@ -32,7 +53,7 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     {% if user.is_authenticated %}
-        <p class="alert alert-warning">
+        <p class="fr-alert fr-alert--warning">
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
             {% blocktranslate with username=user.username trimmed %}
@@ -43,41 +64,68 @@
             {% endblocktranslate %}
         </p>
     {% else %}
-        <div class="row">
-            <div class="fr-col-12 fr-col-md-6">
-                <form action="." method="post" novalidate class="login-form">
-                    <input type="hidden" name="next" value="{{ next }}">
-                    {% csrf_token %}
-                    <h1 class="h3 text-start fr-mb-4v">{% translate "Je me connecte" %}</h1>
-                    {% for error in form.non_field_errors %}<p class="form-text text-danger" role="alert">{{ error }}</p>{% endfor %}
-                    {{ form.username|as_crispy_field }}
-                    {{ form.password|as_crispy_field }}
-                    <div class="text-center fr-mb-5v">
-                        <a class="small" href="{% url "password_reset" %}">{% translate "Mot de passe oublié ?" %}</a>
-                    </div>
-                    <div class="form-group">
+        <div id="login-form-container">
+            <form action="." method="post" class="login-form">
+                <input type="hidden" name="next" value="{{ next }}">
+                {% csrf_token %}
+                <div>
+                    {% if form.non_field_errors %}
+                        <div class="fr-alert fr-alert--error fr-mb-2w" role="alert">
+                            {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="display--flex direction--column gap-3w fr-mb-2w">
+                        <div>
+                            <h1>{% translate "Je me connecte" %}</h1>
+                            <p class="fr-mb-1w">{% translate "*Tous les champs sont obligatoires" %}</p>
+                        </div>
+                        <div class="fr-col-12 fr-col-lg">
+                            <div class="fr-input-group {% if form.errors.username %}fr-input-group--error{% endif %}">
+                                <label for={{ form.username.id_for_label }} class="fr-label">{% translate "Adresse e-mail*" %}
+                                    <span class="fr-hint-text">{% translate "Format attendu : adresse@herbergeur.com" %}</span>
+                                </label>
+                                {{ form.username }}
+                                {% if form.errors.username %}
+                                    <p id="username-desc-error" class="fr-error-text">{{ form.errors.username.0 }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="fr-col-12 fr-col-lg">
+                            <div class="fr-password">
+                                <label for={{ form.password.id_for_label }} class="fr-label">{% translate "Mot de passe*" %}
+                                </label>
+                                <div class="fr-input-wrap">{{ form.password }}</div>
+                                {% if form.errors.password %}
+                                    <p id="password-desc-error" class="fr-error-text">{{ form.errors.password.0 }}</p>
+                                {% endif %}
+                                <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                    <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                           id="password-show"
+                                           type="checkbox">
+                                    <label class="fr-password__checkbox fr-label" for="password-show">{% translate "Afficher" %}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <a class="fr-link fr-link--icon-right fr-icon-arrow-right-line"
+                               href="{% url "password_reset" %}">{% translate "Mot de passe oublié" %}</a>
+                        </div>
                         <button type="submit"
-                                class="fr-btn fr-btns-group--center btn-block text-center">
-                            {% translate "Se connecter" %}
+                                class="fr-btn fr-btns-group--center btn-block text-center align-self--end">
+                            {% translate "Connexion" %}
                         </button>
-                        <span class="text-center m-4">{% translate "ou" %}</span>
-                        <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}"
-                           class="fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
-                            {% translate "S'inscrire" %}
-                        </a>
+                        <div>
+                            <p class="fr-mb-1w">{% translate "Vous êtes un nouvel utilisateur ?" %}</p>
+                            <p>
+                                <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}"
+                                   class="fr-link fr-link--icon-right fr-icon-arrow-right-line">
+                                    {% translate "Créez un compte" %}
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                </form>
-            </div>
-            <div class="fr-col-5 fr-col-offset-1 fr-mt-1v0">
-                <figure class="fr-content-media d-none d-sm-block">
-                    <div class="fr-content-media__img ">
-                        <img class="auto-height"
-                             src="{% static 'img/login.jpg' %}"
-                             alt=""
-                             aria-hidden="true">
-                    </div>
-                </figure>
-            </div>
+                </div>
+            </form>
         </div>
     {% endif %}
 {% endblock editorial_content %}

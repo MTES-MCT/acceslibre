@@ -1,0 +1,27 @@
+@import 'breakpoints';
+
+.login-container {
+  @media (min-width: $viewport-xl) {
+    position: relative;
+    background-image: url(/static/img/login/login-background.svg);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: 680px auto;
+
+    &::after {
+      z-index: -1;
+      position: absolute;
+      content: '';
+      background-color: #434cbf;
+      height: 100%;
+      width: 680px;
+      right: 0;
+      top: 0;
+    }
+
+    #login-form-container {
+      max-width: 480px;
+    }
+  }
+}

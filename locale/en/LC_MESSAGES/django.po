@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-06 10:11+0100\n"
-"PO-Revision-Date: 2025-03-06 09:58+0100\n"
+"POT-Creation-Date: 2025-03-06 17:01+0100\n"
+"PO-Revision-Date: 2025-03-06 16:53+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -108,9 +108,6 @@ msgstr ""
 
 msgid "Vous devez confirmer la suppression pour la rendre effective."
 msgstr "You must confirm the deletion to make it effective."
-
-msgid "Adresse e-mail"
-msgstr "Email address"
 
 msgid "EmailToken"
 msgstr "EmailToken"
@@ -5466,7 +5463,7 @@ msgid "icônes"
 msgstr "Icons"
 
 msgid "Connexion"
-msgstr "Connection"
+msgstr "Login"
 
 #, python-format
 msgid ""
@@ -5483,11 +5480,20 @@ msgstr ""
 msgid "Je me connecte"
 msgstr "Sign in"
 
-msgid "Mot de passe oublié ?"
+msgid "Afficher le mot de passe"
+msgstr "Display the password"
+
+msgid "Afficher"
+msgstr "Display"
+
+msgid "Mot de passe oublié"
 msgstr "Forgot your password?"
 
-msgid "ou"
-msgstr "or"
+msgid "Vous êtes un nouvel utilisateur ?"
+msgstr "Are you a new user?"
+
+msgid "Créez un compte"
+msgstr "Create an account"
 
 msgid "Changement effectué"
 msgstr "Change done"
@@ -5520,6 +5526,9 @@ msgstr "Reset performed"
 
 msgid "Identifiez-vous"
 msgstr "Sign in"
+
+msgid "ou"
+msgstr "or"
 
 msgid "retournez à l'accueil"
 msgstr "back to home"
@@ -5785,6 +5794,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Adresse e-mail"
+#~ msgstr "Email address"
 
 #~ msgid "Je crée un compte"
 #~ msgstr "I create an account"

@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth.views import LoginView
 from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
 from django.views.decorators.cache import cache_page
@@ -14,6 +13,7 @@ from compte.views import (
     CustomPasswordResetView,
     CustomRegistrationCompleteView,
     CustomRegistrationView,
+    CustomLoginView,
 )
 from core.sitemaps import SITEMAPS
 from core.views import html_sitemap, robots_txt
@@ -52,7 +52,7 @@ urlpatterns = [
         CustomRegistrationCompleteView.as_view(template_name="django_registration/registration_complete.html"),
         name="django_registration_complete",
     ),
-    path("compte/login/", LoginView.as_view(form_class=CustomAuthenticationForm), name="login"),
+    path("compte/login/", CustomLoginView.as_view(form_class=CustomAuthenticationForm), name="login"),
     path("compte/password_reset/", CustomPasswordResetView.as_view(), name="password_reset"),
     # TODO more things to move to auth
     path("compte/", include("django_registration.backends.activation.urls")),
