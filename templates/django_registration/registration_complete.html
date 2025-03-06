@@ -7,6 +7,27 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Créer un compte" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block top_fluid_content %}
     {% if 'contrib/publication/' in request.GET.next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
@@ -29,14 +50,15 @@
     {% endif %}
 {% endblock top_fluid_content %}
 {% block editorial_content %}
-    <h3 role="status">{% translate "C'est presque fini" %}</h3>
-    <p>
-        {% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}
-        {% if 'contrib/publication/' in request.GET.next %}
-            {% translate "et de publier la fiche" %}
-        {% endif %}
-        .
-    </p>
+    <h1>{% translate "C'est presque fini" %}</h1>
+    <div class="fr-alert fr-alert--info fr-mb-4w">
+        <p>
+            {% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}
+            {% if 'contrib/publication/' in request.GET.next %}
+                {% translate "et de publier la fiche" %}
+            {% endif %}
+        </p>
+    </div>
     <p>
         <a href="{% url 'home' %}" class="fr-btn">{% translate "Retour à l'accueil" %}</a>
     </p>

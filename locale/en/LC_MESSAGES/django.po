@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 09:39+0100\n"
-"PO-Revision-Date: 2025-02-27 14:50+0100\n"
+"POT-Creation-Date: 2025-03-06 10:11+0100\n"
+"PO-Revision-Date: 2025-03-06 09:58+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -69,8 +69,8 @@ msgstr "Password"
 msgid "Confirmation du mot de passe"
 msgstr "Password confirmation"
 
-msgid "Je ne suis pas un robot"
-msgstr "I am not a robot"
+msgid "Je ne suis pas un robot*"
+msgstr "I am not a robot*"
 
 msgid "J'accepte de recevoir la newsletter"
 msgstr "I agree to receive the newsletter"
@@ -138,6 +138,9 @@ msgstr "UserStats"
 
 msgid "UsersStats"
 msgstr "UsersStats"
+
+msgid "Je ne suis pas un robot"
+msgstr "I am not a robot"
 
 msgid "Cochez cette case pour soumettre le formulaire."
 msgstr "Check this box to submit the form."
@@ -4089,6 +4092,9 @@ msgstr "It is temporarily impossible to create a new account on the platform."
 msgid "Inscription en cours de finalisation"
 msgstr "Registration in the process of being finalized"
 
+msgid "Créer un compte"
+msgstr "Create an account"
+
 msgid "Retour"
 msgstr "Back"
 
@@ -4119,22 +4125,36 @@ msgstr ""
 "information,\n"
 "you can <a href=\"%(url_contact_connection)s\">contact us</a>."
 
-msgid "Créer un compte"
-msgstr "Create an account"
-
 #, python-format
 msgid ""
 "Vous êtes déjà authentifié en tant que <strong>%(username)s</strong>, vous "
-"ne pouvez donc pas créer un nouveau compte. Veuillez <a "
-"href=\"%(url_logout)s\">vous déconnecter</a> ou revenir à la <a "
-"href=\"%(url_home)s\">page d'accueil</a>."
+"ne pouvez donc pas créer un nouveau compte. Veuillez <a class=\"fr-link\" "
+"href=\"%(url_logout)s\">vous déconnecter</a> ou revenir à la <a class=\"fr-"
+"link\" href=\"%(url_home)s\">page d'accueil</a>."
 msgstr ""
 "You are already authenticated as <strong>%(username)s</strong>, so you "
-"cannot create a new account. Please <a href = \"%(url_logout)s\">Disconnect "
-"</a> or return to <a href = \"%(url_home)s\">Home page </a>."
+"cannot create a new account. Please <a class=\"fr-link\" "
+"href=\"%(url_logout)s\">Disconnect </a> or return to <a class=\"fr-link\" "
+"href=\"%(url_home)s\">Home page </a>."
 
-msgid "Je crée un compte"
-msgstr "I create an account"
+msgid "Les champs avec \"*\" sont obligatoires"
+msgstr "Fields with \"*\" are mandatory"
+
+msgid "Nom d'utilisateur*"
+msgstr "Username*"
+
+msgid "Mot de passe*"
+msgstr "Password*"
+
+msgid ""
+"Format attendu : Votre mot de passe ne peut pas être entièrement numérique "
+"et doit contenir au minimum 12 caractères."
+msgstr ""
+"Expected format: Your password cannot be entirely numeric and must contain "
+"at least 12 characters."
+
+msgid "Confirmation du mot de passe*"
+msgstr "Password confirmation*"
 
 msgid "Créer mon compte"
 msgstr "Create my account"
@@ -5765,6 +5785,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Je crée un compte"
+#~ msgstr "I create an account"
 
 #, python-format
 #~ msgid ""
