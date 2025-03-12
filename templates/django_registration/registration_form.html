@@ -100,17 +100,33 @@
                             </div>
                             <div class="fr-col-12 fr-col-lg">
                                 <div class="fr-input-group {% if form.errors.password1 %}fr-input-group--error{% endif %}">
-                                <label for={{ form.password1.id_for_label }} class="fr-label">{% translate "Mot de passe*" %}<span class="fr-hint-text">{% translate "Format attendu : Votre mot de passe ne peut pas être entièrement numérique et doit contenir au minimum 12 caractères." %}</span>
-                            </label>
-                            {{ form.password1 }}
+                                    <div class="fr-password">
+                                    <label for={{ form.password1.id_for_label }} class="fr-label">{% translate "Mot de passe*" %}<span class="fr-hint-text">{% translate "Format attendu : Votre mot de passe ne peut pas être entièrement numérique et doit contenir au minimum 12 caractères." %}</span>
+                                </label>
+                                <div class="fr-input-wrap">{{ form.password1 }}</div>
+                                <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                    <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                           id="password-1-show"
+                                           type="checkbox">
+                                    <label class="fr-password__checkbox fr-label" for="password-1-show">{% translate "Afficher" %}</label>
+                                </div>
+                            </div>
                             {% if form.errors.password1 %}
                                 <p id="password1-desc-error" class="fr-error-text">{{ form.errors.password1.0 }}</p>
                             {% endif %}
                         </div>
                         <div class="fr-input-group {% if form.errors.password2 %}fr-input-group--error{% endif %}">
-                            <label for={{ form.password2.id_for_label }} class="fr-label">{% translate "Confirmation du mot de passe*" %}
-                            </label>
-                            {{ form.password2 }}
+                            <div class="fr-password">
+                                <label for={{ form.password2.id_for_label }} class="fr-label">{% translate "Confirmation du mot de passe*" %}
+                                </label>
+                                <div class="fr-input-wrap">{{ form.password2 }}</div>
+                                <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                    <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                           id="password-2-show"
+                                           type="checkbox">
+                                    <label class="fr-password__checkbox fr-label" for="password-2-show">{% translate "Afficher" %}</label>
+                                </div>
+                            </div>
                             {% if form.errors.password2 %}
                                 <p id="password2-desc-error" class="fr-error-text">{{ form.errors.password2.0 }}</p>
                             {% endif %}
