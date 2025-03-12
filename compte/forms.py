@@ -135,7 +135,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         )
         self.fields["password1"].widget = forms.TextInput(
             attrs={
-                "class": "fr-input",
+                "class": "fr-input fr-password__input",
                 "type": "password",
                 "required": True,
                 "aria-describedby": "password1-desc-error",
@@ -144,7 +144,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         )
         self.fields["password2"].widget = forms.TextInput(
             attrs={
-                "class": "fr-input",
+                "class": "fr-input fr-password__input",
                 "type": "password",
                 "required": True,
                 "aria-describedby": "password2-desc-error",
