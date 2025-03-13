@@ -19,10 +19,13 @@ class BaseMapper:
         "longitude",
         "latitude",
         "import_email",
+        "source",
+        "source_id",
     ]
 
     accessibility_fields = [
         "transport_station_presence",
+        "transport_information",
         "stationnement_presence",
         "stationnement_pmr",
         "stationnement_ext_presence",
