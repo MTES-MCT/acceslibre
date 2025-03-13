@@ -36,7 +36,9 @@ urlpatterns = [
         editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
         name="partenaires",
     ),
-    path("qui-sommes-nous", editorial_page("editorial/qui-sommes-nous.html"), name="about-us"),
+    path(
+        "qui-sommes-nous", editorial_page("editorial/qui-sommes-nous.html", {"page_type": "about-us"}), name="about-us"
+    ),
     # Challenge DDT mars 2022
     path("challenges/", views.challenges, name="challenges"),
     path("challenge/ddt/2022/03/", views.challenge_ddt, name="challenge-ddt"),

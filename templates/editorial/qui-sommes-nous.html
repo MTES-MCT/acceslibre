@@ -5,148 +5,330 @@
 {% block page_title %}
     {% translate "Qui sommes-nous ?" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Qui sommes-nous ?" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="fr-mt-5v team">
-        <h1 class="text-center fr-mt-5w fr-mb-5w">{% translate "Qui sommes-nous ?" %}</h1>
-        <h2>{% translate "Le constat : un manque d'informations sur l'accessibilité des lieux" %}</h2>
-        <p>
-            {% blocktranslate %}Comment une personne en situation de handicap fait-elle pour savoir si elle pourra accéder au
-        lieu dans lequel
-        elle souhaite se rendre ? Dans la grande majorité des cas, les informations ne sont pas disponibles sur internet
-        ou ne sont pas fiables.{% endblocktranslate %}
-        </p>
-        <p>
-            {% blocktranslate %}Résultat : les personnes en situation de handicap, soit 12 millions de français, sortent
-        moins que les autres et
-        se retrouvent à l'écart.{% endblocktranslate %}
-        </p>
-        <h2>{% translate "Notre solution : Acceslibre, le site collaboratif pour l'accessibilité" %}</h2>
-        <p>{% blocktranslate %}La mission d'Acceslibre s'articule autour de deux axes :{% endblocktranslate %}</p>
-        <ul>
-            <li>
-                {% blocktranslate %}Créer la base de données la plus complète et la plus à jour concernant les informations
-            d'accessibilité des
-            lieux ouverts au public (restaurants, cinémas, pharmacie, administrations...){% endblocktranslate %}
-            </li>
-            <li>
-                {% blocktranslate %}Diffuser ces informations le plus largement possible sur internet, notamment sur les
-            grands sites qui
-            recensent des lieux publics : service-public.fr, allocine.fr...{% endblocktranslate %}
-            </li>
-        </ul>
-        <p>
-            {% blocktranslate %}A terme, notre objectif est qu'à chaque fois que des informations pratiques d'un
-        établissement sont renseignées
-        sur internet (adresse, horaires...), figurent également les informations d'accessibilité (plain-pieds, rampe,
-        toilettes adaptées...){% endblocktranslate %}
-        </p>
-        <h2>{% translate "Notre équipe" %}</h2>
-        <p>
-            {% blocktranslate %}Nous sommes ce qu'on appelle une « Startup d'État ». Il s'agit d'une petite équipe qui crée
-        un service public
-        numérique pour répondre à un problème qui touche les citoyens. Elle n'a pas pour objectif de faire du profit,
-        mais de maximiser son impact social et sociétal en répondant aux besoins des utilisateurs.{% endblocktranslate %}
-        </p>
-        <p>{% blocktranslate %}Acceslibre est rattachée au Ministère de la Transition Écologique.{% endblocktranslate %}</p>
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-5v">
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">Julia Zucker</h3>
-                            <p class="fr-card__desc">{% translate "Intrapreneuse" %}</p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/julia.png' %}"
-                                 width="100"
-                                 height="100"
-                                 alt="Julia Zucker" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">Sophie Tcheng</h3>
-                            <p class="fr-card__desc">{% translate "Intrapreneuse" %}</p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/sophie.png' %}"
-                                 width="100"
-                                 height="100"
-                                 alt="Sophie Tcheng" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">Marie-Laure Vernay</h3>
-                            <p class="fr-card__desc">{% translate "Développeuse informatique" %}</p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/ml.png' %}"
-                                 width="100"
-                                 height="100"
-                                 alt="Marie-Laure Vernay" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">Olivier Rousseau</h3>
-                            <p class="fr-card__desc">{% translate "Chargé de déploiement" %}</p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/oli.png' %}"
-                                 width="100"
-                                 height="100"
-                                 alt="Olivier Rousseau" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-enlarge-link fr-card--horizontal fr-card--horizontal-tier">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">Quentin Kurtz</h3>
-                            <p class="fr-card__desc">{% translate "Chargé de déploiement" %}</p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/quentin.png' %}"
-                                 width="100"
-                                 height="100"
-                                 alt="Quentin Kurtz" />
-                        </div>
-                    </div>
-                </div>
+    <div class="about-us-container__content">
+        <div class="fr-grid-row direction--column gap-6w">
+            <div class="fr-grid-row direction--column fr-grid-row--middle gap-6v">
+                <h1 class="fr-m-0 text--center">{% translate "Qui sommes-nous ?" %}</h1>
+                <p class="fr-text--lg fr-m-0 subtitle-1">
+                    {% translate "Nous recensons l'accessibilité de tous les lieux recevant du public et partageons ces informations le plus largement possible en ligne." %}
+                </p>
+                <a class="fr-btn fr-btn--lg" href="{% url 'contact_form' %}">{% translate "Nous contacter" %}</a>
             </div>
         </div>
-        <p>
-            <a href="{% url "home" %}" class="fr-btn">{% translate "Retour à l'accueil" %}</a>
-        </p>
+        <ul class="main-cards">
+            <li>
+                <section class="section-card">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title">
+                                    {% blocktranslate %}
+                                    <span class="display--block">01</span>
+                                    <span class="display--block">Notre constat :</span>
+                                    Le manque d’information sur l’accessibilité des lieux.
+                                {% endblocktranslate %}
+                                </h2>
+                                <div class="fr-card__desc">
+                                    <p>
+                                        {% blocktranslate %}
+                                        Le manque d'information sur l'accessibilité est l'un des plus grands obstacles auxquels les personnes en situation de handicap sont confrontées.
+                                        {% endblocktranslate %}
+                                    </p>
+                                    <p>
+                                        {% translate "12 millions de personnes sont dans cette situation, par conséquent, sortent moins que les autres et sont à l’écart." %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </li>
+            <li>
+                <section class="section-card">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title">
+                                    {% blocktranslate %}
+                                    <span class="display--block">02</span>
+                                    <span class="display--block">Notre solution :</span> Acceslibre, la plateforme collaborative de l'accessibilité
+                                {% endblocktranslate %}
+                                </h2>
+                                <div class="fr-card__desc">
+                                    <p>
+                                        {% translate "Créer la base de données de référence sur l'accessibilité des lieux recevant du public au niveau national, unique, publique et gratuite." %}
+                                    </p>
+                                    <p>
+                                        {% translate "Nous collectons, agrégeons et redistribuons des données enrichies pour que partout sur le web soient diffusées les informations d'accessibilité." %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </li>
+            <li>
+                <section class="section-card">
+                    <div class="fr-card">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h2 class="fr-card__title">
+                                    {% blocktranslate %}
+                                    <span class="display--block">03</span>
+                                    <span class="display--block">Notre impact :</span> Contribuer à une société plus inclusive
+                                {% endblocktranslate %}
+                                </h2>
+                                <div class="fr-card__desc">
+                                    <p>
+                                        {% translate "Avec Acceslibre, nous facilitons le déplacement des personnes en situation de handicap et ainsi l'accès aux services." %}
+                                    </p>
+                                    <p>{% translate "Nous croyons à un monde plus ouvert où chacun a accès aux mêmes opportunités." %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </li>
+        </ul>
+        <div class="fr-grid-row direction--column gap-6w">
+            <div class="fr-grid-row direction--column fr-grid-row--middle gap-6v">
+                <h2 class="fr-m-0 text--center">{% translate "Notre équipe" %}</h2>
+                <p class="fr-text--lg fr-m-0 subtitle-2">
+                    {% blocktranslate %}
+                        Rattachés au Ministère de la Transition Écologique, nous sommes ce qu'on appelle une « Startup
+                        d'État ». Il s'agit d'une petite équipe qui crée un service public numérique pour répondre à un
+                        problème qui touche les citoyens.
+                        Elle n'a pas pour objectif de faire du profit, mais de maximiser son impact social et sociétal
+                        en répondant aux besoins des utilisateurs.
+                    {% endblocktranslate %}
+                </p>
+            </div>
+        </div>
+        <ul class="team-photos">
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Sophie <span class="display--block">Tcheng</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Co-fondatrice d’AccesLibre, j’œuvre à le rendre plus utile et pratique pour les utilisateurs et partenaires." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/sophie.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Julia <span class="display--block">Zucker</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/julia.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Olivier <span class="display--block">Rousseau</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Je développe les partenariats d’AccesLibre pour maximiser l’usage de nos données sur la toile." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/olivier.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Quentin <span class="display--block">Kurtz</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Je collecte des données sur l’accessibilité des ERP et cherche des partenaires pour les diffuser sur leur site web." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/quentin.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Marie-Laure <span class="display--block">Vernay</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Développeuse backend chez AccesLibre, je conçois et maintien des outils techniques." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/ml.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Patrick <span class="display--block">Nguyen</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Développeur Full Stack, je conçois des applications avec une approche centrée sur le produit." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/patrick.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h3 class="fr-card__title">
+                                Perrine <span class="display--block">Croix</span>
+                            </h3>
+                            <p class="fr-card__desc">
+                                {% translate "Product Designer, j’améliore l’UX/UI pour créer des produits intuitifs, accessibles et performants, alignés aux besoins utilisateurs." %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="fr-card__header">
+                        <div class="fr-card__img">
+                            <img class="fr-responsive-img"
+                                 src="{% static '/img/equipe/perrine.png' %}"
+                                 alt="Patrick Nguyen" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="fr-grid-row direction--column gap-6w">
+            <div class="fr-grid-row direction--column fr-grid-row--middle gap-6v">
+                <h2 class="fr-m-0 text--center">{% translate "Les volontaires" %}</h2>
+                <p class="fr-text--lg fr-m-0 subtitle-2">
+                    {% translate "Depuis 2020, 13600 contributeurs ont participé à la co-création de la plateforme." %}
+                </p>
+                <div class="fr-callout">
+                    <span class="fr-icon-quote-line" aria-hidden="true"></span>
+                    <h3 class="fr-callout__title fr-mt-2w">
+                        {% blocktranslate %}
+                        « Un grand merci à tous les membres de la communauté Acceslibre ! Votre implication confirme chaque jour que le travail d’acceslibre a du sens ».
+                        {% endblocktranslate %}
+                    </h3>
+                    <p class="fr-callout__text text--bold">{% translate "L’équipe Acceslibre" %}</p>
+                </div>
+                <a class="fr-btn fr-btn--secondary text--center"
+                   href="{% url 'partenaires' %}">{% translate "Rejoindre la communauté" %}</a>
+            </div>
+        </div>
+        <div class="fr-grid-row direction--column gap-6w fr-mb-4w">
+            <div class="display--flex direction--column flex--no-wrap gap-6v">
+                <h2 class="fr-m-0 text--center">{% translate "Nos partenaires" %}</h2>
+                <p class="fr-text--lg fr-m-0 subtitle-2 align-self--center">
+                    {% translate "Découvrez nos partenaires engagés pour rendre les infrastructures, services et outils numériques plus accessibles." %}
+                </p>
+                <ul class="partners fr-grid-row fr-grid-row--center gap-9w">
+                    <li>
+                        <img src="{% static 'img/about-us/partners/allo-cine.svg' %}"
+                             alt="AlloCiné" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/asso-valenti-hauy.svg' %}"
+                             alt="Association Valentin Haüy" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/sortir-a-paris.svg' %}"
+                             alt="Sortir A Paris" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/so-local.svg' %}" alt="Solocal" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/we-go-to.svg' %}" alt="Wegoto" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/accor.svg' %}"  alt="Accor" />
+                    </li>
+                    <li>
+                        <img src="{% static 'img/about-us/partners/la-poste.svg' %}" alt="LaPoste" />
+                    </li>
+                </ul>
+                <a class="fr-btn fr-btn--secondary align-self--center text--center"
+                   href="{% url 'partenaires' %}">{% translate "Découvrir tous les partenaires" %}</a>
+            </div>
+        </div>
     </div>
 {% endblock editorial_content %}

@@ -1,0 +1,128 @@
+@import 'breakpoints';
+
+.about-us-container {
+  background-color: var(--blue-ecume-950-100);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .main-cards {
+      display: grid;
+      list-style-type: none;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 24px;
+
+      & .fr-card,
+      .section-card {
+        height: 100%;
+      }
+
+      @media screen and (min-width: $viewport-lg) {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 24px;
+      }
+    }
+
+    .fr-callout {
+      background-color: #fff;
+      max-width: 900px;
+      margin-bottom: 0;
+    }
+
+    .team-photos {
+      display: grid;
+      list-style-type: none;
+      grid-template-columns: repeat(auto-fit, 192px);
+
+      li {
+        height: 100%;
+      }
+
+      @media screen and (min-width: $viewport-md) {
+        grid-template-columns: repeat(3, minmax(192px, 1fr));
+      }
+
+      @media screen and (min-width: $viewport-xl) {
+        grid-template-columns: repeat(5, minmax(192px, 1fr));
+      }
+
+      align-items: center;
+      column-gap: 16px;
+      row-gap: 16px;
+      justify-content: center;
+
+      .fr-card {
+        height: 100%;
+        max-height: 372px;
+      }
+
+      .fr-card__body {
+        padding: 16px;
+      }
+
+      .fr-card__desc {
+        margin-top: 8px;
+      }
+
+      .fr-card__content {
+        padding-top: 0;
+      }
+
+      @media screen and (max-width: $viewport-sm) {
+        grid-template-columns: repeat(auto-fit, 100%);
+        column-gap: 24px;
+
+        .fr-card {
+          height: 100%;
+          max-height: initial;
+        }
+      }
+    }
+
+    .partners {
+      list-style-type: none;
+
+      img {
+        height: 92px;
+        width: 92px;
+      }
+
+      @media screen and (max-width: $viewport-sm) {
+        img {
+          height: 138px;
+          width: 138px;
+        }
+      }
+    }
+
+    .fr-callout {
+      .fr-icon-quote-line {
+        color: var(--blue-france-main-525);
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    .subtitle-1 {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .subtitle-2 {
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .section-card {
+      .fr-card__title {
+        color: var(--text-title-blue-france);
+      }
+
+      .fr-card__content {
+        padding: 24px;
+      }
+    }
+  }
+}
