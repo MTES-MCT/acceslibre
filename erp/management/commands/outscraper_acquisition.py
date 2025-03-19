@@ -43,6 +43,10 @@ QUERIES = [
     ("Collège", "Collège"),
     ("Photographe", "Photographie"),
     ("Opticien", "Opticien"),
+    ("Sushi", "Restauration rapide"),
+    ("Burger", "Restauration rapide"),
+    ("Brasserie", "Café, bar, brasserie"),
+    ("Tacos", "Restauration rapide"),
 ]
 
 
