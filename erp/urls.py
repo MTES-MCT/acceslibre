@@ -27,6 +27,11 @@ urlpatterns = [
         name="mentions-legales",
     ),
     path(
+        "politique-confidentialite",
+        editorial_page("editorial/politique-confidentialite.html"),
+        name="politique-confidentialite",
+    ),
+    path(
         "accessibilite",
         editorial_page("editorial/accessibilite.html"),
         name="accessibilite",

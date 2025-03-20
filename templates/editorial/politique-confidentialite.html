@@ -1,0 +1,189 @@
+{% extends "editorial/base.html" %}
+{% load i18n %}
+{% block page_title %}
+    Politique de confidentialité
+{% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Politique de confidentialité" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <div>
+        <h1 class="fr-mb-3v">Politique de confidentialité</h1>
+        <h2 class="h4 fr-my-4v">Quelles sont les finalités d’Acceslibre ?</h2>
+        <p>
+            Acceslibre est un service numérique mis en œuvre sous la responsabilité du Ministère de la Transition écologique pour l’exécution d’une mission d’intérêt public au sens de l’article 6. 1. e) du Règlement général relatif à la protection des données (RGPD).
+        </p>
+        <p>
+            Il a pour finalité principale de permettre à l’usager en situation de handicap d’avoir accès aux informations indispensables pour savoir s’il pourra accéder à tel ou tel établissement.
+        </p>
+        <p>
+            Le service est composé, d’une part, d’une <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers le site Acceslibre"
+    href="{% url "home" %}">application Web</a> qui vous permet de :
+        </p>
+        <ul class="fr-pl-4w fr-mb-4w">
+            <li>Renseigner un formulaire décrivant l’accessibilité d’un ERP via l’interface dédiée aux contributeurs</li>
+            <li>Consulter ces informations d’accessibilité via l’interface utilisateur</li>
+        </ul>
+        <p>
+            D’autre part, une <a href="{% url "apidocs" %}"
+    target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers la documentation de l'API">interface de programmation applicative (API)</a> qui vous permet de :
+        </p>
+        <ul class="fr-pl-4w fr-mb-4w">
+            <li>Obtenir une liste des ERP et leurs informations d’accessibilité à partir de différents critères de recherche.</li>
+            <li>Contribuer des données ERP et d’accessibilité.</li>
+        </ul>
+        <h2 class="h4 fr-my-4v">Pourquoi traitons-nous des données à caractère personnel ?</h2>
+        <p>
+            Basé sur le collaboratif, Acceslibre permet à tout un chacun de collecter les informations d’accessibilité des établissements recevant du public. Le fonctionnement collaboratif du site nécessite de pouvoir identifier les différents contributeurs, a minima, par une adresse mail.
+        </p>
+        <h2 class="h4 fr-my-4v">Quelles sont les données à caractère personnel que nous traitons ?</h2>
+        <p>Les données à caractère personnel traitées sont :</p>
+        <ul class="fr-pl-4w fr-mb-4w">
+            <li>
+                Nom d’utilisateur (ou identifiant) et adresse email, nécessaires pour l’authentification et la communication avec l’utilisateur.
+            </li>
+            <li>Nom et prénom (optionnel)</li>
+            <li>
+                Adresse IP (collectée automatiquement lors de la navigation et stockée temporairement dans les journaux d’accès 1 an)
+            </li>
+        </ul>
+        <h2 class="h4 fr-my-4v">Pendant combien de temps conservons-nous vos données ?</h2>
+        <p>Les adresses IP sont conservées pour une durée de six (6) mois.</p>
+        <h2 class="h4 fr-my-4v">Quels sont vos droits ?</h2>
+        <p>
+            En application des articles 12, 15, 16, 18 et 21 du RGPD, vous disposez des droits suivants concernant vos données à caractère personnel:
+        </p>
+        <ul class="fr-pl-4w fr-mb-4w">
+            <li>Droit d’information et droit d’accès aux données;</li>
+            <li>Droit de rectification;</li>
+            <li>Droit d’opposition;</li>
+            <li>Droit à la limitation du traitement de vos données.</li>
+        </ul>
+        <p>
+            Vous pouvez exercer ces droits auprès du responsable de traitement, par voie numérique : envoyez-nous un email à <a href="mailto:contact@acceslibre.beta.gouv.fr">contact@acceslibre.beta.gouv.fr</a>
+        </p>
+        <p>Par voie postale :</p>
+        <address>
+            <span class="display--block">Ministère de la Transition écologique et solidaire</span>
+            <span class="display--block">Délégation ministérielle à l’accessibilité</span>
+            <span class="display--block">Acceslibre</span>
+            <span class="display--block">Grande Arche</span>
+            <span class="display--block">92055 La Défense Cedex</span>
+        </address>
+        <p>
+            En raison de l’obligation de sécurité et de confidentialité dans le traitement des données à caractère personnel qui incombe au responsable de traitement, votre demande ne sera traitée que si vous apportez la preuve de votre identité. Pour vous aider dans votre démarche, vous trouverez ici un modèle de courrier élaboré par la Cnil.
+        </p>
+        <p>
+            Le responsable de traitement s’engage à répondre dans un délai raisonnable qui ne saurait dépasser 1 mois à compter de la réception de votre demande.
+        </p>
+        <p>
+            Pour toute question concernant le traitement de vos données à caractère personnel, vous pouvez également contacter le délégué à la protection des données du ministère à l’adresse suivante : <a href="mailto:dpd.daj.sg@developpement-durable.gouv.fr">dpd.daj.sg@developpement-durable.gouv.fr</a>
+        </p>
+        <p>
+            Si vous estimez, même après avoir introduit une réclamation auprès du responsable de traitement, que vos droits en matière de protection des données à caractère personnel ne sont pas respectés, conformément au RGPD , vous disposez du droit d’introduire une réclamation auprès de la Commission nationale de l’informatique et des libertés (CNIL), à l’adresse suivante :
+        </p>
+        <address>
+            <span class="display--block">CNIL</span>
+            <span class="display--block">3 place de Fontenoy</span>
+            <span class="display--block">TSA 80715</span>
+            <span class="display--block">75334 PARIS CEDEX 07</span>
+        </address>
+        <p>
+            Les modalités de réclamation sont précisées sur le site de la CNIL : <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers le site de la CNIL"
+    href="https://www.cnil.fr">www.cnil.fr</a>.
+        </p>
+        <h2 class="h4 fr-my-4v">Qui va avoir accès à vos données ?</h2>
+        <p>
+            Le responsable de traitement s‘engage à ce que les données à caractères personnels soient traitées par les seules personnes autorisées:
+        </p>
+        <ul>
+            <li>Les membres habilités de l'équipe acceslibre.</li>
+        </ul>
+        <h2 class="h4 fr-my-4v">Qui nous aide à traiter vos données à caractère personnel ?</h2>
+        <p>
+            Certaines des données sont envoyées à des sous-traitants pour réaliser certaines missions. Le responsable de traitement s’est assuré de la mise en œuvre par ses sous-traitants de garanties adéquates et du respect de conditions strictes de confidentialité, d’usage et de protection des données.
+        </p>
+        <div class="fr-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Partenaire</th>
+                        <th>Pays</th>
+                        <th>Traitement réalisé</th>
+                        <th>Garanties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Scalingo</td>
+                        <td>France</td>
+                        <td>Hébergeur</td>
+                        <td>
+                            <a target="_blank"
+                               aria-label="Ouvrir une nouvelle fenêtre vers la page données personnelles de Scalingo"
+                               href="https://scalingo.com/fr/contrat-gestion-traitements-donnees-personnelles">https://scalingo.com/fr/contrat-gestion-traitements-donnees-personnelles</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Crisp</td>
+                        <td>France</td>
+                        <td>Messagerie et chatbot</td>
+                        <td>
+                            <a target="_blank"
+                               aria-label="Ouvrir une nouvelle fenêtre vers la page RGPD (en anglais) de Crisp"
+                               href="https://help.crisp.chat/en/article/how-to-sign-my-gdpr-data-processing-agreement-dpa-1wfmngo">https://help.crisp.chat/en/article/how-to-sign-my-gdpr-data-processing-agreement-dpa-1wfmngo</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pipedrive</td>
+                        <td>Multinationale</td>
+                        <td>Envoi automatique de mails</td>
+                        <td>
+                            <a target="_blank"
+                               aria-label="Ouvrir une nouvelle fenêtre vers la page Terms of Service (en anglais) de Pipedrive"
+                               href="https://www.pipedrive.com/en/terms-of-service">https://www.pipedrive.com/en/terms-of-service</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2 class="h4 fr-my-4v">Cookies et traceurs</h2>
+        <p>
+            Un cookie est un fichier déposé sur votre terminal lors de la visite d’un site. Il a pour but de collecter des informations relatives à votre navigation et de vous adresser des services adaptés à votre terminal (ordinateur, mobile ou tablette).
+        </p>
+        <p>
+            Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation Cookies de la <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers le site de la CNIL"
+    href="https://www.cnil.fr">Commission nationale informatique et libertés (CNIL)</a>. Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.
+        </p>
+        <p>
+            Nous déposons des cookies de navigation, aux fins strictement techniques, qui ne sont pas conservés (mémorisation, pendant la durée de la session, des paramètres de filtrage et de préférence de fond cartographique)
+        </p>
+        <p>
+            Nous utilisons pour cela l’outil de mesure d’audience Matomo configuré en mode “exempté” et <a target="_blank"
+    aria-label="Ouvrir une nouvelle fenêtre vers le site de PostHog"
+    href="https://posthog.com/eu">PostHog Cloud EU</a> ne nécessitant pas le recueil de votre consentement conformément aux recommandations de la CNIL.
+        </p>
+    </div>
+{% endblock editorial_content %}
