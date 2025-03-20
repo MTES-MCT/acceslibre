@@ -5,52 +5,88 @@
 {% block page_title %}
     {% translate "Nos partenaires" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Partenaires" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="mt-5">
-        <h1 class="text-center fr-mt-5w fr-mb-5w">{% translate "Nos partenaires" %}</h1>
-        <div class="fr-grid-row">
-            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
-                <img class="a4a-partenaire-logo flex-column"
-                     src="{% static 'img/partenaires/france_relance.png' %}"
-                     alt="France Relance">
-            </div>
-            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
-                <img class="a4a-partenaire-logo flex-column"
-                     src="{% static 'img/partenaires/ue.png' %}"
-                     alt="NextGenEU">
-            </div>
-        </div>
-        <div class="fr-grid-row">
-            {% for pid, partenaire in partenaires.items|shuffle %}
-                <div class="fr-col-lg-3 fr-col-12 text-center fr-p-2w">
-                    <a class="fr-raw-link" href="#{{ pid }}">
-                        <img class="a4a-partenaire-logo"
-                             src="{% static partenaire.logo %}"
-                             alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-        {% for pid, partenaire in partenaires.items|shuffle %}
-            <div class="card fr-mb-3v" id="{{ pid }}">
-                <div class="card-body">
-                    <h2 class="h5 card-title">
-                        <a class="fr-raw-link"
-                           rel="noopener"
-                           aria-describedby="new_target"
-                           target="_blank"
-                           href="{{ partenaire.url }}">
-                            <img class="a4a-partenaire-logo"
-                                 src="{% static partenaire.logo %}"
-                                 alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-                        </a>
-                    </h2>
-                    {% include partenaire.template %}
-                </div>
-            </div>
-        {% endfor %}
-        <p>
-            <a href="{% url "home" %}" class="fr-btn">{% translate "Retour à l'accueil" %}</a>
-        </p>
+    <div class="fr-grid-row gap-8w">
+        <header class="fr-grid-row fr-grid-row--center">
+            <h1 class="fr-col-12 text--center">{% translate "Nos partenaires" %}</h1>
+            <p>
+                {% translate "Découvrez nos partenaires engagés pour rendre les infrastructures, services et outils numériques plus accessibles." %}
+            </p>
+            <section class="fr-grid-row fr-grid-row--center gap-2w">
+                <button class="fr-btn">{% translate "Devenir partenaire" %}</button>
+                <button class="fr-btn fr-btn--secondary">{% translate "Demander une démo" %}</button>
+            </section>
+        </header>
+        <section>
+            <h2 class="fr-mb-2w">{% translate "Partenaires réutilisateurs " %}</h2>
+            <p class="fr-mb-1w">{% translate "Partenaires web affichant nos informations d'accessibilité." %}</p>
+            <p class="fr-mb-1w">
+                {% translate "Parce que les informations d'accessibilité sont aussi importantes que  les horaires d'ouverture, nous souhaitons que ces informations soient  présentes non seulement sur acceslibre mais sur tous les sites web que  nous consultons au quotidien." %}
+            </p>
+            <p class="fr-mb-1w">
+                {% translate "Pour ce faire, nous avons travaillé pour que les données acceslibre  soient mises à disposition de tous gratuitement et soient facilement  réutilisables." %}
+            </p>
+            <p class="fr-mb-0">
+                {% translate "De nombreux partenaires se sont laissés convaincre et aujourd'hui, toute  information ajoutée sur acceslibre est automatiquement affichée sur les  sites de nos partenaires listées ci-dessous." %}
+            </p>
+            <ul class="partners-grid">
+                {% for id, partenaire in partenaires.items %}
+                    {% if 'RE_USE' in partenaire.roles %}
+                        <li>
+                            {% for label in partenaire.labels %}
+                                <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                            {% endfor %}
+                            <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2 class="fr-mb-2w">{% translate "Partenaires collecteurs " %}</h2>
+            <p class="fr-mb-1w">{% translate "Partenaires nous aidant à améliorer la qualité des données." %}</p>
+            <p class="fr-mb-1w">
+                {% translate "Gestionnaires d'établissements, collectivités, associations, guides touristiques... Tous disposent d'informations utiles sur l'accessibilité." %}
+            </p>
+            <p class="fr-mb-1w">
+                {% translate "Chez acceslibre, nous pensons que chacun peut apporter sa contribution dans un esprit collaboratif, et que c'est en mettant toutes nos forces en commun que nous arriverons à avoir des informations d'accessibilité complètes et à jour." %}
+            </p>
+            <p class="fr-mb-0">
+                {% translate "Nos partenaires nous permettent également, grâce à leurs retours, de nous assurer que le site répond bien aux besoins des utilisateurs et de réaliser des améliorations pertinentes." %}
+            </p>
+            <ul class="partners-grid">
+                {% for id, partenaire in partenaires.items %}
+                    {% if 'COLLECTOR' in partenaire.roles %}
+                        <li>
+                            {% for label in partenaire.labels %}
+                                <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                            {% endfor %}
+                            <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
     </div>
 {% endblock editorial_content %}
