@@ -121,6 +121,11 @@
       align-self: center;
     }
   }
+  &-items {
+    &--center {
+      align-items: center;
+    }
+  }
 }
 
 .word-break {
@@ -135,6 +140,15 @@
   }
   &--bold {
     font-weight: 700;
+  }
+  &--hidden {
+    display: none;
+  }
+}
+
+.cursor {
+  &--pointer {
+    cursor: pointer;
   }
 }
 

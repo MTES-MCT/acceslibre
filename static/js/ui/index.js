@@ -18,6 +18,7 @@ import LoadFilters from './LoadFilters'
 import ContribPagination from './ContribPagination'
 import FormContribDirtyChecker from './FormContribDirtyChecker'
 import FormContribEditNotification from './FormContribEditNotification'
+import TextExpander from './TextExpander'
 
 export default {
   AsteriskField,
@@ -40,4 +41,5 @@ export default {
   SyncInputsWithElement,
   FormContribDirtyChecker,
   FormContribEditNotification,
+  TextExpander,
 }

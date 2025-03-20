@@ -5,52 +5,163 @@
 {% block page_title %}
     {% translate "Nos partenaires" %}
 {% endblock page_title %}
-{% block editorial_content %}
-    <div class="mt-5">
-        <h1 class="text-center fr-mt-5w fr-mb-5w">{% translate "Nos partenaires" %}</h1>
-        <div class="fr-grid-row">
-            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
-                <img class="a4a-partenaire-logo flex-column"
-                     src="{% static 'img/partenaires/FranceRelance.png' %}"
-                     alt="FranceRelance">
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Partenaires" %}</a>
+                    </li>
+                </ol>
             </div>
-            <div class="fr-col-lg-6 fr-col-12 text-center fr-p-2w">
-                <img class="a4a-partenaire-logo flex-column"
-                     src="{% static 'img/partenaires/NextGenEU.png' %}"
-                     alt="NextGenEU">
-            </div>
-        </div>
-        <div class="fr-grid-row">
-            {% for pid, partenaire in partenaires.items|shuffle %}
-                <div class="fr-col-lg-3 fr-col-12 text-center fr-p-2w">
-                    <a class="fr-raw-link" href="#{{ pid }}">
-                        <img class="a4a-partenaire-logo"
-                             src="{% static partenaire.logo %}"
-                             alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-        {% for pid, partenaire in partenaires.items|shuffle %}
-            <div class="card fr-mb-3v" id="{{ pid }}">
-                <div class="card-body">
-                    <h2 class="h5 card-title">
-                        <a class="fr-raw-link"
-                           rel="noopener"
-                           aria-describedby="new_target"
-                           target="_blank"
-                           href="{{ partenaire.url }}">
-                            <img class="a4a-partenaire-logo"
-                                 src="{% static partenaire.logo %}"
-                                 alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-                        </a>
-                    </h2>
-                    {% include partenaire.template %}
-                </div>
-            </div>
-        {% endfor %}
-        <p>
-            <a href="{% url "home" %}" class="fr-btn">{% translate "Retour à l'accueil" %}</a>
-        </p>
+        </nav>
     </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <div class="flex direction--column gap-8w">
+        <header class="flex direction--column align-items--center">
+            <h1 class="fr-col-12 text--center">{% translate "Nos partenaires" %}</h1>
+            <p>
+                {% translate "Découvrez nos partenaires engagés pour rendre les infrastructures, services et outils numériques plus accessibles." %}
+            </p>
+            <section class="fr-grid-row fr-grid-row--center gap-2w">
+                <a href="{% url "contact_topic" topic="contact" %}" class="fr-btn">{% translate "Devenir partenaire" %}</a>
+            </section>
+        </header>
+        <section>
+            <h2 class="fr-mb-2w">{% translate "Partenaires réutilisateurs " %}</h2>
+            <div id="re-use-partners-content" class="text-expander">
+                <p class="fr-mb-1w">{% translate "Partenaires web affichant nos informations d'accessibilité." %}</p>
+                <div id="see-more-content-re-use" class="see-more-content">
+                    <p class="fr-mb-1w">
+                        {% translate "Parce que les informations d'accessibilité sont aussi importantes que les horaires d'ouverture, nous souhaitons que ces informations soient  présentes non seulement sur acceslibre mais sur tous les sites web que  nous consultons au quotidien." %}
+                    </p>
+                    <p class="fr-mb-1w">
+                        {% translate "Pour ce faire, nous avons travaillé pour que les données acceslibre  soient mises à disposition de tous gratuitement et soient facilement réutilisables." %}
+                    </p>
+                    <p class="fr-mb-1w">
+                        {% translate "De nombreux partenaires se sont laissés convaincre et aujourd'hui, toute information ajoutée sur acceslibre est automatiquement affichée sur les sites de nos partenaires listées ci-dessous." %}
+                    </p>
+                </div>
+                <button type="button"
+                        class="fr-link see-more-cta"
+                        aria-describedby="see-more-content-re-use"
+                        aria-controls="re-use-partners-content"></button>
+            </div>
+            <ul class="partners-grid">
+                {% for id, partenaire in partenaires.items %}
+                    {% if 'RE_USE' in partenaire.roles %}
+                        <li>
+                            <div role="button"
+                                 tabindex="0"
+                                 class="fr-raw-link"
+                                 data-partner="{{ id }}"
+                                 aria-controls="dialog-partner-{{ id }}-RE_USE"
+                                 data-fr-opened="false"
+                                 aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
+                                {% for label in partenaire.labels %}
+                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                                {% endfor %}
+                                <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2 class="fr-mb-2w">{% translate "Partenaires collecteurs " %}</h2>
+            <div id="collector-partners-content" class="text-expander">
+                <p class="fr-mb-1w">{% translate "Partenaires nous aidant à améliorer la qualité des données." %}</p>
+                <div id="see-more-content-collector"  class="see-more-content">
+                    <p class="fr-mb-1w">
+                        {% blocktranslate %} Gestionnaires d'établissements, collectivités, associations, guides touristiques... Tous disposent d'informations utiles sur l'accessibilité. {% endblocktranslate %}
+                    </p>
+                    <p class="fr-mb-1w">
+                        {% translate "Chez acceslibre, nous pensons que chacun peut apporter sa contribution dans un esprit collaboratif, et que c'est en mettant toutes nos forces en commun que nous arriverons à avoir des informations d'accessibilité complètes et à jour." %}
+                    </p>
+                    <p class="fr-mb-1w">
+                        {% translate "Nos partenaires nous permettent également, grâce à leurs retours, de nous assurer que le site répond bien aux besoins des utilisateurs et de réaliser des améliorations pertinentes." %}
+                    </p>
+                </div>
+                <button type="button"
+                        class="fr-link see-more-cta"
+                        aria-describedby="see-more-content-collector"
+                        aria-controls="collector-partners-content"></button>
+            </div>
+            <ul class="partners-grid">
+                {% for id, partenaire in partenaires.items %}
+                    {% if 'COLLECTOR' in partenaire.roles %}
+                        <li>
+                            <div role="button"
+                                 tabindex="0"
+                                 class="fr-raw-link"
+                                 data-partner="{{ id }}"
+                                 aria-controls="dialog-partner-{{ id }}-COLLECTOR"
+                                 data-fr-opened="false"
+                                 aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
+                                {% for label in partenaire.labels %}
+                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                                {% endfor %}
+                                <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+    {% for id, partenaire in partenaires.items %}
+        {% for role in partenaire.roles %}
+            <dialog aria-labelledby="fr-modal-title-modal-{{ id }}-{{ role }}"
+                    data-fr-opened="false"
+                    role="alertdialog"
+                    id="dialog-partner-{{ id }}-{{ role }}"
+                    class="fr-modal">
+                <div class="fr-container fr-container--fluid fr-container-md">
+                    <div class="fr-grid-row fr-grid-row--center">
+                        <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                            <div class="fr-modal__body">
+                                <div class="fr-modal__header">
+                                    <button class="fr-btn--close fr-btn"
+                                            title="{% translate "Fermer la fenêtre modale" %}"
+                                            aria-controls="dialog-partner-{{ id }}-{{ role }}">
+                                        {% translate "Fermer" %}
+                                    </button>
+                                </div>
+                                <div class="fr-modal__content">
+                                    <h1 id="fr-modal-title-modal-{{ id }}-{{ role }}" class="fr-modal__title">
+                                        <span class="fr-icon-arrow-right-line fr-icon--lg"></span>
+                                        {{ partenaire.name }}
+                                    </h1>
+                                    {% include partenaire.template %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dialog>
+        {% endfor %}
+    {% endfor %}
+    <script nonce="{{ request.csp_nonce }}">
+        const partners = {{ partenaires|safe }};
+        const btns = document.querySelectorAll('div[role="button"]')
+
+        btns.forEach((button) => {
+            button.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    this.click()
+                }
+            })
+        })
+    </script>
 {% endblock editorial_content %}
