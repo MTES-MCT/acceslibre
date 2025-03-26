@@ -1,0 +1,127 @@
+{% extends "editorial/base.html" %}
+{% load i18n %}
+{% block page_title %}
+    CGU
+{% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "CGU" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <div>
+        <h1>Conditions générales d’utilisation de la plateforme</h1>
+        <p>
+            L’utilisation du service est libre, facultative et gratuite. Toute utilisation du service est subordonnée à
+            l’acceptation préalable et au respect intégral des présentes mentions légales par l’utilisateur.
+        </p>
+        <h2>Qualité des données publiées</h2>
+        <p>
+            Nous publions sur Acceslibre des données publiques à titre informatif. Seules les publications légales font foi,
+            notamment au Journal officiel de la République française ou aux recueils des actes administratifs des
+            préfectures.
+            <br>
+            Par conséquent, les informations publiées sur Acceslibre ne sauraient engager la responsabilité de leur éditeur
+            ou d’un quelconque service de l’État, l’utilisateur y ayant recours en ayant conscience des potentielles erreurs
+            ou omissions qu’elles peuvent comporter.
+            <br>
+            Nous nous efforçons de livrer des données de la meilleure qualité possible. Toutefois, malgré toute notre
+            attention, elles peuvent encore comporter des erreurs ou omissions. Si vous constatez une erreur ou omission
+            parmi ces données, nous vous invitons à nous la signaler à l’aide du formulaire de contact ou à l’adresse <a href="mailto:contact@acceslibre.beta.gouv.fr">contact@acceslibre.beta.gouv.fr</a> disponible sur le site.
+        </p>
+        <h2>Open data</h2>
+        <h3>Code source</h3>
+        <p>
+            Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent
+            donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a aria-label="Ouvrir une nouvelle page vers le site MIT"
+    target="_blank"
+    href="https://spdx.org/licenses/MIT.html">licence MIT</a>.
+            <br>
+            Ils sont disponibles sur Github à l'adresse <a aria-label="Ouvrir une nouvelle page vers le github d'acceslibre"
+    href="https://github.com/MTES-MCT/acceslibre"
+    target="_blank">github.com/MTES-MCT/acceslibre</a>.
+        </p>
+        <h3>Données administratives publiques relatives</h3>
+        <p>
+            Les informations publiques délivrées par le service le sont sous <a target="_blank"
+    aria-label="Ouvrir une nouvelle page vers le github d'etalab"
+    href="https://github.com/etalab/licence-ouverte/blob/master/LO.md">LICENCE OUVERTE 2.0</a>
+            <br>
+            Vous êtes donc libres de réutiliser ces informations sous réserve de mentionner la paternité de l’information et
+            la date de dernière mise à jour de l’information utilisée. Par exemple, sur la forme Ministère de la Transition
+            écologique et solidaire – Téléchargées sur acceslibre.beta.gouv.fr mise à jour du [date].
+        </p>
+        <h3>Liens hypertexte</h3>
+        <p>
+            Les liens hypertextes susceptibles d’être mis en place sur la plateforme dirigeant vers d'autres sites ont fait
+            l'objet d'une autorisation. La mise en place de lien vers le site Acceslibre n’est conditionnée à aucun accord
+            préalable.
+        </p>
+        <h2>Obligation de l'utilisateur</h2>
+        <p>
+            Les utilisateurs s’engagent à ne jamais fournir d’information, fichiers, pièces jointes ou commentaires
+            susceptibles de porter atteinte aux droits d’un tiers, notamment en matière de protection des données, ou
+            constitutif d’une infraction pénale.
+            <br>
+            Par ailleurs, le ministère n’opère pas de contrôle des informations qu’un contributeur est susceptible de
+            fournir dans le cadre de l’inscription d’un établissement sur la plateforme Acceslibre.
+            <br>
+            A ce titre, le contributeur s’engage à ne pas fournir volontairement d’informations incomplètes, erronées ou
+            inexactes et à respecter la charte du contributeur dans le cadre de l’usage de la plateforme.
+            <br>
+            Enfin, il est strictement interdit aux utilisateurs d’entraver ou de perturber, par quelques procédés que ce
+            soient, le fonctionnement de l’application.
+        </p>
+        <h2>Suppression de compte en cas de violation des CGU</h2>
+        <p>
+            En cas de violation d'une ou de plusieurs dispositions des présentes CGU, l’équipe Acceslibre se réserve le
+            droit, sans aucun avertissement préalable et à sa seule discrétion, de supprimer votre compte ou de restreindre
+            votre usage et accès à un compte utilisateur sur la plateforme.
+        </p>
+        <h2>Évolution du service</h2>
+        <p>
+            Nous pouvons faire évoluer Acceslibre sans information préalable ou préavis. Nous ajoutons régulièrement des
+            données, retravaillons l’interface et modifions les formulations sur la base de vos retours et des évolutions
+            réglementaires et législatives.
+        </p>
+        <h2>Disponibilité du service</h2>
+        <p>
+            Nous pouvons suspendre l’accès à Acceslibre sans information préalable ni préavis, notamment pour des raisons de
+            maintenance. Nous mettons l’application à jour régulièrement. L’indisponibilité ne dépasse généralement pas une
+            dizaine de secondes.
+            <br>
+            Nous mettons Acceslibre à disposition sans garantie sur sa disponibilité. Même si nous faisons en sorte que le
+            service soit toujours opérationnel, cela signifie que d’éventuelles indisponibilités n’ouvriront pas droit à
+            compensation financière. Nous nous réservons également le droit de bloquer, sans information préalable ni
+            compensation financière, les usages mettant en péril l’utilisation du logiciel par d’autres usagers. Cela nous
+            permet d’anticiper d’éventuelles attaques par déni de service.
+        </p>
+        <h2>Évolution des conditions générales d’utilisation</h2>
+        <p>
+            Les termes des présentes conditions générales d’utilisation peuvent être modifiés ou complétés à tout moment,
+            sans préavis, en fonction des modifications apportées au service, de l’évolution de la législation ou pour tout
+            autre motif jugé nécessaire. Ces modifications et mises à jour s’imposent à l’utilisateur qui doit, en
+            conséquence, se référer régulièrement à cette rubrique pour vérifier les mentions légales en vigueur.
+            Nous rendons librement accessible <a target="_blank"
+    aria-label="Ouvrir une nouvelle page vers l'historique de ces conditions"
+    href="https://github.com/MTES-MCT/acceslibre/commits/master/templates/editorial/cgu.html">l’historique de
+            ces conditions</a>.
+        </p>
+    </div>
+{% endblock editorial_content %}

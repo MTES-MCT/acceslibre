@@ -32,6 +32,11 @@ urlpatterns = [
         name="politique-confidentialite",
     ),
     path(
+        "cgu",
+        editorial_page("editorial/cgu.html"),
+        name="cgu",
+    ),
+    path(
         "accessibilite",
         editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
