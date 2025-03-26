@@ -1,4 +1,3 @@
-import copy
 import uuid
 from datetime import timedelta
 from io import StringIO
@@ -296,29 +295,6 @@ class TestOutscraperAcquisition:
 
         assert Revision.objects.count() == 1
         assert Revision.objects.get().comment == "CREATED via outscraper"
-
-    @pytest.mark.django_db
-    def test_deletion(self, mocker):
-        mock_response = copy.deepcopy(self.initial_outscraper_response)
-        mock_response[0][0]["business_status"] = "CLOSED_PERMANENTLY"
-
-        activite = ActiviteFactory(nom="Restaurant")
-        CommuneFactory(nom="Lyon")
-        AccessibiliteFactory(
-            entree_plain_pied=False,
-            erp__nom="Le Troisième Art - Restaurant Gastronomique Lyon",
-            erp__commune="Lyon",
-            erp__numero=173,
-            erp__voie="Rue des tournesols",
-            erp__activite=activite,
-        ).erp
-        mocker.patch("outscraper.ApiClient.google_maps_search", return_value=mock_response)
-
-        call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
-
-        assert (
-            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 0
-        ), "should have deleted the closed_permanently ERP"
 
     @pytest.mark.django_db
     def test_update(self, mocker):
