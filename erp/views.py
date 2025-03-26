@@ -33,6 +33,7 @@ from erp.provider import acceslibre
 from erp.provider import search as provider_search
 from erp.provider.search import get_equipments, get_equipments_shortcuts
 from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
+from stats import queries
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
@@ -87,6 +88,17 @@ def home(request):
             "contributors": get_active_contributors_ids(),
             "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
             "partners": schema.PARTENAIRES,
+        },
+    )
+
+
+def about_us(request):
+    return render(
+        request,
+        "editorial/qui-sommes-nous.html",
+        context={
+            "page_type": "about-us",
+            "total_active_contributors": queries.get_active_contributors_ids().count(),
         },
     )
 

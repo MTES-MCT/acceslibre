@@ -47,7 +47,7 @@
                                     {% blocktranslate %}
                                     <span class="display--block">01</span>
                                     <span class="display--block">Notre constat :</span>
-                                    Le manque d’information sur l’accessibilité des lieux.
+                                    Le manque d’information sur l’accessibilité des lieux
                                 {% endblocktranslate %}
                                 </h2>
                                 <div class="fr-card__desc">
@@ -78,7 +78,7 @@
                                 </h2>
                                 <div class="fr-card__desc">
                                     <p>
-                                        {% translate "Créer la base de données de référence sur l'accessibilité des lieux recevant du public au niveau national, unique, publique et gratuite." %}
+                                        {% translate "Acceslibre est la base de référence sur l'accessibilité des lieux recevant du public au niveau national, unique, publique et gratuite." %}
                                     </p>
                                     <p>
                                         {% translate "Nous collectons, agrégeons et redistribuons des données enrichies pour que partout sur le web soient diffusées les informations d'accessibilité." %}
@@ -279,7 +279,9 @@
             <div class="fr-grid-row direction--column fr-grid-row--middle gap-6v">
                 <h2 class="fr-m-0 text--center">{% translate "Les volontaires" %}</h2>
                 <p class="fr-text--lg fr-m-0 subtitle-2">
-                    {% translate "Depuis 2020, 13600 contributeurs ont participé à la co-création de la plateforme." %}
+                    {% blocktranslate %}
+                        Depuis 2020, {{ total_active_contributors }} contributeurs ont participé à la co-création de la plateforme.
+                    {% endblocktranslate %}
                 </p>
                 <div class="fr-callout">
                     <span class="fr-icon-quote-line" aria-hidden="true"></span>
