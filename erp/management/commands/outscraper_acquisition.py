@@ -43,6 +43,10 @@ QUERIES = [
     ("Collège", "Collège"),
     ("Photographe", "Photographie"),
     ("Opticien", "Opticien"),
+    ("Sushi", "Restauration rapide"),
+    ("Burger", "Restauration rapide"),
+    ("Brasserie", "Café, bar, brasserie"),
+    ("Tacos", "Restauration rapide"),
 ]
 
 
@@ -124,10 +128,6 @@ class Command(BaseAcquisitionCommand):
 
         return accessibility
 
-    def _delete_erp(self, existing_erp):
-        print(f"Delete permanently closed ERP: {existing_erp}")
-        existing_erp.delete()
-
     def _create_or_update_erp(self, result, existing_erp=None):
         erp = {}
 
@@ -166,8 +166,6 @@ class Command(BaseAcquisitionCommand):
                 and "duplicate" in e.get_codes()["non_field_errors"]
             ):
                 erp_duplicated = Erp.objects.get(pk=int(e.detail["non_field_errors"][1]))
-                if result["business_status"] == "CLOSED_PERMANENTLY":
-                    return self._delete_erp(erp_duplicated)
                 return self._create_or_update_erp(result, existing_erp=erp_duplicated)
             return
 
