@@ -43,7 +43,9 @@ urlpatterns = [
     ),
     path(
         "partenaires",
-        editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
+        editorial_page(
+            "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES, "page_type": "partners"}
+        ),
         name="partenaires",
     ),
     path(
