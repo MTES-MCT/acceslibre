@@ -1,0 +1,50 @@
+{% extends "compte/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Profil et préférences" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block compte_content %}
+    <h1 class="h3 fr-mb-3v">
+        {% translate "Changer mon identifiant" %} <small class="text-muted">({% translate "nom d'utilisateur" %})</small>
+    </h1>
+    <form action="{% url 'my_profile' %}" method="post">
+        <p>
+            {% blocktranslate with username=request.user.username %}
+      Votre identifiant (ou nom d'utilisateur) actuel est <strong>{{ username }}</strong>.
+      {% endblocktranslate %}
+        </p>
+        {% csrf_token %}
+        {{ form_login|crispy }}
+        <p>
+            <button type="submit" class="btn btn-primary w-100">{% translate "Changer mon identifiant" %}</button>
+        </p>
+    </form>
+    <h1 class="h3 fr-mb-3v">{% translate "Changer mon adresse email" %}</h1>
+    <form action="{% url 'my_profile' %}" method="post">
+        <p>
+            {% blocktranslate with email=request.user.email %}
+      Utilisez le formulaire ci-dessous pour modifier votre adresse email actuelle (<strong>{{ email }}</strong>)<br>
+      Nous vous enverrons un mail à la nouvelle adresse comportant un lien d'activation
+      qu'il faudra cliquer pour confirmer ce changement.
+      {% endblocktranslate %}
+        </p>
+        {% csrf_token %}
+        {{ form_email|crispy }}
+        <p>
+            <button type="submit" class="btn btn-primary w-100">{% translate "Mettre à jour mon adresse email" %}</button>
+        </p>
+    </form>
+    <h1 class="h3 fr-mb-3v">{% translate "Mes préférences" %}</h1>
+    <form action="{% url 'my_profile' %}" method="post">
+        {% csrf_token %}
+        {{ form_preferences|crispy }}
+        <p>
+            <button type="submit" class="fr-btn w-100">{% translate "Mettre à jour mes préférences" %}</button>
+        </p>
+    </form>
+{% endblock compte_content %}
