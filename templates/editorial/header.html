@@ -46,7 +46,7 @@
                             <li>
                                 {% if user.is_authenticated %}
                                     <a class="fr-btn fr-icon-user-line fr-btn--tertiary"
-                                       href="{% url 'mon_compte' %}?next={{ request.path }}">{% translate "Mon compte" %}
+                                       href="{% url 'my_profile' %}?next={{ request.path }}">{% translate "Mon profil et préférences" %}
                                     </a>
                                 {% else %}
                                     <a class="fr-btn fr-icon-user-line fr-btn--tertiary"

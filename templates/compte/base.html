@@ -16,10 +16,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mon_compte' }}"
-                       href="{% url 'mon_compte' %}">
+                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'my_profile' }}"
+                       href="{% url 'my_profile' %}">
                         <i aria-hidden="true" class="icon icon-identity fr-mr-1v"></i>
-                        {% translate "Mon compte" %}
+                        {% translate "Profil et préférences" %}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,34 +48,6 @@
                        href="{% url 'mes_abonnements' %}">
                         <i aria-hidden="true" class="icon icon-bell fr-mr-1v"></i>
                         {% translate "Mes abonnements" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mes_preferences' }}"
-                       href="{% url 'mes_preferences' %}">
-                        <i aria-hidden="true" class="icon icon-pencil fr-mr-1v"></i>
-                        {% translate "Mes préférences" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mon_identifiant' }}"
-                       href="{% url 'mon_identifiant' %}">
-                        <i aria-hidden="true" class="icon icon-gestionnaire fr-mr-1v"></i>
-                        {% translate "Mon identifiant" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mon_email' }}"
-                       href="{% url 'mon_email' %}">
-                        <i aria-hidden="true" class="icon icon-mail fr-mr-1v"></i>
-                        {% translate "Mon adresse email" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mot_de_passe' }}"
-                       href="{% url 'password_change' %}">
-                        <i aria-hidden="true" class="icon icon-key fr-mr-1v"></i>
-                        {% translate "Mot de passe" %}
                     </a>
                 </li>
                 <li class="nav-item">
