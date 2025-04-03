@@ -1,0 +1,55 @@
+@import 'breakpoints';
+
+.my-profile-container {
+  .edit-block {
+    background-color: var(--grey-975-75);
+    padding: 16px 24px;
+    margin: 16px 0;
+  }
+
+  .grid-row-3 {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--grey-900-175);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+
+    & > :last-child {
+      justify-self: initial;
+      margin-top: 8px;
+    }
+
+    @media (min-width: $viewport-md) {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      & > :last-child {
+        justify-self: flex-end;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .grid-row-2 {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+    border-bottom: 1px solid var(--grey-900-175);
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+
+    & > :last-child {
+      justify-self: initial;
+      margin-top: 8px;
+    }
+
+    @media (min-width: $viewport-md) {
+      grid-template-columns: 1fr 1fr;
+
+      & > :last-child {
+        justify-self: flex-end;
+        margin-top: 0;
+      }
+    }
+  }
+}
