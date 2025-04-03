@@ -2,61 +2,74 @@
 {% load a4a %}
 {% load i18n %}
 {% block editorial_content %}
-    <div class="row">
-        <main class="fr-col-md-8 fr-col-lg-9 order-last">
+    <div class="account-container">
+        <div class="account-container__lateral-menu-container">
+            <div>
+                <nav role="navigation"
+                     class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+                     aria-label="{% translate "Vous êtes ici :" %}">
+                    <button class="fr-breadcrumb__button"
+                            aria-expanded="false"
+                            aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+                    <div class="fr-collapse" id="breadcrumb-navigation">
+                        <ol class="fr-breadcrumb__list">
+                            <li>
+                                <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                            </li>
+                            <li>
+                                <a class="fr-breadcrumb__link" href="{% url 'search' %}">{% translate "Nos établissements" %}</a>
+                            </li>
+                        </ol>
+                    </div>
+                </nav>
+            </div>
+            <nav class="fr-sidemenu" aria-labelledby="fr-sidemenu-title">
+                <div class="fr-sidemenu__inner">
+                    <button class="fr-sidemenu__btn"
+                            hidden
+                            aria-controls="fr-sidemenu-wrapper"
+                            aria-expanded="false">{% translate "Profil et préférences" %}</button>
+                    <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                        <ul class="fr-sidemenu__list">
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link" href="{% url 'home' %}">{% translate "Retour à l'accueil" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link"
+                                   {% if request.path|active_compte_section:'my_profile' %}aria-current="page"{% endif %}
+                                   href="{% url 'my_profile' %}">{% translate "Profil et préférences" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link"
+                                   {% if request.path|active_compte_section:'mes_erps' %}aria-current="page"{% endif %}
+                                   href="{% url 'mes_erps' %}">{% translate "Mes établissements" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link"
+                                   {% if request.path|active_compte_section:'mes_contributions' %}aria-current="page"{% endif %}
+                                   href="{% url 'mes_contributions' %}">{% translate "Mes contributions" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link"
+                                   {% if request.path|active_compte_section:'mes_challenges' %}aria-current="page"{% endif %}
+                                   href="{% url 'mes_challenges' %}">{% translate "Mes challenges" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link"
+                                   {% if request.path|active_compte_section:'mes_abonnements' %}aria-current="page"{% endif %}
+                                   href="{% url 'mes_abonnements' %}">{% translate "Mes abonnements" %}</a>
+                            </li>
+                            <li class="fr-sidemenu__item">
+                                <a class="fr-sidemenu__link" href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <main class="fr-col">
             {% block compte_content %}
             {% endblock compte_content %}
         </main>
-        <nav class="fr-col-md-4 fr-col-lg-3 fr-mb-4v">
-            <ul class="nav flex-column nav-pills" aria-label='{% translate "Menu" %}'>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap" href="{% url 'home' %}">
-                        <i aria-hidden="true" class="icon icon-arrow-left fr-mr-1v"></i>
-                        {% translate "Retour à l'accueil" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'my_profile' }}"
-                       href="{% url 'my_profile' %}">
-                        <i aria-hidden="true" class="icon icon-identity fr-mr-1v"></i>
-                        {% translate "Profil et préférences" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mes_erps' }}"
-                       href="{% url 'mes_erps' %}">
-                        <i aria-hidden="true" class="icon icon-commercial fr-mr-1v"></i>
-                        {% translate "Mes établissements" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mes_contributions' }}"
-                       href="{% url 'mes_contributions' %}">
-                        <i aria-hidden="true" class="icon icon-users fr-mr-1v"></i>
-                        {% translate "Mes contributions" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mes_challenges' }}"
-                       href="{% url 'mes_challenges' %}">
-                        <i aria-hidden="true" class="icon icon-trophy fr-mr-1v"></i>
-                        {% translate "Mes challenges" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap {{ request.path|active_compte_section:'mes_abonnements' }}"
-                       href="{% url 'mes_abonnements' %}">
-                        <i aria-hidden="true" class="icon icon-bell fr-mr-1v"></i>
-                        {% translate "Mes abonnements" %}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap" href="{% url 'admin:index' %}">
-                        <i aria-hidden="true" class="icon icon-lock fr-mr-1v"></i>
-                        {% translate "Admin" %}
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 {% endblock editorial_content %}

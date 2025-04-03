@@ -35,7 +35,7 @@ def active_compte_section(path, test):
                 "/compte/password_change/done/",
                 "/admin/password_change/",
                 "/admin/password_change/done/",
-                "/compte/profil/",
+                "/compte/mon-profil/",
             ],
         ]
     )
