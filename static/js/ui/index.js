@@ -19,6 +19,7 @@ import ContribPagination from './ContribPagination'
 import FormContribDirtyChecker from './FormContribDirtyChecker'
 import FormContribEditNotification from './FormContribEditNotification'
 import TextExpander from './TextExpander'
+import ContentToggle from './ContentToggle'
 
 export default {
   AsteriskField,
@@ -42,4 +43,5 @@ export default {
   FormContribDirtyChecker,
   FormContribEditNotification,
   TextExpander,
+  ContentToggle,
 }

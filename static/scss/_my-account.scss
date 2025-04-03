@@ -1,0 +1,39 @@
+@import 'breakpoints';
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $viewport-md) {
+    flex-direction: row;
+  }
+
+  & > main {
+    min-height: 40vh;
+    margin: 16px 0;
+  }
+
+  &__lateral-menu-container {
+    position: relative;
+    background-color: var(--blue-france-975-75);
+    margin: 0 -16px;
+    padding: 0 16px;
+
+    li a:hover {
+      --hover: var(--background-default-grey);
+    }
+
+    &::before {
+      content: '';
+      background-color: var(--blue-france-975-75);
+      height: 100%;
+      position: absolute;
+      width: 200vw;
+      right: 0;
+    }
+
+    @media (min-width: $viewport-md) {
+      margin-right: 32px;
+    }
+  }
+}
