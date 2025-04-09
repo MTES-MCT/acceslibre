@@ -112,7 +112,7 @@ def test_admin_urls_ok(url, client):
 @pytest.mark.parametrize(
     "url",
     [
-        reverse("mon_compte"),
+        reverse("my_profile"),
         reverse("mes_erps"),
         reverse("mes_abonnements"),
         reverse("mes_contributions"),
@@ -153,7 +153,7 @@ def test_auth(client):
     assert response.status_code == 302
     assert response.wsgi_request.user.username == "niko"
 
-    response = client.get(reverse("mon_compte"))
+    response = client.get(reverse("my_profile"))
     assert response.status_code == 200
 
     response = client.get(reverse("mes_erps"))

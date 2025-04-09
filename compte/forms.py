@@ -48,7 +48,7 @@ def define_email_field():
         required=True,
         label="",
         widget=forms.TextInput(
-            attrs={"class": "fr-input", "autocomplete": "on", "aria-describedby": "email-error-desc"}
+            attrs={"class": "fr-input", "autocomplete": "on", "aria-describedby": "email-desc-error"}
         ),
     )
 

@@ -70,6 +70,6 @@ class Command(BaseCommand):
                 "username": user.username,
                 "erps": erps,
                 "url_mes_erps_draft": f"{reverse('mes_erps')}?published=0",
-                "url_mes_preferences": reverse("mes_preferences"),
+                "url_mes_preferences": reverse("my_profile"),
             },
         )

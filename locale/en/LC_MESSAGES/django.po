@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-09 16:39+0200\n"
+"POT-Creation-Date: 2025-04-09 17:10+0200\n"
 "PO-Revision-Date: 2025-04-09 16:38+0200\n"
 "Last-Translator:   <test@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3246,42 +3246,6 @@ msgstr ""
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
-msgid "Mon compte"
-msgstr "My account"
-
-msgid "Mon nom d'utilisateur (identifiant) :"
-msgstr "My username (login):"
-
-msgid "changer"
-msgstr "change"
-
-msgid "Mon identité :"
-msgstr "My identity:"
-
-msgid "Mon adresse email :"
-msgstr "My email address:"
-
-msgid "Date d'inscription :"
-msgstr "Date of registration:"
-
-msgid "Dernière connexion :"
-msgstr "Last login:"
-
-msgid "Déconnexion"
-msgstr "Log out"
-
-msgid "Se déconnecter"
-msgstr "Log out"
-
-msgid "Suppression du compte"
-msgstr "Account deletion"
-
-msgid "L'accès à la console d'administration vous est accordé"
-msgstr "You are granted access to the administration console"
-
-msgid "Accéder à l'admin"
-msgstr "Access to the admin"
-
 msgid ""
 "Les établissements pour lesquels vous êtes abonné aux notifications par "
 "email de mise à jour."
@@ -3529,6 +3493,9 @@ msgstr "Save my preferences"
 
 msgid "Compte"
 msgstr "Account"
+
+msgid "Déconnexion"
+msgstr "Log out"
 
 msgid "Contact"
 msgstr "Contact"
@@ -6172,23 +6139,14 @@ msgstr "Are you a new user?"
 msgid "Créez un compte"
 msgstr "Create an account"
 
-msgid "Changement effectué"
-msgstr "Change done"
+msgid "Réinitialisation effectuée"
+msgstr "Reset performed"
 
 msgid "Votre mot de passe a été modifié"
 msgstr "Your password has been changed"
 
 msgid "La modification de votre mot de passe a bien été prise en compte."
 msgstr "The change of your password has been taken into account."
-
-msgid "Mon mot de passe"
-msgstr "My password"
-
-msgid "Modifiez votre mot de passe"
-msgstr "Change your password"
-
-msgid "Réinitialisation effectuée"
-msgstr "Reset performed"
 
 msgid "Identifiez-vous"
 msgstr "Sign in"
@@ -6460,27 +6418,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#~ msgid "Exemple: nom@domaine.com"
-#~ msgstr "Example: name@domaine.com"
-
-#~ msgid "Recherche dans mes ERPs"
-#~ msgstr "Search in my erps"
-
-#~ msgid "Identifiant"
-#~ msgstr "Identifier"
-
-#~ msgid "nom d'utilisateur"
-#~ msgstr "user name"
-
-#, python-format
-#~ msgid ""
-#~ "\n"
-#~ "      Votre identifiant (ou nom d'utilisateur) actuel est "
-#~ "<strong>%(username)s</strong>.\n"
-#~ "      "
-#~ msgstr ""
-#~ "Your current username (or username) is <strong>%(username) S </strong>."
-
-#~ msgid "Direction Générale des Entreprises"
-#~ msgstr "General Management of Business"

@@ -93,11 +93,6 @@ class CustomActivationView(ActivationView):
         return f"{url}?next={next}"
 
 
-@login_required
-def mon_compte(request):
-    return render(request, "compte/index.html")
-
-
 def manage_change_username_form(form, request):
     username = form.cleaned_data["username"]
     user = request.user

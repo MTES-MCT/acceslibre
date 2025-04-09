@@ -69,7 +69,7 @@
                         {% for error in form_email.email2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     </div>
                     {% for error in form_email.non_field_errors %}
-                        <p id="email-error-desc" class="fr-error-text fr-mb-2w">{{ error }}</p>
+                        <p id="email-desc-error" class="fr-error-text fr-mb-2w">{{ error }}</p>
                     {% endfor %}
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
