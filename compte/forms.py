@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import PasswordChangeForm as DjangoPasswordChangeForm
 from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -159,7 +160,12 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         return robot
 
 
+class PasswordChangeForm(DjangoPasswordChangeForm):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="password-change")
+
+
 class UsernameChangeForm(forms.Form):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="username-change")
     username = define_username_field()
 
     def clean_username(self):
@@ -170,6 +176,7 @@ class UsernameChangeForm(forms.Form):
 
 
 class EmailChangeForm(forms.Form):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="email-change")
     email1 = define_email_field(translate_lazy("Nouvelle adresse email"))
     email2 = define_email_field(translate_lazy("Confirmation de la nouvelle adresse email"))
 
@@ -212,6 +219,8 @@ class AccountDeleteForm(forms.Form):
 
 
 class PreferencesForm(forms.ModelForm):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="preferences")
+
     class Meta:
         model = UserPreferences
         fields = ["notify_on_unpublished_erps", "newsletter_opt_in"]

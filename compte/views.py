@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -140,33 +139,48 @@ def manage_change_email_form(form, request):
 @login_required
 def my_profile(request):
     preferences = UserPreferences.objects.get(user=request.user)
-    form_password_change = PasswordChangeForm(request.user, request.POST)
+    form_label = request.POST.get("form_label")
 
-    # todo: Add hidden input to know which form has been submitted
+    form_login = None
+    form_email = None
+    form_preferences = None
+    form_password_change = None
+
     if request.method == "POST":
-        form_login = forms.UsernameChangeForm(request.POST)
+        if form_label == "password-change":
+            form_password_change = forms.PasswordChangeForm(request.user, request.POST)
+            if form_password_change.is_valid():
+                form_password_change.save()
+                messages.add_message(request, messages.SUCCESS, "Votre mot de passe a bien été modifié.")
+                return redirect("my_profile")
 
-        if form_login.is_valid():
-            manage_change_username_form(form_login, request)
-            return redirect("my_profile")
+        if form_label == "username-change":
+            form_login = forms.UsernameChangeForm(request.POST)
 
-        form_email = forms.EmailChangeForm(request.POST, user=request.user)
+            if form_login.is_valid():
+                manage_change_username_form(form_login, request)
+                return redirect("my_profile")
 
-        if form_email.is_valid():
-            manage_change_email_form(form_email, request)
-            return redirect("mon_email_sent")
+        if form_label == "email-change":
+            form_email = forms.EmailChangeForm(request.POST, user=request.user)
 
-        form_preferences = forms.PreferencesForm(request.POST, instance=preferences)
+            if form_email.is_valid():
+                manage_change_email_form(form_email, request)
+                return redirect("mon_email_sent")
 
-        if form_preferences.is_valid():
-            form_preferences.save()
-            messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
-            sync_user_attributes.delay(request.user.pk)
-            return redirect("my_profile")
-    else:
-        form_login = forms.UsernameChangeForm(initial={"username": request.user.username})
-        form_email = forms.EmailChangeForm(initial={"email": request.user.email})
-        form_preferences = forms.PreferencesForm(instance=preferences)
+        if form_label == "preferences":
+            form_preferences = forms.PreferencesForm(request.POST, instance=preferences)
+
+            if form_preferences.is_valid():
+                form_preferences.save()
+                messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
+                sync_user_attributes.delay(request.user.pk)
+                return redirect("my_profile")
+
+    form_login = form_login or forms.UsernameChangeForm(initial={"username": request.user.username})
+    form_email = form_email or forms.EmailChangeForm(initial={"email": request.user.email})
+    form_preferences = form_preferences or forms.PreferencesForm(instance=preferences)
+    form_password_change = form_password_change or forms.PasswordChangeForm(request.user)
 
     return render(
         request,
@@ -177,6 +191,7 @@ def my_profile(request):
             "form_preferences": form_preferences,
             "form_password_change": form_password_change,
             "page_type": "my-profile",
+            "submitted_form": form_label,
         },
     )
 

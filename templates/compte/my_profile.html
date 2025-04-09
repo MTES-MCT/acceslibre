@@ -37,6 +37,7 @@
                         <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon identifiant" %}</button>
                     </div>
                 </div>
+                {% for hidden in form_login.hidden_fields %}{{ hidden }}{% endfor %}
             </form>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% csrf_token %}
@@ -78,6 +79,7 @@
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
                     </div>
                 </div>
+                {% for hidden in form_email.hidden_fields %}{{ hidden }}{% endfor %}
             </form>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% csrf_token %}
@@ -130,7 +132,7 @@
                                    name="{{ form_password_change.new_password1.name }}"
                                    autocomplete="new-password"
                                    id="{{ form_password_change.new_password1.id_for_label }}"
-                                   minlength="8"
+                                   minlength="12"
                                    type="password">
                         </div>
                         <div class="fr-messages-group"
@@ -164,7 +166,7 @@
                                    name="{{ form_password_change.new_password2.name }}"
                                    autocomplete="new-password"
                                    id="{{ form_password_change.new_password2.id_for_label }}"
-                                   minlength="8"
+                                   minlength="12"
                                    type="password">
                         </div>
                         <div class="fr-messages-group"
@@ -183,6 +185,7 @@
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>
                     </div>
                 </div>
+                {% for hidden in form_password_change.hidden_fields %}{{ hidden }}{% endfor %}
             </form>
             <div class="grid-row-3">
                 <span class="fr-col">{% translate "Date d'inscription" %}</span>
@@ -218,6 +221,7 @@
                     </label>
                     <button type="submit" class="fr-btn">{% translate "Enregistrer mes préférences" %}</button>
                 </div>
+                {% for hidden in form_preferences.hidden_fields %}{{ hidden }}{% endfor %}
             </form>
         </section>
         <section>
