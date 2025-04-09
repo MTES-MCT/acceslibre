@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-27 11:17+0100\n"
-"PO-Revision-Date: 2025-03-27 11:17+0100\n"
-"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-04-09 16:39+0200\n"
+"PO-Revision-Date: 2025-04-09 16:38+0200\n"
+"Last-Translator:   <test@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -51,12 +51,6 @@ msgstr ""
 msgid "Ce nom d'utilisateur est réservé"
 msgstr "This username is reserved"
 
-msgid "Nom d'utilisateur"
-msgstr "Username"
-
-msgid "Exemple: nom@domaine.com"
-msgstr "Example: name@domain.com"
-
 msgid "Format de l'email attendu : nom@domaine.tld"
 msgstr "Expected email format: name@domain.tld"
 
@@ -80,12 +74,6 @@ msgstr "You must check this box to submit the form"
 
 msgid "Ce nom d'utilisateur est déjà pris."
 msgstr "This username is already taken."
-
-msgid "Nouvelle adresse email"
-msgstr "New email address"
-
-msgid "Confirmation de la nouvelle adresse email"
-msgstr "Confirmation of the new email address"
 
 msgid "Vous n'avez pas modifié votre adresse email"
 msgstr "You have not changed your email address"
@@ -3178,8 +3166,14 @@ msgstr "All communes, by department"
 msgid "Derniers établissements renseignés"
 msgstr "Latest facilities filled in"
 
-msgid "Mon compte"
-msgstr "My account"
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
+msgid "Profil et préférences"
+msgstr "Profile and preferences"
 
 msgid "Mes établissements"
 msgstr "My facilities"
@@ -3192,18 +3186,6 @@ msgstr "My challenges"
 
 msgid "Mes abonnements"
 msgstr "My subscriptions"
-
-msgid "Mes préférences"
-msgstr "My preferences"
-
-msgid "Mon identifiant"
-msgstr "My login"
-
-msgid "Mon adresse email"
-msgstr "My email address"
-
-msgid "Mot de passe"
-msgstr "Password"
 
 msgid "Admin"
 msgstr "Admin"
@@ -3263,6 +3245,9 @@ msgstr ""
 "\n"
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
+
+msgid "Mon compte"
+msgstr "My account"
 
 msgid "Mon nom d'utilisateur (identifiant) :"
 msgstr "My username (login):"
@@ -3381,11 +3366,11 @@ msgstr "Administrative information"
 msgid "La ressource n'existe plus dans la base de données."
 msgstr "Resource no longer exists in the database."
 
-msgid "Ajouter un nouvel établissement"
-msgstr "Add a new facility"
+msgid "Recherche"
+msgstr "Search"
 
-msgid "Recherche dans mes ERPs"
-msgstr "Search in my facilities"
+msgid "Rechercher un nom, une activité, une enseigne"
+msgstr "Search for a name, activity, brand"
 
 msgid "Rechercher"
 msgstr "Search"
@@ -3416,9 +3401,6 @@ msgstr "Delete"
 
 msgid "Vous n'avez renseigné aucun établissement pour le moment."
 msgstr "You have not entered any institutions at this time."
-
-msgid "Mettre à jour mes préférences"
-msgstr "Update my preferences"
 
 msgid "Changer mon adresse email"
 msgstr "Change my email address"
@@ -3458,36 +3440,101 @@ msgstr ""
 "address.\n"
 "address. Don't forget to click this link to validate and activate the change."
 
-msgid "Identifiant"
-msgstr "Login"
+msgid "Mon profil"
+msgstr "My profile"
 
-msgid "Changer mon identifiant"
-msgstr "Change my login"
+msgid "Mon identifiant"
+msgstr "My login"
 
-msgid "nom d'utilisateur"
-msgstr "username"
+msgid "Modifier mon identifiant"
+msgstr "Change my username"
 
-#, python-format
+msgid "Nom d’utilisateur (obligatoire)"
+msgstr "Username (required)"
+
+msgid "Enregistrer mon identifiant"
+msgstr "Save my username"
+
+msgid "Mon adresse email"
+msgstr "My email address"
+
+msgid "Modifier mon adresse email"
+msgstr "Modify my email address"
+
 msgid ""
-"\n"
-"      Votre identifiant (ou nom d'utilisateur) actuel est "
-"<strong>%(username)s</strong>.\n"
-"      "
+"Nous vous enverrons un mail à la nouvelle adresse comportant un lien "
+"d'activation qu'il faudra cliquer pour confirmer ce changement."
 msgstr ""
-"\n"
-"Your current login (or username) is <strong>%(username)s</strong>."
+"We will send you an email to the new address with an activation link that "
+"will have to be clicked to confirm this change."
+
+msgid "Nouvelle adresse email (obligatoire)"
+msgstr "New email address (required)"
+
+msgid "Format attendu : nom@domaine.fr"
+msgstr "Expected format: name@domain.com"
+
+msgid "Confirmation de la nouvelle adresse email (obligatoire)"
+msgstr "Confirmation of the new email address (required)"
+
+msgid "Enregistrer mon adresse email"
+msgstr "Save my email address"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Modifier mon mot de passe"
+msgstr "Change my password"
+
+msgid ""
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
+"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
+"saisi."
+msgstr ""
+"For security reasons, please enter your old password and then your new "
+"password twice to ensure that it is entered correctly."
+
+msgid "Ancien mot de passe"
+msgstr "Old Password"
+
+msgid "Afficher le mot de passe"
+msgstr "Display the password"
+
+msgid "Afficher"
+msgstr "Display"
+
+msgid "Nouveau mot de passe"
+msgstr "New Password"
+
+msgid "Votre mot de passe doit contenir :"
+msgstr "Your password must contain:"
+
+msgid "12 caractères minimum"
+msgstr "12 characters minimum"
+
+msgid "Confirmation du nouveau mot de passe"
+msgstr "Confirmation of the new password"
+
+msgid "Enregistrer mon mot de passe"
+msgstr "Save my password"
+
+msgid "Dernière connexion"
+msgstr "Last login"
+
+msgid "Mes préférences"
+msgstr "My preferences"
+
+msgid "Enregistrer mes préférences"
+msgstr "Save my preferences"
+
+msgid "Compte"
+msgstr "Account"
 
 msgid "Contact"
 msgstr "Contact"
 
 msgid "Signaler une malveillance pour l'établissement"
 msgstr "Report a malicious act for this facility"
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
 
 msgid "Contactez-nous"
 msgstr "Contact us"
@@ -3936,6 +3983,9 @@ msgstr "Start typing, then select the city or address from the list"
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr "Allow me to obtain my geographical location"
 
+msgid "Ajouter un nouvel établissement"
+msgstr "Add a new facility"
+
 msgid "Étape"
 msgstr "Step"
 
@@ -4174,12 +4224,6 @@ msgstr ""
 "Expected format: Your password cannot be entirely numeric and must contain "
 "at least 12 characters."
 
-msgid "Afficher le mot de passe"
-msgstr "Display the password"
-
-msgid "Afficher"
-msgstr "Display"
-
 msgid "Confirmation du mot de passe*"
 msgstr "Password confirmation*"
 
@@ -4299,6 +4343,9 @@ msgstr "Go back to Acceslibre's homepage"
 
 msgid "La plateforme collaborative de l’accessibilité"
 msgstr "The collaborative accessibility platform"
+
+msgid "Mon profil et préférences"
+msgstr "My profile and preferences"
 
 msgid "Fermer le menu de navigation"
 msgstr "Close the navigation menu"
@@ -6140,17 +6187,6 @@ msgstr "My password"
 msgid "Modifiez votre mot de passe"
 msgstr "Change your password"
 
-msgid ""
-"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
-"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
-"saisi."
-msgstr ""
-"For security reasons, please enter your old password and then your new "
-"password twice to ensure that it is entered correctly."
-
-msgid "Modifier mon mot de passe"
-msgstr "Change my password"
-
 msgid "Réinitialisation effectuée"
 msgstr "Reset performed"
 
@@ -6424,6 +6460,27 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Exemple: nom@domaine.com"
+#~ msgstr "Example: name@domaine.com"
+
+#~ msgid "Recherche dans mes ERPs"
+#~ msgstr "Search in my erps"
+
+#~ msgid "Identifiant"
+#~ msgstr "Identifier"
+
+#~ msgid "nom d'utilisateur"
+#~ msgstr "user name"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "      Votre identifiant (ou nom d'utilisateur) actuel est "
+#~ "<strong>%(username)s</strong>.\n"
+#~ "      "
+#~ msgstr ""
+#~ "Your current username (or username) is <strong>%(username) S </strong>."
 
 #~ msgid "Direction Générale des Entreprises"
 #~ msgstr "General Management of Business"
