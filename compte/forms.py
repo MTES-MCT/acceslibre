@@ -32,19 +32,21 @@ def define_username_field():
     return forms.CharField(
         max_length=32,
         required=True,
-        label=translate_lazy("Nom d'utilisateur"),
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
             validate_username_whitelisted,
         ],
+        widget=forms.TextInput(
+            attrs={"class": "fr-input", "autocomplete": "username"},
+        ),
     )
 
 
-def define_email_field(label="Email"):
+def define_email_field():
     return forms.EmailField(
         required=True,
-        label=label,
-        widget=forms.TextInput(attrs={"placeholder": translate_lazy("Exemple: nom@domaine.com")}),
+        label="",
+        widget=forms.TextInput(attrs={"class": "fr-input", "autocomplete": "on"}),
     )
 
 
@@ -161,6 +163,33 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
 
 
 class PasswordChangeForm(DjangoPasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["old_password"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-1-input-messages",
+                "aria-required": True,
+                "autocomplete": "current-password",
+            }
+        )
+        self.fields["new_password1"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-2-input-messages",
+                "aria-required": True,
+                "autocomplete": "new-password",
+            }
+        )
+        self.fields["new_password2"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-3-input-messages",
+                "aria-required": True,
+                "autocomplete": "new-password",
+            }
+        )
+
     form_label = forms.CharField(widget=forms.HiddenInput(), initial="password-change")
 
 
@@ -177,8 +206,8 @@ class UsernameChangeForm(forms.Form):
 
 class EmailChangeForm(forms.Form):
     form_label = forms.CharField(widget=forms.HiddenInput(), initial="email-change")
-    email1 = define_email_field(translate_lazy("Nouvelle adresse email"))
-    email2 = define_email_field(translate_lazy("Confirmation de la nouvelle adresse email"))
+    email1 = define_email_field()
+    email2 = define_email_field()
 
     def __init__(self, *args, user=None, **kwargs):
         self.user = user

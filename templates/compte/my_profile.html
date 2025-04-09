@@ -27,10 +27,7 @@
                         <label class="fr-label" for="{{ form_login.username.id_for_label }}">
                             {% translate "Nom d’utilisateur (obligatoire)" %}
                         </label>
-                        <input class="fr-input"
-                               name="{{ form_login.username.name }}"
-                               autocomplete="username"
-                               id="{{ form_login.username.id_for_label }}">
+                        {{ form_login }}
                     </div>
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
@@ -57,22 +54,14 @@
                             {% translate "Nouvelle adresse email (obligatoire)" %}
                             <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
                         </label>
-                        <input class="fr-input"
-                               name="{{ form_email.email1.name }}"
-                               autocomplete="on"
-                               id="{{ form_email.email1.id_for_label }}"
-                               type="email">
+                        {{ form_email.email1 }}
                     </div>
                     <div class="fr-input-group">
                         <label class="fr-label" for="{{ form_email.email2.id_for_label }}">
                             {% translate "Confirmation de la nouvelle adresse email (obligatoire)" %}
                             <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
                         </label>
-                        <input class="fr-input"
-                               name="{{ form_email.email2.name }}"
-                               autocomplete="on"
-                               id="{{ form_email.email2.id_for_label }}"
-                               type="email">
+                        {{ form_email.email2 }}
                     </div>
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
@@ -99,15 +88,7 @@
                                for="{{ form_password_change.old_password.id_for_label }}">
                             {% translate "Ancien mot de passe" %}
                         </label>
-                        <div class="fr-input-wrap">
-                            <input class="fr-password__input fr-input"
-                                   aria-describedby="password-1-input-messages"
-                                   aria-required="true"
-                                   name="{{ form_password_change.old_password.name }}"
-                                   autocomplete="current-password"
-                                   id="{{ form_password_change.old_password.id_for_label }}"
-                                   type="password">
-                        </div>
+                        <div class="fr-input-wrap">{{ form_password_change.old_password }}</div>
                         <div class="fr-messages-group"
                              id="password-1-input-messages"
                              aria-live="assertive"></div>
@@ -125,16 +106,7 @@
                                for="{{ form_password_change.new_password1.id_for_label }}">
                             {% translate "Nouveau mot de passe" %}
                         </label>
-                        <div class="fr-input-wrap">
-                            <input class="fr-password__input fr-input"
-                                   aria-describedby="password-2-input-messages"
-                                   aria-required="true"
-                                   name="{{ form_password_change.new_password1.name }}"
-                                   autocomplete="new-password"
-                                   id="{{ form_password_change.new_password1.id_for_label }}"
-                                   minlength="12"
-                                   type="password">
-                        </div>
+                        <div class="fr-input-wrap">{{ form_password_change.new_password1 }}</div>
                         <div class="fr-messages-group"
                              id="password-2-input-messages"
                              aria-live="assertive">
@@ -159,16 +131,7 @@
                                for="{{ form_password_change.new_password2.id_for_label }}">
                             {% translate "Confirmation du nouveau mot de passe" %}
                         </label>
-                        <div class="fr-input-wrap">
-                            <input class="fr-password__input fr-input"
-                                   aria-describedby="password-3-input-messages"
-                                   aria-required="true"
-                                   name="{{ form_password_change.new_password2.name }}"
-                                   autocomplete="new-password"
-                                   id="{{ form_password_change.new_password2.id_for_label }}"
-                                   minlength="12"
-                                   type="password">
-                        </div>
+                        <div class="fr-input-wrap">{{ form_password_change.new_password2 }}</div>
                         <div class="fr-messages-group"
                              id="password-3-input-messages"
                              aria-live="assertive"></div>
@@ -202,23 +165,21 @@
             <h2 class="fr-h4">{% translate "Mes préférences" %}</h2>
             <form action="{% url 'my_profile' %}" method="post">
                 {% csrf_token %}
-                <div class="fr-checkbox-group display--flex direction--column gap-3w">
-                    <input id="{{ form_preferences.notify_on_unpublished_erps.id_for_label }}"
-                           name="{{ form_preferences.notify_on_unpublished_erps.name }}"
-                           {% if form_preferences.notify_on_unpublished_erps.value %}checked{% endif %}
-                           type="checkbox">
-                    <label class="fr-label"
-                           for="{{ form_preferences.notify_on_unpublished_erps.id_for_label }}">
-                        {{ form_preferences.notify_on_unpublished_erps.label }}
-                    </label>
-                    <input id="{{ form_preferences.newsletter_opt_in.id_for_label }}"
-                           name="{{ form_preferences.newsletter_opt_in.name }}"
-                           {% if form_preferences.newsletter_opt_in.value %}checked{% endif %}
-                           type="checkbox">
-                    <label class="fr-label"
-                           for="{{ form_preferences.newsletter_opt_in.id_for_label }}">
-                        {{ form_preferences.newsletter_opt_in.label }}
-                    </label>
+                <div class="display--flex direction--column gap-3w">
+                    <div class="fr-checkbox-group">
+                        {{ form_preferences.notify_on_unpublished_erps }}
+                        <label class="fr-label"
+                               for="{{ form_preferences.notify_on_unpublished_erps.id_for_label }}">
+                            {{ form_preferences.notify_on_unpublished_erps.label }}
+                        </label>
+                    </div>
+                    <div class="fr-checkbox-group">
+                        {{ form_preferences.newsletter_opt_in }}
+                        <label class="fr-label"
+                               for="{{ form_preferences.newsletter_opt_in.id_for_label }}">
+                            {{ form_preferences.newsletter_opt_in.label }}
+                        </label>
+                    </div>
                     <button type="submit" class="fr-btn">{% translate "Enregistrer mes préférences" %}</button>
                 </div>
                 {% for hidden in form_preferences.hidden_fields %}{{ hidden }}{% endfor %}
