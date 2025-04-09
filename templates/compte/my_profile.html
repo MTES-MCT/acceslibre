@@ -22,7 +22,7 @@
                         {% translate "Modifier mon identifiant" %}
                     </button>
                 </div>
-                <div class="edit-block fr-hidden children-content">
+                <div class="edit-block {% if submitted_form == 'username-change' and form_login.errors %}{% else %}fr-hidden{% endif %} children-content">
                     <div class="fr-input-group">
                         <label class="fr-label" for="{{ form_login.username.id_for_label }}">
                             {% translate "Nom d’utilisateur (obligatoire)" %}
@@ -45,7 +45,7 @@
                         {% translate "Modifier mon adresse email" %}
                     </button>
                 </div>
-                <div class="edit-block fr-hidden children-content">
+                <div class="edit-block {% if submitted_form == 'email-change' and form_email.errors %}{% else %}fr-hidden{% endif %} children-content">
                     <p>
                         {% blocktranslate %}Nous vous enverrons un mail à la nouvelle adresse comportant un lien d'activation qu'il faudra cliquer pour confirmer ce changement.{% endblocktranslate %}
                     </p>
@@ -55,6 +55,7 @@
                             <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
                         </label>
                         {{ form_email.email1 }}
+                        {% for error in form_email.email1.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     </div>
                     <div class="fr-input-group">
                         <label class="fr-label" for="{{ form_email.email2.id_for_label }}">
@@ -62,7 +63,9 @@
                             <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
                         </label>
                         {{ form_email.email2 }}
+                        {% for error in form_email.email2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     </div>
+                    {% for error in form_email.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
@@ -78,7 +81,7 @@
                         {% translate "Modifier mon mot de passe" %}
                     </button>
                 </div>
-                <div class="edit-block fr-hidden children-content display--flex direction--column gap-3w">
+                <div class="edit-block {% if submitted_form == 'password-change' and form_password_change.errors %}{% else %}fr-hidden{% endif %} children-content display--flex direction--column gap-3w">
                     <p class="fr-mb-0">
                         {% translate "Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement saisi." %}
                     </p>
@@ -92,6 +95,7 @@
                         <div class="fr-messages-group"
                              id="password-1-input-messages"
                              aria-live="assertive"></div>
+                        {% for error in form_password_change.old_password.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                         <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                             <input aria-label="{% translate "Afficher le mot de passe" %}"
                                    id="password-1-show"
@@ -107,12 +111,10 @@
                             {% translate "Nouveau mot de passe" %}
                         </label>
                         <div class="fr-input-wrap">{{ form_password_change.new_password1 }}</div>
-                        <div class="fr-messages-group"
-                             id="password-2-input-messages"
-                             aria-live="assertive">
-                            <p class="fr-message" id="password-2-input-message">{% translate "Votre mot de passe doit contenir :" %}</p>
-                            <p class="fr-message fr-message--info"
-                               id="password-2-input-message-info">{% translate "12 caractères minimum" %}</p>
+                        {% for error in form_password_change.new_password1.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                        <div class="fr-messages-group" aria-live="assertive">
+                            <p class="fr-message">{% translate "Votre mot de passe doit contenir :" %}</p>
+                            <p class="fr-message fr-message--info">{% translate "12 caractères minimum" %}</p>
                         </div>
                         <div class="fr-messages-group"
                              id="password-2-input-messages"
@@ -135,6 +137,7 @@
                         <div class="fr-messages-group"
                              id="password-3-input-messages"
                              aria-live="assertive"></div>
+                        {% for error in form_password_change.new_password2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                         <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                             <input aria-label="{% translate "Afficher le mot de passe" %}"
                                    id="password-3-show"
@@ -143,6 +146,7 @@
                             <label class="fr-password__checkbox fr-label" for="password-3-show">{% translate "Afficher" %}</label>
                         </div>
                     </div>
+                    {% for error in form_password_change.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     <div class="display--flex gap-2w align-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>

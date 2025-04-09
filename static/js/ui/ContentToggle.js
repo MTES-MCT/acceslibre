@@ -3,14 +3,9 @@ function ContentToggle(root) {
   const btnToOpen = root.querySelector('.toggle-open')
   const btnToClose = root.querySelector('.toggle-close')
 
-  console.log({ root, childrenContent, btnToOpen, btnToClose })
-
   if (!root || !childrenContent || !btnToOpen || !btnToClose) {
     return
   }
-
-  // Initialisation
-  childrenContent.classList.add('fr-hidden')
 
   btnToOpen.addEventListener('click', () => {
     childrenContent.classList.remove('fr-hidden')

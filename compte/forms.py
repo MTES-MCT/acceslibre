@@ -32,6 +32,7 @@ def define_username_field():
     return forms.CharField(
         max_length=32,
         required=True,
+        label="",
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
             validate_username_whitelisted,
