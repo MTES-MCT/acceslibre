@@ -38,7 +38,7 @@ def define_username_field():
             validate_username_whitelisted,
         ],
         widget=forms.TextInput(
-            attrs={"class": "fr-input", "autocomplete": "username"},
+            attrs={"class": "fr-input", "autocomplete": "username", "aria-describedby": "username-desc-error"},
         ),
     )
 
@@ -47,7 +47,9 @@ def define_email_field():
     return forms.EmailField(
         required=True,
         label="",
-        widget=forms.TextInput(attrs={"class": "fr-input", "autocomplete": "on"}),
+        widget=forms.TextInput(
+            attrs={"class": "fr-input", "autocomplete": "on", "aria-describedby": "email-error-desc"}
+        ),
     )
 
 

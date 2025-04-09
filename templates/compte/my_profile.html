@@ -28,7 +28,9 @@
                         </label>
                         {{ form_login.username }}
                         {% if submitted_form == 'username-change' and form_login.errors %}
-                            {% for error in form_login.username.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                            {% for error in form_login.username.errors %}
+                                <p id="username-desc-error" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
                         {% endif %}
                     </div>
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
@@ -66,7 +68,9 @@
                         {{ form_email.email2 }}
                         {% for error in form_email.email2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     </div>
-                    {% for error in form_email.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                    {% for error in form_email.non_field_errors %}
+                        <p id="email-error-desc" class="fr-error-text fr-mb-2w">{{ error }}</p>
+                    {% endfor %}
                     <div class="display--flex gap-2w justify-self--end flex--wrap">
                         <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
@@ -96,7 +100,9 @@
                             <div class="fr-messages-group"
                                  id="password-1-input-messages"
                                  aria-live="assertive"></div>
-                            {% for error in form_password_change.old_password.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                            {% for error in form_password_change.old_password.errors %}
+                                <p id="password-1-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
                             <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-1-show"
@@ -114,7 +120,9 @@
                                 {% translate "Nouveau mot de passe" %}
                             </label>
                             <div class="fr-input-wrap">{{ form_password_change.new_password1 }}</div>
-                            {% for error in form_password_change.new_password1.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                            {% for error in form_password_change.new_password1.errors %}
+                                <p id="password-2-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
                             <div class="fr-messages-group" aria-live="assertive">
                                 <p class="fr-message">{% translate "Votre mot de passe doit contenir :" %}</p>
                                 <p class="fr-message fr-message--info">{% translate "12 caractères minimum" %}</p>
@@ -142,7 +150,9 @@
                             <div class="fr-messages-group"
                                  id="password-3-input-messages"
                                  aria-live="assertive"></div>
-                            {% for error in form_password_change.new_password2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                            {% for error in form_password_change.new_password2.errors %}
+                                <p id="password-3-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
                             <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-3-show"
