@@ -109,6 +109,9 @@
     &--center {
       justify-self: center;
     }
+    &--end {
+      justify-self: end;
+    }
   }
 }
 
@@ -131,6 +134,9 @@
 .word-break {
   &--all {
     word-break: break-all;
+  }
+  &--word {
+    word-break: break-word;
   }
 }
 

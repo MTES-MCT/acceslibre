@@ -111,7 +111,7 @@ def test_notification_unpublished_erp_command(mocker, unpublished_erp):
                 }
             ],
             "url_mes_erps_draft": "/compte/erps/?published=0",
-            "url_mes_preferences": "/compte/preferences/",
+            "url_mes_preferences": "/compte/mon-profil/",
             "username": unpublished_erp.user.username,
         },
         template="notif_weekly_unpublished",
@@ -131,8 +131,8 @@ def test_notifications_edit_settings(mocker, client):
     user = UserFactory()
     client.force_login(user)
     response: Response = client.post(
-        reverse("mes_preferences"),
-        {"notify_on_unpublished_erps": False},
+        reverse("my_profile"),
+        {"notify_on_unpublished_erps": False, "form_label": "preferences"},
         follow=True,
     )
 

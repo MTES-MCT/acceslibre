@@ -33,7 +33,7 @@ def test_user_change_email_e2e(mocker, client):
     mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
     user = UserFactory(username="niko")
     client.force_login(user)
-    response = client.get(reverse("mon_identifiant"))
+    response = client.get(reverse("my_profile"))
     assert response.status_code == 200
 
     new_email = "test@test.com"
@@ -114,7 +114,7 @@ def test_user_validate_email_change_e2e(db, client):
 
     user.refresh_from_db()
     assert response.status_code == 200
-    assert "Mon compte" in response.content.decode()
+    assert "Mon profil et préférences" in response.content.decode()
     assert len(EmailToken.objects.all()) == 0
     assert user.email == new_email
 
@@ -159,8 +159,8 @@ def test_deleting_unused_tokens():
 
 def _change_client_email(client, new_email):
     response = client.post(
-        reverse("mon_email"),
-        data={"email1": new_email, "email2": new_email},
+        reverse("my_profile"),
+        data={"email1": new_email, "email2": new_email, "form_label": "email-change"},
         follow=True,
     )
     assert response.status_code == 200

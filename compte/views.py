@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import PasswordResetView, LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
@@ -13,7 +13,7 @@ from django.views.generic import TemplateView
 from django_registration.backends.activation.views import ActivationView, RegistrationView
 
 from compte import forms, service
-from compte.forms import CustomPasswordResetForm, CustomAuthenticationForm
+from compte.forms import CustomAuthenticationForm, CustomPasswordResetForm
 from compte.models import UserPreferences
 from compte.tasks import sync_user_attributes
 from core.mailer import BrevoMailer
@@ -93,70 +93,101 @@ class CustomActivationView(ActivationView):
         return f"{url}?next={next}"
 
 
-@login_required
-def mon_compte(request):
-    return render(request, "compte/index.html")
-
-
-@login_required
-def mon_identifiant(request):
-    if request.method == "POST":
-        form = forms.UsernameChangeForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data["username"]
-            user = request.user
-            old_username = user.username
-            user.username = username
-            user.save()
-            LogEntry.objects.log_action(
-                user_id=user.id,
-                content_type_id=ContentType.objects.get_for_model(user).pk,
-                object_id=user.id,
-                object_repr=username,
-                action_flag=CHANGE,
-                change_message=f"Changement de nom d'utilisateur (avant: {old_username})",
-            )
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                f"Votre nom d'utilisateur a été changé en {user.username}.",
-            )
-            return redirect("mon_identifiant")
-    else:
-        form = forms.UsernameChangeForm(initial={"username": request.user.username})
-    return render(
+def manage_change_username_form(form, request):
+    username = form.cleaned_data["username"]
+    user = request.user
+    old_username = user.username
+    user.username = username
+    user.save()
+    LogEntry.objects.log_action(
+        user_id=user.id,
+        content_type_id=ContentType.objects.get_for_model(user).pk,
+        object_id=user.id,
+        object_repr=username,
+        action_flag=CHANGE,
+        change_message=f"Changement de nom d'utilisateur (avant: {old_username})",
+    )
+    messages.add_message(
         request,
-        "compte/mon_identifiant.html",
-        context={"form": form},
+        messages.SUCCESS,
+        f"Votre nom d'utilisateur a été changé en {user.username}.",
+    )
+
+
+def manage_change_email_form(form, request):
+    new_email = form.cleaned_data
+    user = request.user
+
+    activation_token = service.create_token(user, new_email)
+    service.send_activation_mail(activation_token, new_email, user)
+
+    LogEntry.objects.log_action(
+        user_id=request.user.id,
+        content_type_id=ContentType.objects.get_for_model(user).pk,
+        object_id=user.id,
+        object_repr=new_email,
+        action_flag=CHANGE,
+        change_message=f"Demande de changement d'email {user.email} -> {new_email}",
     )
 
 
 @login_required
-def mon_email(request):
+def my_profile(request):
+    preferences = UserPreferences.objects.get(user=request.user)
+    form_label = request.POST.get("form_label")
+
+    form_login = None
+    form_email = None
+    form_preferences = None
+    form_password_change = None
+
     if request.method == "POST":
-        form = forms.EmailChangeForm(request.POST, user=request.user)
-        if form.is_valid():
-            new_email = form.cleaned_data
-            user = request.user
+        if form_label == "password-change":
+            form_password_change = forms.PasswordChangeForm(request.user, request.POST)
+            if form_password_change.is_valid():
+                form_password_change.save()
+                messages.add_message(request, messages.SUCCESS, "Votre mot de passe a bien été modifié.")
+                return redirect("my_profile")
 
-            activation_token = service.create_token(user, new_email)
-            service.send_activation_mail(activation_token, new_email, user)
+        if form_label == "username-change":
+            form_login = forms.UsernameChangeForm(request.POST)
 
-            LogEntry.objects.log_action(
-                user_id=request.user.id,
-                content_type_id=ContentType.objects.get_for_model(user).pk,
-                object_id=user.id,
-                object_repr=new_email,
-                action_flag=CHANGE,
-                change_message=f"Demande de changement d'email {user.email} -> {new_email}",
-            )
-            return redirect("mon_email_sent")
-    else:
-        form = forms.EmailChangeForm(initial={"email": request.user.email})
+            if form_login.is_valid():
+                manage_change_username_form(form_login, request)
+                return redirect("my_profile")
+
+        if form_label == "email-change":
+            form_email = forms.EmailChangeForm(request.POST, user=request.user)
+
+            if form_email.is_valid():
+                manage_change_email_form(form_email, request)
+                return redirect("mon_email_sent")
+
+        if form_label == "preferences":
+            form_preferences = forms.PreferencesForm(request.POST, instance=preferences)
+
+            if form_preferences.is_valid():
+                form_preferences.save()
+                messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
+                sync_user_attributes.delay(request.user.pk)
+                return redirect("my_profile")
+
+    form_login = form_login or forms.UsernameChangeForm(initial={"username": request.user.username})
+    form_email = form_email or forms.EmailChangeForm(initial={"email": request.user.email})
+    form_preferences = form_preferences or forms.PreferencesForm(instance=preferences)
+    form_password_change = form_password_change or forms.PasswordChangeForm(request.user)
+
     return render(
         request,
-        "compte/mon_email.html",
-        context={"form": form},
+        "compte/my_profile.html",
+        context={
+            "form_login": form_login,
+            "form_email": form_email,
+            "form_preferences": form_preferences,
+            "form_password_change": form_password_change,
+            "page_type": "my-profile",
+            "submitted_form": form_label,
+        },
     )
 
 
@@ -188,7 +219,7 @@ def change_email(request, activation_token):
     )
 
     if request.user.id:
-        return redirect("mon_compte")
+        return redirect("my_profile")
     else:
         return render(
             request,
@@ -212,7 +243,7 @@ def delete_account(request):
                     messages.WARNING,
                     "Erreur lors de la désactivation du compte",
                 )
-                return redirect("mon_compte")
+                return redirect("my_profile")
             logout(request)
             messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
             LogEntry.objects.log_action(
@@ -314,25 +345,6 @@ def mes_challenges(request):
         request,
         "compte/mes_challenges.html",
         context={"pager": pager, "pager_base_url": "?1"},
-    )
-
-
-@login_required
-def mes_preferences(request):
-    preferences = UserPreferences.objects.get(user=request.user)
-    if request.method == "POST":
-        form = forms.PreferencesForm(request.POST, instance=preferences)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
-            sync_user_attributes.delay(request.user.pk)
-            return redirect("mes_preferences")
-    else:
-        form = forms.PreferencesForm(instance=preferences)
-    return render(
-        request,
-        "compte/mes_preferences.html",
-        context={"form": form},
     )
 
 
