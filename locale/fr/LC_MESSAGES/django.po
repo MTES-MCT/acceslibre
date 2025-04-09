@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-27 11:17+0100\n"
+"POT-Creation-Date: 2025-04-09 17:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,12 +49,6 @@ msgstr ""
 msgid "Ce nom d'utilisateur est réservé"
 msgstr ""
 
-msgid "Nom d'utilisateur"
-msgstr ""
-
-msgid "Exemple: nom@domaine.com"
-msgstr ""
-
 msgid "Format de l'email attendu : nom@domaine.tld"
 msgstr ""
 
@@ -77,12 +71,6 @@ msgid "Vous devez cocher cette case pour soumettre le formulaire"
 msgstr ""
 
 msgid "Ce nom d'utilisateur est déjà pris."
-msgstr ""
-
-msgid "Nouvelle adresse email"
-msgstr ""
-
-msgid "Confirmation de la nouvelle adresse email"
 msgstr ""
 
 msgid "Vous n'avez pas modifié votre adresse email"
@@ -2951,7 +2939,13 @@ msgstr ""
 msgid "Derniers établissements renseignés"
 msgstr ""
 
-msgid "Mon compte"
+msgid "Vous êtes ici :"
+msgstr ""
+
+msgid "Voir le fil d'Ariane"
+msgstr ""
+
+msgid "Profil et préférences"
 msgstr ""
 
 msgid "Mes établissements"
@@ -2964,18 +2958,6 @@ msgid "Mes challenges"
 msgstr ""
 
 msgid "Mes abonnements"
-msgstr ""
-
-msgid "Mes préférences"
-msgstr ""
-
-msgid "Mon identifiant"
-msgstr ""
-
-msgid "Mon adresse email"
-msgstr ""
-
-msgid "Mot de passe"
 msgstr ""
 
 msgid "Admin"
@@ -3026,39 +3008,6 @@ msgid ""
 "      Vous pouvez <a href=\"%(url_login)s\">vous connecter</a> avec votre "
 "nouvelle adresse.\n"
 "      "
-msgstr ""
-
-msgid "Mon nom d'utilisateur (identifiant) :"
-msgstr ""
-
-msgid "changer"
-msgstr ""
-
-msgid "Mon identité :"
-msgstr ""
-
-msgid "Mon adresse email :"
-msgstr ""
-
-msgid "Date d'inscription :"
-msgstr ""
-
-msgid "Dernière connexion :"
-msgstr ""
-
-msgid "Déconnexion"
-msgstr ""
-
-msgid "Se déconnecter"
-msgstr ""
-
-msgid "Suppression du compte"
-msgstr ""
-
-msgid "L'accès à la console d'administration vous est accordé"
-msgstr ""
-
-msgid "Accéder à l'admin"
 msgstr ""
 
 msgid ""
@@ -3140,10 +3089,10 @@ msgstr ""
 msgid "La ressource n'existe plus dans la base de données."
 msgstr ""
 
-msgid "Ajouter un nouvel établissement"
+msgid "Recherche"
 msgstr ""
 
-msgid "Recherche dans mes ERPs"
+msgid "Rechercher un nom, une activité, une enseigne"
 msgstr ""
 
 msgid "Rechercher"
@@ -3176,9 +3125,6 @@ msgstr ""
 msgid "Vous n'avez renseigné aucun établissement pour le moment."
 msgstr ""
 
-msgid "Mettre à jour mes préférences"
-msgstr ""
-
 msgid "Changer mon adresse email"
 msgstr ""
 
@@ -3208,33 +3154,99 @@ msgid ""
 "        "
 msgstr ""
 
-msgid "Identifiant"
+msgid "Mon profil"
 msgstr ""
 
-msgid "Changer mon identifiant"
+msgid "Mon identifiant"
 msgstr ""
 
-msgid "nom d'utilisateur"
+msgid "Modifier mon identifiant"
 msgstr ""
 
-#, python-format
+msgid "Nom d’utilisateur (obligatoire)"
+msgstr ""
+
+msgid "Enregistrer mon identifiant"
+msgstr ""
+
+msgid "Mon adresse email"
+msgstr ""
+
+msgid "Modifier mon adresse email"
+msgstr ""
+
 msgid ""
-"\n"
-"      Votre identifiant (ou nom d'utilisateur) actuel est "
-"<strong>%(username)s</strong>.\n"
-"      "
+"Nous vous enverrons un mail à la nouvelle adresse comportant un lien "
+"d'activation qu'il faudra cliquer pour confirmer ce changement."
+msgstr ""
+
+msgid "Nouvelle adresse email (obligatoire)"
+msgstr ""
+
+msgid "Format attendu : nom@domaine.fr"
+msgstr ""
+
+msgid "Confirmation de la nouvelle adresse email (obligatoire)"
+msgstr ""
+
+msgid "Enregistrer mon adresse email"
+msgstr ""
+
+msgid "Mot de passe"
+msgstr ""
+
+msgid "Modifier mon mot de passe"
+msgstr ""
+
+msgid ""
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
+"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
+"saisi."
+msgstr ""
+
+msgid "Ancien mot de passe"
+msgstr ""
+
+msgid "Afficher le mot de passe"
+msgstr ""
+
+msgid "Afficher"
+msgstr ""
+
+msgid "Nouveau mot de passe"
+msgstr ""
+
+msgid "Votre mot de passe doit contenir :"
+msgstr ""
+
+msgid "12 caractères minimum"
+msgstr ""
+
+msgid "Confirmation du nouveau mot de passe"
+msgstr ""
+
+msgid "Enregistrer mon mot de passe"
+msgstr ""
+
+msgid "Dernière connexion"
+msgstr ""
+
+msgid "Mes préférences"
+msgstr ""
+
+msgid "Enregistrer mes préférences"
+msgstr ""
+
+msgid "Compte"
+msgstr ""
+
+msgid "Déconnexion"
 msgstr ""
 
 msgid "Contact"
 msgstr ""
 
 msgid "Signaler une malveillance pour l'établissement"
-msgstr ""
-
-msgid "Vous êtes ici :"
-msgstr ""
-
-msgid "Voir le fil d'Ariane"
 msgstr ""
 
 msgid "Contactez-nous"
@@ -3659,6 +3671,9 @@ msgstr ""
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr ""
 
+msgid "Ajouter un nouvel établissement"
+msgstr ""
+
 msgid "Étape"
 msgstr ""
 
@@ -3868,12 +3883,6 @@ msgid ""
 "et doit contenir au minimum 12 caractères."
 msgstr ""
 
-msgid "Afficher le mot de passe"
-msgstr ""
-
-msgid "Afficher"
-msgstr ""
-
 msgid "Confirmation du mot de passe*"
 msgstr ""
 
@@ -3988,6 +3997,9 @@ msgid "Retourner sur la page d'accueil de Acceslibre"
 msgstr ""
 
 msgid "La plateforme collaborative de l’accessibilité"
+msgstr ""
+
+msgid "Mon profil et préférences"
 msgstr ""
 
 msgid "Fermer le menu de navigation"
@@ -5351,31 +5363,13 @@ msgstr ""
 msgid "Créez un compte"
 msgstr ""
 
-msgid "Changement effectué"
+msgid "Réinitialisation effectuée"
 msgstr ""
 
 msgid "Votre mot de passe a été modifié"
 msgstr ""
 
 msgid "La modification de votre mot de passe a bien été prise en compte."
-msgstr ""
-
-msgid "Mon mot de passe"
-msgstr ""
-
-msgid "Modifiez votre mot de passe"
-msgstr ""
-
-msgid ""
-"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
-"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
-"saisi."
-msgstr ""
-
-msgid "Modifier mon mot de passe"
-msgstr ""
-
-msgid "Réinitialisation effectuée"
 msgstr ""
 
 msgid "Identifiez-vous"

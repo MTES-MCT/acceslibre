@@ -9,6 +9,11 @@
 @import 'half-circle-progress-bar';
 @import 'leaflet';
 
+// Override _reboot.scss from scss, otherwise the lateral menu from dsfr doesn't work on mobile
+[hidden] {
+  display: initial;
+}
+
 #cta .fr-btn {
   @media screen and (max-width: $viewport-md) {
     margin-bottom: 0.5rem;

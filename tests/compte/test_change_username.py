@@ -17,7 +17,7 @@ def client():
 
 @pytest.mark.django_db
 def test_update_username_anonymous(client):
-    response = client.get(reverse("mon_identifiant"), follow=True)
+    response = client.get(reverse("my_profile"), follow=True)
     assert_redirect(response, "/compte/login/")
 
 
@@ -29,12 +29,12 @@ def test_update_username_authenticated(mocker, client):
         ErpFactory(user=user)
 
     client.force_login(user)
-    response = client.get(reverse("mon_identifiant"))
+    response = client.get(reverse("my_profile"))
 
     assert response.status_code == 200
 
     mock_update_brevo = mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
-    client.post(reverse("mon_identifiant"), data={"username": "coucou"}, follow=True)
+    client.post(reverse("my_profile"), data={"username": "coucou", "form_label": "username-change"}, follow=True)
 
     assert response.status_code == 200
 

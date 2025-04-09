@@ -1,0 +1,220 @@
+{% extends "compte/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Profil et préférences" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block compte_content %}
+    <h1 class="fr-h2 fr-mb-4w">{% translate "Profil et préférences" %}</h1>
+    <div class="display--flex direction--column gap-5w">
+        <section>
+            <h2 class="fr-h4">{% translate "Mon profil" %}</h2>
+            <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
+                {% csrf_token %}
+                <div class="grid-row-3">
+                    <span class="fr-col">{% translate "Mon identifiant" %}</span>
+                    <span class="fr-col fr-text--bold">{{ user.username }}</span>
+                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open  {% if submitted_form == 'username-change' and form_login.errors %}fr-hidden{% else %}{% endif %}"
+                            type="button">{% translate "Modifier mon identifiant" %}</button>
+                </div>
+                <div class="edit-block {% if submitted_form == 'username-change' and form_login.errors %}{% else %}fr-hidden{% endif %} children-content">
+                    <div class="fr-input-group {% if submitted_form == 'username-change' and form_login.errors %}fr-input-group--error{% endif %}">
+                        <label class="fr-label" for="{{ form_login.username.id_for_label }}">
+                            {% translate "Nom d’utilisateur (obligatoire)" %}
+                        </label>
+                        {{ form_login.username }}
+                        {% if submitted_form == 'username-change' and form_login.errors %}
+                            {% for error in form_login.username.errors %}
+                                <p id="username-desc-error" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="display--flex gap-2w justify-self--end flex--wrap">
+                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
+                        <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon identifiant" %}</button>
+                    </div>
+                </div>
+                {% for hidden in form_login.hidden_fields %}{{ hidden }}{% endfor %}
+            </form>
+            <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
+                {% csrf_token %}
+                <div class="grid-row-3">
+                    <span class="fr-col">{% translate "Mon adresse email" %}</span>
+                    <span class="fr-col fr-text--bold word-break--word">{{ request.user.email }}</span>
+                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open {% if submitted_form == 'email-change' and form_email.errors %}fr-hidden{% else %}{% endif %}"
+                            type="button">{% translate "Modifier mon adresse email" %}</button>
+                </div>
+                <div class="edit-block {% if submitted_form == 'email-change' and form_email.errors %}{% else %}fr-hidden{% endif %} children-content">
+                    <p>
+                        {% blocktranslate %}Nous vous enverrons un mail à la nouvelle adresse comportant un lien d'activation qu'il faudra cliquer pour confirmer ce changement.{% endblocktranslate %}
+                    </p>
+                    <div class="fr-input-group {% if submitted_form == 'email-change' and form_email.errors %}fr-input-group--error{% endif %}">
+                        <label class="fr-label" for="{{ form_email.email1.id_for_label }}">
+                            {% translate "Nouvelle adresse email (obligatoire)" %}
+                            <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
+                        </label>
+                        {{ form_email.email1 }}
+                        {% for error in form_email.email1.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                    </div>
+                    <div class="fr-input-group {% if submitted_form == 'email-change' and form_email.errors %}fr-input-group--error{% endif %}">
+                        <label class="fr-label" for="{{ form_email.email2.id_for_label }}">
+                            {% translate "Confirmation de la nouvelle adresse email (obligatoire)" %}
+                            <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.fr" %}</span>
+                        </label>
+                        {{ form_email.email2 }}
+                        {% for error in form_email.email2.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                    </div>
+                    {% for error in form_email.non_field_errors %}
+                        <p id="email-desc-error" class="fr-error-text fr-mb-2w">{{ error }}</p>
+                    {% endfor %}
+                    <div class="display--flex gap-2w justify-self--end flex--wrap">
+                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
+                        <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
+                    </div>
+                </div>
+                {% for hidden in form_email.hidden_fields %}{{ hidden }}{% endfor %}
+            </form>
+            <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
+                {% csrf_token %}
+                <div class="grid-row-2">
+                    <span>{% translate "Mot de passe" %}</span>
+                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open  {% if submitted_form == 'password-change' and form_password_change.errors %}fr-hidden{% else %}{% endif %}"
+                            type="button">{% translate "Modifier mon mot de passe" %}</button>
+                </div>
+                <div class="edit-block {% if submitted_form == 'password-change' and form_password_change.errors %}{% else %}fr-hidden{% endif %} children-content display--flex direction--column gap-3w">
+                    <p class="fr-mb-0">
+                        {% translate "Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement saisi." %}
+                    </p>
+                    <!-- Old password field -->
+                    <div class="fr-input-group {% if submitted_form == 'password-change' and form_password_change.old_password.errors %}fr-input-group--error{% else %}{% endif %}">
+                        <div class="fr-password" id="password-1">
+                            <label class="fr-label"
+                                   for="{{ form_password_change.old_password.id_for_label }}">
+                                {% translate "Ancien mot de passe" %}
+                            </label>
+                            <div class="fr-input-wrap">{{ form_password_change.old_password }}</div>
+                            <div class="fr-messages-group"
+                                 id="password-1-input-messages"
+                                 aria-live="assertive"></div>
+                            {% for error in form_password_change.old_password.errors %}
+                                <p id="password-1-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
+                            <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                       id="password-1-show"
+                                       type="checkbox"
+                                       aria-describedby="password-1-show-messages">
+                                <label class="fr-password__checkbox fr-label" for="password-1-show">{% translate "Afficher" %}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New password field -->
+                    <div class="fr-input-group  {% if submitted_form == 'password-change' and form_password_change.new_password1.errors %}fr-input-group--error{% else %}{% endif %}">
+                        <div class="fr-password" id="password-2">
+                            <label class="fr-label"
+                                   for="{{ form_password_change.new_password1.id_for_label }}">
+                                {% translate "Nouveau mot de passe" %}
+                            </label>
+                            <div class="fr-input-wrap">{{ form_password_change.new_password1 }}</div>
+                            {% for error in form_password_change.new_password1.errors %}
+                                <p id="password-2-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
+                            <div class="fr-messages-group" aria-live="assertive">
+                                <p class="fr-message">{% translate "Votre mot de passe doit contenir :" %}</p>
+                                <p class="fr-message fr-message--info">{% translate "12 caractères minimum" %}</p>
+                            </div>
+                            <div class="fr-messages-group"
+                                 id="password-2-input-messages"
+                                 aria-live="assertive"></div>
+                            <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                       id="password-2-show"
+                                       type="checkbox"
+                                       aria-describedby="password-2-show-messages">
+                                <label class="fr-password__checkbox fr-label" for="password-2-show">{% translate "Afficher" %}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New password confirmation field -->
+                    <div class="fr-input-group {% if submitted_form == 'password-change' and form_password_change.new_password2.errors %}fr-input-group--error{% else %}{% endif %}">
+                        <div class="fr-password" id="password-3">
+                            <label class="fr-label"
+                                   for="{{ form_password_change.new_password2.id_for_label }}">
+                                {% translate "Confirmation du nouveau mot de passe" %}
+                            </label>
+                            <div class="fr-input-wrap">{{ form_password_change.new_password2 }}</div>
+                            <div class="fr-messages-group"
+                                 id="password-3-input-messages"
+                                 aria-live="assertive"></div>
+                            {% for error in form_password_change.new_password2.errors %}
+                                <p id="password-3-input-messages" class="fr-error-text">{{ error }}</p>
+                            {% endfor %}
+                            <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                                <input aria-label="{% translate "Afficher le mot de passe" %}"
+                                       id="password-3-show"
+                                       type="checkbox"
+                                       aria-describedby="password-3-show-messages">
+                                <label class="fr-password__checkbox fr-label" for="password-3-show">{% translate "Afficher" %}</label>
+                            </div>
+                        </div>
+                        {% for error in form_password_change.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
+                    </div>
+                    <div class="display--flex gap-2w align-self--end flex--wrap">
+                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
+                        <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>
+                    </div>
+                </div>
+                {% for hidden in form_password_change.hidden_fields %}{{ hidden }}{% endfor %}
+            </form>
+            <div class="grid-row-3">
+                <span class="fr-col">{% translate "Date d'inscription" %}</span>
+                <span class="fr-col fr-text--bold">{{ user.date_joined|date:"j F Y à H:i"|lower }}</span>
+                <span class="fr-hidden"></span>
+            </div>
+            <div class="grid-row-3">
+                <span class="fr-col">{% translate "Dernière connexion" %}</span>
+                <span class="fr-col fr-text--bold">{{ user.last_login|date:"j F Y à H:i"|lower }}</span>
+                <span class="fr-hidden"></span>
+            </div>
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Mes préférences" %}</h2>
+            <form action="{% url 'my_profile' %}" method="post">
+                {% csrf_token %}
+                <div class="display--flex direction--column gap-3w">
+                    <div class="fr-checkbox-group">
+                        {{ form_preferences.notify_on_unpublished_erps }}
+                        <label class="fr-label"
+                               for="{{ form_preferences.notify_on_unpublished_erps.id_for_label }}">
+                            {{ form_preferences.notify_on_unpublished_erps.label }}
+                        </label>
+                    </div>
+                    <div class="fr-checkbox-group">
+                        {{ form_preferences.newsletter_opt_in }}
+                        <label class="fr-label"
+                               for="{{ form_preferences.newsletter_opt_in.id_for_label }}">
+                            {{ form_preferences.newsletter_opt_in.label }}
+                        </label>
+                    </div>
+                    <button type="submit" class="fr-btn">{% translate "Enregistrer mes préférences" %}</button>
+                </div>
+                {% for hidden in form_preferences.hidden_fields %}{{ hidden }}{% endfor %}
+            </form>
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Compte" %}</h2>
+            <div class="grid-row-2">
+                <span>{% translate "Déconnexion" %}</span>
+                <button class="fr-btn fr-btn--secondary" type="button">{% translate "Déconnexion" %}</button>
+            </div>
+            <div class="grid-row-2">
+                <span>{% translate "Supprimer mon compte" %}</span>
+                <button class="fr-btn fr-btn--secondary" type="button">{% translate "Supprimer mon compte" %}</button>
+            </div>
+        </section>
+    </div>
+{% endblock compte_content %}
