@@ -43,7 +43,9 @@
                         <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon identifiant" %}</button>
                     </div>
                 </div>
-                {% for hidden in form_login.hidden_fields %}{{ hidden }}{% endfor %}
+                {% for hidden in form_login.hidden_fields %}
+                    <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
+                {% endfor %}
             </form>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% csrf_token %}
@@ -81,7 +83,9 @@
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
                     </div>
                 </div>
-                {% for hidden in form_email.hidden_fields %}{{ hidden }}{% endfor %}
+                {% for hidden in form_email.hidden_fields %}
+                    <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
+                {% endfor %}
             </form>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% csrf_token %}
@@ -173,7 +177,9 @@
                         <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>
                     </div>
                 </div>
-                {% for hidden in form_password_change.hidden_fields %}{{ hidden }}{% endfor %}
+                {% for hidden in form_password_change.hidden_fields %}
+                    <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
+                {% endfor %}
             </form>
             <div class="grid-row-3">
                 <span class="fr-col">{% translate "Date d'inscription" %}</span>
@@ -207,7 +213,9 @@
                     </div>
                     <button type="submit" class="fr-btn">{% translate "Enregistrer mes préférences" %}</button>
                 </div>
-                {% for hidden in form_preferences.hidden_fields %}{{ hidden }}{% endfor %}
+                {% for hidden in form_preferences.hidden_fields %}
+                    <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
+                {% endfor %}
             </form>
         </section>
         <section>
@@ -223,7 +231,9 @@
                 </form>
             </div>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
-                {% for hidden in form_delete_account.hidden_fields %}{{ hidden }}{% endfor %}
+                {% for hidden in form_delete_account.hidden_fields %}
+                    <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
+                {% endfor %}
                 <div class="grid-row-2">
                     <span>{% translate "Supprimer mon compte" %}</span>
                     <button class="fr-btn fr-btn--secondary toggle-open" type="button">{% translate "Supprimer mon compte" %}</button>
