@@ -53,16 +53,25 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     {% if user.is_authenticated %}
-        <p class="fr-alert fr-alert--warning">
+        <div class="fr-alert fr-alert--warning fr-mb-3w" role="alert">
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
             {% blocktranslate with username=user.username trimmed %}
                 Vous êtes déjà authentifié en tant que <strong>{{ username }}</strong>,
                 vous ne pouvez donc pas vous authentifier avec un nouveau compte.
-                Veuillez <a href="{{ url_logout }}">d'abord vous déconnecter</a>
-                ou revenir à la <a href="{{ url_home }}">page d'accueil</a>.
+                Veuillez
             {% endblocktranslate %}
-        </p>
+            <form id="logout-form"
+                  method="post"
+                  action="{{ url_logout }}"
+                  class="display--inline-block">
+                {% csrf_token %}
+                <button type="submit" class="fr-link">{% translate "vous déconnecter" %}</button>
+            </form>
+            {% blocktranslate %}
+            ou revenir à la <a class="fr-link" href="{{ url_home }}">page d'accueil</a>.
+        {% endblocktranslate %}
+        </div>
     {% else %}
         <div id="login-form-container">
             <form action="." method="post" class="login-form">
