@@ -8,6 +8,11 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb_current_page %}
+    <li>
+        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Profil et préférences" %}</a>
+    </li>
+{% endblock breadcrumb_current_page %}
 {% block compte_content %}
     <h1 class="fr-h2 fr-mb-4w">{% translate "Profil et préférences" %}</h1>
     <div class="display--flex direction--column gap-5w">
@@ -209,12 +214,44 @@
             <h2 class="fr-h4">{% translate "Compte" %}</h2>
             <div class="grid-row-2">
                 <span>{% translate "Déconnexion" %}</span>
-                <button class="fr-btn fr-btn--secondary" type="button">{% translate "Déconnexion" %}</button>
+                <a class="fr-btn fr-btn--secondary" href="{% url 'logout' %}">{% translate "Déconnexion" %}</a>
             </div>
-            <div class="grid-row-2">
-                <span>{% translate "Supprimer mon compte" %}</span>
-                <button class="fr-btn fr-btn--secondary" type="button">{% translate "Supprimer mon compte" %}</button>
-            </div>
+            <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
+                {% for hidden in form_delete_account.hidden_fields %}{{ hidden }}{% endfor %}
+                <div class="grid-row-2">
+                    <span>{% translate "Supprimer mon compte" %}</span>
+                    <button class="fr-btn fr-btn--secondary toggle-open" type="button">{% translate "Supprimer mon compte" %}</button>
+                </div>
+                <div class="{% if submitted_form == 'delete-account' and form_delete_account.errors %}{% else %}fr-hidden{% endif %} children-content">
+                    <div class="fr-alert fr-alert--warning fr-mb-3w">
+                        {% translate "Souhaitez vous confirmer la suppression de votre compte ?" %}
+                        <br>
+                        {% translate "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site." %}
+                    </div>
+                    {% csrf_token %}
+                    <fieldset class="fr-fieldset {% if submitted_form == 'delete-account' and form_delete_account.errors %}fr-fieldset--error{% else %}{% endif %}">
+                        <div class="fr-fieldset__element">
+                            <div class="fr-checkbox-group">
+                                {{ form_delete_account.confirm }}
+                                <label class="fr-label" for="{{ form_delete_account.confirm.id_for_label }}">
+                                    {% translate "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible." %}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="fr-messages-group"
+                             id="checkboxes-error-messages"
+                             aria-live="assertive">
+                            {% for error in form_delete_account.non_field_errors %}
+                                <p id="delete-account-desc-error" class="fr-message fr-message--error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                    <div class="display--flex gap-2w justify-self--end flex--wrap">
+                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
+                        <button class="fr-btn toggle-close" type="submit">{% translate "Confirmer la suppression" %}</button>
+                    </div>
+                </div>
+            </form>
         </section>
     </div>
 {% endblock compte_content %}

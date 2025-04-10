@@ -7,6 +7,11 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb_current_page %}
+    <li>
+        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Mes établissements" %}</a>
+    </li>
+{% endblock breadcrumb_current_page %}
 {% block compte_content %}
     <div class="flex direction--column gap-5w">
         <h1 class="mb-0">{% translate "Mes établissements" %} ({{ erp_total_count }})</h1>
