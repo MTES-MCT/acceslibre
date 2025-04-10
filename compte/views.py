@@ -140,6 +140,7 @@ def my_profile(request):
     form_email = None
     form_preferences = None
     form_password_change = None
+    form_delete_account = None
 
     if request.method == "POST":
         if form_label == "password-change":
@@ -163,6 +164,32 @@ def my_profile(request):
                 manage_change_email_form(form_email, request)
                 return redirect("mon_email_sent")
 
+        if form_label == "delete-account":
+            form_delete_account = forms.AccountDeleteForm(request.POST)
+            if form_delete_account.is_valid():
+                userid, old_username = request.user.id, request.user.username
+                try:
+                    service.anonymize_user(request.user)
+                except RuntimeError as err:
+                    logger.error(err)
+                    messages.add_message(
+                        request,
+                        messages.WARNING,
+                        "Erreur lors de la désactivation du compte",
+                    )
+                    return redirect("my_profile")
+                logout(request)
+                messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
+                LogEntry.objects.log_action(
+                    user_id=userid,
+                    content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
+                    object_id=userid,
+                    object_repr=old_username,
+                    action_flag=CHANGE,
+                    change_message=f'Compte "{old_username}" désactivé et anonymisé',
+                )
+                return redirect("/")
+
         if form_label == "preferences":
             form_preferences = forms.PreferencesForm(request.POST, instance=preferences)
 
@@ -176,6 +203,7 @@ def my_profile(request):
     form_email = form_email or forms.EmailChangeForm(initial={"email": request.user.email})
     form_preferences = form_preferences or forms.PreferencesForm(instance=preferences)
     form_password_change = form_password_change or forms.PasswordChangeForm(request.user)
+    form_delete_account = form_delete_account or forms.AccountDeleteForm()
 
     return render(
         request,
@@ -185,8 +213,10 @@ def my_profile(request):
             "form_email": form_email,
             "form_preferences": form_preferences,
             "form_password_change": form_password_change,
+            "form_delete_account": form_delete_account,
             "page_type": "my-profile",
             "submitted_form": form_label,
+            "bread_crumb_url": "test",
         },
     )
 
@@ -226,42 +256,6 @@ def change_email(request, activation_token):
             "compte/email_change_activation_success.html",
             context={},
         )
-
-
-@login_required
-def delete_account(request):
-    if request.method == "POST":
-        form = forms.AccountDeleteForm(request.POST)
-        if form.is_valid():
-            userid, old_username = request.user.id, request.user.username
-            try:
-                service.anonymize_user(request.user)
-            except RuntimeError as err:
-                logger.error(err)
-                messages.add_message(
-                    request,
-                    messages.WARNING,
-                    "Erreur lors de la désactivation du compte",
-                )
-                return redirect("my_profile")
-            logout(request)
-            messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
-            LogEntry.objects.log_action(
-                user_id=userid,
-                content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
-                object_id=userid,
-                object_repr=old_username,
-                action_flag=CHANGE,
-                change_message=f'Compte "{old_username}" désactivé et anonymisé',
-            )
-            return redirect("/")
-    else:
-        form = forms.AccountDeleteForm()
-    return render(
-        request,
-        template_name="compte/delete_account_warning.html",
-        context={"form": form},
-    )
 
 
 @login_required

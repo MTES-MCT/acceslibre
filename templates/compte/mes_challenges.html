@@ -7,6 +7,11 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb_current_page %}
+    <li>
+        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Mes challenges" %}</a>
+    </li>
+{% endblock breadcrumb_current_page %}
 {% block compte_content %}
     <h1 class="h3 fr-mb-3v">{% translate "Mes challenges" %}</h1>
     <p>
