@@ -7,7 +7,6 @@ from uuid import UUID
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -37,6 +36,8 @@ from stats import queries
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
+import secrets
+import string
 
 HOURS = 60 * 60
 
@@ -215,7 +216,9 @@ def _get_or_create_api_key():
     if api_key:
         return api_key
 
-    api_key = User.objects.make_random_password(32)
+    alphabet = string.ascii_letters + string.digits + string.punctuation
+
+    api_key = "".join(secrets.choice(alphabet) for i in range(32))
     cache.set(settings.INTERNAL_API_KEY_NAME, api_key, timeout=1 * HOURS)
     return api_key
 
