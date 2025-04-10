@@ -16,7 +16,8 @@
                             <li>
                                 <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
                             </li>
-                            {% block breadcrumb_current_page %}{% endblock %}
+                            {% block breadcrumb_current_page %}
+                            {% endblock breadcrumb_current_page %}
                         </ol>
                     </div>
                 </nav>
