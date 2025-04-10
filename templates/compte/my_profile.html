@@ -214,7 +214,13 @@
             <h2 class="fr-h4">{% translate "Compte" %}</h2>
             <div class="grid-row-2">
                 <span>{% translate "Déconnexion" %}</span>
-                <a class="fr-btn fr-btn--secondary" href="{% url 'logout' %}">{% translate "Déconnexion" %}</a>
+                <form id="logout-form"
+                      method="post"
+                      action="{% url 'logout' %}"
+                      class="display--inline-block">
+                    {% csrf_token %}
+                    <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Déconnexion" %}</button>
+                </form>
             </div>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% for hidden in form_delete_account.hidden_fields %}{{ hidden }}{% endfor %}
