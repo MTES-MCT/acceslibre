@@ -59,18 +59,15 @@
             {% blocktranslate with username=user.username trimmed %}
                 Vous êtes déjà authentifié en tant que <strong>{{ username }}</strong>,
                 vous ne pouvez donc pas créer un nouveau compte.
-                Veuillez
+                Veuillez vous déconnecter  ou revenir à la <a class="fr-link" href="{{ url_home }}">page d'accueil</a>.
             {% endblocktranslate %}
             <form id="logout-form"
                   method="post"
                   action="{{ url_logout }}"
-                  class="display--inline-block">
+                  class="fr-mt-2w">
                 {% csrf_token %}
-                <button type="submit" class="fr-link">{% translate "vous déconnecter" %}</button>
+                <button type="submit" class="fr-btn">{% translate "Déconnexion" %}</button>
             </form>
-            {% blocktranslate %}
-            ou revenir à la <a class="fr-link" href="{{ url_home }}">page d'accueil</a>.
-        {% endblocktranslate %}
         </div>
     {% else %}
         <div class="row">

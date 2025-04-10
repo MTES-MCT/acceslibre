@@ -219,7 +219,7 @@
                       action="{% url 'logout' %}"
                       class="display--inline-block">
                     {% csrf_token %}
-                    <button type="submit" class="fr-link">{% translate "Déconnexion" %}</button>
+                    <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Déconnexion" %}</button>
                 </form>
             </div>
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
