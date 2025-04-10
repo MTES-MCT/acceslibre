@@ -16,9 +16,8 @@
                             <li>
                                 <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
                             </li>
-                            <li>
-                                <a class="fr-breadcrumb__link" href="{% url 'search' %}">{% translate "Nos établissements" %}</a>
-                            </li>
+                            {% block breadcrumb_current_page %}
+                            {% endblock breadcrumb_current_page %}
                         </ol>
                     </div>
                 </nav>
@@ -31,9 +30,6 @@
                             aria-expanded="false">{% translate "Profil et préférences" %}</button>
                     <div class="fr-collapse" id="fr-sidemenu-wrapper">
                         <ul class="fr-sidemenu__list">
-                            <li class="fr-sidemenu__item">
-                                <a class="fr-sidemenu__link" href="{% url 'home' %}">{% translate "Retour à l'accueil" %}</a>
-                            </li>
                             <li class="fr-sidemenu__item">
                                 <a class="fr-sidemenu__link"
                                    {% if request.path|active_compte_section:'my_profile' %}aria-current="page"{% endif %}

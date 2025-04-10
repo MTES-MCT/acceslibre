@@ -236,11 +236,12 @@ class EmailChangeForm(forms.Form):
 
 
 class AccountDeleteForm(forms.Form):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="delete-account")
+
     confirm = forms.BooleanField(
-        label=translate_lazy(
-            "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
-        ),
+        label="",
         required=True,
+        widget=forms.CheckboxInput(attrs={"aria-describedby": "delete-account-desc-error"}),
     )
 
     def clean_confirm(self):

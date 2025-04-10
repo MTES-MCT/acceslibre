@@ -12,6 +12,5 @@ urlpatterns = [
     path("contributions/", views.mes_contributions, name="mes_contributions"),
     path("contributions/recues/", views.mes_contributions_recues, name="mes_contributions_recues"),
     path("challenges/", views.mes_challenges, name="mes_challenges"),
-    path("suppression/", views.delete_account, name="delete_account"),
     path("set-api-key/", views.set_api_key, name="set_api_key"),
 ]
