@@ -131,6 +131,7 @@ def test_search(mocker):
     results = entreprise.search("mairie coise", "69062", "84.11Z")
     assert results == [
         {
+            "source": "entreprise_api",
             "nom": "COMMUNE DE COISE",
             "voie": None,
             "commune": "COISE",
