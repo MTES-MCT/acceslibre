@@ -1,5 +1,6 @@
 import reversion
 from django.conf import settings
+from django.db.utils import IntegrityError
 from outscraper import ApiClient
 from rest_framework.exceptions import ValidationError
 
@@ -181,11 +182,15 @@ class Command(BaseAcquisitionCommand):
                 return
 
         try:
-            with reversion.create_revision():
+            try:
+                with reversion.create_revision():
+                    new_erp = serializer.save()
+                    reversion.set_comment(f"{action} via outscraper")
+            except reversion.errors.RevertError:
                 new_erp = serializer.save()
-                reversion.set_comment(f"{action} via outscraper")
-        except reversion.errors.RevertError:
-            new_erp = serializer.save()
+        except IntegrityError:
+            print(f"Engendering some inconsistencies, skipping ERP creation for {result['place_id']}")
+            return
 
         print(f"{action} ERP available at {new_erp.get_absolute_uri()}")
 
