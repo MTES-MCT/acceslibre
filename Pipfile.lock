@@ -469,11 +469,12 @@
         },
         "django-modeltranslation": {
             "hashes": [
-                "sha256:69b7dc9a8bae152ab84caf969a5ad478f588f4d9f8345545d4f20f66eeb51ef6",
-                "sha256:df2516fdfb6a865fd1dfdda74e549d437d8ca148c1d435663db36edb6863f34e"
+                "sha256:1ba875b51296f41105587e6c1c6b161c32c7c81b7cbab23111ffdb8310471db8",
+                "sha256:2b7d6fe0b26b5050f1fd38960162df84ea6a9eaf7b690f428b55eb0e87720c57"
             ],
             "index": "pypi",
-            "version": "==0.19.13"
+            "markers": "python_version >= '3.9' and python_version < '4'",
+            "version": "==0.19.14"
         },
         "django-registration": {
             "hashes": [
