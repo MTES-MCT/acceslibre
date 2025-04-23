@@ -48,7 +48,7 @@
             {% endif %}
             <li>
                 <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"
-                   {% if pager.has_next %}href="{{ pager_base_url }}&page={{ pager.next_page_number }}" {% else %}aria-disabled="true"{% endif %}>Page suivante</a>
+                   {% if pager.has_next %}href="{{ pager_base_url }}&page={{ pager.next_page_number }}" {% else %}aria-disabled="true"{% endif %}>{% translate "Page suivante" %}</a>
             </li>
             <li>
                 <a class="fr-pagination__link fr-pagination__link--last"

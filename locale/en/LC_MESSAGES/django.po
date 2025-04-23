@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 12:49+0200\n"
+"POT-Creation-Date: 2025-04-23 15:42+0200\n"
 "PO-Revision-Date: 2025-04-23 12:45+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3146,6 +3146,9 @@ msgstr "Previous page"
 
 msgid "(page courante)"
 msgstr "(current page)"
+
+msgid "Page suivante"
+msgstr "Next page"
 
 msgid "Dernière page"
 msgstr "Last page"
@@ -6401,31 +6404,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#~| msgid "Navigation"
-#~ msgid "Pagination"
-#~ msgstr "Pagination"
-
-#~ msgid "Page 1"
-#~ msgstr "Page 1"
-
-#~ msgid "Page suivante"
-#~ msgstr "Next page"
-
-#~ msgid "La fiche n'est pas publiée"
-#~ msgstr "The sheet is not published"
-
-#~ msgid "La fiche est publiée"
-#~ msgstr "The sheet is published"
-
-#~ msgid "Les informations d'accessibilité ne sont pas renseignées"
-#~ msgstr "Accessibility information is not provided"
-
-#~ msgid "Vous n'avez renseigné aucun établissement pour le moment."
-#~ msgstr "You have not entered any establishment at the moment."
-
-#~ msgid "Siret"
-#~ msgstr "Siret"
-
-#~ msgid "Adresse"
-#~ msgstr "Address"
