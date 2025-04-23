@@ -30,8 +30,8 @@ def test_delete_account_e2e(client, pseudo_random_string):
     client.force_login(user)
 
     response = client.post(
-        reverse("delete_account"),
-        data={"confirm": True},
+        reverse("my_profile"),
+        data={"confirm": True, "form_label": "delete-account"},
         follow=True,
     )
 
@@ -59,13 +59,13 @@ def test_delete_account_no_confirm_e2e(client):
     client.force_login(user)
 
     response = client.post(
-        reverse("delete_account"),
-        data={"confirm": False},
+        reverse("my_profile"),
+        data={"confirm": False, "form_label": "delete-account"},
         follow=True,
     )
 
     assert response.status_code == 200
-    assert "confirm" in response.context["form"].errors
+    assert "confirm" in response.context["form_delete_account"].errors
     assert response.wsgi_request.user == user
 
 

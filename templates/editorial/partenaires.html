@@ -27,7 +27,7 @@
     </div>
 {% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="flex direction--column gap-8w">
+    <div class="flex direction--column gap-8w fr-mb-4w">
         <header class="flex direction--column align-items--center">
             <h1 class="fr-col-12 text--center">{% translate "Nos partenaires" %}</h1>
             <p>
@@ -153,7 +153,6 @@
         {% endfor %}
     {% endfor %}
     <script nonce="{{ request.csp_nonce }}">
-        const partners = {{ partenaires|safe }};
         const btns = document.querySelectorAll('div[role="button"]')
 
         btns.forEach((button) => {

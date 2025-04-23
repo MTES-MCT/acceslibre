@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import PasswordChangeForm as DjangoPasswordChangeForm
 from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -31,19 +32,24 @@ def define_username_field():
     return forms.CharField(
         max_length=32,
         required=True,
-        label=translate_lazy("Nom d'utilisateur"),
+        label="",
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
             validate_username_whitelisted,
         ],
+        widget=forms.TextInput(
+            attrs={"class": "fr-input", "autocomplete": "username", "aria-describedby": "username-desc-error"},
+        ),
     )
 
 
-def define_email_field(label="Email"):
+def define_email_field():
     return forms.EmailField(
         required=True,
-        label=label,
-        widget=forms.TextInput(attrs={"placeholder": translate_lazy("Exemple: nom@domaine.com")}),
+        label="",
+        widget=forms.TextInput(
+            attrs={"class": "fr-input", "autocomplete": "on", "aria-describedby": "email-desc-error"}
+        ),
     )
 
 
@@ -159,7 +165,39 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         return robot
 
 
+class PasswordChangeForm(DjangoPasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["old_password"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-1-input-messages",
+                "aria-required": True,
+                "autocomplete": "current-password",
+            }
+        )
+        self.fields["new_password1"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-2-input-messages",
+                "aria-required": True,
+                "autocomplete": "new-password",
+            }
+        )
+        self.fields["new_password2"].widget.attrs.update(
+            {
+                "class": "fr-password__input fr-input",
+                "aria-describedby": "password-3-input-messages",
+                "aria-required": True,
+                "autocomplete": "new-password",
+            }
+        )
+
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="password-change")
+
+
 class UsernameChangeForm(forms.Form):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="username-change")
     username = define_username_field()
 
     def clean_username(self):
@@ -170,8 +208,9 @@ class UsernameChangeForm(forms.Form):
 
 
 class EmailChangeForm(forms.Form):
-    email1 = define_email_field(translate_lazy("Nouvelle adresse email"))
-    email2 = define_email_field(translate_lazy("Confirmation de la nouvelle adresse email"))
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="email-change")
+    email1 = define_email_field()
+    email2 = define_email_field()
 
     def __init__(self, *args, user=None, **kwargs):
         self.user = user
@@ -197,11 +236,12 @@ class EmailChangeForm(forms.Form):
 
 
 class AccountDeleteForm(forms.Form):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="delete-account")
+
     confirm = forms.BooleanField(
-        label=translate_lazy(
-            "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
-        ),
+        label="",
         required=True,
+        widget=forms.CheckboxInput(attrs={"aria-describedby": "delete-account-desc-error"}),
     )
 
     def clean_confirm(self):
@@ -212,6 +252,8 @@ class AccountDeleteForm(forms.Form):
 
 
 class PreferencesForm(forms.ModelForm):
+    form_label = forms.CharField(widget=forms.HiddenInput(), initial="preferences")
+
     class Meta:
         model = UserPreferences
         fields = ["notify_on_unpublished_erps", "newsletter_opt_in"]

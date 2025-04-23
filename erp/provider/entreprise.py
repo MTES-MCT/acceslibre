@@ -3,7 +3,7 @@ import logging
 import requests
 
 from core.lib import text
-from erp.models import Commune
+from erp.models import Commune, ExternalSource
 from erp.provider import arrondissements, voies
 
 logger = logging.getLogger(__name__)
@@ -72,8 +72,10 @@ def process_response(json_value, terms, code_insee):
             if code_insee and departement != code_insee[:2]:
                 # skip requesting erps outside of searched departement
                 continue
+
             results.append(
                 {
+                    "source": ExternalSource.SOURCE_API_ENTREPRISE,
                     "nom": etablissement["siege"].get("nom_commercial") or etablissement["nom_complet"],
                     "voie": etablissement["siege"]["libelle_voie"],
                     "commune": etablissement["siege"]["libelle_commune"],

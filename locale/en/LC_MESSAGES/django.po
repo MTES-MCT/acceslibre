@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-27 11:17+0100\n"
-"PO-Revision-Date: 2025-03-27 11:17+0100\n"
-"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-04-23 09:45+0200\n"
+"PO-Revision-Date: 2025-04-23 09:44+0200\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -51,12 +51,6 @@ msgstr ""
 msgid "Ce nom d'utilisateur est réservé"
 msgstr "This username is reserved"
 
-msgid "Nom d'utilisateur"
-msgstr "Username"
-
-msgid "Exemple: nom@domaine.com"
-msgstr "Example: name@domain.com"
-
 msgid "Format de l'email attendu : nom@domaine.tld"
 msgstr "Expected email format: name@domain.tld"
 
@@ -81,12 +75,6 @@ msgstr "You must check this box to submit the form"
 msgid "Ce nom d'utilisateur est déjà pris."
 msgstr "This username is already taken."
 
-msgid "Nouvelle adresse email"
-msgstr "New email address"
-
-msgid "Confirmation de la nouvelle adresse email"
-msgstr "Confirmation of the new email address"
-
 msgid "Vous n'avez pas modifié votre adresse email"
 msgstr "You have not changed your email address"
 
@@ -98,13 +86,6 @@ msgid ""
 "différente"
 msgstr ""
 "This email address already exists, please choose a different email address"
-
-msgid ""
-"Confirmer la suppression de mon compte utilisateur. J'ai bien compris que "
-"cette opération est irréversible."
-msgstr ""
-"Confirm the deletion of my user account. I understand that this operation is "
-"irreversible."
 
 msgid "Vous devez confirmer la suppression pour la rendre effective."
 msgstr "You must confirm the deletion to make it effective."
@@ -3178,8 +3159,14 @@ msgstr "All communes, by department"
 msgid "Derniers établissements renseignés"
 msgstr "Latest facilities filled in"
 
-msgid "Mon compte"
-msgstr "My account"
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
+msgid "Profil et préférences"
+msgstr "Profile and preferences"
 
 msgid "Mes établissements"
 msgstr "My facilities"
@@ -3193,42 +3180,8 @@ msgstr "My challenges"
 msgid "Mes abonnements"
 msgstr "My subscriptions"
 
-msgid "Mes préférences"
-msgstr "My preferences"
-
-msgid "Mon identifiant"
-msgstr "My login"
-
-msgid "Mon adresse email"
-msgstr "My email address"
-
-msgid "Mot de passe"
-msgstr "Password"
-
 msgid "Admin"
 msgstr "Admin"
-
-msgid "Supprimer mon compte"
-msgstr "Delete my account"
-
-msgid "Souhaitez vous confirmer la suppression de votre compte ?"
-msgstr "Do you confirm the deletion of your account?"
-
-msgid ""
-"Toutes vos contributions sont conservées, en revanche, votre identifiant "
-"n'apparaîtra plus sur le site."
-msgstr ""
-"All your contributions are kept, however, your login will no longer appear "
-"on the site."
-
-msgid "Attention, des erreurs ont été rencontrées."
-msgstr "Warning, errors have been encountered."
-
-msgid "Annuler"
-msgstr "Cancel"
-
-msgid "Confirmer la suppression"
-msgstr "Confirm deletion"
 
 msgid "Activation échouée"
 msgstr "Activation failed"
@@ -3263,39 +3216,6 @@ msgstr ""
 "\n"
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
-
-msgid "Mon nom d'utilisateur (identifiant) :"
-msgstr "My username (login):"
-
-msgid "changer"
-msgstr "change"
-
-msgid "Mon identité :"
-msgstr "My identity:"
-
-msgid "Mon adresse email :"
-msgstr "My email address:"
-
-msgid "Date d'inscription :"
-msgstr "Date of registration:"
-
-msgid "Dernière connexion :"
-msgstr "Last login:"
-
-msgid "Déconnexion"
-msgstr "Log out"
-
-msgid "Se déconnecter"
-msgstr "Log out"
-
-msgid "Suppression du compte"
-msgstr "Account deletion"
-
-msgid "L'accès à la console d'administration vous est accordé"
-msgstr "You are granted access to the administration console"
-
-msgid "Accéder à l'admin"
-msgstr "Access to the admin"
 
 msgid ""
 "Les établissements pour lesquels vous êtes abonné aux notifications par "
@@ -3381,11 +3301,11 @@ msgstr "Administrative information"
 msgid "La ressource n'existe plus dans la base de données."
 msgstr "Resource no longer exists in the database."
 
-msgid "Ajouter un nouvel établissement"
-msgstr "Add a new facility"
+msgid "Recherche"
+msgstr "Search"
 
-msgid "Recherche dans mes ERPs"
-msgstr "Search in my facilities"
+msgid "Rechercher un nom, une activité, une enseigne"
+msgstr "Search for a name, activity, brand"
 
 msgid "Rechercher"
 msgstr "Search"
@@ -3416,9 +3336,6 @@ msgstr "Delete"
 
 msgid "Vous n'avez renseigné aucun établissement pour le moment."
 msgstr "You have not entered any institutions at this time."
-
-msgid "Mettre à jour mes préférences"
-msgstr "Update my preferences"
 
 msgid "Changer mon adresse email"
 msgstr "Change my email address"
@@ -3458,36 +3375,130 @@ msgstr ""
 "address.\n"
 "address. Don't forget to click this link to validate and activate the change."
 
-msgid "Identifiant"
-msgstr "Login"
+msgid "Mon profil"
+msgstr "My profile"
 
-msgid "Changer mon identifiant"
-msgstr "Change my login"
+msgid "Mon identifiant"
+msgstr "My login"
 
-msgid "nom d'utilisateur"
-msgstr "username"
+msgid "Modifier mon identifiant"
+msgstr "Change my username"
 
-#, python-format
+msgid "Nom d’utilisateur (obligatoire)"
+msgstr "Username (required)"
+
+msgid "Annuler"
+msgstr "Cancel"
+
+msgid "Enregistrer mon identifiant"
+msgstr "Save my username"
+
+msgid "Mon adresse email"
+msgstr "My email address"
+
+msgid "Modifier mon adresse email"
+msgstr "Modify my email address"
+
 msgid ""
-"\n"
-"      Votre identifiant (ou nom d'utilisateur) actuel est "
-"<strong>%(username)s</strong>.\n"
-"      "
+"Nous vous enverrons un mail à la nouvelle adresse comportant un lien "
+"d'activation qu'il faudra cliquer pour confirmer ce changement."
 msgstr ""
-"\n"
-"Your current login (or username) is <strong>%(username)s</strong>."
+"We will send you an email to the new address with an activation link that "
+"will have to be clicked to confirm this change."
+
+msgid "Nouvelle adresse email (obligatoire)"
+msgstr "New email address (required)"
+
+msgid "Format attendu : nom@domaine.fr"
+msgstr "Expected format: name@domain.com"
+
+msgid "Confirmation de la nouvelle adresse email (obligatoire)"
+msgstr "Confirmation of the new email address (required)"
+
+msgid "Enregistrer mon adresse email"
+msgstr "Save my email address"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Modifier mon mot de passe"
+msgstr "Change my password"
+
+msgid ""
+"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
+"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
+"saisi."
+msgstr ""
+"For security reasons, please enter your old password and then your new "
+"password twice to ensure that it is entered correctly."
+
+msgid "Ancien mot de passe"
+msgstr "Old Password"
+
+msgid "Afficher le mot de passe"
+msgstr "Display the password"
+
+msgid "Afficher"
+msgstr "Display"
+
+msgid "Nouveau mot de passe"
+msgstr "New Password"
+
+msgid "Votre mot de passe doit contenir :"
+msgstr "Your password must contain:"
+
+msgid "12 caractères minimum"
+msgstr "12 characters minimum"
+
+msgid "Confirmation du nouveau mot de passe"
+msgstr "Confirmation of the new password"
+
+msgid "Enregistrer mon mot de passe"
+msgstr "Save my password"
+
+msgid "Dernière connexion"
+msgstr "Last login"
+
+msgid "Mes préférences"
+msgstr "My preferences"
+
+msgid "Enregistrer mes préférences"
+msgstr "Save my preferences"
+
+msgid "Compte"
+msgstr "Account"
+
+msgid "Déconnexion"
+msgstr "Log out"
+
+msgid "Supprimer mon compte"
+msgstr "Delete my account"
+
+msgid "Souhaitez vous confirmer la suppression de votre compte ?"
+msgstr "Do you confirm the deletion of your account?"
+
+msgid ""
+"Toutes vos contributions sont conservées, en revanche, votre identifiant "
+"n'apparaîtra plus sur le site."
+msgstr ""
+"All your contributions are kept, however, your login will no longer appear "
+"on the site."
+
+msgid ""
+"Confirmer la suppression de mon compte utilisateur. J'ai bien compris que "
+"cette opération est irréversible."
+msgstr ""
+"Confirm the deletion of my user account. I understand that this operation is "
+"irreversible."
+
+msgid "Confirmer la suppression"
+msgstr "Confirm deletion"
 
 msgid "Contact"
 msgstr "Contact"
 
 msgid "Signaler une malveillance pour l'établissement"
 msgstr "Report a malicious act for this facility"
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
 
 msgid "Contactez-nous"
 msgstr "Contact us"
@@ -3584,6 +3595,9 @@ msgstr ""
 
 msgid "Améliorez ces informations"
 msgstr "Improve this information"
+
+msgid "Attention, des erreurs ont été rencontrées."
+msgstr "Warning, errors have been encountered."
 
 msgid "Continuer ma saisie d'un nouvel établissement"
 msgstr "Continue my entry of a new facility"
@@ -3936,6 +3950,9 @@ msgstr "Start typing, then select the city or address from the list"
 msgid "Autoriser l'obtention de ma localisation géographique"
 msgstr "Allow me to obtain my geographical location"
 
+msgid "Ajouter un nouvel établissement"
+msgstr "Add a new facility"
+
 msgid "Étape"
 msgstr "Step"
 
@@ -4149,14 +4166,12 @@ msgstr ""
 #, python-format
 msgid ""
 "Vous êtes déjà authentifié en tant que <strong>%(username)s</strong>, vous "
-"ne pouvez donc pas créer un nouveau compte. Veuillez <a class=\"fr-link\" "
-"href=\"%(url_logout)s\">vous déconnecter</a> ou revenir à la <a class=\"fr-"
-"link\" href=\"%(url_home)s\">page d'accueil</a>."
+"ne pouvez donc pas créer un nouveau compte. Veuillez vous déconnecter ou "
+"revenir à la <a class=\"fr-link\" href=\"%(url_home)s\">page d'accueil</a>."
 msgstr ""
 "You are already authenticated as <strong>%(username)s</strong>, so you "
-"cannot create a new account. Please <a class=\"fr-link\" "
-"href=\"%(url_logout)s\">Disconnect </a> or return to <a class=\"fr-link\" "
-"href=\"%(url_home)s\">Home page </a>."
+"cannot create a new account. Please disconnect or come back to <a class=\"fr-"
+"link\" href=\"%(url_home)s\">Home page</a>."
 
 msgid "Les champs avec \"*\" sont obligatoires"
 msgstr "Fields with \"*\" are mandatory"
@@ -4173,12 +4188,6 @@ msgid ""
 msgstr ""
 "Expected format: Your password cannot be entirely numeric and must contain "
 "at least 12 characters."
-
-msgid "Afficher le mot de passe"
-msgstr "Display the password"
-
-msgid "Afficher"
-msgstr "Display"
 
 msgid "Confirmation du mot de passe*"
 msgstr "Password confirmation*"
@@ -4233,42 +4242,25 @@ msgstr ""
 msgid "(ouverture dans une nouvelle fenêtre)"
 msgstr "(opens in a new tab)"
 
-msgid "Nos partenaires"
-msgstr "Our partners"
+msgid "Nos investisseurs"
+msgstr "Our investors"
 
-msgid "Ouvrir une nouvelle fenêtre vers la ville de Paris"
-msgstr "Open a new window to the city of Paris"
+msgid "Ouvrir une nouvelle fenêtre vers France relance"
+msgstr "Open a new window to France relance"
 
-msgid "Ville de Paris"
-msgstr "City of Paris"
-
-msgid "ouvrir une nouvelle fenêtre vers Valentin Haüy"
-msgstr "Open a new window to the Valentin HAUY association"
-
-msgid "Association Valentin Haüy"
-msgstr "Valentin Hauy Association"
-
-msgid "Ouvrir une nouvelle fenêtre vers la Poste"
-msgstr "Open a new window to the Post Office"
+msgid "Ouvrir une nouvelle fenêtre vers Next generation european union"
+msgstr "Open a new window to Next generation european union"
 
 msgid ""
-"Ouvrir une nouvelle fenêtre vers le site de la Confédération Française pour "
-"la Promotion Sociale des Aveugles et Amblyopes"
+"Ouvrir une nouvelle fenêtre vers le Ministère de l'Aménagement du territoire "
+"et de la Décentralisation"
 msgstr ""
-"Open a new window to the French Confederation for the Social Promotion of "
-"the Blind and Partially Sighted"
+"Open a new window to Ministère de l'Aménagement du territoire et de la "
+"Décentralisation"
 
-msgid "CFPSAA"
-msgstr "CFPSAA"
-
-msgid "Ouvrir une nouvelle fenêtre vers Lorient agglomération"
-msgstr "Open a new window to Lorient agglomeration"
-
-msgid "Ouvrir une nouvelle fenêtre vers Accor"
-msgstr "Open a new window to Accor"
-
-msgid "Accor"
-msgstr "Accor"
+msgid ""
+"Ouvrir une nouvelle fenêtre vers la direction interministérielle du numérique"
+msgstr "Open a new window to direction interministérielle du numérique"
 
 msgid "Plan du site"
 msgstr "Sitemap"
@@ -4300,6 +4292,9 @@ msgstr "Go back to Acceslibre's homepage"
 msgid "La plateforme collaborative de l’accessibilité"
 msgstr "The collaborative accessibility platform"
 
+msgid "Mon profil et préférences"
+msgstr "My profile and preferences"
+
 msgid "Fermer le menu de navigation"
 msgstr "Close the navigation menu"
 
@@ -4308,6 +4303,9 @@ msgstr "Main menu"
 
 msgid "Sélectionner une langue"
 msgstr "Pick a language"
+
+msgid "Nos partenaires"
+msgstr "Our partners"
 
 msgid ""
 "Découvrez nos partenaires engagés pour rendre les infrastructures, services "
@@ -5855,7 +5853,7 @@ msgid "Abonnez vous aux mises à jour"
 msgstr "Subscribe to updates"
 
 msgid ""
-"Vous êtes le gérant de l’établissement, partager ces informations sur votre "
+"Vous êtes le gérant de l’établissement, partagez ces informations sur votre "
 "site"
 msgstr ""
 "You are the manager of the establishment, share this information on your site"
@@ -6104,14 +6102,13 @@ msgstr "Login"
 #, python-format
 msgid ""
 "Vous êtes déjà authentifié en tant que <strong>%(username)s</strong>, vous "
-"ne pouvez donc pas vous authentifier avec un nouveau compte. Veuillez <a "
-"href=\"%(url_logout)s\">d'abord vous déconnecter</a> ou revenir à la <a "
-"href=\"%(url_home)s\">page d'accueil</a>."
+"ne pouvez donc pas vous authentifier avec un nouveau compte. Veuillez vous "
+"déconnecter ou revenir à la <a class=\"fr-link\" href=\"%(url_home)s\">page "
+"d'accueil</a>."
 msgstr ""
-"You are already authenticated as <strong>%(username)s </strong>, so you "
-"cannot authenticate with a new account. Please <a href = "
-"\"%(url_logout)s\">first disconnect</a> or come back to <a href = "
-"\"%(url_home)s\">Home page</a>."
+"You are already authenticated as <strong>%(username)s</strong>, so you "
+"cannot authenticate with a new account. Please disconnect or come back to <a "
+"class=\"fr-link\" href=\"%(url_home) s\">Home page</a>."
 
 msgid "Je me connecte"
 msgstr "Sign in"
@@ -6125,34 +6122,14 @@ msgstr "Are you a new user?"
 msgid "Créez un compte"
 msgstr "Create an account"
 
-msgid "Changement effectué"
-msgstr "Change done"
+msgid "Réinitialisation effectuée"
+msgstr "Reset performed"
 
 msgid "Votre mot de passe a été modifié"
 msgstr "Your password has been changed"
 
 msgid "La modification de votre mot de passe a bien été prise en compte."
 msgstr "The change of your password has been taken into account."
-
-msgid "Mon mot de passe"
-msgstr "My password"
-
-msgid "Modifiez votre mot de passe"
-msgstr "Change your password"
-
-msgid ""
-"Pour des raisons de sécurité, saisissez votre ancien mot de passe puis votre "
-"nouveau mot de passe à deux reprises afin de vérifier qu’il est correctement "
-"saisi."
-msgstr ""
-"For security reasons, please enter your old password and then your new "
-"password twice to ensure that it is entered correctly."
-
-msgid "Modifier mon mot de passe"
-msgstr "Change my password"
-
-msgid "Réinitialisation effectuée"
-msgstr "Reset performed"
 
 msgid "Identifiez-vous"
 msgstr "Sign in"
@@ -6424,6 +6401,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#~ msgid "Direction Générale des Entreprises"
-#~ msgstr "General Management of Business"

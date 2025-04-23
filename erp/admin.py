@@ -3,7 +3,7 @@ from django import forms
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
-from django.contrib.gis.admin import OSMGeoAdmin
+from django.contrib.gis.admin import GISModelAdmin
 from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -113,7 +113,7 @@ class DepartementFilter(admin.SimpleListFilter):
 
 
 @admin.register(Commune)
-class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
+class CommuneAdmin(GISModelAdmin, admin.ModelAdmin):
     form = AdminCommuneForm
     point_zoom = 13
     map_height = 300
@@ -161,7 +161,7 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
 
 
 @admin.register(Departement)
-class DepartementAdmin(OSMGeoAdmin, admin.ModelAdmin): ...
+class DepartementAdmin(GISModelAdmin, admin.ModelAdmin): ...
 
 
 @admin.register(Accessibilite)
@@ -218,7 +218,7 @@ class ExternalSourceAdmin(admin.ModelAdmin):
 @admin.register(Erp)
 class ErpAdmin(
     ExportMixin,
-    OSMGeoAdmin,
+    GISModelAdmin,
     VersionAdmin,
 ):
     form = AdminErpForm

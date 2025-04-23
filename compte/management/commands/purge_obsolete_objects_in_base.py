@@ -38,7 +38,7 @@ class Command(BaseCommand):
         logger.info(f"[CRON] Purge users, {nb_deleted} user account deleted.")
 
     def _delete_email_tokens(self):
-        nb_deleted, _ = EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
+        nb_deleted, _ = EmailToken.objects.filter(expire_at__lt=timezone.now()).delete()
         logger.info(f"[CRON] Purge tokens, {nb_deleted} token(s) deleted.")
 
     def add_arguments(self, parser):

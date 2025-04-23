@@ -24,21 +24,16 @@ def active_compte_section(path, test):
     # So. Don't forget to update this code whenever we update these urls in erp.urls.
     active = any(
         [
-            test == "mon_compte" and path == "/compte/",
             test == "mes_erps" and path == "/compte/erps/",
-            test == "mon_identifiant" and path == "/compte/identifiant/",
-            test == "mon_email" and path.startswith("/compte/email/"),
             test == "mes_contributions" and path.startswith("/compte/contributions/"),
             test == "mes_challenges" and path.startswith("/compte/challenges/"),
             test == "mes_abonnements" and path.startswith("/compte/abonnements/"),
-            test == "mes_preferences" and path.startswith("/compte/preferences/"),
-            test == "mot_de_passe"
+            test == "my_profile"
             and path
             in [
-                "/compte/password_change/",
-                "/compte/password_change/done/",
                 "/admin/password_change/",
                 "/admin/password_change/done/",
+                "/compte/mon-profil/",
             ],
         ]
     )
