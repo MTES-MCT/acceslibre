@@ -535,6 +535,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 class PublicErpDeleteForm(forms.Form):
     confirm = forms.BooleanField(
         label=translate_lazy("Supprimer cet établissement de la base de données (cette opération est irrémédiable)"),
+        widget=forms.CheckboxInput(attrs={"class": "fr-checkbox"}),
         required=True,
     )
 

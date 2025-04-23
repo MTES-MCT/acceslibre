@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 09:45+0200\n"
-"PO-Revision-Date: 2025-04-23 09:44+0200\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-04-23 15:42+0200\n"
+"PO-Revision-Date: 2025-04-23 12:45+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -3138,17 +3138,20 @@ msgstr "Error"
 msgid "Fermer"
 msgstr "Close"
 
+msgid "Première page"
+msgstr "First page"
+
 msgid "Page précédente"
 msgstr "Previous page"
-
-msgid "page"
-msgstr "page"
 
 msgid "(page courante)"
 msgstr "(current page)"
 
 msgid "Page suivante"
 msgstr "Next page"
+
+msgid "Dernière page"
+msgstr "Last page"
 
 msgid "Communes renseignées"
 msgstr "Communes filled"
@@ -3217,6 +3220,21 @@ msgstr ""
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
+msgid "Non publié"
+msgstr "Unpublished"
+
+msgid "Remplissage"
+msgstr "Completion rate"
+
+msgid "Modifier"
+msgstr "Change"
+
+msgid "Supprimer"
+msgstr "Delete"
+
+msgid "La liste est vide."
+msgstr "The list is empty."
+
 msgid ""
 "Les établissements pour lesquels vous êtes abonné aux notifications par "
 "email de mise à jour."
@@ -3234,9 +3252,6 @@ msgstr "Actions"
 
 msgid "Se désabonner"
 msgstr "Unsubscribe"
-
-msgid "La liste est vide."
-msgstr "The list is empty."
 
 msgid "Les challenges sur lesquels vous êtes inscrit."
 msgstr "The challenges you are registered for."
@@ -3310,6 +3325,9 @@ msgstr "Search for a name, activity, brand"
 msgid "Rechercher"
 msgstr "Search"
 
+msgid "Onglet d'établissements"
+msgstr "Establishments tab"
+
 msgid "Tous"
 msgstr "All"
 
@@ -3318,24 +3336,6 @@ msgstr "Published"
 
 msgid "Non-publiés"
 msgstr "Unpublished"
-
-msgid "La fiche n'est pas publiée"
-msgstr "The facility is not published"
-
-msgid "La fiche est publiée"
-msgstr "The form is published"
-
-msgid "Les informations d'accessibilité ne sont pas renseignées"
-msgstr "Accessibility information is not filled in"
-
-msgid "Modifier"
-msgstr "Change"
-
-msgid "Supprimer"
-msgstr "Delete"
-
-msgid "Vous n'avez renseigné aucun établissement pour le moment."
-msgstr "You have not entered any institutions at this time."
 
 msgid "Changer mon adresse email"
 msgstr "Change my email address"
@@ -3855,17 +3855,17 @@ msgstr "Continue"
 msgid "Renseigner un établissement"
 msgstr "Enter a facility"
 
+msgid "Mon compte"
+msgstr "My account"
+
 msgid "Supprimer un établissement"
 msgstr "Delete a facility"
 
-msgid "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:"
-msgstr "You are about to delete the following facility:"
+msgid "Attention"
+msgstr "Attention"
 
-msgid "Siret"
-msgstr "Siret"
-
-msgid "Adresse"
-msgstr "Address"
+msgid "Vous vous apprêtez à supprimer l'établissement suivant"
+msgstr "You are about to delete the following establishment"
 
 msgid "Supprimer l'établissement"
 msgstr "Delete the facility"
@@ -6321,6 +6321,9 @@ msgstr "All equipment"
 
 msgid "Résultats pour"
 msgstr "Results for"
+
+msgid "page"
+msgstr "page"
 
 msgid "Aucun résultat"
 msgstr "No result"

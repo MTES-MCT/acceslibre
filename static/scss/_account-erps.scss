@@ -1,0 +1,15 @@
+@import 'breakpoints';
+
+.account-erps {
+  .fr-tabs__panel {
+    transition: unset;
+  }
+
+  .fr-card__footer {
+    .fr-btns-group {
+      @media screen and (min-width: $viewport-lg) {
+        justify-self: flex-end;
+      }
+    }
+  }
+}
