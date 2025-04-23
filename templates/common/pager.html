@@ -1,26 +1,42 @@
 {% load i18n %}
 {% if pager and pager.has_other_pages %}
-    <nav aria-label="Pagination des résultats">
+    <nav aria-label="Pagination des résultats" class="fr-pagination">
         <ul class="pagination {% if css_classes %}{{ css_classes }}{% else %}justify-content-end fr-mt-3v{% endif %}">
-            {% if pager.has_previous %}
-                <li class="page-item">
-                    <a class="page-link"
-                       href="{{ pager_base_url }}&page={{ pager.previous_page_number }}">«&nbsp;{% translate "Page précédente" %}</a>
-                </li>
-            {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">«&nbsp;{% translate "Page précédente" %}</a>
-                </li>
-            {% endif %}
+            <li>
+                <a class="fr-pagination__link fr-pagination__link--first"
+                   {% if pager.number == 1 %}aria-disabled="true" {% else %}href="{{ pager_base_url }}&page=1"{% endif %}
+                   role="link">{% translate "Première page" %}</a>
+            </li>
+            <li>
+                <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"
+                   role="link"
+                   {% if pager.has_previous %}href="{{ pager_base_url }}&page={{ pager.previous_page_number }}" {% else %}aria-disabled="true"{% endif %}>{% translate "Page précédente" %}</a>
+            </li>
             {% if not no_page_links %}
-                {% if pager.paginator.num_pages > 5 %}
-                    <li class="page-item disabled">
-                        <span class="page-link">{% translate "page" %} {{ pager.number }}/{{ pager.paginator.num_pages }}</span>
+                {% if pager.paginator.num_pages > 7 %}
+                    {% if pager.number > 1 %}
+                        <li>
+                            <a class="fr-pagination__link"
+                               href="{{ pager_base_url }}&page={{ pager.number|add:-1 }}">{{ pager.number|add:-1 }}</a>
+                        </li>
+                    {% endif %}
+                    <li>
+                        <a class="fr-pagination__link"
+                           href="{{ pager_base_url }}&page={{ pager.number }}"
+                           aria-current="page">{{ pager.number }}</a>
                     </li>
+                    {% if pager.number != pager.num_pages and pager.has_next %}
+                        <li>
+                            <a class="fr-pagination__link"
+                               href="{{ pager_base_url }}&page={{ pager.number|add:1 }}">{{ pager.number|add:1 }}</a>
+                        </li>
+                    {% endif %}
                 {% else %}
                     {% for i in pager.paginator.page_range %}
-                        <li class="page-item{% if pager.number == i %} active{% endif %}">
-                            <a class="page-link" href="{{ pager_base_url }}&page={{ i }}">
+                        <li>
+                            <a class="fr-pagination__link"
+                               href="{{ pager_base_url }}&page={{ i }}"
+                               {% if pager.number == i %}aria-current="page"{% endif %}>
                                 {% if pager.number == i %}
                                     <span class="fr-sr-only">{% translate "(page courante)" %}</span>
                                 {% endif %}
@@ -30,16 +46,14 @@
                     {% endfor %}
                 {% endif %}
             {% endif %}
-            {% if pager.has_next %}
-                <li class="page-item">
-                    <a class="page-link"
-                       href="{{ pager_base_url }}&page={{ pager.next_page_number }}">{% translate "Page suivante" %}&nbsp;»</a>
-                </li>
-            {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">{% translate "Page suivante" %}&nbsp;»</a>
-                </li>
-            {% endif %}
+            <li>
+                <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"
+                   {% if pager.has_next %}href="{{ pager_base_url }}&page={{ pager.next_page_number }}" {% else %}aria-disabled="true"{% endif %}>Page suivante</a>
+            </li>
+            <li>
+                <a class="fr-pagination__link fr-pagination__link--last"
+                   {% if pager.has_next %}href="{{ pager_base_url }}&page={{ pager.paginator.num_pages }}"{% endif %}>{% translate "Dernière page" %}</a>
+            </li>
         </ul>
     </nav>
 {% endif %}

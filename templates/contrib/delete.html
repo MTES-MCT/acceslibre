@@ -7,53 +7,88 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
-{% block editorial_content %}
-    <h2 class="h3 fr-mb-3v">{% translate "Supprimer un établissement" %}</h2>
-    <p class="text-danger">
-        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-        <strong>{% translate "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:" %}</strong>
-    </p>
-    <div class="card border-danger shadow-m fr-mb-3v">
-        <div class="card-header text-danger">
-            <strong>{{ erp.nom }}</strong>
-        </div>
-        <div class="card-body d-md-flex justify-content-between text-danger">
-            {% if erp.activite %}
-                <dl class="mb-0">
-                    <dt>{% translate "Activité" %}</dt>
-                    <dd>
-                        {{ erp.activite.nom }}
-                    </dd>
-                </dl>
-            {% endif %}
-            {% if erp.siret %}
-                <dl class="mb-0">
-                    <dt>{% translate "Siret" %}</dt>
-                    <dd>
-                        {{ erp.siret }}
-                    </dd>
-                </dl>
-            {% endif %}
-            <dl class="mb-0">
-                <dt>{% translate "Adresse" %}</dt>
-                <dd>
-                    <address class="m-0">{{ erp.adresse }}</address>
-                </dd>
-            </dl>
-        </div>
-    </div>
-    <form action="" method="post" class="a4a-form" novalidate>
-        {% csrf_token %}
-        {% if form.non_field_errors %}
-            <div class="alert alert-warning" role="alert">
-                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-                {% translate "Attention, des erreurs ont été rencontrées." %}
-                <ul class="my-1">
-                    {% for field_name, message in form.non_field_errors.items %}<li>{{ field_name }}: {{ message }}</li>{% endfor %}
-                </ul>
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "my_profile" %}">{% translate "Mon compte" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "mes_erps" %}">{% translate "Mes établissements" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Établissement" %}</a>
+                    </li>
+                </ol>
             </div>
-        {% endif %}
-        <div class="ml-2">{{ form.confirm|as_crispy_field }}</div>
-        <button class="btn btn-danger">{% translate "Supprimer l'établissement" %}</button>
-    </form>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <div class="display--flex direction--column gap-2w">
+        <h1 class="fr-mb-0">{% translate "Supprimer un établissement" %}</h1>
+        <div class="fr-alert fr-alert--warning">
+            <h3 class="fr-alert__title">{% translate "Attention" %}</h3>
+            <p>{% translate "Vous vous apprêtez à supprimer l'établissement suivant" %}</p>
+        </div>
+        <div class="fr-card fr-card--lg">
+            <div class="fr-card__body">
+                <div class="fr-card__content">
+                    <h3 class="fr-card__title">{{ erp.nom }}</h3>
+                    <div class="fr-card__desc">
+                        <p class="fr-mb-0">{{ erp.activite }}</p>
+                        <address class="fr-mb-0">{{ erp.adresse }}</address>
+                    </div>
+                    <div class="fr-card__start">
+                        <ul class="fr-badges-group gap-1w align-self--center justify-content--end">
+                            {% if erp.published %}
+                                <li>
+                                    <p class="fr-badge fr-badge--success fr-badge--no-icon fr-badge--sm fr-mb-0">{% translate "Publié" %}</p>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <p class="fr-badge fr-badge--warning fr-badge--no-icon fr-badge--sm fr-mb-0">{% translate "Non publié" %}</p>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
+                                    {% translate "Remplissage" %} {{ erp.accessibilite.completion_rate }}%
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action=""
+              method="post"
+              class="display--flex direction--column gap-2w fr-mb-2w"
+              novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="fr-alert fr-alert--error fr-mb-4w">
+                    <h3 class="fr-alert__title">{% translate "Erreur" %}</h3>
+                    {% translate "Attention, des erreurs ont été rencontrées." %}
+                    <ul class="my-1">
+                        {% for field_name, message in form.non_field_errors.items %}<li>{{ field_name }}: {{ message }}</li>{% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div class="fr-checkbox-group">
+                {{ form.confirm }}
+                <label class="fr-label" for="{{ form.confirm.id_for_label }}">{{ form.confirm.label }}</label>
+            </div>
+            <button class="fr-btn">{% translate "Supprimer l'établissement" %}</button>
+        </form>
+    </div>
 {% endblock editorial_content %}

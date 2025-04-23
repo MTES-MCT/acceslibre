@@ -265,6 +265,7 @@ def search(request):
         "where_keyword": where_keyword,
         "departement_json": department_json,
         "should_refresh_map_on_load": search_type != settings.IN_DEPARTMENT_SEARCH_TYPE,
+        "page_type": "erps-search",
     }
     return render(request, "search/results.html", context=context)
 
