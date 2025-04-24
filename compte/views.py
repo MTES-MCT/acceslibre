@@ -292,26 +292,38 @@ def mes_erps(request):
     )
 
 
-def _mes_contributions_view(request, qs, recues=False):
+@login_required
+def mes_contributions(request):
+    qs = versioning.get_user_contributions(request.user)
+    nb_contributions_received = versioning.get_user_contributions_recues(request.user).count()
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_contributions.html",
-        context={"pager": pager, "recues": recues},
+        context={
+            "pager": pager,
+            "nb_contributions_received": nb_contributions_received,
+            "nb_contributions_done": qs.count(),
+        },
     )
-
-
-@login_required
-def mes_contributions(request):
-    qs = versioning.get_user_contributions(request.user)
-    return _mes_contributions_view(request, qs)
 
 
 @login_required
 def mes_contributions_recues(request):
     qs = versioning.get_user_contributions_recues(request.user)
-    return _mes_contributions_view(request, qs, recues=True)
+    nb_contributions_done = versioning.get_user_contributions(request.user).count()
+    paginator = Paginator(qs, 10)
+    pager = paginator.get_page(request.GET.get("page", 1))
+    return render(
+        request,
+        "compte/mes_contributions.html",
+        context={
+            "pager": pager,
+            "nb_contributions_received": qs.count(),
+            "nb_contributions_done": nb_contributions_done,
+        },
+    )
 
 
 @login_required

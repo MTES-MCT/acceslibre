@@ -37,7 +37,7 @@
                    tabindex="0"
                    role="tab"
                    aria-controls="tabpanel-contributions-controls"
-                   {% if not recues %}aria-selected="true"{% endif %}>{% translate "Contributions effectuées" %} ({{ pager.paginator.count|default:"0" }}) </a>
+                   {% if not recues %}aria-selected="true"{% endif %}>{% translate "Contributions effectuées" %} ({{ nb_contributions_done|default:"0" }}) </a>
             </li>
             <li role="presentation">
                 <a href="{% url 'mes_contributions_recues' %}"
@@ -48,7 +48,7 @@
                    class="fr-tabs__tab {% if erp_published_count == 0 %}disabled{% endif %}"
                    {% if recues %}aria-selected="true"{% endif %}
                    {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
-                    {% translate "Contributions reçues" %} ({{ recues.paginator.count|default:"0" }})
+                    {% translate "Contributions reçues" %} ({{ nb_contributions_received|default:"0" }})
                 </a>
             </li>
         </ul>
