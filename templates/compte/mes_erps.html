@@ -35,7 +35,7 @@
                 <li role="presentation">
                     <a href="."
                        id="tabpanel-all-erps"
-                       class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
+                       class="fr-tabs__tab"
                        tabindex="0"
                        role="tab"
                        aria-controls="tabpanel-all-erps-controls"
@@ -48,7 +48,7 @@
                        tabindex="0"
                        role="tab"
                        aria-controls="tabpanel-published-erps-controls"
-                       class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left {% if erp_published_count == 0 %}disabled{% endif %}"
+                       class="fr-tabs__tab {% if erp_published_count == 0 %}disabled{% endif %}"
                        {% if filter_published == '1' %}aria-selected="true"{% endif %}
                        {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
                         {% translate "Publiés" %} ({{ erp_published_count }})
@@ -58,7 +58,7 @@
                     <a id="tabpanel-unpublished-erps"
                        tabindex="0"
                        href="./?published=0"
-                       class="fr-tabs__tab fr-icon-checkbox-line fr-tabs__tab--icon-left"
+                       class="fr-tabs__tab"
                        role="tab"
                        aria-controls="tabpanel-unpublished-erps-controls"
                        {% if filter_published == '0' %}aria-selected="true"{% endif %}
