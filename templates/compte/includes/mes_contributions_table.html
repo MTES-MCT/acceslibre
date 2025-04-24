@@ -1,0 +1,51 @@
+{% load i18n %}
+{% if pager.paginator.count <= 0 %}
+    {% translate "Pas de contribution en cours." %}
+{% else %}
+    <div class="fr-table fr-table--bordered" id="table-bordered-component">
+        <div class="fr-table__wrapper">
+            <div class="fr-table__container">
+                <div class="fr-table__content">
+                    <table id="table-bordered">
+                        <caption>{% translate "Contributions effectuées" %}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">{% translate "Date" %}</th>
+                                <th scope="col">{% translate "Modifications" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for version in pager %}
+                                <tr id="table-bordered-row-key-1" data-row-key="1">
+                                    <td>
+                                        {% if recues %}
+                                            <p>
+                                                {% translate "Par" %} <span class="fr-text--bold">{{ version.revision.user }}</span>
+                                            </p>
+                                        {% endif %}
+                                        <p>
+                                            {% translate "le" %} {{ version.revision.date_created|date:"j F Y"|lower }}
+                                            {{ version.revision.date_created|date:"à H:i"|lower }}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        {% if version.content_type.model == "accessibilite" %}
+                                            <p class="fr-text--bold">{% translate "Informations d'accessibilité" %}</p>
+                                            {% include "compte/erp_info.html" with erp=version.object.erp %}
+                                        {% elif version.content_type.model == "erp" %}
+                                            <p class="fr-text--bold">{% translate "Informations administratives" %}</p>
+                                            {% include "compte/erp_info.html" with erp=version.object %}
+                                        {% else %}
+                                            <p class="fr-text--bold">{{ version }}</p>
+                                            <p>{% translate "La ressource n'existe plus dans la base de données." %}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

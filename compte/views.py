@@ -303,6 +303,8 @@ def mes_contributions(request):
         "compte/mes_contributions.html",
         context={
             "pager": pager,
+            "contributions_received_tab_active": False,
+            "contributions_done_tab_active": True,
             "nb_contributions_received": nb_contributions_received,
             "nb_contributions_done": qs.count(),
         },
@@ -320,6 +322,8 @@ def mes_contributions_recues(request):
         "compte/mes_contributions.html",
         context={
             "pager": pager,
+            "contributions_received_tab_active": True,
+            "contributions_done_tab_active": False,
             "nb_contributions_received": qs.count(),
             "nb_contributions_done": nb_contributions_done,
         },
