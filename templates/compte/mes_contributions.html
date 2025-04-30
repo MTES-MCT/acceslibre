@@ -13,68 +13,43 @@
     </li>
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
-    <h1 class="h3 fr-mb-3v">{% translate "Mes contributions" %}</h1>
-    <nav class="nav nav-tabs nav-fill">
-        <a class="nav-item nav-link{% if not recues %} active{% endif %}"
-           href="{% url 'mes_contributions' %}">
-            <i aria-hidden="true" class="icon icon-contribute-out"></i>
-            {% translate "Contributions effectuées" %}
-        </a>
-        <a class="nav-item nav-link{% if recues %} active{% endif %}"
-           href="{% url 'mes_contributions_recues' %}">
-            <i aria-hidden="true" class="icon icon-contribute-in"></i>
-            {% translate "Contributions reçues" %}
-        </a>
-    </nav>
-    <div class="card border-top-0 rounded-0 rounded-bottom">
-        <p class="text-muted px-3 py-2 mb-0">
-            <i aria-hidden="true" class="icon icon-bulb"></i>
-            {% if recues %}
-                {% translate "Cette page liste les modifications effectuées sur vos établissements par les autres utilisateurs de la plateforme." %}
-            {% else %}
-                {% translate "Cette page liste les modifications que vous avez effectué sur les établissements initialement renseignés par d'autres utilisateurs." %}
-            {% endif %}
-        </p>
-        <table class="table table-striped mb-0">
-            <thead>
-                <th scope="col">{% translate "Date" %}</th>
-                <th scope="col">{% translate "Modifications" %}</th>
-            </thead>
-            <tbody>
-                {% for version in pager %}
-                    <tr>
-                        <td class="text-right">
-                            {% if recues %}
-                                {% translate "Par" %} <strong>{{ version.revision.user }}</strong>
-                                <br>
-                            {% endif %}
-                            {% translate "le" %} {{ version.revision.date_created|date:"j F Y"|lower }}
-                            <br>
-                            {{ version.revision.date_created|date:"à H:i"|lower }}
-                        </td>
-                        <td>
-                            {% if version.content_type.model == "accessibilite" %}
-                                <strong>{% translate "Informations d'accessibilité" %}</strong>
-                                <br>
-                                {% include "compte/erp_info.html" with erp=version.object.erp %}
-                            {% elif version.content_type.model == "erp" %}
-                                <strong>{% translate "Informations administratives" %}</strong>
-                                <br>
-                                {% include "compte/erp_info.html" with erp=version.object %}
-                            {% else %}
-                                <strong>{{ version }}</strong>
-                                <br>
-                                <span class="text-danger">{% translate "La ressource n'existe plus dans la base de données." %}</span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="2">{% translate "La liste est vide." %}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <h1 class="fr-h2 fr-mb-4w fr-mt-2w">{% translate "Mes contributions" %}</h1>
+    <div class="fr-tabs">
+        <ul class="fr-tabs__list"
+            role="tablist"
+            aria-label="{% translate "Onglet contributions effectuées" %}">
+            <li role="presentation">
+                <a href="{% url 'mes_contributions' %}"
+                   id="tabpanel-contributions"
+                   class="fr-tabs__tab"
+                   tabindex="0"
+                   role="tab"
+                   aria-controls="tabpanel-contributions-controls"
+                   {% if contributions_done_tab_active %}aria-selected="true"{% endif %}>{% translate "Contributions effectuées" %} ({{ nb_contributions_done|default:"0" }}) </a>
+            </li>
+            <li role="presentation">
+                <a href="{% url 'mes_contributions_recues' %}"
+                   id="tabpanel-published-erps"
+                   tabindex="0"
+                   role="tab"
+                   aria-controls="tabpanel-received-controls"
+                   class="fr-tabs__tab {% if erp_published_count == 0 %}disabled{% endif %}"
+                   {% if contributions_received_tab_active %}aria-selected="true"{% endif %}
+                   {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
+                    {% translate "Contributions reçues" %} ({{ nb_contributions_received|default:"0" }})
+                </a>
+            </li>
+        </ul>
+        <div id="tabpanel-contributions-controls"
+             class="fr-tabs__panel fr-tabs__panel--selected"
+             role="tabpanel"
+             aria-labelledby="tabpanel-contributions"
+             tabindex="0">{% include "compte/includes/mes_contributions_table.html" %}</div>
+        <div id="tabpanel-received-controls"
+             class="fr-tabs__panel"
+             role="tabpanel"
+             aria-labelledby="tabpanel-published-erps"
+             tabindex="0">{% include "compte/includes/mes_contributions_table.html" %}</div>
     </div>
     {% include "common/pager.html" with pager=pager pager_base_url="?1" %}
 {% endblock compte_content %}

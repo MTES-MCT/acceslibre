@@ -34,10 +34,7 @@ def get_user_contributions(user):
         Version.objects.select_related("revision", "revision__user")
         .exclude(content_type=erp_type, object_id__in=user_erps)
         .exclude(content_type=accessibilite_type, object_id__in=user_accesses)
-        .filter(
-            Q(revision__user=user),
-            Q(content_type=erp_type) | Q(content_type=accessibilite_type),
-        )
+        .filter(revision__user=user, content_type__in=(erp_type, accessibilite_type))
         .prefetch_related("object")
     )
 
@@ -51,7 +48,6 @@ def get_user_contributions_recues(user):
         Version.objects.select_related("revision", "revision__user")
         .exclude(Q(revision__user=user) | Q(revision__user__isnull=True))
         .filter(
-            Q(content_type=erp_type) | Q(content_type=accessibilite_type),
             Q(content_type=erp_type, object_id__in=user_erps)
             | Q(content_type=accessibilite_type, object_id__in=user_accesses),
         )

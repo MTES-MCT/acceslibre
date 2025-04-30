@@ -4,15 +4,12 @@
     {% translate "L'établissement a été supprimé." %}
 {% else %}
     {% if not erp.published or not erp.geom or not erp.accessibilite %}
-        <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-        {{ erp.nom }}
+        <p>{{ erp.nom }}</p>
     {% else %}
-        <a href="{{ erp.get_absolute_url }}#history">
-            <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-            {{ erp.nom }}
-        </a>
+        <a class="fr-link fr-link--sm"
+           href="{{ erp.get_absolute_url }}#history"
+           target="_blank">{{ erp.nom }}</a>
     {% endif %}
-    {% if erp.activite %}<small class="text-muted">({{ erp.activite.nom }})</small>{% endif %}
-    <br>
-    <address class="mb-0">{{ erp.adresse }}</address>
+    {% if erp.activite %}({{ erp.activite.nom }}){% endif %}
+    <address class="fr-mb-0">{{ erp.adresse }}</address>
 {% endif %}
