@@ -14,7 +14,7 @@
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
     <div class="account-erps flex direction--column gap-5w">
-        <h1 class="fr-mb-0">{% translate "Mes établissements" %} ({{ erp_total_count }})</h1>
+        <h1 class="fr-h2 fr-mb-0 fr-mt-2w">{% translate "Mes établissements" %} ({{ erp_total_count }})</h1>
         <form action="{% url 'mes_erps' %}" method="get">
             <div class="fr-col-12">
                 <div class="fr-search-bar" id="header-search" role="search">
@@ -61,8 +61,7 @@
                        class="fr-tabs__tab"
                        role="tab"
                        aria-controls="tabpanel-unpublished-erps-controls"
-                       {% if filter_published == '0' %}aria-selected="true"{% endif %}
-                       {% if erp_non_published_count == 0 %}tabindex="-1" disabled="true"{% endif %}>
+                       {% if filter_published == '0' %}aria-selected="true"{% endif %}>
                     {% translate "Non-publiés" %} ({{ erp_non_published_count }})</a>
                 </li>
             </ul>

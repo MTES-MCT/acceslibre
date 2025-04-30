@@ -6,7 +6,9 @@
     {% if not erp.published or not erp.geom or not erp.accessibilite %}
         <p>{{ erp.nom }}</p>
     {% else %}
-        <a class="fr-link fr-link--sm" href="{{ erp.get_absolute_url }}#history">{{ erp.nom }}</a>
+        <a class="fr-link fr-link--sm"
+           href="{{ erp.get_absolute_url }}#history"
+           target="_blank">{{ erp.nom }}</a>
     {% endif %}
     {% if erp.activite %}({{ erp.activite.nom }}){% endif %}
     <address class="fr-mb-0">{{ erp.adresse }}</address>
