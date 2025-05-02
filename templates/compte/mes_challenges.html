@@ -13,47 +13,76 @@
     </li>
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
-    <h1 class="h3 fr-mb-3v">{% translate "Mes challenges" %}</h1>
-    <p>
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        {% translate "Les challenges sur lesquels vous êtes inscrit." %}
-    </p>
-    <ul class="list-group">
-        {% for challenge_sub in pager %}
-            <li class="list-group-item d-lg-flex justify-content-between align-items-center shadow-sm">
-                <div class="flex-fill">
-                    <div class="font-weight-bold">
-                        <a href="{{ challenge_sub.challenge.get_absolute_url }}">{{ challenge_sub.challenge.nom }}</a>
-                    </div>
-                    <address class="mb-0">
-                        <small class="text-muted">{% blocktranslate with start=challenge_sub.challenge.start_date|date:"d F Y" end=challenge_sub.challenge.end_date|date:"d F Y" %}Du {{ start }} au {{ end }} inclus{% endblocktranslate %}</small>
-                    </address>
-                    <div>
-                        <small class="text-success">
-                            {% translate "Inscrit depuis le" %} {{ challenge_sub.inscription_date|date:"d F Y" }}
-                        </small>
-                    </div>
+    <h1 class="fr-h2 fr-mb-4w fr-mt-2w">{% translate "Mes challenges" %} ({{ total_challenges }})</h1>
+    <p>{% translate "Les challenges sur lesquels vous êtes inscrit." %}</p>
+    {% if pager.paginator.num_pages <= 0 %}
+        <div class="fr-tile fr-tile--download fr-tile--grey fr-tile--no-border fr-mb-3w">
+            <div class="fr-tile__body">
+                <div class="fr-tile__content">
+                    <h3 class="fr-tile__title fr-h3 fr-text-action-high--blue-france">
+                        {% translate "C’est ici que l’histoire commence !" %}
+                    </h3>
+                    <p class="fr-tile__detail">
+                        {% translate "Participez à des challenges et permettez à des milliers de personnes d’accéder à l’information de lieux accessibles." %}
+                    </p>
                 </div>
-                <div class="flex-fill text-right">
-                    <a class="fr-btn btn-outline-primary fr-my-2v"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       href="{{ challenge_sub.challenge.get_absolute_url }}">{% translate "Voir le classement" %}</a>
-                    {% if not challenge_sub.challenge.is_finished %}
-                        <form action="{% url 'challenge-unsubscription' challenge_slug=challenge_sub.challenge.slug %}"
-                              method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Se désinscrire" %}</button>
-                        </form>
-                    {% endif %}
+            </div>
+            <div class="fr-tile__header">
+                <div class="fr-tile__pictogram">
+                    <img src="/static/img/accessibility.svg"
+                         width="80"
+                         height="80"
+                         alt=""
+                         aria-hidden="true"
+                         class="fr-artwork">
                 </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="fr-tabs">
+        <ul class="fr-tabs__list"
+            role="tablist"
+            aria-label="{% translate "Onglet d'établissements" %}">
+            <li role="presentation">
+                <a href="./?ongoing=1"
+                   id="tabpanel-panel-ongoing-challenges"
+                   class="fr-tabs__tab"
+                   tabindex="0"
+                   role="tab"
+                   aria-controls="tabpanel-ongoing-challenges-controls"
+                   {% if ongoing_tab_active %}aria-selected="true"{% endif %}>{% translate "Challenges en  cours" %}
+                ({{ total_ongoing_challenges }})</a>
             </li>
-        {% empty %}
-            <li class="list-group-item">
-                {% translate "La liste est vide." %}
-                {% translate "Inscrivez vous sans attendre à un challenge et gagner de nombreux lots." %} <a class="btn btn-outline-primary" href="{% url 'challenges' %}">{% translate "Voir les challenges" %}</a>
+            <li role="presentation">
+                <a href="./?ongoing=0"
+                   id="tabpanel-ended-challenges"
+                   tabindex="0"
+                   role="tab"
+                   aria-controls="tabpanel-ended-challenges-controls"
+                   class="fr-tabs__tab"
+                   {% if not ongoing_tab_active %}aria-selected="true"{% endif %}>
+                    {% translate "Challenges passés" %} ({{ total_ended_challenges }})
+                </a>
             </li>
-        {% endfor %}
-    </ul>
+        </ul>
+        <div id="tabpanel-ongoing-challenges-controls"
+             class="fr-tabs__panel fr-transition-none"
+             role="tabpanel"
+             aria-labelledby="tabpanel-panel-ongoing-challenges"
+             tabindex="0">
+            <div class="display--flex direction--column gap-2w">
+                {% include "compte/includes/mes_challenges_list.html" with ongoing_version=True %}
+            </div>
+        </div>
+        <div id="tabpanel-ended-challenges-controls"
+             class="fr-tabs__panel fr-transition-none"
+             role="tabpanel"
+             aria-labelledby="tabpanel-ended-challenges"
+             tabindex="0">
+            <div class="display--flex direction--column gap-2w">
+                {% include "compte/includes/mes_challenges_list.html" with ongoing_version=False %}
+            </div>
+        </div>
+    </div>
     {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
 {% endblock compte_content %}

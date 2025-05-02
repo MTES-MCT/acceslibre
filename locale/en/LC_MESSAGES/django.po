@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-24 16:50+0200\n"
-"PO-Revision-Date: 2025-04-24 16:50+0200\n"
-"Last-Translator:   <mlvernay@gmail.com>\n"
+"POT-Creation-Date: 2025-05-02 16:37+0200\n"
+"PO-Revision-Date: 2025-05-02 16:37+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -3220,6 +3220,25 @@ msgstr ""
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
+#, python-format
+msgid "Du %(start)s au %(end)s inclus"
+msgstr "From %(start)s to %(end)s included"
+
+msgid "Détails du challenge"
+msgstr "Challenge details"
+
+msgid "Se désinscrire"
+msgstr "Unsubscribe"
+
+msgid "La liste est vide."
+msgstr "The list is empty."
+
+msgid "Inscrivez vous sans attendre à un challenge et gagner de nombreux lots."
+msgstr "Register now for a challenge and win many prizes."
+
+msgid "Voir les challenges"
+msgstr "See challenges"
+
 msgid "Pas de contribution en cours."
 msgstr "No contribution in progress."
 
@@ -3259,9 +3278,6 @@ msgstr "Change"
 msgid "Supprimer"
 msgstr "Delete"
 
-msgid "La liste est vide."
-msgstr "The list is empty."
-
 msgid ""
 "Les établissements pour lesquels vous êtes abonné aux notifications par "
 "email de mise à jour."
@@ -3283,24 +3299,24 @@ msgstr "Unsubscribe"
 msgid "Les challenges sur lesquels vous êtes inscrit."
 msgstr "The challenges you are registered for."
 
-#, python-format
-msgid "Du %(start)s au %(end)s inclus"
-msgstr "From %(start)s to %(end)s included"
+msgid "C’est ici que l’histoire commence !"
+msgstr "The story begins here!"
 
-msgid "Inscrit depuis le"
-msgstr "Registered since"
+msgid ""
+"Participez à des challenges et permettez à des milliers de personnes "
+"d’accéder à l’information de lieux accessibles."
+msgstr ""
+"Participate in challenges and enable thousands of people to access "
+"information about accessible locations."
 
-msgid "Voir le classement"
-msgstr "See ranking"
+msgid "Onglet d'établissements"
+msgstr "Establishments tab"
 
-msgid "Se désinscrire"
-msgstr "Unsubscribe"
+msgid "Challenges en  cours"
+msgstr "Ongoing challenges"
 
-msgid "Inscrivez vous sans attendre à un challenge et gagner de nombreux lots."
-msgstr "Register now for a challenge and win many prizes."
-
-msgid "Voir les challenges"
-msgstr "See challenges"
+msgid "Challenges passés"
+msgstr "Past challenges"
 
 msgid "Onglet contributions effectuées"
 msgstr "Contributions made tab"
@@ -3319,9 +3335,6 @@ msgstr "Search for a name, activity, brand"
 
 msgid "Rechercher"
 msgstr "Search"
-
-msgid "Onglet d'établissements"
-msgstr "Establishments tab"
 
 msgid "Tous"
 msgstr "All"
@@ -6399,3 +6412,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Inscrit depuis le"
+#~ msgstr "Registered since"
+
+#~ msgid "Voir le classement"
+#~ msgstr "See ranking"
