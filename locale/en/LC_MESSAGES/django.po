@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-02 16:37+0200\n"
+"POT-Creation-Date: 2025-05-07 14:44+0200\n"
 "PO-Revision-Date: 2025-05-02 16:37+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3284,15 +3284,6 @@ msgid ""
 msgstr ""
 "Facilities for which you are subscribed to email notifications of updates."
 
-msgid "<strong>Vous</strong> avez créé cette fiche"
-msgstr "<strong>You</strong> have created this record"
-
-msgid "Fiche créée par"
-msgstr "Created by"
-
-msgid "Actions"
-msgstr "Actions"
-
 msgid "Se désabonner"
 msgstr "Unsubscribe"
 
@@ -6412,6 +6403,15 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "<strong>Vous</strong> avez créé cette fiche"
+#~ msgstr "<strong>You</strong> have created this record"
+
+#~ msgid "Fiche créée par"
+#~ msgstr "Created by"
+
+#~ msgid "Actions"
+#~ msgstr "Actions"
 
 #~ msgid "Inscrit depuis le"
 #~ msgstr "Registered since"
