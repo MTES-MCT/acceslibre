@@ -7,9 +7,9 @@
     <h2 class="fr-mb-5w">
         {% translate "Résultats trouvés pour " %}
         "
-        {% if query.commune %}{{ query.commune|capfirst|add:' - ' }}{% endif %}
-        {% if query.nom %}{{ query.nom|add:' - ' }}{% endif %}
-        {% if form.activite.value %}{{ form.activite.value|capfirst }}{% endif %}
+        {% if query.commune %}{{ query.commune|capfirst }}{% endif %}
+        {% if query.nom %}&nbsp;-&nbsp;{{ query.nom }}{% endif %}
+        {% if form.activite.value %}&nbsp;-&nbsp;{{ form.activite.value|capfirst }}{% endif %}
         "
     </h2>
     <div id="internal-results-count-container"></div>

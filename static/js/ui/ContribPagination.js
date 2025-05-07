@@ -133,10 +133,6 @@ function getParams({ root, currentPage, paginationSize }) {
   const q = params.get('what')
   const activitySlug = root.querySelector('input[type="hidden"][name="activity_slug"]')?.value
 
-  if (!q) {
-    return null
-  }
-
   const paramsForApiCall = new URLSearchParams()
 
   if (params.get('code')) {

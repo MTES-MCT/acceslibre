@@ -13,7 +13,7 @@
                     <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
                 </label>
                 {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" required {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                 <div>
                     {% if form.errors.what %}
                         <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>

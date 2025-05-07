@@ -587,7 +587,6 @@ class ProviderGlobalSearchForm(forms.Form):
             <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
             )
         ),
-        required=True,
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
     )
     where = forms.CharField(

@@ -69,7 +69,7 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
             queryset = queryset.filter(ban_id=ban_id)
 
         activite = request.query_params.get("activite", None)
-        if activite is not None:
+        if activite:
             queryset = queryset.having_activite(activite)
 
         siret = request.query_params.get("siret", None)
