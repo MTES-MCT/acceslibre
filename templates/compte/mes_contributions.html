@@ -14,7 +14,7 @@
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
     <h1 class="fr-h2 fr-mb-4w fr-mt-2w">{% translate "Mes contributions" %}</h1>
-    <div class="fr-tabs">
+    <div class="fr-tabs fr-transition-none">
         <ul class="fr-tabs__list"
             role="tablist"
             aria-label="{% translate "Onglet contributions effectuées" %}">
@@ -41,12 +41,12 @@
             </li>
         </ul>
         <div id="tabpanel-contributions-controls"
-             class="fr-tabs__panel fr-tabs__panel--selected"
+             class="fr-tabs__panel fr-transition-none"
              role="tabpanel"
              aria-labelledby="tabpanel-contributions"
              tabindex="0">{% include "compte/includes/mes_contributions_table.html" %}</div>
         <div id="tabpanel-received-controls"
-             class="fr-tabs__panel"
+             class="fr-tabs__panel fr-transition-none"
              role="tabpanel"
              aria-labelledby="tabpanel-published-erps"
              tabindex="0">{% include "compte/includes/mes_contributions_table.html" %}</div>
