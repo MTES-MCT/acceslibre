@@ -48,7 +48,7 @@
                             <li class="fr-sidemenu__item">
                                 <a class="fr-sidemenu__link"
                                    {% if request.path|active_compte_section:'mes_challenges' %}aria-current="page"{% endif %}
-                                   href="{% url 'mes_challenges' %}">{% translate "Mes challenges" %}</a>
+                                   href="{% url 'mes_challenges' %}?ongoing=1">{% translate "Mes challenges" %}</a>
                             </li>
                             <li class="fr-sidemenu__item">
                                 <a class="fr-sidemenu__link"
