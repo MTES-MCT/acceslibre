@@ -349,7 +349,7 @@ def mes_abonnements(request):
 
 @login_required
 def mes_challenges(request):
-    filter_type = request.GET.get("ongoing")
+    display_ongoing = request.GET.get("ongoing") == "1"
     qs = ChallengePlayer.objects.filter(player=request.user).order_by("-inscription_date")
     now = timezone.now()
 
@@ -366,12 +366,12 @@ def mes_challenges(request):
     ended_count = ended_challenges.count()
     total_count = ongoing_count + ended_count
 
-    if filter_type == "0":
-        qs = ended_challenges
-        pager_base_url = "?ongoing=0&page=1"
-    else:
+    if display_ongoing:
         qs = ongoing_challenges
         pager_base_url = "?ongoing=1&page=1"
+    else:
+        qs = ended_challenges
+        pager_base_url = "?ongoing=0&page=1"
 
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
@@ -382,7 +382,7 @@ def mes_challenges(request):
         context={
             "pager": pager,
             "pager_base_url": pager_base_url,
-            "ongoing_tab_active": filter_type != "0",
+            "ongoing_tab_active": display_ongoing,
             "total_ongoing_challenges": ongoing_count,
             "total_ended_challenges": ended_count,
             "total_challenges": total_count,
