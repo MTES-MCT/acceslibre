@@ -28,7 +28,7 @@ class ActivityCharField(BaseActivityField, forms.CharField):
     def __init__(self, **kwargs):
         super().__init__(
             label=translate_lazy("Activité"),
-            required=True,
+            required=False,
             widget=self.get_widget(),
             **kwargs,
         )
