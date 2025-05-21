@@ -1721,11 +1721,12 @@
         },
         "python-stdnum": {
             "hashes": [
-                "sha256:111008e10391d54fb2afad2a10df70d5cb0c6c0a7ec82fec6f022cb8712961d3",
-                "sha256:ad2a2cf2eb025de408210235f36b4ae31252de3186240ccaa8126e117cb82690"
+                "sha256:25eabcf5f307dd4150fd8f1c03f4512a6caeb84c9f09be1448711f5803373c58",
+                "sha256:6b01645969eb3dfd55061a0114d593753cd9e653cea9083198b7eea12644397a"
             ],
             "index": "pypi",
-            "version": "==1.20"
+            "markers": "python_version >= '3.8'",
+            "version": "==2.1"
         },
         "pytz": {
             "hashes": [
