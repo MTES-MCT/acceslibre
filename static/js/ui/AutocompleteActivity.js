@@ -78,4 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   })
+
+  autocomplete.input.addEventListener('input', () => {
+    const value = autocomplete.input.value.trim()
+
+    if (value === '') {
+      const activitySlugInput = document.querySelector('input[type="hidden"][name="activity_slug"]')
+      if (activitySlugInput) {
+        activitySlugInput.value = ''
+      }
+    }
+  })
 })
