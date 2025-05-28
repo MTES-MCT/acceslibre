@@ -46,12 +46,6 @@
                         {% translate "Votre suggestion :" %} <span class="fr-text--bold">{{ request.GET.new_activity }}</span>
                     </p>
                 </div>
-                <div class="fr-checkbox-group fr-mt-3v">
-                    <input type="checkbox"
-                           id="no_activity"
-                           {% if request.GET.new_activity %}checked{% endif %} />
-                    <label class="fr-label" for="no_activity">{% translate "Je ne trouve pas l'activité" %}</label>
-                </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4 search-where-field">
                 <label for="where-input">
