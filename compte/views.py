@@ -11,6 +11,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import ActivationView, RegistrationView
+from django.utils import timezone
 
 from compte import forms, service
 from compte.forms import CustomAuthenticationForm, CustomPasswordResetForm
@@ -292,26 +293,42 @@ def mes_erps(request):
     )
 
 
-def _mes_contributions_view(request, qs, recues=False):
+@login_required
+def mes_contributions(request):
+    qs = versioning.get_user_contributions(request.user)
+    nb_contributions_received = versioning.get_user_contributions_recues(request.user).count()
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_contributions.html",
-        context={"pager": pager, "recues": recues},
+        context={
+            "pager": pager,
+            "contributions_received_tab_active": False,
+            "contributions_done_tab_active": True,
+            "nb_contributions_received": nb_contributions_received,
+            "nb_contributions_done": qs.count(),
+        },
     )
-
-
-@login_required
-def mes_contributions(request):
-    qs = versioning.get_user_contributions(request.user)
-    return _mes_contributions_view(request, qs)
 
 
 @login_required
 def mes_contributions_recues(request):
     qs = versioning.get_user_contributions_recues(request.user)
-    return _mes_contributions_view(request, qs, recues=True)
+    nb_contributions_done = versioning.get_user_contributions(request.user).count()
+    paginator = Paginator(qs, 10)
+    pager = paginator.get_page(request.GET.get("page", 1))
+    return render(
+        request,
+        "compte/mes_contributions.html",
+        context={
+            "pager": pager,
+            "contributions_received_tab_active": True,
+            "contributions_done_tab_active": False,
+            "nb_contributions_received": qs.count(),
+            "nb_contributions_done": nb_contributions_done,
+        },
+    )
 
 
 @login_required
@@ -332,13 +349,44 @@ def mes_abonnements(request):
 
 @login_required
 def mes_challenges(request):
+    display_ongoing = request.GET.get("ongoing") == "1"
     qs = ChallengePlayer.objects.filter(player=request.user).order_by("-inscription_date")
+    now = timezone.now()
+
+    ongoing_challenges = qs.filter(
+        challenge__start_date__lte=now,
+        challenge__end_date__gte=now,
+    )
+
+    ended_challenges = qs.filter(
+        challenge__end_date__lt=now,
+    )
+
+    ongoing_count = ongoing_challenges.count()
+    ended_count = ended_challenges.count()
+    total_count = ongoing_count + ended_count
+
+    if display_ongoing:
+        qs = ongoing_challenges
+        pager_base_url = "?ongoing=1&page=1"
+    else:
+        qs = ended_challenges
+        pager_base_url = "?ongoing=0&page=1"
+
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
+
     return render(
         request,
         "compte/mes_challenges.html",
-        context={"pager": pager, "pager_base_url": "?1"},
+        context={
+            "pager": pager,
+            "pager_base_url": pager_base_url,
+            "ongoing_tab_active": display_ongoing,
+            "total_ongoing_challenges": ongoing_count,
+            "total_ended_challenges": ended_count,
+            "total_challenges": total_count,
+        },
     )
 
 

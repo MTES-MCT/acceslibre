@@ -535,6 +535,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 class PublicErpDeleteForm(forms.Form):
     confirm = forms.BooleanField(
         label=translate_lazy("Supprimer cet établissement de la base de données (cette opération est irrémédiable)"),
+        widget=forms.CheckboxInput(attrs={"class": "fr-checkbox"}),
         required=True,
     )
 
@@ -586,7 +587,7 @@ class ProviderGlobalSearchForm(forms.Form):
             <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
             )
         ),
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
     )
     where = forms.CharField(

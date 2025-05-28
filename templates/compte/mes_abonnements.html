@@ -13,49 +13,38 @@
     </li>
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
-    <h1 class="h3 fr-mb-3v">{% translate "Mes abonnements" %}</h1>
-    <p>
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        {% translate "Les établissements pour lesquels vous êtes abonné aux notifications par email de mise à jour." %}
-    </p>
-    <ul class="list-group">
+    <h1 class="fr-h2 fr-mt-2w fr-mb-3v">{% translate "Mes abonnements" %}</h1>
+    <p>{% translate "Les établissements pour lesquels vous êtes abonné aux notifications par email de mise à jour." %}</p>
+    <ul class="list-style-type--none fr-p-0">
         {% for subscription in pager %}
-            <li class="list-group-item d-lg-flex justify-content-between align-items-center shadow-sm">
-                <div class="flex-fill">
-                    <div class="font-weight-bold">
-                        <a href="{{ subscription.erp.get_absolute_url }}">
-                            <img alt=""
-                                 class="act-icon act-icon-20 fr-mb-1v"
-                                 src="{% static 'img/mapicons.svg' %}#{{ subscription.erp.get_activite_vector_icon }}">
-                            {{ subscription.erp.nom }}
-                        </a>
-                        {% if subscription.erp.activite %}<small class="text-muted">({{ subscription.erp.activite.nom }})</small>{% endif %}
+            <li class="fr-mb-1w">
+                <div class="fr-card fr-card--sm">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h2 class="fr-card__title fr-h3">{{ subscription.erp.nom }}</h2>
+                            <div class="fr-card__desc">
+                                <address class="fr-mb-0">{{ subscription.erp.adresse }}</address>
+                                <p class="fr-mb-0 fr-text--sm">{{ subscription.erp.activite }}</p>
+                            </div>
+                            <div class="fr-card__start">
+                                <ul class="fr-badges-group gap-1w align-self--center justify-content--end">
+                                    <li>
+                                        <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
+                                            {% translate "Remplissage" %} {{ subscription.erp.accessibilite.completion_rate }}%
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="fr-card__footer align-self--end">
+                            <a class="fr-btn fr-btn--sm fr-btn--secondary"
+                               href="{% url 'unsubscribe_erp' erp_slug=subscription.erp.slug %}?redir=account">{% translate "Se désabonner" %}</a>
+                        </div>
                     </div>
-                    <address class="mb-0">
-                        <small class="text-muted">{{ subscription.erp.adresse }}</small>
-                    </address>
-                    <div>
-                        <small class="text-muted">
-                            {% if request.user == subscription.erp.user %}
-                                {% translate "<strong>Vous</strong> avez créé cette fiche" %}
-                            {% else %}
-                                {% translate "Fiche créée par" %} <strong>{{ subscription.erp.user }}</strong>
-                            {% endif %}
-                        </small>
-                    </div>
-                </div>
-                <div class="btn-group d-flex justify-content-between fr-mt-1v"
-                     role="group"
-                     aria-label='{% translate "Actions" %}'>
-                    <a class="btn btn-sm btn-outline-primary"
-                       href="{% url 'unsubscribe_erp' erp_slug=subscription.erp.slug %}?redir=account">
-                        <i aria-hidden="true" class="icon icon-bell-mute"></i>
-                        {% translate "Se désabonner" %}
-                    </a>
                 </div>
             </li>
         {% empty %}
-            <li class="list-group-item">{% translate "La liste est vide." %}</li>
+            <p class="fr-mb-0">{% translate "La liste est vide." %}</p>
         {% endfor %}
     </ul>
     {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}

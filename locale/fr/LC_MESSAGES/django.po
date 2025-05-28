@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 09:43+0200\n"
+"POT-Creation-Date: 2025-05-07 15:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2554,6 +2554,9 @@ msgstr ""
 msgid "L'établissement a été supprimé."
 msgstr ""
 
+msgid "Vous devez préciser une activité ou un nom d'établissement."
+msgstr ""
+
 msgid "Les données ont été enregistrées."
 msgstr ""
 
@@ -2913,16 +2916,19 @@ msgstr ""
 msgid "Fermer"
 msgstr ""
 
-msgid "Page précédente"
+msgid "Première page"
 msgstr ""
 
-msgid "page"
+msgid "Page précédente"
 msgstr ""
 
 msgid "(page courante)"
 msgstr ""
 
 msgid "Page suivante"
+msgstr ""
+
+msgid "Dernière page"
 msgstr ""
 
 msgid "Communes renseignées"
@@ -2985,40 +2991,17 @@ msgid ""
 "      "
 msgstr ""
 
-msgid ""
-"Les établissements pour lesquels vous êtes abonné aux notifications par "
-"email de mise à jour."
-msgstr ""
-
-msgid "<strong>Vous</strong> avez créé cette fiche"
-msgstr ""
-
-msgid "Fiche créée par"
-msgstr ""
-
-msgid "Actions"
-msgstr ""
-
-msgid "Se désabonner"
-msgstr ""
-
-msgid "La liste est vide."
-msgstr ""
-
-msgid "Les challenges sur lesquels vous êtes inscrit."
-msgstr ""
-
 #, python-format
 msgid "Du %(start)s au %(end)s inclus"
 msgstr ""
 
-msgid "Inscrit depuis le"
-msgstr ""
-
-msgid "Voir le classement"
+msgid "Détails du challenge"
 msgstr ""
 
 msgid "Se désinscrire"
+msgstr ""
+
+msgid "La liste est vide."
 msgstr ""
 
 msgid "Inscrivez vous sans attendre à un challenge et gagner de nombreux lots."
@@ -3027,20 +3010,10 @@ msgstr ""
 msgid "Voir les challenges"
 msgstr ""
 
-msgid "Contributions effectuées"
+msgid "Pas de contribution en cours."
 msgstr ""
 
-msgid "Contributions reçues"
-msgstr ""
-
-msgid ""
-"Cette page liste les modifications effectuées sur vos établissements par les "
-"autres utilisateurs de la plateforme."
-msgstr ""
-
-msgid ""
-"Cette page liste les modifications que vous avez effectué sur les "
-"établissements initialement renseignés par d'autres utilisateurs."
+msgid "Contributions"
 msgstr ""
 
 msgid "Date"
@@ -3064,6 +3037,55 @@ msgstr ""
 msgid "La ressource n'existe plus dans la base de données."
 msgstr ""
 
+msgid "Non publié"
+msgstr ""
+
+msgid "Remplissage"
+msgstr ""
+
+msgid "Modifier"
+msgstr ""
+
+msgid "Supprimer"
+msgstr ""
+
+msgid ""
+"Les établissements pour lesquels vous êtes abonné aux notifications par "
+"email de mise à jour."
+msgstr ""
+
+msgid "Se désabonner"
+msgstr ""
+
+msgid "Les challenges sur lesquels vous êtes inscrit."
+msgstr ""
+
+msgid "C’est ici que l’histoire commence !"
+msgstr ""
+
+msgid ""
+"Participez à des challenges et permettez à des milliers de personnes "
+"d’accéder à l’information de lieux accessibles."
+msgstr ""
+
+msgid "Onglet d'établissements"
+msgstr ""
+
+msgid "Challenges en  cours"
+msgstr ""
+
+msgid "Challenges passés"
+msgstr ""
+
+msgid "Onglet contributions effectuées"
+msgstr ""
+
+msgid "Contributions effectuées"
+msgstr ""
+
+msgid "Contributions reçues"
+msgstr ""
+
 msgid "Recherche"
 msgstr ""
 
@@ -3080,24 +3102,6 @@ msgid "Publiés"
 msgstr ""
 
 msgid "Non-publiés"
-msgstr ""
-
-msgid "La fiche n'est pas publiée"
-msgstr ""
-
-msgid "La fiche est publiée"
-msgstr ""
-
-msgid "Les informations d'accessibilité ne sont pas renseignées"
-msgstr ""
-
-msgid "Modifier"
-msgstr ""
-
-msgid "Supprimer"
-msgstr ""
-
-msgid "Vous n'avez renseigné aucun établissement pour le moment."
 msgstr ""
 
 msgid "Changer mon adresse email"
@@ -3577,16 +3581,16 @@ msgstr ""
 msgid "Renseigner un établissement"
 msgstr ""
 
+msgid "Mon compte"
+msgstr ""
+
 msgid "Supprimer un établissement"
 msgstr ""
 
-msgid "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:"
+msgid "Attention"
 msgstr ""
 
-msgid "Siret"
-msgstr ""
-
-msgid "Adresse"
+msgid "Vous vous apprêtez à supprimer l'établissement suivant"
 msgstr ""
 
 msgid "Supprimer l'établissement"
@@ -5513,6 +5517,9 @@ msgid "Tous les équipements"
 msgstr ""
 
 msgid "Résultats pour"
+msgstr ""
+
+msgid "page"
 msgstr ""
 
 msgid "Aucun résultat"

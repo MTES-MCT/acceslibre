@@ -16,6 +16,14 @@
     .faq__article {
       background-color: #eeeeee;
 
+      & span[style],
+      & p[style],
+      & font[face],
+      & li {
+        font-size: 1rem !important;
+        font-family: Marianne, arial, sans-serif !important;
+      }
+
       footer {
         color: var(--text-mention-grey);
         border-top: 1px solid var(--border-default-grey);

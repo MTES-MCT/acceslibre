@@ -2,6 +2,10 @@
 
 .login-container {
   @media (min-width: $viewport-xl) {
+    .fr-alert {
+      max-width: 540px;
+    }
+
     position: relative;
     background-image: url(/static/img/login/login-background.png);
     background-repeat: no-repeat;

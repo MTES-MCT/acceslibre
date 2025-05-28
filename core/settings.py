@@ -429,3 +429,14 @@ MATOMO = {
         "TOKEN": env("BETA_MATOMO_API_TOKEN", default=None),
     },
 }
+
+
+SUMMERNOTE_CONFIG = {
+    "summernote": {
+        "toolbar": [
+            ["style", ["bold", "italic", "underline", "clear"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ["insert", ["link"]],
+        ],
+    },
+}

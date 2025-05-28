@@ -348,7 +348,8 @@ class Command(BaseCommand):
 
                 return
 
-            with open(self.input_file.replace(".csv", "_converted.csv"), "w") as new_file:
+            output_filename = self.input_file.replace(".csv", "_converted.csv")
+            with open(output_filename, "w") as new_file:
                 writer = csv.DictWriter(new_file, fieldnames=BaseMapper.fields + ["source"])
                 writer.writeheader()
 
@@ -358,3 +359,17 @@ class Command(BaseCommand):
                         if isinstance(new_line[cell], (list, set, tuple)):
                             new_line[cell] = json.dumps(new_line[cell])
                     writer.writerow(new_line)
+
+        print("Done! You can now run the following command to import the file:")
+        activity_str = ""
+        if not with_activity:
+            activity_str = "--activite=<REPLACE_ME>"
+        print(f"""
+RECETTE
+scalingo -a recette-access4all  run --size XL --file {output_filename} bash
+python manage.py validate_and_import_file --force_update --generate_errors_file --file /tmp/uploads/{output_filename} {activity_str}
+
+PROD
+scalingo -a access4all  run --size XL --file {output_filename} bash
+python manage.py validate_and_import_file --force_update --generate_errors_file --send_emails --file /tmp/uploads/{output_filename} {activity_str}
+""")

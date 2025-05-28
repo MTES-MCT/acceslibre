@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-23 09:45+0200\n"
-"PO-Revision-Date: 2025-04-23 09:44+0200\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-05-07 15:41+0200\n"
+"PO-Revision-Date: 2025-05-07 15:40+0200\n"
+"Last-Translator:   <mlvernay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -2750,6 +2750,9 @@ msgstr "Thank you for your contribution."
 msgid "L'établissement a été supprimé."
 msgstr "The facility has been deleted."
 
+msgid "Vous devez préciser une activité ou un nom d'établissement."
+msgstr "You have to provide an activity or a name."
+
 msgid "Les données ont été enregistrées."
 msgstr "The data has been saved."
 
@@ -3138,17 +3141,20 @@ msgstr "Error"
 msgid "Fermer"
 msgstr "Close"
 
+msgid "Première page"
+msgstr "First page"
+
 msgid "Page précédente"
 msgstr "Previous page"
-
-msgid "page"
-msgstr "page"
 
 msgid "(page courante)"
 msgstr "(current page)"
 
 msgid "Page suivante"
 msgstr "Next page"
+
+msgid "Dernière page"
+msgstr "Last page"
 
 msgid "Communes renseignées"
 msgstr "Communes filled"
@@ -3217,42 +3223,18 @@ msgstr ""
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
-msgid ""
-"Les établissements pour lesquels vous êtes abonné aux notifications par "
-"email de mise à jour."
-msgstr ""
-"Facilities for which you are subscribed to email notifications of updates."
-
-msgid "<strong>Vous</strong> avez créé cette fiche"
-msgstr "<strong>You</strong> have created this record"
-
-msgid "Fiche créée par"
-msgstr "Created by"
-
-msgid "Actions"
-msgstr "Actions"
-
-msgid "Se désabonner"
-msgstr "Unsubscribe"
-
-msgid "La liste est vide."
-msgstr "The list is empty."
-
-msgid "Les challenges sur lesquels vous êtes inscrit."
-msgstr "The challenges you are registered for."
-
 #, python-format
 msgid "Du %(start)s au %(end)s inclus"
 msgstr "From %(start)s to %(end)s included"
 
-msgid "Inscrit depuis le"
-msgstr "Registered since"
-
-msgid "Voir le classement"
-msgstr "See ranking"
+msgid "Détails du challenge"
+msgstr "Challenge details"
 
 msgid "Se désinscrire"
 msgstr "Unsubscribe"
+
+msgid "La liste est vide."
+msgstr "The list is empty."
 
 msgid "Inscrivez vous sans attendre à un challenge et gagner de nombreux lots."
 msgstr "Register now for a challenge and win many prizes."
@@ -3260,25 +3242,11 @@ msgstr "Register now for a challenge and win many prizes."
 msgid "Voir les challenges"
 msgstr "See challenges"
 
-msgid "Contributions effectuées"
-msgstr "Contributions made"
+msgid "Pas de contribution en cours."
+msgstr "No contribution in progress."
 
-msgid "Contributions reçues"
-msgstr "Contributions received"
-
-msgid ""
-"Cette page liste les modifications effectuées sur vos établissements par les "
-"autres utilisateurs de la plateforme."
-msgstr ""
-"This page lists the changes made to your facilities by other users of the "
-"platform."
-
-msgid ""
-"Cette page liste les modifications que vous avez effectué sur les "
-"établissements initialement renseignés par d'autres utilisateurs."
-msgstr ""
-"This page lists the changes you have made to the facilities originally "
-"entered by other users."
+msgid "Contributions"
+msgstr "Contributions"
 
 msgid "Date"
 msgstr "Date"
@@ -3301,6 +3269,58 @@ msgstr "Administrative information"
 msgid "La ressource n'existe plus dans la base de données."
 msgstr "Resource no longer exists in the database."
 
+msgid "Non publié"
+msgstr "Unpublished"
+
+msgid "Remplissage"
+msgstr "Completion rate"
+
+msgid "Modifier"
+msgstr "Change"
+
+msgid "Supprimer"
+msgstr "Delete"
+
+msgid ""
+"Les établissements pour lesquels vous êtes abonné aux notifications par "
+"email de mise à jour."
+msgstr ""
+"Facilities for which you are subscribed to email notifications of updates."
+
+msgid "Se désabonner"
+msgstr "Unsubscribe"
+
+msgid "Les challenges sur lesquels vous êtes inscrit."
+msgstr "The challenges you are registered for."
+
+msgid "C’est ici que l’histoire commence !"
+msgstr "The story begins here!"
+
+msgid ""
+"Participez à des challenges et permettez à des milliers de personnes "
+"d’accéder à l’information de lieux accessibles."
+msgstr ""
+"Participate in challenges and enable thousands of people to access "
+"information about accessible locations."
+
+msgid "Onglet d'établissements"
+msgstr "Establishments tab"
+
+msgid "Challenges en  cours"
+msgstr "Ongoing challenges"
+
+msgid "Challenges passés"
+msgstr "Past challenges"
+
+msgid "Onglet contributions effectuées"
+msgstr "Contributions made tab"
+
+msgid "Contributions effectuées"
+msgstr "Contributions made"
+
+msgid "Contributions reçues"
+msgstr "Contributions received"
+
 msgid "Recherche"
 msgstr "Search"
 
@@ -3318,24 +3338,6 @@ msgstr "Published"
 
 msgid "Non-publiés"
 msgstr "Unpublished"
-
-msgid "La fiche n'est pas publiée"
-msgstr "The facility is not published"
-
-msgid "La fiche est publiée"
-msgstr "The form is published"
-
-msgid "Les informations d'accessibilité ne sont pas renseignées"
-msgstr "Accessibility information is not filled in"
-
-msgid "Modifier"
-msgstr "Change"
-
-msgid "Supprimer"
-msgstr "Delete"
-
-msgid "Vous n'avez renseigné aucun établissement pour le moment."
-msgstr "You have not entered any institutions at this time."
 
 msgid "Changer mon adresse email"
 msgstr "Change my email address"
@@ -3855,17 +3857,17 @@ msgstr "Continue"
 msgid "Renseigner un établissement"
 msgstr "Enter a facility"
 
+msgid "Mon compte"
+msgstr "My account"
+
 msgid "Supprimer un établissement"
 msgstr "Delete a facility"
 
-msgid "Vous vous apprêtez à supprimer l'établissement suivant&nbsp;:"
-msgstr "You are about to delete the following facility:"
+msgid "Attention"
+msgstr "Attention"
 
-msgid "Siret"
-msgstr "Siret"
-
-msgid "Adresse"
-msgstr "Address"
+msgid "Vous vous apprêtez à supprimer l'établissement suivant"
+msgstr "You are about to delete the following establishment"
 
 msgid "Supprimer l'établissement"
 msgstr "Delete the facility"
@@ -6322,6 +6324,9 @@ msgstr "All equipment"
 msgid "Résultats pour"
 msgstr "Results for"
 
+msgid "page"
+msgstr "page"
+
 msgid "Aucun résultat"
 msgstr "No result"
 
@@ -6401,3 +6406,18 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "<strong>Vous</strong> avez créé cette fiche"
+#~ msgstr "<strong>You</strong> have created this record"
+
+#~ msgid "Fiche créée par"
+#~ msgstr "Created by"
+
+#~ msgid "Actions"
+#~ msgstr "Actions"
+
+#~ msgid "Inscrit depuis le"
+#~ msgstr "Registered since"
+
+#~ msgid "Voir le classement"
+#~ msgstr "See ranking"

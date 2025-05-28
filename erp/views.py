@@ -1,5 +1,7 @@
 import datetime
 import json
+import secrets
+import string
 import urllib
 from decimal import Decimal
 from uuid import UUID
@@ -36,8 +38,6 @@ from stats import queries
 from stats.models import Challenge, ChallengePlayer
 from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
-import secrets
-import string
 
 HOURS = 60 * 60
 
@@ -265,6 +265,7 @@ def search(request):
         "where_keyword": where_keyword,
         "departement_json": department_json,
         "should_refresh_map_on_load": search_type != settings.IN_DEPARTMENT_SEARCH_TYPE,
+        "page_type": "erps-search",
     }
     return render(request, "search/results.html", context=context)
 
@@ -505,21 +506,31 @@ def contrib_global_search(request):
 
     pagination_size = 6
 
-    if request.GET.get("what"):
-        what_lower = request.GET.get("what", "").lower()
-        try:
-            if need_external_api_search:
-                results = provider_search.global_search(
-                    what_lower,
-                    request.GET.get("code"),
-                    activity=activite,
-                )
-        except RuntimeError as err:
-            error = err
+    query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (activite.nom if activite else None)
 
-        qs_results_bdd = (
-            Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
-        )
+    if not activite and not what_lower:
+        error = translate("Vous devez préciser une activité ou un nom d'établissement.")
+    else:
+        if query_terms_for_api and need_external_api_search:
+            try:
+                if need_external_api_search:
+                    results = provider_search.global_search(
+                        query_terms_for_api,
+                        request.GET.get("code"),
+                        activity=activite,
+                    )
+            except RuntimeError as err:
+                error = err
+
+        if what_lower:
+            qs_results_bdd = (
+                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+                .published()
+                .search_what(what_lower)
+            )
+        else:
+            qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
+
         if activite:
             qs_results_bdd = qs_results_bdd.filter(activite=activite)
 

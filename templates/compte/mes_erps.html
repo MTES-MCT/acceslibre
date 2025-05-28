@@ -13,8 +13,8 @@
     </li>
 {% endblock breadcrumb_current_page %}
 {% block compte_content %}
-    <div class="flex direction--column gap-5w">
-        <h1 class="mb-0">{% translate "Mes établissements" %} ({{ erp_total_count }})</h1>
+    <div class="account-erps flex direction--column gap-5w">
+        <h1 class="fr-h2 fr-mb-0 fr-mt-2w">{% translate "Mes établissements" %} ({{ erp_total_count }})</h1>
         <form action="{% url 'mes_erps' %}" method="get">
             <div class="fr-col-12">
                 <div class="fr-search-bar" id="header-search" role="search">
@@ -24,89 +24,65 @@
                            type="search"
                            id="erp-search-input"
                            name="q">
-                    <button class="fr-btn" type="submit">{% translate "Rechercher" %}R</button>
+                    <button class="fr-btn" type="submit">{% translate "Rechercher" %}</button>
                 </div>
             </div>
         </form>
-        {% if erp_total_count > 0 %}
-            <nav class="nav nav-tabs nav-fill">
-                <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}"
-                   href=".">
-                    {% translate "Tous" %} <span class="badge rounded-pill bg-primary">{{ erp_total_count }}</span>
-                </a>
-                <a class="nav-item nav-link{% if filter_published == '1' %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
-                   href="./?published=1"
-                   {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
-                    {% translate "Publiés" %} <span class="badge rounded-pill bg-primary">{{ erp_published_count }}</span>
-                </a>
-                <a class="nav-item nav-link{% if filter_published == '0' %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
-                   href="./?published=0"
-                   {% if erp_non_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
-                    {% translate "Non-publiés" %} <span class="badge rounded-pill bg-primary">{{ erp_non_published_count }}</span>
-                </a>
-            </nav>
-            <ul class="list-group">
-                {% for erp in pager %}
-                    <li class="list-group-item d-lg-flex justify-content-between align-items-center border-top-0 rounded-0">
-                        <div class="flex-fill">
-                            <div class="font-weight-bold">
-                                {% if not erp.published or not erp.geom or not erp.accessibilite %}
-                                    <img alt=""
-                                         class="act-icon act-icon-20 fr-mb-1v"
-                                         src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
-                                    <span class="text-muted">{{ erp.nom }}</span>
-                                {% else %}
-                                    <a href="{{ erp.get_absolute_url }}">
-                                        <img alt=""
-                                             class="act-icon act-icon-20 fr-mb-1v"
-                                             src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
-                                        {{ erp.nom }}
-                                    </a>
-                                {% endif %}
-                                {% if erp.activite %}<small class="text-muted">({{ erp.activite.nom }})</small>{% endif %}
-                            </div>
-                            <div>
-                                <address class="mb-0"><small class="text-muted">{{ erp.adresse }}</small></address>
-                            </div>
-                            <div>
-                                {% if not erp.published or not erp.geom or not erp.accessibilite %}
-                                    <small class="text-secondary">
-                                        <i aria-hidden="true" class="icon icon-exclamation-circle"></i> {% translate "La fiche n'est pas publiée" %}
-                                    </small>
-                                {% else %}
-                                    <small class="text-success">
-                                        <i aria-hidden="true" class="icon icon-check"></i> {% translate "La fiche est publiée" %}
-                                    </small>
-                                {% endif %}
-                            </div>
-                            {% if not erp.accessibilite %}
-                                <div>
-                                    <small class="text-info">
-                                        <i aria-hidden="true" class="icon icon-exclamation-circle"></i> {% translate "Les informations d'accessibilité ne sont pas renseignées" %}
-                                    </small>
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="btn-group d-flex justify-content-between fr-mt-1v"
-                             role="group"
-                             aria-label="{% translate "Actions" %}">
-                            <a class="btn btn-sm btn-outline-primary"
-                               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier" %}</a>
-                            {% if user.is_staff %}
-                                <a class="btn btn-sm btn-outline-primary"
-                                   href="{% url 'admin:erp_erp_change' object_id=erp.pk %}">{% translate "Admin" %}</a>
-                            {% endif %}
-                            <a class="btn btn-sm btn-danger"
-                               href="{% url 'contrib_delete' erp_slug=erp.slug %}">{% translate "Supprimer" %}</a>
-                        </div>
-                    </li>
-                {% empty %}
-                    <li class="list-group-item border-top-0 rounded-0">{% translate "La liste est vide." %}</li>
-                {% endfor %}
+        <div class="fr-tabs">
+            <ul class="fr-tabs__list"
+                role="tablist"
+                aria-label="{% translate "Onglet d'établissements" %}">
+                <li role="presentation">
+                    <a href="."
+                       id="tabpanel-all-erps"
+                       class="fr-tabs__tab"
+                       tabindex="0"
+                       role="tab"
+                       aria-controls="tabpanel-all-erps-controls"
+                       {% if not filter_published and not filter_filled %}aria-selected="true"{% endif %}>{% translate "Tous" %}
+                    ({{ erp_total_count }})</a>
+                </li>
+                <li role="presentation">
+                    <a href="./?published=1"
+                       id="tabpanel-published-erps"
+                       tabindex="0"
+                       role="tab"
+                       aria-controls="tabpanel-published-erps-controls"
+                       class="fr-tabs__tab {% if erp_published_count == 0 %}disabled{% endif %}"
+                       {% if filter_published == '1' %}aria-selected="true"{% endif %}
+                       {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
+                        {% translate "Publiés" %} ({{ erp_published_count }})
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a id="tabpanel-unpublished-erps"
+                       tabindex="0"
+                       href="./?published=0"
+                       class="fr-tabs__tab"
+                       role="tab"
+                       aria-controls="tabpanel-unpublished-erps-controls"
+                       {% if filter_published == '0' %}aria-selected="true"{% endif %}>
+                    {% translate "Non-publiés" %} ({{ erp_non_published_count }})</a>
+                </li>
             </ul>
+            <div id="tabpanel-all-erps-controls"
+                 class="fr-tabs__panel"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-all-erps"
+                 tabindex="0">{% include "compte/includes/mes_erps_cards_list.html" %}</div>
+            <div id="tabpanel-published-erps-controls"
+                 class="fr-tabs__panel"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-published-erps"
+                 tabindex="0">{% include "compte/includes/mes_erps_cards_list.html" %}</div>
+            <div id="tabpanel-unpublished-erps-controls"
+                 class="fr-tabs__panel"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-unpublished-erps"
+                 tabindex="0">{% include "compte/includes/mes_erps_cards_list.html" %}</div>
+        </div>
+        <div class="fr-grid-row fr-grid-row--center">
             {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
-        {% else %}
-            <p class="alert alert-info">{% translate "Vous n'avez renseigné aucun établissement pour le moment." %}</p>
-        {% endif %}
+        </div>
     </div>
 {% endblock compte_content %}
