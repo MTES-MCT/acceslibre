@@ -6,13 +6,17 @@ function LocalisationMap(root) {
   const hiddenLon = root.querySelector('input[type=hidden][name=lon]')
   const mapOptions = JSON.parse(root.querySelector('#map-options').textContent.trim())
   const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, ...mapOptions })
-  map.setView(
-    {
-      lat: hiddenLat.value,
-      lon: hiddenLon.value,
-    },
-    18
-  )
+  const lat = parseFloat(hiddenLat.value)
+  const lon = parseFloat(hiddenLon.value)
+
+  map.setView({ lat, lon }, 18)
+
+  const tenKmInDegrees = 10 / 111 // approx. 0.09° (1° ≈ 111 km)
+  const southWest = L.latLng(lat - tenKmInDegrees, lon - tenKmInDegrees)
+  const northEast = L.latLng(lat + tenKmInDegrees, lon + tenKmInDegrees)
+  const bounds = L.latLngBounds(southWest, northEast)
+  map.setMaxBounds(bounds)
+
   const control = L.control.centerCross({ show: true, position: 'topright' })
   map.addControl(control)
   map.on('move', function (event) {
