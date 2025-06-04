@@ -9,12 +9,13 @@ from django.core.validators import RegexValidator
 from django.urls import reverse
 from django.utils.functional import lazy
 from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
-
+from contact.models import Message
 from compte.models import UserPreferences
 from core.mailer import BrevoMailer
 
@@ -266,6 +267,18 @@ class CustomAuthenticationForm(AuthenticationForm):
         self.fields["password"].widget.attrs.update(
             {"class": "fr-password__input fr-input", "autocomplete": "current-password"}
         )
+
+    def confirm_login_allowed(self, user):
+        if not user.is_active:
+            url_contact = reverse("contact_topic", kwargs={"topic": Message.TOPIC_CONNECTION})
+            raise ValidationError(
+                mark_safe(
+                    translate_lazy(
+                        f'Votre compte est inactif. Merci de contacter le <a href="{url_contact}">support</a>.'
+                    )
+                ),
+                code="inactive",
+            )
 
 
 class CustomPasswordResetForm(PasswordResetForm):
