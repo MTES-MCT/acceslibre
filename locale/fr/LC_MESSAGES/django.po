@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 15:34+0200\n"
+"POT-Creation-Date: 2025-06-04 17:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,6 +85,12 @@ msgid ""
 msgstr ""
 
 msgid "Vous devez confirmer la suppression pour la rendre effective."
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"Votre compte est inactif. Merci de contacter le <a "
+"href=\"{url_contact}\">support</a>."
 msgstr ""
 
 msgid "EmailToken"
