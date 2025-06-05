@@ -121,6 +121,7 @@ function getStreetTiles() {
   if (!streetTiles) {
     streetTiles = createStreetTiles()
   }
+
   return streetTiles
 }
 
@@ -185,42 +186,24 @@ function _displayCustomMenu(root, { latlng, target: map }) {
   })
 }
 
-function _loadMoreWhenLastElementIsDisplayed(map) {
-  const container = document.querySelector('#erp-results-list')
-  if (!container) {
-    return
-  }
-
-  // Watch for end of scroll
-  container.addEventListener('scroll', () => {
-    if (container.offsetHeight + container.scrollTop >= container.scrollHeight) {
-      currentPage += 1
-      refreshData(map, currentPage)
-    }
-  })
-
-  // Watch for last result being tabulated
-  const nodes = document.querySelectorAll('.map-results')
-  const lastElement = nodes[nodes.length - 1]
-  if (!lastElement) {
-    return
-  }
-  lastElement.addEventListener('focusin', function () {
-    currentPage += 1
-    refreshData(map, currentPage)
-  })
-}
-
 function createMap(domTarget, options = {}) {
   const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true, ...options }
   const map = L.map(domTarget, { ...defaults, options })
-  L.control.scale({ imperial: false }).addTo(map)
+
   L.control
     .layers({
       'Plan des rues': getStreetTiles(),
       'Vue satellite': getSatelliteTiles(),
     })
     .addTo(map)
+
+  L.control.scale({ imperial: false }).addTo(map)
+  L.control
+    .zoom({
+      position: options.zoomPosition || 'topleft',
+    })
+    .addTo(map)
+
   return map
 }
 
@@ -233,23 +216,27 @@ function _parseAround({ lat, lon, label }) {
 
 function refreshList(data, clearHTML = true) {
   const listContainer = document.querySelector('#erp-results-list')
-  if (!listContainer) {
+  const resultsContainer = listContainer.querySelector('#search-results')
+  const totalResultsContainer = listContainer.querySelector('#number-of-results')
+
+  if (!listContainer || !resultsContainer) {
     return
   }
 
-  let HTMLResult = listContainer.innerHTML
   if (clearHTML) {
-    HTMLResult = ''
+    resultsContainer.innerHTML = ''
+    totalResultsContainer.textContent = ''
   }
+
   data.features.forEach(function (point) {
-    HTMLResult += mapUtils.generateHTMLForResult(point)
+    resultsContainer.innerHTML += mapUtils.generateHTMLForResult(point)
   })
-  listContainer.innerHTML = HTMLResult
 }
 
 function updateNumberOfResults(data) {
   const numberContainer = document.querySelector('#number-of-results')
   const translation = ngettext('établissement', 'établissements', data.count)
+
   numberContainer.innerHTML = data.count + ' ' + translation
 }
 
@@ -277,6 +264,7 @@ function _updateExportForm(urlParams) {
 function _getDataPromiseFromAPI(map, page) {
   const southWest = map.getBounds().getSouthWest()
   const northEast = map.getBounds().getNorthEast()
+
   let equipments = document.querySelectorAll('input[name=equipments]:checked')
   let urlParams = new URLSearchParams()
 
@@ -285,8 +273,13 @@ function _getDataPromiseFromAPI(map, page) {
   urlParams.set('page', page)
   urlParams.set('sortType', _getSortType())
   urlParams.set('where', _getWhere())
+
   equipments.forEach(function (eq) {
-    urlParams.append('equipments', eq.value)
+    const filterType = eq.dataset?.filterType
+
+    if (filterType) {
+      urlParams.append('equipments', eq.dataset?.filterType)
+    }
   })
 
   _updateExportForm(urlParams)
@@ -325,29 +318,41 @@ function refreshData(map, page = 1) {
     shouldRefreshMap = true
     return
   }
+
   const fetchPromise = _getDataPromiseFromAPI(map, page)
   const clearOldResults = page == 1
-  document.querySelector('#loading-spinner').classList.toggle('show-loader')
+
+  const displayMoreBtn = document.getElementById('view-more-erps-btn')
+  const loadingElement = document.getElementById('view-more-erps-loading')
+
+  displayMoreBtn?.classList.add('fr-hidden')
+  loadingElement?.classList.remove('fr-hidden')
+
   fetchPromise.then((response) => {
     if (!response.ok) {
-      document.querySelector('#loading-spinner').classList.toggle('show-loader')
+      displayMoreBtn?.classList.remove('fr-hidden')
+      loadingElement?.classList.add('fr-hidden')
       return
     }
+
     response.json().then((jsonData) => {
+      if (jsonData.next) {
+        displayMoreBtn?.classList.remove('fr-hidden')
+      } else {
+        displayMoreBtn?.classList.add('fr-hidden')
+      }
+
       if (clearOldResults && markers) {
         map.removeLayer(markers)
       }
+
       markers = _createMarkersFromGeoJson(jsonData)
       map.addLayer(markers)
+
       refreshList(jsonData, clearOldResults)
       updateNumberOfResults(jsonData)
-      dom.mountAll('.a4a-geo-link', ui.GeoLink)
-      document.querySelector('#loading-spinner').classList.toggle('show-loader')
-      if (jsonData.count > 0) {
-        document.querySelector('#no-results').classList.add('hidden')
-      } else {
-        document.querySelector('#no-results').classList.remove('hidden')
-      }
+
+      dom.mountAll('.a4a-geo-link .locate-btn', ui.GeoLink)
 
       if (shouldTryToBroadenSearchToGetOneResult) {
         if (jsonData.count >= 1) {
@@ -356,6 +361,8 @@ function refreshData(map, page = 1) {
           map.setView(L.latLng(map.getCenter()), map.getZoom() - 1)
         }
       }
+
+      loadingElement?.classList.add('fr-hidden')
     })
   })
 }
@@ -396,6 +403,7 @@ function _createMarkersFromGeoJson(geoJson) {
 function _addLocateButton(map) {
   new LocateControl({
     icon: 'icon icon-street-view a4a-locate-icon',
+    position: 'topright',
     strings: { title: 'Localisez moi' },
   })?.addTo(map)
 }
@@ -421,13 +429,6 @@ function broadenSearchOnClick(broaderSearchButton, map, root) {
     event.stopPropagation()
     shouldTryToBroadenSearchToGetOneResult = true
     map.setView(L.latLng(root.dataset.lat, root.dataset.lon), map.getZoom() - 1)
-  })
-}
-
-function refreshMapOnEquipmentsChange(equipmentsInputs, map) {
-  document.addEventListener('filterChanged', async function () {
-    refreshData(map)
-    url.refreshSearchURL()
   })
 }
 
@@ -471,39 +472,59 @@ function _setZoomLevel(map, geoJson) {
 function AppMap(root) {
   const erpIdentifier = root.dataset.erpIdentifier
   shouldRefreshMap = true
+
   if (root.dataset.shouldRefreshOnMapLoad == 'False') {
     shouldRefreshMap = false
   }
+
   const erpData = root.querySelector('#erps-data').textContent
   const options = root.querySelector('#map-options')
-  var mapOptions = {}
+  let mapOptions = {}
+
   if (options) {
     mapOptions = JSON.parse(options.textContent.trim())
   }
+
   let geoJson = null
+
   if (erpData) {
     geoJson = JSON.parse(erpData)
   }
+
   currentErpIdentifier = erpIdentifier
   map = createMap(root, mapOptions)
   map.on('contextmenu', _displayCustomMenu.bind(map, root))
 
   const broaderSearchButton = document.querySelector('#broaderSearch')
+
   if (broaderSearchButton) {
     broadenSearchOnClick(broaderSearchButton, map, root)
   }
 
   const equipmentsInputs = document.querySelectorAll('input[name=equipments]')
-  if (equipmentsInputs) {
-    refreshMapOnEquipmentsChange(equipmentsInputs, map)
+  const filtersModal = document.getElementById('fr-modal-disabilities-filters')
+
+  if (equipmentsInputs && filtersModal) {
+    filtersModal.addEventListener('dsfr.conceal', () => {
+      refreshData(map)
+      url.refreshSearchURL()
+    })
+  }
+
+  const displayMoreBtn = document.getElementById('view-more-erps-btn')
+  if (displayMoreBtn) {
+    displayMoreBtn.addEventListener('click', () => {
+      refreshData(map, ++currentPage)
+    })
   }
 
   if (geoJson) {
     markers = _createMarkersFromGeoJson(geoJson)
     _addMarkerAtCenterOfSearch(root.dataset, markers)
     map.addLayer(markers)
-    refreshList(geoJson)
-    _loadMoreWhenLastElementIsDisplayed(map)
+
+    // refreshList(geoJson)
+    // _loadMoreWhenLastElementIsDisplayed(map)
   }
 
   _setZoomLevel(map, geoJson)
@@ -516,35 +537,64 @@ function AppMap(root) {
   if (root.dataset.shouldRefresh == 'True') {
     refreshDataOnMove(map)
   }
+
+  if (map) {
+    refreshData(map)
+    url.refreshSearchURL()
+  }
+
   return map
 }
 
-function openMarkerPopup(erpIdentifier, options = {}) {
+function openMarkerPopup(erpIdentifier) {
   if (!markers) {
     console.warn('No marker clusters were registered, cannot open marker.')
     return
   }
+
   currentErpIdentifier = erpIdentifier
+
   layers.forEach((layer) => {
     if (layer.identifier === erpIdentifier) {
       shouldRefreshMap = false
+
       layer.__parent._group._map = map
-      markers.zoomToShowLayer(layer, () => {
-        layer.openPopup()
-      })
+
+      const filtersElement = document.querySelector('.main-search__main-filters')
+      const listElement = document.getElementById('erp-results-list')
+
+      if (filtersElement && listElement) {
+        markers.zoomToShowLayer(layer, () => {
+          layer.openPopup()
+
+          const point = map.latLngToContainerPoint(L.latLng(layer._latlng.lat, layer._latlng.lng))
+          const leftSidePanelsWidth =
+            (filtersElement.getBoundingClientRect().width + listElement.getBoundingClientRect().width) / 3
+          const offsetPoint = L.point(Math.abs(leftSidePanelsWidth - point.x), point.y)
+          const offsetLatLng = map.containerPointToLatLng(offsetPoint)
+
+          map.panTo(offsetLatLng)
+        })
+      } else {
+        markers.zoomToShowLayer(layer, () => {
+          layer.openPopup()
+        })
+      }
     }
   })
 }
 
 function updateMap(query, map) {
-  var mapDomEl = document.querySelector('.a4a-localisation-map')
-  var btnSubmit = document.querySelector('[name="contribute"]')
+  const mapDomEl = document.querySelector('.a4a-localisation-map')
+  const btnSubmit = document.querySelector('[name="contribute"]')
+
   btnSubmit.setAttribute('disabled', '')
   mapDomEl.style.opacity = 0.3
   api
     .getCoordinate(query)
     .then(function (response) {
-      var result = response.results[0]
+      const result = response.results[0]
+
       if (result !== undefined) {
         map.setView(
           {
