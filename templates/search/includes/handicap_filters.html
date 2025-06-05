@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load a4a %}
+{% if equipments_shortcuts or equipments %}
+    <div>
+        <ul class="equipments equipments-shortcuts fr-p-0"
+            data-shortcuts-enabled="1">
+            {% with request.GET|get_list:"equipments_shortcuts" as params %}
+                {% for shortcut in equipments_shortcuts %}
+                    <li class="list-style-type--none">
+                        {% include "search/includes/filter_tag.html" with slug=shortcut.slug icon=shortcut.icon params=params name=shortcut.name eventType="shortcutClicked" input_name="equipments_shortcuts" children_list=shortcut.equipments_as_list suggestions_list=shortcut.suggestions_as_list %}
+                    </li>
+                {% endfor %}
+            {% endwith %}
+        </ul>
+        <div class="equipments equipments-selected">
+            {% with request.GET|get_list:"equipments" as equipment_params %}
+                <h1 class="fr-h4 fr-mb-1w fr-mt-4w">{% translate "Filtrer par équipements :" %}</h1>
+                {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
+                {% for group in equipments_by_group %}
+                    <section class="fr-accordion">
+                        <h2 class="fr-accordion__title">
+                            <button class="fr-accordion__btn"
+                                    aria-expanded="false"
+                                    aria-controls="accordion-{{ group.grouper }}">{{ group.grouper }}</button>
+                        </h2>
+                        <div class="fr-collapse" id="accordion-{{ group.grouper }}">
+                            <div class="display--flex gap-1w direction--column">
+                                {% for equipement in group.list %}
+                                    {% include "search/includes/filter_clone.html" with slug=equipement.slug params=equipment_params eventType="equipmentClicked" name=equipement.name input_name="equipments_shortcuts" %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                {% endfor %}
+            {% endwith %}
+            <ul class="fr-btns-group fr-btns-group--inline-sm fr-grid-row--right fr-mt-2w">
+                <li>
+                    <button type="button"
+                            class="fr-btn fr-btn--secondary"
+                            id="remove-all-filters">{% translate "Supprimer tous les filtres" %}</button>
+                </li>
+                <li>
+                    <button type="button"
+                            class="fr-btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#equipmentsmodal">{% translate "Rechercher" %}</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endif %}
