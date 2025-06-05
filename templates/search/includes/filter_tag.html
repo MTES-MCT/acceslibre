@@ -1,0 +1,13 @@
+<div {% if input_name == "equipments" and slug not in params %}class="hidden"{% else %}class="fr-toggle fr-toggle--label-left"{% endif %}>
+    <input type="checkbox"
+           class="fr-toggle__input a4a-label-tag"
+           id="{{ slug }}"
+           name="{{ input_name }}"
+           class="hidden"
+           value="{{ slug }}"
+           data-event-type="{{ eventType }}"
+           {% if children_list %}data-children="{{ children_list }}"{% endif %}
+           {% if suggestions_list %}data-suggestions="{{ suggestions_list }}"{% endif %}
+           {% if slug in params %}checked{% endif %}>
+    <label class="fr-toggle__label fr-ml-0" for="{{ slug }}">{{ name }}</label>
+</div>

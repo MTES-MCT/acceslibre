@@ -1,0 +1,10 @@
+<div class="fr-checkbox-group">
+    <input type="checkbox"
+           id="{{ slug }}-clone"
+           class="a4a-clone-filter a4a-label-tag"
+           data-event-type="{{ eventType }}"
+           data-filter-type="{{ slug }}"
+           name="equipments"
+           {% if slug in params %}checked{% endif %}>
+    <label class="fr-label" for="{{ slug }}-clone">{{ name }}</label>
+</div>
