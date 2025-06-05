@@ -271,6 +271,13 @@ def search(request):
         "departement_json": department_json,
         "should_refresh_map_on_load": search_type != settings.IN_DEPARTMENT_SEARCH_TYPE,
         "page_type": "erps-search",
+        "display_filters": True,
+        "map_options": json.dumps(
+            {
+                "zoomControl": False,
+                "zoomPosition": "topright",
+            }
+        ),
     }
     return render(request, "search/results.html", context=context)
 
@@ -338,16 +345,24 @@ def search_in_municipality(request, commune_slug):
 
     context = {
         **filters,
+        "map_api_key": _get_or_create_api_key(),
         "pager": pager,
         "pager_base_url": url.encode_qs(**filters),
         "paginator": paginator,
         "where": str(municipality),
         "commune": municipality,
         "commune_json": municipality.toTemplateJson(),
+        "display_filters": False,
         "geojson_list": make_geojson(pager),
         "search_type": settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
         "municipality": municipality.nom,
         "page_type": "erps-search",
+        "map_options": json.dumps(
+            {
+                "zoomControl": False,
+                "zoomPosition": "topright",
+            }
+        ),
     }
     return render(request, "search/results.html", context=context)
 
