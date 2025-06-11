@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 17:34+0200\n"
+"POT-Creation-Date: 2025-06-11 11:03+0200\n"
 "PO-Revision-Date: 2025-06-04 17:34+0200\n"
-"Last-Translator:   <test@test.com>\n"
+"Last-Translator: <test@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -3695,6 +3695,12 @@ msgid ""
 "carte."
 msgstr "If you are on mobile or smartphone, use two fingers to move the map."
 
+msgid ""
+"Le déplacement ne peut dépasser 10 km par rapport à la position initiale du "
+"curseur."
+msgstr ""
+"The displacement cannot exceed 10 km from the initial position of the cursor."
+
 msgid "A propos de vous"
 msgstr "About you"
 
@@ -6414,18 +6420,3 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#~ msgid "<strong>Vous</strong> avez créé cette fiche"
-#~ msgstr "<strong>You</strong> have created this record"
-
-#~ msgid "Fiche créée par"
-#~ msgstr "Created by"
-
-#~ msgid "Actions"
-#~ msgstr "Actions"
-
-#~ msgid "Inscrit depuis le"
-#~ msgstr "Registered since"
-
-#~ msgid "Voir le classement"
-#~ msgstr "See ranking"
