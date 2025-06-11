@@ -313,6 +313,7 @@ def search_in_municipality(request, commune_slug):
         "geojson_list": make_geojson(pager),
         "search_type": settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
         "municipality": municipality.nom,
+        "page_type": "erps-search",
     }
     return render(request, "search/results.html", context=context)
 
