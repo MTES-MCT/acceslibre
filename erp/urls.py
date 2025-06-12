@@ -83,6 +83,7 @@ urlpatterns = [
         views.export,
         name="export",
     ),
+    path("panoramax/", views.panoramax, name="panoramax"),
     path(
         "recherche/",
         views.search,
