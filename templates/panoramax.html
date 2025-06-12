@@ -1,0 +1,32 @@
+{% extends "editorial/base.html" %}
+{% load i18n static %}
+{% block page_title %}
+    {% translate "Matching Accèslibre/Panoramax" %}
+{% endblock page_title %}
+{% block editorial_content %}
+    <h1>{% translate "Matching Accèslibre/Panoramax" %}</h1>
+    <p>
+        {% translate "Trouvez la photo de l'ERP dans la visionneuse. Vous pouvez vous déplacer avec les flèches et zoomer avec la molette." %}
+    </p>
+    <h2>
+        <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+    </h2>
+    <p>
+        {% translate "Adresse :" %} {{ erp.adresse }}
+        <br>
+        {% translate "Activité :" %}" {{ erp.activite.nom }}
+    </p>
+    <div id="viewer-container">
+        <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+    </div>
+    <form method="post" class="fr-my-4w" action=".">
+        {% csrf_token %}
+        <input type="hidden" name="erp_id" value="{{ erp.pk }}">
+        <input type="hidden" name="image_id" value="{{ image_id }}">
+        <input type="hidden" name="xyz" id="xyz-coords">
+        <input type="submit"
+               class="fr-btn btn-primary"
+               value="{% translate "Sauvegarder" %}">
+        <a href="." class="fr-ml-2w">{% translate "Passer à un autre ERP" %}</a>
+    </form>
+{% endblock editorial_content %}

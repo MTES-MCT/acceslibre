@@ -29,8 +29,9 @@ from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import get_contrib_form_for_activity
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Departement, Erp
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource
 from erp.provider import acceslibre
+from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
 from erp.provider.search import get_equipments, get_equipments_shortcuts
 from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
@@ -292,6 +293,34 @@ def export(request):
     return JsonResponse({"success": True, "message": message}, status=200)
 
 
+def panoramax(request):
+    if request.method == "POST":
+        image_id = request.POST.get("image_id")
+        xyz_raw = request.POST.get("xyz")
+        erp_id = request.POST.get("erp_id")
+
+        erp = get_object_or_404(Erp, pk=erp_id)
+        erp.sources.create(source=ExternalSource.SOURCE_PANORAMAX, source_id=f"{image_id}|{xyz_raw}")
+        return redirect(reverse("panoramax"))
+
+    def _find_erp_to_match():
+        cities = ["Lyon", "Caen", "Strasbourg"]
+        erp = (
+            Erp.objects.published()
+            .filter(commune__unaccent__in=cities)
+            .exclude(sources__source="panoramax")
+            .order_by("?")
+            .first()
+        )
+        image_id = panoramax_provider.get_image_id(erp.geom.y, erp.geom.x)
+        if image_id:
+            return (erp, image_id)
+        return _find_erp_to_match()
+
+    erp, image_id = _find_erp_to_match()
+    return render(request, "panoramax.html", context={"erp": erp, "image_id": image_id})
+
+
 def search_in_municipality(request, commune_slug):
     municipality = get_object_or_404(Commune, slug=commune_slug)
     filters = cleaned_search_params_as_dict(request.GET)
@@ -377,6 +406,13 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
 <a href="#" aria-haspopup="dialog" data-erp-pk="{erp.uuid}" aria-controls="dialog">{translate("Accessibilité")}</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>"""
+
+    erp_image_id = None
+    erp_xyz = None
+    if erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).exists():
+        erp_image = erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).first().source_id
+        erp_image_id, erp_xyz = erp_image.split("|")
+
     return render(
         request,
         "erp/index.html",
@@ -399,6 +435,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                 }
             ),
             "previous_url": referer,
+            "image_id": erp_image_id,
+            "xyz": erp_xyz,
         },
     )
 

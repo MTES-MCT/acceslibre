@@ -26,6 +26,10 @@
         </div>
     </div>
     <hr class="fr-hr fr-mt-2w" />
+    {% if image_id %}
+        <pnx-photo-viewer id="photo-viewer" endpoint="https://api.panoramax.xyz/api/" picture="{{ image_id }}" hide-legend xyz="{{ xyz }}"></pnx-photo-viewer>
+    {% endif %}
+    <hr class="fr-hr fr-mt-2w" />
     <div class="fr-grid-row address-container">
         <address class="fr-m-0 fr-col">
             <p class="fr-mb-3w word-break--all">
