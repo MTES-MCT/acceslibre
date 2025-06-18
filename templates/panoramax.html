@@ -34,7 +34,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
     <form method="post" class="fr-my-4w" action=".">
         {% csrf_token %}
         <input type="hidden" name="erp_id" value="{{ erp.pk }}">
-        <input type="hidden" name="image_id" value="{{ image_id }}">
+        <input type="hidden" name="image_id" id="image-id" value="{{ image_id }}">
         <input type="hidden" name="xyz" id="xyz-coords">
         <input type="submit"
                class="fr-btn btn-primary"
