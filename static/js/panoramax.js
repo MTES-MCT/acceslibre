@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageId = document.getElementById('image-id')
 
   if (browser && xyzField) {
-    const updateXYZandIMageID = (event) => {
+    const updateXYZandImageID = (event) => {
       const { x, y, z } = event.detail
       const xyz = `${x}/${y}/${z}`
       xyzField.value = xyz
       imageId.value = browser.getAttribute('picture')
     }
 
-    browser.addEventListener('psv:view-rotated', updateXYZandIMageID)
-    browser.addEventListener('psv:position-changed', updateXYZandIMageID)
+    browser.addEventListener('psv:view-rotated', updateXYZandImageID)
+    browser.addEventListener('psv:position-changed', updateXYZandImageID)
   }
 
   const viewer = document.querySelector('pnx-photo-viewer')
