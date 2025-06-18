@@ -1,20 +1,32 @@
 {% extends "editorial/base.html" %}
 {% load i18n static %}
 {% block page_title %}
-    {% translate "Matching Accèslibre/Panoramax" %}
+    {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
 {% endblock page_title %}
 {% block editorial_content %}
-    <h1>{% translate "Matching Accèslibre/Panoramax" %}</h1>
+    <h1>{% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}</h1>
     <p>
-        {% translate "Trouvez la photo de l'ERP dans la visionneuse. Vous pouvez vous déplacer avec les flèches et zoomer avec la molette." %}
+        {% translate "La visionneuse vous propose automatiquement la photo la plus proche de l'établissement Acceslibre indiqué ci-dessous." %}
     </p>
+    <p>
+        {% translate "Choisissez la meilleure vue à partir des photos proposées !  Vous pouvez vous déplacer, modifier l'angle de vue, zoomer.." %}
+    </p>
+    <ul>
+        <li>
+            {% blocktranslate %}Vous êtes satisfait de la vue qui permet de bien voir l'établissement : cliquez sur "choisir cette photo".
+La photo sera instantanément ajoutée à la fiche acceslibre de l'établissement{% endblocktranslate %}
+        </li>
+        <li>
+            {% blocktranslate %}Les photos ne permettent pas de voir l'établissement. Cliquez sur "Aucune photo ne convient". Un nouvel établissement vous sera proposé.{% endblocktranslate %}
+        </li>
+    </ul>
     <h2>
         <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
     <p>
         {% translate "Adresse :" %} {{ erp.adresse }}
         <br>
-        {% translate "Activité :" %}" {{ erp.activite.nom }}
+        {% translate "Activité :" %} {{ erp.activite.nom }}
     </p>
     <div id="viewer-container">
         <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
@@ -26,7 +38,7 @@
         <input type="hidden" name="xyz" id="xyz-coords">
         <input type="submit"
                class="fr-btn btn-primary"
-               value="{% translate "Sauvegarder" %}">
-        <a href="." class="fr-ml-2w">{% translate "Passer à un autre ERP" %}</a>
+               value="{% translate "Choisir cette photo" %}">
+        <a href="." class="fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
     </form>
 {% endblock editorial_content %}
