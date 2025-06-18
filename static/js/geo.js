@@ -233,11 +233,19 @@ function refreshList(data, clearHTML = true) {
   })
 }
 
+function displayLoadingText() {
+  const numberContainer = document.querySelector('#number-of-results')
+
+  if (!numberContainer) return
+
+  numberContainer.textContent = gettext('En cours de chargement ...')
+}
+
 function updateNumberOfResults(data) {
   const numberContainer = document.querySelector('#number-of-results')
   const translation = ngettext('établissement', 'établissements', data.count)
 
-  numberContainer.innerHTML = data.count + ' ' + translation
+  numberContainer.textContent = data.count + ' ' + translation
 }
 
 function _updateExportForm(urlParams) {
@@ -327,6 +335,10 @@ function refreshData(map, page = 1) {
 
   displayMoreBtn?.classList.add('fr-hidden')
   loadingElement?.classList.remove('fr-hidden')
+
+  // Update number of results html node to display loading text
+  // (It is different from the loadingElement above which is located at the bottom of the list)
+  displayLoadingText()
 
   fetchPromise.then((response) => {
     if (!response.ok) {
@@ -503,11 +515,22 @@ function AppMap(root) {
 
   const equipmentsInputs = document.querySelectorAll('input[name=equipments]')
   const filtersModal = document.getElementById('fr-modal-disabilities-filters')
+  const searchBtn = filtersModal?.querySelector('button#submit-filters-search')
 
   if (equipmentsInputs && filtersModal) {
     filtersModal.addEventListener('dsfr.conceal', () => {
       refreshData(map)
       url.refreshSearchURL()
+    })
+
+    searchBtn.addEventListener('click', () => {
+      refreshData(map)
+      url.refreshSearchURL()
+
+      // Close modal when clicking Search button
+      if (typeof dsfr === 'function') {
+        dsfr(filtersModal).modal.conceal()
+      }
     })
   }
 
@@ -522,9 +545,6 @@ function AppMap(root) {
     markers = _createMarkersFromGeoJson(geoJson)
     _addMarkerAtCenterOfSearch(root.dataset, markers)
     map.addLayer(markers)
-
-    // refreshList(geoJson)
-    // _loadMoreWhenLastElementIsDisplayed(map)
   }
 
   _setZoomLevel(map, geoJson)
