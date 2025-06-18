@@ -293,6 +293,7 @@ def export(request):
     return JsonResponse({"success": True, "message": message}, status=200)
 
 
+@login_required
 def panoramax(request):
     if request.method == "POST":
         image_id = request.POST.get("image_id")
