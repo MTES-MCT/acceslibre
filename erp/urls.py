@@ -84,6 +84,7 @@ urlpatterns = [
         name="export",
     ),
     path("panoramax/", views.panoramax, name="panoramax"),
+    path("panoramax/remove/<str:erp_slug>/", views.erp_remove_source_panoramax, name="panoramax_remove"),
     path(
         "recherche/",
         views.search,
