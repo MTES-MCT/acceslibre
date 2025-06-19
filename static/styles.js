@@ -18,3 +18,9 @@ import './scss/style.scss'
 import '@gouvfr/dsfr/dist/dsfr/dsfr.css'
 import '@gouvfr/dsfr/dist/utility/icons/icons.css'
 import './scss/style-dsfr.scss'
+
+// Panoramax
+import '@photo-sphere-viewer/core/index.css'
+import '@photo-sphere-viewer/virtual-tour-plugin/index.css'
+import '@photo-sphere-viewer/markers-plugin/index.css'
+import '@panoramax/web-viewer/build/index.css'

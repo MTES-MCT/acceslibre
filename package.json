@@ -27,8 +27,9 @@
   "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
   "dependencies": {
     "@gouvfr/dsfr": "1.13.2",
+    "@panoramax/web-viewer": "^4.0.3",
     "@parcel/transformer-sass": "^2.10.2",
-    "@sentry/browser": "^9.24.0",
+    "@sentry/browser": "^9.29.0",
     "@sentry/tracing": "^7.120.3",
     "@trevoreyre/autocomplete-js": "^3.0.3",
     "bootstrap": "^5.0.2",
@@ -37,14 +38,14 @@
     "leaflet-gesture-handling": "^1.2.2",
     "leaflet.locatecontrol": "0.84.2",
     "leaflet.markercluster": "^1.4.1",
-    "npm": "^11.4.1",
+    "npm": "^11.4.2",
     "parcel": "^2.10.2",
-    "posthog-js": "^1.249.0",
+    "posthog-js": "^1.254.0",
     "process": "^0.11.10",
     "remixicon": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "prettier": "3.5.3"
   }
 }

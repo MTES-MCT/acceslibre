@@ -5,7 +5,13 @@
             <div class="fr-card fr-card--sm">
                 <div class="fr-card__body">
                     <div class="fr-card__content">
-                        <h2 class="fr-card__title fr-h3">{{ erp.nom }}</h2>
+                        <h2 class="fr-card__title fr-h3">
+                            {% if erp.published %}
+                                <a class="fr-link" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+                            {% else %}
+                                {{ erp.nom }}
+                            {% endif %}
+                        </h2>
                         <div class="fr-card__desc">
                             <p class="fr-mb-0">{{ erp.activite }}</p>
                             <address class="fr-mb-0">{{ erp.adresse }}</address>
