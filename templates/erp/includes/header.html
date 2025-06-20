@@ -28,6 +28,10 @@
     <hr class="fr-hr fr-mt-2w" />
     {% if image_id %}
         <pnx-photo-viewer id="photo-viewer" endpoint="https://api.panoramax.xyz/api/" picture="{{ image_id }}" hide-legend xyz="{{ xyz }}"></pnx-photo-viewer>
+        {% if request.user.is_staff %}
+            <a href="{% url 'panoramax_remove' erp_slug=erp.slug %}"
+               class="fr-btn fr-btn--secondary fr-mt-2w">{% translate "Supprimer l'image" %}</a>
+        {% endif %}
     {% endif %}
     <hr class="fr-hr fr-mt-2w" />
     <div class="fr-grid-row address-container">

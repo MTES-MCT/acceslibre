@@ -356,6 +356,15 @@ class EditorialView(TemplateView):
         return context
 
 
+@login_required
+def erp_remove_source_panoramax(request, erp_slug):
+    if request.user.is_staff is True:
+        erp = get_object_or_404(Erp, slug=erp_slug)
+        erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
+        messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
+    return redirect(reverse("commune_erp", kwargs={"erp_slug": erp_slug, "commune": erp.commune}))
+
+
 def erp_details(request, commune, erp_slug, activite_slug=None):
     referer = "/"
     if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
