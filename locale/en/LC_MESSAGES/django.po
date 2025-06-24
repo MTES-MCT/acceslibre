@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 17:14+0200\n"
+"POT-Creation-Date: 2025-06-24 17:24+0200\n"
 "PO-Revision-Date: 2025-06-24 17:14+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,14 @@ msgstr ""
 
 msgid "Vous devez confirmer la suppression pour la rendre effective."
 msgstr "You must confirm the deletion to make it effective."
+
+#, python-brace-format
+msgid ""
+"Votre compte est inactif. Merci de contacter le <a href=\"{url_contact}"
+"\">support</a>."
+msgstr ""
+"Your account is inactive. Please contact the <a href = \"{url_contact}\"> "
+"support </a>."
 
 msgid "EmailToken"
 msgstr "EmailToken"
@@ -6529,14 +6537,6 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
-
-#, python-brace-format
-#~ msgid ""
-#~ "Votre compte est inactif. Merci de contacter le <a href=\"{url_contact}"
-#~ "\">support</a>."
-#~ msgstr ""
-#~ "Your account is inactive. Please contact the <a href = \"{url_contact}\"> "
-#~ "support </a>."
 
 #~ msgid "Challenges en cours"
 #~ msgstr "Undergoing challenges"

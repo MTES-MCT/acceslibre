@@ -3,6 +3,27 @@
 {% block page_title %}
     {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Panoramax" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}</h1>
     <p>
@@ -20,7 +41,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
             {% blocktranslate %}Les photos ne permettent pas de voir l'établissement. Cliquez sur "Aucune photo ne convient". Un nouvel établissement vous sera proposé.{% endblocktranslate %}
         </li>
     </ul>
-    <h2>
+    <h2 class="fr-my-2w">
         <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
     <section>
