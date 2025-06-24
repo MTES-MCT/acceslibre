@@ -54,22 +54,31 @@
                     </ul>
                 </section>
                 <section class="panoramax-section">
-                    <div class="fr-card fr-enlarge-link">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h3 class="fr-card__title">
-                                    <a href="{% url 'panoramax' %}" target="_blank" aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos" %}">{% blocktranslate %}{{ panoramax_photos_count }} photos ajoutées {% endblocktranslate%}</a>
-                                </h3>
-                                <p class="fr-card__desc">
-                                    {%  blocktranslate %}Encore un effort pour atteindre les <span class="fr-text--bold">10 000</span> ! <br /> <span class="fr-text--bold">Cliquez-ici pour commencer à contribuer</span>{% endblocktranslate %}
-                                </p>
+                    <div class="fr-col-md-6 fr-col-12">
+                        <div class="fr-card">
+                            <div class="fr-card__body">
+                                <div class="fr-card__content">
+                                    <h3 class="fr-card__title">
+                                        <a href="{% url 'panoramax' %}" target="_blank" aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos" %}">{% blocktranslate %}{{ panoramax_photos_count }} photos ajoutées {% endblocktranslate%}</a>
+                                    </h3>
+                                    <p class="fr-card__desc">
+                                        {% blocktranslate %}Encore un effort pour atteindre les <span class="fr-text--bold">10 000</span> !{% endblocktranslate %}
+                                    </p>
+                                </div>
+                                <div class="fr-card__footer">
+                                    <ul class="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
+                                        <li>
+                                            <a class="fr-btn" href="{% url "panoramax" %}" target="_blank">{% translate "Je commence à contribuer" %}</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="fr-card__header">
-                            <div class="fr-card__img">
-                                <img class="fr-responsive-img"
-                                     src="{% static 'img/challenges/restaurant.jpeg' %}"
-                                     alt="" />
+                            <div class="fr-card__header">
+                                <div class="fr-card__img">
+                                    <img class="fr-responsive-img"
+                                         src="{% static 'img/challenges/restaurant.jpeg' %}"
+                                         alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
