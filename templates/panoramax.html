@@ -41,26 +41,29 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
             {% blocktranslate %}Les photos ne permettent pas de voir l'établissement. Cliquez sur "Aucune photo ne convient". Un nouvel établissement vous sera proposé.{% endblocktranslate %}
         </li>
     </ul>
-    <h2 class="fr-my-2w">
-        <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
-    </h2>
     <section>
         <p class="fr-text--xl fr-mb-0">{% translate "En savoir plus :" %}</p>
         <ul>
             <li>
-                <a href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                <a class="fr-link"
+                   href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
                    target="_blank">{% translate "Voir le tutoriel" %}</a>
             </li>
             <li>
-                <a href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+                <a class="fr-link" href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
             </li>
         </ul>
     </section>
-    <p>
+    <h2 class="fr-my-2w">
+        <a class="fr-link fr-h2"
+           target="_blank"
+           href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+    </h2>
+    <address>
         {% translate "Adresse :" %} {{ erp.adresse }}
         <br>
         {% translate "Activité :" %} {{ erp.activite.nom }}
-    </p>
+    </address>
     <div id="viewer-container">
         <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
     </div>
@@ -72,6 +75,6 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
         <input type="submit"
                class="fr-btn btn-primary"
                value="{% translate "Choisir cette photo" %}">
-        <a href="." class="fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
+        <a href="." class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
     </form>
 {% endblock editorial_content %}
