@@ -108,17 +108,21 @@ def about_us(request):
 def challenges(request):
     today = datetime.datetime.today()
     challenges = Challenge.objects.filter(active=True)
+    panoramax_photos_count = ExternalSource.objects.filter(source=ExternalSource.SOURCE_PANORAMAX).count()
+
     return render(
         request,
         "challenge/list.html",
         context={
             "today": today,
             "challenges": challenges,
+            "panoramax_photos_count": panoramax_photos_count,
             "challenges_en_cours": challenges.filter(start_date__lte=today, end_date__gt=today),
             "challenges_termines": challenges.filter(end_date__lt=today),
             "challenges_a_venir": challenges.filter(
                 start_date__gt=today,
             ),
+            "page_type": "challenges",
         },
     )
 

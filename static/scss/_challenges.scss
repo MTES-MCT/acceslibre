@@ -1,0 +1,126 @@
+@import 'breakpoints';
+
+.challenges-container {
+  --base-padding: 48px;
+  --padding-md-breakpoint: 24px;
+  --bg-color: var(--blue-france-925-125);
+  background-color: var(--bg-color);
+  overflow: hidden;
+
+  .top-section,
+  .help-section {
+    h1,
+    h2 {
+      color: var(--text-title-blue-france);
+    }
+  }
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    padding: var(--base-padding);
+    gap: 24px;
+
+    @media screen and (max-width: $viewport-md) {
+      padding: var(--padding-md-breakpoint);
+    }
+  }
+
+  .panoramax-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .fr-card {
+      max-width: 600px;
+    }
+  }
+
+  .challenges-list-section {
+    padding: var(--base-padding);
+
+    h1 {
+      color: var(--text-title-blue-france);
+    }
+  }
+
+  .help-section {
+    --bg-color: var(--yellow-moutarde-925-125);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 102px;
+    background-color: var(--bg-color);
+    // For bg color to stretch to far left and far right
+    padding: var(--base-padding);
+
+    .description-block {
+      display: flex;
+      gap: 24px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: var(--bg-color);
+      height: 100%;
+      width: 3000px;
+      left: -3000px;
+      top: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: var(--bg-color);
+      height: 100%;
+      width: 3000px;
+      right: -3000px;
+      top: 0;
+    }
+
+    @media screen and (max-width: $viewport-md) {
+      flex-direction: column;
+      gap: 32px;
+      padding: var(--padding-md-breakpoint);
+
+      .description-block {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+
+  .challenges-list-section {
+    padding: var(--base-padding);
+
+    @media screen and (max-width: $viewport-md) {
+      padding: var(--padding-md-breakpoint);
+    }
+  }
+
+  .completed-challenges-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+
+    @media screen and (max-width: $viewport-xl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: $viewport-lg) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .fr-card {
+      height: 100%;
+    }
+  }
+}

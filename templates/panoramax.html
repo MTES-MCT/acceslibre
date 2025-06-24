@@ -23,6 +23,18 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
     <h2>
         <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
+    <section>
+        <p class="fr-text--xl fr-mb-0">{% translate "En savoir plus :" %}</p>
+        <ul>
+            <li>
+                <a href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                   target="_blank">{% translate "Voir le tutoriel" %}</a>
+            </li>
+            <li>
+                <a href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+            </li>
+        </ul>
+    </section>
     <p>
         {% translate "Adresse :" %} {{ erp.adresse }}
         <br>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 09:05+0200\n"
+"POT-Creation-Date: 2025-06-24 16:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,12 +85,6 @@ msgid ""
 msgstr ""
 
 msgid "Vous devez confirmer la suppression pour la rendre effective."
-msgstr ""
-
-#, python-brace-format
-msgid ""
-"Votre compte est inactif. Merci de contacter le <a "
-"href=\"{url_contact}\">support</a>."
 msgstr ""
 
 msgid "EmailToken"
@@ -2864,13 +2858,71 @@ msgstr ""
 msgid "Classement par équipe"
 msgstr ""
 
-msgid "Challenges en cours"
+msgid "Vous êtes ici :"
 msgstr ""
 
-msgid "Challenges terminés"
+msgid "Voir le fil d'Ariane"
 msgstr ""
 
-msgid "Prochains challenges"
+msgid "Challenge photos Acceslibre"
+msgstr ""
+
+msgid "Aidez-nous à ajouter des photos sur Acceslibre !"
+msgstr ""
+
+msgid ""
+"\n"
+"                        Grâce à <a href=\"https://panoramax.ign.fr/?"
+"background=streets&focus=map&map=5.7/47/3&speed=250\" "
+"target=\"_blank\">panoramax</a>, une base collaborative et libre de photos "
+"géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de "
+"choisir la bonne photo pour chaque établissement !\n"
+"                    "
+msgstr ""
+
+msgid ""
+"Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez "
+"pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
+"partie remise !"
+msgstr ""
+
+msgid "En savoir plus :"
+msgstr ""
+
+msgid "Voir le tutoriel"
+msgstr ""
+
+msgid "Voir notre foire aux questions"
+msgstr ""
+
+msgid "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos"
+msgstr ""
+
+#, python-format
+msgid "%(panoramax_photos_count)s photos ajoutées "
+msgstr ""
+
+msgid ""
+"Encore un effort pour atteindre les <span class=\"fr-text--bold\">10 000</"
+"span> ! <br/> <span class=\"fr-text--bold\">Cliquez-ici pour commencer à "
+"contribuer</span>"
+msgstr ""
+
+msgid "Vous souhaitez fédérer vos équipes autour d’une cause solidaire ?"
+msgstr ""
+
+msgid ""
+"Nos challenges permettent à vos collaborateurs d’agir concrètement dans le "
+"cadre d’une compétition simple et ludique."
+msgstr ""
+
+msgid ""
+"Pour les sensibiliser et les motiver, nos challenges transforment vos "
+"collaborateurs, le temps d’une compétition, en ambassadeurs d’un monde plus "
+"accessible."
+msgstr ""
+
+msgid "Historique des challenges"
 msgstr ""
 
 msgid "Challenge DDT février/mars 2022"
@@ -2887,9 +2939,6 @@ msgid ""
 "\n"
 "              %(start)s au %(end)s inclus\n"
 "              "
-msgstr ""
-
-msgid "Vous êtes inscrits à ce challenge !"
 msgstr ""
 
 msgid "JavaScript doit être activé pour utiliser la cartographie interactive."
@@ -2950,12 +2999,6 @@ msgid "Toutes les communes, par département"
 msgstr ""
 
 msgid "Derniers établissements renseignés"
-msgstr ""
-
-msgid "Vous êtes ici :"
-msgstr ""
-
-msgid "Voir le fil d'Ariane"
 msgstr ""
 
 msgid "Profil et préférences"
