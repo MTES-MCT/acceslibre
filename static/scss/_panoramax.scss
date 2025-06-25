@@ -1,3 +1,5 @@
+@import 'breakpoints';
+
 pnx-viewer,
 pnx-photo-viewer {
   height: 500px;
@@ -11,4 +13,12 @@ pnx-widget-player {
 
 pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
   display: none;
+}
+
+.erp-details-container {
+  @media screen and (max-width: $viewport-sm) {
+    pnx-photo-viewer {
+      height: 350px;
+    }
+  }
 }
