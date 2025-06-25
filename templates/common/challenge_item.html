@@ -1,31 +1,32 @@
 {% load i18n %}
-<div class="fr-container ">
-    <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w">
-        <ul class="row no-list">
-            {% for challenge in challenges %}
-                <li>
-                    <a class="fr-text--heavy" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>:
-                    {% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}
+<section>
+    <ul class="completed-challenges-list">
+        {% for challenge in challenges %}
+            <li>
+                <div class="fr-card fr-enlarge-link">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h2 class="fr-h3 fr-card__title">
+                                <a href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>
+                            </h2>
+                            <div class="fr-card__desc">
+                                <p>
+                                    {% blocktranslate with start=challenge.start_date|date:"d F Y" end=challenge.end_date|date:"d F Y" %}
               {{ start }} au {{ end }} inclus
               {% endblocktranslate %}
-                    <div class="row">
-                        <div class="col-10 offset-1 text-center">
-                            {% if challenge.text_reserve %}
-                                {{ challenge.text_reserve }}
-                                <br>
-                            {% endif %}
-                            {% if request.user in challenge.players.all %}
-                                <small>
-                                    <i aria-hidden="true" class="text-success icon icon-check fr-mr-1v"></i>{% translate "Vous êtes inscrits à ce challenge !" %}
-                                </small>
-                            {% elif challenge.has_open_subscriptions %}
-                                <a class="fr-btn"
-                                   href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
-                            {% endif %}
+                                </p>
+                                <p>
+                                    {% if challenge.text_reserve %}
+                                        {{ challenge.text_reserve }}
+                                        <br>
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="row"></div>
                         </div>
                     </div>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

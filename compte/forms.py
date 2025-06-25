@@ -274,7 +274,9 @@ class CustomAuthenticationForm(AuthenticationForm):
             raise ValidationError(
                 mark_safe(
                     translate_lazy(
-                        f'Votre compte est inactif. Merci de contacter le <a href="{url_contact}">support</a>.'
+                        'Votre compte est inactif. Merci de contacter le <a href="{url_contact}">support</a>.'.format(
+                            url_contact=url_contact
+                        )
                     )
                 ),
                 code="inactive",

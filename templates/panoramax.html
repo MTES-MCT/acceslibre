@@ -3,6 +3,27 @@
 {% block page_title %}
     {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Panoramax" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}</h1>
     <p>
@@ -20,14 +41,29 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
             {% blocktranslate %}Les photos ne permettent pas de voir l'établissement. Cliquez sur "Aucune photo ne convient". Un nouvel établissement vous sera proposé.{% endblocktranslate %}
         </li>
     </ul>
-    <h2>
-        <a target="_blank" href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+    <section>
+        <p class="fr-mb-0">{% translate "En savoir plus :" %}</p>
+        <ul>
+            <li>
+                <a class="fr-link"
+                   href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                   target="_blank">{% translate "Voir le tutoriel" %}</a>
+            </li>
+            <li>
+                <a class="fr-link" href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+            </li>
+        </ul>
+    </section>
+    <h2 class="fr-my-2w">
+        <a class="fr-link fr-h2"
+           target="_blank"
+           href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
-    <p>
+    <address>
         {% translate "Adresse :" %} {{ erp.adresse }}
         <br>
         {% translate "Activité :" %} {{ erp.activite.nom }}
-    </p>
+    </address>
     <div id="viewer-container">
         <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
     </div>
@@ -39,6 +75,6 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
         <input type="submit"
                class="fr-btn btn-primary"
                value="{% translate "Choisir cette photo" %}">
-        <a href="." class="fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
+        <a href="." class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
     </form>
 {% endblock editorial_content %}

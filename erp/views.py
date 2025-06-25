@@ -108,17 +108,21 @@ def about_us(request):
 def challenges(request):
     today = datetime.datetime.today()
     challenges = Challenge.objects.filter(active=True)
+    panoramax_photos_count = ExternalSource.objects.filter(source=ExternalSource.SOURCE_PANORAMAX).count()
+
     return render(
         request,
         "challenge/list.html",
         context={
             "today": today,
             "challenges": challenges,
+            "panoramax_photos_count": panoramax_photos_count,
             "challenges_en_cours": challenges.filter(start_date__lte=today, end_date__gt=today),
             "challenges_termines": challenges.filter(end_date__lt=today),
             "challenges_a_venir": challenges.filter(
                 start_date__gt=today,
             ),
+            "page_type": "challenges",
         },
     )
 
@@ -354,6 +358,15 @@ class EditorialView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+@login_required
+def erp_remove_source_panoramax(request, erp_slug):
+    if request.user.is_staff is True:
+        erp = get_object_or_404(Erp, slug=erp_slug)
+        erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
+        messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
+    return redirect(reverse("commune_erp", kwargs={"erp_slug": erp_slug, "commune": erp.commune}))
 
 
 def erp_details(request, commune, erp_slug, activite_slug=None):

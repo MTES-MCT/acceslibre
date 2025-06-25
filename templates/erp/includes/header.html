@@ -25,11 +25,7 @@
                href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
         </div>
     </div>
-    <hr class="fr-hr fr-mt-2w" />
-    {% if image_id %}
-        <pnx-photo-viewer id="photo-viewer" endpoint="https://api.panoramax.xyz/api/" picture="{{ image_id }}" hide-legend xyz="{{ xyz }}"></pnx-photo-viewer>
-    {% endif %}
-    <hr class="fr-hr fr-mt-2w" />
+    <hr class="fr-hr fr-pb-md-3w fr-mt-bd-3w fr-pb-2w fr-mt-2w" />
     <div class="fr-grid-row address-container">
         <address class="fr-m-0 fr-col">
             <p class="fr-mb-3w word-break--all">
@@ -61,7 +57,6 @@
             {% endif %}
         </address>
         {% if erp.adresse %}
-            {#            <div class="fr-col"></div>#}
             <div class="fr-mb-2w">
                 <a class="fr-link"
                    href="https://www.google.com/maps/place/{{ erp.adresse }}"
@@ -69,5 +64,15 @@
             </div>
         </div>
     {% endif %}
-    <hr class="fr-hr fr-pb-0-5v" />
+    {% if image_id %}
+        <hr class="fr-hr fr-mt-2w" />
+        <pnx-photo-viewer id="photo-viewer" endpoint="https://api.panoramax.xyz/api/" picture="{{ image_id }}" hide-legend xyz="{{ xyz }}"></pnx-photo-viewer>
+        {% if request.user.is_staff %}
+            <a href="{% url 'panoramax_remove' erp_slug=erp.slug %}"
+               class="fr-btn fr-btn--secondary fr-mt-2w">{% translate "Supprimer l'image" %}</a>
+        {% endif %}
+        <hr class="fr-hr fr-mt-2w" />
+    {% else %}
+        <hr class="fr-hr fr-pb-0-5v" />
+    {% endif %}
 </header>

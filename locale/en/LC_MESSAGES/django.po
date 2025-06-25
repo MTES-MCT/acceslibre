@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-18 10:04+0200\n"
-"PO-Revision-Date: 2025-06-12 16:56+0200\n"
-"Last-Translator: <test@test.com>\n"
+"POT-Creation-Date: 2025-06-25 13:02+0200\n"
+"PO-Revision-Date: 2025-06-25 13:02+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.2\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -92,11 +92,11 @@ msgstr "You must confirm the deletion to make it effective."
 
 #, python-brace-format
 msgid ""
-"Votre compte est inactif. Merci de contacter le <a "
-"href=\"{url_contact}\">support</a>."
+"Votre compte est inactif. Merci de contacter le <a href=\"{url_contact}"
+"\">support</a>."
 msgstr ""
-"Your account is inactive. Please contact <a href=\"{url_contact}\">support</"
-"a>."
+"Your account is inactive. Please contact the <a href = \"{url_contact}\"> "
+"support </a>."
 
 msgid "EmailToken"
 msgstr "EmailToken"
@@ -2755,6 +2755,9 @@ msgstr ""
 "The export has been launched successfully. You will receive an email with a "
 "link to the CSV file."
 
+msgid "L'image Panoramax a bien été supprimée."
+msgstr "The Panoramax image has been deleted."
+
 msgid "Merci de votre contribution."
 msgstr "Thank you for your contribution."
 
@@ -3086,14 +3089,81 @@ msgstr "No participant has added or completed a facility yet"
 msgid "Classement par équipe"
 msgstr "Team rankings"
 
-msgid "Challenges en cours"
-msgstr "Challenges in progress"
+msgid "Vous êtes ici :"
+msgstr "You are here:"
 
-msgid "Challenges terminés"
-msgstr "Completed challenges"
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
 
-msgid "Prochains challenges"
-msgstr "Upcoming challenges"
+msgid "Challenge photos Acceslibre"
+msgstr "Acceslibre photos challenge"
+
+msgid "Aidez-nous à ajouter des photos sur Acceslibre !"
+msgstr "Help us add photos on Acceslibre!"
+
+msgid ""
+"\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" "
+"href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base "
+"collaborative et libre de photos géolocalisées, nous pouvons ajouter des "
+"photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque "
+"établissement !\n"
+"                    "
+msgstr ""
+"\n"
+"Thanks to <a class=\"fr-link fr-text--xl\" href=\"https://panoramax.fr/\" "
+"target=\"_blank\">Panoramax</a>, a collaborative and free photos, Can add "
+"photos on access. Just choose the right photo for each establishment!"
+
+msgid ""
+"Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez "
+"pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
+"partie remise !"
+msgstr ""
+"Blind and visually impaired friends, we’re sorry that you can’t take part in "
+"this challenge, but don’t worry — it’s only postponed!"
+
+msgid "En savoir plus :"
+msgstr "Find out more:"
+
+msgid "Voir le tutoriel"
+msgstr "See the tutorial"
+
+msgid "Voir notre foire aux questions"
+msgstr "See our Frequently Questions"
+
+#, python-format
+msgid "%(panoramax_photos_count)s photos ajoutées"
+msgstr "%(panoramax_photos_count)s added photos"
+
+msgid ""
+"Encore un effort pour atteindre les <span class=\"fr-text--bold\">10 000</"
+"span> !"
+msgstr "Another effort to reach <span class=\"fr-text--bold\">10 000</span> !"
+
+msgid "Je commence à contribuer"
+msgstr "Start contributing"
+
+msgid "Vous souhaitez fédérer vos équipes autour d’une cause solidaire ?"
+msgstr "Do you want to unite your teams around a solidarity cause?"
+
+msgid ""
+"Nos challenges permettent à vos collaborateurs d’agir concrètement dans le "
+"cadre d’une compétition simple et ludique."
+msgstr ""
+"Our challenges allow your employees to act concretely as part of a simple "
+"and fun competition."
+
+msgid ""
+"Pour les sensibiliser et les motiver, nos challenges transforment vos "
+"collaborateurs, le temps d’une compétition, en ambassadeurs d’un monde plus "
+"accessible."
+msgstr ""
+"To make them aware and motivate them, our challenges transform your "
+"employees, during a competition, into ambassadors of a more accessible world."
+
+msgid "Historique des challenges"
+msgstr "Challenges history"
 
 msgid "Challenge DDT février/mars 2022"
 msgstr "DDT Challenge February/March 2022"
@@ -3112,9 +3182,6 @@ msgid ""
 msgstr ""
 "\n"
 "%(start)s to %(end)s included"
-
-msgid "Vous êtes inscrits à ce challenge !"
-msgstr "You are registered for this challenge!"
 
 msgid "JavaScript doit être activé pour utiliser la cartographie interactive."
 msgstr "JavaScript must be enabled to use the interactive map."
@@ -3175,12 +3242,6 @@ msgstr "All communes, by department"
 
 msgid "Derniers établissements renseignés"
 msgstr "Latest facilities filled in"
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
 
 msgid "Profil et préférences"
 msgstr "Profile and preferences"
@@ -5810,6 +5871,9 @@ msgstr "Update this information"
 msgid "Itinéraire"
 msgstr "Itinerary"
 
+msgid "Supprimer l'image"
+msgstr "Delete the image"
+
 msgid "Historique des modifications"
 msgstr "Changes history"
 
@@ -6116,7 +6180,7 @@ msgid "icônes"
 msgstr "Icons"
 
 msgid "Choisir les photos Panoramax à ajouter sur Acceslibre"
-msgstr "Choose the Panoramax photos to add on AcSsLibre"
+msgstr "Choose the Panoramax photos to add on Acceslibre"
 
 msgid ""
 "La visionneuse vous propose automatiquement la photo la plus proche de "
@@ -6470,21 +6534,17 @@ msgstr ""
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
 
-#~ msgid "Matching Accèslibre/Panoramax"
-#~ msgstr "Matching Access Libre/Panoramax"
+#~ msgid "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos"
+#~ msgstr "Open a new window to the page of adding photos"
 
-#~ msgid ""
-#~ "Trouvez la photo de l'ERP dans la visionneuse. Vous pouvez vous déplacer "
-#~ "avec les flèches et zoomer avec la molette."
-#~ msgstr ""
-#~ "Find the photo of the ERP in the viewer. You can move with the arrows and "
-#~ "zoom in with the wheel."
+#~ msgid "Challenges en cours"
+#~ msgstr "Undergoing challenges"
 
-#~ msgid "Sauvegarder"
-#~ msgstr "To safeguard"
+#~ msgid "Challenges terminés"
+#~ msgstr "Challenges finished"
 
-#~ msgid "Passer à un autre ERP"
-#~ msgstr "Go to another ERP"
+#~ msgid "Prochains challenges"
+#~ msgstr "Next challenges"
 
-#~ msgid "Photo liée avec succès !"
-#~ msgstr "Successful photo!"
+#~ msgid "Vous êtes inscrits à ce challenge !"
+#~ msgstr "You are registered with this challenge!"
