@@ -5,54 +5,146 @@
 {% block page_title %}
     {% translate "Challenges" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Challenges" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
     <div class="row">
-        <div class="fr-col-12 fr-col-md-6 ">
-            <section class="row fr-mt-4v">
-                <div class="col-12">
-                    <h1 class="text-center text-md-right">{% translate "Challenges" %}</h1>
-                </div>
-            </section>
-            {% if challenges_en_cours %}
-                <section class="row justify-content-start fr-mt-4v">
-                    <div class="col-12">
-                        <h2>
-                            <strong>{% translate "Challenges en cours" %}</strong>
-                        </h2>
-                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}
+        <div class="fr-col-12">
+            <div class="fr-col-12 top-section">
+                <h1 class="fr-mb-0">{% translate "Challenges" %}</h1>
+                <section>
+                    <h2>{% translate "Challenge photos Acceslibre" %}</h2>
+                    <p class="fr-text--bold fr-text--xl">{% translate "Aidez-nous à ajouter des photos sur Acceslibre !" %}</p>
+                    <p class="fr-text--xl">
+                        {% blocktranslate %}
+                        Grâce à <a class="fr-link fr-text--xl" href="https://panoramax.ign.fr/?background=streets&focus=map&map=5.7/47/3&speed=250" target="_blank">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !
+                    {% endblocktranslate %}
+                    </p>
+                    <p class="fr-text--xl">
+                        {% translate "Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que partie remise !" %}
+                    </p>
+                    <p class="fr-text--xl fr-mb-0">{% translate "En savoir plus :" %}</p>
+                    <ul>
+                        <li>
+                            <a class="fr-link fr-text--xl"
+                               href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                               target="_blank">{% translate "Voir le tutoriel" %}</a>
+                        </li>
+                        <li>
+                            <a class="fr-link fr-text--xl" href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="panoramax-section">
+                    <div class="fr-col-md-6 fr-col-12">
+                        <div class="fr-card">
+                            <div class="fr-card__body">
+                                <div class="fr-card__content">
+                                    <h3 class="fr-card__title">{% blocktranslate %}{{ panoramax_photos_count }} photos ajoutées{% endblocktranslate%}</h3>
+                                    <p class="fr-card__desc">
+                                        {% blocktranslate %}Encore un effort pour atteindre les <span class="fr-text--bold">10 000</span> !{% endblocktranslate %}
+                                    </p>
+                                </div>
+                                <div class="fr-card__footer">
+                                    <ul class="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
+                                        <li>
+                                            <a class="fr-btn" href="{% url "panoramax" %}" target="_blank">{% translate "Je commence à contribuer" %}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="fr-card__header">
+                                <div class="fr-card__img">
+                                    <img class="fr-responsive-img"
+                                         src="{% static 'img/challenges/restaurant.jpeg' %}"
+                                         alt="" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
-            {% endif %}
+            </div>
+            <section class="help-section">
+                <h1 class="fr-mb-0 align-self--center">
+                    {% translate "Vous souhaitez fédérer vos équipes autour d’une cause solidaire ?" %}
+                </h1>
+                <div class="description-block">
+                    <img src="{% static 'img/environment.svg' %}"
+                         width="102"
+                         height="102"
+                         alt=""
+                         aria-hidden="true"
+                         class="fr-artwork">
+                    <div class="display--flex direction--column gap-2w">
+                        <p class="fr-mb-1w">
+                            {% translate "Nos challenges permettent à vos collaborateurs d’agir concrètement dans le cadre d’une compétition simple et ludique." %}
+                        </p>
+                        <p class="fr-mb-0">
+                            {% translate "Pour les sensibiliser et les motiver, nos challenges transforment vos collaborateurs, le temps d’une compétition, en ambassadeurs d’un monde plus accessible." %}
+                        </p>
+                    </div>
+                </div>
+            </section>
             {% if challenges_termines %}
-                <section class="row justify-content-start fr-mt-4v">
+                <section class="challenges-list-section">
                     <div class="col-12">
-                        <h2>
-                            <strong>{% translate "Challenges terminés" %}</strong>
-                        </h2>
+                        <h1>
+                            <strong>{% translate "Historique des challenges" %}</strong>
+                        </h1>
                         {% include "common/challenge_item.html" with challenges=challenges_termines %}
                     </div>
                 </section>
             {% endif %}
-            {% if challenges_a_venir %}
-                <section class="row justify-content-start fr-mt-4v">
-                    <div class="col-12">
-                        <h2">
-                            <strong>{% translate "Prochains challenges" %}</strong>
-                        </h2>
-                        {% include "common/challenge_item.html" with challenges=challenges_a_venir %}
-                    </div>
-                </section>
-            {% endif %}
-        </div>
-        <div class="fr-col-5 fr-col-offset-1 fr-mt-20v">
-            <figure class="fr-content-media d-none d-sm-block">
-                <div class="fr-content-media__img ">
-                    <img class="auto-height"
-                         src="{% static 'img/login.jpg' %}"
-                         alt=""
-                         aria-hidden="true">
-                </div>
-            </figure>
+            {# todo: check for later for v2 #}
+            {#            {% if challenges_en_cours %}#}
+            {#                <section class="row justify-content-start fr-mt-4v">#}
+            {#                    <div class="col-12">#}
+            {#                        <h2>#}
+            {#                            <strong>{% translate "Challenges en cours" %}</strong>#}
+            {#                        </h2>#}
+            {#                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}#}
+            {#                    </div>#}
+            {#                </section>#}
+            {#            {% endif %}#}
+            {#            {% if challenges_termines %}#}
+            {#                <section class="row justify-content-start fr-mt-4v">#}
+            {#                    <div class="col-12">#}
+            {#                        <h2>#}
+            {#                            <strong>{% translate "Challenges terminés" %}</strong>#}
+            {#                        </h2>#}
+            {#                        {% include "common/challenge_item.html" with challenges=challenges_termines %}#}
+            {#                    </div>#}
+            {#                </section>#}
+            {#            {% endif %}#}
+            {#            {% if challenges_a_venir %}#}
+            {#                <section class="row justify-content-start fr-mt-4v">#}
+            {#                    <div class="col-12">#}
+            {#                        <h2">#}
+            {#                            <strong>{% translate "Prochains challenges" %}</strong>#}
+            {#                        </h2>#}
+            {#                        {% include "common/challenge_item.html" with challenges=challenges_a_venir %}#}
+            {#                    </div>#}
+            {#                </section>#}
+            {#            {% endif %}#}
         </div>
     </div>
 {% endblock editorial_content %}
