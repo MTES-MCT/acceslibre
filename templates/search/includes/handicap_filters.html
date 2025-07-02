@@ -21,9 +21,11 @@
                         <h2 class="fr-accordion__title">
                             <button class="fr-accordion__btn"
                                     aria-expanded="false"
-                                    aria-controls="accordion-{{ group.grouper }}">{{ group.grouper }}</button>
+                                    aria-controls="accordion-{{ group.grouper | kebab_case }}">
+                                {{ group.grouper }}
+                            </button>
                         </h2>
-                        <div class="fr-collapse" id="accordion-{{ group.grouper }}">
+                        <div class="fr-collapse" id="accordion-{{ group.grouper | kebab_case }}">
                             <div class="display--flex gap-1w direction--column">
                                 {% for equipement in group.list %}
                                     {% include "search/includes/filter_clone.html" with slug=equipement.slug params=equipment_params eventType="equipmentClicked" name=equipement.name input_name="equipments_shortcuts" %}
