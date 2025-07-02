@@ -16,16 +16,14 @@ function generateHTMLForResult(result) {
 
   const completion_rate = result.properties.completion_rate
 
-  const _btn = `
+  return `
     <li class="list-style-type--none">
       <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
         <div class="fr-card__body">
             <div class="fr-card__content">
-                <h2 class="fr-card__title fr-h3">
-                ${result.properties.nom}
-                </h2>
+                <h3 class="fr-card__title fr-h5">${result.properties.nom}</h3>
                 <div class="fr-card__desc">
-                    <p class="fr-mb-0">${activity_name}</p>
+                    <p class="fr-tag fr-mb-1w">${activity_name}</p>
                     <address class="fr-mb-0">${result.properties.adresse}</address>
                 </div>
                 <div class="fr-card__start">
@@ -44,7 +42,7 @@ function generateHTMLForResult(result) {
                         <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
                     </li>
                     <li>
-                        <a href=${link} class="fr-btn" target="_blank" rel="noopener">${gettext('Détails')}</a>
+                        <a href="${link}" class="fr-btn" target="_blank" rel="noopener">${gettext('Détails')}</a>
                     </li>
                 </ul>
             </div>
@@ -52,8 +50,6 @@ function generateHTMLForResult(result) {
       </div>
     </li>
   `
-
-  return _btn
 }
 
 export default {
