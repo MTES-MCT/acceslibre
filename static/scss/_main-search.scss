@@ -2,6 +2,7 @@
 
 :root {
   --main-filters-width: 350px;
+  --search-list-width: 500px;
 }
 
 .main-search-container {
@@ -55,9 +56,12 @@
   }
 
   .fr-tabs__panel:last-child {
-    width: 100%;
-    max-width: 100% !important;
-    flex: 0 0 100%;
+    width: calc(100% - var(--main-filters-width) - var(--search-list-width));
+    max-width: calc(
+      100% - var(--main-filters-width) - var(--search-list-width)
+    );
+    flex: 0 0 calc(100% - var(--main-filters-width) - var(--search-list-width));
+    margin-left: auto;
   }
 
   &__main-filters {
@@ -85,13 +89,13 @@
     display: flex;
     gap: 12px;
     height: 756px;
-    overflow-y: scroll;
-    width: 500px;
+    overflow-y: auto;
+    width: var(--search-list-width);
     flex-direction: column;
     z-index: 999;
     background-color: white;
     position: absolute;
-    left: calc(var(--main-filters-width) + 8px);
+    left: var(--main-filters-width);
     top: 4px;
     padding: 16px !important;
     border-radius: 0;
@@ -153,7 +157,7 @@ div.equipments > span:not(.hidden, .section-text) {
 }
 
 #search-results {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #export-results {

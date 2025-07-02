@@ -577,29 +577,11 @@ function openMarkerPopup(erpIdentifier) {
   layers.forEach((layer) => {
     if (layer.identifier === erpIdentifier) {
       shouldRefreshMap = false
-
       layer.__parent._group._map = map
 
-      const filtersElement = document.querySelector('.main-search__main-filters')
-      const listElement = document.getElementById('erp-results-list')
-
-      if (filtersElement && listElement) {
-        markers.zoomToShowLayer(layer, () => {
-          layer.openPopup()
-
-          const point = map.latLngToContainerPoint(L.latLng(layer._latlng.lat, layer._latlng.lng))
-          const leftSidePanelsWidth =
-            (filtersElement.getBoundingClientRect().width + listElement.getBoundingClientRect().width) / 3
-          const offsetPoint = L.point(Math.abs(leftSidePanelsWidth - point.x), point.y)
-          const offsetLatLng = map.containerPointToLatLng(offsetPoint)
-
-          map.panTo(offsetLatLng)
-        })
-      } else {
-        markers.zoomToShowLayer(layer, () => {
-          layer.openPopup()
-        })
-      }
+      markers.zoomToShowLayer(layer, () => {
+        layer.openPopup()
+      })
     }
   })
 }

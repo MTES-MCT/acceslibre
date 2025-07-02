@@ -6,6 +6,7 @@
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     <div>
+        <h1 class="fr-h4">{% translate "Rechercher un lieu" %}</h1>
         <div class="fr-input-group">
             <label for="what-input" class="w-100 text-start">{% translate "Activité ou nom d'établissement" %}</label>
             {% comment %}Translators: please do not translate "Mairie, café" as we are searching into french contents{% endcomment %}
