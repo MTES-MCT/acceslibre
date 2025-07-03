@@ -5,6 +5,7 @@
            name="{{ input_name }}"
            value="{{ slug }}"
            data-event-type="{{ eventType }}"
+           data-label-value="{{ name }}"
            {% if children_list %}data-children="{{ children_list }}"{% endif %}
            {% if suggestions_list %}data-suggestions="{{ suggestions_list }}"{% endif %}
            {% if slug in params %}checked{% endif %}>

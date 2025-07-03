@@ -37,7 +37,7 @@ function generateHTMLForResult(result) {
                 </div>
             </div>
             <div class="fr-card__footer">
-                <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--inline-lg">
+                <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
                         <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
                     </li>
