@@ -519,6 +519,8 @@ function AppMap(root) {
 
   if (equipmentsInputs && filtersModal) {
     filtersModal.addEventListener('dsfr.conceal', () => {
+      document.dispatchEvent(new Event('shortcutClickedFromSearch'))
+
       refreshData(map)
       url.refreshSearchURL()
     })
