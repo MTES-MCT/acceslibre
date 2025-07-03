@@ -4,12 +4,22 @@ function _storeFilterFromSelector(selector) {
 }
 
 function StoreFilters() {
-  document.addEventListener('shortcutClicked', function (event) {
+  document.addEventListener('shortcutClicked', function () {
     _storeFilterFromSelector('.equipments-shortcuts button[aria-pressed=true]')
   })
 
-  document.addEventListener('filterClicked', function (event) {
+  document.addEventListener('filterClicked', function () {
     _storeFilterFromSelector('.a4a-label-tag[aria-pressed=true]')
+  })
+
+  document.addEventListener('shortcutClickedFromSearch', () => {
+    const activeFilters = Array.from(
+      document.querySelectorAll('input[type="checkbox"][data-event-type="shortcutClicked"]:checked')
+    )
+
+    const filterValues = activeFilters.map((filter) => filter.dataset.labelValue)
+
+    localStorage.setItem('activeFilters', filterValues)
   })
 }
 

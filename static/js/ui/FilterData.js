@@ -1,18 +1,12 @@
-function hasVisibleChildren(element) {
-  let visibleChildren = false
-  Array.from(element.children).forEach(function (child) {
-    if (child.offsetWidth > 0) {
-      visibleChildren = true
-    }
-  })
-  return visibleChildren
-}
-
 function listenToFilterClicked(root) {
   const dataToToogle = root.querySelectorAll('[data-filters]')
+
   document.addEventListener('filterClicked', () => {
-    const inputFilters = document.querySelectorAll('[name=erp_filter]:checked')
-    const activeFilters = Array.from(inputFilters).map((filter) => filter.value)
+    const inputFilters = document.querySelectorAll('button[data-filter-name][aria-pressed="true"]')
+    const activeFilters = Array.from(inputFilters)
+      .map((filter) => filter.dataset.filterName)
+      .filter(Boolean)
+
     const titlesToToggle = root.querySelectorAll('[data-filter-title]')
 
     if (activeFilters.length === 0) {
@@ -29,6 +23,7 @@ function listenToFilterClicked(root) {
       const filtersForElement = element.dataset.filters
       const filterFound = activeFilters.some((filter) => filtersForElement.includes(filter))
       const forceDisplay = filtersForElement.includes('all')
+
       if (filterFound || forceDisplay) {
         element.classList.remove('hidden')
       } else {
@@ -42,12 +37,14 @@ function listenToFilterClicked(root) {
 
 function hideEmptyTitles(root) {
   const titlesToToggle = root.querySelectorAll('[data-filter-title]')
-  titlesToToggle.forEach((titleElement) => {
-    const shouldBeVisible = hasVisibleChildren(titleElement.nextElementSibling)
-    if (shouldBeVisible === true) {
-      titleElement.classList.remove('hidden')
+
+  titlesToToggle.forEach((accordion) => {
+    const hasContent = accordion.parentNode.querySelectorAll('.fr-collapse li:not(.hidden)')
+
+    if (hasContent.length === 0) {
+      accordion.parentNode.classList.add('hidden')
     } else {
-      titleElement.classList.add('hidden')
+      accordion.parentNode.classList.remove('hidden')
     }
   })
 }

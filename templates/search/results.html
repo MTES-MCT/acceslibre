@@ -13,110 +13,80 @@
     {% endspaceless %}
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <aside class="fr-container-fluid bg-light fr-py-4v">
-        <div class="fr-container text-center">{% include "search/form.html" with dark=False %}</div>
-    </aside>
+    {% include "search/includes/filter_modal.html" with dark=False %}
 {% endblock top_fluid_content %}
-{% block editorial_content %}
-    <h1 class="mt-3 fr-mb-2v text-muted results-title">
-        {% if what %}
-            {% blocktranslate %}Résultats pour «{{what}}» autour de «{{where}}»{% endblocktranslate %}
-        {% else %}
-            {% blocktranslate %}Résultats autour de «{{where}}»{% endblocktranslate %}
-        {% endif %}
-    </h1>
-    <div class="spinner" id="loading-spinner">
-        <div class="loader"></div>
-    </div>
-    <section class="fr-pt-2v" id="results">
-        <div id="no-results"
-             class="{% if paginator.count != 0 %}hidden{% endif %}">
-            <h3 class="h5">
-                <b>{% translate "Il n'y a pas de résultat correspondant à votre recherche" %}.</b>
-            </h3>
-            <div class="d-flex justify-content-between w-75 fr-mb-4v" id="cta">
-                <div class="mt-2">
-                    <a class="fr-btn fr-btn btn-lg fr-mr-4v" id="broaderSearch" href="#">{% translate "Elargir la zone de recherche" %}</a>
-                    <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "search" %}">{% translate "Nouvelle recherche" %}</a>
-                    <span>{% translate "ou" %}</span>
-                    <a class="fr-btn fr-btn--secondary btn-lg"
-                       href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where|urlencode }}">
-                        {% translate "Ajouter un établissement" %}
-                    </a>
+{% block full_editorial_content %}
+    <section id="results">
+        <div class="main-search position--relative {% if not display_filters %}filters-removed{% endif %}">
+            <div class="main-search__main-filters">
+                {% include "search/includes/main_filters.html" %}
+                {% flag "EXPORT_RESULTS" %}
+                {% if request.user.is_authenticated %}
+                    <div id="export-results">
+                        <form method="get" action="{% url 'export' %}">
+                            {% for key, value in request.GET.items %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
+                            <button type="submit"
+                                    class="fr-btn fr-btn--tertiary-no-outline"
+                                    id="export-results-btn">
+                                {% translate "Exporter les résultats au format CSV" %}
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
+            {% endflag %}
+        </div>
+        <div class="fr-tabs">
+            <ul class="fr-tabs__list"
+                role="tablist"
+                aria-label="Résultats de recherche">
+                <li role="presentation">
+                    <button id="tabpanel-404"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="0"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-405"
+                            class="fr-tabs__tab fr-tabs__tab--icon-left"
+                            tabindex="-1"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
+                </li>
+            </ul>
+            <div id="tabpanel-404-panel"
+                 class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-p-0"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-404"
+                 tabindex="0">
+                <div class="main-search__list" id="erp-results-list">
+                    <div class="position--sticky">
+                        <h2 class="fr-h4 fr-mb-0">{% translate "Établissements existants sur Acceslibre" %}</h2>
+                        <p id="number-of-results" class="fr-mb-0 fr-text--xl" aria-live="polite">
+                            {% translate "En cours de chargement..." %}
+                        </p>
+                    </div>
+                    <section class="overflow-y-scroll">
+                        <ul id="search-results"
+                            class="p-0 gap-1w display--flex direction--column">
+                        </ul>
+                        <div class="fr-btns-group fr-m-0">
+                            <button id="view-more-erps-btn" class="fr-btn fr-hidden fr-m-auto">{% translate "Voir plus" %}</button>
+                        </div>
+                        <p id="view-more-erps-loading" class="fr-hidden text--center fr-mt-1w">{% translate "En cours de chargement..." %}</p>
+                    </section>
                 </div>
             </div>
-        </div>
-        <div class="row fr-mt-2v">
-            <div class="fr-col-sm-5">
-                <h2 class="h4 m-0 fr-mb-3v">
-                    <span id="number-of-results">{{ paginator.count }}
-                        {% blocktranslate count counter=paginator.count %}établissement{% plural %}établissements{% endblocktranslate %}
-                    </span>
-                    {% if where|startswith:"Autour de moi" or where|startswith:"Around me" %}
-                        {% blocktranslate %}à moins de {{ MAP_SEARCH_RADIUS_KM }}{% endblocktranslate %}<span aria-hidden="true">{% translate "km" %}</span> <span class="fr-sr-only">{% translate "kilomètres" %}</span>
-                    {% endif %}
-                    {% if not dynamic_map %}
-                        <small class="text-muted">
-                            {% if paginator.num_pages > 1 %}
-                                {% translate "page" %} {{ pager.number }}/{{ paginator.num_pages }}
-                            {% endif %}
-                        </small>
-                    {% endif %}
-                </h2>
+            <div id="tabpanel-405-panel"
+                 class="fr-tabs__panel fr-col fr-col-12 a4a-search-map-area"
+                 role="tabpanel"
+                 aria-labelledby="tabpanel-405"
+                 tabindex="0">
+                <div class="main-search__map">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
             </div>
-            {% flag "EXPORT_RESULTS" %}
-            {% if request.user.is_authenticated %}
-                <div id="export-results" class="fr-col-sm-7">
-                    <form method="get" action="{% url 'export' %}">
-                        {% for key, value in request.GET.items %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
-                        <button type="submit"
-                                class="fr-link fr-link--download"
-                                id="export-results-btn">
-                            {% translate "Exporter les résultats" %} <span class="fr-link__detail">CSV</span>
-                        </button>
-                    </form>
-                </div>
-            {% endif %}
-        {% endflag %}
-    </div>
-    <div class="fr-tabs row">
-        <ul class="fr-tabs__list"
-            role="tablist"
-            aria-label="Résultats de recherche">
-            <li role="presentation">
-                <button id="tabpanel-404"
-                        class="fr-tabs__tab fr-tabs__tab--icon-left"
-                        tabindex="0"
-                        role="tab"
-                        aria-selected="true"
-                        aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
-            </li>
-            <li role="presentation">
-                <button id="tabpanel-405"
-                        class="fr-tabs__tab fr-tabs__tab--icon-left"
-                        tabindex="-1"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
-            </li>
-        </ul>
-        <div id="tabpanel-404-panel"
-             class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-col-md-5 fr-p-0"
-             role="tabpanel"
-             aria-labelledby="tabpanel-404"
-             tabindex="0">
-            <div class="list-group list-group-flush" id="erp-results-list"></div>
-            {% if not dynamic_map %}
-                <div class="fr-pt-2v fr-pr-2v">
-                    {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
-                </div>
-            {% endif %}
         </div>
-        <div id="tabpanel-405-panel"
-             class="fr-tabs__panel fr-col fr-col-12 fr-col-md-7 a4a-search-map-area"
-             role="tabpanel"
-             aria-labelledby="tabpanel-405"
-             tabindex="0">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
     </div>
 </section>
-{% endblock editorial_content %}
+{% endblock full_editorial_content %}

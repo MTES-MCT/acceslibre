@@ -14,8 +14,15 @@ function LoadFilters() {
   }
 
   activeFilters.split(',').forEach((item) => {
-    _clickOnSelector(item, '[data-event-type=filterClicked]') // ERP details page
-    _clickOnSelector(item, '[data-event-type=shortcutClicked]') // Search results page
+    // ERP details page
+    _clickOnSelector(item, '[data-event-type=filterClicked]')
+
+    // Search results page
+    Array.from(document.querySelectorAll('[data-event-type="shortcutClicked"]')).map((elem) => {
+      if (item === elem.dataset.labelValue) {
+        elem.setAttribute('checked', 'checked')
+      }
+    })
   })
 }
 
