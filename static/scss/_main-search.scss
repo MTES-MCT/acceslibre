@@ -62,6 +62,12 @@
     );
     flex: 0 0 calc(100% - var(--main-filters-width) - var(--search-list-width));
     margin-left: auto;
+
+    @media screen and (max-width: $viewport-lg) {
+      width: 100%;
+      max-width: 100%;
+      flex: 1;
+    }
   }
 
   &__main-filters {

@@ -39,10 +39,10 @@ function generateHTMLForResult(result) {
             <div class="fr-card__footer">
                 <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
-                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
+                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
                     </li>
                     <li>
-                        <a href="${link}" class="fr-btn" target="_blank" rel="noopener">${gettext('Détails')}</a>
+                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
                     </li>
                 </ul>
             </div>
