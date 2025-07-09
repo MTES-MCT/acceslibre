@@ -117,6 +117,10 @@
     border-left: 1px solid var(--background-alt-grey-hover);
     border-top: none !important;
 
+    .fr-card--sm .fr-card__content {
+      padding-bottom: 0 !important;
+    }
+
     @media screen and (max-width: $viewport-lg) {
       position: relative;
       left: 0;
