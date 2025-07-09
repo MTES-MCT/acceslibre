@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 13:02+0200\n"
-"PO-Revision-Date: 2025-06-25 13:02+0200\n"
+"POT-Creation-Date: 2025-07-09 10:18+0200\n"
+"PO-Revision-Date: 2025-07-03 14:30+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3115,14 +3115,6 @@ msgstr ""
 "target=\"_blank\">Panoramax</a>, a collaborative and free photos, Can add "
 "photos on access. Just choose the right photo for each establishment!"
 
-msgid ""
-"Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez "
-"pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
-"partie remise !"
-msgstr ""
-"Blind and visually impaired friends, we’re sorry that you can’t take part in "
-"this challenge, but don’t worry — it’s only postponed!"
-
 msgid "En savoir plus :"
 msgstr "Find out more:"
 
@@ -4380,6 +4372,9 @@ msgstr "Close the navigation menu"
 
 msgid "Menu principal"
 msgstr "Main menu"
+
+msgid "Rechercher un lieu"
+msgstr "Search for a facility"
 
 msgid "Sélectionner une langue"
 msgstr "Pick a language"
@@ -6008,9 +6003,6 @@ msgstr "required"
 msgid "Toutes les informations sur l'accessibilité des lieux ouverts au public"
 msgstr "All the information about accessibility of public places "
 
-msgid "Rechercher un lieu"
-msgstr "Search for a facility"
-
 msgid "Ajouter un lieu"
 msgstr "Add a facility"
 
@@ -6421,32 +6413,28 @@ msgstr ""
 msgid "Réinitialiser mon mot de passe"
 msgstr "Reset my password"
 
-msgid "<strong>Quoi</strong> (activité, enseigne)"
-msgstr "<strong>What</strong> (activity, sign)"
+msgid "Personnaliser le site à votre image"
+msgstr "Tailor the site to your image"
 
-msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
-msgstr "Search for a facility, an activity. Example : Mairie, Café"
+msgid ""
+"Filtrer par type de handicap et afficher uniquement les infos "
+"d'accessibilité qui vous concernent."
+msgstr "Display only accessibility information that concerns you"
 
-msgid "<strong>Où</strong> (adresse, ville)"
-msgstr "<strong>Where</strong> (address, city)"
-
-msgid "Commencer la saisie puis sélectionner dans la liste"
-msgstr "Start typing then select from the list"
-
-msgid "Adaptés pour"
-msgstr "Adapted for"
-
-msgid "Filtres"
-msgstr "Filters"
-
-msgid "Voir tous les filtres"
-msgstr "See all filters"
+msgid "Filtrer par équipements :"
+msgstr "Filter by equipments:"
 
 msgid "Supprimer tous les filtres"
 msgstr "Delete all filters"
 
-msgid "Tous les équipements"
-msgstr "All equipment"
+msgid "Activité ou nom d'établissement"
+msgstr "Activity or establishment name"
+
+msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
+msgstr "Search for a facility, an activity. Example : Mairie, Café"
+
+msgid "Filtrer par type de handicap"
+msgstr "Filter by handicap type"
 
 msgid "Résultats pour"
 msgstr "Results for"
@@ -6457,38 +6445,23 @@ msgstr "page"
 msgid "Aucun résultat"
 msgstr "No result"
 
-#, python-format
-msgid "Résultats pour «%(what)s» autour de «%(where)s»"
-msgstr "Results for «%(what)s» around «%(where)s»"
-
-#, python-format
-msgid "Résultats autour de «%(where)s»"
-msgstr "Results around «%(where)s»"
-
-msgid "Il n'y a pas de résultat correspondant à votre recherche"
-msgstr "There are no results matching your search"
-
-msgid "Elargir la zone de recherche"
-msgstr "Widen the search area"
-
-msgid "Nouvelle recherche"
-msgstr "New search"
-
-#, python-format
-msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
-msgstr "less than %(MAP_SEARCH_RADIUS_KM)s"
-
-msgid "km"
-msgstr "km"
-
-msgid "Exporter les résultats"
-msgstr "Export results"
+msgid "Exporter les résultats au format CSV"
+msgstr "Export results to CSV format"
 
 msgid "Liste des résultats"
 msgstr "Results list"
 
 msgid "Carte"
 msgstr "Map"
+
+msgid "Établissements existants sur Acceslibre"
+msgstr "Existing establishments on Acceslibre"
+
+msgid "En cours de chargement..."
+msgstr "Loading..."
+
+msgid "Voir plus"
+msgstr "See more"
 
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
@@ -6533,6 +6506,59 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "<strong>Quoi</strong> (activité, enseigne)"
+#~ msgstr "<strong>What</strong> (activity, sign)"
+
+#~ msgid "<strong>Où</strong> (adresse, ville)"
+#~ msgstr "<strong>Where</strong> (address, city)"
+
+#~ msgid "Commencer la saisie puis sélectionner dans la liste"
+#~ msgstr "Start typing then select from the list"
+
+#~ msgid "Adaptés pour"
+#~ msgstr "Adapted for"
+
+#~ msgid "Filtres"
+#~ msgstr "Filters"
+
+#~ msgid "Voir tous les filtres"
+#~ msgstr "See all filters"
+
+#~ msgid "Tous les équipements"
+#~ msgstr "All equipment"
+
+#, python-format
+#~ msgid "Résultats pour «%(what)s» autour de «%(where)s»"
+#~ msgstr "Results for «%(what)s» around «%(where)s»"
+
+#, python-format
+#~ msgid "Résultats autour de «%(where)s»"
+#~ msgstr "Results around «%(where)s»"
+
+#~ msgid "Il n'y a pas de résultat correspondant à votre recherche"
+#~ msgstr "There are no results matching your search"
+
+#~ msgid "Elargir la zone de recherche"
+#~ msgstr "Widen the search area"
+
+#~ msgid "Nouvelle recherche"
+#~ msgstr "New search"
+
+#, python-format
+#~ msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
+#~ msgstr "less than %(MAP_SEARCH_RADIUS_KM)s"
+
+#~ msgid "km"
+#~ msgstr "km"
+
+#~ msgid ""
+#~ "Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez "
+#~ "pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
+#~ "partie remise !"
+#~ msgstr ""
+#~ "Blind and visually impaired friends, we’re sorry that you can’t take part "
+#~ "in this challenge, but don’t worry — it’s only postponed!"
 
 #~ msgid "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos"
 #~ msgstr "Open a new window to the page of adding photos"

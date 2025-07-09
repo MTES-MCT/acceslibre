@@ -27,10 +27,10 @@ import StoreFilters from './js/ui/StoreFilters'
 
 import posthog from 'posthog-js'
 
-posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
-  api_host: 'https://eu.i.posthog.com',
-  person_profiles: 'always',
-})
+// posthog.init('phc_1EAzdaH4YiBLDU8MMGqPk6BjaJF0gvoE3rZH5UQ4IkZ', {
+//   api_host: 'https://eu.i.posthog.com',
+//   person_profiles: 'always',
+// })
 
 // Initializations
 dom.ready(() => {
@@ -43,7 +43,7 @@ dom.ready(() => {
   dom.mountOne('.a4a-conditional-form', ui.ConditionalForm)
   dom.mountAll('.search-where-field', ui.SearchWhere)
   dom.mountAll('.asteriskField', ui.AsteriskField)
-  dom.mountAll('.a4a-geo-link', ui.GeoLink)
+  dom.mountAll('.a4a-geo-link .locate-btn', ui.GeoLink)
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
   dom.mountOne('#export-results-btn', ui.ExportResultsBtn)
   dom.mountOne('#erp-address', ui.SyncInputsWithElement)

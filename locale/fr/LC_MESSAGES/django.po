@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-25 13:01+0200\n"
+"POT-Creation-Date: 2025-07-09 10:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2886,12 +2886,6 @@ msgid ""
 "                    "
 msgstr ""
 
-msgid ""
-"Amis non-voyants et mal-voyants, nous sommes désolés que vous ne puissiez "
-"pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
-"partie remise !"
-msgstr ""
-
 msgid "En savoir plus :"
 msgstr ""
 
@@ -4057,6 +4051,9 @@ msgid "Fermer le menu de navigation"
 msgstr ""
 
 msgid "Menu principal"
+msgstr ""
+
+msgid "Rechercher un lieu"
 msgstr ""
 
 msgid "Sélectionner une langue"
@@ -5246,9 +5243,6 @@ msgstr ""
 msgid "Toutes les informations sur l'accessibilité des lieux ouverts au public"
 msgstr ""
 
-msgid "Rechercher un lieu"
-msgstr ""
-
 msgid "Ajouter un lieu"
 msgstr ""
 
@@ -5593,31 +5587,27 @@ msgstr ""
 msgid "Réinitialiser mon mot de passe"
 msgstr ""
 
-msgid "<strong>Quoi</strong> (activité, enseigne)"
+msgid "Personnaliser le site à votre image"
 msgstr ""
 
-msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
+msgid ""
+"Filtrer par type de handicap et afficher uniquement les infos "
+"d'accessibilité qui vous concernent."
 msgstr ""
 
-msgid "<strong>Où</strong> (adresse, ville)"
-msgstr ""
-
-msgid "Commencer la saisie puis sélectionner dans la liste"
-msgstr ""
-
-msgid "Adaptés pour"
-msgstr ""
-
-msgid "Filtres"
-msgstr ""
-
-msgid "Voir tous les filtres"
+msgid "Filtrer par équipements :"
 msgstr ""
 
 msgid "Supprimer tous les filtres"
 msgstr ""
 
-msgid "Tous les équipements"
+msgid "Activité ou nom d'établissement"
+msgstr ""
+
+msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
+msgstr ""
+
+msgid "Filtrer par type de handicap"
 msgstr ""
 
 msgid "Résultats pour"
@@ -5629,37 +5619,22 @@ msgstr ""
 msgid "Aucun résultat"
 msgstr ""
 
-#, python-format
-msgid "Résultats pour «%(what)s» autour de «%(where)s»"
-msgstr ""
-
-#, python-format
-msgid "Résultats autour de «%(where)s»"
-msgstr ""
-
-msgid "Il n'y a pas de résultat correspondant à votre recherche"
-msgstr ""
-
-msgid "Elargir la zone de recherche"
-msgstr ""
-
-msgid "Nouvelle recherche"
-msgstr ""
-
-#, python-format
-msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
-msgstr ""
-
-msgid "km"
-msgstr ""
-
-msgid "Exporter les résultats"
+msgid "Exporter les résultats au format CSV"
 msgstr ""
 
 msgid "Liste des résultats"
 msgstr ""
 
 msgid "Carte"
+msgstr ""
+
+msgid "Établissements existants sur Acceslibre"
+msgstr ""
+
+msgid "En cours de chargement..."
+msgstr ""
+
+msgid "Voir plus"
 msgstr ""
 
 msgid "Statistiques d'Acceslibre"

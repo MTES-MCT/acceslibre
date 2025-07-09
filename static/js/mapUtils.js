@@ -1,50 +1,55 @@
 function generateHTMLForResult(result) {
-  let icon = 'building'
+  // let icon = 'building'
   let activity_name = ''
   let link = ''
   if (result.properties.activite__vector_icon) {
     // Data from template context
-    icon = result.properties.activite__vector_icon
+    // icon = result.properties.activite__vector_icon
     activity_name = result.properties.activite__nom
     link = result.properties.absolute_url
   } else if (result.properties.activite) {
     // Data from API
-    icon = result.properties.activite.vector_icon
+    // icon = result.properties.activite.vector_icon
     activity_name = result.properties.activite.nom
     link = result.properties.web_url
   }
 
+  const completion_rate = result.properties.completion_rate
+
   return `
-    <div class="list-group-item d-flex justify-content-between align-items-center fr-pt-2v fr-pr-2v fr-pb-1v fr-pl-0 map-results">
-    <div>
-        <div>
-          <h3 class="h6 font-weight-bold w-100 fr-mb-0 fr-pb-0">
-            <img alt="" class="act-icon act-icon-20 fr-mb-1v" src="/static/img/mapicons.svg#${icon}">
-            
-            <a class="fr-link" href="${link}">
-               ${result.properties.nom}
-                <span class="fr-sr-only">
-                    ${activity_name}
-                    ${result.properties.adresse}
-                </span>
-            </a>
-          </h3>
+    <li class="list-style-type--none">
+      <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
+        <div class="fr-card__body">
+            <div class="fr-card__content">
+                <h3 class="fr-card__title fr-h5">${result.properties.nom}</h3>
+                <div class="fr-card__desc">
+                    <p class="fr-tag fr-mb-1w">${activity_name}</p>
+                    <address class="fr-mb-0">${result.properties.adresse}</address>
+                </div>
+                <div class="fr-card__start">
+                    <ul class="fr-badges-group gap-1w align-self--center justify-content--end fr-mb-1v">
+                        <li>
+                            <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
+                            ${gettext('Remplissage')} ${completion_rate ?? '0'}%
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-card__footer">
+                <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
+                    <li>
+                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
+                    </li>
+                    <li>
+                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div aria-hidden="true">
-            <small class="font-weight-bold">${activity_name}</small>
-            <address class="d-inline mb-0">
-                <small>${result.properties.adresse}</small>
-            </address>
-        </div>
-    </div>
-    <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link fr-ml-2w"
-            title="${gettext('Localiser sur la carte')}"
-            data-erp-identifier="${result.properties.uuid}">
-        ${gettext('Localiser')}
-        <br>
-        <i aria-hidden="true" class="icon icon-target"></i>
-    </button>
-</div>`
+      </div>
+    </li>
+  `
 }
 
 export default {

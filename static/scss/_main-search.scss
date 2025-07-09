@@ -1,0 +1,183 @@
+@import 'breakpoints';
+
+:root {
+  --main-filters-width: 350px;
+  --search-list-width: 500px;
+}
+
+.main-search-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+
+  label {
+    color: white;
+  }
+}
+
+.a4a-search-map-area {
+  height: 100% !important;
+}
+
+.main-search {
+  &.filters-removed {
+    --main-filters-width: 0;
+
+    .main-search__main-filters {
+      display: none;
+    }
+  }
+
+  &__map {
+    height: 700px;
+  }
+
+  .fr-tabs {
+    --tabs-height: auto !important;
+  }
+
+  @media (min-width: $viewport-lg) {
+    .fr-tabs__list {
+      display: none !important;
+    }
+
+    .fr-tabs__panel:not(.fr-tabs__panel--selected) {
+      visibility: visible !important;
+    }
+
+    .fr-tabs__panel {
+      margin-right: 0px !important;
+      left: 0px !important;
+    }
+
+    .fr-tabs__panel--direction-end {
+      transform: none !important;
+    }
+  }
+
+  // Little hack/workaround to have all panels visible on dekstop res
+  @media screen and (min-width: $viewport-lg) {
+    .fr-tabs__panel {
+      visibility: visible;
+      transform: translate(0);
+    }
+  }
+
+  .fr-tabs__panel:last-child {
+    width: calc(100% - var(--main-filters-width) - var(--search-list-width));
+    max-width: calc(
+      100% - var(--main-filters-width) - var(--search-list-width)
+    );
+    flex: 0 0 calc(100% - var(--main-filters-width) - var(--search-list-width));
+    margin-left: auto;
+
+    @media screen and (max-width: $viewport-lg) {
+      width: 100%;
+      max-width: 100%;
+      flex: 1;
+    }
+  }
+
+  &__main-filters {
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    background-color: white;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: var(--main-filters-width);
+    height: calc(100% - 12px);
+    padding: 16px !important;
+
+    @media screen and (max-width: $viewport-lg) {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 12px;
+    height: 756px;
+    overflow-y: auto;
+    width: var(--search-list-width);
+    flex-direction: column;
+    z-index: 999;
+    background-color: white;
+    position: absolute;
+    left: var(--main-filters-width);
+    top: 4px;
+    padding: 16px !important;
+    border-radius: 0;
+    border-right: 1px solid var(--background-alt-grey-hover);
+    border-left: 1px solid var(--background-alt-grey-hover);
+    border-top: none !important;
+
+    .fr-card--sm .fr-card__content {
+      padding-bottom: 0 !important;
+    }
+
+    @media screen and (max-width: $viewport-lg) {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+}
+
+.equipments-shortcuts {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    border-bottom: 1px solid var(--border-default-grey);
+    padding: 16px 0;
+  }
+}
+
+div.equipments button {
+  margin: 2px 2px;
+}
+
+div.equipments label {
+  margin-bottom: 0;
+}
+
+// add a left margin on "See all filters" only if there is some selected filters/equipments
+div.equipments-selected
+  > span:not(.hidden, .section-text)
+  ~ button:first-of-type {
+  margin-left: 0.5rem !important;
+}
+
+div.equipments > span:not(.hidden, .section-text) {
+  display: flex !important;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: $viewport-md) {
+  div.equipments .section-text {
+    width: 110px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-tabs .tab-content > .tab-pane {
+    display: block;
+  }
+}
+
+#search-results {
+  overflow-y: auto;
+}
+
+#export-results {
+  margin-top: auto;
+}
