@@ -55,6 +55,14 @@
     }
   }
 
+  // Little hack/workaround to have all panels visible on dekstop res
+  @media screen and (min-width: $viewport-lg) {
+    .fr-tabs__panel {
+      visibility: visible;
+      transform: translate(0);
+    }
+  }
+
   .fr-tabs__panel:last-child {
     width: calc(100% - var(--main-filters-width) - var(--search-list-width));
     max-width: calc(
