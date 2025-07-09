@@ -180,12 +180,16 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
 class ErpGeoSerializer(GeoFeatureModelSerializer):
     activite = ActiviteGeoSerializer(many=False, read_only=True)
     web_url = serializers.SerializerMethodField()
+    completion_rate = serializers.SerializerMethodField()
 
     class Meta:
         model = Erp
         geo_field = "geom"
 
-        fields = ("uuid", "nom", "adresse", "geom", "activite", "web_url")
+        fields = ("uuid", "nom", "adresse", "geom", "activite", "web_url", "completion_rate")
+
+    def get_completion_rate(self, obj):
+        return obj.accessibilite.completion_rate
 
     def get_web_url(self, obj):
         return obj.get_absolute_uri()

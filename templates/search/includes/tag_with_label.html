@@ -10,5 +10,6 @@
             aria-pressed="{% if slug in params %}true{% else %}false{% endif %}"
             data-fr-js-toggle="true"
             type="button"
-            data-event-type="{{ eventType }}">{{ name }}</button>
+            data-event-type="{{ eventType }}"
+            data-filter-name="{{ slug }}">{{ name }}</button>
 </span>

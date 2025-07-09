@@ -1,0 +1,81 @@
+{% load i18n %}
+{% load static %}
+{% load a4a %}
+<form class="a4a-search-form"
+      id="search-form"
+      role="search"
+      action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
+    <div>
+        <h1 class="fr-h4">{% translate "Rechercher un lieu" %}</h1>
+        <div class="fr-input-group">
+            <label for="what-input" class="w-100 text-start">{% translate "Activité ou nom d'établissement" %}</label>
+            {% comment %}Translators: please do not translate "Mairie, café" as we are searching into french contents{% endcomment %}
+            <input type="search"
+                   id="what-input"
+                   name="what"
+                   class="fr-input fr-mt-1w"
+                   placeholder="Mairie, café..."
+                   aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Mairie, Café" %}'
+                   autocomplete="off"
+                   {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+        </div>
+        <div class="fr-input-group search-where-field">
+            <label for="where-input" class="w-100 text-start">{% translate "Adresse, département ou commune" %}</label>
+            <input id="where-input"
+                   class="autocomplete-input fr-input fr-mt-1w"
+                   type="search"
+                   dir="ltr"
+                   spellcheck="false"
+                   autocomplete="off"
+                   autocapitalize="off"
+                   data-autocomplete-departments="on"
+                   {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
+                   name="where"
+                   placeholder="12 rue des prés, Nantes">
+            <ul class="list-group autocomplete-result-list rounded-only-bottom">
+            </ul>
+            <input type="hidden"
+                   name="lat"
+                   {% if "lat" in request.GET %} value="{{ lat|default:request.GET.lat }}" {% else %} value="{{ lat }}" {% endif %}>
+            <input type="hidden"
+                   name="lon"
+                   {% if "lon" in request.GET %} value="{{ lon|default:request.GET.lon }}" {% else %} value="{{ lon }}" {% endif %}>
+            <input type="hidden"
+                   name="code"
+                   {% if "code" in request.GET %} value="{{ code|default:request.GET.code }}" {% else %} value="{{ code }}" {% endif %}>
+            <input type="hidden"
+                   name="ban_id"
+                   {% if "ban_id" in request.GET %} value="{{ ban_id|default:request.GET.ban_id }}" {% else %} value="{{ ban_id }}" {% endif %}>
+            <input type="hidden"
+                   name="postcode"
+                   {% if "postcode" in request.GET %} value="{{ postcode|default:request.GET.postcode }}" {% else %} value="{{ postcode }}" {% endif %}>
+            <input type="hidden"
+                   name="search_type"
+                   {% if "search_type" in request.GET %} value="{{ search_type|default:request.GET.search_type }}" {% else %} value="{{ search_type }}" {% endif %}>
+            <input type="hidden"
+                   name="street_name"
+                   {% if "street_name" in request.GET %} value="{{ street_name|default:request.GET.street_name }}" {% else %} value="{{ street_name }}" {% endif %}>
+            <input type="hidden"
+                   name="municipality"
+                   {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
+        </div>
+        <ul class="fr-btns-group fr-btns-group--icon-left">
+            <li>
+                <button type="button"
+                        class="fr-btn fr-btn--secondary fr-icon-equalizer-line"
+                        data-fr-opened="false"
+                        aria-controls="fr-modal-disabilities-filters">
+                    {% translate "Filtrer par type de handicap" %}
+                </button>
+            </li>
+            <li>
+                <button id="fr-modal-disabilities-search-btn" type="submit" class="fr-btn">{% translate "Rechercher" %}</button>
+            </li>
+            <li>
+                <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
+                    {% translate "Autoriser l'obtention de ma localisation géographique" %}
+                </button>
+            </li>
+        </ul>
+    </div>
+</form>

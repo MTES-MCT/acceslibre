@@ -2,7 +2,7 @@ import json
 import random
 from datetime import datetime
 from urllib.parse import quote
-
+import re
 import phonenumbers
 from django import template
 from django.conf import settings
@@ -244,3 +244,15 @@ def label_to_image(label):
         return static("img/labels/th.jpg")
     if label == "Handiplage":
         return static("img/labels/handiplage.jpg")
+
+
+@register.filter
+def kebab_case(value):
+    if not isinstance(value, str):
+        return value
+
+    value = value.lower()
+    value = re.sub(r"\s+", "-", value)  # Replace spaces with hyphens
+    value = re.sub(r"[^a-z0-9-]", "", value)  # Remove non-alphanumeric except hyphens
+
+    return value
