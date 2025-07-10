@@ -112,8 +112,8 @@
                         </legend>
                         <p class="fr-px-3w">{% translate "Champs obligatoires *" %}</p>
                         <div class="fr-fieldset__content">
-                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
-                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group {% if form.errors.nom %}fr-input-group--error{% endif %}">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w fr-mb-2w">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group {% if form.errors.nom %}fr-input-group--error{% endif %} display--flex direction--column align-self--baseline justify-content--end fr-mb-2w fr-mb-md-0">
                                     <label class="fr-label" for="id_nom">{% translate "Nom *" %}</label>
                                     {{ form.nom }}
                                     {% if form.errors.nom %}
@@ -124,7 +124,10 @@
                                 <div class="fr-col-12 fr-col-md-6 fr-input-group {% if form.errors.activite %}fr-input-group--error{% endif %}">
                                     <div id="autocomplete-activity"
                                          class="autocomplete {% if suggested_activity %}hidden{% endif %}">
-                                        <label class="fr-label" for="id_activite">{% translate "Activité *" %}</label>
+                                        <label class="fr-label" for="id_activite">
+                                            {% translate "Activité *" %}
+                                            <span class="fr-hint-text">{% translate "Séléctionnez la valeur &laquo; Autre &raquo; si vous ne trouvez pas votre activité" %}</span>
+                                        </label>
                                         {{ form.activite }}
                                         {% if form.errors.activite %}
                                             <p class="fr-error-text" id="activite-error-message">{% translate "Activité obligatoire" %}</p>
@@ -132,20 +135,6 @@
                                         <ul class="list-group">
                                         </ul>
                                     </div>
-                                    <label class="fr-label {% if not suggested_activity %}hidden{% endif %}"
-                                           for="new_activity">{% translate "Activité *" %}</label>
-                                    {{ form.nouvelle_activite }}
-                                    <div class="fr-checkbox-group">
-                                        <input type="checkbox"
-                                               id="no_activity"
-                                               {% if suggested_activity or has_other_activity %}checked{% endif %} />
-                                        <label class="fr-label" for="no_activity">{% translate "Je ne trouve pas l'activité" %}</label>
-                                    </div>
-                                    {% if suggested_activity %}
-                                        <p class="fr-text--sm fr-mb-0" id="activity_suggested">
-                                            {% translate "Votre suggestion : " %}<span class="fr-text--bold">{{ suggested_activity }}</span>
-                                        </p>
-                                    {% endif %}
                                 </div>
                             </div>
                             <div class="fr-grid-row fr-px-2w fr-pb-1w">
