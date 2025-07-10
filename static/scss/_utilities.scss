@@ -37,15 +37,30 @@
       justify-self: flex-end;
     }
   }
+  &-content {
+    &--end {
+      justify-content: end;
+    }
+  }
+}
+
+.align {
+  &--self {
+    &-baseline {
+      align-self: baseline;
+    }
+  }
 }
 
 .display {
   &--flex {
     display: flex;
   }
+
   &--block {
     display: block;
   }
+
   &--inline-block {
     display: inline-block;
   }
@@ -55,6 +70,7 @@
   &--wrap {
     flex-wrap: wrap;
   }
+
   &--no-wrap {
     flex-wrap: nowrap;
   }
@@ -103,9 +119,11 @@
   &--relative {
     position: relative;
   }
+
   &--absolute {
     position: absolute;
   }
+
   &--sticky {
     position: sticky;
   }
@@ -115,6 +133,7 @@
   &--column {
     flex-direction: column;
   }
+
   &--row {
     flex-direction: row;
   }
@@ -126,10 +145,12 @@
       justify-content: end;
     }
   }
+
   &-self {
     &--center {
       justify-self: center;
     }
+
     &--end {
       justify-self: end;
     }
@@ -141,10 +162,12 @@
     &--end {
       align-self: end;
     }
+
     &--center {
       align-self: center;
     }
   }
+
   &-items {
     &--center {
       align-items: center;
@@ -156,6 +179,7 @@
   &--all {
     word-break: break-all;
   }
+
   &--word {
     word-break: break-word;
   }
@@ -165,9 +189,11 @@
   &--center {
     text-align: center;
   }
+
   &--bold {
     font-weight: 700;
   }
+
   &--hidden {
     display: none;
   }

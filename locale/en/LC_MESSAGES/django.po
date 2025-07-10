@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-09 10:18+0200\n"
-"PO-Revision-Date: 2025-07-03 14:30+0200\n"
+"POT-Creation-Date: 2025-07-10 16:05+0200\n"
+"PO-Revision-Date: 2025-07-10 15:53+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3683,14 +3683,11 @@ msgstr "Name required"
 msgid "Activité *"
 msgstr "Activity *"
 
+msgid "Séléctionnez la valeur « Autre » si vous ne trouvez pas votre activité"
+msgstr "Select the value « Other » if you do not find your activity"
+
 msgid "Activité obligatoire"
 msgstr "Mandatory activity"
-
-msgid "Je ne trouve pas l'activité"
-msgstr "I can't find the activity"
-
-msgid "Votre suggestion : "
-msgstr "Your suggestion:"
 
 msgid "Numéro de la voie"
 msgstr "Street number"
@@ -6506,6 +6503,12 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Je ne trouve pas l'activité"
+#~ msgstr "I can't find the activity"
+
+#~ msgid "Votre suggestion : "
+#~ msgstr "Your suggestion:"
 
 #~ msgid "<strong>Quoi</strong> (activité, enseigne)"
 #~ msgstr "<strong>What</strong> (activity, sign)"
