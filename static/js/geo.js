@@ -244,8 +244,9 @@ function displayLoadingText() {
 function updateNumberOfResults(data) {
   const numberContainer = document.querySelector('#number-of-results')
   const translation = ngettext('établissement', 'établissements', data.count)
+  const countFormatted = new Intl.NumberFormat().format(data.count)
 
-  numberContainer.textContent = data.count + ' ' + translation
+  numberContainer.innerHTML = `<span class="fr-text--bold fr-text--xl fr-badge fr-badge--info fr-badge--no-icon">${countFormatted} ${translation}</span>`
 }
 
 function _updateExportForm(urlParams) {
