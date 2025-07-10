@@ -21,9 +21,6 @@
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4">
-                <label for="new_activity" class="hidden">
-                    {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
-                </label>
                 <input type="text" class="fr-input hidden" id="new_activity" name="new_activity" placeholder="{% translate "Entrez votre activité" %}" value="{{ request.GET.new_activity }}" aria-label="{% translate "Commencer la saisie puis sélectionner l'activité dans la liste." %}">
                 <input type="hidden"
                        name="activity_slug"
@@ -41,10 +38,6 @@
                     {% if form.errors.activite %}
                         <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
                     {% endif %}
-                    <p class="fr-text--sm fr-mb-0 {% if not request.GET.new_activity %}hidden{% endif %}"
-                       id="activity_suggested">
-                        {% translate "Votre suggestion :" %} <span class="fr-text--bold">{{ request.GET.new_activity }}</span>
-                    </p>
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4 search-where-field">

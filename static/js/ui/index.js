@@ -8,7 +8,6 @@ import LocalisationMap from './LocalisationMap'
 import MapExpander from './MapExpander'
 import SearchWhere from './SearchWhere'
 import LabelTag from './LabelTag'
-import NewActivity from './NewActivity'
 import listenToLabelEvents from './GroupLabelTag'
 import ProgressBar from './ProgressBar'
 import PickAnswerAndSubmit from './PickAnswerAndSubmit'
@@ -31,7 +30,6 @@ export default {
   MapExpander,
   SearchWhere,
   LabelTag,
-  NewActivity,
   listenToLabelEvents,
   ProgressBar,
   PickAnswerAndSubmit,

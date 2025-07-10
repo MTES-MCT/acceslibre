@@ -754,7 +754,6 @@ def test_add_erp_other_activity(client):
             "lat": 43,
             "lon": 3,
             "activite": other.nom,
-            "nouvelle_activite": "My suggestion",
         },
         follow=True,
     )
@@ -1128,7 +1127,6 @@ def test_contrib_start_pass_postcode(client):
 
     payload = {
         "what": ["creperie"],
-        "new_activity": [""],
         "activite": ["Restaurant"],
         "activity_slug": ["restaurant"],
         "where": ["Brest (29)"],
@@ -1148,7 +1146,7 @@ def test_contrib_start_pass_postcode(client):
     assert response.status_code == 302
     assert (
         response.url
-        == "/contrib/start/recherche/?new_activity=&activity_slug=restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29&activite=Restaurant"
+        == "/contrib/start/recherche/?activity_slug=restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29&activite=Restaurant"
     )
 
     response = client.get(url, payload, follow=True)
@@ -1160,7 +1158,6 @@ def test_contrib_start_pass_postcode(client):
         "lon": "-4.4996",
         "activite": 123,
         "activite_slug": "restaurant",
-        "new_activity": "",
         "code_postal": "29200",
     }
 
@@ -1170,7 +1167,6 @@ def test_contrib_start_pass_postcode_with_districts(client):
     ActiviteFactory(nom="Restaurant", slug="restaurant", pk=123)
     payload = {
         "what": ["creperie"],
-        "new_activity": [""],
         "activite": ["Restaurant"],
         "where": ["Lyon (69)"],
         "lat": ["45.758"],
@@ -1196,6 +1192,5 @@ def test_contrib_start_pass_postcode_with_districts(client):
         "lon": "4.8351",
         "activite": 123,
         "activite_slug": "restaurant",
-        "new_activity": "",
         "code_postal": "69000",
     }

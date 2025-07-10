@@ -360,17 +360,6 @@ class AdminErpForm(BaseErpForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    nouvelle_activite = forms.CharField(
-        required=False,
-        label="",
-        widget=forms.TextInput(
-            attrs={
-                "class": "fr-input hidden",
-                "id": "new_activity",
-                "aria-describedby": "nouvelle-activite-error-message",
-            }
-        ),
-    )
     asp_id = forms.CharField(widget=forms.HiddenInput, required=False)
     user_type = forms.CharField(initial=Erp.USER_ROLE_PUBLIC, widget=forms.HiddenInput, required=False)
 
@@ -450,31 +439,12 @@ class BasePublicErpInfosForm(BaseErpForm):
         initial = kwargs.get("initial")
         if instance and instance.activite:
             self.fields["activite"] = ActivityField(initial=instance.activite)
-            if instance.has_miscellaneous_activity:
-                self.fields["nouvelle_activite"].widget = forms.TextInput(
-                    attrs={"id": "new_activity", "class": "fr-input hidden"}
-                )
         elif initial:
             self.fields["activite"] = ActivityField(initial=initial.get("activite_slug"))
-            if initial.get("activite_slug") == Activite.SLUG_MISCELLANEOUS and initial.get("new_activity"):
-                self.fields["nouvelle_activite"].initial = initial.get("new_activity")
-                self.fields["nouvelle_activite"].widget = forms.TextInput(
-                    attrs={"id": "new_activity", "class": "fr-input hidden"}
-                )
         else:
             self.fields["activite"] = ActivityField()
 
-        self.fields["nouvelle_activite"].required = False
         self.fields["source_id"].required = False
-
-    def clean_nouvelle_activite(self):
-        new_activity = self.cleaned_data["nouvelle_activite"]
-        if not self.cleaned_data.get("activite"):
-            return new_activity
-
-        if self.cleaned_data["activite"].slug == "autre" and not new_activity:
-            raise ValidationError(mark_safe(translate("Vous devez suggérer un nom d'activité pour l'établissement.")))
-        return new_activity
 
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
@@ -572,7 +542,6 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
 
 
 class ProviderGlobalSearchForm(forms.Form):
-    new_activity = forms.CharField(required=False, widget=forms.HiddenInput)
     activity_slug = forms.CharField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)

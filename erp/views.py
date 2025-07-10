@@ -29,7 +29,7 @@ from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import get_contrib_form_for_activity
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource
+from erp.models import Accessibilite, Activite, Commune, Departement, Erp, ExternalSource
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
@@ -626,7 +626,6 @@ def contrib_global_search(request):
                 "lon": request.GET.get("lon"),
                 "activite": activite.pk if activite else None,
                 "activite_slug": activite.slug if activite else None,
-                "new_activity": request.GET.get("new_activity"),
                 "code_postal": request.GET.get("postcode"),
             },
             "page_type": "contrib-form",
@@ -650,24 +649,12 @@ def contrib_admin_infos(request):
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
             ).with_activity()
 
-            suggested_activity = form.data.get("nouvelle_activite")
-
-            if suggested_activity:
-                widget = form.fields["nouvelle_activite"].widget
-                widget.attrs["class"] = " ".join(
-                    [cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"]
-                )
-
             if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
                 activite = form.cleaned_data.get("activite")
                 erp.activite = activite
                 erp.save(editor=request.user)
-                if erp.has_miscellaneous_activity:
-                    ActivitySuggestion.objects.create(
-                        name=form.cleaned_data.get("nouvelle_activite"), erp=erp, user=request.user
-                    )
                 messages.add_message(request, messages.SUCCESS, translate("Les données ont été enregistrées."))
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
         else:
@@ -687,7 +674,6 @@ def contrib_admin_infos(request):
             except Activite.DoesNotExist:
                 pass
 
-            data["nouvelle_activite"] = data_erp.pop("new_activity", "")
             data_erp.pop("activite_slug", None)
             data_erp.pop("coordonnees", None)
             data_erp.pop("naf", None)
@@ -695,11 +681,6 @@ def contrib_admin_infos(request):
             data_erp.pop("lon", None)
             external_erp = Erp(**data_erp)
         form = forms.PublicErpAdminInfosForm(initial=data)
-
-        if data["nouvelle_activite"]:
-            widget = form.fields["nouvelle_activite"].widget
-            widget.attrs["class"] = " ".join([cls for cls in widget.attrs.get("class", "").split() if cls != "hidden"])
-            suggested_activity = data["nouvelle_activite"]
 
     return render(
         request,
@@ -753,12 +734,6 @@ def contrib_edit_infos(request, erp_slug):
             erp.activite = activite
             erp.save(editor=request.user)
 
-            if erp.has_miscellaneous_activity:
-                ActivitySuggestion.objects.create(
-                    name=form.cleaned_data["nouvelle_activite"],
-                    erp=erp,
-                    user=request.user,
-                )
             messages.add_message(
                 request,
                 messages.SUCCESS,

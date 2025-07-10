@@ -51,7 +51,7 @@ dom.ready(() => {
   dom.mountAll('.a4a-label-tag', ui.LabelTag)
   dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
   dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
-  dom.mountOne('#no_activity', ui.NewActivity)
+  // dom.mountOne('#no_activity', ui.NewActivity)
   dom.mountOne('#unsure-and-submit', ui.PickAnswerAndSubmit)
   dom.mountOne('#filter-controller', ui.filterData)
   dom.mountAll('.text-expander', ui.TextExpander)
