@@ -241,6 +241,7 @@ if hosting:
 kept_headers = {
     "nom": "nom",
     "adresse": "adresse",
+    "place_id": "place_id",
 }
 basic_mapped_headers = {
     "email": "import_email",
@@ -350,7 +351,7 @@ class Command(BaseCommand):
 
             output_filename = self.input_file.replace(".csv", "_converted.csv")
             with open(output_filename, "w") as new_file:
-                writer = csv.DictWriter(new_file, fieldnames=BaseMapper.fields + ["source"])
+                writer = csv.DictWriter(new_file, fieldnames=BaseMapper.fields + ["source", "place_id"])
                 writer.writeheader()
 
                 for line in reader:
