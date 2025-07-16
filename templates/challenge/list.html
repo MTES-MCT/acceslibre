@@ -101,6 +101,16 @@
                     </div>
                 </div>
             </section>
+            {% if challenges_en_cours %}
+                <section class="challenges-list-section">
+                    <div class="col-12">
+                        <h1>
+                            <strong>{% translate "Challenges en cours" %}</strong>
+                        </h1>
+                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}
+                    </div>
+                </section>
+            {% endif %}
             {% if challenges_termines %}
                 <section class="challenges-list-section">
                     <div class="col-12">
