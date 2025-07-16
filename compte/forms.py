@@ -284,22 +284,28 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 
 class CustomPasswordResetForm(PasswordResetForm):
-    def send_mail(
-        self,
-        subject_template_name,
-        email_template_name,
-        context,
-        from_email,
-        to_email,
-        html_email_template_name=None,
-    ):
-        BrevoMailer().send_email(
-            to_list=to_email,
-            template="password_reset",
-            context={
-                "username": context["user"].username,
-                "url_password_reset": reverse(
-                    "password_reset_confirm", kwargs={"uidb64": context["uid"], "token": context["token"]}
-                ),
-            },
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["email"].widget = forms.EmailInput(
+            attrs={"class": "fr-input", "aria-describedby": "input-messages", "id": "email-input"}
         )
+
+        def send_mail(
+            self,
+            subject_template_name,
+            email_template_name,
+            context,
+            from_email,
+            to_email,
+            html_email_template_name=None,
+        ):
+            BrevoMailer().send_email(
+                to_list=to_email,
+                template="password_reset",
+                context={
+                    "username": context["user"].username,
+                    "url_password_reset": reverse(
+                        "password_reset_confirm", kwargs={"uidb64": context["uid"], "token": context["token"]}
+                    ),
+                },
+            )
