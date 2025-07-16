@@ -384,7 +384,7 @@ def filter_erp_by_location(queryset, **kwargs):
     if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
         return queryset.nearest(location, max_radius_km=0.2)
 
-    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET:
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET and kwargs.get("street_name"):
         street_name = kwargs.get("street_name")
         return queryset.filter(code_postal=postcode, voie__icontains=street_name)
     return queryset
