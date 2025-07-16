@@ -1,5 +1,7 @@
 import json
 
+from erp.models import ExternalSource
+
 
 class BaseMapper:
     erp = None
@@ -142,6 +144,10 @@ class BaseMapper:
         dest_fields["activite"] = dest_fields.get("activite") or kwargs.get("activite", None)
         if "source" in record:
             dest_fields["source"] = record["source"]
+            if record.get("source_id"):
+                dest_fields["source_id"] = record["source_id"]
+        if "place_id" in record:
+            dest_fields["sources"] = [{"source": ExternalSource.SOURCE_OUTSCRAPER, "source_id": record["place_id"]}]
         return dest_fields
 
     def get_a11y_fields(self, record):
