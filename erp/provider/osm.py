@@ -58,7 +58,7 @@ class OSMRequester(GeolocRequester):
 
     def query(self, params, timeout=8):
         response = requests.get(self.url, params | {"format": "geocodejson", "addressdetails": 1}, timeout=timeout)
-        logger.info(f"[{self.provider['name']}] geocoding call: {response.url}")
+        # logger.info(f"[{self.provider['name']}] geocoding call: {response.url}")
 
         if response.status_code != 200:
             raise RuntimeError(f"Erreur HTTP {response.status_code} lors de la géolocalisation de l'adresse.")
