@@ -1,0 +1,82 @@
+@import 'breakpoints';
+
+.challenge-container {
+  background-color: var(--info-950-100);
+
+  .fr-tile__title {
+    font-size: 32px !important;
+  }
+
+  .main-title {
+    color: var(--text-title-blue-france);
+    text-align: center;
+    max-width: 800px;
+    justify-self: center;
+  }
+
+  .picto-section {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin: 48px 0;
+
+    .fr-tile {
+      flex: 1;
+    }
+
+    @media screen and (max-width: $viewport-md) {
+      flex-direction: column;
+    }
+  }
+
+  .ranking-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    padding: 0;
+
+    .ranking {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      padding: 24px;
+      text-align: center;
+      align-items: center;
+      list-style: none;
+      gap: 8px;
+      width: 180px;
+      word-break: break-all;
+    }
+  }
+
+  .leaderboard {
+    display: flex;
+    justify-content: center;
+  }
+
+  .goal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    max-width: 790px;
+    gap: 24px;
+    margin: 24px 0;
+
+    .fr-callout {
+      min-width: 790px;
+
+      @media screen and (max-width: $viewport-md) {
+        min-width: initial;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: $viewport-md) {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+}

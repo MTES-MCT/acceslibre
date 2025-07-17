@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 11:48+0200\n"
-"PO-Revision-Date: 2025-07-16 11:48+0200\n"
+"POT-Creation-Date: 2025-07-17 15:46+0200\n"
+"PO-Revision-Date: 2025-07-17 15:46+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3064,11 +3064,17 @@ msgstr "General ranking"
 msgid "Aucun participant n'a ajouté d'établissement pour le moment"
 msgstr "No participant has added a facility at this time"
 
-msgid "informations d'accessibilité ajoutées"
-msgstr "accessibility information added"
+msgid "Vous êtes ici :"
+msgstr "You are here:"
 
-msgid "information d'accessibilité ajoutée"
-msgstr "accessibility information added"
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
+msgid "Informations d'accessibilité ajoutées"
+msgstr "Accessibility information added"
+
+msgid "Participants au challenge"
+msgstr "Challenge participants"
 
 msgid ""
 "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété "
@@ -3077,23 +3083,35 @@ msgstr ""
 "The competition has started, but no participant has yet added or completed a "
 "site."
 
-msgid "informations d'accessibilité renseignées"
-msgstr "accessibility information provided"
-
-msgid "information d'accessibilité renseignée"
-msgstr "accessibility information filled in"
+msgid "Top"
+msgstr "Top"
 
 msgid "Aucun participant n'a ajouté ou complété d'établissement pour le moment"
 msgstr "No participant has added or completed a facility yet"
 
+msgid "Classement"
+msgstr "General ranking"
+
+msgid "Participant"
+msgstr "Participant"
+
+msgid "Nombre d'ajouts"
+msgstr "Number of insertions"
+
 msgid "Classement par équipe"
 msgstr "Team rankings"
 
-msgid "Vous êtes ici :"
-msgstr "You are here:"
+msgid "Équipe"
+msgstr "Team"
 
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
+msgid "Votre objectif"
+msgstr "Your objective"
+
+msgid "S'inscrire au challenge"
+msgstr "Register to the challenge"
+
+msgid "Règles du jeu"
+msgstr "Rules"
 
 msgid "Challenge photos Acceslibre"
 msgstr "Acceslibre photos challenge"
@@ -6510,6 +6528,15 @@ msgstr ""
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
 
+#~ msgid "information d'accessibilité ajoutée"
+#~ msgstr "accessibility information added"
+
+#~ msgid "informations d'accessibilité renseignées"
+#~ msgstr "accessibility information provided"
+
+#~ msgid "information d'accessibilité renseignée"
+#~ msgstr "accessibility information filled in"
+
 #~ msgid "Les champs marqués d'une astérique (*) sont obligatoires."
 #~ msgstr "Fields marked with an asterisk (*) are required."
 
@@ -6577,9 +6604,6 @@ msgstr ""
 
 #~ msgid "Challenges terminés"
 #~ msgstr "Challenges finished"
-
-#~ msgid "Prochains challenges"
-#~ msgstr "Next challenges"
 
 #~ msgid "Vous êtes inscrits à ce challenge !"
 #~ msgstr "You are registered with this challenge!"
