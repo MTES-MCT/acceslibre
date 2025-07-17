@@ -191,7 +191,9 @@ def challenge_detail(request, challenge_slug=None):
             "stop_date": challenge.end_date,
             "today": today,
             "top_contribs": challenge.get_classement(),
+            "total_participants": challenge.players.count(),
             "total_contributions": challenge.nb_erp_total_added,
+            "page_type": "challenge",
         },
     )
 

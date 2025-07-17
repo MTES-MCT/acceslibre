@@ -5,125 +5,189 @@
 {% block page_title %}
     {{ challenge }}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'challenges' %}">{% translate "Challenges" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{{ challenge.nom }}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <p>
-        <a href="{% url 'challenges' %}">« {% translate "Retour aux challenges" %}</a>
-    </p>
-    <h1 class="text-center">{{ challenge }}</h1>
-    <h2 class="text-center fr-py-4v">
-        {{ challenge.accroche }}
-        <br>
-        <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small>
-        <br>
-        {% if challenge.text_reserve %}<small class="text-muted">{{ challenge.text_reserve }}</small>{% endif %}
-    </h2>
-    {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
-        <div class="row">
-            <div class="col-8 offset-2">
-                <a class="fr-btn"
-                   href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire" %}</a>
+    <h1 class="main-title">{{ challenge }}</h1>
+    <section class="picto-section">
+        <div class="fr-tile fr-tile--horizontal">
+            <div class="fr-tile__body">
+                <div class="fr-tile__content">
+                    <p class="fr-tile__title fr-h1 fr-mb-0">{{ total_contributions }}</p>
+                    <p class="fr-tile__desc">{% translate "Informations d'accessibilité ajoutées" %}</p>
+                </div>
+            </div>
+            <div class="fr-tile__header">
+                <div class="fr-tile__pictogram">
+                    <img src="{% static 'img/challenges/accessibility.svg' %}"
+                         aria-hidden="true"
+                         alt=""
+                         width="64"
+                         height="64" />
+                </div>
             </div>
         </div>
-    {% endif %}
-    {% if challenge.objectif %}<p>{{ challenge.objectif | safe }}</p>{% endif %}
-    <section class="row justify-content-center fr-mt-4v">
-        <h3 class="fr-h1">
-            <strong>{{ total_contributions }}
-                {% if total_contributions > 1 %}
-                    {% translate "informations d'accessibilité ajoutées" %}
-                {% else %}
-                    {% translate "information d'accessibilité ajoutée" %}
-                {% endif %}
-            </strong>
-        </h3>
+        <div class="fr-tile fr-tile--horizontal">
+            <div class="fr-tile__body">
+                <div class="fr-tile__content">
+                    <p class="fr-h1 fr-mb-0 fr-tile__title">{{ total_participants }}</p>
+                    <p class="fr-tile__desc">{% translate "Participants au challenge" %}</p>
+                </div>
+            </div>
+            <div class="fr-tile__header">
+                <div class="fr-tile__pictogram">
+                    <img src="{% static 'img/challenges/mental-disabilities.svg' %}"
+                         aria-hidden="true"
+                         alt=""
+                         width="64"
+                         height="64" />
+                </div>
+            </div>
+        </div>
     </section>
-    <div class="row justify-content-center">
-        <img src="{% static 'img/hands-challenge.png' %}"
-             alt="{% translate "Merci" %}" />
-    </div>
-    <section class="row justify-content-center fr-mt-4v">
+    <section class="leaderboard">
         <div>
             {% if today < start_date %}
-                <div class="alert alert-info">{% translate "Le concours n'a pas encore démarré" %}</div>
+                <div class="fr-alert fr-alert--info">{% translate "Le concours n'a pas encore démarré" %}</div>
             {% elif today > stop_date %}
-                <div class="alert alert-info">{% translate "Le concours est terminé" %}</div>
+                <div class="fr-alert fr-alert--info">{% translate "Le concours est terminé" %}</div>
             {% elif not top_contribs %}
-                <div class="alert alert-info">
+                <div class="fr-alert fr-alert--info">
                     {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété d'établissement." %}
                 </div>
             {% endif %}
-            <ul class="list-group">
-                <li class="list-group-item font-weight-bold larger-font">
-                    <span class="badge bg-primary rounded-pill">1</span>
-                    {% if top_contribs.0 %}
-                        {{ top_contribs.0.username }}
-                        <br>
-                        <small class="text-muted">
-                            {{ top_contribs.0.nb_access_info_changed }}
-                            {% if top_contribs.0.nb_access_info_changed > 1 %}
-                                {% translate "informations d'accessibilité renseignées" %}
-                            {% else %}
-                                {% translate "information d'accessibilité renseignée" %}
-                            {% endif %}
-                        </small>
-                    {% else %}
-                        ???
-                    {% endif %}
-                </li>
-                <li class="list-group-item larger-font">
-                    <span class="badge bg-primary rounded-pill">2</span>
+            {% if top_contribs.0 %}
+                <ul class="ranking-container">
+                    <li class="ranking">
+                        <div class="fr-badge fr-badge--purple-glycine fr-mb-1v">{% translate "Top" %} 1</div>
+                        <p class="fr-mb-0 fr-text--bold">{{ top_contribs.0.username }}</p>
+                        {% if top_contribs.0.nb_access_info_changed > 0 %}
+                            <p class="fr-text--bold">{{ top_contribs.0.nb_access_info_changed }}</p>
+                        {% endif %}
+                    </li>
                     {% if top_contribs.1 %}
-                        {{ top_contribs.1.username }}
-                        <br>
-                        <small class="text-muted">
-                            {{ top_contribs.1.nb_access_info_changed }}
-                            {% if top_contribs.1.nb_access_info_changed > 1 %}
-                                {% translate "informations d'accessibilité renseignées" %}
-                            {% else %}
-                                {% translate "information d'accessibilité renseignée" %}
+                        <li class="ranking">
+                            <div class="fr-badge fr-badge--purple-glycine fr-mb-1v">{% translate "Top" %} 2</div>
+                            <p class="fr-mb-0 fr-text--bold">{{ top_contribs.1.username }}</p>
+                            {% if top_contribs.1.nb_access_info_changed > 0 %}
+                                <p class="fr-text--bold">{{ top_contribs.1.nb_access_info_changed }}</p>
                             {% endif %}
-                        </small>
-                    {% else %}
-                        ???
+                        </li>
                     {% endif %}
-                </li>
-                <li class="list-group-item">
-                    <span class="badge bg-primary rounded-pill">3</span>
                     {% if top_contribs.2 %}
-                        {{ top_contribs.2.username }}
-                        <br>
-                        <small class="text-muted">
-                            {{ top_contribs.2.nb_access_info_changed }}
-                            {% if top_contribs.2.nb_access_info_changed > 1 %}
-                                {% translate "informations d'accessibilité renseignées" %}
-                            {% else %}
-                                {% translate "information d'accessibilité renseignée" %}
+                        <li class="ranking">
+                            <div class="fr-badge fr-badge--purple-glycine fr-mb-1v">{% translate "Top" %} 3</div>
+                            <p class="fr-mb-0 fr-text--bold">{{ top_contribs.2.username }}</p>
+                            {% if top_contribs.2.nb_access_info_changed > 0 %}
+                                <p class="fr-text--bold">{{ top_contribs.2.nb_access_info_changed }}</p>
                             {% endif %}
-                        </small>
-                    {% else %}
-                        ???
+                        </li>
                     {% endif %}
-                </li>
-            </ul>
-            <h3 class="fr-mt-5v fr-mb-3v">{% translate "Classement général" %}</h3>
+                </ul>
+            {% endif %}
             {% if not top_contribs %}
-                <div class="alert alert-info">
+                <div class="fr-alert fr-alert--info">
                     {% translate "Aucun participant n'a ajouté ou complété d'établissement pour le moment" %}
                 </div>
+            {% else %}
+                <div class="fr-table">
+                    <div class="fr-table__wrapper">
+                        <div class="fr-table__container">
+                            <div class="fr-table__content">
+                                <table>
+                                    <caption class="text--title-blue-france">{% translate "Classement général" %}</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>{% translate "Classement" %}</th>
+                                            <th>{% translate "Participant" %}</th>
+                                            <th>{% translate "Nombre d'ajouts" %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for top_contrib in top_contribs %}
+                                            <tr data-row-key="{{ loop.index }}">
+                                                <td>{{ forloop.counter }}.</td>
+                                                <td>{{ top_contrib.username }}</td>
+                                                <td>{{ top_contrib.nb_access_info_changed }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
-            <ol>
-                {% for top_contrib in top_contribs %}
-                    <li>{{ top_contrib.username }} ({{ top_contrib.nb_access_info_changed }})</li>
-                {% endfor %}
-            </ol>
             {% if challenge.get_classement_team %}
-                <h3 class="fr-mt-5v fr-mb-3v">{% translate "Classement par équipe" %}</h3>
-                <ol>
-                    {% for top_contrib in challenge.get_classement_team %}
-                        <li>{{ top_contrib.team }} ({{ top_contrib.nb_access_info_changed }})</li>
-                    {% endfor %}
-                </ol>
+                <div class="fr-table">
+                    <div class="fr-table__wrapper">
+                        <div class="fr-table__container">
+                            <div class="fr-table__content">
+                                <table>
+                                    <caption class="text--title-blue-france">{% translate "Classement par équipe" %}</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>{% translate "Classement général" %}</th>
+                                            <th>{% translate "Équipe" %}</th>
+                                            <th>{% translate "Nombre d'ajouts" %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for top_contrib in challenge.get_classement_team %}
+                                            <tr data-row-key="{{ loop.index }}">
+                                                <td>{{ forloop.counter }}.</td>
+                                                <td>{{ top_contrib.team }}</td>
+                                                <td>{{ top_contrib.nb_access_info_changed }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
         </div>
+    </section>
+    <section class="goal">
+        <div class="text--center">
+            {% if challenge.objectif %}
+                <h2 class="text--title-blue-france fr-text--xl text--center">{% translate "Votre objectif" %}</h2>
+            {% endif %}
+            {% if challenge.accroche %}<p>{{ challenge.accroche }}</p>{% endif %}
+            {% if challenge.text_reserve %}<p class="fr-mb-0">{{ challenge.text_reserve }}</p>{% endif %}
+        </div>
+        {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
+            <a class="fr-btn"
+               href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire au challenge" %}</a>
+        {% endif %}
+        {% if challenge.objectif %}
+            <div class="fr-callout fr-icon-info-line">
+                <h3 class="fr-callout__title">{% translate "Règles du jeu" %}</h3>
+                <p class="fr-callout__text">{{ challenge.objectif | safe }}</p>
+            </div>
+        {% endif %}
     </section>
 {% endblock editorial_content %}
