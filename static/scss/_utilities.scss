@@ -186,6 +186,10 @@
 }
 
 .text {
+  &--title-blue-france {
+    color: var(--text-title-blue-france) !important;
+  }
+
   &--center {
     text-align: center;
   }
