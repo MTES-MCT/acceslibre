@@ -240,8 +240,8 @@ Paramètres de lancement du script :
     ):
         return f"""Statistiques sur le fichier {self.input_file}:
 
-    - Validés: {self.results['validated']['count']}
-    - Importés: {self.results['imported']['count']}
-    - Dupliqués: {self.results['duplicated']['count']}
-    - Définitivement clôs : {self.results['permanently_closed']['count']}
-    - Erreurs: {self.results['in_error']['count']}"""
+    - Validés: {self.results["validated"]["count"]}
+    - Importés: {self.results["imported"]["count"]}
+    - Dupliqués: {self.results["duplicated"]["count"]}
+    - Définitivement clôs : {self.results["permanently_closed"]["count"]}
+    - Erreurs: {self.results["in_error"]["count"]}"""
