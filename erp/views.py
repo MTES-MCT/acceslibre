@@ -318,7 +318,7 @@ def panoramax(request):
         return redirect(reverse("panoramax"))
 
     def _find_erp_to_match():
-        cities = ["Lyon", "Caen", "Strasbourg"]
+        cities = ["Lyon", "Caen", "Strasbourg", "Le Havre", "Nantes", "Toulouse", "Montauban", "Bayonne"]
         erp = (
             Erp.objects.published()
             .filter(commune__unaccent__in=cities)
