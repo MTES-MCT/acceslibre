@@ -8,198 +8,92 @@
     acceslibre, la plateforme collaborative de l'accessibilité
 {% endblock page_title %}
 {% block top_fluid_content %}
-    <div class="fr-grid-row bg-alt-blue-france-975 homepage-hero">
+    <section class="main-info-container">
         <div class="fr-container">
-            <div class="fr-grid-row fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-sm-8 fr-mb-2v fr-mt-5v">
-                    <h1 class="fr-h1" tabindex="0">
-                        {% translate "Toutes les informations sur l'accessibilité des lieux ouverts au public" %}
-                    </h1>
-                    <ul class="fr-mb-1w fr-btns-group fr-btns-group--equisized">
-                        <li>
-                            <a class="fr-btn fr-px-8w" href="{% url "search" %}">{% translate "Rechercher un lieu" %}</a>
-                        </li>
-                        <li>
-                            <a class="fr-btn fr-btn--secondary" href="{% url "contrib_start" %}">{% translate "Ajouter un lieu" %}</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="fr-col-12 fr-col-sm-4">
-                    <figure class="fr-content-media d-none d-sm-block fr-mb-0 fr-mt-0">
-                        <div class="fr-content-media__img">
-                            <img src="{% static "img/landing/wheelchair.png" %}" aria-hidden="true" alt="">
-                        </div>
-                    </figure>
-                </div>
+            <div class="main-info-container__preview">
+                <img src="{% static "img/homepage/main-info.png" %}" alt="" class="fr-responsive-img">
             </div>
-        </div>
-    </div>
-    <div class="fr-grid-row">
-        <div class="fr-container ">
-            <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v">
-                <div class="fr-col-12 fr-col-sm-6">
-                    <div class="fr-card fr-p-4w">
-                        <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Notre mission" %}</h2>
-                        <p class="fr-mb-2w">
-                            {% translate "En France,  12 millions de personnes, soit 1 sur 5, sont en situation de handicap." %}
-                        </p>
-                        <p class="fr-mb-2w">
-                            {% translate "Sortir, aller dans un lieu nouveau peut devenir un vrai casse-tête. Avoir les informations avant de se déplacer est indispensable pour permettre à chacun de savoir si tel restaurant, tel cinéma lui est accessible." %}
-                        </p>
-                        <p class="fr-display--xl text-center down-arrow">⬇</p>
-                        <p class="fr-mb-2w blue-title fr-text--heavy">
-                            {% translate "Que vous soyez en situation de handicap, proches, amis, aidants, consultez les informations d'accessibilité, de manière simple et rapide !" %}
-                        </p>
-                        <a class="fr-btn fr-btn--secondary d-block mx-auto mt-auto"
-                           href="{% url "search" %}">{% translate "Rechercher un lieu" %}</a>
-                    </div>
-                </div>
-                <div class="fr-col-12 fr-col-sm-6 ">
-                    <div class="fr-card fr-p-4w">
-                        <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "Notre communauté" %}</h2>
-                        <div class="fr-grid-row fr-grid-row--gutters">
-                            <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
-                                <div class="fr-h3 text-center fr-mb-0">{{ contributors.count|intcomma }}</div>
-                                <p class="text-center fr-mb-0">{% translate "contributeurs et contributrices" %}</p>
-                                <img src="{% static 'img/contributeurs.png' %}"
-                                     aria-hidden="true"
-                                     alt=""
-                                     class="w-100 fr-mb-4v">
-                                <a href=" {% if request.user.is_anonymous %}{% url "django_registration_register" %}{% else %} {% url 'contrib_start' %}{% endif %}"
-                                   class="fr-btn fr-btn--secondary d-block mx-auto w-100 fr-mt-auto text-center">{% translate "Rejoindre<br />la communauté" %}</a>
-                            </div>
-                            <div class="fr-col-12 fr-col-sm-6 d-flex flex-column">
-                                <div class="fr-h3 text-center fr-mb-0">{{ erps.count|intcomma }}</div>
-                                <p class="text-center fr-mb-0">{% translate "lieux référencés" %}</p>
-                                <div>
-                                    <ul class="fr-raw-list fr-mt-0 fr-px-5v">
-                                        {% for erp in latest %}
-                                            <li class="fr-my-3v">
-                                                <img alt=""
-                                                     class="act-icon act-icon-20 fr-mb-1v"
-                                                     src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
-                                                <a href="{{ erp.get_absolute_url }}" class="fr-link">
-                                                    {% if erp.commune_ext %}
-                                                        {{ erp.commune_ext.nom }}
-                                                    {% else %}
-                                                        erp.commune
-                                                    {% endif %}
-                                                    {% if erp.activite %}»<span class="text-muted">{{ erp.activite.nom }}</span>{% endif %}
-                                                    <br>
-                                                    <strong>{{ erp.nom }}</strong>
-                                                </a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <a href="{% url 'communes' %}"
-                                   class="fr-btn fr-btn--secondary d-block mx-auto text-center mt-auto">{% translate "Voir les derniers lieux référencés" %}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="fr-mt-4v fr-mb-4v">
-                <h2 class="fr-h2 fr-mb-5w text-center blue-title">
-                    {% translate "Des informations affichées sur les grands sites web" %}
-                </h2>
-                <div class="d-flex flex-column flex-md-row">
-                    <a href="{{ partners.SORTIRAPARIS.url }}"
-                       class="fr-link fr-raw-link"
-                       target="_blank">
-                        <img src="{% static partners.SORTIRAPARIS.logo %}"
-                             alt="{% translate "Logo de sortir à paris" %}"
-                             class="a4a-partenaire-logo-small fr-mx-4w">
-                    </a>
-                    <a href="{{ partners.ALLOCINE.url }}"
-                       class="fr-link fr-raw-link"
-                       target="_blank">
-                        <img src="{% static partners.ALLOCINE.logo %}"
-                             alt="{% translate "Logo de allocine" %}"
-                             class="a4a-partenaire-logo-small fr-mx-4w">
-                    </a>
-                    <a href="{{ partners.SOLOCAL.url }}"
-                       class="fr-link fr-raw-link"
-                       target="_blank">
-                        <img src="{% static partners.SOLOCAL.logo %}"
-                             alt="{% translate "Logo de solocal" %}"
-                             class="a4a-partenaire-logo-small fr-mx-4w">
-                    </a>
-                    <a href="{{ partners.SERVICE_PUBLIC.url }}"
-                       class="fr-link fr-raw-link"
-                       target="_blank">
-                        <img src="{% static partners.SERVICE_PUBLIC.logo %}"
-                             alt="{% translate "Logo de service-public.fr" %}"
-                             class="a4a-partenaire-logo-small fr-mx-4w">
-                    </a>
-                </div>
-                <p class="fr-mt-4w">
-                    {% blocktranslate trimmed %}
-                        Sur le principe du "dites-le nous 1 fois", les informations collectées sur acceslibre sont
-                        automatiquement et instantanément affichées sur les sites de nos partenaires.
-                    {% endblocktranslate %}
+            <div class="main-info-container__content">
+                <h1>{% translate "L’accessibilité des lieux publics, selon votre handicap, à portée de clic." %}</h1>
+                <p>
+                    {% translate "Boulangerie, supermarché, salon de coiffure, hébergement, banque...trouvez facilement les lieux accessibles, quels que soient vos besoins." %}
                 </p>
-            </div>
-            <hr>
-            <h2 class="fr-h2 fr-mb-5w text-center blue-title">{% translate "A vous de jouer !" %}</h2>
-            <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-                <div class="fr-col-12 fr-col-sm-6">
-                    <div class="fr-card fr-p-4w bg-alt-green-tilleul-verveine">
-                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Contributrices, contributeurs" %}</h2>
-                        <p>{% translate "Au gré d'une sortie, chacun peut contribuer !" %}</p>
-                        <p>{% translate "Ajoutez un lieu ou complétez une fiche existante, chaque information est précieuse." %}</p>
-                        <a href="{% url "contrib_start" %}"
-                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-auto">{% translate "Ajoutez un établissement" %}</a>
-                    </div>
-                </div>
-                <div class="fr-col-12 fr-col-sm-6">
-                    <div class="fr-card fr-p-4w bg-alt-green-archipel">
-                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Collectivités locales" %}</h2>
-                        <p>{% translate "Pilotes de l'accessibilité sur vos territoires, profitez d'acceslibre pour&nbsp;:" %}</p>
-                        <ul>
-                            <li>{% translate "collecter les informations et mettre à jour les fiches" %}</li>
-                            <li>{% translate "avoir une meilleure vision de l'accessibilité réelle de vos commerces," %}</li>
-                            <li>{% translate "valoriser votre territoire avec un gain de visibilité sur le web" %}</li>
-                        </ul>
-                        <a href="{% url 'contact_form' %}"
-                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
-                        <div>
-                            <p class="fr-mt-3w">
-                                {% translate "Vous vous lancez dans la collecte de données d'accessibilité voirie et transport ?" %}
-                            </p>
-                            <div class="fr-grid-row fr-grid-row--center">
-                                <a href="https://www.ecologie.gouv.fr/politiques-publiques/donnees-daccessibilite-acceslibre-mobilites#les-ressources-guide-outil-acceslibre-mobilites-2"
-                                   class="fr-btn fr-btn--secondary"
-                                   target="_blank">{% translate "En savoir plus sur acceslibre mobilités" %}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="fr-col-12 fr-col-sm-6">
-                    <div class="fr-card fr-p-4w bg-low-green-bourgeon">
-                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Gestionnaires d'établissement" %}</h2>
-                        <p>{% translate "Grâce à acceslibre, augmentez votre visibilité sur internet" %}</p>
-                        <p>{% translate "Mettez en valeur les services que vous proposez pour l'accueil de tous vos clients" %}</p>
-                        <p>{% translate "Compléter les informations de votre établissement ne vous prendra que quelques minutes." %}</p>
-                        <a href="{% url 'contrib_start' %}"
-                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Ajoutez votre établissement" %}</a>
-                    </div>
-                </div>
-                <div class="fr-col-12 fr-col-sm-6">
-                    <div class="fr-card fr-p-4w bg-low-orange-terre-battue">
-                        <h2 class="fr-h2 fr-mb-5w text-center">{% translate "Sites internet, plateformes web" %}</h2>
-                        <p>
-                            {% translate "Toutes les données d'accessibilité collectées par acceslibre sont libres et gratuites. Elles sont à votre disposition via notre API ou notre jeu de données mis à jour quotidiennement (liens en bas de page)." %}
-                        </p>
-                        <p>
-                            {% translate "Rendez votre site plus inclusif et plus riche en intégrant nos informations, grâce à notre widget." %}
-                        </p>
-                        <a href="{% url 'contact_form' %}"
-                           class="fr-btn fr-btn--secondary d-block mx-auto fr-mt-2w">{% translate "Prenez contact avec nous" %}</a>
-                    </div>
-                </div>
+                <ul class="fr-btns-group fr-btns-group--equisized">
+                    <li>
+                        <a class="fr-btn" href="{% url "search" %}">{% translate "Rechercher un établissement" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-btn fr-btn--secondary fr-mb-0"
+                           href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="erps-preview-container">
+        <div class="fr-container">
+            <div class="erps-preview-container__content">
+                <h1>
+                    {% blocktranslate %}
+                Ajoutez vos adresses préférées <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
+                {% endblocktranslate %}
+                </h1>
+                <h2 class="erps-preview-container__content-title">
+                    {# todo: retrieve dynamic count #}
+                    {% translate "585 130" %}
+                </h2>
+                <p>{% translate "lieux enregistrés par nos utilisateurs" %}</p>
+                <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
+            </div>
+            <div class="erps-preview-container__preview">
+                <img class="fr-responsive-img" src="{% static "img/homepage/erp-preview-1.png" %}" alt="">
+                <img class="fr-responsive-img" src="{% static "img/homepage/erp-preview-2.png" %}" alt="">
+                <img class="fr-responsive-img" src="{% static "img/homepage/erp-preview-3.png" %}" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="filters-preview-container">
+        <div class="fr-container">
+            <h1 class="filters-preview-container__title">
+                {% blocktranslate %}
+                Vous êtes unique, <span class="display--block">vos besoins le sont forcément aussi !</span>
+            {% endblocktranslate %}
+            </h1>
+            <section class="filters-preview-container__preview">
+                <div class="filters-preview-container__image-container">
+                    <img src="{% static "img/homepage/filters-preview.png" %}" alt="" class="fr-responsive-img" />
+                </div>
+                <div class="filters-preview-container__text-container">
+                    <h2>{% translate "Simplifiez l’organisation de vos sorties" %}</h2>
+                    <p>{% translate "Filtrez selon vos besoins les informations d’accessibilité." %}</p>
+                    <p>
+                        {% translate "Adresse, téléphone, site web, etc, Acceslibre compile toutes les informations dont vous avez besoin pour planifier vos sorties." %}
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+    <section class="community-container">
+        <div class="fr-container">
+            <h1 class="community-container__title">
+                {% blocktranslate %}
+                    Rejoignez une communauté <span class="display--block">de +10 000 contributeurs et utilisateurs</span>
+                {% endblocktranslate %}
+            </h1>
+            <p>
+                {% blocktranslate %}
+                    Profitez d’informations détaillées sur vos lieux préférés et contribuez <span class="display--block">à une expérience collaborative enrichissante.</span>
+                {% endblocktranslate %}
+            </p>
+            <ul class="fr-btns-group fr-btns-group--equisized">
+                <li>
+                    <a href="{% url 'django_registration_register' %}" class="fr-btn">{% translate "Rejoindre la communauté" %}</a>
+                </li>
+                <li>
+                    <a href="{% url 'challenges' %}"
+                       class="fr-btn fr-btn--secondary fr-mb-0">{% translate "Participer à un challenge" %}</a>
+                </li>
+            </ul>
+        </div>
+    </section>
 {% endblock top_fluid_content %}
