@@ -30,11 +30,19 @@
   }
 
   .ranking-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     gap: 24px;
     justify-content: center;
     padding: 0;
+
+    @media screen and (max-width: $viewport-md) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media screen and (max-width: $viewport-sm) {
+      grid-template-columns: repeat(1, auto);
+    }
 
     .ranking {
       display: flex;
@@ -47,6 +55,14 @@
       gap: 8px;
       width: 180px;
       word-break: break-all;
+
+      @media screen and (max-width: $viewport-md) {
+        width: 240px;
+      }
+
+      @media screen and (max-width: $viewport-sm) {
+        width: 100%;
+      }
     }
   }
 
