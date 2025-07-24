@@ -39,10 +39,7 @@
                         <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
                     {% endblocktranslate %}
                 </h1>
-                <h2 class="erps-preview-container__content-title">
-                    {# todo: retrieve dynamic count #}
-                    {% translate "585 130" %}
-                </h2>
+                <h2 class="erps-preview-container__content-title">{{ erps.count }}</h2>
                 <p>{% translate "lieux enregistrés par nos utilisateurs" %}</p>
                 <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
             </div>
