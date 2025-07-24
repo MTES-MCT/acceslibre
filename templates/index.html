@@ -35,8 +35,9 @@
             <div class="erps-preview-container__content">
                 <h1>
                     {% blocktranslate %}
-                Ajoutez vos adresses préférées <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
-                {% endblocktranslate %}
+                        Ajoutez vos adresses préférées
+                        <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
+                    {% endblocktranslate %}
                 </h1>
                 <h2 class="erps-preview-container__content-title">
                     {# todo: retrieve dynamic count #}
@@ -56,8 +57,8 @@
         <div class="fr-container">
             <h1 class="filters-preview-container__title">
                 {% blocktranslate %}
-                Vous êtes unique, <span class="display--block">vos besoins le sont forcément aussi !</span>
-            {% endblocktranslate %}
+                    Vous êtes unique, <span class="display--block">vos besoins le sont forcément aussi !</span>
+                {% endblocktranslate %}
             </h1>
             <section class="filters-preview-container__preview">
                 <div class="filters-preview-container__image-container">
@@ -75,25 +76,82 @@
     </section>
     <section class="community-container">
         <div class="fr-container">
-            <h1 class="community-container__title">
-                {% blocktranslate %}
-                    Rejoignez une communauté <span class="display--block">de +10 000 contributeurs et utilisateurs</span>
-                {% endblocktranslate %}
-            </h1>
-            <p>
-                {% blocktranslate %}
-                    Profitez d’informations détaillées sur vos lieux préférés et contribuez <span class="display--block">à une expérience collaborative enrichissante.</span>
-                {% endblocktranslate %}
-            </p>
-            <ul class="fr-btns-group fr-btns-group--equisized">
-                <li>
-                    <a href="{% url 'django_registration_register' %}" class="fr-btn">{% translate "Rejoindre la communauté" %}</a>
-                </li>
-                <li>
-                    <a href="{% url 'challenges' %}"
-                       class="fr-btn fr-btn--secondary fr-mb-0">{% translate "Participer à un challenge" %}</a>
-                </li>
-            </ul>
+            <div class="community-container__content">
+                <div class="community-container__pin-wrapper-1">
+                    <img src="{% static "img/homepage/pin-1.png" %}" alt="" />
+                    <img src="{% static "img/homepage/pin-2.png" %}" alt="" />
+                    <img src="{% static "img/homepage/pin-3.png" %}" alt="" />
+                </div>
+                <div>
+                    <h1 class="community-container__title">
+                        {% blocktranslate %}
+                            Rejoignez une communauté
+                            <span class="display--block">de +10 000 contributeurs et utilisateurs</span>
+                        {% endblocktranslate %}
+                    </h1>
+                    <p>
+                        {% blocktranslate %}
+                            Profitez d’informations détaillées sur vos lieux préférés et contribuez
+                            <span class="display--block">à une expérience collaborative enrichissante.</span>
+                        {% endblocktranslate %}
+                    </p>
+                    <ul class="fr-btns-group fr-btns-group--equisized">
+                        <li>
+                            <a href="{% url 'django_registration_register' %}" class="fr-btn">{% translate "Rejoindre la communauté" %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'challenges' %}"
+                               class="fr-btn fr-btn--secondary fr-mb-0">{% translate "Participer à un challenge" %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="community-container__pin-wrapper-2">
+                    <img src="{% static "img/homepage/pin-4.png" %}" alt="" />
+                    <img src="{% static "img/homepage/pin-5.png" %}" alt="" />
+                    <img src="{% static "img/homepage/pin-6.png" %}" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="partners-container">
+        <div class="fr-container">
+            <div class="partners-container__title">
+                <h2 class="fr-mb-0">{% translate "Nos partenaires" %}</h2>
+            </div>
+            <div class="partners-container__description">
+                {% translate "Découvrez nos partenaires engagés pour rendre les infrastructures, services et outils numériques plus accessibles." %}
+            </div>
+            <div class="partners-container__images-container">
+                <a href="{{ partners.ALLOCINE.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.ALLOCINE.logo %}"
+                         alt="{% translate "Logo de allocine" %}">
+                </a>
+                <a href="{{ partners.AVH.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.AVH.logo %}"
+                         alt="{% translate "Logo de Association Valentin Haüy" %}">
+                </a>
+                <a href="{{ partners.SORTIRAPARIS.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.SORTIRAPARIS.logo %}"
+                         alt="{% translate "Logo de sortir à paris" %}">
+                </a>
+                <a href="{{ partners.SOLOCAL.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.SOLOCAL.logo %}"
+                         alt="{% translate "Logo de solocal" %}">
+                </a>
+                <a href="{{ partners.WEGOTO.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.WEGOTO.logo %}"
+                         alt="{% translate "Logo de Wegoto" %}">
+                </a>
+                <a href="{{ partners.LAPOSTE.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.LAPOSTE.logo %}"
+                         alt="{% translate "Logo de LaPoste" %}">
+                </a>
+                <a href="{{ partners.MUSIC_IN_PARIS.url }}" class="fr-link fr-raw-link">
+                    <img src="{% static partners.MUSIC_IN_PARIS.logo %}"
+                         alt="{% translate "Logo de Music in Paris" %}">
+                </a>
+            </div>
+            <a href="{% url "contact_topic" topic="contact" %}" class="fr-btn">{% translate "Devenir partenaire" %}</a>
         </div>
     </section>
 {% endblock top_fluid_content %}
