@@ -90,6 +90,7 @@ def home(request):
             "contributors": get_active_contributors_ids(),
             "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
             "partners": schema.PARTENAIRES,
+            "page_type": "home",
         },
     )
 

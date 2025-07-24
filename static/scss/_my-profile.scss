@@ -1,4 +1,4 @@
-@import 'breakpoints';
+@use 'breakpoints' as *;
 
 .my-profile-container {
   .edit-block {

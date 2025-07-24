@@ -1,4 +1,4 @@
-@import 'breakpoints';
+@use 'breakpoints' as *;
 
 .erp-details-container {
   display: flex;
