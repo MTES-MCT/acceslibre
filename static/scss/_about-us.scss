@@ -1,4 +1,4 @@
-@import 'breakpoints';
+@use 'breakpoints' as *;
 
 .about-us-container {
   background-color: var(--blue-ecume-950-100);
@@ -40,6 +40,11 @@
         height: 100%;
       }
 
+      align-items: center;
+      column-gap: 16px;
+      row-gap: 16px;
+      justify-content: center;
+
       @media screen and (min-width: $viewport-md) {
         grid-template-columns: repeat(3, minmax(192px, 1fr));
       }
@@ -47,11 +52,6 @@
       @media screen and (min-width: $viewport-xl) {
         grid-template-columns: repeat(5, minmax(192px, 1fr));
       }
-
-      align-items: center;
-      column-gap: 16px;
-      row-gap: 16px;
-      justify-content: center;
 
       .fr-card {
         height: 100%;
