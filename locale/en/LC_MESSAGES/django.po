@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 16:14+0200\n"
+"POT-Creation-Date: 2025-07-30 10:30+0200\n"
 "PO-Revision-Date: 2025-07-24 16:11+0200\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"Last-Translator: <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -3018,52 +3018,6 @@ msgstr "Go to the official website"
 msgid "Ouverture dans un nouvel onglet"
 msgstr "Open in a new tab"
 
-msgid "Retour aux challenges"
-msgstr "Back to challenges"
-
-#, python-format
-msgid "Du %(start)s au %(end)s."
-msgstr "From %(start)s to %(end)s."
-
-msgid "S'inscrire"
-msgstr "Sign up"
-
-msgid "Objectifs :"
-msgstr "Objectives:"
-
-msgid "ERPs ajoutés"
-msgstr "ERPs added"
-
-msgid "ERP ajouté"
-msgstr "ERP added"
-
-msgid "Merci"
-msgstr "Thanks"
-
-msgid "Le concours n'a pas encore démarré"
-msgstr "The challenge has not started yet"
-
-msgid "Le concours est terminé"
-msgstr "The challenge is over"
-
-msgid ""
-"Le concours a démarré, mais aucun participant n'a encore ajouté "
-"d'établissement."
-msgstr ""
-"The challenge has started, but no participant has yet added an establishment."
-
-msgid "établissements renseignés"
-msgstr "facilities informed"
-
-msgid "établissement renseigné"
-msgstr "facility informed"
-
-msgid "Classement général"
-msgstr "General ranking"
-
-msgid "Aucun participant n'a ajouté d'établissement pour le moment"
-msgstr "No participant has added a facility at this time"
-
 msgid "Vous êtes ici :"
 msgstr "You are here:"
 
@@ -3075,6 +3029,12 @@ msgstr "Accessibility information added"
 
 msgid "Participants au challenge"
 msgstr "Challenge participants"
+
+msgid "Le concours n'a pas encore démarré"
+msgstr "The challenge has not started yet"
+
+msgid "Le concours est terminé"
+msgstr "The challenge is over"
 
 msgid ""
 "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété "
@@ -3088,6 +3048,9 @@ msgstr "Top"
 
 msgid "Aucun participant n'a ajouté ou complété d'établissement pour le moment"
 msgstr "No participant has added or completed a facility yet"
+
+msgid "Classement général"
+msgstr "General ranking"
 
 msgid "Classement"
 msgstr "General ranking"
@@ -3186,6 +3149,34 @@ msgstr "Challenge DDT (M)"
 
 msgid "Tous acceslibre"
 msgstr "All acceslibre"
+
+#, python-format
+msgid "Du %(start)s au %(end)s."
+msgstr "From %(start)s to %(end)s."
+
+msgid "ERPs ajoutés"
+msgstr "ERPs added"
+
+msgid "ERP ajouté"
+msgstr "ERP added"
+
+msgid "Merci"
+msgstr "Thanks"
+
+msgid ""
+"Le concours a démarré, mais aucun participant n'a encore ajouté "
+"d'établissement."
+msgstr ""
+"The challenge has started, but no participant has yet added an establishment."
+
+msgid "établissements renseignés"
+msgstr "facilities informed"
+
+msgid "établissement renseigné"
+msgstr "facility informed"
+
+msgid "Aucun participant n'a ajouté d'établissement pour le moment"
+msgstr "No participant has added a facility at this time"
 
 #, python-format
 msgid ""
@@ -6050,8 +6041,9 @@ msgid ""
 "besoins le sont forcément aussi !</span>\n"
 "                "
 msgstr ""
-"You are unique, <Span Class = \"Display-Block\"> Your needs are necessarily "
-"so!"
+"\n"
+"                    You are unique, <Span Class = \"Display-Block\"> Your "
+"needs are necessarily so!"
 
 msgid "Simplifiez l’organisation de vos sorties"
 msgstr "Simplify the organization of your outings"
@@ -6468,6 +6460,15 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Retour aux challenges"
+#~ msgstr "Back to the challenges"
+
+#~ msgid "S'inscrire"
+#~ msgstr "Register"
+
+#~ msgid "Objectifs :"
+#~ msgstr "Goals :"
 
 #~ msgid "585 130"
 #~ msgstr "585 130"
