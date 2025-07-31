@@ -70,7 +70,7 @@ class GeolocRequester:
 
         try:
             res = requests.get(url, params, timeout=timeout)
-            logger.info(f"[{self.provider['name']}] geocoding call: {res.url}")
+            # logger.info(f"[{self.provider['name']}] geocoding call: {res.url}")
             if res.status_code != 200:
                 raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse.")
             return res.json()
