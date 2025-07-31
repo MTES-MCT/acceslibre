@@ -126,6 +126,20 @@ class BrevoMailer(Mailer):
                 create_attribute=CreateAttribute(type="float"),
             )
 
+        if "NB_ERPS_ADMINISTRATOR" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="NB_ERPS_ADMINISTRATOR",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="float"),
+            )
+
+        if "NEWSLETTER_OPT_IN" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="NEWSLETTER_OPT_IN",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="boolean"),
+            )
+
         if "AVERAGE_COMPLETION_RATE" not in current_attributes:
             api_instance.create_attribute(
                 attribute_name="AVERAGE_COMPLETION_RATE",
