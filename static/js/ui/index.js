@@ -20,6 +20,7 @@ import FormContribDirtyChecker from './FormContribDirtyChecker'
 import FormContribEditNotification from './FormContribEditNotification'
 import TextExpander from './TextExpander'
 import ContentToggle from './ContentToggle'
+import SearchMobile from './SearchMobile'
 
 export default {
   AsteriskField,
@@ -44,4 +45,5 @@ export default {
   FormContribEditNotification,
   TextExpander,
   ContentToggle,
+  SearchMobile,
 }

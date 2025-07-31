@@ -5,8 +5,10 @@
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
-    <div>
-        <h1 class="fr-h4">{% translate "Rechercher un lieu" %}</h1>
+    <fieldset>
+        <legend>
+            <h1 class="fr-h4">{% translate "Rechercher un lieu" %}</h1>
+        </legend>
         <div class="fr-input-group">
             <label for="what-input" class="w-100 text-start">{% translate "Activité ou nom d'établissement" %}</label>
             {% comment %}Translators: please do not translate "Mairie, café" as we are searching into french contents{% endcomment %}
@@ -15,7 +17,6 @@
                    name="what"
                    class="fr-input fr-mt-1w"
                    placeholder="Mairie, café..."
-                   aria-label='{% translate "Rechercher un établissement, une activité. Exemple : Mairie, Café" %}'
                    autocomplete="off"
                    {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
         </div>
@@ -77,5 +78,5 @@
                 </button>
             </li>
         </ul>
-    </div>
+    </fieldset>
 </form>

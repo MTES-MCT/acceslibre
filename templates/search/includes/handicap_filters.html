@@ -14,17 +14,17 @@
         </ul>
         <div class="equipments equipments-selected">
             {% with request.GET|get_list:"equipments" as equipment_params %}
-                <h1 class="fr-h4 fr-mb-1w fr-mt-4w">{% translate "Filtrer par équipements :" %}</h1>
+                <h2 class="fr-h4 fr-mb-1w fr-mt-4w">{% translate "Filtrer par équipements :" %}</h2>
                 {% regroup equipments.values|dictsort:"group" by group as equipments_by_group %}
                 {% for group in equipments_by_group %}
                     <section class="fr-accordion">
-                        <h2 class="fr-accordion__title">
+                        <h3 class="fr-accordion__title">
                             <button class="fr-accordion__btn"
                                     aria-expanded="false"
                                     aria-controls="accordion-{{ group.grouper | kebab_case }}">
                                 {{ group.grouper }}
                             </button>
-                        </h2>
+                        </h3>
                         <div class="fr-collapse" id="accordion-{{ group.grouper | kebab_case }}">
                             <div class="display--flex gap-1w direction--column">
                                 {% for equipement in group.list %}
