@@ -40,26 +40,26 @@
                 role="tablist"
                 aria-label="Résultats de recherche">
                 <li role="presentation">
-                    <button id="tabpanel-404"
+                    <button id="tabpanel-1"
                             class="fr-tabs__tab fr-tabs__tab--icon-left"
                             tabindex="0"
                             role="tab"
                             aria-selected="true"
-                            aria-controls="tabpanel-404-panel">{% translate "Liste des résultats" %}</button>
+                            aria-controls="tabpanel-1-panel">{% translate "Liste des résultats" %}</button>
                 </li>
                 <li role="presentation">
-                    <button id="tabpanel-405"
+                    <button id="tabpanel-2"
                             class="fr-tabs__tab fr-tabs__tab--icon-left"
                             tabindex="-1"
                             role="tab"
                             aria-selected="false"
-                            aria-controls="tabpanel-405-panel">{% translate "Carte" %}</button>
+                            aria-controls="tabpanel-2-panel">{% translate "Carte" %}</button>
                 </li>
             </ul>
-            <div id="tabpanel-404-panel"
+            <div id="tabpanel-1-panel"
                  class="fr-tabs__panel fr-tabs__panel--selected fr-col fr-col-12 fr-p-0"
                  role="tabpanel"
-                 aria-labelledby="tabpanel-404"
+                 aria-labelledby="tabpanel-1"
                  tabindex="0">
                 <div class="main-search__list" id="erp-results-list">
                     <div class="position--sticky">
@@ -79,10 +79,10 @@
                     </section>
                 </div>
             </div>
-            <div id="tabpanel-405-panel"
+            <div id="tabpanel-2-panel"
                  class="fr-tabs__panel fr-col fr-col-12 a4a-search-map-area"
                  role="tabpanel"
-                 aria-labelledby="tabpanel-405"
+                 aria-labelledby="tabpanel-2"
                  tabindex="0">
                 <div class="main-search__map">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
             </div>
