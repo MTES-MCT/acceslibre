@@ -6,13 +6,13 @@ repos:
     hooks:
       - id: seed-isort-config
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.7
+    rev: v0.12.7
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
   - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.34.1
+    rev: v1.36.4
     hooks:
       - id: djlint-reformat-django
         files: 'templates/'
@@ -25,3 +25,7 @@ repos:
         additional_dependencies:
           - prettier@3.3.0
         types_or: [scss, css, javascript]
+  - repo: https://github.com/thoughtworks/talisman
+    rev: v1.37.0
+    hooks:
+      - id: talisman-commit
