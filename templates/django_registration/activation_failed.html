@@ -7,39 +7,62 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Activation de compte" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <h3>{% translate "L'activation de votre compte a échouée" %}</h3>
-    {% if activation_error %}
-        <div class="alert alert-warning" role="alert">
-            {% url 'django_registration_register' as url_register %}
-            {% url 'contact_topic' topic='connection' as url_contact_connection %}
-            {% if activation_error.code == "already_activated" %}
-                {% translate "Votre compte a déjà été activé." %}
-                {% translate "Vous pouvez donc" %} <a href="{% url 'login' %}?next={{ request.GET.next }}">{% translate "vous authentifier" %}</a>.
-            {% elif activation_error.code == "bad_username" %}
-                {% blocktranslate %}
+    <div class="fr-mb-3w">
+        <h1 class="fr-h3">{% translate "L'activation de votre compte a échouée" %}</h1>
+        {% if activation_error %}
+            <div class="fr-alert fr-alert--error">
+                {% url 'django_registration_register' as url_register %}
+                {% url 'contact_topic' topic='connection' as url_contact_connection %}
+                {% if activation_error.code == "already_activated" %}
+                    {% translate "Votre compte a déjà été activé." %}
+                    {% translate "Vous pouvez donc" %} <a class="fr-link" href="{% url 'login' %}?next={{ request.GET.next }}">{% translate "vous authentifier" %}</a>.
+                {% elif activation_error.code == "bad_username" %}
+                    {% blocktranslate %}
       Nous n'avons pu retrouver le compte associé à cette demande d'activation.
-      Merci de <a href="{{ url_contact_connection }}">nous contacter</a>.
+      Merci de <a class="fr-link" href="{{ url_contact_connection }}">nous contacter</a>.
       {% endblocktranslate %}
-            {% elif activation_error.code == "expired" %}
-                {% blocktranslate %}
+                {% elif activation_error.code == "expired" %}
+                    {% blocktranslate %}
       Cette demande d'activation de compte a expiré.
-      Vous pouvez <a href="{{ url_register }}">créer un nouveau compte</a>.
+      Vous pouvez <a class="fr-link" href="{{ url_register }}">créer un nouveau compte</a>.
       {% endblocktranslate %}
-            {% elif activation_error.code == "invalid_key" %}
-                {% blocktranslate %}
+                {% elif activation_error.code == "invalid_key" %}
+                    {% blocktranslate %}
       La clé d'activation est corrompue.
-      Vous devez <a href="{{ url_register }}">créer un nouveau compte</a>.
+      Vous devez <a class="fr-link" href="{{ url_register }}">créer un nouveau compte</a>.
       {% endblocktranslate %}
-            {% endif %}
-        </div>
-    {% else %}
-        <p>
-            {% url "contact_topic" topic="connection" as url_contact_connection %}
-            {% blocktranslate %}
+                {% endif %}
+            </div>
+        {% else %}
+            <p>
+                {% url "contact_topic" topic="connection" as url_contact_connection %}
+                {% blocktranslate %}
       Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.
-      Merci de <a href="{{ url_contact_connection }}">nous contacter</a>.
+      Merci de <a class="fr-link" href="{{ url_contact_connection }}">nous contacter</a>.
       {% endblocktranslate %}
-        </p>
-    {% endif %}
+            </p>
+        {% endif %}
+    </div>
 {% endblock editorial_content %}

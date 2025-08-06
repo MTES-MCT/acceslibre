@@ -27,6 +27,15 @@ function SearchWhere(root) {
   }
   const searchInDepartmentsAllowed = input.dataset.autocompleteDepartments === 'on'
 
+  navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+    console.log({ result })
+    if (result.state === 'granted') {
+      a11yGeolocBtn.classList.add('fr-hidden')
+    } else if (result.state === 'prompt') {
+      a11yGeolocBtn.classList.remove('display--block')
+    }
+  })
+
   input.addEventListener('input', activateSubmitBtn, false)
 
   function activateSubmitBtn(event, force = false) {
