@@ -16,7 +16,7 @@
             <div class="main-info-container__content">
                 <h1>{% translate "L’accessibilité des lieux publics, selon votre handicap, à portée de clic." %}</h1>
                 <p>
-                    {% translate "Boulangerie, supermarché, salon de coiffure, hébergement, banque...trouvez facilement les lieux accessibles, quels que soient vos besoins." %}
+                    {% translate "Boulangerie, supermarché, salon de coiffure, hébergement, banque... Trouvez facilement les lieux accessibles, quels que soient vos besoins." %}
                 </p>
                 <ul class="fr-btns-group fr-btns-group--equisized">
                     <li>
@@ -39,8 +39,8 @@
                         <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
                     {% endblocktranslate %}
                 </h1>
-                <h2 class="erps-preview-container__content-title">{{ erps.count }}</h2>
-                <p>{% translate "lieux enregistrés par nos utilisateurs" %}</p>
+                <h2 class="erps-preview-container__content-title">{{ erps.count|intcomma }}</h2>
+                <p>{% translate "lieux enregistrés par nos contributeurs" %}</p>
                 <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
             </div>
             <div class="erps-preview-container__preview">
@@ -65,7 +65,7 @@
                     <h2>{% translate "Simplifiez l’organisation de vos sorties" %}</h2>
                     <p>{% translate "Filtrez selon vos besoins les informations d’accessibilité." %}</p>
                     <p>
-                        {% translate "Adresse, téléphone, site web, etc, Acceslibre compile toutes les informations dont vous avez besoin pour planifier vos sorties." %}
+                        {% translate "Entrée accessible, personnel formé, balise sonore, etc, Acceslibre vous permet de sélectionner toutes les informations dont vous avez besoin pour planifier vos sorties." %}
                     </p>
                 </div>
             </section>
@@ -148,7 +148,17 @@
                          alt="{% translate "Logo de Music in Paris" %}">
                 </a>
             </div>
-            <a href="{% url "contact_topic" topic="contact" %}" class="fr-btn">{% translate "Devenir partenaire" %}</a>
+            <div>
+                <ul class="fr-btns-group">
+                    <li>
+                        <a href="{% url "contact_topic" topic="contact" %}"
+                           class="fr-btn fr-btn-">{% translate "Devenir partenaire" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url "partenaires" %}" class="fr-btn fr-btn--secondary">{% translate "Voir les partenaires" %}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 {% endblock top_fluid_content %}
