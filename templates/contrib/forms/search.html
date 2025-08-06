@@ -8,35 +8,39 @@
     <div class="fr-mx-0 w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-lg-4">
-                <label for="what-input">
-                    {% translate "Quel nom ?" %}
-                    <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
-                </label>
-                {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
-                <div>
-                    {% if form.errors.what %}
-                        <p id="text-input-error-desc-error" class="fr-error-text">{{ form.errors.what.0 }}</p>
-                    {% endif %}
+                <div class="fr-input-group {% if form.what.errors %}fr-input--error{% endif %}">
+                    <label for="what-input">
+                        {% translate "Quel nom ?" %}
+                        <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
+                    </label>
+                    {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
+                    <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                    <div class="fr-messages-group {% if not form.what.errors %}fr-hidden{% endif %}">
+                        {% if form.what.errors %}
+                            <p id="text-input-error-desc-error" class="fr-message fr-message--error">{{ form.what.errors.0 }}</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4">
-                <input type="hidden"
-                       name="activity_slug"
-                       id="activity_slug"
-                       {% if "activity_slug" in request.GET %}value="{{ request.GET.activity_slug }}"{% endif %}>
-                <div id="autocomplete-activity" class="autocomplete">
-                    <label for="id_activite">
-                        {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
-                    </label>
-                    {{ form.activite }}
-                    <ul class="list-group">
-                    </ul>
-                </div>
-                <div class="fr-mt-1w">
-                    {% if form.errors.activite %}
-                        <p id="select-error-desc-error" class="fr-error-text">{{ form.errors.activite.0 }}</p>
-                    {% endif %}
+                <div class="fr-input-group {% if form.activite.errors %}fr-input--error{% endif %}">
+                    <input type="hidden"
+                           name="activity_slug"
+                           id="activity_slug"
+                           {% if "activity_slug" in request.GET %}value="{{ request.GET.activity_slug }}"{% endif %}>
+                    <div id="autocomplete-activity" class="autocomplete">
+                        <label for="id_activite">
+                            {% translate "Quelle activité ?" %} <span class="fr-hint-text">{% translate "Par exemple : cinéma, pharmacie..." %}</span>
+                        </label>
+                        {{ form.activite }}
+                        <ul class="list-group">
+                        </ul>
+                    </div>
+                    <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors %}fr-hidden{% endif %}">
+                        {% if form.activite.errors %}
+                            <p id="select-error-desc-error" class="fr-message fr-message--error">{{ form.activite.errors.0 }}</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4 search-where-field">
@@ -44,7 +48,7 @@
                     {% translate "Où ?" %}<span class="asteriskField"></span>
                     <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
                 </label>
-                <div class="position--relative fr-input-group">
+                <div class="position--relative fr-input-group {% if form.where.errors %}fr-input-group--error{% endif %}">
                     <input id="where-input"
                            class="autocomplete-input fr-input"
                            type="search"
@@ -58,7 +62,7 @@
                            placeholder="Lyon, 12 rue des prés Nantes">
                     <ul class="list-group autocomplete-result-list rounded-only-bottom">
                     </ul>
-                    <div class="fr-messages-group fr-hidden"
+                    <div class="fr-messages-group {% if not form.where.errors %}fr-hidden{% endif %}"
                          id="where-input-messages"
                          aria-live="polite">
                         <p class="fr-message fr-message--error" id="where-input-message-error">
