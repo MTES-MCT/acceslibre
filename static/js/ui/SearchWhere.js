@@ -28,16 +28,17 @@ function SearchWhere(root) {
   const searchInDepartmentsAllowed = input.dataset.autocompleteDepartments === 'on'
 
   input.addEventListener('input', activateSubmitBtn, false)
-  activateSubmitBtn(null, false)
 
   function activateSubmitBtn(event, force = false) {
     if (input.value.startsWith(AROUND_ME) && hiddens.lat.getAttribute('value') && hiddens.lon.getAttribute('value')) {
       force = true
     }
     if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
-      input.form.querySelector('button[type=submit]').removeAttribute('disabled')
+      input.form.querySelector('#where-input-messages').classList.add('fr-hidden')
+      input.form.querySelector('#where-input-messages').parentElement.classList.remove('fr-input-group--error')
     } else {
-      input.form.querySelector('button[type=submit]').setAttribute('disabled', '')
+      input.form.querySelector('#where-input-messages').classList.remove('fr-hidden')
+      input.form.querySelector('#where-input-messages').parentElement.classList.add('fr-input-group--error')
     }
   }
 
@@ -165,9 +166,7 @@ function SearchWhere(root) {
     setTimeout(() => {
       try {
         submittable = exp.target.getAttribute('aria-expanded') !== 'true'
-        if (submittable) {
-          activateSubmitBtn(null, false)
-        }
+        activateSubmitBtn(null, !submittable)
       } catch (e) {}
     }, 0)
   })

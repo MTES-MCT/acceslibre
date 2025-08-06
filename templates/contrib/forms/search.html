@@ -44,7 +44,7 @@
                     {% translate "Où ?" %}<span class="asteriskField"></span>
                     <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
                 </label>
-                <div class="position--relative">
+                <div class="position--relative fr-input-group">
                     <input id="where-input"
                            class="autocomplete-input fr-input"
                            type="search"
@@ -58,6 +58,13 @@
                            placeholder="Lyon, 12 rue des prés Nantes">
                     <ul class="list-group autocomplete-result-list rounded-only-bottom">
                     </ul>
+                    <div class="fr-messages-group fr-hidden"
+                         id="where-input-messages"
+                         aria-live="polite">
+                        <p class="fr-message fr-message--error" id="where-input-message-error">
+                            {% translate "Veuillez renseigner une adresse." %}
+                        </p>
+                    </div>
                 </div>
                 <input type="hidden"
                        name="lat"
