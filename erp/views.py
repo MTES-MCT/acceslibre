@@ -581,43 +581,41 @@ def contrib_global_search(request):
 
     query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (activite.nom if activite else None)
 
-    if not activite and not what_lower:
-        error = translate("Vous devez préciser une activité ou un nom d'établissement.")
+    if query_terms_for_api and need_external_api_search:
+        try:
+            if need_external_api_search:
+                results = provider_search.global_search(
+                    query_terms_for_api,
+                    request.GET.get("code"),
+                    activity=activite,
+                )
+        except RuntimeError as err:
+            error = err
+
+    if what_lower:
+        qs_results_bdd = (
+            Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
+        )
     else:
-        if query_terms_for_api and need_external_api_search:
-            try:
-                if need_external_api_search:
-                    results = provider_search.global_search(
-                        query_terms_for_api,
-                        request.GET.get("code"),
-                        activity=activite,
-                    )
-            except RuntimeError as err:
-                error = err
+        qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
 
-        if what_lower:
-            qs_results_bdd = (
-                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-                .published()
-                .search_what(what_lower)
-            )
-        else:
-            qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
+    if activite:
+        qs_results_bdd = qs_results_bdd.filter(activite=activite)
 
-        if activite:
-            qs_results_bdd = qs_results_bdd.filter(activite=activite)
-
-        commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
-        qs_results_bdd = qs_results_bdd[:pagination_size]
-        results = acceslibre.parse_etablissements(qs_results_bdd, results)
+    commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+    qs_results_bdd = qs_results_bdd[:pagination_size]
+    results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
     city, _ = clean_address(request.GET.get("where"))
+
+    form = forms.ProviderGlobalSearchForm(request.GET, initial=request.GET.copy())
+    form.is_valid()
 
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "form": forms.ProviderGlobalSearchForm(initial=request.GET.copy()),
+            "form": form,
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
