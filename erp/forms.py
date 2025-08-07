@@ -624,6 +624,7 @@ class ProviderGlobalSearchForm(forms.Form):
         cleaned_data = super().clean()
 
         what = cleaned_data.get("what")
+        cleaned_data["activite"] = cleaned_data.get("activite") or ""
         activite = cleaned_data.get("activite")
 
         if not what and not activite:
