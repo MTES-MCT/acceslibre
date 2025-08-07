@@ -37,14 +37,14 @@
         Découvrez l'accessibilité de l'établissement {{ erp_name }} à {{ city_name }} - {{ department_name }}
     {% endblocktranslate %}
 {% endblock page_description %}
-{% block skiplinks %}
-    <a class="skippy fr-sr-only sr-only-focusable" href="#app-map">
-        <span class="skippy-text">{% translate "Aller à la carte" %}</span>
-    </a>
-    <a class="skippy fr-sr-only sr-only-focusable" href="#a11y">
-        <span class="skippy-text">{% translate "Aller aux informations d'accessibilité" %}</span>
-    </a>
-{% endblock skiplinks %}
+{% block additional_skip_links %}
+    <li>
+        <a class="fr-link" href="#app-map">{% translate "Aller à la carte" %}</a>
+    </li>
+    <li>
+        <a class="fr-link" href="#a11y">{% translate "Aller aux informations d'accessibilité" %}</a>
+    </li>
+{% endblock additional_skip_links %}
 {% block editorial_content %}
     <main role="main" id="content" class="erp-details-container" tabindex="-1">
         <section>
@@ -70,7 +70,7 @@
             {% if access.labels %}
                 {% include "erp/includes/labels.html" %}
             {% endif %}
-            <h2 class="text-center fr-mb-4w fr-mb-md-6w">{% translate "Informations sur l’accessibilité" %}</h2>
+            <h2 class="text-center fr-mb-4w fr-mb-md-6w" id="a11y">{% translate "Informations sur l’accessibilité" %}</h2>
             <div class="fr-grid-row fr-col-12 fr-col-md-10 justify-self--center">
                 {% include "erp/includes/filters.html" %}
                 <div id="filter-controller"
