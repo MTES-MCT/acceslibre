@@ -634,8 +634,9 @@ class ProviderGlobalSearchForm(forms.Form):
             or (cleaned_data.get("lat") and cleaned_data.get("lon"))
             or cleaned_data.get("code")
         ):
-            return cleaned_data["where"]
-        raise self.add_error("where", translate("Veuillez renseigner une adresse."))
+            return cleaned_data
+        self.add_error("where", translate("Veuillez renseigner une adresse."))
+        return cleaned_data
 
 
 class PublicAProposForm(forms.ModelForm):

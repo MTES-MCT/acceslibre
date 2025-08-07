@@ -36,7 +36,8 @@
                         <ul class="list-group">
                         </ul>
                     </div>
-                    <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors %}fr-hidden{% endif %}">
+                    <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors %}fr-hidden{% endif %}"
+                         id="activite-input-messages">
                         {% if form.activite.errors %}
                             <p id="select-error-desc-error" class="fr-message fr-message--error">{{ form.activite.errors.0 }}</p>
                         {% endif %}
