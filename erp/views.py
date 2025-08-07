@@ -90,6 +90,7 @@ def home(request):
             "contributors": get_active_contributors_ids(),
             "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
             "partners": schema.PARTENAIRES,
+            "page_type": "home",
         },
     )
 
@@ -191,7 +192,9 @@ def challenge_detail(request, challenge_slug=None):
             "stop_date": challenge.end_date,
             "today": today,
             "top_contribs": challenge.get_classement(),
+            "total_participants": challenge.players.count(),
             "total_contributions": challenge.nb_erp_total_added,
+            "page_type": "challenge",
         },
     )
 
@@ -316,7 +319,7 @@ def panoramax(request):
         return redirect(reverse("panoramax"))
 
     def _find_erp_to_match():
-        cities = ["Lyon", "Caen", "Strasbourg"]
+        cities = ["Lyon", "Caen", "Strasbourg", "Le Havre", "Nantes", "Toulouse", "Montauban", "Bayonne"]
         erp = (
             Erp.objects.published()
             .filter(commune__unaccent__in=cities)

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-16 11:48+0200\n"
-"PO-Revision-Date: 2025-07-16 11:48+0200\n"
+"POT-Creation-Date: 2025-08-06 16:07+0200\n"
+"PO-Revision-Date: 2025-08-06 16:07+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3018,27 +3018,17 @@ msgstr "Go to the official website"
 msgid "Ouverture dans un nouvel onglet"
 msgstr "Open in a new tab"
 
-msgid "Retour aux challenges"
-msgstr "Back to challenges"
+msgid "Vous êtes ici :"
+msgstr "You are here:"
 
-#, python-format
-msgid "Du %(start)s au %(end)s."
-msgstr "From %(start)s to %(end)s."
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
 
-msgid "S'inscrire"
-msgstr "Sign up"
+msgid "Informations d'accessibilité ajoutées"
+msgstr "Accessibility information added"
 
-msgid "Objectifs :"
-msgstr "Objectives:"
-
-msgid "ERPs ajoutés"
-msgstr "ERPs added"
-
-msgid "ERP ajouté"
-msgstr "ERP added"
-
-msgid "Merci"
-msgstr "Thanks"
+msgid "Participants au challenge"
+msgstr "Challenge participants"
 
 msgid "Le concours n'a pas encore démarré"
 msgstr "The challenge has not started yet"
@@ -3047,53 +3037,44 @@ msgid "Le concours est terminé"
 msgstr "The challenge is over"
 
 msgid ""
-"Le concours a démarré, mais aucun participant n'a encore ajouté "
-"d'établissement."
-msgstr ""
-"The challenge has started, but no participant has yet added an establishment."
-
-msgid "établissements renseignés"
-msgstr "facilities informed"
-
-msgid "établissement renseigné"
-msgstr "facility informed"
-
-msgid "Classement général"
-msgstr "General ranking"
-
-msgid "Aucun participant n'a ajouté d'établissement pour le moment"
-msgstr "No participant has added a facility at this time"
-
-msgid "informations d'accessibilité ajoutées"
-msgstr "accessibility information added"
-
-msgid "information d'accessibilité ajoutée"
-msgstr "accessibility information added"
-
-msgid ""
 "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété "
 "d'établissement."
 msgstr ""
 "The competition has started, but no participant has yet added or completed a "
 "site."
 
-msgid "informations d'accessibilité renseignées"
-msgstr "accessibility information provided"
-
-msgid "information d'accessibilité renseignée"
-msgstr "accessibility information filled in"
+msgid "Top"
+msgstr "Top"
 
 msgid "Aucun participant n'a ajouté ou complété d'établissement pour le moment"
 msgstr "No participant has added or completed a facility yet"
 
+msgid "Classement général"
+msgstr "General ranking"
+
+msgid "Classement"
+msgstr "General ranking"
+
+msgid "Participant"
+msgstr "Participant"
+
+msgid "Nombre d'ajouts"
+msgstr "Number of insertions"
+
 msgid "Classement par équipe"
 msgstr "Team rankings"
 
-msgid "Vous êtes ici :"
-msgstr "You are here:"
+msgid "Équipe"
+msgstr "Team"
 
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
+msgid "Votre objectif"
+msgstr "Your objective"
+
+msgid "S'inscrire au challenge"
+msgstr "Register to the challenge"
+
+msgid "Règles du jeu"
+msgstr "Rules"
 
 msgid "Challenge photos Acceslibre"
 msgstr "Acceslibre photos challenge"
@@ -3168,6 +3149,34 @@ msgstr "Challenge DDT (M)"
 
 msgid "Tous acceslibre"
 msgstr "All acceslibre"
+
+#, python-format
+msgid "Du %(start)s au %(end)s."
+msgstr "From %(start)s to %(end)s."
+
+msgid "ERPs ajoutés"
+msgstr "ERPs added"
+
+msgid "ERP ajouté"
+msgstr "ERP added"
+
+msgid "Merci"
+msgstr "Thanks"
+
+msgid ""
+"Le concours a démarré, mais aucun participant n'a encore ajouté "
+"d'établissement."
+msgstr ""
+"The challenge has started, but no participant has yet added an establishment."
+
+msgid "établissements renseignés"
+msgstr "facilities informed"
+
+msgid "établissement renseigné"
+msgstr "facility informed"
+
+msgid "Aucun participant n'a ajouté d'établissement pour le moment"
+msgstr "No participant has added a facility at this time"
 
 #, python-format
 msgid ""
@@ -6000,164 +6009,107 @@ msgstr "See more on"
 msgid "requis"
 msgstr "required"
 
-msgid "Toutes les informations sur l'accessibilité des lieux ouverts au public"
-msgstr "All the information about accessibility of public places "
-
-msgid "Ajouter un lieu"
-msgstr "Add a facility"
-
-msgid "Notre mission"
-msgstr "Our mission"
+msgid ""
+"L’accessibilité des lieux publics, selon votre handicap, à portée de clic."
+msgstr ""
+"The accessibility of public places, according to your handicap, within click."
 
 msgid ""
-"En France,  12 millions de personnes, soit 1 sur 5, sont en situation de "
-"handicap."
+"Boulangerie, supermarché, salon de coiffure, hébergement, banque... Trouvez "
+"facilement les lieux accessibles, quels que soient vos besoins."
 msgstr ""
-"In France, 12 millions of people, one person in five, is or will be disabled "
-"during his or her life."
+"Bakery, supermarket, hair salon, accommodation, bank ... Easily find "
+"accessible places, whatever your needs."
 
 msgid ""
-"Sortir, aller dans un lieu nouveau peut devenir un vrai casse-tête. Avoir "
-"les informations avant de se déplacer est indispensable pour permettre à "
-"chacun de savoir si tel restaurant, tel cinéma lui est accessible."
+"\n"
+"                        Ajoutez vos adresses préférées\n"
+"                        <span class=\"display--inline-block\">et tous les "
+"nouveaux lieux que vous découvrez !</span>\n"
+"                    "
 msgstr ""
-"Going out, going to a new place can become a real headache. Having "
-"information before traveling is essential to allow everyone to know if a "
-"restaurant or a cinema is accessible to them."
+"\n"
+"Add your favorite addresses <span class=\"display--inline-block\">and all "
+"the new places you discover! </span>"
+
+msgid "lieux enregistrés par nos contributeurs"
+msgstr "places recorded by our contributors"
 
 msgid ""
-"Que vous soyez en situation de handicap, proches, amis, aidants, consultez "
-"les informations d'accessibilité, de manière simple et rapide !"
+"\n"
+"                    Vous êtes unique, <span class=\"display--block\">vos "
+"besoins le sont forcément aussi !</span>\n"
+"                "
 msgstr ""
-"Whether you are disabled, a relative, friend or carer, consult accessibility "
-"information quickly and easily!"
+"\n"
+"                    You are unique, <Span Class = \"Display-Block\"> Your "
+"needs are necessarily so!"
 
-msgid "Notre communauté"
-msgstr "Our community"
+msgid "Simplifiez l’organisation de vos sorties"
+msgstr "Simplify the organization of your outings"
 
-msgid "contributeurs et contributrices"
-msgstr "contributors"
+msgid "Filtrez selon vos besoins les informations d’accessibilité."
+msgstr "Filter accessibility information according to your needs."
 
-msgid "Rejoindre<br />la communauté"
-msgstr "Join<br/>the community"
+msgid ""
+"Entrée accessible, personnel formé, balise sonore, etc, Acceslibre vous "
+"permet de sélectionner toutes les informations dont vous avez besoin pour "
+"planifier vos sorties."
+msgstr ""
+"Accessible entry, trained staff, sound tag, etc., Acceslibre allows you to "
+"select all the information you need to plan your outings."
 
-msgid "lieux référencés"
-msgstr "referenced places"
+msgid ""
+"\n"
+"                            Rejoignez une communauté\n"
+"                            <span class=\"display--block\">de +10 000 "
+"contributeurs et utilisateurs</span>\n"
+"                        "
+msgstr ""
+"\n"
+"Join a community <span class=\"display--block\">of +10,000 contributors and "
+"users</span>"
 
-msgid "Voir les derniers lieux référencés"
-msgstr "See the latest referenced places"
+msgid ""
+"\n"
+"                            Profitez d’informations détaillées sur vos lieux "
+"préférés et contribuez\n"
+"                            <span class=\"display--block\">à une expérience "
+"collaborative enrichissante.</span>\n"
+"                        "
+msgstr ""
+"\n"
+"Take advantage of detailed information on your favorite places and "
+"contribute\n"
+"<span class=\"display--block\">to an enriching collaborative experience. </"
+"span>"
 
-msgid "Des informations affichées sur les grands sites web"
-msgstr "Information displayed on major websites"
-
-msgid "Logo de sortir à paris"
-msgstr "Logo of sortir à Paris"
+msgid "Participer à un challenge"
+msgstr "Take a challenge"
 
 msgid "Logo de allocine"
 msgstr "Allocine logo"
 
+msgid "Logo de Association Valentin Haüy"
+msgstr "Valentin Haüy association logo"
+
+msgid "Logo de sortir à paris"
+msgstr "Logo of sortir à Paris"
+
 msgid "Logo de solocal"
 msgstr "Solocal logo"
 
-msgid "Logo de service-public.fr"
-msgstr "Logo of service-public.fr"
+msgid "Logo de Wegoto"
+msgstr "Wegototo logo"
 
-msgid ""
-"Sur le principe du \"dites-le nous 1 fois\", les informations collectées sur "
-"acceslibre sont automatiquement et instantanément affichées sur les sites de "
-"nos partenaires."
-msgstr ""
-"Based on the principle of \"tell us once\", the information collected on "
-"acceslibre is automatically and instantly displayed on our partners' sites."
+msgid "Logo de LaPoste"
+msgstr "Laposte logo"
 
-msgid "A vous de jouer !"
-msgstr "It is your turn !"
+msgid "Logo de Music in Paris"
+msgstr "Music in Paris logo"
 
-msgid "Contributrices, contributeurs"
-msgstr "Contributors,"
-
-msgid "Au gré d'une sortie, chacun peut contribuer !"
-msgstr "During an outing, everyone can contribute!"
-
-msgid ""
-"Ajoutez un lieu ou complétez une fiche existante, chaque information est "
-"précieuse."
-msgstr ""
-"Add a location or complete an existing profile, every piece of information "
-"is valuable."
-
-msgid "Ajoutez un établissement"
-msgstr "Add a facility"
-
-msgid "Collectivités locales"
-msgstr "Local authorities"
-
-msgid ""
-"Pilotes de l'accessibilité sur vos territoires, profitez d'acceslibre "
-"pour&nbsp;:"
-msgstr ""
-"Accessibility drivers in your territories, take advantage of acceslibre to:"
-
-msgid "collecter les informations et mettre à jour les fiches"
-msgstr "collect and improve information on public places"
-
-msgid "avoir une meilleure vision de l'accessibilité réelle de vos commerces,"
-msgstr "have a better vision of the real accessibility of your businesses,"
-
-msgid "valoriser votre territoire avec un gain de visibilité sur le web"
-msgstr "enhance your territory by increasing visibility on the web"
-
-msgid "Prenez contact avec nous"
-msgstr "Get in touch with us"
-
-msgid ""
-"Vous vous lancez dans la collecte de données d'accessibilité voirie et "
-"transport ?"
-msgstr ""
-"Are you getting involved in collecting accessibility data for roads and "
-"transport?"
-
-msgid "En savoir plus sur acceslibre mobilités"
-msgstr "Learn more about acceslibre mobility"
-
-msgid "Gestionnaires d'établissement"
-msgstr "Facility managers"
-
-msgid "Grâce à acceslibre, augmentez votre visibilité sur internet"
-msgstr "Thanks to acceslibre, increase your visibility on the internet"
-
-msgid ""
-"Mettez en valeur les services que vous proposez pour l'accueil de tous vos "
-"clients"
-msgstr "Highlight the services you offer to welcome all your customers"
-
-msgid ""
-"Compléter les informations de votre établissement ne vous prendra que "
-"quelques minutes."
-msgstr ""
-"Completing your establishment's information will only take a few minutes."
-
-msgid "Ajoutez votre établissement"
-msgstr "Add your facility"
-
-msgid "Sites internet, plateformes web"
-msgstr "Websites, web platforms"
-
-msgid ""
-"Toutes les données d'accessibilité collectées par acceslibre sont libres et "
-"gratuites. Elles sont à votre disposition via notre API ou notre jeu de "
-"données mis à jour quotidiennement (liens en bas de page)."
-msgstr ""
-"All accessibility data collected by acceslibre is free and open source. It "
-"is available to you via our API or our dataset updated daily (links at the "
-"bottom of the page)."
-
-msgid ""
-"Rendez votre site plus inclusif et plus riche en intégrant nos informations, "
-"grâce à notre widget."
-msgstr ""
-"Make your site more inclusive and richer by integrating our information, "
-"thanks to our widget."
+msgid "Voir les partenaires"
+msgstr "See partners"
 
 msgid "Map icons"
 msgstr "Map icons"
@@ -6342,43 +6294,38 @@ msgstr "Change in progress"
 
 msgid ""
 "\n"
-"    Nous avons envoyé un email à l'adresse que vous avez indiqué, pour peu "
-"que\n"
-"    <strong>celui-ci existe dans notre base de données</strong>, afin de "
-"vous\n"
-"    permettre de modifier le mot de passe du compte qui y est associé.\n"
+"Si l’email saisi existe bien dans notre base, nous venons d’envoyer un "
+"message à cette adresse vous permettant de modifier votre mot de passe.\n"
 "    "
 msgstr ""
-"\n"
-"We sent an email to the address you indicated, provided <strong>that it "
-"exists in our database</strong>, to allow you to change the password for to "
-"associated account."
+"If the enamel entered exists in our base, we have just sent a message to "
+"this address allowing you to modify your password."
 
 msgid "Si vous ne recevez pas d'email d'ici quelques minutes :"
 msgstr "If you do not receive an email within a few minutes:"
 
 msgid ""
 "Vérifiez votre dossier <em>Spam</em> ou <em>Pourriels</em> dans votre client "
-"de messagerie électronique"
-msgstr "Please check your <em>Spam</em> folder in your email client"
+"de messagerie électronique."
+msgstr "Check your folder <em>Spam</em> in your electronic mail client."
 
 #, python-format
 msgid ""
-"Vérifiez que vous avez entré la bonne adresse email correspondant à votre "
-"compte %(SITE_NAME)s"
+"Vérifiez que vous avez bien un compte dans acceslibre. Consultez la <a "
+"href=\"%(url_faq)s\" class=\"fr-link\">FAQ</a> pour plus d'information."
 msgstr ""
-"Make sure you have entered the correct email address for your %(SITE_NAME)s "
-"account"
+"Check that you have an account in Acceslibre. Consult <a "
+"href=\"%(url_faq)s\" class=\"fr-link\">FAQ</a> for more information."
 
 #, python-format
 msgid ""
 "Si malgré tout vous n'arrivez pas à vous connecter, veuillez <a class=\"fr-"
 "link\" href=\"%(url_contact_connection)s\" aria-label=\"Ouvrir le formulaire "
-"de contact pour nous contacter\">nous contacter</a>"
+"de contact pour nous contacter\">nous contacter</a>."
 msgstr ""
-"If you are still unable to connect, please <a class=\"fr-link\" "
+"If despite everything you cannot connect, please <a class=\"fr-Link\" "
 "href=\"%(url_contact_connection)s\" aria-label=\"Open the contact form to "
-"reach out to us\">contact us</a>."
+"contact us\">Contact us</a>."
 
 msgid "Réinitialisez votre mot de passe"
 msgstr "Reset your password"
@@ -6469,6 +6416,9 @@ msgstr "See more"
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
 
+msgid "lieux référencés"
+msgstr "referenced places"
+
 msgid "contributeurs"
 msgstr "contributors"
 
@@ -6510,8 +6460,196 @@ msgstr ""
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
 
+#~ msgid ""
+#~ "\n"
+#~ "    Nous avons envoyé un email à l'adresse que vous avez indiqué, pour "
+#~ "peu que\n"
+#~ "    <strong>celui-ci existe dans notre base de données</strong>, afin de "
+#~ "vous\n"
+#~ "    permettre de modifier le mot de passe du compte qui y est associé.\n"
+#~ "    "
+#~ msgstr ""
+#~ "We sent an email to the address you indicated, as long as\n"
+#~ "    <strong> This exists in our database </strong>, in order to you\n"
+#~ "    allow you to modify the password of the account associated with it."
+
+#, python-format
+#~ msgid ""
+#~ "Vérifiez que vous avez entré la bonne adresse email correspondant à votre "
+#~ "compte %(SITE_NAME)s"
+#~ msgstr ""
+#~ "Check that you have entered the right email address corresponding to your "
+#~ "%account (site_name) S"
+
+#~ msgid "Retour aux challenges"
+#~ msgstr "Back to the challenges"
+
+#~ msgid "S'inscrire"
+#~ msgstr "Register"
+
+#~ msgid "Objectifs :"
+#~ msgstr "Goals :"
+
+#~ msgid "585 130"
+#~ msgstr "585 130"
+
+#~ msgid ""
+#~ "Toutes les informations sur l'accessibilité des lieux ouverts au public"
+#~ msgstr "All information on the accessibility of places open to the public"
+
+#~ msgid "Ajouter un lieu"
+#~ msgstr "Add a place"
+
+#~ msgid "Notre mission"
+#~ msgstr "Our mission"
+
+#~ msgid ""
+#~ "En France,  12 millions de personnes, soit 1 sur 5, sont en situation de "
+#~ "handicap."
+#~ msgstr "In France, 12 million people, or 1 in 5, are disabled."
+
+#~ msgid ""
+#~ "Sortir, aller dans un lieu nouveau peut devenir un vrai casse-tête. Avoir "
+#~ "les informations avant de se déplacer est indispensable pour permettre à "
+#~ "chacun de savoir si tel restaurant, tel cinéma lui est accessible."
+#~ msgstr ""
+#~ "Going out, going to a new place can become a real headache. Having "
+#~ "information before traveling is essential to allow everyone to know if "
+#~ "such a restaurant, such a cinema is accessible to them."
+
+#~ msgid ""
+#~ "Que vous soyez en situation de handicap, proches, amis, aidants, "
+#~ "consultez les informations d'accessibilité, de manière simple et rapide !"
+#~ msgstr ""
+#~ "Whether you are with disabilities, relatives, friends, caregivers, "
+#~ "consult accessibility information, in a simple and fast way!"
+
+#~ msgid "Notre communauté"
+#~ msgstr "Our community"
+
+#~ msgid "contributeurs et contributrices"
+#~ msgstr "Contributors and contributors"
+
+#~ msgid "Rejoindre<br />la communauté"
+#~ msgstr "Join <Br /> the community"
+
+#~ msgid "Voir les derniers lieux référencés"
+#~ msgstr "See the latest places referenced"
+
+#~ msgid "Des informations affichées sur les grands sites web"
+#~ msgstr "Information displayed on large websites"
+
+#~ msgid "Logo de service-public.fr"
+#~ msgstr "Service-public.fr logo"
+
+#~ msgid ""
+#~ "Sur le principe du \"dites-le nous 1 fois\", les informations collectées "
+#~ "sur acceslibre sont automatiquement et instantanément affichées sur les "
+#~ "sites de nos partenaires."
+#~ msgstr ""
+#~ "On the principle of \"tell us 1 time\", the information collected on "
+#~ "AcSSELIBER is automatically and instantly displayed on the sites of our "
+#~ "partners."
+
+#~ msgid "A vous de jouer !"
+#~ msgstr "Up to you !"
+
+#~ msgid "Contributrices, contributeurs"
+#~ msgstr "Contributors, contributors"
+
+#~ msgid "Au gré d'une sortie, chacun peut contribuer !"
+#~ msgstr "As an outing, everyone can contribute!"
+
+#~ msgid ""
+#~ "Ajoutez un lieu ou complétez une fiche existante, chaque information est "
+#~ "précieuse."
+#~ msgstr ""
+#~ "Add a place or complete an existing sheet, each information is precious."
+
+#~ msgid "Ajoutez un établissement"
+#~ msgstr "Add an establishment"
+
+#~ msgid "Collectivités locales"
+#~ msgstr "Local authorities"
+
+#~ msgid ""
+#~ "Pilotes de l'accessibilité sur vos territoires, profitez d'acceslibre "
+#~ "pour&nbsp;:"
+#~ msgstr "Accessibility pilots in your territories, enjoy access for & nbsp;:"
+
+#~ msgid "collecter les informations et mettre à jour les fiches"
+#~ msgstr "Collect the information and update the files"
+
+#~ msgid ""
+#~ "avoir une meilleure vision de l'accessibilité réelle de vos commerces,"
+#~ msgstr "have a better vision of the real accessibility of your shops,"
+
+#~ msgid "valoriser votre territoire avec un gain de visibilité sur le web"
+#~ msgstr "Value your territory with a web visibility gain"
+
+#~ msgid "Prenez contact avec nous"
+#~ msgstr "Contact us"
+
+#~ msgid ""
+#~ "Vous vous lancez dans la collecte de données d'accessibilité voirie et "
+#~ "transport ?"
+#~ msgstr "Do you embark on accessibility and transport accessibility data?"
+
+#~ msgid "En savoir plus sur acceslibre mobilités"
+#~ msgstr "Learn more about Acceslibre Mobilités"
+
+#~ msgid "Gestionnaires d'établissement"
+#~ msgstr "Establishment managers"
+
+#~ msgid "Grâce à acceslibre, augmentez votre visibilité sur internet"
+#~ msgstr "Thanks to Acceslibre, increase your visibility on the Internet"
+
+#~ msgid ""
+#~ "Mettez en valeur les services que vous proposez pour l'accueil de tous "
+#~ "vos clients"
+#~ msgstr ""
+#~ "Highlight the services you offer for the reception of all your customers"
+
+#~ msgid ""
+#~ "Compléter les informations de votre établissement ne vous prendra que "
+#~ "quelques minutes."
+#~ msgstr ""
+#~ "Complete the information from your establishment will only take you a few "
+#~ "minutes."
+
+#~ msgid "Ajoutez votre établissement"
+#~ msgstr "Add your establishment"
+
+#~ msgid "Sites internet, plateformes web"
+#~ msgstr "Websites, web platforms"
+
+#~ msgid ""
+#~ "Toutes les données d'accessibilité collectées par acceslibre sont libres "
+#~ "et gratuites. Elles sont à votre disposition via notre API ou notre jeu "
+#~ "de données mis à jour quotidiennement (liens en bas de page)."
+#~ msgstr ""
+#~ "All accessibility data collected by access is free and free. They are at "
+#~ "your disposal via our API or our updated dataset daily (links at the "
+#~ "bottom of the page)."
+
+#~ msgid ""
+#~ "Rendez votre site plus inclusif et plus riche en intégrant nos "
+#~ "informations, grâce à notre widget."
+#~ msgstr ""
+#~ "Make your site more inclusive and richer by integrating our information, "
+#~ "thanks to our widget."
+
+#~ msgid "information d'accessibilité ajoutée"
+#~ msgstr "Added accessibility information"
+
+#~ msgid "informations d'accessibilité renseignées"
+#~ msgstr "Accessibility information entered"
+
+#~ msgid "information d'accessibilité renseignée"
+#~ msgstr "Accessibility information entered"
+
 #~ msgid "Les champs marqués d'une astérique (*) sont obligatoires."
-#~ msgstr "Fields marked with an asterisk (*) are required."
+#~ msgstr "The fields marked with an asteric (*) are compulsory."
 
 #~ msgid "Je ne trouve pas l'activité"
 #~ msgstr "I can't find the activity"
@@ -6520,13 +6658,13 @@ msgstr ""
 #~ msgstr "Your suggestion:"
 
 #~ msgid "<strong>Quoi</strong> (activité, enseigne)"
-#~ msgstr "<strong>What</strong> (activity, sign)"
+#~ msgstr "<strong> What </strong> (activity, brand)"
 
 #~ msgid "<strong>Où</strong> (adresse, ville)"
-#~ msgstr "<strong>Where</strong> (address, city)"
+#~ msgstr "<strong> where </strong> (address, city)"
 
 #~ msgid "Commencer la saisie puis sélectionner dans la liste"
-#~ msgstr "Start typing then select from the list"
+#~ msgstr "Start entry and then select in the list"
 
 #~ msgid "Adaptés pour"
 #~ msgstr "Adapted for"
@@ -6542,24 +6680,24 @@ msgstr ""
 
 #, python-format
 #~ msgid "Résultats pour «%(what)s» autour de «%(where)s»"
-#~ msgstr "Results for «%(what)s» around «%(where)s»"
+#~ msgstr "Results for \"%(What) s\" around \"%(where) s\""
 
 #, python-format
 #~ msgid "Résultats autour de «%(where)s»"
-#~ msgstr "Results around «%(where)s»"
+#~ msgstr "Results around \"%(where) s\""
 
 #~ msgid "Il n'y a pas de résultat correspondant à votre recherche"
-#~ msgstr "There are no results matching your search"
+#~ msgstr "There is no result corresponding to your search"
 
 #~ msgid "Elargir la zone de recherche"
-#~ msgstr "Widen the search area"
+#~ msgstr "Expand the research area"
 
 #~ msgid "Nouvelle recherche"
-#~ msgstr "New search"
+#~ msgstr "New research"
 
 #, python-format
 #~ msgid "à moins de %(MAP_SEARCH_RADIUS_KM)s"
-#~ msgstr "less than %(MAP_SEARCH_RADIUS_KM)s"
+#~ msgstr "less than %(map_search_radius_km) s"
 
 #~ msgid "km"
 #~ msgstr "km"
@@ -6569,17 +6707,14 @@ msgstr ""
 #~ "pas participer à ce challenge mais ne vous inquiétez pas, ce n'est que "
 #~ "partie remise !"
 #~ msgstr ""
-#~ "Blind and visually impaired friends, we’re sorry that you can’t take part "
-#~ "in this challenge, but don’t worry — it’s only postponed!"
+#~ "Undless and unwavering friends, we are sorry that you cannot participate "
+#~ "in this challenge but do not worry, this is only a delivery!"
 
 #~ msgid "Ouvrir une nouvelle fenêtre vers la page d'ajout de photos"
 #~ msgstr "Open a new window to the page of adding photos"
 
 #~ msgid "Challenges terminés"
 #~ msgstr "Challenges finished"
-
-#~ msgid "Prochains challenges"
-#~ msgstr "Next challenges"
 
 #~ msgid "Vous êtes inscrits à ce challenge !"
 #~ msgstr "You are registered with this challenge!"

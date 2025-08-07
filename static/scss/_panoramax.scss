@@ -1,4 +1,4 @@
-@import 'breakpoints';
+@use 'breakpoints' as *;
 
 pnx-viewer,
 pnx-photo-viewer {
@@ -6,7 +6,6 @@ pnx-photo-viewer {
   display: block;
 }
 
-pnx-widget-legend,
 pnx-widget-player {
   display: none;
 }
