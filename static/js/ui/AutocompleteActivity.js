@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activitySlugInput) {
       activitySlugInput.value = slug
     }
+
+    hideErrorMessage()
   }
 
   const autocomplete = new Autocomplete(root, {
@@ -59,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     onSubmit: ({ slug }) => onSubmit(slug),
   })
+
+  function hideErrorMessage() {
+    inputElement.form.querySelector('#activite-input-messages').classList.add('fr-hidden')
+    inputElement.form.querySelector('#activite-input-messages').parentElement.classList.remove('fr-input-group--error')
+  }
 
   // Dirty hack to support press Key enter (Lib is broken)
   autocomplete.input.addEventListener('keydown', (event) => {
