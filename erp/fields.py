@@ -24,21 +24,11 @@ class BaseActivityField:
         )
 
 
-class ActivityCharField(BaseActivityField, forms.CharField):
-    def __init__(self, **kwargs):
-        super().__init__(
-            label=translate_lazy("Activité"),
-            required=False,
-            widget=self.get_widget(),
-            **kwargs,
-        )
-
-
 class ActivityField(BaseActivityField, forms.ModelChoiceField):
     def __init__(self, **kwargs):
         super().__init__(
             label=translate_lazy("Activité"),
-            required=True,
+            required=kwargs.pop("required", True),
             queryset=Activite.objects.order_by("position"),
             widget=self.get_widget(),
             to_field_name="nom",

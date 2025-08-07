@@ -40,9 +40,11 @@ function generateHTMLForResult(result) {
                 <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
                         <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
+                        <span class="fr-sr-only">${gettext('Les détails de l’établissement')} ${result.properties.nom}</span>
                     </li>
                     <li>
                         <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
+                        <span class="fr-sr-only">${gettext('Recentre la carte sur l’établissement')} ${result.properties.nom}</span>
                     </li>
                 </ul>
             </div>
