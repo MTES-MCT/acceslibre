@@ -28,15 +28,12 @@ function SearchWhere(root) {
   const searchInDepartmentsAllowed = input.dataset.autocompleteDepartments === 'on'
 
   navigator.permissions.query({ name: 'geolocation' }).then((result) => {
-    console.log({ result })
     if (result.state === 'granted') {
       a11yGeolocBtn.classList.add('fr-hidden')
     } else if (result.state === 'prompt') {
       a11yGeolocBtn.classList.remove('display--block')
     }
   })
-
-  input.addEventListener('input', activateSubmitBtn, false)
 
   function activateSubmitBtn(event, force = false) {
     if (input.value.startsWith(AROUND_ME) && hiddens.lat.getAttribute('value') && hiddens.lon.getAttribute('value')) {
@@ -163,27 +160,6 @@ function SearchWhere(root) {
     if (autocomplete.input.value == FRANCE_ENTIERE) {
       setSearchValue('')
       setSearchData(null)
-    }
-  })
-
-  // Prevent global form submission when an autocomplete entry is selected by pressing Enter,
-  // which usually triggers form submit when a form input has the focus.
-  let submittable
-
-  const observer = new MutationObserver((mutations) => {
-    const exp = mutations.filter(({ attributeName }) => attributeName == 'aria-expanded')[0]
-    setTimeout(() => {
-      try {
-        submittable = exp.target.getAttribute('aria-expanded') !== 'true'
-        activateSubmitBtn(null, !submittable)
-      } catch (e) {}
-    }, 0)
-  })
-  observer.observe(input, { attributeOldValue: true })
-
-  input.form.addEventListener('submit', (event) => {
-    if (!submittable) {
-      event.preventDefault()
     }
   })
 
