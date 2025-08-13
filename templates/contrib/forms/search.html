@@ -5,6 +5,7 @@
       id="search-form"
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
+    {% if not form.is_valid %}<div class="hidden" id="form_not_valid"></div>{% endif %}
     <div class="fr-mx-0 w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-lg-4">

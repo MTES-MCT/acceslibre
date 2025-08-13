@@ -8,7 +8,7 @@
     </div>
     {# Only display results section if filters have been used#}
     {% if not error %}
-        {% if query %}
+        {% if query and form.is_valid %}
             <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
                 {% include "contrib/includes/contrib-internal-search-results.html" with search_action="." %}
             </div>
