@@ -8,13 +8,13 @@
     <div class="fr-mx-0 w-100">
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-lg-4">
-                <div class="fr-input-group {% if form.what.errors %}fr-input--error{% endif %}">
+                <div class="fr-input-group {% if form.what.errors %}fr-input-group--error{% endif %}">
                     <label for="what-input">
                         {% translate "Quel nom ?" %}
                         <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
                     </label>
                     {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                    <input type="search"  class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                    <input type="search" class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                     <div class="fr-messages-group {% if not form.what.errors %}fr-hidden{% endif %}">
                         {% if form.what.errors %}
                             <p id="text-input-error-desc-error" class="fr-message fr-message--error">{{ form.what.errors.0 }}</p>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="fr-col-12 fr-col-lg-4">
-                <div class="fr-input-group {% if form.activite.errors %}fr-input--error{% endif %}">
+                <div class="fr-input-group {% if form.activite.errors or form.what.errors %}fr-input-group--error{% endif %}">
                     <input type="hidden"
                            name="activity_slug"
                            id="activity_slug"
@@ -44,12 +44,12 @@
                     </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-lg-4 search-where-field">
+            <div class="fr-col-12 fr-col-lg-4 search-where-field fr-input-group {% if form.where.errors %}fr-input-group--error{% endif %}">
                 <label for="where-input">
                     {% translate "Où ?" %}<span class="asteriskField"></span>
                     <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
                 </label>
-                <div class="position--relative fr-input-group {% if form.where.errors %}fr-input-group--error{% endif %}">
+                <div class="position--relative">
                     <input id="where-input"
                            class="autocomplete-input fr-input"
                            type="search"

@@ -551,6 +551,7 @@ def contrib_delete(request, erp_slug):
 @login_required
 def contrib_start(request):
     form = forms.ProviderGlobalSearchForm(request.GET or None)
+
     if form.is_valid():
         return redirect(f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}")
 
@@ -563,53 +564,54 @@ def contrib_start(request):
 
 @login_required
 def contrib_global_search(request):
-    results = error = None
-    commune = ""
+    results = error = activite = None
+    commune = city = ""
     results = []
-
-    need_external_api_search = True
-    if request.GET.get("search_type") in ("housenumber", "street"):
-        # Business rule: we do not want to search in external API if the user is providing a full address. We are
-        # assuming he knows what he is doing and does not need help with some external API results.
-        need_external_api_search = False
-
-    activite = None
-    if request.GET.get("activity_slug"):
-        activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
-
     pagination_size = 6
 
-    query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (activite.nom if activite else None)
-
-    if query_terms_for_api and need_external_api_search:
-        try:
-            if need_external_api_search:
-                results = provider_search.global_search(
-                    query_terms_for_api,
-                    request.GET.get("code"),
-                    activity=activite,
-                )
-        except RuntimeError as err:
-            error = err
-
-    if what_lower:
-        qs_results_bdd = (
-            Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what_lower)
-        )
-    else:
-        qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
-
-    if activite:
-        qs_results_bdd = qs_results_bdd.filter(activite=activite)
-
-    commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
-    qs_results_bdd = qs_results_bdd[:pagination_size]
-    results = acceslibre.parse_etablissements(qs_results_bdd, results)
-
-    city, _ = clean_address(request.GET.get("where"))
-
     form = forms.ProviderGlobalSearchForm(request.GET, initial=request.GET.copy())
-    form.is_valid()
+    if form.is_valid():
+        need_external_api_search = True
+        if request.GET.get("search_type") in ("housenumber", "street"):
+            # Business rule: we do not want to search in external API if the user is providing a full address. We are
+            # assuming he knows what he is doing and does not need help with some external API results.
+            need_external_api_search = False
+
+        if request.GET.get("activity_slug"):
+            activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
+
+        query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (
+            activite.nom if activite else None
+        )
+
+        if query_terms_for_api and need_external_api_search:
+            try:
+                if need_external_api_search:
+                    results = provider_search.global_search(
+                        query_terms_for_api,
+                        request.GET.get("code"),
+                        activity=activite,
+                    )
+            except RuntimeError as err:
+                error = err
+
+        if what_lower:
+            qs_results_bdd = (
+                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+                .published()
+                .search_what(what_lower)
+            )
+        else:
+            qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
+
+        if activite:
+            qs_results_bdd = qs_results_bdd.filter(activite=activite)
+
+        commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+        qs_results_bdd = qs_results_bdd[:pagination_size]
+        results = acceslibre.parse_etablissements(qs_results_bdd, results)
+
+        city, _ = clean_address(request.GET.get("where"))
 
     return render(
         request,
