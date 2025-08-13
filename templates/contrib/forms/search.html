@@ -39,6 +39,10 @@
                     </div>
                     <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors %}fr-hidden{% endif %}"
                          id="activite-input-messages">
+                        {# Voluntary putting what errors as this a common error for both fields (what and activite) #}
+                        {% if form.what.errors %}
+                            <p id="text-input-error-desc-error" class="fr-message fr-message--error">{{ form.what.errors.0 }}</p>
+                        {% endif %}
                         {% if form.activite.errors %}
                             <p id="select-error-desc-error" class="fr-message fr-message--error">{{ form.activite.errors.0 }}</p>
                         {% endif %}
