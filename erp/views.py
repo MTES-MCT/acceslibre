@@ -464,6 +464,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                 {
                     "scrollWheelZoom": False,
                     "dragging": False,
+                    "zoomControl": False,
+                    "gestureHandling": True,
                 }
             ),
             "previous_url": referer,
