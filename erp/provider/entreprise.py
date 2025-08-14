@@ -55,8 +55,8 @@ def reorder_results(results, terms):
     higher_rank = []
     parts = [p.lower() for p in terms.split(" ")]
     for result in results:
-        commune = result["commune"].lower()
-        code_postal = result["code_postal"].lower()
+        commune = (result.get("commune") or "").lower()
+        code_postal = (result.get("code_postal") or "").lower()
         if any([part == commune or part == code_postal for part in parts]):
             higher_rank.append(result)
         else:

@@ -1148,7 +1148,7 @@ def test_contrib_start_pass_postcode(client):
     assert response.status_code == 302
     assert (
         response.url
-        == "/contrib/start/recherche/?new_activity=&activity_slug=restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29&activite=Restaurant"
+        == "/contrib/start/recherche/?new_activity=&activity_slug=restaurant&activite=Restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29"
     )
 
     response = client.get(url, payload, follow=True)
