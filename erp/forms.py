@@ -611,8 +611,8 @@ class ProviderGlobalSearchForm(forms.Form):
                 commune_search = f"{commune.nom} ({commune.departement} - {nom_departement})"
                 initial["commune_search"] = commune_search
                 initial["code_insee"] = code
-        self.fields["activite"] = ActivityField(required=False)
         super().__init__(*args, **kwargs)
+        self.fields["activite"] = ActivityField(required=False)
 
     def clean_postcode(self):
         postcodes = self.cleaned_data["postcode"].split(",")

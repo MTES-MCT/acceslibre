@@ -136,7 +136,7 @@ def test_contrib_start_global_search_with_existing(
         user=user,
     )
 
-    with django_assert_num_queries(5):
+    with django_assert_num_queries(6):
         response = client.get(
             reverse("contrib_global_search"),
             data={

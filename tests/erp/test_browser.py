@@ -1,5 +1,6 @@
 import uuid
 from copy import copy
+from urllib.parse import parse_qs, urlparse
 
 import pytest
 import reversion
@@ -1146,10 +1147,12 @@ def test_contrib_start_pass_postcode(client):
     response = client.get(url, payload)
 
     assert response.status_code == 302
-    assert (
-        response.url
-        == "/contrib/start/recherche/?new_activity=&activity_slug=restaurant&activite=Restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29"
-    )
+    expected_url = "/contrib/start/recherche/?new_activity=&activity_slug=restaurant&activite=Restaurant&lat=48.4084&lon=-4.4996&code=29019&postcode=29200&what=creperie&where=Brest+%2829%29"
+    parsed_expected = urlparse(expected_url)
+    parsed_actual = urlparse(response.url)
+
+    assert parsed_expected.path == parsed_actual.path
+    assert parse_qs(parsed_expected.query) == parse_qs(parsed_actual.query)
 
     response = client.get(url, payload, follow=True)
     assert response.status_code == 200
