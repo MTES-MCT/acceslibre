@@ -574,7 +574,6 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
 class ProviderGlobalSearchForm(forms.Form):
     new_activity = forms.CharField(required=False, widget=forms.HiddenInput)
     activity_slug = forms.CharField(required=False)
-    activite = ActivityField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
     code = forms.CharField(required=True, widget=forms.HiddenInput)
@@ -612,6 +611,7 @@ class ProviderGlobalSearchForm(forms.Form):
                 commune_search = f"{commune.nom} ({commune.departement} - {nom_departement})"
                 initial["commune_search"] = commune_search
                 initial["code_insee"] = code
+        self.fields["activite"] = ActivityField(required=False)
         super().__init__(*args, **kwargs)
 
     def clean_postcode(self):
