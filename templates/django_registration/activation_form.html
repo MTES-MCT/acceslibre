@@ -5,9 +5,30 @@
 {% block page_title %}
     {% translate "Activer votre compte" %}
 {% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Activation de compte" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
-    <div class="container">
-        <h1 class="h3 text-start fr-mb-4v">{% translate "Activer votre compte" %}</h1>
+    <div class="fr-mb-3w">
+        <h1 class="fr-h3">{% translate "Activer votre compte" %}</h1>
         {% if activation_error %}
             <div class="alert alert-danger" role="alert">
                 <strong>{% translate "Erreur d'activation" %}</strong>

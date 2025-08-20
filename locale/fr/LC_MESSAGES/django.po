@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-06 16:01+0200\n"
+"POT-Creation-Date: 2025-08-20 14:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,8 +89,8 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
-"Votre compte est inactif. Merci de contacter le <a href=\"{url_contact}"
-"\">support</a>."
+"Votre compte est inactif. Merci de contacter le <a "
+"href=\"{url_contact}\">support</a>."
 msgstr ""
 
 msgid "EmailToken"
@@ -616,6 +616,12 @@ msgid ""
 msgstr ""
 
 msgid "Commune"
+msgstr ""
+
+msgid "Vous devez préciser une activité ou un nom d'établissement."
+msgstr ""
+
+msgid "Veuillez renseigner une adresse."
 msgstr ""
 
 msgid "Vous êtes ?"
@@ -2566,9 +2572,6 @@ msgstr ""
 msgid "L'établissement a été supprimé."
 msgstr ""
 
-msgid "Vous devez préciser une activité ou un nom d'établissement."
-msgstr ""
-
 msgid "Les données ont été enregistrées."
 msgstr ""
 
@@ -3722,22 +3725,10 @@ msgstr ""
 msgid "Par exemple : cinéma, pharmacie..."
 msgstr ""
 
-msgid "Entrez votre activité"
-msgstr ""
-
-msgid "Commencer la saisie puis sélectionner l'activité dans la liste."
-msgstr ""
-
-msgid "Votre suggestion :"
-msgstr ""
-
 msgid "Où ?"
 msgstr ""
 
 msgid "Adresse, département ou commune"
-msgstr ""
-
-msgid "Commencer la saisie puis sélectionner la ville ou adresse dans la liste"
 msgstr ""
 
 msgid "Autoriser l'obtention de ma localisation géographique"
@@ -3819,6 +3810,9 @@ msgstr ""
 msgid "Compte activé"
 msgstr ""
 
+msgid "Activation de compte"
+msgstr ""
+
 msgid "Bienvenue sur acceslibre !"
 msgstr ""
 
@@ -3847,7 +3841,8 @@ msgid ""
 "\n"
 "      Nous n'avons pu retrouver le compte associé à cette demande "
 "d'activation.\n"
-"      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
+"      Merci de <a class=\"fr-link\" href=\"%(url_contact_connection)s\">nous "
+"contacter</a>.\n"
 "      "
 msgstr ""
 
@@ -3855,7 +3850,8 @@ msgstr ""
 msgid ""
 "\n"
 "      Cette demande d'activation de compte a expiré.\n"
-"      Vous pouvez <a href=\"%(url_register)s\">créer un nouveau compte</a>.\n"
+"      Vous pouvez <a class=\"fr-link\" href=\"%(url_register)s\">créer un "
+"nouveau compte</a>.\n"
 "      "
 msgstr ""
 
@@ -3863,7 +3859,8 @@ msgstr ""
 msgid ""
 "\n"
 "      La clé d'activation est corrompue.\n"
-"      Vous devez <a href=\"%(url_register)s\">créer un nouveau compte</a>.\n"
+"      Vous devez <a class=\"fr-link\" href=\"%(url_register)s\">créer un "
+"nouveau compte</a>.\n"
 "      "
 msgstr ""
 
@@ -3872,7 +3869,8 @@ msgid ""
 "\n"
 "      Nous sommes désolés, nous n'avons pas pu déterminer la cause technique "
 "de l'échec d'activation.\n"
-"      Merci de <a href=\"%(url_contact_connection)s\">nous contacter</a>.\n"
+"      Merci de <a class=\"fr-link\" href=\"%(url_contact_connection)s\">nous "
+"contacter</a>.\n"
 "      "
 msgstr ""
 
@@ -4039,9 +4037,6 @@ msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
 msgstr ""
 
 msgid "licence etalab-2.0"
-msgstr ""
-
-msgid "acceslibre aller à l'accueil"
 msgstr ""
 
 msgid "Menu de navigation"
@@ -5555,10 +5550,7 @@ msgstr ""
 msgid "Activité ou nom d'établissement"
 msgstr ""
 
-msgid "Rechercher un établissement, une activité. Exemple : Mairie, Café"
-msgstr ""
-
-msgid "Filtrer par type de handicap"
+msgid "Filtrer"
 msgstr ""
 
 msgid "Résultats pour"

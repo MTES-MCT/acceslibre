@@ -3,11 +3,12 @@ async function ContribPagination(root) {
   const resultsContainer = root.querySelector('#internal-results-container')
   const viewMoreButtonContainer = root.querySelector('#view-more-button-container')
   const resultsCountContainer = root.querySelector('#internal-results-count-container')
+  const formNotValid = root.querySelector('#form_not_valid')
 
   let currentPage = 1
   let currentCount = 0
 
-  if (!root || !resultsContainer) return
+  if (!root || !resultsContainer || formNotValid) return
 
   const apiKey = root.querySelector('[data-api-key]')?.dataset?.apiKey
   const apiUrl = root.querySelector('[data-api-url]')?.dataset?.apiUrl

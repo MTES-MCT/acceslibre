@@ -17,7 +17,7 @@ from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
-from .fields import ActivityCharField, ActivityField
+from .fields import ActivityField
 
 
 def bool_radios():
@@ -576,7 +576,7 @@ class ProviderGlobalSearchForm(forms.Form):
     activity_slug = forms.CharField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
-    code = forms.CharField(required=False, widget=forms.HiddenInput)
+    code = forms.CharField(required=True, widget=forms.HiddenInput)
     postcode = forms.CharField(required=False, widget=forms.HiddenInput)
     what = forms.CharField(
         help_text=mark_safe(
@@ -612,14 +612,32 @@ class ProviderGlobalSearchForm(forms.Form):
                 initial["commune_search"] = commune_search
                 initial["code_insee"] = code
         super().__init__(*args, **kwargs)
-
-        self.fields["activite"] = ActivityCharField()
+        self.fields["activite"] = ActivityField(required=False)
 
     def clean_postcode(self):
         postcodes = self.cleaned_data["postcode"].split(",")
         if len(postcodes) == 1:
             return self.cleaned_data["postcode"]
         return postcodes[0][0:2] + "000"
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        what = cleaned_data.get("what")
+        cleaned_data["activite"] = cleaned_data.get("activite") or ""
+        activite = cleaned_data.get("activite")
+
+        if not what and not activite:
+            self.add_error("what", translate("Vous devez préciser une activité ou un nom d'établissement."))
+
+        if (
+            cleaned_data.get("where")
+            or (cleaned_data.get("lat") and cleaned_data.get("lon"))
+            or cleaned_data.get("code")
+        ):
+            return cleaned_data
+        self.add_error("where", translate("Veuillez renseigner une adresse."))
+        return cleaned_data
 
 
 class PublicAProposForm(forms.ModelForm):
