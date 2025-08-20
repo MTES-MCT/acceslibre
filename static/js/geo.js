@@ -592,6 +592,9 @@ function openMarkerPopup(erpIdentifier) {
 function updateMap(query, map) {
   const mapDomEl = document.querySelector('.a4a-localisation-map')
   const btnSubmit = document.querySelector('[name="contribute"]')
+  const tenKmInDegrees = 10 / 111
+
+  map.setMaxBounds(null)
 
   btnSubmit.setAttribute('disabled', '')
   mapDomEl.style.opacity = 0.3
@@ -599,15 +602,19 @@ function updateMap(query, map) {
     .getCoordinate(query)
     .then(function (response) {
       const result = response.results[0]
-
+      let lat = result.lat
+      let lon = result.lon
       if (result !== undefined) {
         map.setView(
           {
-            lat: result.lat,
-            lon: result.lon,
+            lat,
+            lon,
           },
           18
         )
+        const southWest = L.latLng(lat - tenKmInDegrees, lon - tenKmInDegrees)
+        const northEast = L.latLng(lat + tenKmInDegrees, lon + tenKmInDegrees)
+        map.setMaxBounds(L.latLngBounds(southWest, northEast))
       }
     })
     .then(function () {
