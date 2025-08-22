@@ -7,10 +7,6 @@ from erp.tasks import check_for_activity_suggestion_spam, compute_access_complet
 
 @receiver(post_save, sender=Accessibilite)
 def save_access(sender, instance, created, **kwargs):
-    if "completion_rate" in (kwargs.get("update_fields") or []):
-        # NOTE avoid infinite loop
-        return
-
     compute_access_completion_rate.delay(instance.pk)
 
 
