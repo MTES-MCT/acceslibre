@@ -526,15 +526,17 @@ function AppMap(root) {
       url.refreshSearchURL()
     })
 
-    searchBtn.addEventListener('click', () => {
-      refreshData(map)
-      url.refreshSearchURL()
+    if (searchBtn) {
+      searchBtn.addEventListener('click', () => {
+        refreshData(map)
+        url.refreshSearchURL()
 
-      // Close modal when clicking Search button
-      if (typeof dsfr === 'function') {
-        dsfr(filtersModal).modal.conceal()
-      }
-    })
+        // Close modal when clicking Search button
+        if (typeof dsfr === 'function') {
+          dsfr(filtersModal).modal.conceal()
+        }
+      })
+    }
   }
 
   const displayMoreBtn = document.getElementById('view-more-erps-btn')
