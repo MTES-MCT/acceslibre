@@ -11,7 +11,7 @@ from erp.schema import FIELDS
 @shared_task()
 def compute_access_completion_rate(accessibilite_pk):
     try:
-        access = Accessibilite.objects.get(pk=accessibilite_pk)
+        access = Accessibilite.objects.select_related("erp__activite").get(pk=accessibilite_pk)
     except Accessibilite.DoesNotExist:
         return
 
@@ -25,8 +25,10 @@ def compute_access_completion_rate(accessibilite_pk):
         if getattr(access, attr) not in (None, [], ""):
             nb_filled_in_fields += 1
 
-    access.completion_rate = nb_filled_in_fields * 100 / nb_fields
-    access.save(update_fields=["completion_rate"])
+    new_value = nb_filled_in_fields * 100 / nb_fields
+    if new_value != access.completion_rate:
+        # Do not use access.save() here, to avoid keeping an opened transaction and infinite loop with signal
+        Accessibilite.objects.filter(pk=accessibilite_pk).update(completion_rate=new_value)
 
 
 @shared_task()

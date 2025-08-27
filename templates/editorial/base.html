@@ -10,11 +10,10 @@
                     <a class="fr-link" href="#content">{% translate "Contenu" %}</a>
                 </li>
                 <li>
-                    <a class="fr-link" href="#navigation-581">{% translate "Navigation" %}</a>
-                </li>
-                <li>
                     <a class="fr-link" href="#footer">{% translate "Pied de page" %}</a>
                 </li>
+                {% block additional_skip_links %}
+                {% endblock additional_skip_links %}
             </ul>
         </nav>
     </div>
@@ -24,6 +23,7 @@
     <!-- {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %} -->
     <main role="main"
           id="content"
+          tabindex="-1"
           {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}
           {% if page_type == 'contact-form' %}class="contact-container"{% endif %}
           {% if page_type == 'login-form' %}class="login-container"{% endif %}

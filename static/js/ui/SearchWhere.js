@@ -27,17 +27,24 @@ function SearchWhere(root) {
   }
   const searchInDepartmentsAllowed = input.dataset.autocompleteDepartments === 'on'
 
-  input.addEventListener('input', activateSubmitBtn, false)
-  activateSubmitBtn(null, false)
+  navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+    if (result.state === 'granted') {
+      a11yGeolocBtn.classList.add('fr-hidden')
+    } else if (result.state === 'prompt') {
+      a11yGeolocBtn.classList.remove('display--block')
+    }
+  })
 
   function activateSubmitBtn(event, force = false) {
     if (input.value.startsWith(AROUND_ME) && hiddens.lat.getAttribute('value') && hiddens.lon.getAttribute('value')) {
       force = true
     }
     if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
-      input.form.querySelector('button[type=submit]').removeAttribute('disabled')
+      input.form.querySelector('#where-input-messages').classList.add('fr-hidden')
+      input.form.querySelector('#where-input-messages').parentElement.classList.remove('fr-input-group--error')
     } else {
-      input.form.querySelector('button[type=submit]').setAttribute('disabled', '')
+      input.form.querySelector('#where-input-messages').classList.remove('fr-hidden')
+      input.form.querySelector('#where-input-messages').parentElement.classList.add('fr-input-group--error')
     }
   }
 
@@ -153,29 +160,6 @@ function SearchWhere(root) {
     if (autocomplete.input.value == FRANCE_ENTIERE) {
       setSearchValue('')
       setSearchData(null)
-    }
-  })
-
-  // Prevent global form submission when an autocomplete entry is selected by pressing Enter,
-  // which usually triggers form submit when a form input has the focus.
-  let submittable
-
-  const observer = new MutationObserver((mutations) => {
-    const exp = mutations.filter(({ attributeName }) => attributeName == 'aria-expanded')[0]
-    setTimeout(() => {
-      try {
-        submittable = exp.target.getAttribute('aria-expanded') !== 'true'
-        if (submittable) {
-          activateSubmitBtn(null, false)
-        }
-      } catch (e) {}
-    }, 0)
-  })
-  observer.observe(input, { attributeOldValue: true })
-
-  input.form.addEventListener('submit', (event) => {
-    if (!submittable) {
-      event.preventDefault()
     }
   })
 

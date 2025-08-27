@@ -464,6 +464,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                 {
                     "scrollWheelZoom": False,
                     "dragging": False,
+                    "zoomControl": False,
+                    "gestureHandling": True,
                 }
             ),
             "previous_url": referer,
@@ -549,6 +551,7 @@ def contrib_delete(request, erp_slug):
 @login_required
 def contrib_start(request):
     form = forms.ProviderGlobalSearchForm(request.GET or None)
+
     if form.is_valid():
         return redirect(f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}")
 
@@ -561,27 +564,26 @@ def contrib_start(request):
 
 @login_required
 def contrib_global_search(request):
-    results = error = None
-    commune = ""
+    results = error = activite = None
+    commune = city = ""
     results = []
-
-    need_external_api_search = True
-    if request.GET.get("search_type") in ("housenumber", "street"):
-        # Business rule: we do not want to search in external API if the user is providing a full address. We are
-        # assuming he knows what he is doing and does not need help with some external API results.
-        need_external_api_search = False
-
-    activite = None
-    if request.GET.get("activity_slug"):
-        activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
-
     pagination_size = 6
 
-    query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (activite.nom if activite else None)
+    form = forms.ProviderGlobalSearchForm(request.GET, initial=request.GET.copy())
+    if form.is_valid():
+        need_external_api_search = True
+        if request.GET.get("search_type") in ("housenumber", "street"):
+            # Business rule: we do not want to search in external API if the user is providing a full address. We are
+            # assuming he knows what he is doing and does not need help with some external API results.
+            need_external_api_search = False
 
-    if not activite and not what_lower:
-        error = translate("Vous devez préciser une activité ou un nom d'établissement.")
-    else:
+        if request.GET.get("activity_slug"):
+            activite = Activite.objects.filter(slug=request.GET.get("activity_slug")).first()
+
+        query_terms_for_api = (what_lower := request.GET.get("what", "").lower()) or (
+            activite.nom if activite else None
+        )
+
         if query_terms_for_api and need_external_api_search:
             try:
                 if need_external_api_search:
@@ -609,13 +611,13 @@ def contrib_global_search(request):
         qs_results_bdd = qs_results_bdd[:pagination_size]
         results = acceslibre.parse_etablissements(qs_results_bdd, results)
 
-    city, _ = clean_address(request.GET.get("where"))
+        city, _ = clean_address(request.GET.get("where"))
 
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "form": forms.ProviderGlobalSearchForm(initial=request.GET.copy()),
+            "form": form,
             "commune_search": commune,
             "step": 1,
             "next_step_title": schema.SECTION_TRANSPORT,
