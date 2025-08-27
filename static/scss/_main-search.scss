@@ -78,6 +78,12 @@
     }
   }
 
+  .fr-tabs__panel.fr-tabs__panel--without-search {
+    // Use case => When searching through communes, the search section doesn't exist
+    // So the map needs to be stretched further to the left
+    width: calc(100% - var(--search-list-width));
+  }
+
   &__main-filters {
     display: flex;
     flex-direction: column;

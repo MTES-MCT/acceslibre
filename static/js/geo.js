@@ -518,7 +518,7 @@ function AppMap(root) {
   const filtersModal = document.getElementById('fr-modal-disabilities-filters')
   const searchBtn = filtersModal?.querySelector('button#submit-filters-search')
 
-  if (equipmentsInputs && filtersModal) {
+  if (equipmentsInputs && filtersModal && searchBtn) {
     filtersModal.addEventListener('dsfr.conceal', () => {
       document.dispatchEvent(new Event('shortcutClickedFromSearch'))
 
