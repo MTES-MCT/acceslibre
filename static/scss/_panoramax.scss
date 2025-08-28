@@ -21,3 +21,9 @@ pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
     }
   }
 }
+
+.panoramax-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+}

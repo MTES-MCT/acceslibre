@@ -417,7 +417,7 @@ function _addLocateButton(map) {
   new LocateControl({
     icon: 'icon icon-street-view a4a-locate-icon',
     position: 'topright',
-    strings: { title: 'Localisez moi' },
+    strings: { title: gettext('Localisez moi') },
   })?.addTo(map)
 }
 
@@ -566,7 +566,25 @@ function AppMap(root) {
     url.refreshSearchURL()
   }
 
+  // Update the map accessibility attributes to be compliant
+  accessibilityFixes()
+
   return map
+}
+
+function accessibilityFixes() {
+  const layersToggleEl = document.querySelector('.leaflet-control-layers-toggle')
+  const zoomInEl = document.querySelector('.leaflet-control-zoom-in')
+  const zoomOutEl = document.querySelector('.leaflet-control-zoom-out')
+
+  if (layersToggleEl) {
+    layersToggleEl.setAttribute('title', gettext('Calques'))
+  }
+
+  if (zoomInEl && zoomOutEl) {
+    zoomInEl.setAttribute('title', gettext('Zoom avant'))
+    zoomOutEl.setAttribute('title', gettext('Zoom arrière'))
+  }
 }
 
 function openMarkerPopup(erpIdentifier) {

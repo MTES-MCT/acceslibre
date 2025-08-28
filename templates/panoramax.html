@@ -1,7 +1,7 @@
 {% extends "editorial/base.html" %}
 {% load i18n static %}
 {% block page_title %}
-    {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
+    {{ erp.nom }} - {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
 {% endblock page_title %}
 {% block breadcrumb %}
     <div class="fr-container">
@@ -47,10 +47,14 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
             <li>
                 <a class="fr-link"
                    href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                   title="{% translate "Voir le tutoriel - Nouvelle fenêtre" %}"
                    target="_blank">{% translate "Voir le tutoriel" %}</a>
             </li>
             <li>
-                <a class="fr-link" href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+                <a class="fr-link"
+                   href="{% url "faq" %}"
+                   target="_blank"
+                   title="{% translate "Voir notre foire aux questions - Nouvelle fenêtre" %}">{% translate "Voir notre foire aux questions" %}</a>
             </li>
         </ul>
     </section>
@@ -59,13 +63,36 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
            target="_blank"
            href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
+    <ul class="fr-p-0">
+        <ol class="fr-p-0">
+            {% translate "Adresse :" %} {{ erp.adresse }}
+        </ol>
+        <ol class="fr-p-0">
+            {% translate "Activité :" %} {{ erp.activite.nom }}
+        </ol>
+    </ul>
     <address>
-        {% translate "Adresse :" %} {{ erp.adresse }}
-        <br>
-        {% translate "Activité :" %} {{ erp.activite.nom }}
     </address>
-    <div id="viewer-container">
-        <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+    <div class="panoramax-container">
+        <div id="viewer-container">
+            <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+        </div>
+        <details class="panoramax-shortcuts">
+            <summary>{% translate "Liste des raccourcis pour l'utilisation de la carte intéractive" %}</summary>
+            <ul>
+                <li>{% translate "Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la carte" %}</li>
+                <li>
+                    {% translate "Page haut/bas (ou 3/9 du pavé numérique) : passer à l’image suivante ou précédente dans la séquence" %}
+                </li>
+                <li>{% translate "/ - : zoomer ou dézoomer l’image ou la carte" %}</li>
+                <li>{% translate "(ou 5 du pavé numérique) : recentrer l’image ou la carte" %}</li>
+                <li>
+                    {% translate "Accueil / ↖️ (ou 7 du pavé numérique) : basculer la carte et l’image comme élément principal affiché" %}
+                </li>
+                <li>{% translate "Fin (ou 1 du pavé numérique) : masquer la carte ou l’image réduite" %}</li>
+                <li>{% translate "Espace : lire ou mettre en pause la séquence en cours" %}</li>
+            </ul>
+        </details>
     </div>
     <form method="post" class="fr-my-4w" action=".">
         {% csrf_token %}
@@ -74,7 +101,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
         <input type="hidden" name="xyz" id="xyz-coords">
         <input type="submit"
                class="fr-btn btn-primary"
-               value="{% translate "Choisir cette photo" %}">
+               value="{% translate "Choisir cette photo et passer à l’établissement suivant" %}">
         <a href="." class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
     </form>
 {% endblock editorial_content %}
