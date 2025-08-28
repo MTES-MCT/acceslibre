@@ -43,6 +43,7 @@
                     <a class="fr-link fr-ml-n1v"
                        href="{{ erp.contact_url }}"
                        target="_blank"
+                       title="{{ erp.contact_url }} - {% translate "Nouvelle fenêtre" %}"
                        rel="noopener noreferrer">{{ erp.contact_url }}</a>
                 </p>
             {% endif %}
@@ -50,7 +51,7 @@
                 <p class="fr-mb-3w">
                     <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
                     <a class="fr-link fr-ml-n1v"
-                       href="{{ erp.site_internet }}"
+                       href="{{ erp.site_internet }} - {% translate "Nouvelle fenêtre" %}"
                        target="_blank"
                        rel="noopener noreferrer">{% translate "Site internet" %}</a>
                 </p>
@@ -60,6 +61,7 @@
             <div class="fr-mb-2w">
                 <a class="fr-link"
                    href="https://www.google.com/maps/place/{{ erp.adresse }}"
+                   title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
                    target="_blank">{% translate "Itinéraire" %}</a>
             </div>
         </div>
