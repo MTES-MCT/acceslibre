@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 14:46+0200\n"
-"PO-Revision-Date: 2025-08-28 14:45+0200\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-09-02 23:51+0200\n"
+"PO-Revision-Date: 2025-09-02 23:51+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.2\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -92,11 +92,11 @@ msgstr "You must confirm the deletion to make it effective."
 
 #, python-brace-format
 msgid ""
-"Votre compte est inactif. Merci de contacter le <a "
-"href=\"{url_contact}\">support</a>."
+"Votre compte est inactif. Merci de contacter le <a href=\"{url_contact}"
+"\">support</a>."
 msgstr ""
-"Your account is inactive. Please contact the <a href = \"{url_contact}\"> "
-"support </a>."
+"Your account is inactive. Please contact the <a href=\"{url_contact}"
+"\">support </a>."
 
 msgid "EmailToken"
 msgstr "EmailToken"
@@ -605,6 +605,7 @@ msgstr ""
 "This address cannot be found in the {code_postal} zip code (but can be found "
 "in the {loc_code_postal} zip code)."
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
 
@@ -6000,6 +6001,12 @@ msgstr "Add a new facility"
 
 msgid "Informations sur l’accessibilité"
 msgstr "Accessibility information"
+
+msgid "Passer la carte"
+msgstr "Go to the map"
+
+msgid "Revenir à la carte"
+msgstr "Back to the map"
 
 msgid "Ajouter cet établissement"
 msgstr "Add this facility"
