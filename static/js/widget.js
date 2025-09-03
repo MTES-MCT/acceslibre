@@ -99,7 +99,7 @@
           })
         }
       })
-    }, 100)
+    }, 600)
   }
 
   function loadTriggers() {
