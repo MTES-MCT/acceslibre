@@ -273,7 +273,7 @@ class CustomAuthenticationForm(AuthenticationForm):
             url_contact = reverse("contact_topic", kwargs={"topic": Message.TOPIC_CONNECTION})
             raise ValidationError(
                 mark_safe(
-                    translate(
+                    translate_lazy(
                         'Votre compte est inactif. Merci de contacter le <a href="{url_contact}">support</a>.'.format(
                             url_contact=url_contact
                         )
