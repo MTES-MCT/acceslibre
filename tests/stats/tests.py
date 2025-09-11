@@ -23,7 +23,7 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
     with django_assert_max_num_queries(3):
         browser.visit(reverse("stats_home"))
 
-    assert mocked.call_count == 2
+    assert mocked.call_count == 6
 
     get_visitors = call(
         "https://stats.beta.gouv.fr/index.php",
