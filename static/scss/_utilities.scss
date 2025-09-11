@@ -8,6 +8,9 @@
     text-overflow: ellipsis;
     overflow: hidden;
   }
+  &--capitalize {
+    text-transform: capitalize;
+  }
 }
 
 .overflow {

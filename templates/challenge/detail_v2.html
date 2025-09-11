@@ -176,8 +176,8 @@
             {% if challenge.objectif %}
                 <h2 class="text--title-blue-france fr-text--xl text--center">{% translate "Votre objectif" %}</h2>
             {% endif %}
-            {% if challenge.accroche %}<p>{{ challenge.accroche }}</p>{% endif %}
-            {% if challenge.text_reserve %}<p class="fr-mb-0">{{ challenge.text_reserve }}</p>{% endif %}
+            {% if challenge.accroche %}<p>{{ challenge.accroche|linebreaksbr }}</p>{% endif %}
+            {% if challenge.text_reserve %}<p class="fr-mb-0">{{ challenge.text_reserve|linebreaksbr }}</p>{% endif %}
         </div>
         {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
             <a class="fr-btn"
@@ -186,7 +186,7 @@
         {% if challenge.objectif %}
             <div class="fr-callout fr-icon-info-line">
                 <h3 class="fr-callout__title">{% translate "Règles du jeu" %}</h3>
-                <p class="fr-callout__text">{{ challenge.objectif | safe }}</p>
+                <p class="fr-callout__text">{{ challenge.objectif|linebreaksbr|safe }}</p>
             </div>
         {% endif %}
     </section>

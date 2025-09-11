@@ -6,7 +6,7 @@
 {% block page_title %}
     {{ erp.nom }},
     {% if activite %}{{ activite.nom }},{% endif %}
-    {{ commune.nom }}, {% translate "Accessibilité" %}
+    {{ commune.nom }} | Acceslibre
 {% endblock page_title %}
 {% block breadcrumb %}
     <div class="fr-container">
@@ -110,9 +110,27 @@
         <section class="fr-grid-row">
             <div class="fr-col-12">{% include "erp/includes/widget_block.html" %}</div>
         </section>
+        <div class="fr-skiplinks" data-target-id="back-to-map-btn">
+            <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                <ul class="fr-skiplinks__list">
+                    <li>
+                        <a class="fr-link" id="skip-map-btn" href="#back-to-map-btn">{% translate "Passer la carte" %}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <section>
             {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
         </section>
+        <div class="fr-skiplinks" data-target-id="skip-map-btn">
+            <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                <ul class="fr-skiplinks__list">
+                    <li>
+                        <a class="fr-link" id="back-to-map-btn" href="#skip-map-btn">{% translate "Revenir à la carte" %}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <section>
             {% include "erp/includes/versions_block.html" %}
         </section>

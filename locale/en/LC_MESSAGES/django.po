@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-20 14:13+0200\n"
-"PO-Revision-Date: 2025-08-20 14:13+0200\n"
+"POT-Creation-Date: 2025-09-11 14:36+0200\n"
+"PO-Revision-Date: 2025-09-11 14:36+0200\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -95,8 +95,8 @@ msgid ""
 "Votre compte est inactif. Merci de contacter le <a "
 "href=\"{url_contact}\">support</a>."
 msgstr ""
-"Your account is inactive. Please contact the <a href = \"{url_contact}\"> "
-"support </a>."
+"Your account is inactive. Please contact the <a "
+"href=\"{url_contact}\">support</a>."
 
 msgid "EmailToken"
 msgstr "EmailToken"
@@ -4152,7 +4152,7 @@ msgid ""
 msgstr ""
 "\n"
 "This account activation request has expired.\n"
-"You can <a class = \"fr-link\" href=\"%(url_ register)s\">create a new "
+"You can <a class = \"fr-link\" href=\"%(url_register)s\">create a new "
 "account</a>."
 
 #, python-format
@@ -4165,7 +4165,7 @@ msgid ""
 msgstr ""
 "\n"
 "The activation key is corrupted.\n"
-" You must <a class = \"fr-link\" href=\"%(url_ register)s\"> create a new "
+" You must <a class = \"fr-link\" href=\"%(url_register)s\"> create a new "
 "account </a>."
 
 #, python-format
@@ -5870,6 +5870,9 @@ msgstr "Information filling rate:"
 msgid "Modifier ces informations"
 msgstr "Update this information"
 
+msgid "Nouvelle fenêtre"
+msgstr "New window"
+
 msgid "Itinéraire"
 msgstr "Itinerary"
 
@@ -5997,6 +6000,12 @@ msgstr "Add a new facility"
 
 msgid "Informations sur l’accessibilité"
 msgstr "Accessibility information"
+
+msgid "Passer la carte"
+msgstr "Go to the map"
+
+msgid "Revenir à la carte"
+msgstr "Back to the map"
 
 msgid "Ajouter cet établissement"
 msgstr "Add this facility"
@@ -6155,14 +6164,55 @@ msgstr ""
 "The photos do not allow you to see the establishment. Click on \"No photo is "
 "suitable\". A new establishment will be offered."
 
+msgid "Voir le tutoriel - Nouvelle fenêtre"
+msgstr "See the tutorial - New window"
+
+msgid "Voir notre foire aux questions - Nouvelle fenêtre"
+msgstr "See our Frequently Questions - New window"
+
 msgid "Adresse :"
 msgstr "Address:"
 
 msgid "Activité :"
 msgstr "Activity:"
 
-msgid "Choisir cette photo"
-msgstr "Choose this photo"
+msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
+msgstr "List of shortcuts for the use of the interactive card"
+
+msgid ""
+"Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la "
+"carte"
+msgstr ""
+"Arrows (or 2/4/8/6 of the digital pavement): move in the image or on the map"
+
+msgid ""
+"Page haut/bas (ou 3/9 du pavé numérique) : passer à l’image suivante ou "
+"précédente dans la séquence"
+msgstr ""
+"High/low page (or 3/9 of the digital pavement): switch to the following or "
+"previous image in the sequence"
+
+msgid "/ - : zoomer ou dézoomer l’image ou la carte"
+msgstr "/ -: zoom or diszoman the image or the card"
+
+msgid "(ou 5 du pavé numérique) : recentrer l’image ou la carte"
+msgstr "(or 5 of the digital pavement): refocus the image or the card"
+
+msgid ""
+"Accueil / ↖️ (ou 7 du pavé numérique) : basculer la carte et l’image comme "
+"élément principal affiché"
+msgstr ""
+"Home / ↖️ (or 7 of the digital pavement): to switch the card and the image as "
+"a main element displayed"
+
+msgid "Fin (ou 1 du pavé numérique) : masquer la carte ou l’image réduite"
+msgstr "End (or 1 of the digital pavement): hide the card or reduced image"
+
+msgid "Espace : lire ou mettre en pause la séquence en cours"
+msgstr "Space: Read or break the current sequence"
+
+msgid "Choisir cette photo et passer à l’établissement suivant"
+msgstr "Choose this photo and go to the next establishment"
 
 msgid "Aucune photo ne convient"
 msgstr "No photo is suitable"
@@ -6296,8 +6346,10 @@ msgid ""
 "message à cette adresse vous permettant de modifier votre mot de passe.\n"
 "    "
 msgstr ""
+"\n"
 "If the enamel entered exists in our base, we have just sent a message to "
-"this address allowing you to modify your password."
+"this address allowing you to modify your password.\n"
+"    "
 
 msgid "Si vous ne recevez pas d'email d'ici quelques minutes :"
 msgstr "If you do not receive an email within a few minutes:"
@@ -6411,23 +6463,44 @@ msgstr "See more"
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
 
-msgid "lieux référencés"
-msgstr "referenced places"
+msgid "Lieux référencés"
+msgstr "Referenced places"
 
-msgid "contributeurs"
-msgstr "contributors"
+msgid "Contributeurs"
+msgstr "Contributors"
+
+msgid "Nombre d'établissements référencés"
+msgstr "Number of informed facilities"
 
 msgid "Consultation des données"
 msgstr "Data consultation"
 
-msgid "visiteurs uniques sur les 30 derniers jours"
-msgstr "unique visitors on the last 30 days"
+msgid "Visiteurs uniques sur les 30 derniers jours"
+msgstr "Unique visitors on the last 30 days"
 
-msgid "consultations sur des sites partenaires"
-msgstr "consultations on partner sites"
+msgid "Consultation sur des sites partenaires"
+msgstr "Consultations on partner sites"
 
 msgid "Qualité des données"
 msgstr "Data quality"
+
+msgid "Taux de remplissage moyen des fiches"
+msgstr "Completion rate:"
+
+msgid "Taux de fiches créées ou modifiées durant les 12 derniers mois"
+msgstr "Percentage of records created or modified during the last 12 months"
+
+msgid "Remplissage des fiches"
+msgstr "Records completion"
+
+msgid "Nombre d'informations remplies"
+msgstr "Number of information fields filled in"
+
+msgid "Nombre de fiches"
+msgstr "Number of records"
+
+msgid "Part de fiches"
+msgstr "Share of records"
 
 msgid "API acceslibre"
 msgstr "acceslibre API"
@@ -6454,6 +6527,12 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "contributeurs"
+#~ msgstr "contributors"
+
+#~ msgid "Choisir cette photo"
+#~ msgstr "Choose this photo"
 
 #~ msgid "Entrez votre activité"
 #~ msgstr "Enter your activity"

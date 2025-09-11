@@ -430,6 +430,10 @@ MATOMO = {
     },
 }
 
+METABASE = {
+    "TOKEN": env("METABASE_API_TOKEN", default=None),
+    "URL": "https://metabase.acceslibre.info/api/",
+}
 
 SUMMERNOTE_CONFIG = {
     "summernote": {

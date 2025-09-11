@@ -3,7 +3,8 @@ version: '3.5'
 services:
   database:
     container_name: access4all_postgresql
-    image: postgis/postgis:12-master
+    image: postgis/postgis:16-master
+    platform: linux/amd64
     environment:
       POSTGRES_DB: access4all
       POSTGRES_USER: access4all
@@ -11,6 +12,8 @@ services:
     ports:
       - 5432:5432
     restart: unless-stopped
+    volumes:
+      - ./data_psql:/data_psql
     ## uncomment to limit database resources
     # deploy:
     #     resources:
