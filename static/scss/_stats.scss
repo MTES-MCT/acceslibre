@@ -1,0 +1,19 @@
+@use 'breakpoints' as *;
+
+.stats-container {
+  .tiles-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @media screen and (max-width: $viewport-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

@@ -1,4 +1,5 @@
 {% extends "editorial/base.html" %}
+{% load humanize %}
 {% load i18n %}
 {% load l10n %}
 {% load static %}
@@ -8,91 +9,175 @@
 {% block robots %}
     noindex, nofollow
 {% endblock robots %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Statistiques" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Statistiques d'Acceslibre" %}</h1>
-    <div>
-        <h2 class="fr-h2 fr-mb-5w">{% translate "Contribution" %}</h2>
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-            <div class="fr-col-12 fr-col-lg-6 text-center">
-                <div class="fr-card">
-                    <span class="fr-h1 fr-fr-pt-3w">{{ nb_published_erps }}</span><span class="fr-h4 fr-ml-2v">{% translate "lieux référencés" %}</span>
+    <div class="sections-container">
+        <section class="tiles-section">
+            <div class="fr-tile fr-tile--horizontal">
+                <div class="fr-tile__body">
+                    <div class="fr-tile__content">
+                        <p class="fr-tile__title fr-h1 fr-mb-0">{{ nb_published_erps }}</p>
+                        <p class="fr-tile__desc">{% translate "Lieux référencés" %}</p>
+                    </div>
+                </div>
+                <div class="fr-tile__header">
+                    <div class="fr-tile__pictogram">
+                        <img src="{% static 'img/challenges/accessibility.svg' %}"
+                             aria-hidden="true"
+                             alt=""
+                             width="64"
+                             height="64" />
+                    </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-lg-6 text-center">
-                <div class="fr-card">
-                    <span class="fr-h1 fr-fr-pt-3w">{{ nb_contributors }}</span><span class="fr-h4 fr-ml-2v">{% translate "contributeurs" %}</span>
+            <div class="fr-tile fr-tile--horizontal">
+                <div class="fr-tile__body">
+                    <div class="fr-tile__content">
+                        <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_contributors }}</p>
+                        <p class="fr-tile__desc">{% translate "Contributeurs" %}</p>
+                    </div>
+                </div>
+                <div class="fr-tile__header">
+                    <div class="fr-tile__pictogram">
+                        <img src="{% static 'img/challenges/mental-disabilities.svg' %}"
+                             aria-hidden="true"
+                             alt=""
+                             width="64"
+                             height="64" />
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="fr-grid-row fr-grid-row--gutters">
-        <div class="fr-col-12">
-            <iframe src="https://metabase.acceslibre.info/public/dashboard/0cef84d8-a977-4d6e-8060-82c596a23173#bordered=false&titled=false"
-                    frameborder="0"
-                    width="100%"
-                    height="600"
-                    allowtransparency></iframe>
-        </div>
-    </div>
-    <div class="fr-mt-4w">
-        <h2 class="fr-h2">{% translate "Consultation des données" %}</h2>
-        <div class="fr-grid-row fr-grid-row--gutters fr-mb-4w">
-            <div class="fr-col-12 fr-col-lg-6 text-center">
-                <div class="fr-card">
-                    <span class="fr-h1 fr-fr-pt-3w">{{ nb_unique_visitors }}</span><span class="fr-h4 fr-ml-2v">{% translate "visiteurs uniques sur les 30 derniers jours" %}</span>
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Nombre d'établissements référencés" %}</h2>
+            <div class="fr-table fr-mb-0">
+                <div class="fr-table__wrapper">
+                    <div class="fr-table__container">
+                        <div class="fr-table__content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>{% translate "Date" %}</th>
+                                        <th>{% translate "Nombre d'établissements référencés" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for erp in total_erps %}
+                                        <tr>
+                                            <td class="text--capitalize">{{ erp.0|date:"F Y" }}</td>
+                                            <td>{{ erp.1|intcomma }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-lg-6 text-center">
-                <div class="fr-card">
-                    <span class="fr-h1 fr-fr-pt-3w">{{ nb_widget_open }}</span><span class="fr-h4 fr-ml-2v">{% translate "consultations sur des sites partenaires" %}</span>
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Consultation des données" %}</h2>
+            <div class="tiles-section">
+                <div class="fr-tile fr-tile--horizontal">
+                    <div class="fr-tile__body">
+                        <div class="fr-tile__content">
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_unique_visitors }}</p>
+                            <p class="fr-tile__desc">{% translate "Visiteurs uniques sur les 30 derniers jours" %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-tile fr-tile--horizontal">
+                    <div class="fr-tile__body">
+                        <div class="fr-tile__content">
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_widget_open }}</p>
+                            <p class="fr-tile__desc">{% translate "Consultation sur des sites partenaires" %}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="fr-grid-row fr-grid-row--gutters">
-        <div class="fr-col-12 fr-col-lg-6 fr-pr-4w">
-            <iframe width="100%"
-                    height="260"
-                    src="https://stats.beta.gouv.fr/index.php?forceView=1&viewDataTable=graphEvolution&module=Widgetize&action=iframe&disableLink=1&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=3&period=day&date=yesterday"
-                    scrolling="yes"
-                    frameborder="0"
-                    marginheight="0"
-                    marginwidth="0"
-                    class="fr-mb-2w"></iframe>
-        </div>
-        <div class="fr-col-12 fr-col-lg-6 fr-pl-4w">
-            <div class="fr-grid-row fr-grid-row--gutters fr-mb-8w">
-                <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                    <img class="a4a-partenaire-logo-small"
-                         alt="Logo d'Allociné"
-                         src="{% static 'img/partenaires/allocine.png' %}">
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Qualité des données" %}</h2>
+            <div class="tiles-section">
+                <div class="fr-tile fr-tile--horizontal">
+                    <div class="fr-tile__body">
+                        <div class="fr-tile__content">
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ average_completion_rate }}</p>
+                            <p class="fr-tile__desc">{% translate "Taux de remplissage moyen des fiches" %}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                    <img class="a4a-partenaire-logo-small"
-                         alt="Logo de sortir a Paris"
-                         src="{% static 'img/partenaires/sortir-a-paris_avatar.png' %}">
-                </div>
-                <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                    <img class="a4a-partenaire-logo-small"
-                         alt="Logo de Nestenn"
-                         src="{% static 'img/partenaires/nestenn.png' %}">
-                </div>
-                <div class="fr-col-12 fr-col-lg-6 flex justify-content-center flex align-items-center">
-                    <img class="a4a-partenaire-logo-small"
-                         alt="Logo de solocal"
-                         src="{% static 'img/partenaires/solocal.png' %}">
+                <div class="fr-tile fr-tile--horizontal">
+                    <div class="fr-tile__body">
+                        <div class="fr-tile__content">
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ last_12_months_created_or_updated_erps }}</p>
+                            <p class="fr-tile__desc">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section>
+            <h2 class="fr-h4">{% translate "Remplissage des fiches" %}</h2>
+            <div class="fr-table">
+                <div class="fr-table__wrapper">
+                    <div class="fr-table__container">
+                        <div class="fr-table__content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>{% translate "Nombre d'informations remplies" %}</th>
+                                        <th>{% translate "Nombre de remplissages" %}</th>
+                                        <th>{% translate "Taux de remplissage" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for erp_completion in erp_completion_totals %}
+                                        <tr>
+                                            <td class="text--capitalize">{{ erp_completion.0 }}</td>
+                                            <td>{{ erp_completion.1 }}</td>
+                                            {# todo: compute completion rate#}
+                                            <td></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="fr-grid-row fr-grid-row--gutters">
-        <div class="fr-col-12">
-            <h2 class="fr-h2">{% translate "Qualité des données" %}</h2>
-            <iframe src="https://metabase.acceslibre.info/public/dashboard/f7251584-a95f-493f-8dac-a3575caec3b2#bordered=false&titled=false"
-                    frameborder="0"
-                    width="100%"
-                    height="600"
-                    allowtransparency></iframe>
-        </div>
-    </div>
+    {#    #}
+    {#    <div class="fr-grid-row fr-grid-row--gutters">#}
+    {#        <div class="fr-col-12">#}
+    {#            <h2 class="fr-h2">{% translate "Qualité des données" %}</h2>#}
+    {#            <iframe src="https://metabase.acceslibre.info/public/dashboard/f7251584-a95f-493f-8dac-a3575caec3b2#bordered=false&titled=false"#}
+    {#                    frameborder="0"#}
+    {#                    width="100%"#}
+    {#                    height="600"#}
+    {#                    allowtransparency></iframe>#}
+    {#        </div>#}
+    {#    </div>#}
 {% endblock editorial_content %}
