@@ -54,6 +54,19 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
     )
     assert mocked.mock_calls[1] == get_actions
 
+    assert mocked.mock_calls[2] == call(
+        "https://metabase.acceslibre.info/api/card/354/query", timeout=2, headers={"x-api-key": None}
+    )
+    assert mocked.mock_calls[3] == call(
+        "https://metabase.acceslibre.info/api/card/325/query", timeout=2, headers={"x-api-key": None}
+    )
+    assert mocked.mock_calls[4] == call(
+        "https://metabase.acceslibre.info/api/card/423/query", timeout=8, headers={"x-api-key": None}
+    )
+    assert mocked.mock_calls[5] == call(
+        "https://metabase.acceslibre.info/api/card/355/query", timeout=2, headers={"x-api-key": None}
+    )
+
 
 @pytest.mark.django_db
 def test_widget_tracking():
