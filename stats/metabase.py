@@ -4,7 +4,7 @@ from requests.exceptions import JSONDecodeError, Timeout
 from datetime import datetime
 
 card_ids = {
-    "total_erps": 458,
+    "total_erps": 354,
     "last_30_days_active_contributors": 351,
     "average_completion_rate": 325,
     "last_12_months_created_or_updated_erps": 423,
