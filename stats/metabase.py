@@ -68,4 +68,9 @@ def get_last_12_months_created_or_updated_erps():
 
 
 def get_erp_completion_totals():
-    return _safe_request(card_ids["erp_completion_totals"])
+    erp_completion_totals = _safe_request(card_ids["erp_completion_totals"])
+    total = sum(erp_completion[1] for erp_completion in erp_completion_totals)
+    data_with_percentage = [
+        erp_completion + [f"{erp_completion[1] / total * 100:.2f}%"] for erp_completion in erp_completion_totals
+    ]
+    return data_with_percentage
