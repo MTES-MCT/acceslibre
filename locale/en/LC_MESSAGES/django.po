@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-10 09:41+0200\n"
-"PO-Revision-Date: 2025-09-03 22:17+0200\n"
-"Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-09-11 14:36+0200\n"
+"PO-Revision-Date: 2025-09-11 14:36+0200\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.1\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -6463,23 +6463,44 @@ msgstr "See more"
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
 
-msgid "lieux référencés"
-msgstr "referenced places"
+msgid "Lieux référencés"
+msgstr "Referenced places"
 
-msgid "contributeurs"
-msgstr "contributors"
+msgid "Contributeurs"
+msgstr "Contributors"
+
+msgid "Nombre d'établissements référencés"
+msgstr "Number of informed facilities"
 
 msgid "Consultation des données"
 msgstr "Data consultation"
 
-msgid "visiteurs uniques sur les 30 derniers jours"
-msgstr "unique visitors on the last 30 days"
+msgid "Visiteurs uniques sur les 30 derniers jours"
+msgstr "Unique visitors on the last 30 days"
 
-msgid "consultations sur des sites partenaires"
-msgstr "consultations on partner sites"
+msgid "Consultation sur des sites partenaires"
+msgstr "Consultations on partner sites"
 
 msgid "Qualité des données"
 msgstr "Data quality"
+
+msgid "Taux de remplissage moyen des fiches"
+msgstr "Completion rate:"
+
+msgid "Taux de fiches créées ou modifiées durant les 12 derniers mois"
+msgstr "Percentage of records created or modified during the last 12 months"
+
+msgid "Remplissage des fiches"
+msgstr "Records completion"
+
+msgid "Nombre d'informations remplies"
+msgstr "Number of information fields filled in"
+
+msgid "Nombre de fiches"
+msgstr "Number of records"
+
+msgid "Part de fiches"
+msgstr "Share of records"
 
 msgid "API acceslibre"
 msgstr "acceslibre API"
@@ -6506,6 +6527,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "contributeurs"
+#~ msgstr "contributors"
 
 #~ msgid "Choisir cette photo"
 #~ msgstr "Choose this photo"
