@@ -23,7 +23,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE=core.settings_dev
 
-# Upgrade pip
 RUN pip install pipenv
 
 COPY Pipfile Pipfile.lock ./

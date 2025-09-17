@@ -4,14 +4,12 @@ services:
     platform: linux/amd64
     build: .
     ports:
-      - "8000:8000"
+      - '8000:8000'
     env_file:
       - .env
-    environment:
-      - DATABASE_URL=postgres://access4all:access4all@database/access4all
-      - SCALINGO_REDIS_URL:redis://default:access4allpwd@redis:6379/1
     volumes:
       - .:/app
+    restart: unless-stopped
     depends_on:
       - database
       - redis
@@ -28,6 +26,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./data_psql:/data_psql
+      # Comment this line if you don't want database data on your hosted volume
+      - pgdata:/var/lib/postgresql/data
     ## uncomment to limit database resources
     # deploy:
     #     resources:
@@ -52,3 +52,5 @@ services:
 volumes:
   redis:
     driver: local
+  # Comment this line if you don't want database data on your hosted volume
+  pgdata:
