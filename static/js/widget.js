@@ -103,7 +103,7 @@
   }
 
   function loadTriggers() {
-    const triggers = document.querySelectorAll('[aria-haspopup="dialog"]')
+    const triggers = document.querySelectorAll('[aria-haspopup="dialog"][data-owner="acceslibre"]')
     triggers.forEach((trigger) => {
       var dialog = null
       if (triggers.length == 1) {
