@@ -17,7 +17,7 @@
                                 </p>
                                 <p>
                                     {% if challenge.text_reserve %}
-                                        {{ challenge.text_reserve|linebreaksbr }}
+                                        {{ challenge.text_reserve|linebreaksbr|truncatewords:30 }}
                                         <br>
                                     {% endif %}
                                 </p>
