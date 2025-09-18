@@ -181,12 +181,14 @@
                     <p>{{ challenge.accroche|linebreaksbr }}</p>
                 </div>
             {% endif %}
+            {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
+                <div class="fr-my-2w text--center">
+                    <a class="fr-btn"
+                       href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire au challenge" %}</a>
+                </div>
+            {% endif %}
             {% if challenge.text_reserve %}<p class="fr-mb-0">{{ challenge.text_reserve }}</p>{% endif %}
         </div>
-        {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
-            <a class="fr-btn"
-               href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">{% translate "S'inscrire au challenge" %}</a>
-        {% endif %}
         {% if challenge.objectif %}
             <div class="fr-callout fr-icon-info-line">
                 <h3 class="fr-callout__title">{% translate "Règles du jeu" %}</h3>
