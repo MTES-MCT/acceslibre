@@ -172,11 +172,15 @@
         </div>
     </section>
     <section class="goal">
-        <div class="text--center">
+        <div>
             {% if challenge.objectif %}
                 <h2 class="text--title-blue-france fr-text--xl text--center">{% translate "Votre objectif" %}</h2>
             {% endif %}
-            {% if challenge.accroche %}<p>{{ challenge.accroche }}</p>{% endif %}
+            {% if challenge.accroche %}
+                <div class="fr-highlight">
+                    <p>{{ challenge.accroche|linebreaksbr }}</p>
+                </div>
+            {% endif %}
             {% if challenge.text_reserve %}<p class="fr-mb-0">{{ challenge.text_reserve }}</p>{% endif %}
         </div>
         {% if challenge.has_open_subscriptions and request.user not in challenge.players.all %}
