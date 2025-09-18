@@ -1,6 +1,11 @@
 import json
 from collections import defaultdict
+from datetime import timedelta
 
+from dateutil.relativedelta import relativedelta
+from django.db.models import When, Value, CharField, Count, Case, FloatField, F, Avg
+from django.db.models.functions import Cast, TruncMonth
+from django.utils import timezone
 from reversion.models import ContentType, Version
 
 from erp import schema
@@ -30,7 +35,6 @@ def _get_score(version, previous=None):
 
 
 def get_challenge_scores(challenge, start_date, stop_date, player_ids):
-
     access_content_type = ContentType.objects.get_for_model(Accessibilite)
 
     scores_per_user_id = defaultdict(int)
@@ -59,3 +63,66 @@ def get_challenge_scores(challenge, start_date, stop_date, player_ids):
             scores_per_team_id[sub.team_id] += scores_per_user_id.get(sub.player_id) or 0
 
     return scores_per_user_id, scores_per_team_id
+
+
+def get_completion_totals(total_published_erps: int):
+    return (
+        Accessibilite.objects.select_related("erp")
+        .filter(erp__published=True)
+        .values(
+            completion_range=Case(
+                When(completion_rate__gte=0, completion_rate__lt=10, then=Value("1 à 2 informations")),
+                When(completion_rate__gte=10, completion_rate__lt=20, then=Value("3 à 5 informations")),
+                When(completion_rate__gte=20, completion_rate__lt=30, then=Value("6 à 7 informations")),
+                When(completion_rate__gte=30, completion_rate__lt=40, then=Value("8 à 10 informations")),
+                When(completion_rate__gte=40, completion_rate__lt=50, then=Value("10 à 11 informations")),
+                When(completion_rate__gte=50, completion_rate__lte=110, then=Value("12 informations et plus")),
+                output_field=CharField(),
+            )
+        )
+        .annotate(count=Count("id"))
+        .annotate(ratio=Cast(F("count"), output_field=FloatField()) * 100 / total_published_erps)
+        .order_by("completion_range")
+    )
+
+
+def get_total_erps_per_month():
+    now = timezone.now().date()
+    six_months_ago = now.replace(day=1) - relativedelta(months=5)
+
+    monthly = (
+        Erp.objects.filter(published=True, created_at__gte=six_months_ago)
+        .annotate(month=TruncMonth("created_at"))
+        .values("month")
+        .annotate(total=Count("id"))
+        .order_by("month")
+    )
+
+    total_by_month = []
+    running_total = Erp.objects.filter(published=True, created_at__lt=six_months_ago).count()
+    for row in monthly:
+        running_total += row["total"]
+        total_by_month.append({"month": row["month"], "total_erps": running_total})
+
+    return total_by_month
+
+
+def get_average_completion_rate():
+    qs = Accessibilite.objects.filter(erp__published=True).aggregate(avg_completion_rate=Avg("completion_rate"))
+    return qs.get("avg_completion_rate")
+
+
+def get_completed_erps_from_last_12_months():
+    now = timezone.now()
+    twelve_months_ago = now - timedelta(days=365)
+    total_count = Erp.objects.published().count()
+    last_12_months_count = (
+        (
+            Erp.objects.published().filter(created_at__gte=twelve_months_ago)
+            | Erp.objects.published().filter(updated_at__gte=twelve_months_ago)
+        )
+        .distinct()
+        .count()
+    )
+    percentage_last_12_months = (last_12_months_count / total_count * 100) if total_count else 0
+    return percentage_last_12_months
