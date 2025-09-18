@@ -298,8 +298,8 @@ SCRAPFLY_IO_API_KEY = env("SCRAPFLY_IO_API_KEY", default=None)
 CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# Email configuration (production uses Mailjet - see README)
 BREVO_API_KEY = env("BREVO_API_KEY")
+BREVO_API_HOST = env("BREVO_API_HOST", default="https://api.brevo.com/v3")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
@@ -331,7 +331,6 @@ AUTHENTICATION_BACKENDS = (
 # CSV exports / S3 bucket conf
 S3_EXPORT_BUCKET_NAME = env("S3_EXPORT_BUCKET_NAME")
 S3_EXPORT_BUCKET_ENDPOINT_URL = env("S3_EXPORT_BUCKET_ENDPOINT_URL")
-
 
 # graphviz
 GRAPH_MODELS = {
