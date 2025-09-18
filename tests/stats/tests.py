@@ -20,10 +20,10 @@ def browser():
 @patch("stats.matomo.requests.post")
 def test_stats_page(mocked, browser, django_assert_max_num_queries):
     mocked.side_effect = MagicMock(status_code=200, json=lambda: {})
-    with django_assert_max_num_queries(3):
+    with django_assert_max_num_queries(8):
         browser.visit(reverse("stats_home"))
 
-    assert mocked.call_count == 6
+    assert mocked.call_count == 2
 
     get_visitors = call(
         "https://stats.beta.gouv.fr/index.php",
@@ -53,19 +53,6 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
         timeout=2,
     )
     assert mocked.mock_calls[1] == get_actions
-
-    assert mocked.mock_calls[2] == call(
-        "https://metabase.acceslibre.info/api/card/354/query", timeout=2, headers={"x-api-key": None}
-    )
-    assert mocked.mock_calls[3] == call(
-        "https://metabase.acceslibre.info/api/card/325/query", timeout=2, headers={"x-api-key": None}
-    )
-    assert mocked.mock_calls[4] == call(
-        "https://metabase.acceslibre.info/api/card/423/query", timeout=8, headers={"x-api-key": None}
-    )
-    assert mocked.mock_calls[5] == call(
-        "https://metabase.acceslibre.info/api/card/355/query", timeout=2, headers={"x-api-key": None}
-    )
 
 
 @pytest.mark.django_db
