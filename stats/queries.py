@@ -7,6 +7,7 @@ from django.db.models import When, Value, CharField, Count, Case, FloatField, F,
 from django.db.models.functions import Cast, TruncMonth
 from django.utils import timezone
 from reversion.models import ContentType, Version
+from django.utils.translation import gettext as translate
 
 from erp import schema
 from erp.models import Accessibilite, Erp
@@ -71,12 +72,14 @@ def get_completion_totals(total_published_erps: int):
         .filter(erp__published=True)
         .values(
             completion_range=Case(
-                When(completion_rate__gte=0, completion_rate__lt=10, then=Value("1 à 2 informations")),
-                When(completion_rate__gte=10, completion_rate__lt=20, then=Value("3 à 5 informations")),
-                When(completion_rate__gte=20, completion_rate__lt=30, then=Value("6 à 7 informations")),
-                When(completion_rate__gte=30, completion_rate__lt=40, then=Value("8 à 10 informations")),
-                When(completion_rate__gte=40, completion_rate__lt=50, then=Value("10 à 11 informations")),
-                When(completion_rate__gte=50, completion_rate__lte=110, then=Value("12 informations et plus")),
+                When(completion_rate__gte=0, completion_rate__lt=10, then=Value(translate("1 à 2 informations"))),
+                When(completion_rate__gte=10, completion_rate__lt=20, then=Value(translate("3 à 5 informations"))),
+                When(completion_rate__gte=20, completion_rate__lt=30, then=Value(translate("6 à 7 informations"))),
+                When(completion_rate__gte=30, completion_rate__lt=40, then=Value(translate("8 à 10 informations"))),
+                When(completion_rate__gte=40, completion_rate__lt=50, then=Value(translate("10 à 11 informations"))),
+                When(
+                    completion_rate__gte=50, completion_rate__lte=110, then=Value(translate("12 informations et plus"))
+                ),
                 output_field=CharField(),
             )
         )
