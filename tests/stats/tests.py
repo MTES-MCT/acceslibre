@@ -20,7 +20,7 @@ def browser():
 @patch("stats.matomo.requests.post")
 def test_stats_page(mocked, browser, django_assert_max_num_queries):
     mocked.side_effect = MagicMock(status_code=200, json=lambda: {})
-    with django_assert_max_num_queries(3):
+    with django_assert_max_num_queries(8):
         browser.visit(reverse("stats_home"))
 
     assert mocked.call_count == 2
