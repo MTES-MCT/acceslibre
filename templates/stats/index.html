@@ -86,8 +86,8 @@
                                 <tbody>
                                     {% for erp in total_erps %}
                                         <tr>
-                                            <td class="text--capitalize">{{ erp.0|date:"F Y" }}</td>
-                                            <td>{{ erp.1|intcomma }}</td>
+                                            <td class="text--capitalize">{{ erp.month|date:"F Y" }}</td>
+                                            <td>{{ erp.total_erps|intcomma }}</td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -124,7 +124,7 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ average_completion_rate }}</p>
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ average_completion_rate|floatformat:2 }}%</p>
                             <p class="fr-tile__desc">{% translate "Taux de remplissage moyen des fiches" %}</p>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ last_12_months_created_or_updated_erps }}</p>
+                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</p>
                             <p class="fr-tile__desc">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
                         </div>
                     </div>
@@ -156,9 +156,9 @@
                                 <tbody>
                                     {% for erp_completion in erp_completion_totals %}
                                         <tr>
-                                            <td>{{ erp_completion.0 }}</td>
-                                            <td>{{ erp_completion.1|intcomma }}</td>
-                                            <td>{{ erp_completion.2 }}</td>
+                                            <td>{{ erp_completion.completion_range }}</td>
+                                            <td>{{ erp_completion.count|intcomma }}</td>
+                                            <td>{{ erp_completion.ratio|floatformat:2 }}%</td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
