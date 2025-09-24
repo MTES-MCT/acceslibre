@@ -42,6 +42,7 @@ class BrevoMailer(Mailer):
 
     def __init__(self) -> None:
         self.configuration = Configuration()
+        self.configuration.host = settings.BREVO_API_HOST
         self.configuration.api_key["api-key"] = settings.BREVO_API_KEY
         super().__init__()
 
