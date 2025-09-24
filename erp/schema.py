@@ -614,9 +614,9 @@ FIELDS = {
     # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
     #        In the UI, the sub fields are visible only if the root field has given value.
     #        Default is False if not provided.
-    # NOTE conditional(true|false) determines whether a field is always display or if it is display only under certain conditions. Like if field has
+    # NOTE conditional(None|hosting|school|floor) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
-    #        Default is False if not provided.
+    #        Default is None if not provided.
     # NOTE free_text(true|false) determines whether a field is a free text/a user input or not. If yes, it's intented to be cleaned from profanities and
     #        translated on front end side.
     #        Default is False if not provided.
@@ -1768,7 +1768,7 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x < 80,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_plain_pied": {
         "type": "boolean",
@@ -1795,7 +1795,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_siege": {
         "type": "boolean",
@@ -1822,7 +1822,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_barre_appui": {
         "type": "boolean",
@@ -1849,7 +1849,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_sanitaires_barre_appui": {
         "type": "boolean",
@@ -1872,7 +1872,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_sanitaires_espace_usage": {
         "type": "boolean",
@@ -1899,7 +1899,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_numero_visible": {
         "type": "boolean",
@@ -1926,7 +1926,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_equipement_alerte": {
         "type": "boolean",
@@ -1957,7 +1957,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_accompagnement": {
         "type": "boolean",
@@ -1985,7 +1985,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_personnels": {
         "type": "string",
@@ -2372,10 +2372,13 @@ def get_human_readable_value(field, value):
     return text.humanize_value(value, choices=get_field_choices(field))
 
 
-def get_labels(include_conditional: bool = False):
+def get_labels(include_conditional: list[str] = None):
+    default_labels = dict((k, v.get("label")) for (k, v) in FIELDS.items() if not v.get("conditional"))
     if not include_conditional:
-        return dict((k, v.get("label")) for (k, v) in FIELDS.items() if not v.get("conditional", False))
-    return dict((k, v.get("label")) for (k, v) in FIELDS.items())
+        return default_labels
+    return default_labels | dict(
+        (k, v.get("label")) for (k, v) in FIELDS.items() if v.get("conditional", "") in include_conditional
+    )
 
 
 def get_label(field, default=""):
@@ -2385,12 +2388,13 @@ def get_label(field, default=""):
         return default
 
 
-def get_help_texts(include_conditional: bool = False):
+def get_help_texts(include_conditional: list[str] = None):
+    default_help_texts = dict((k, v.get("help_text")) for (k, v) in FIELDS.items() if not v.get("conditional"))
     if not include_conditional:
-        return dict(
-            (k, v.get("help_text")) for (k, v) in FIELDS.items() if v.get("conditional", False) == include_conditional
-        )
-    return dict((k, v.get("help_text")) for (k, v) in FIELDS.items())
+        return default_help_texts
+    return default_help_texts | dict(
+        (k, v.get("help_text")) for (k, v) in FIELDS.items() if v.get("conditional", "") in include_conditional
+    )
 
 
 def get_help_text(field, default=""):

@@ -145,8 +145,8 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
         model = Accessibilite
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=True)
-        help_texts = schema.get_help_texts(include_conditional=True)
+        labels = schema.get_labels(include_conditional=["hosting"])
+        help_texts = schema.get_help_texts(include_conditional=["hosting"])
         required = schema.get_required_fields()
 
     def __init__(self, *args, **kwargs):
@@ -158,6 +158,35 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
             self.fields.pop(field, None)
 
 
+class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["school"])
+        help_texts = schema.get_help_texts(include_conditional=["school"])
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in (
+            "labels",
+            "labels_familles_handicap",
+            "labels_autre",
+        ):
+            self.fields.pop(field, None)
+
+
+class ContribAccessibiliteFloorsForm(ContribAccessibiliteSchoolsForm):
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["floor"])
+        help_texts = schema.get_help_texts(include_conditional=["floor"])
+        required = schema.get_required_fields()
+
+
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
@@ -165,8 +194,8 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         model = Accessibilite
         exclude = ["pk"]
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=True)
-        help_texts = schema.get_help_texts(include_conditional=True)
+        labels = schema.get_labels(include_conditional=["hosting", "school", "floor"])
+        help_texts = schema.get_help_texts(include_conditional=["hosting", "school", "floor"])
         required = schema.get_required_fields()
 
     sanitaires_adaptes = forms.ChoiceField(
@@ -712,9 +741,13 @@ def get_label(field, default=""):
 
 
 def get_contrib_form_for_activity(activity: Activite):
-    # FIXME enhance this, too hardcoded, find a better way to manage this + manage multiple groups
+    # FIXME enhance this, too hardcoded, find a better way to manage this
     group = activity.groups.first() if activity else None
-    mapping = {"Hébergement": ContribAccessibiliteHotelsForm}
+    mapping = {
+        "Hébergement": ContribAccessibiliteHotelsForm,
+        "Etablissements scolaires": ContribAccessibiliteSchoolsForm,
+        "Etage accessible": ContribAccessibiliteFloorsForm,
+    }
     if not group or group.name not in mapping:
         return ContribAccessibiliteForm
     else:
