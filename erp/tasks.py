@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from celery import shared_task
 
 from core.mailer import BrevoMailer
-from erp.forms import get_contrib_form_for_activity
+from erp.forms import get_contrib_forms_for_activity
 from erp.models import Accessibilite, ActivitySuggestion
 from erp.schema import FIELDS
 
@@ -15,7 +15,10 @@ def compute_access_completion_rate(accessibilite_pk):
     except Accessibilite.DoesNotExist:
         return
 
-    form_fields = get_contrib_form_for_activity(access.erp.activite).base_fields.keys()
+    forms_for_activity = get_contrib_forms_for_activity(access.erp.activite)
+
+    form_fields = {field for form_class in forms_for_activity for field in form_class.base_fields.keys()}
+
     root_fields = [field for field in form_fields if FIELDS.get(field, {}).get("root") is True]
     nb_fields = len(root_fields)
 
