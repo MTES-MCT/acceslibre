@@ -1,10 +1,12 @@
+from copy import copy
+
 from django import forms
 from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.db.models import F
-from django.forms import widgets
+from django.forms import modelform_factory, widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
@@ -80,7 +82,7 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
     class Meta:
         model = Accessibilite
-        exclude = ["pk"] + schema.get_conditional_fields()
+        exclude = ["pk", "completion_rate"] + schema.get_conditional_fields()
         widgets = get_widgets_for_accessibilite()
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
@@ -145,8 +147,8 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
         model = Accessibilite
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=True)
-        help_texts = schema.get_help_texts(include_conditional=True)
+        labels = schema.get_labels(include_conditional=["hosting"])
+        help_texts = schema.get_help_texts(include_conditional=["hosting"])
         required = schema.get_required_fields()
 
     def __init__(self, *args, **kwargs):
@@ -157,6 +159,64 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
         ):
             self.fields.pop(field, None)
 
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="hosting").keys():
+                self.fields.pop(field, None)
+
+
+class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
+    accueil_espaces_ouverts = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.get_field_choices("accueil_espaces_ouverts"),
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_espaces_ouverts"),
+        help_text=schema.get_help_text("accueil_espaces_ouverts"),
+    )
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["school"])
+        help_texts = schema.get_help_texts(include_conditional=["school"])
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in (
+            "labels",
+            "labels_familles_handicap",
+            "labels_autre",
+        ):
+            self.fields.pop(field, None)
+
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="school").keys():
+                self.fields.pop(field, None)
+
+
+class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["floor"])
+        help_texts = schema.get_help_texts(include_conditional=["floor"])
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in (
+            "labels",
+            "labels_familles_handicap",
+            "labels_autre",
+        ):
+            self.fields.pop(field, None)
+
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="floor").keys():
+                self.fields.pop(field, None)
+
 
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
@@ -165,8 +225,8 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         model = Accessibilite
         exclude = ["pk"]
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=True)
-        help_texts = schema.get_help_texts(include_conditional=True)
+        labels = schema.get_labels(include_conditional=["hosting", "school", "floor"])
+        help_texts = schema.get_help_texts(include_conditional=["hosting", "school", "floor"])
         required = schema.get_required_fields()
 
     sanitaires_adaptes = forms.ChoiceField(
@@ -711,11 +771,89 @@ def get_label(field, default=""):
         return default
 
 
-def get_contrib_form_for_activity(activity: Activite):
-    # FIXME enhance this, too hardcoded, find a better way to manage this + manage multiple groups
-    group = activity.groups.first() if activity else None
-    mapping = {"Hébergement": ContribAccessibiliteHotelsForm}
-    if not group or group.name not in mapping:
-        return ContribAccessibiliteForm
-    else:
-        return mapping[group.name]
+def get_contrib_forms_for_activity(activity: Activite):
+    if not activity:
+        return [ContribAccessibiliteForm]
+
+    # FIXME enhance this, too hardcoded, find a better way to manage this
+    mapping = {
+        "Hébergement": ContribAccessibiliteHotelsForm,
+        "Etablissements scolaires": ContribAccessibiliteSchoolsForm,
+        "Etage accessible": ContribAccessibiliteFloorsForm,
+    }
+
+    groups = activity.groups.all()
+    forms = [ContribAccessibiliteForm]
+
+    for group in groups:
+        form_class = mapping.get(group.name, ContribAccessibiliteForm)
+        forms.append(form_class)
+
+    return forms
+
+
+class CombinedAccessibiliteForm(forms.Form):
+    def __init__(self, forms_list, form_fields, *args, **kwargs):
+        self.form_classes = forms_list
+        self.form_fields = form_fields
+        self.accessibilite_instance = kwargs.pop("instance", None)
+        self.user = kwargs.pop("user", None)
+
+        instance_data = {
+            field: getattr(self.accessibilite_instance, field)
+            for field in form_fields
+            if self.accessibilite_instance and hasattr(self.accessibilite_instance, field)
+        }
+
+        if self.accessibilite_instance:
+            kwargs["initial"] = {**instance_data, **kwargs.get("initial", {})}
+
+        super().__init__(*args, **kwargs)
+
+        self.sub_forms = []
+        for form_class in forms_list:
+            Form = modelform_factory(Accessibilite, form=form_class, fields=form_fields)
+            form_instance = Form(
+                *(args or ()), instance=self.accessibilite_instance, user=self.user, initial=self.initial or None
+            )
+            self.sub_forms.append(form_instance)
+
+            for name, field in form_instance.fields.items():
+                self.fields.setdefault(name, field)
+
+    def is_valid(self):
+        combined_valid = super().is_valid()
+
+        if combined_valid:
+            for form in self.sub_forms:
+                if hasattr(form, "data"):
+                    form.data = self.data
+                form.full_clean()
+
+        sub_forms_valid = all(form.is_valid() for form in self.sub_forms)
+
+        return combined_valid and sub_forms_valid
+
+    def save(self, commit=True):
+        if not self.sub_forms:
+            return None
+
+        main_form = self.sub_forms[0]
+        instance = main_form.save(commit=False)
+
+        for field_name, value in self.cleaned_data.items():
+            if hasattr(instance, field_name):
+                setattr(instance, field_name, value)
+
+        if commit:
+            instance.save()
+            self.save_m2m()
+
+        return instance
+
+    def save_m2m(self):
+        for form in self.sub_forms:
+            if hasattr(form, "save_m2m"):
+                if hasattr(self, "instance"):
+                    form.instance = self.instance
+                form.save_m2m()
