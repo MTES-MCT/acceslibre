@@ -384,6 +384,10 @@ class TestErpApi:
                     "accueil_equipements_malentendants": [],
                     "sanitaires_presence": True,
                     "sanitaires_adaptes": False,
+                    "accueil_ascenceur_etage": None,
+                    "accueil_ascenceur_accessibilite": None,
+                    "accueil_classes_accessibilite": None,
+                    "accueil_espaces_ouverts": [],
                 },
                 "registre": {"registre_url": None},
                 "conformite": {"conformite": None},
@@ -496,9 +500,9 @@ class TestErpApi:
         assert erp.activite.slug == "mairie"
         assert erp.accessibilite.transport_station_presence is True
         assert erp.sources.count() == 2
-        assert (
-            erp.sources.filter(source=ExternalSource.SOURCE_ACCESLIBRE).first().source_id == "string"
-        ), "Signal should have maintained the synch between erp.source and erp.sources"
+        assert erp.sources.filter(source=ExternalSource.SOURCE_ACCESLIBRE).first().source_id == "string", (
+            "Signal should have maintained the synch between erp.source and erp.sources"
+        )
         assert erp.sources.filter(source=ExternalSource.SOURCE_API).first().source_id == "456"
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
@@ -677,6 +681,10 @@ class TestAccessibiliteApi:
                         "accueil_equipements_malentendants": [],
                         "sanitaires_presence": True,
                         "sanitaires_adaptes": False,
+                        "accueil_ascenceur_etage": None,
+                        "accueil_ascenceur_accessibilite": None,
+                        "accueil_classes_accessibilite": None,
+                        "accueil_espaces_ouverts": [],
                     },
                     "registre": {"registre_url": None},
                     "conformite": {"conformite": None},
