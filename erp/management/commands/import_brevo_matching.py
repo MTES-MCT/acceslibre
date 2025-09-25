@@ -11,24 +11,22 @@ NB_TO_MANAGE = 2
 class Command(BaseCommand):
     help = "Import Brevo matching"
 
-    @staticmethod
-    def _get_slug_from_url(url):
-        return url.split("/")[-2]
-
     def handle(self, *args, **options):
         nb_managed = 0
-        with open("brevo_debug.csv", "r") as csvfile:
+        with open("brevo.csv", "r") as csvfile:
             reader = csv.DictReader(csvfile, delimiter=",")
             for i, row in enumerate(reader):
                 if not row["ERP_URL"]:
                     continue
                 print(f"~ Processing line {i}")
                 try:
-                    slug = self._get_slug_from_url(row["ERP_URL"])
-                    erp = Erp.objects.get(slug=slug)
+                    erp = Erp.objects.get(slug=row["erp_slug"])
                     assert not erp.import_email
-                except (Erp.DoesNotExist, AssertionError):
-                    print(f"ERP with url {row['ERP_URL']}, slug={slug} not found. Ignoring the line...")
+                except Erp.DoesNotExist:
+                    print(f"ERP with url {row['ERP_URL']}, slug={row['erp_slug']} not found. Ignoring the line...")
+                    continue
+                except AssertionError:
+                    print(f"ERP with url {row['ERP_URL']}, import_email already set. Ignoring the line...")
                     continue
 
                 erp.import_email = row["EMAIL"]
