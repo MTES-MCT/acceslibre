@@ -1,3 +1,5 @@
+from copy import copy
+
 from django import forms
 from django.conf import settings
 from django.contrib.gis.geos import Point
@@ -80,7 +82,7 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
     class Meta:
         model = Accessibilite
-        exclude = ["pk"] + schema.get_conditional_fields()
+        exclude = ["pk", "completion_rate"] + schema.get_conditional_fields()
         widgets = get_widgets_for_accessibilite()
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
@@ -157,6 +159,10 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
         ):
             self.fields.pop(field, None)
 
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="hosting").keys():
+                self.fields.pop(field, None)
+
 
 class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
     class Meta:
@@ -176,8 +182,12 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
         ):
             self.fields.pop(field, None)
 
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="school").keys():
+                self.fields.pop(field, None)
 
-class ContribAccessibiliteFloorsForm(ContribAccessibiliteSchoolsForm):
+
+class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
     class Meta:
         model = Accessibilite
         exclude = ("pk",)
@@ -185,6 +195,19 @@ class ContribAccessibiliteFloorsForm(ContribAccessibiliteSchoolsForm):
         labels = schema.get_labels(include_conditional=["floor"])
         help_texts = schema.get_help_texts(include_conditional=["floor"])
         required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in (
+            "labels",
+            "labels_familles_handicap",
+            "labels_autre",
+        ):
+            self.fields.pop(field, None)
+
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="floor").keys():
+                self.fields.pop(field, None)
 
 
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
@@ -752,13 +775,13 @@ def get_contrib_forms_for_activity(activity: Activite):
     }
 
     groups = activity.groups.all()
-    forms = []
+    forms = [ContribAccessibiliteForm]
 
     for group in groups:
         form_class = mapping.get(group.name, ContribAccessibiliteForm)
         forms.append(form_class)
 
-    return forms or [ContribAccessibiliteForm]
+    return forms
 
 
 class CombinedAccessibiliteForm(forms.Form):
@@ -768,25 +791,27 @@ class CombinedAccessibiliteForm(forms.Form):
         self.accessibilite_instance = kwargs.pop("instance", None)
         self.user = kwargs.pop("user", None)
 
+        instance_data = {
+            field: getattr(self.accessibilite_instance, field)
+            for field in form_fields
+            if self.accessibilite_instance and hasattr(self.accessibilite_instance, field)
+        }
+
+        if self.accessibilite_instance:
+            kwargs["initial"] = {**instance_data, **kwargs.get("initial", {})}
+
         super().__init__(*args, **kwargs)
 
         self.sub_forms = []
         for form_class in forms_list:
             Form = modelform_factory(Accessibilite, form=form_class, fields=form_fields)
-            form_args = args if args else ()
-            form_kwargs = {
-                "instance": self.accessibilite_instance,
-                "user": self.user,
-            }
-            if kwargs.get("initial"):
-                form_kwargs["initial"] = kwargs["initial"]
-
-            form_instance = Form(*form_args, **form_kwargs)
+            form_instance = Form(
+                *(args or ()), instance=self.accessibilite_instance, user=self.user, initial=self.initial or None
+            )
             self.sub_forms.append(form_instance)
 
-            for field_name, field in form_instance.fields.items():
-                if field_name not in self.fields:
-                    self.fields[field_name] = field
+            for name, field in form_instance.fields.items():
+                self.fields.setdefault(name, field)
 
     def is_valid(self):
         combined_valid = super().is_valid()
