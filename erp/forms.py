@@ -165,6 +165,14 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
 
 
 class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
+    accueil_espaces_ouverts = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.get_field_choices("accueil_espaces_ouverts"),
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_espaces_ouverts"),
+        help_text=schema.get_help_text("accueil_espaces_ouverts"),
+    )
+
     class Meta:
         model = Accessibilite
         exclude = ("pk",)

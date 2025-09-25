@@ -73,6 +73,7 @@ ACCUEIL_CLASSES_ACCESSIBILITE_CHOICES = [
         ACCUEIL_CLASSES_TOUTES_ACCESSIBLES,
         translate_lazy("Toutes les salles de classe (accessibilité totale des salles)"),
     ),
+    (None, UNKNOWN),
 ]
 
 ACCUEIL_ESPACES_OUVERTS_RESTAURATION = "restauration"
