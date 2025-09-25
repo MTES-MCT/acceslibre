@@ -69,6 +69,17 @@
             {% elif access.sanitaires_presence is False %}
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
+            {% if access.accueil_ascenceur_etage %}
+                <li data-filters="all">{{ "accueil_ascenceur_etage"|positive_text }}</li>
+            {% elif access.accueil_ascenceur_etage is False %}
+                <li data-filters="all">{{ "accueil_ascenceur_etage"|negative_text }}</li>
+            {% endif %}
+            <li data-filters="walking">
+                {% blocktranslate trimmed with sentence="accueil_classes_accessibilite"|positive_text class_access=access.accueil_classes_accessibilite %}
+                    {{ sentence }} {{ class_access }}
+                {% endblocktranslate %}
+            </li>
+            {# TODO: manage other school/floor fields #}
         </ul>
     </div>
 {% endspaceless %}
