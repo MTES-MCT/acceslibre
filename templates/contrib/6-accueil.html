@@ -87,15 +87,22 @@
         </div>
         {% if form.accueil_ascenceur_etage %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% include "fields/boolradio.html" with field=form.accueil_ascenceur_etage inline=True key="accueil_ascenceur_etage" %}
+                {% include "fields/boolradio.html" with field=form.accueil_ascenceur_etage key="accueil_ascenceur_etage" %}
+                <div class="contrib-inputs-section ">
+                    <hr class="fr-hr" />
+                    {% include "fields/boolradio.html" with field=form.accueil_ascenceur_accessibilite key="accueil_ascenceur_accessibilite" %}
+                </div>
             </div>
-            {# TODO other floor fields #}
         {% endif %}
         {% if form.accueil_classes_accessibilite %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% include "fields/boolradio.html" with field=form.accueil_classes_accessibilite inline=True key="accueil_classes_accessibilite" %}
+                {% include "fields/boolradio.html" with field=form.accueil_classes_accessibilite inline=True %}
             </div>
-            {# TODO other school fields #}
+        {% endif %}
+        {% if form.accueil_espaces_ouverts %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/checkbox.html" with field=form.accueil_espaces_ouverts inline=False %}
+            </div>
         {% endif %}
         {% if form.accueil_chambre_nombre_accessibles %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
