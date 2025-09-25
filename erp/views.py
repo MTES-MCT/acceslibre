@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.forms import modelform_factory
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -28,8 +27,8 @@ from core.lib import geo, url
 from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
-from erp.forms import get_contrib_form_for_activity
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource
+from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
+from erp.models import Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
@@ -870,34 +869,42 @@ def process_accessibilite_form(
     )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
 
-    contrib_form = get_contrib_form_for_activity(erp.activite)
-    Form = modelform_factory(Accessibilite, form=contrib_form, fields=form_fields)
+    contrib_forms_list = get_contrib_forms_for_activity(erp.activite)
 
     if request.method == "POST":
-        form = Form(request.POST, instance=accessibilite, user=request.user)
+        combined_form = CombinedAccessibiliteForm(
+            contrib_forms_list, form_fields, request.POST, instance=accessibilite, user=request.user
+        )
     else:
         if request.GET:
-            form = Form(request.GET, instance=accessibilite, user=request.user)
-        else:
-            form = contrib_form(
-                instance=accessibilite,
-                initial={
-                    "entree_porte_presence": False
-                    if accessibilite and accessibilite.entree_porte_presence is False
-                    else True
-                },
-                user=request.user,
+            combined_form = CombinedAccessibiliteForm(
+                contrib_forms_list, form_fields, request.GET, instance=accessibilite, user=request.user
             )
-    if form.is_valid():
-        # if check_authentication(request, erp, form):
-        #     return check_authentication(request, erp, form)
-        accessibilite = form.save(commit=False)
+        else:
+            initial_data = {
+                "entree_porte_presence": False
+                if accessibilite and accessibilite.entree_porte_presence is False
+                else True
+            }
+
+            combined_form = CombinedAccessibiliteForm(
+                contrib_forms_list, form_fields, instance=accessibilite, initial=initial_data, user=request.user
+            )
+
+    if combined_form.is_valid():
+        # if check_authentication(request, erp, combined_form):
+        #     return check_authentication(request, erp, combined_form)
+
+        accessibilite = combined_form.save(commit=False)
         accessibilite.erp = erp
         accessibilite.save()
+
         if accessibilite.erp.user is None:
             accessibilite.erp.user = request.user
             accessibilite.erp.save()
-        form.save_m2m()
+
+        combined_form.save_m2m()
+
         if "publier" in request.POST:
             return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
@@ -918,7 +925,7 @@ def process_accessibilite_form(
             "current_step_url": current_step_url,
             "contrib_steps_with_url": get_contrib_steps_with_url(erp.slug),
             "erp": erp,
-            "form": form,
+            "form": combined_form,
             "accessibilite": accessibilite,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
@@ -1001,16 +1008,16 @@ def ensure_min_nb_answers(request, erp):
     if erp.published:
         return True
 
-    # check that we have 4 root answers min, on contrib mode only (not on edit mode).
-    form_fields = get_contrib_form_for_activity(erp.activite).base_fields.keys()
-    root_fields = [field for field in form_fields if schema.FIELDS.get(field, {}).get("root") is True]
-    root_fields.remove("entree_porte_presence")
+    forms_for_activity = get_contrib_forms_for_activity(erp.activite)
 
-    nb_filled_in_fields = 0
-    for attr in root_fields:
-        # NOTE: we can not use bool() here, as False is a filled in info
-        if getattr(erp.accessibilite, attr) not in (None, [], ""):
-            nb_filled_in_fields += 1
+    form_fields = {field for form_class in forms_for_activity for field in form_class.base_fields.keys()}
+
+    root_fields = [field for field in form_fields if schema.FIELDS.get(field, {}).get("root") is True]
+
+    if "entree_porte_presence" in root_fields:
+        root_fields.remove("entree_porte_presence")
+
+    nb_filled_in_fields = sum(getattr(erp.accessibilite, attr) not in (None, [], "") for attr in root_fields)
 
     if nb_filled_in_fields >= settings.MIN_NB_ANSWERS_IN_CONTRIB:
         return True

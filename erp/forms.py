@@ -4,7 +4,7 @@ from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.db.models import F
-from django.forms import widgets
+from django.forms import modelform_factory, widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
@@ -740,15 +740,87 @@ def get_label(field, default=""):
         return default
 
 
-def get_contrib_form_for_activity(activity: Activite):
+def get_contrib_forms_for_activity(activity: Activite):
+    if not activity:
+        return [ContribAccessibiliteForm]
+
     # FIXME enhance this, too hardcoded, find a better way to manage this
-    group = activity.groups.first() if activity else None
     mapping = {
         "Hébergement": ContribAccessibiliteHotelsForm,
         "Etablissements scolaires": ContribAccessibiliteSchoolsForm,
         "Etage accessible": ContribAccessibiliteFloorsForm,
     }
-    if not group or group.name not in mapping:
-        return ContribAccessibiliteForm
-    else:
-        return mapping[group.name]
+
+    groups = activity.groups.all()
+    forms = []
+
+    for group in groups:
+        form_class = mapping.get(group.name, ContribAccessibiliteForm)
+        forms.append(form_class)
+
+    return forms or [ContribAccessibiliteForm]
+
+
+class CombinedAccessibiliteForm(forms.Form):
+    def __init__(self, forms_list, form_fields, *args, **kwargs):
+        self.form_classes = forms_list
+        self.form_fields = form_fields
+        self.accessibilite_instance = kwargs.pop("instance", None)
+        self.user = kwargs.pop("user", None)
+
+        super().__init__(*args, **kwargs)
+
+        self.sub_forms = []
+        for form_class in forms_list:
+            Form = modelform_factory(Accessibilite, form=form_class, fields=form_fields)
+            form_args = args if args else ()
+            form_kwargs = {
+                "instance": self.accessibilite_instance,
+                "user": self.user,
+            }
+            if kwargs.get("initial"):
+                form_kwargs["initial"] = kwargs["initial"]
+
+            form_instance = Form(*form_args, **form_kwargs)
+            self.sub_forms.append(form_instance)
+
+            for field_name, field in form_instance.fields.items():
+                if field_name not in self.fields:
+                    self.fields[field_name] = field
+
+    def is_valid(self):
+        combined_valid = super().is_valid()
+
+        if combined_valid:
+            for form in self.sub_forms:
+                if hasattr(form, "data"):
+                    form.data = self.data
+                form.full_clean()
+
+        sub_forms_valid = all(form.is_valid() for form in self.sub_forms)
+
+        return combined_valid and sub_forms_valid
+
+    def save(self, commit=True):
+        if not self.sub_forms:
+            return None
+
+        main_form = self.sub_forms[0]
+        instance = main_form.save(commit=False)
+
+        for field_name, value in self.cleaned_data.items():
+            if hasattr(instance, field_name):
+                setattr(instance, field_name, value)
+
+        if commit:
+            instance.save()
+            self.save_m2m()
+
+        return instance
+
+    def save_m2m(self):
+        for form in self.sub_forms:
+            if hasattr(form, "save_m2m"):
+                if hasattr(self, "instance"):
+                    form.instance = self.instance
+                form.save_m2m()
