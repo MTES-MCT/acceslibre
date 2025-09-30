@@ -2177,7 +2177,7 @@ FIELDS = {
         "label": translate_lazy("Accessibilité des salles de classes"),
         "help_text": mark_safe(translate_lazy("Une personne en fauteuil roulant peut accéder à :")),
         "help_text_ui": translate_lazy("Accessibilité des salles de classes"),
-        "help_text_ui_neg": translate_lazy("Accessibilité des salles de classes"),
+        "help_text_ui_neg": translate_lazy("Salles de classes non accessibles"),
         "choices": ACCUEIL_CLASSES_ACCESSIBILITE_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -2192,7 +2192,9 @@ FIELDS = {
         "label": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
         "help_text": mark_safe(translate_lazy("Une personne en fauteuil roulant peut se rendre :")),
         "help_text_ui": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
-        "help_text_ui_neg": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
+        "help_text_ui_neg": translate_lazy(
+            "Les espaces ouverts dédiés aux élèves ou étudiants ne sont pas accessibles"
+        ),
         "choices": ACCUEIL_ESPACES_OUVERTS_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
