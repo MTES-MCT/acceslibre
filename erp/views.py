@@ -28,7 +28,7 @@ from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
-from erp.models import Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource
+from erp.models import Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource, ActivitiesGroup
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
@@ -444,6 +444,10 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         erp_image = erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).first().source_id
         erp_image_id, erp_xyz = erp_image.split("|")
 
+    should_display_education_accessibility_details = ActivitiesGroup.objects.filter(
+        name="Etablissements scolaires", activities=erp.activite
+    ).exists()
+
     return render(
         request,
         "erp/index.html",
@@ -459,6 +463,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
             "th_labels": th_labels,
+            "should_display_education_accessibility_details": should_display_education_accessibility_details,
             "map_options": json.dumps(
                 {
                     "scrollWheelZoom": False,
@@ -912,6 +917,10 @@ def process_accessibilite_form(
     else:
         prev_route = None
 
+    should_display_group_labels = not ActivitiesGroup.objects.filter(
+        name="Etablissements scolaires", activities=erp.activite
+    ).exists()
+
     return render(
         request,
         template_name=template_name,
@@ -926,6 +935,7 @@ def process_accessibilite_form(
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "prev_route": prev_route,
             "page_type": "contrib-form",
+            "should_display_group_labels": should_display_group_labels,
         },
     )
 
