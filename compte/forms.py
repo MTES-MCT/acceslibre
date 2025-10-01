@@ -15,8 +15,9 @@ from django.utils.translation import gettext_lazy as translate_lazy
 from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
-from contact.models import Message
+
 from compte.models import UserPreferences
+from contact.models import Message
 from core.mailer import BrevoMailer
 
 USERNAME_RULES = translate(
@@ -290,22 +291,22 @@ class CustomPasswordResetForm(PasswordResetForm):
             attrs={"class": "fr-input", "aria-describedby": "input-messages", "id": "email-input"}
         )
 
-        def send_mail(
-            self,
-            subject_template_name,
-            email_template_name,
-            context,
-            from_email,
-            to_email,
-            html_email_template_name=None,
-        ):
-            BrevoMailer().send_email(
-                to_list=to_email,
-                template="password_reset",
-                context={
-                    "username": context["user"].username,
-                    "url_password_reset": reverse(
-                        "password_reset_confirm", kwargs={"uidb64": context["uid"], "token": context["token"]}
-                    ),
-                },
-            )
+    def send_mail(
+        self,
+        subject_template_name,
+        email_template_name,
+        context,
+        from_email,
+        to_email,
+        html_email_template_name=None,
+    ):
+        BrevoMailer().send_email(
+            to_list=to_email,
+            template="password_reset",
+            context={
+                "username": context["user"].username,
+                "url_password_reset": reverse(
+                    "password_reset_confirm", kwargs={"uidb64": context["uid"], "token": context["token"]}
+                ),
+            },
+        )
