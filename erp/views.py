@@ -28,7 +28,16 @@ from core.mailer import BrevoMailer
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
-from erp.models import Activite, ActivitySuggestion, Commune, Departement, Erp, ExternalSource, ActivitiesGroup
+from erp.models import (
+    Activite,
+    ActivitySuggestion,
+    Commune,
+    Departement,
+    Erp,
+    ExternalSource,
+    ActivitiesGroup,
+    ACTIVITY_GROUPS,
+)
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
@@ -445,8 +454,13 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         erp_image_id, erp_xyz = erp_image.split("|")
 
     should_display_education_accessibility_details = ActivitiesGroup.objects.filter(
-        name="Etablissements scolaires", activities=erp.activite
+        name=ACTIVITY_GROUPS["SCHOOL"], activities=erp.activite
     ).exists()
+
+    # Floor accessibility details can also be in ERP that aren't related to ed nat
+    should_display_floor_accessibility_details = ActivitiesGroup.objects.filter(
+        name=ACTIVITY_GROUPS["FLOOR"], activities=erp.activite
+    )
 
     return render(
         request,
@@ -464,6 +478,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "user_is_subscribed": user_is_subscribed,
             "th_labels": th_labels,
             "should_display_education_accessibility_details": should_display_education_accessibility_details,
+            "should_display_floor_accessibility_details": should_display_floor_accessibility_details,
             "map_options": json.dumps(
                 {
                     "scrollWheelZoom": False,

@@ -16,7 +16,7 @@ from magic_profanity import ProfanityFilter
 from compte.models import UserStats
 from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.models import Accessibilite, Activite, Commune, Erp, ACTIVITY_GROUPS
 from erp.provider import departements, geocoder
 
 from .fields import ActivityField
@@ -777,9 +777,9 @@ def get_contrib_forms_for_activity(activity: Activite):
 
     # FIXME enhance this, too hardcoded, find a better way to manage this
     mapping = {
-        "Hébergement": ContribAccessibiliteHotelsForm,
-        "Etablissements scolaires": ContribAccessibiliteSchoolsForm,
-        "Etage accessible": ContribAccessibiliteFloorsForm,
+        ACTIVITY_GROUPS["HOSTING"]: ContribAccessibiliteHotelsForm,
+        ACTIVITY_GROUPS["SCHOOL"]: ContribAccessibiliteSchoolsForm,
+        ACTIVITY_GROUPS["FLOOR"]: ContribAccessibiliteFloorsForm,
     }
 
     groups = activity.groups.all()

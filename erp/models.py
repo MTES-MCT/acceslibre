@@ -39,6 +39,8 @@ FULLTEXT_CONFIG = "french_unaccent"
 
 models.CharField.register_lookup(Lower)
 
+ACTIVITY_GROUPS = {"HOSTING": "Hébergement", "SCHOOL": "Etablissements scolaires", "FLOOR": "Etage accessible"}
+
 
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     """
