@@ -870,7 +870,6 @@ def process_accessibilite_form(
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
 
     contrib_forms_list = get_contrib_forms_for_activity(erp.activite)
-    form_fields = {field for form_class in contrib_forms_list for field in form_class.base_fields.keys()}
     if request.method == "POST":
         combined_form = CombinedAccessibiliteForm(
             contrib_forms_list, form_fields, request.POST, instance=accessibilite, user=request.user

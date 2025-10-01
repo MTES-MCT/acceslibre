@@ -838,22 +838,27 @@ class CombinedAccessibiliteForm(forms.Form):
         if not self.sub_forms:
             return None
 
-        main_form = self.sub_forms[0]
-        instance = main_form.save(commit=False)
+        instance = self.accessibilite_instance or Accessibilite()
 
-        for field_name, value in self.cleaned_data.items():
-            if hasattr(instance, field_name):
-                setattr(instance, field_name, value)
+        for form in self.sub_forms:
+            temp_instance = form.save(commit=False)
+
+            for field_name in form.cleaned_data.keys():
+                setattr(instance, field_name, getattr(temp_instance, field_name))
 
         if commit:
-            instance.save()
+            self.instance = instance.save()
             self.save_m2m()
+        else:
+            self.instance = instance
 
-        return instance
+        return self.instance
 
     def save_m2m(self):
+        if not getattr(self, "instance", None):
+            return
+
         for form in self.sub_forms:
+            form.instance = self.instance
             if hasattr(form, "save_m2m"):
-                if hasattr(self, "instance"):
-                    form.instance = self.instance
                 form.save_m2m()
