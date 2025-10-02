@@ -16,7 +16,7 @@ from magic_profanity import ProfanityFilter
 from compte.models import UserStats
 from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
-from erp.models import Accessibilite, Activite, Commune, Erp, ACTIVITY_GROUPS
+from erp.models import ACTIVITY_GROUPS, Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
 from .fields import ActivityField
@@ -811,23 +811,32 @@ class CombinedAccessibiliteForm(forms.Form):
         super().__init__(*args, **kwargs)
 
         self.sub_forms = []
+        removed_fields = set()
+
         for form_class in forms_list:
             Form = modelform_factory(Accessibilite, form=form_class, fields=form_fields)
             form_instance = Form(
-                *(args or ()), instance=self.accessibilite_instance, user=self.user, initial=self.initial or None
+                *(args or ()),
+                instance=self.accessibilite_instance,
+                user=self.user,
+                initial=self.initial or None,
             )
             self.sub_forms.append(form_instance)
 
+            removed_fields |= set(form_fields) - set(form_instance.fields.keys())
+
             for name, field in form_instance.fields.items():
-                self.fields.setdefault(name, field)
+                self.fields[name] = field
+
+        for field in removed_fields:
+            self.fields.pop(field, None)
 
     def is_valid(self):
         combined_valid = super().is_valid()
 
         if combined_valid:
             for form in self.sub_forms:
-                if hasattr(form, "data"):
-                    form.data = self.data
+                form.data = self.data
                 form.full_clean()
 
         sub_forms_valid = all(form.is_valid() for form in self.sub_forms)
@@ -842,12 +851,12 @@ class CombinedAccessibiliteForm(forms.Form):
 
         for form in self.sub_forms:
             temp_instance = form.save(commit=False)
-
             for field_name in form.cleaned_data.keys():
                 setattr(instance, field_name, getattr(temp_instance, field_name))
 
         if commit:
-            self.instance = instance.save()
+            instance.save()
+            self.instance = instance
             self.save_m2m()
         else:
             self.instance = instance

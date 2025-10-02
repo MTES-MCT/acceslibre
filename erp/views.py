@@ -29,14 +29,14 @@ from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
 from erp.models import (
+    ACTIVITY_GROUPS,
     Activite,
+    ActivitiesGroup,
     ActivitySuggestion,
     Commune,
     Departement,
     Erp,
     ExternalSource,
-    ActivitiesGroup,
-    ACTIVITY_GROUPS,
 )
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
@@ -933,7 +933,7 @@ def process_accessibilite_form(
         prev_route = None
 
     should_display_group_labels = not ActivitiesGroup.objects.filter(
-        name="Etablissements scolaires", activities=erp.activite
+        name__in=[ACTIVITY_GROUPS["SCHOOL"], ACTIVITY_GROUPS["FLOOR"]], activities=erp.activite
     ).exists()
 
     return render(
