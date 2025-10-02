@@ -216,6 +216,7 @@ class ServicePublicMapper:
         if not self.erp and not (
             all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])
         ):
+            logger.info("Missing pivot, ancien_code_pivot, nom or adresse in record")
             return None, [], None
 
         def _ensure_not_permanently_closed(qs):
@@ -308,8 +309,8 @@ class ServicePublicMapper:
         data["code_postal"] = self.record["adresse"][0]["code_postal"]
         data["commune"] = self.record["adresse"][0]["nom_commune"]
 
-        access = self.record["adresse"][0]["accessibilite"]
-        access_note = self.record["adresse"][0]["note_accessibilite"]
+        access = self.record["adresse"][0].get("accessibilite")
+        access_note = self.record["adresse"][0].get("note_accessibilite", {})
         data["accessibilite"] = {"entree_porte_presence": True}
         if access:
             data["published"] = True
@@ -357,4 +358,5 @@ class ServicePublicMapper:
                 erp=erp, source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id=self.record["ancien_code_pivot"]
             )
         ]
+        logger.info("ERP %s created/updated", erp)
         return erp, sources, None
