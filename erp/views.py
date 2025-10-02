@@ -453,14 +453,10 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         erp_image = erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).first().source_id
         erp_image_id, erp_xyz = erp_image.split("|")
 
-    should_display_education_accessibility_details = ActivitiesGroup.objects.filter(
-        name=ACTIVITY_GROUPS["SCHOOL"], activities=erp.activite
-    ).exists()
-
+    groups = erp.activite.groups.all()
+    should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
     # Floor accessibility details can also be in ERP that aren't related to ed nat
-    should_display_floor_accessibility_details = ActivitiesGroup.objects.filter(
-        name=ACTIVITY_GROUPS["FLOOR"], activities=erp.activite
-    )
+    should_display_floor_accessibility_details = ACTIVITY_GROUPS["FLOOR"] in [g.name for g in groups]
 
     return render(
         request,
