@@ -39,6 +39,8 @@ FULLTEXT_CONFIG = "french_unaccent"
 
 models.CharField.register_lookup(Lower)
 
+ACTIVITY_GROUPS = {"HOSTING": "Hébergement", "SCHOOL": "Etablissements scolaires", "FLOOR": "Etage accessible"}
+
 
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     """
@@ -1728,7 +1730,32 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("accueil_chambre_accompagnement"),
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
-
+    # Champs spécifiques établissements scolaires / etage accessible
+    accueil_ascenceur_etage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Ascenceur desservant les étages"),
+    )
+    accueil_ascenceur_accessibilite = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
+    )
+    accueil_classes_accessibilite = models.CharField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_classes_accessibilite"),
+        verbose_name=translate_lazy("Accessibilité des salles de classes"),
+    )
+    accueil_espaces_ouverts = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.get_field_choices("accueil_espaces_ouverts")),
+        verbose_name=translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
+        default=list,
+        null=True,
+        blank=True,
+    )
     ##############
     # Sanitaires #
     ##############

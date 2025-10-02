@@ -69,6 +69,34 @@
             {% elif access.sanitaires_presence is False %}
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
+            {% if should_display_floor_accessibility_details %}
+                {% if access.accueil_ascenceur_etage %}
+                    <li data-filters="all">{{ "accueil_ascenceur_etage"|positive_text }}</li>
+                {% elif access.accueil_ascenceur_etage is False %}
+                    <li data-filters="all">{{ "accueil_ascenceur_etage"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_ascenceur_accessibilite %}
+                    <li data-filters="walking">{{ "accueil_ascenceur_accessibilite"|positive_text }}</li>
+                {% elif access.accueil_ascenceur_accessibilite is False %}
+                    <li data-filters="walking">{{ "accueil_ascenceur_accessibilite"|negative_text }}</li>
+                {% endif %}
+            {% endif %}
+            {% if should_display_education_accessibility_details %}
+                {% if access.accueil_classes_accessibilite %}
+                    <li data-filters="all">
+                        {{ "accueil_classes_accessibilite"|positive_text }} : {{ access.accueil_classes_accessibilite }}
+                    </li>
+                {% elif access.accueil_classes_accessibilite is False %}
+                    <li data-filters="all">{{ "accueil_classes_accessibilite"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_espaces_ouverts %}
+                    <li data-filters="all">
+                        {{ "accueil_espaces_ouverts"|positive_text }} : {{ access.accueil_espaces_ouverts|join:", " }}
+                    </li>
+                {% elif not access.accueil_espaces_ouverts %}
+                    <li data-filters="all">{{ "accueil_espaces_ouverts"|negative_text }}</li>
+                {% endif %}
+            {% endif %}
         </ul>
     </div>
 {% endspaceless %}
