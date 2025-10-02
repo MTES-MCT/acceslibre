@@ -27,10 +27,12 @@ class Importer:
         verbose=False,
         today=None,
         filepath=None,
+        source=None,
     ):
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
+        self.source = source
         self.activite = activite
         self.verbose = verbose
         self.today = today if today is not None else datetime.today()
@@ -57,7 +59,7 @@ class Importer:
         for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
-                mapper = self.mapper(record, self.activite, self.today)
+                mapper = self.mapper(record, activite=self.activite, today=self.today, source=self.source)
                 (erp, sources, unpublish_reason) = mapper.process()
                 if not erp:
                     self.print_char("X")
@@ -133,5 +135,6 @@ def import_service_public(verbose=False):
         "73302880-e4df-4d4c-8676-1a61bb997f3d",
         fetcher.JsonCompressedFetcher(hook=lambda x: x["service"]),
         ServicePublicMapper,
+        source=ExternalSource.SOURCE_SERVICE_PUBLIC,
         verbose=verbose,
     ).process()
