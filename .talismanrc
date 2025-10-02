@@ -1,3 +1,7 @@
 fileignoreconfig:
+- filename: compte/forms.py
+  checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
 - filename: templates/registration/password_reset_form.html
   checksum: f9b73e1312e2dd8ae1bc4ef666dbe44008926322faf7125c9650fb671e928484
+- filename: templates/registration/password_reset_confirm.html
+  checksum: 6a710c28948c020e3a8bf277a493cdcb6f35339f8383df470e2e0c37b12f3ad4
