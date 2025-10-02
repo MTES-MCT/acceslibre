@@ -13,7 +13,7 @@ _ = service_public_valid  # Hack to avoid removal of the "unused" import
 @pytest.fixture
 def mapper(db):
     def _factory(record, today=None):
-        return ServicePublicMapper(record, today=today)
+        return ServicePublicMapper(record, source=ExternalSource.SOURCE_SERVICE_PUBLIC, today=today)
 
     return _factory
 

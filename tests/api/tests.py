@@ -507,6 +507,12 @@ class TestErpApi:
 
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
+        reason = response.json()["asp_id"][0]
+        assert "Un objet Établissement avec ce champ ASP ID existe déjà."
+
+        payload.pop("asp_id")
+        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        assert response.status_code == 400, response.json()
         reason = response.json()["non_field_errors"][0]
         assert "Potentiel doublon" in reason, "Should raise for duplicated ERP"
         assert erp.slug in reason

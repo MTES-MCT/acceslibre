@@ -131,6 +131,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "source",
             "source_id",
             "ban_id",
+            "asp_id",
             "sources",
         )
 
@@ -206,8 +207,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Veuillez fournir les données d'accessibilité.")
 
         if self.instance:
-            # if we are updating an ERP, only accessibility and import_email are editable
+            # if we are updating an ERP, only accessibility, asp_id and import_email are editable
             self.instance.import_email = obj.get("import_email")
+            self.instance.asp_id = obj.get("asp_id")
             accessibilite = Accessibilite(**obj["accessibilite"])
             accessibilite.full_clean()
 
@@ -279,10 +281,14 @@ class ErpImportSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data, partial=True):
         # If enrich_only, it won't update any access info already there
         enrich_only = self.context.get("enrich_only") or False
-        # if we are updating an ERP, only accessibility and import_email are editable
+        # if we are updating an ERP, only accessibility, asp_id and import_email are editable
         if validated_data.get("import_email"):
             instance.import_email = validated_data["import_email"]
             instance.save(update_fields=["import_email"])
+
+        if validated_data.get("asp_id"):
+            instance.asp_id = validated_data["asp_id"]
+            instance.save(update_fields=["asp_id"])
 
         accessibilite = instance.accessibilite
         for attr in ("id", "erp"):
