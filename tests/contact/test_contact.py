@@ -35,7 +35,7 @@ def test_contact(mocker, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == ([settings.DEFAULT_EMAIL],)
+    assert _args == ([settings.MANAGERS_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
@@ -115,7 +115,7 @@ def test_contact_authenticated(mocker, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == ([settings.DEFAULT_EMAIL],)
+    assert _args == ([settings.MANAGERS_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
@@ -168,7 +168,7 @@ def test_contact_topic(mocker, client):
     assert mock_mail.call_count == 2
 
     _args, _kwargs = mock_mail.call_args_list[0]
-    assert _args == ([settings.DEFAULT_EMAIL],)
+    assert _args == ([settings.MANAGERS_EMAIL],)
     assert _kwargs == {
         "context": {
             "message": {
