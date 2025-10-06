@@ -34,7 +34,7 @@ class Mailer:
         raise NotImplementedError
 
     def mail_admins(self, *args, **kwargs):
-        return self.send_email([settings.DEFAULT_EMAIL], *args, **kwargs)
+        return self.send_email([settings.MANAGERS_EMAIL], *args, **kwargs)
 
 
 class BrevoMailer(Mailer):
