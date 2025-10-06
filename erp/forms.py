@@ -143,6 +143,8 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
 
 class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
+    fields_to_remove = ("accueil_audiodescription_presence", "accueil_audiodescription")
+
     class Meta:
         model = Accessibilite
         exclude = ("pk",)
@@ -153,11 +155,6 @@ class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in (
-            "accueil_audiodescription_presence",
-            "accueil_audiodescription",
-        ):
-            self.fields.pop(field, None)
 
         for field in copy(self.fields):
             if field not in schema.get_help_texts(include_conditional="hosting").keys():
@@ -172,6 +169,7 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
         label=schema.get_label("accueil_espaces_ouverts"),
         help_text=schema.get_help_text("accueil_espaces_ouverts"),
     )
+    fields_to_remove = ("labels", "labels_familles_handicap", "labels_autre")
 
     class Meta:
         model = Accessibilite
@@ -183,12 +181,6 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in (
-            "labels",
-            "labels_familles_handicap",
-            "labels_autre",
-        ):
-            self.fields.pop(field, None)
 
         for field in copy(self.fields):
             if field not in schema.get_help_texts(include_conditional="school").keys():
@@ -196,6 +188,8 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
 
 
 class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
+    fields_to_remove = ("labels", "labels_familles_handicap", "labels_autre")
+
     class Meta:
         model = Accessibilite
         exclude = ("pk",)
@@ -206,12 +200,6 @@ class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in (
-            "labels",
-            "labels_familles_handicap",
-            "labels_autre",
-        ):
-            self.fields.pop(field, None)
 
         for field in copy(self.fields):
             if field not in schema.get_help_texts(include_conditional="floor").keys():
@@ -811,7 +799,11 @@ class CombinedAccessibiliteForm(forms.Form):
         super().__init__(*args, **kwargs)
 
         self.sub_forms = []
-        removed_fields = set()
+        fields_to_remove = set()
+
+        for form_class in forms_list:
+            to_remove = getattr(form_class, "fields_to_remove", ())
+            fields_to_remove |= set(to_remove or ())
 
         for form_class in forms_list:
             Form = modelform_factory(Accessibilite, form=form_class, fields=form_fields)
@@ -823,12 +815,10 @@ class CombinedAccessibiliteForm(forms.Form):
             )
             self.sub_forms.append(form_instance)
 
-            removed_fields |= set(form_fields) - set(form_instance.fields.keys())
-
             for name, field in form_instance.fields.items():
                 self.fields[name] = field
 
-        for field in removed_fields:
+        for field in fields_to_remove:
             self.fields.pop(field, None)
 
     def is_valid(self):
