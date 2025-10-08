@@ -1725,7 +1725,7 @@
       "name": "accueil_ascenceur_etage",
       "type": "boolean",
       "title": "Ascenceur desservant le ou les étages",
-      "description": "Ascenceur desservant le ou les étages",
+      "description": "Les étages sont desservis par un ascenseur",
       "example": "True",
       "trueValues": [
         "true",
@@ -1756,7 +1756,7 @@
       "name": "accueil_ascenceur_accessibilite",
       "type": "boolean",
       "title": "Accessibilité de l’ascenseur",
-      "description": "L’ascenseur est accessible",
+      "description": "Les étages sont desservis par un ascenseur PMR",
       "example": "True",
       "trueValues": [
         "true",
@@ -1797,7 +1797,7 @@
       "name": "accueil_espaces_ouverts",
       "type": "array",
       "title": "Accessibilité des différents espaces ouverts aux élèves ou étudiants",
-      "description": "Accessibilité des différents espaces ouverts aux élèves ou étudiants. Valeurs possibles: restauration -> A la cantine ou l’espace restauration, bibliotheque -> A la bibliothèque ou CDI, cour -> Dans la cour, sante -> Dans les locaux de santé (infirmerie, bureau du médecin scolaire, bureau du psychologue, etc)",
+      "description": "Une personne en fauteuil roulant peut se rendre :. Valeurs possibles: restauration -> A la cantine ou l’espace restauration, bibliotheque -> A la bibliothèque ou CDI, cour -> Dans la cour, sante -> Dans les locaux de santé (infirmerie, bureau du médecin scolaire, bureau du psychologue, etc)",
       "example": "[\"restauration\", \"bibliotheque\", \"cour\", \"sante\"]",
       "arrayItem": {
         "type": "string",
