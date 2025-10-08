@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 17:21+0200\n"
-"PO-Revision-Date: 2025-10-01 17:19+0200\n"
-"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
+"POT-Creation-Date: 2025-10-08 13:53+0200\n"
+"PO-Revision-Date: 2025-10-08 13:53+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -1436,6 +1436,20 @@ msgstr "At least one classroom (partial accessibility of the classrooms)"
 msgid "Toutes les salles de classe (accessibilité totale des salles)"
 msgstr "All classrooms (total accessibility of rooms)"
 
+msgid ""
+"Aucune salle de classe n’est accessible à une personne en fauteuil roulant."
+msgstr "No rooms accessible to a person in a wheelchair"
+
+msgid ""
+"Au moins une salle de classe est accessible à une personne en fauteuil "
+"roulant"
+msgstr "At least one room accessible to a person in a wheelchair"
+
+msgid ""
+"Toutes les salles de classe sont accessibles à une personne en fauteuil "
+"roulant"
+msgstr "Number of rooms accessible to a person in a wheelchair"
+
 msgid "A la cantine ou l’espace restauration"
 msgstr "At the canteen or the restaurant space"
 
@@ -1451,6 +1465,18 @@ msgid ""
 msgstr ""
 "On health premises (infirmary, school doctor's office, psychologist's "
 "office, etc.)"
+
+msgid "dans la cantine ou l’espace restauration"
+msgstr "At the canteen or the restaurant space"
+
+msgid "dans la bibliothèque ou CDI"
+msgstr "At the Library"
+
+msgid "dans la cour"
+msgstr "In the courtyard"
+
+msgid "dans les locaux de santé"
+msgstr "in healthcare facilities"
 
 msgid "Handicap auditif"
 msgstr "Hearing disability"
@@ -2641,8 +2667,11 @@ msgstr ""
 "Is there an elevator or an elevator that serves the floor (s) open to the "
 "public of the establishment & nbsp;?"
 
-msgid "Pas d'ascenseur desservant le ou les étages"
-msgstr "No elevator serving the floor(s)"
+msgid "Les étages sont desservis par un ascenseur"
+msgstr "An elevator serves the floors"
+
+msgid "Les étages ne sont pas desservis par un ascenseur"
+msgstr "The floors are not served by an elevator"
 
 msgid ""
 "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé "
@@ -2653,11 +2682,11 @@ msgstr ""
 "wheelchair, that is to say at least 1m wide x 1.25m long and 0.80m useful "
 "passage of the door & nbsp;"
 
-msgid "L’ascenseur est accessible"
-msgstr "The elevator is accessible"
+msgid "Les étages sont desservis par un ascenseur PMR"
+msgstr "A PRM elevator serves the floors"
 
-msgid "L’ascenseur n’est pas accessible"
-msgstr "The elevator is not accessible"
+msgid "Les étages sont desservis par un ascenseur non PMR"
+msgstr "A non PRM elevator serves the floors"
 
 msgid "Une personne en fauteuil roulant peut accéder à :"
 msgstr "A person in a wheelchair can access:"
@@ -6623,6 +6652,26 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid ""
+#~ "L'ascenseur suffisamment large pour être utilisé par une personne en "
+#~ "fauteuil roulant"
+#~ msgstr "The elevator wide enough to be used by a person in a wheelchair"
+
+#~ msgid ""
+#~ "L'ascenseur n'est pas suffisamment large pour être utilisé par une "
+#~ "personne en fauteuil roulant"
+#~ msgstr ""
+#~ "The elevator is not wide enough to be used by a person in a wheelchair"
+
+#~ msgid "Pas d'ascenseur desservant le ou les étages"
+#~ msgstr "No elevator serving the floor(s)"
+
+#~ msgid "L’ascenseur est accessible"
+#~ msgstr "The elevator is accessible"
+
+#~ msgid "L’ascenseur n’est pas accessible"
+#~ msgstr "The elevator is not accessible"
 
 #~ msgid "contributeurs"
 #~ msgstr "contributors"
