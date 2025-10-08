@@ -1737,7 +1737,7 @@ class Accessibilite(models.Model):
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name=translate_lazy("Ascenceur desservant les étages"),
     )
-    accueil_ascenceur_accessibilite = models.BooleanField(
+    accueil_ascenceur_etage_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
