@@ -2564,6 +2564,10 @@ def get_conditional_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
 
 
+def get_conditional_fields_not_in(conditional: str) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") != conditional]
+
+
 def get_section_fields(section_id) -> list[str]:
     return [k for (k, v) in FIELDS.items() if v["section"] == section_id]
 
