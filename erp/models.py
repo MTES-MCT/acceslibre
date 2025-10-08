@@ -1967,6 +1967,17 @@ class Accessibilite(models.Model):
         equipment_to_text = {k: str(v) for k, v in schema.DISPOSITIFS_APPEL_CHOICES}
         return [equipment_to_text.get(equipment) for equipment in self.entree_dispositif_appel_type]
 
+    def get_accueil_espaces_ouverts(self):
+        if not self.accueil_espaces_ouverts:
+            return
+        espaces_ouverts_text = {k: str(v) for k, v in schema.ACCUEIL_ESPACES_OUVERTS_CHOICES}
+        return [espaces_ouverts_text.get(espace_ouvert) for espace_ouvert in self.accueil_espaces_ouverts]
+
+    def get_accueil_classes_accessibilite(self):
+        if not self.accueil_classes_accessibilite:
+            return
+        return schema.ACCUEIL_CLASSES_ACCESSIBILITE[self.accueil_classes_accessibilite]
+
     def get_shower_text(self):
         text = ""
         needs_stopword = False

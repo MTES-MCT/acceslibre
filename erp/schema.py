@@ -60,6 +60,7 @@ EQUIPEMENT_MALENTENDANTS_TO_SHORT_TEXT = {
     (EQUIPEMENT_MALENTENDANT_AUTRES, translate_lazy("Autres")),
 }
 
+
 ACCUEIL_CLASSES_NON_ACCESSIBLE = "aucune"
 ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE = "partielle"
 ACCUEIL_CLASSES_TOUTES_ACCESSIBLES = "toutes"
@@ -76,6 +77,18 @@ ACCUEIL_CLASSES_ACCESSIBILITE_CHOICES = [
     (None, UNKNOWN),
 ]
 
+ACCUEIL_CLASSES_ACCESSIBILITE = {
+    ACCUEIL_CLASSES_NON_ACCESSIBLE: translate_lazy(
+        "Aucune salle de classe n’est accessible à une personne en fauteuil roulant."
+    ),
+    ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE: translate_lazy(
+        "Au moins une salle de classe est accessible à une personne en fauteuil roulant"
+    ),
+    ACCUEIL_CLASSES_TOUTES_ACCESSIBLES: translate_lazy(
+        "Toutes les salles de classe sont accessibles à une personne en fauteuil roulant"
+    ),
+}
+
 ACCUEIL_ESPACES_OUVERTS_RESTAURATION = "restauration"
 ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE = "bibliotheque"
 ACCUEIL_ESPACES_OUVERTS_COUR = "cour"
@@ -90,6 +103,12 @@ ACCUEIL_ESPACES_OUVERTS_CHOICES = [
     ),
 ]
 
+ACCUEIL_ESPACES_OUVERTS = [
+    (ACCUEIL_ESPACES_OUVERTS_RESTAURATION, translate_lazy("dans la cantine ou l’espace restauration")),
+    (ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE, translate_lazy("dans la bibliothèque ou CDI")),
+    (ACCUEIL_ESPACES_OUVERTS_COUR, translate_lazy("dans la cour")),
+    (ACCUEIL_ESPACES_OUVERTS_SANTE, translate_lazy("dans les locaux de santé")),
+]
 
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
@@ -2132,8 +2151,8 @@ FIELDS = {
                 "Y a-t-il un ascenseur ou un élévateur qui dessert le ou les étages ouverts au public de l’établissement&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Ascenceur desservant le ou les étages"),
-        "help_text_ui_neg": translate_lazy("Pas d'ascenseur desservant le ou les étages"),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur"),
+        "help_text_ui_neg": translate_lazy("Les étages ne sont pas desservis par un ascenseur"),
         "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
@@ -2156,8 +2175,12 @@ FIELDS = {
                 "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("L’ascenseur est accessible"),
-        "help_text_ui_neg": translate_lazy("L’ascenseur n’est pas accessible"),
+        "help_text_ui": translate_lazy(
+            "L'ascenseur suffisamment large pour être utilisé par une personne en fauteuil roulant"
+        ),
+        "help_text_ui_neg": translate_lazy(
+            "L'ascenseur n'est pas suffisamment large pour être utilisé par une personne en fauteuil roulant"
+        ),
         "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
@@ -2191,7 +2214,7 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
         "help_text": mark_safe(translate_lazy("Une personne en fauteuil roulant peut se rendre :")),
-        "help_text_ui": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
+        "help_text_ui": translate_lazy("Une personne en fauteuil roulant peut se rendre :"),
         "help_text_ui_neg": translate_lazy(
             "Les espaces ouverts dédiés aux élèves ou étudiants ne sont pas accessibles"
         ),
