@@ -2165,7 +2165,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "floor",
     },
-    "accueil_ascenceur_accessibilite": {
+    "accueil_ascenceur_etage_pmr": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,

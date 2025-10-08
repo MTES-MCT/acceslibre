@@ -188,7 +188,7 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
 
 
 class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
-    fields_to_remove = ("labels", "labels_familles_handicap", "labels_autre")
+    fields_to_remove = []
 
     class Meta:
         model = Accessibilite

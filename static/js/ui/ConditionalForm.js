@@ -128,7 +128,7 @@ const rules = [
   {
     source: 'accueil_ascenceur_etage',
     values: ['True'],
-    targets: ['accueil_ascenceur_accessibilite'],
+    targets: ['accueil_ascenceur_etage_pmr'],
     indent: INDENTS_LEVEL.first,
   },
   // Sanitaires
