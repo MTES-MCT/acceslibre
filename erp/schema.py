@@ -2141,11 +2141,11 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and len(x) == 0,
         "free_text": False,
     },
-    "accueil_ascenceur_etage": {
+    "accueil_ascenseur_etage": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Ascenceur desservant le ou les étages"),
+        "label": translate_lazy("Ascenseur desservant le ou les étages"),
         "help_text": mark_safe(
             translate_lazy(
                 "Y a-t-il un ascenseur ou un élévateur qui dessert le ou les étages ouverts au public de l’établissement&nbsp;?"
@@ -2166,7 +2166,7 @@ FIELDS = {
         "conditional": "floor",
         "root": True,
     },
-    "accueil_ascenceur_etage_pmr": {
+    "accueil_ascenseur_etage_pmr": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
@@ -2280,7 +2280,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
-        "root": False,
+        "root": True,
     },
     "labels_familles_handicap": {
         "type": "array",

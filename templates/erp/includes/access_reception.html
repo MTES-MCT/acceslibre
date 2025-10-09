@@ -70,15 +70,15 @@
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
             {% if should_display_floor_accessibility_details %}
-                {% if access.accueil_ascenceur_etage and access.accueil_ascenceur_etage_pmr is None %}
-                    <li data-filters="all">{{ "accueil_ascenceur_etage"|positive_text }}</li>
-                {% elif access.accueil_ascenceur_etage is False and access.accueil_ascenceur_etage_pmr is None %}
-                    <li data-filters="all">{{ "accueil_ascenceur_etage"|negative_text }}</li>
+                {% if access.accueil_ascenseur_etage and access.accueil_ascenseur_etage_pmr is None %}
+                    <li data-filters="all">{{ "accueil_ascenseur_etage"|positive_text }}</li>
+                {% elif access.accueil_ascenseur_etage is False and access.accueil_ascenseur_etage_pmr is None %}
+                    <li data-filters="all">{{ "accueil_ascenseur_etage"|negative_text }}</li>
                 {% endif %}
-                {% if access.accueil_ascenceur_etage_pmr %}
-                    <li data-filters="walking">{{ "accueil_ascenceur_etage_pmr"|positive_text }}</li>
-                {% elif access.accueil_ascenceur_etage_pmr is False %}
-                    <li data-filters="walking">{{ "accueil_ascenceur_etage_pmr"|negative_text }}</li>
+                {% if access.accueil_ascenseur_etage_pmr %}
+                    <li data-filters="walking">{{ "accueil_ascenseur_etage_pmr"|positive_text }}</li>
+                {% elif access.accueil_ascenseur_etage_pmr is False %}
+                    <li data-filters="walking">{{ "accueil_ascenseur_etage_pmr"|negative_text }}</li>
                 {% endif %}
             {% endif %}
             {% if should_display_education_accessibility_details %}

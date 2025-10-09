@@ -1731,13 +1731,13 @@ class Accessibilite(models.Model):
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
     # Champs spécifiques établissements scolaires / etage accessible
-    accueil_ascenceur_etage = models.BooleanField(
+    accueil_ascenseur_etage = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name=translate_lazy("Ascenceur desservant les étages"),
+        verbose_name=translate_lazy("Ascenseur desservant les étages"),
     )
-    accueil_ascenceur_etage_pmr = models.BooleanField(
+    accueil_ascenseur_etage_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
