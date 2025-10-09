@@ -1740,7 +1740,7 @@ class Accessibilite(models.Model):
     accueil_ascenceur_etage_pmr = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
     )
     accueil_classes_accessibilite = models.CharField(
