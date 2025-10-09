@@ -2153,7 +2153,7 @@ FIELDS = {
         ),
         "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur"),
         "help_text_ui_neg": translate_lazy("Les étages ne sont pas desservis par un ascenseur"),
-        "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
             ("/static/img/contrib/no.png"),
@@ -2164,6 +2164,7 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "floor",
+        "root": True,
     },
     "accueil_ascenceur_etage_pmr": {
         "type": "boolean",
@@ -2188,6 +2189,7 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "floor",
+        "root": False,
     },
     "accueil_classes_accessibilite": {
         "type": "string",
@@ -2203,6 +2205,7 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "school",
+        "root": True,
     },
     "accueil_espaces_ouverts": {
         "type": "array",
@@ -2220,6 +2223,7 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "school",
+        "root": True,
     },
     # Sanitaires
     "sanitaires_presence": {
@@ -2276,7 +2280,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
-        "root": True,
+        "root": False,
     },
     "labels_familles_handicap": {
         "type": "array",
@@ -2293,6 +2297,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
+        "root": False,
     },
     "labels_autre": {
         "type": "string",
@@ -2308,6 +2313,7 @@ FIELDS = {
         "warn_if": None,
         "free_text": True,
         "example": "HandiLabel",
+        "root": False,
     },
     # Commentaire
     "commentaire": {
@@ -2332,7 +2338,7 @@ FIELDS = {
         "warn_if": None,
         "free_text": True,
         "example": "Propose des places gratuites",
-        "root": True,
+        "root": False,
     },
     # Registre
     "registre_url": {
@@ -2562,6 +2568,14 @@ def get_required_fields() -> list[str]:
 
 def get_conditional_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
+
+
+def get_conditional_fields_in(conditional: str) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) == conditional]
+
+
+def get_conditional_fields_not_in(conditional: str) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") != conditional]
 
 
 def get_section_fields(section_id) -> list[str]:

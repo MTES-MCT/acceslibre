@@ -20,6 +20,7 @@ from erp.models import ACTIVITY_GROUPS, Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
 from .fields import ActivityField
+from .schema import get_conditional_fields_not_in, get_conditional_fields_in
 
 
 def bool_radios():
@@ -144,6 +145,8 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
 class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
     fields_to_remove = ("accueil_audiodescription_presence", "accueil_audiodescription")
+    conditionals_to_add = get_conditional_fields_in("hosting")
+    conditionals_to_remove = get_conditional_fields_not_in("hosting")
 
     class Meta:
         model = Accessibilite
@@ -170,6 +173,8 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
         help_text=schema.get_help_text("accueil_espaces_ouverts"),
     )
     fields_to_remove = ("labels", "labels_familles_handicap", "labels_autre")
+    conditionals_to_add = get_conditional_fields_in("school")
+    conditionals_to_remove = get_conditional_fields_not_in("school")
 
     class Meta:
         model = Accessibilite
@@ -189,6 +194,8 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
 
 class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
     fields_to_remove = []
+    conditionals_to_add = get_conditional_fields_in("floor")
+    conditionals_to_remove = get_conditional_fields_not_in("floor")
 
     class Meta:
         model = Accessibilite

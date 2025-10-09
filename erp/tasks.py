@@ -19,6 +19,22 @@ def compute_access_completion_rate(accessibilite_pk):
 
     form_fields = {field for form_class in forms_for_activity for field in form_class.base_fields.keys()}
 
+    # Arbitrary fields to remove such as "label" for schools
+    fields_to_remove = {
+        field for form_class in forms_for_activity for field in getattr(form_class, "fields_to_remove", set())
+    }
+
+    # Conditionals fields that are removed due to certain activities
+    conditionals_to_remove = {
+        field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_remove", set())
+    }
+
+    # Conditionals to keep that are from the combined form
+    conditionals_to_add = {
+        field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_add", set())
+    }
+
+    form_fields = set(form_fields).difference(fields_to_remove | conditionals_to_remove) | conditionals_to_add
     root_fields = [field for field in form_fields if FIELDS.get(field, {}).get("root") is True]
     nb_fields = len(root_fields)
 
