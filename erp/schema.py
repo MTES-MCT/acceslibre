@@ -2154,11 +2154,6 @@ FIELDS = {
         "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur"),
         "help_text_ui_neg": translate_lazy("Les étages ne sont pas desservis par un ascenseur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "choices_images": (
-            ("/static/img/contrib/ascenseur-elevateur.png"),
-            ("/static/img/contrib/no.png"),
-            ("/static/img/contrib/unknown.png"),
-        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -2280,7 +2275,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
-        "root": True,
+        "root": False,
     },
     "labels_familles_handicap": {
         "type": "array",
