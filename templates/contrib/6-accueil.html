@@ -85,12 +85,12 @@
                 {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True key="sanitaires_adaptes" %}
             </div>
         </div>
-        {% if form.accueil_ascenceur_etage %}
+        {% if form.accueil_ascenseur_etage %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% include "fields/boolradio.html" with field=form.accueil_ascenceur_etage key="accueil_ascenceur_etage" %}
+                {% include "fields/boolradio.html" with field=form.accueil_ascenseur_etage key="accueil_ascenseur_etage" %}
                 <div class="contrib-inputs-section ">
                     <hr class="fr-hr" />
-                    {% include "fields/boolradio.html" with field=form.accueil_ascenceur_etage_pmr key="accueil_ascenceur_etage_pmr" %}
+                    {% include "fields/boolradio.html" with field=form.accueil_ascenseur_etage_pmr key="accueil_ascenseur_etage_pmr" %}
                 </div>
             </div>
         {% endif %}

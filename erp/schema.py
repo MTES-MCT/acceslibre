@@ -2141,11 +2141,11 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and len(x) == 0,
         "free_text": False,
     },
-    "accueil_ascenceur_etage": {
+    "accueil_ascenseur_etage": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Ascenceur desservant le ou les étages"),
+        "label": translate_lazy("Ascenseur desservant le ou les étages"),
         "help_text": mark_safe(
             translate_lazy(
                 "Y a-t-il un ascenseur ou un élévateur qui dessert le ou les étages ouverts au public de l’établissement&nbsp;?"
@@ -2154,11 +2154,6 @@ FIELDS = {
         "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur"),
         "help_text_ui_neg": translate_lazy("Les étages ne sont pas desservis par un ascenseur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "choices_images": (
-            ("/static/img/contrib/ascenseur-elevateur.png"),
-            ("/static/img/contrib/no.png"),
-            ("/static/img/contrib/unknown.png"),
-        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -2166,7 +2161,7 @@ FIELDS = {
         "conditional": "floor",
         "root": True,
     },
-    "accueil_ascenceur_etage_pmr": {
+    "accueil_ascenseur_etage_pmr": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,

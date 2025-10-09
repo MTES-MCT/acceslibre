@@ -1722,9 +1722,9 @@
       "example": "[\"montant\", \"descendant\"]"
     },
     {
-      "name": "accueil_ascenceur_etage",
+      "name": "accueil_ascenseur_etage",
       "type": "boolean",
-      "title": "Ascenceur desservant le ou les étages",
+      "title": "Ascenseur desservant le ou les étages",
       "description": "Les étages sont desservis par un ascenseur",
       "example": "True",
       "trueValues": [
@@ -1753,7 +1753,7 @@
       ]
     },
     {
-      "name": "accueil_ascenceur_etage_pmr",
+      "name": "accueil_ascenseur_etage_pmr",
       "type": "boolean",
       "title": "Accessibilité de l’ascenseur",
       "description": "Les étages sont desservis par un ascenseur PMR",
