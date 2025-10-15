@@ -52,7 +52,7 @@ def test_delete_similar_draft(mocker, client):
         accessibilite__cheminement_ext_presence=True,
         user=user,
     )
-    CommuneFactory(nom=erp.commune, departement=erp.code_postal[0:2])
+    CommuneFactory(nom=erp.commune, departement=erp.departement)
 
     erp2 = deepcopy(erp)
     erp2.pk = None
