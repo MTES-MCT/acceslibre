@@ -46,7 +46,6 @@ CSP_DEFAULT_SRC = (
     "acceslibre.matomo.cloud",
     "*.tile.openstreetmap.org",
     "*.acceslibre.info",
-    "*.posthog.com",
 )
 
 CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
