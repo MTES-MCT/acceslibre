@@ -60,6 +60,56 @@ EQUIPEMENT_MALENTENDANTS_TO_SHORT_TEXT = {
     (EQUIPEMENT_MALENTENDANT_AUTRES, translate_lazy("Autres")),
 }
 
+
+ACCUEIL_CLASSES_NON_ACCESSIBLE = "aucune"
+ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE = "partielle"
+ACCUEIL_CLASSES_TOUTES_ACCESSIBLES = "toutes"
+ACCUEIL_CLASSES_ACCESSIBILITE_CHOICES = [
+    (ACCUEIL_CLASSES_NON_ACCESSIBLE, translate_lazy("Aucune salle de classe")),
+    (
+        ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE,
+        translate_lazy("Au moins une salle de classe (accessibilité partielle des salles)"),
+    ),
+    (
+        ACCUEIL_CLASSES_TOUTES_ACCESSIBLES,
+        translate_lazy("Toutes les salles de classe (accessibilité totale des salles)"),
+    ),
+    (None, UNKNOWN),
+]
+
+ACCUEIL_CLASSES_ACCESSIBILITE = {
+    ACCUEIL_CLASSES_NON_ACCESSIBLE: translate_lazy(
+        "Aucune salle de classe n’est accessible à une personne en fauteuil roulant."
+    ),
+    ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE: translate_lazy(
+        "Au moins une salle de classe est accessible à une personne en fauteuil roulant"
+    ),
+    ACCUEIL_CLASSES_TOUTES_ACCESSIBLES: translate_lazy(
+        "Toutes les salles de classe sont accessibles à une personne en fauteuil roulant"
+    ),
+}
+
+ACCUEIL_ESPACES_OUVERTS_RESTAURATION = "restauration"
+ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE = "bibliotheque"
+ACCUEIL_ESPACES_OUVERTS_COUR = "cour"
+ACCUEIL_ESPACES_OUVERTS_SANTE = "sante"
+ACCUEIL_ESPACES_OUVERTS_CHOICES = [
+    (ACCUEIL_ESPACES_OUVERTS_RESTAURATION, translate_lazy("A la cantine ou l’espace restauration")),
+    (ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE, translate_lazy("A la bibliothèque ou CDI")),
+    (ACCUEIL_ESPACES_OUVERTS_COUR, translate_lazy("Dans la cour")),
+    (
+        ACCUEIL_ESPACES_OUVERTS_SANTE,
+        translate_lazy("Dans les locaux de santé (infirmerie, bureau du médecin scolaire, bureau du psychologue, etc)"),
+    ),
+]
+
+ACCUEIL_ESPACES_OUVERTS = [
+    (ACCUEIL_ESPACES_OUVERTS_RESTAURATION, translate_lazy("dans la cantine ou l’espace restauration")),
+    (ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE, translate_lazy("dans la bibliothèque ou CDI")),
+    (ACCUEIL_ESPACES_OUVERTS_COUR, translate_lazy("dans la cour")),
+    (ACCUEIL_ESPACES_OUVERTS_SANTE, translate_lazy("dans les locaux de santé")),
+]
+
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"
@@ -614,9 +664,9 @@ FIELDS = {
     # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
     #        In the UI, the sub fields are visible only if the root field has given value.
     #        Default is False if not provided.
-    # NOTE conditional(true|false) determines whether a field is always display or if it is display only under certain conditions. Like if field has
+    # NOTE conditional(None|hosting|school|floor) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
-    #        Default is False if not provided.
+    #        Default is None if not provided.
     # NOTE free_text(true|false) determines whether a field is a free text/a user input or not. If yes, it's intented to be cleaned from profanities and
     #        translated on front end side.
     #        Default is False if not provided.
@@ -1768,7 +1818,7 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x < 80,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_plain_pied": {
         "type": "boolean",
@@ -1795,7 +1845,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_siege": {
         "type": "boolean",
@@ -1822,7 +1872,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_douche_barre_appui": {
         "type": "boolean",
@@ -1849,7 +1899,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_sanitaires_barre_appui": {
         "type": "boolean",
@@ -1872,7 +1922,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_sanitaires_espace_usage": {
         "type": "boolean",
@@ -1899,7 +1949,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": False,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_numero_visible": {
         "type": "boolean",
@@ -1926,7 +1976,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_equipement_alerte": {
         "type": "boolean",
@@ -1957,7 +2007,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_chambre_accompagnement": {
         "type": "boolean",
@@ -1985,7 +2035,7 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
-        "conditional": True,
+        "conditional": "hosting",
     },
     "accueil_personnels": {
         "type": "string",
@@ -2091,6 +2141,85 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and len(x) == 0,
         "free_text": False,
     },
+    "accueil_ascenseur_etage": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Ascenseur desservant le ou les étages"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Y a-t-il un ascenseur ou un élévateur qui dessert le ou les étages ouverts au public de l’établissement&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur"),
+        "help_text_ui_neg": translate_lazy("Les étages ne sont pas desservis par un ascenseur"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "floor",
+        "root": True,
+    },
+    "accueil_ascenseur_etage_pmr": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité de l’ascenseur"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Les étages sont desservis par un ascenseur non PMR"),
+        "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/ascenseur-elevateur.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "floor",
+        "root": False,
+    },
+    "accueil_classes_accessibilite": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité des salles de classes"),
+        "help_text": mark_safe(translate_lazy("Une personne en fauteuil roulant peut accéder à :")),
+        "help_text_ui": translate_lazy("Accessibilité des salles de classes"),
+        "help_text_ui_neg": translate_lazy("Salles de classes non accessibles"),
+        "choices": ACCUEIL_CLASSES_ACCESSIBILITE_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "school",
+        "root": True,
+    },
+    "accueil_espaces_ouverts": {
+        "type": "array",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
+        "help_text": mark_safe(translate_lazy("Une personne en fauteuil roulant peut se rendre :")),
+        "help_text_ui": translate_lazy("Une personne en fauteuil roulant peut se rendre :"),
+        "help_text_ui_neg": translate_lazy(
+            "Les espaces ouverts dédiés aux élèves ou étudiants ne sont pas accessibles"
+        ),
+        "choices": ACCUEIL_ESPACES_OUVERTS_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "school",
+        "root": True,
+    },
     # Sanitaires
     "sanitaires_presence": {
         "type": "boolean",
@@ -2146,7 +2275,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
-        "root": True,
+        "root": False,
     },
     "labels_familles_handicap": {
         "type": "array",
@@ -2163,6 +2292,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "free_text": False,
+        "root": False,
     },
     "labels_autre": {
         "type": "string",
@@ -2178,6 +2308,7 @@ FIELDS = {
         "warn_if": None,
         "free_text": True,
         "example": "HandiLabel",
+        "root": False,
     },
     # Commentaire
     "commentaire": {
@@ -2202,7 +2333,7 @@ FIELDS = {
         "warn_if": None,
         "free_text": True,
         "example": "Propose des places gratuites",
-        "root": True,
+        "root": False,
     },
     # Registre
     "registre_url": {
@@ -2372,10 +2503,13 @@ def get_human_readable_value(field, value):
     return text.humanize_value(value, choices=get_field_choices(field))
 
 
-def get_labels(include_conditional: bool = False):
+def get_labels(include_conditional: list[str] = None):
+    default_labels = dict((k, v.get("label")) for (k, v) in FIELDS.items() if not v.get("conditional"))
     if not include_conditional:
-        return dict((k, v.get("label")) for (k, v) in FIELDS.items() if not v.get("conditional", False))
-    return dict((k, v.get("label")) for (k, v) in FIELDS.items())
+        return default_labels
+    return default_labels | dict(
+        (k, v.get("label")) for (k, v) in FIELDS.items() if v.get("conditional", "") in include_conditional
+    )
 
 
 def get_label(field, default=""):
@@ -2385,12 +2519,13 @@ def get_label(field, default=""):
         return default
 
 
-def get_help_texts(include_conditional: bool = False):
+def get_help_texts(include_conditional: list[str] = None):
+    default_help_texts = dict((k, v.get("help_text")) for (k, v) in FIELDS.items() if not v.get("conditional"))
     if not include_conditional:
-        return dict(
-            (k, v.get("help_text")) for (k, v) in FIELDS.items() if v.get("conditional", False) == include_conditional
-        )
-    return dict((k, v.get("help_text")) for (k, v) in FIELDS.items())
+        return default_help_texts
+    return default_help_texts | dict(
+        (k, v.get("help_text")) for (k, v) in FIELDS.items() if v.get("conditional", "") in include_conditional
+    )
 
 
 def get_help_text(field, default=""):
@@ -2428,6 +2563,14 @@ def get_required_fields() -> list[str]:
 
 def get_conditional_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
+
+
+def get_conditional_fields_in(conditional: str) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) == conditional]
+
+
+def get_conditional_fields_not_in(conditional: str) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") != conditional]
 
 
 def get_section_fields(section_id) -> list[str]:

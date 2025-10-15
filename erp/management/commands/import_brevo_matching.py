@@ -16,17 +16,17 @@ class Command(BaseCommand):
         with open("brevo.csv", "r") as csvfile:
             reader = csv.DictReader(csvfile, delimiter=",")
             for i, row in enumerate(reader):
-                if not row["ERP_URL"]:
+                if not row["erp_slug"]:
                     continue
                 print(f"~ Processing line {i}")
                 try:
                     erp = Erp.objects.get(slug=row["erp_slug"])
                     assert not erp.import_email
                 except Erp.DoesNotExist:
-                    print(f"ERP with url {row['ERP_URL']}, slug={row['erp_slug']} not found. Ignoring the line...")
+                    print(f"ERP with url {row.get('ERP_URL')}, slug={row['erp_slug']} not found. Ignoring the line...")
                     continue
                 except AssertionError:
-                    print(f"ERP with url {row['ERP_URL']}, import_email already set. Ignoring the line...")
+                    print(f"ERP with url {row.get('ERP_URL')}, import_email already set. Ignoring the line...")
                     continue
 
                 erp.import_email = row["EMAIL"]

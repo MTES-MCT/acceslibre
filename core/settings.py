@@ -46,7 +46,6 @@ CSP_DEFAULT_SRC = (
     "acceslibre.matomo.cloud",
     "*.tile.openstreetmap.org",
     "*.acceslibre.info",
-    "*.posthog.com",
 )
 
 CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
@@ -308,9 +307,9 @@ EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_PORT = env.int("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-DEFAULT_EMAIL = "contact@acceslibre.beta.gouv.fr"
+DEFAULT_EMAIL = "support@acceslibre.beta.gouv.fr"
 DEFAULT_FROM_EMAIL = f"L'équipe {SITE_NAME} <{DEFAULT_EMAIL}>"
-MANAGERS = [("Acceslibre", DEFAULT_EMAIL)]
+MANAGERS_EMAIL = "contact@acceslibre.beta.gouv.fr"
 EMAIL_FILE_PATH = "/tmp/django_emails"
 EMAIL_SUBJECT_PREFIX = f"[{SITE_NAME}]"
 EMAIL_USE_LOCALTIME = True

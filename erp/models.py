@@ -39,6 +39,8 @@ FULLTEXT_CONFIG = "french_unaccent"
 
 models.CharField.register_lookup(Lower)
 
+ACTIVITY_GROUPS = {"HOSTING": "Hébergement", "SCHOOL": "Etablissements scolaires", "FLOOR": "Etage accessible"}
+
 
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     """
@@ -1728,7 +1730,32 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("accueil_chambre_accompagnement"),
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
-
+    # Champs spécifiques établissements scolaires / etage accessible
+    accueil_ascenseur_etage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Ascenseur desservant les étages"),
+    )
+    accueil_ascenseur_etage_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
+    )
+    accueil_classes_accessibilite = models.CharField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_classes_accessibilite"),
+        verbose_name=translate_lazy("Accessibilité des salles de classes"),
+    )
+    accueil_espaces_ouverts = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.get_field_choices("accueil_espaces_ouverts")),
+        verbose_name=translate_lazy("Accessibilité des différents espaces ouverts aux élèves ou étudiants"),
+        default=list,
+        null=True,
+        blank=True,
+    )
     ##############
     # Sanitaires #
     ##############
@@ -1939,6 +1966,17 @@ class Accessibilite(models.Model):
             return
         equipment_to_text = {k: str(v) for k, v in schema.DISPOSITIFS_APPEL_CHOICES}
         return [equipment_to_text.get(equipment) for equipment in self.entree_dispositif_appel_type]
+
+    def get_accueil_espaces_ouverts(self):
+        if not self.accueil_espaces_ouverts:
+            return
+        espaces_ouverts_text = {k: str(v) for k, v in schema.ACCUEIL_ESPACES_OUVERTS_CHOICES}
+        return [espaces_ouverts_text.get(espace_ouvert) for espace_ouvert in self.accueil_espaces_ouverts]
+
+    def get_accueil_classes_accessibilite(self):
+        if not self.accueil_classes_accessibilite:
+            return
+        return schema.ACCUEIL_CLASSES_ACCESSIBILITE[self.accueil_classes_accessibilite]
 
     def get_shower_text(self):
         text = ""

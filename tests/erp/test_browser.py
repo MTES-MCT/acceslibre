@@ -395,7 +395,7 @@ def test_ajout_erp(client):
     assert accessibilite.stationnement_pmr is True
     assert accessibilite.stationnement_ext_presence is True
     assert accessibilite.stationnement_ext_pmr is True
-    assert accessibilite.completion_rate == 14
+    assert accessibilite.completion_rate == 15
     assert_redirect(response, "/contrib/exterieur/test-erp/")
 
     assert response.status_code == 200
@@ -438,7 +438,7 @@ def test_ajout_erp(client):
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
-    assert accessibilite.completion_rate == 19
+    assert accessibilite.completion_rate == 21
     assert_redirect(response, "/contrib/entree/test-erp/")
     assert response.status_code == 200
 
@@ -486,7 +486,7 @@ def test_ajout_erp(client):
     assert accessibilite.entree_largeur_mini == 80
     assert accessibilite.entree_pmr is True
     assert accessibilite.entree_pmr_informations == "blah"
-    assert accessibilite.completion_rate == 57
+    assert accessibilite.completion_rate == 63
     assert_redirect(response, "/contrib/accueil/test-erp/")
     assert response.status_code == 200
 
@@ -530,7 +530,7 @@ def test_ajout_erp(client):
     assert accessibilite.accueil_retrecissement is True
     assert accessibilite.sanitaires_presence is True
     assert accessibilite.sanitaires_adaptes is True
-    assert accessibilite.completion_rate == 90
+    assert accessibilite.completion_rate == 100
     assert_redirect(response, "/contrib/commentaire/test-erp/")
     assert response.status_code == 200
 
@@ -802,9 +802,9 @@ def test_add_erp_with_profanities(client):
         follow=True,
     )
     accessibilite = erp.accessibilite
-    assert (
-        accessibilite.commentaire == "foo"
-    ), "Comment with profanities should be ignored and reversed to the previous stored comment"
+    assert accessibilite.commentaire == "foo", (
+        "Comment with profanities should be ignored and reversed to the previous stored comment"
+    )
     assert UserStats.objects.get(user=user).nb_profanities == 2
     user.refresh_from_db()
     assert user.is_active is False

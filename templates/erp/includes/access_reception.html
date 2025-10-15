@@ -69,6 +69,35 @@
             {% elif access.sanitaires_presence is False %}
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
+            {% if should_display_floor_accessibility_details %}
+                {% if access.accueil_ascenseur_etage and access.accueil_ascenseur_etage_pmr is None %}
+                    <li data-filters="all">{{ "accueil_ascenseur_etage"|positive_text }}</li>
+                {% elif access.accueil_ascenseur_etage is False and access.accueil_ascenseur_etage_pmr is None %}
+                    <li data-filters="all">{{ "accueil_ascenseur_etage"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_ascenseur_etage_pmr %}
+                    <li data-filters="walking">{{ "accueil_ascenseur_etage_pmr"|positive_text }}</li>
+                {% elif access.accueil_ascenseur_etage_pmr is False %}
+                    <li data-filters="walking">{{ "accueil_ascenseur_etage_pmr"|negative_text }}</li>
+                {% endif %}
+            {% endif %}
+            {% if should_display_education_accessibility_details %}
+                {% if access.accueil_classes_accessibilite %}
+                    <li data-filters="walking">{{ access.get_accueil_classes_accessibilite }}</li>
+                {% elif access.accueil_classes_accessibilite is False %}
+                    <li data-filters="walking">{{ "accueil_classes_accessibilite"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_espaces_ouverts %}
+                    <li data-filters="walking">
+                        {{ "accueil_espaces_ouverts"|positive_text }}
+                        <ul>
+                            {% for espace_ouvert in access.get_accueil_espaces_ouverts %}<li>{{ espace_ouvert }}</li>{% endfor %}
+                        </ul>
+                    </li>
+                {% elif not access.accueil_espaces_ouverts %}
+                    <li data-filters="all">{{ "accueil_espaces_ouverts"|negative_text }}</li>
+                {% endif %}
+            {% endif %}
         </ul>
     </div>
 {% endspaceless %}

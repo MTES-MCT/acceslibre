@@ -84,7 +84,7 @@ def test_erp_details(browser, erp_domtom, django_assert_max_num_queries):
         accessibilite__entree_porte_presence=True,
         accessibilite__entree_reperage=True,
     )
-    with django_assert_max_num_queries(8):
+    with django_assert_max_num_queries(9):
         browser.visit(erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title
@@ -96,7 +96,7 @@ def test_erp_details(browser, erp_domtom, django_assert_max_num_queries):
     assert browser.is_text_present(translate("Toilettes classiques"))
     assert browser.is_text_present(translate("Entrée bien visible"))
 
-    with django_assert_max_num_queries(6):
+    with django_assert_max_num_queries(7):
         browser.visit(erp_domtom.get_absolute_url())
 
     assert "Lycée Joseph Zobel" in browser.title

@@ -38,7 +38,7 @@ def initial_erp():
         accessibilite__commentaire="foo",
         accessibilite__entree_porte_presence=True,
         accessibilite__entree_reperage=True,
-        accessibilite__completion_rate=19,
+        accessibilite__completion_rate=15,
     )
 
 
@@ -138,7 +138,7 @@ class TestErpApi:
                     "properties": {
                         "uuid": str(initial_erp.uuid),
                         "nom": "Aux bons croissants",
-                        "completion_rate": 19,
+                        "completion_rate": 15,
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
                         "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
@@ -384,6 +384,10 @@ class TestErpApi:
                     "accueil_equipements_malentendants": [],
                     "sanitaires_presence": True,
                     "sanitaires_adaptes": False,
+                    "accueil_ascenseur_etage": None,
+                    "accueil_ascenseur_etage_pmr": None,
+                    "accueil_classes_accessibilite": None,
+                    "accueil_espaces_ouverts": [],
                 },
                 "registre": {"registre_url": None},
                 "conformite": {"conformite": None},
@@ -496,11 +500,17 @@ class TestErpApi:
         assert erp.activite.slug == "mairie"
         assert erp.accessibilite.transport_station_presence is True
         assert erp.sources.count() == 2
-        assert (
-            erp.sources.filter(source=ExternalSource.SOURCE_ACCESLIBRE).first().source_id == "string"
-        ), "Signal should have maintained the synch between erp.source and erp.sources"
+        assert erp.sources.filter(source=ExternalSource.SOURCE_ACCESLIBRE).first().source_id == "string", (
+            "Signal should have maintained the synch between erp.source and erp.sources"
+        )
         assert erp.sources.filter(source=ExternalSource.SOURCE_API).first().source_id == "456"
 
+        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        assert response.status_code == 400, response.json()
+        reason = response.json()["asp_id"][0]
+        assert "Un objet Établissement avec ce champ ASP ID existe déjà."
+
+        payload.pop("asp_id")
         response = api_client.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
         reason = response.json()["non_field_errors"][0]
@@ -677,6 +687,10 @@ class TestAccessibiliteApi:
                         "accueil_equipements_malentendants": [],
                         "sanitaires_presence": True,
                         "sanitaires_adaptes": False,
+                        "accueil_ascenseur_etage": None,
+                        "accueil_ascenseur_etage_pmr": None,
+                        "accueil_classes_accessibilite": None,
+                        "accueil_espaces_ouverts": [],
                     },
                     "registre": {"registre_url": None},
                     "conformite": {"conformite": None},

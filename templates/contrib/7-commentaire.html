@@ -28,17 +28,19 @@
 {% endblock robots %}
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/checkbox.html" with field=form.labels inline=True %}
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
+        {% if should_display_group_labels %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/checkbox.html" with field=form.labels inline=True %}
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
+                </div>
             </div>
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
-            </div>
-        </div>
+        {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             <h2 class="fr-text--xl fr-text--bold fr-mb-1w">
                 {% translate "Informations complémentaires et prestations spécifiques" %}
@@ -46,7 +48,8 @@
             {% include "fields/textarea.html" with field=form.commentaire %}
         </div>
     </div>
-    <script nonce="{{ request.csp_nonce }}">
+    {% if should_display_group_labels %}
+        <script nonce="{{ request.csp_nonce }}">
       document.addEventListener('DOMContentLoaded', function() {
 
         const fieldFamilles = document.querySelector('#field-labels_familles_handicap')
@@ -94,5 +97,6 @@
         checkDisplay()
       })
 
-    </script>
+        </script>
+    {% endif %}
 {% endblock fields_content %}

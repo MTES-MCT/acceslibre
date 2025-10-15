@@ -125,6 +125,12 @@ const rules = [
     ],
     indent: INDENTS_LEVEL.first,
   },
+  {
+    source: 'accueil_ascenseur_etage',
+    values: ['True'],
+    targets: ['accueil_ascenseur_etage_pmr'],
+    indent: INDENTS_LEVEL.first,
+  },
   // Sanitaires
   {
     source: 'sanitaires_presence',

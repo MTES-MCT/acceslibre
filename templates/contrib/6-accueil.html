@@ -85,6 +85,25 @@
                 {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True key="sanitaires_adaptes" %}
             </div>
         </div>
+        {% if form.accueil_ascenseur_etage %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_ascenseur_etage key="accueil_ascenseur_etage" %}
+                <div class="contrib-inputs-section ">
+                    <hr class="fr-hr" />
+                    {% include "fields/boolradio.html" with field=form.accueil_ascenseur_etage_pmr key="accueil_ascenseur_etage_pmr" %}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.accueil_classes_accessibilite %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_classes_accessibilite inline=True %}
+            </div>
+        {% endif %}
+        {% if form.accueil_espaces_ouverts %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/checkbox.html" with field=form.accueil_espaces_ouverts inline=False %}
+            </div>
+        {% endif %}
         {% if form.accueil_chambre_nombre_accessibles %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 <h3 class="fr-text--xl fr-mb-2w">{% translate "ERP avec une activité d'hebergement" %}</h3>

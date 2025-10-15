@@ -133,10 +133,11 @@ mapping_service_public_to_acceslibre = {
     "fdc": "Association",
     "fr_renov": "Administration publique",
     "france_travail": "Emploi, formation",
+    "france_services": "Guichet france services",
     "gendarmerie": "Gendarmerie",
     "gendarmerie_departementale": "Gendarmerie",
     "gendarmerie_moto": "Gendarmerie",
-    "greta": "Institut de formation",
+    "greta": "Institut de formation, de recherche",
     "huissiers_justice": "Huissier",
     "hypotheque": "Administration publique",
     "inpi": "Administration publique",
@@ -216,6 +217,7 @@ class ServicePublicMapper:
         if not self.erp and not (
             all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])
         ):
+            logger.info("Missing pivot, ancien_code_pivot, nom or adresse in record")
             return None, [], None
 
         def _ensure_not_permanently_closed(qs):
@@ -308,8 +310,8 @@ class ServicePublicMapper:
         data["code_postal"] = self.record["adresse"][0]["code_postal"]
         data["commune"] = self.record["adresse"][0]["nom_commune"]
 
-        access = self.record["adresse"][0]["accessibilite"]
-        access_note = self.record["adresse"][0]["note_accessibilite"]
+        access = self.record["adresse"][0].get("accessibilite")
+        access_note = self.record["adresse"][0].get("note_accessibilite", {})
         data["accessibilite"] = {"entree_porte_presence": True}
         if access:
             data["published"] = True
@@ -341,7 +343,9 @@ class ServicePublicMapper:
                 existing_erp = Erp.objects.get(pk=existing_erp_pk)
                 existing_erp.asp_id = self.record["id"]
                 logger.info("Duplicated, setting asp_id and updating it")
-                return ServicePublicMapper(record=self.record, erp=existing_erp).process()
+                return ServicePublicMapper(
+                    record=self.record, source=ExternalSource.SOURCE_SERVICE_PUBLIC, erp=existing_erp
+                ).process()
             logger.info("Validation error : %s", e)
             return erp, [], None  # TODO manage sources here?
 
@@ -357,4 +361,5 @@ class ServicePublicMapper:
                 erp=erp, source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id=self.record["ancien_code_pivot"]
             )
         ]
+        logger.info("ERP %s created/updated", erp)
         return erp, sources, None

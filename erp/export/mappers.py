@@ -82,6 +82,10 @@ class EtalabMapper(BaseExportMapper):
     accueil_cheminement_main_courante: bool
     accueil_cheminement_rampe: Literal["aucune", "fixe", "amovible", "aide humaine"]
     accueil_cheminement_sens_marches: Literal["montant", "descendant"]
+    accueil_ascenseur_etage: bool
+    accueil_ascenseur_etage_pmr: bool
+    accueil_classes_accessibilite: Literal["aucune", "partielle", "toutes"]
+    accueil_espaces_ouverts: Optional[Set[Literal["restauration", "bibliotheque", "cour", "sante"]]]
     accueil_chambre_nombre_accessibles: int
     accueil_chambre_douche_plain_pied: bool
     accueil_chambre_douche_siege: bool
@@ -188,6 +192,10 @@ class EtalabMapper(BaseExportMapper):
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
+            accueil_ascenseur_etage=erp.accessibilite.accueil_ascenseur_etage,
+            accueil_ascenseur_etage_pmr=erp.accessibilite.accueil_ascenseur_etage_pmr,
+            accueil_classes_accessibilite=erp.accessibilite.accueil_classes_accessibilite,
+            accueil_espaces_ouverts=erp.accessibilite.accueil_espaces_ouverts,
             accueil_chambre_nombre_accessibles=erp.accessibilite.accueil_chambre_nombre_accessibles,
             accueil_chambre_douche_plain_pied=erp.accessibilite.accueil_chambre_douche_plain_pied,
             accueil_chambre_douche_siege=erp.accessibilite.accueil_chambre_douche_siege,
