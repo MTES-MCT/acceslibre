@@ -1,6 +1,8 @@
 fileignoreconfig:
 - filename: Pipfile.lock
   ignore_detectors: [filecontent]
+- filename: package-lock.json
+  ignore_detectors: [filecontent]
 - filename: compte/forms.py
   checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
 - filename: templates/registration/password_reset_form.html
