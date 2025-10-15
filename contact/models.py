@@ -59,10 +59,12 @@ class Message(models.Model):
 
 
 class FAQ(models.Model):
+    SECTION_TUTORIALS = "tutorials"
     SECTION_GENERAL = "general"
     SECTION_CONTRIB = "contrib"
     SECTION_DATA = "data"
     SECTION_CHOICES = (
+        (SECTION_TUTORIALS, translate_lazy("Tutoriels")),
         (SECTION_GENERAL, translate_lazy("Utilisation générale d'acceslibre")),
         (SECTION_CONTRIB, translate_lazy("Contribution")),
         (SECTION_DATA, translate_lazy("Accès aux données")),

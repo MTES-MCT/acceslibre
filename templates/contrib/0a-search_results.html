@@ -9,6 +9,12 @@
 {% endblock contrib_title %}
 {% block contrib_subtitle %}
     {% translate "Merci de contribuer à l’évolution de notre projet, la force du collaboratif prendra le relais et quelqu'un pourra compléter après vous." %}
+    <section>
+        <p class="fr-mb-1w fr-text--lg ">{% translate "Besoin d'aide ?" %}</p>
+        <a href="{% url 'faq' %}" class="fr-link fr-text--lg " target="_blank">
+            {% translate "Voir le guide sur les premières étapes de contribution." %}
+        </a>
+    </section>
 {% endblock contrib_subtitle %}
 {% block navbar %}
 {% endblock navbar %}
