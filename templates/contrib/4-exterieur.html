@@ -43,6 +43,10 @@
             </div>
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.cheminement_ext_ascenseur_pmr inline=True key="cheminement_ext_ascenseur_pmr" %}
+            </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
                 {% include "fields/textarea.html" with field=form.cheminement_ext_nombre_marches key="cheminement_ext_nombre_marches" %}
             </div>
             <div class="contrib-inputs-section">
