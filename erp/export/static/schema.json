@@ -866,10 +866,7 @@
       "title": "Sens de circulation de l'escalier",
       "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
-        "enum": [
-          "montant",
-          "descendant"
-        ]
+        "enum": ["montant", "descendant"]
       },
       "example": "[\"montant\", \"descendant\"]"
     },
@@ -910,11 +907,7 @@
       "title": "Rampe",
       "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "constraints": {
-        "enum": [
-          "aucune",
-          "fixe",
-          "amovible"
-        ]
+        "enum": ["aucune", "fixe", "amovible"]
       },
       "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
@@ -955,10 +948,7 @@
       "title": "Degré de difficulté de la pente",
       "description": "Difficulté de la pente. Valeurs possibles: légère -> Légère, importante -> Importante",
       "constraints": {
-        "enum": [
-          "légère",
-          "importante"
-        ]
+        "enum": ["légère", "importante"]
       },
       "example": "[\"l\\u00e9g\\u00e8re\", \"importante\"]"
     },
@@ -968,11 +958,7 @@
       "title": "Longueur de la pente",
       "description": "Longueur de la pente. Valeurs possibles: courte -> inférieure à 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> supérieure 2 mètres",
       "constraints": {
-        "enum": [
-          "courte",
-          "moyenne",
-          "longue"
-        ]
+        "enum": ["courte", "moyenne", "longue"]
       },
       "example": "[\"courte\", \"moyenne\", \"longue\"]"
     },
@@ -982,11 +968,7 @@
       "title": "Dévers",
       "description": "Dévers ou inclinaison transversale du chemin. Valeurs possibles: aucun -> Aucun, léger -> Léger, important -> Important",
       "constraints": {
-        "enum": [
-          "aucun",
-          "léger",
-          "important"
-        ]
+        "enum": ["aucun", "léger", "important"]
       },
       "example": "[\"aucun\", \"l\\u00e9ger\", \"important\"]"
     },
@@ -1313,11 +1295,7 @@
       "title": "Rampe",
       "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "constraints": {
-        "enum": [
-          "aucune",
-          "fixe",
-          "amovible"
-        ]
+        "enum": ["aucune", "fixe", "amovible"]
       },
       "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
@@ -1327,10 +1305,7 @@
       "title": "Sens de circulation de l'escalier",
       "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
-        "enum": [
-          "montant",
-          "descendant"
-        ]
+        "enum": ["montant", "descendant"]
       },
       "example": "[\"montant\", \"descendant\"]"
     },
@@ -1373,11 +1348,7 @@
       "example": "[\"bouton\", \"interphone\", \"visiophone\"]",
       "arrayItem": {
         "type": "string",
-        "enum": [
-          "bouton",
-          "interphone",
-          "visiophone"
-        ]
+        "enum": ["bouton", "interphone", "visiophone"]
       }
     },
     {
@@ -1517,12 +1488,7 @@
       "title": "Manoeuvre de la porte",
       "description": "Mode d'ouverture de la porte. Valeurs possibles: battante -> Porte battante, coulissante -> Porte coulissante, tourniquet -> Tourniquet, tambour -> Porte tambour",
       "constraints": {
-        "enum": [
-          "battante",
-          "coulissante",
-          "tourniquet",
-          "tambour"
-        ]
+        "enum": ["battante", "coulissante", "tourniquet", "tambour"]
       },
       "example": "[\"battante\", \"coulissante\", \"tourniquet\", \"tambour\"]"
     },
@@ -1532,10 +1498,7 @@
       "title": "Type de porte",
       "description": "Type de porte. Valeurs possibles: manuelle -> Manuelle, automatique -> Automatique",
       "constraints": {
-        "enum": [
-          "manuelle",
-          "automatique"
-        ]
+        "enum": ["manuelle", "automatique"]
       },
       "example": "[\"manuelle\", \"automatique\"]"
     },
@@ -1576,11 +1539,7 @@
       "title": "Personnel d'accueil",
       "description": "Personnel à l'accueil des personnes handicapées. Valeurs possibles: aucun -> Aucun personnel, formés -> Personnels sensibilisés ou formés, non-formés -> Personnels non-formés",
       "constraints": {
-        "enum": [
-          "aucun",
-          "formés",
-          "non-formés"
-        ]
+        "enum": ["aucun", "formés", "non-formés"]
       },
       "example": "[\"aucun\", \"form\\u00e9s\", \"non-form\\u00e9s\"]"
     },
@@ -1670,14 +1629,7 @@
       "example": "[\"bim\", \"bmp\", \"lsf\", \"lpc\", \"sts\", \"autres\"]",
       "arrayItem": {
         "type": "string",
-        "enum": [
-          "bim",
-          "bmp",
-          "lsf",
-          "lpc",
-          "sts",
-          "autres"
-        ]
+        "enum": ["bim", "bmp", "lsf", "lpc", "sts", "autres"]
       }
     },
     {
@@ -1848,11 +1800,7 @@
       "title": "Rampe",
       "description": "Présence d'une rampe fixe ou amovible. Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible",
       "constraints": {
-        "enum": [
-          "aucune",
-          "fixe",
-          "amovible"
-        ]
+        "enum": ["aucune", "fixe", "amovible"]
       },
       "example": "[\"aucune\", \"fixe\", \"amovible\"]"
     },
@@ -1862,10 +1810,7 @@
       "title": "Sens de circulation de l'escalier",
       "description": "Sens de circulation des marches ou de l'escalier. Valeurs possibles: montant -> Monter, descendant -> Descendre",
       "constraints": {
-        "enum": [
-          "montant",
-          "descendant"
-        ]
+        "enum": ["montant", "descendant"]
       },
       "example": "[\"montant\", \"descendant\"]"
     },
@@ -1937,11 +1882,7 @@
       "title": "Accessibilité des salles de classes",
       "description": "Accessibilité des salles de classes. Valeurs possibles: aucune -> Aucune salle de classe, partielle -> Au moins une salle de classe (accessibilité partielle des salles), toutes -> Toutes les salles de classe (accessibilité totale des salles)",
       "constraints": {
-        "enum": [
-          "aucune",
-          "partielle",
-          "toutes"
-        ]
+        "enum": ["aucune", "partielle", "toutes"]
       },
       "example": "[\"aucune\", \"partielle\", \"toutes\"]"
     },
@@ -1953,12 +1894,7 @@
       "example": "[\"restauration\", \"bibliotheque\", \"cour\", \"sante\"]",
       "arrayItem": {
         "type": "string",
-        "enum": [
-          "restauration",
-          "bibliotheque",
-          "cour",
-          "sante"
-        ]
+        "enum": ["restauration", "bibliotheque", "cour", "sante"]
       }
     },
     {
@@ -2317,13 +2253,7 @@
       "example": "[\"autre\", \"dpt\", \"mobalib\", \"th\", \"handiplage\"]",
       "arrayItem": {
         "type": "string",
-        "enum": [
-          "autre",
-          "dpt",
-          "mobalib",
-          "th",
-          "handiplage"
-        ]
+        "enum": ["autre", "dpt", "mobalib", "th", "handiplage"]
       }
     },
     {
@@ -2334,12 +2264,7 @@
       "example": "[\"auditif\", \"mental\", \"moteur\", \"visuel\"]",
       "arrayItem": {
         "type": "string",
-        "enum": [
-          "auditif",
-          "mental",
-          "moteur",
-          "visuel"
-        ]
+        "enum": ["auditif", "mental", "moteur", "visuel"]
       }
     },
     {
@@ -2382,15 +2307,9 @@
       ]
     }
   ],
-  "primaryKey": [
-    "id"
-  ],
+  "primaryKey": ["id"],
   "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
-  "keywords": [
-    "accessibilite",
-    "access",
-    "a11y"
-  ],
+  "keywords": ["accessibilite", "access", "a11y"],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
   "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/schema.json",
