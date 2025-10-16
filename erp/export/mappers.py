@@ -228,6 +228,9 @@ class EtalabMapper(BaseExportMapper):
                 schema.PORTE_MANOEUVRE_CHOICES, erp.accessibilite.entree_porte_manoeuvre
             ),
             entree_porte_type=map_value_from_schema(schema.PORTE_TYPE_CHOICES, erp.accessibilite.entree_porte_type),
+            cheminement_ext_ascenseur_pmr=erp.accessibilite.cheminement_ext_ascenseur_pmr,
+            entree_ascenseur_pmr=erp.accessibilite.entree_ascenseur_pmr,
+            accueil_cheminement_ascenseur_pmr=erp.accessibilite.accueil_cheminement_ascenseur_pmr,
         )
 
 
