@@ -961,8 +961,8 @@ FIELDS = {
                 "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur PMR"),
-        "help_text_ui_neg": translate_lazy("Présence d'un ascenseur ou un élévateur non PMR"),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Les étages sont desservis par un ascenseur non PMR"),
         "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
@@ -1374,8 +1374,8 @@ FIELDS = {
                 "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur PMR"),
-        "help_text_ui_neg": translate_lazy("Présence d'un ascenseur ou un élévateur non PMR"),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Les étages sont desservis par un ascenseur non PMR"),
         "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
@@ -1723,8 +1723,8 @@ FIELDS = {
                 "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
             )
         ),
-        "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur PMR"),
-        "help_text_ui_neg": translate_lazy("Présence d'un ascenseur ou un élévateur non PMR"),
+        "help_text_ui": translate_lazy("Les étages sont desservis par un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Les étages sont desservis par un ascenseur non PMR"),
         "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
