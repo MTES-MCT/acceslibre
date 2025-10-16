@@ -56,6 +56,12 @@ const rules = [
     indent: INDENTS_LEVEL.second,
   },
   {
+    source: 'cheminement_ext_ascenseur',
+    values: ['True'],
+    targets: ['cheminement_ext_ascenseur_pmr'],
+    indent: INDENTS_LEVEL.second,
+  },
+  {
     source: 'cheminement_ext_pente_presence',
     values: ['True'],
     targets: ['cheminement_ext_pente_degre_difficulte', 'cheminement_ext_pente_longueur'],
@@ -94,6 +100,12 @@ const rules = [
     indent: INDENTS_LEVEL.first,
   },
   {
+    source: 'entree_ascenseur',
+    values: ['True'],
+    targets: ['entree_ascenseur_pmr'],
+    indent: INDENTS_LEVEL.second,
+  },
+  {
     source: 'entree_pmr',
     values: ['True'],
     targets: ['entree_pmr_informations'],
@@ -124,6 +136,11 @@ const rules = [
       'accueil_cheminement_ascenseur',
     ],
     indent: INDENTS_LEVEL.first,
+  },
+  {
+    source: 'accueil_cheminement_ascenseur',
+    values: ['True'],
+    targets: ['accueil_cheminement_ascenseur_pmr'],
   },
   {
     source: 'accueil_ascenseur_etage',
