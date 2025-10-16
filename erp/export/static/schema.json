@@ -792,6 +792,37 @@
       ]
     },
     {
+      "name": "cheminement_ext_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d'un ascenseur ou un élévateur PMR",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
       "name": "cheminement_ext_nombre_marches",
       "type": "integer",
       "title": "Nombre de marches",
@@ -1132,6 +1163,37 @@
       "type": "boolean",
       "title": "Ascenseur/élévateur",
       "description": "Présence d'un ascenseur ou d'un élévateur",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "entree_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d'un ascenseur ou un élévateur PMR",
       "example": "True",
       "trueValues": [
         "true",
@@ -1606,6 +1668,37 @@
       "type": "boolean",
       "title": "Ascenseur/élévateur",
       "description": "Présence d'un ascenseur ou un élévateur",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_cheminement_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d'un ascenseur ou un élévateur PMR",
       "example": "True",
       "trueValues": [
         "true",
