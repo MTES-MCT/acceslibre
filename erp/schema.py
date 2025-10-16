@@ -1746,7 +1746,7 @@ FIELDS = {
             ("/static/img/contrib/no.png"),
             ("/static/img/contrib/unknown.png"),
         ),
-        "section": SECTION_ENTREE,
+        "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
