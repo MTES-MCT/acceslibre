@@ -7,6 +7,7 @@ import dom from './dom'
 import ui from './ui'
 import url from './url.js'
 import { LocateControl } from 'leaflet.locatecontrol'
+import DOMPurify from 'dompurify'
 
 // Default coords used when we have no result and no selected city
 const DEFAULT_LAT = 46.7
@@ -60,7 +61,8 @@ function _createIcon(highlight, iconName) {
 }
 
 function _drawPopUpMarker({ properties: props }, layer) {
-  layer.bindPopup(`
+  layer.bindPopup(
+    DOMPurify.sanitize(`
     <div class="a4a-map-popup-content">
       <strong>
         <a class="text-primary" href="${props.absolute_url || props.web_url}">${props.nom}</a>
@@ -68,6 +70,7 @@ function _drawPopUpMarker({ properties: props }, layer) {
       ${(props.activite__nom && '<br>' + props.activite__nom) || ''}
       <br>${props.adresse}
     </div>`)
+  )
   layer.identifier = props.uuid
   layers.push(layer)
 }
@@ -246,7 +249,9 @@ function updateNumberOfResults(data) {
   const translation = ngettext('établissement', 'établissements', data.count)
   const countFormatted = new Intl.NumberFormat().format(data.count)
 
-  numberContainer.innerHTML = `<span class="fr-text--bold fr-text--xl fr-badge fr-badge--info fr-badge--no-icon">${countFormatted} ${translation}</span>`
+  numberContainer.innerHTML = DOMPurify.sanitize(
+    `<span class="fr-text--bold fr-text--xl fr-badge fr-badge--info fr-badge--no-icon">${countFormatted} ${translation}</span>`
+  )
 }
 
 function _updateExportForm(urlParams) {

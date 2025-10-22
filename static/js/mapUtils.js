@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify'
+
 function generateHTMLForResult(result) {
   // let icon = 'building'
   let activity_name = ''
@@ -16,7 +18,7 @@ function generateHTMLForResult(result) {
 
   const completion_rate = result.properties.completion_rate
 
-  return `
+  return DOMPurify.sanitize(`
     <li class="list-style-type--none">
       <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
         <div class="fr-card__body">
@@ -51,7 +53,7 @@ function generateHTMLForResult(result) {
         </div>
       </div>
     </li>
-  `
+  `)
 }
 
 export default {
