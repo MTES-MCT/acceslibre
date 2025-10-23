@@ -30,6 +30,7 @@ class EtalabMapper(BaseExportMapper):
     cheminement_ext_terrain_stable: bool
     cheminement_ext_plain_pied: bool
     cheminement_ext_ascenseur: bool
+    cheminement_ext_ascenseur_pmr: bool
     cheminement_ext_nombre_marches: int
     cheminement_ext_reperage_marches: bool
     cheminement_ext_sens_marches: Literal["montant", "descendant"]
@@ -46,6 +47,7 @@ class EtalabMapper(BaseExportMapper):
     entree_vitree_vitrophanie: bool
     entree_plain_pied: bool
     entree_ascenseur: bool
+    entree_ascenseur_pmr: bool
     entree_marches: int
     entree_marches_reperage: bool
     entree_marches_main_courante: bool
@@ -77,6 +79,7 @@ class EtalabMapper(BaseExportMapper):
     accueil_equipements_malentendants: Optional[Set[Literal["autres", "bim", "lsf", "scd", "lpc"]]]
     accueil_cheminement_plain_pied: bool
     accueil_cheminement_ascenseur: bool
+    accueil_cheminement_ascenseur_pmr: bool
     accueil_cheminement_nombre_marches: int
     accueil_cheminement_reperage_marches: bool
     accueil_cheminement_main_courante: bool
@@ -225,6 +228,9 @@ class EtalabMapper(BaseExportMapper):
                 schema.PORTE_MANOEUVRE_CHOICES, erp.accessibilite.entree_porte_manoeuvre
             ),
             entree_porte_type=map_value_from_schema(schema.PORTE_TYPE_CHOICES, erp.accessibilite.entree_porte_type),
+            cheminement_ext_ascenseur_pmr=erp.accessibilite.cheminement_ext_ascenseur_pmr,
+            entree_ascenseur_pmr=erp.accessibilite.entree_ascenseur_pmr,
+            accueil_cheminement_ascenseur_pmr=erp.accessibilite.accueil_cheminement_ascenseur_pmr,
         )
 
 

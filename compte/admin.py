@@ -3,12 +3,29 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from import_export.admin import ExportMixin
 
-from compte.models import UserPreferences
+from compte.models import UserPreferences, UserStats
 from compte.resources import UserAdminResource
+
+
+class UserStatsInline(admin.StackedInline):
+    model = UserStats
+    can_delete = False
+    verbose_name_plural = "Statistiques"
+    fk_name = "user"
+    fields = (
+        "nb_erp_created",
+        "nb_erp_edited",
+        "nb_erp_attributed",
+        "nb_erp_administrator",
+        "nb_profanities",
+    )
+    readonly_fields = ("nb_erp_created", "nb_erp_edited", "nb_erp_attributed", "nb_erp_administrator")
 
 
 class CustomUserAdmin(ExportMixin, UserAdmin):
     resource_class = UserAdminResource
+    inlines = (UserStatsInline,)
+
     ordering = (
         "-date_joined",
         "username",
@@ -23,6 +40,7 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
         "get_nb_erp_edited",
         "get_nb_erp_attributed",
         "get_nb_erp_administrator",
+        "get_nb_profanities",
     )
     list_per_page = 20
 
@@ -49,6 +67,12 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
 
     get_nb_erp_attributed.short_description = "Nb ERP attribués"
     get_nb_erp_attributed.admin_order_field = "stats__nb_erp_attributed"
+
+    def get_nb_profanities(self, obj):
+        return obj.stats.nb_profanities
+
+    get_nb_profanities.short_description = "Nb de contenus inappropriés"
+    get_nb_profanities.admin_order_field = "stats__nb_profanities"
 
 
 @admin.register(UserPreferences)
