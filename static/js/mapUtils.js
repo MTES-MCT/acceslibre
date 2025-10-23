@@ -17,16 +17,19 @@ function generateHTMLForResult(result) {
   }
 
   const completion_rate = result.properties.completion_rate
+  const sanitizedName = DOMPurify.sanitize(result.properties.nom, { ALLOWED_TAGS: [] })
+  const sanitizedAddress = DOMPurify.sanitize(result.properties.adresse, { ALLOWED_TAGS: [] })
 
-  return DOMPurify.sanitize(`
+  return DOMPurify.sanitize(
+    `
     <li class="list-style-type--none">
       <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
         <div class="fr-card__body">
             <div class="fr-card__content">
-                <h3 class="fr-card__title fr-h5">${result.properties.nom}</h3>
+                <h3 class="fr-card__title fr-h5">${sanitizedName}</h3>
                 <div class="fr-card__desc">
                     <p class="fr-tag fr-mb-1w">${activity_name}</p>
-                    <address class="fr-mb-0">${result.properties.adresse}</address>
+                    <address class="fr-mb-0">${sanitizedAddress}</address>
                 </div>
                 <div class="fr-card__start">
                     <ul class="fr-badges-group gap-1w align-self--center justify-content--end fr-mb-1v">
@@ -42,18 +45,19 @@ function generateHTMLForResult(result) {
                 <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
                         <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
-                        <span class="fr-sr-only">${gettext('Les détails de l’établissement')} ${result.properties.nom}</span>
+                        <span class="fr-sr-only">${gettext('Les détails de l’établissement')} ${sanitizedName}</span>
                     </li>
                     <li>
                         <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
-                        <span class="fr-sr-only">${gettext('Recentre la carte sur l’établissement')} ${result.properties.nom}</span>
+                        <span class="fr-sr-only">${gettext('Recentre la carte sur l’établissement')} ${sanitizedName}</span>
                     </li>
                 </ul>
             </div>
         </div>
       </div>
     </li>
-  `)
+  `
+  )
 }
 
 export default {
