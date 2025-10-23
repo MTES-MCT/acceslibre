@@ -61,15 +61,20 @@ function _createIcon(highlight, iconName) {
 }
 
 function _drawPopUpMarker({ properties: props }, layer) {
+  const sanitizedName = DOMPurify.sanitize(props.nom, { ALLOWED_TAGS: [] })
+  const sanitizedAddress = DOMPurify.sanitize(props.adresse, { ALLOWED_TAGS: [] })
+
   layer.bindPopup(
-    DOMPurify.sanitize(`
+    DOMPurify.sanitize(
+      `
     <div class="a4a-map-popup-content">
       <strong>
-        <a class="text-primary" href="${props.absolute_url || props.web_url}">${props.nom}</a>
+        <a class="text-primary" href="${props.absolute_url || props.web_url}">${sanitizedName}</a>
       </strong>
       ${(props.activite__nom && '<br>' + props.activite__nom) || ''}
-      <br>${props.adresse}
-    </div>`)
+      <br>${sanitizedAddress}
+    </div>`
+    )
   )
   layer.identifier = props.uuid
   layers.push(layer)
