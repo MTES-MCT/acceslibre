@@ -60,7 +60,7 @@ class ErpFactory(factory.django.DjangoModelFactory):
         accessibilite_kwargs = {}
         erp_kwargs = {}
 
-        with_accessibilite = kwargs.pop("with_accessibilite", False)
+        with_accessibility = kwargs.pop("with_accessibility", False)
 
         for key, value in kwargs.items():
             if key.startswith("accessibilite__"):
@@ -68,10 +68,10 @@ class ErpFactory(factory.django.DjangoModelFactory):
             else:
                 erp_kwargs[key] = value
 
-        with_accessibilite = accessibilite_kwargs or with_accessibilite
+        with_accessibility = accessibilite_kwargs or with_accessibility
         erp = super().create(**erp_kwargs)
 
-        if with_accessibilite:
+        if with_accessibility:
             AccessibiliteFactory(erp=erp, **accessibilite_kwargs)
 
         return erp

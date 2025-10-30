@@ -260,11 +260,11 @@ class TestErpQuerySetFilters:
     def test_having_label(self):
         assert Erp.objects.having_label().count() == 0
 
-        ErpFactory(with_accessibilite=True, accessibilite__labels=None)
+        ErpFactory(with_accessibility=True, accessibilite__labels=None)
         assert Erp.objects.having_label().count() == 0
 
-        ErpFactory(with_accessibilite=True, accessibilite__labels=[])
+        ErpFactory(with_accessibility=True, accessibilite__labels=[])
         assert Erp.objects.having_label().count() == 0
 
-        ErpFactory(with_accessibilite=True, accessibilite__labels=["dpt", "mobalib"])
+        ErpFactory(with_accessibility=True, accessibilite__labels=["dpt", "mobalib"])
         assert Erp.objects.having_label().count() == 1

@@ -1042,9 +1042,9 @@ class TestErp:
 
         erp = Erp.objects.get(pk=erp.pk)
         access = erp.accessibilite
-        assert (
-            access.accueil_chambre_numero_visible is True
-        ), "should not wipe conditional questions' answers, same group"
+        assert access.accueil_chambre_numero_visible is True, (
+            "should not wipe conditional questions' answers, same group"
+        )
         assert erp.activite.nom == "Hôtel restaurant"
 
         erp.activite = Activite.objects.get(nom="Accessoires")
@@ -1105,9 +1105,9 @@ class TestActivitySuggestion:
 
         activity_suggest.mapped_activity = Activite.objects.create(nom="Bisounours2")
         activity_suggest.save()
-        assert (
-            erp.activite.nom == "Bisounours2"
-        ), "ERP should be impacted as it was in Other activity with a new mapped activity"
+        assert erp.activite.nom == "Bisounours2", (
+            "ERP should be impacted as it was in Other activity with a new mapped activity"
+        )
 
         mock_mail.assert_not_called()
 
@@ -1139,7 +1139,7 @@ def test_get_global_timestamps_no_history():
 
 @pytest.mark.django_db
 def test_get_global_timestamps_with_history(django_assert_num_queries):
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     user = UserFactory()
 
     with reversion.create_revision():

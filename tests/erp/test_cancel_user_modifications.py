@@ -12,7 +12,7 @@ def test_will_revert_user_created_erp(django_app):
     bad_user = UserFactory()
     with reversion.create_revision():
         reversion.set_user(bad_user)
-        ErpFactory(with_accessibilite=True)
+        ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     # Dry run
@@ -27,7 +27,7 @@ def test_will_revert_user_created_erp(django_app):
 @pytest.mark.django_db
 def test_will_revert_user_changes(django_app):
     with reversion.create_revision():
-        erp = ErpFactory(with_accessibilite=True)
+        erp = ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     good_user = UserFactory()
@@ -63,7 +63,7 @@ def test_will_revert_user_changes(django_app):
 
 @pytest.mark.django_db
 def test_will_not_revert_user_changes_when_edited(django_app):
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     good_user = UserFactory()
@@ -99,7 +99,7 @@ def test_will_not_revert_user_changes_when_edited(django_app):
 
 @pytest.mark.django_db
 def test_will_not_revert_user_changes_when_confirmed(django_app):
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     good_user = UserFactory()

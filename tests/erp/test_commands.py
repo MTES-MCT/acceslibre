@@ -7,13 +7,13 @@ import pytest
 from django.core.management import call_command
 from django.test import override_settings
 from django.utils import timezone
+from reversion.models import Revision
 
 from erp.management.commands.convert_tally_to_schema import Command as CommandConvertTallyToSchema
 from erp.management.commands.notify_daily_draft import Command as CommandNotifyDailyDraft
 from erp.management.commands.outscraper_clean_closed import IGNORED_ACTIVITIES
 from erp.models import Erp, ExternalSource
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
-from reversion.models import Revision
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, ExternalSourceFactory
 
 
 class TestConvertTallyToSchema:
@@ -289,9 +289,9 @@ class TestOutscraperAcquisition:
         # call the command twice, it should not create a second erp
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant")
 
-        assert (
-            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1
-        ), "should not create a second ERP"
+        assert Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1, (
+            "should not create a second ERP"
+        )
 
         assert Revision.objects.count() == 1
         assert Revision.objects.get().comment == "CREATED via outscraper"
@@ -398,6 +398,20 @@ class TestOutscraperAcquisition:
         call_command("outscraper_acquisition", query="restaurant, Lyon", activity="Restaurant", max_results=30)
         assert mock.call_count == 2
 
+    @pytest.mark.django_db
+    def test_outscraper_acquisition_with_source_id(self, mocker):
+        ActiviteFactory(nom="Restaurant")
+        CommuneFactory(nom="Lyon")
+        existing_erp = ErpFactory(nom="Le Troisième Art - With another long name", with_accessibility=True)
+        existing_erp.sources.add(ExternalSourceFactory(source="outscraper", source_id="ChIJzZhX5juz9UcR74W_abcd"))
+        existing_erp.save()
+        mock = mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
+        call_command("outscraper_acquisition", query="Lyon", activity="Restaurant")
+        assert mock.call_count == 1
+        assert (
+            Erp.objects.filter(sources__source="outscraper", sources__source_id="ChIJzZhX5juz9UcR74W_abcd").count() == 1
+        ), "Should not create a second ERP with the same source_id"
+
 
 class TestOutscraperCleaning:
     initial_outscraper_response = [
@@ -443,9 +457,9 @@ class TestOutscraperCleaning:
         mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
 
         call_command("outscraper_clean_closed", nb_days=0, write=False)
-        assert (
-            Erp.objects.filter(nom="Le lard", published=True, permanently_closed=False).count() == 1
-        ), "should not have flag it, no write param"
+        assert Erp.objects.filter(nom="Le lard", published=True, permanently_closed=False).count() == 1, (
+            "should not have flag it, no write param"
+        )
 
         call_command("outscraper_clean_closed", nb_days=0, write=True)
         assert Erp.objects.filter(nom="Le lard", published=True).count() == 0, "should have flagged & unpublished it"
@@ -522,9 +536,9 @@ class TestScrapflyAcquisition:
         # call the command twice, it should not create a second erp
         call_command("scrapfly_acquisition", query="restaurant, Lyon")
 
-        assert (
-            Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1
-        ), "should not create a second ERP"
+        assert Erp.objects.filter(nom="Le Troisième Art - Restaurant Gastronomique Lyon").count() == 1, (
+            "should not create a second ERP"
+        )
 
     @pytest.mark.django_db
     def test_update(self, mocker):

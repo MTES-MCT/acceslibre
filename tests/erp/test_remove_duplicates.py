@@ -9,7 +9,7 @@ from tests.factories import ErpFactory
 
 @pytest.mark.django_db
 def test_remove_duplicates():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     access = erp.accessibilite
 
     erp.pk = None
@@ -26,7 +26,7 @@ def test_remove_duplicates():
 
 @pytest.mark.django_db
 def test_remove_duplicates_accent_insensitive():
-    erp = ErpFactory(with_accessibilite=True, nom="Name with accents : éèï")
+    erp = ErpFactory(with_accessibility=True, nom="Name with accents : éèï")
     access = erp.accessibilite
 
     erp.pk = None

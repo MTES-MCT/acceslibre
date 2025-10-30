@@ -10,7 +10,7 @@ from tests.factories import ErpFactory, UserFactory
 
 @pytest.mark.django_db
 def test_will_delete_users_erp():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     call_command("delete_users_erps", erp.user, write=False)
@@ -22,7 +22,7 @@ def test_will_delete_users_erp():
 
 @pytest.mark.django_db
 def test_will_not_delete_users_erp_with_confirmation_date():
-    erp = ErpFactory(with_accessibilite=True, checked_up_to_date_at=timezone.now())
+    erp = ErpFactory(with_accessibility=True, checked_up_to_date_at=timezone.now())
     assert Erp.objects.count() == 1
 
     call_command("delete_users_erps", erp.user, write=True)
@@ -31,7 +31,7 @@ def test_will_not_delete_users_erp_with_confirmation_date():
 
 @pytest.mark.django_db
 def test_will_not_delete_users_erp_with_revisions():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     assert Erp.objects.count() == 1
 
     other_user = UserFactory()

@@ -126,6 +126,28 @@ class TestValidator:
         assert cm.results["imported"]["count"] == 1
         assert cm.results["validated"]["count"] == 1
 
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
+    def test_duplicate_outscraper_id(self):
+        cm = Command()
+        call_command(
+            cm,
+            file="data/tests/generic_test_outscraper_id.csv",
+        )
+
+        assert cm.results["in_error"]["count"] == 0
+        assert cm.results["imported"]["count"] == 1
+        assert cm.results["duplicated"]["count"] == 0
+        assert Erp.objects.filter(sources__source="outscraper", sources__source_id="abcdefplace_id").count() == 1
+
+        call_command(cm, file="data/tests/generic_test_outscraper_id_2.csv", force_update=True)
+
+        assert cm.results["in_error"]["count"] == 0
+        assert cm.results["duplicated"]["count"] == 1
+        assert cm.results["imported"]["count"] == 1
+        assert cm.results["validated"]["count"] == 1
+        assert Erp.objects.filter(sources__source="outscraper", sources__source_id="abcdefplace_id").count() == 1
+
     def teardown_method(self, method):
         if os.path.exists(self.error_filename):
             os.remove(self.error_filename)

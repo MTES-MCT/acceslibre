@@ -57,7 +57,7 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
 
 @pytest.mark.django_db
 def test_widget_tracking():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
@@ -74,7 +74,7 @@ def test_widget_tracking():
 
 @pytest.mark.django_db
 def test_widget_tracking_with_long_url():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/" + 200 * "#",
@@ -91,7 +91,7 @@ def test_widget_tracking_with_long_url():
 
 @pytest.mark.django_db
 def test_widget_tracking_remove_query_string():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {"HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=foo"}
     assert WidgetEvent.objects.all().count() == 0
@@ -106,7 +106,7 @@ def test_widget_tracking_remove_query_string():
 
 @pytest.mark.django_db
 def test_widget_tracking_multiple_views():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
@@ -124,7 +124,7 @@ def test_widget_tracking_multiple_views():
 
 @pytest.mark.django_db
 def test_widget_tracking_with_same_origin_site():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
         "HTTP_X-Originurl": f"http://{Site.objects.get_current().domain}/test/",
