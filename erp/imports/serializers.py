@@ -141,6 +141,12 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if "source" in obj and "source_id" in obj:
             existing = Erp.objects.filter(sources__source=obj["source"], sources__source_id=obj["source_id"])
 
+        if "sources" in obj:
+            for source in obj["sources"]:
+                existing = Erp.objects.filter(sources__source=source["source"], sources__source_id=source["source_id"])
+                if existing:
+                    break
+
         if not existing:
             existing = Erp.objects.find_duplicate(
                 numero=obj.get("numero"),
