@@ -80,7 +80,7 @@ def test_sync_brevo(mocker, client):
         "AVERAGE_COMPLETION_RATE": 0,
     }
 
-    erp = ErpFactory(with_accessibilite=True, user=None)
+    erp = ErpFactory(with_accessibility=True, user=None)
     CommuneFactory(nom=erp.commune)
     client.force_login(user)
     client.post(

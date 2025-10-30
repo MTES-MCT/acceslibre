@@ -109,7 +109,7 @@ def test_erp_details(browser, erp_domtom, django_assert_max_num_queries):
 
 @pytest.mark.django_db
 def test_erp_details_edit_links(browser):
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
     browser.visit(erp.get_absolute_url())
 
     assert browser.title.startswith(erp.nom)

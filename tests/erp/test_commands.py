@@ -402,7 +402,7 @@ class TestOutscraperAcquisition:
     def test_outscraper_acquisition_with_source_id(self, mocker):
         ActiviteFactory(nom="Restaurant")
         CommuneFactory(nom="Lyon")
-        existing_erp = ErpFactory(nom="Le Troisième Art - With another long name", with_accessibilite=True)
+        existing_erp = ErpFactory(nom="Le Troisième Art - With another long name", with_accessibility=True)
         existing_erp.sources.add(ExternalSourceFactory(source="outscraper", source_id="ChIJzZhX5juz9UcR74W_abcd"))
         existing_erp.save()
         mock = mocker.patch("outscraper.ApiClient.google_maps_search", return_value=self.initial_outscraper_response)
