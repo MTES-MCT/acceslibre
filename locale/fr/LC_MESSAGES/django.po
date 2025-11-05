@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 16:06+0200\n"
+"POT-Creation-Date: 2025-11-05 10:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -570,16 +570,13 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
-#, python-brace-format
 msgid ""
-"{message}. Veuillez vérifier votre saisie ou <a href=\"{contact_bug_url}\" "
-"target=\"_blank\">signaler une erreur</a>."
+"Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler "
+"une erreur</a>."
 msgstr ""
 
-#, python-brace-format
 msgid ""
-"Cette adresse n'est pas localisable au code postal {code_postal} (mais l'est "
-"au code {loc_code_postal})"
+"Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
@@ -595,9 +592,7 @@ msgid ""
 "accèslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
-#, python-brace-format
-msgid ""
-"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
+msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
 msgid ""

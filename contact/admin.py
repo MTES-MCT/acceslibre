@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from django.utils.safestring import mark_safe
+from django.utils.html import escape, format_html
 from django_summernote.widgets import SummernoteWidget
 from modeltranslation.admin import TranslationAdmin
 
@@ -41,7 +41,7 @@ class MessageAdmin(admin.ModelAdmin):
 
     def get_erp(self, obj):
         if obj.erp:
-            return mark_safe(f'<a href="{obj.erp.get_absolute_url()}" target="_blank">{obj.erp}</a>')
+            return format_html('<a href="{}" target="_blank">{}</a>', obj.erp.get_absolute_url(), escape(obj.erp))
         return ""
 
     get_erp.short_description = "ERP"
