@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-15 14:22+0200\n"
-"PO-Revision-Date: 2025-10-15 14:21+0200\n"
+"POT-Creation-Date: 2025-11-05 13:35+0100\n"
+"PO-Revision-Date: 2025-11-05 13:35+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -592,21 +592,18 @@ msgstr "One NAF/APE code per line"
 msgid "Un code postal par ligne"
 msgstr "One postal code per line"
 
-#, python-brace-format
 msgid ""
-"{message}. Veuillez vérifier votre saisie ou <a href=\"{contact_bug_url}\" "
-"target=\"_blank\">signaler une erreur</a>."
+"Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler "
+"une erreur</a>."
 msgstr ""
-"{message}. Please check your entry or <a href=\"{contact_bug_url}\" "
-"target=\"_blank\">report an error</a>."
+"Please check your entry or <a href=\"{}\" target=\"_blank\">report an error</"
+"a>."
 
-#, python-brace-format
 msgid ""
-"Cette adresse n'est pas localisable au code postal {code_postal} (mais l'est "
-"au code {loc_code_postal})"
+"Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
-"This address cannot be found in the {code_postal} zip code (but can be found "
-"in the {loc_code_postal} zip code)."
+"This address cannot be found in the {} zip code (but can be found in the {} "
+"zip code)."
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
@@ -624,10 +621,8 @@ msgstr ""
 "closed. <a href='%(url_contact)s'>Contact the accèslibre team</a> if this is "
 "an error."
 
-#, python-brace-format
-msgid ""
-"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
-msgstr "The <b>{erp_display}</b> facility already exists in the database."
+msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
+msgstr "The <b>{}</b> facility already exists in the database."
 
 msgid ""
 "Supprimer cet établissement de la base de données (cette opération est "
@@ -1115,6 +1110,9 @@ msgstr "Handrail"
 msgid "Ascenseur/élévateur"
 msgstr "Elevator"
 
+msgid "Accessibilité de l’ascenseur"
+msgstr "Elevator accessibility"
+
 msgid "Pente présence"
 msgstr "Slope presence"
 
@@ -1231,9 +1229,6 @@ msgstr "Personalized accompaniment to present the room"
 
 msgid "Ascenseur desservant les étages"
 msgstr "Elevator serving the floors"
-
-msgid "Accessibilité de l’ascenseur"
-msgstr "Elevator accessibility"
 
 msgid "Accessibilité des salles de classes"
 msgstr "Accessibility of classrooms"
@@ -1898,6 +1893,21 @@ msgstr "Presence of an elevator"
 
 msgid "Pas d'ascenseur ou d'élévateur"
 msgstr "No elevator"
+
+msgid ""
+"Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé "
+"par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x "
+"1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
+msgstr ""
+"Is this elevator or elevator wide enough to be used by a person in a "
+"wheelchair, that is to say at least 1m wide x 1.25m long and 0.80m useful "
+"passage of the door & nbsp;"
+
+msgid "Présence d’un ascenseur PMR"
+msgstr "Presence of a PRM elevator"
+
+msgid "Présence d’un ascenseur non PMR"
+msgstr "Presence of a non PRM elevator"
 
 msgid "Indiquer 0 s'il n'y a ni marche ni escalier"
 msgstr "Indicate 0 if there are no steps nor stairs"
@@ -2675,15 +2685,6 @@ msgstr "An elevator serves the floors"
 
 msgid "Les étages ne sont pas desservis par un ascenseur"
 msgstr "The floors are not served by an elevator"
-
-msgid ""
-"Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé "
-"par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x "
-"1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
-msgstr ""
-"Is this elevator or elevator wide enough to be used by a person in a "
-"wheelchair, that is to say at least 1m wide x 1.25m long and 0.80m useful "
-"passage of the door & nbsp;"
 
 msgid "Les étages sont desservis par un ascenseur PMR"
 msgstr "A PRM elevator serves the floors"
@@ -6661,6 +6662,9 @@ msgstr ""
 "If you don't have an API key yet, <a href=\"%(settings.SITE_ROOT_URL)s/"
 "contact/api_key\" class=\"fr-link\">contact us</a>, we have, at first, no "
 "reason to refuse :-)"
+
+#~ msgid "Présence d'un ascenseur ou un élévateur non PMR"
+#~ msgstr "Presence of a non PRM elevator"
 
 #~ msgid ""
 #~ "L'ascenseur suffisamment large pour être utilisé par une personne en "

@@ -1,3 +1,5 @@
+from unittest.mock import ANY
+
 import pytest
 from django.core.management import call_command
 from django.test import Client, override_settings
@@ -7,7 +9,6 @@ from reversion.models import Version
 from erp.models import Erp
 from subscription.models import ErpSubscription
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
-from unittest.mock import ANY
 
 
 @pytest.fixture
@@ -295,7 +296,7 @@ def test_notification_skip_owner(mocker, client):
 def test_erp_publication_subscription_option(client):
     niko = UserFactory(is_staff=True, email="niko@niko.tld", username="niko")
     CommuneFactory(nom="Jacou", departement=34)
-    erp = ErpFactory(with_accessibilite=True, commune="Jacou", user=niko)
+    erp = ErpFactory(with_accessibility=True, commune="Jacou", user=niko)
 
     client.force_login(niko)
 

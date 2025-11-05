@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.db import models
+from django_summernote.widgets import SummernoteWidget
 
 from stats.models import Challenge, ChallengePlayer, ChallengeTeam, WidgetEvent
 
@@ -10,6 +12,9 @@ class ChallengeAdmin(admin.ModelAdmin):
     search_fields = ("nom",)
     readonly_fields = ("nb_erp_total_added", "classement", "classement_team", "uuid")
     exclude = ("created_by",)
+    formfield_overrides = {
+        models.TextField: {"widget": SummernoteWidget},
+    }
 
     def save_model(self, request, obj, form, change):
         if not obj.pk:

@@ -16,6 +16,7 @@ from django.db.models import Q, Value
 from django.db.models.constraints import CheckConstraint, UniqueConstraint
 from django.db.models.functions import Lower
 from django.urls import reverse
+from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils.translation import gettext as translate
@@ -1364,6 +1365,12 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("cheminement_ext_ascenseur"),
         verbose_name=translate_lazy("Ascenseur/élévateur"),
     )
+    cheminement_ext_ascenseur_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
+    )
 
     # Pente - oui / non / inconnu
     cheminement_ext_pente_presence = models.BooleanField(
@@ -1541,6 +1548,12 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("entree_ascenseur"),
         verbose_name=translate_lazy("Ascenseur/élévateur"),
     )
+    entree_ascenseur_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
+    )
 
     # Largeur minimale
     entree_largeur_mini = models.PositiveSmallIntegerField(
@@ -1666,6 +1679,12 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.get_field_choices("accueil_cheminement_ascenseur"),
         verbose_name=translate_lazy("Ascenseur/élévateur"),
+    )
+    accueil_cheminement_ascenseur_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de l’ascenseur"),
     )
 
     # Rétrécissement du cheminement
@@ -1837,7 +1856,7 @@ class Accessibilite(models.Model):
         if self.erp:
             return translate(
                 'Accessibilité de l\'établissement "{nom}" ({code_postal})'.format(
-                    nom=self.erp.nom, code_postal=self.erp.code_postal
+                    nom=escape(self.erp.nom), code_postal=escape(self.erp.code_postal)
                 )
             )
         else:

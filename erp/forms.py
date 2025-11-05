@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from django.db.models import F
 from django.forms import modelform_factory, widgets
 from django.urls import reverse
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
@@ -20,7 +21,7 @@ from erp.models import ACTIVITY_GROUPS, Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
 from .fields import ActivityField
-from .schema import get_conditional_fields_not_in, get_conditional_fields_in
+from .schema import get_conditional_fields_in, get_conditional_fields_not_in
 
 
 def bool_radios():
@@ -319,12 +320,11 @@ class BaseErpForm(forms.ModelForm):
 
     def format_error(self, message):
         contact_bug_url = reverse("contact_topic", kwargs={"topic": "bug"})
-        return mark_safe(
-            translate(
-                '{message}. Veuillez vérifier votre saisie ou <a href="{contact_bug_url}" target="_blank">signaler une erreur</a>.'.format(
-                    message=message, contact_bug_url=contact_bug_url
-                )
-            )
+        return format_html(
+            "{}. "
+            + translate('Veuillez vérifier votre saisie ou <a href="{}" target="_blank">signaler une erreur</a>.'),
+            message,
+            contact_bug_url,
         )
 
     def raise_validation_error(self, field, message):
@@ -360,13 +360,10 @@ class BaseErpForm(forms.ModelForm):
                 # Different departement, too risky to consider it valid; raise an error
                 self.raise_validation_error(
                     "code_postal",
-                    mark_safe(
-                        translate(
-                            "Cette adresse n'est pas localisable au code postal {code_postal} "
-                            "(mais l'est au code {loc_code_postal})".format(
-                                code_postal=code_postal, loc_code_postal=locdata["code_postal"]
-                            )
-                        )
+                    format_html(
+                        translate("Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"),
+                        code_postal,
+                        locdata["code_postal"],
                     ),
                 )
 
@@ -528,7 +525,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             return new_activity
 
         if self.cleaned_data["activite"].slug == "autre" and not new_activity:
-            raise ValidationError(mark_safe(translate("Vous devez suggérer un nom d'activité pour l'établissement.")))
+            raise ValidationError(translate("Vous devez suggérer un nom d'activité pour l'établissement."))
         return new_activity
 
 
@@ -573,16 +570,19 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
             if existing:
                 if existing.published:
-                    erp_display = f'<a href="{existing.get_absolute_url()}" target="_blank" class="fr-link">{activite} - {adresse}</a>'
+                    erp_display = format_html(
+                        '<a href="{}" target="_blank" class="fr-link">{} - {}</a>',
+                        existing.get_absolute_url(),
+                        activite,
+                        adresse,
+                    )
                 else:
-                    erp_display = f"{activite} - {adresse}"
+                    erp_display = format_html("{} - {}", activite, adresse)
+
                 raise ValidationError(
-                    mark_safe(
-                        translate(
-                            "L'établissement <b>{erp_display}</b> existe déjà dans la base de données.".format(
-                                erp_display=erp_display
-                            )
-                        )
+                    format_html(
+                        translate("L'établissement <b>{}</b> existe déjà dans la base de données."),
+                        erp_display,
                     )
                 )
 

@@ -80,10 +80,16 @@
             {% elif access.entree_marches_rampe == "aucune" %}
                 <li data-filters="walking">{{ "entree_marches_rampe"|negative_text }}</li>
             {% endif %}
-            {% if access.entree_ascenseur %}
-                <li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>
-            {% elif access.entree_ascenseur is False %}
-                <li data-filters="walking,understand">{{ "entree_ascenseur"|negative_text }}</li>
+            {% if access.entree_ascenseur_pmr %}
+                <li data-filters="walking,understand">{{ "entree_ascenseur_pmr"|positive_text }}</li>
+            {% elif access.entree_ascenseur_pmr is False %}
+                <li data-filters="walking,understand">{{ "entree_ascenseur_pmr"|negative_text }}</li>
+            {% else %}
+                {% if access.entree_ascenseur %}
+                    <li data-filters="walking,understand">{{ "entree_ascenseur"|positive_text }}</li>
+                {% elif access.entree_ascenseur is False %}
+                    <li data-filters="walking,understand">{{ "entree_ascenseur"|negative_text }}</li>
+                {% endif %}
             {% endif %}
             {% if access.entree_aide_humaine %}
                 <li data-filters="all">{{ "entree_aide_humaine"|positive_text }}</li>

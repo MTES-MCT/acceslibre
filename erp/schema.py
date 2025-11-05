@@ -944,6 +944,26 @@ FIELDS = {
         "help_text_ui_v2": translate_lazy("Ascenseur ou élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": False,
+        "description": translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
+        "free_text": False,
+        "root": False,
+    },
+    "cheminement_ext_ascenseur_pmr": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité de l’ascenseur"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence d’un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Présence d’un ascenseur non PMR"),
+        "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
             ("/static/img/contrib/no.png"),
@@ -952,7 +972,6 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
-        "description": translate_lazy("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "free_text": False,
         "root": False,
     },
@@ -1340,6 +1359,24 @@ FIELDS = {
         "help_text_ui": translate_lazy("Présence d'un ascenseur ou d'un élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+    },
+    "entree_ascenseur_pmr": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité de l’ascenseur"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence d’un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Présence d’un ascenseur non PMR"),
+        "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
             ("/static/img/contrib/no.png"),
@@ -1349,6 +1386,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "root": False,
     },
     "entree_marches": {
         "type": "number",
@@ -1670,6 +1708,24 @@ FIELDS = {
         "help_text_ui": translate_lazy("Présence d'un ascenseur ou un élévateur"),
         "help_text_ui_neg": translate_lazy("Pas d'ascenseur ou d'élévateur"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+    },
+    "accueil_cheminement_ascenseur_pmr": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité de l’ascenseur"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Cet ascenseur ou cet élévateur est-il suffisamment large pour être utilisé par une personne en fauteuil roulant, c’est-à-dire au moins 1m de large x 1,25m de long et 0,80 m de passage utile de la porte&nbsp;?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence d’un ascenseur PMR"),
+        "help_text_ui_neg": translate_lazy("Présence d’un ascenseur non PMR"),
+        "choices": NULLABLE_OR_NA_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/ascenseur-elevateur.png"),
             ("/static/img/contrib/no.png"),
@@ -1679,6 +1735,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "root": False,
     },
     "accueil_cheminement_nombre_marches": {
         "type": "number",

@@ -792,6 +792,37 @@
       ]
     },
     {
+      "name": "cheminement_ext_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d’un ascenseur PMR",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
       "name": "cheminement_ext_nombre_marches",
       "type": "integer",
       "title": "Nombre de marches",
@@ -1132,6 +1163,37 @@
       "type": "boolean",
       "title": "Ascenseur/élévateur",
       "description": "Présence d'un ascenseur ou d'un élévateur",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "entree_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d’un ascenseur PMR",
       "example": "True",
       "trueValues": [
         "true",
@@ -1606,6 +1668,37 @@
       "type": "boolean",
       "title": "Ascenseur/élévateur",
       "description": "Présence d'un ascenseur ou un élévateur",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_cheminement_ascenseur_pmr",
+      "type": "boolean",
+      "title": "Accessibilité de l’ascenseur",
+      "description": "Présence d’un ascenseur PMR",
       "example": "True",
       "trueValues": [
         "true",
@@ -2219,7 +2312,7 @@
   "keywords": ["accessibilite", "access", "a11y"],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.17/schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -2231,18 +2324,18 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.17/exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/exemple-valide.csv"
     },
     {
       "title": "Schéma au format XLS",
       "name": "schema_format_xls",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/blob/v0.0.17/schema_format_excel.xls"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/blob/v0.0.18/schema_format_excel.xls"
     }
   ],
   "sources": [],
   "created": "2021-03-10",
   "lastModified": "2025-09-25",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "contributors": [
     {
       "title": "Christophe Vanfrackem",

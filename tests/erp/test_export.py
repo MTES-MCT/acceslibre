@@ -106,7 +106,9 @@ def test_export_command(mocker, settings):
         "",
         "",
         "",
+        "",
         "True",
+        "",
         "",
         "",
         "",
@@ -129,6 +131,7 @@ def test_export_command(mocker, settings):
         "",
         "True",
         '["avec_app"]',
+        "",
         "",
         "",
         "",
@@ -166,7 +169,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 86, "New exported field or missing field in export"
+        assert len(header) == 89, "New exported field or missing field in export"
         assert erp_csv == expected
 
     assert os.path.isfile("acceslibre-with-web-url.csv")
@@ -174,7 +177,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 87, "New exported field or missing field in export"
+        assert len(header) == 90, "New exported field or missing field in export"
         assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
 
     os.unlink("acceslibre-with-web-url.csv")
@@ -199,7 +202,7 @@ def test_export_failure(mocker, settings):
 def test_generate_schema(db, activite):
     base = "erp/export/static/base-schema.json"
     outfile = "schema-test.json"
-    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.17/"
+    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/"
 
     generate_schema(base, outfile, repository)
 
@@ -218,9 +221,9 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
     mock_boto_client.return_value = mock_s3
     mock_s3.generate_presigned_url.return_value = "https://mock-s3-url.com/download.csv"
 
-    ErpFactory(nom="Mairie1", with_accessibilite=True)
-    ErpFactory(nom="Mairie2", with_accessibilite=True)
-    ErpFactory(nom="Boulangerie", with_accessibilite=True)
+    ErpFactory(nom="Mairie1", with_accessibility=True)
+    ErpFactory(nom="Mairie2", with_accessibility=True)
+    ErpFactory(nom="Boulangerie", with_accessibility=True)
 
     generate_csv_file(query_params="what=Mairie", user_email="user@example.com", username="User Name")
 

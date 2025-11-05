@@ -83,7 +83,7 @@ def test_urls_ok(url, client):
         commune="Jacou",
         activite=boulangerie,
         commune_ext=commune,
-        with_accessibilite=True,
+        with_accessibility=True,
     )
     response = client.get(url)
     assert response.status_code == 200
@@ -593,7 +593,7 @@ def test_ajout_erp_a11y_vide(client):
     user = UserFactory()
     client.force_login(user)
 
-    erp = ErpFactory(published=False, with_accessibilite=True)
+    erp = ErpFactory(published=False, with_accessibility=True)
 
     assert erp.accessibilite.has_data() is False
 
@@ -627,7 +627,7 @@ def test_ajout_erp_a11y_low_completion(client):
     erp = ErpFactory(
         commune=commune.nom,
         published=False,
-        with_accessibilite=True,
+        with_accessibility=True,
         accessibilite__stationnement_presence=True,
         accessibilite__cheminement_ext_presence=True,
     )
@@ -853,7 +853,7 @@ def test_delete_erp_owner(client):
 @pytest.mark.django_db
 def test_accessibilite_history(client):
     user = UserFactory()
-    erp = ErpFactory(user=user, with_accessibilite=True)
+    erp = ErpFactory(user=user, with_accessibility=True)
     accessibilite = erp.accessibilite
 
     assert 0 == len(accessibilite.get_history())
@@ -884,7 +884,7 @@ def test_accessibilite_history(client):
 
 @pytest.mark.django_db
 def test_history_metadata_not_versioned():
-    erp = ErpFactory(with_accessibilite=True)
+    erp = ErpFactory(with_accessibility=True)
 
     with reversion.create_revision():
         erp.metadata = {"a": 1}
@@ -1013,7 +1013,7 @@ def test_contribution_flow_accessibilite_data(client):
     ActiviteFactory(slug="autre")
     CommuneFactory(nom="Jacou")
     user = UserFactory()
-    erp = ErpFactory(user=user, nom="Aux bons croissants", commune="Jacou", activite=activite, with_accessibilite=True)
+    erp = ErpFactory(user=user, nom="Aux bons croissants", commune="Jacou", activite=activite, with_accessibility=True)
 
     response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 302, "should redirect to login"
@@ -1047,7 +1047,7 @@ def test_contribution_flow_accessibilite_data(client):
 def test_erp_redirect(client):
     boulangerie = ActiviteFactory(nom="Boulangerie")
     erp = ErpFactory(
-        with_accessibilite=True, nom="Aux bons croissants", commune="Jacou", code_postal="34120", activite=boulangerie
+        with_accessibility=True, nom="Aux bons croissants", commune="Jacou", code_postal="34120", activite=boulangerie
     )
     response = client.get(
         reverse("erp_uuid", kwargs={"uuid": str(erp.uuid)}),
