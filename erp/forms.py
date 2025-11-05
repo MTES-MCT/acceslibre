@@ -570,9 +570,15 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
             if existing:
                 if existing.published:
-                    erp_display = f'<a href="{existing.get_absolute_url()}" target="_blank" class="fr-link">{activite} - {adresse}</a>'
+                    erp_display = format_html(
+                        '<a href="{}" target="_blank" class="fr-link">{} - {}</a>',
+                        existing.get_absolute_url(),
+                        activite,
+                        adresse,
+                    )
                 else:
-                    erp_display = f"{activite} - {adresse}"
+                    erp_display = format_html("{} - {}", activite, adresse)
+
                 raise ValidationError(
                     format_html(
                         translate("L'établissement <b>{}</b> existe déjà dans la base de données."),
