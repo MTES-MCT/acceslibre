@@ -21,7 +21,7 @@ def test_cannot_identify_main_erp_when_too_few_erps():
         find_main_erp_and_duplicates([])
 
     erp = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
     )
 
     with pytest.raises(MainERPIdentificationException):
@@ -30,10 +30,10 @@ def test_cannot_identify_main_erp_when_too_few_erps():
 
 @pytest.mark.django_db
 def test_will_prefer_erp_created_by_human():
-    erp_1 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
-    by_human = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_PUBLIC, user=None)
-    erp_2 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_ACCEO, user=None)
-    erp_3 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
+    erp_1 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
+    by_human = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_PUBLIC, user=None)
+    erp_2 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_ACCEO, user=None)
+    erp_3 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
 
     main, duplicates = find_main_erp_and_duplicates([erp_1, by_human, erp_2, erp_3])
 
@@ -43,10 +43,10 @@ def test_will_prefer_erp_created_by_human():
 
 @pytest.mark.django_db
 def test_will_prefer_erp_attributed_to__human():
-    erp_1 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
-    edited_by_human = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_ACCEO, user=UserFactory())
-    erp_2 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_ACCEO, user=None)
-    erp_3 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
+    erp_1 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
+    edited_by_human = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_ACCEO, user=UserFactory())
+    erp_2 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_ACCEO, user=None)
+    erp_3 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user=None)
 
     main, duplicates = find_main_erp_and_duplicates([erp_1, edited_by_human, erp_2, erp_3])
 
@@ -57,10 +57,10 @@ def test_will_prefer_erp_attributed_to__human():
 @pytest.mark.django_db
 def test_will_prefer_erp_created_by_owner_if_no_human():
     by_owner = ErpFactory(
-        with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user_type=Erp.USER_ROLE_GESTIONNAIRE
+        with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC, user_type=Erp.USER_ROLE_GESTIONNAIRE
     )
-    erp_1 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_ACCEO)
-    erp_2 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC)
+    erp_1 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_ACCEO)
+    erp_2 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_SERVICE_PUBLIC)
 
     main, duplicates = find_main_erp_and_duplicates([erp_1, by_owner, erp_2])
 
@@ -70,11 +70,11 @@ def test_will_prefer_erp_created_by_owner_if_no_human():
 
 @pytest.mark.django_db
 def test_will_prefer_erp_created_by_owner_when_many_were_created_by_human():
-    by_human_1 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_PUBLIC)
-    by_human_2 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_PUBLIC)
-    by_human_3 = ErpFactory(with_accessibilite=True, source=ExternalSource.SOURCE_PUBLIC)
+    by_human_1 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_PUBLIC)
+    by_human_2 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_PUBLIC)
+    by_human_3 = ErpFactory(with_accessibility=True, source=ExternalSource.SOURCE_PUBLIC)
     by_human_and_owner = ErpFactory(
-        with_accessibilite=True, source=ExternalSource.SOURCE_PUBLIC, user_type=Erp.USER_ROLE_GESTIONNAIRE
+        with_accessibility=True, source=ExternalSource.SOURCE_PUBLIC, user_type=Erp.USER_ROLE_GESTIONNAIRE
     )
 
     main, duplicates = find_main_erp_and_duplicates([by_human_1, by_human_2, by_human_3, by_human_and_owner])
@@ -86,19 +86,19 @@ def test_will_prefer_erp_created_by_owner_when_many_were_created_by_human():
 @pytest.mark.django_db
 def test_will_prefer_erp_with_higher_completion_rate():
     by_human_and_owner_1 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=1,
     )
     by_human_and_owner_2 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=15,
     )
     by_human_and_owner_3 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=75,
@@ -113,19 +113,19 @@ def test_will_prefer_erp_with_higher_completion_rate():
 @pytest.mark.django_db
 def test_will_prefer_oldest_erp():
     erp_1 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=10,
     )
     erp_2 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=10,
     )
     erp_3 = ErpFactory(
-        with_accessibilite=True,
+        with_accessibility=True,
         source=ExternalSource.SOURCE_PUBLIC,
         user_type=Erp.USER_ROLE_GESTIONNAIRE,
         accessibilite__completion_rate=10,

@@ -39,9 +39,9 @@ class TestChallenge:
     @pytest.mark.django_db
     def test_nominal_case(self, challenge, client):
         erp1, erp2, erp3 = [
-            ErpFactory(with_accessibilite=True),
-            ErpFactory(with_accessibilite=True),
-            ErpFactory(with_accessibilite=True, published=False),
+            ErpFactory(with_accessibility=True),
+            ErpFactory(with_accessibility=True),
+            ErpFactory(with_accessibility=True, published=False),
         ]
 
         player1, player2 = challenge.players.all()
@@ -88,9 +88,9 @@ class TestChallenge:
         assert challenge.get_classement() == [
             {"username": player2.username, "nb_access_info_changed": 3},
         ], "player1 is unsubscribed, he should have been removed from previously computed leaderboard"
-        assert challenge.get_classement_team() == [
-            {"team": team.name, "nb_access_info_changed": 2}
-        ], "team leaderboard should not be impacted, business rule"
+        assert challenge.get_classement_team() == [{"team": team.name, "nb_access_info_changed": 2}], (
+            "team leaderboard should not be impacted, business rule"
+        )
 
     @pytest.mark.django_db
     def test_sub_and_unsubscription(self, client):

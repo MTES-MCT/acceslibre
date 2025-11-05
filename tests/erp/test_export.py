@@ -221,9 +221,9 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
     mock_boto_client.return_value = mock_s3
     mock_s3.generate_presigned_url.return_value = "https://mock-s3-url.com/download.csv"
 
-    ErpFactory(nom="Mairie1", with_accessibilite=True)
-    ErpFactory(nom="Mairie2", with_accessibilite=True)
-    ErpFactory(nom="Boulangerie", with_accessibilite=True)
+    ErpFactory(nom="Mairie1", with_accessibility=True)
+    ErpFactory(nom="Mairie2", with_accessibility=True)
+    ErpFactory(nom="Boulangerie", with_accessibility=True)
 
     generate_csv_file(query_params="what=Mairie", user_email="user@example.com", username="User Name")
 
