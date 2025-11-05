@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as translate_lazy
 
 from erp.models import Erp
@@ -56,5 +55,5 @@ class ContactForm(forms.ModelForm):
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
         if not robot:
-            raise ValidationError(mark_safe(translate_lazy("Cochez cette case pour soumettre le formulaire.")))
+            raise ValidationError(translate_lazy("Cochez cette case pour soumettre le formulaire."))
         return robot

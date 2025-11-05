@@ -16,6 +16,7 @@ from django.db.models import Q, Value
 from django.db.models.constraints import CheckConstraint, UniqueConstraint
 from django.db.models.functions import Lower
 from django.urls import reverse
+from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils.translation import gettext as translate
@@ -1855,7 +1856,7 @@ class Accessibilite(models.Model):
         if self.erp:
             return translate(
                 'Accessibilité de l\'établissement "{nom}" ({code_postal})'.format(
-                    nom=self.erp.nom, code_postal=self.erp.code_postal
+                    nom=escape(self.erp.nom), code_postal=escape(self.erp.code_postal)
                 )
             )
         else:

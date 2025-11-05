@@ -1,13 +1,15 @@
 import json
 import random
+import re
 from datetime import datetime
 from urllib.parse import quote
-import re
+
 import phonenumbers
 from django import template
 from django.conf import settings
 from django.templatetags.static import static
 from django.urls import reverse
+from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 
@@ -39,8 +41,7 @@ def active_compte_section(path, test):
     )
     if active:
         return "active"
-    else:
-        return ""
+    return ""
 
 
 @register.filter(name="addclass")
@@ -102,15 +103,16 @@ def format_username(value):
     username = safe_username(value)
     if username in schema.PARTENAIRES:
         info = schema.PARTENAIRES[username]
-        avatar = f"/static/img/partenaires/{info['avatar']}"
-        url = reverse("partenaires") + f"#{username}"
+        avatar = f"/static/img/partenaires/{escape(info['avatar'])}"
+        url = reverse("partenaires") + f"#{escape(username)}"
         title = translate("En savoir plus sur")
-        return mark_safe(
-            f"""
-            <a href="{url}" title="{title} {username}">
-              <img src="{avatar}" alt="" width="16" height="16">&nbsp;{username}</a>
-            </a>
-            """
+        return format_html(
+            '<a href="{}" title="{} {}"><img src="{}" alt="" width="16" height="16">&nbsp;{}</a>',
+            url,
+            title,
+            username,
+            avatar,
+            username,
         )
     return username
 

@@ -32,7 +32,6 @@ class Question:
             )
             for i, a in enumerate(self.answers)
         ]
-        return [(a.label, mark_safe(f"{a.image_tag}{a.label}")) for a in self.answers]
 
     @property
     def is_unique_type(self):

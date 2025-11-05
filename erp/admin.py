@@ -1,3 +1,5 @@
+from urllib.parse import quote
+
 from admin_auto_filters.filters import AutocompleteFilterFactory
 from django import forms
 from django.conf import settings
@@ -8,6 +10,7 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
 from import_export.admin import ExportMixin, ImportExportModelAdmin
 from reversion.admin import VersionAdmin
@@ -340,7 +343,13 @@ class ErpAdmin(
                 f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} »'
             )
         edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
-        return mark_safe(f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>')
+        return format_html(
+            '{} <a href="{}"><strong>{}</strong></a><br><small>{}</small>',
+            icon,
+            edit_url,
+            escape(obj.nom),
+            escape(obj.adresse),
+        )
 
     get_nom.short_description = "Établissement"
 
@@ -461,8 +470,8 @@ class ErpAdmin(
     view_link.short_description = ""
 
     def view_search(self, obj):
-        terms = f"{obj.nom} {obj.voie} {obj.commune}"
-        return mark_safe(f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>')
+        terms = quote(f"{obj.nom} {obj.voie} {obj.commune}")
+        return format_html('<a target="_blank" href="https://www.google.fr/search?source=hp&q={}">Rech.</a>', terms)
 
     view_search.short_description = ""
 
