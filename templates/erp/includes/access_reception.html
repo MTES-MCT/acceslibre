@@ -29,15 +29,16 @@
             {% elif access.accueil_cheminement_rampe == "aucune" %}
                 <li data-filters="walking">{{ "accueil_cheminement_rampe"|negative_text }}</li>
             {% endif %}
-            {% if access.accueil_cheminement_ascenseur %}
-                <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|positive_text }}</li>
-            {% elif access.accueil_cheminement_ascenseur is False %}
-                <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|negative_text }}</li>
-            {% endif %}
             {% if access.accueil_cheminement_ascenseur_pmr %}
                 <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur_pmr"|positive_text }}</li>
             {% elif access.accueil_cheminement_ascenseur_pmr is False %}
                 <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur_pmr"|negative_text }}</li>
+            {% else %}
+                {% if access.accueil_cheminement_ascenseur %}
+                    <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|positive_text }}</li>
+                {% elif access.accueil_cheminement_ascenseur is False %}
+                    <li data-filters="walking,understand">{{ "accueil_cheminement_ascenseur"|negative_text }}</li>
+                {% endif %}
             {% endif %}
             {% render_access_value "accueil_retrecissement" access "walking" %}
             {% if access.accueil_personnels %}<li data-filters="all">{{ access.get_accueil_personnels_display }}</li>{% endif %}

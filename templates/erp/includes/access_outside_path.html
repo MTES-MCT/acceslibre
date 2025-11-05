@@ -36,15 +36,16 @@
             {% elif access.cheminement_ext_rampe == "aucune" %}
                 <li data-filters="walking">{{ "cheminement_ext_rampe"|negative_text }}</li>
             {% endif %}
-            {% if access.cheminement_ext_ascenseur %}
-                <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>
-            {% elif access.cheminement_ext_ascenseur is False %}
-                <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|negative_text }}</li>
-            {% endif %}
             {% if access.cheminement_ext_ascenseur_pmr %}
                 <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur_pmr"|positive_text }}</li>
             {% elif access.cheminement_ext_ascenseur_pmr is False %}
                 <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur_pmr"|negative_text }}</li>
+            {% else %}
+                {% if access.cheminement_ext_ascenseur %}
+                    <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|positive_text }}</li>
+                {% elif access.cheminement_ext_ascenseur is False %}
+                    <li data-filters="walking,understand">{{ "cheminement_ext_ascenseur"|negative_text }}</li>
+                {% endif %}
             {% endif %}
             {% render_access_value "cheminement_ext_terrain_stable" access "walking" %}
             {% if access.cheminement_ext_pente_presence %}
