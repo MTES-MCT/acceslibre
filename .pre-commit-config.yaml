@@ -1,12 +1,12 @@
 default_language_version:
-  python: python3.12
+  python: python3.13
 repos:
   - repo: https://github.com/asottile/seed-isort-config
     rev: v2.2.0
     hooks:
       - id: seed-isort-config
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.7
+    rev: v0.14.3
     hooks:
       - id: ruff
         args: [--fix]
