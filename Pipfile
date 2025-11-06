@@ -17,6 +17,7 @@ djlint = "*"
 pytest-factoryboy = "*"
 faker = "*"
 django-webtest = "*"
+legacy-cgi = "*" # this direct dependency is needed for django-webtest, could be removed when django-webtest is supported for python 3.13
 django-deep-translator = "*"
 pytest-socket = "*"
 
@@ -81,7 +82,7 @@ magic-profanity = "*"
 django-summernote = "*"
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
 
 [pipenv]
 allow_prereleases = false
