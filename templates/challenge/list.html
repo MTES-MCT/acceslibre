@@ -107,7 +107,7 @@
                         <h1>
                             <strong>{% translate "Challenges en cours" %}</strong>
                         </h1>
-                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}
+                        {% include "common/challenge_list.html" with challenges=challenges_en_cours %}
                     </div>
                 </section>
             {% endif %}
@@ -117,7 +117,7 @@
                         <h1>
                             <strong>{% translate "Historique des challenges" %}</strong>
                         </h1>
-                        {% include "common/challenge_item.html" with challenges=challenges_termines %}
+                        {% include "common/challenge_list.html" with challenges=challenges_termines %}
                     </div>
                 </section>
             {% endif %}
@@ -128,7 +128,7 @@
             {#                        <h2>#}
             {#                            <strong>{% translate "Challenges en cours" %}</strong>#}
             {#                        </h2>#}
-            {#                        {% include "common/challenge_item.html" with challenges=challenges_en_cours %}#}
+            {#                        {% include "common/challenge_list.html" with challenges=challenges_en_cours %}#}
             {#                    </div>#}
             {#                </section>#}
             {#            {% endif %}#}
@@ -138,7 +138,7 @@
             {#                        <h2>#}
             {#                            <strong>{% translate "Challenges terminés" %}</strong>#}
             {#                        </h2>#}
-            {#                        {% include "common/challenge_item.html" with challenges=challenges_termines %}#}
+            {#                        {% include "common/challenge_list.html" with challenges=challenges_termines %}#}
             {#                    </div>#}
             {#                </section>#}
             {#            {% endif %}#}
@@ -148,7 +148,7 @@
             {#                        <h2">#}
             {#                            <strong>{% translate "Prochains challenges" %}</strong>#}
             {#                        </h2>#}
-            {#                        {% include "common/challenge_item.html" with challenges=challenges_a_venir %}#}
+            {#                        {% include "common/challenge_list.html" with challenges=challenges_a_venir %}#}
             {#                    </div>#}
             {#                </section>#}
             {#            {% endif %}#}
