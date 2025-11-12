@@ -2,13 +2,18 @@
 {% load static %}
 {% load i18n %}
 <h2 class="fr-pt-2v fr-h6 mb-0" data-filter-title="true">
-    <i aria-hidden="true" class="icon icon-paperclip fr-mr-1v larger-font"></i>{% translate "Registre d'accessibilité et conformité" %}
+    <button type="button"
+            class="fr-accordion__btn"
+            aria-expanded="true"
+            aria-controls="registre_url">{% translate "Registre d'accessibilité et conformité" %}</button>
 </h2>
-<ul>
-    {% if access.registre_url %}
-        <li data-filters="all">
-            {% translate "Registre disponible" %} : <a href="{{ access.registre_url }}">{{ access.registre_url }}</a>
-        </li>
-    {% endif %}
-    {% if access.conformite %}<li data-filters="all">{{ "conformite"|positive_text }}</li>{% endif %}
-</ul>
+<div id="registre_url" class="fr-collapse">
+    <ul>
+        {% if access.registre_url %}
+            <li data-filters="all">
+                {% translate "Registre disponible" %} : <a href="{{ access.registre_url }}">{{ access.registre_url }}</a>
+            </li>
+        {% endif %}
+        {% if access.conformite %}<li data-filters="all">{{ "conformite"|positive_text }}</li>{% endif %}
+    </ul>
+</div>
