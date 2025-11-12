@@ -200,3 +200,6 @@ class WidgetEvent(models.Model):
 
     class Meta:
         unique_together = ("domain", "referer_url", "date")
+        indexes = [
+            models.Index(fields=["date", "domain"], name="idx_widgetevent_date_domain"),
+        ]
