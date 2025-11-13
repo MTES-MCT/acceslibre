@@ -150,7 +150,7 @@ def get_accueil_classes(access):
 
 
 def get_accueil_ascenseur_etage(access):
-    if not access.accueil_ascenseur_etage:
+    if access.accueil_ascenseur_etage is False:
         return translate("Étages non desservis par un ascenseur")
     if access.accueil_ascenseur_etage_pmr is True:
         return translate("Étages desservis par un ascenseur PMR")
