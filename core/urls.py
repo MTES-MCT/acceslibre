@@ -5,23 +5,25 @@ from django.urls import include, path
 from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 from django.views.i18n import JavaScriptCatalog
+from two_factor.admin import AdminSiteOTPRequired
+from two_factor.urls import urlpatterns as tf_urls
 
 from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
     CustomActivationCompleteView,
     CustomActivationView,
+    CustomLoginView,
     CustomPasswordResetView,
     CustomRegistrationCompleteView,
     CustomRegistrationView,
-    CustomLoginView,
 )
 from core.sitemaps import SITEMAPS
 from core.views import html_sitemap, robots_txt
 
+admin.site.__class__ = AdminSiteOTPRequired
 # in seconds
 ONE_HOUR = 60 * 60
 ONE_DAY = 24 * ONE_HOUR
-
 urlpatterns = [
     path(
         "librairie",
@@ -58,8 +60,8 @@ urlpatterns = [
     path("compte/", include("django_registration.backends.activation.urls")),
     path("compte/", include("django.contrib.auth.urls")),
     path("compte/", include("compte.urls")),
+    path("admin/", include(tf_urls)),
     path("admin/", admin.site.urls),
-    path("two_factor/", include(("admin_two_factor.urls", "admin_two_factor"), namespace="two_factor")),
     path(
         "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
     ),

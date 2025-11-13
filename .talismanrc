@@ -14,7 +14,9 @@ fileignoreconfig:
 - filename: erp/export/static/schema.json
   checksum: 77087c4bffb29dd0c1567f2033a38d9f6c28da95a9ca0e0884ed0658aca083a2
 - filename: core/settings.py
-  checksum: 4a0bcd894503869813f8aa2ccd609904934cd69928696eb0e3766687a9663053
+  checksum: 4d51e7e6a1c33b9e561840227746fce031c578ee4c3084fb1066bd9e846591d7
+- filename: .isort.cfg
+  checksum: 09c7323b0dbe90975037584e2e4d660567462d983736edfd03c50614b00337c6
 - filename: templates/contrib/6-accueil.html
   checksum: d2cc6434173e01aac59b409246ef6011224d4048a847082dc3419028b991e804
 - filename: locale/en/LC_MESSAGES/django.po
