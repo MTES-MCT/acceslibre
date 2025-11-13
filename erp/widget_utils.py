@@ -137,3 +137,25 @@ def get_room_accessible_label(access):
     return ngettext(
         "%(count)d chambre accessible", "%(count)d chambres accessibles", access.accueil_chambre_nombre_accessibles
     ) % {"count": access.accueil_chambre_nombre_accessibles}
+
+
+def get_accueil_classes(access):
+    if access.accueil_classes_accessibilite == schema.ACCUEIL_CLASSES_NON_ACCESSIBLE:
+        return translate("Aucune salle de classe n'est accessible")
+    if access.accueil_classes_accessibilite == schema.ACCUEIL_CLASSES_ACCESSIBILITE_PARTIELLE:
+        return translate("Au moins une salle de classe est accessible")
+    if access.accueil_classes_accessibilite == schema.ACCUEIL_CLASSES_TOUTES_ACCESSIBLES:
+        return translate("Toutes les salles de classes sont accessibles")
+    return None
+
+
+def get_accueil_ascenseur_etage(access):
+    if not access.accueil_ascenseur_etage:
+        return translate("Étages non desservis par un ascenseur")
+    if access.accueil_ascenseur_etage_pmr is True:
+        return translate("Étages desservis par un ascenseur PMR")
+    if access.accueil_ascenseur_etage_pmr is False:
+        return translate("Étages desservis par un ascenseur non PMR")
+    if access.accueil_ascenseur_etage is True:
+        return translate("Étages desservis par un ascenseur")
+    return None

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 13:35+0100\n"
-"PO-Revision-Date: 2025-11-05 13:35+0100\n"
+"POT-Creation-Date: 2025-11-13 09:22+0100\n"
+"PO-Revision-Date: 2025-11-13 09:21+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -40,6 +40,12 @@ msgstr "sanitary facilities"
 
 msgid "chambres accessibles"
 msgstr "accessible rooms"
+
+msgid "ascenseur étage"
+msgstr "elevator"
+
+msgid "accessibilité salle de classe"
+msgstr "classrooms accessibility"
 
 msgid ""
 "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les "
@@ -2957,6 +2963,27 @@ msgid "%(count)d chambre accessible"
 msgid_plural "%(count)d chambres accessibles"
 msgstr[0] "%(count)d accessible room"
 msgstr[1] "%(count)d accessible rooms"
+
+msgid "Aucune salle de classe n'est accessible"
+msgstr "None of the classrooms are accessible"
+
+msgid "Au moins une salle de classe est accessible"
+msgstr "At least one classroom is accessible"
+
+msgid "Toutes les salles de classes sont accessibles"
+msgstr "All the classrooms are accessible"
+
+msgid "Étages non desservis par un ascenseur"
+msgstr "The floors are not served by an elevator"
+
+msgid "Étages desservis par un ascenseur PMR"
+msgstr "The floors are served by a PMR elevator"
+
+msgid "Étages desservis par un ascenseur non PMR"
+msgstr "The floors are served by a non PMR elevator"
+
+msgid "Étages desservis par un ascenseur"
+msgstr "The floors are served by an elevator"
 
 msgid "Créateur"
 msgstr "Creator"

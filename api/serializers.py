@@ -16,6 +16,8 @@ from erp.widget_utils import (
     get_sound_beacon_label,
     get_staff_label,
     get_wc_label,
+    get_accueil_ascenseur_etage,
+    get_accueil_classes,
 )
 
 # Useful docs:
@@ -222,7 +224,7 @@ class WidgetSerializer(serializers.Serializer):
             {
                 "title": translate("balise sonore"),
                 "labels": [get_sound_beacon_label(access)],
-                "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/beacon_widget.png",
             },
             {
                 "title": translate("audiodescription"),
@@ -243,6 +245,16 @@ class WidgetSerializer(serializers.Serializer):
                 "title": translate("chambres accessibles"),
                 "labels": [get_room_accessible_label(access)],
                 "icon": f"{settings.SITE_ROOT_URL}/static/img/chambre_accessible.png",
+            },
+            {
+                "title": translate("ascenseur étage"),
+                "labels": [get_accueil_ascenseur_etage(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/ascenseur_etage_pmr.png",
+            },
+            {
+                "title": translate("accessibilité salle de classe"),
+                "labels": [get_accueil_classes(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/accessibilite_salle_de_classe.png",
             },
         ]
 
