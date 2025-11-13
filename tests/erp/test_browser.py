@@ -12,7 +12,7 @@ from reversion.models import Version
 from compte.models import UserStats
 from erp.models import Accessibilite, ActivitySuggestion, Erp
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
-from tests.utils import assert_redirect
+from tests.utils import assert_redirect, otp_force_login
 
 
 @pytest.mark.django_db
@@ -104,7 +104,7 @@ def test_urls_ok(url, client):
 )
 @pytest.mark.django_db
 def test_admin_urls_ok(url, client):
-    client.force_login(UserFactory(is_superuser=True, is_staff=True))
+    otp_force_login(client, UserFactory(is_superuser=True, is_staff=True))
     response = client.get(url)
     assert response.status_code == 200
 
@@ -261,14 +261,14 @@ def test_admin_with_regular_user(client):
     # ensure user is redirected to admin login page
     assert_redirect(response, "/admin/login/?next=/admin/")
     assert response.status_code == 200
-    assert "admin/login.html" in [t.name for t in response.templates]
+    assert "two_factor/core/login.html" in [t.name for t in response.templates]
 
 
 @pytest.mark.django_db
 def test_admin_with_staff_user(client):
     # the staff flag is for partners (gestionnaire ou territoire)
     user = UserFactory(is_active=True, is_staff=True)
-    client.force_login(user)
+    otp_force_login(client, user)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
@@ -281,7 +281,7 @@ def test_admin_with_staff_user(client):
 def test_admin_with_admin_user(client):
     user = UserFactory(is_staff=True, is_superuser=True, is_active=True)
     erp = ErpFactory()
-    client.force_login(user)
+    otp_force_login(client, user)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200

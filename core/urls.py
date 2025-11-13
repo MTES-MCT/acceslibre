@@ -1,27 +1,51 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.auth.views import redirect_to_login
 from django.contrib.sitemaps import views as sitemap_views
-from django.urls import include, path
+from django.http import HttpResponseRedirect
+from django.shortcuts import resolve_url
+from django.urls import include, path, reverse
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 from django.views.i18n import JavaScriptCatalog
+from two_factor.admin import AdminSiteOTPRequired, AdminSiteOTPRequiredMixin
+from two_factor.urls import urlpatterns as tf_urls
 
 from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
     CustomActivationCompleteView,
     CustomActivationView,
+    CustomLoginView,
     CustomPasswordResetView,
     CustomRegistrationCompleteView,
     CustomRegistrationView,
-    CustomLoginView,
 )
 from core.sitemaps import SITEMAPS
 from core.views import html_sitemap, robots_txt
 
+
+class CustomAdminSiteOTPRequired(AdminSiteOTPRequired):
+    def login(self, request, extra_context=None):
+        redirect_to = request.POST.get(REDIRECT_FIELD_NAME, request.GET.get(REDIRECT_FIELD_NAME))
+        if request.method == "GET" and super(AdminSiteOTPRequiredMixin, self).has_permission(request):
+            if request.user.is_verified():
+                index_path = reverse("admin:index", current_app=self.name)
+            else:
+                index_path = reverse("two_factor:setup", current_app=self.name)
+            return HttpResponseRedirect(index_path)
+
+        if not redirect_to or not url_has_allowed_host_and_scheme(url=redirect_to, allowed_hosts=[request.get_host()]):
+            redirect_to = resolve_url(settings.LOGIN_REDIRECT_URL)
+
+        return redirect_to_login(redirect_to, login_url=settings.ADMIN_LOGIN_URL)
+
+
+admin.site.__class__ = CustomAdminSiteOTPRequired
 # in seconds
 ONE_HOUR = 60 * 60
 ONE_DAY = 24 * ONE_HOUR
-
 urlpatterns = [
     path(
         "librairie",
@@ -58,8 +82,8 @@ urlpatterns = [
     path("compte/", include("django_registration.backends.activation.urls")),
     path("compte/", include("django.contrib.auth.urls")),
     path("compte/", include("compte.urls")),
+    path("", include(tf_urls)),
     path("admin/", admin.site.urls),
-    path("two_factor/", include(("admin_two_factor.urls", "admin_two_factor"), namespace="two_factor")),
     path(
         "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
     ),

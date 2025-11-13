@@ -1,10 +1,8 @@
-from admin_two_factor.models import TwoFactorVerification
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import F
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from waffle import switch_is_active
 
 from compte.models import UserPreferences, UserStats
 from compte.tasks import sync_user_attributes
@@ -55,9 +53,5 @@ def save_profile(sender, instance, created, **kwargs):
     if created:
         user_prefs = UserPreferences(user=instance)
         user_prefs.save()
-
-    if instance.is_superuser and switch_is_active("USE_2FA_AUTHENTICATION"):
-        # Create a 2FA object so that user can't access admin console without double authentification
-        TwoFactorVerification.objects.get_or_create(user=instance, is_active=True)
 
     sync_user_attributes.delay(instance.pk)
