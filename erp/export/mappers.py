@@ -3,6 +3,7 @@ from typing import Literal, Optional, Set
 
 from erp import schema
 from erp.export.utils import BaseExportMapper, map_coords, map_list_from_schema, map_value_from_schema
+from erp.models import ExternalSource
 
 
 @dataclass(frozen=True)
@@ -105,6 +106,7 @@ class EtalabMapper(BaseExportMapper):
     labels_familles_handicap: Optional[Set[Literal["auditif", "mental", "moteur", "visuel"]]]
     registre_url: str
     conformite: bool
+    rnb_id: str
     web_url: str
 
     @staticmethod
@@ -125,6 +127,7 @@ class EtalabMapper(BaseExportMapper):
             siret=erp.siret,
             activite=erp.activite.nom if erp.activite else "",
             web_url=erp.get_absolute_uri(),
+            rnb_id=getattr(erp.sources.filter(source=ExternalSource.SOURCE_RNB).first(), "source_id", None),
             contact_url=erp.contact_url,
             site_internet=erp.site_internet,
             longitude=map_coords(erp.geom, 0),
