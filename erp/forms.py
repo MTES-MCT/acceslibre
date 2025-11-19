@@ -714,7 +714,7 @@ class PublicAProposForm(forms.ModelForm):
             ),
             (
                 Erp.USER_ROLE_GESTIONNAIRE,
-                translate_lazy("Je gère cet établissement"),
+                translate_lazy("Je suis gestionnaire ou j'agis pour le compte du gestionnaire"),
             ),
             (
                 Erp.USER_ROLE_ADMIN,
