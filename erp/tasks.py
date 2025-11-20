@@ -35,11 +35,22 @@ def compute_access_completion_rate(accessibilite_pk):
     }
 
     form_fields = set(form_fields).difference(fields_to_remove | conditionals_to_remove) | conditionals_to_add
-    root_fields = [field for field in form_fields if FIELDS.get(field, {}).get("root") is True]
-    nb_fields = len(root_fields)
+    exposed_fields = []
+    for field in form_fields:
+        field_in_schema = FIELDS.get(field, {})
+        if field_in_schema.get("root", False):
+            exposed_fields.append(field)
+        if field_in_schema.get("children", []):
+            if str(getattr(access, field, None)) in field_in_schema.get("value_to_display_children", []):
+                exposed_fields.extend(field_in_schema.get("children", []))
+            if (min_value := field_in_schema.get("min_value_to_display_children", [])) and getattr(
+                access, field, 0
+            ) >= min_value:
+                exposed_fields.extend(field_in_schema.get("children", []))
+    nb_fields = len(exposed_fields)
 
     nb_filled_in_fields = 0
-    for attr in root_fields:
+    for attr in exposed_fields:
         # NOTE: we can not use bool() here, as False is a filled in info
         if getattr(access, attr) not in (None, [], ""):
             nb_filled_in_fields += 1

@@ -664,6 +664,9 @@ FIELDS = {
     # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
     #        In the UI, the sub fields are visible only if the root field has given value.
     #        Default is False if not provided.
+    # NOTE children(list) list of fields that are children of this field.
+    # NOTE value_to_display_children(list(str)): values expanding the children fields.
+    # NOTE min_value_to_display_children(int): min value expanding the children fields.
     # NOTE conditional(None|hosting|school|floor) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
     #        Default is None if not provided.
@@ -698,6 +701,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["transport_information"],
     },
     "transport_information": {
         "type": "string",
@@ -749,6 +754,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["stationnement_pmr"],
     },
     "stationnement_pmr": {
         "type": "boolean",
@@ -811,6 +818,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["stationnement_ext_pmr"],
     },
     "stationnement_ext_pmr": {
         "type": "boolean",
@@ -871,6 +880,20 @@ FIELDS = {
         "warn_if": True,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": [
+            "cheminement_ext_terrain_stable",
+            "cheminement_ext_plain_pied",
+            "cheminement_ext_nombre_marches",
+            "cheminement_ext_reperage_marches",
+            "cheminement_ext_main_courante",
+            "cheminement_ext_rampe",
+            "cheminement_ext_ascenseur",
+            "cheminement_ext_pente_presence",
+            "cheminement_ext_devers",
+            "cheminement_ext_bande_guidage",
+            "cheminement_ext_retrecissement",
+        ],
     },
     "cheminement_ext_terrain_stable": {
         "type": "boolean",
@@ -1092,6 +1115,8 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": True,
         "free_text": False,
+        "value_to_display_children": ["True"],
+        "children": ["cheminement_ext_pente_degre_difficulte", "cheminement_ext_pente_longueur"],
     },
     "cheminement_ext_pente_degre_difficulte": {
         "type": "string",
@@ -1232,6 +1257,15 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["False"],
+        "children": [
+            "cheminement_ext_nombre_marches",
+            "cheminement_ext_sens_marches",
+            "cheminement_ext_reperage_marches",
+            "cheminement_ext_main_courante",
+            "cheminement_ext_rampe",
+            "cheminement_ext_ascenseur",
+        ],
     },
     "entree_porte_presence": {
         "type": "boolean",
@@ -1249,6 +1283,8 @@ FIELDS = {
         "required": True,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["entree_porte_manoeuvre", "entree_porte_type", "entree_vitree"],
     },
     "entree_porte_manoeuvre": {
         "type": "string",
@@ -1301,6 +1337,8 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": True,
         "free_text": False,
+        "value_to_display_children": ["True"],
+        "children": ["entree_vitree_vitrophanie"],
     },
     "entree_vitree_vitrophanie": {
         "type": "boolean",
@@ -1348,6 +1386,15 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["False"],
+        "children": [
+            "entree_marches",
+            "entree_marches_sens",
+            "entree_marches_reperage",
+            "entree_marches_main_courante",
+            "entree_marches_rampe",
+            "entree_ascenseur",
+        ],
     },
     "entree_ascenseur": {
         "type": "boolean",
@@ -1363,6 +1410,8 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "value_to_display_children": ["True"],
+        "children": ["entree_ascenseur_pmr"],
     },
     "entree_ascenseur_pmr": {
         "type": "boolean",
@@ -1508,6 +1557,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["entree_dispositif_appel_type"],
     },
     "entree_dispositif_appel_type": {
         "type": "array",
@@ -1621,6 +1672,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["entree_pmr_informations"],
     },
     "entree_pmr_informations": {
         "type": "string",
@@ -1697,6 +1750,15 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["False"],
+        "children": [
+            "accueil_cheminement_nombre_marches",
+            "accueil_cheminement_sens_marches",
+            "accueil_cheminement_reperage_marches",
+            "accueil_cheminement_main_courante",
+            "accueil_cheminement_rampe",
+            "accueil_cheminement_ascenseur",
+        ],
     },
     "accueil_cheminement_ascenseur": {
         "type": "boolean",
@@ -1712,6 +1774,8 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "value_to_display_children": ["True"],
+        "children": ["accueil_cheminement_ascenseur_pmr"],
     },
     "accueil_cheminement_ascenseur_pmr": {
         "type": "boolean",
@@ -1876,6 +1940,14 @@ FIELDS = {
         "free_text": False,
         "root": True,
         "conditional": "hosting",
+        "min_value_to_display_children": 1,
+        "children": [
+            "accueil_chambre_douche_plain_pied",
+            "accueil_chambre_douche_siege",
+            "accueil_chambre_douche_barre_appui",
+            "accueil_chambre_sanitaires_barre_appui",
+            "accueil_chambre_sanitaires_espace_usage",
+        ],
     },
     "accueil_chambre_douche_plain_pied": {
         "type": "boolean",
@@ -2134,6 +2206,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["accueil_audiodescription"],
     },
     "accueil_audiodescription": {
         "type": "array",
@@ -2179,6 +2253,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["accueil_equipements_malentendants"],
     },
     "accueil_equipements_malentendants": {
         "type": "array",
@@ -2217,6 +2293,8 @@ FIELDS = {
         "free_text": False,
         "conditional": "floor",
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["accueil_ascenseur_etage_pmr"],
     },
     "accueil_ascenseur_etage_pmr": {
         "type": "boolean",
@@ -2293,6 +2371,8 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["sanitaires_adaptes"],
     },
     "sanitaires_adaptes": {
         "type": "boolean",

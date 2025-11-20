@@ -2,13 +2,13 @@ import json
 import uuid
 from datetime import datetime, timedelta
 from unittest.mock import ANY
-from erp import schema
 
 import pytest
 from django.contrib.gis.geos import Point
 from django.urls import reverse
 from rest_framework.test import APIClient
 
+from erp import schema
 from erp.models import Accessibilite, Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
 
@@ -39,7 +39,6 @@ def initial_erp():
         accessibilite__commentaire="foo",
         accessibilite__entree_porte_presence=True,
         accessibilite__entree_reperage=True,
-        accessibilite__completion_rate=15,
     )
 
 
@@ -139,7 +138,7 @@ class TestErpApi:
                     "properties": {
                         "uuid": str(initial_erp.uuid),
                         "nom": "Aux bons croissants",
-                        "completion_rate": 15,
+                        "completion_rate": 17,
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
                         "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
