@@ -2,6 +2,7 @@ import json
 import uuid
 from datetime import datetime, timedelta
 from unittest.mock import ANY
+from erp import schema
 
 import pytest
 from django.contrib.gis.geos import Point
@@ -751,6 +752,9 @@ class TestWidgetApi:
             "sanitaires_presence": True,
             "sanitaires_adaptes": False,
             "accueil_chambre_nombre_accessibles": 2,
+            "accueil_ascenseur_etage": True,
+            "accueil_ascenseur_etage_pmr": None,
+            "accueil_classes_accessibilite": schema.ACCUEIL_CLASSES_TOUTES_ACCESSIBLES,
         }
 
         erp = ErpFactory(published=True)
@@ -782,7 +786,7 @@ class TestWidgetApi:
                 {
                     "title": "balise sonore",
                     "labels": ["Balise sonore"],
-                    "icon": "http://testserver/static/img/people.png",
+                    "icon": "http://testserver/static/img/beacon_widget.png",
                 },
                 {
                     "title": "audiodescription",
@@ -806,6 +810,16 @@ class TestWidgetApi:
                     "title": "chambres accessibles",
                     "labels": ["2 chambres accessibles"],
                     "icon": "http://testserver/static/img/chambre_accessible.png",
+                },
+                {
+                    "title": "ascenseur étage",
+                    "labels": ["Étages desservis par un ascenseur"],
+                    "icon": "http://testserver/static/img/ascenseur_etage_pmr.png",
+                },
+                {
+                    "title": "accessibilité salle de classe",
+                    "labels": ["Toutes les salles de classes sont accessibles"],
+                    "icon": "http://testserver/static/img/accessibilite_salle_de_classe.png",
                 },
             ],
         }

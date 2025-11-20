@@ -19,8 +19,8 @@ from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
 from erp.export.tasks import generate_csv_file
-from erp.models import Erp
-from tests.factories import ActiviteFactory, ErpFactory
+from erp.models import Erp, ExternalSource
+from tests.factories import ActiviteFactory, ErpFactory, ExternalSourceFactory
 
 
 @pytest.mark.django_db
@@ -42,7 +42,7 @@ def test_export_command(mocker, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch("requests.post")
     activity = ActiviteFactory(nom="Boulangerie")
-    ErpFactory(
+    erp = ErpFactory(
         nom="Aux bons croissants",
         code_postal="34830",
         commune="Jacou",
@@ -68,6 +68,7 @@ def test_export_command(mocker, settings):
         accessibilite__entree_porte_presence=True,
         accessibilite__entree_reperage=True,
     )
+    ExternalSourceFactory(source=ExternalSource.SOURCE_RNB, source_id="123456789", erp=erp)
 
     assert Erp.objects.count(), "We should have ERPs in DB"
 
@@ -161,6 +162,7 @@ def test_export_command(mocker, settings):
         "",
         "",
         "",
+        "123456789",
     ]
 
     management.call_command("export_to_datagouv", "--skip-upload")
@@ -169,7 +171,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 89, "New exported field or missing field in export"
+        assert len(header) == 90, "New exported field or missing field in export"
         assert erp_csv == expected
 
     assert os.path.isfile("acceslibre-with-web-url.csv")
@@ -177,7 +179,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 90, "New exported field or missing field in export"
+        assert len(header) == 91, "New exported field or missing field in export"
         assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
 
     os.unlink("acceslibre-with-web-url.csv")
