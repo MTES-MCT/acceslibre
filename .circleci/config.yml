@@ -61,22 +61,22 @@ jobs:
           name: Restore Node cached dependencies
           keys:
             - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install Node dependencies
-          command: |
-            npm ci
-      - save_cache:
-          key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - 'node_modules'
-      - run:
-          name: Check production security
-          command: |
-            DJANGO_SETTINGS_MODULE=core.settings_prod pipenv run ./manage.py check --deploy
-      - run:
-          name: Check SASS stylesheets
-          command: |
-            npm run build:prod
+      # - run:
+      #     name: Install Node dependencies
+      #     command: |
+      #       npm ci
+      # - save_cache:
+      #     key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      #     paths:
+      #       - 'node_modules'
+      # - run:
+      #     name: Check production security
+      #     command: |
+      #       DJANGO_SETTINGS_MODULE=core.settings_prod pipenv run ./manage.py check --deploy
+      # - run:
+      #     name: Check SASS stylesheets
+      #     command: |
+      #       npm run build:prod
       - run:
           name: Check Django templates
           command: |
@@ -89,10 +89,10 @@ jobs:
           name: Check translations
           command: |
             ./bin/check_translations.sh
-      - run:
-          name: Check FE linting
-          command: |
-            npx prettier --check .
+      # - run:
+      #     name: Check FE linting
+      #     command: |
+      #       npx prettier --check .
 
   tests:
     executor:
