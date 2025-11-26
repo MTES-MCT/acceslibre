@@ -127,7 +127,7 @@ def challenges(request):
             "challenges": challenges,
             "panoramax_photos_count": panoramax_photos_count,
             "challenges_en_cours": challenges.filter(start_date__lte=today, end_date__gt=today),
-            "challenges_termines": challenges.filter(end_date__lt=today),
+            "challenges_termines": challenges.filter(end_date__lt=today).order_by("-end_date"),
             "challenges_a_venir": challenges.filter(
                 start_date__gt=today,
             ),
