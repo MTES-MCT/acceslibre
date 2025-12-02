@@ -339,9 +339,6 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 setattr(accessibilite, attr, new_value)
                 self._handle_children_reinit(accessibilite, attr)
 
-        import ipdb
-
-        ipdb.set_trace()
         accessibilite.save()
 
         sources_data = validated_data.pop("sources", [])
