@@ -55,6 +55,12 @@ from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
         ),
         pytest.param({"accessibilite": {"entree_porte_presence": 1}}, True, None, id="boolean_choices"),
         pytest.param({"accessibilite": {"entree_porte_presence": "faux"}}, True, None, id="boolean_choices"),
+        pytest.param(
+            {"accessibilite": {"accueil_audiodescription_presence": True, "accueil_audiodescription": ["avec_app"]}},
+            True,
+            None,
+            id="array",
+        ),
     ),
 )
 def test_erp_import_serializer(mocker, erp_values, is_valid, geocoder_result):
@@ -108,7 +114,14 @@ def test_erp_update_serializer():
 
     serializer = ErpImportSerializer(
         instance=erp,
-        data={"accessibilite": {"accueil_equipements_malentendants_presence": True}, "nom": "Aux bons pains"},
+        data={
+            "accessibilite": {
+                "accueil_equipements_malentendants_presence": True,
+                "accueil_audiodescription_presence": True,
+                "accueil_audiodescription": ["avec_app"],
+            },
+            "nom": "Aux bons pains",
+        },
         partial=True,
     )
     assert serializer.is_valid(), serializer.errors
@@ -117,6 +130,8 @@ def test_erp_update_serializer():
     erp.refresh_from_db()
     assert erp.nom != "Aux bons pains", "Name should not be editable"
     assert erp.accessibilite.accueil_equipements_malentendants_presence is True
+    assert erp.accessibilite.accueil_audiodescription_presence is True
+    assert erp.accessibilite.accueil_audiodescription == ["avec_app"]
 
 
 @pytest.mark.django_db
