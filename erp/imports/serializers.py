@@ -306,8 +306,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
         for attr in validated_data["accessibilite"]:
             if enrich_only and getattr(accessibilite, attr, None) is not None:
                 continue
-
-            if validated_data["accessibilite"][attr] not in (None, [], ()):
+            if not enrich_only:
+                setattr(accessibilite, attr, validated_data["accessibilite"][attr])
+            elif validated_data["accessibilite"][attr] not in (None, [], ()):
                 setattr(accessibilite, attr, validated_data["accessibilite"][attr])
 
         accessibilite.save()
