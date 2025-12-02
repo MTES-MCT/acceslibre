@@ -202,6 +202,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate_telephone(self, obj):
         # weird invisible char
+        if not obj:
+            return obj
+
         obj = obj.replace(" ", "")
         obj = obj.replace(" ", "")
         return obj
@@ -336,6 +339,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 setattr(accessibilite, attr, new_value)
                 self._handle_children_reinit(accessibilite, attr)
 
+        import ipdb
+
+        ipdb.set_trace()
         accessibilite.save()
 
         sources_data = validated_data.pop("sources", [])
