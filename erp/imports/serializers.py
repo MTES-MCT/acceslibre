@@ -314,9 +314,6 @@ class ErpImportSerializer(serializers.ModelSerializer):
             elif validated_data["accessibilite"][attr] not in (None, [], ()):
                 setattr(accessibilite, attr, validated_data["accessibilite"][attr])
 
-        import ipdb
-
-        ipdb.set_trace()
         accessibilite.save()
 
         sources_data = validated_data.pop("sources", [])
