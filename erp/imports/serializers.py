@@ -328,7 +328,11 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 continue
 
             new_value = validated_data["accessibilite"][attr]
-            if new_value not in (None, [], ()):
+
+            if not enrich_only:
+                setattr(accessibilite, attr, new_value)
+                self._handle_children_reinit(accessibilite, attr)
+            elif new_value not in (None, [], ()):
                 setattr(accessibilite, attr, new_value)
                 self._handle_children_reinit(accessibilite, attr)
 

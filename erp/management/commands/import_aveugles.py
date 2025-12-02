@@ -1,4 +1,5 @@
 import csv
+
 import reversion
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
@@ -9,10 +10,10 @@ from erp.models import Erp
 
 
 class Command(BaseCommand):
-    help = "Import cinema aveugles accessibilte"
+    help = "Import cinema aveugles accessibility"
 
     def handle(self, *args, **kwargs):
-        with open("fichier.csv", "r") as file:
+        with open("cinemas_audiodescription.csv", "r") as file:
             reader = csv.DictReader(file, delimiter=";")
 
             for row in reader:
@@ -73,12 +74,8 @@ class Command(BaseCommand):
                 erp = serializer.save()
                 reversion.set_comment("Created via cinema blindness accessibility import")
         except reversion.errors.RevertError:
-            print("Failed revision")
             erp = serializer.save()
         except IntegrityError as integrity_error:
-            print(data)
-            print(erp.accessibilite.__dict__)
-            print(f"Inconsistency in ERP accesibility {erp.nom}")
             raise integrity_error
 
         print(f"ERP {erp.id} updated available at: {erp.get_absolute_uri()}")
