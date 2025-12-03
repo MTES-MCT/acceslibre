@@ -111,3 +111,19 @@ def test_get_nullable_bool_fields():
 )
 def test_get_type(field, expected):
     assert schema.get_type(field) == expected
+
+
+def test_get_recursive_children():
+    expected = [
+        "entree_marches",
+        "entree_marches_sens",
+        "entree_marches_reperage",
+        "entree_marches_main_courante",
+        "entree_marches_rampe",
+        "entree_ascenseur",
+        "entree_ascenseur_pmr",
+    ]
+    assert schema.get_recursive_children_for_completion_rate("entree_plain_pied") == expected
+
+    expected = []
+    assert schema.get_recursive_children_for_completion_rate("transport_station_presence") == expected
