@@ -258,3 +258,8 @@ def kebab_case(value):
     value = re.sub(r"[^a-z0-9-]", "", value)  # Remove non-alphanumeric except hyphens
 
     return value
+
+
+@register.filter
+def comma_to_dot(value):
+    return str(value).replace(",", ".")
