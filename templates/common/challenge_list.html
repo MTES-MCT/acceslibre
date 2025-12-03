@@ -16,7 +16,7 @@
               {% endblocktranslate %}
                                 </p>
                                 <p>
-                                    {% if challenge.accroche %}{{ challenge.accroche|safe|truncatewords:30 }}{% endif %}
+                                    {% if challenge.accroche %}{{ challenge.accroche|safe|truncatewords_html:30 }}{% endif %}
                                 </p>
                             </div>
                             <div class="row"></div>
