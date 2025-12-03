@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from celery import shared_task
 
 from core.mailer import BrevoMailer
+from erp import schema
 from erp.forms import get_contrib_forms_for_activity
 from erp.models import Accessibilite, ActivitySuggestion
 from erp.schema import FIELDS
@@ -35,11 +36,24 @@ def compute_access_completion_rate(accessibilite_pk):
     }
 
     form_fields = set(form_fields).difference(fields_to_remove | conditionals_to_remove) | conditionals_to_add
-    root_fields = [field for field in form_fields if FIELDS.get(field, {}).get("root") is True]
-    nb_fields = len(root_fields)
+    exposed_fields = []
+
+    for field in form_fields:
+        field_in_schema = FIELDS.get(field, {})
+        if field_in_schema.get("root", False) and not field_in_schema.get("excluded_from_completion_rate", False):
+            exposed_fields.append(field)
+
+        children = schema.get_recursive_children_for_completion_rate(field)
+        if str(getattr(access, field, None)) in field_in_schema.get("value_to_display_children", []):
+            exposed_fields.extend(children)
+        if (min_value := field_in_schema.get("min_value_to_display_children", [])) and getattr(
+            access, field, 0
+        ) >= min_value:
+            exposed_fields.extend(children)
+    nb_fields = len(exposed_fields)
 
     nb_filled_in_fields = 0
-    for attr in root_fields:
+    for attr in exposed_fields:
         # NOTE: we can not use bool() here, as False is a filled in info
         if getattr(access, attr) not in (None, [], ""):
             nb_filled_in_fields += 1
