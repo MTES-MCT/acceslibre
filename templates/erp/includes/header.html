@@ -61,7 +61,7 @@
         {% if erp.geom.x and erp.geom.y %}
             <div class="fr-mb-2w">
                 <a class="fr-link"
-                   href="https://www.google.com/maps/?q={{ erp.geom.y }},{{ erp.geom.x }}"
+                   href="https://www.google.com/maps/?q={{ erp.geom.y|comma_to_dot }},{{ erp.geom.x|comma_to_dot }}"
                    title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
                    target="_blank">{% translate "Itinéraire" %}</a>
             </div>
