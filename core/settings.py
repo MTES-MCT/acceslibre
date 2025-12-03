@@ -31,7 +31,6 @@ DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
 # NOTE: to retrieve resources id: https://demo.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
 DATAGOUV_RESOURCES_ID = "993e8f0f-07fe-4b44-8fba-cca4ce102c0c"
 DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
-ADMIN_TWO_FACTOR_NAME = SITE_NAME
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
@@ -114,7 +113,10 @@ INSTALLED_APPS = [
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
     "modeltranslation",
-    "admin_two_factor.apps.TwoStepVerificationConfig",
+    "django_otp",
+    "django_otp.plugins.otp_totp",
+    "django_otp.plugins.otp_static",
+    "two_factor",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -149,8 +151,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "core.middleware.AdminCSRFCookieMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django_otp.middleware.OTPMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "waffle.middleware.WaffleMiddleware",
@@ -317,6 +319,9 @@ EMAIL_SUBJECT_PREFIX = f"[{SITE_NAME}]"
 EMAIL_USE_LOCALTIME = True
 
 LOGIN_URL = "/compte/login/"
+ADMIN_LOGIN_URL = "two_factor:login"
+TWO_FACTOR_PATCH_ADMIN = True
+
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_ACTIVATION_DAYS = 7

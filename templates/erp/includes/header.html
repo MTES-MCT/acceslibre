@@ -58,10 +58,10 @@
                 </p>
             {% endif %}
         </address>
-        {% if erp.adresse %}
+        {% if erp.geom.x and erp.geom.y %}
             <div class="fr-mb-2w">
                 <a class="fr-link"
-                   href="https://www.google.com/maps/place/{{ erp.adresse }}"
+                   href="https://www.google.com/maps/?q={{ erp.geom.y }},{{ erp.geom.x }}"
                    title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
                    target="_blank">{% translate "Itinéraire" %}</a>
             </div>
