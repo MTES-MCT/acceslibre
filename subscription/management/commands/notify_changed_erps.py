@@ -65,9 +65,23 @@ class Command(BaseCommand):
                 if not changes_by_others:
                     continue
 
+                clean_changes = []
                 for change in changes_by_others:
-                    change["user"] = change["user"].username
-                    del change["date"]
+                    clean_changes.append(
+                        {
+                            "user": change["user"].username,
+                            "comment": change.get("comment", "") or "",
+                            "diff": [
+                                {
+                                    "field": d.get("field"),
+                                    "label": d.get("label"),
+                                    "old": d.get("old"),
+                                    "new": d.get("new"),
+                                }
+                                for d in change.get("diff", [])
+                            ],
+                        }
+                    )
 
                 if user.pk not in notifications:
                     notifications[user.pk] = {"user": user, "erps": []}
@@ -79,7 +93,7 @@ class Command(BaseCommand):
                             "commune": erp.commune,
                             "nom": erp.nom,
                             "get_absolute_url": erp.get_absolute_url(),
-                            "changes_by_others": changes_by_others,
+                            "changes_by_others": clean_changes,
                             "url_unsubscribe": reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug}),
                         }
                     )

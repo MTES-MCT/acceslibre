@@ -1,5 +1,3 @@
-from unittest.mock import ANY
-
 import pytest
 from django.core.management import call_command
 from django.test import Client, override_settings
@@ -143,7 +141,6 @@ def test_notification_erp(mocker, mock_geocode, client):
                     "changes_by_others": [
                         {
                             "user": "sophie",
-                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {
@@ -156,7 +153,6 @@ def test_notification_erp(mocker, mock_geocode, client):
                         },
                         {
                             "user": "sophie",
-                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
@@ -215,7 +211,6 @@ def test_notification_accessibilite(client, mocker):
                     "changes_by_others": [
                         {
                             "user": "sophie",
-                            "revision": ANY,
                             "comment": "",
                             "diff": [
                                 {
