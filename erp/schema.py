@@ -2740,15 +2740,3 @@ def get_free_text_fields() -> list[str]:
 
 def get_type(field):
     return FIELDS[field].get("type")
-
-
-def get_recursive_children_for_completion_rate(field):
-    children = FIELDS.get(field, {}).get("children", [])
-    if not children:
-        return []
-
-    res = [child for child in children if not FIELDS.get(child, {}).get("excluded_from_completion_rate", False)]
-    for child in children:
-        if FIELDS.get(child, {}).get("children", []):
-            res.extend(get_recursive_children_for_completion_rate(child))
-    return res
