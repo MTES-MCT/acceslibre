@@ -138,7 +138,7 @@ class TestErpApi:
                     "properties": {
                         "uuid": str(initial_erp.uuid),
                         "nom": "Aux bons croissants",
-                        "completion_rate": 16,
+                        "completion_rate": 17,
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
                         "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
