@@ -238,71 +238,74 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if "accessibilite" not in obj:
             raise serializers.ValidationError("Veuillez fournir les données d'accessibilité.")
 
-        if self.instance:
-            # if we are updating an ERP, only accessibility, asp_id and import_email are editable
-            self.instance.import_email = obj.get("import_email")
-            self.instance.asp_id = obj.get("asp_id")
-            accessibilite = Accessibilite(**obj["accessibilite"])
-            accessibilite.full_clean()
+        if not self.partial:
+            if self.instance:
+                # if we are updating an ERP, only accessibility, asp_id and import_email are editable
+                self.instance.import_email = obj.get("import_email")
+                self.instance.asp_id = obj.get("asp_id")
+                accessibilite = Accessibilite(**obj["accessibilite"])
+                accessibilite.full_clean()
 
-            sources_data_list = []
-            sources_data = obj.get("sources") or []
-            for source_data in sources_data:
-                external_source = ExternalSource(**source_data)
-                external_source.full_clean(exclude=("erp",))
-                sources_data_list.append(model_to_dict(external_source))
+                sources_data_list = []
+                sources_data = obj.get("sources") or []
+                for source_data in sources_data:
+                    external_source = ExternalSource(**source_data)
+                    external_source.full_clean(exclude=("erp",))
+                    sources_data_list.append(model_to_dict(external_source))
 
-            return (
-                model_to_dict(self.instance)
-                | {"accessibilite": model_to_dict(accessibilite)}
-                | {"sources": sources_data_list}
-            )
+                return (
+                    model_to_dict(self.instance)
+                    | {"accessibilite": model_to_dict(accessibilite)}
+                    | {"sources": sources_data_list}
+                )
 
-        if not obj.get("voie") and not obj.get("lieu_dit"):
-            raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
+            if not obj.get("voie") and not obj.get("lieu_dit"):
+                raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
-        for i in range(3):
-            try:
-                address = get_address_query_to_geocode(obj)
-                locdata = geocoder.geocode(address, postcode=obj["code_postal"])
-                if not locdata:
-                    raise RuntimeError
-                self._geom = locdata["geom"]
-                obj["voie"] = locdata["voie"]
-                obj["lieu_dit"] = locdata["lieu_dit"]
-                obj["code_postal"] = locdata["code_postal"]
-                obj["commune"] = locdata["commune"]
-                obj["code_insee"] = locdata["code_insee"]
-                obj["geoloc_provider"] = locdata["provider"]
-                obj["numero"] = locdata["numero"]
-                obj["ban_id"] = locdata.get("ban_id")
-                obj.pop("latitude", None)
-                obj.pop("longitude", None)
-                break
-            except (RuntimeError, KeyError):
-                if i < 2:
-                    continue
-
-                if obj.get("latitude") is not None and obj.get("longitude") is not None:
-                    self._geom = Point((obj["longitude"], obj["latitude"]), srid=4326)
-                    obj.pop("latitude")
-                    obj.pop("longitude")
+            for i in range(3):
+                try:
+                    address = get_address_query_to_geocode(obj)
+                    locdata = geocoder.geocode(address, postcode=obj["code_postal"])
+                    if not locdata:
+                        raise RuntimeError
+                    self._geom = locdata["geom"]
+                    obj["voie"] = locdata["voie"]
+                    obj["lieu_dit"] = locdata["lieu_dit"]
+                    obj["code_postal"] = locdata["code_postal"]
+                    obj["commune"] = locdata["commune"]
+                    obj["code_insee"] = locdata["code_insee"]
+                    obj["geoloc_provider"] = locdata["provider"]
+                    obj["numero"] = locdata["numero"]
+                    obj["ban_id"] = locdata.get("ban_id")
+                    obj.pop("latitude", None)
+                    obj.pop("longitude", None)
                     break
+                except (RuntimeError, KeyError):
+                    if i < 2:
+                        continue
 
-                raise serializers.ValidationError(f"Adresse non localisable: {address}")
+                    if obj.get("latitude") is not None and obj.get("longitude") is not None:
+                        self._geom = Point((obj["longitude"], obj["latitude"]), srid=4326)
+                        obj.pop("latitude")
+                        obj.pop("longitude")
+                        break
 
-        obj["commune_ext"] = Commune.objects.filter(
-            nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
-        ).first()
+                    raise serializers.ValidationError(f"Adresse non localisable: {address}")
 
-        self._ensure_no_duplicate(obj)
+            obj["commune_ext"] = Commune.objects.filter(
+                nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
+            ).first()
 
-        erp_data = obj.copy()
-        erp_data.pop("accessibilite")
-        erp_data.pop("sources")
+            self._ensure_no_duplicate(obj)
 
-        Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
-        Accessibilite(**obj["accessibilite"]).full_clean()
+            erp_data = obj.copy()
+            erp_data.pop("accessibilite")
+            erp_data.pop("sources")
+
+            Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
+
+        if "accessibilite" in obj:
+            Accessibilite(**obj["accessibilite"]).full_clean()
 
         sources_data = obj.get("sources") or []
         for source_data in sources_data:
@@ -310,9 +313,10 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         return obj
 
-    def update(self, instance, validated_data, partial=True):
-        # If enrich_only, it won't update any access info already there
+    def update(self, instance, validated_data):
         enrich_only = self.context.get("enrich_only") or False
+        raw_data = self.initial_data
+
         # if we are updating an ERP, only accessibility, asp_id and import_email are editable
         if validated_data.get("import_email"):
             instance.import_email = validated_data["import_email"]
@@ -323,19 +327,20 @@ class ErpImportSerializer(serializers.ModelSerializer):
             instance.save(update_fields=["asp_id"])
 
         accessibilite = instance.accessibilite
-        for attr in ("id", "erp"):
-            validated_data["accessibilite"].pop(attr, False)
+        acc_data = validated_data.get("accessibilite", {})
+        raw_acc_data = raw_data.get("accessibilite", {})
 
-        for attr in validated_data["accessibilite"]:
+        for attr, new_value in acc_data.items():
+            if attr in ("id", "erp"):
+                continue
+
             if enrich_only and getattr(accessibilite, attr, None) is not None:
                 continue
 
-            new_value = validated_data["accessibilite"][attr]
+            if self.partial and attr in raw_acc_data and raw_acc_data[attr] in (None, "", [], ()):
+                continue
 
-            if not enrich_only:
-                setattr(accessibilite, attr, new_value)
-                self._handle_children_reinit(accessibilite, attr)
-            elif new_value not in (None, [], ()):
+            if not enrich_only or new_value not in (None, [], ()):
                 setattr(accessibilite, attr, new_value)
                 self._handle_children_reinit(accessibilite, attr)
 
