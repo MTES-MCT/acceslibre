@@ -540,7 +540,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         if self.cleaned_data["geom"] is None or self.adresse_changed():
             self.geocode()
 
-        if self.cleaned_data["lat"] and self.cleaned_data["lon"]:
+        if self.cleaned_data.get("lat") and self.cleaned_data.get("lon"):
             self.cleaned_data["geom"] = Point(float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"]))
 
         # Unicity is made on activity + address
