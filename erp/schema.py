@@ -886,12 +886,6 @@ FIELDS = {
         "children": [
             "cheminement_ext_terrain_stable",
             "cheminement_ext_plain_pied",
-            "cheminement_ext_nombre_marches",
-            "cheminement_ext_reperage_marches",
-            "cheminement_ext_main_courante",
-            "cheminement_ext_rampe",
-            "cheminement_ext_ascenseur",
-            "cheminement_ext_pente_presence",
             "cheminement_ext_devers",
             "cheminement_ext_bande_guidage",
             "cheminement_ext_retrecissement",

@@ -18,4 +18,4 @@ def test_compute_completion_rate():
     compute_access_completion_rate(erp.accessibilite.pk)
 
     erp.accessibilite.refresh_from_db()
-    assert erp.accessibilite.completion_rate == 3
+    assert erp.accessibilite.completion_rate == 4

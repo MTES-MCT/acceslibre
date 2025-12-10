@@ -439,7 +439,7 @@ def test_ajout_erp(client):
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
-    assert accessibilite.completion_rate == 59
+    assert accessibilite.completion_rate == 58
     assert_redirect(response, "/contrib/entree/test-erp/")
     assert response.status_code == 200
 
