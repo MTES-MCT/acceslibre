@@ -948,6 +948,8 @@ class TestAccessibility:
         erp = ErpFactory(activite=ActiviteFactory(slug="boulangerie"))
         access = AccessibiliteFactory(erp=erp, sanitaires_presence=True)
 
+        assert access.cheminement_ext_plain_pied is None
+
         assert access.get_nb_exposed_fields() == 20
         assert access.get_filled_in_fields() == ["sanitaires_presence"]
         assert access.get_nb_filled_in_fields() == 1
@@ -1002,7 +1004,7 @@ class TestAccessibility:
         access.save()
         assert access.cheminement_ext_ascenseur is None
 
-        assert access.get_nb_exposed_fields() == 30
+        assert access.get_nb_exposed_fields() == 24
         assert access.get_filled_in_fields() == [
             "cheminement_ext_presence",
         ]
@@ -1013,16 +1015,10 @@ class TestAccessibility:
             "accueil_personnels",
             "accueil_retrecissement",
             "accueil_visibilite",
-            "cheminement_ext_ascenseur",
             "cheminement_ext_bande_guidage",
             "cheminement_ext_devers",
-            "cheminement_ext_main_courante",
-            "cheminement_ext_nombre_marches",
-            "cheminement_ext_pente_presence",
             "cheminement_ext_plain_pied",
             "cheminement_ext_presence",
-            "cheminement_ext_rampe",
-            "cheminement_ext_reperage_marches",
             "cheminement_ext_retrecissement",
             "cheminement_ext_terrain_stable",
             "entree_aide_humaine",
