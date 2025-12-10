@@ -1036,6 +1036,13 @@ class TestAccessibility:
         }
         assert access.get_nb_filled_in_fields() == 1
 
+        access.transport_station_presence = True
+        access.save()
+
+        assert "transport_information" not in access.get_exposed_fields(), (
+            "transport_information should be ignored from completion rate calculation"
+        )
+
 
 @pytest.mark.django_db
 class TestErp:

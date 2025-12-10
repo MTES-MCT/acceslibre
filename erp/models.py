@@ -2062,10 +2062,17 @@ class Accessibilite(models.Model):
         def expose_field(field):
             schema = FIELDS.get(field, {})
 
-            if schema.get("root", False) and not schema.get("excluded_from_completion_rate", False):
+            if schema.get("excluded_from_completion_rate", False):
+                return
+
+            if schema.get("root", False):
                 exposed.add(field)
 
-            children = schema.get("children", [])
+            children = [
+                child
+                for child in schema.get("children", [])
+                if not FIELDS.get(child, {}).get("excluded_from_completion_rate", False)
+            ]
 
             if str(getattr(self, field, None)) in schema.get("value_to_display_children", []):
                 for child in children:
