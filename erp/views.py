@@ -481,6 +481,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                 "linkedin": f"https://www.linkedin.com/shareArticle?url={absolute_uri}",
                 "facebook": f"https://www.facebook.com/sharer.php?u={absolute_uri}",
             },
+            "erp_absolute_uri": absolute_uri,
             "map_options": json.dumps(
                 {
                     "scrollWheelZoom": False,
