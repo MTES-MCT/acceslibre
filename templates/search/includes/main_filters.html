@@ -10,7 +10,7 @@
             <h1 class="fr-h4">{% translate "Rechercher un lieu" %}</h1>
         </legend>
         <div class="fr-input-group">
-            <label for="what-input" class="w-100 text-start">{% translate "Activité ou nom d'établissement" %}</label>
+            <label for="what-input" class="text-start">{% translate "Activité ou nom d'établissement" %}</label>
             {% comment %}Translators: please do not translate "Mairie, café" as we are searching into french contents{% endcomment %}
             <input type="search"
                    id="what-input"
@@ -21,7 +21,7 @@
                    {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
         </div>
         <div class="fr-input-group search-where-field">
-            <label for="where-input" class="w-100 text-start">{% translate "Adresse, département ou commune" %}</label>
+            <label for="where-input" class="text-start">{% translate "Adresse, département ou commune" %}</label>
             <input id="where-input"
                    class="autocomplete-input fr-input fr-mt-1w"
                    type="search"
