@@ -26,6 +26,40 @@
         </div>
     </div>
     <hr class="fr-hr fr-pb-md-3w fr-mt-bd-3w fr-pb-2w fr-mt-2w" />
+    <div class="fr-grid-row fr-mb-3w">
+        <div class="fr-follow__social">
+            <p>{% translate "Partager sur les réseaux sociaux" %}</p>
+            <ul class="fr-btns-group">
+                {% if social_links.facebook %}
+                    <li>
+                        <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
+                           href="{{ social_links.facebook }}"
+                           target="_blank"
+                           rel="noopener external"
+                           class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
+                    </li>
+                {% endif %}
+                {% if social_links.x %}
+                    <li>
+                        <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
+                           href="{{ social_links.x }}"
+                           target="_blank"
+                           rel="noopener external"
+                           class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
+                    </li>
+                {% endif %}
+                {% if social_links.linkedin %}
+                    <li>
+                        <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
+                           href="{{ social_links.linkedin }}"
+                           target="_blank"
+                           rel="noopener external"
+                           class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
     <div class="fr-grid-row address-container">
         <address class="fr-m-0 fr-col">
             <p class="fr-mb-3w word-break--all">
