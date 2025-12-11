@@ -51,7 +51,7 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     <h1>{% translate "C'est presque fini" %}</h1>
-    <div class="fr-alert fr-alert--info fr-mb-4w">
+    <div class="fr-alert fr-alert--info fr-mb-4w" role="alert">
         <p>
             {% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}
             {% if 'contrib/publication/' in request.GET.next %}

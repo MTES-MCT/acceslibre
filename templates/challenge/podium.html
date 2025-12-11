@@ -31,11 +31,11 @@
     <section class="row justify-content-center fr-mt-4v">
         <div>
             {% if today < start_date %}
-                <div class="fr-alert fr-alert--info">{% translate "Le concours n'a pas encore démarré" %}</div>
+                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
             {% elif today > stop_date %}
-                <div class="fr-alert fr-alert--info">{% translate "Le concours est terminé" %}</div>
+                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours est terminé" %}</div>
             {% elif not top_contribs %}
-                <div class="fr-alert fr-alert--info">
+                <div class="fr-alert fr-alert--info" role="status">
                     {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté d'établissement." %}
                 </div>
             {% endif %}
@@ -94,7 +94,7 @@
             </ul>
             <h3 class="fr-mt-5v fr-mb-3v">{% translate "Classement général" %}</h3>
             {% if not top_contribs %}
-                <div class="fr-alert fr-alert--info">
+                <div class="fr-alert fr-alert--info" role="status">
                     {% translate "Aucun participant n'a ajouté d'établissement pour le moment" %}
                 </div>
             {% endif %}

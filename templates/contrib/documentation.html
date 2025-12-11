@@ -27,7 +27,7 @@
 {% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Documentation des champs d'accessibilité" %}</h1>
-    <div class="fr-alert fr-alert--info">
+    <div class="fr-alert fr-alert--info" role="status">
         {% translate "Vous souhaitez étudier ces entités au format tableur&nbsp;?" %} <a class="fr-link" href="{% url 'contact_form' %}">{% translate "Demandez le nous" %}</a>&nbsp;!
     </div>
     {% for section, fields in sections.items %}

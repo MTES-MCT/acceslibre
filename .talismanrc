@@ -5,10 +5,6 @@ fileignoreconfig:
   ignore_detectors: [filecontent]
 - filename: compte/forms.py
   checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
-- filename: templates/registration/password_reset_form.html
-  checksum: f9b73e1312e2dd8ae1bc4ef666dbe44008926322faf7125c9650fb671e928484
-- filename: templates/registration/password_reset_confirm.html
-  checksum: 1c6632e41e1f6e958fd2294cd634a16c55b0762f1e94ee2c619a0a30172fbdfd
 - filename: templates/contrib/7-commentaire.html
   checksum: 37ac9503a7a7eb19da77d8aa2aed6dbd4fa377ff652a3676556eb213a243dac6
 - filename: erp/export/static/schema.json
@@ -31,3 +27,11 @@ fileignoreconfig:
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
 - filename: .circleci/config.yml
   checksum: 534382d601697d506ec5b5ae8e19d7042b9e8a1966b35d0ca817bba9320947e0
+- filename: templates/registration/password_reset_complete.html
+  checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
+- filename: templates/registration/password_reset_confirm.html
+  checksum: 72dca1c76f1a02712d8c3faa8c9d60f149e0093b2c30ab45a62360af0fa77cd9
+- filename: templates/registration/password_reset_done.html
+  checksum: 5dbcf869ea896e92c4ea66c628d19c5b977b6990dfe136d9909d5b9d98dfaa95
+- filename: templates/registration/password_reset_form.html
+  checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
