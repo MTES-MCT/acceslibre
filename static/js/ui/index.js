@@ -21,6 +21,7 @@ import FormContribEditNotification from './FormContribEditNotification'
 import TextExpander from './TextExpander'
 import ContentToggle from './ContentToggle'
 import SearchMobile from './SearchMobile'
+import BtnToCopy from './BtnToCopy'
 
 export default {
   AsteriskField,
@@ -46,4 +47,5 @@ export default {
   TextExpander,
   ContentToggle,
   SearchMobile,
+  BtnToCopy,
 }

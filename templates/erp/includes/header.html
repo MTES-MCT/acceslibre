@@ -57,6 +57,17 @@
                            class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
                     </li>
                 {% endif %}
+                {% if erp_absolute_uri %}
+                    <li id="btn-to-copy-wrapper">
+                        <button id="btn-to-copy"
+                                data-url="{{ erp_absolute_uri }}"
+                                title="{% translate "Copier le lien" %}"
+                                class="fr-btn fr-icon-links-fill"></button>
+                        <div id="btn-to-copy-voice-over-text"
+                             class="align-self--center fr-mb-2w"
+                             role="status"></div>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
