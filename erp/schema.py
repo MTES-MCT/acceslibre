@@ -958,6 +958,7 @@ FIELDS = {
             "cheminement_ext_main_courante",
             "cheminement_ext_rampe",
             "cheminement_ext_ascenseur",
+            "cheminement_ext_pente_presence",
         ],
         "value_to_display_children": ["False"],
     },
