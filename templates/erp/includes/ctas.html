@@ -10,8 +10,7 @@
             </li>
             <li>
                 <form method="post"
-                      action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}"
-                      class="w-100">
+                      action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}">
                     {% csrf_token %}
                     <button class="fr-btn fr-btn--secondary text-center" type="submit">
                         {% translate "Confirmer ces informations" %}

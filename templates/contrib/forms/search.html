@@ -6,7 +6,7 @@
       role="search"
       action="{% if search_action %}{{ search_action }}{% else %}{% url 'search' %}{% endif %}">
     {% if not form.is_valid %}<div class="hidden" id="form_not_valid"></div>{% endif %}
-    <div class="fr-mx-0 w-100">
+    <div class="fr-mx-0">
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-lg-4">
                 <div class="fr-input-group {% if form.what.errors %}fr-input-group--error{% endif %}">
@@ -15,7 +15,14 @@
                         <span class="fr-hint-text">{% translate "Quel est le nom de l’établissement ?" %}</span>
                     </label>
                     {% comment %}Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents{% endcomment %}
-                    <input type="search" class="fr-input" id="what-input" name="what" placeholder="Le Louvre, Café de la gare..." aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}" autocomplete="off" {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
+                    <input type="search"
+                           class="fr-input"
+                           id="what-input"
+                           name="what"
+                           placeholder="Le Louvre, Café de la gare..."
+                           aria-label="{% translate "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare" %}"
+                           autocomplete="off"
+                           {% if "what" in request.GET %} value="{{ what|default:request.GET.what }}" {% else %} value="{{ what }}" {% endif %}>
                     <div class="fr-messages-group {% if not form.what.errors %}fr-hidden{% endif %}">
                         {% if form.what.errors %}
                             <p id="text-input-error-desc-error" class="fr-message fr-message--error">{{ form.what.errors.0 }}</p>
