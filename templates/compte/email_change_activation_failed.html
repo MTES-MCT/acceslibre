@@ -9,7 +9,9 @@
 {% endblock robots %}
 {% block editorial_content %}
     {% if activation_error %}
-        <div class="alert alert-warning">{% translate "Une erreur est survenue :" %} {{ activation_error }}</div>
+        <div class="fr-alert fr-alert--warning" role="alert">
+            {% translate "Une erreur est survenue :" %} {{ activation_error }}
+        </div>
     {% else %}
         <p>
             {% url 'contact_topic' topic='bug' as url_contact_topic_bug %}

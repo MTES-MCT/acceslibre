@@ -30,8 +30,7 @@
             {% endif %}
         </details>
     {% empty %}
-        <p class="alert alert-info">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
+        <p class="fr-alert fr-alert--info" role="status">
             {% blocktranslate%}Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.{% endblocktranslate %}
         </p>
     {% endfor %}

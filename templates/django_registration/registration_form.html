@@ -83,7 +83,9 @@
                     <h1 class="fr-mb-4v">{% translate "Créer un compte" %}</h1>
                     <p>{% blocktranslate %}Les champs avec "*" sont obligatoires{% endblocktranslate %}</p>
                     <div>
-                        {% if form.non_field_errors %}<div class="fr-alert fr-alert--error">{{ form.non_field_errors }}</div>{% endif %}
+                        {% if form.non_field_errors %}
+                            <div class="fr-alert fr-alert--error" role="alert">{{ form.non_field_errors }}</div>
+                        {% endif %}
                         <div class="display--flex direction--column gap-4w fr-mb-2w">
                             <div class="fr-col-12 fr-col-lg">
                                 <div class="fr-input-group {% if form.errors.email %}fr-input-group--error{% endif %}">
