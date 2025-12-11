@@ -261,7 +261,8 @@ def test_admin_with_regular_user(client):
     # ensure user is redirected to admin login page
     assert_redirect(response, "/admin/login/?next=/admin/")
     assert response.status_code == 200
-    assert "two_factor/core/login.html" in [t.name for t in response.templates]
+    # NOTE: not testing the 2FA here
+    assert "registration/login.html" in [t.name for t in response.templates]
 
 
 @pytest.mark.django_db

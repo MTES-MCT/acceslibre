@@ -11,7 +11,6 @@ from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 from django.views.i18n import JavaScriptCatalog
 from two_factor.admin import AdminSiteOTPRequired, AdminSiteOTPRequiredMixin
-from two_factor.urls import urlpatterns as tf_urls
 
 from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
@@ -42,7 +41,6 @@ class CustomAdminSiteOTPRequired(AdminSiteOTPRequired):
         return redirect_to_login(redirect_to, login_url=settings.ADMIN_LOGIN_URL)
 
 
-admin.site.__class__ = CustomAdminSiteOTPRequired
 # in seconds
 ONE_HOUR = 60 * 60
 ONE_DAY = 24 * ONE_HOUR
@@ -82,7 +80,6 @@ urlpatterns = [
     path("compte/", include("django_registration.backends.activation.urls")),
     path("compte/", include("django.contrib.auth.urls")),
     path("compte/", include("compte.urls")),
-    path("", include(tf_urls)),
     path("admin/", admin.site.urls),
     path(
         "sitemap.xml", cache_page(ONE_DAY)(sitemap_views.index), {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"}
@@ -104,3 +101,11 @@ if settings.DEBUG:
     urlpatterns = [
         path("__debug__/", include(debug_toolbar.urls)),
     ] + urlpatterns
+else:
+    from two_factor.urls import urlpatterns as tf_urls
+
+    urlpatterns = urlpatterns + [
+        path("", include(tf_urls)),
+    ]
+
+    admin.site.__class__ = CustomAdminSiteOTPRequired
