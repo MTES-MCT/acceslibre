@@ -30,7 +30,7 @@
     <div class="fr-mb-3w">
         <h1 class="fr-h3">{% translate "Activer votre compte" %}</h1>
         {% if activation_error %}
-            <div class="alert alert-danger" role="alert">
+            <div class="fr-alert fr-alert--error" role="alert">
                 <strong>{% translate "Erreur d'activation" %}</strong>
                 <br>
                 {% if activation_error.key_invalid %}

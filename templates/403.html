@@ -8,7 +8,7 @@
     <div class="text-center">
         <h2>{% translate "Accès non autorisé" %}</h2>
         {% url 'contact_topic' topic='bug' as url_contact_bug %}
-        <p class="alert alert-warning">
+        <p class="fr-alert fr-alert--warning">
             {% blocktranslate %}Vous n'avez pas accès à cette ressource. Si vous considérez que cela ne devrait pas être le cas,
     <a href="{{ url_contact_bug }}">contactez-nous</a>.{% endblocktranslate %}
         </p>
