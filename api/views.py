@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext as translate
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
@@ -27,108 +28,106 @@ from erp.models import Accessibilite, Activite, Erp
 # - detail view queryset overriding: https://github.com/encode/django-rest-framework/blob/0407a0df8a16fdac94bbd08d49143a74a88001cd/rest_framework/generics.py#L75-L101
 # - query string parameters api documentation: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
 # - documenting your views: https://www.django-rest-framework.org/coreapi/from-documenting-your-api/#documenting-your-views
+API_DOC_SUMMARY = translate("""
+%(site_title)s expose une [API](https://fr.wikipedia.org/wiki/API) publique
+permettant d’interroger sa base de données de manière programmatique. Cette API
+adopte autant que possible le
+[paradigme REST](https://en.wikipedia.org/wiki/Representational_state_transfer) et
+expose les résultats aux formats
+[JSON](https://en.wikipedia.org/wiki/JavaScript_Object_Notation) ou
+[geoJSON](https://en.wikipedia.org/wiki/GeoJSON).
 
-API_DOC_SUMMARY = f"""
-{settings.SITE_NAME.title()} is exposing a public [API](https://en.wikipedia.org/wiki/API)
-allowing to programmatically query its database. This API embraces the
-[REST paradigm](https://en.wikipedia.org/wiki/Representational_state_transfer) as much as possible and
-exposes results in [JSON](https://en.wikipedia.org/wiki/JavaScript_Object_Notation) or [geoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
+Le point d’entrée racine de l’API est accessible à l’adresse
+[`%(site_root_url)s/api/`](%(site_root_url)s/api/) :
+- Une vue HTML est présentée lorsqu’elle est demandée depuis un navigateur web ;
+- Une réponse de type `application/json` est retournée par défaut ;
+- Une réponse de type `application/geo+json` est retournée si elle est explicitement demandée par le client et si elle est disponible.
 
-The API root entry point can be accessed at
-[`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
-- An HTML view is presented when requested through a web browser,
-- A response of type `application/json` is returned by default.
-- A response of type `application/geo+json` is returned if explicitly requested by the client and if available.
 ## Identification
 
-If you want to use our API, we can provide you with a key, to attach to each request to the API via the following header:
+Si vous souhaitez utiliser notre API, nous pouvons vous fournir une clé, à joindre à chaque requête adressée à l’API via l’en-tête HTTP suivant :
 ```
 Authorization: Api-Key <YOUR_API_KEY>
 ```
 
-To request your API key, [contact us]({settings.SITE_ROOT_URL}/contact/api_key), we have no reason to refuse :-)
-If you plan to do some insertions and/or updates, during your developments, we are highly recommanding to use our `staging` platform (dedicated API key).
+Pour demander votre clé d’API, [contactez-nous](%(site_root_url)s/contact/api_key), nous n’avons aucune raison de refuser :-)
+Si vous prévoyez d’effectuer des insertions et/ou des mises à jour pendant vos développements, nous recommandons fortement d’utiliser notre plateforme `recette` (clé d’API dédiée).
 
 ## Limitation
 
-In order to guarantee the availability of the API for everyone, a maximum number of requests per second is defined.
-If you reach this limit, an `HTTP 429 (Too many requests)` will be responded, inviting you to reduce the frequency and number of your requests.
+Afin de garantir la disponibilité de l’API pour tous, un nombre maximal de requêtes par seconde est défini.
+Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera retournée, vous invitant à réduire la fréquence et le nombre de vos requêtes.
 
-## Business rules
+## Règles métier
 
-- It is only possible to modify the accessibility data of an ERP via the API, the information on the ERP cannot be modified.
-- It is only possible to enrich the data, it is not possible to delete any data (an element with a `true` or `false` value cannot go to `null`).
+- Il est uniquement possible de modifier les données d’accessibilité d’un ERP via l’API ; les informations générales de l’ERP ne peuvent pas être modifiées.
+- Il est uniquement possible d’enrichir les données ; il n’est pas possible de supprimer des données (un élément ayant une valeur `true` ou `false` ne peut pas passer à `null`).
 
-## Some examples of use
+## Quelques exemples d’utilisation
 
-### Search for establishments with the name containing or being close to `piscine`, in Villeurbanne:
-
-```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "Authorization: Api-Key <YOUR_API_KEY>"
-```
-
-Note that each result exposes a `url` key, which is a retrieval point for the establishment detail page.
-This URL can also be dynamically constructed from the establishment UUID: `{settings.SITE_ROOT_URL}/uuid/<establishment_uuid>/`
-
-
-### Search for establishments contained in a box encompassing Valence (France) and retrieve them in geoJSON format in order to display them on a map:
+### Rechercher des établissements dont le nom contient ou est proche de `piscine`, à Villeurbanne :
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?zone=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <YOUR_API_KEY>"
+$ curl -X GET %(site_root_url)s/api/erps/?q=piscine&commune=Villeurbanne -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
-Note that the box is defined by 2 coordinates:
-- min longitude, min latitude
-- max longitude, max latitude
+Notez que chaque résultat expose une clé `url`, qui correspond au point d’accès permettant de récupérer la page de détail de l’établissement.
+Cette URL peut également être construite dynamiquement à partir de l’UUID de l’établissement : `%(site_root_url)s/uuid/<establishment_uuid>/`
 
-Also note that you can combine the filters (`code_postal`, `q`, `commune`, ...) and the geospatial search described here.
+### Rechercher des établissements contenus dans une emprise rectangulaire englobant Valence (France) et les récupérer au format geoJSON afin de les afficher sur une carte :
+
+```
+$ curl -X GET %(site_root_url)s/api/erps/?zone=4.849022,44.885530,4.982661,44.963994 -H "accept: application/geo+json" -H "Authorization: Api-Key <YOUR_API_KEY>"
+```
+
+Notez que la zone est définie par 2 coordonnées :
+- longitude minimale, latitude minimale ;
+- longitude maximale, latitude maximale.
+
+Notez également que vous pouvez combiner les filtres (`code_postal`, `q`, `commune`, …) avec la recherche géospatiale décrite ici.
 
 ---
 
-### Retrieve details of a given establishment
+### Récupérer les détails d’un établissement donné
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "Authorization: Api-Key <YOUR_API_KEY>"
+$ curl -X GET %(site_root_url)s/api/erps/piscine-des-gratte-ciel-2/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
-Note the presence of the `accessibility` key which exposes the URL of the accessibility data retrieval point for this establishment.
+Notez la présence de la clé `accessibility`, qui expose l’URL du point d’accès permettant de récupérer les données d’accessibilité de cet établissement.
 
 ---
 
-### Retrieve accessibility details for this ERP
+### Récupérer les détails d’accessibilité de cet ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibility/<OBJECT_ID>/ -H "Authorization: Api-Key <YOUR_API_KEY>"
+$ curl -X GET %(site_root_url)s/api/accessibility/<OBJECT_ID>/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
-
 ---
 
-### Retrieve accessibility details for this ERP in readable and accessible format
+### Récupérer les détails d’accessibilité de cet ERP dans un format lisible et accessible
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibility/<OBJECT_ID>/?readable=true -H "Authorization: Api-Key <YOUR_API_KEY>"
+$ curl -X GET %(site_root_url)s/api/accessibility/<OBJECT_ID>/?readable=true -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
-
 ---
 
-### Edit accessibility details of an ERP
+### Modifier les données d’accessibilité d’un ERP
 
 ```
-$ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-Type: application/json' -H 'Authorization: Api-Key <YOUR_API_KEY>' -d '{{"accessibility" : {{"transport_station_presence": "true"}}}}'
+$ curl -X PATCH %(site_root_url)s/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-Type: application/json' -H 'Authorization: Api-Key <YOUR_API_KEY>' -d '{{"accessibility" : {{"transport_station_presence": "true"}}}}'
 ```
-
 ---
 
-### Retrieve sentences from an ERP widget
+### Récupérer les phrases du widget ERP
 
 ```
-$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <YOUR_API_KEY>"
+$ curl -X GET %(site_root_url)s/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
-
 ---
 
-Below you will find the exhaustive technical documentation of the entry points exposed by the API.
-"""
+Vous trouverez ci-dessous la documentation technique exhaustive des points d’entrée exposés par l’API.
+""") % {"site_root_url": settings.SITE_ROOT_URL, "site_title": settings.SITE_NAME.title()}
 
 
 class A4aAutoSchema(AutoSchema):

@@ -15,8 +15,6 @@ fileignoreconfig:
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
   checksum: d2cc6434173e01aac59b409246ef6011224d4048a847082dc3419028b991e804
-- filename: locale/en/LC_MESSAGES/django.po
-  checksum: d4304401956ce11f21470efcb59053e170cadd11f7d200a441dda74fe94df57b
 - filename: templates/contrib/0-start.html
   checksum: 48b03ff89169260f34f59c6ce3f07e219d13ebfb7c11ee3dbbf319ea70d4063f
 - filename: templates/contrib/0a-search_results.html
@@ -35,3 +33,9 @@ fileignoreconfig:
   checksum: 5dbcf869ea896e92c4ea66c628d19c5b977b6990dfe136d9909d5b9d98dfaa95
 - filename: templates/registration/password_reset_form.html
   checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
+- filename: locale/fr/LC_MESSAGES/django.po
+  checksum: b5b9b758ef8f79345ec7463536c5a87ca2b7799464d3c4de10646e869a1e0040
+- filename: api/views.py
+  checksum: d7d4ba289d6beb182c8a9da4fca20a564f79b661ee2c95820aaa5afc81b89f8c
+- filename: locale/en/LC_MESSAGES/django.po
+  checksum: 17e6012e0bce55e46a9b78611dcb6ce6ede7a197622ee75bfe3c40431eaaafe0
