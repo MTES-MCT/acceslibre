@@ -2080,7 +2080,8 @@ class Accessibilite(models.Model):
                     expose_field(child)
 
             min_value = schema.get("min_value_to_display_children")
-            if min_value is not None and getattr(self, field, 0) >= min_value:
+
+            if min_value is not None and (getattr(self, field) or 0) >= min_value:
                 for child in children:
                     exposed.add(child)
                     expose_field(child)

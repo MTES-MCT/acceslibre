@@ -41,6 +41,21 @@ class ActiviteFactory(factory.django.DjangoModelFactory):
         django_get_or_create = ("nom",)
 
 
+class ActivitiesGroupFactory(factory.django.DjangoModelFactory):
+    name = factory.LazyAttribute(lambda x: faker.name())
+
+    @factory.post_generation
+    def activities(self, create, extracted, **kwargs):
+        if not create or not extracted:
+            return
+
+        for activity in extracted:
+            self.activities.add(activity)
+
+    class Meta:
+        model = "erp.ActivitiesGroup"
+
+
 class ErpFactory(factory.django.DjangoModelFactory):
     nom = factory.LazyAttribute(lambda x: faker.name())
     numero = factory.LazyAttribute(lambda x: faker.building_number())
