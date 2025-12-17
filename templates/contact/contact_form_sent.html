@@ -30,6 +30,8 @@
 {% block editorial_content %}
     <main role="status">
         <h1 class="fr-h2">{% translate "Votre message a été envoyé" %}</h1>
-        <p class="fr-alert fr-alert--success">{% translate "Nous vous répondrons dans les plus brefs délais." %}</p>
+        <p class="fr-alert fr-alert--success" role="status">
+            {% translate "Nous vous répondrons dans les plus brefs délais." %}
+        </p>
     </main>
 {% endblock editorial_content %}

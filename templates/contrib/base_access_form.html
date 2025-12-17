@@ -27,8 +27,7 @@
                     <em>{{ erp.adresse }}</em>
                 </address>
                 {% if erp.user != user %}
-                    <div class="alert alert-info" role="status">
-                        <i aria-hidden="true" class="icon icon-info-circled"></i>
+                    <div class="fr-alert fr-alert--info" role="status">
                         {% if erp.user %}
                             {% blocktranslate %}Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>{% endblocktranslate %}
                         {% else %}
@@ -55,7 +54,7 @@
                 {% endif %}
             {% endblock full_infos %}
             {% if form.errors %}
-                <div class="alert alert-warning" role="alert">
+                <div class="fr-alert fr-alert--warning" role="alert">
                     <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
                     {% translate "Attention, des erreurs ont été rencontrées." %}
                     <ul class="my-1">

@@ -49,7 +49,7 @@ dom.ready(() => {
   dom.mountOne('#filter-controller', ui.filterData)
   dom.mountAll('.text-expander', ui.TextExpander)
   dom.mountAll('.parent-toggle', ui.ContentToggle)
-  dom.mountOne('.erps-search-container', ui.SearchMobile)
+  dom.mountOne('.erps-search-container', ui.SearchMobile), dom.mountOne('#btn-to-copy-wrapper', ui.BtnToCopy)
 })
 
 ui.StoreFilters()

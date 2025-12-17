@@ -37,7 +37,7 @@
 {% block editorial_content %}
     <div class="display--flex direction--column gap-2w">
         <h1 class="fr-mb-0">{% translate "Supprimer un établissement" %}</h1>
-        <div class="fr-alert fr-alert--warning">
+        <div class="fr-alert fr-alert--warning" role="alert">
             <h3 class="fr-alert__title">{% translate "Attention" %}</h3>
             <p>{% translate "Vous vous apprêtez à supprimer l'établissement suivant" %}</p>
         </div>
@@ -76,7 +76,7 @@
               novalidate>
             {% csrf_token %}
             {% if form.non_field_errors %}
-                <div class="fr-alert fr-alert--error fr-mb-4w">
+                <div class="fr-alert fr-alert--error fr-mb-4w" role="alert">
                     <h3 class="fr-alert__title">{% translate "Erreur" %}</h3>
                     {% translate "Attention, des erreurs ont été rencontrées." %}
                     <ul class="my-1">

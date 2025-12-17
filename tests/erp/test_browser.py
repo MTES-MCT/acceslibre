@@ -395,7 +395,7 @@ def test_ajout_erp(client):
     assert accessibilite.stationnement_pmr is True
     assert accessibilite.stationnement_ext_presence is True
     assert accessibilite.stationnement_ext_pmr is True
-    assert accessibilite.completion_rate == 15
+    assert accessibilite.completion_rate == 23
     assert_redirect(response, "/contrib/exterieur/test-erp/")
 
     assert response.status_code == 200
@@ -419,6 +419,7 @@ def test_ajout_erp(client):
             "cheminement_ext_devers": "aucun",
             "cheminement_ext_bande_guidage": True,
             "cheminement_ext_retrecissement": True,
+            "cheminement_ext_ascenseur_pmr": False,
         },
         follow=True,
     )
@@ -438,7 +439,7 @@ def test_ajout_erp(client):
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
-    assert accessibilite.completion_rate == 21
+    assert accessibilite.completion_rate == 58
     assert_redirect(response, "/contrib/entree/test-erp/")
     assert response.status_code == 200
 
@@ -464,6 +465,9 @@ def test_ajout_erp(client):
             "entree_largeur_mini": 80,
             "entree_pmr": True,
             "entree_pmr_informations": "blah",
+            "entree_porte_manoeuvre": "battante",
+            "entree_porte_type": "manuelle",
+            "entree_ascenseur_pmr": True,
         },
         follow=True,
     )
@@ -486,10 +490,9 @@ def test_ajout_erp(client):
     assert accessibilite.entree_largeur_mini == 80
     assert accessibilite.entree_pmr is True
     assert accessibilite.entree_pmr_informations == "blah"
-    assert accessibilite.completion_rate == 63
+    assert accessibilite.completion_rate == 85
     assert_redirect(response, "/contrib/accueil/test-erp/")
     assert response.status_code == 200
-
     # Accueil
     response = client.post(
         reverse("contrib_accueil", kwargs={"erp_slug": erp.slug}),
@@ -510,6 +513,7 @@ def test_ajout_erp(client):
             "accueil_retrecissement": True,
             "sanitaires_presence": True,
             "sanitaires_adaptes": True,
+            "accueil_cheminement_ascenseur_pmr": True,
         },
         follow=True,
     )
@@ -531,6 +535,7 @@ def test_ajout_erp(client):
     assert accessibilite.sanitaires_presence is True
     assert accessibilite.sanitaires_adaptes is True
     assert accessibilite.completion_rate == 100
+
     assert_redirect(response, "/contrib/commentaire/test-erp/")
     assert response.status_code == 200
 

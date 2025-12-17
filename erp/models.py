@@ -2032,6 +2032,79 @@ class Accessibilite(models.Model):
                 results.append((k, v))
         return results
 
+    def get_exposed_fields(self):
+        from erp.forms import get_contrib_forms_for_activity
+        from erp.schema import FIELDS
+
+        forms_for_activity = get_contrib_forms_for_activity(self.erp.activite)
+
+        form_fields = {field for form_class in forms_for_activity for field in form_class.base_fields.keys()}
+
+        # Arbitrary fields to remove such as "label" for schools
+        fields_to_remove = {
+            field for form_class in forms_for_activity for field in getattr(form_class, "fields_to_remove", set())
+        }
+
+        # Conditionals fields that are removed due to certain activities
+        conditionals_to_remove = {
+            field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_remove", set())
+        }
+
+        # Conditionals to keep that are from the combined form
+        conditionals_to_add = {
+            field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_add", set())
+        }
+
+        form_fields = set(form_fields).difference(fields_to_remove | conditionals_to_remove) | conditionals_to_add
+
+        exposed = set()
+
+        def expose_field(field):
+            schema = FIELDS.get(field, {})
+
+            if schema.get("excluded_from_completion_rate", False):
+                return
+
+            if schema.get("root", False):
+                exposed.add(field)
+
+            children = [
+                child
+                for child in schema.get("children", [])
+                if not FIELDS.get(child, {}).get("excluded_from_completion_rate", False)
+            ]
+
+            if str(getattr(self, field, None)) in schema.get("value_to_display_children", []):
+                for child in children:
+                    exposed.add(child)
+                    expose_field(child)
+
+            min_value = schema.get("min_value_to_display_children")
+
+            if min_value is not None and (getattr(self, field) or 0) >= min_value:
+                for child in children:
+                    exposed.add(child)
+                    expose_field(child)
+
+        for field in form_fields:
+            expose_field(field)
+
+        return exposed
+
+    def get_nb_exposed_fields(self):
+        return len(self.get_exposed_fields())
+
+    def get_filled_in_fields(self):
+        filled_in = []
+        for attr in self.get_exposed_fields():
+            # NOTE: we can not use bool() here, as False is a filled in info
+            if getattr(self, attr) not in (None, [], ""):
+                filled_in.append(attr)
+        return filled_in
+
+    def get_nb_filled_in_fields(self):
+        return len(self.get_filled_in_fields())
+
 
 class Departement(models.Model):
     code = models.CharField(max_length=3, null=False, blank=False)

@@ -22,8 +22,7 @@
     {% if map_options %}<script id="map-options" type="application/json">{{ map_options | safe }}</script>{% endif %}
     <noscript>
         <div class="p-3">
-            <div class="alert alert-warning">
-                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+            <div class="fr-alert fr-alert--warning" role="alert">
                 {% translate "JavaScript doit être activé pour utiliser la cartographie interactive." %}
             </div>
         </div>

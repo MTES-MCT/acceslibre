@@ -21,7 +21,7 @@
         </div>
         <div class="fr-col-md-9">
             {% if not current_departement %}
-                <p class="alert alert-info">
+                <p class="fr-alert fr-alert--info" role="status">
                     {% translate "Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés." %}
                 </p>
             {% else %}
@@ -38,7 +38,7 @@
                 {% empty %}
                     <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
                     <p>
-                        <a class="btn btn-outline-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
+                        <a class="fr-btn fr-btn--sm" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
                     </p>
                 {% endfor %}
             {% endif %}

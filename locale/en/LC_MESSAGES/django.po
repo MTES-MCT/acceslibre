@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-20 10:34+0100\n"
-"PO-Revision-Date: 2025-11-19 11:09+0100\n"
+"POT-Creation-Date: 2025-12-17 14:10+0100\n"
+"PO-Revision-Date: 2025-12-17 14:04+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3574,28 +3574,6 @@ msgstr "Published"
 msgid "Non-publiés"
 msgstr "Unpublished"
 
-msgid "Changer mon adresse email"
-msgstr "Change my email address"
-
-#, python-format
-msgid ""
-"\n"
-"      Utilisez le formulaire ci-dessous pour modifier votre adresse email "
-"actuelle (<strong>%(email)s</strong>)<br>\n"
-"      Nous vous enverrons un mail à la nouvelle adresse comportant un lien "
-"d'activation\n"
-"      qu'il faudra cliquer pour confirmer ce changement.\n"
-"      "
-msgstr ""
-"\n"
-"Use the form below to change your current email address (<strong>%(email)s</"
-"strong>)<br>\n"
-"We will send you an email to the new address with an activation link\n"
-"that you will need to click on to confirm the change."
-
-msgid "Mettre à jour mon adresse email"
-msgstr "Update my email address"
-
 msgid "Email d'activation envoyé"
 msgstr "Activation email sent"
 
@@ -4164,7 +4142,6 @@ msgstr "What name?"
 msgid "Quel est le nom de l’établissement ?"
 msgstr "What is the name of the establishment?"
 
-#. Translators: please do not translate "Le Louvre, Café de la gare" as we are searching into french contents
 msgid "Saisir le nom de l'établissement. Exemple : Le Louvre, Café de la gare"
 msgstr ""
 "Enter the name of the establishment. Example: Le Louvre, Café de la gare"
@@ -6032,6 +6009,24 @@ msgstr "Information filling rate:"
 msgid "Modifier ces informations"
 msgstr "Update this information"
 
+msgid "Partager sur les réseaux sociaux"
+msgstr "Share on social medias"
+
+msgid "Partager sur Facebook - nouvelle fenêtre"
+msgstr "Share on Facebook - New window"
+
+msgid "Partager sur X - nouvelle fenêtre"
+msgstr "Share on X - New window"
+
+msgid "X (anciennement Twitter)"
+msgstr "X (formerly Twitter)"
+
+msgid "Partager sur LinkedIn - nouvelle fenêtre"
+msgstr "Share on LinkedIn - New window"
+
+msgid "Copier le lien"
+msgstr "Copy link"
+
 msgid "Nouvelle fenêtre"
 msgstr "New window"
 
@@ -6080,6 +6075,9 @@ msgstr "as an administration"
 
 msgid "en tant qu'usager"
 msgstr "as a user"
+
+msgid "Dernière confirmation le"
+msgstr "Last confirmation at"
 
 msgid "Dernière modification le"
 msgstr "Last modification"

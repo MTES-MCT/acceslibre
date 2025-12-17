@@ -457,6 +457,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
     # Floor accessibility details can also be in ERP that aren't related to ed nat
     should_display_floor_accessibility_details = ACTIVITY_GROUPS["FLOOR"] in [g.name for g in groups]
+    absolute_uri = erp.get_absolute_uri()
 
     return render(
         request,
@@ -475,6 +476,12 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "th_labels": th_labels,
             "should_display_education_accessibility_details": should_display_education_accessibility_details,
             "should_display_floor_accessibility_details": should_display_floor_accessibility_details,
+            "social_links": {
+                "x": f"https://x.com/intent/post?text={absolute_uri}",
+                "linkedin": f"https://www.linkedin.com/shareArticle?url={absolute_uri}",
+                "facebook": f"https://www.facebook.com/sharer.php?u={absolute_uri}",
+            },
+            "erp_absolute_uri": absolute_uri,
             "map_options": json.dumps(
                 {
                     "scrollWheelZoom": False,

@@ -70,11 +70,11 @@
     <section class="leaderboard">
         <div>
             {% if today < start_date %}
-                <div class="fr-alert fr-alert--info">{% translate "Le concours n'a pas encore démarré" %}</div>
+                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
             {% elif today > stop_date %}
-                <div class="fr-alert fr-alert--info">{% translate "Le concours est terminé" %}</div>
+                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours est terminé" %}</div>
             {% elif not top_contribs %}
-                <div class="fr-alert fr-alert--info">
+                <div class="fr-alert fr-alert--info" role="status">
                     {% translate "Le concours a démarré, mais aucun participant n'a encore ajouté ou complété d'établissement." %}
                 </div>
             {% endif %}
@@ -108,7 +108,7 @@
                 </ul>
             {% endif %}
             {% if not top_contribs %}
-                <div class="fr-alert fr-alert--info">
+                <div class="fr-alert fr-alert--info" role="status">
                     {% translate "Aucun participant n'a ajouté ou complété d'établissement pour le moment" %}
                 </div>
             {% else %}

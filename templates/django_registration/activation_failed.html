@@ -32,7 +32,7 @@
     <div class="fr-mb-3w">
         <h1 class="fr-h3">{% translate "L'activation de votre compte a échouée" %}</h1>
         {% if activation_error %}
-            <div class="fr-alert fr-alert--error">
+            <div class="fr-alert fr-alert--error" role="alert">
                 {% url 'django_registration_register' as url_register %}
                 {% url 'contact_topic' topic='connection' as url_contact_connection %}
                 {% if activation_error.code == "already_activated" %}

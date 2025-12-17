@@ -35,7 +35,7 @@
 {% block contrib_content %}
     <div class="fr-col-12">
         {% if existing_matches %}
-            <div class="fr-alert fr-alert--warning fr-mb-4w">
+            <div class="fr-alert fr-alert--warning fr-mb-4w" role="alert">
                 <h3 class="fr-alert__title">{% translate "Attention : Établissement(s) existant(s)" %}</h3>
                 <p>
                     {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
@@ -52,7 +52,9 @@
                                     <h3 class="fr-card__title">
                                         <!-- rank: {{ erp.rank }} -->
                                         <a href="{{ erp.get_absolute_url }}">
-                                            <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 fr-mb-1v" src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                                            <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}"
+                                                 class="act-icon act-icon-20 fr-mb-1v"
+                                                 src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
                                             {% if where|startswith:"Autour de moi" and erp.distance %}
                                                 <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
                                             {% endif %}
@@ -84,14 +86,14 @@
             {{ form.asp_id }}
             {{ form.user_type }}
             {% if form.non_field_errors %}
-                <div class="fr-alert fr-alert--warning fr-mb-4w">
+                <div class="fr-alert fr-alert--warning fr-mb-4w" role="alert">
                     <p>{% translate "Attention, des erreurs ont été rencontrées." %}</p>
                     <ul>
                         {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
                     </ul>
                 </div>
             {% endif %}
-            {% if data_error %}<div class="alert alert-danger">{{ data_error }}</div>{% endif %}
+            {% if data_error %}<div class="fr-alert fr-alert--error" role="alert">{{ data_error }}</div>{% endif %}
             {% if existing_matches or duplicated %}
                 {% if duplicated or existing_matches %}
                     <div class="fr-col-12">
