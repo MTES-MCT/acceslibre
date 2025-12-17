@@ -19,6 +19,11 @@
             <span class="fr-text--bold">{{ timestamps.created_at|date:"j/m/Y" }}</span>
         {% endspaceless %}
     </p>
+    {% if erp.checked_up_to_date_at %}
+        <p class="fr-mb-0">
+            {% translate "Dernière confirmation le" %} <span class="fr-text--bold">{{ erp.checked_up_to_date_at|date:"j/m/Y" }}</span>
+        </p>
+    {% endif %}
     {% if timestamps.created_at != timestamps.updated_at %}
         <p class="fr-mb-0">
             {% translate "Dernière modification le" %} <span class="fr-text--bold">{{ timestamps.updated_at|date:"j/m/Y" }}</span>
