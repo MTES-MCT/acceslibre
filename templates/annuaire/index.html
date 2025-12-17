@@ -38,7 +38,7 @@
                 {% empty %}
                     <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
                     <p>
-                        <a class="btn btn-outline-primary" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
+                        <a class="fr-btn fr-btn--sm" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
                     </p>
                 {% endfor %}
             {% endif %}
