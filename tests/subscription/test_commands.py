@@ -226,12 +226,6 @@ def test_notification_accessibilite(client, mocker):
                                     "label": "Audiodescription",
                                 },
                                 {
-                                    "field": "accueil_audiodescription",
-                                    "old": "Vide",
-                                    "new": "None",
-                                    "label": "Type d'équipements pour l'audiodescription",
-                                },
-                                {
                                     "field": "accueil_retrecissement",
                                     "old": "Oui",
                                     "new": "Inconnu",

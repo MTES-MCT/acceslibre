@@ -32,10 +32,7 @@ def humanize_value(value, choices=None):
     if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
         values = [value] if not isinstance(value, (tuple, list)) else value
         mapped_choices = _humanize_map_choices(values, dict(choices))
-        if isinstance(mapped_choices, (list, tuple)):
-            value = ", ".join(mapped_choices)
-        else:
-            value = mapped_choices
+        value = ", ".join(mapped_choices)
     elif value is None:
         pass
     elif isinstance(value, (tuple, list)):
@@ -55,7 +52,7 @@ def humanize_value(value, choices=None):
     else:
         raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
 
-    return "Vide" if value in ("", None, [], ()) else value
+    return "Inconnu" if value in ("", "None", None, [], ()) else value
 
 
 def normalize_nom(nom):
