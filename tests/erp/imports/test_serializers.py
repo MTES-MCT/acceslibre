@@ -135,6 +135,51 @@ def test_erp_update_serializer():
 
 
 @pytest.mark.django_db
+def test_erp_update_serializer_inconsistencies():
+    erp = ErpFactory(
+        nom="Initial name",
+        accessibilite__accueil_audiodescription_presence=True,
+        accessibilite__accueil_audiodescription=["avec_app"],
+        accessibilite__entree_plain_pied=False,
+        accessibilite__entree_ascenseur=True,
+        accessibilite__entree_ascenseur_pmr=True,
+        accessibilite__accueil_chambre_nombre_accessibles=1,
+        accessibilite__accueil_chambre_douche_siege=True,
+        accessibilite__accueil_cheminement_plain_pied=False,  # control
+        accessibilite__accueil_cheminement_ascenseur=True,  # control
+        accessibilite__accueil_cheminement_ascenseur_pmr=True,  # control
+    )
+
+    serializer = ErpImportSerializer(
+        instance=erp,
+        data={
+            "accessibilite": {
+                "accueil_audiodescription_presence": False,
+                "entree_plain_pied": True,
+                "accueil_chambre_nombre_accessibles": 0,
+            },
+            "nom": "Aux bons pains",
+        },
+        partial=True,
+    )
+    assert serializer.is_valid(), serializer.errors
+    serializer.save()
+
+    erp.refresh_from_db()
+    assert erp.nom != "Aux bons pains", "Name should not be editable"
+    assert erp.accessibilite.accueil_audiodescription_presence is False
+    assert erp.accessibilite.accueil_audiodescription == [], "should have reinit child of attr switched to False"
+    assert erp.accessibilite.entree_plain_pied is True
+    assert erp.accessibilite.entree_ascenseur is None, "should have reinit child"
+    assert erp.accessibilite.entree_ascenseur_pmr is None, "should have reinit child of child"
+    assert erp.accessibilite.accueil_chambre_nombre_accessibles == 0
+    assert erp.accessibilite.accueil_chambre_douche_siege is None, "should have reinit child of attr switched to 0"
+    assert erp.accessibilite.accueil_cheminement_plain_pied is False, "control, should not be reinit"
+    assert erp.accessibilite.accueil_cheminement_ascenseur is True, "control, should not be reinit"
+    assert erp.accessibilite.accueil_cheminement_ascenseur_pmr is True, "control, should not be reinit"
+
+
+@pytest.mark.django_db
 def test_erp_duplicate():
     boulangerie = ActiviteFactory(nom="Boulangerie")
     # 3/43 must match geocode mock coordinates
