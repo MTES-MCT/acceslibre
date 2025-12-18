@@ -8,6 +8,7 @@ from api.serializers import ExternalSourceSerializer
 from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp, ExternalSource
 from erp.provider import geocoder, sirene
+from erp.schema import FIELDS
 
 TRUE_VALUES = ["true", "True", "TRUE", "1", "vrai", "Vrai", "VRAI", "oui", "Oui", "OUI", True]
 FALSE_VALUES = ["false", "False", "FALSE", "0", "faux", "Faux", "FAUX", "non", "Non", "NON", False]
@@ -211,6 +212,25 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         return obj
 
+    def _handle_children_reinit(self, accessibilite_instance, field_name):
+        field_config = FIELDS.get(field_name)
+        if not field_config or not field_config.get("children"):
+            return
+
+        current_value = getattr(accessibilite_instance, field_name)
+        trigger_values = field_config.get("value_to_display_children", [])
+
+        if str(current_value) not in trigger_values:
+            for child_name in field_config.get("children"):
+                field_obj = accessibilite_instance._meta.get_field(child_name)
+                default_value = field_obj.get_default()
+                if callable(default_value):
+                    default_value = default_value()
+
+                setattr(accessibilite_instance, child_name, default_value)
+
+                self._handle_children_reinit(accessibilite_instance, child_name)
+
     def validate(self, obj):
         if "accessibilite" not in obj:
             raise serializers.ValidationError("Veuillez fournir les données d'accessibilité.")
@@ -307,8 +327,10 @@ class ErpImportSerializer(serializers.ModelSerializer):
             if enrich_only and getattr(accessibilite, attr, None) is not None:
                 continue
 
-            if validated_data["accessibilite"][attr] not in (None, [], ()):
-                setattr(accessibilite, attr, validated_data["accessibilite"][attr])
+            new_value = validated_data["accessibilite"][attr]
+            if new_value not in (None, [], ()):
+                setattr(accessibilite, attr, new_value)
+                self._handle_children_reinit(accessibilite, attr)
 
         accessibilite.save()
 
