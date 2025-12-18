@@ -546,7 +546,7 @@ class TestErpApi:
         response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
-        assert erp.accessibilite.transport_station_presence is False, "Should kept access info"
+        assert erp.accessibilite.transport_station_presence is False, "Should have kept access info"
         assert erp.accessibilite.commentaire == "Updated comment"
 
         payload = {"accessibilite": {"transport_station_presence": None}}
