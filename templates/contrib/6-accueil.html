@@ -31,6 +31,12 @@
             {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True key="accueil_visibilite" %}
         </div>
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_isoloir_accessibilite inline=True key="accueil_isoloir_accessibilite" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.accueil_urne_accessibilite inline=True key="accueil_urne_accessibilite" %}
+        </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True key="accueil_cheminement_plain_pied" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />

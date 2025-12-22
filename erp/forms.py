@@ -214,6 +214,38 @@ class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
                 self.fields.pop(field, None)
 
 
+class ContribAccessibilitePollingStationForm(ContribAccessibiliteForm):
+    fields_to_remove = (
+        "entree_dispositif_appel",
+        "entree_balise_sonore",
+        "entree_aide_humaine",
+        "accueil_cheminement_plain_pied",
+        "accueil_retrecissement",
+        "accueil_personnels",
+        "accueil_audiodescription_presence",
+        "accueil_equipements_malentendants_presence",
+        "labels",
+        "labels_familles_handicap",
+        "labels_autre",
+    )
+    conditionals_to_add = get_conditional_fields_in("polling_station")
+    conditionals_to_remove = get_conditional_fields_not_in("polling_station")
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["polling_station"])
+        help_texts = schema.get_help_texts(include_conditional=["polling_station"])
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in copy(self.fields):
+            if field not in schema.get_help_texts(include_conditional="polling_station").keys():
+                self.fields.pop(field, None)
+
+
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
@@ -221,8 +253,8 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         model = Accessibilite
         exclude = ["pk"]
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=["hosting", "school", "floor"])
-        help_texts = schema.get_help_texts(include_conditional=["hosting", "school", "floor"])
+        labels = schema.get_labels(include_conditional=["hosting", "school", "floor", "polling_station"])
+        help_texts = schema.get_help_texts(include_conditional=["hosting", "school", "floor", "polling_station"])
         required = schema.get_required_fields()
 
     sanitaires_adaptes = forms.ChoiceField(
@@ -775,6 +807,7 @@ def get_contrib_forms_for_activity(activity: Activite):
         ACTIVITY_GROUPS["HOSTING"]: ContribAccessibiliteHotelsForm,
         ACTIVITY_GROUPS["SCHOOL"]: ContribAccessibiliteSchoolsForm,
         ACTIVITY_GROUPS["FLOOR"]: ContribAccessibiliteFloorsForm,
+        ACTIVITY_GROUPS["POLLING_STATION"]: ContribAccessibilitePollingStationForm,
     }
 
     groups = activity.groups.all()
