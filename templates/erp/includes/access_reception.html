@@ -11,6 +11,16 @@
     <div id="access_reception" class="fr-collapse">
         <ul>
             {% render_access_value "accueil_visibilite" access "all" %}
+            {% if access.accueil_isoloir_accessibilite %}
+                <li data-filters="walking">{{ "accueil_isoloir_accessibilite"|positive_text }}</li>
+            {% elif access.accueil_isoloir_accessibilite is False %}
+                <li data-filters="walking">{{ "accueil_isoloir_accessibilite"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_urne_accessibilite %}
+                <li data-filters="walking">{{ "accueil_urne_accessibilite"|positive_text }}</li>
+            {% elif access.accueil_urne_accessibilite is False %}
+                <li data-filters="walking">{{ "accueil_urne_accessibilite"|negative_text }}</li>
+            {% endif %}
             {% if access.accueil_cheminement_plain_pied %}
                 <li data-filters="walking,visual">{{ "accueil_cheminement_plain_pied"|positive_text }}</li>
             {% elif access.accueil_cheminement_plain_pied is False %}

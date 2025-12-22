@@ -182,6 +182,7 @@
           "Bureau de change",
           "Bureau de douane",
           "Bureau de poste",
+          "Bureau de vote",
           "Café, bar, brasserie",
           "Caisse d'allocations familiales (caf)",
           "Camping caravaning",
@@ -517,6 +518,37 @@
       "type": "boolean",
       "title": "Proximité d'un arrêt de transport en commun",
       "description": "Arrêt de transport en commun à moins de 200 mètres de l'établissement",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "transport_bureau_de_vote_accessibilite",
+      "type": "boolean",
+      "title": "Service municipal de transport adapté",
+      "description": "Existe-t-il un service municipal de transport adapté entre le domicile et le bureau de vote ?",
       "example": "True",
       "trueValues": [
         "true",
@@ -2184,6 +2216,68 @@
       ]
     },
     {
+      "name": "accueil_isoloir_accessibilite",
+      "type": "boolean",
+      "title": "Isoloir",
+      "description": "Le bureau de vote est-il équipé d'un isoloir adapté (largeur mini : 1m et hauteur de la tablette entre 0,70 et 0,80m)",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_urne_accessibilite",
+      "type": "boolean",
+      "title": "Urne",
+      "description": "La fente de l'urne est-elle située entre 0,90 et 1,30m de hauteur ?",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
       "name": "sanitaires_presence",
       "type": "boolean",
       "title": "Toilettes",
@@ -2312,7 +2406,7 @@
   "keywords": ["accessibilite", "access", "a11y"],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.19/schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -2324,18 +2418,18 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.19/exemple-valide.csv"
     },
     {
       "title": "Schéma au format XLS",
       "name": "schema_format_xls",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/blob/v0.0.18/schema_format_excel.xls"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/blob/v0.0.19/schema_format_excel.xls"
     }
   ],
   "sources": [],
   "created": "2021-03-10",
-  "lastModified": "2025-09-25",
-  "version": "0.0.18",
+  "lastModified": "2025-12-23",
+  "version": "0.0.19",
   "contributors": [
     {
       "title": "Christophe Vanfrackem",
