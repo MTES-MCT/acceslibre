@@ -955,9 +955,9 @@ def test_history_human_readable_diff():
 
     assert len(a11y_diff) == 4
 
-    assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Vide"
+    assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Inconnu"
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
-    assert str(get_entry("labels", a11y_diff)["old"]) == "Vide"
+    assert str(get_entry("labels", a11y_diff)["old"]) == "Inconnu"
     assert str(get_entry("labels", a11y_diff)["new"]) == "Destination pour Tous, Tourisme & Handicap"
 
 
