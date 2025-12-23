@@ -40,7 +40,12 @@ FULLTEXT_CONFIG = "french_unaccent"
 
 models.CharField.register_lookup(Lower)
 
-ACTIVITY_GROUPS = {"HOSTING": "Hébergement", "SCHOOL": "Etablissements scolaires", "FLOOR": "Etage accessible"}
+ACTIVITY_GROUPS = {
+    "HOSTING": "Hébergement",
+    "SCHOOL": "Etablissements scolaires",
+    "FLOOR": "Etage accessible",
+    "POLLING_STATION": "Bureau de vote",
+}
 
 
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
@@ -1266,6 +1271,12 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name=translate_lazy("Informations transports"),
     )
+    transport_bureau_de_vote_accessibilite = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("transport_bureau_de_vote_accessibilite"),
+        verbose_name=translate_lazy("Accessibilité du service municipal de transport"),
+    )
 
     ###################################
     # Stationnement                   #
@@ -1774,6 +1785,18 @@ class Accessibilite(models.Model):
         default=list,
         null=True,
         blank=True,
+    )
+    accueil_isoloir_accessibilite = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_isoloir_accessibilite"),
+        verbose_name=translate_lazy("Accessibilité de l'isoloir"),
+    )
+    accueil_urne_accessibilite = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_urne_accessibilite"),
+        verbose_name=translate_lazy("Accessibilité de l'urne"),
     )
     ##############
     # Sanitaires #

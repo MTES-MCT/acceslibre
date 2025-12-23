@@ -108,6 +108,7 @@ def test_export_command(mocker, settings):
         "",
         "",
         "",
+        "",
         "True",
         "",
         "",
@@ -156,6 +157,8 @@ def test_export_command(mocker, settings):
         "False",
         "True",
         "",
+        "",
+        "",
         "True",
         "False",
         "",
@@ -171,7 +174,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 90, "New exported field or missing field in export"
+        assert len(header) == 93, "New exported field or missing field in export"
         assert erp_csv == expected
 
     assert os.path.isfile("acceslibre-with-web-url.csv")
@@ -179,7 +182,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 91, "New exported field or missing field in export"
+        assert len(header) == 94, "New exported field or missing field in export"
         assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
 
     os.unlink("acceslibre-with-web-url.csv")
@@ -204,7 +207,7 @@ def test_export_failure(mocker, settings):
 def test_generate_schema(db, activite):
     base = "erp/export/static/base-schema.json"
     outfile = "schema-test.json"
-    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.18/"
+    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.19/"
 
     generate_schema(base, outfile, repository)
 

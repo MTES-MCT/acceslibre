@@ -23,6 +23,7 @@ class EtalabMapper(BaseExportMapper):
     longitude: float
     latitude: float
     transport_station_presence: bool
+    transport_bureau_de_vote_accessibilite: bool
     stationnement_presence: bool
     stationnement_pmr: bool
     stationnement_ext_presence: bool
@@ -100,6 +101,8 @@ class EtalabMapper(BaseExportMapper):
     accueil_chambre_equipement_alerte: bool
     accueil_chambre_accompagnement: bool
     accueil_retrecissement: bool
+    accueil_isoloir_accessibilite: bool
+    accueil_urne_accessibilite: bool
     sanitaires_presence: bool
     sanitaires_adaptes: int
     labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th", "handiplage"]]]
@@ -133,6 +136,7 @@ class EtalabMapper(BaseExportMapper):
             longitude=map_coords(erp.geom, 0),
             latitude=map_coords(erp.geom, 1),
             transport_station_presence=erp.accessibilite.transport_station_presence,
+            transport_bureau_de_vote_accessibilite=erp.accessibilite.transport_bureau_de_vote_accessibilite,
             stationnement_presence=erp.accessibilite.stationnement_presence,
             stationnement_pmr=erp.accessibilite.stationnement_pmr,
             stationnement_ext_presence=erp.accessibilite.stationnement_ext_presence,
@@ -234,6 +238,8 @@ class EtalabMapper(BaseExportMapper):
             cheminement_ext_ascenseur_pmr=erp.accessibilite.cheminement_ext_ascenseur_pmr,
             entree_ascenseur_pmr=erp.accessibilite.entree_ascenseur_pmr,
             accueil_cheminement_ascenseur_pmr=erp.accessibilite.accueil_cheminement_ascenseur_pmr,
+            accueil_urne_accessibilite=erp.accessibilite.accueil_urne_accessibilite,
+            accueil_isoloir_accessibilite=erp.accessibilite.accueil_isoloir_accessibilite,
         )
 
 
