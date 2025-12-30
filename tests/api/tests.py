@@ -318,6 +318,7 @@ class TestErpApi:
                     "stationnement_pmr": None,
                     "stationnement_ext_presence": None,
                     "stationnement_ext_pmr": None,
+                    "transport_bureau_de_vote_accessibilite": None,
                 },
                 "cheminement_ext": {
                     "cheminement_ext_presence": None,
@@ -391,6 +392,8 @@ class TestErpApi:
                     "accueil_ascenseur_etage_pmr": None,
                     "accueil_classes_accessibilite": None,
                     "accueil_espaces_ouverts": [],
+                    "accueil_urne_accessibilite": None,
+                    "accueil_isoloir_accessibilite": None,
                 },
                 "registre": {"registre_url": None},
                 "conformite": {"conformite": None},
@@ -620,6 +623,7 @@ class TestAccessibiliteApi:
                     "transport": {
                         "transport_station_presence": None,
                         "transport_information": None,
+                        "transport_bureau_de_vote_accessibilite": None,
                         "stationnement_presence": None,
                         "stationnement_pmr": None,
                         "stationnement_ext_presence": None,
@@ -697,6 +701,8 @@ class TestAccessibiliteApi:
                         "accueil_ascenseur_etage_pmr": None,
                         "accueil_classes_accessibilite": None,
                         "accueil_espaces_ouverts": [],
+                        "accueil_isoloir_accessibilite": None,
+                        "accueil_urne_accessibilite": None,
                     },
                     "registre": {"registre_url": None},
                     "conformite": {"conformite": None},

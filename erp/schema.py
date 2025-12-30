@@ -668,7 +668,7 @@ FIELDS = {
     # NOTE value_to_display_children(list(str)): values expanding the children fields.
     # NOTE min_value_to_display_children(int): min value expanding the children fields.
     # NOTE excluded_from_completion_rate (bool; default=False): if True, the field will not be taken into account for completion rate computation
-    # NOTE conditional(None|hosting|school|floor) determines whether a field is always display or if it is display only under certain conditions. Like if field has
+    # NOTE conditional(None|hosting|school|floor|polling_station) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
     #        Default is None if not provided.
     # NOTE free_text(true|false) determines whether a field is a free text/a user input or not. If yes, it's intented to be cleaned from profanities and
@@ -725,6 +725,35 @@ FIELDS = {
         "free_text": True,
         "excluded_from_completion_rate": True,
         "root": False,
+    },
+    "transport_bureau_de_vote_accessibilite": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Service municipal de transport adapté"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Existe-t-il un service municipal de transport adapté entre le domicile et le bureau de vote ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Le service municipal de transport est adapté entre le domicile et le bureau de vote"
+        ),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Pas de service municipal de transport adapté entre le domicile et le bureau de vote"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/arret-transport-en-commun.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_TRANSPORT,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "root": True,
+        "conditional": "polling_station",
     },
     # Stationnement
     "stationnement_presence": {
@@ -2364,6 +2393,56 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "school",
+        "root": True,
+    },
+    "accueil_isoloir_accessibilite": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Isoloir"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Le bureau de vote est-il équipé d'un isoloir adapté (largeur mini : 1m et hauteur de la tablette entre 0,70 et 0,80m)"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Le bureau de vote est équipé d'un isoloir adapté (largeur mini : 1m et hauteur de la tablette entre 0,70m et 0,80m)"
+        ),
+        "help_text_ui_neg_v2": translate_lazy("Le bureau de vote n'est pas équipé d'un isoloir adapté"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/bureau-de-vote-isoloir.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "polling_station",
+        "root": True,
+    },
+    "accueil_urne_accessibilite": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Urne"),
+        "help_text": mark_safe(translate_lazy("La fente de l'urne est-elle située entre 0,90 et 1,30m de hauteur ?")),
+        "help_text_ui_v2": translate_lazy(
+            "Le bureau de vote est équipé d'une urne adaptée située entre 0,90 et 1,30m de hauteur"
+        ),
+        "help_text_ui_neg_v2": translate_lazy("Le bureau de vote n'est pas équipé d'une urne adaptée"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/bureau-de-vote-urne.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "polling_station",
         "root": True,
     },
     # Sanitaires

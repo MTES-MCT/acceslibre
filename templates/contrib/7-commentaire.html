@@ -30,15 +30,21 @@
     <div class="contrib-inputs-section-wrapper">
         {% if should_display_group_labels %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% include "fields/checkbox.html" with field=form.labels inline=True %}
-                <div class="contrib-inputs-section">
-                    <hr class="fr-hr" />
-                    {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
-                </div>
-                <div class="contrib-inputs-section">
-                    <hr class="fr-hr" />
-                    {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
-                </div>
+                {% if form.labels %}
+                    {% include "fields/checkbox.html" with field=form.labels inline=True %}
+                {% endif %}
+                {% if form.labels_autre %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
+                    </div>
+                {% endif %}
+                {% if form.labels_familles_handicap %}
+                    <div class="contrib-inputs-section">
+                        <hr class="fr-hr" />
+                        {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
