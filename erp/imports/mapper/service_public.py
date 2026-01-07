@@ -214,10 +214,8 @@ class ServicePublicMapper:
         self.erp = erp
 
     def process(self):
-        if not self.erp and not (
-            all([self.record.get(key) for key in ("pivot", "ancien_code_pivot", "nom", "adresse")])
-        ):
-            logger.info("Missing pivot, ancien_code_pivot, nom or adresse in record")
+        if not self.erp and not (all([self.record.get(key) for key in ("pivot", "nom", "adresse")])):
+            logger.info("Missing pivot, nom or adresse in record")
             return None, [], None
 
         def _ensure_not_permanently_closed(qs):
@@ -231,18 +229,6 @@ class ServicePublicMapper:
             qs = Erp.objects.filter(asp_id=asp_id)
             _ensure_not_permanently_closed(qs)
             return qs.first()
-
-        # NOTE: we search on both gendarmerie and service_public datasets as the gendarmerie import is taking
-        # ownership on all the gendarmeries even on those initially coming from the service_public import
-        def _search_by_old_code(old_code):
-            if not old_code:
-                return
-
-            qs = Erp.objects.find_by_source_id(
-                [ExternalSource.SOURCE_SERVICE_PUBLIC, ExternalSource.SOURCE_GENDARMERIE], old_code
-            )
-            _ensure_not_permanently_closed(qs)
-            return qs.published().first()
 
         def _search_by_partner_id(partner_id):
             if not partner_id:
@@ -267,7 +253,6 @@ class ServicePublicMapper:
         try:
             erp = self.erp or (
                 _search_by_asp_id(self.record["id"])
-                or _search_by_old_code(self.record["ancien_code_pivot"])
                 or _search_by_partner_id(self.record["partenaire_identifiant"])
                 or _search_by_name_address(self.record["nom"], self.record["adresse"])
             )
@@ -291,7 +276,7 @@ class ServicePublicMapper:
         data["asp_id"] = self.record["id"]
         if not erp:
             data["source"] = ExternalSource.SOURCE_SERVICE_PUBLIC
-            data["source_id"] = self.record["ancien_code_pivot"]
+            data["source_id"] = self.record["id"]
             data["user_type"] = Erp.USER_ROLE_SYSTEM
             data["published"] = False  # will be set to True later on, if we have access info
 
@@ -356,10 +341,6 @@ class ServicePublicMapper:
         except reversion.errors.RevertError:
             erp = serializer.save()
 
-        sources = [
-            ExternalSource(
-                erp=erp, source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id=self.record["ancien_code_pivot"]
-            )
-        ]
+        sources = [ExternalSource(erp=erp, source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id=self.record["id"])]
         logger.info("ERP %s created/updated", erp)
         return erp, sources, None
