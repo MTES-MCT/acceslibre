@@ -1858,6 +1858,11 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name=translate_lazy("URL du registre"),
     )
+    rpa = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Registre public d'accessibilité"),
+    )
 
     ##########################
     # Conformité             #
