@@ -25,8 +25,6 @@ class Command(BaseCommand):
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
-        if dataset == "gendarmerie":
-            results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
         elif dataset == "generic":
