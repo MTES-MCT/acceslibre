@@ -97,7 +97,6 @@ class Command(BaseCommand):
         schedule.every().day.at("04:00").do(call_command, "refresh_stats")
         schedule.every().day.at("03:35").do(call_command, "purge_obsolete_objects_in_base")
         schedule.every().day.at("03:55").do(call_command, "deleterevisions", keep=20, days=70)
-        schedule.every().day.at("05:10").do(call_command, "import_dataset", "gendarmerie")
         schedule.every(30).days.at("02:10").do(call_command, "import_dataset", "service_public")
         schedule.every(30).days.at("04:15").do(call_command, "data_grandlyon_acquisition")
         schedule.every().day.at("23:50").do(call_command, "sync_brevo")
