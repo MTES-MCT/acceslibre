@@ -40,41 +40,39 @@
                 {% include "fields/boolradio.html" with field=form.accueil_urne_accessibilite inline=True key="accueil_urne_accessibilite" %}
             </div>
         {% endif %}
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% if form.accueil_cheminement_plain_pied %}
+        {% if form.accueil_cheminement_plain_pied %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True key="accueil_cheminement_plain_pied" %}
-            {% endif %}
-            <div class="contrib-inputs-section">
-                {% if form.accueil_cheminement_plain_pied %}<hr class="fr-hr" />{% endif %}
-                {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True key="accueil_cheminement_ascenseur" %}
-            </div>
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur_pmr inline=True key="accueil_cheminement_ascenseur_pmr" %}
-            </div>
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/textarea.html" with field=form.accueil_cheminement_nombre_marches key="accueil_cheminement_nombre_marches" %}
-            </div>
-            {% if form.accueil_retrecissement %}
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True key="accueil_cheminement_ascenseur" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur_pmr inline=True key="accueil_cheminement_ascenseur_pmr" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/textarea.html" with field=form.accueil_cheminement_nombre_marches key="accueil_cheminement_nombre_marches" %}
+                </div>
                 <div class="contrib-inputs-section">
                     <hr class="fr-hr" />
                     {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True key="accueil_retrecissement" %}
                 </div>
-            {% endif %}
-        </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True key="accueil_cheminement_sens_marches" %}
-        </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True key="accueil_cheminement_reperage_marches" %}
-        </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True key="accueil_cheminement_main_courante" %}
-        </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True key="accueil_cheminement_rampe" %}
-        </div>
+                <div class="contrib-inputs-section">
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True key="accueil_cheminement_sens_marches" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True key="accueil_cheminement_reperage_marches" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True key="accueil_cheminement_main_courante" %}
+                </div>
+                <div class="contrib-inputs-section">
+                    {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True key="accueil_cheminement_rampe" %}
+                </div>
+            </div>
+        {% endif %}
         {% if form.accueil_personnels %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True key="accueil_personnels" %}
@@ -90,16 +88,16 @@
                     </div>
                 {% endif %}
             </div>
-        {% endif %}
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% if form.accueil_equipements_malentendants_presence %}
-                {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
-            {% endif %}
-            <div class="contrib-inputs-section">
-                {% if form.accueil_equipements_malentendants_presence %}<hr class="fr-hr" />{% endif %}
-                {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% if form.accueil_equipements_malentendants_presence %}
+                    {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
+                    <div class="contrib-inputs-section">
+                        {% if form.accueil_equipements_malentendants_presence %}<hr class="fr-hr" />{% endif %}
+                        {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
+                    </div>
+                {% endif %}
             </div>
-        </div>
+        {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
             <div class="contrib-inputs-section ">

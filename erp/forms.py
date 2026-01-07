@@ -216,17 +216,27 @@ class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
 
 class ContribAccessibilitePollingStationForm(ContribAccessibiliteForm):
     fields_to_remove = (
-        "entree_dispositif_appel",
-        "entree_balise_sonore",
-        "entree_aide_humaine",
-        "accueil_cheminement_plain_pied",
-        "accueil_retrecissement",
-        "accueil_personnels",
-        "accueil_audiodescription_presence",
-        "accueil_equipements_malentendants_presence",
-        "labels",
-        "labels_familles_handicap",
-        "labels_autre",
+        "entree_dispositif_appel",  # Root
+        "entree_dispositif_appel_type",  # Child
+        "entree_balise_sonore",  # Root
+        "entree_aide_humaine",  # Root
+        "accueil_cheminement_plain_pied",  # Root
+        "accueil_cheminement_nombre_marches",  # Child
+        "accueil_cheminement_sens_marches",  # Child
+        "accueil_cheminement_reperage_marches",  # Child
+        "accueil_cheminement_main_courante",  # Child
+        "accueil_cheminement_rampe",  # Child
+        "accueil_cheminement_ascenseur",  # Child
+        "accueil_cheminement_ascenseur_pmr",  # Child
+        "accueil_retrecissement",  # Root
+        "accueil_personnels",  # Root
+        "accueil_audiodescription_presence",  # Root
+        "accueil_audiodescription",  # Child
+        "accueil_equipements_malentendants_presence",  # Child
+        "accueil_equipements_malentendants",  # Child
+        "labels",  # Root
+        "labels_familles_handicap",  # Root
+        "labels_autre",  # Root
     )
     conditionals_to_add = get_conditional_fields_in("polling_station")
     conditionals_to_remove = get_conditional_fields_not_in("polling_station")

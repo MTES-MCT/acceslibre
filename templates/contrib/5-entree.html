@@ -95,7 +95,6 @@
                 {% include "fields/boolradio.html" with field=form.entree_marches_rampe inline=True key="entree_marches_rampe" %}
             </div>
         </div>
-        {# todo: bug with entree_balise_sonore and entree_aide_humaine that are blanks #}
         {% if form.entree_balise_sonore %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
