@@ -7,10 +7,9 @@ from django.db.transaction import TransactionManagementError
 
 from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
-from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.service_public import ServicePublicMapper
-from erp.models import Accessibilite, Activite, ExternalSource
+from erp.models import Accessibilite, ExternalSource
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
 
@@ -108,16 +107,6 @@ class Importer:
 def get_erp(erp):
     # Sometimes the ERP is not in base and get rejected, so "erp" is empty
     return str(erp) if erp else "ERP non répertorié"
-
-
-def import_gendarmeries(verbose=False):
-    return Importer(
-        "061a5736-8fc2-4388-9e55-8cc31be87fa0",
-        fetcher.CsvFetcher(delimiter=";"),
-        GendarmerieMapper,
-        Activite.objects.get(slug="gendarmerie"),
-        verbose=verbose,
-    ).process()
 
 
 def import_generic(verbose=False):
