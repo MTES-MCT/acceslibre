@@ -1296,15 +1296,6 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": True,
-        "value_to_display_children": ["False"],
-        "children": [
-            "cheminement_ext_nombre_marches",
-            "cheminement_ext_sens_marches",
-            "cheminement_ext_reperage_marches",
-            "cheminement_ext_main_courante",
-            "cheminement_ext_rampe",
-            "cheminement_ext_ascenseur",
-        ],
     },
     "entree_porte_presence": {
         "type": "boolean",
