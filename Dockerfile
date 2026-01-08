@@ -1,4 +1,5 @@
 FROM python:3.13-slim
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -21,8 +22,6 @@ ENV DJANGO_SETTINGS_MODULE=core.settings_dev
 ENV VIRTUAL_ENV=/app/.venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-RUN pip install --no-cache-dir uv
-
 COPY pyproject.toml uv.lock ./
 
 RUN uv venv && \
@@ -32,4 +31,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["uv", "run", "manage.py", "runserver", "0.0.0.0:8000"]
