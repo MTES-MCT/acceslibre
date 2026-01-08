@@ -55,13 +55,15 @@
                 {% include "fields/textarea.html" with field=form.entree_largeur_mini key="entree_largeur_mini" %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True key="entree_dispositif_appel" %}
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True key="entree_dispositif_appel_type" %}
+        {% if form.entree_dispositif_appel %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True key="entree_dispositif_appel" %}
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/checkbox.html" with field=form.entree_dispositif_appel_type inline=True key="entree_dispositif_appel_type" %}
+                </div>
             </div>
-        </div>
+        {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_plain_pied inline=True key="entree_plain_pied" %}
             <div class="contrib-inputs-section">
@@ -93,12 +95,16 @@
                 {% include "fields/boolradio.html" with field=form.entree_marches_rampe inline=True key="entree_marches_rampe" %}
             </div>
         </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
-        </div>
-        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True key="entree_aide_humaine" %}
-        </div>
+        {% if form.entree_balise_sonore %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.entree_balise_sonore inline=True key="entree_balise_sonore" %}
+            </div>
+        {% endif %}
+        {% if form.entree_aide_humaine %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.entree_aide_humaine inline=True key="entree_aide_humaine" %}
+            </div>
+        {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.entree_pmr inline=True key="entree_pmr" %}
             <div class="contrib-inputs-section">

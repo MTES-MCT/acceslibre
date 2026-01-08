@@ -63,6 +63,10 @@
                  tabindex="0">
                 <div class="main-search__list" id="erp-results-list">
                     <div class="position--sticky">
+                        {% if not display_filters %}
+                            {# Used to fix headings structure (RGAA) when coming from annuaire page #}
+                            <h1 class="fr-h4 fr-mb-1w">{% translate "Rechercher un lieu" %}</h1>
+                        {% endif %}
                         <h2 class="fr-h4 fr-mb-1w">{% translate "Établissements existants sur Acceslibre" %}</h2>
                         <p id="number-of-results" class="fr-mb-0 fr-text--xl" aria-live="polite">
                             {% translate "En cours de chargement..." %}

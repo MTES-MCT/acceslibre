@@ -136,6 +136,7 @@ def activite(db):
         "Bureau de change",
         "Bureau de douane",
         "Bureau de poste",
+        "Bureau de vote",
         "Café, bar, brasserie",
         "Caisse d'allocations familiales (caf)",
         "Camping caravaning",

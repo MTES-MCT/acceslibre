@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-17 14:10+0100\n"
-"PO-Revision-Date: 2025-12-17 14:04+0100\n"
+"POT-Creation-Date: 2025-12-29 14:32+0100\n"
+"PO-Revision-Date: 2025-12-29 14:22+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.2\n"
+"X-Translated-Using: django-rosetta 0.10.3\n"
 
 msgid "stationnement"
 msgstr "parking"
@@ -1080,6 +1080,9 @@ msgstr "Public transport service"
 msgid "Informations transports"
 msgstr "Transportation information"
 
+msgid "Accessibilité du service municipal de transport"
+msgstr "Accessibility of municipal transportation service"
+
 msgid "Stationnement dans l'ERP"
 msgstr "Parking within the ERP"
 
@@ -1241,6 +1244,12 @@ msgstr "Accessibility of classrooms"
 
 msgid "Accessibilité des différents espaces ouverts aux élèves ou étudiants"
 msgstr "Accessibility of different spaces open to students or students"
+
+msgid "Accessibilité de l'isoloir"
+msgstr "Accessibility of the voting booth"
+
+msgid "Accessibilité de l'urne"
+msgstr "Accessibility of the ballot box"
 
 msgid "Sanitaires"
 msgstr "Sanitary facilities"
@@ -1705,6 +1714,28 @@ msgstr ""
 
 msgid "Informations sur l'accessibilité par les transports en commun"
 msgstr "Information on accessibility by public transportation"
+
+msgid "Service municipal de transport adapté"
+msgstr "Municipal paratransit service"
+
+msgid ""
+"Existe-t-il un service municipal de transport adapté entre le domicile et le "
+"bureau de vote ?"
+msgstr ""
+"Is there a municipal adapted transport service between home and the polling "
+"station?"
+
+msgid ""
+"Le service municipal de transport est adapté entre le domicile et le bureau "
+"de vote"
+msgstr ""
+"The municipal transport service is adapted between home and the polling "
+"station"
+
+msgid ""
+"Pas de service municipal de transport adapté entre le domicile et le bureau "
+"de vote"
+msgstr "No municipal transport service between home and the polling station"
 
 msgid "Stationnement privé dans l'établissement"
 msgstr "Private parking on site"
@@ -2711,6 +2742,42 @@ msgid ""
 "Les espaces ouverts dédiés aux élèves ou étudiants ne sont pas accessibles"
 msgstr "Open spaces dedicated to students or students are not accessible"
 
+msgid "Isoloir"
+msgstr "Polling booth"
+
+msgid ""
+"Le bureau de vote est-il équipé d'un isoloir adapté (largeur mini : 1m et "
+"hauteur de la tablette entre 0,70 et 0,80m)"
+msgstr ""
+"Is the polling station equipped with a suitable voting booth (minimum width: "
+"1m and height of the tablet between 0.70 and 0.80m)"
+
+msgid ""
+"Le bureau de vote est équipé d'un isoloir adapté (largeur mini : 1m et "
+"hauteur de la tablette entre 0,70m et 0,80m)"
+msgstr ""
+"The polling station is equipped with a suitable voting booth (minimum width: "
+"1m and height of the tablet between 0.70m and 0.80m)"
+
+msgid "Le bureau de vote n'est pas équipé d'un isoloir adapté"
+msgstr "The polling station is not equipped with a suitable voting booth"
+
+msgid "Urne"
+msgstr "Urn"
+
+msgid "La fente de l'urne est-elle située entre 0,90 et 1,30m de hauteur ?"
+msgstr "Is the slot in the urn located between 0.90 and 1.30m in height?"
+
+msgid ""
+"Le bureau de vote est équipé d'une urne adaptée située entre 0,90 et 1,30m "
+"de hauteur"
+msgstr ""
+"The polling station is equipped with a suitable ballot box located between "
+"0.90 and 1.30m in height"
+
+msgid "Le bureau de vote n'est pas équipé d'une urne adaptée"
+msgstr "The polling station is not equipped with a suitable ballot box"
+
 msgid "Toilettes"
 msgstr "Toilets"
 
@@ -3147,6 +3214,12 @@ msgstr "Back to home"
 msgid "Annuaire"
 msgstr "Directory"
 
+msgid "Vous êtes ici :"
+msgstr "You are here:"
+
+msgid "Voir le fil d'Ariane"
+msgstr "See the breadcrumb"
+
 msgid "Tous les départements"
 msgstr "All departments"
 
@@ -3179,12 +3252,6 @@ msgstr "Go to the official website"
 
 msgid "Ouverture dans un nouvel onglet"
 msgstr "Open in a new tab"
-
-msgid "Vous êtes ici :"
-msgstr "You are here:"
-
-msgid "Voir le fil d'Ariane"
-msgstr "See the breadcrumb"
 
 msgid "Informations d'accessibilité ajoutées"
 msgstr "Accessibility information added"
@@ -6690,3 +6757,10 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid ""
+#~ "Informations sur l'accessibilité du service municipal de transport entre "
+#~ "le domicile et le bureau de vote"
+#~ msgstr ""
+#~ "Information on the accessibility of the municipal transport service "
+#~ "between home and the polling station"

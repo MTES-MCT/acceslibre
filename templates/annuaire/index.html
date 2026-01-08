@@ -4,43 +4,77 @@
 {% block page_title %}
     {% translate "Annuaire" %}
 {% endblock page_title %}
-{% block editorial_content %}
-    <h1 class="fr-mb-3v">
-        <a href="{% url 'annuaire_home' %}">{% translate "Annuaire" %}</a>
-    </h1>
-    <div class="row">
-        <div class="fr-col-md-3">
-            <div class="list-group">
-                <a class="list-group-item list-group-item-action text-truncate{% if not current_departement.code %} active{% endif %}"
-                   href="{% url "annuaire_home" %}">{% translate "Tous les départements" %}</a>
-                {% for code, departement in departements.items %}
-                    <a class="list-group-item list-group-item-action text-truncate{% if current_departement.code == code %} active{% endif %}"
-                       href="{% url 'annuaire_departement' departement=code %}">{{ code }} - {{ departement.nom }}</a>
-                {% endfor %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Annuaire" %}</a>
+                    </li>
+                </ol>
             </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <h1 class="fr-mb-3v">{% translate "Annuaire" %}</h1>
+    <div class="fr-grid-row fr-grid-row--gutters">
+        <div class="fr-col-5">
+            <aside class="card">
+                <div class="card-header">
+                    <a class="fr-link {% if not current_departement.code %}active{% endif %}"
+                       href="{% url "annuaire_home" %}">{% translate "Tous les départements" %}</a>
+                </div>
+                <ul class="list-style-type--none fr-pl-0">
+                    {% for code, departement in departements.items %}
+                        <li class="fr-grid-row fr-col-12">
+                            <a class="fr-p-1w fr-link fr-col-12 text-truncate{% if current_departement.code == code %} active{% endif %}"
+                               href="{% url 'annuaire_departement' departement=code %}">{{ code }} - {{ departement.nom }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </aside>
         </div>
-        <div class="fr-col-md-9">
+        <div class="fr-col-7">
             {% if not current_departement %}
-                <p class="fr-alert fr-alert--info" role="status">
-                    {% translate "Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés." %}
-                </p>
+                <div class="fr-alert fr-alert--info" role="status">
+                    <p>
+                        {% translate "Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés." %}
+                    </p>
+                </div>
             {% else %}
-                <h2 class="fr-mt-2v fr-mb-3v">
+                <h2 class="fr-mt-0 fr-mb-3v">
                     {{ current_departement.code }} - {{ current_departement.nom }}
-                    <small class="text-muted">{{ current_departement_erp_count }} {% blocktranslate count counter=current_departement_erp_count %}établissement{% plural %}établissements{% endblocktranslate %}</small>
+                    ({{ current_departement_erp_count }} {% blocktranslate count counter=current_departement_erp_count %}établissement{% plural %}établissements{% endblocktranslate %})
                 </h2>
-                {% for commune in communes %}
-                    <p>
-                        {{ commune.code_postaux|join:", " }} -
-                        <a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a>
-                        <small class="text-muted">({{ commune.erp_access_count }} {% blocktranslate count counter=commune.erp_access_count %}établissement{% plural %}établissements{% endblocktranslate %})</small>
+                {% if communes|length == 0 %}
+                    <p class="fr-mb-1w">
+                        {% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}
                     </p>
-                {% empty %}
-                    <p>{% translate "Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département." %}</p>
                     <p>
-                        <a class="fr-btn fr-btn--sm" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
+                        <a class="fr-btn" href="{% url 'contrib_start' %}">{% translate "Ajouter un établissement" %}</a>
                     </p>
-                {% endfor %}
+                {% endif %}
+                <ul>
+                    {% for commune in communes %}
+                        <li>
+                            <p class="fr-mb-1v">
+                                {{ commune.code_postaux|join:", " }} -
+                                <a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a>
+                                ({{ commune.erp_access_count }} {% blocktranslate count counter=commune.erp_access_count %}établissement{% plural %}établissements{% endblocktranslate %})
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
             {% endif %}
         </div>
     </div>

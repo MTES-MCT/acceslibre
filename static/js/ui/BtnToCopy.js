@@ -11,7 +11,7 @@ function BtnToCopy(root) {
 
   if (!urlToCopy || !voiceOverText || !btn || !navigator.clipboard) return
 
-  document.addEventListener('click', () => {
+  btn.addEventListener('click', () => {
     navigator.clipboard.writeText(urlToCopy).then(() => {
       voiceOverText.innerText = gettext('Le lien a été copié.')
     })

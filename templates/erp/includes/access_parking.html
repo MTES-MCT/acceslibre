@@ -10,6 +10,19 @@
 {% spaceless %}
     <div id="access_parking_controls" class="fr-collapse">
         <ul>
+            {% if access.transport_bureau_de_vote_accessibilite %}
+                <li data-filters="walking">
+                    {{ "transport_bureau_de_vote_accessibilite"|positive_text }}
+                    {% if access.transport_information %}
+                        :
+                        <div class="a4a-comment-block">
+                            <p>{{ access.transport_information|linebreaksbr }}</p>
+                        </div>
+                    {% endif %}
+                </li>
+            {% elif access.transport_bureau_de_vote_accessibilite is False %}
+                <li data-filters="walking">{{ "transport_bureau_de_vote_accessibilite"|negative_text }}</li>
+            {% endif %}
             {% if access.transport_station_presence %}
                 <li data-filters="all">
                     {{ "transport_station_presence"|positive_text }}

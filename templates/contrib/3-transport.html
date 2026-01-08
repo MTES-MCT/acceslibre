@@ -27,6 +27,11 @@
 {% endblock robots %}
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
+        {% if form.transport_bureau_de_vote_accessibilite %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w fr-mt-3w">
+                {% include "fields/boolradio.html" with field=form.transport_bureau_de_vote_accessibilite key="transport_bureau_de_vote_accessibilite" inline=True %}
+            </div>
+        {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.transport_station_presence key="transport_station_presence" inline=True %}
             {% translate "Informations complémentaires" as transport_information_label %}
