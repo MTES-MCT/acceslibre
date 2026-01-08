@@ -737,7 +737,7 @@ FIELDS = {
             )
         ),
         "help_text_ui_v2": translate_lazy(
-            "Le service municipal de transport est adapté entre le domicile et le bureau de vote"
+            "Service municipal de transport adapté entre le domicile et le bureau de vote"
         ),
         "help_text_ui_neg_v2": translate_lazy(
             "Pas de service municipal de transport adapté entre le domicile et le bureau de vote"
@@ -2419,10 +2419,10 @@ FIELDS = {
         "is_a11y": True,
         "label": translate_lazy("Urne"),
         "help_text": mark_safe(translate_lazy("La fente de l'urne est-elle située entre 0,90 et 1,30m de hauteur ?")),
-        "help_text_ui_v2": translate_lazy(
-            "Le bureau de vote est équipé d'une urne adaptée située entre 0,90 et 1,30m de hauteur"
+        "help_text_ui_v2": translate_lazy("La fente de l'urne est située 0,90 et 1,30 mètre de hauteur"),
+        "help_text_ui_neg_v2": translate_lazy(
+            "La fente de l'urne n'est pas située entre 0,90 et 1,30 mètre de hauteur"
         ),
-        "help_text_ui_neg_v2": translate_lazy("Le bureau de vote n'est pas équipé d'une urne adaptée"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "choices_images": (
             ("/static/img/contrib/bureau-de-vote-urne.png"),
