@@ -10,7 +10,7 @@ for LOCAL_DIR in locale/*; do
     cp $LOCAL_DIR/LC_MESSAGES/django.po $LOCAL_DIR/LC_MESSAGES/django.po.original
     cp $LOCAL_DIR/LC_MESSAGES/djangojs.po $LOCAL_DIR/LC_MESSAGES/djangojs.po.original
 
-    pipenv run make messages
+    make messages
 
     diff $LOCAL_DIR/LC_MESSAGES/django.po $LOCAL_DIR/LC_MESSAGES/django.po.original || { RETURN=$?; echo "make messages generates extra diff, maybe you should run make messages and commit the change";}
     diff $LOCAL_DIR/LC_MESSAGES/djangojs.po $LOCAL_DIR/LC_MESSAGES/djangojs.po.original || { RETURN=$?; echo "make messages generates extra diff, maybe you should run make messages and commit the change";}
