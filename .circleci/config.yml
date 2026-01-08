@@ -89,21 +89,18 @@ jobs:
       - run:
           name: Check Django templates
           command: |
-            export PATH="$VIRTUAL_ENV/bin:$PATH"
-            ./manage.py validate_templates
+            uv run ./manage.py validate_templates
       - run:
           name: Check Django templates linting
           command: |
-            export PATH="$VIRTUAL_ENV/bin:$PATH"
-            djlint templates \
+            uv run djlint templates \
               --profile=django \
               --custom-blocks=switch,flag,sample \
               --ignore="H006,H021,H019"
       - run:
           name: Check translations
           command: |
-            export PATH="$VIRTUAL_ENV/bin:$PATH"
-            ./bin/check_translations.sh
+            uv run ./bin/check_translations.sh
       # - run:
       #     name: Check FE linting
       #     command: |
@@ -146,14 +143,12 @@ jobs:
       - run:
           name: Run database migrations
           command: |
-            export PATH="$VIRTUAL_ENV/bin:$PATH"
-            ./manage.py migrate
+            uv run ./manage.py migrate
       - run:
           name: Run tests
           command: |
             mkdir -p test-results
-            export PATH="$VIRTUAL_ENV/bin:$PATH"
-            pytest \
+            uv run pytest \
               --circleci-parallelize \
               --junitxml=test-results/junit.xml
       - store_test_results:
