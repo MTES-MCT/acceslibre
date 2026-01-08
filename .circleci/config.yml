@@ -1,7 +1,9 @@
 version: 2.1
 
 env_vars: &shared_env_vars
-  PIPENV_VENV_IN_PROJECT: true
+  VIRTUAL_ENV: .venv
+  PYTHONDONTWRITEBYTECODE: 1
+  PYTHONUNBUFFERED: 1
   DJANGO_SETTINGS_MODULE: core.settings_test
   SECRET_KEY: secret-key
   DATABASE_URL: postgres://root:password@localhost/circle_test
@@ -44,23 +46,30 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install System dependencies
+          name: Install system dependencies
           command: |
             sudo apt update
             sudo apt install -y gdal-bin gettext
+      - restore_cache:
+          name: Restore Python cache
+          keys:
+            - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
+      - run:
+          name: Install uv
+          command: |
+            python -m pip install --user uv
       - run:
           name: Install Python dependencies
           command: |
-            pipenv sync --dev
+            uv sync --dev
       - save_cache:
-          key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: uv-{{ .Branch }}-{{ checksum "uv.lock" }}
           paths:
-            - '.venv'
-            - '/usr/local/lib/python3.13/site-packages'
-      - restore_cache:
-          name: Restore Node cached dependencies
-          keys:
-            - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - .venv
+      # - restore_cache:
+      #     name: Restore Node cached dependencies
+      #     keys:
+      #       - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
       # - run:
       #     name: Install Node dependencies
       #     command: |
@@ -68,11 +77,11 @@ jobs:
       # - save_cache:
       #     key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
       #     paths:
-      #       - 'node_modules'
+      #       - node_modules
       # - run:
       #     name: Check production security
       #     command: |
-      #       DJANGO_SETTINGS_MODULE=core.settings_prod pipenv run ./manage.py check --deploy
+      #       DJANGO_SETTINGS_MODULE=core.settings_prod ./manage.py check --deploy
       # - run:
       #     name: Check SASS stylesheets
       #     command: |
@@ -80,14 +89,20 @@ jobs:
       - run:
           name: Check Django templates
           command: |
-            pipenv run ./manage.py validate_templates
+            export PATH="$VIRTUAL_ENV/bin:$PATH"
+            ./manage.py validate_templates
       - run:
           name: Check Django templates linting
           command: |
-            pipenv run djlint templates --profile=django --custom-blocks=switch,flag,sample --ignore="H006,H021,H019"
+            export PATH="$VIRTUAL_ENV/bin:$PATH"
+            djlint templates \
+              --profile=django \
+              --custom-blocks=switch,flag,sample \
+              --ignore="H006,H021,H019"
       - run:
           name: Check translations
           command: |
+            export PATH="$VIRTUAL_ENV/bin:$PATH"
             ./bin/check_translations.sh
       # - run:
       #     name: Check FE linting
@@ -101,26 +116,46 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install System dependencies
+          name: Install system dependencies
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
+      - restore_cache:
+          name: Restore Python cache
+          keys:
+            - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
+      - run:
+          name: Install uv
+          command: |
+            python -m pip install --user uv
       - run:
           name: Install Python dependencies
           command: |
-            pipenv sync --dev
+            uv sync --dev
+      - save_cache:
+          key: uv-{{ .Branch }}-{{ checksum "uv.lock" }}
+          paths:
+            - .venv
       - run:
-          name: Wait for Postgres & redis server
-          command: dockerize -wait tcp://localhost:5432 -wait tcp://localhost:6379 -timeout 10s
+          name: Wait for Postgres & Redis
+          command: |
+            dockerize \
+              -wait tcp://localhost:5432 \
+              -wait tcp://localhost:6379 \
+              -timeout 10s
       - run:
           name: Run database migrations
           command: |
-            pipenv run ./manage.py migrate
+            export PATH="$VIRTUAL_ENV/bin:$PATH"
+            ./manage.py migrate
       - run:
           name: Run tests
           command: |
-            mkdir test-results
-            pipenv run pytest --circleci-parallelize --junitxml=test-results/junit.xml
+            mkdir -p test-results
+            export PATH="$VIRTUAL_ENV/bin:$PATH"
+            pytest \
+              --circleci-parallelize \
+              --junitxml=test-results/junit.xml
       - store_test_results:
           path: test-results
       - store_artifacts:

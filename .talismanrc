@@ -1,7 +1,5 @@
 fileignoreconfig:
-- filename: Pipfile.lock
-  ignore_detectors: [filecontent]
-- filename: package-lock.json
+- filename: uv.lock
   ignore_detectors: [filecontent]
 - filename: compte/forms.py
   checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
@@ -25,8 +23,6 @@ fileignoreconfig:
   checksum: 1cc959485e4164c86f548e532fadfa8ea7c4cc55db6637b6ea822c87c5981acf
 - filename: templates/contrib/4-exterieur.html
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
-- filename: .circleci/config.yml
-  checksum: 534382d601697d506ec5b5ae8e19d7042b9e8a1966b35d0ca817bba9320947e0
 - filename: templates/registration/password_reset_complete.html
   checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
 - filename: templates/registration/password_reset_confirm.html
@@ -37,3 +33,5 @@ fileignoreconfig:
   checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
 - filename: templates/contrib/3-transport.html
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
+- filename: .circleci/config.yml
+  checksum: 7db2386cde045a1ae4e3a83a1383e619ee1a6c52de9c7a1c8985c905aae5953f

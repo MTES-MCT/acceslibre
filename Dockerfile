@@ -1,33 +1,32 @@
-FROM python:3.13
+FROM python:3.13-slim
 
-RUN useradd -ms /bin/bash acceslibre
-
-# Install system dependencies for GDAL
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    gdal-bin \
-    libgdal-dev \
-    build-essential \
-    python3-gdal \
-    libspatialindex-dev \
-    gettext \
-    && rm -rf /var/lib/apt/lists/* \
+        gdal-bin \
+        libgdal-dev \
+        build-essential \
+        python3-gdal \
+        libspatialindex-dev \
+        gettext \
+    && rm -rf /var/lib/apt/lists/*
 
+RUN useradd -ms /bin/bash acceslibre
 USER acceslibre
-
-RUN mkdir /app
 
 WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE=core.settings_dev
+ENV VIRTUAL_ENV=/app/.venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-RUN pip install pipenv
+RUN pip install --no-cache-dir uv
 
-COPY Pipfile Pipfile.lock ./
-RUN python -m pip install --upgrade pip
-RUN pip install pipenv && pipenv install --dev --system --deploy
+COPY pyproject.toml uv.lock ./
+
+RUN uv venv && \
+    uv sync --dev
 
 COPY . .
 
