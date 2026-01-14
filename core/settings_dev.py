@@ -19,11 +19,12 @@ INTERNAL_IPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-INSTALLED_APPS.append("debug_toolbar.apps.DebugToolbarConfig")
 INSTALLED_APPS.append("rosetta")
 INSTALLED_APPS.append("django_deep_translator")
 
-MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
+if USE_DEBUG_TOOLBAR:
+    INSTALLED_APPS.append("debug_toolbar")
+    MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
 TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context_processors.debug")

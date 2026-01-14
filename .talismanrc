@@ -7,8 +7,6 @@ fileignoreconfig:
   checksum: 46dbc17a97dfe7ffb619c0281c4989d02ac40a17603b696701d00132384a9dbf
 - filename: erp/export/static/schema.json
   checksum: 2e3f20cf7ed1d425786c05f1deb3521af30d80c3e2c86f55861bab785a4fc111
-- filename: core/settings.py
-  checksum: 269e587476da3314cbd43665307b6942ecf3185fce3c2c078c07a947eac25be2
 - filename: .isort.cfg
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
@@ -35,3 +33,7 @@ fileignoreconfig:
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
 - filename: .circleci/config.yml
   checksum: 7db2386cde045a1ae4e3a83a1383e619ee1a6c52de9c7a1c8985c905aae5953f
+- filename: .env.sample
+  checksum: 87369459b8e37ac7fbef66697f423141bb68771f33e3f33f0a178b083aa5102b
+- filename: core/settings.py
+  checksum: fc1d7870c765ad9e99f20e74d335aa6fcbb6d6e223d9ba05c37ee0939d8c8764
