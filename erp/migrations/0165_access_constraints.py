@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("erp", "0164_erp_checked_up_to_date_at"),
     ]

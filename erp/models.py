@@ -1084,28 +1084,28 @@ class Accessibilite(models.Model):
         constraints = [
             CheckConstraint(
                 name="%(app_label)s_%(class)s_transport_consistency",
-                check=(
+                condition=(
                     (Q(transport_station_presence=True) & Q(transport_station_presence__isnull=False))
                     | (Q(transport_information="") | Q(transport_information__isnull=True))
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_stationnement_consistency",
-                check=(
+                condition=(
                     (Q(stationnement_presence=True) & Q(stationnement_presence__isnull=False))
                     | Q(stationnement_pmr=None)
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_stationnement_ext_consistency",
-                check=(
+                condition=(
                     (Q(stationnement_ext_presence=True) & Q(stationnement_ext_presence__isnull=False))
                     | Q(stationnement_ext_pmr=None)
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_cheminement_ext_plain_pied_consistency",
-                check=(
+                condition=(
                     (Q(cheminement_ext_plain_pied=False) & Q(cheminement_ext_plain_pied__isnull=False))
                     | (
                         Q(cheminement_ext_ascenseur=None)
@@ -1119,7 +1119,7 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_cheminement_ext_pente_consistency",
-                check=(
+                condition=(
                     (Q(cheminement_ext_pente_presence=True) & Q(cheminement_ext_pente_presence__isnull=False))
                     | (
                         Q(cheminement_ext_pente_degre_difficulte__isnull=True)
@@ -1129,7 +1129,7 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_cheminement_ext_presence_consistency",
-                check=(
+                condition=(
                     (Q(cheminement_ext_presence=True) & Q(cheminement_ext_presence__isnull=False))
                     | (
                         Q(cheminement_ext_terrain_stable__isnull=True)
@@ -1143,13 +1143,13 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_entree_vitree_consistency",
-                check=(
+                condition=(
                     (Q(entree_vitree=True) & Q(entree_vitree__isnull=False)) | Q(entree_vitree_vitrophanie__isnull=True)
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_entree_porte_presence_consistency",
-                check=(
+                condition=(
                     (Q(entree_porte_presence=True) & Q(entree_porte_presence__isnull=False))
                     | (
                         Q(entree_porte_manoeuvre__isnull=True)
@@ -1160,7 +1160,7 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_entree_plain_pied_consistency",
-                check=(
+                condition=(
                     (Q(entree_plain_pied=False) & Q(entree_plain_pied__isnull=False))
                     | (
                         Q(entree_ascenseur__isnull=True)
@@ -1174,21 +1174,21 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_entree_dispositif_appel_consistency",
-                check=(
+                condition=(
                     (Q(entree_dispositif_appel=True) & Q(entree_dispositif_appel__isnull=False))
                     | (Q(entree_dispositif_appel_type__isnull=True) | Q(entree_dispositif_appel_type=[]))
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_entree_pmr_consistency",
-                check=(
+                condition=(
                     (Q(entree_pmr=True) & Q(entree_pmr__isnull=False))
                     | (Q(entree_pmr_informations__isnull=True) | Q(entree_pmr_informations=""))
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_accueil_cheminement_plain_pied_consistency",
-                check=(
+                condition=(
                     ~Q(accueil_cheminement_plain_pied=True)
                     | (
                         Q(accueil_cheminement_ascenseur__isnull=True)
@@ -1202,14 +1202,14 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_accueil_audiodescription_consistency",
-                check=(
+                condition=(
                     (Q(accueil_audiodescription_presence=True) & Q(accueil_audiodescription_presence__isnull=False))
                     | (Q(accueil_audiodescription__isnull=True) | Q(accueil_audiodescription=[]))
                 ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_accueil_equipements_malentendants_consistency",
-                check=(
+                condition=(
                     (
                         Q(accueil_equipements_malentendants_presence=True)
                         & Q(accueil_equipements_malentendants_presence__isnull=False)
@@ -1219,11 +1219,12 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_sanitaires_presence_consistency",
-                check=(Q(sanitaires_presence=True) & Q(sanitaires_presence__isnull=False)) | Q(sanitaires_adaptes=None),
+                condition=(Q(sanitaires_presence=True) & Q(sanitaires_presence__isnull=False))
+                | Q(sanitaires_adaptes=None),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_labels_consistency",
-                check=(
+                condition=(
                     ~(Q(labels=[]) | Q(labels__isnull=True))
                     | (
                         (Q(labels_familles_handicap=[]) | Q(labels_familles_handicap__isnull=True))
@@ -1233,7 +1234,7 @@ class Accessibilite(models.Model):
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_chambre_consistency",
-                check=(
+                condition=(
                     ~(Q(accueil_chambre_nombre_accessibles=0) | Q(accueil_chambre_nombre_accessibles__isnull=True))
                     | (
                         Q(accueil_chambre_douche_plain_pied__isnull=True)

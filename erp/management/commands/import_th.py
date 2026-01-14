@@ -144,7 +144,7 @@ class Command(BaseCommand):
                 except Activite.DoesNotExist:
                     row["error"] = "Activité non trouvée"
                     errors.append(row)
-                    print(f"### Activite not found with name {row['activite']} - line {i+2}")
+                    print(f"### Activite not found with name {row['activite']} - line {i + 2}")
                     continue
                 except ValidationError as err:
                     row["error"] = str(err)
