@@ -76,8 +76,8 @@ Activités non mappées
 def build_summary(dataset, results):
     return f"""Statistiques d'import {dataset}:
 
-- Importés: {len(results['imported'])}
-- Écartés: {len(results['skipped'])}
-- Dépubliés: {len(results['unpublished'])}
-- Erreurs: {len(results['errors'])}
-- Activités: {len(results['activites_not_found'])}"""
+- Importés: {len(results["imported"])}
+- Écartés: {len(results["skipped"])}
+- Dépubliés: {len(results["unpublished"])}
+- Erreurs: {len(results["errors"])}
+- Activités: {len(results["activites_not_found"])}"""

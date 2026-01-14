@@ -148,9 +148,9 @@ def test_contrib_start_global_search_with_existing(
 
     assert response.status_code == 200
     assert response.context["results"] == [akei_result]
-    assert all(
-        [x in response.context["query"] for x in ("nom", "commune", "activite", "code_postal", "lat", "lon")]
-    ), "Missing info for encode_provider_data"
+    assert all([x in response.context["query"] for x in ("nom", "commune", "activite", "code_postal", "lat", "lon")]), (
+        "Missing info for encode_provider_data"
+    )
 
 
 @pytest.mark.django_db

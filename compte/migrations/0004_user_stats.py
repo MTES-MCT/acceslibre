@@ -47,8 +47,7 @@ def populate_initial_user_stats(apps, schema_editor):
         user_stats.save()
 
 
-def backwards(*args, **kwargs):
-    ...
+def backwards(*args, **kwargs): ...
 
 
 class Migration(migrations.Migration):

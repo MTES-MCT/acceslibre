@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("compte", "0007_alter_userpreferences_newsletter_opt_in"),
     ]
