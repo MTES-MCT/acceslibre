@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("accueil_chambre_nombre_accessibles", 0),
                         ("accueil_chambre_nombre_accessibles__isnull", True),
