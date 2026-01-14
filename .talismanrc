@@ -33,6 +33,8 @@ fileignoreconfig:
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
 - filename: .circleci/config.yml
   checksum: 7db2386cde045a1ae4e3a83a1383e619ee1a6c52de9c7a1c8985c905aae5953f
+- filename: erp/imports/mapper/service_public.py
+  checksum: eca53aece1634f7f7cc8534c7e22bfd77b35fd3803c3c5a92b21678ab82bb1b4
 - filename: .env.sample
   checksum: 87369459b8e37ac7fbef66697f423141bb68771f33e3f33f0a178b083aa5102b
 - filename: core/settings.py
