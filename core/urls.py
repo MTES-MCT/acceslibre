@@ -98,7 +98,7 @@ urlpatterns = [
 if "rosetta" in settings.INSTALLED_APPS:
     urlpatterns += [path("rosetta/", include("rosetta.urls"))]
 
-if settings.DEBUG:
+if settings.DEBUG and settings.USE_DEBUG_TOOLBAR:
     import debug_toolbar
 
     urlpatterns = [
