@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("transport_station_presence", True),
                         ("transport_station_presence__isnull", False),
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("stationnement_presence", True),
                         ("stationnement_presence__isnull", False),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("stationnement_ext_presence", True),
                         ("stationnement_ext_presence__isnull", False),
@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("cheminement_ext_plain_pied", False),
                         ("cheminement_ext_plain_pied__isnull", False),
@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("cheminement_ext_pente_presence", True),
                         ("cheminement_ext_pente_presence__isnull", False),
@@ -93,7 +93,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("cheminement_ext_presence", True),
                         ("cheminement_ext_presence__isnull", False),
@@ -114,7 +114,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(("entree_vitree", True), ("entree_vitree__isnull", False)),
                     ("entree_vitree_vitrophanie__isnull", True),
                     _connector="OR",
@@ -125,7 +125,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("entree_porte_presence", True),
                         ("entree_porte_presence__isnull", False),
@@ -143,7 +143,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("entree_plain_pied", False),
                         ("entree_plain_pied__isnull", False),
@@ -168,7 +168,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("entree_dispositif_appel", True),
                         ("entree_dispositif_appel__isnull", False),
@@ -183,7 +183,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(("entree_pmr", True), ("entree_pmr__isnull", False)),
                     ("entree_pmr_informations__isnull", True),
                     ("entree_pmr_informations", ""),
@@ -195,7 +195,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(("accueil_cheminement_plain_pied", True), _negated=True),
                     models.Q(
                         ("accueil_cheminement_ascenseur__isnull", True),
@@ -213,7 +213,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("accueil_audiodescription_presence", True),
                         ("accueil_audiodescription_presence__isnull", False),
@@ -228,7 +228,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("accueil_equipements_malentendants_presence", True),
                         ("accueil_equipements_malentendants_presence__isnull", False),
@@ -243,7 +243,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("sanitaires_presence", True),
                         ("sanitaires_presence__isnull", False),
@@ -257,7 +257,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("labels", []),
                         ("labels__isnull", True),
@@ -284,7 +284,7 @@ class Migration(migrations.Migration):
         migrations.AddConstraint(
             model_name="accessibilite",
             constraint=models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     models.Q(
                         ("accueil_chambre_nombre_accessibles", 0),
                         ("accueil_chambre_nombre_accessibles__isnull", True),
