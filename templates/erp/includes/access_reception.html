@@ -110,8 +110,6 @@
                             {% for espace_ouvert in access.get_accueil_espaces_ouverts %}<li>{{ espace_ouvert }}</li>{% endfor %}
                         </ul>
                     </li>
-                {% elif not access.accueil_espaces_ouverts %}
-                    <li data-filters="all">{{ "accueil_espaces_ouverts"|negative_text }}</li>
                 {% endif %}
             {% endif %}
         </ul>
