@@ -66,26 +66,30 @@ jobs:
           key: uv-{{ .Branch }}-{{ checksum "uv.lock" }}
           paths:
             - .venv
-      # - restore_cache:
-      #     name: Restore Node cached dependencies
-      #     keys:
-      #       - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      # - run:
-      #     name: Install Node dependencies
-      #     command: |
-      #       npm ci --ignore-scripts
-      # - save_cache:
-      #     key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      #     paths:
-      #       - node_modules
-      # - run:
-      #     name: Check production security
-      #     command: |
-      #       DJANGO_SETTINGS_MODULE=core.settings_prod ./manage.py check --deploy
-      # - run:
-      #     name: Check SASS stylesheets
-      #     command: |
-      #       npm run build:prod
+      - run:
+          name: Install pnpm
+          command: curl -fsSL https://get.pnpm.io/install.sh | SHELL="$(which bash)" bash -
+      - restore_cache:
+          name: Restore pnpm store
+          keys:
+            - pnpm-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install Node dependencies
+          command: |
+            pnpm install --frozen-lockfile --ignore-scripts
+      - save_cache:
+          key: pnpm-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - ~/.local/share/pnpm/store
+            - node_modules
+      - run:
+          name: Check production security
+          command: |
+            DJANGO_SETTINGS_MODULE=core.settings_prod uv run ./manage.py check --deploy
+      - run:
+          name: Check SASS stylesheets
+          command: |
+            pnpm build:prod
       - run:
           name: Check Django templates
           command: |
@@ -101,11 +105,10 @@ jobs:
           name: Check translations
           command: |
             uv run ./bin/check_translations.sh
-      # - run:
-      #     name: Check FE linting
-      #     command: |
-      #       npx prettier --check .
-
+      - run:
+          name: Check FE linting
+          command: |
+            pnpm prettier --check .
   tests:
     executor:
       name: for_tests
