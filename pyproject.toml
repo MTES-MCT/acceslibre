@@ -40,7 +40,7 @@ dependencies = [
     "gunicorn",
     "dj-static",
     "image",
-    "redis===6.4.0",
+    "redis===7.1.0",
     "async_timeout",
     "sib-api-v3-sdk",
     "celery",
