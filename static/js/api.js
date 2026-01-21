@@ -72,7 +72,7 @@ async function loadUserLocation(options = {}) {
 
 async function reverseGeocode({ lat, lon }, options = {}) {
   const { timeout = 8000 } = options
-  let url = `https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`
+  let url = `https://data.geopf.fr/geocodage/reverse/?lon=${lon}&lat=${lat}`
   if (options.type) {
     url += `&type=${options.type}`
   }
@@ -104,7 +104,7 @@ function getDepartmentNumberApi(q) {
 }
 
 function getAddressApi(q, loc) {
-  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=10`
+  let url = `https://data.geopf.fr/geocodage/search/?q=${encodeURIComponent(q)}&limit=10`
   const { lat, lon } = loc || {}
   if (lat && lon) url += `&lat=${lat}&lon=${lon}`
   return url

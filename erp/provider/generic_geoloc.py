@@ -10,7 +10,7 @@ class GeolocRequester:
     provider: dict = None
 
     urls = {
-        "ban": "https://api-adresse.data.gouv.fr/search/",
+        "ban": "https://data.geopf.fr/geocodage/search/",
         "geoportail": "https://wxs.ign.fr/essentiels/geoportail/geocodage/rest/0.1/search",
     }
 
