@@ -1,0 +1,94 @@
+[project]
+name = "acceslibre"
+version = "0.1.0"
+description = ""
+requires-python = "==3.13.*"
+
+dependencies = [
+    "coreapi",
+    "Django==6.0.1",
+    "django-admin-autocomplete-filter",
+    "django-admin-list-filter-dropdown",
+    "django-autoslug",
+    "django-better-admin-arrayfield",
+    "django-cors-headers",
+    "django-crispy-forms",
+    "crispy-bootstrap5",
+    "django-extensions",
+    "django-import-export",
+    "django-logentry-admin",
+    "django-registration",
+    "django-reversion==6.1.0",
+    "djangorestframework",
+    "djangorestframework-gis",
+    "django-waffle",
+    "frictionless==5.17.0",
+    "fuzzywuzzy",
+    "ipython",
+    "Markdown",
+    "phonenumbers",
+    "psycopg2",
+    "psycopg2-binary",
+    "pytest-django",
+    "python-levenshtein",
+    "python-stdnum",
+    "PyYAML",
+    "requests",
+    "sentry-sdk",
+    "uuid",
+    "ijson",
+    "gunicorn",
+    "dj-static",
+    "image",
+    "redis===6.4.0",
+    "async_timeout",
+    "sib-api-v3-sdk",
+    "celery",
+    "pandas",
+    "django-maintenance-mode",
+    "djangorestframework-api-key",
+    "django-modeltranslation",
+    "django-environ",
+    "deepl",
+    "django-filter",
+    "geopy",
+    "outscraper",
+    "scrapfly-sdk",
+    "parsel",
+    "schedule",
+    "inflection",
+    "django-two-factor-auth",
+    "django-csp",
+    "colorama",
+    "boto3==1.35.99",
+    "magic-profanity",
+    "django-summernote",
+    "pre-commit>=4.5.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff",
+    "ipdb",
+    "pre-commit",
+    "pytest-mock",
+    "splinter[django]",
+    "pytest-circleci-parallelized",
+    "django-debug-toolbar==5.2.0",
+    "pytest-xdist",
+    "django-rosetta",
+    "djlint",
+    "pytest-factoryboy",
+    "faker",
+    "django-webtest",
+    "legacy-cgi",
+    "django-deep-translator",
+    "pytest-socket",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+package = false

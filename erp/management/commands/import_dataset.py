@@ -25,8 +25,6 @@ class Command(BaseCommand):
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
-        if dataset == "gendarmerie":
-            results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
         elif dataset == "generic":
@@ -76,8 +74,8 @@ Activités non mappées
 def build_summary(dataset, results):
     return f"""Statistiques d'import {dataset}:
 
-- Importés: {len(results['imported'])}
-- Écartés: {len(results['skipped'])}
-- Dépubliés: {len(results['unpublished'])}
-- Erreurs: {len(results['errors'])}
-- Activités: {len(results['activites_not_found'])}"""
+- Importés: {len(results["imported"])}
+- Écartés: {len(results["skipped"])}
+- Dépubliés: {len(results["unpublished"])}
+- Erreurs: {len(results["errors"])}
+- Activités: {len(results["activites_not_found"])}"""

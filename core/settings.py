@@ -25,6 +25,9 @@ SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = env("SECRET_KEY")
+
+USE_DEBUG_TOOLBAR = env("DJANGO_DEBUG_TOOLBAR", default=False)
+
 DATAGOUV_API_KEY = env("DATAGOUV_API_KEY", default=None)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
 DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"

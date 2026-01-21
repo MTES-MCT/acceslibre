@@ -100,9 +100,9 @@ def manage_change_username_form(form, request):
     old_username = user.username
     user.username = username
     user.save()
-    LogEntry.objects.log_action(
-        user_id=user.id,
-        content_type_id=ContentType.objects.get_for_model(user).pk,
+    LogEntry.objects.create(
+        user=user,
+        content_type=ContentType.objects.get_for_model(user),
         object_id=user.id,
         object_repr=username,
         action_flag=CHANGE,
@@ -122,9 +122,9 @@ def manage_change_email_form(form, request):
     activation_token = service.create_token(user, new_email)
     service.send_activation_mail(activation_token, new_email, user)
 
-    LogEntry.objects.log_action(
-        user_id=request.user.id,
-        content_type_id=ContentType.objects.get_for_model(user).pk,
+    LogEntry.objects.create(
+        user=request.user,
+        content_type=ContentType.objects.get_for_model(user),
         object_id=user.id,
         object_repr=new_email,
         action_flag=CHANGE,
@@ -179,16 +179,16 @@ def my_profile(request):
                         "Erreur lors de la désactivation du compte",
                     )
                     return redirect("my_profile")
-                logout(request)
-                messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
-                LogEntry.objects.log_action(
-                    user_id=userid,
-                    content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
+                LogEntry.objects.create(
+                    user=request.user,
+                    content_type=ContentType.objects.get_for_model(get_user_model()),
                     object_id=userid,
                     object_repr=old_username,
                     action_flag=CHANGE,
                     change_message=f'Compte "{old_username}" désactivé et anonymisé',
                 )
+                messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
+                logout(request)
                 return redirect("/")
 
         if form_label == "preferences":
@@ -234,9 +234,9 @@ def change_email(request, activation_token):
             context={"activation_error": failure},
         )
 
-    LogEntry.objects.log_action(
-        user_id=user.id,
-        content_type_id=ContentType.objects.get_for_model(user).pk,
+    LogEntry.objects.create(
+        user=user,
+        content_type=ContentType.objects.get_for_model(user),
         object_id=user.id,
         object_repr=user.email,
         action_flag=CHANGE,

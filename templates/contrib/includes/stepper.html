@@ -5,6 +5,7 @@
         {{ step_name }}
         <span class="fr-stepper__state">{% blocktranslate %}Étape {{ current_step }} sur {{ total_steps }}{% endblocktranslate %}</span>
     </h2>
-    <div class="fr-stepper__steps" data-fr-current-step="{{ current_step }}" data-fr-steps={{ total_steps }}>
-    </div>
+    <div class="fr-stepper__steps"
+         data-fr-current-step="{{ current_step }}"
+         data-fr-steps="{{ total_steps }}"></div>
 </div>

@@ -1,7 +1,5 @@
 fileignoreconfig:
-- filename: Pipfile.lock
-  ignore_detectors: [filecontent]
-- filename: package-lock.json
+- filename: uv.lock
   ignore_detectors: [filecontent]
 - filename: compte/forms.py
   checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
@@ -9,8 +7,6 @@ fileignoreconfig:
   checksum: 46dbc17a97dfe7ffb619c0281c4989d02ac40a17603b696701d00132384a9dbf
 - filename: erp/export/static/schema.json
   checksum: 2e3f20cf7ed1d425786c05f1deb3521af30d80c3e2c86f55861bab785a4fc111
-- filename: core/settings.py
-  checksum: 269e587476da3314cbd43665307b6942ecf3185fce3c2c078c07a947eac25be2
 - filename: .isort.cfg
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
@@ -25,8 +21,6 @@ fileignoreconfig:
   checksum: 1cc959485e4164c86f548e532fadfa8ea7c4cc55db6637b6ea822c87c5981acf
 - filename: templates/contrib/4-exterieur.html
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
-- filename: .circleci/config.yml
-  checksum: 534382d601697d506ec5b5ae8e19d7042b9e8a1966b35d0ca817bba9320947e0
 - filename: templates/registration/password_reset_complete.html
   checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
 - filename: templates/registration/password_reset_confirm.html
@@ -37,3 +31,13 @@ fileignoreconfig:
   checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
 - filename: templates/contrib/3-transport.html
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
+- filename: .circleci/config.yml
+  checksum: 9c50da347ce5a9602eb25d2c192597343c50e062f465c0e8ae6e4aed1034407e
+- filename: erp/imports/mapper/service_public.py
+  checksum: eca53aece1634f7f7cc8534c7e22bfd77b35fd3803c3c5a92b21678ab82bb1b4
+- filename: .env.sample
+  checksum: 87369459b8e37ac7fbef66697f423141bb68771f33e3f33f0a178b083aa5102b
+- filename: core/settings.py
+  checksum: fc1d7870c765ad9e99f20e74d335aa6fcbb6d6e223d9ba05c37ee0939d8c8764
+- filename: pnpm-lock.yaml
+  checksum: bb30cc46e656283f12141506f19deceef6f4ead92d12d23260fa94b79584ece4
