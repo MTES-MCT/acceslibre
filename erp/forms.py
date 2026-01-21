@@ -388,13 +388,6 @@ class BaseErpForm(forms.ModelForm):
         if not locdata or locdata.get("geom") is None:
             self.raise_validation_error("voie", f"Adresse non localisable : {adresse} ({code_postal})")
 
-        # NOTE: ATM there is a bug on api-adresse, it does not return postal_code for TOM
-        # ex https://api-adresse.data.gouv.fr/search/?q=41+Avenue+FOCH%2C+NOUMEA&limit=1
-        # Once solved on their side, remove the following if block
-        if code_postal and not locdata["code_postal"] and locdata["code_insee"]:
-            if code_postal[:2] == locdata["code_insee"][:2]:
-                locdata["code_postal"] = code_postal
-
         # Ensure picking the right postcode
         if code_postal and locdata["code_postal"] and code_postal != locdata["code_postal"]:
             dpt_result = locdata["code_postal"][:2]
