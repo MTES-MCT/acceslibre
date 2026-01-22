@@ -19,58 +19,76 @@
         <p>{% translate "En un copier-coller, affichez les informations principales de votre établissement." %}</p>
         <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb">
             <button type="button"
+                    data-fr-opened="false"
                     class="fr-btn fr-btn--secondary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#widgetmodal">{% translate "Comment faire ?" %}</button>
+                    aria-controls="widgetmodal">{% translate "Comment faire ?" %}</button>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade"
-         id="widgetmodal"
-         tabindex="-1"
-         role="dialog"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="fr-h5 modal-title">{% translate "Intégrez acceslibre sur votre site !" %}</h3>
-                    <button type="button"
-                            title="{% translate "Fermer la fenêtre" %}"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="{% translate "Fermer" %}"></button>
-                </div>
-                <div class="modal-body text-start" id="widget-code">
-                    <p>{% translate "Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :" %}</p>
-                    <div>
-                        <code class="Code__Text-sc-1wllvkx-1 dNGlgo" id="tocopy">{{ widget_tag }}</code>
+    <dialog id="widgetmodal"
+            class="fr-modal"
+            aria-labelledby="widgetmodal-title"
+            data-fr-concealing-backdrop="true">
+        <div class="fr-container fr-container--fluid fr-container-md">
+            <div class="fr-grid-row fr-grid-row--center">
+                <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                    <div class="fr-modal__body">
+                        <div class="fr-modal__header">
+                            <button aria-controls="widgetmodal"
+                                    title="{% translate "Fermer la fenêtre" %}"
+                                    type="button"
+                                    class="fr-btn--close fr-btn">{% translate "Fermer" %}</button>
+                        </div>
+                        <div class="fr-modal__content">
+                            <h2 id="widgetmodal-title" class="fr-modal__title">
+                                <span class="fr-icon-info-line fr-icon--lg" aria-hidden="true"></span>
+                                {% translate "Intégrez acceslibre sur votre site !" %}
+                            </h2>
+                            <p>
+                                {% blocktranslate %}
+                                Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :
+                                {% endblocktranslate %}
+                            </p>
+                            <div class="fr-highlight" id="widget-code">
+                                <div>
+                                    <pre><code id="tocopy">{{ widget_tag }}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fr-modal__footer">
+                            <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse">
+                                <li>
+                                    <a data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
+                                       href="#"
+                                       data-bs-dismiss="modal"
+                                       aria-haspopup="dialog"
+                                       aria-controls="dialog"
+                                       data-owner="acceslibre">{% translate "Tester le widget" %}</a>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                            class="fr-btn fr-btn--secondary"
+                                            aria-controls="widgetmodal">{% translate "Fermer" %}</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="fr-btn js-copy" data-target="#tocopy">{% translate "Copier" %}</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
-                       href="#"
-                       data-bs-dismiss="modal"
-                       aria-haspopup="dialog"
-                       aria-controls="dialog"
-                       data-owner="acceslibre">{% translate "Tester le widget" %}</a>
-                    <button type="button"
-                            class="fr-btn fr-btn--secondary"
-                            data-bs-dismiss="modal">{% translate "Fermer" %}</button>
-                    <button type="button" class="fr-btn js-copy" data-bs-target="#tocopy">{% translate "Copier" %}</button>
                 </div>
             </div>
         </div>
-    </div>
+    </dialog>
 </div>
 <script nonce="{{ request.csp_nonce }}">
     var btncopy = document.querySelector('.js-copy');
-    if(btncopy) {
+    if (btncopy) {
         btncopy.addEventListener('click', docopy);
     }
 
     function docopy() {
         var range = document.createRange();
-        var target = this.dataset.bsTarget;
+        var target = this.dataset.target;
         var fromElement = document.querySelector(target);
         var selection = window.getSelection();
 
@@ -81,15 +99,15 @@
         try {
             var result = document.execCommand('copy');
             if (result) {
-               var tag = document.createElement("p");
-               tag.className = "text-center text-success"
-               var text = document.createTextNode('{% translate "Copié avec succès" %}');
-               tag.appendChild(text);
-               var element = document.getElementById("widget-code");
-               element.appendChild(tag);
+                var tag = document.createElement("p");
+                tag.className = "text-center text-success"
+                var text = document.createTextNode('{% translate "Copié avec succès" %}');
+                tag.appendChild(text);
+                var element = document.getElementById("widget-code");
+                element.appendChild(tag);
             }
         }
-        catch(err) {
+        catch (err) {
             alert('{% translate "Une erreur s’est produite lors de la copie." %}')
         }
         selection = window.getSelection();
@@ -100,5 +118,4 @@
             selection.removeAllRanges();
         }
     }
-
 </script>
