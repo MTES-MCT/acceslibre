@@ -1,4 +1,5 @@
-import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
+import '@gouvfr/dsfr/dist/core/core.module.min.js'
+import '@gouvfr/dsfr/dist/component/modal/modal.module.min.js'
 
 import 'leaflet'
 import 'leaflet.markercluster'
