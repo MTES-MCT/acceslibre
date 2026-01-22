@@ -3,7 +3,23 @@ from datetime import datetime, timedelta
 from celery import shared_task
 
 from core.mailer import BrevoMailer
-from erp.models import Accessibilite, ActivitySuggestion
+from erp.models import Accessibilite, ActivitySuggestion, Erp
+
+
+@shared_task()
+def check_for_rpa(accessibilite_pk):
+    try:
+        Accessibilite.objects.get(
+            pk=accessibilite_pk,
+            rpa=False,
+            erp__user_type=Erp.USER_ROLES.USER_ROLE_GESTIONNAIRE,
+            completion_rate__gte=80,
+        )
+    except Accessibilite.DoesNotExist:
+        return
+
+    # Do not use access.save() here, to avoid keeping an opened transaction and infinite loop with signal
+    Accessibilite.objects.filter(pk=accessibilite_pk).update(rpa=True)
 
 
 @shared_task()
