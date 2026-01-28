@@ -41,7 +41,7 @@
                         <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
                     {% endblocktranslate %}
                 </h1>
-                <h2 class="erps-preview-container__content-title">{{ erps.count|intcomma }}</h2>
+                <h2 class="erps-preview-container__content-title">{{ erps_count|intcomma }}</h2>
                 <p>{% translate "lieux enregistrés par nos contributeurs" %}</p>
                 <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
             </div>

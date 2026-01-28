@@ -93,9 +93,7 @@ def home(request):
         request,
         "index.html",
         context={
-            "erps": Erp.objects.published(),
-            "contributors": queries.get_active_contributors_ids(),
-            "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
+            "erps_count": queries.get_total_published_erps(),
             "partners": schema.PARTENAIRES,
             "page_type": "home",
         },
@@ -108,7 +106,7 @@ def about_us(request):
         "editorial/qui-sommes-nous.html",
         context={
             "page_type": "about-us",
-            "total_active_contributors": queries.get_active_contributors_ids().count(),
+            "total_active_contributors": len(queries.get_active_contributors_ids()),
         },
     )
 

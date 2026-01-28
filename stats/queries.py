@@ -3,6 +3,7 @@ from collections import defaultdict
 from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
+from django.core.cache import cache
 from django.db.models import Avg, Case, CharField, Count, F, FloatField, Value, When
 from django.db.models.functions import Cast, TruncMonth
 from django.utils import timezone
@@ -15,7 +16,16 @@ from erp.versioning import get_previous_version
 
 
 def get_active_contributors_ids():
-    return Erp.objects.published().with_user().values_list("user_id", flat=True).distinct("user_id").order_by("user_id")
+    def _query():
+        return list(
+            Erp.objects.published()
+            .with_user()
+            .values_list("user_id", flat=True)
+            .distinct("user_id")
+            .order_by("user_id")
+        )
+
+    return cache.get_or_set("active_contributors_ids", _query, 3600)
 
 
 def _get_nb_filled_in_info(access_fields):
@@ -88,6 +98,13 @@ def get_completion_totals(total_published_erps: int):
     )
 
 
+def get_total_published_erps():
+    def _query():
+        return Erp.objects.published().count()
+
+    return cache.get_or_set("total_published_erps", _query, 300)
+
+
 def get_total_erps_per_month():
     now = timezone.now().date()
     six_months_ago = now.replace(day=1) - relativedelta(months=5)
@@ -117,7 +134,7 @@ def get_average_completion_rate():
 def get_completed_erps_from_last_12_months():
     now = timezone.now()
     twelve_months_ago = now - timedelta(days=365)
-    total_count = Erp.objects.published().count()
+    total_count = get_total_published_erps()
     last_12_months_count = (
         (
             Erp.objects.published().filter(created_at__gte=twelve_months_ago)
