@@ -696,6 +696,7 @@ class Erp(models.Model):
     __original_user_id = None
     __original_user_type = None
     __confirmation_message = "Created via confirmation button"
+    __versions = None
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune}, {self.slug})"
@@ -737,6 +738,8 @@ class Erp(models.Model):
         return global_history
 
     def get_versions(self):
+        if self.__versions is not None:
+            return self.__versions
         # take the last n revisions
         qs = (
             Version.objects.get_for_object(self)
@@ -748,6 +751,7 @@ class Erp(models.Model):
         versions = list(qs)
         # reorder the slice by date_created ASC
         versions.reverse()
+        self.__versions = versions
         return versions
 
     def editable_by(self, user):
@@ -910,6 +914,13 @@ class Erp(models.Model):
             increment_nb_erp_created(self.user)
             if self.user_type == self.USER_ROLE_GESTIONNAIRE:
                 increment_nb_erp_administrator(self.user)
+
+    def refresh_from_db(self, using=None, fields=None):
+        super().refresh_from_db(using=using, fields=fields)
+        self.__original_activite_id = None
+        self.__original_user_id = None
+        self.__original_user_type = None
+        self.__versions = None
 
     def save(self, *args, editor=None, **kwargs):
         if editor and not self.user:
@@ -1876,6 +1887,8 @@ class Accessibilite(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
 
+    __versions = None
+
     def __str__(self):
         if self.erp:
             return translate(
@@ -1897,17 +1910,25 @@ class Accessibilite(models.Model):
     def __hash__(self):
         return super().__hash__()
 
+    def refresh_from_db(self, using=None, fields=None):
+        super().refresh_from_db(using=using, fields=fields)
+        self.__versions = None
+
     def get_history(self, exclude_changes_from=None):
         return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
 
     def get_versions(self):
+        if self.__versions is not None:
+            return self.__versions
+
         # take the last n revisions
         qs = (
             Version.objects.get_for_object(self)
             .select_related("revision__user")
             .order_by("-revision__date_created")[: self.HISTORY_MAX_LATEST_ITEMS + 1]
         )
-        return reversed(list(qs))
+        self.__versions = reversed(list(qs))
+        return self.__versions
 
     def has_data(self):
         # count the number of filled fields to provide more validation

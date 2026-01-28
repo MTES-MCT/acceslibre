@@ -2,7 +2,7 @@
 {% load i18n %}
 <h3 class="fr-sr-only">{% translate "Historique des modifications" %}</h3>
 <div class="list-group list-group-flush">
-    {% for entry in erp.get_history %}
+    {% for entry in history %}
         <details class="list-group-item text-overlay">
             <summary>
                 {% if entry.user %}
