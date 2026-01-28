@@ -25,6 +25,10 @@ INSTALLED_APPS.append("django_deep_translator")
 if USE_DEBUG_TOOLBAR:
     INSTALLED_APPS.append("debug_toolbar")
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
+    # Hack to display the debug toolbar if using django through the docker container
+    DEBUG_TOOLBAR_CONFIG = {
+        "SHOW_TOOLBAR_CALLBACK": lambda request: True,
+    }
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
 TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context_processors.debug")
