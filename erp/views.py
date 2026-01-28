@@ -45,7 +45,6 @@ from erp.provider.search import get_equipments, get_equipments_shortcuts
 from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
 from stats import queries
 from stats.models import Challenge, ChallengePlayer
-from stats.queries import get_active_contributors_ids
 from subscription.models import ErpSubscription
 
 HOURS = 60 * 60
@@ -95,7 +94,7 @@ def home(request):
         "index.html",
         context={
             "erps": Erp.objects.published(),
-            "contributors": get_active_contributors_ids(),
+            "contributors": queries.get_active_contributors_ids(),
             "latest": Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:3],
             "partners": schema.PARTENAIRES,
             "page_type": "home",
@@ -347,7 +346,7 @@ def panoramax(request):
 def search_in_municipality(request, commune_slug):
     municipality = get_object_or_404(Commune, slug=commune_slug)
     filters = cleaned_search_params_as_dict(request.GET)
-    base_queryset = Erp.objects.published().with_activity()
+    base_queryset = Erp.objects.published().with_activity().with_commune()
     base_queryset = base_queryset.search_what(filters.get("what"))
     postal_code_prefix = municipality.departement.replace("2A", "20").replace("2B", "20")
     queryset = base_queryset.filter(commune=municipality.nom, code_postal__startswith=postal_code_prefix)
@@ -407,6 +406,9 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "user",
             "commune_ext",
         )
+        .prefetch_related(
+            "sources",
+        )
         .published()
         .filter(slug=erp_slug)
     )
@@ -459,6 +461,11 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     should_display_floor_accessibility_details = ACTIVITY_GROUPS["FLOOR"] in [g.name for g in groups]
     absolute_uri = erp.get_absolute_uri()
 
+    timestamps = erp.get_global_timestamps()
+
+    versions = erp.get_versions()
+    history = erp.get_history()
+
     return render(
         request,
         "erp/index.html",
@@ -493,6 +500,9 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "previous_url": referer,
             "image_id": erp_image_id,
             "xyz": erp_xyz,
+            "versions": versions,
+            "timestamps": timestamps,
+            "history": history,
         },
     )
 

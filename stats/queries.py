@@ -3,11 +3,11 @@ from collections import defaultdict
 from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
-from django.db.models import When, Value, CharField, Count, Case, FloatField, F, Avg
+from django.db.models import Avg, Case, CharField, Count, F, FloatField, Value, When
 from django.db.models.functions import Cast, TruncMonth
 from django.utils import timezone
-from reversion.models import ContentType, Version
 from django.utils.translation import gettext as translate
+from reversion.models import ContentType, Version
 
 from erp import schema
 from erp.models import Accessibilite, Erp
@@ -68,8 +68,7 @@ def get_challenge_scores(challenge, start_date, stop_date, player_ids):
 
 def get_completion_totals(total_published_erps: int):
     return (
-        Accessibilite.objects.select_related("erp")
-        .filter(erp__published=True)
+        Accessibilite.objects.filter(erp__published=True)
         .values(
             completion_range=Case(
                 When(completion_rate__gte=0, completion_rate__lt=10, then=Value(translate("1 à 2 informations"))),
