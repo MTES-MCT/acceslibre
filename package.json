@@ -12,8 +12,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf static/dist/",
-    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js",
-    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist"
+    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js",
+    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,11 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
+{% block javascript_extras %}
+    {% if image_id %}
+        <script src="{% static "dist/js/panoramax.js" %}"></script>
+    {% endif %}
+{% endblock javascript_extras %}
 <header>
     <div class="fr-grid-row fr-grid-row--center">
         <h1 class="fr-mb-4v text-center">{{ erp.nom }}</h1>
@@ -114,6 +119,7 @@
     {% endif %}
     {% if image_id %}
         <hr class="fr-hr fr-mt-2w" />
+        {% include "common/panoramax-shortcuts-details.html" %}
         <pnx-photo-viewer id="photo-viewer" endpoint="https://api.panoramax.xyz/api/" picture="{{ image_id }}" xyz="{{ xyz }}" widgets="false">
         <pnx-widget-legend slot="bottom-right" light="" focus="pic" picture="{{ image_id }}"></pnx-widget-legend>
         </pnx-photo-viewer>
