@@ -35,6 +35,7 @@
                         <div class="fr-modal__header">
                             <button aria-controls="widgetmodal"
                                     title="{% translate "Fermer la fenêtre" %}"
+                                    data-bs-dismiss="modal"
                                     type="button"
                                     class="fr-btn--close fr-btn">{% translate "Fermer" %}</button>
                         </div>
@@ -48,29 +49,36 @@
                                 Le bloc ci-dessous contient le code HTML à copier et coller sur votre site web :
                                 {% endblocktranslate %}
                             </p>
-                            <div class="fr-highlight" id="widget-code">
+                            <div id="widget-code">
                                 <div>
-                                    <pre><code id="tocopy">{{ widget_tag }}</code></pre>
+                                    <code id="tocopy">{{ widget_tag }}</code>
                                 </div>
                             </div>
+                            <div id="copy-message-information"
+                                 class="fr-alert fr-alert--info fr-hidden fr-mt-2w fr-mb-0"
+                                 role="alert"></div>
                         </div>
                         <div class="fr-modal__footer">
-                            <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse">
+                            <ul class="fr-btns-group">
                                 <li>
-                                    <a data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
+                                    <a id="test-widget-btn"
+                                       class="fr-btn fr-btn--primary"
+                                       data-track-event="widget,widget_demo,demo,{{ erp.slug }}"
                                        href="#"
-                                       data-bs-dismiss="modal"
                                        aria-haspopup="dialog"
                                        aria-controls="dialog"
                                        data-owner="acceslibre">{% translate "Tester le widget" %}</a>
                                 </li>
                                 <li>
                                     <button type="button"
-                                            class="fr-btn fr-btn--secondary"
-                                            aria-controls="widgetmodal">{% translate "Fermer" %}</button>
+                                            class="fr-btn fr-btn--secondary js-copy"
+                                            data-target="#tocopy">{% translate "Copier" %}</button>
                                 </li>
                                 <li>
-                                    <button type="button" class="fr-btn js-copy" data-target="#tocopy">{% translate "Copier" %}</button>
+                                    <button type="button"
+                                            class="fr-btn fr-btn--secondary"
+                                            data-bs-dismiss="modal"
+                                            aria-controls="widgetmodal">{% translate "Fermer" %}</button>
                                 </li>
                             </ul>
                         </div>
@@ -81,30 +89,59 @@
     </dialog>
 </div>
 <script nonce="{{ request.csp_nonce }}">
-    var btncopy = document.querySelector('.js-copy');
+    let btncopy = document.querySelector('.js-copy');
+    let testWidgetBtn = document.querySelector('#test-widget-btn')
+
     if (btncopy) {
         btncopy.addEventListener('click', docopy);
     }
 
+    if(testWidgetBtn && dsfr) {
+      const el = document.getElementById('widgetmodal');
+
+      el?.addEventListener('dsfr.conceal', () => {
+          let copyMessageInfoEl = document.querySelector('#copy-message-information');
+
+          if(!copyMessageInfoEl) return;
+
+          copyMessageInfoEl.classList.add('fr-hidden')
+          copyMessageInfoEl.textContent = '';
+      })
+
+      const handleCloseModal = () => {
+        const modalEl = dsfr(document.getElementById('widgetmodal'));
+            if (modalEl) {
+                modalEl.modal?.conceal();
+            }
+        };
+
+        testWidgetBtn.addEventListener('click', handleCloseModal);
+        testWidgetBtn.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                handleCloseModal();
+            }
+        });
+    }
+
     function docopy() {
-        var range = document.createRange();
-        var target = this.dataset.target;
-        var fromElement = document.querySelector(target);
-        var selection = window.getSelection();
+        let range = document.createRange();
+        let target = this.dataset.target;
+        let fromElement = document.querySelector(target);
+        let selection = window.getSelection();
 
         range.selectNode(fromElement);
         selection.removeAllRanges();
         selection.addRange(range);
 
         try {
-            var result = document.execCommand('copy');
+            let result = document.execCommand('copy');
             if (result) {
-                var tag = document.createElement("p");
-                tag.className = "text-center text-success"
-                var text = document.createTextNode('{% translate "Copié avec succès" %}');
-                tag.appendChild(text);
-                var element = document.getElementById("widget-code");
-                element.appendChild(tag);
+                let copyMessageInfoEl = document.querySelector('#copy-message-information');
+
+                if(!copyMessageInfoEl) return;
+
+                copyMessageInfoEl.classList.remove('fr-hidden')
+                copyMessageInfoEl.textContent = '{% translate "Copié avec succès" %}';
             }
         }
         catch (err) {
