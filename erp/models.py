@@ -915,6 +915,13 @@ class Erp(models.Model):
             if self.user_type == self.USER_ROLE_GESTIONNAIRE:
                 increment_nb_erp_administrator(self.user)
 
+    def refresh_from_db(self, using=None, fields=None):
+        super().refresh_from_db(using=using, fields=fields)
+        self.__original_activite_id = None
+        self.__original_user_id = None
+        self.__original_user_type = None
+        self.__versions = None
+
     def save(self, *args, editor=None, **kwargs):
         if editor and not self.user:
             self.user = editor
@@ -1902,6 +1909,10 @@ class Accessibilite(models.Model):
     # NOTE: a class overriding `__eq__` MUST also override `__hash__`
     def __hash__(self):
         return super().__hash__()
+
+    def refresh_from_db(self, using=None, fields=None):
+        super().refresh_from_db(using=using, fields=fields)
+        self.__versions = None
 
     def get_history(self, exclude_changes_from=None):
         return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
