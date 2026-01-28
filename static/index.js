@@ -1,5 +1,4 @@
 import '@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js'
-
 import 'leaflet'
 import 'leaflet.markercluster'
 import 'leaflet.locatecontrol'
