@@ -19,7 +19,6 @@ window.SentryIntegrations = Integrations
 import dom from './js/dom'
 import geo from './js/geo'
 import ui from './js/ui'
-import panoramax from './js/panoramax'
 import cloneFilter from './js/ui/CloneFilter'
 import Autocomplete from './js/ui/AutocompleteActivity'
 import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'

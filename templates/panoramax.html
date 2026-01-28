@@ -1,4 +1,8 @@
 {% extends "editorial/base.html" %}
+{% load static %}
+{% block javascript_extras %}
+    <script src="{% static "dist/js/panoramax.js" %}"></script>
+{% endblock javascript_extras %}
 {% load i18n static %}
 {% block page_title %}
     {{ erp.nom }} - {% translate "Choisir les photos Panoramax à ajouter sur Acceslibre" %}
@@ -75,22 +79,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
         <div id="viewer-container">
             <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
         </div>
-        <details class="panoramax-shortcuts">
-            <summary>{% translate "Liste des raccourcis pour l'utilisation de la carte intéractive" %}</summary>
-            <ul>
-                <li>{% translate "Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la carte" %}</li>
-                <li>
-                    {% translate "Page haut/bas (ou 3/9 du pavé numérique) : passer à l’image suivante ou précédente dans la séquence" %}
-                </li>
-                <li>{% translate "/ - : zoomer ou dézoomer l’image ou la carte" %}</li>
-                <li>{% translate "(ou 5 du pavé numérique) : recentrer l’image ou la carte" %}</li>
-                <li>
-                    {% translate "Accueil / ↖️ (ou 7 du pavé numérique) : basculer la carte et l’image comme élément principal affiché" %}
-                </li>
-                <li>{% translate "Fin (ou 1 du pavé numérique) : masquer la carte ou l’image réduite" %}</li>
-                <li>{% translate "Espace : lire ou mettre en pause la séquence en cours" %}</li>
-            </ul>
-        </details>
+        {% include "common/panoramax-shortcuts-details.html" %}
     </div>
     <form method="post" class="fr-my-4w" action=".">
         {% csrf_token %}
