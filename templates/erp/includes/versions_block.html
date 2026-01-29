@@ -2,34 +2,32 @@
 {% load static %}
 {% load a4a %}
 <p class="fr-mb-0">
-    {% with erp.get_global_timestamps as timestamps %}
-        {% spaceless %}
-            {% translate "Fiche créée" %}
-            {% if erp.user %}
-                {% translate " par " %} <span class="fr-text--bold">{{ erp.user.username|format_username }}</span>,
-            {% endif %}
-            {% if erp.user_type == "gestionnaire" %}
-                {% translate "en tant que gestionnaire" %}
-            {% elif erp.user_type == "admin" %}
-                {% translate "en tant qu'administration" %}
-            {% elif erp.user_type == "public" %}
-                {% translate "en tant qu'usager" %}
-            {% endif %}
-            {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %}
-            <span class="fr-text--bold">{{ timestamps.created_at|date:"j/m/Y" }}</span>
-        {% endspaceless %}
+    {% spaceless %}
+        {% translate "Fiche créée" %}
+        {% if erp.user %}
+            {% translate " par " %} <span class="fr-text--bold">{{ erp.user.username|format_username }}</span>,
+        {% endif %}
+        {% if erp.user_type == "gestionnaire" %}
+            {% translate "en tant que gestionnaire" %}
+        {% elif erp.user_type == "admin" %}
+            {% translate "en tant qu'administration" %}
+        {% elif erp.user_type == "public" %}
+            {% translate "en tant qu'usager" %}
+        {% endif %}
+        {% comment %}Translators: "le" is followed by a date{% endcomment %}{% translate "le" %}
+        <span class="fr-text--bold">{{ timestamps.created_at|date:"j/m/Y" }}</span>
+    {% endspaceless %}
+</p>
+{% if erp.checked_up_to_date_at %}
+    <p class="fr-mb-0">
+        {% translate "Dernière confirmation le" %} <span class="fr-text--bold">{{ erp.checked_up_to_date_at|date:"j/m/Y" }}</span>
     </p>
-    {% if erp.checked_up_to_date_at %}
-        <p class="fr-mb-0">
-            {% translate "Dernière confirmation le" %} <span class="fr-text--bold">{{ erp.checked_up_to_date_at|date:"j/m/Y" }}</span>
-        </p>
-    {% endif %}
-    {% if timestamps.created_at != timestamps.updated_at %}
-        <p class="fr-mb-0">
-            {% translate "Dernière modification le" %} <span class="fr-text--bold">{{ timestamps.updated_at|date:"j/m/Y" }}</span>
-        </p>
-    {% endif %}
-{% endwith %}
+{% endif %}
+{% if timestamps.created_at != timestamps.updated_at %}
+    <p class="fr-mb-0">
+        {% translate "Dernière modification le" %} <span class="fr-text--bold">{{ timestamps.updated_at|date:"j/m/Y" }}</span>
+    </p>
+{% endif %}
 <details class="mb-4">
     <summary class="no-ouline text-primary fr-mt-1v">{% translate "Voir l'historique" %}</summary>
     <section id="history" class="mt-2">

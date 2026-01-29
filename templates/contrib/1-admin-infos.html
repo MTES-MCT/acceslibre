@@ -114,8 +114,8 @@
                         </legend>
                         <p class="fr-px-3w">{% translate "Champs obligatoires *" %}</p>
                         <div class="fr-fieldset__content">
-                            <div class="fr-grid-row fr-px-2w fr-pb-1w fr-mb-2w">
-                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group {% if form.errors.nom %}fr-input-group--error{% endif %} display--flex direction--column align-self--baseline justify-content--end fr-mb-2w fr-mb-md-0">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w fr-mb-2w {% if form.errors.activite %}align-items--center{% else %}align-items--end{% endif %}">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-input-group fr-mb-2w fr-mb-md-0 {% if form.errors.nom %}fr-input-group--error{% endif %} display--flex direction--column align-self--baseline justify-content--end {% if form.errors.activite %}fr-mt-auto{% endif %}">
                                     <label class="fr-label" for="id_nom">{% translate "Nom *" %}</label>
                                     {{ form.nom }}
                                     {% if form.errors.nom %}
@@ -139,32 +139,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="fr-grid-row fr-px-2w fr-pb-1w">
-                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w fr-mb-3w">
+                            <div class="fr-grid-row fr-px-2w fr-pb-1w fr-mb-2w {% if form.errors.voie %}align-items--center{% else %}align-items--end{% endif %}">
+                                <div class="fr-col-12 fr-col-md-6 fr-pr-md-4w {% if form.errors.voie %}fr-mb-2w{% else %}fr-mt-auto fr-mb-2w fr-mb-md-0{% endif %}">
                                     <label class="fr-label" for="id_numero">{% translate "Numéro de la voie" %}</label>
                                     {{ form.numero }}
                                 </div>
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.voie %}fr-input-group--error{% endif %}">
-                                    <label class="fr-label" for="id_voie">{% translate "Voie *" %}</label>
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group {% if form.errors.voie %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_voie">
+                                        {% translate "Voie *" %}
+                                        <span class="fr-hint-text">{% translate "Veuillez remplir ce champ si le champ lieu-dit est vide" %}</span>
+                                    </label>
                                     {{ form.voie }}
-                                    {% if form.errors.voie %}
-                                        <p class="fr-error-text" id="voie-error-message">{% translate "Voie obligatoire" %}</p>
-                                    {% endif %}
+                                    {% if form.errors.voie %}<p class="fr-error-text" id="voie-error-message">{{ form.errors.voie.0 }}</p>{% endif %}
                                 </div>
                             </div>
-                            <div class="fr-grid-row fr-px-2w">
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-pr-md-4w fr-mb-3w {% if form.errors.code_postal %}fr-input-group--error fr-mb-0{% endif %}">
+                            <div class="fr-grid-row fr-px-2w fr-mb-2w fr-mb-2w {% if form.errors.lieu_dit %}align-items--center{% else %}align-items--end{% endif %}">
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-pr-md-4w {% if form.errors.code_postal %}fr-input-group--error{% endif %} {% if form.errors.lieu_dit %}fr-mb-2w{% else %}fr-mt-auto fr-mb-2w fr-mb-md-0{% endif %}">
                                     <label class="fr-label" for="id_code_postal">{% translate "Code postal *" %}</label>
                                     {{ form.code_postal }}
                                     {% if form.errors.code_postal %}
                                         <p class="fr-error-text" id="code-postal-error-message">{% translate "Code postal obligatoire" %}</p>
                                     {% endif %}
                                 </div>
-                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group fr-mb-3w {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
-                                    <label class="fr-label" for="id_lieu_dit">{% translate "Lieu dit" %}</label>
+                                <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_lieu_dit">
+                                        {% translate "Lieu dit *" %}
+                                        <span class="fr-hint-text">{% translate "Veuillez remplir ce champ si le champ voie est vide" %}</span>
+                                    </label>
                                     {{ form.lieu_dit }}
                                     {% if form.errors.lieu_dit %}
-                                        <p class="fr-error-text" id="lieu-dit-error-message">{% translate "Lieu dit obligatoire" %}</p>
+                                        <p class="fr-error-text" id="lieu-dit-error-message">{{ form.errors.lieu_dit.0 }}</p>
                                     {% endif %}
                                 </div>
                             </div>

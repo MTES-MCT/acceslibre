@@ -12,9 +12,6 @@ TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
 TEST_BODY = "This is a test"
 
-RECEIPT_CONTENT_NORMAL = "contacter directement les gestionnaires de l'établissement"
-RECEIPT_CONTENT_VACCINATION = "prise de rendez-vous de vaccination"
-
 
 @pytest.mark.django_db
 def test_contact(mocker, client):

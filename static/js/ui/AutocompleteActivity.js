@@ -63,8 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   function hideErrorMessage() {
-    inputElement.form.querySelector('#activite-input-messages').classList.add('fr-hidden')
-    inputElement.form.querySelector('#activite-input-messages').parentElement.classList.remove('fr-input-group--error')
+    const el = inputElement.form.querySelector('#activite-input-messages')
+
+    if (el && el.parentElement) {
+      el.classList.add('fr-hidden')
+      el.parentElement.classList.remove('fr-input-group--error')
+    }
   }
 
   // Dirty hack to support press Key enter (Lib is broken)

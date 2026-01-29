@@ -20,7 +20,7 @@ def cleaned_search_params_as_dict(get_parameters):
 
 
 def build_queryset(filters, request_get, with_zone=False):
-    base_queryset = Erp.objects.published().with_activity()
+    base_queryset = Erp.objects.published().with_activity().with_commune()
     base_queryset = base_queryset.search_what(filters.get("what"))
     if "where" in filters:
         filters["city"], filters["code_departement"] = clean_address(filters.get("where"))

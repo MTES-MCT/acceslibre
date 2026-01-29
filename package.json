@@ -12,8 +12,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf static/dist/",
-    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js",
-    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist"
+    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js",
+    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,9 @@
   "dependencies": {
     "dompurify": "3.3.1",
     "@gouvfr/dsfr": "1.14.3",
-    "@panoramax/web-viewer": "4.2.0",
+    "@panoramax/web-viewer": "4.3.1",
     "@parcel/transformer-sass": "2.16.1",
-    "@sentry/browser": "10.32.1",
+    "@sentry/browser": "10.33.0",
     "@sentry/tracing": "7.120.4",
     "@trevoreyre/autocomplete-js": "3.0.3",
     "bootstrap": "5.3.8",
@@ -46,6 +46,6 @@
   },
   "devDependencies": {
     "eslint": "9.39.2",
-    "prettier": "3.7.4"
+    "prettier": "3.8.0"
   }
 }

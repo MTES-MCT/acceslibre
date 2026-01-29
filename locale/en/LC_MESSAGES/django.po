@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-21 10:39+0100\n"
-"PO-Revision-Date: 2026-01-21 10:39+0100\n"
+"POT-Creation-Date: 2026-01-28 17:36+0100\n"
+"PO-Revision-Date: 2026-01-22 10:45+0100\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1478,18 +1478,6 @@ msgid ""
 msgstr ""
 "On health premises (infirmary, school doctor's office, psychologist's "
 "office, etc.)"
-
-msgid "dans la cantine ou l’espace restauration"
-msgstr "At the canteen or the restaurant space"
-
-msgid "dans la bibliothèque ou CDI"
-msgstr "At the Library"
-
-msgid "dans la cour"
-msgstr "In the courtyard"
-
-msgid "dans les locaux de santé"
-msgstr "in healthcare facilities"
 
 msgid "Handicap auditif"
 msgstr "Hearing disability"
@@ -3457,6 +3445,41 @@ msgstr "Next page"
 msgid "Dernière page"
 msgstr "Last page"
 
+msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
+msgstr "List of shortcuts for the use of the interactive card"
+
+msgid ""
+"Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la "
+"carte"
+msgstr ""
+"Arrows (or 2/4/8/6 of the digital pavement): move in the image or on the map"
+
+msgid ""
+"Page haut/bas (ou 3/9 du pavé numérique) : passer à l’image suivante ou "
+"précédente dans la séquence"
+msgstr ""
+"High/low page (or 3/9 of the digital pavement): switch to the following or "
+"previous image in the sequence"
+
+msgid "/ - : zoomer ou dézoomer l’image ou la carte"
+msgstr "/ -: zoom or diszoman the image or the card"
+
+msgid "(ou 5 du pavé numérique) : recentrer l’image ou la carte"
+msgstr "(or 5 of the digital pavement): refocus the image or the card"
+
+msgid ""
+"Accueil / ↖️ (ou 7 du pavé numérique) : basculer la carte et l’image comme "
+"élément principal affiché"
+msgstr ""
+"Home / ↖️ (or 7 of the digital pavement): to switch the card and the image as "
+"a main element displayed"
+
+msgid "Fin (ou 1 du pavé numérique) : masquer la carte ou l’image réduite"
+msgstr "End (or 1 of the digital pavement): hide the card or reduced image"
+
+msgid "Espace : lire ou mettre en pause la séquence en cours"
+msgstr "Space: Read or break the current sequence"
+
 msgid "Communes renseignées"
 msgstr "Communes filled"
 
@@ -3910,8 +3933,8 @@ msgstr "Street number"
 msgid "Voie *"
 msgstr "Street *"
 
-msgid "Voie obligatoire"
-msgstr "Mandatory route"
+msgid "Veuillez remplir ce champ si le champ lieu-dit est vide"
+msgstr "Please complete this field if the location field is empty"
 
 msgid "Code postal *"
 msgstr "Postal code *"
@@ -3919,8 +3942,11 @@ msgstr "Postal code *"
 msgid "Code postal obligatoire"
 msgstr "Postal code required"
 
-msgid "Lieu dit obligatoire"
-msgstr "Mandatory place name"
+msgid "Lieu dit *"
+msgstr "Place called *"
+
+msgid "Veuillez remplir ce champ si le champ voie est vide"
+msgstr "Please complete this field if the channel field is empty"
 
 msgid "Commune *"
 msgstr "Municipality *"
@@ -6389,41 +6415,6 @@ msgstr "Address:"
 msgid "Activité :"
 msgstr "Activity:"
 
-msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
-msgstr "List of shortcuts for the use of the interactive card"
-
-msgid ""
-"Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la "
-"carte"
-msgstr ""
-"Arrows (or 2/4/8/6 of the digital pavement): move in the image or on the map"
-
-msgid ""
-"Page haut/bas (ou 3/9 du pavé numérique) : passer à l’image suivante ou "
-"précédente dans la séquence"
-msgstr ""
-"High/low page (or 3/9 of the digital pavement): switch to the following or "
-"previous image in the sequence"
-
-msgid "/ - : zoomer ou dézoomer l’image ou la carte"
-msgstr "/ -: zoom or diszoman the image or the card"
-
-msgid "(ou 5 du pavé numérique) : recentrer l’image ou la carte"
-msgstr "(or 5 of the digital pavement): refocus the image or the card"
-
-msgid ""
-"Accueil / ↖️ (ou 7 du pavé numérique) : basculer la carte et l’image comme "
-"élément principal affiché"
-msgstr ""
-"Home / ↖️ (or 7 of the digital pavement): to switch the card and the image as "
-"a main element displayed"
-
-msgid "Fin (ou 1 du pavé numérique) : masquer la carte ou l’image réduite"
-msgstr "End (or 1 of the digital pavement): hide the card or reduced image"
-
-msgid "Espace : lire ou mettre en pause la séquence en cours"
-msgstr "Space: Read or break the current sequence"
-
 msgid "Choisir cette photo et passer à l’établissement suivant"
 msgstr "Choose this photo and go to the next establishment"
 
@@ -6743,34 +6734,3 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
-
-#~ msgid ""
-#~ "Product Designer, j’améliore l’UX/UI pour créer des produits intuitifs, "
-#~ "accessibles et performants, alignés aux besoins utilisateurs."
-#~ msgstr ""
-#~ "Product Designer, I improve UX/UI to create intuitive, accessible and "
-#~ "efficient products, aligned with user needs."
-
-#~ msgid ""
-#~ "Le service municipal de transport est adapté entre le domicile et le "
-#~ "bureau de vote"
-#~ msgstr ""
-#~ "The municipal transport service is adapted between home and the polling "
-#~ "station"
-
-#~ msgid ""
-#~ "Le bureau de vote est équipé d'une urne adaptée située entre 0,90 et "
-#~ "1,30m de hauteur"
-#~ msgstr ""
-#~ "The polling station is equipped with a suitable ballot box located "
-#~ "between 0.90 and 1.30m in height"
-
-#~ msgid "Le bureau de vote n'est pas équipé d'une urne adaptée"
-#~ msgstr "The polling station is not equipped with a suitable ballot box"
-
-#~ msgid ""
-#~ "Informations sur l'accessibilité du service municipal de transport entre "
-#~ "le domicile et le bureau de vote"
-#~ msgstr ""
-#~ "Information on the accessibility of the municipal transport service "
-#~ "between home and the polling station"

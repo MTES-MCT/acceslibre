@@ -103,13 +103,6 @@ ACCUEIL_ESPACES_OUVERTS_CHOICES = [
     ),
 ]
 
-ACCUEIL_ESPACES_OUVERTS = [
-    (ACCUEIL_ESPACES_OUVERTS_RESTAURATION, translate_lazy("dans la cantine ou l’espace restauration")),
-    (ACCUEIL_ESPACES_OUVERTS_BIBLIOTHEQUE, translate_lazy("dans la bibliothèque ou CDI")),
-    (ACCUEIL_ESPACES_OUVERTS_COUR, translate_lazy("dans la cour")),
-    (ACCUEIL_ESPACES_OUVERTS_SANTE, translate_lazy("dans les locaux de santé")),
-]
-
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"

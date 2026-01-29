@@ -44,7 +44,7 @@
                         <ul class="list-group">
                         </ul>
                     </div>
-                    <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors %}fr-hidden{% endif %}"
+                    <div class="fr-mt-1w fr-messages-group {% if not form.activite.errors and not form.what.errors %}fr-hidden{% endif %}"
                          id="activite-input-messages">
                         {# Voluntary putting what errors as this a common error for both fields (what and activite) #}
                         {% if form.what.errors %}
@@ -56,57 +56,59 @@
                     </div>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-lg-4 search-where-field fr-input-group {% if form.where.errors %}fr-input-group--error{% endif %}">
-                <label for="where-input">
-                    {% translate "Où ?" %}<span class="asteriskField"></span>
-                    <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
-                </label>
-                <div class="position--relative">
-                    <input id="where-input"
-                           class="autocomplete-input fr-input"
-                           type="search"
-                           dir="ltr"
-                           spellcheck="false"
-                           autocomplete="off"
-                           autocapitalize="off"
-                           data-autocomplete-departments="off"
-                           {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
-                           name="where"
-                           placeholder="Lyon, 12 rue des prés Nantes">
-                    <ul class="list-group autocomplete-result-list rounded-only-bottom">
-                    </ul>
-                    <div class="fr-messages-group {% if not form.where.errors %}fr-hidden{% endif %}"
-                         id="where-input-messages"
-                         aria-live="polite">
-                        <p class="fr-message fr-message--error" id="where-input-message-error">
-                            {% translate "Veuillez renseigner une adresse." %}
-                        </p>
+            <div class="fr-col-12 fr-col-lg-4 search-where-field">
+                <div class="fr-input-group {% if form.where.errors %}fr-input-group--error{% endif %}">
+                    <label for="where-input">
+                        {% translate "Où ?" %}<span class="asteriskField"></span>
+                        <span class="fr-hint-text">{% translate "Adresse, département ou commune" %}</span>
+                    </label>
+                    <div class="position--relative">
+                        <input id="where-input"
+                               class="autocomplete-input fr-input"
+                               type="search"
+                               dir="ltr"
+                               spellcheck="false"
+                               autocomplete="off"
+                               autocapitalize="off"
+                               data-autocomplete-departments="off"
+                               {% if "where" in request.GET %} value="{{ where|default:request.GET.where }}" {% else %} value="{{ where }}" {% endif %}
+                               name="where"
+                               placeholder="Lyon, 12 rue des prés Nantes">
+                        <ul class="list-group autocomplete-result-list rounded-only-bottom">
+                        </ul>
+                        <div class="fr-messages-group {% if not form.where.errors %}fr-hidden{% endif %}"
+                             id="where-input-messages"
+                             aria-live="polite">
+                            <p class="fr-message fr-message--error" id="where-input-message-error">
+                                {% translate "Veuillez renseigner une adresse." %}
+                            </p>
+                        </div>
                     </div>
+                    <input type="hidden"
+                           name="lat"
+                           {% if "lat" in request.GET %} value="{{ lat|default:request.GET.lat }}" {% else %} value="{{ lat }}" {% endif %}>
+                    <input type="hidden"
+                           name="lon"
+                           {% if "lon" in request.GET %} value="{{ lon|default:request.GET.lon }}" {% else %} value="{{ lon }}" {% endif %}>
+                    <input type="hidden"
+                           name="code"
+                           {% if "code" in request.GET %} value="{{ code|default:request.GET.code }}" {% else %} value="{{ code }}" {% endif %}>
+                    <input type="hidden"
+                           name="ban_id"
+                           {% if "ban_id" in request.GET %} value="{{ ban_id|default:request.GET.ban_id }}" {% else %} value="{{ ban_id }}" {% endif %}>
+                    <input type="hidden"
+                           name="postcode"
+                           {% if "postcode" in request.GET %} value="{{ postcode|default:request.GET.postcode }}" {% else %} value="{{ postcode }}" {% endif %}>
+                    <input type="hidden"
+                           name="search_type"
+                           {% if "search_type" in request.GET %} value="{{ search_type|default:request.GET.search_type }}" {% else %} value="{{ search_type }}" {% endif %}>
+                    <input type="hidden"
+                           name="street_name"
+                           {% if "street_name" in request.GET %} value="{{ street_name|default:request.GET.street_name }}" {% else %} value="{{ street_name }}" {% endif %}>
+                    <input type="hidden"
+                           name="municipality"
+                           {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
                 </div>
-                <input type="hidden"
-                       name="lat"
-                       {% if "lat" in request.GET %} value="{{ lat|default:request.GET.lat }}" {% else %} value="{{ lat }}" {% endif %}>
-                <input type="hidden"
-                       name="lon"
-                       {% if "lon" in request.GET %} value="{{ lon|default:request.GET.lon }}" {% else %} value="{{ lon }}" {% endif %}>
-                <input type="hidden"
-                       name="code"
-                       {% if "code" in request.GET %} value="{{ code|default:request.GET.code }}" {% else %} value="{{ code }}" {% endif %}>
-                <input type="hidden"
-                       name="ban_id"
-                       {% if "ban_id" in request.GET %} value="{{ ban_id|default:request.GET.ban_id }}" {% else %} value="{{ ban_id }}" {% endif %}>
-                <input type="hidden"
-                       name="postcode"
-                       {% if "postcode" in request.GET %} value="{{ postcode|default:request.GET.postcode }}" {% else %} value="{{ postcode }}" {% endif %}>
-                <input type="hidden"
-                       name="search_type"
-                       {% if "search_type" in request.GET %} value="{{ search_type|default:request.GET.search_type }}" {% else %} value="{{ search_type }}" {% endif %}>
-                <input type="hidden"
-                       name="street_name"
-                       {% if "street_name" in request.GET %} value="{{ street_name|default:request.GET.street_name }}" {% else %} value="{{ street_name }}" {% endif %}>
-                <input type="hidden"
-                       name="municipality"
-                       {% if "municipality" in request.GET %} value="{{ municipality|default:request.GET.municipality }}" {% else %} value="{{ municipality }}" {% endif %}>
             </div>
         </div>
         <div>
