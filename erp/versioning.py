@@ -36,6 +36,7 @@ def get_user_contributions(user):
         .exclude(content_type=accessibilite_type, object_id__in=user_accesses)
         .filter(revision__user=user, content_type__in=(erp_type, accessibilite_type))
         .prefetch_related("object")
+        .order_by("-revision__date_created")
     )
 
 
