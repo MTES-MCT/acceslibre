@@ -521,8 +521,8 @@ def widget_from_uuid(request, uuid):
     except ValueError:
         return _render_404()
 
-    # activite is used in template when get_absolute_uri
-    erp = Erp.objects.select_related("accessibilite", "activite").published().filter(uuid=uuid).first()
+    # activite, commune_ext is used in template when get_absolute_uri
+    erp = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().filter(uuid=uuid).first()
 
     if not erp:
         return _render_404()
