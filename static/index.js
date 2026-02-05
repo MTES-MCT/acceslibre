@@ -5,9 +5,6 @@ import 'leaflet.locatecontrol'
 import 'leaflet-center-cross'
 import { GestureHandling } from 'leaflet-gesture-handling'
 
-// Bootstrap
-import * as bootstrap from 'bootstrap'
-
 // Sentry
 import * as Sentry from '@sentry/browser'
 import { Integrations } from '@sentry/tracing'
