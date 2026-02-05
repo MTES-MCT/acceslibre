@@ -1,7 +1,9 @@
 from datetime import timedelta
 
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Q
+from django.db import models
+from django.db.models import Exists, OuterRef, Q
+from django.db.models.functions import Cast
 from django.utils import timezone
 from reversion.models import Version
 
@@ -28,14 +30,18 @@ def extract_online_erp(version):
 def get_user_contributions(user):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
-    user_erps = [f["id"] for f in Erp.objects.filter(user=user).values("id")]
-    user_accesses = [f["id"] for f in Accessibilite.objects.filter(erp__user=user).values("id")]
+
+    exclude_erps = Exists(Erp.objects.filter(user=user, id=Cast(OuterRef("object_id"), models.IntegerField())))
+
+    exclude_accesses = Exists(
+        Accessibilite.objects.filter(erp__user=user, id=Cast(OuterRef("object_id"), models.IntegerField()))
+    )
+
     return (
-        Version.objects.select_related("revision", "revision__user")
-        .exclude(content_type=erp_type, object_id__in=user_erps)
-        .exclude(content_type=accessibilite_type, object_id__in=user_accesses)
-        .filter(revision__user=user, content_type__in=(erp_type, accessibilite_type))
-        .prefetch_related("object")
+        Version.objects.filter(revision__user=user, content_type__in=(erp_type, accessibilite_type))
+        .exclude(Q(content_type=erp_type) & exclude_erps)
+        .exclude(Q(content_type=accessibilite_type) & exclude_accesses)
+        .select_related("revision", "revision__user")
     )
 
 
