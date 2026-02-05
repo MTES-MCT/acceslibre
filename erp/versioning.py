@@ -53,6 +53,7 @@ def get_user_contributions_recues(user):
             | Q(content_type=accessibilite_type, object_id__in=user_accesses),
         )
         .prefetch_related("object")
+        .order_by("-revision__date_created")
     )
 
 
