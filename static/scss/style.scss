@@ -812,3 +812,8 @@ select[name='language'] {
     text-decoration: underline;
   }
 }
+
+ul.pagination {
+  display: flex;
+  justify-content: flex-end !important;
+}
