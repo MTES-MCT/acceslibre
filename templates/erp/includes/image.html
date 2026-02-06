@@ -9,6 +9,7 @@
         <a href="{% url 'panoramax_remove' erp_slug=erp.slug %}"
            class="fr-btn fr-btn--secondary fr-mt-2w">{% translate "Supprimer l'image" %}</a>
     {% endif %}
+    <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Changer la photo" %}</a>
     <hr class="fr-hr fr-mt-2w" />
 {% elif erp_can_have_image %}
     <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Ajouter une photo" %}</a>
