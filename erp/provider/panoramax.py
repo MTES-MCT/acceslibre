@@ -10,7 +10,10 @@ def get_image_id(lat, lon, distance="3-15"):
         "limit": 1,
         "place_distance": distance,
     }
-    r = requests.get(API_URL, params=params, headers=HEADERS, timeout=5)
+    try:
+        r = requests.get(API_URL, params=params, headers=HEADERS, timeout=5)
+    except requests.exceptions.Timeout:
+        return None
     r.raise_for_status()
     data = r.json()
     if data.get("features"):

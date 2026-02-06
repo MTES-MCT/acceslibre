@@ -53,6 +53,9 @@
             {% include "erp/includes/header.html" %}
         </section>
         <section>
+            {% include "erp/includes/image.html" %}
+        </section>
+        <section>
             {% if 'success' in request.GET and messages %}
                 <div class="fr-container fr-container-fluid alert alert-info mb-0 shadow-sm text-center fr-mb-5v">
                     <span class="h1 mb-0">{% translate "Merci !" %}</span>

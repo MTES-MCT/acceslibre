@@ -313,6 +313,29 @@ def export(request):
 
 
 @login_required
+def panoramax_add(request, erp_slug):
+    if request.method == "POST":
+        image_id = request.POST.get("image_id")
+        xyz_raw = request.POST.get("xyz")
+
+        erp = get_object_or_404(Erp, slug=erp_slug)
+        if erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).exists():
+            erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
+        erp.sources.create(source=ExternalSource.SOURCE_PANORAMAX, source_id=f"{image_id}|{xyz_raw}")
+        messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été ajoutée."))
+        return redirect(erp.get_absolute_url())
+
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    image_id = panoramax_provider.get_image_id(erp.geom.y, erp.geom.x)
+    if not image_id:
+        messages.add_message(
+            request, messages.WARNING, translate("La zone géographique de l'établissement n'est pas couverte.")
+        )
+        return redirect(erp.get_absolute_url())
+    return render(request, "erp/panoramax_add.html", context={"erp": erp, "image_id": image_id})
+
+
+@login_required
 def panoramax(request):
     if request.method == "POST":
         image_id = request.POST.get("image_id")
@@ -324,10 +347,9 @@ def panoramax(request):
         return redirect(reverse("panoramax"))
 
     def _find_erp_to_match():
-        cities = ["Lyon", "Caen", "Strasbourg", "Le Havre", "Nantes", "Toulouse", "Montauban", "Bayonne"]
         erp = (
             Erp.objects.published()
-            .filter(commune__unaccent__in=cities)
+            .filter(commune__unaccent__in=settings.PANORAMAX_OPENED_CITIES)
             .exclude(sources__source="panoramax")
             .order_by("?")
             .first()
@@ -451,7 +473,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     erp_xyz = None
     if erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).exists():
         erp_image = erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).first().source_id
-        erp_image_id, erp_xyz = erp_image.split("|")
+        if erp_image:
+            erp_image_id, erp_xyz = erp_image.split("|")
 
     groups = erp.activite.groups.all() if erp.activite else []
     should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
@@ -463,6 +486,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     versions = erp.get_versions()
     history = erp.get_history()
+
+    can_have_image = erp.commune in settings.PANORAMAX_OPENED_CITIES
 
     return render(
         request,
@@ -501,6 +526,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "versions": versions,
             "timestamps": timestamps,
             "history": history,
+            "erp_can_have_image": can_have_image,
         },
     )
 
