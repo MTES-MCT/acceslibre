@@ -42,8 +42,8 @@ importers:
         specifier: 1.2.2
         version: 1.2.2
       leaflet.locatecontrol:
-        specifier: 0.84.2
-        version: 0.84.2
+        specifier: 0.87.0
+        version: 0.87.0
       leaflet.markercluster:
         specifier: 1.5.3
         version: 1.5.3(leaflet@1.9.4)
@@ -1107,8 +1107,8 @@ packages:
   leaflet-gesture-handling@1.2.2:
     resolution: {integrity: sha512-Blf5V4PoNphWkzL7Y1qge+Spkd4OCQ2atjwUNhMhLIcjKzPcBH++x/lwOinaR9jSqLWqJ6oKYO8d0XdTffy4hQ==}
 
-  leaflet.locatecontrol@0.84.2:
-    resolution: {integrity: sha512-Tv0S2bAhpFgZYyyfPgeVhb3hPr9CnlcP15EpMQd9m5vA+aALhM6key1ucfnnD7n09AEeNEmIFe71T4V18Kpu7g==}
+  leaflet.locatecontrol@0.87.0:
+    resolution: {integrity: sha512-kx/kCicuN1GpA1xaa6P6O7bcbpvYo9XbcAuyCcERUNyZtp730noMTEt6+St5OgCH5SpJz5NVsu6XZNOaaNxAMw==}
 
   leaflet.markercluster@1.5.3:
     resolution: {integrity: sha512-vPTw/Bndq7eQHjLBVlWpnGeLa3t+3zGiuM7fJwCkiMFq+nmRuG3RI3f7f4N4TDX7T4NpbAXpR2+NTRSEGfCSeA==}
@@ -2794,7 +2794,7 @@ snapshots:
 
   leaflet-gesture-handling@1.2.2: {}
 
-  leaflet.locatecontrol@0.84.2: {}
+  leaflet.locatecontrol@0.87.0: {}
 
   leaflet.markercluster@1.5.3(leaflet@1.9.4):
     dependencies:
