@@ -448,4 +448,23 @@ SUMMERNOTE_CONFIG = {
     },
 }
 
-PANORAMAX_OPENED_CITIES = ["Lyon", "Caen", "Strasbourg", "Le Havre", "Nantes", "Toulouse", "Montauban", "Bayonne"]
+PANORAMAX_OPENED_CITIES = [
+    "Lyon",
+    "Caen",
+    "Strasbourg",
+    "Le Havre",
+    "Nantes",
+    "Toulouse",
+    "Montauban",
+    "Bayonne",
+    "Cherbourg-en-Cotentin",
+    "Rouen",
+    "Paris",
+    "Lille",
+    "Saint-Dizier",
+    "Vitry-le-François",
+    "Grenoble",
+    "Pau",
+    "Anglet",
+    "Orléans",
+]
