@@ -6,7 +6,7 @@ requires-python = "==3.13.*"
 
 dependencies = [
     "coreapi",
-    "Django==6.0.1",
+    "Django==6.0.2",
     "django-admin-autocomplete-filter",
     "django-admin-list-filter-dropdown",
     "django-autoslug",
@@ -74,7 +74,7 @@ dev = [
     "pytest-mock",
     "splinter[django]",
     "pytest-circleci-parallelized",
-    "django-debug-toolbar==6.1.0",
+    "django-debug-toolbar==6.2.0",
     "pytest-xdist",
     "django-rosetta",
     "djlint",

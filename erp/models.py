@@ -224,6 +224,7 @@ class ActivitySuggestion(models.Model):
         verbose_name_plural = translate_lazy("Suggestions d'activités")
 
     def save(self, *args, **kwargs):
+        self.__versions = None
         if self.mapped_activity and self.erp.activite and self.erp.activite.slug == "autre":
             self.erp.activite = self.mapped_activity
             self.erp.save()
@@ -1927,7 +1928,7 @@ class Accessibilite(models.Model):
             .select_related("revision__user")
             .order_by("-revision__date_created")[: self.HISTORY_MAX_LATEST_ITEMS + 1]
         )
-        self.__versions = reversed(list(qs))
+        self.__versions = list(reversed(list(qs)))
         return self.__versions
 
     def has_data(self):

@@ -14,6 +14,12 @@
             </li>
             {% if not no_page_links %}
                 {% if pager.paginator.num_pages > 7 %}
+                    {% if pager.number > 2 %}
+                        <li>
+                            <a class="fr-pagination__link"
+                               href="{{ pager_base_url }}&page={{ pager.number|add:-2 }}">{{ pager.number|add:-2 }}</a>
+                        </li>
+                    {% endif %}
                     {% if pager.number > 1 %}
                         <li>
                             <a class="fr-pagination__link"
@@ -29,6 +35,10 @@
                         <li>
                             <a class="fr-pagination__link"
                                href="{{ pager_base_url }}&page={{ pager.number|add:1 }}">{{ pager.number|add:1 }}</a>
+                        </li>
+                        <li>
+                            <a class="fr-pagination__link"
+                               href="{{ pager_base_url }}&page={{ pager.number|add:2 }}">{{ pager.number|add:2 }}</a>
                         </li>
                     {% endif %}
                 {% else %}

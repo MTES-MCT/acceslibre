@@ -106,7 +106,7 @@ jobs:
           command: |
             uv run ./bin/check_translations.sh
       - run:
-          name: Check FE linting
+          name: Check FE prettier
           command: |
             pnpm prettier --check .
   tests:
