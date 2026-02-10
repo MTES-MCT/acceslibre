@@ -44,10 +44,16 @@ class Command(BaseCommand):
                     accessibilite["accueil_audiodescription"] = ["avec_équipement_occasionnel"]
 
                 accessibilite["accueil_personnels"] = row["accueil_personnels"]
-                accessibilite["entree_balise_sonore"] = True if row["entree_balise_sonore"] == "True" else False
-                accessibilite["accueil_audiodescription_presence"] = (
-                    True if row["accueil_audiodescription_presence"] == "True" else False
-                )
+                if row["entree_balise_sonore"] == "True":
+                    accessibilite["entree_balise_sonore"] = True
+                elif row["entree_balise_sonore"] == "False":
+                    accessibilite["entree_balise_sonore"] = False
+
+                if row["accueil_audiodescription_presence"] == "True":
+                    accessibilite["accueil_audiodescription_presence"] = True
+                elif row["accueil_audiodescription_presence"] == "False":
+                    accessibilite["accueil_audiodescription_presence"] = False
+
                 if row["commentaire"]:
                     accessibilite["commentaire"] = row["commentaire"]
 
