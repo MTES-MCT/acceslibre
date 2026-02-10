@@ -12,15 +12,20 @@ from erp.models import Erp
 class Command(BaseCommand):
     help = "Import cinema aveugles accessibility"
 
+    def add_arguments(self, parser):
+        parser.add_argument("--file", type=str, default="cinemas_audiodescription.csv")
+
     def handle(self, *args, **kwargs):
-        with open("cinemas_audiodescription.csv", "r") as file:
+        file_path = kwargs["file"]
+        with open(file_path, "r") as file:
             reader = csv.DictReader(file, delimiter=";")
 
             for row in reader:
                 if not row["erp_id"]:
                     continue
 
-                accessibilite = dict()
+                erp = Erp.objects.get(pk=row["erp_id"])
+                accessibilite = erp.accessibilite.__dict__
                 accessibilite["erp_id"] = row["erp_id"]
 
                 if (
@@ -43,12 +48,11 @@ class Command(BaseCommand):
                 accessibilite["accueil_audiodescription_presence"] = (
                     True if row["accueil_audiodescription_presence"] == "True" else False
                 )
-                accessibilite["commentaire"] = row["commentaire"]
+                if row["commentaire"]:
+                    accessibilite["commentaire"] = row["commentaire"]
 
                 if not accessibilite["accueil_audiodescription_presence"]:
                     accessibilite["accueil_audiodescription"] = []
-
-                erp = Erp.objects.get(pk=row["erp_id"])
 
                 self._update_erp(
                     data={"accessibilite": accessibilite, "activite": erp.activite.nom, **erp.__dict__}, erp=erp
