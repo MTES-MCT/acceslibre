@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 11:26+0100\n"
-"PO-Revision-Date: 2026-02-04 11:26+0100\n"
-"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2026-02-10 07:44+0100\n"
+"PO-Revision-Date: 2026-02-10 07:44+0100\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -2925,6 +2925,12 @@ msgid ""
 msgstr ""
 "The export has been launched successfully. You will receive an email with a "
 "link to the CSV file."
+
+msgid "L'image Panoramax a bien été ajoutée."
+msgstr "The Panoramax image has been added."
+
+msgid "La zone géographique de l'établissement n'est pas couverte."
+msgstr "The geographical area of ​​the establishment is not covered."
 
 msgid "L'image Panoramax a bien été supprimée."
 msgstr "The Panoramax image has been deleted."
@@ -6112,9 +6118,6 @@ msgstr "New window"
 msgid "Itinéraire"
 msgstr "Itinerary"
 
-msgid "Supprimer l'image"
-msgstr "Delete the image"
-
 msgid "Historique des modifications"
 msgstr "Changes history"
 
@@ -6135,6 +6138,15 @@ msgid ""
 "d'accessibilité de cet établissement."
 msgstr ""
 "There is no change history yet for the accessibility data for this facility."
+
+msgid "Supprimer l'image"
+msgstr "Delete the image"
+
+msgid "Changer la photo"
+msgstr "Change photo"
+
+msgid "Ajouter une photo"
+msgstr "Add a photo"
 
 #, python-format
 msgid "Label %(name)s"
@@ -6248,6 +6260,64 @@ msgstr "Go to the map"
 
 msgid "Revenir à la carte"
 msgstr "Back to the map"
+
+msgid "Ajout d'une image"
+msgstr "Adding an image"
+
+msgid "Choisir la photo Panoramax à ajouter"
+msgstr "Choose the Panoramax photo to add"
+
+msgid ""
+"La visionneuse vous propose automatiquement la photo la plus proche de "
+"l'établissement Acceslibre indiqué ci-dessous."
+msgstr ""
+"The viewer automatically offers you the closest photo to the Acceslibre "
+"establishment indicated below."
+
+msgid ""
+"Choisissez la meilleure vue à partir des photos proposées !  Vous pouvez "
+"vous déplacer, modifier l'angle de vue, zoomer.."
+msgstr ""
+"Choose the best view from the photos offered!  You can move, change the "
+"viewing angle, zoom."
+
+msgid ""
+"Vous êtes satisfait de la vue qui permet de bien voir l'établissement : "
+"cliquez sur \"choisir cette photo\".\n"
+"La photo sera instantanément ajoutée à la fiche acceslibre de l'établissement"
+msgstr ""
+"You are satisfied with the view that allows you to see the establishment "
+"well: click on \"Choose this photo\".\n"
+"The photo will be instantly added to the establishment's access sheet of the "
+"establishment"
+
+msgid ""
+"\n"
+"            Les photos ne permettent pas de voir l'établissement. Cliquez "
+"sur \"Aucune photo ne convient\".\n"
+"            "
+msgstr ""
+"\n"
+"The photos do not allow you to see the establishment. Click “No photo is "
+"suitable”."
+
+msgid "Voir le tutoriel - Nouvelle fenêtre"
+msgstr "See the tutorial - New window"
+
+msgid "Voir notre foire aux questions - Nouvelle fenêtre"
+msgstr "See our Frequently Questions - New window"
+
+msgid "Adresse :"
+msgstr "Address:"
+
+msgid "Activité :"
+msgstr "Activity:"
+
+msgid "Choisir cette photo"
+msgstr "Choose this photo"
+
+msgid "Aucune photo ne convient"
+msgstr "No photo is suitable"
 
 msgid "Ajouter cet établissement"
 msgstr "Add this facility"
@@ -6376,53 +6446,14 @@ msgid "Choisir les photos Panoramax à ajouter sur Acceslibre"
 msgstr "Choose the Panoramax photos to add on Acceslibre"
 
 msgid ""
-"La visionneuse vous propose automatiquement la photo la plus proche de "
-"l'établissement Acceslibre indiqué ci-dessous."
-msgstr ""
-"The viewer automatically offers you the closest photo to the Acceslibre "
-"establishment indicated below."
-
-msgid ""
-"Choisissez la meilleure vue à partir des photos proposées !  Vous pouvez "
-"vous déplacer, modifier l'angle de vue, zoomer.."
-msgstr ""
-"Choose the best view from the photos offered!  You can move, change the "
-"viewing angle, zoom."
-
-msgid ""
-"Vous êtes satisfait de la vue qui permet de bien voir l'établissement : "
-"cliquez sur \"choisir cette photo\".\n"
-"La photo sera instantanément ajoutée à la fiche acceslibre de l'établissement"
-msgstr ""
-"You are satisfied with the view that allows you to see the establishment "
-"well: click on \"Choose this photo\".\n"
-"The photo will be instantly added to the establishment's access sheet of the "
-"establishment"
-
-msgid ""
 "Les photos ne permettent pas de voir l'établissement. Cliquez sur \"Aucune "
 "photo ne convient\". Un nouvel établissement vous sera proposé."
 msgstr ""
 "The photos do not allow you to see the establishment. Click on \"No photo is "
 "suitable\". A new establishment will be offered."
 
-msgid "Voir le tutoriel - Nouvelle fenêtre"
-msgstr "See the tutorial - New window"
-
-msgid "Voir notre foire aux questions - Nouvelle fenêtre"
-msgstr "See our Frequently Questions - New window"
-
-msgid "Adresse :"
-msgstr "Address:"
-
-msgid "Activité :"
-msgstr "Activity:"
-
 msgid "Choisir cette photo et passer à l’établissement suivant"
 msgstr "Choose this photo and go to the next establishment"
-
-msgid "Aucune photo ne convient"
-msgstr "No photo is suitable"
 
 msgid "Connexion"
 msgstr "Login"
