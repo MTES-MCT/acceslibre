@@ -263,3 +263,15 @@ def kebab_case(value):
 @register.filter
 def comma_to_dot(value):
     return str(value).replace(",", ".")
+
+
+@register.filter
+def get_alert_level(tag):
+    levels = {
+        "debug": "info",
+        "info": "info",
+        "success": "success",
+        "warning": "warning",
+        "danger": "error",
+    }
+    return levels.get(tag, "info")

@@ -1,7 +1,6 @@
 @import 'variables';
 @import 'utilities';
 @import 'breakpoints';
-@import '~bootstrap/scss/bootstrap';
 
 // App specific styles
 @import 'loader';
@@ -265,6 +264,7 @@ select[name='language'] {
 
   &-notifications {
     position: fixed;
+    background-color: white;
     bottom: 0;
     right: 10px;
     padding: 0;
@@ -811,4 +811,9 @@ select[name='language'] {
   a {
     text-decoration: underline;
   }
+}
+
+ul.pagination {
+  display: flex;
+  justify-content: flex-end !important;
 }
