@@ -1,5 +1,10 @@
 .widget {
   &-card {
     background-color: var(--blue-france-975-75);
+
+    img {
+      border-radius: 13px;
+      border: 1px solid var(--border-default-grey);
+    }
   }
 }
