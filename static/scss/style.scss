@@ -838,3 +838,7 @@ ul.pagination {
   display: flex;
   justify-content: flex-end !important;
 }
+
+#btn_acceslibre_close::after {
+  content: none;
+}
