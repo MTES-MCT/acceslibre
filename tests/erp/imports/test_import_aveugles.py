@@ -43,6 +43,7 @@ def test_nominal_case(mocker):
 
         assert erp.accessibilite.entree_porte_presence is True
         assert erp.accessibilite.commentaire == "foo"
+        assert erp.accessibilite.accueil_personnels == "aucun"
 
     assert erp1.accessibilite.accueil_audiodescription_presence is False
     assert not erp1.accessibilite.accueil_audiodescription

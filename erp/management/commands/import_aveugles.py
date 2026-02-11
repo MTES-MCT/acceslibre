@@ -43,7 +43,9 @@ class Command(BaseCommand):
                 if row["accueil_audiodescription"] == "avec équipement occasionnel selon la programmation":
                     accessibilite["accueil_audiodescription"] = ["avec_équipement_occasionnel"]
 
-                accessibilite["accueil_personnels"] = row["accueil_personnels"]
+                if row["accueil_personnels"]:
+                    accessibilite["accueil_personnels"] = row["accueil_personnels"]
+
                 if row["entree_balise_sonore"] == "True":
                     accessibilite["entree_balise_sonore"] = True
                 elif row["entree_balise_sonore"] == "False":
