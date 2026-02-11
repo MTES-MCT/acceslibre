@@ -1,7 +1,7 @@
 {% load a4a static %}
 {% load i18n %}
 <div class="contrib-section fr-mb-4w">
-    <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+    <div class="bg--white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
         <h2 class="fr-mb-5w">{% translate "Étape 1 : vérifiez si l'établissement est déjà enregistré dans notre base" %}</h2>
         {% include "contrib/forms/search.html" with search_action="." %}
         {% if error %}<p>{{ error }}</p>{% endif %}
@@ -9,17 +9,17 @@
     {# Only display results section if filters have been used#}
     {% if not error %}
         {% if query and form.is_valid %}
-            <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+            <div class="bg--white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
                 {% include "contrib/includes/contrib-internal-search-results.html" with search_action="." %}
             </div>
         {% endif %}
         {# We only want to display external results if there are any, otherwise just display the internal results no matter what#}
         {% if results %}
-            <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+            <div class="bg--white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
                 {% include "contrib/includes/contrib-external-search-results.html" with search_action="." %}
             </div>
         {% endif %}
-        <div class="bg-white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
+        <div class="bg--white fr-col-12 fr-px-6w fr-py-3w fr-py-md-6w fr-px-md-12w">
             <h2 class="fr-mb-3v">{% translate "Étape 2 : vous n’avez pas trouvé votre établissement ci-dessus" %}</h2>
             {% include "contrib/includes/contrib-cta.html" %}
         </div>
