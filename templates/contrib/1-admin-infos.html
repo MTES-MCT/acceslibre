@@ -1,6 +1,6 @@
 {% extends "contrib/base.html" %}
 {% load a4a %}
-{% load crispy_forms_tags static %}
+{% load static %}
 {% load i18n %}
 {% block page_title %}
     {% if erp %}
@@ -35,7 +35,7 @@
 {% block contrib_content %}
     <div class="fr-col-12">
         {% if existing_matches %}
-            <div class="fr-alert fr-alert--warning fr-mb-4w" role="alert">
+            <div class="fr-alert fr-alert--warning fr-mb-4w bg--white" role="alert">
                 <h3 class="fr-alert__title">{% translate "Attention : Établissement(s) existant(s)" %}</h3>
                 <p>
                     {% translate "Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie." %}
@@ -86,7 +86,7 @@
             {{ form.asp_id }}
             {{ form.user_type }}
             {% if form.non_field_errors %}
-                <div class="fr-alert fr-alert--warning fr-mb-4w" role="alert">
+                <div class="fr-alert fr-alert--warning fr-mb-4w bg--white" role="alert">
                     <p>{% translate "Attention, des erreurs ont été rencontrées." %}</p>
                     <ul>
                         {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}

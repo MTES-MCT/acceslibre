@@ -137,8 +137,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_api_key",
     "rest_framework_gis",
-    "crispy_forms",
-    "crispy_bootstrap5",
     "waffle",
     "reversion",
     "maintenance_mode",
@@ -300,9 +298,6 @@ DEEPL_MAPPING = {"en": "EN-GB"}
 
 OUTSCRAPER_API_KEY = env("OUTSCRAPER_API_KEY", default=None)
 SCRAPFLY_IO_API_KEY = env("SCRAPFLY_IO_API_KEY", default=None)
-# Crispy forms
-CRISPY_ALLOWED_TEMPLATE_PACK = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 BREVO_API_KEY = env("BREVO_API_KEY")
 BREVO_API_HOST = env("BREVO_API_HOST", default="https://api.brevo.com/v3")

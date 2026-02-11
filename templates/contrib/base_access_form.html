@@ -54,10 +54,9 @@
                 {% endif %}
             {% endblock full_infos %}
             {% if form.errors %}
-                <div class="fr-alert fr-alert--warning" role="alert">
-                    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                <div class="fr-alert fr-alert--warning bg--white fr-mb-2w" role="alert">
                     {% translate "Attention, des erreurs ont été rencontrées." %}
-                    <ul class="my-1">
+                    <ul>
                         {% for field_name, message in form.errors.items %}<li>{{ field_name|get_field_label }}: {{ message }}</li>{% endfor %}
                     </ul>
                 </div>
