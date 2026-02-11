@@ -27,3 +27,19 @@ pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
   flex-direction: column-reverse;
   gap: 12px;
 }
+
+.panoramax-add-photo-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 32px;
+  margin-bottom: 16px;
+  background-color: var(--artwork-background-blue-france);
+
+  [class^='fr-icon-']:before,
+  [class^='fr-icon-']:after {
+    --icon-size: 3.5rem;
+  }
+}

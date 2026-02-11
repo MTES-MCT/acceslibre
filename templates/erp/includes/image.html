@@ -12,6 +12,10 @@
     <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Changer la photo" %}</a>
     <hr class="fr-hr fr-mt-2w" />
 {% elif erp_can_have_image %}
-    <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Ajouter une photo" %}</a>
+    <section class="panoramax-add-photo-section">
+        <span class="fr-icon-image-add-line"  aria-hidden="true"></span>
+        <a href="{% url 'panoramax_add' erp_slug=erp.slug %}"
+           class="fr-btn fr-btn--secondary">{% translate "Ajouter une photo" %}</a>
+    </section>
     <hr class="fr-hr fr-pb-0-5v" />
 {% endif %}
