@@ -94,6 +94,6 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
         <input type="submit"
                class="fr-btn btn-primary"
                value="{% translate "Choisir cette photo" %}">
-        <a href="." class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
+        <a href="{{ erp.get_absolute_url }}" class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
     </form>
 {% endblock editorial_content %}
