@@ -19,6 +19,13 @@
   }
 }
 
+fieldset {
+  border: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
 iframe {
   border: 0px;
   margin: 0px;
@@ -126,6 +133,12 @@ select[name='language'] {
       background-color: $primary;
       border-color: $primary;
     }
+
+    background-color: $white;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+    display: block;
+    position: relative;
   }
 
   .full-width {
@@ -589,6 +602,10 @@ select[name='language'] {
   &-form-input-number {
     width: 100px;
   }
+}
+
+#search-results {
+  padding-left: 0;
 }
 
 #export-results {
