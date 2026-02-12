@@ -8,12 +8,13 @@
                     {{ field.label }}
                     <span class="fr-hint-text">{{ field.help_text|safe }}</span>
                 </label>
-                <input type="{{ field.field.widget.input_type }}"
-                       name="{{ field.name }}"
-                       id="{{ field.id_for_label }}"
-                       class="fr-input"
-                       {% if field.errors %}aria-describedby="{{ field.id_for_label }}-erorr-message"{% endif %}
-                       {% if field.value is not None %}value="{{ field.value }}"{% endif %}>
+                <textarea type="{{ field.field.widget.input_type }}"
+                          name="{{ field.name }}"
+                          id="{{ field.id_for_label }}"
+                          class="fr-input"
+                          rows="10"
+                          {% if field.errors %}aria-describedby="{{ field.id_for_label }}-erorr-message"{% endif %}
+                          {% if field.value is not None %}value="{{ field.value }}"{% endif %}></textarea>
                 {% for error in field.errors %}
                     <div id="{{ field.id_for_label }}-erorr-message"
                          class="fr-messages-group"
