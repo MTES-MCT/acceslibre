@@ -1,0 +1,32 @@
+{% extends "contrib/base_access_form.html" %}
+{% load static %}
+{% load a4a %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Revendication" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block full_infos %}
+{% endblock full_infos %}
+{% block fields_content %}
+    <h1>{% translate "L'établissement vous a été attribué !" %}</h1>
+    <div class="contrib-completion-container fr-p-3w">
+        <p class="fr-text--xl fr-text--bold">
+            {% translate "Vous êtes désormais indentifié comme le gestionnaire de l'établissement." %}
+        </p>
+        <p>
+            {% translate "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement." %}
+        </p>
+        <div class="fr-btns-group--inline">
+            <a href="{% url "contrib_edit_infos" erp.slug %}" class="fr-btn">{% translate "Compléter les informations de l'établissement" %}</a>
+            <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
+        </div>
+    </div>
+    <div class="fr-grid-row fr-grid-row--center fr-mt-2w">
+        <img class="fr-responsive-img fr-responsive-img--32x9"
+             src="{% static 'img/contrib/completion-rate-illustration.png' %}"
+             alt="" />
+    </div>
+{% endblock fields_content %}

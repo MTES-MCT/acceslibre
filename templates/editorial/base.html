@@ -25,6 +25,7 @@
           id="content"
           tabindex="-1"
           {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}
+          {% if page_type == 'claim' %}class="contrib-claim-container"{% endif %}
           {% if page_type == 'contact-form' %}class="contact-container"{% endif %}
           {% if page_type == 'login-form' %}class="login-container"{% endif %}
           {% if page_type == 'about-us' %}class="about-us-container"{% endif %}
