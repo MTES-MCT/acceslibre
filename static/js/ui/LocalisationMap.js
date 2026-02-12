@@ -5,7 +5,7 @@ function LocalisationMap(root) {
   const hiddenLat = root.querySelector('input[type=hidden][name=lat]')
   const hiddenLon = root.querySelector('input[type=hidden][name=lon]')
   const mapOptions = JSON.parse(root.querySelector('#map-options').textContent.trim())
-  const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, ...mapOptions })
+  const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, zoomControl: false, ...mapOptions })
   const lat = parseFloat(hiddenLat.value)
   const lon = parseFloat(hiddenLon.value)
 

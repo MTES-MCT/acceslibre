@@ -3,13 +3,25 @@
      {% if extraid %}id="{{ extraid }}"{% endif %}>
     <fieldset class="fr-fieldset">
         <div class="fr-fieldset__content">
-            <div class="fr-input-group">
+            <div class="fr-input-group {% if field.errors %}fr-input-group--error{% endif %}">
                 <label class="fr-label" for="{{ field.id_for_label }}">
                     {{ field.label }}
                     <span class="fr-hint-text">{{ field.help_text|safe }}</span>
                 </label>
-                {{ field|addclass:"fr-input" }}
-                {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
+                <textarea type="{{ field.field.widget.input_type }}"
+                          name="{{ field.name }}"
+                          id="{{ field.id_for_label }}"
+                          class="fr-input"
+                          rows="10"
+                          {% if field.errors %}aria-describedby="{{ field.id_for_label }}-erorr-message"{% endif %}
+                          {% if field.value is not None %}value="{{ field.value }}"{% endif %}></textarea>
+                {% for error in field.errors %}
+                    <div id="{{ field.id_for_label }}-erorr-message"
+                         class="fr-messages-group"
+                         aria-live="polite">
+                        <div class="fr-message fr-message--error">{{ error }}</div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </fieldset>

@@ -85,6 +85,7 @@ urlpatterns = [
     ),
     path("panoramax/", views.panoramax, name="panoramax"),
     path("panoramax/remove/<str:erp_slug>/", views.erp_remove_source_panoramax, name="panoramax_remove"),
+    path("panoramax/add/<str:erp_slug>/", views.panoramax_add, name="panoramax_add"),
     path(
         "recherche/",
         views.search,
@@ -110,6 +111,7 @@ urlpatterns = [
         views.confirm_up_to_date,
         name="confirm_up_to_date",
     ),
+    path("app/<str:erp_slug>/claim/", views.claim, name="claim"),
     path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
     path("uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"),
     ############################################################################

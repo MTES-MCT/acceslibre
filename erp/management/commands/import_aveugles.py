@@ -12,15 +12,20 @@ from erp.models import Erp
 class Command(BaseCommand):
     help = "Import cinema aveugles accessibility"
 
+    def add_arguments(self, parser):
+        parser.add_argument("--file", type=str, default="cinemas_audiodescription.csv")
+
     def handle(self, *args, **kwargs):
-        with open("cinemas_audiodescription.csv", "r") as file:
+        file_path = kwargs["file"]
+        with open(file_path, "r") as file:
             reader = csv.DictReader(file, delimiter=";")
 
             for row in reader:
                 if not row["erp_id"]:
                     continue
 
-                accessibilite = dict()
+                erp = Erp.objects.get(pk=row["erp_id"])
+                accessibilite = erp.accessibilite.__dict__
                 accessibilite["erp_id"] = row["erp_id"]
 
                 if (
@@ -38,17 +43,24 @@ class Command(BaseCommand):
                 if row["accueil_audiodescription"] == "avec équipement occasionnel selon la programmation":
                     accessibilite["accueil_audiodescription"] = ["avec_équipement_occasionnel"]
 
-                accessibilite["accueil_personnels"] = row["accueil_personnels"]
-                accessibilite["entree_balise_sonore"] = True if row["entree_balise_sonore"] == "True" else False
-                accessibilite["accueil_audiodescription_presence"] = (
-                    True if row["accueil_audiodescription_presence"] == "True" else False
-                )
-                accessibilite["commentaire"] = row["commentaire"]
+                if row["accueil_personnels"]:
+                    accessibilite["accueil_personnels"] = row["accueil_personnels"]
+
+                if row["entree_balise_sonore"] == "True":
+                    accessibilite["entree_balise_sonore"] = True
+                elif row["entree_balise_sonore"] == "False":
+                    accessibilite["entree_balise_sonore"] = False
+
+                if row["accueil_audiodescription_presence"] == "True":
+                    accessibilite["accueil_audiodescription_presence"] = True
+                elif row["accueil_audiodescription_presence"] == "False":
+                    accessibilite["accueil_audiodescription_presence"] = False
+
+                if row["commentaire"]:
+                    accessibilite["commentaire"] = row["commentaire"]
 
                 if not accessibilite["accueil_audiodescription_presence"]:
                     accessibilite["accueil_audiodescription"] = []
-
-                erp = Erp.objects.get(pk=row["erp_id"])
 
                 self._update_erp(
                     data={"accessibilite": accessibilite, "activite": erp.activite.nom, **erp.__dict__}, erp=erp

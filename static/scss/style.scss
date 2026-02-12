@@ -1,7 +1,6 @@
 @import 'variables';
 @import 'utilities';
 @import 'breakpoints';
-@import '~bootstrap/scss/bootstrap';
 
 // App specific styles
 @import 'loader';
@@ -18,6 +17,13 @@
   @media screen and (max-width: $viewport-md) {
     margin-bottom: 0.5rem;
   }
+}
+
+fieldset {
+  border: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
 }
 
 iframe {
@@ -127,6 +133,12 @@ select[name='language'] {
       background-color: $primary;
       border-color: $primary;
     }
+
+    background-color: $white;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+    display: block;
+    position: relative;
   }
 
   .full-width {
@@ -265,6 +277,7 @@ select[name='language'] {
 
   &-notifications {
     position: fixed;
+    background-color: white;
     bottom: 0;
     right: 10px;
     padding: 0;
@@ -591,6 +604,10 @@ select[name='language'] {
   }
 }
 
+#search-results {
+  padding-left: 0;
+}
+
 #export-results {
   display: none;
 
@@ -811,4 +828,13 @@ select[name='language'] {
   a {
     text-decoration: underline;
   }
+}
+
+ul.pagination {
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+#btn_acceslibre_close::after {
+  content: none;
 }

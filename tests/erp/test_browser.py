@@ -1129,6 +1129,17 @@ def test_can_update_checked_up_to_date_at_from_erp(client):
 
 
 @pytest.mark.django_db
+def test_claim_rpa(client):
+    user = UserFactory()
+    client.force_login(user)
+    erp = ErpFactory()
+    response = client.get(reverse("claim", kwargs={"erp_slug": erp.slug}))
+    assert response.status_code == 200
+    erp.refresh_from_db()
+    assert erp.user == user
+
+
+@pytest.mark.django_db
 def test_contrib_start_pass_postcode(client):
     ActiviteFactory(nom="Restaurant", slug="restaurant", pk=123)
 

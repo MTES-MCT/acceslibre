@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block modal_content %}
     <div class="fr-modal__content">
-        <h1 class="fr-h4 fr-col-offset-1">{% translate "Accessibilité" %}</h1>
-        <h2 class="fr-col-offset-1 modal__subtitle fr-text--lg">{{ erp.nom }}</h2>
+        <h1 class="fr-h4 modal__title">{% translate "Accessibilité" %}</h1>
+        <h2 class="modal__subtitle fr-text--lg">{{ erp.nom }}</h2>
         {% if accessibilite_data %}
             <ul class="p-0">
                 {% for item, data in accessibilite_data.items %}
@@ -22,19 +22,17 @@
                             <span class="label">{{ data.label|linebreaks }}</span>
                         </div>
                     </li>
-                    {% if not forloop.last %}<hr class="modal__hr" aria-hidden="true">{% endif %}
                 {% endfor %}
             </ul>
         {% endif %}
         <p class="modal__footer_link">
             <a id="btn_acceslibre"
                href="{{ erp.get_absolute_uri }}"
-               target="_blank"
                rel="noopener"
-               class="fr-btn fr-btn--secondary fr-text--md btn_acceslibre">
+               class="fr-text--md btn_acceslibre">
                 <span>{% translate "Voir plus sur" %}</span>
                 <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
-                     alt="acceslibre"
+                     alt=""
                      width="140"
                      height="50">
             </a>

@@ -30,6 +30,12 @@
   margin-top: 15rem !important;
 }
 
+.bg {
+  &--white {
+    background-color: white;
+  }
+}
+
 .display--block {
   display: block;
 }

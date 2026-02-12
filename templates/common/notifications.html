@@ -1,11 +1,12 @@
 {% load i18n %}
+{% load a4a %}
 <div class="a4a-notifications">
     {% for message in messages %}
-        <div class="a4a-notifications-item alert alert-dismissible p-0 m-0 card text-white bg-{{ message.tags }} shadow-sm fr-mb-2v"
+        <div class="fr-alert fr-alert--{{ message.tags|get_alert_level }}"
              role="alert"
              aria-live="polite"
              aria-atomic="true">
-            <div class="card-header font-weight-bold px-3 py-2">
+            <h1 class="fr-alert__title">
                 {% if messages.tags == "debug" %}
                     {% translate "Debug" %}
                 {% elif message.tags == "info" %}
@@ -17,14 +18,12 @@
                 {% elif message.tags == "danger" %}
                     {% translate "Erreur" %}
                 {% endif %}
-            </div>
-            <div class="card-body px-3 py-2">
-                <p class="card-text mb-0">{{ message }}</p>
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label='{% translate "Fermer" %}'></button>
-            </div>
+            </h1>
+            <p>{{ message }}</p>
+            <button title="{% translate "Fermer" %}"
+                    onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)"
+                    type="button"
+                    class="fr-btn--close fr-btn">{% translate "Fermer" %}</button>
         </div>
     {% endfor %}
 </div>

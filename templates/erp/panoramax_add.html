@@ -1,0 +1,99 @@
+{% extends "editorial/base.html" %}
+{% load static %}
+{% block javascript_extras %}
+    <script src="{% static "dist/js/panoramax.js" %}"></script>
+{% endblock javascript_extras %}
+{% load i18n static %}
+{% block page_title %}
+    {{ erp.nom }} - {% translate "Ajout d'une image" %}
+{% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url 'home' %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{{ erp.get_absolute_url }}">{% translate "Voir la fiche" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Ajout d'une image" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    <h1>{% translate "Choisir la photo Panoramax à ajouter" %}</h1>
+    <p>
+        {% translate "La visionneuse vous propose automatiquement la photo la plus proche de l'établissement Acceslibre indiqué ci-dessous." %}
+    </p>
+    <p>
+        {% translate "Choisissez la meilleure vue à partir des photos proposées !  Vous pouvez vous déplacer, modifier l'angle de vue, zoomer.." %}
+    </p>
+    <ul>
+        <li>
+            {% blocktranslate %}Vous êtes satisfait de la vue qui permet de bien voir l'établissement : cliquez sur "choisir cette photo".
+La photo sera instantanément ajoutée à la fiche acceslibre de l'établissement{% endblocktranslate %}
+        </li>
+        <li>
+            {% blocktranslate %}
+            Les photos ne permettent pas de voir l'établissement. Cliquez sur "Aucune photo ne convient".
+            {% endblocktranslate %}
+        </li>
+    </ul>
+    <section>
+        <p class="fr-mb-0">{% translate "En savoir plus :" %}</p>
+        <ul>
+            <li>
+                <a class="fr-link"
+                   href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
+                   title="{% translate "Voir le tutoriel - Nouvelle fenêtre" %}"
+                   target="_blank">{% translate "Voir le tutoriel" %}</a>
+            </li>
+            <li>
+                <a class="fr-link"
+                   href="{% url "faq" %}"
+                   target="_blank"
+                   title="{% translate "Voir notre foire aux questions - Nouvelle fenêtre" %}">{% translate "Voir notre foire aux questions" %}</a>
+            </li>
+        </ul>
+    </section>
+    <h2 class="fr-my-2w">
+        <a class="fr-link fr-h2"
+           target="_blank"
+           href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+    </h2>
+    <ul class="fr-p-0">
+        <ol class="fr-p-0">
+            {% translate "Adresse :" %} {{ erp.adresse }}
+        </ol>
+        <ol class="fr-p-0">
+            {% translate "Activité :" %} {{ erp.activite.nom }}
+        </ol>
+    </ul>
+    <div class="panoramax-container">
+        <div id="viewer-container">
+            <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+        </div>
+        {% include "common/panoramax-shortcuts-details.html" %}
+    </div>
+    <form method="post" class="fr-my-4w" action=".">
+        {% csrf_token %}
+        <input type="hidden" name="erp_id" value="{{ erp.pk }}">
+        <input type="hidden" name="image_id" id="image-id" value="{{ image_id }}">
+        <input type="hidden" name="xyz" id="xyz-coords">
+        <input type="submit"
+               class="fr-btn btn-primary"
+               value="{% translate "Choisir cette photo" %}">
+        <a href="{{ erp.get_absolute_url }}" class="fr-link fr-ml-2w">{% translate "Aucune photo ne convient" %}</a>
+    </form>
+{% endblock editorial_content %}
