@@ -586,6 +586,27 @@ def confirm_up_to_date(request, erp_slug):
 
 
 @login_required
+def claim(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+
+    # NOTE: this is a safety check to prevent claiming RPA ERPs, this if block can be removed once related ticket implemented
+    if getattr(erp, "rpa", False):
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate("Cette fiche vaut RPA et ne peut pas être revendiquée, veuillez contacter le support."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    erp.user = request.user
+    erp.save()
+
+    ErpSubscription.subscribe(erp, erp.user)
+
+    return render(request, "erp/claimed.html", context={"erp": erp, "page_type": "claim"})
+
+
+@login_required
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
