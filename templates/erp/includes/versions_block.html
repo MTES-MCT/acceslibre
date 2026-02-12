@@ -38,7 +38,7 @@
     <div class="fr-btns-group">
         {% if user_is_subscribed %}
             <a href="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
-               class="fr-btn fr-btn--secondary fr-btn--lg"
+               class="fr-btn fr-btn--secondary fr-btn--lg fr-my-2w"
                title="{% translate "Recevoir des notifications par email lorsque cet établissement est mis à jour" %}">
                 {% translate "Désabonnez vous des mises à jour" %}
             </a>

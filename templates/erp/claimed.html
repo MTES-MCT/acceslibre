@@ -19,10 +19,14 @@
         <p>
             {% translate "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement." %}
         </p>
-        <div class="fr-btns-group--inline">
-            <a href="{% url "contrib_edit_infos" erp.slug %}" class="fr-btn">{% translate "Compléter les informations de l'établissement" %}</a>
-            <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
-        </div>
+        <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
+            <li>
+                <a href="{% url "contrib_edit_infos" erp.slug %}" class="fr-btn">{% translate "Compléter les informations de l'établissement" %}</a>
+            </li>
+            <li>
+                <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
+            </li>
+        </ul>
     </div>
     <div class="fr-grid-row fr-grid-row--center fr-mt-2w">
         <img class="fr-responsive-img fr-responsive-img--32x9"
