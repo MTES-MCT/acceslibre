@@ -1,6 +1,5 @@
 {% extends "editorial/base.html" %}
 {% load a4a %}
-{% load crispy_forms_tags %}
 {% load static %}
 {% load i18n %}
 {% block page_title %}
@@ -53,7 +52,7 @@
 {% endblock top_fluid_content %}
 {% block editorial_content %}
     {% if user.is_authenticated %}
-        <div class="fr-alert fr-alert--warning fr-mb-3w" role="alert">
+        <div class="fr-alert fr-alert--warning bg--white fr-mb-3w" role="alert">
             {% url 'logout' as url_logout %}
             {% url 'home' as url_home %}
             {% blocktranslate with username=user.username trimmed %}

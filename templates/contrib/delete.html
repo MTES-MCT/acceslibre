@@ -1,5 +1,4 @@
 {% extends "editorial/base.html" %}
-{% load crispy_forms_tags %}
 {% load i18n %}
 {% block page_title %}
     {% translate "Renseigner un établissement" %}
@@ -37,7 +36,7 @@
 {% block editorial_content %}
     <div class="display--flex direction--column gap-2w">
         <h1 class="fr-mb-0">{% translate "Supprimer un établissement" %}</h1>
-        <div class="fr-alert fr-alert--warning" role="alert">
+        <div class="fr-alert fr-alert--warning bg--white" role="alert">
             <h3 class="fr-alert__title">{% translate "Attention" %}</h3>
             <p>{% translate "Vous vous apprêtez à supprimer l'établissement suivant" %}</p>
         </div>

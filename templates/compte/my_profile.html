@@ -1,5 +1,4 @@
 {% extends "compte/base.html" %}
-{% load crispy_forms_tags %}
 {% load static %}
 {% load i18n %}
 {% block page_title %}
@@ -239,7 +238,7 @@
                     <button class="fr-btn fr-btn--secondary toggle-open" type="button">{% translate "Supprimer mon compte" %}</button>
                 </div>
                 <div class="{% if submitted_form == 'delete-account' and form_delete_account.errors %}{% else %}fr-hidden{% endif %} children-content">
-                    <div class="fr-alert fr-alert--warning fr-mb-3w" role="alert">
+                    <div class="fr-alert fr-alert--warning bg--white fr-mb-3w" role="alert">
                         {% translate "Souhaitez vous confirmer la suppression de votre compte ?" %}
                         <br>
                         {% translate "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site." %}

@@ -6,7 +6,7 @@
              role="alert"
              aria-live="polite"
              aria-atomic="true">
-            <h3 class="fr-alert__title">
+            <h1 class="fr-alert__title">
                 {% if messages.tags == "debug" %}
                     {% translate "Debug" %}
                 {% elif message.tags == "info" %}
@@ -18,7 +18,7 @@
                 {% elif message.tags == "danger" %}
                     {% translate "Erreur" %}
                 {% endif %}
-            </h3>
+            </h1>
             <p>{{ message }}</p>
             <button title="{% translate "Fermer" %}"
                     onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)"
