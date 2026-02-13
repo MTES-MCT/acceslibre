@@ -17,10 +17,9 @@
                     </button>
                 </form>
             </li>
-            <li>
-                <a class="fr-btn fr-btn--secondary text-center"
-                   href="{% url 'claim' erp_slug=erp.slug %}">{% translate "Revendiquer l'établissement en tant que gestionnaire" %}</a>
-            </li>
+            <!-- <li>
+                <a class="fr-btn fr-btn--secondary text-center" href="{% url 'claim' erp_slug=erp.slug %}">{% translate "Revendiquer l'établissement en tant que gestionnaire" %}</a>
+            </li> -->
             <li>
                 <a class="fr-btn fr-btn--secondary text-center"
                    href="{% url 'contact_topic_erp' topic='signalement' erp_slug=erp.slug %}">{% translate "Signaler un problème ou une erreur" %}</a>
