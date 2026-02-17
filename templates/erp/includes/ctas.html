@@ -41,39 +41,47 @@
             {% endif %}
         </ul>
     </div>
-    <dialog id="claim-modal"
-            class="fr-modal"
-            aria-labelledby="modal-title"
-            aria-modal="true">
-        <div class="fr-container fr-container--fluid fr-container-md">
-            <div class="fr-grid-row fr-grid-row--center">
-                <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
-                    <div class="fr-modal__body">
-                        <div class="fr-modal__header"></div>
-                        <div class="fr-modal__content">
-                            <h2 id="modal-title" class="fr-modal__title">
-                                <span class="fr-icon-arrow-right-line fr-icon--lg" aria-hidden="true"></span>
-                                {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
-                            </h2>
-                            <p>
-                                {% translate "Vous êtes sur le point de vous déclarer gestionnaire de l'établissement et de récupérer la fiche existante dans votre compte. Confirmez vous cette action?" %}
-                            </p>
-                            <form method="post"
-                                  action="{% url 'claim' erp_slug=erp.slug %}"
-                                  class="text-right">
-                                {% csrf_token %}
-                                <button aria-controls="claim-modal"
-                                        title="{% translate "Annuler" %}"
-                                        type="button"
-                                        class="fr-btn fr-btn--secondary">
-                                    {% translate "Non, je ne suis pas le gestionnaire" %}
-                                </button>
-                                <button class="fr-btn text-center" type="submit">{% translate "Confirmer ces informations" %}</button>
-                            </form>
+    {% if erp.user != request.user %}
+        <dialog id="claim-modal"
+                class="fr-modal"
+                aria-labelledby="modal-title"
+                aria-modal="true">
+            <div class="fr-container fr-container--fluid fr-container-md">
+                <div class="fr-grid-row fr-grid-row--center">
+                    <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                        <div class="fr-modal__body">
+                            <div class="fr-modal__header"></div>
+                            <div class="fr-modal__content">
+                                <h2 id="modal-title" class="fr-modal__title">
+                                    <span class="fr-icon-arrow-right-line fr-icon--lg" aria-hidden="true"></span>
+                                    {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
+                                </h2>
+                                <p>
+                                    {% translate "Vous êtes sur le point de vous déclarer gestionnaire de l'établissement et de récupérer la fiche existante dans votre compte. Confirmez vous cette action?" %}
+                                </p>
+                                <form method="post"
+                                      action="{% url 'claim' erp_slug=erp.slug %}"
+                                      class="text-right">
+                                    {% csrf_token %}
+                                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
+                                        <li>
+                                            <button aria-controls="claim-modal"
+                                                    title="{% translate "Annuler" %}"
+                                                    type="button"
+                                                    class="fr-btn fr-btn--secondary fr-mb-md-0">
+                                                {% translate "Non, je ne suis pas le gestionnaire" %}
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="fr-btn text-center fr-mb-md-0" type="submit">{% translate "Confirmer ces informations" %}</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </dialog>
+        </dialog>
+    {% endif %}
 </section>
