@@ -6,9 +6,12 @@ import urllib
 from decimal import Decimal
 from uuid import UUID
 
+import reversion
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth.decorators import login_required
+from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -588,6 +591,8 @@ def confirm_up_to_date(request, erp_slug):
 @login_required
 def claim(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
 
     # NOTE: this is a safety check to prevent claiming RPA ERPs, this if block can be removed once related ticket implemented
     if getattr(erp, "rpa", False):
@@ -598,10 +603,31 @@ def claim(request, erp_slug):
         )
         return redirect(erp.get_absolute_url())
 
-    erp.user = request.user
-    erp.save()
+    if request.user == erp.user:
+        messages.add_message(
+            request,
+            messages.WARNING,
+            translate("Vous êtes déjà le gestionnaire de cette fiche."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    with reversion.create_revision():
+        erp.user = request.user
+        erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
+        erp.save()
+        reversion.set_comment(f"Fiche attribuée à {request.user.username}")
+        reversion.set_user(request.user)
 
     ErpSubscription.subscribe(erp, erp.user)
+
+    LogEntry.objects.create(
+        user=request.user,
+        content_type=ContentType.objects.get_for_model(Erp),
+        object_id=erp.id,
+        object_repr=erp.nom,
+        action_flag=CHANGE,
+        change_message=f"{request.user.email} s'est déclaré gestionnaire sur {erp.nom}",
+    )
 
     return render(request, "erp/claimed.html", context={"erp": erp, "page_type": "claim"})
 
