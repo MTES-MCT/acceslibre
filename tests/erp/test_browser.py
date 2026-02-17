@@ -1132,11 +1132,12 @@ def test_can_update_checked_up_to_date_at_from_erp(client):
 def test_claim_rpa(client):
     user = UserFactory()
     client.force_login(user)
-    erp = ErpFactory()
-    response = client.get(reverse("claim", kwargs={"erp_slug": erp.slug}))
+    erp = ErpFactory(with_accessibility=True)
+    response = client.post(reverse("claim", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200
     erp.refresh_from_db()
     assert erp.user == user
+    assert erp.user_type == Erp.USER_ROLE_GESTIONNAIRE
 
 
 @pytest.mark.django_db
