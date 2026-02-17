@@ -11,7 +11,7 @@
 {% block breadcrumb %}
     <div class="fr-container">
         <nav role="navigation"
-             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w fr-mb-1v fr-mb-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
             <button class="fr-breadcrumb__button"
                     aria-expanded="false"
@@ -47,6 +47,52 @@
 {% endblock additional_skip_links %}
 {% block editorial_content %}
     <main role="main" id="content" class="erp-details-container" tabindex="-1">
+        <section>
+            <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
+                <div class="fr-follow__social">
+                    <ul class="fr-btns-group">
+                        {% if social_links.facebook %}
+                            <li>
+                                <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
+                                   href="{{ social_links.facebook }}"
+                                   target="_blank"
+                                   rel="noopener external"
+                                   class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
+                            </li>
+                        {% endif %}
+                        {% if social_links.x %}
+                            <li>
+                                <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
+                                   href="{{ social_links.x }}"
+                                   target="_blank"
+                                   rel="noopener external"
+                                   class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
+                            </li>
+                        {% endif %}
+                        {% if social_links.linkedin %}
+                            <li>
+                                <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
+                                   href="{{ social_links.linkedin }}"
+                                   target="_blank"
+                                   rel="noopener external"
+                                   class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
+                            </li>
+                        {% endif %}
+                        {% if erp_absolute_uri %}
+                            <li id="btn-to-copy-wrapper">
+                                <button id="btn-to-copy"
+                                        data-url="{{ erp_absolute_uri }}"
+                                        title="{% translate "Copier le lien" %}"
+                                        class="fr-btn fr-icon-links-fill"></button>
+                                <div id="btn-to-copy-voice-over-text"
+                                     class="align-self--center fr-mb-2w"
+                                     role="status"></div>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </section>
         <section>
             <a class="fr-btn fr-btn--sm fr-btn--tertiary fr-btn--icon-left fr-icon-arrow-left-line fr-mb-2w"
                href="{{ previous_url }}">{% translate "Retour" %}</a>
