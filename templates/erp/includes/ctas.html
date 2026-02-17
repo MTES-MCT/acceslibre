@@ -56,9 +56,7 @@
                                     <span class="fr-icon-arrow-right-line fr-icon--lg" aria-hidden="true"></span>
                                     {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
                                 </h2>
-                                <p>
-                                    {% translate "Vous êtes sur le point de vous déclarer gestionnaire de l'établissement et de récupérer la fiche existante dans votre compte. Confirmez vous cette action?" %}
-                                </p>
+                                <p>{% translate "Confirmez vous être le gestionnaire de cet établissement ?" %}</p>
                                 <form method="post"
                                       action="{% url 'claim' erp_slug=erp.slug %}"
                                       class="text-right">

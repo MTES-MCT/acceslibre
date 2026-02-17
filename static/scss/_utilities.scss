@@ -15,6 +15,10 @@
   &--capitalize {
     text-transform: capitalize;
   }
+  &--long-words {
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
 }
 
 .overflow {
