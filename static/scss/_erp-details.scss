@@ -3,11 +3,6 @@
 .erp-details-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-
-  @media (min-width: $viewport-md) {
-    gap: 3rem;
-  }
 
   .fr-collapse {
     ul {
