@@ -83,6 +83,7 @@ dev = [
     "legacy-cgi",
     "django-deep-translator",
     "pytest-socket",
+    "freezegun>=1.5.5",
 ]
 
 [build-system]
