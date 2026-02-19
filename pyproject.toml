@@ -62,6 +62,7 @@ dependencies = [
     "magic-profanity",
     "django-summernote",
     "pre-commit>=4.5.1",
+    "djangorestframework-xml>=2.0.0",
 ]
 
 [dependency-groups]
