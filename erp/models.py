@@ -761,8 +761,7 @@ class Erp(models.Model):
         # admins can do whatever they want
         if user.is_superuser:
             return True
-        # intrapreneurs can update any erps
-        if "intrapreneurs" in list(user.groups.values_list("name")):
+        if "observateur" in list(user.groups.values_list("name", flat=True)):
             return True
         # users can take over erps with no owner
         if not self.user:
