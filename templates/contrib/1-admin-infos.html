@@ -189,14 +189,21 @@
                         <legend class="fr-fieldset__legend">
                             <h3 class="fr-mb-0">{% translate "Contact de l'établissement" %}</h3>
                         </legend>
-                        <div class="fr-fieldset__content">
+                        <div class="fr-fieldset__content fr-mt-1w">
                             <div class="fr-grid-row fr-grid-row--gutters">
                                 <div class="fr-col-12 fr-col-md-4">
-                                    <label class="fr-label" for="id_site_internet">
-                                        {% translate "Site internet" %}
-                                        <span class="fr-hint-text">{% translate "ex: http://etablissement.com" %}</span>
-                                    </label>
-                                    {{ form.site_internet }}
+                                    <div class="fr-input-group {% if form.errors.site_internet %}fr-input-group--error{% endif %}">
+                                        <label class="fr-label" for="id_site_internet">
+                                            {% translate "Site internet" %}
+                                            <span class="fr-hint-text">{% translate "ex: http://etablissement.com" %}</span>
+                                        </label>
+                                        {{ form.site_internet }}
+                                        {% if form.errors.site_internet %}
+                                            <p id="{{ form.site_internet.aria_describedby }}" class="fr-error-text">
+                                                {% translate "Le site internet saisi ne respecte pas le format attendu." %}
+                                            </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="fr-col-12 fr-col-md-4">
                                     <label class="fr-label" for="id_telephone">
@@ -205,19 +212,33 @@
                                     </label>
                                     {{ form.telephone }}
                                 </div>
-                                <div class="fr-col-12  fr-col-md-4">
-                                    <label class="fr-label" for="id_contact_email">
-                                        {% translate "Courriel" %}
-                                        <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.com" %}</span>
-                                    </label>
-                                    {{ form.contact_email }}
+                                <div class="fr-col-12 fr-col-md-4">
+                                    <div class="fr-input-group {% if form.errors.contact_email %}fr-input-group--error{% endif %}">
+                                        <label class="fr-label" for="id_contact_email">
+                                            {% translate "Courriel" %}
+                                            <span class="fr-hint-text">{% translate "Format attendu : nom@domaine.com" %}</span>
+                                        </label>
+                                        {{ form.contact_email }}
+                                        {% if form.errors.contact_email %}
+                                            <p id="{{ form.contact_email.aria_describedby }}" class="fr-error-text">
+                                                {% translate "L'email saisi ne respecte pas le format attendu." %}
+                                            </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="fr-col-12">
-                                    <label class="fr-label fr-mt-2w" for="id_contact_url">
-                                        {% translate "Lien vers le contact de l’établissement" %}
-                                        <span class="fr-hint-text">{% translate "ex: http://etablissement.com/contactez-nous.html" %}</span>
-                                    </label>
-                                    {{ form.contact_url }}
+                                    <div class="fr-input-group {% if form.errors.contact_url %}fr-input-group--error{% endif %}">
+                                        <label class="fr-label fr-mt-2w" for="id_contact_url">
+                                            {% translate "Lien vers le contact de l’établissement" %}
+                                            <span class="fr-hint-text">{% translate "ex: http://etablissement.com/contactez-nous.html" %}</span>
+                                        </label>
+                                        {{ form.contact_url }}
+                                        {% if form.errors.contact_url %}
+                                            <p id="{{ form.contact_url.aria_describedby }}" class="fr-error-text">
+                                                {% translate "Le lien saisi ne respecte pas le format attendu." %}
+                                            </p>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
