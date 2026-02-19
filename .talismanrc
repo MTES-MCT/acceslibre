@@ -3,13 +3,13 @@ fileignoreconfig:
   ignore_detectors: [filecontent]
 - filename: pnpm-lock.yaml
   ignore_detectors: [filecontent]
+- filename: .isort.cfg
+  ignore_detectors: [filecontent]
 - filename: compte/forms.py
   checksum: 028d3dedb8a51279d03b9c3c4ca6729a7e1cb3c5b96ce653fb6171517f5f238e
 - filename: templates/contrib/7-commentaire.html
   checksum: 46dbc17a97dfe7ffb619c0281c4989d02ac40a17603b696701d00132384a9dbf
 - filename: erp/export/static/schema.json
-  checksum: 2e3f20cf7ed1d425786c05f1deb3521af30d80c3e2c86f55861bab785a4fc111
-- filename: .isort.cfg
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
   checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
@@ -40,8 +40,12 @@ fileignoreconfig:
 - filename: .env.sample
   checksum: 87369459b8e37ac7fbef66697f423141bb68771f33e3f33f0a178b083aa5102b
 - filename: core/settings.py
-  checksum: 5e60668dd84288a34fc1193692c4312812318bfe5bbdb55ba5e5f42f6dc2b6d2
+  checksum: 268d050e134c6268531c274bf08ab0dbe11da7901dd2a3f9e9345112125fbf21
 - filename: pnpm-lock.yaml
   checksum: bb30cc46e656283f12141506f19deceef6f4ead92d12d23260fa94b79584ece4
 - filename: templates/erp/includes/widget_block.html
   checksum: 5fb87dbb1de0ac79bd8cd9ad167c01b67ad3bfd6fad61679188fa8e996e0576e
+- filename: erp/management/commands/export_XML_to_s3.py
+  checksum: 683b24613d882c234e8b04a674cb5ae6ee478bb877dc6bdfb223475d8cb2b6aa
+- filename: erp/management/commands/clean_S3_export_bucket.py
+  checksum: a6049e2ff31893e3ce4a9f4f661f0af25045492c91bf600c4d2485a845770b97

@@ -11,7 +11,7 @@ from sentry_sdk import monitor
 
 
 class Command(BaseCommand):
-    help = "Clean the S3 bucket storing search results exports."
+    help = "Clean the S3 bucket storing search results exports, XML exports for datatourisme."
 
     @monitor(monitor_slug="clean_S3_export_bucket")
     def handle(self, *args, **kwargs):
@@ -22,9 +22,18 @@ class Command(BaseCommand):
         files_to_delete = []
 
         for obj in response.get("Contents", []):
-            # NOTE: The presigned URLs are generated with a 24-hour validity duration; set it to 25 to avoid overlap.
-            if obj["LastModified"] < now - timedelta(hours=25):
-                files_to_delete.append({"Key": obj["Key"]})
+            key = obj["Key"]
+            last_modified = obj["LastModified"]
+            self.stdout.write(f"Checking {key} last modified {last_modified}")
+
+            if key.endswith(".xml"):
+                # NOTE: the presigned URLs are generated with a 7-day validity duration; set it to 8 to avoid overlap.
+                if last_modified < now - timedelta(days=8):
+                    files_to_delete.append({"Key": key})
+            else:
+                # NOTE: The presigned URLs are generated with a 24-hour validity duration; set it to 25 to avoid overlap.
+                if last_modified < now - timedelta(hours=25):
+                    files_to_delete.append({"Key": key})
 
         if files_to_delete:
             s3.delete_objects(Bucket=bucket_name, Delete={"Objects": files_to_delete})

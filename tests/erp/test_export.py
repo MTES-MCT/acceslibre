@@ -14,6 +14,7 @@ from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import management
 from django.core.management import call_command
+from freezegun import freeze_time
 
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
@@ -218,7 +219,11 @@ def test_generate_schema(db, activite):
         os.remove(test_schema.name)
 
 
+CURRENT_TIME = datetime(2024, 10, 1, tzinfo=timezone.utc)
+
+
 @pytest.mark.django_db
+@freeze_time(CURRENT_TIME)
 @patch("core.mailer.BrevoMailer.send_email")
 @patch("boto3.client")
 def test_generate_csv_export(mock_boto_client, mock_send_email):
@@ -270,15 +275,9 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
     )
 
 
-CURRENT_TIME = datetime(2024, 10, 1, tzinfo=timezone.utc)
-
-
 @patch("boto3.client")
-@patch("datetime.datetime")
-def test_clean_s3_export_bucket(mock_datetime, mock_boto_client):
-    mock_datetime.now.return_value = CURRENT_TIME
-    mock_datetime.side_effect = lambda *args, **kw: datetime(*args, **kw)
-
+@freeze_time(CURRENT_TIME)
+def test_clean_s3_export_bucket(mock_boto_client):
     mock_s3 = MagicMock()
     mock_boto_client.return_value = mock_s3
 

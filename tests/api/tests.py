@@ -176,6 +176,13 @@ class TestErpApi:
         )
         assert response.json() == geojson_expected_for_no_results
 
+    def test_list_xml(self, api_client, initial_erp):
+        response = api_client.get(reverse("erp-list") + "?format=xml")
+        assert response.status_code == 200
+        assert response["Content-Type"] == "application/xml; charset=utf-8"
+        content = response.content.decode("utf-8")
+        assert "<erp>" in content
+
     def test_list_can_show_drafts(self, api_client, initial_erp):
         ErpFactory(published=False)
 

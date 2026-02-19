@@ -32,13 +32,14 @@ API_DOC_SUMMARY = f"""
 {settings.SITE_NAME.title()} is exposing a public [API](https://en.wikipedia.org/wiki/API)
 allowing to programmatically query its database. This API embraces the
 [REST paradigm](https://en.wikipedia.org/wiki/Representational_state_transfer) as much as possible and
-exposes results in [JSON](https://en.wikipedia.org/wiki/JavaScript_Object_Notation) or [geoJSON](https://en.wikipedia.org/wiki/GeoJSON) format.
+exposes results in [JSON](https://en.wikipedia.org/wiki/JavaScript_Object_Notation), [geoJSON](https://en.wikipedia.org/wiki/GeoJSON), or [XML](https://en.wikipedia.org/wiki/XML) format.
 
 The API root entry point can be accessed at
 [`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
 - An HTML view is presented when requested through a web browser,
 - A response of type `application/json` is returned by default.
 - A response of type `application/geo+json` is returned if explicitly requested by the client and if available.
+- A response of type `application/xml` is returned if explicitly requested by the client and if available.
 ## Identification
 
 If you want to use our API, we can provide you with a key, to attach to each request to the API via the following header:
