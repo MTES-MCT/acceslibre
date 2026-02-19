@@ -47,3 +47,5 @@ fileignoreconfig:
   checksum: 5fb87dbb1de0ac79bd8cd9ad167c01b67ad3bfd6fad61679188fa8e996e0576e
 - filename: erp/management/commands/export_XML_to_s3.py
   checksum: 683b24613d882c234e8b04a674cb5ae6ee478bb877dc6bdfb223475d8cb2b6aa
+- filename: erp/management/commands/clean_S3_export_bucket.py
+  checksum: a6049e2ff31893e3ce4a9f4f661f0af25045492c91bf600c4d2485a845770b97
