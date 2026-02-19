@@ -35,11 +35,15 @@ pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
   align-items: center;
   gap: 8px;
   padding: 32px;
-  margin-bottom: 16px;
+  margin: 12px 0;
   background-color: var(--artwork-background-blue-france);
 
   [class^='fr-icon-']:before,
   [class^='fr-icon-']:after {
     --icon-size: 3.5rem;
   }
+}
+
+pnx-photo-viewer {
+  overflow: hidden !important;
 }
