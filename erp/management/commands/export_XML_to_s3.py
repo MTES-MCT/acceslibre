@@ -1,3 +1,4 @@
+import re
 from datetime import datetime, timezone
 
 import boto3
@@ -9,6 +10,8 @@ from rest_framework_xml.renderers import XMLRenderer
 
 from api.serializers import ErpSerializer
 from erp.models import Erp
+
+CHUNK_SIZE = 1000
 
 ACTIVITIES = [
     255,
@@ -126,45 +129,85 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         now = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
 
-        self.stdout.write("Serialize data...")
-        qs = Erp.objects.published().select_related("user", "accessibilite", "activite")
-        qs = qs.filter(activite__id__in=ACTIVITIES)
-        print(qs.count())
-
         server_name = settings.SITE_HOST
         factory = APIRequestFactory(SERVER_NAME=server_name)
-        fake_request = factory.get("/")
-        fake_request = Request(fake_request)
+        fake_request = Request(factory.get("/"))
 
-        data = {
-            "erps": ErpSerializer(qs, many=True, context={"request": fake_request}).data,
-        }
-
-        renderer = XMLRenderer()
-        xml_bytes = renderer.render(
-            data,
-            accepted_media_type="application/xml",
-            renderer_context={},
+        qs = (
+            Erp.objects.published()
+            .select_related("user", "accessibilite", "activite")
+            .filter(activite__id__in=ACTIVITIES)
+            .order_by("id")
         )
+        total = qs.count()
+        self.stdout.write(f"{total} ERPs to export...")
 
         bucket_name = settings.S3_EXPORT_BUCKET_NAME
         file_name = f"export_{now}_full.xml"
 
-        self.stdout.write(f"Upload to S3 : {bucket_name}/{file_name}")
-
         s3 = boto3.client(
             "s3",
             endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL,
-            # NOTE: required with boto3 1.36.x
-            # config=Config(request_checksum_calculation="when_required", response_checksum_validation="when_required"),
         )
 
-        s3.put_object(
-            Bucket=bucket_name,
-            Key=file_name,
-            Body=xml_bytes,
-            ContentType="application/xml",
-        )
+        # Initialize the multipart upload
+        mpu = s3.create_multipart_upload(Bucket=bucket_name, Key=file_name, ContentType="application/xml")
+        upload_id = mpu["UploadId"]
+        parts = []
+        part_number = 1
+        buffer = b'<?xml version="1.0" encoding="utf-8"?>\n<root>'
+        renderer = XMLRenderer()
+
+        try:
+            for offset in range(0, total, CHUNK_SIZE):
+                batch = qs[offset : offset + CHUNK_SIZE]
+                self.stdout.write(f"Serialize {offset}-{offset + CHUNK_SIZE}/{total}...")
+
+                data = ErpSerializer(batch, many=True, context={"request": fake_request}).data
+                xml_str = renderer.render(data, accepted_media_type="application/xml", renderer_context={})
+                if isinstance(xml_str, str):
+                    xml_str = xml_str.encode("utf-8")
+
+                # using ErpSerializer is serializing into <root> tag, so we need to remove it, to append it to our buffer
+                inner = re.search(rb"<root>(.*)</root>", xml_str, re.DOTALL)
+                if inner:
+                    buffer += inner.group(1)
+
+                # S3 multipart  requires parts >= 5MB (except the last one)
+                if len(buffer) >= 5 * 1024 * 1024:
+                    self.stdout.write(f"Upload part {part_number} ({offset}-{offset + CHUNK_SIZE}/{total})...")
+                    response = s3.upload_part(
+                        Bucket=bucket_name,
+                        Key=file_name,
+                        PartNumber=part_number,
+                        UploadId=upload_id,
+                        Body=buffer,
+                    )
+                    parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
+                    part_number += 1
+                    buffer = b""
+
+            # Remaining part
+            buffer += "</root>".encode("utf-8")
+            response = s3.upload_part(
+                Bucket=bucket_name,
+                Key=file_name,
+                PartNumber=part_number,
+                UploadId=upload_id,
+                Body=buffer,
+            )
+            parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
+
+            s3.complete_multipart_upload(
+                Bucket=bucket_name,
+                Key=file_name,
+                UploadId=upload_id,
+                MultipartUpload={"Parts": parts},
+            )
+
+        except Exception as e:
+            s3.abort_multipart_upload(Bucket=bucket_name, Key=file_name, UploadId=upload_id)
+            raise e
 
         file_url = s3.generate_presigned_url(
             "get_object",
