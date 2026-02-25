@@ -1,3 +1,5 @@
+@use 'variables';
+
 .half-progress {
   position: relative;
   margin: 4px;
@@ -21,6 +23,6 @@
   border-radius: 50%;
   box-sizing: border-box;
   border: 10px solid #ccc;
-  border-bottom-color: $blue-france;
-  border-right-color: $blue-france;
+  border-bottom-color: variables.$blue-france;
+  border-right-color: variables.$blue-france;
 }

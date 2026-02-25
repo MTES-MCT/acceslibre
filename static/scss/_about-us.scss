@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .about-us-container {
   background-color: var(--blue-ecume-950-100);
@@ -19,7 +19,7 @@
         height: 100%;
       }
 
-      @media screen and (min-width: $viewport-lg) {
+      @media screen and (min-width: breakpoints.$viewport-lg) {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 24px;
       }
@@ -45,11 +45,11 @@
       row-gap: 16px;
       justify-content: center;
 
-      @media screen and (min-width: $viewport-md) {
+      @media screen and (min-width: breakpoints.$viewport-md) {
         grid-template-columns: repeat(3, minmax(192px, 1fr));
       }
 
-      @media screen and (min-width: $viewport-xl) {
+      @media screen and (min-width: breakpoints.$viewport-xl) {
         grid-template-columns: repeat(5, minmax(192px, 1fr));
       }
 
@@ -70,7 +70,7 @@
         padding-top: 0;
       }
 
-      @media screen and (max-width: $viewport-sm) {
+      @media screen and (max-width: breakpoints.$viewport-sm) {
         grid-template-columns: repeat(auto-fit, 100%);
         column-gap: 24px;
 
@@ -89,7 +89,7 @@
         width: 92px;
       }
 
-      @media screen and (max-width: $viewport-sm) {
+      @media screen and (max-width: breakpoints.$viewport-sm) {
         img {
           height: 138px;
           width: 138px;

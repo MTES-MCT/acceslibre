@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .stats-container {
   .tiles-section {
@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       grid-template-columns: 1fr;
     }
   }

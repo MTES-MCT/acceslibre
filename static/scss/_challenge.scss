@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .challenge-container {
   background-color: var(--info-950-100);
@@ -24,7 +24,7 @@
       flex: 1;
     }
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       flex-direction: column;
     }
   }
@@ -36,11 +36,11 @@
     justify-content: center;
     padding: 0;
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       grid-template-columns: repeat(2, auto);
     }
 
-    @media screen and (max-width: $viewport-sm) {
+    @media screen and (max-width: breakpoints.$viewport-sm) {
       grid-template-columns: repeat(1, auto);
     }
 
@@ -56,11 +56,11 @@
       width: 180px;
       word-break: break-all;
 
-      @media screen and (max-width: $viewport-md) {
+      @media screen and (max-width: breakpoints.$viewport-md) {
         width: 240px;
       }
 
-      @media screen and (max-width: $viewport-sm) {
+      @media screen and (max-width: breakpoints.$viewport-sm) {
         width: 100%;
       }
     }
@@ -84,13 +84,13 @@
     .fr-callout {
       min-width: 790px;
 
-      @media screen and (max-width: $viewport-md) {
+      @media screen and (max-width: breakpoints.$viewport-md) {
         min-width: initial;
         width: 100%;
       }
     }
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       min-width: auto;
       width: 100%;
     }

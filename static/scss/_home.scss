@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .home-container {
   .main-info-container {
@@ -32,7 +32,7 @@
       flex: 1;
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       padding: 32px 0;
 
       .fr-container {
@@ -102,13 +102,13 @@
         bottom: -30px;
       }
 
-      @media screen and (max-width: $viewport-lg) {
+      @media screen and (max-width: breakpoints.$viewport-lg) {
         img:last-child {
           display: none;
         }
       }
 
-      @media screen and (max-width: $viewport-md) {
+      @media screen and (max-width: breakpoints.$viewport-md) {
         img:nth-child(2) {
           position: absolute;
           right: -30px;
@@ -148,7 +148,7 @@
       flex-direction: row;
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       padding: 32px 0;
 
       h1 {
@@ -233,7 +233,7 @@
       right: 0;
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       padding: 32px 0;
 
       &__pin-wrapper-1,
@@ -270,7 +270,7 @@
       }
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       .fr-container {
         gap: 24px;
       }

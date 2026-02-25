@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 pnx-viewer,
 pnx-photo-viewer {
@@ -15,7 +15,7 @@ pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
 }
 
 .erp-details-container {
-  @media screen and (max-width: $viewport-sm) {
+  @media screen and (max-width: breakpoints.$viewport-sm) {
     pnx-photo-viewer {
       height: 350px;
     }

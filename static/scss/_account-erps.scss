@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .account-erps {
   .fr-tabs__panel {
@@ -7,7 +7,7 @@
 
   .fr-card__footer {
     .fr-btns-group {
-      @media screen and (min-width: $viewport-lg) {
+      @media screen and (min-width: breakpoints.$viewport-lg) {
         justify-self: flex-end;
       }
     }

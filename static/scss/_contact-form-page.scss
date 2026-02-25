@@ -1,7 +1,7 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .contact-container {
-  @media (min-width: $viewport-xl) {
+  @media (min-width: breakpoints.$viewport-xl) {
     position: relative;
     background-image: url(/static/img/contact/contact-background.png);
     background-repeat: no-repeat;

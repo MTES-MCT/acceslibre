@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .partners-container {
   background-color: var(--artwork-background-grey);
@@ -27,7 +27,7 @@
     }
   }
 
-  @media screen and (min-width: $viewport-md) {
+  @media screen and (min-width: breakpoints.$viewport-md) {
     .see-more-content {
       display: block !important;
     }

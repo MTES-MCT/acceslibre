@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .my-profile-container {
   .edit-block {
@@ -20,7 +20,7 @@
       margin-top: 8px;
     }
 
-    @media (min-width: $viewport-md) {
+    @media (min-width: breakpoints.$viewport-md) {
       grid-template-columns: 1fr 1fr 1fr;
 
       & > :last-child {
@@ -43,7 +43,7 @@
       margin-top: 8px;
     }
 
-    @media (min-width: $viewport-md) {
+    @media (min-width: breakpoints.$viewport-md) {
       grid-template-columns: 1fr 1fr;
 
       & > :last-child {
