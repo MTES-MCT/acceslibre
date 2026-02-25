@@ -45,8 +45,8 @@ importers:
         specifier: 1.5.3
         version: 1.5.3(leaflet@1.9.4)
       npm:
-        specifier: 11.9.0
-        version: 11.9.0
+        specifier: 11.10.0
+        version: 11.10.0
       parcel:
         specifier: 2.16.1
         version: 2.16.1(@swc/helpers@0.5.17)
@@ -1254,8 +1254,8 @@ packages:
   node-releases@2.0.23:
     resolution: {integrity: sha512-cCmFDMSm26S6tQSDpBCg/NR8NENrVPhAJSf+XbxBG4rPFaaonlEoE9wHQmun+cls499TQGSb7ZyPBRlzgKfpeg==}
 
-  npm@11.9.0:
-    resolution: {integrity: sha512-BBZoU926FCypj4b7V7ElinxsWcy4Kss88UG3ejFYmKyq7Uc5XnT34Me2nEhgCOaL5qY4HvGu5aI92C4OYd7NaA==}
+  npm@11.10.0:
+    resolution: {integrity: sha512-i8hE43iSIAMFuYVi8TxsEISdELM4fIza600aLjJ0ankGPLqd0oTPKMJqAcO/QWm307MbSlWGzJcNZ0lGMQgHPA==}
     engines: {node: ^20.17.0 || >=22.9.0}
     hasBin: true
     bundledDependencies:
@@ -2963,7 +2963,7 @@ snapshots:
 
   node-releases@2.0.23: {}
 
-  npm@11.9.0: {}
+  npm@11.10.0: {}
 
   nullthrows@1.1.1: {}
 
