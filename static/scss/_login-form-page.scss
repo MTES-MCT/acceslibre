@@ -1,7 +1,7 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .login-container {
-  @media (min-width: $viewport-xl) {
+  @media (min-width: breakpoints.$viewport-xl) {
     .fr-alert {
       max-width: 540px;
     }

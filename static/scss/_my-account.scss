@@ -1,10 +1,10 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .account-container {
   display: flex;
   flex-direction: column;
 
-  @media (min-width: $viewport-md) {
+  @media (min-width: breakpoints.$viewport-md) {
     flex-direction: row;
   }
 
@@ -32,7 +32,7 @@
       right: 0;
     }
 
-    @media (min-width: $viewport-md) {
+    @media (min-width: breakpoints.$viewport-md) {
       margin-right: 32px;
     }
   }

@@ -1,12 +1,12 @@
-@import 'variables';
-@import 'utilities';
-@import 'breakpoints';
+@use 'variables';
+@use 'utilities';
+@use 'breakpoints';
 
 // App specific styles
-@import 'loader';
-@import 'contribution';
-@import 'half-circle-progress-bar';
-@import 'leaflet';
+@use 'loader';
+@use 'contribution';
+@use 'half-circle-progress-bar';
+@use 'leaflet';
 
 // Override _reboot.scss from scss, otherwise the lateral menu from dsfr doesn't work on mobile
 [hidden] {
@@ -14,7 +14,7 @@
 }
 
 #cta .fr-btn {
-  @media screen and (max-width: $viewport-md) {
+  @media screen and (max-width: breakpoints.$viewport-md) {
     margin-bottom: 0.5rem;
   }
 }
@@ -93,7 +93,7 @@ select[name='language'] {
     bottom: 0;
     left: 0;
     right: 0;
-    background: $warning;
+    background: variables.$warning;
     padding: 2px 10px;
     text-align: center;
     z-index: 9999;
@@ -129,12 +129,12 @@ select[name='language'] {
     padding: 8px 12px;
 
     &:hover {
-      color: $white;
-      background-color: $primary;
-      border-color: $primary;
+      color: variables.$white;
+      background-color: variables.$primary;
+      border-color: variables.$primary;
     }
 
-    background-color: $white;
+    background-color: variables.$white;
     border: 1px solid #dee2e6;
     text-decoration: none;
     display: block;
@@ -159,8 +159,8 @@ select[name='language'] {
 
   .rounded-only-bottom {
     border-radius: 0;
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: variables.$border-radius;
+    border-bottom-right-radius: variables.$border-radius;
   }
 
   .btn {
@@ -170,7 +170,7 @@ select[name='language'] {
   }
 
   .act-icon {
-    background: $primary;
+    background: variables.$primary;
     border-radius: 25%;
     color: currentColor;
     width: 48px;
@@ -183,7 +183,7 @@ select[name='language'] {
 
     &-erp {
       // large viewport
-      @media screen and (min-width: $viewport-md) {
+      @media screen and (min-width: breakpoints.$viewport-md) {
         width: 96px;
         height: 96px;
         padding: 7px;
@@ -191,7 +191,7 @@ select[name='language'] {
       }
 
       // mobile viewport
-      @media screen and (max-width: $viewport-md) {
+      @media screen and (max-width: breakpoints.$viewport-md) {
         width: 32px;
         height: 32px;
         padding: 4px;
@@ -283,7 +283,7 @@ select[name='language'] {
     padding: 0;
     z-index: 9999;
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       left: 0;
       right: 0;
     }
@@ -298,7 +298,7 @@ select[name='language'] {
       right: 0;
       height: auto;
 
-      @media screen and (max-width: $viewport-md) {
+      @media screen and (max-width: breakpoints.$viewport-md) {
         left: 10px;
         right: 10px;
         width: calc(100% - 20px);
@@ -390,7 +390,7 @@ select[name='language'] {
 
   &-tab-content-section {
     min-height: 100%;
-    background: $white;
+    background: variables.$white;
   }
 
   &-localisation-map {
@@ -434,26 +434,26 @@ select[name='language'] {
   }
 
   &-navbar {
-    background-color: $primary;
+    background-color: variables.$primary;
     padding: 1px 1em;
   }
 
   &-app-map {
-    @media screen and (min-width: $viewport-md) {
+    @media screen and (min-width: breakpoints.$viewport-md) {
       height: calc(100vh - 58px - 57px);
     }
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       height: calc(100vh - 148px);
     }
   }
 
   &-app-erp-map {
-    @media screen and (min-width: $viewport-md) {
+    @media screen and (min-width: breakpoints.$viewport-md) {
       height: 350px;
     }
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       height: 200px;
     }
   }
@@ -470,7 +470,7 @@ select[name='language'] {
       max-height: 5rem;
     }
 
-    @media screen and (min-width: $viewport-xl) {
+    @media screen and (min-width: breakpoints.$viewport-xl) {
       input[name='what'] {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
@@ -495,7 +495,7 @@ select[name='language'] {
   &-search-pager {
     justify-content: flex-end; // desktop
 
-    @media only screen and (max-width: $viewport-sm) {
+    @media only screen and (max-width: breakpoints.$viewport-sm) {
       // on mobile we want the pagination links to sit centered under the section heading
       margin-top: 1em;
       justify-content: center;
@@ -506,7 +506,7 @@ select[name='language'] {
     position: relative;
     height: 600px; // desktop
 
-    @media only screen and (max-width: $viewport-sm) {
+    @media only screen and (max-width: breakpoints.$viewport-sm) {
       order: -1; // on mobile the map is on top of results
     }
   }
@@ -515,7 +515,7 @@ select[name='language'] {
     position: relative;
     min-height: 800px; // desktop
 
-    @media only screen and (max-width: $viewport-sm) {
+    @media only screen and (max-width: breakpoints.$viewport-sm) {
       min-height: 200px; // mobile
       order: -1; // on mobile the map is on top of results
     }
@@ -611,7 +611,7 @@ select[name='language'] {
 #export-results {
   display: none;
 
-  @media screen and (min-width: $viewport-lg) {
+  @media screen and (min-width: breakpoints.$viewport-lg) {
     display: block;
   }
 }
@@ -718,7 +718,7 @@ select[name='language'] {
   margin-left: 4rem;
 }
 
-@media screen and (max-width: $viewport-md) {
+@media screen and (max-width: breakpoints.$viewport-md) {
   .erp-details {
     .card {
       border-left: 0px;

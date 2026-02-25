@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 :root {
   --main-filters-width: 350px;
@@ -36,7 +36,7 @@
     --tabs-height: auto !important;
   }
 
-  @media (min-width: $viewport-lg) {
+  @media (min-width: breakpoints.$viewport-lg) {
     .fr-tabs__list {
       display: none !important;
     }
@@ -56,7 +56,7 @@
   }
 
   // Little hack/workaround to have all panels visible on dekstop res
-  @media screen and (min-width: $viewport-lg) {
+  @media screen and (min-width: breakpoints.$viewport-lg) {
     .fr-tabs__panel {
       visibility: visible;
       transform: translate(0);
@@ -71,7 +71,7 @@
     flex: 0 0 calc(100% - var(--main-filters-width) - var(--search-list-width));
     margin-left: auto;
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       width: 100%;
       max-width: 100%;
       flex: 1;
@@ -95,7 +95,7 @@
     height: calc(100% - 12px);
     padding: 16px !important;
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       position: relative;
       left: 0;
       top: 0;
@@ -126,7 +126,7 @@
       padding-bottom: 0 !important;
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       position: relative;
       left: 0;
       top: 0;
@@ -166,7 +166,7 @@ div.equipments > span:not(.hidden, .section-text) {
   padding: 0;
 }
 
-@media (min-width: $viewport-md) {
+@media (min-width: breakpoints.$viewport-md) {
   div.equipments .section-text {
     width: 110px;
     text-align: left;

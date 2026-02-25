@@ -1,3 +1,5 @@
+@use 'breakpoints';
+
 $viewport-sm: 576px;
 $blue: #000091;
 $grey: #ddd;
@@ -27,7 +29,7 @@ $grey: #ddd;
       padding: 1rem;
     }
 
-    @media only screen and (max-width: $viewport-sm) {
+    @media only screen and (max-width: breakpoints.$viewport-sm) {
       img {
         max-height: 10rem;
         max-width: 10rem;
@@ -70,7 +72,7 @@ $grey: #ddd;
     background-image: none;
   }
 
-  @media only screen and (max-width: $viewport-sm) {
+  @media only screen and (max-width: breakpoints.$viewport-sm) {
     .fr-xl-radio-rich__img {
       max-width: 100%;
     }
@@ -94,7 +96,7 @@ $grey: #ddd;
     top: -20px;
   }
 
-  @media only screen and (max-width: $viewport-sm) {
+  @media only screen and (max-width: breakpoints.$viewport-sm) {
     .half-progress {
       width: 100%;
 

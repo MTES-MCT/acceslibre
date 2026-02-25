@@ -1,3 +1,5 @@
+@use 'variables';
+
 .spinner {
   visibility: hidden;
   margin-left: 36px;
@@ -15,7 +17,7 @@
   animation: load7 1.8s infinite ease-in-out;
 }
 .loader {
-  color: $text-dark;
+  color: variables.$text-dark;
   font-size: 10px !important;
   transform: translateZ(0);
   animation-delay: -0.16s;

@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .challenges-container {
   --base-padding: 48px;
@@ -21,7 +21,7 @@
     padding: var(--base-padding);
     gap: 24px;
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       padding: var(--padding-md-breakpoint);
     }
   }
@@ -75,7 +75,7 @@
       top: 0;
     }
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       flex-direction: column;
       gap: 32px;
       padding: var(--padding-md-breakpoint);
@@ -94,7 +94,7 @@
   .challenges-list-section {
     padding: var(--base-padding);
 
-    @media screen and (max-width: $viewport-md) {
+    @media screen and (max-width: breakpoints.$viewport-md) {
       padding: var(--padding-md-breakpoint);
     }
   }
@@ -107,11 +107,11 @@
     padding: 0;
     gap: 16px;
 
-    @media screen and (max-width: $viewport-xl) {
+    @media screen and (max-width: breakpoints.$viewport-xl) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media screen and (max-width: $viewport-lg) {
+    @media screen and (max-width: breakpoints.$viewport-lg) {
       grid-template-columns: repeat(1, 1fr);
     }
 

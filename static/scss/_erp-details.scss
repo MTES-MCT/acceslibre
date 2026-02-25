@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .erp-details-container {
   display: flex;
@@ -19,7 +19,7 @@
       width: 100%;
     }
 
-    @media (min-width: $viewport-md) {
+    @media (min-width: breakpoints.$viewport-md) {
       flex-direction: row;
     }
   }

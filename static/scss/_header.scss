@@ -1,4 +1,4 @@
-@use 'breakpoints' as *;
+@use 'breakpoints';
 
 .fr-header {
   .fr-responsive-img {
@@ -10,7 +10,7 @@
 
     span {
       display: none;
-      @media (min-width: $viewport-lg) {
+      @media (min-width: breakpoints.$viewport-lg) {
         display: block;
         position: absolute;
         left: 0px;
