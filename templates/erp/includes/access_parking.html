@@ -4,11 +4,12 @@
 <h2 class="fr-accordion__title" data-filter-title="true">
     <button type="button"
             class="fr-accordion__btn"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="access_parking_controls">{% translate "Transport et stationnement" %}</button>
 </h2>
 {% spaceless %}
-    <div id="access_parking_controls" class="fr-collapse text--long-words">
+    <div id="access_parking_controls"
+         class="fr-collapse text--long-words fr-py-0">
         <ul>
             {% if access.transport_bureau_de_vote_accessibilite %}
                 <li data-filters="walking">
@@ -57,3 +58,10 @@
         </ul>
     </div>
 {% endspaceless %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        dsfr(document.getElementById('access_parking_controls')).collapse.disclose()
+    }, 0)
+  })
+</script>

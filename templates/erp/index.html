@@ -47,6 +47,13 @@
 {% endblock additional_skip_links %}
 {% block editorial_content %}
     <main role="main" id="content" class="erp-details-container" tabindex="-1">
+        <img id="acceslibre-logo"
+             style="max-width: 128px;
+                    margin: 0 auto;
+                    display: none"
+             src="/static/img/logo-acceslibre-solo.svg"
+             alt=""
+             aria-hidden="true">
         <section>
             <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
                 <div class="fr-follow__social">
@@ -180,7 +187,7 @@
                 </ul>
             </nav>
         </div>
-        <section>
+        <section class="history-container">
             {% include "erp/includes/versions_block.html" %}
         </section>
     </main>

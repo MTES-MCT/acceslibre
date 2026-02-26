@@ -8,7 +8,7 @@
             aria-controls="access_outside_path">{% translate "Chemin vers l'entrée" %}</button>
 </h2>
 {% spaceless %}
-    <div id="access_outside_path" class="fr-collapse">
+    <div id="access_outside_path" class="fr-collapse fr-py-0">
         <ul>
             {% if access.has_outside_path_and_no_other_data %}
                 <li data-filters="all">{{ "cheminement_ext_presence"|positive_text }}</li>
