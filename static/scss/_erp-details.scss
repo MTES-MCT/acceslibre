@@ -1,5 +1,51 @@
 @use 'breakpoints';
 
+@page {
+  margin: 12px 0 !important;
+}
+
+@media print {
+  details,
+  #app-map,
+  .fr-footer,
+  .fr-header,
+  .fr-follow,
+  .fr-breadcrumb,
+  .fr-follow__social,
+  .fr-btn,
+  .fr-tag,
+  .widget-card,
+  .history-container,
+  .ctas-container,
+  .filters-container,
+  .location-link,
+  .fr-accordion__title button::after {
+    display: none;
+  }
+
+  #acceslibre-logo {
+    display: block !important;
+  }
+
+  h2#a11y {
+    margin-bottom: 12px !important;
+  }
+
+  .fr-accordion__title > .fr-accordion__btn {
+    padding: 0 8px;
+    min-height: 32px;
+  }
+
+  .fr-collapse {
+    padding: 0 !important;
+    line-height: 18px;
+  }
+
+  .erp-details-title {
+    margin-bottom: 0;
+  }
+}
+
 .erp-details-container {
   display: flex;
   flex-direction: column;
