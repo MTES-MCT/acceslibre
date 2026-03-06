@@ -10,11 +10,11 @@
 {% spaceless %}
     <div id="access_accommodation" class="fr-collapse">
         <ul>
-            {% if access.accueil_chambre_nombre_accessibles %}
+            {% if access.accueil_chambre_nombre_accessibles >= 0 %}
                 <li data-filters="walking">
-                    {% if access.access.accueil_chambre_nombre_accessibles == 1 %}
+                    {% if access.accueil_chambre_nombre_accessibles == 1 %}
                         {% translate "Au moins une chambre accessible à une personne en fauteuil roulant" %}
-                    {% elif access.access.accueil_chambre_nombre_accessibles == 0 %}
+                    {% elif access.accueil_chambre_nombre_accessibles <= 0 %}
                         {{ "accueil_chambre_nombre_accessibles"|negative_text }}
                     {% else %}
                         {% blocktranslate trimmed count nb=access.accueil_chambre_nombre_accessibles with nb=access.accueil_chambre_nombre_accessibles %}
