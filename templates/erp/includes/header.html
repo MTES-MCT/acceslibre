@@ -53,14 +53,16 @@
                 </p>
             {% endif %}
             {% if erp.site_internet %}
-                <p class="fr-mb-1w">
+                <div class="fr-mb-1w flex gap-1w">
                     <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
-                    <a class="fr-link fr-ml-n1v"
-                       href="{{ erp.site_internet }}"
-                       target="_blank"
-                       title="{{ erp.site_internet }}  - {% translate "Nouvelle fenêtre" %}"
-                       rel="noopener noreferrer">{% translate "Site internet" %}</a>
-                </p>
+                    <span>
+                        <a class="fr-link fr-ml-n1v"
+                           href="{{ erp.site_internet }}"
+                           target="_blank"
+                           title="{{ erp.site_internet }}  - {% translate "Nouvelle fenêtre" %}"
+                           rel="noopener noreferrer">{{ erp.site_internet }}</a>
+                    </span>
+                </div>
             {% endif %}
         </address>
         {% if erp.geom.x and erp.geom.y %}
