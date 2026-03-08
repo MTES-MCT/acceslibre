@@ -190,6 +190,106 @@ def test_export_command(mocker, settings):
 
 
 @pytest.mark.django_db
+def test_export_xml_to_s3_xml_content(mocker, settings):
+    settings.S3_EXPORT_BUCKET_NAME = "test-bucket"
+    settings.S3_EXPORT_BUCKET_ENDPOINT_URL = "https://fake-s3.example.com"
+    settings.SITE_HOST = "testserver"
+
+    activity = ActiviteFactory(nom="Boulangerie", id=1)
+    ErpFactory(
+        nom="Aux bons croissants",
+        code_postal="34830",
+        commune="Jacou",
+        geom=Point(3.9047933, 43.6648217),
+        activite=activity,
+        published=True,
+    )
+
+    uploaded_parts = []
+
+    mock_s3 = MagicMock()
+    mock_s3.create_multipart_upload.return_value = {"UploadId": "fake-upload-id"}
+    mock_s3.upload_part.side_effect = lambda **kwargs: (
+        uploaded_parts.append(kwargs["Body"]) or {"ETag": f"etag-{kwargs['PartNumber']}"}
+    )
+    mock_s3.generate_presigned_url.return_value = "https://fake-url.example.com/export.xml"
+
+    mocker.patch("boto3.client", return_value=mock_s3)
+
+    management.call_command("export_XML_to_s3")
+
+    full_xml = b"".join(uploaded_parts)
+    assert b"Aux bons croissants" in full_xml
+    assert b"Jacou" in full_xml
+    assert b"34830" in full_xml
+    assert b"3.9047933" in full_xml
+    assert b"43.6648217" in full_xml
+    assert b"geom" not in full_xml  # geom field should be excluded, see ErpXMLSerializer.Meta
+    assert b'<?xml version="1.0" encoding="utf-8"?>' in full_xml
+    assert full_xml.strip().endswith(b"</root>")
+
+
+@pytest.mark.django_db
+def test_export_xml_to_s3_aborts_on_error(mocker, settings):
+    """Check that multipart upload is aborted when an error occurs"""
+    settings.S3_EXPORT_BUCKET_NAME = "test-bucket"
+    settings.S3_EXPORT_BUCKET_ENDPOINT_URL = "https://fake-s3.example.com"
+    settings.SITE_HOST = "testserver"
+
+    activity = ActiviteFactory(nom="Boulangerie", id=1)
+    ErpFactory(
+        nom="Aux bons croissants",
+        geom=Point(3.9047933, 43.6648217),
+        activite=activity,
+        published=True,
+    )
+
+    mock_s3 = MagicMock()
+    mock_s3.create_multipart_upload.return_value = {"UploadId": "fake-upload-id"}
+    mock_s3.upload_part.side_effect = Exception("S3 failure")
+
+    mocker.patch("boto3.client", return_value=mock_s3)
+
+    with pytest.raises(Exception, match="S3 failure"):
+        management.call_command("export_XML_to_s3")
+
+    mock_s3.abort_multipart_upload.assert_called_once_with(
+        Bucket="test-bucket",
+        Key=ANY,
+        UploadId="fake-upload-id",
+    )
+
+
+@pytest.mark.django_db
+def test_export_xml_to_s3_filters_activities(mocker, settings):
+    settings.S3_EXPORT_BUCKET_NAME = "test-bucket"
+    settings.S3_EXPORT_BUCKET_ENDPOINT_URL = "https://fake-s3.example.com"
+    settings.SITE_HOST = "testserver"
+
+    activity_included = ActiviteFactory(nom="Boulangerie", id=1)
+    activity_excluded = ActiviteFactory(nom="Autre", id=9999)
+
+    ErpFactory(nom="ERP included", geom=Point(3.9, 43.6), activite=activity_included, published=True)
+    ErpFactory(nom="ERP excluded", geom=Point(3.9, 43.6), activite=activity_excluded, published=True)
+
+    uploaded_parts = []
+    mock_s3 = MagicMock()
+    mock_s3.create_multipart_upload.return_value = {"UploadId": "fake-upload-id"}
+    mock_s3.upload_part.side_effect = lambda **kwargs: (
+        uploaded_parts.append(kwargs["Body"]) or {"ETag": f"etag-{kwargs['PartNumber']}"}
+    )
+    mock_s3.generate_presigned_url.return_value = "https://fake-url.example.com/export.xml"
+
+    mocker.patch("boto3.client", return_value=mock_s3)
+
+    management.call_command("export_XML_to_s3")
+
+    full_xml = b"".join(uploaded_parts)
+    assert b"ERP included" in full_xml
+    assert b"ERP excluded" not in full_xml
+
+
+@pytest.mark.django_db
 def test_export_failure(mocker, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
