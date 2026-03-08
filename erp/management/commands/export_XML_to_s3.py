@@ -8,7 +8,7 @@ from rest_framework.request import Request
 from rest_framework.test import APIRequestFactory
 from rest_framework_xml.renderers import XMLRenderer
 
-from api.serializers import ErpSerializer
+from api.serializers import ErpXMLSerializer
 from erp.models import Erp
 
 CHUNK_SIZE = 1000
@@ -163,7 +163,7 @@ class Command(BaseCommand):
                 batch = qs[offset : offset + CHUNK_SIZE]
                 self.stdout.write(f"Serialize {offset}-{offset + CHUNK_SIZE}/{total}...")
 
-                data = ErpSerializer(batch, many=True, context={"request": fake_request}).data
+                data = ErpXMLSerializer(batch, many=True, context={"request": fake_request}).data
                 xml_str = renderer.render(data, accepted_media_type="application/xml", renderer_context={})
                 if isinstance(xml_str, str):
                     xml_str = xml_str.encode("utf-8")

@@ -179,6 +179,25 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         return self.context["request"].build_absolute_uri(obj.get_absolute_url())
 
 
+class ErpXMLSerializer(ErpSerializer):
+    latitude = serializers.SerializerMethodField()
+    longitude = serializers.SerializerMethodField()
+    adresse = serializers.SerializerMethodField()
+
+    class Meta(ErpSerializer.Meta):
+        model = Erp
+        fields = tuple(f for f in ErpSerializer.Meta.fields if f != "geom") + ("latitude", "longitude")
+
+    def get_latitude(self, obj):
+        return obj.geom.y
+
+    def get_longitude(self, obj):
+        return obj.geom.x
+
+    def get_adresse(self, obj):
+        return obj.short_adresse
+
+
 class ErpGeoSerializer(GeoFeatureModelSerializer):
     activite = ActiviteGeoSerializer(many=False, read_only=True)
     web_url = serializers.SerializerMethodField()
