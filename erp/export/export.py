@@ -1,11 +1,14 @@
 import csv
 import json
+import re
 from dataclasses import asdict
-from typing import List, Type
+from typing import Generator, List, Type
 
 import requests
 from django.conf import settings
+from rest_framework_xml.renderers import XMLRenderer
 
+from api.serializers import ErpXMLSerializer
 from erp.export.utils import BaseExportMapper, map_erps_to_json_schema
 from erp.models import Erp
 
@@ -38,6 +41,30 @@ def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMappe
 def export_schema_to_buffer(buffer, erps: List[Erp], model: Type[BaseExportMapper]):
     csv_writer = csv.DictWriter(buffer, fieldnames=model.headers())
     _write_csv(csv_writer, erps, model)
+
+
+def upload_qs_to_xml(qs, fake_request, chunk_size=1000) -> Generator[bytes]:
+    renderer = XMLRenderer()
+    buffer = b'<?xml version="1.0" encoding="utf-8"?>\n<root>'
+    total = qs.count()
+
+    for offset in range(0, total, chunk_size):
+        batch = qs[offset : offset + chunk_size]
+
+        data = ErpXMLSerializer(batch, many=True, context={"request": fake_request}).data
+        xml_str = renderer.render(data, accepted_media_type="application/xml", renderer_context={})
+        if isinstance(xml_str, str):
+            xml_str = xml_str.encode("utf-8")
+
+        inner = re.search(rb"<root>(.*)</root>", xml_str, re.DOTALL)
+        if inner:
+            buffer += inner.group(1)
+
+        if len(buffer) >= 5 * 1024 * 1024:
+            yield buffer
+            buffer = b""
+
+    yield buffer + b"</root>"
 
 
 def upload_to_datagouv(
