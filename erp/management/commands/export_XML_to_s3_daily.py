@@ -1,4 +1,3 @@
-import re
 from datetime import datetime, timedelta, timezone
 
 import boto3
@@ -6,12 +5,11 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from rest_framework.request import Request
 from rest_framework.test import APIRequestFactory
-from rest_framework_xml.renderers import XMLRenderer
 
-from api.serializers import ErpXMLSerializer
+from erp.export.export import upload_qs_to_xml
 from erp.models import Erp
 
-from .export_XML_to_s3 import ACTIVITIES, CHUNK_SIZE
+from .export_XML_to_s3 import ACTIVITIES
 
 FILENAME = "export.xml"
 
@@ -46,6 +44,7 @@ class Command(BaseCommand):
             endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL,
         )
 
+        print("DEBUG bucket_name", bucket_name)
         mpu = s3.create_multipart_upload(
             Bucket=bucket_name,
             Key=FILENAME,
@@ -55,46 +54,18 @@ class Command(BaseCommand):
         upload_id = mpu["UploadId"]
         parts = []
         part_number = 1
-        buffer = b'<?xml version="1.0" encoding="utf-8"?>\n<root>'
-        renderer = XMLRenderer()
 
         try:
-            for offset in range(0, total, CHUNK_SIZE):
-                batch = qs[offset : offset + CHUNK_SIZE]
-                self.stdout.write(f"Serialize {offset}-{offset + CHUNK_SIZE}/{total}...")
-
-                data = ErpXMLSerializer(batch, many=True, context={"request": fake_request}).data
-                xml_str = renderer.render(data, accepted_media_type="application/xml", renderer_context={})
-                if isinstance(xml_str, str):
-                    xml_str = xml_str.encode("utf-8")
-
-                inner = re.search(rb"<root>(.*)</root>", xml_str, re.DOTALL)
-                if inner:
-                    buffer += inner.group(1)
-
-                if len(buffer) >= 5 * 1024 * 1024:
-                    self.stdout.write(f"Upload part {part_number} ({offset}-{offset + CHUNK_SIZE}/{total})...")
-                    response = s3.upload_part(
-                        Bucket=bucket_name,
-                        Key=FILENAME,
-                        PartNumber=part_number,
-                        UploadId=upload_id,
-                        Body=buffer,
-                    )
-                    parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
-                    part_number += 1
-                    buffer = b""
-
-            buffer += b"</root>"
-            response = s3.upload_part(
-                Bucket=bucket_name,
-                Key=FILENAME,
-                PartNumber=part_number,
-                UploadId=upload_id,
-                Body=buffer,
-            )
-            parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
-
+            for chunk in upload_qs_to_xml(qs, fake_request):
+                response = s3.upload_part(
+                    Bucket=bucket_name,
+                    Key=FILENAME,
+                    PartNumber=part_number,
+                    UploadId=upload_id,
+                    Body=chunk,
+                )
+                parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
+                part_number += 1
             response = s3.complete_multipart_upload(
                 Bucket=bucket_name,
                 Key=FILENAME,

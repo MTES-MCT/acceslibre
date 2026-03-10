@@ -1,4 +1,3 @@
-import re
 from datetime import datetime, timezone
 
 import boto3
@@ -6,12 +5,9 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from rest_framework.request import Request
 from rest_framework.test import APIRequestFactory
-from rest_framework_xml.renderers import XMLRenderer
 
-from api.serializers import ErpXMLSerializer
+from erp.export.export import upload_qs_to_xml
 from erp.models import Erp
-
-CHUNK_SIZE = 1000
 
 ACTIVITIES = [
     255,
@@ -145,58 +141,25 @@ class Command(BaseCommand):
         bucket_name = settings.S3_EXPORT_BUCKET_NAME
         file_name = f"export_{now}_full.xml"
 
-        s3 = boto3.client(
-            "s3",
-            endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL,
-        )
+        s3 = boto3.client("s3", endpoint_url=settings.S3_EXPORT_BUCKET_ENDPOINT_URL)
 
-        # Initialize the multipart upload
         mpu = s3.create_multipart_upload(Bucket=bucket_name, Key=file_name, ContentType="application/xml")
         upload_id = mpu["UploadId"]
         parts = []
         part_number = 1
-        buffer = b'<?xml version="1.0" encoding="utf-8"?>\n<root>'
-        renderer = XMLRenderer()
 
         try:
-            for offset in range(0, total, CHUNK_SIZE):
-                batch = qs[offset : offset + CHUNK_SIZE]
-                self.stdout.write(f"Serialize {offset}-{offset + CHUNK_SIZE}/{total}...")
-
-                data = ErpXMLSerializer(batch, many=True, context={"request": fake_request}).data
-                xml_str = renderer.render(data, accepted_media_type="application/xml", renderer_context={})
-                if isinstance(xml_str, str):
-                    xml_str = xml_str.encode("utf-8")
-
-                # using ErpSerializer is serializing into <root> tag, so we need to remove it, to append it to our buffer
-                inner = re.search(rb"<root>(.*)</root>", xml_str, re.DOTALL)
-                if inner:
-                    buffer += inner.group(1)
-
-                # S3 multipart  requires parts >= 5MB (except the last one)
-                if len(buffer) >= 5 * 1024 * 1024:
-                    self.stdout.write(f"Upload part {part_number} ({offset}-{offset + CHUNK_SIZE}/{total})...")
-                    response = s3.upload_part(
-                        Bucket=bucket_name,
-                        Key=file_name,
-                        PartNumber=part_number,
-                        UploadId=upload_id,
-                        Body=buffer,
-                    )
-                    parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
-                    part_number += 1
-                    buffer = b""
-
-            # Remaining part
-            buffer += "</root>".encode("utf-8")
-            response = s3.upload_part(
-                Bucket=bucket_name,
-                Key=file_name,
-                PartNumber=part_number,
-                UploadId=upload_id,
-                Body=buffer,
-            )
-            parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
+            for chunk in upload_qs_to_xml(qs, fake_request):
+                self.stdout.write(f"Upload part {part_number}...")
+                response = s3.upload_part(
+                    Bucket=bucket_name,
+                    Key=file_name,
+                    PartNumber=part_number,
+                    UploadId=upload_id,
+                    Body=chunk,
+                )
+                parts.append({"PartNumber": part_number, "ETag": response["ETag"]})
+                part_number += 1
 
             s3.complete_multipart_upload(
                 Bucket=bucket_name,
@@ -204,7 +167,6 @@ class Command(BaseCommand):
                 UploadId=upload_id,
                 MultipartUpload={"Parts": parts},
             )
-
         except Exception as e:
             s3.abort_multipart_upload(Bucket=bucket_name, Key=file_name, UploadId=upload_id)
             raise e
@@ -214,5 +176,4 @@ class Command(BaseCommand):
             Params={"Bucket": bucket_name, "Key": file_name},
             ExpiresIn=604800,
         )
-
         self.stdout.write(self.style.SUCCESS(f"Export terminated, link available during 7 days: {file_url}"))
