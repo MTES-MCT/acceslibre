@@ -131,8 +131,11 @@ def get_wc_label(access):
 
 
 def get_room_accessible_label(access):
-    if not access.accueil_chambre_nombre_accessibles:
+    if access.accueil_chambre_nombre_accessibles is None:
         return ""
+
+    if access.accueil_chambre_nombre_accessibles == 0:
+        return translate("Pas de chambre accessible")
 
     return ngettext(
         "%(count)d chambre accessible", "%(count)d chambres accessibles", access.accueil_chambre_nombre_accessibles
