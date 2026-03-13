@@ -9,6 +9,7 @@ RUN apt-get update && \
         python3-gdal \
         libspatialindex-dev \
         gettext \
+        libpango-1.0-0 libpangoft2-1.0-0 libgobject-2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash acceslibre
