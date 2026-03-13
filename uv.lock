@@ -2258,7 +2258,7 @@ wheels = [
 
 [[package]]
 name = "scrapfly-sdk"
-version = "0.8.24"
+version = "0.8.27"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "backoff" },
@@ -2268,9 +2268,9 @@ dependencies = [
     { name = "requests" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/17/40/f2baf15372fba9e67c0f918ea9d753916bf875019ead972cd76e8aa0ff1b/scrapfly_sdk-0.8.24.tar.gz", hash = "sha256:84fb0a22c3df9cf3aca9bdc1ed191419e27d92a055ae70d06147ac0ced7ee654", size = 42460, upload-time = "2026-01-07T11:10:50.236Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fb/49/c9c13113630ea38653b784f3511779e191152aa6afb44cf7e148d99ad345/scrapfly_sdk-0.8.27.tar.gz", hash = "sha256:affce316fecfabe444685779fc61b28a9e7a36344819701339637a96272831c6", size = 82753, upload-time = "2026-02-26T19:00:32.638Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6a/96/a75ee335f676562f228a0389c9a933cd3282b628d15a1a8984fe86179dbb/scrapfly_sdk-0.8.24-py3-none-any.whl", hash = "sha256:9bbe1008b939900f330d4a74a3f1436f2255260a275e3dda887e0b7173a86b93", size = 44803, upload-time = "2026-01-07T11:10:48.716Z" },
+    { url = "https://files.pythonhosted.org/packages/70/9a/f9367c504710f0fc06654adef079b3e020318bf0c6beccb8291ecf26b9fe/scrapfly_sdk-0.8.27-py3-none-any.whl", hash = "sha256:c0cb76fd65e95a6221b3f4531af363f2dcd2dc2e5b18641be9554bb2f60e001c", size = 95229, upload-time = "2026-02-26T19:00:31.227Z" },
 ]
 
 [[package]]
