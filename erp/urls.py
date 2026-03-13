@@ -200,4 +200,9 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name="admin_password_reset_complete",
     ),
+    path(
+        "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/rpa_pdf",
+        views.generate_erp_rpa_pdf,
+        name="generate_erp_rpa_pdf",
+    ),
 ]

@@ -4,8 +4,10 @@ import secrets
 import string
 import urllib
 from decimal import Decimal
+from io import BytesIO
 from uuid import UUID
 
+import qrcode
 import reversion
 from django.conf import settings
 from django.contrib import messages
@@ -15,8 +17,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.safestring import mark_safe
@@ -24,6 +27,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
 from reversion.views import create_revision
+from weasyprint import HTML
 
 from api.views import WidgetSerializer
 from core.lib import geo, url
@@ -1454,3 +1458,61 @@ def contrib_documentation(request):
         "contrib/documentation.html",
         context={"sections": schema.get_documentation_fieldsets()},
     )
+
+
+def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
+    base_qs = (
+        Erp.objects.select_related(
+            "accessibilite",
+            "activite",
+            "user",
+            "commune_ext",
+        )
+        .prefetch_related(
+            "sources",
+        )
+        .published()
+        .filter(slug=erp_slug)
+    )
+
+    erp = get_object_or_404(base_qs)
+
+    erp_details_url = reverse(
+        "commune_activite_erp",
+        kwargs={
+            "commune": commune,
+            "activite_slug": activite_slug,
+            "erp_slug": erp_slug,
+        },
+    )
+
+    factory = qrcode.image.svg.SvgPathImage
+
+    # todo: put back SITE_ROOT_URL
+    # qr_code_url = f"{settings.SITE_ROOT_URL}{erp_details_url}"
+    qr_code_url = f"https://acceslibre.beta.gouv.fr{erp_details_url}"
+    qr = qrcode.make(f"{qr_code_url}", image_factory=factory, box_size=7)
+
+    stream = BytesIO()
+
+    qr.save(stream)
+    qr_svg = stream.getvalue().decode("utf-8")
+    timestamps = erp.get_global_timestamps()
+
+    html_string = render_to_string(
+        "erp/template_erp_rpa.html",
+        {
+            "erp": erp,
+            "access": erp.accessibilite,
+            "qr_code_svg": qr_svg,
+            "qr_code_url": qr_code_url,
+            "timestamps": timestamps,
+        },
+    )
+
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = 'inline; filename="rpa.pdf"'
+
+    HTML(string=html_string, base_url=settings.SITE_ROOT_URL).write_pdf(response)
+
+    return response
