@@ -63,6 +63,8 @@ dependencies = [
     "django-summernote",
     "pre-commit>=4.5.1",
     "djangorestframework-xml>=2.0.0",
+    "weasyprint>=68.1",
+    "qrcode[pil]>=8.2",
 ]
 
 [dependency-groups]

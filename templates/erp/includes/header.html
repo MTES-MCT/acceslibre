@@ -14,21 +14,85 @@
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
     </div>
     <div class="fr-grid-row fr-grid-row--middle gap-2w">
-        {% if erp.accessibilite.completion_rate %}
-            <div>
-                {% translate "Taux de remplissage des informations : " %}
-                <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
+        {% if not rpa_feature_enabled %}
+            {% if erp.accessibilite.completion_rate %}
+                <div>
+                    {% translate "Taux de remplissage des informations : " %}
+                    <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
+                </div>
+            {% endif %}
+            <div class="fr-col fr-hidden fr-unhidden-sm"></div>
+            <div class="fr-hidden fr-unhidden-md">
+                <a class="fr-btn"
+                   href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier ces informations" %}</a>
+            </div>
+            <div class="fr-hidden-md">
+                <a class="fr-btn text-center"
+                   href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
             </div>
         {% endif %}
-        <div class="fr-col fr-hidden fr-unhidden-sm"></div>
-        <div class="fr-hidden fr-unhidden-md">
-            <a class="fr-btn"
-               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier ces informations" %}</a>
-        </div>
-        <div class="fr-hidden-md">
-            <a class="fr-btn text-center"
-               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
-        </div>
+        {% if rpa_feature_enabled %}
+            {% if erp.accessibilite.completion_rate %}
+                <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
+                    <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
+                        <p class="fr-mb-0">
+                            {% translate "Niveau de complétude des informations la fiche : " %}
+                            <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
+                        </p>
+                        <a class="fr-btn justify-self--end"
+                           href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier" %}</a>
+                    </section>
+                    <section class="fr-grid-row gap-2w align-items--center">
+                        <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
+                            <div class="fr-follow__social">
+                                <p>{% translate "Partager sur les réseaux sociaux" %}</p>
+                                <ul class="fr-btns-group">
+                                    {% if social_links.facebook %}
+                                        <li>
+                                            <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
+                                               href="{{ social_links.facebook }}"
+                                               target="_blank"
+                                               rel="noopener external"
+                                               class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if social_links.x %}
+                                        <li>
+                                            <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
+                                               href="{{ social_links.x }}"
+                                               target="_blank"
+                                               rel="noopener external"
+                                               class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if social_links.linkedin %}
+                                        <li>
+                                            <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
+                                               href="{{ social_links.linkedin }}"
+                                               target="_blank"
+                                               rel="noopener external"
+                                               class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if erp_absolute_uri %}
+                                        <li id="btn-to-copy-wrapper">
+                                            <button id="btn-to-copy"
+                                                    data-url="{{ erp_absolute_uri }}"
+                                                    title="{% translate "Copier le lien" %}"
+                                                    class="fr-btn fr-icon-links-fill"></button>
+                                            <div id="btn-to-copy-voice-over-text"
+                                                 class="align-self--center fr-mb-2w"
+                                                 role="status"></div>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            {% endif %}
+            {% include "erp/includes/rpa_badge.html" %}
+        {% endif %}
     </div>
     <hr class="fr-hr fr-pb-md-3w fr-mt-bd-3w fr-pb-2w fr-mt-2w" />
     <div class="fr-grid-row address-container">

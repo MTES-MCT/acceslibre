@@ -14,7 +14,7 @@ fileignoreconfig:
 - filename: templates/contrib/6-accueil.html
   checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
 - filename: locale/en/LC_MESSAGES/django.po
-  checksum: 50110de84290abdf047a0c9376e858ba8382ec7da2a38891c3b760424db0ec59
+  checksum: 4cf53e1da6862478e92be24382595feca2549b9fa2bf767a76216bc8e799a4dd
 - filename: templates/contrib/0-start.html
   checksum: 48b03ff89169260f34f59c6ce3f07e219d13ebfb7c11ee3dbbf319ea70d4063f
 - filename: templates/contrib/0a-search_results.html
@@ -44,9 +44,9 @@ fileignoreconfig:
 - filename: erp/management/commands/clean_S3_export_bucket.py
   checksum: a6049e2ff31893e3ce4a9f4f661f0af25045492c91bf600c4d2485a845770b97
 - filename: .env.sample
-  checksum: 9f5725438aba3d20474299e52832c7ad4719f684b32bb440edb1c29948efa3f1
+  checksum: b5e710160bc8409b8d33b4c272c361e5a505fe1c955a6cf5d51775f14cec529c
 - filename: core/settings.py
-  checksum: c31a8b126f660ab927f182c352d2f496576d7888fe23a45cd37ddf48662109c3
+  checksum: d74f0fab35f23159695fe7262eb30d3fc0be3aa990b675dd1b518b99035e0e6e
 - filename: erp/management/commands/export_XML_to_s3_daily.py
   checksum: 715957094130f8ce1464d9a8b467a9cf09616cfb3fab721bf65749a377e2c360
 - filename: erp/management/commands/export_XML_to_s3.py
