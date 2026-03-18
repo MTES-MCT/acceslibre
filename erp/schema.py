@@ -2205,12 +2205,14 @@ FIELDS = {
         "choices": PERSONNELS_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None
-        and x
-        in [
-            PERSONNELS_NON_FORMES,
-            PERSONNELS_AUCUN,
-        ],
+        "warn_if": lambda x, i: (
+            x is not None
+            and x
+            in [
+                PERSONNELS_NON_FORMES,
+                PERSONNELS_AUCUN,
+            ]
+        ),
         "free_text": False,
         "root": True,
     },
