@@ -24,10 +24,10 @@ env_vars: &shared_env_vars
 executors:
   for_tests:
     docker:
-      - image: cimg/python:3.13.9-node
+      - image: cimg/python:3.14.3-node
         environment:
           <<: *shared_env_vars
-      - image: cimg/postgres:15.8-postgis
+      - image: cimg/postgres:17.7-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
@@ -36,7 +36,7 @@ executors:
 
   for_checks:
     docker:
-      - image: cimg/python:3.13.9-node
+      - image: cimg/python:3.14.3-node
         environment:
           <<: *shared_env_vars
 jobs:
