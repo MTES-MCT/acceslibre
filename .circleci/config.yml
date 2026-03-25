@@ -16,6 +16,7 @@ env_vars: &shared_env_vars
   OUTSCRAPER_API_KEY: xxx
   SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
   S3_EXPORT_BUCKET_NAME: xxx
+  S3_EXPORT_PUBLIC_BUCKET_NAME: xxx
   S3_EXPORT_BUCKET_ENDPOINT_URL: xxx
   AWS_ACCESS_KEY_ID: xxx
   AWS_SECRET_ACCESS_KEY: xxx
