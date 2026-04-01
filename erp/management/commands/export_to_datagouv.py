@@ -50,6 +50,7 @@ class Command(BaseCommand):
 
             df = pd.read_csv(csv_path_with_url)
             df.pop("web_url")
+            df.pop("widget_code")
             df.to_csv(csv_path, index=False)
 
             self.log(f"Local export successful: '{csv_path}'")

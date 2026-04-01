@@ -183,8 +183,18 @@ def test_export_command(mocker, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 94, "New exported field or missing field in export"
-        assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
+        assert len(header) == 95, "New exported field or missing field in export"
+        assert erp_csv == expected + [
+            "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
+            '<div id="widget-a11y-container" '
+            f'data-pk="{erp.uuid}" '
+            'data-baseurl="http://testserver"></div>\n'
+            '<a href="#" aria-haspopup="dialog" '
+            f'data-erp-pk="{erp.uuid}" aria-controls="dialog" '
+            'data-owner="acceslibre">Accessibilité</a>\n'
+            '<script src="http://testserver/static/js/widget.js" '
+            'type="text/javascript" async="true"></script>',
+        ]
 
     os.unlink("acceslibre-with-web-url.csv")
 
