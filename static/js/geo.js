@@ -19,13 +19,13 @@ let currentErpIdentifier,
   layers = [],
   markers = null,
   map,
-  satelliteTiles,
-  streetTiles,
   shouldRefreshMap,
   shouldTryToBroadenSearchToGetOneResult,
   currentPage,
   geoJsonLayer
-
+let ignTiles = null
+let streetTiles = null
+let satelliteTiles = null
 shouldRefreshMap = true
 shouldTryToBroadenSearchToGetOneResult = false
 currentPage = 1
@@ -105,41 +105,100 @@ function _createClusterIcon(cluster) {
   })
 }
 
+function createIgnTiles() {
+  return L.tileLayer(
+    'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}',
+    { attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>', maxZoom: 19 }
+  )
+}
+
 function createStreetTiles() {
-  return L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> et contributeurs`,
+  return L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
   })
 }
 
-function createCustomTiles(styleId) {
-  return L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    id: styleId,
-    attribution: `
-        &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
-        <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
-        Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>`,
-    maxZoom: 18,
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw',
-  })
+function createSatelliteTiles() {
+  return L.tileLayer(
+    'https://api.mapbox.com/styles/v1/acceslibre/cliiv23h1005i01qv6365088q/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4cTRtIn0.jEdq_xNlv-oBu_q_UAmkxw',
+    {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      tileSize: 512,
+      zoomOffset: -1,
+    }
+  )
+}
+
+function getIgnTiles() {
+  if (!ignTiles) ignTiles = createIgnTiles()
+  return ignTiles
 }
 
 function getStreetTiles() {
-  if (!streetTiles) {
-    streetTiles = createStreetTiles()
-  }
-
+  if (!streetTiles) streetTiles = createStreetTiles()
   return streetTiles
 }
 
 function getSatelliteTiles() {
-  if (!satelliteTiles) {
-    satelliteTiles = createCustomTiles('acceslibre/cliiv23h1005i01qv6365088q')
-  }
+  if (!satelliteTiles) satelliteTiles = createSatelliteTiles()
   return satelliteTiles
 }
 
+function isFranceMetro(lat, lng) {
+  return lat > 41 && lat < 51.5 && lng > -5.5 && lng < 10
+}
+
+function updatePlanLayerOnMove(map, layerControl) {
+  let currentPlanIsSatellite = false
+
+  map.on('moveend', () => {
+    if (currentPlanIsSatellite) return
+
+    const center = map.getCenter()
+    const inFranceMetro = isFranceMetro(center.lat, center.lng)
+    const ignActive = map.hasLayer(getIgnTiles())
+    const cartoActive = map.hasLayer(getStreetTiles())
+
+    if (inFranceMetro && !ignActive && cartoActive) {
+      map.removeLayer(getStreetTiles())
+      map.addLayer(getIgnTiles())
+    } else if (!inFranceMetro && ignActive && !cartoActive) {
+      map.removeLayer(getIgnTiles())
+      map.addLayer(getStreetTiles())
+    }
+  })
+
+  map.on('baselayerchange', (e) => {
+    currentPlanIsSatellite = e.name === 'Satellite'
+  })
+}
+
+function createMap(domTarget, options = {}) {
+  const center = options.center || [DEFAULT_LAT, DEFAULT_LON]
+  const defaultPlanLayer = isFranceMetro(center[0], center[1]) ? getIgnTiles() : getStreetTiles()
+
+  const defaults = { layers: [defaultPlanLayer], scrollWheelZoom: true, ...options }
+  const map = L.map(domTarget, { ...defaults, options })
+
+  const layerControl = L.control
+    .layers({
+      Plan: defaultPlanLayer,
+      Satellite: getSatelliteTiles(),
+    })
+    .addTo(map)
+
+  updatePlanLayerOnMove(map, layerControl)
+
+  L.control.scale({ imperial: false }).addTo(map)
+  L.control.zoom({ position: options.zoomPosition || 'topleft' }).addTo(map)
+
+  return map
+}
 function safeBase64Encode(data) {
   return btoa(unescape(encodeURIComponent(JSON.stringify(data))))
 }
@@ -192,30 +251,6 @@ function _displayCustomMenu(root, { latlng, target: map }) {
         })}
       </ul>`
   })
-}
-
-function createMap(domTarget, options = {}) {
-  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: true, ...options }
-  const map = L.map(domTarget, { ...defaults, options })
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-  }).addTo(map)
-  L.control
-    .layers({
-      'Plan des rues': getStreetTiles(),
-      'Vue satellite': getSatelliteTiles(),
-    })
-    .addTo(map)
-
-  L.control.scale({ imperial: false }).addTo(map)
-  L.control
-    .zoom({
-      position: options.zoomPosition || 'topleft',
-    })
-    .addTo(map)
-
-  return map
 }
 
 function _parseAround({ lat, lon, label }) {
