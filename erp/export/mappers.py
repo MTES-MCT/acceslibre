@@ -111,6 +111,7 @@ class EtalabMapper(BaseExportMapper):
     conformite: bool
     rnb_id: str
     web_url: str
+    widget_code: str
 
     @staticmethod
     def headers():
@@ -130,6 +131,7 @@ class EtalabMapper(BaseExportMapper):
             siret=erp.siret,
             activite=erp.activite.nom if erp.activite else "",
             web_url=erp.get_absolute_uri(),
+            widget_code=erp.widget_code,
             rnb_id=getattr(erp.sources.filter(source=ExternalSource.SOURCE_RNB).first(), "source_id", None),
             contact_url=erp.contact_url,
             site_internet=erp.site_internet,

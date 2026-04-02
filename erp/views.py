@@ -459,7 +459,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         erp.translate(current_language)
 
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
-    url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     has_th = bool(schema.LABEL_TH in (erp.accessibilite.labels or []))
     th_labels = []
@@ -467,10 +466,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         th_labels = [
             value for key, value in schema.HANDICAP_CHOICES if key in (erp.accessibilite.labels_familles_handicap or [])
         ]
-    # NOTE: if the widget code is edited it should be also reflected in metabase
-    widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<a href="#" aria-haspopup="dialog" data-erp-pk="{erp.uuid}" aria-controls="dialog" data-owner="acceslibre">{translate("Accessibilité")}</a>
-<script src="{url_widget_js}" type="text/javascript" async="true"></script>"""
 
     erp_image_id = None
     erp_xyz = None
@@ -502,8 +497,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "erp": erp,
             "geojson_list": make_geojson([erp]),
             "access": erp.accessibilite,
-            "widget_tag": widget_tag,
-            "url_widget_js": url_widget_js,
+            "widget_tag": erp.widget_code,
+            "url_widget_js": f"{settings.SITE_ROOT_URL}/static/js/widget.js",
             "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
             "th_labels": th_labels,

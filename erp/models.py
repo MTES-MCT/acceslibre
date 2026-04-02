@@ -999,6 +999,14 @@ class Erp(models.Model):
         return self
 
     @property
+    def widget_code(self):
+        # NOTE: if the widget code is edited it should be also reflected in metabase
+        url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
+        return f"""<div id="widget-a11y-container" data-pk="{self.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>
+<a href="#" aria-haspopup="dialog" data-erp-pk="{self.uuid}" aria-controls="dialog" data-owner="acceslibre">{translate("Accessibilité")}</a>
+<script src="{url_widget_js}" type="text/javascript" async="true"></script>"""
+
+    @property
     def has_miscellaneous_activity(self):
         return self.activite.slug == Activite.SLUG_MISCELLANEOUS
 
