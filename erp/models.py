@@ -780,7 +780,7 @@ class Erp(models.Model):
         return f"{self.get_absolute_url()}?success=true"
 
     def get_absolute_url(self):
-        commune_slug = self.commune_ext.slug if self.commune_ext else slugify(f"{self.departement}-{self.commune}")
+        commune_slug = self.commune_slug
         if self.activite is None:
             return reverse(
                 "commune_erp",
@@ -818,6 +818,10 @@ class Erp(models.Model):
 
     def is_subscribed_by(self, user):
         return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
+
+    @property
+    def commune_slug(self):
+        return self.commune_ext.slug if self.commune_ext else slugify(f"{self.departement}-{self.commune}")
 
     @property
     def adresse(self):

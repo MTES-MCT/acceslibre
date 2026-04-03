@@ -1456,10 +1456,6 @@ def contrib_documentation(request):
 
 
 def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
-    if not getattr(settings, "RPA_FEATURE_ENABLED", False):
-        erp = get_object_or_404(Erp, slug=erp_slug)
-        return redirect(erp.get_absolute_url())
-
     from weasyprint import HTML
     import qrcode
 
@@ -1490,9 +1486,7 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
 
     factory = qrcode.image.svg.SvgPathImage
 
-    # todo: put back SITE_ROOT_URL
-    # qr_code_url = f"{settings.SITE_ROOT_URL}{erp_details_url}"
-    qr_code_url = f"https://acceslibre.beta.gouv.fr{erp_details_url}"
+    qr_code_url = f"{settings.SITE_ROOT_URL}{erp_details_url}"
     qr = qrcode.make(f"{qr_code_url}", image_factory=factory, box_size=7)
 
     stream = BytesIO()
@@ -1509,6 +1503,7 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
             "qr_code_svg": qr_svg,
             "qr_code_url": qr_code_url,
             "timestamps": timestamps,
+            "rpa_feature_enabled": getattr(settings, "RPA_FEATURE_ENABLED", False),
         },
     )
 

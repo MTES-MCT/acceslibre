@@ -145,10 +145,6 @@
             margin: 8px 0 0 0;
         }
 
-        .font--bold {
-            font-weight: bold;
-        }
-
         .remove-section-if-empty {
           section:has(ul:empty) {
             display: none;
@@ -159,7 +155,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            width: 240px;
+            width: 340px;
             gap: 4px;
         }
 
@@ -250,26 +246,28 @@
                     <p>{% translate "La plateforme collaborative de l’accessibilité" %}</p>
                 </div>
             </section>
-            <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
-                <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
-                <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
-                    {% if access.conformite %}
-                        <div style="display: flex;">
-                            <img src="{% static "icons/success-fill.svg" %}" alt="">
-                            <span>{% translate "conforme" %}</span>
-                        </div>
-                    {% else %}
-                        <div style="display: flex;">
-                            <img src="{% static "icons/warning-fill.svg" %}" alt="">
-                            <span>{% translate "non conforme" %}</span>
-                        </div>
+            {% if rpa_feature_enabled %}
+                <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
+                    <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
+                    <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
+                        {% if access.conformite %}
+                            <div style="display: flex;">
+                                <img src="{% static "icons/success-fill.svg" %}" alt="">
+                                <span>{% translate "conforme" %}</span>
+                            </div>
+                        {% else %}
+                            <div style="display: flex;">
+                                <img src="{% static "icons/warning-fill.svg" %}" alt="">
+                                <span>{% translate "non conforme" %}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% if timestamps.created_by %}
+                        <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
                     {% endif %}
-                </div>
-                {% if timestamps.created_by %}
-                    <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
-                {% endif %}
-                <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
-            </section>
+                    <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+                </section>
+            {% endif %}
         </header>
         <section id="erp-main-info">
             <h1>{{ erp.nom }}</h1>
