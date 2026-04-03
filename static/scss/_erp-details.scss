@@ -23,4 +23,12 @@
       flex-direction: row;
     }
   }
+
+  .rpa-block--success {
+    border: 2px solid var(--border-plain-success);
+  }
+
+  .rpa-block--warning {
+    border: 2px solid var(--border-plain-warning);
+  }
 }

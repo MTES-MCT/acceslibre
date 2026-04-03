@@ -28,12 +28,14 @@ SECRET_KEY = env("SECRET_KEY")
 
 USE_DEBUG_TOOLBAR = env("DJANGO_DEBUG_TOOLBAR", default=False)
 
+
 DATAGOUV_API_KEY = env("DATAGOUV_API_KEY", default=None)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
 DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
 # NOTE: to retrieve resources id: https://demo.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
 DATAGOUV_RESOURCES_ID = "993e8f0f-07fe-4b44-8fba-cca4ce102c0c"
 DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
+RPA_FEATURE_ENABLED = env("RPA_FEATURE_ENABLED", default=False)
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True

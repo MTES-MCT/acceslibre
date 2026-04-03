@@ -1,0 +1,338 @@
+{% load i18n %}
+{% load a4a %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+    <head>
+        <meta name="description"
+              content="{% block page_description %}Fiche RPA de l'etablissement{% endblock page_description %}">
+        <meta name="keywords"
+              content="accessibilité,handicap,accessible,accessibles,fauteuil roulant,handicapé(s),rpa">
+        <title>{{ erp.nom }}</title>
+        <style>
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+
+        @media print {
+            a {
+               text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Light.woff2") format("woff2"), url("static/fonts/Marianne-Light.woff") format("woff");
+          font-weight: 300;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Light.woff2") format("woff2"), url("static/fonts/Marianne-Light.woff") format("woff");
+          font-weight: 300;
+          font-style: italic;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Regular.woff2") format("woff2"), url("static/fonts/Marianne-Regular.woff") format("woff");
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Regular_Italic.woff2") format("woff2"), url("static/fonts/Marianne-Regular_Italic.woff") format("woff");
+          font-weight: 400;
+          font-style: italic;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Bold.woff2") format("woff2"), url("static/fonts/Marianne-Bold.woff") format("woff");
+          font-weight: 700;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: Marianne;
+          src: url("static/fonts/Marianne-Bold_Italic.woff2") format("woff2"), url("static/fonts/Marianne-Bold_Italic.woff") format("woff");
+          font-weight: 700;
+          font-style: italic;
+          font-display: swap;
+        }
+
+        html {
+            font-size: 14px;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Marianne', sans-serif;
+            color: #333;
+        }
+        button, ul, li, ol, h1, h2, h3, h4, h5, h6, p {
+            outline: none;
+            background: none;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            color: #000091;
+            margin: 12px 0;
+        }
+
+        address {
+            line-height: 20px;
+            margin: 12px 0;
+            font-style: normal;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        button {
+            text-align: left;
+        }
+
+        ul {
+            margin-left: 12px;
+            padding-left: 12px;
+        }
+
+        header {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+
+            img {
+                width: calc(324px / 2.3);
+                height: calc(119px / 2.3);
+                aspect-ratio: 16/9;
+                justify-self: center;
+                align-self: center;
+            }
+        }
+
+        .main-title {
+            color: #000091;
+            text-align: center;
+        }
+
+        #erp-main-info {
+            text-align: center;
+            margin: 8px 0 0 0;
+        }
+
+        .font--bold {
+            font-weight: bold;
+        }
+
+        .remove-section-if-empty {
+          section:has(ul:empty) {
+            display: none;
+          }
+        }
+
+        .icon-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 340px;
+            gap: 4px;
+        }
+
+        .header-logo-container {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            margin: auto 0;
+        }
+
+        .header-logo-container__title {
+            font-size: 12px;
+        }
+
+        .rpa-block {
+            border-width: 2px;
+            border-style: solid;
+            padding: 16px;
+            font-size: 12px;
+            width: 250px;
+            text-align: left;
+        }
+
+          .rpa-block--success {
+            border-color: #18753C;
+          }
+
+          .rpa-block--warning {
+            border-color: #B34000;
+          }
+
+        .rpa-badge {
+            display: inline-flex;
+            text-transform: uppercase;
+            color: var(--text-default-grey);
+            background-color: var(--background-contrast-grey);
+            border-radius: .25rem;
+            padding: 0 .5rem;
+            font-weight: 700;
+            line-height: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            margin:4px 0px 8px 0;
+            gap: 0;
+        }
+
+        .rpa-badge img {
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+        }
+
+        .rpa-badge--success {
+            color: #18753C;
+            background-color: #B8FEC9;
+            width: 84px;
+
+        }
+
+        .rpa-badge--warning {
+            color: #B34000;
+            background-color: #FFE9E6;
+            width: 130px;
+        }
+
+        .icon-container img[src$=".svg"] {
+            width: 12px;
+            height: 12px;
+        }
+
+        .address-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-grow: 1;
+            align-items: center;
+            width: 100%;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section class="header-logo-container">
+                <div>
+                    <img src="{% static "img/logo-acceslibre-solo.svg" %}" alt="Acceslibre" />
+                </div>
+                <div class="header-logo-container__title">
+                    <p>{% translate "La plateforme collaborative de l’accessibilité" %}</p>
+                </div>
+            </section>
+            <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
+                <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
+                <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
+                    {% if access.conformite %}
+                        <div style="display: flex;">
+                            <img src="{% static "icons/success-fill.svg" %}" alt="">
+                            <span>{% translate "conforme" %}</span>
+                        </div>
+                    {% else %}
+                        <div style="display: flex;">
+                            <img src="{% static "icons/warning-fill.svg" %}" alt="">
+                            <span>{% translate "non conforme" %}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if timestamps.created_by %}
+                    <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
+                {% endif %}
+                <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+            </section>
+        </header>
+        <section id="erp-main-info">
+            <h1>{{ erp.nom }}</h1>
+            <h2>{{ erp.activite }}</h2>
+        </section>
+        <section class="address-section">
+            <address>
+                <p class="icon-container">
+                    <img src="{% static "icons/map-pin.svg" %}" alt="">
+                    <span>{{ erp.adresse }}</span>
+                </p>
+                {% if erp.telephone %}
+                    <p class="icon-container">
+                        <img src="{% static "icons/phone-line.svg" %}" alt="">
+                        <span>{{ erp.telephone|format_phone }}</span>
+                    </p>
+                {% endif %}
+                {% if erp.contact_url %}
+                    <p class="icon-container">
+                        <img src="{% static "icons/mail-line.svg" %}" alt="">
+                        <span>{{ erp.contact_url }}</span>
+                    </p>
+                {% endif %}
+                {% if erp.site_internet %}
+                    <p class="icon-container">
+                        <img src="{% static "icons/global-line.svg" %}" alt="">
+                        <span>{{ erp.site_internet }}</span>
+                    </p>
+                {% endif %}
+            </address>
+            <div class="qr-container">
+                <p>{{ qr_code_svg|safe }}</p>
+            </div>
+        </section>
+        <h2 class="main-title">{% translate "Informations sur l'accessibilité aux personnes handicapées" %}</h2>
+        <section class="remove-section-if-empty">
+            <section>
+                {% include "erp/includes/access_parking.html" %}
+            </section>
+            <section>
+                {% include "erp/includes/access_outside_path.html" %}
+            </section>
+            <section>
+                {% include "erp/includes/access_entrance.html" %}
+            </section>
+            <section>
+                {% include "erp/includes/access_reception.html" %}
+            </section>
+            <section>
+                {% if erp.is_accommodation %}
+                    {% include "erp/includes/access_accommodation.html" %}
+                {% endif %}
+            </section>
+            <section>
+                {% if access.registre_url or access.conformite %}
+                    {% include "erp/includes/access_legal.html" %}
+                {% endif %}
+            </section>
+            <section>
+                {% if access.commentaire %}
+                    {% include "erp/includes/access_comment.html" %}
+                {% endif %}
+            </section>
+        </section>
+    </body>
+</html>
