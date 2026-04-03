@@ -1,0 +1,22 @@
+{% load a4a %}
+{% load i18n %}
+<div class="fr-col fr-p-2w {% if access.conformite %}rpa-block--success{% else %}rpa-block--warning{% endif %}">
+    <section>
+        {% translate "Registre Public d'Accessibilité (RPA) :" %}
+        <div class="fr-badge {% if access.conformite %} fr-badge--success {% else %} fr-badge--warning {% endif %} fr-mb-2w fr-mt-1v">
+            {% if access.conformite %}
+                {% translate "conforme" %}
+            {% else %}
+                {% translate "non conforme" %}
+            {% endif %}
+        </div>
+    </section>
+    {% if timestamps.created_by %}
+        <p class="fr-mb-0">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
+    {% endif %}
+    <p class="fr-mb-0">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+    <a class="fr-link fr-mb-0"
+       href="{% url 'generate_erp_rpa_pdf' commune=erp.commune_ext.slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
+       rel="noopener noreferrer"
+       target="_blank">{% translate "Télécharger le PDF" %}</a>
+</div>

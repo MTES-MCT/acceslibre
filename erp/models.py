@@ -810,6 +810,7 @@ class Erp(models.Model):
         return {
             "created_at": created_at,
             "updated_at": updated_at,
+            "created_by": self.user,
         }
 
     def has_accessibilite(self):
