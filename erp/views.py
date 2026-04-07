@@ -842,9 +842,9 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": Decimal(erp.geom.y), "lon": Decimal(erp.geom.x)}
-    if erp.user is request.user:
+    if erp.user_id == request.user.id:
         libelle_next = schema.SECTION_A_PROPOS
-        next_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
+        next_route = "contrib_a_propos"
     else:
         libelle_next = schema.SECTION_TRANSPORT
         next_route = schema.SECTIONS[schema.SECTION_TRANSPORT]["edit_route"]
@@ -1042,8 +1042,8 @@ def process_accessibilite_form(
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    if erp.user is request.user:
-        prev_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
+    if erp.user_id == request.user.id:
+        prev_route = "contrib_a_propos"
     else:
         prev_route = "contrib_edit_infos"
 
