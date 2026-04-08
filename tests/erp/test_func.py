@@ -84,7 +84,7 @@ def test_erp_details(browser, erp_domtom, django_assert_max_num_queries):
         accessibilite__entree_porte_presence=True,
         accessibilite__entree_reperage=True,
     )
-    with django_assert_max_num_queries(11):
+    with django_assert_max_num_queries(13):
         browser.visit(erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title

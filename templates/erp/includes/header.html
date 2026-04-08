@@ -14,8 +14,8 @@
     <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
     </div>
-    <div class="fr-grid-row gap-2w {% switch RPA %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
-        {% switch RPA %}
+    <div class="fr-grid-row gap-2w {% switch "RPA" %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
+        {% switch "RPA" %}
         {% if erp.accessibilite.completion_rate %}
             <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
                 <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
