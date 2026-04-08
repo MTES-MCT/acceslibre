@@ -14,13 +14,13 @@
     <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
     </div>
-    <div class="fr-grid-row gap-2w {% switch rpa %} fr-grid-row--start {% else %} fr-grid-row--middle {% endswitch %}">
-        {% switch rpa %}
+    <div class="fr-grid-row gap-2w {% switch RPA %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
+        {% switch RPA %}
         {% if erp.accessibilite.completion_rate %}
             <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
                 <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
                     <p class="fr-mb-0">
-                        {% translate "Niveau de complétude des informations la fiche : " %}
+                        {% translate "Niveau de complétude des informations de la fiche : " %}
                         <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
                     </p>
                     <a class="fr-btn justify-self--end"
@@ -86,7 +86,7 @@
         <div>
             {% if erp.accessibilite.completion_rate %}
                 <div>
-                    {% translate "Taux de remplissage des informations : " %}
+                    {% translate "Niveau de complétude des informations de la fiche : " %}
                     <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
                 </div>
             {% endif %}
