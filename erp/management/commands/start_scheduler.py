@@ -1,6 +1,7 @@
 import logging
 import time
 from datetime import datetime, timezone
+from django.db import connection
 
 import schedule
 from django.conf import settings
@@ -115,7 +116,8 @@ class Command(BaseCommand):
     def start(self):
         while True:
             try:
+                connection.close()  # close db connection, Django will open a new one to avoid already closed connections
                 schedule.run_pending()
             except Exception as err:
-                logger.exception("Exception in scheduler", err)
+                logger.exception("Exception in scheduler: %s", err)
             time.sleep(1)
