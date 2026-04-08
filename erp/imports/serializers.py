@@ -139,17 +139,14 @@ class ErpImportSerializer(serializers.ModelSerializer):
     def _ensure_no_duplicate(self, obj):
         existing = None
 
-        if "source" in obj and "source_id" in obj:
+        if obj.get("source") and obj.get("source_id"):
             existing = Erp.objects.filter(sources__source=obj["source"], sources__source_id=obj["source_id"])
 
-        if "sources" in obj:
-            for source in obj["sources"]:
-                if "source" in source and "source_id" in source:
-                    existing = Erp.objects.filter(
-                        sources__source=source["source"], sources__source_id=source["source_id"]
-                    )
-                    if existing:
-                        break
+        for source in obj.get("sources", []):
+            if source.get("source") and source.get("source_id"):
+                existing = Erp.objects.filter(sources__source=source["source"], sources__source_id=source["source_id"])
+                if existing:
+                    break
 
         if not existing:
             existing = Erp.objects.find_duplicate(
