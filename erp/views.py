@@ -30,7 +30,6 @@ from reversion.views import create_revision
 from api.views import WidgetSerializer
 from core.lib import geo, url
 from core.mailer import BrevoMailer
-from core.settings import RPA_FEATURE_ENABLED
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
@@ -495,7 +494,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         "erp/index.html",
         context={
             "activite": erp.activite,
-            "rpa_feature_enabled": RPA_FEATURE_ENABLED,
             "commune": erp.commune_ext,
             "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
             "erp": erp,
@@ -1505,7 +1503,6 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
             "qr_code_svg": qr_svg,
             "qr_code_url": qr_code_url,
             "timestamps": timestamps,
-            "rpa_feature_enabled": getattr(settings, "RPA_FEATURE_ENABLED", False),
         },
     )
 
