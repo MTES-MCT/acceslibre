@@ -1,6 +1,7 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
+{% load waffle_tags %}
 {% block javascript_extras %}
     {% if image_id %}
         <script src="{% static "dist/js/panoramax.js" %}"></script>
@@ -13,143 +14,142 @@
     <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
     </div>
-    <div class="fr-grid-row gap-2w {% if rpa_feature_enabled %} fr-grid-row--start {% else %} fr-grid-row--middle {% endif %}">
-        {% if not rpa_feature_enabled %}
-            <div>
-                {% if erp.accessibilite.completion_rate %}
-                    <div>
-                        {% translate "Taux de remplissage des informations : " %}
+    <div class="fr-grid-row gap-2w {% switch "RPA" %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
+        {% switch "RPA" %}
+        {% if erp.accessibilite.completion_rate %}
+            <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
+                <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
+                    <p class="fr-mb-0">
+                        {% translate "Niveau de complétude des informations de la fiche : " %}
                         <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
+                    </p>
+                    <a class="fr-btn justify-self--end"
+                       href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier" %}</a>
+                </section>
+                <section class="fr-grid-row gap-2w align-items--center direction--column fr-grid-row--top">
+                    <div>
+                        <a class="fr-link fr-mb-0"
+                           href="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
+                           rel="noopener noreferrer"
+                           target="_blank">{% translate "Télécharger le PDF" %}</a>
                     </div>
-                {% endif %}
-                <div>
-                    <a class="fr-link fr-mb-0"
-                       href="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
-                       rel="noopener noreferrer"
-                       target="_blank">{% translate "Télécharger le PDF" %}</a>
-                </div>
-            </div>
-            <div class="fr-col fr-hidden fr-unhidden-sm"></div>
-            <div class="fr-hidden fr-unhidden-md">
-                <a class="fr-btn"
-                   href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier ces informations" %}</a>
-            </div>
-            <div class="fr-hidden-md">
-                <a class="fr-btn text-center"
-                   href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
+                    <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
+                        <div class="fr-follow__social">
+                            <p>{% translate "Partager sur les réseaux sociaux" %}</p>
+                            <ul class="fr-btns-group">
+                                {% if social_links.facebook %}
+                                    <li>
+                                        <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
+                                           href="{{ social_links.facebook }}"
+                                           target="_blank"
+                                           rel="noopener external"
+                                           class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
+                                    </li>
+                                {% endif %}
+                                {% if social_links.x %}
+                                    <li>
+                                        <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
+                                           href="{{ social_links.x }}"
+                                           target="_blank"
+                                           rel="noopener external"
+                                           class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
+                                    </li>
+                                {% endif %}
+                                {% if social_links.linkedin %}
+                                    <li>
+                                        <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
+                                           href="{{ social_links.linkedin }}"
+                                           target="_blank"
+                                           rel="noopener external"
+                                           class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
+                                    </li>
+                                {% endif %}
+                                {% if erp_absolute_uri %}
+                                    <li id="btn-to-copy-wrapper">
+                                        <button id="btn-to-copy"
+                                                data-url="{{ erp_absolute_uri }}"
+                                                title="{% translate "Copier le lien" %}"
+                                                class="fr-btn fr-icon-links-fill"></button>
+                                        <div id="btn-to-copy-voice-over-text"
+                                             class="align-self--center fr-mb-2w"
+                                             role="status"></div>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         {% endif %}
-        {% if rpa_feature_enabled %}
+        {% include "erp/includes/rpa_badge.html" %}
+    {% else %}
+        <div>
             {% if erp.accessibilite.completion_rate %}
-                <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
-                    <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
-                        <p class="fr-mb-0">
-                            {% translate "Niveau de complétude des informations la fiche : " %}
-                            <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
-                        </p>
-                        <a class="fr-btn justify-self--end"
-                           href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier" %}</a>
-                    </section>
-                    <section class="fr-grid-row gap-2w align-items--center direction--column fr-grid-row--top">
-                        <div>
-                            <a class="fr-link fr-mb-0"
-                               href="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
-                               rel="noopener noreferrer"
-                               target="_blank">{% translate "Télécharger le PDF" %}</a>
-                        </div>
-                        <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
-                            <div class="fr-follow__social">
-                                <p>{% translate "Partager sur les réseaux sociaux" %}</p>
-                                <ul class="fr-btns-group">
-                                    {% if social_links.facebook %}
-                                        <li>
-                                            <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
-                                               href="{{ social_links.facebook }}"
-                                               target="_blank"
-                                               rel="noopener external"
-                                               class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
-                                        </li>
-                                    {% endif %}
-                                    {% if social_links.x %}
-                                        <li>
-                                            <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
-                                               href="{{ social_links.x }}"
-                                               target="_blank"
-                                               rel="noopener external"
-                                               class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
-                                        </li>
-                                    {% endif %}
-                                    {% if social_links.linkedin %}
-                                        <li>
-                                            <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
-                                               href="{{ social_links.linkedin }}"
-                                               target="_blank"
-                                               rel="noopener external"
-                                               class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
-                                        </li>
-                                    {% endif %}
-                                    {% if erp_absolute_uri %}
-                                        <li id="btn-to-copy-wrapper">
-                                            <button id="btn-to-copy"
-                                                    data-url="{{ erp_absolute_uri }}"
-                                                    title="{% translate "Copier le lien" %}"
-                                                    class="fr-btn fr-icon-links-fill"></button>
-                                            <div id="btn-to-copy-voice-over-text"
-                                                 class="align-self--center fr-mb-2w"
-                                                 role="status"></div>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
+                <div>
+                    {% translate "Niveau de complétude des informations de la fiche : " %}
+                    <span class="fr-badge fr-badge--purple-glycine">{{ erp.accessibilite.completion_rate }}%</span>
                 </div>
             {% endif %}
-            {% include "erp/includes/rpa_badge.html" %}
-        {% endif %}
-    </div>
-    <hr class="fr-hr fr-pb-md-3w fr-mt-bd-3w fr-pb-2w fr-mt-2w" />
-    <div class="fr-grid-row address-container">
-        <address class="fr-m-0 fr-col">
-            <p class="fr-mb-1w word-break--all">
-                <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
-                <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
-            </p>
-            {% if erp.telephone %}
-                <p class="fr-mb-1w">
-                    <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
-                </p>
-            {% endif %}
-            {% if erp.contact_url %}
-                <p class="fr-mb-1w word-break--all">
-                    <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
-                    <a class="fr-link fr-ml-n1v"
-                       href="{{ erp.contact_url }}"
-                       target="_blank"
-                       title="{{ erp.contact_url }} - {% translate "Nouvelle fenêtre" %}"
-                       rel="noopener noreferrer">{{ erp.contact_url }}</a>
-                </p>
-            {% endif %}
-            {% if erp.site_internet %}
-                <div class="fr-mb-1w flex gap-1w">
-                    <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
-                    <span>
-                        <a class="fr-link fr-ml-n1v"
-                           href="{{ erp.site_internet }}"
-                           target="_blank"
-                           title="{{ erp.site_internet }}  - {% translate "Nouvelle fenêtre" %}"
-                           rel="noopener noreferrer">{{ erp.site_internet }}</a>
-                    </span>
-                </div>
-            {% endif %}
-        </address>
-        {% if erp.geom.x and erp.geom.y %}
-            <div class="fr-mb-2w">
-                <a class="fr-link"
-                   href="https://www.google.com/maps/?q={{ erp.geom.y|comma_to_dot }},{{ erp.geom.x|comma_to_dot }}"
-                   title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
-                   target="_blank">{% translate "Itinéraire" %}</a>
+            <div>
+                <a class="fr-link fr-mb-0"
+                   href="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
+                   rel="noopener noreferrer"
+                   target="_blank">{% translate "Télécharger le PDF" %}</a>
             </div>
         </div>
-    {% endif %}
+        <div class="fr-col fr-hidden fr-unhidden-sm"></div>
+        <div class="fr-hidden fr-unhidden-md">
+            <a class="fr-btn"
+               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier ces informations" %}</a>
+        </div>
+        <div class="fr-hidden-md">
+            <a class="fr-btn text-center"
+               href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Modifier ces informations" %}</a>
+        </div>
+    {% endswitch %}
+</div>
+<hr class="fr-hr fr-pb-md-3w fr-mt-bd-3w fr-pb-2w fr-mt-2w" />
+<div class="fr-grid-row address-container">
+    <address class="fr-m-0 fr-col">
+        <p class="fr-mb-1w word-break--all">
+            <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
+            <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
+        </p>
+        {% if erp.telephone %}
+            <p class="fr-mb-1w">
+                <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
+            </p>
+        {% endif %}
+        {% if erp.contact_url %}
+            <p class="fr-mb-1w word-break--all">
+                <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
+                <a class="fr-link fr-ml-n1v"
+                   href="{{ erp.contact_url }}"
+                   target="_blank"
+                   title="{{ erp.contact_url }} - {% translate "Nouvelle fenêtre" %}"
+                   rel="noopener noreferrer">{{ erp.contact_url }}</a>
+            </p>
+        {% endif %}
+        {% if erp.site_internet %}
+            <div class="fr-mb-1w flex gap-1w">
+                <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
+                <span>
+                    <a class="fr-link fr-ml-n1v"
+                       href="{{ erp.site_internet }}"
+                       target="_blank"
+                       title="{{ erp.site_internet }}  - {% translate "Nouvelle fenêtre" %}"
+                       rel="noopener noreferrer">{{ erp.site_internet }}</a>
+                </span>
+            </div>
+        {% endif %}
+    </address>
+    {% if erp.geom.x and erp.geom.y %}
+        <div class="fr-mb-2w">
+            <a class="fr-link"
+               href="https://www.google.com/maps/?q={{ erp.geom.y|comma_to_dot }},{{ erp.geom.x|comma_to_dot }}"
+               title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
+               target="_blank">{% translate "Itinéraire" %}</a>
+        </div>
+    </div>
+{% endif %}
 </header>

@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load a4a %}
 {% load static %}
+{% load waffle_tags %}
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE }}">
     <head>
@@ -246,91 +247,91 @@
                     <p>{% translate "La plateforme collaborative de l’accessibilité" %}</p>
                 </div>
             </section>
-            {% if rpa_feature_enabled %}
-                <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
-                    <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
-                    <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
-                        {% if access.conformite %}
-                            <div style="display: flex;">
-                                <img src="{% static "icons/success-fill.svg" %}" alt="">
-                                <span>{% translate "conforme" %}</span>
-                            </div>
-                        {% else %}
-                            <div style="display: flex;">
-                                <img src="{% static "icons/warning-fill.svg" %}" alt="">
-                                <span>{% translate "non conforme" %}</span>
-                            </div>
-                        {% endif %}
-                    </div>
-                    {% if timestamps.created_by %}
-                        <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
+            {% switch "RPA" %}
+            <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
+                <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
+                <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
+                    {% if access.conformite %}
+                        <div style="display: flex;">
+                            <img src="{% static "icons/success-fill.svg" %}" alt="">
+                            <span>{% translate "conforme" %}</span>
+                        </div>
+                    {% else %}
+                        <div style="display: flex;">
+                            <img src="{% static "icons/warning-fill.svg" %}" alt="">
+                            <span>{% translate "non conforme" %}</span>
+                        </div>
                     {% endif %}
-                    <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
-                </section>
-            {% endif %}
-        </header>
-        <section id="erp-main-info">
-            <h1>{{ erp.nom }}</h1>
-            <h2>{{ erp.activite }}</h2>
-        </section>
-        <section class="address-section">
-            <address>
+                </div>
+                {% if timestamps.created_by %}
+                    <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
+                {% endif %}
+                <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+            </section>
+        {% endswitch %}
+    </header>
+    <section id="erp-main-info">
+        <h1>{{ erp.nom }}</h1>
+        <h2>{{ erp.activite }}</h2>
+    </section>
+    <section class="address-section">
+        <address>
+            <p class="icon-container">
+                <img src="{% static "icons/map-pin.svg" %}" alt="">
+                <span>{{ erp.adresse }}</span>
+            </p>
+            {% if erp.telephone %}
                 <p class="icon-container">
-                    <img src="{% static "icons/map-pin.svg" %}" alt="">
-                    <span>{{ erp.adresse }}</span>
+                    <img src="{% static "icons/phone-line.svg" %}" alt="">
+                    <span>{{ erp.telephone|format_phone }}</span>
                 </p>
-                {% if erp.telephone %}
-                    <p class="icon-container">
-                        <img src="{% static "icons/phone-line.svg" %}" alt="">
-                        <span>{{ erp.telephone|format_phone }}</span>
-                    </p>
-                {% endif %}
-                {% if erp.contact_url %}
-                    <p class="icon-container">
-                        <img src="{% static "icons/mail-line.svg" %}" alt="">
-                        <span>{{ erp.contact_url }}</span>
-                    </p>
-                {% endif %}
-                {% if erp.site_internet %}
-                    <p class="icon-container">
-                        <img src="{% static "icons/global-line.svg" %}" alt="">
-                        <span>{{ erp.site_internet }}</span>
-                    </p>
-                {% endif %}
-            </address>
-            <div class="qr-container">
-                <p>{{ qr_code_svg|safe }}</p>
-            </div>
+            {% endif %}
+            {% if erp.contact_url %}
+                <p class="icon-container">
+                    <img src="{% static "icons/mail-line.svg" %}" alt="">
+                    <span>{{ erp.contact_url }}</span>
+                </p>
+            {% endif %}
+            {% if erp.site_internet %}
+                <p class="icon-container">
+                    <img src="{% static "icons/global-line.svg" %}" alt="">
+                    <span>{{ erp.site_internet }}</span>
+                </p>
+            {% endif %}
+        </address>
+        <div class="qr-container">
+            <p>{{ qr_code_svg|safe }}</p>
+        </div>
+    </section>
+    <h2 class="main-title">{% translate "Informations sur l'accessibilité aux personnes handicapées" %}</h2>
+    <section class="remove-section-if-empty">
+        <section>
+            {% include "erp/includes/access_parking.html" %}
         </section>
-        <h2 class="main-title">{% translate "Informations sur l'accessibilité aux personnes handicapées" %}</h2>
-        <section class="remove-section-if-empty">
-            <section>
-                {% include "erp/includes/access_parking.html" %}
-            </section>
-            <section>
-                {% include "erp/includes/access_outside_path.html" %}
-            </section>
-            <section>
-                {% include "erp/includes/access_entrance.html" %}
-            </section>
-            <section>
-                {% include "erp/includes/access_reception.html" %}
-            </section>
-            <section>
-                {% if erp.is_accommodation %}
-                    {% include "erp/includes/access_accommodation.html" %}
-                {% endif %}
-            </section>
-            <section>
-                {% if access.registre_url or access.conformite %}
-                    {% include "erp/includes/access_legal.html" %}
-                {% endif %}
-            </section>
-            <section>
-                {% if access.commentaire %}
-                    {% include "erp/includes/access_comment.html" %}
-                {% endif %}
-            </section>
+        <section>
+            {% include "erp/includes/access_outside_path.html" %}
         </section>
-    </body>
+        <section>
+            {% include "erp/includes/access_entrance.html" %}
+        </section>
+        <section>
+            {% include "erp/includes/access_reception.html" %}
+        </section>
+        <section>
+            {% if erp.is_accommodation %}
+                {% include "erp/includes/access_accommodation.html" %}
+            {% endif %}
+        </section>
+        <section>
+            {% if access.registre_url or access.conformite %}
+                {% include "erp/includes/access_legal.html" %}
+            {% endif %}
+        </section>
+        <section>
+            {% if access.commentaire %}
+                {% include "erp/includes/access_comment.html" %}
+            {% endif %}
+        </section>
+    </section>
+</body>
 </html>
