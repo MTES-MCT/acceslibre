@@ -916,7 +916,8 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = None
         form = forms.PublicAProposForm(request.POST, instance=accessibilite, initial=initial)
         if form.is_valid():
-            erp.user_type = form.data["user_type"]
+            if erp.user_id == request.user.pk:
+                erp.user_type = form.data["user_type"]
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
@@ -944,6 +945,7 @@ def contrib_a_propos(request, erp_slug):
             "current_step_url": reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
+            "is_erp_owner": erp.user_id == request.user.pk,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "page_type": "contrib-form",
         },
