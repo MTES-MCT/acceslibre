@@ -871,3 +871,17 @@ class TestWidgetApi:
     def test_not_found_case(self, api_client):
         response = api_client.get(reverse("erp-widget", kwargs={"slug": "unknown-slug"}))
         assert response.status_code == 404
+
+    @pytest.mark.django_db
+    def test_asp_id(self, api_client):
+        erp = ErpFactory(published=True, asp_id="123456789")
+        AccessibiliteFactory(erp=erp)
+
+        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.asp_id}))
+        assert response.status_code == 200
+        assert response.json() == {
+            "slug": erp.slug,
+            "created_at": ANY,
+            "updated_at": ANY,
+            "sections": [],
+        }

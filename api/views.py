@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
@@ -122,8 +123,12 @@ $ curl -X PATCH {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/ -H 'Content-T
 
 ### Retrieve sentences from an ERP widget
 
+Note: you can also use the ASP_ID instead of the ERP slug.
+
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<SLUG_DE_L_ERP>/widget/ -H "Authorization: Api-Key <YOUR_API_KEY>"
+# or
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/<ASP_ID>/widget/ -H "Authorization: Api-Key <YOUR_API_KEY>"
 ```
 
 ---
@@ -535,6 +540,10 @@ class ErpViewSet(
 
     @action(methods=["get"], detail=True, url_path="widget", url_name="widget")
     def get_widget(self, request, slug=None):
-        erp = get_object_or_404(self.filter_queryset(self.get_queryset()), slug=slug)
+        # Search for the ERP either by slug (default behavior), or by asp_id, no high risk of colision
+        queryset = self.filter_queryset(self.get_queryset())
+
+        erp = get_object_or_404(queryset, Q(slug=slug) | Q(asp_id=slug))
+
         serializer = WidgetSerializer(erp)
         return Response(serializer.data)
