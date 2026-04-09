@@ -29,12 +29,13 @@
 {% block fields_content %}
     <div class="contrib-inputs-section-wrapper">
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% if is_erp_owner %}
+            {% if is_erp_owner or is_from_import_and_has_no_user %}
                 {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
             {% else %}
                 <fieldset disabled aria-describedby="user-type-readonly-notice">
                     {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
                 </fieldset>
+                <input type="hidden" name="user_type" value="{{ form.user_type.value }}" />
                 <p id="user-type-readonly-notice" class="fr-hint-text">
                     {% translate "Ce champ ne peut être modifié que par le contributeur principal de cet établissement." %}
                 </p>

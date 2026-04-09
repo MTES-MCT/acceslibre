@@ -840,7 +840,10 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": Decimal(erp.geom.y), "lon": Decimal(erp.geom.x)}
-    if erp.user_id == request.user.id:
+    is_erp_owner = erp.user_id == request.user.id
+    is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
+
+    if is_erp_owner or is_from_import_and_has_no_user:
         libelle_next = schema.SECTION_A_PROPOS
         next_route = "contrib_a_propos"
     else:
@@ -907,6 +910,9 @@ def contrib_edit_infos(request, erp_slug):
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"user_type": erp.user_type or Erp.USER_ROLE_PUBLIC}
+    is_erp_owner = erp.user_id == request.user.id
+    is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
+
     if request.method == "POST":
         if erp.has_accessibilite():
             accessibilite = erp.accessibilite
@@ -943,7 +949,8 @@ def contrib_a_propos(request, erp_slug):
             "current_step_url": reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
             "erp": erp,
             "form": form,
-            "is_erp_owner": erp.user_id == request.user.pk,
+            "is_erp_owner": is_erp_owner,
+            "is_from_import_and_has_no_user": is_from_import_and_has_no_user,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "page_type": "contrib-form",
         },
