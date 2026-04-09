@@ -156,21 +156,25 @@ function isFranceMetro(lat, lng) {
 function updatePlanLayerOnMove(map, layerControl) {
   let currentPlanIsSatellite = false
 
-  map.on('moveend', () => {
-    if (currentPlanIsSatellite) return
+  // Attach moveend only after the map is fully loaded to avoid removing tile layers
+  // before their DOM containers have been created (onAdd is deferred until 'load').
+  map.whenReady(() => {
+    map.on('moveend', () => {
+      if (currentPlanIsSatellite) return
 
-    const center = map.getCenter()
-    const inFranceMetro = isFranceMetro(center.lat, center.lng)
-    const ignActive = map.hasLayer(getIgnTiles())
-    const cartoActive = map.hasLayer(getStreetTiles())
+      const center = map.getCenter()
+      const inFranceMetro = isFranceMetro(center.lat, center.lng)
+      const ignActive = map.hasLayer(getIgnTiles())
+      const cartoActive = map.hasLayer(getStreetTiles())
 
-    if (inFranceMetro && !ignActive && cartoActive) {
-      map.removeLayer(getStreetTiles())
-      map.addLayer(getIgnTiles())
-    } else if (!inFranceMetro && ignActive && !cartoActive) {
-      map.removeLayer(getIgnTiles())
-      map.addLayer(getStreetTiles())
-    }
+      if (inFranceMetro && !ignActive && cartoActive) {
+        map.removeLayer(getStreetTiles())
+        map.addLayer(getIgnTiles())
+      } else if (!inFranceMetro && ignActive && !cartoActive) {
+        map.removeLayer(getIgnTiles())
+        map.addLayer(getStreetTiles())
+      }
+    })
   })
 
   map.on('baselayerchange', (e) => {
