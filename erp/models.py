@@ -1,6 +1,7 @@
 import json
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta
+from datetime import datetime, timezone
 
 import reversion
 from autoslug import AutoSlugField
@@ -707,6 +708,15 @@ class Erp(models.Model):
         self.__original_activite_id = self.activite_id
         self.__original_user_id = self.user_id
         self.__original_user_type = self.user_type
+
+    @property
+    def rpa(self):
+        a_year_ago = datetime.now(timezone.utc) - timedelta(days=365)
+        return bool(
+            self.user_type == self.USER_ROLE_GESTIONNAIRE
+            and self.checked_up_to_date_at and self.checked_up_to_date_at >= a_year_ago
+            and self.accessibilite.completion_rate == 100
+        )
 
     def get_activite_vector_icon(self):
         default = "building"
