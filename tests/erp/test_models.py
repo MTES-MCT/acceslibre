@@ -1,4 +1,5 @@
 from contextlib import nullcontext as does_not_raise
+from datetime import datetime, timezone
 
 import pytest
 import reversion
@@ -1172,6 +1173,20 @@ class TestErp:
         commune = CommuneFactory(departement="2B", nom="Calenzana")
         erp = ErpFactory(commune_ext=commune)
         assert "2b-calenzana" in erp.get_absolute_url()
+
+    def test_rpa(self):
+        erp = ErpFactory(
+            user_type=Erp.USER_ROLE_GESTIONNAIRE,
+            checked_up_to_date_at=datetime.now(timezone.utc),
+            rpa_exemption=True,
+            with_accessibility=True,
+        )
+        assert erp.rpa is False
+
+        erp.accessibilite.completion_rate = 100
+        erp.accessibilite.save()
+
+        assert erp.rpa is True
 
 
 @pytest.mark.django_db
