@@ -53,10 +53,7 @@
                         <div class="fr-modal__body">
                             <div class="fr-modal__header"></div>
                             <div class="fr-modal__content">
-                                <h2 id="modal-title" class="fr-modal__title">
-                                    <span class="fr-icon-arrow-right-line fr-icon--lg" aria-hidden="true"></span>
-                                    {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
-                                </h2>
+                                {% include "erp/includes/rpa_modal.html" %}
                                 <p>{% translate "Confirmez vous être le gestionnaire de cet établissement ?" %}</p>
                                 <form method="post"
                                       action="{% url 'claim' erp_slug=erp.slug %}"

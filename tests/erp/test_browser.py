@@ -367,12 +367,14 @@ def test_ajout_erp(client):
     # A propos
     response = client.post(
         reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
-        data={"conformite": True, "user_type": Erp.USER_ROLE_ADMIN},
+        data={"conformite": True, "user_type": Erp.USER_ROLE_ADMIN, "rpa_exemption": "True"},
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.conformite is True
     assert accessibilite.completion_rate == 0
+    erp.refresh_from_db()
+    assert erp.rpa_exemption is True
     assert_redirect(response, f"/contrib/transport/{erp.slug}/")
 
     # Transport
@@ -585,7 +587,7 @@ def test_ajout_erp(client):
 
     response = client.post(
         reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
-        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE},
+        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE, "rpa_exemption": "True"},
         follow=True,
     )
     user.stats.refresh_from_db()

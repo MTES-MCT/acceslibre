@@ -921,7 +921,10 @@ def contrib_edit_infos(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    initial = {"user_type": erp.user_type or Erp.USER_ROLE_PUBLIC}
+    initial = {
+        "user_type": erp.user_type or Erp.USER_ROLE_PUBLIC,
+        "rpa_exemption": erp.rpa_exemption,
+    }
     is_erp_owner = erp.user_id == request.user.id
     is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
 
@@ -937,6 +940,10 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
+
+            rpa_exemption = form.cleaned_data.get("rpa_exemption")
+            if rpa_exemption in ("True", "False"):
+                erp.rpa_exemption = rpa_exemption == "True"
 
             erp.save(editor=request.user)
             messages.add_message(
