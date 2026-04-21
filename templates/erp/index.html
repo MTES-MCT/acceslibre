@@ -47,7 +47,8 @@
 {% endblock additional_skip_links %}
 {% block editorial_content %}
     <main role="main" id="content" class="erp-details-container" tabindex="-1">
-        {% switch "!RPA" %}
+        {% switch "RPA" %}
+    {% else %}
         <section>
             <div class="fr-grid-row justify-content--end fr-mb-1w fr-mb-md-0">
                 <div class="fr-follow__social">
