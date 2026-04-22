@@ -318,7 +318,7 @@ def test_export_failure(mocker, settings):
 def test_generate_schema(db, activite):
     base = "erp/export/static/base-schema.json"
     outfile = "schema-test.json"
-    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.19/"
+    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.20/"
 
     generate_schema(base, outfile, repository)
 

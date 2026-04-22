@@ -41,8 +41,8 @@ def generate_schema(
     table_schema = Schema.from_descriptor(base)
 
     descriptor = table_schema.to_descriptor()
-    descriptor["path"] = repository + "schema.json"
-    descriptor["resources"][0]["path"] = repository + "exemple-valide.csv"
+    descriptor["path"] = repository + "base/schema_base.json"
+    descriptor["resources"][0]["path"] = repository + "base/base-valid-sample.csv"
 
     field_types = []
     for field_name in EtalabMapper.headers():
