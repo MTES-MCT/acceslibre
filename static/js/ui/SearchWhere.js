@@ -39,12 +39,13 @@ function SearchWhere(root) {
     if (input.value.startsWith(AROUND_ME) && hiddens.lat.getAttribute('value') && hiddens.lon.getAttribute('value')) {
       force = true
     }
+
     if (force || hiddens.code.value.length != 0 || input.value == FRANCE_ENTIERE) {
-      input.form.querySelector('#where-input-messages').classList.add('fr-hidden')
-      input.form.querySelector('#where-input-messages').parentElement.classList.remove('fr-input-group--error')
+      input.form.querySelector('#where-input-messages')?.classList.add('fr-hidden')
+      input.form.querySelector('#where-input-messages')?.parentElement.classList.remove('fr-input-group--error')
     } else {
-      input.form.querySelector('#where-input-messages').classList.remove('fr-hidden')
-      input.form.querySelector('#where-input-messages').parentElement.classList.add('fr-input-group--error')
+      input.form.querySelector('#where-input-messages')?.classList.remove('fr-hidden')
+      input.form.querySelector('#where-input-messages')?.parentElement.classList.add('fr-input-group--error')
     }
   }
 
@@ -74,6 +75,38 @@ function SearchWhere(root) {
     }
   }
 
+  function announceResults(count) {
+    const status = root.querySelector('#where-input-status')
+
+    if (!status) return
+
+    status.textContent =
+      count === 0
+        ? gettext('Aucune suggestion disponible')
+        : `${count} ${ngettext('suggestion disponible', 'suggestions disponibles', count)}`
+  }
+
+  async function doSearch(value) {
+    const loc = await api.loadUserLocation({ retrieve: false })
+
+    if (value.length < 2 || value === FRANCE_ENTIERE || value.startsWith(AROUND_ME)) {
+      return getCommonResults(loc)
+    }
+
+    const variants = [
+      ...(searchInDepartmentsAllowed ? ['departmentNumber', 'department'] : []),
+      'municipality',
+      undefined,
+    ]
+
+    for (const variant of variants) {
+      const { results } = await api.searchLocation(value, loc, variant)
+      if (results.length) return results
+    }
+
+    return []
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
     submitOnEnter: true, // see https://github.com/trevoreyre/autocomplete/issues/157
@@ -94,7 +127,7 @@ function SearchWhere(root) {
         const loc = await api.loadUserLocation({ retrieve: true })
         setGeoLoading(false)
         if (!loc) {
-          console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
+          console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
           setSearchData(null)
           setSearchValue('')
           input.focus()
@@ -122,26 +155,8 @@ function SearchWhere(root) {
     },
 
     search: async (input) => {
-      const loc = await api.loadUserLocation({ retrieve: false })
-      const commonResults = await getCommonResults(loc)
-      if (input.length < 2 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
-        return commonResults
-      }
-      if (searchInDepartmentsAllowed) {
-        var { results } = await api.searchLocation(input, loc, 'departmentNumber')
-        if (results.length) {
-          return results
-        }
-        var { results } = await api.searchLocation(input, loc, 'department')
-        if (results.length) {
-          return results
-        }
-      }
-      var { results } = await api.searchLocation(input, loc, 'municipality')
-      if (results.length) {
-        return results
-      }
-      var { results } = await api.searchLocation(input, loc)
+      const results = await doSearch(input)
+      announceResults(results.length)
       return results
     },
   })
