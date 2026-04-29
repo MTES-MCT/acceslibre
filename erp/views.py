@@ -16,7 +16,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -111,7 +111,7 @@ def about_us(request):
         "editorial/qui-sommes-nous.html",
         context={
             "page_type": "about-us",
-            "total_active_contributors": len(queries.get_active_contributors_ids()),
+            "total_active_contributors": queries.get_active_contributors_count(),
         },
     )
 
@@ -1463,8 +1463,8 @@ def contrib_documentation(request):
 
 
 def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
-    from weasyprint import HTML
     import qrcode
+    from weasyprint import HTML
 
     base_qs = (
         Erp.objects.select_related(

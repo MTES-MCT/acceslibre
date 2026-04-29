@@ -22,10 +22,10 @@ def stats(request):
         "stats/index.html",
         context={
             "nb_published_erps": total_published_erps,
-            "nb_contributors": len(queries.get_active_contributors_ids()),
+            "nb_contributors": queries.get_active_contributors_count(),
             "total_erps": queries.get_total_erps_per_month(),
             "average_completion_rate": queries.get_average_completion_rate(),
-            "last_12_months_created_or_updated_erps": queries.get_completed_erps_from_last_12_months,
+            "last_12_months_created_or_updated_erps": queries.get_completed_erps_from_last_12_months(),
             "erp_completion_totals": queries.get_completion_totals(total_published_erps),
             "nb_unique_visitors": nb_unique_visitors,
             "nb_widget_open": nb_widget_open,
