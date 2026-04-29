@@ -76,6 +76,11 @@
                                placeholder="Lyon, 12 rue des prés Nantes">
                         <ul class="list-group autocomplete-result-list rounded-only-bottom">
                         </ul>
+                        <div id="where-input-status"
+                             class="fr-sr-only"
+                             role="status"
+                             aria-live="polite"
+                             aria-atomic="true"></div>
                         <div class="fr-messages-group {% if not form.where.errors %}fr-hidden{% endif %}"
                              id="where-input-messages"
                              aria-live="polite">

@@ -128,7 +128,9 @@ select[name='language'] {
     font-size: 0.87em;
     padding: 8px 12px;
 
-    &:hover {
+    &:hover,
+    &.active,
+    &[aria-selected='true'] {
       color: variables.$white;
       background-color: variables.$primary;
       border-color: variables.$primary;
