@@ -70,8 +70,7 @@
                     <ul>
                         {% for erp in latest %}
                             <li>
-                                <a href="{{ erp.get_absolute_url }}"
-                                   class="list-group-item list-group-item-action">
+                                <a href="{{ erp.get_absolute_url }}">
                                     <img alt=""
                                          class="act-icon act-icon-20 fr-mb-1v"
                                          src="{% static 'img/mapicons.svg' %}#{{ erp.get_activite_vector_icon }}">
