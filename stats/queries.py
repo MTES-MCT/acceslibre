@@ -4,7 +4,7 @@ from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
 from django.core.cache import cache
-from django.db.models import Avg, Case, CharField, Count, F, FloatField, Value, When
+from django.db.models import Avg, Case, CharField, Count, F, FloatField, Q, Value, When
 from django.db.models.functions import Cast, TruncMonth
 from django.utils import timezone
 from django.utils.translation import gettext as translate
@@ -15,17 +15,11 @@ from erp.models import Accessibilite, Erp
 from erp.versioning import get_previous_version
 
 
-def get_active_contributors_ids():
+def get_active_contributors_count():
     def _query():
-        return list(
-            Erp.objects.published()
-            .with_user()
-            .values_list("user_id", flat=True)
-            .distinct("user_id")
-            .order_by("user_id")
-        )
+        return Erp.objects.published().with_user().values("user_id").distinct().count()
 
-    return cache.get_or_set("active_contributors_ids", _query, 3600)
+    return cache.get_or_set("active_contributors_count", _query, 3600)
 
 
 def _get_nb_filled_in_info(access_fields):
@@ -136,11 +130,8 @@ def get_completed_erps_from_last_12_months():
     twelve_months_ago = now - timedelta(days=365)
     total_count = get_total_published_erps()
     last_12_months_count = (
-        (
-            Erp.objects.published().filter(created_at__gte=twelve_months_ago)
-            | Erp.objects.published().filter(updated_at__gte=twelve_months_ago)
-        )
-        .distinct()
+        Erp.objects.published()
+        .filter(Q(created_at__gte=twelve_months_ago) | Q(updated_at__gte=twelve_months_ago))
         .count()
     )
     percentage_last_12_months = (last_12_months_count / total_count * 100) if total_count else 0
