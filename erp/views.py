@@ -7,6 +7,7 @@ from decimal import Decimal
 from io import BytesIO
 from uuid import UUID
 
+import qrcode
 import reversion
 from django.conf import settings
 from django.contrib import messages
@@ -26,6 +27,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
 from reversion.views import create_revision
+from weasyprint import HTML
 
 from api.views import WidgetSerializer
 from core.lib import geo, url
@@ -1463,9 +1465,6 @@ def contrib_documentation(request):
 
 
 def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
-    import qrcode
-    from weasyprint import HTML
-
     base_qs = (
         Erp.objects.select_related(
             "accessibilite",
@@ -1515,6 +1514,7 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
 
     response = HttpResponse(content_type="application/pdf")
     response["Content-Disposition"] = 'inline; filename="rpa.pdf"'
+    response["X-Robots-Tag"] = "noindex, nofollow"
 
     HTML(string=html_string, base_url=settings.SITE_ROOT_URL).write_pdf(response)
 
