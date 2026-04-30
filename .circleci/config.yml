@@ -50,7 +50,7 @@ jobs:
           name: Install system dependencies
           command: |
             sudo apt update
-            sudo apt install -y gdal-bin gettext
+            sudo apt install -y gdal-bin gettext libpango-1.0-0 libpangoft2-1.0-0 libgobject-2.0-0
       - restore_cache:
           name: Restore Python cache
           keys:
@@ -120,7 +120,7 @@ jobs:
           name: Install system dependencies
           command: |
             sudo apt update
-            sudo apt install -y gdal-bin
+            sudo apt install -y gdal-bin libpango-1.0-0 libpangoft2-1.0-0 libgobject-2.0-0 \
       - restore_cache:
           name: Restore Python cache
           keys:

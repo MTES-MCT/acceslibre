@@ -11,6 +11,7 @@ def robots_txt(request):
     lines = [
         "User-agent: *",
         "Disallow: /compte/*",
+        "Disallow: /app/*/a/*/erp/*/rpa-pdf",
         "",
         f"Sitemap: {settings.SITE_ROOT_URL}/sitemap.xml",
     ]
