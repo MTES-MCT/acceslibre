@@ -13,6 +13,11 @@
             {% if access.has_outside_path_and_no_other_data %}
                 <li data-filters="all">{{ "cheminement_ext_presence"|positive_text }}</li>
             {% endif %}
+            {% if access.cheminement_ext_signaletique_exterieure %}
+                <li class="data-filters">{{ "cheminement_ext_signaletique_exterieure"|positive_text }}</li>
+            {% elif access.cheminement_ext_signaletique_exterieure is False %}
+                <li data-filters="visual">{{ "cheminement_ext_signaletique_exterieure"|negative_text }}</li>
+            {% endif %}
             {% if access.cheminement_ext_bande_guidage %}
                 <li data-filters="visual">{{ "cheminement_ext_bande_guidage"|positive_text }}</li>
             {% elif access.cheminement_ext_bande_guidage is False %}

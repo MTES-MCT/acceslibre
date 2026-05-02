@@ -146,8 +146,8 @@ class ContribAccessibiliteForm(forms.ModelForm):
 
 class ContribAccessibiliteHotelsForm(ContribAccessibiliteForm):
     fields_to_remove = ("accueil_audiodescription_presence", "accueil_audiodescription")
-    conditionals_to_add = get_conditional_fields_in("hosting")
-    conditionals_to_remove = get_conditional_fields_not_in("hosting")
+    conditionals_to_add = get_conditional_fields_in(["hosting"])
+    conditionals_to_remove = get_conditional_fields_not_in(["hosting"])
 
     class Meta:
         model = Accessibilite
@@ -173,9 +173,15 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
         label=schema.get_label("accueil_espaces_ouverts"),
         help_text=schema.get_help_text("accueil_espaces_ouverts"),
     )
-    fields_to_remove = ("labels", "labels_familles_handicap", "labels_autre")
-    conditionals_to_add = get_conditional_fields_in("school")
-    conditionals_to_remove = get_conditional_fields_not_in("school")
+    fields_to_remove = (
+        "labels",
+        "labels_familles_handicap",
+        "labels_autre",
+        "accueil_audiodescription_presence",
+        "accueil_audiodescription",
+    )
+    conditionals_to_add = get_conditional_fields_in(["school", "floor"])
+    conditionals_to_remove = get_conditional_fields_not_in(["school", "floor"])
 
     class Meta:
         model = Accessibilite
@@ -195,8 +201,8 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
 
 class ContribAccessibiliteFloorsForm(ContribAccessibiliteForm):
     fields_to_remove = []
-    conditionals_to_add = get_conditional_fields_in("floor")
-    conditionals_to_remove = get_conditional_fields_not_in("floor")
+    conditionals_to_add = get_conditional_fields_in(["floor"])
+    conditionals_to_remove = get_conditional_fields_not_in(["floor"])
 
     class Meta:
         model = Accessibilite
@@ -238,8 +244,8 @@ class ContribAccessibilitePollingStationForm(ContribAccessibiliteForm):
         "labels_familles_handicap",  # Root
         "labels_autre",  # Root
     )
-    conditionals_to_add = get_conditional_fields_in("polling_station")
-    conditionals_to_remove = get_conditional_fields_not_in("polling_station")
+    conditionals_to_add = get_conditional_fields_in(["polling_station"])
+    conditionals_to_remove = get_conditional_fields_not_in(["polling_station"])
 
     class Meta:
         model = Accessibilite
