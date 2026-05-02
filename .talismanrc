@@ -12,11 +12,11 @@ fileignoreconfig:
 - filename: erp/export/static/schema.json
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
-  checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
+  checksum: a9edbdd405003bd96fa8d11db0be8f01ecdfbe6bee9123078de7bf63e0c2362f
 - filename: templates/contrib/2-a-propos.html
   checksum: 2e74d3c249a98b796420a0893474ab1d26bd17b51e64504fcd9c4669f79d04b3
 - filename: locale/en/LC_MESSAGES/django.po
-  checksum: c174df60793aa427bd3c4f2925d9d0f59637a7b52b985314897a4d787bbc7fc2
+  checksum: f9492bbe982cad4f610ea85fa1d36fbc482d2cf38168d96e415905f4e874d088
 - filename: templates/contrib/0-start.html
   checksum: 48b03ff89169260f34f59c6ce3f07e219d13ebfb7c11ee3dbbf319ea70d4063f
 - filename: templates/contrib/0a-search_results.html
@@ -24,7 +24,7 @@ fileignoreconfig:
 - filename: templates/contrib/5-entree.html
   checksum: 1cc959485e4164c86f548e532fadfa8ea7c4cc55db6637b6ea822c87c5981acf
 - filename: templates/contrib/4-exterieur.html
-  checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
+  checksum: 9480a63a41437799e8c4e15f2d22e05323284f404cd93b82a913a2607785b324
 - filename: templates/registration/password_reset_complete.html
   checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
 - filename: templates/registration/password_reset_confirm.html
@@ -55,3 +55,5 @@ fileignoreconfig:
   checksum: 4c01a1891864eae040978879ea04505f747c7d713a987b3f02d2dc8d69744224
 - filename: static/js/geo.js
   checksum: 8f5a7d47caef0ab611e4bcda4cca5dad7d9a5903f25452ac7fe39899cbfa0351
+- filename: locale/fr/LC_MESSAGES/django.po
+  checksum: b022c913db6a6ea71d3cc2788d3f80c8d8a42fab5b439fa9d34c3cc83ab4c2a3

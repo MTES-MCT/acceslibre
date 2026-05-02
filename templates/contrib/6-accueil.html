@@ -30,6 +30,11 @@
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True key="accueil_visibilite" %}
         </div>
+        {% if form.accueil_signaletique_interieure %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_signaletique_interieure inline=True key="accueil_signaletique_interieure" %}
+            </div>
+        {% endif %}
         {% if form.accueil_isoloir_accessibilite %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_isoloir_accessibilite inline=True key="accueil_isoloir_accessibilite" %}

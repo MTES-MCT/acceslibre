@@ -43,7 +43,7 @@ models.CharField.register_lookup(Lower)
 ACTIVITY_GROUPS = {
     "HOSTING": "Hébergement",
     "SCHOOL": "Etablissements scolaires",
-    "FLOOR": "Etage accessible",
+    "FLOOR": "Grands etablissements",
     "POLLING_STATION": "Bureau de vote",
 }
 
@@ -1344,6 +1344,13 @@ class Accessibilite(models.Model):
         verbose_name=translate_lazy("Espace extérieur"),
     )
 
+    cheminement_ext_signaletique_exterieure = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Signalétique extérieure"),
+    )
+
     # Cheminement de plain-pied – oui / non / inconnu
     cheminement_ext_plain_pied = models.BooleanField(
         null=True,
@@ -1625,6 +1632,13 @@ class Accessibilite(models.Model):
         verbose_name=translate_lazy("Visibilité directe de la zone d'accueil depuis l'entrée"),
     )
 
+    accueil_signaletique_interieure = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Signalétique intérieure"),
+    )
+
     # Personnel d’accueil
     accueil_personnels = models.CharField(
         max_length=255,
@@ -1785,7 +1799,7 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("accueil_chambre_accompagnement"),
         verbose_name=translate_lazy("Accompagnement personnalisé pour présenter la chambre"),
     )
-    # Champs spécifiques établissements scolaires / etage accessible
+    # Champs spécifiques établissements scolaires / grands etablissements
     accueil_ascenseur_etage = models.BooleanField(
         null=True,
         blank=True,

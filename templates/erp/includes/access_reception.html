@@ -11,6 +11,11 @@
     <div id="access_reception" class="fr-collapse">
         <ul>
             {% render_access_value "accueil_visibilite" access "all" %}
+            {% if access.accueil_signaletique_interieure %}
+                <li class="data-filters">{{ "accueil_signaletique_interieure"|positive_text }}</li>
+            {% elif access.accueil_signaletique_interieure is False %}
+                <li data-filters="visual">{{ "accueil_signaletique_interieure"|negative_text }}</li>
+            {% endif %}
             {% if access.accueil_isoloir_accessibilite %}
                 <li data-filters="walking">{{ "accueil_isoloir_accessibilite"|positive_text }}</li>
             {% elif access.accueil_isoloir_accessibilite is False %}
