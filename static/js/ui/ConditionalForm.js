@@ -28,6 +28,7 @@ const rules = [
     source: 'cheminement_ext_presence',
     values: ['True'],
     targets: [
+      'cheminement_ext_signaletique_exterieure',
       'cheminement_ext_terrain_stable',
       'cheminement_ext_plain_pied',
       'cheminement_ext_devers',

@@ -329,6 +329,7 @@ class TestErpApi:
                 },
                 "cheminement_ext": {
                     "cheminement_ext_presence": None,
+                    "cheminement_ext_signaletique_exterieure": None,
                     "cheminement_ext_terrain_stable": None,
                     "cheminement_ext_plain_pied": None,
                     "cheminement_ext_ascenseur": None,
@@ -370,6 +371,7 @@ class TestErpApi:
                 },
                 "accueil": {
                     "accueil_visibilite": None,
+                    "accueil_signaletique_interieure": None,
                     "accueil_cheminement_plain_pied": None,
                     "accueil_cheminement_ascenseur": None,
                     "accueil_cheminement_ascenseur_pmr": None,
@@ -638,12 +640,13 @@ class TestAccessibiliteApi:
                     },
                     "cheminement_ext": {
                         "cheminement_ext_presence": None,
+                        "cheminement_ext_sens_marches": None,
                         "cheminement_ext_terrain_stable": None,
                         "cheminement_ext_plain_pied": None,
                         "cheminement_ext_ascenseur": None,
                         "cheminement_ext_ascenseur_pmr": None,
                         "cheminement_ext_nombre_marches": None,
-                        "cheminement_ext_sens_marches": None,
+                        "cheminement_ext_signaletique_exterieure": None,
                         "cheminement_ext_reperage_marches": None,
                         "cheminement_ext_main_courante": None,
                         "cheminement_ext_rampe": None,
@@ -679,6 +682,7 @@ class TestAccessibiliteApi:
                     },
                     "accueil": {
                         "accueil_visibilite": None,
+                        "accueil_signaletique_interieure": None,
                         "accueil_cheminement_plain_pied": None,
                         "accueil_cheminement_ascenseur": None,
                         "accueil_cheminement_ascenseur_pmr": None,

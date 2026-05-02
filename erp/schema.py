@@ -913,6 +913,31 @@ FIELDS = {
             "cheminement_ext_retrecissement",
         ],
     },
+    "cheminement_ext_signaletique_exterieure": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Signalétique extérieure"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement jusqu'à l’entrée du bâtiment ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy("Présence d'une signalétique extérieure"),
+        "help_text_ui_neg": translate_lazy("Pas de signalétique extérieure"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/cheminement_signaletique_exterieure.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": True,
+        "free_text": False,
+        "conditional": "floor",
+        "root": False,
+    },
     "cheminement_ext_terrain_stable": {
         "type": "boolean",
         "nullable": True,
@@ -1739,6 +1764,31 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "root": True,
+    },
+    "accueil_signaletique_interieure": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Signalétique intérieure"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy("Présence d'une signalétique intérieure"),
+        "help_text_ui_neg_v2": translate_lazy("Pas de signalétique intérieure"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/accueil_signaletique_interieure.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "free_text": False,
+        "conditional": "floor",
         "root": True,
     },
     "accueil_cheminement_plain_pied": {
@@ -2781,12 +2831,14 @@ def get_conditional_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
 
 
-def get_conditional_fields_in(conditional: str) -> list[str]:
-    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) == conditional]
+def get_conditional_fields_in(conditionals: list[str]) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) in conditionals]
 
 
-def get_conditional_fields_not_in(conditional: str) -> list[str]:
-    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") != conditional]
+def get_conditional_fields_not_in(conditionals: list[str]) -> list[str]:
+    return [
+        k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") not in conditionals
+    ]
 
 
 def get_section_fields(section_id) -> list[str]:
