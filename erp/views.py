@@ -32,6 +32,7 @@ from weasyprint import HTML
 from api.views import WidgetSerializer
 from core.lib import geo, url
 from core.mailer import BrevoMailer
+from core.paginator import CachedCountPaginator
 from erp import forms, schema, serializers
 from erp.export.tasks import generate_csv_file
 from erp.forms import CombinedAccessibiliteForm, get_contrib_forms_for_activity
@@ -266,7 +267,13 @@ def search(request):
     elif search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         zoom_level = settings.MAP_DEFAULT_ZOOM_HOUSENUMBER
 
-    paginator = Paginator(queryset, 50)
+    cache_key = CachedCountPaginator.get_cache_key(request)
+    paginator = CachedCountPaginator(
+        queryset,
+        per_page=50,
+        cache_key=cache_key,
+        cache_timeout=120,
+    )
     pager = paginator.get_page(request.GET.get("page") or 1)
     pager_base_url = url.encode_qs(**filters)
 
