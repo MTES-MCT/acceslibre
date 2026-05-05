@@ -7,7 +7,14 @@ from django.db.utils import IntegrityError
 
 from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from tests.factories import (
+    AccessibiliteFactory,
+    ActiviteFactory,
+    ActivitiesGroupFactory,
+    CommuneFactory,
+    ErpFactory,
+    UserFactory,
+)
 
 
 @pytest.mark.django_db
@@ -1042,6 +1049,50 @@ class TestAccessibility:
         assert "transport_information" not in access.get_exposed_fields(), (
             "transport_information should be ignored from completion rate calculation"
         )
+
+    @pytest.mark.django_db
+    def test_school_exposes_whitelisted_floor_fields(self):
+        # Context, the school form is using fields from two conditionals "school" and "floor",
+        # but we only take two out of four fields from "floor" macro activity
+        # Only two fields are picked from "floor" macro activity (accueil_ascenseur_etage, accueil_ascenseur_etage_pmr)
+        # The two other fields are excluded (cheminement_ext_signaletique_exterieure, accueil_signaletique_interieure)
+        activity = ActiviteFactory(slug="ecole", nom="École")
+        ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
+        erp = ErpFactory(activite=activity)
+        access = AccessibiliteFactory(erp=erp, accueil_ascenseur_etage=True, accueil_ascenseur_etage_pmr=True)
+
+        exposed = access.get_exposed_fields()
+
+        # Whitelisted fields
+        assert "accueil_ascenseur_etage" in exposed
+        assert "accueil_ascenseur_etage_pmr" in exposed
+
+        # Fields from "floor" macro activity but should be excluded
+        assert "cheminement_ext_signaletique_exterieure" not in exposed
+        assert "accueil_signaletique_interieure" not in exposed
+
+        # Other arbitrarily excluded fields
+        assert "accueil_audiodescription_presence" not in exposed
+        assert "accueil_audiodescription" not in exposed
+        assert "labels" not in exposed
+        assert "labels_familles_handicap" not in exposed
+        assert "labels_autre" not in exposed
+
+    @pytest.mark.django_db
+    def test_school_ascenseur_etage_pmr_only_exposed_when_parent_true(self):
+        activity = ActiviteFactory(slug="ecole", nom="École")
+        ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
+        erp = ErpFactory(activite=activity)
+        access = AccessibiliteFactory(erp=erp, accueil_ascenseur_etage=False)
+
+        exposed = access.get_exposed_fields()
+        assert "accueil_ascenseur_etage" in exposed
+        assert "accueil_ascenseur_etage_pmr" not in exposed
+
+        access.accueil_ascenseur_etage = True
+        access.save()
+        exposed = access.get_exposed_fields()
+        assert "accueil_ascenseur_etage_pmr" in exposed
 
 
 @pytest.mark.django_db

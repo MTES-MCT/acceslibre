@@ -487,8 +487,11 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     groups = erp.activite.groups.all() if erp.activite else []
     should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
+
     # Floor accessibility details can also be in ERP that aren't related to ed nat
-    should_display_floor_accessibility_details = ACTIVITY_GROUPS["FLOOR"] in [g.name for g in groups]
+    should_display_floor_accessibility_details = any(
+        g.name in (ACTIVITY_GROUPS["FLOOR"], ACTIVITY_GROUPS["SCHOOL"]) for g in groups
+    )
     absolute_uri = erp.get_absolute_uri()
 
     timestamps = erp.get_global_timestamps()

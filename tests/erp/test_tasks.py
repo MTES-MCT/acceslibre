@@ -43,3 +43,32 @@ def test_compute_completion_rate_hosting():
     access.refresh_from_db()
 
     assert access.completion_rate == 3
+
+
+@mark.django_db
+def test_compute_completion_rate_school():
+    activity = ActiviteFactory(slug="ecole", nom="École")
+    ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
+    erp = ErpFactory(activite=activity)
+    access = AccessibiliteFactory(erp=erp)
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+
+    assert "accueil_ascenseur_etage" in access.get_exposed_fields()
+
+    access.accueil_ascenseur_etage = True
+    access.save()
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    assert access.completion_rate == 4
+
+    assert "accueil_ascenseur_etage_pmr" in access.get_exposed_fields()
+    access.accueil_ascenseur_etage_pmr = True
+
+    access.save()
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+
+    assert access.completion_rate == 9

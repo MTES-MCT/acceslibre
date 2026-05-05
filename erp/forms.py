@@ -177,25 +177,30 @@ class ContribAccessibiliteSchoolsForm(ContribAccessibiliteForm):
         "labels",
         "labels_familles_handicap",
         "labels_autre",
-        "accueil_audiodescription_presence",
-        "accueil_audiodescription",
+        "accueil_audiodescription_presence",  # Parent
+        "accueil_audiodescription",  # Child of accueil_audiodescription_presence
     )
-    conditionals_to_add = get_conditional_fields_in(["school", "floor"])
-    conditionals_to_remove = get_conditional_fields_not_in(["school", "floor"])
+
+    floor_fields_to_keep = ["accueil_ascenseur_etage", "accueil_ascenseur_etage_pmr"]
+    conditionals_to_add = get_conditional_fields_in(["school"]) + floor_fields_to_keep
+    conditionals_to_remove = get_conditional_fields_not_in(["school"])
 
     class Meta:
         model = Accessibilite
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels(include_conditional=["school"])
-        help_texts = schema.get_help_texts(include_conditional=["school"])
+        labels = schema.get_labels(include_conditional=["school", "floor"])
+        help_texts = schema.get_help_texts(include_conditional=["school", "floor"])
         required = schema.get_required_fields()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        allowed_fields = set(schema.get_help_texts(include_conditional=["school"]).keys()) | set(
+            self.floor_fields_to_keep
+        )
         for field in copy(self.fields):
-            if field not in schema.get_help_texts(include_conditional="school").keys():
+            if field not in allowed_fields:
                 self.fields.pop(field, None)
 
 
