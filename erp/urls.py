@@ -113,7 +113,9 @@ urlpatterns = [
     ),
     path("app/<str:erp_slug>/claim/", views.claim, name="claim"),
     path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
-    path("uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"),
+    path(
+        "uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"
+    ),  # edit middleware if url name is changed
     ############################################################################
     # Ajout ERP
     ############################################################################

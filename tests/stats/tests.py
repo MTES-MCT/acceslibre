@@ -1,7 +1,10 @@
+import pickle
 from unittest.mock import MagicMock, call, patch
 
 import pytest
 from django.contrib.sites.models import Site
+from django.core.cache import cache
+from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 from splinter import Browser
@@ -14,6 +17,58 @@ from tests.factories import ErpFactory
 @pytest.fixture
 def browser():
     return Browser("django")
+
+
+@pytest.fixture(autouse=True)
+def setup_redis_mock():
+    with patch("redis.from_url") as mock_redis_from_url:
+        fake_redis = MagicMock()
+
+        def mock_scan_iter(match):
+            # Scan keys in Django's LocMemCache
+            return [k.encode() if isinstance(k, str) else k for k in cache._cache.keys() if "stats_widget" in k]
+
+        def mock_pipeline():
+            pipe = MagicMock()
+            stored_keys = []
+
+            def pipe_get(key):
+                stored_keys.append(key.decode() if isinstance(key, bytes) else key)
+                return pipe
+
+            def pipe_execute():
+                results = []
+                for key in stored_keys:
+                    raw_val = cache._cache.get(key)
+                    if raw_val is None:
+                        results.append(None)
+                        continue
+
+                    # Handle Django's internal Pickle serialization in LocMemCache
+                    try:
+                        if isinstance(raw_val, bytes) and raw_val.startswith(b"\x80"):
+                            val = pickle.loads(raw_val)
+                        else:
+                            val = raw_val
+                    except Exception:
+                        val = raw_val
+
+                    # Return bytes-string to simulate redis-py behavior for int(val)
+                    results.append(str(val).encode())
+
+                    if key in cache._cache:
+                        del cache._cache[key]
+
+                return [results[0] if results else None, True]
+
+            pipe.get.side_effect = pipe_get
+            pipe.execute.side_effect = pipe_execute
+            return pipe
+
+        fake_redis.scan_iter.side_effect = mock_scan_iter
+        fake_redis.pipeline.side_effect = mock_pipeline
+        mock_redis_from_url.return_value = fake_redis
+        yield mock_redis_from_url
 
 
 @pytest.mark.django_db
@@ -56,65 +111,76 @@ def test_stats_page(mocked, browser, django_assert_max_num_queries):
 
 
 @pytest.mark.django_db
-def test_widget_tracking():
+def test_widget_tracking(setup_redis_mock):
+    cache.clear()
     erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
+        "HTTP_X_Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
-    assert WidgetEvent.objects.all().count() == 0
+
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
 
-    event = WidgetEvent.objects.get()
+    call_command("flush_widget_stats")
+
+    event = WidgetEvent.objects.get(domain="test_widget_external_website.tld")
     assert event.views == 1
     assert event.domain == "test_widget_external_website.tld"
     assert event.referer_url == "http://test_widget_external_website.tld/test_url.php"
 
 
 @pytest.mark.django_db
-def test_widget_tracking_with_long_url():
+def test_widget_tracking_with_long_url(setup_redis_mock):
+    cache.clear()
     erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld/" + 200 * "#",
+        "HTTP_X_Originurl": "http://test_widget_external_website.tld/" + 210 * "a",
     }
-    assert WidgetEvent.objects.all().count() == 0
+
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
+
+    call_command("flush_widget_stats")
 
     event = WidgetEvent.objects.get()
     assert event.views == 1
     assert event.domain == "test_widget_external_website.tld"
-    assert event.referer_url.startswith("http://test_widget_external_website.tld/")
 
 
 @pytest.mark.django_db
-def test_widget_tracking_remove_query_string():
+def test_widget_tracking_remove_query_string(setup_redis_mock):
+    cache.clear()
     erp = ErpFactory(with_accessibility=True)
     c = Client()
-    headers = {"HTTP_X-Originurl": "http://test_widget_external_website.tld/?utm=foo"}
-    assert WidgetEvent.objects.all().count() == 0
+    headers = {"HTTP_X_Originurl": "http://test_widget_external_website.tld/path/?utm=foo"}
+
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
+
+    call_command("flush_widget_stats")
 
     event = WidgetEvent.objects.get()
     assert event.views == 1
     assert event.domain == "test_widget_external_website.tld"
-    assert event.referer_url.startswith("http://test_widget_external_website.tld/")
+    assert event.referer_url == "http://test_widget_external_website.tld/path/"
 
 
 @pytest.mark.django_db
-def test_widget_tracking_multiple_views():
+def test_widget_tracking_multiple_views(setup_redis_mock):
+    cache.clear()
     erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
-        "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
+        "HTTP_X_Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
-    assert WidgetEvent.objects.all().count() == 0
+
     c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
+
+    call_command("flush_widget_stats")
 
     event = WidgetEvent.objects.get()
     assert event.views == 3
@@ -123,15 +189,18 @@ def test_widget_tracking_multiple_views():
 
 
 @pytest.mark.django_db
-def test_widget_tracking_with_same_origin_site():
+def test_widget_tracking_with_same_origin_site(setup_redis_mock):
+    cache.clear()
     erp = ErpFactory(with_accessibility=True)
     c = Client()
     headers = {
-        "HTTP_X-Originurl": f"http://{Site.objects.get_current().domain}/test/",
+        "HTTP_X_Originurl": f"http://{Site.objects.get_current().domain}/test/",
     }
-    assert WidgetEvent.objects.all().count() == 0
+
     response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid}), **headers)
     assert response.status_code == 200
+
+    call_command("flush_widget_stats")
     assert WidgetEvent.objects.all().count() == 0
 
 

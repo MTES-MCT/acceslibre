@@ -59,3 +59,9 @@ fileignoreconfig:
   checksum: 364eb07d9012d724ca628f680b8c4be693822e9df357caadd4cb77de32c165ad
 - filename: core/paginator.py
   checksum: 91a88eb39bf3d1643b98a86bb9bb7e3ee50680826a89e38e6cfc40a764cc3d74
+- filename: stats/middleware.py
+  checksum: 739f973455b88975df6ad4e0330cdda56d39b02b4f6ddc28fad51836483f7beb
+- filename: erp/management/commands/flush_widget_stats.py
+  checksum: 07f7fb0fbd7c587d43aad69f87e892107a6e80c8d5a5145d608905485a4f2011
+- filename: tests/stats/tests.py
+  checksum: 3d899b94bc836e0f97b282d569ca27b513be6df54cf718e96a944a99b634444d
