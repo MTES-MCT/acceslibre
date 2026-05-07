@@ -136,6 +136,10 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "sources",
         )
 
+    def __init__(self, *args, **kwargs):
+        self.check_no_duplicate = kwargs.pop("ensure_no_duplicate", True)
+        super().__init__(*args, **kwargs)
+
     def _ensure_no_duplicate(self, obj):
         existing = None
 
@@ -293,7 +297,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
             ).first()
 
-            self._ensure_no_duplicate(obj)
+            if self.check_no_duplicate:
+                self._ensure_no_duplicate(obj)
 
             erp_data = obj.copy()
             erp_data.pop("accessibilite")
