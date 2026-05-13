@@ -2,9 +2,7 @@ import datetime
 from urllib.parse import urljoin, urlparse
 
 from django.contrib.sites.models import Site
-from django.db.models import F
-
-from .models import WidgetEvent
+from django.core.cache import cache
 
 
 class TrackStatsWidget:
@@ -24,18 +22,21 @@ class TrackStatsWidget:
         referer = referer[:199]
         referer = urljoin(referer, urlparse(referer).path)
         domain = urlparse(referer).netloc or referer
-        date = datetime.date.today()
+        date_str = datetime.date.today().isoformat()
 
-        event, _ = WidgetEvent.objects.get_or_create(date=date, domain=domain, referer_url=referer)
-        event.views = F("views") + 1
-        event.save()
+        # Create a unique key for Redis with prefix to avoid collisions
+        # format: stats_widget:2023-10-27:example.com:https://example.com/page
+        redis_key = f"stats_widget:{date_str}:{domain}:{referer}"
+
+        try:
+            cache.incr(redis_key)
+            print("Incremented", redis_key)
+        except ValueError:
+            cache.set(redis_key, 1, timeout=None)
+            print("Initialized", redis_key)
 
     def __call__(self, request):
         response = self.get_response(request)
-
-        if not self._should_track_request(request):
-            return response
-
-        self._update_event(request)
-
+        if self._should_track_request(request):
+            self._update_event(request)
         return response

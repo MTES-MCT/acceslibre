@@ -1,12 +1,12 @@
 import logging
 import time
 from datetime import datetime, timezone
-from django.db import connection
 
 import schedule
 from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
+from django.db import connection
 
 from erp.management.commands.outscraper_acquisition import QUERIES as outscraper_queries
 from erp.models import Commune
@@ -104,6 +104,7 @@ class Command(BaseCommand):
         schedule.every(30).days.at("01:10").do(call_command, "update_municipalities", write=True)
         schedule.every().day.at("02:30").do(call_command, "clean_S3_export_bucket")
         schedule.every().day.at("03:05").do(call_command, "export_XML_to_s3_daily")
+        schedule.every().hour.do(call_command, "flush_widget_stats")
 
         if not settings.STAGING:
             schedule.every().day.at("00:40").do(call_command, "export_to_datagouv")
