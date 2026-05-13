@@ -69,7 +69,9 @@ jobs:
             - .venv
       - run:
           name: Install pnpm
-          command: curl -fsSL https://get.pnpm.io/install.sh | SHELL="$(which bash)" bash -
+          command: |
+            sudo corepack enable
+            corepack prepare pnpm@11.1.1 --activate
       - restore_cache:
           name: Restore pnpm store
           keys:
