@@ -43,8 +43,9 @@ models.CharField.register_lookup(Lower)
 ACTIVITY_GROUPS = {
     "HOSTING": "Hébergement",
     "SCHOOL": "Etablissements scolaires",
-    "FLOOR": "Grands etablissements",
+    "LARGE_ESTABLISHMENTS": "Grands établissements",
     "POLLING_STATION": "Bureau de vote",
+    "HEALTHCARE": "Santé",
 }
 
 
@@ -1164,6 +1165,7 @@ class Accessibilite(models.Model):
                         & Q(cheminement_ext_devers__isnull=True)
                         & Q(cheminement_ext_bande_guidage__isnull=True)
                         & Q(cheminement_ext_retrecissement__isnull=True)
+                        & Q(cheminement_ext_signaletique_exterieure__isnull=True)
                     )
                 ),
             ),
@@ -1269,6 +1271,13 @@ class Accessibilite(models.Model):
                         & Q(accueil_chambre_sanitaires_barre_appui__isnull=True)
                         & Q(accueil_chambre_sanitaires_espace_usage__isnull=True)
                     )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_soignant_consistency",
+                condition=(
+                    (Q(accueil_soignant=True) & Q(accueil_soignant__isnull=False))
+                    | (Q(accueil_soignant_experience__isnull=True) | Q(accueil_soignant_experience=[]))
                 ),
             ),
         ]
@@ -1839,6 +1848,38 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("accueil_urne_accessibilite"),
         verbose_name=translate_lazy("Accessibilité de l'urne"),
     )
+    accueil_soignant = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Soignant sensibilisé ou formé"),
+    )
+    accueil_soignant_experience = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES),
+        default=list,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Expérience du soignant concernant les types de handicap"),
+    )
+    accueil_salle_consultation_accessible = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Accessibilité de la salle de consultation"),
+    )
+    accueil_consultation_domicile = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name=translate_lazy("Consultations à domicile"),
+    )
+    accueil_prise_en_charge_patients = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_CHOICES),
+        default=list,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Prise en charge des patients"),
+    )
     ##############
     # Sanitaires #
     ##############
@@ -2046,7 +2087,7 @@ class Accessibilite(models.Model):
         if not self.accueil_audiodescription:
             return
         equipment_to_text = {k: str(v) for k, v in schema.AUDIODESCRIPTION_CHOICES}
-        return ",".join([equipment_to_text.get(equipment) for equipment in self.accueil_audiodescription])
+        return ", ".join([equipment_to_text.get(equipment) for equipment in self.accueil_audiodescription])
 
     def get_accueil_equipements_malentendants_text(self):
         if not self.accueil_equipements_malentendants:
@@ -2070,6 +2111,24 @@ class Accessibilite(models.Model):
         if not self.accueil_classes_accessibilite:
             return
         return schema.ACCUEIL_CLASSES_ACCESSIBILITE[self.accueil_classes_accessibilite]
+
+    def get_accueil_soignant_experience(self):
+        if not self.accueil_soignant_experience:
+            return
+        accueil_soignant_experience_text = {k: str(v) for k, v in schema.ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES}
+        return [
+            accueil_soignant_experience_text.get(soignant_experience)
+            for soignant_experience in self.accueil_soignant_experience
+        ]
+
+    def get_accueil_prise_en_charge_patients(self):
+        if not self.accueil_prise_en_charge_patients:
+            return
+        accueil_prise_en_charge_patients_text = {k: str(v) for k, v in schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_CHOICES}
+        return [
+            accueil_prise_en_charge_patients_text.get(prise_en_charge)
+            for prise_en_charge in self.accueil_prise_en_charge_patients
+        ]
 
     def get_shower_text(self):
         text = ""
@@ -2146,6 +2205,12 @@ class Accessibilite(models.Model):
                 child
                 for child in schema.get("children", [])
                 if not FIELDS.get(child, {}).get("excluded_from_completion_rate", False)
+                # Only expose children that belong to the current activity's form, since some are
+                # excluded by a `conditional` (e.g. "large_establishments") and not included for every activity.
+                # For instance, check "cheminement_ext_presence" in schema.py that includes
+                # "cheminement_ext_signaletique_exterieure" in the children,
+                # but "cheminement_ext_signaletique_exterieure" is only for the activity group "large_establishments"
+                and child in form_fields
             ]
 
             if str(getattr(self, field, None)) in schema.get("value_to_display_children", []):

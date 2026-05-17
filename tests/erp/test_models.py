@@ -331,9 +331,93 @@ class TestAccessibility:
                 True,
                 id="invalid_none",
             ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                False,
+                id="nominal_signaletique",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": False,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                True,
+                id="invalid_signaletique",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": None,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                True,
+                id="invalid_signaletique_none",
+            ),
         ),
     )
     def test_constraint_cheminement_ext_presence(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_soignant": True,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": True,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": False,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_false_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": None,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_none_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": False,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": None,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_accueil_soignant(self, attrs, should_raise):
         raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
 
         with raiser:
@@ -1051,10 +1135,10 @@ class TestAccessibility:
         )
 
     @pytest.mark.django_db
-    def test_school_exposes_whitelisted_floor_fields(self):
-        # Context, the school form is using fields from two conditionals "school" and "floor",
-        # but we only take two out of four fields from "floor" macro activity
-        # Only two fields are picked from "floor" macro activity (accueil_ascenseur_etage, accueil_ascenseur_etage_pmr)
+    def test_school_exposes_whitelisted_large_establishments_fields(self):
+        # Context, the school form is using fields from two conditionals "school" and "large_establishments",
+        # but we only take two out of four fields from "large_establishments" macro activity
+        # Only two fields are picked from "large_establishments" macro activity (accueil_ascenseur_etage, accueil_ascenseur_etage_pmr)
         # The two other fields are excluded (cheminement_ext_signaletique_exterieure, accueil_signaletique_interieure)
         activity = ActiviteFactory(slug="ecole", nom="École")
         ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
@@ -1065,9 +1149,10 @@ class TestAccessibility:
 
         # Whitelisted fields
         assert "accueil_ascenseur_etage" in exposed
+        # Exposed only because parent "accueil_ascenseur_etage" is set to True in the factory above
         assert "accueil_ascenseur_etage_pmr" in exposed
 
-        # Fields from "floor" macro activity but should be excluded
+        # Fields from "large_establishments" macro activity but should be excluded
         assert "cheminement_ext_signaletique_exterieure" not in exposed
         assert "accueil_signaletique_interieure" not in exposed
 

@@ -488,9 +488,9 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     groups = erp.activite.groups.all() if erp.activite else []
     should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
 
-    # Floor accessibility details can also be in ERP that aren't related to ed nat
-    should_display_floor_accessibility_details = any(
-        g.name in (ACTIVITY_GROUPS["FLOOR"], ACTIVITY_GROUPS["SCHOOL"]) for g in groups
+    # Large establishments accessibility details can also be in ERP that aren't related to ed nat
+    should_display_large_establishments_accessibility_details = any(
+        g.name in (ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"], ACTIVITY_GROUPS["SCHOOL"]) for g in groups
     )
     absolute_uri = erp.get_absolute_uri()
 
@@ -517,7 +517,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "user_is_subscribed": user_is_subscribed,
             "th_labels": th_labels,
             "should_display_education_accessibility_details": should_display_education_accessibility_details,
-            "should_display_floor_accessibility_details": should_display_floor_accessibility_details,
+            "should_display_large_establishments_accessibility_details": should_display_large_establishments_accessibility_details,
             "social_links": {
                 "x": f"https://x.com/intent/post?text={absolute_uri}",
                 "linkedin": f"https://www.linkedin.com/shareArticle?url={absolute_uri}",
@@ -1035,7 +1035,8 @@ def process_accessibilite_form(
         prev_route = None
 
     should_display_group_labels = not ActivitiesGroup.objects.filter(
-        name__in=[ACTIVITY_GROUPS["SCHOOL"], ACTIVITY_GROUPS["POLLING_STATION"]], activities=erp.activite
+        name__in=[ACTIVITY_GROUPS["SCHOOL"], ACTIVITY_GROUPS["POLLING_STATION"], ACTIVITY_GROUPS["HEALTHCARE"]],
+        activities=erp.activite,
     ).exists()
 
     return render(
@@ -1511,6 +1512,12 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     qr_svg = stream.getvalue().decode("utf-8")
     timestamps = erp.get_global_timestamps()
 
+    groups = erp.activite.groups.all() if erp.activite else []
+    should_display_education_accessibility_details = ACTIVITY_GROUPS["SCHOOL"] in [g.name for g in groups]
+    should_display_large_establishments_accessibility_details = any(
+        g.name in (ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"], ACTIVITY_GROUPS["SCHOOL"]) for g in groups
+    )
+
     html_string = render_to_string(
         "erp/template_erp_rpa.html",
         {
@@ -1519,6 +1526,8 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
             "qr_code_svg": qr_svg,
             "qr_code_url": qr_code_url,
             "timestamps": timestamps,
+            "should_display_education_accessibility_details": should_display_education_accessibility_details,
+            "should_display_large_establishments_accessibility_details": should_display_large_establishments_accessibility_details,
         },
     )
 

@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-20 17:17+0200\n"
-"PO-Revision-Date: 2026-04-08 13:18+0200\n"
-"Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2026-05-21 17:03+0200\n"
+"PO-Revision-Date: 2026-05-21 17:03+0200\n"
+"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -819,7 +819,7 @@ msgid "Panoramax"
 msgstr "Panoramax"
 
 msgid "Apidae"
-msgstr ""
+msgstr "Apidae"
 
 msgid "Source"
 msgstr "Source"
@@ -1009,6 +1009,9 @@ msgstr "PRM parking next to the ERP"
 msgid "Espace extérieur"
 msgstr "Outdoor space"
 
+msgid "Signalétique extérieure"
+msgstr "Exterior signage"
+
 msgid "Cheminement de plain-pied"
 msgstr "Ground-level walkway"
 
@@ -1102,6 +1105,9 @@ msgstr "Information on specific PRM entrance"
 msgid "Visibilité directe de la zone d'accueil depuis l'entrée"
 msgstr "Direct visibility of the reception area from the entrance"
 
+msgid "Signalétique intérieure"
+msgstr "Interior signage"
+
 msgid "Personnel d'accueil"
 msgstr "Reception staff"
 
@@ -1161,6 +1167,21 @@ msgstr "Accessibility of the voting booth"
 
 msgid "Accessibilité de l'urne"
 msgstr "Accessibility of the ballot box"
+
+msgid "Soignant sensibilisé ou formé"
+msgstr "Caregiver aware or trained"
+
+msgid "Expérience du soignant concernant les types de handicap"
+msgstr "Caregiver experience of disability types"
+
+msgid "Accessibilité de la salle de consultation"
+msgstr "Accessibility of the consultation room"
+
+msgid "Consultations à domicile"
+msgstr "Home consultations"
+
+msgid "Prise en charge des patients"
+msgstr "Patient care"
 
 msgid "Sanitaires"
 msgstr "Sanitary facilities"
@@ -1380,6 +1401,36 @@ msgstr "In the courtyard"
 
 msgid "Dans les locaux de santé (infirmerie, bureau du médecin scolaire, bureau du psychologue, etc)"
 msgstr "On health premises (infirmary, school doctor's office, psychologist's office, etc.)"
+
+msgid "Préparation à la consultation ou visite préalable"
+msgstr "Preparation for the consultation or prior visit"
+
+msgid "Organisation spécifique pour réduire le temps d’attente"
+msgstr "Specific organization to reduce waiting time"
+
+msgid "Outils de communication simplifiés pour expliquer les actes"
+msgstr "Simplified communication tools to explain actions"
+
+msgid "Matériel médical adapté aux personnes obèses"
+msgstr "Medical equipment suitable for obese people"
+
+msgid "Visuel"
+msgstr "Visual"
+
+msgid "Auditif"
+msgstr "Auditory"
+
+msgid "Moteur"
+msgstr "Engine"
+
+msgid "Mental (déficience intellectuelle)"
+msgstr "Mental (intellectual disability)"
+
+msgid "Psychique (psychose, trouble bipolaire)"
+msgstr "Psychological (psychosis, bipolar disorder)"
+
+msgid "Cognitif (trouble du spectre de l'autisme, TDAH...)"
+msgstr "Cognitive (autism spectrum disorder, ADHD, etc.)"
 
 msgid "Handicap auditif"
 msgstr "Hearing disability"
@@ -1672,6 +1723,15 @@ msgstr "Presence of a path on the plot of the establishment which leads to the e
 
 msgid "Pas de chemin extérieur entre le trottoir et l'entrée principale du bâtiment"
 msgstr "No exterior path from the sidewalk to the main entrance of the building"
+
+msgid "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement jusqu'à l’entrée du bâtiment ?"
+msgstr "Is signage, readable and understandable by everyone, put in place so that they can easily find their way to the entrance to the building?"
+
+msgid "Présence d’une signalétique extérieure, lisible et compréhensible par tous"
+msgstr "Presence of exterior signage, readable and understandable by all"
+
+msgid "Pas de signalétique extérieure, lisible et compréhensible par tous"
+msgstr "No exterior signage, readable and understandable by all"
 
 msgid "Revêtement extérieur"
 msgstr "Exterior cladding"
@@ -2042,6 +2102,15 @@ msgstr "The reception area (reception desk, cash register, secretariat, etc.) is
 msgid "Accueil éloigné de l'entrée"
 msgstr "Reception far from the entrance"
 
+msgid "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?"
+msgstr "Is signage, readable and understandable by everyone, put in place to make it easy to find your way around the building?"
+
+msgid "Présence d’une signalétique, lisible et compréhensible par tous à l’intérieur de l'établissement"
+msgstr "Presence of signage, readable and understandable by everyone inside the establishment"
+
+msgid "Pas de signalétique lisible et compréhensible par tous à l’intérieur de l'établissement"
+msgstr "No signage readable and understandable by everyone inside the establishment"
+
 msgid "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement"
 msgstr "Pathway between the main entrance of the building and the reception of the facility"
 
@@ -2326,6 +2395,48 @@ msgstr "The urn slot is located 0.90 and 1.30 meters in height"
 
 msgid "La fente de l'urne n'est pas située entre 0,90 et 1,30 mètre de hauteur"
 msgstr "The urn slot is not located between 0.90 and 1.30 meters in height"
+
+msgid "Le soignant est-il formé ou possède-t-il une expérience particulière pour la prise en charge de personnes en situation de handicap"
+msgstr "Is the caregiver trained or has specific experience in caring for people with disabilities?"
+
+msgid "Les soignants ne sont pas formés et ne possèdent pas d'expérience particulière pour la prise en charge des personnes en situation de handicap"
+msgstr "Caregivers are not trained and do not have any particular experience in caring for people with disabilities"
+
+msgid "Pour quels types de handicap le soignant possède-t-il une expérience particulière"
+msgstr "For what types of disabilities does the caregiver have particular experience?"
+
+msgid "Le soignant possède une expérience particulière pour prendre en charge les personnes en situation de handicap"
+msgstr "The caregiver has particular experience in caring for people with disabilities"
+
+msgid "Le soignant ne possède pas d'expérience particulière pour ces types de handicap"
+msgstr "The caregiver does not have any particular experience with these types of disabilities"
+
+msgid "La salle de consultation est-elle accessible en fauteuil roulant ?"
+msgstr "Is the consultation room wheelchair accessible?"
+
+msgid "La salle de consultation est accessible en fauteuil roulant"
+msgstr "The consultation room is wheelchair accessible"
+
+msgid "Pas de possibilité de consultations à domicile pour les personnes en situation de handicap"
+msgstr "No possibility of home consultations for people with disabilities"
+
+msgid "Des consultations à domicile sont-elles possibles pour les personnes en situation de handicap ?"
+msgstr "Are home consultations possible for people with disabilities?"
+
+msgid "Des consultations à domicile sont possibles pour les personnes en situation de handicap"
+msgstr "Home consultations are possible for people with disabilities"
+
+msgid "Des consultations à domicile ne sont pas possibles pour les personnes en situation de handicap"
+msgstr "Home consultations are not possible for people with disabilities"
+
+msgid "L'établissement offre-t-il des prestations complémentaires pour la prise en charge des patients en situation de handicap ? Ces prestations peuvent également être décrites dans la case \"commentaire\" à la fin du questionnaire"
+msgstr "Does the establishment offer additional services for the care of patients with disabilities? These services can also be described in the “comments” box at the end of the questionnaire"
+
+msgid "L'établissement offre des prestations complémentaires pour la prise en charge des patients en situation de handicap"
+msgstr "The establishment offers additional services for the care of patients with disabilities"
+
+msgid "L'établissement n'offre pas de prestations complémentaires pour la prise en charge des patients en situation de handicap"
+msgstr "The establishment does not offer additional services for the care of patients with disabilities"
 
 msgid "Toilettes"
 msgstr "Toilets"

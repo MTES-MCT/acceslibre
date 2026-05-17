@@ -210,9 +210,7 @@ class Command(BaseCommand):
 
                     groups = self.mapping_activities.get(data_detail["type"]).groups.all()
 
-                is_large_establishment = ACTIVITY_GROUPS["FLOOR"] in [
-                    g.name for g in groups
-                ]  # TODO change into LARGE_ESTABLISHMENT
+                is_large_establishment = ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"] in [g.name for g in groups]
                 is_hosting = ACTIVITY_GROUPS["HOSTING"] in [g.name for g in groups]
 
                 if erp:
