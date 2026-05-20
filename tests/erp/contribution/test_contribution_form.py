@@ -1,7 +1,7 @@
 import pytest
 from django.urls import reverse
 
-from tests.factories import AccessibiliteFactory
+from tests.factories import AccessibiliteFactory, UserFactory
 
 TESTING_STEPS = [
     {
@@ -47,6 +47,7 @@ TESTING_STEPS = [
 
 @pytest.mark.django_db
 def test_contrib_steps(django_app):
+    django_app.set_user(UserFactory())
     erp = AccessibiliteFactory(entree_porte_presence=True).erp
 
     for step in TESTING_STEPS:
@@ -78,6 +79,7 @@ def test_contrib_steps(django_app):
 
 @pytest.mark.django_db
 def test_will_publish_on_last_step_if_enough_data(django_app):
+    django_app.set_user(UserFactory())
     erp = AccessibiliteFactory(
         erp__published=False, entree_plain_pied=True, entree_porte_presence=True, sanitaires_presence=True
     ).erp
@@ -99,7 +101,17 @@ def test_will_publish_on_last_step_if_enough_data(django_app):
 
 
 @pytest.mark.django_db
+def test_contib_not_logged_in(django_app):
+    erp = AccessibiliteFactory(erp__published=False, entree_plain_pied=True).erp
+    url = reverse("contribution-step", kwargs={"erp_slug": erp.slug, "step_number": 12})
+    response = django_app.get(url)
+    assert response.status_code == 302
+    assert response["Location"].startswith(reverse("login"))
+
+
+@pytest.mark.django_db
 def test_will_not_publish_on_last_step_if_no_data(django_app):
+    django_app.set_user(UserFactory())
     erp = AccessibiliteFactory(erp__published=False, entree_plain_pied=True).erp
 
     url = reverse("contribution-step", kwargs={"erp_slug": erp.slug, "step_number": 12})

@@ -4,6 +4,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render, reverse
 from django.utils.translation import gettext as translate
 from django.views.generic.edit import FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from erp.contribution import (
     ADDITIONAL_CONTRIBUTION_QUESTIONS,
@@ -18,7 +19,7 @@ from .exceptions import ContributionStopIteration
 from .forms import ContributionForm
 
 
-class ContributionStepMixin(FormView):
+class ContributionStepMixin(LoginRequiredMixin, FormView):
     question_set = None
     route_name = None
     success_route_name = None
