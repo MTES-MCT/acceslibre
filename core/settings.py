@@ -466,3 +466,7 @@ PANORAMAX_OPENED_CITIES = [
     "Anglet",
     "Orléans",
 ]
+
+APIDAE_HOST = env("APIDAE_HOST", default="")
+APIDAE_API_KEY = env("APIDAE_API_KEY", default="")
+APIDAE_PROJECT_ID = env("APIDAE_PROJECT_ID", default="")

@@ -373,6 +373,7 @@ class ExternalSource(models.Model):
     SOURCE_AUTO_ECOLE = "auto-ecole"
     SOURCE_ANNUAIRE_SANTE = "annuaire-sante"
     SOURCE_PANORAMAX = "panoramax"
+    SOURCE_APIDAE = "apidae"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, translate_lazy("Base de données Acceslibre")),
         (SOURCE_ACCEO, translate_lazy("Acceo")),
@@ -403,6 +404,7 @@ class ExternalSource(models.Model):
         (SOURCE_AUTO_ECOLE, translate_lazy("Auto-école")),
         (SOURCE_ANNUAIRE_SANTE, translate_lazy("Annuaire Santé")),
         (SOURCE_PANORAMAX, translate_lazy("Panoramax")),
+        (SOURCE_APIDAE, translate_lazy("Apidae")),
     )
 
     erp = models.ForeignKey(
