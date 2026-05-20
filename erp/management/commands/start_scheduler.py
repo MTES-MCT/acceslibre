@@ -16,6 +16,8 @@ logger = logging.getLogger(__name__)
 
 INTERVAL_BETWEEN_2_ACQUISITIONS = 5  # minutes
 
+SCRAPFLY_ACQUISITION_ENABLED = False
+
 
 class Command(BaseCommand):
     tasks = []
@@ -69,24 +71,25 @@ class Command(BaseCommand):
                     }
                 )
 
-        day += 1  # Do not reinit day, it will be done at the end of month, after above acquisition
-        minute = hour = 1
-        for commune in Commune.objects.filter(population__gte=10000):
-            if "arrondissement" in commune.nom:
-                # ignore, will be managed while processing the whole city
-                continue
+        if SCRAPFLY_ACQUISITION_ENABLED:
+            day += 1  # Do not reinit day, it will be done at the end of month, after above acquisition
+            minute = hour = 1
+            for commune in Commune.objects.filter(population__gte=10000):
+                if "arrondissement" in commune.nom:
+                    # ignore, will be managed while processing the whole city
+                    continue
 
-            minute, hour, day = _increment_schedule(minute, hour, day)
+                minute, hour, day = _increment_schedule(minute, hour, day)
 
-            self.tasks.append(
-                {
-                    "day": day,
-                    "hour": hour,
-                    "min": minute,
-                    "command": "scrapfly_acquisition",
-                    "command_args": {"query": commune.nom},
-                }
-            )
+                self.tasks.append(
+                    {
+                        "day": day,
+                        "hour": hour,
+                        "min": minute,
+                        "command": "scrapfly_acquisition",
+                        "command_args": {"query": commune.nom},
+                    }
+                )
 
     def _acquisition(self):
         now = datetime.now(timezone.utc)
