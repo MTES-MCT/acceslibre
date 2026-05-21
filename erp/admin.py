@@ -212,6 +212,13 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
         return queryset
 
 
+class ExternalSourceInline(admin.TabularInline):
+    model = ExternalSource
+    extra = 0
+    readonly_fields = ("source", "source_id")
+    can_delete = False
+
+
 @admin.register(ExternalSource)
 class ExternalSourceAdmin(admin.ModelAdmin):
     search_fields = ("erp__nom", "source", "source_id")
@@ -257,6 +264,7 @@ class ErpAdmin(
         "created_at",
         "updated_at",
     ]
+    inlines = [ExternalSourceInline]
     ordering = ("-updated_at",)
     point_zoom = 18
     map_height = 300
