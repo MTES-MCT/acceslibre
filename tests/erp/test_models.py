@@ -7,7 +7,14 @@ from django.db.utils import IntegrityError
 
 from erp.exceptions import MergeException
 from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from tests.factories import (
+    AccessibiliteFactory,
+    ActiviteFactory,
+    ActivitiesGroupFactory,
+    CommuneFactory,
+    ErpFactory,
+    UserFactory,
+)
 
 
 @pytest.mark.django_db
@@ -324,9 +331,93 @@ class TestAccessibility:
                 True,
                 id="invalid_none",
             ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": True,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                False,
+                id="nominal_signaletique",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": False,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                True,
+                id="invalid_signaletique",
+            ),
+            pytest.param(
+                {
+                    "cheminement_ext_presence": None,
+                    "cheminement_ext_signaletique_exterieure": True,
+                },
+                True,
+                id="invalid_signaletique_none",
+            ),
         ),
     )
     def test_constraint_cheminement_ext_presence(self, attrs, should_raise):
+        raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
+
+        with raiser:
+            AccessibiliteFactory(**attrs).save()
+
+    @pytest.mark.django_db
+    @pytest.mark.parametrize(
+        "attrs, should_raise",
+        (
+            pytest.param(
+                {
+                    "accueil_soignant": True,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                False,
+                id="nominal",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": True,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": False,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_false_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": None,
+                    "accueil_soignant_experience": [],
+                },
+                False,
+                id="nominal_none_empty",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": False,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                True,
+                id="invalid",
+            ),
+            pytest.param(
+                {
+                    "accueil_soignant": None,
+                    "accueil_soignant_experience": ["visuel"],
+                },
+                True,
+                id="invalid_none",
+            ),
+        ),
+    )
+    def test_constraint_accueil_soignant(self, attrs, should_raise):
         raiser = pytest.raises(IntegrityError) if should_raise else does_not_raise()
 
         with raiser:
@@ -1042,6 +1133,51 @@ class TestAccessibility:
         assert "transport_information" not in access.get_exposed_fields(), (
             "transport_information should be ignored from completion rate calculation"
         )
+
+    @pytest.mark.django_db
+    def test_school_exposes_whitelisted_large_establishments_fields(self):
+        # Context, the school form is using fields from two conditionals "school" and "large_establishments",
+        # but we only take two out of four fields from "large_establishments" macro activity
+        # Only two fields are picked from "large_establishments" macro activity (accueil_ascenseur_etage, accueil_ascenseur_etage_pmr)
+        # The two other fields are excluded (cheminement_ext_signaletique_exterieure, accueil_signaletique_interieure)
+        activity = ActiviteFactory(slug="ecole", nom="École")
+        ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
+        erp = ErpFactory(activite=activity)
+        access = AccessibiliteFactory(erp=erp, accueil_ascenseur_etage=True, accueil_ascenseur_etage_pmr=True)
+
+        exposed = access.get_exposed_fields()
+
+        # Whitelisted fields
+        assert "accueil_ascenseur_etage" in exposed
+        # Exposed only because parent "accueil_ascenseur_etage" is set to True in the factory above
+        assert "accueil_ascenseur_etage_pmr" in exposed
+
+        # Fields from "large_establishments" macro activity but should be excluded
+        assert "cheminement_ext_signaletique_exterieure" not in exposed
+        assert "accueil_signaletique_interieure" not in exposed
+
+        # Other arbitrarily excluded fields
+        assert "accueil_audiodescription_presence" not in exposed
+        assert "accueil_audiodescription" not in exposed
+        assert "labels" not in exposed
+        assert "labels_familles_handicap" not in exposed
+        assert "labels_autre" not in exposed
+
+    @pytest.mark.django_db
+    def test_school_ascenseur_etage_pmr_only_exposed_when_parent_true(self):
+        activity = ActiviteFactory(slug="ecole", nom="École")
+        ActivitiesGroupFactory(activities=[activity], name="Etablissements scolaires")
+        erp = ErpFactory(activite=activity)
+        access = AccessibiliteFactory(erp=erp, accueil_ascenseur_etage=False)
+
+        exposed = access.get_exposed_fields()
+        assert "accueil_ascenseur_etage" in exposed
+        assert "accueil_ascenseur_etage_pmr" not in exposed
+
+        access.accueil_ascenseur_etage = True
+        access.save()
+        exposed = access.get_exposed_fields()
+        assert "accueil_ascenseur_etage_pmr" in exposed
 
 
 @pytest.mark.django_db

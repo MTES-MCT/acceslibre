@@ -103,6 +103,53 @@ ACCUEIL_ESPACES_OUVERTS_CHOICES = [
     ),
 ]
 
+ACCUEIL_PRISE_EN_CHARGE_PATIENTS_PREPARATION = "preparation"
+ACCUEIL_PRISE_EN_CHARGE_PATIENTS_ORGANISATION = "organisation"
+ACCUEIL_PRISE_EN_CHARGE_PATIENTS_OUTILS = "outils_communication"
+ACCUEIL_PRISE_EN_CHARGE_PATIENTS_MATERIEL = "materiel_auscultation"
+ACCUEIL_PRISE_EN_CHARGE_PATIENTS_CHOICES = [
+    (
+        ACCUEIL_PRISE_EN_CHARGE_PATIENTS_PREPARATION,
+        translate_lazy("Préparation à la consultation ou visite préalable"),
+    ),
+    (
+        ACCUEIL_PRISE_EN_CHARGE_PATIENTS_ORGANISATION,
+        translate_lazy("Organisation spécifique pour réduire le temps d’attente"),
+    ),
+    (
+        ACCUEIL_PRISE_EN_CHARGE_PATIENTS_OUTILS,
+        translate_lazy("Outils de communication simplifiés pour expliquer les actes"),
+    ),
+    (
+        ACCUEIL_PRISE_EN_CHARGE_PATIENTS_MATERIEL,
+        translate_lazy("Matériel médical adapté aux personnes obèses"),
+    ),
+]
+
+ACCUEIL_SOIGNANT_EXPERIENCE_VISUEL = "visuel"
+ACCUEIL_SOIGNANT_EXPERIENCE_AUDITIF = "auditif"
+ACCUEIL_SOIGNANT_EXPERIENCE_MOTEUR = "moteur"
+ACCUEIL_SOIGNANT_EXPERIENCE_MENTAL = "mental"
+ACCUEIL_SOIGNANT_EXPERIENCE_PSYCHIQUE = "psychique"
+ACCUEIL_SOIGNANT_EXPERIENCE_COGNITIF = "cognitif"
+ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES = [
+    (ACCUEIL_SOIGNANT_EXPERIENCE_VISUEL, translate_lazy("Visuel")),
+    (ACCUEIL_SOIGNANT_EXPERIENCE_AUDITIF, translate_lazy("Auditif")),
+    (ACCUEIL_SOIGNANT_EXPERIENCE_MOTEUR, translate_lazy("Moteur")),
+    (
+        ACCUEIL_SOIGNANT_EXPERIENCE_MENTAL,
+        translate_lazy("Mental (déficience intellectuelle)"),
+    ),
+    (
+        ACCUEIL_SOIGNANT_EXPERIENCE_PSYCHIQUE,
+        translate_lazy("Psychique (psychose, trouble bipolaire)"),
+    ),
+    (
+        ACCUEIL_SOIGNANT_EXPERIENCE_COGNITIF,
+        translate_lazy("Cognitif (trouble du spectre de l'autisme, TDAH...)"),
+    ),
+]
+
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"
@@ -661,7 +708,7 @@ FIELDS = {
     # NOTE value_to_display_children(list(str)): values expanding the children fields.
     # NOTE min_value_to_display_children(int): min value expanding the children fields.
     # NOTE excluded_from_completion_rate (bool; default=False): if True, the field will not be taken into account for completion rate computation
-    # NOTE conditional(None|hosting|school|floor|polling_station) determines whether a field is always display or if it is display only under certain conditions. Like if field has
+    # NOTE conditional(None|hosting|school|large_establishments|polling_station) determines whether a field is always display or if it is display only under certain conditions. Like if field has
     #        sense only for a category of activities.
     #        Default is None if not provided.
     # NOTE free_text(true|false) determines whether a field is a free text/a user input or not. If yes, it's intented to be cleaned from profanities and
@@ -911,7 +958,33 @@ FIELDS = {
             "cheminement_ext_devers",
             "cheminement_ext_bande_guidage",
             "cheminement_ext_retrecissement",
+            "cheminement_ext_signaletique_exterieure",
         ],
+    },
+    "cheminement_ext_signaletique_exterieure": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Signalétique extérieure"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement jusqu'à l’entrée du bâtiment ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy("Présence d’une signalétique extérieure, lisible et compréhensible par tous"),
+        "help_text_ui_neg": translate_lazy("Pas de signalétique extérieure, lisible et compréhensible par tous"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/cheminement_signaletique_exterieure.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": True,
+        "free_text": False,
+        "conditional": "large_establishments",
+        "root": False,
     },
     "cheminement_ext_terrain_stable": {
         "type": "boolean",
@@ -1741,6 +1814,35 @@ FIELDS = {
         "free_text": False,
         "root": True,
     },
+    "accueil_signaletique_interieure": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Signalétique intérieure"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Présence d’une signalétique, lisible et compréhensible par tous à l’intérieur de l'établissement"
+        ),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Pas de signalétique lisible et compréhensible par tous à l’intérieur de l'établissement"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/accueil_signaletique_interieure.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": True,
+        "free_text": False,
+        "conditional": "large_establishments",
+        "root": True,
+    },
     "accueil_cheminement_plain_pied": {
         "type": "boolean",
         "nullable": True,
@@ -2316,7 +2418,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
-        "conditional": "floor",
+        "conditional": "large_establishments",
         "root": True,
         "value_to_display_children": ["True"],
         "children": ["accueil_ascenseur_etage_pmr"],
@@ -2343,7 +2445,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
-        "conditional": "floor",
+        "conditional": "large_establishments",
         "root": False,
     },
     "accueil_classes_accessibilite": {
@@ -2374,7 +2476,7 @@ FIELDS = {
         ),
         "choices": ACCUEIL_ESPACES_OUVERTS_CHOICES,
         "section": SECTION_ACCUEIL,
-        "nullable_bool": True,
+        "nullable_bool": False,
         "warn_if": False,
         "free_text": False,
         "conditional": "school",
@@ -2428,6 +2530,120 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "conditional": "polling_station",
+        "root": True,
+    },
+    "accueil_soignant": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Soignant sensibilisé ou formé"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Le soignant est-il formé ou possède-t-il une expérience particulière pour la prise en charge de personnes en situation de handicap"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Le soignant est-il formé ou possède-t-il une expérience particulière pour la prise en charge de personnes en situation de handicap"
+        ),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Les soignants ne sont pas formés et ne possèdent pas d'expérience particulière pour la prise en charge des personnes en situation de handicap"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "healthcare",
+        "root": True,
+        "value_to_display_children": ["True"],
+        "children": ["accueil_soignant_experience"],
+    },
+    "accueil_soignant_experience": {
+        "type": "array",
+        "nullable": False,
+        "is_a11y": True,
+        "label": translate_lazy("Expérience du soignant concernant les types de handicap"),
+        "should_display_label": False,
+        "help_text": mark_safe(
+            translate_lazy("Pour quels types de handicap le soignant possède-t-il une expérience particulière")
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Le soignant possède une expérience particulière pour prendre en charge les personnes en situation de handicap"
+        ),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Le soignant ne possède pas d'expérience particulière pour ces types de handicap"
+        ),
+        "choices": ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "free_text": False,
+        "conditional": "healthcare",
+        "root": False,
+    },
+    "accueil_salle_consultation_accessible": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accessibilité de la salle de consultation"),
+        "help_text": mark_safe(translate_lazy("La salle de consultation est-elle accessible en fauteuil roulant ?")),
+        "help_text_ui_v2": translate_lazy("La salle de consultation est accessible en fauteuil roulant"),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Pas de possibilité de consultations à domicile pour les personnes en situation de handicap"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "healthcare",
+        "root": True,
+    },
+    "accueil_consultation_domicile": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Consultations à domicile"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Des consultations à domicile sont-elles possibles pour les personnes en situation de handicap ?"
+            )
+        ),
+        "help_text_ui_v2": translate_lazy(
+            "Des consultations à domicile sont possibles pour les personnes en situation de handicap"
+        ),
+        "help_text_ui_neg_v2": translate_lazy(
+            "Des consultations à domicile ne sont pas possibles pour les personnes en situation de handicap"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "healthcare",
+        "root": True,
+    },
+    "accueil_prise_en_charge_patients": {
+        "type": "array",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Prise en charge des patients"),
+        "help_text": mark_safe(
+            translate_lazy(
+                'L\'établissement offre-t-il des prestations complémentaires pour la prise en charge des patients en situation de handicap ? Ces prestations peuvent également être décrites dans la case "commentaire" à la fin du questionnaire'
+            )
+        ),
+        "help_text_ui": translate_lazy(
+            "L'établissement offre des prestations complémentaires pour la prise en charge des patients en situation de handicap"
+        ),
+        "help_text_ui_neg": translate_lazy(
+            "L'établissement n'offre pas de prestations complémentaires pour la prise en charge des patients en situation de handicap"
+        ),
+        "choices": ACCUEIL_PRISE_EN_CHARGE_PATIENTS_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "healthcare",
         "root": True,
     },
     # Sanitaires
@@ -2781,12 +2997,14 @@ def get_conditional_fields() -> list[str]:
     return [k for (k, v) in FIELDS.items() if v.get("conditional", False)]
 
 
-def get_conditional_fields_in(conditional: str) -> list[str]:
-    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) == conditional]
+def get_conditional_fields_in(conditionals: list[str]) -> list[str]:
+    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) in conditionals]
 
 
-def get_conditional_fields_not_in(conditional: str) -> list[str]:
-    return [k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") != conditional]
+def get_conditional_fields_not_in(conditionals: list[str]) -> list[str]:
+    return [
+        k for (k, v) in FIELDS.items() if v.get("conditional", False) and v.get("conditional", "") not in conditionals
+    ]
 
 
 def get_section_fields(section_id) -> list[str]:

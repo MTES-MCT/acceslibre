@@ -11,6 +11,11 @@
     <div id="access_reception" class="fr-collapse">
         <ul>
             {% render_access_value "accueil_visibilite" access "all" %}
+            {% if access.accueil_signaletique_interieure %}
+                <li class="data-filters">{{ "accueil_signaletique_interieure"|positive_text }}</li>
+            {% elif access.accueil_signaletique_interieure is False %}
+                <li data-filters="visual">{{ "accueil_signaletique_interieure"|negative_text }}</li>
+            {% endif %}
             {% if access.accueil_isoloir_accessibilite %}
                 <li data-filters="walking">{{ "accueil_isoloir_accessibilite"|positive_text }}</li>
             {% elif access.accueil_isoloir_accessibilite is False %}
@@ -51,6 +56,36 @@
                 {% endif %}
             {% endif %}
             {% render_access_value "accueil_retrecissement" access "walking" %}
+            {% if access.accueil_soignant %}
+                {% if access.accueil_soignant_experience %}
+                    <li data-filters="all">
+                        {{ "accueil_soignant_experience"|positive_text }}
+                        <ul>
+                            {% for soignant_experience in access.get_accueil_soignant_experience %}<li>{{ soignant_experience }}</li>{% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% elif access.accueil_soignant is False %}
+                <li data-filters="visual">{{ "accueil_soignant"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_salle_consultation_accessible %}
+                <li data-filters="walking">{{ "accueil_salle_consultation_accessible"|positive_text }}</li>
+            {% elif access.accueil_salle_consultation_accessible is False %}
+                <li data-filters="walking">{{ "accueil_salle_consultation_accessible"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_consultation_domicile %}
+                <li data-filters="walking">{{ "accueil_consultation_domicile"|positive_text }}</li>
+            {% elif access.accueil_consultation_domicile is False %}
+                <li data-filters="walking">{{ "accueil_consultation_domicile"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_prise_en_charge_patients %}
+                <li data-filters="all">
+                    {{ "accueil_prise_en_charge_patients"|positive_text }}
+                    <ul>
+                        {% for prise_en_charge in access.get_accueil_prise_en_charge_patients %}<li>{{ prise_en_charge }}</li>{% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
             {% if access.accueil_personnels %}<li data-filters="all">{{ access.get_accueil_personnels_display }}</li>{% endif %}
             {% if access.accueil_audiodescription_presence %}
                 <li data-filters="visual">
@@ -85,7 +120,7 @@
             {% elif access.sanitaires_presence is False %}
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
-            {% if should_display_floor_accessibility_details %}
+            {% if should_display_large_establishments_accessibility_details %}
                 {% if access.accueil_ascenseur_etage and access.accueil_ascenseur_etage_pmr is None %}
                     <li data-filters="all">{{ "accueil_ascenseur_etage"|positive_text }}</li>
                 {% elif access.accueil_ascenseur_etage is False and access.accueil_ascenseur_etage_pmr is None %}

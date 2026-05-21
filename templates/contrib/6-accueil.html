@@ -30,6 +30,11 @@
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True key="accueil_visibilite" %}
         </div>
+        {% if form.accueil_signaletique_interieure %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_signaletique_interieure inline=True key="accueil_signaletique_interieure" %}
+            </div>
+        {% endif %}
         {% if form.accueil_isoloir_accessibilite %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_isoloir_accessibilite inline=True key="accueil_isoloir_accessibilite" %}
@@ -177,6 +182,32 @@
                         {% include "fields/boolradio.html" with field=form.accueil_chambre_accompagnement inline=True heading_level=4 %}
                     </div>
                 {% endif %}
+            </div>
+        {% endif %}
+        {% if form.accueil_soignant %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_soignant inline=True key="accueil_soignant" %}
+                <div class="contrib-inputs-section ">
+                    <hr class="fr-hr" />
+                    {# Checkboxes not working, checkout why #}
+                    {% include "fields/checkbox.html" with field=form.accueil_soignant_experience inline=False key="accueil_soignant_experience" %}
+                </div>
+            </div>
+        {% endif %}
+        {% if form.accueil_salle_consultation_accessible %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_salle_consultation_accessible inline=True key="accueil_salle_consultation_accessible" %}
+            </div>
+        {% endif %}
+        {% if form.accueil_consultation_domicile %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_consultation_domicile inline=True key="accueil_consultation_domicile" %}
+            </div>
+        {% endif %}
+        {% if form.accueil_prise_en_charge_patients %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {# Checkboxes not working, checkout why #}
+                {% include "fields/checkbox.html" with field=form.accueil_prise_en_charge_patients inline=False %}
             </div>
         {% endif %}
     </div>

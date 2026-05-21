@@ -28,6 +28,7 @@ const rules = [
     source: 'cheminement_ext_presence',
     values: ['True'],
     targets: [
+      'cheminement_ext_signaletique_exterieure',
       'cheminement_ext_terrain_stable',
       'cheminement_ext_plain_pied',
       'cheminement_ext_devers',
@@ -141,6 +142,12 @@ const rules = [
     source: 'accueil_ascenseur_etage',
     values: ['True'],
     targets: ['accueil_ascenseur_etage_pmr'],
+    indent: INDENTS_LEVEL.first,
+  },
+  {
+    source: 'accueil_soignant',
+    values: ['True'],
+    targets: ['accueil_soignant_experience'],
     indent: INDENTS_LEVEL.first,
   },
   // Sanitaires

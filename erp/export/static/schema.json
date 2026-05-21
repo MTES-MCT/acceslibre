@@ -198,6 +198,7 @@
           "Centre de loisirs",
           "Centre de protection maternelle et infantile (pmi)",
           "Centre de ressources et d'information",
+          "Centre des finances publiques",
           "Centre de vacances",
           "Centre de vaccination",
           "Centre d'examen",
@@ -495,7 +496,6 @@
           "Traduction et interprétation",
           "Traiteur, gastronomie",
           "Transport",
-          "Trésorerie",
           "Tribunal",
           "Université ou école supérieure",
           "Urologie",
@@ -1040,6 +1040,37 @@
       "type": "boolean",
       "title": "Rétrécissement du chemin",
       "description": "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre la zone d'accueil",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "cheminement_ext_signaletique_exterieure",
+      "type": "boolean",
+      "title": "Signalétique extérieure",
+      "description": "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement jusqu'à l’entrée du bâtiment ?",
       "example": "True",
       "trueValues": [
         "true",
@@ -2276,6 +2307,164 @@
         "Non",
         "NON"
       ]
+    },
+    {
+      "name": "accueil_signaletique_interieure",
+      "type": "boolean",
+      "title": "Signalétique intérieure",
+      "description": "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_soignant",
+      "type": "boolean",
+      "title": "Soignant sensibilisé ou formé",
+      "description": "Le soignant est-il formé ou possède-t-il une expérience particulière pour la prise en charge de personnes en situation de handicap",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_soignant_experience",
+      "type": "array",
+      "title": "Expérience du soignant concernant les types de handicap",
+      "description": "Pour quels types de handicap le soignant possède-t-il une expérience particulière. Valeurs possibles: visuel -> Visuel, auditif -> Auditif, moteur -> Moteur, mental -> Mental (déficience intellectuelle), psychique -> Psychique (psychose, trouble bipolaire), cognitif -> Cognitif (trouble du spectre de l'autisme, TDAH...)",
+      "example": "[\"visuel\", \"auditif\", \"moteur\", \"mental\", \"psychique\", \"cognitif\"]",
+      "arrayItem": {
+        "type": "string",
+        "enum": [
+          "visuel",
+          "auditif",
+          "moteur",
+          "mental",
+          "psychique",
+          "cognitif"
+        ]
+      }
+    },
+    {
+      "name": "accueil_salle_consultation_accessible",
+      "type": "boolean",
+      "title": "Accessibilité de la salle de consultation",
+      "description": "La salle de consultation est-elle accessible en fauteuil roulant ?",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_consultation_domicile",
+      "type": "boolean",
+      "title": "Consultations à domicile",
+      "description": "Des consultations à domicile sont-elles possibles pour les personnes en situation de handicap ?",
+      "example": "True",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ]
+    },
+    {
+      "name": "accueil_prise_en_charge_patients",
+      "type": "array",
+      "title": "Prise en charge des patients",
+      "description": "L'établissement offre des prestations complémentaires pour la prise en charge des patients en situation de handicap. Valeurs possibles: preparation -> Préparation à la consultation ou visite préalable, organisation -> Organisation spécifique pour réduire le temps d’attente, outils_communication -> Outils de communication simplifiés pour expliquer les actes, materiel_auscultation -> Matériel médical adapté aux personnes obèses",
+      "example": "[\"preparation\", \"organisation\", \"outils_communication\", \"materiel_auscultation\"]",
+      "arrayItem": {
+        "type": "string",
+        "enum": [
+          "preparation",
+          "organisation",
+          "outils_communication",
+          "materiel_auscultation"
+        ]
+      }
     },
     {
       "name": "sanitaires_presence",

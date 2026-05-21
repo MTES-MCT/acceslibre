@@ -29,10 +29,12 @@
     <div class="contrib-inputs-section-wrapper">
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.cheminement_ext_presence inline=True key="cheminement_ext_presence" %}
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr " />
-                {% include "fields/boolradio.html" with field=form.cheminement_ext_terrain_stable inline=True key="cheminement_ext_terrain_stable" %}
-            </div>
+            {% if form.cheminement_ext_signaletique_exterieure %}
+                <div class="contrib-inputs-section">
+                    <hr class="fr-hr" />
+                    {% include "fields/boolradio.html" with field=form.cheminement_ext_signaletique_exterieure inline=True key="cheminement_ext_signaletique_exterieure" %}
+                </div>
+            {% endif %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/boolradio.html" with field=form.cheminement_ext_plain_pied inline=True key="cheminement_ext_plain_pied" %}

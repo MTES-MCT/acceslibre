@@ -44,6 +44,7 @@ class EtalabMapper(BaseExportMapper):
     cheminement_ext_devers: Literal["aucun", "léger", "important"]
     cheminement_ext_bande_guidage: bool
     cheminement_ext_retrecissement: bool
+    cheminement_ext_signaletique_exterieure: bool
     entree_reperage: bool
     entree_vitree: bool
     entree_vitree_vitrophanie: bool
@@ -103,6 +104,30 @@ class EtalabMapper(BaseExportMapper):
     accueil_retrecissement: bool
     accueil_isoloir_accessibilite: bool
     accueil_urne_accessibilite: bool
+    accueil_signaletique_interieure: bool
+    accueil_soignant: bool
+    accueil_soignant_experience: Optional[
+        Set[
+            Literal[
+                schema.ACCUEIL_SOIGNANT_EXPERIENCE_VISUEL,
+                schema.ACCUEIL_SOIGNANT_EXPERIENCE_AUDITIF,
+                schema.ACCUEIL_SOIGNANT_EXPERIENCE_MOTEUR,
+                schema.ACCUEIL_SOIGNANT_EXPERIENCE_MENTAL_PSYCHIQUE,
+            ]
+        ]
+    ]
+    accueil_salle_consultation_accessible: bool
+    accueil_consultation_domicile: bool
+    accueil_prise_en_charge_patients: Optional[
+        Set[
+            Literal[
+                schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_PREPARATION,
+                schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_ORGANISATION,
+                schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_OUTILS,
+                schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_MATERIEL,
+            ]
+        ]
+    ]
     sanitaires_presence: bool
     sanitaires_adaptes: int
     labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th", "handiplage"]]]
@@ -165,6 +190,7 @@ class EtalabMapper(BaseExportMapper):
             ),
             cheminement_ext_bande_guidage=erp.accessibilite.cheminement_ext_bande_guidage,
             cheminement_ext_retrecissement=erp.accessibilite.cheminement_ext_retrecissement,
+            cheminement_ext_signaletique_exterieure=erp.accessibilite.cheminement_ext_signaletique_exterieure,
             entree_reperage=erp.accessibilite.entree_reperage,
             entree_vitree=erp.accessibilite.entree_vitree,
             entree_vitree_vitrophanie=erp.accessibilite.entree_vitree_vitrophanie,
@@ -204,6 +230,18 @@ class EtalabMapper(BaseExportMapper):
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
+            accueil_signaletique_interieure=erp.accessibilite.accueil_signaletique_interieure,
+            accueil_soignant=erp.accessibilite.accueil_soignant,
+            accueil_soignant_experience=map_list_from_schema(
+                schema.ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES,
+                erp.accessibilite.accueil_soignant_experience,
+            ),
+            accueil_salle_consultation_accessible=erp.accessibilite.accueil_salle_consultation_accessible,
+            accueil_consultation_domicile=erp.accessibilite.accueil_consultation_domicile,
+            accueil_prise_en_charge_patients=map_list_from_schema(
+                schema.ACCUEIL_PRISE_EN_CHARGE_PATIENTS_CHOICES,
+                erp.accessibilite.accueil_prise_en_charge_patients,
+            ),
             accueil_ascenseur_etage=erp.accessibilite.accueil_ascenseur_etage,
             accueil_ascenseur_etage_pmr=erp.accessibilite.accueil_ascenseur_etage_pmr,
             accueil_classes_accessibilite=erp.accessibilite.accueil_classes_accessibilite,

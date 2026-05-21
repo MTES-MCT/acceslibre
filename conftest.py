@@ -449,7 +449,7 @@ def activite(db):
         "Traduction et interprétation",
         "Traiteur, gastronomie",
         "Transport",
-        "Trésorerie",
+        "Centre des finances publiques",
         "Tribunal",
         "Université ou école supérieure",
         "Urologie",
