@@ -94,43 +94,44 @@ def test_compute_completion_rate_healthcare():
 
     # "accueil_soignant_experience" must not be exposed as long as "accueil_soignant" is not truthy
     assert "accueil_soignant_experience" not in exposed_fields
+    assert "accueil_prise_en_charge_patients" not in exposed_fields
+    assert "accueil_soignant_experience" not in access.get_exposed_fields()
 
     assert "accueil_salle_consultation_accessible" in exposed_fields
     assert "accueil_consultation_domicile" in exposed_fields
-    assert "accueil_prise_en_charge_patients" in exposed_fields
 
     access.accueil_soignant = True
     access.save()
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 4
+    assert access.completion_rate == 5
 
-    # "accueil_soignant_experience" should now be exposed since "accueil_soignant" is truthy
-    assert "accueil_soignant_experience" in access.get_exposed_fields()
     access.accueil_soignant_experience = ["visuel"]
     access.save()
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 9
+    # Should be ignored from completion rate
+    assert access.completion_rate == 5
 
     access.accueil_salle_consultation_accessible = True
     access.save()
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 13
+    assert access.completion_rate == 10
 
     access.accueil_consultation_domicile = False
 
     access.save()
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 18
+    assert access.completion_rate == 15
 
+    # accueil_prise_en_charge_patients should also be excluded from completion rate
     access.accueil_prise_en_charge_patients = ["outils_communication"]
     access.save()
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 22
+    assert access.completion_rate == 15
 
 
 @mark.django_db

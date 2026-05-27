@@ -2579,6 +2579,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "healthcare",
         "root": False,
+        "excluded_from_completion_rate": True,
     },
     "accueil_salle_consultation_accessible": {
         "type": "boolean",
@@ -2587,9 +2588,7 @@ FIELDS = {
         "label": translate_lazy("Accessibilité de la salle de consultation"),
         "help_text": mark_safe(translate_lazy("La salle de consultation est-elle accessible en fauteuil roulant ?")),
         "help_text_ui_v2": translate_lazy("La salle de consultation est accessible en fauteuil roulant"),
-        "help_text_ui_neg_v2": translate_lazy(
-            "La salle de consultation n'est pas accessible en fauteuil roulant"
-        ),
+        "help_text_ui_neg_v2": translate_lazy("La salle de consultation n'est pas accessible en fauteuil roulant"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -2633,7 +2632,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy(
-            "Prestations complémentaires pour la prise en charge des patients en situation de handicap"
+            "Prestations complémentaires pour la prise en charge des patients en situation de handicap :"
         ),
         "help_text_ui_neg": translate_lazy(
             "L'établissement n'offre pas de prestations complémentaires pour la prise en charge des patients en situation de handicap"
@@ -2645,6 +2644,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "healthcare",
         "root": True,
+        "excluded_from_completion_rate": True,
     },
     # Sanitaires
     "sanitaires_presence": {
