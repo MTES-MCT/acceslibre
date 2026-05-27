@@ -55,9 +55,11 @@
                                    {% if request.path|active_compte_section:'mes_abonnements' %}aria-current="page"{% endif %}
                                    href="{% url 'mes_abonnements' %}">{% translate "Mes abonnements" %}</a>
                             </li>
-                            <li class="fr-sidemenu__item">
-                                <a class="fr-sidemenu__link" href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
-                            </li>
+                            {% if request.user.is_staff %}
+                                <li class="fr-sidemenu__item">
+                                    <a class="fr-sidemenu__link" href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
