@@ -93,14 +93,14 @@
                     </div>
                 {% endif %}
             </div>
+        {% endif %}
+        {% if form.accueil_equipements_malentendants_presence %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% if form.accueil_equipements_malentendants_presence %}
-                    {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
-                    <div class="contrib-inputs-section">
-                        {% if form.accueil_equipements_malentendants_presence %}<hr class="fr-hr" />{% endif %}
-                        {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
-                    </div>
-                {% endif %}
+                {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True key="accueil_equipements_malentendants_presence" %}
+                <div class="contrib-inputs-section">
+                    {% if form.accueil_equipements_malentendants_presence %}<hr class="fr-hr" />{% endif %}
+                    {% include "fields/checkbox.html" with field=form.accueil_equipements_malentendants inline=False %}
+                </div>
             </div>
         {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
