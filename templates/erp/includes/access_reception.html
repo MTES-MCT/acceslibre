@@ -64,6 +64,8 @@
                             {% for soignant_experience in access.get_accueil_soignant_experience %}<li>{{ soignant_experience }}</li>{% endfor %}
                         </ul>
                     </li>
+                {% else %}
+                    <li data-filters="all">{{ "accueil_soignant_experience"|positive_text }}</li>
                 {% endif %}
             {% elif access.accueil_soignant is False %}
                 <li data-filters="visual">{{ "accueil_soignant"|negative_text }}</li>

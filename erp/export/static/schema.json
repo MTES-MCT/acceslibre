@@ -2312,7 +2312,7 @@
       "name": "accueil_signaletique_interieure",
       "type": "boolean",
       "title": "Signalétique intérieure",
-      "description": "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?",
+      "description": "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement à l'intérieur du bâtiment ?",
       "example": "True",
       "trueValues": [
         "true",
@@ -2454,7 +2454,7 @@
       "name": "accueil_prise_en_charge_patients",
       "type": "array",
       "title": "Prise en charge des patients",
-      "description": "L'établissement offre des prestations complémentaires pour la prise en charge des patients en situation de handicap. Valeurs possibles: preparation -> Préparation à la consultation ou visite préalable, organisation -> Organisation spécifique pour réduire le temps d’attente, outils_communication -> Outils de communication simplifiés pour expliquer les actes, materiel_auscultation -> Matériel médical adapté aux personnes obèses",
+      "description": "Prestations complémentaires pour la prise en charge des patients en situation de handicap. Valeurs possibles: preparation -> Préparation à la consultation ou visite préalable, organisation -> Organisation spécifique pour réduire le temps d’attente, outils_communication -> Outils de communication simplifiés pour expliquer les actes, materiel_auscultation -> Matériel médical adapté aux personnes obèses",
       "example": "[\"preparation\", \"organisation\", \"outils_communication\", \"materiel_auscultation\"]",
       "arrayItem": {
         "type": "string",

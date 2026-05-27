@@ -1821,7 +1821,7 @@ FIELDS = {
         "label": translate_lazy("Signalétique intérieure"),
         "help_text": mark_safe(
             translate_lazy(
-                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement dans le bâtiment ?"
+                "Une signalétique, lisible et compréhensible par tous, est-elle mise en place afin de s’orienter facilement à l'intérieur du bâtiment ?"
             )
         ),
         "help_text_ui_v2": translate_lazy(
@@ -2588,7 +2588,7 @@ FIELDS = {
         "help_text": mark_safe(translate_lazy("La salle de consultation est-elle accessible en fauteuil roulant ?")),
         "help_text_ui_v2": translate_lazy("La salle de consultation est accessible en fauteuil roulant"),
         "help_text_ui_neg_v2": translate_lazy(
-            "Pas de possibilité de consultations à domicile pour les personnes en situation de handicap"
+            "La salle de consultation n'est pas accessible en fauteuil roulant"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -2633,7 +2633,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy(
-            "L'établissement offre des prestations complémentaires pour la prise en charge des patients en situation de handicap"
+            "Prestations complémentaires pour la prise en charge des patients en situation de handicap"
         ),
         "help_text_ui_neg": translate_lazy(
             "L'établissement n'offre pas de prestations complémentaires pour la prise en charge des patients en situation de handicap"
