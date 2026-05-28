@@ -29,8 +29,10 @@
             <a id="btn_acceslibre"
                href="{{ erp.get_absolute_uri }}"
                rel="noopener"
+               target="_blank"
+               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers le site internet Acceslibre" %}"
                class="fr-text--md btn_acceslibre">
-                <span>{% translate "Voir plus sur" %}</span>
+                {% translate "Voir plus sur" %}
                 <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
                      alt=""
                      width="140"
