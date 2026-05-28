@@ -2481,6 +2481,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "school",
         "root": True,
+        "excluded_from_completion_rate": True
     },
     "accueil_isoloir_accessibilite": {
         "type": "boolean",
@@ -2546,7 +2547,7 @@ FIELDS = {
             "Le soignant est-il formé ou possède-t-il une expérience particulière pour la prise en charge de personnes en situation de handicap"
         ),
         "help_text_ui_neg_v2": translate_lazy(
-            "Les soignants ne sont pas formés et ne possèdent pas d'expérience particulière pour la prise en charge des personnes en situation de handicap"
+            "Le soignant n’est pas formé et ne possède pas d'expérience particulière pour la prise en charge des personnes en situation de handicap"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
