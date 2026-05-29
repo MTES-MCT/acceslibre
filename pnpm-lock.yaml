@@ -48,8 +48,8 @@ importers:
         specifier: 2.16.1
         version: 2.16.1(@swc/helpers@0.5.17)
       pnpm:
-        specifier: ^11.1.2
-        version: 11.1.2
+        specifier: ^11.2.2
+        version: 11.2.2
       process:
         specifier: 0.11.10
         version: 0.11.10
@@ -1291,8 +1291,8 @@ packages:
   pmtiles@4.4.0:
     resolution: {integrity: sha512-tCLI1C5134MR54i8izUWhse0QUtO/EC33n9yWp1N5dYLLvyc197U0fkF5gAJhq1TdWO9Tvl+9hgvFvM0fR27Zg==}
 
-  pnpm@11.1.2:
-    resolution: {integrity: sha512-QVocwll0cx51RVwUaDcb50xapft2IbUNQFbSIkUWCfEUEvI/1gLmFp8eBgRmZB95hZfhvpYaEGiINqZ7FlaUmQ==}
+  pnpm@11.2.2:
+    resolution: {integrity: sha512-NuZiH61QYXiTZFXnAke4gI707CV5ep9DepMoGgIEhOJgf2pGmiLpgph8PbuIZuMHFRSrEKShdJ4G7c0ewRhDbw==}
     engines: {node: '>=22.13'}
     hasBin: true
 
@@ -2898,7 +2898,7 @@ snapshots:
     dependencies:
       fflate: 0.8.2
 
-  pnpm@11.1.2: {}
+  pnpm@11.2.2: {}
 
   postcss-value-parser@4.2.0: {}
 
