@@ -1,30 +1,34 @@
-# For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
 name: 'CodeQL'
 
 on:
+  push:
+    branches: [production]
+  pull_request:
+    branches: [production]
   schedule:
-    - cron: '0 * * * *' # every hour
+    - cron: '0 6 * * 1'
 
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-slim
-
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     strategy:
       fail-fast: false
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          persist-credentials: false
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@84498526a009a99c875e83ef4821a8ba52de7c22
         with:
           languages: python, javascript
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@84498526a009a99c875e83ef4821a8ba52de7c22

@@ -69,3 +69,7 @@ fileignoreconfig:
   checksum: c9a7604687c73a1344d6ec4d5979a521981fd11f0ae35cb6351787d824c1c55f
 - filename: erp/management/commands/import_apidae.py
   checksum: 0bf117b99f9b76db4824cfe5aec647f455eaeb4e57c96425b90e6c580302a972
+- filename: .github/workflows/lint.yml
+  checksum: ddff088f8d8ed31e807965c8c23560d4fbdd88b34bdd82f0886ab2924da50baf
+- filename: .github/workflows/codeql-analysis.yml
+  checksum: 5c6a110dd47e53dbbda291025c4f4fc2779c26900414d68ef337c628a3797daa
