@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-28 16:44+0200\n"
+"POT-Creation-Date: 2026-06-04 23:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,12 +546,15 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
+#, python-brace-format
 msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
@@ -562,6 +565,7 @@ msgstr ""
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
+#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
@@ -2896,6 +2900,9 @@ msgstr ""
 msgid "S'inscrire au challenge"
 msgstr ""
 
+msgid "Challenges | Acceslibre"
+msgstr ""
+
 msgid "Challenge photos Acceslibre"
 msgstr ""
 
@@ -2904,14 +2911,20 @@ msgstr ""
 
 msgid ""
 "\n"
-"                        Grâce à <a class=\"fr-link fr-text--xl\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"Voir le site panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
 "                    "
 msgstr ""
 
 msgid "En savoir plus :"
 msgstr ""
 
+msgid "Voir le tutoriel - nouvelle fenêtre"
+msgstr ""
+
 msgid "Voir le tutoriel"
+msgstr ""
+
+msgid "Voir notre foire aux questions - nouvelle fenêtre"
 msgstr ""
 
 msgid "Voir notre foire aux questions"
@@ -2922,6 +2935,9 @@ msgid "%(panoramax_photos_count)s photos ajoutées"
 msgstr ""
 
 msgid "Encore un effort pour atteindre les <span class=\"fr-text--bold\">10 000</span> !"
+msgstr ""
+
+msgid "Je commence à contribuer - nouvelle fenêtre"
 msgstr ""
 
 msgid "Je commence à contribuer"
@@ -3229,22 +3245,25 @@ msgid ""
 "        "
 msgstr ""
 
+msgid "Profil et préférences | Acceslibre"
+msgstr ""
+
 msgid "Mon profil"
 msgstr ""
 
-msgid "Mon identifiant"
+msgid "Mon nom d'utilisateur"
 msgstr ""
 
-msgid "Modifier mon identifiant"
+msgid "Modifier mon nom d'utilisateur"
 msgstr ""
 
-msgid "Nom d’utilisateur (obligatoire)"
+msgid "Nom d'utilisateur (obligatoire)"
 msgstr ""
 
 msgid "Annuler"
 msgstr ""
 
-msgid "Enregistrer mon identifiant"
+msgid "Enregistrer mon nom d'utilisateur"
 msgstr ""
 
 msgid "Mon adresse email"
@@ -3319,19 +3338,25 @@ msgstr ""
 msgid "Supprimer mon compte"
 msgstr ""
 
+msgid "Attention"
+msgstr ""
+
 msgid "Souhaitez vous confirmer la suppression de votre compte ?"
 msgstr ""
 
 msgid "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site."
 msgstr ""
 
-msgid "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
+msgid "Confirmer la suppression de mon compte utilisateur."
+msgstr ""
+
+msgid "J'ai bien compris que cette opération est irréversible."
 msgstr ""
 
 msgid "Confirmer la suppression"
 msgstr ""
 
-msgid "Contact"
+msgid "Contact | Acceslibre"
 msgstr ""
 
 msgid "Signaler une malveillance pour l'établissement"
@@ -3374,6 +3399,9 @@ msgid "Une question ? Avez-vous parcouru notre page de questions fréquentes ?"
 msgstr ""
 
 msgid "Aller aux questions fréquentes"
+msgstr ""
+
+msgid "Contact"
 msgstr ""
 
 msgid "Votre message a été envoyé"
@@ -3673,9 +3701,6 @@ msgid "Mon compte"
 msgstr ""
 
 msgid "Supprimer un établissement"
-msgstr ""
-
-msgid "Attention"
 msgstr ""
 
 msgid "Vous vous apprêtez à supprimer l'établissement suivant"
@@ -4050,6 +4075,15 @@ msgstr ""
 msgid "Sélectionner une langue"
 msgstr ""
 
+msgid "Mentions légales | Acceslibre"
+msgstr ""
+
+msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
+msgstr ""
+
+msgid "Nos partenaires | Acceslibre"
+msgstr ""
+
 msgid "Nos partenaires"
 msgstr ""
 
@@ -4059,7 +4093,7 @@ msgstr ""
 msgid "Devenir partenaire"
 msgstr ""
 
-msgid "Partenaires réutilisateurs "
+msgid "Partenaires réutilisateurs"
 msgstr ""
 
 msgid "Partenaires web affichant nos informations d'accessibilité."
@@ -4077,7 +4111,7 @@ msgstr ""
 msgid "Afficher les détails pour le partenaire "
 msgstr ""
 
-msgid "Partenaires collecteurs "
+msgid "Partenaires collecteurs"
 msgstr ""
 
 msgid "Partenaires nous aidant à améliorer la qualité des données."
@@ -4473,6 +4507,9 @@ msgstr ""
 msgid "Site Internet"
 msgstr ""
 
+msgid "Qui sommes-nous ? | Acceslibre"
+msgstr ""
+
 msgid "Nous recensons l'accessibilité de tous les lieux recevant du public et partageons ces informations le plus largement possible en ligne."
 msgstr ""
 
@@ -4536,9 +4573,6 @@ msgid ""
 msgstr ""
 
 msgid "Co-fondatrice d’AccesLibre, j’œuvre à le rendre plus utile et pratique pour les utilisateurs et partenaires."
-msgstr ""
-
-msgid "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires."
 msgstr ""
 
 msgid "Je développe les partenariats d’AccesLibre pour maximiser l’usage de nos données sur la toile."
@@ -4999,6 +5033,9 @@ msgstr ""
 msgid "requis"
 msgstr ""
 
+msgid "Acceslibre, la plateforme collaborative de l'accessibilité"
+msgstr ""
+
 msgid "L’accessibilité des lieux publics, selon votre handicap, à portée de clic."
 msgstr ""
 
@@ -5265,6 +5302,9 @@ msgid "En cours de chargement..."
 msgstr ""
 
 msgid "Voir plus"
+msgstr ""
+
+msgid "Plan du site | Acceslibre"
 msgstr ""
 
 msgid "Statistiques d'Acceslibre"

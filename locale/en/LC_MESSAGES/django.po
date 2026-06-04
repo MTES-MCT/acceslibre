@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-28 16:49+0200\n"
+"POT-Creation-Date: 2026-06-04 23:50+0200\n"
 "PO-Revision-Date: 2026-05-28 16:49+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,12 +546,15 @@ msgstr "One NAF/APE code per line"
 msgid "Un code postal par ligne"
 msgstr "One postal code per line"
 
+#, python-brace-format
 msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
 msgstr "Please check your entry or <a href=\"{}\" target=\"_blank\">report an error</a>."
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr "This address cannot be found in the {} zip code (but can be found in the {} zip code)."
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
 
@@ -562,6 +565,7 @@ msgstr "You must suggest an activity name for the facility"
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
 msgstr "This establishment cannot be created as it has been reported as permanently closed. <a href='%(url_contact)s'>Contact the accèslibre team</a> if this is an error."
 
+#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr "The <b>{}</b> facility already exists in the database."
 
@@ -2914,15 +2918,25 @@ msgstr "Your objective"
 msgid "S'inscrire au challenge"
 msgstr "Register to the challenge"
 
+#, fuzzy
+#| msgid "Challenge photos Acceslibre"
+msgid "Challenges | Acceslibre"
+msgstr "Acceslibre photos challenge"
+
 msgid "Challenge photos Acceslibre"
 msgstr "Acceslibre photos challenge"
 
 msgid "Aidez-nous à ajouter des photos sur Acceslibre !"
 msgstr "Help us add photos on Acceslibre!"
 
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                        Grâce à <a class=\"fr-link fr-text--xl\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+#| "                    "
 msgid ""
 "\n"
-"                        Grâce à <a class=\"fr-link fr-text--xl\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"Voir le site panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
 "                    "
 msgstr ""
 "\n"
@@ -2931,8 +2945,18 @@ msgstr ""
 msgid "En savoir plus :"
 msgstr "Find out more:"
 
+#, fuzzy
+#| msgid "Voir le tutoriel - Nouvelle fenêtre"
+msgid "Voir le tutoriel - nouvelle fenêtre"
+msgstr "See the tutorial - New window"
+
 msgid "Voir le tutoriel"
 msgstr "See the tutorial"
+
+#, fuzzy
+#| msgid "Voir notre foire aux questions - Nouvelle fenêtre"
+msgid "Voir notre foire aux questions - nouvelle fenêtre"
+msgstr "See our Frequently Questions - New window"
 
 msgid "Voir notre foire aux questions"
 msgstr "See our Frequently Questions"
@@ -2943,6 +2967,11 @@ msgstr "%(panoramax_photos_count)s added photos"
 
 msgid "Encore un effort pour atteindre les <span class=\"fr-text--bold\">10 000</span> !"
 msgstr "Another effort to reach <span class=\"fr-text--bold\">10 000</span> !"
+
+#, fuzzy
+#| msgid "Je commence à contribuer"
+msgid "Je commence à contribuer - nouvelle fenêtre"
+msgstr "Start contributing"
 
 msgid "Je commence à contribuer"
 msgstr "Start contributing"
@@ -3260,22 +3289,35 @@ msgstr ""
 "A confirmation email containing an activation link has been sent to the new address.\n"
 "address. Don't forget to click this link to validate and activate the change."
 
+#, fuzzy
+#| msgid "Profil et préférences"
+msgid "Profil et préférences | Acceslibre"
+msgstr "Profile and preferences"
+
 msgid "Mon profil"
 msgstr "My profile"
 
-msgid "Mon identifiant"
-msgstr "My login"
+#, fuzzy
+#| msgid "Nom d'utilisateur*"
+msgid "Mon nom d'utilisateur"
+msgstr "Username*"
 
-msgid "Modifier mon identifiant"
+#, fuzzy
+#| msgid "Modifier mon identifiant"
+msgid "Modifier mon nom d'utilisateur"
 msgstr "Change my username"
 
-msgid "Nom d’utilisateur (obligatoire)"
+#, fuzzy
+#| msgid "Nom d’utilisateur (obligatoire)"
+msgid "Nom d'utilisateur (obligatoire)"
 msgstr "Username (required)"
 
 msgid "Annuler"
 msgstr "Cancel"
 
-msgid "Enregistrer mon identifiant"
+#, fuzzy
+#| msgid "Enregistrer mon identifiant"
+msgid "Enregistrer mon nom d'utilisateur"
 msgstr "Save my username"
 
 msgid "Mon adresse email"
@@ -3350,20 +3392,32 @@ msgstr "Log out"
 msgid "Supprimer mon compte"
 msgstr "Delete my account"
 
+msgid "Attention"
+msgstr "Attention"
+
 msgid "Souhaitez vous confirmer la suppression de votre compte ?"
 msgstr "Do you confirm the deletion of your account?"
 
 msgid "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site."
 msgstr "All your contributions are kept, however, your login will no longer appear on the site."
 
-msgid "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
+#, fuzzy
+#| msgid "Souhaitez vous confirmer la suppression de votre compte ?"
+msgid "Confirmer la suppression de mon compte utilisateur."
+msgstr "Do you confirm the deletion of your account?"
+
+#, fuzzy
+#| msgid "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
+msgid "J'ai bien compris que cette opération est irréversible."
 msgstr "Confirm the deletion of my user account. I understand that this operation is irreversible."
 
 msgid "Confirmer la suppression"
 msgstr "Confirm deletion"
 
-msgid "Contact"
-msgstr "Contact"
+#, fuzzy
+#| msgid "Prise de contact avec Acceslibre"
+msgid "Contact | Acceslibre"
+msgstr "Contact with Acceslibre"
 
 msgid "Signaler une malveillance pour l'établissement"
 msgstr "Report a malicious act for this facility"
@@ -3406,6 +3460,9 @@ msgstr "Any questions? Have you skimmed through our frequently asked questions?"
 
 msgid "Aller aux questions fréquentes"
 msgstr "Navigate to the frequently asked questions"
+
+msgid "Contact"
+msgstr "Contact"
 
 msgid "Votre message a été envoyé"
 msgstr "Your message has been sent"
@@ -3711,9 +3768,6 @@ msgstr "My account"
 
 msgid "Supprimer un établissement"
 msgstr "Delete a facility"
-
-msgid "Attention"
-msgstr "Attention"
 
 msgid "Vous vous apprêtez à supprimer l'établissement suivant"
 msgstr "You are about to delete the following establishment"
@@ -4101,6 +4155,21 @@ msgstr "Search for a facility"
 msgid "Sélectionner une langue"
 msgstr "Pick a language"
 
+#, fuzzy
+#| msgid "Mentions légales"
+msgid "Mentions légales | Acceslibre"
+msgstr "Legal notices"
+
+#, fuzzy
+#| msgid "Partager sur X - nouvelle fenêtre"
+msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
+msgstr "Share on X - New window"
+
+#, fuzzy
+#| msgid "Nos partenaires"
+msgid "Nos partenaires | Acceslibre"
+msgstr "Our partners"
+
 msgid "Nos partenaires"
 msgstr "Our partners"
 
@@ -4110,7 +4179,9 @@ msgstr "Discover our partners committed to make infrastructure, services and dig
 msgid "Devenir partenaire"
 msgstr "Become partner"
 
-msgid "Partenaires réutilisateurs "
+#, fuzzy
+#| msgid "Partenaires réutilisateurs "
+msgid "Partenaires réutilisateurs"
 msgstr "Reuse partners"
 
 msgid "Partenaires web affichant nos informations d'accessibilité."
@@ -4128,7 +4199,9 @@ msgstr "Many partners have been convinced and today, any information added on Ac
 msgid "Afficher les détails pour le partenaire "
 msgstr "Show details for the partner"
 
-msgid "Partenaires collecteurs "
+#, fuzzy
+#| msgid "Partenaires collecteurs "
+msgid "Partenaires collecteurs"
 msgstr "Collective partners"
 
 msgid "Partenaires nous aidant à améliorer la qualité des données."
@@ -4635,6 +4708,11 @@ msgstr "Contact Wegoto"
 msgid "Site Internet"
 msgstr "Website"
 
+#, fuzzy
+#| msgid "Qui sommes-nous ?"
+msgid "Qui sommes-nous ? | Acceslibre"
+msgstr "Who are we?"
+
 msgid "Nous recensons l'accessibilité de tous les lieux recevant du public et partageons ces informations le plus largement possible en ligne."
 msgstr "We identify the accessibility of all places receiving the public and share this information as widely as possible online."
 
@@ -4713,9 +4791,6 @@ msgstr ""
 
 msgid "Co-fondatrice d’AccesLibre, j’œuvre à le rendre plus utile et pratique pour les utilisateurs et partenaires."
 msgstr "Co-founder of Acceslibre, I strive to make it more useful and practical for users and partners."
-
-msgid "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires."
-msgstr "Co-founder, I assist the bizdev team in making the site the reference database for users and partners."
 
 msgid "Je développe les partenariats d’AccesLibre pour maximiser l’usage de nos données sur la toile."
 msgstr "I develop access partnerships to maximize the use of our data on the web."
@@ -5185,6 +5260,11 @@ msgstr "See more on"
 msgid "requis"
 msgstr "required"
 
+#, fuzzy
+#| msgid "La plateforme collaborative de l’accessibilité"
+msgid "Acceslibre, la plateforme collaborative de l'accessibilité"
+msgstr "The collaborative accessibility platform"
+
 msgid "L’accessibilité des lieux publics, selon votre handicap, à portée de clic."
 msgstr "The accessibility of public places, according to your handicap, within click."
 
@@ -5481,6 +5561,11 @@ msgstr "Loading..."
 msgid "Voir plus"
 msgstr "See more"
 
+#, fuzzy
+#| msgid "Plan du site"
+msgid "Plan du site | Acceslibre"
+msgstr "Sitemap"
+
 msgid "Statistiques d'Acceslibre"
 msgstr "Statistics"
 
@@ -5547,6 +5632,21 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid "Passer le plan interactif"
+#~ msgstr "Skip the interactive map"
+
+#~ msgid "Revenir à la liste des résultats"
+#~ msgstr "Back to the results list"
+
+#~ msgid "Filtrer et rechercher"
+#~ msgstr "Filter and search"
+
+#~ msgid "Mon identifiant"
+#~ msgstr "My login"
+
+#~ msgid "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires."
+#~ msgstr "Co-founder, I assist the bizdev team in making the site the reference database for users and partners."
 
 #~ msgid "Voir plus sur le site internet Acceslibre"
 #~ msgstr "See more on the Acceslibre website"

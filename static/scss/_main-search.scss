@@ -36,6 +36,21 @@
     --tabs-height: auto !important;
   }
 
+  // Map-bypass skip links live inside a tab panel. The global DSFR rule hides them
+  // with transform: translateY(-100%), which .fr-tabs { overflow: hidden } then clips,
+  // so the :focus-within reveal never escapes. Hide them with opacity only (kept out
+  // of flow via position: absolute) and let them flow back in on focus.
+  .fr-tabs__panel .fr-skiplinks {
+    transform: none;
+    z-index: 1000;
+
+    // Stay out of the flow when revealed (DSFR switches to position: relative on
+    // focus), otherwise showing the link adds height to the panel and resizes the map.
+    &:focus-within {
+      position: absolute;
+    }
+  }
+
   @media (min-width: breakpoints.$viewport-lg) {
     .fr-tabs__list {
       display: none !important;

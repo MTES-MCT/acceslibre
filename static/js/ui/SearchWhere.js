@@ -69,7 +69,7 @@ function SearchWhere(root) {
       input.form.addEventListener('submit', dom.preventDefault)
       dom.addClass(input, 'disabled', 'loading')
     } else {
-      input.type = 'search'
+      input.type = 'text'
       input.form.removeEventListener('submit', dom.preventDefault)
       dom.removeClass(input, 'disabled', 'loading')
     }
@@ -109,7 +109,10 @@ function SearchWhere(root) {
 
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
-    submitOnEnter: true, // see https://github.com/trevoreyre/autocomplete/issues/157
+    // Pressing Enter on a suggestion (incl. "Autour de moi" / "France entière") only
+    // selects it and closes the list; the search runs when the user activates the
+    // "Rechercher" button (RGAA: no unexpected search on selection).
+    submitOnEnter: false,
 
     getResultValue: ({ text }) => text,
 
@@ -120,10 +123,12 @@ function SearchWhere(root) {
       if ((result.lat && result.lon) || result.code) {
         setSearchData(result)
       } else if (result.text.startsWith(AROUND_ME)) {
+        // Fetch the user's location into the hidden lat/lon fields, but do not search:
+        // the user triggers the search via the "Rechercher" button.
+        setGeoLoading(true)
         if ((await api.hasPermission('geolocation')) !== 'granted') {
           a11yGeolocBtn.focus()
         }
-        setGeoLoading(true)
         const loc = await api.loadUserLocation({ retrieve: true })
         setGeoLoading(false)
         if (!loc) {
@@ -140,7 +145,7 @@ function SearchWhere(root) {
       } else {
         setSearchData(null)
       }
-      activateSubmitBtn(null, (force = true))
+      activateSubmitBtn(null, true)
     },
 
     renderResult: ({ text, context, icon }, props) => {

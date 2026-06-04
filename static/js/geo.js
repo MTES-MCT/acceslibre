@@ -12,6 +12,7 @@ import DOMPurify from 'dompurify'
 // Default coords used when we have no result and no selected city
 const DEFAULT_LAT = 46.7
 const DEFAULT_LON = 1.9
+const RESULTS_PER_PAGE = 20
 
 var L = window.L // Let's make EsLint happy :)
 
@@ -94,6 +95,10 @@ function _createPointIcon({ properties: props }, coords) {
     alt: props.nom,
     title: (props.activite__nom ? props.activite__nom + ': ' : '') + props.nom,
     icon: _createIcon(currentErpIdentifier && Number(props.uuid) === currentErpIdentifier, activity_icon),
+    // The map is aria-hidden and the results list is the accessible alternative.
+    // Keep markers out of the keyboard tab order: avoids the random marker tab order
+    // (RGAA 12.8) and the popup close button being unreachable by keyboard (RGAA 12.11).
+    keyboard: false,
   })
 }
 
@@ -283,6 +288,17 @@ function refreshList(data, clearHTML = true) {
   })
 }
 
+function _focusResultItem(index) {
+  const item = document.getElementById('search-results')?.children[index]
+  if (!item) return
+  item.setAttribute('tabindex', '-1')
+  item.focus()
+}
+
+function _focusResultsStart() {
+  document.getElementById('results-heading')?.focus()
+}
+
 function displayLoadingText() {
   const numberContainer = document.querySelector('#number-of-results')
 
@@ -345,6 +361,8 @@ function _getDataPromiseFromAPI(map, page) {
 
   _updateExportForm(urlParams)
 
+  urlParams.set('page_size', RESULTS_PER_PAGE)
+
   return fetch(_getRefreshApiUrl() + '?' + urlParams.toString(), {
     timeout: 10000,
     headers: {
@@ -374,7 +392,7 @@ function _getWhere() {
   return _getRoot().dataset.where || ''
 }
 
-function refreshData(map, page = 1) {
+function refreshData(map, page = 1, focusMode = null) {
   if (!shouldRefreshMap) {
     shouldRefreshMap = true
     return
@@ -382,6 +400,9 @@ function refreshData(map, page = 1) {
 
   const fetchPromise = _getDataPromiseFromAPI(map, page)
   const clearOldResults = page == 1
+
+  // Index of the first result that will be appended (used to move focus after "Voir plus")
+  const firstNewIndex = clearOldResults ? 0 : document.getElementById('search-results')?.children.length || 0
 
   const displayMoreBtn = document.getElementById('view-more-erps-btn')
   const loadingElement = document.getElementById('view-more-erps-loading')
@@ -401,6 +422,10 @@ function refreshData(map, page = 1) {
     }
 
     response.json().then((jsonData) => {
+      // Keep the pager in sync with the page actually loaded, so the next
+      // "Voir plus" click requests page + 1 instead of refetching this page.
+      currentPage = page
+
       if (jsonData.next) {
         displayMoreBtn?.classList.remove('fr-hidden')
       } else {
@@ -428,6 +453,12 @@ function refreshData(map, page = 1) {
       }
 
       loadingElement?.classList.add('fr-hidden')
+
+      if (focusMode === 'newItems') {
+        _focusResultItem(firstNewIndex)
+      } else if (focusMode === 'results') {
+        _focusResultsStart()
+      }
     })
   })
 }
@@ -469,7 +500,13 @@ function _addLocateButton(map) {
   new LocateControl({
     icon: 'icon icon-street-view a4a-locate-icon',
     position: 'topright',
-    strings: { title: gettext('Localisez moi') },
+    strings: {
+      title: gettext('Localisez moi'),
+      metersUnit: gettext('mètres'),
+      feetUnit: gettext('pieds'),
+      popup: gettext('Vous êtes à moins de {distance} {unit} de ce point'),
+      outsideMapBoundsMsg: gettext('Vous semblez être en dehors des limites de la carte'),
+    },
   })?.addTo(map)
 }
 
@@ -579,7 +616,7 @@ function AppMap(root) {
     })
 
     searchBtn.addEventListener('click', () => {
-      refreshData(map)
+      refreshData(map, 1, 'results')
       url.refreshSearchURL()
 
       // Close modal when clicking Search button
@@ -592,7 +629,7 @@ function AppMap(root) {
   const displayMoreBtn = document.getElementById('view-more-erps-btn')
   if (displayMoreBtn) {
     displayMoreBtn.addEventListener('click', () => {
-      refreshData(map, ++currentPage)
+      refreshData(map, currentPage + 1, 'newItems')
     })
   }
 
@@ -620,8 +657,53 @@ function AppMap(root) {
 
   // Update the map accessibility attributes to be compliant
   accessibilityFixes()
+  _setupResponsiveTabs()
+  _setupSearchResultsFocus()
 
   return map
+}
+
+// On a full-page-reload search (the main "Rechercher" submit / location Enter), the
+// browser drops focus at the top of the page. Flag the submit, then on the next load
+// move focus to the start of the results list instead (RGAA 7.1, Access42 focus reprise).
+// Gated by the flag so direct navigation / back-button / refresh don't steal focus.
+function _setupSearchResultsFocus() {
+  const FLAG = 'focusResultsOnLoad'
+  const searchForm = document.getElementById('search-form')
+
+  searchForm?.addEventListener('submit', () => {
+    sessionStorage.setItem(FLAG, '1')
+  })
+
+  if (sessionStorage.getItem(FLAG)) {
+    sessionStorage.removeItem(FLAG)
+    _focusResultsStart()
+  }
+}
+
+// On desktop (>= lg) the mobile tabs list is hidden and both panels are laid out as
+// columns, but the panels keep tabindex="0" — leftover focus stops from the mobile
+// tab layout (RGAA 10.7). Drop the tabindex on desktop, restore it on mobile, and
+// keep it in sync when the viewport is resized.
+function _setupResponsiveTabs() {
+  const tabs = document.querySelector('.main-search .fr-tabs')
+  if (!tabs) return
+
+  const panels = tabs.querySelectorAll('.fr-tabs__panel')
+  const desktop = window.matchMedia('(min-width: 992px)')
+
+  const apply = () => {
+    panels.forEach((panel) => {
+      if (desktop.matches) {
+        panel.removeAttribute('tabindex')
+      } else {
+        panel.setAttribute('tabindex', '0')
+      }
+    })
+  }
+
+  apply()
+  desktop.addEventListener('change', apply)
 }
 
 function accessibilityFixes() {
@@ -631,11 +713,36 @@ function accessibilityFixes() {
 
   if (layersToggleEl) {
     layersToggleEl.setAttribute('title', gettext('Calques'))
+    layersToggleEl.setAttribute('aria-label', gettext('Calques'))
+
+    // Keyboard: the toggle is an <a href="#">; without this, pressing Enter
+    // navigates to "#" and sends focus to the top of the page. Toggle the
+    // expanded state ourselves (same class Leaflet uses on hover) instead.
+    const layersControl = layersToggleEl.closest('.leaflet-control-layers')
+    const toggleLayers = (event) => {
+      event.preventDefault()
+      layersControl?.classList.toggle('leaflet-control-layers-expanded')
+    }
+    layersToggleEl.addEventListener('click', toggleLayers)
+    layersToggleEl.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') toggleLayers(event)
+    })
   }
 
   if (zoomInEl && zoomOutEl) {
     zoomInEl.setAttribute('title', gettext('Zoom avant'))
+    zoomInEl.setAttribute('aria-label', gettext('Zoom avant'))
     zoomOutEl.setAttribute('title', gettext('Zoom arrière'))
+    zoomOutEl.setAttribute('aria-label', gettext('Zoom arrière'))
+  }
+
+  // The Leaflet attribution link carries an English title ("A JavaScript library
+  // for interactive maps") read out by screen readers. Force the accessible name to
+  // "Leaflet" and drop the English title.
+  const leafletLink = document.querySelector('.leaflet-control-attribution a[href*="leaflet"]')
+  if (leafletLink) {
+    leafletLink.setAttribute('aria-label', 'Leaflet')
+    leafletLink.removeAttribute('title')
   }
 }
 

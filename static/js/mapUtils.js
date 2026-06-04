@@ -31,25 +31,19 @@ function generateHTMLForResult(result) {
                     <p class="fr-tag fr-mb-1w">${activity_name}</p>
                     <address class="fr-mb-0">${sanitizedAddress}</address>
                 </div>
-                <div class="fr-card__start">
-                    <ul class="fr-badges-group gap-1w align-self--center justify-content--end fr-mb-1v">
-                        <li>
-                            <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
-                            ${gettext('Remplissage')} ${completion_rate ?? '0'}%
-                            </p>
-                        </li>
-                    </ul>
+                <div class="fr-card__start align-self--end">
+                  <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
+                    ${gettext('Remplissage')} ${completion_rate ?? '0'}%
+                  </p>
                 </div>
             </div>
             <div class="fr-card__footer">
                 <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
-                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
-                        <span class="fr-sr-only">${gettext('Les détails de l’établissement')} ${sanitizedName}</span>
+                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}<span class="fr-sr-only"> ${gettext('les détails de l’établissement')} ${sanitizedName}</span></a>
                     </li>
                     <li>
-                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
-                        <span class="fr-sr-only">${gettext('Recentre la carte sur l’établissement')} ${sanitizedName}</span>
+                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}<span class="fr-sr-only">, ${gettext('recentre la carte sur l’établissement')} ${sanitizedName}</span></button>
                     </li>
                 </ul>
             </div>
