@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Profil et préférences" %}
+    {% translate "Profil et préférences | Acceslibre" %}
 {% endblock page_title %}
 {% block robots %}
     noindex, nofollow
@@ -20,15 +20,17 @@
             <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
                 {% csrf_token %}
                 <div class="grid-row-3">
-                    <span class="fr-col">{% translate "Mon identifiant" %}</span>
+                    <span class="fr-col">{% translate "Mon nom d'utilisateur" %}</span>
                     <span class="fr-col fr-text--bold">{{ user.username }}</span>
-                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open  {% if submitted_form == 'username-change' and form_login.errors %}fr-hidden{% else %}{% endif %}"
-                            type="button">{% translate "Modifier mon identifiant" %}</button>
+                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open {% if submitted_form == 'username-change' and form_login.errors %}fr-hidden{% else %}{% endif %}"
+                            type="button"
+                            data-focus-to="input[name=username]"
+                            id="edit-username">{% translate "Modifier mon nom d'utilisateur" %}</button>
                 </div>
                 <div class="edit-block {% if submitted_form == 'username-change' and form_login.errors %}{% else %}fr-hidden{% endif %} children-content">
                     <div class="fr-input-group {% if submitted_form == 'username-change' and form_login.errors %}fr-input-group--error{% endif %}">
                         <label class="fr-label" for="{{ form_login.username.id_for_label }}">
-                            {% translate "Nom d’utilisateur (obligatoire)" %}
+                            {% translate "Nom d'utilisateur (obligatoire)" %}
                         </label>
                         {{ form_login.username }}
                         {% if submitted_form == 'username-change' and form_login.errors %}
@@ -37,10 +39,16 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="display--flex gap-2w justify-self--end flex--wrap">
-                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
-                        <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon identifiant" %}</button>
-                    </div>
+                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--right">
+                        <li>
+                            <button class="fr-btn fr-btn--secondary toggle-close"
+                                    type="button"
+                                    data-focus-to="#edit-username">{% translate "Annuler" %}</button>
+                        </li>
+                        <li>
+                            <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon nom d'utilisateur" %}</button>
+                        </li>
+                    </ul>
                 </div>
                 {% for hidden in form_login.hidden_fields %}
                     <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
@@ -52,7 +60,9 @@
                     <span class="fr-col">{% translate "Mon adresse email" %}</span>
                     <span class="fr-col fr-text--bold word-break--word">{{ request.user.email }}</span>
                     <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open {% if submitted_form == 'email-change' and form_email.errors %}fr-hidden{% else %}{% endif %}"
-                            type="button">{% translate "Modifier mon adresse email" %}</button>
+                            type="button"
+                            id="edit-email"
+                            data-focus-to="input[name=email1]">{% translate "Modifier mon adresse email" %}</button>
                 </div>
                 <div class="edit-block {% if submitted_form == 'email-change' and form_email.errors %}{% else %}fr-hidden{% endif %} children-content">
                     <p>
@@ -77,10 +87,16 @@
                     {% for error in form_email.non_field_errors %}
                         <p id="email-desc-error" class="fr-error-text fr-mb-2w">{{ error }}</p>
                     {% endfor %}
-                    <div class="display--flex gap-2w justify-self--end flex--wrap">
-                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
-                        <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
-                    </div>
+                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--right">
+                        <li>
+                            <button class="fr-btn fr-btn--secondary toggle-close"
+                                    type="button"
+                                    data-focus-to="#edit-email">{% translate "Annuler" %}</button>
+                        </li>
+                        <li>
+                            <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
+                        </li>
+                    </ul>
                 </div>
                 {% for hidden in form_email.hidden_fields %}
                     <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
@@ -91,7 +107,9 @@
                 <div class="grid-row-2">
                     <span>{% translate "Mot de passe" %}</span>
                     <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open  {% if submitted_form == 'password-change' and form_password_change.errors %}fr-hidden{% else %}{% endif %}"
-                            type="button">{% translate "Modifier mon mot de passe" %}</button>
+                            type="button"
+                            data-focus-to="input[name=old_password]"
+                            id="edit-password">{% translate "Modifier mon mot de passe" %}</button>
                 </div>
                 <div class="edit-block {% if submitted_form == 'password-change' and form_password_change.errors %}{% else %}fr-hidden{% endif %} children-content display--flex direction--column gap-3w">
                     <p class="fr-mb-0">
@@ -114,8 +132,7 @@
                             <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-1-show"
-                                       type="checkbox"
-                                       aria-describedby="password-1-show-messages">
+                                       type="checkbox">
                                 <label class="fr-password__checkbox fr-label" for="password-1-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
@@ -141,8 +158,7 @@
                             <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-2-show"
-                                       type="checkbox"
-                                       aria-describedby="password-2-show-messages">
+                                       type="checkbox">
                                 <label class="fr-password__checkbox fr-label" for="password-2-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
@@ -164,17 +180,22 @@
                             <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-3-show"
-                                       type="checkbox"
-                                       aria-describedby="password-3-show-messages">
+                                       type="checkbox">
                                 <label class="fr-password__checkbox fr-label" for="password-3-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
                         {% for error in form_password_change.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                     </div>
-                    <div class="display--flex gap-2w align-self--end flex--wrap">
-                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
-                        <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>
-                    </div>
+                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--right">
+                        <li>
+                            <button class="fr-btn fr-btn--secondary toggle-close"
+                                    type="button"
+                                    data-focus-to="#edit-password">{% translate "Annuler" %}</button>
+                        </li>
+                        <li>
+                            <button class="fr-btn" type="submit">{% translate "Enregistrer mon mot de passe" %}</button>
+                        </li>
+                    </ul>
                 </div>
                 {% for hidden in form_password_change.hidden_fields %}
                     <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" />
@@ -235,21 +256,26 @@
                 {% endfor %}
                 <div class="grid-row-2">
                     <span>{% translate "Supprimer mon compte" %}</span>
-                    <button class="fr-btn fr-btn--secondary toggle-open" type="button">{% translate "Supprimer mon compte" %}</button>
+                    <button class="fr-btn fr-btn--secondary toggle-open"
+                            type="button"
+                            data-focus-to="input[name=confirm]"
+                            id="delete-account">{% translate "Supprimer mon compte" %}</button>
                 </div>
                 <div class="{% if submitted_form == 'delete-account' and form_delete_account.errors %}{% else %}fr-hidden{% endif %} children-content">
-                    <div class="fr-alert fr-alert--warning bg--white fr-mb-3w" role="alert">
+                    <div class="fr-alert fr-alert--warning bg--white fr-mb-3w">
+                        <h3 class="fr-alert__title">{% translate "Attention" %}</h3>
                         {% translate "Souhaitez vous confirmer la suppression de votre compte ?" %}
                         <br>
                         {% translate "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site." %}
                     </div>
                     {% csrf_token %}
                     <fieldset class="fr-fieldset {% if submitted_form == 'delete-account' and form_delete_account.errors %}fr-fieldset--error{% else %}{% endif %}">
+                        <legend class="fr-p-2v">{% translate "Confirmer la suppression de mon compte utilisateur." %}</legend>
                         <div class="fr-fieldset__element">
                             <div class="fr-checkbox-group">
                                 {{ form_delete_account.confirm }}
                                 <label class="fr-label" for="{{ form_delete_account.confirm.id_for_label }}">
-                                    {% translate "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible." %}
+                                    {% translate "J'ai bien compris que cette opération est irréversible." %}
                                 </label>
                             </div>
                         </div>
@@ -261,10 +287,16 @@
                             {% endfor %}
                         </div>
                     </fieldset>
-                    <div class="display--flex gap-2w justify-self--end flex--wrap">
-                        <button class="fr-btn fr-btn--secondary toggle-close" type="button">{% translate "Annuler" %}</button>
-                        <button class="fr-btn toggle-close" type="submit">{% translate "Confirmer la suppression" %}</button>
-                    </div>
+                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--right">
+                        <li>
+                            <button class="fr-btn fr-btn--secondary toggle-close"
+                                    type="button"
+                                    data-focus-to="#delete-account">{% translate "Annuler" %}</button>
+                        </li>
+                        <li>
+                            <button class="fr-btn toggle-close" type="submit">{% translate "Confirmer la suppression" %}</button>
+                        </li>
+                    </ul>
                 </div>
             </form>
         </section>
