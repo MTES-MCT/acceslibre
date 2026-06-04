@@ -21,6 +21,15 @@
         width: 200px;
         height: 167px;
       }
+
+      &:has(button:focus-visible) {
+        outline: 2px solid var(--focus-color, #0a76f6);
+        outline-offset: -2px;
+      }
+
+      button:focus-visible {
+        outline: none;
+      }
     }
 
     .fr-card__title {

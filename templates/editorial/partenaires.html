@@ -57,8 +57,6 @@
                 {% for id, partenaire in partenaires.items %}
                     {% if 'RE_USE' in partenaire.roles %}
                         <div class="fr-card fr-enlarge-button fr-card--sm"
-                             role="button"
-                             tabindex="0"
                              data-partner="{{ id }}"
                              aria-controls="dialog-partner-{{ id }}-RE_USE"
                              data-fr-opened="false"
@@ -107,12 +105,10 @@
                     </p>
                 </div>
             </div>
-            <ul class="partners-grid">
+            <div class="partners-grid">
                 {% for id, partenaire in partenaires.items %}
                     {% if 'COLLECTOR' in partenaire.roles %}
                         <div class="fr-card fr-enlarge-button fr-card--sm"
-                             role="button"
-                             tabindex="0"
                              data-partner="{{ id }}"
                              aria-controls="dialog-partner-{{ id }}-COLLECTOR"
                              data-fr-opened="false"
@@ -143,7 +139,7 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-            </ul>
+            </div>
         </section>
     </div>
     {% for id, partenaire in partenaires.items %}
