@@ -34,6 +34,7 @@
         {% endblock javascript_extras %}
         <meta name="google-site-verification"
               content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
+        {% include "common/matomo.html" %}
     </head>
     <body class="a4a" tabindex="0">
         {% block contrib_modal %}
@@ -43,7 +44,6 @@
         {% include "common/notifications.html" %}
         {% block content %}
         {% endblock content %}
-        {% include "common/matomo.html" %}
         {% include "common/sentry.html" %}
         {% if STAGING %}
             <div class="a4a-staging-notice">
