@@ -321,7 +321,7 @@ PARTENAIRES = {
     },
     "MAC_DONALD_S": {
         "logo": "img/partenaires/mcdo.png",
-        "name": "MC Donald's",
+        "name": "McDonald's",
         "template": "editorial/partenaires/mac_donald_s.html",
         "url": "https://www.mcdonalds.fr/",
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
@@ -369,7 +369,7 @@ PARTENAIRES = {
     },
     "NOUVELLE_AQUITAINE": {
         "logo": "img/partenaires/nouvelle_aquitaine.png",
-        "name": "Le CRT Nouvelle-Aquitaine",
+        "name": "Comité Régional du Tourisme de Nouvelle-Aquitaine",
         "template": "editorial/partenaires/nouvelle_aquitaine.html",
         "url": "https://www.crt-nouvelle-aquitaine.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
@@ -417,7 +417,7 @@ PARTENAIRES = {
     },
     "FEDERATION_DES_OFFICES_DE_TOURISME_DE_BRETAGNE": {
         "logo": "img/partenaires/federation_des_offices_de_tourisme_de_bretagne.png",
-        "name": "Fédération des Offices de tourisme de Bretagne",
+        "name": "Fédération des Offices de Tourisme de Bretagne",
         "template": "editorial/partenaires/federation_des_offices_de_tourisme_de_bretagne.html",
         "url": "https://otb.bzh/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
@@ -449,7 +449,7 @@ PARTENAIRES = {
     },
     "DIJOP": {
         "logo": "img/partenaires/dijop.png",
-        "name": "Pass Culture",
+        "name": "Délégation interministérielle aux Jeux Olympiques et Paralympiques",
         "template": "editorial/partenaires/dijop.html",
         "url": "https://www.info.gouv.fr/organisation/delegation-jeux-olympiques-paralympiques-paris-2024#:~:text=La%20D%C3%A9l%C3%A9gation%20interminist%C3%A9rielle%20aux%20Jeux,les%20actions%20des%20diff%C3%A9rents%20minist%C3%A8res",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
@@ -481,7 +481,7 @@ PARTENAIRES = {
     },
     "TOURISME_HANDICAPS": {
         "logo": "img/partenaires/tourisme_handicaps.png",
-        "name": "Association tourisme & Handicaps",
+        "name": "Association Tourisme & Handicaps",
         "template": "editorial/partenaires/tourisme_handicaps.html",
         "url": "https://tourisme-handicaps.org/",
         "labels": [PARTNER_LABELS["ASSOCIATION"]],
@@ -2481,7 +2481,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "school",
         "root": True,
-        "excluded_from_completion_rate": True
+        "excluded_from_completion_rate": True,
     },
     "accueil_isoloir_accessibilite": {
         "type": "boolean",
