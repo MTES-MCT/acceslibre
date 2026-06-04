@@ -5,7 +5,7 @@
 {% load cache %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block page_title %}
-    acceslibre, la plateforme collaborative de l'accessibilité
+    {% translate "Acceslibre, la plateforme collaborative de l'accessibilité" %}
 {% endblock page_title %}
 {% block top_fluid_content %}
     <section class="main-info-container">
@@ -35,13 +35,13 @@
     <section class="erps-preview-container">
         <div class="fr-container">
             <div class="erps-preview-container__content">
-                <h1>
+                <h2 class="fr-h1">
                     {% blocktranslate %}
                         Ajoutez vos adresses préférées
                         <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
                     {% endblocktranslate %}
-                </h1>
-                <h2 class="erps-preview-container__content-title">{{ erps_count|intcomma }}</h2>
+                </h2>
+                <span class="erps-preview-container__content-title">{{ erps_count|intcomma }}</span>
                 <p>{% translate "lieux enregistrés par nos contributeurs" %}</p>
                 <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
             </div>
@@ -60,11 +60,11 @@
     </section>
     <section class="filters-preview-container">
         <div class="fr-container">
-            <h1 class="filters-preview-container__title">
+            <h2 class="filters-preview-container__title fr-h1">
                 {% blocktranslate %}
                     Vous êtes unique, <span class="display--block">vos besoins le sont forcément aussi !</span>
                 {% endblocktranslate %}
-            </h1>
+            </h2>
             <section class="filters-preview-container__preview">
                 <div class="filters-preview-container__image-container">
                     <img src="{% static "img/homepage/filters-preview.png" %}"
@@ -90,12 +90,12 @@
                     <img src="{% static "img/homepage/pin-3.png" %}" alt="" />
                 </div>
                 <div>
-                    <h1 class="community-container__title">
+                    <h2 class="community-container__title fr-h1">
                         {% blocktranslate %}
                             Rejoignez une communauté
                             <span class="display--block">de +10 000 contributeurs et utilisateurs</span>
                         {% endblocktranslate %}
-                    </h1>
+                    </h2>
                     <p>
                         {% blocktranslate %}
                             Profitez d’informations détaillées sur vos lieux préférés et contribuez
