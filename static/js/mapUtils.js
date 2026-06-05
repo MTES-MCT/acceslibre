@@ -21,8 +21,6 @@ function generateHTMLForResult(result) {
   const sanitizedAddress = DOMPurify.sanitize(result.properties.adresse, { ALLOWED_TAGS: [] })
   const sanitizedCommune = DOMPurify.sanitize(result.properties.commune ?? '', { ALLOWED_TAGS: [] })
 
-  console.log(result.properties)
-
   return DOMPurify.sanitize(
     `
     <li class="list-style-type--none">
