@@ -207,7 +207,7 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
         model = Erp
         geo_field = "geom"
 
-        fields = ("uuid", "nom", "adresse", "geom", "activite", "web_url", "completion_rate")
+        fields = ("uuid", "nom", "adresse", "commune", "geom", "activite", "web_url", "completion_rate")
 
     def get_completion_rate(self, obj):
         return obj.accessibilite.completion_rate

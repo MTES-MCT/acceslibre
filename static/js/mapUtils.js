@@ -19,6 +19,9 @@ function generateHTMLForResult(result) {
   const completion_rate = result.properties.completion_rate
   const sanitizedName = DOMPurify.sanitize(result.properties.nom, { ALLOWED_TAGS: [] })
   const sanitizedAddress = DOMPurify.sanitize(result.properties.adresse, { ALLOWED_TAGS: [] })
+  const sanitizedCommune = DOMPurify.sanitize(result.properties.commune ?? '', { ALLOWED_TAGS: [] })
+
+  console.log(result.properties)
 
   return DOMPurify.sanitize(
     `
@@ -26,7 +29,7 @@ function generateHTMLForResult(result) {
       <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
         <div class="fr-card__body">
             <div class="fr-card__content">
-                <h3 class="fr-card__title fr-h5">${sanitizedName}</h3>
+                <h3 class="fr-card__title fr-h5">${sanitizedName}<span class="fr-sr-only"> ${sanitizedCommune}</span></h3>
                 <div class="fr-card__desc">
                     <p class="fr-tag fr-mb-1w">${activity_name}</p>
                     <address class="fr-mb-0">${sanitizedAddress}</address>
