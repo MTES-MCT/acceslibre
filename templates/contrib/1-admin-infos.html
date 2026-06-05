@@ -278,19 +278,31 @@
                             </small>
                         </h4>
                     {% endif %}
-                    <div id="localisation-map">
-                        <div class="fr-input-group">
-                            <label class="fr-label" for="id_latitude">{% translate "Latitude" %}</label>
-                            {{ form.lat }}
-                            <label class="fr-label" for="id_longitude">{% translate "Longitude" %}</label>
-                            {{ form.lon }}
-                        </div>
-                        <div aria-hidden="true">
-                            <div class="a4a-localisation-map"></div>
-                            <script id="map-options" type="application/json">
-            {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-                            </script>
-                        </div>
+                    <div class="fr-skiplinks" data-target-id="back-to-map-btn">
+                        <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                            <ul class="fr-skiplinks__list">
+                                <li>
+                                    <a class="fr-link" id="skip-map-btn" href="#back-to-map-btn">{% translate "Passer la carte interactive" %}</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="localisation-map" aria-hidden="true">
+                        <div class="a4a-localisation-map"></div>
+                        {{ form.lat }}
+                        {{ form.lon }}
+                        <script id="map-options" type="application/json">
+        {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
+                        </script>
+                    </div>
+                    <div class="fr-skiplinks" data-target-id="skip-map-btn">
+                        <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                            <ul class="fr-skiplinks__list">
+                                <li>
+                                    <a class="fr-link" id="back-to-map-btn" href="#skip-map-btn">{% translate "Revenir à la carte interactive" %}</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </fieldset>

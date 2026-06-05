@@ -506,8 +506,8 @@ class AdminErpForm(BaseErpForm):
 
 
 class BasePublicErpInfosForm(BaseErpForm):
-    lat = forms.DecimalField(label=translate_lazy("Latitude"))
-    lon = forms.DecimalField(label=translate_lazy("Longitude"))
+    lat = forms.DecimalField(widget=forms.HiddenInput)
+    lon = forms.DecimalField(widget=forms.HiddenInput)
     nouvelle_activite = forms.CharField(
         required=False,
         label="",

@@ -2,12 +2,12 @@ import geo from '../geo'
 
 function LocalisationMap(root) {
   const mapDomEl = root.querySelector('.a4a-localisation-map')
-  const inputLat = root.querySelector('input[name=lat]')
-  const inputLon = root.querySelector('input[name=lon]')
+  const hiddenLat = root.querySelector('input[type=hidden][name=lat]')
+  const hiddenLon = root.querySelector('input[type=hidden][name=lon]')
   const mapOptions = JSON.parse(root.querySelector('#map-options').textContent.trim())
   const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, zoomControl: false, ...mapOptions })
-  const lat = parseFloat(inputLat.value)
-  const lon = parseFloat(inputLon.value)
+  const lat = parseFloat(hiddenLat.value)
+  const lon = parseFloat(hiddenLon.value)
 
   map.setView({ lat, lon }, 18)
 
@@ -21,8 +21,8 @@ function LocalisationMap(root) {
   map.addControl(control)
   map.on('move', function (event) {
     const coords = event.target.getCenter()
-    inputLat.value = coords.lat
-    inputLon.value = coords.lng
+    hiddenLat.value = coords.lat
+    hiddenLon.value = coords.lng
   })
 
   let numero = document.getElementById('id_numero')
@@ -37,17 +37,6 @@ function LocalisationMap(root) {
       geo.updateMap(query, map)
     })
   )
-
-  function updateMapFromCoords() {
-    const newLat = parseFloat(inputLat.value)
-    const newLon = parseFloat(inputLon.value)
-    if (!isNaN(newLat) && !isNaN(newLon)) {
-      map.setView({ lat: newLat, lon: newLon }, map.getZoom())
-    }
-  }
-
-  inputLat.addEventListener('change', updateMapFromCoords)
-  inputLon.addEventListener('change', updateMapFromCoords)
 }
 
 export default LocalisationMap
