@@ -47,6 +47,7 @@ dom.ready(() => {
   dom.mountOne('.erps-search-container', ui.SearchMobile)
   dom.mountOne('#btn-to-copy-wrapper', ui.BtnToCopy)
   dom.mountAll('*[data-focus-to]', ui.FocusTo)
+  dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
 })
 
 ui.StoreFilters()

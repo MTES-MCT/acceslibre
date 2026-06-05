@@ -19,10 +19,21 @@ function LocalisationMap(root) {
 
   const control = L.control.centerCross({ show: true, position: 'topright' })
   map.addControl(control)
+
+  const liveRegion = document.getElementById('map-position-live')
+
   map.on('move', function (event) {
     const coords = event.target.getCenter()
     hiddenLat.value = coords.lat
     hiddenLon.value = coords.lng
+  })
+
+  map.on('moveend', function (event) {
+    if (!liveRegion) return
+    const coords = event.target.getCenter()
+    liveRegion.textContent = liveRegion.dataset.labelTemplate
+      .replace('{lat}', coords.lat.toFixed(6))
+      .replace('{lon}', coords.lng.toFixed(6))
   })
 
   let numero = document.getElementById('id_numero')

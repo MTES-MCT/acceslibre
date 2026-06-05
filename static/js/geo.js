@@ -113,7 +113,12 @@ function _createClusterIcon(cluster) {
 function createIgnTiles() {
   return L.tileLayer(
     'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}',
-    { attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>', maxZoom: 19 }
+    {
+      attribution: `&copy; <a href="https://www.ign.fr/" target="_blank" rel="noopener noreferrer" aria-label="${gettext(
+        'IGN (nouvelle fenêtre)'
+      )}">IGN</a>`,
+      maxZoom: 19,
+    }
   )
 }
 
@@ -193,6 +198,15 @@ function createMap(domTarget, options = {}) {
 
   const defaults = { layers: [defaultPlanLayer], scrollWheelZoom: true, ...options }
   const map = L.map(domTarget, { ...defaults, options })
+
+  // Default Leaflet prefix links to "leafletjs.com" with an English title and
+  // stays in the current window. Replace it: French accessible name and open in
+  // a new window (this link is unrelated to the contribution flow).
+  map.attributionControl.setPrefix(
+    `<a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer" aria-label="${gettext(
+      'Leaflet (nouvelle fenêtre)'
+    )}">Leaflet</a>`
+  )
 
   const layerControl = L.control
     .layers({
@@ -734,15 +748,6 @@ function accessibilityFixes() {
     zoomInEl.setAttribute('aria-label', gettext('Zoom avant'))
     zoomOutEl.setAttribute('title', gettext('Zoom arrière'))
     zoomOutEl.setAttribute('aria-label', gettext('Zoom arrière'))
-  }
-
-  // The Leaflet attribution link carries an English title ("A JavaScript library
-  // for interactive maps") read out by screen readers. Force the accessible name to
-  // "Leaflet" and drop the English title.
-  const leafletLink = document.querySelector('.leaflet-control-attribution a[href*="leaflet"]')
-  if (leafletLink) {
-    leafletLink.setAttribute('aria-label', 'Leaflet')
-    leafletLink.removeAttribute('title')
   }
 }
 

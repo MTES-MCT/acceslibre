@@ -1725,7 +1725,7 @@ FIELDS = {
         "type": "number",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Largeur de la porte ou de l'entrée"),
+        "label": translate_lazy("Largeur de la porte ou de l'entrée en cm"),
         "help_text": mark_safe(
             translate_lazy(
                 "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
@@ -1750,7 +1750,7 @@ FIELDS = {
         "label": translate_lazy("Entrée dédiée aux personnes en situation de handicap"),
         "help_text": mark_safe(
             translate_lazy(
-                "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
+                "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite (PMR)&nbsp;?"
             )
         ),
         "help_text_ui": translate_lazy(

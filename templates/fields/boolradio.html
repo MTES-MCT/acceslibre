@@ -21,10 +21,16 @@
             {% endif %}
         {% endif %}
         <div class="fr-mb-1v">
-            <fieldset class="fr-fieldset">
-                {% if field.help_text %}
-                    <legend class="fr-fieldset__legend fr-fieldset__legend--regular">{{ field.help_text|safe }}</legend>
-                {% endif %}
+            <fieldset class="fr-fieldset"
+                      {% if disabled %}disabled{% endif %}
+                      {% if describedby %}aria-describedby="{{ describedby }}"{% endif %}>
+                <legend class="fr-fieldset__legend fr-fieldset__legend--regular{% if not field.help_text %} fr-sr-only{% endif %}">
+                    {% if field.help_text %}
+                        {{ field.help_text|safe }}
+                    {% else %}
+                        {{ field.label }}
+                    {% endif %}
+                </legend>
                 {% for choice in field %}
                     <div class="fr-fieldset__element">
                         <div class="fr-grid-row fr-grid-row--middle">

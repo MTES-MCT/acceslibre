@@ -23,6 +23,7 @@ import ContentToggle from './ContentToggle'
 import SearchMobile from './SearchMobile'
 import BtnToCopy from './BtnToCopy'
 import FocusTo from './FocusTo.js'
+import FocusOnLoad from './FocusOnLoad.js'
 
 export default {
   AsteriskField,
@@ -50,4 +51,5 @@ export default {
   SearchMobile,
   BtnToCopy,
   FocusTo,
+  FocusOnLoad,
 }
