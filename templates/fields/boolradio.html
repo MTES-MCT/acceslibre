@@ -2,29 +2,29 @@
 {% load i18n %}
 {% if field %}
     <div class="field-{{ field.name }} fr-mb-3v">
-        {% if field.id_for_label and key|should_display_label %}
+        {% if field.label and key|should_display_label %}
             {% if heading_level == 4 %}
-                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
+                <h4 id="group-{{ field.name }}"
+                    class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
             {% else %}
-                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+                <h3 id="group-{{ field.name }}"
+                    class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
             {% endif %}
-            <label for="{{ field.id_for_label }}" class="mb-0">
-                {% if field.field.required %}
+            {% if field.id_for_label and field.field.required %}
+                <label for="{{ field.id_for_label }}" class="mb-0">
                     <small>({% translate "requis" %})</small>
-                {% endif %}
-            </label>
-        {% elif field.label and key|should_display_label %}
-            {% if heading_level == 4 %}
-                <h4 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h4>
-            {% else %}
-                <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{{ field.label }}</h3>
+                </label>
             {% endif %}
         {% endif %}
         <div class="fr-mb-1v">
             <fieldset class="fr-fieldset"
+                      {% if field.label and key|should_display_label %}aria-labelledby="group-{{ field.name }}{% if field.help_text %} legend-{{ field.name }}{% endif %}
+                      "
+                      {% endif %}
                       {% if disabled %}disabled{% endif %}
                       {% if describedby %}aria-describedby="{{ describedby }}"{% endif %}>
-                <legend class="fr-fieldset__legend fr-fieldset__legend--regular{% if not field.help_text %} fr-sr-only{% endif %}">
+                <legend id="legend-{{ field.name }}"
+                        class="fr-fieldset__legend fr-fieldset__legend--regular{% if not field.help_text %} fr-sr-only{% endif %}">
                     {% if field.help_text %}
                         {{ field.help_text|safe }}
                     {% else %}

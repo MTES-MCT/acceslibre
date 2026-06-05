@@ -13,7 +13,12 @@ function FocusOnLoad(node) {
     return
   }
 
-  node.focus({ preventScroll: true })
+  // In the edit flow, steps are changed through the dropdown; keep focus on it
+  // after the reload so the user can keep navigating.
+  const stepSelect = document.querySelector('#contrib-edit-cta')
+  if (stepSelect) {
+    stepSelect.focus({ preventScroll: true })
+  }
 }
 
 export default FocusOnLoad
