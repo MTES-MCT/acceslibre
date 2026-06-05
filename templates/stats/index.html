@@ -38,8 +38,10 @@
             <div class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <p class="fr-tile__title fr-h1 fr-mb-0">{{ nb_published_erps|intcomma }}</p>
-                        <p class="fr-tile__desc">{% translate "Lieux référencés" %}</p>
+                        <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                            <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_published_erps|intcomma }}</li>
+                            <li>{% translate "Lieux référencés" %}</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -55,8 +57,10 @@
             <div class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_contributors|intcomma }}</p>
-                        <p class="fr-tile__desc">{% translate "Contributeurs" %}</p>
+                        <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                            <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_contributors|intcomma }}</li>
+                            <li>{% translate "Contributeurs" %}</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -79,14 +83,14 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>{% translate "Date" %}</th>
-                                        <th>{% translate "Nombre d'établissements référencés" %}</th>
+                                        <th scope="col">{% translate "Date" %}</th>
+                                        <th scope="col">{% translate "Nombre d'établissements référencés" %}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for erp in total_erps %}
                                         <tr>
-                                            <td class="text--capitalize">{{ erp.month|date:"F Y" }}</td>
+                                            <th scope="row" class="text--capitalize">{{ erp.month|date:"F Y" }}</th>
                                             <td>{{ erp.total_erps|intcomma }}</td>
                                         </tr>
                                     {% endfor %}
@@ -103,16 +107,20 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_unique_visitors|intcomma }}</p>
-                            <p class="fr-tile__desc">{% translate "Visiteurs uniques sur les 30 derniers jours" %}</p>
+                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_unique_visitors|intcomma }}</li>
+                                <li>{% translate "Visiteurs uniques sur les 30 derniers jours" %}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ nb_widget_open|intcomma }}</p>
-                            <p class="fr-tile__desc">{% translate "Consultation sur des sites partenaires" %}</p>
+                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_widget_open|intcomma }}</li>
+                                <li>{% translate "Consultation sur des sites partenaires" %}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -124,16 +132,20 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ average_completion_rate|floatformat:2 }}%</p>
-                            <p class="fr-tile__desc">{% translate "Taux de remplissage moyen des fiches" %}</p>
+                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ average_completion_rate|floatformat:2 }}%</li>
+                                <li>{% translate "Taux de remplissage moyen des fiches" %}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-h1 fr-mb-0 fr-tile__title">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</p>
-                            <p class="fr-tile__desc">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
+                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
+                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</li>
+                                <li>{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -148,15 +160,15 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>{% translate "Nombre d'informations remplies" %}</th>
-                                        <th>{% translate "Nombre de fiches" %}</th>
-                                        <th>{% translate "Part de fiches" %}</th>
+                                        <th scope="col">{% translate "Nombre d'informations remplies" %}</th>
+                                        <th scope="col">{% translate "Nombre de fiches" %}</th>
+                                        <th scope="col">{% translate "Part de fiches" %}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for erp_completion in erp_completion_totals %}
                                         <tr>
-                                            <td>{{ erp_completion.completion_range }}</td>
+                                            <th scope="row">{{ erp_completion.completion_range }}</th>
                                             <td>{{ erp_completion.count|intcomma }}</td>
                                             <td>{{ erp_completion.ratio|floatformat:2 }}%</td>
                                         </tr>
