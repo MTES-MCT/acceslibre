@@ -12,8 +12,7 @@
                 <input type="submit"
                        class="fr-btn btn-primary"
                        name="contribute"
-                       value="{% if step == 1 %} {% translate "Passer à l’étape suivante" %} {% else %} {% blocktranslate with step=step|add:"1"%}Passer à l’étape {{ step }}{% endblocktranslate %} {% endif %}  "
-                       aria-label="{% blocktranslate %}Continuez sur l'étape{% endblocktranslate %} {{ next_step_title|capfirst }} ">
+                       value="{% if step == 1 %} {% translate "Passer à l’étape suivante" %} {% else %} {% blocktranslate with step=step|add:"1"%}Passer à l’étape {{ step }}{% endblocktranslate %}{% endif %}">
             </li>
         {% endif %}
         {% if publier_route %}
