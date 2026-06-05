@@ -278,13 +278,19 @@
                             </small>
                         </h4>
                     {% endif %}
-                    <div id="localisation-map" aria-hidden="true">
-                        <div class="a4a-localisation-map"></div>
-                        {{ form.lat }}
-                        {{ form.lon }}
-                        <script id="map-options" type="application/json">
-        {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-                        </script>
+                    <div id="localisation-map">
+                        <div class="fr-input-group">
+                            <label class="fr-label" for="id_latitude">{% translate "Latitude" %}</label>
+                            {{ form.lat }}
+                            <label class="fr-label" for="id_longitude">{% translate "Longitude" %}</label>
+                            {{ form.lon }}
+                        </div>
+                        <div aria-hidden="true">
+                            <div class="a4a-localisation-map"></div>
+                            <script id="map-options" type="application/json">
+            {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
+                            </script>
+                        </div>
                     </div>
                 </div>
             </fieldset>
