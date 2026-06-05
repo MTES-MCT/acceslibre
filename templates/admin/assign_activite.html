@@ -1,7 +1,7 @@
 {% extends "admin/base_site.html" %}
 {% load i18n %}
 {% block content %}
-    <form action="" method="post">
+    <form method="post">
         {% csrf_token %}
         <p>{% translate "Sélectionnez une catégorie à assigner aux ERP sélectionnés :" %}</p>
         <select name="activite">

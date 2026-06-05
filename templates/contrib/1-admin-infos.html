@@ -78,7 +78,7 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <form id="contrib-edit-form" action="" method="post" novalidate>
+        <form id="contrib-edit-form" method="post" novalidate>
             {% csrf_token %}
             {{ form.geom }}
             {{ form.source }}
