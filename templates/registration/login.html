@@ -75,7 +75,10 @@
                 {% csrf_token %}
                 <div>
                     {% if form.non_field_errors %}
-                        <div class="fr-alert fr-alert--error fr-mb-2w" role="alert">
+                        <div id="login-error"
+                             class="fr-alert fr-alert--error fr-mb-2w"
+                             role="alert"
+                             tabindex="-1">
                             {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
                         </div>
                     {% endif %}

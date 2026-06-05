@@ -67,6 +67,11 @@ window.onload = function () {
     })
   }
 
+  let errorAlert = document.getElementById('login-error')
+  if (errorAlert) {
+    errorAlert.focus()
+  }
+
   ui.listenToLabelEvents()
   ui.LoadFilters()
 }
