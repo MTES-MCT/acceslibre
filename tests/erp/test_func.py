@@ -56,7 +56,7 @@ def test_home(browser, django_assert_max_num_queries):
     with django_assert_max_num_queries(3):
         browser.visit(reverse("home"))
 
-    assert browser.title.startswith("acceslibre")
+    assert browser.title.startswith("Acceslibre")
 
 
 @pytest.mark.django_db

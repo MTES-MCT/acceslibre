@@ -156,7 +156,12 @@ def test_notification_erp(mocker, mock_geocode, client):
                             "comment": "",
                             "diff": [
                                 {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
-                                {"field": "geom", "old": "43.6570, 2.6754", "new": "45.0000, 5.0000", "label": "geom"},
+                                {
+                                    "field": "geom",
+                                    "old": "43.6570, 2.6754",
+                                    "new": "45.0000, 5.0000",
+                                    "label": "Localisation",
+                                },
                                 {"field": "numero", "old": "5", "new": "4", "label": "numero"},
                                 {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
                             ],
