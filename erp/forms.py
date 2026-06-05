@@ -656,7 +656,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 raise ValidationError(
                     mark_safe(
                         translate(
-                            "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+                            "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
                             % ({"url_contact": url_contact})
                         )
                     )
