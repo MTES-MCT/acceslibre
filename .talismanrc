@@ -27,14 +27,6 @@ fileignoreconfig:
   checksum: 1cc959485e4164c86f548e532fadfa8ea7c4cc55db6637b6ea822c87c5981acf
 - filename: templates/contrib/4-exterieur.html
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
-- filename: templates/registration/password_reset_complete.html
-  checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
-- filename: templates/registration/password_reset_confirm.html
-  checksum: 72dca1c76f1a02712d8c3faa8c9d60f149e0093b2c30ab45a62360af0fa77cd9
-- filename: templates/registration/password_reset_done.html
-  checksum: 5dbcf869ea896e92c4ea66c628d19c5b977b6990dfe136d9909d5b9d98dfaa95
-- filename: templates/registration/password_reset_form.html
-  checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
 - filename: templates/contrib/3-transport.html
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
 - filename: .circleci/config.yml
@@ -75,3 +67,11 @@ fileignoreconfig:
   checksum: 5c6a110dd47e53dbbda291025c4f4fc2779c26900414d68ef337c628a3797daa
 - filename: templates/compte/my_profile.html
   checksum: a384ff4e2acf5d476531af3ffc8b95c55eb640ac14f1712b70d31bd313359ede
+- filename: templates/registration/password_reset_complete.html
+  checksum: e7f3391256f2e596f7d0a6d16d4aa531c7ce74a270e58afbeda6a184b7ece3b9
+- filename: templates/registration/password_reset_confirm.html
+  checksum: 8d9fd9859d5f9c99d4b1f805a579ccb42dccca3eb9c2ffcf96408fed887f99b4
+- filename: templates/registration/password_reset_done.html
+  checksum: 8ddf6641efc334c0b4494d59888753be16e5e8d3bd64412a17c22f8ff9b2b032
+- filename: templates/registration/password_reset_form.html
+  checksum: 25e408b13a9d754eeda9d18811c10eff21e87e7674f71e6021f304aa542c153c

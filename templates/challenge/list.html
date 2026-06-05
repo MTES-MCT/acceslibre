@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Challenges | Acceslibre" %}
+    {% translate "Challenges" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block breadcrumb %}
     <div class="fr-container">
@@ -48,7 +48,10 @@
                                target="_blank">{% translate "Voir le tutoriel" %}</a>
                         </li>
                         <li>
-                            <a class="fr-link fr-text--xl" title="{% translate "Voir notre foire aux questions - nouvelle fenêtre" %}" href="{% url "faq" %}" target="_blank">{% translate "Voir notre foire aux questions" %}</a>
+                            <a class="fr-link fr-text--xl"
+                               title="{% translate "Voir notre foire aux questions - nouvelle fenêtre" %}"
+                               href="{% url "faq" %}"
+                               target="_blank">{% translate "Voir notre foire aux questions" %}</a>
                         </li>
                     </ul>
                 </section>
@@ -65,7 +68,10 @@
                                 <div class="fr-card__footer">
                                     <ul class="fr-btns-group fr-btns-group--inline-reverse fr-btns-group--inline-lg">
                                         <li>
-                                            <a class="fr-btn" title="{% translate "Je commence à contribuer - nouvelle fenêtre" %}" href="{% url "panoramax" %}" target="_blank">{% translate "Je commence à contribuer" %}</a>
+                                            <a class="fr-btn"
+                                               title="{% translate "Je commence à contribuer - nouvelle fenêtre" %}"
+                                               href="{% url "panoramax" %}"
+                                               target="_blank">{% translate "Je commence à contribuer" %}</a>
                                         </li>
                                     </ul>
                                 </div>
