@@ -5,7 +5,9 @@
         <div class="fr-alert fr-alert--{{ message.tags|get_alert_level }}"
              role="alert"
              aria-live="polite"
-             aria-atomic="true">
+             aria-atomic="true"
+             data-notification
+             data-notification-text="{{ message }}">
             <p class="fr-alert__title">
                 {% if messages.tags == "debug" %}
                     {% translate "Debug" %}
@@ -19,7 +21,7 @@
                     {% translate "Erreur" %}
                 {% endif %}
             </p>
-            <p>{{ message }}</p>
+            <p class="accessibility-notification-text"></p>
             <button title="{% translate "Fermer" %}"
                     onclick="const alert = this.parentNode; alert.parentNode.removeChild(alert)"
                     type="button"

@@ -48,6 +48,7 @@ dom.ready(() => {
   dom.mountOne('#btn-to-copy-wrapper', ui.BtnToCopy)
   dom.mountAll('*[data-focus-to]', ui.FocusTo)
   dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
+  dom.mountAll('[data-notification]', ui.NotificationAlert)
 })
 
 ui.StoreFilters()

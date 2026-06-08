@@ -3,6 +3,13 @@
 .fr-header {
   .fr-responsive-img {
     max-width: 128px;
+
+    // Below lg the brand row stacks logo + operator + menu button in a
+    // width:100% / overflow:hidden container; a full-width logo gets clipped
+    // on narrow screens, so shrink it to fit.
+    @media (max-width: #{breakpoints.$viewport-lg - 1}) {
+      max-width: 88px;
+    }
   }
 
   .fr-nav__item-spacer {

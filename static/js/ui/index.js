@@ -24,6 +24,7 @@ import SearchMobile from './SearchMobile'
 import BtnToCopy from './BtnToCopy'
 import FocusTo from './FocusTo.js'
 import FocusOnLoad from './FocusOnLoad.js'
+import NotificationAlert from './NotificationAlert.js'
 
 export default {
   AsteriskField,
@@ -52,4 +53,5 @@ export default {
   BtnToCopy,
   FocusTo,
   FocusOnLoad,
+  NotificationAlert,
 }
