@@ -5,7 +5,7 @@
         {% translate "Affichez uniquement les infos d'accessibilité qui vous concernent, en fonction de votre handicap" %}
     </p>
 </div>
-<div class="fr-grid-row fr-mb-4w fr-mb-md-6w">
+<div class="fr-grid-row fr-mb-2w fr-mb-md-2w">
     {% translate "Difficulté à voir" as visual_text %}
     {% translate "Difficulté à marcher" as walking_text %}
     {% translate "En fauteuil roulant" as wheelchair_text %}
@@ -17,3 +17,4 @@
     {% include "search/includes/tag_with_label.html" with slug="hearing" input_name="erp_filter" eventType="filterClicked" name=deaf_text icon="deaf" %}
     {% include "search/includes/tag_with_label.html" with slug="understand" input_name="erp_filter" eventType="filterClicked" name=understand_text icon="diff-understand" %}
 </div>
+<div id="filter-status" class="fr-sr-only" role="status" aria-live="polite"></div>
