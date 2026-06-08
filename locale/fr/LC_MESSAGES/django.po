@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 23:50+0200\n"
+"POT-Creation-Date: 2026-06-08 20:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,15 +546,12 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
-#, python-brace-format
 msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
 msgstr ""
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
@@ -562,10 +559,9 @@ msgid "Vous devez suggérer un nom d'activité pour l'établissement."
 msgstr ""
 
 #, python-format
-msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
-#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
@@ -610,6 +606,15 @@ msgid "Conformité"
 msgstr ""
 
 msgid "Je souhaite mettre en ligne cette fiche d'établissement immédiatement"
+msgstr ""
+
+msgid "Localisation"
+msgstr ""
+
+msgid "Publié"
+msgstr ""
+
+msgid "Profil de contributeur"
 msgstr ""
 
 msgid "Activités"
@@ -699,9 +704,6 @@ msgid "Population"
 msgstr ""
 
 msgid "Nombre d'habitants estimé"
-msgstr ""
-
-msgid "Localisation"
 msgstr ""
 
 msgid "Coordonnées géographiques du centre de la commune"
@@ -864,9 +866,6 @@ msgstr ""
 msgid "Contributeur"
 msgstr ""
 
-msgid "Profil de contributeur"
-msgstr ""
-
 msgid "Commune (relation)"
 msgstr ""
 
@@ -877,9 +876,6 @@ msgid "Nom de l'établissement ou de l'enseigne"
 msgstr ""
 
 msgid "Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées"
-msgstr ""
-
-msgid "Publié"
 msgstr ""
 
 msgid "Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement"
@@ -2045,7 +2041,7 @@ msgstr ""
 msgid "Pas de possibilité d'aide humaine"
 msgstr ""
 
-msgid "Largeur de la porte ou de l'entrée"
+msgid "Largeur de la porte ou de l'entrée en cm"
 msgstr ""
 
 msgid "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
@@ -2063,7 +2059,7 @@ msgstr ""
 msgid "Entrée dédiée aux personnes en situation de handicap"
 msgstr ""
 
-msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
+msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite (PMR)&nbsp;?"
 msgstr ""
 
 msgid "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
@@ -2754,6 +2750,9 @@ msgstr ""
 msgid "Accès restreint"
 msgstr ""
 
+msgid "Acceslibre"
+msgstr ""
+
 msgid "Accès non autorisé"
 msgstr ""
 
@@ -2771,6 +2770,9 @@ msgid ""
 "Vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
 "    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a> en prenant\n"
 "    soin de préciser l'adresse utilisée."
+msgstr ""
+
+msgid "Erreur"
 msgstr ""
 
 msgid "Oups... Le serveur a crashé"
@@ -2900,9 +2902,6 @@ msgstr ""
 msgid "S'inscrire au challenge"
 msgstr ""
 
-msgid "Challenges | Acceslibre"
-msgstr ""
-
 msgid "Challenge photos Acceslibre"
 msgstr ""
 
@@ -3011,7 +3010,7 @@ msgstr ""
 msgid "Suivez-nous"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers notre page LinkedIn"
+msgid "Acceslibre sur LinkedIn - nouvelle fenêtre"
 msgstr ""
 
 msgid "LinkedIn"
@@ -3027,9 +3026,6 @@ msgid "Succès"
 msgstr ""
 
 msgid "Avertissement"
-msgstr ""
-
-msgid "Erreur"
 msgstr ""
 
 msgid "Fermer"
@@ -3075,6 +3071,10 @@ msgid "Espace : lire ou mettre en pause la séquence en cours"
 msgstr ""
 
 msgid "Communes renseignées"
+msgstr ""
+
+#, python-format
+msgid "Voir les établissements de la commune de %(nom)s dans le département %(dep)s"
 msgstr ""
 
 msgid "Toutes les communes, par département"
@@ -3245,9 +3245,6 @@ msgid ""
 "        "
 msgstr ""
 
-msgid "Profil et préférences | Acceslibre"
-msgstr ""
-
 msgid "Mon profil"
 msgstr ""
 
@@ -3356,7 +3353,7 @@ msgstr ""
 msgid "Confirmer la suppression"
 msgstr ""
 
-msgid "Contact | Acceslibre"
+msgid "Contact"
 msgstr ""
 
 msgid "Signaler une malveillance pour l'établissement"
@@ -3374,7 +3371,7 @@ msgstr ""
 msgid "Format attendu : adresse@herbergeur.com"
 msgstr ""
 
-msgid "Nom*"
+msgid "Prénom et nom*"
 msgstr ""
 
 msgid "Sujet de votre demande*"
@@ -3392,16 +3389,13 @@ msgstr ""
 msgid "Texte de description additionnel"
 msgstr ""
 
-msgid "Envoyer ma demande"
+msgid "Envoyer mon message"
 msgstr ""
 
 msgid "Une question ? Avez-vous parcouru notre page de questions fréquentes ?"
 msgstr ""
 
 msgid "Aller aux questions fréquentes"
-msgstr ""
-
-msgid "Contact"
 msgstr ""
 
 msgid "Votre message a été envoyé"
@@ -3450,9 +3444,6 @@ msgid "Des établissements correspondant à votre saisie sont déjà présents s
 msgstr ""
 
 msgid "Améliorez ces informations"
-msgstr ""
-
-msgid "Attention, des erreurs ont été rencontrées."
 msgstr ""
 
 msgid "Continuer ma saisie d'un nouvel établissement"
@@ -3548,10 +3539,17 @@ msgstr ""
 msgid "Le déplacement ne peut dépasser 10 km par rapport à la position initiale du curseur."
 msgstr ""
 
-msgid "À propos de vous"
+msgid "Passer la carte interactive"
 msgstr ""
 
-msgid "acceslibre"
+#, python-brace-format
+msgid "Nouvelle position du curseur : latitude {lat}, longitude {lon}"
+msgstr ""
+
+msgid "Revenir à la carte interactive"
+msgstr ""
+
+msgid "À propos de vous"
 msgstr ""
 
 #, python-format
@@ -3609,6 +3607,9 @@ msgid "Voir l'établissement"
 msgstr ""
 
 msgid "Masquer le message"
+msgstr ""
+
+msgid "Le formulaire comporte des erreurs"
 msgstr ""
 
 #, python-format
@@ -3694,16 +3695,16 @@ msgstr ""
 msgid "Continuer"
 msgstr ""
 
-msgid "Renseigner un établissement"
+msgid "Supprimer un établissement"
 msgstr ""
 
 msgid "Mon compte"
 msgstr ""
 
-msgid "Supprimer un établissement"
+msgid "Vous vous apprêtez à supprimer l'établissement suivant"
 msgstr ""
 
-msgid "Vous vous apprêtez à supprimer l'établissement suivant"
+msgid "Attention, des erreurs ont été rencontrées."
 msgstr ""
 
 msgid "Supprimer l'établissement"
@@ -3778,7 +3779,7 @@ msgstr ""
 msgid "Ajouter un nouvel établissement"
 msgstr ""
 
-msgid "Étape"
+msgid "Aller directement à l’étape : "
 msgstr ""
 
 msgid "Valider et publier"
@@ -3828,9 +3829,6 @@ msgstr ""
 
 #, python-format
 msgid "Passer à l’étape %(step)s"
-msgstr ""
-
-msgid "Continuez sur l'étape"
 msgstr ""
 
 msgid "Revenir à la fiche"
@@ -4000,7 +3998,13 @@ msgstr ""
 msgid "Données ouvertes"
 msgstr ""
 
+msgid "Schéma - nouvelle fenêtre"
+msgstr ""
+
 msgid "Schéma"
+msgstr ""
+
+msgid "Jeu de données - nouvelle fenêtre"
 msgstr ""
 
 msgid "Jeu de données"
@@ -4021,16 +4025,19 @@ msgstr ""
 msgid "Nos investisseurs"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers France relance"
+msgid "France relance - nouvelle fenêtre"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers Next generation european union"
+msgid "Next generation european union - nouvelle fenêtre"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers le Ministère de l'Aménagement du territoire et de la Décentralisation"
+msgid "Financé par l’Union européenne, NextGenerationEU"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers la direction interministérielle du numérique"
+msgid "Ministères transition écologique aménagement du territoire transports ville et logement - nouvelle fenêtre"
+msgstr ""
+
+msgid "Direction interministérielle du numérique - nouvelle fenêtre"
 msgstr ""
 
 msgid "Plan du site"
@@ -4039,10 +4046,19 @@ msgstr ""
 msgid "Accessibilité : partiellement conforme"
 msgstr ""
 
+msgid "Documentation technique - nouvelle fenêtre"
+msgstr ""
+
 msgid "Documentation technique"
 msgstr ""
 
+msgid "Code source - nouvelle fenêtre"
+msgstr ""
+
 msgid "Code source"
+msgstr ""
+
+msgid "Conditions générales d’utilisation"
 msgstr ""
 
 msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
@@ -4075,13 +4091,7 @@ msgstr ""
 msgid "Sélectionner une langue"
 msgstr ""
 
-msgid "Mentions légales | Acceslibre"
-msgstr ""
-
 msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
-msgstr ""
-
-msgid "Nos partenaires | Acceslibre"
 msgstr ""
 
 msgid "Nos partenaires"
@@ -4505,9 +4515,6 @@ msgid "Contacter Wegoto :"
 msgstr ""
 
 msgid "Site Internet"
-msgstr ""
-
-msgid "Qui sommes-nous ? | Acceslibre"
 msgstr ""
 
 msgid "Nous recensons l'accessibilité de tous les lieux recevant du public et partageons ces informations le plus largement possible en ligne."
@@ -4971,12 +4978,6 @@ msgstr ""
 msgid "Informations sur l’accessibilité"
 msgstr ""
 
-msgid "Passer la carte"
-msgstr ""
-
-msgid "Revenir à la carte"
-msgstr ""
-
 msgid "Ajout d'une image"
 msgstr ""
 
@@ -5281,9 +5282,6 @@ msgid "En cours de chargement..."
 msgstr ""
 
 msgid "Voir plus"
-msgstr ""
-
-msgid "Plan du site | Acceslibre"
 msgstr ""
 
 msgid "Statistiques d'Acceslibre"
