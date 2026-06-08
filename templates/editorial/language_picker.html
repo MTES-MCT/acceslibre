@@ -23,6 +23,8 @@
                             name="language"
                             value="{{ language.code }}"
                             type="submit"
+                            hreflang="{{ language.code.lower }}"
+                            lang="{{ language.code.lower }}"
                             {% if language.code == LANGUAGE_CODE %}aria-current="true"{% endif %}>
                         {{ language.code.upper }} {{ language.name_local.title }}
                     </button>

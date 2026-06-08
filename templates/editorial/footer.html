@@ -29,11 +29,13 @@
                         </li>
                         <li>
                             <a class="fr-footer__top-link"
+                               title="{% translate "Schéma - nouvelle fenêtre" %}"
                                href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
                                target="_blank">{% translate "Schéma" %}</a>
                         </li>
                         <li>
                             <a class="fr-footer__top-link"
+                               title="{% translate "Jeu de données - nouvelle fenêtre" %}"
                                href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/"
                                target="_blank">{% translate "Jeu de données" %}</a>
                         </li>
@@ -121,7 +123,7 @@
                                target="_blank">
                                 <img class="fr-responsive-img"
                                      src="{% static 'img/investors/ue.png' %}"
-                                     alt="Next Generation European Union" />
+                                     alt="{% translate "Financé par l’Union européenne, NextGenerationEU" %}" />
                             </a>
                         </li>
                         <li>
@@ -136,7 +138,7 @@
                         </li>
                         <li>
                             <a class="fr-footer__partners-link"
-                               href="https://www.numerique.gouv.fr/numerique-etat/"
+                               href="https://www.numerique.gouv.fr/"
                                aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la direction interministérielle du numérique" %}"
                                target="_blank">
                                 <img class="fr-responsive-img"
@@ -158,16 +160,19 @@
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Schéma - nouvelle fenêtre" %}"
                        href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
                        target="_blank">{% translate "Schéma" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Documentation technique - nouvelle fenêtre" %}"
                        href="https://fabrique-numerique.gitbook.io/acceslibre-technique/"
                        target="_blank">{% translate "Documentation technique" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Code source - nouvelle fenêtre" %}"
                        href="https://github.com/MTES-MCT/acceslibre"
                        target="_blank">{% translate "Code source" %}</a>
                 </li>
@@ -179,7 +184,7 @@
                        href="{% url 'politique-confidentialite' %}">{% translate "Politique de confidentialité" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'cgu' %}">{% translate "CGU" %}</a>
+                    <a class="fr-footer__bottom-link" href="{% url 'cgu' %}">{% translate "Conditions générales d’utilisation" %}</a>
                 </li>
             </ul>
             <div class="fr-footer__bottom-copy">
