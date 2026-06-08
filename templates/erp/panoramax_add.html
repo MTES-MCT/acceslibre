@@ -82,7 +82,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
     </ul>
     <div class="panoramax-container">
         <div id="viewer-container">
-            <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+            <pnx-viewer id="panoramax-viewer" tabindex="0" aria-label="{% translate "Photographie immersive 3D géolocalisée Panoramax. Une fois le focus placé ici, utilisez les flèches du clavier pour vous déplacer ; consultez la liste des raccourcis clavier pour les autres actions." %}" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
         </div>
         {% include "common/panoramax-shortcuts-details.html" %}
     </div>

@@ -29,8 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  enableKeyboardOnFocus()
   enhancePanoramaxLegendA11y()
 })
+
+// RGAA 12.x: the Panoramax viewer reacts to keyboard shortcuts via a window-level
+// keydown listener gated by psv.state.keyboardEnabled. The component only flips
+// that flag on mouse click / character keypress, so a keyboard-only user can
+// never reach it. Make the host focusable and enable the shortcuts while it
+// holds focus, disabling them on blur so they don't fire from elsewhere.
+function enableKeyboardOnFocus() {
+  // Keys the viewer consumes for navigation; prevent them from also scrolling
+  // the page while the viewer holds focus.
+  const SCROLL_KEYS = [
+    'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+    'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar',
+  ]
+  document.querySelectorAll('pnx-photo-viewer, pnx-viewer').forEach((host) => {
+    host.setAttribute('tabindex', '0')
+    host.addEventListener('focus', () => host.psv?.startKeyboardControl?.())
+    host.addEventListener('blur', () => host.psv?.stopKeyboardControl?.())
+    host.addEventListener('keydown', (event) => {
+      if (event.target !== host || !SCROLL_KEYS.includes(event.key)) {
+        return
+      }
+      host.psv?.startKeyboardControl?.()
+      event.preventDefault()
+    })
+  })
+}
 
 // RGAA 6.1: the Panoramax legend (shadow DOM, third-party component) ships
 // non-explicit links. Make their accessible names explicit and signal that
