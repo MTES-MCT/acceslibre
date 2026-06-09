@@ -115,7 +115,7 @@ function createIgnTiles() {
     'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}',
     {
       attribution: `&copy; <a href="https://www.ign.fr/" target="_blank" rel="noopener noreferrer" aria-label="${gettext(
-        'IGN (nouvelle fenêtre)'
+        'IGN - nouvelle fenêtre'
       )}">IGN</a>`,
       maxZoom: 19,
     }
@@ -204,7 +204,7 @@ function createMap(domTarget, options = {}) {
   // a new window (this link is unrelated to the contribution flow).
   map.attributionControl.setPrefix(
     `<a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer" aria-label="${gettext(
-      'Leaflet (nouvelle fenêtre)'
+      'Leaflet - nouvelle fenêtre'
     )}">Leaflet</a>`
   )
 

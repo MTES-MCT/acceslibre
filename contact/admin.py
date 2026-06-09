@@ -42,7 +42,12 @@ class MessageAdmin(ExportMixin, admin.ModelAdmin):
 
     def get_erp(self, obj):
         if obj.erp:
-            return format_html('<a href="{}" target="_blank">{}</a>', obj.erp.get_absolute_url(), escape(obj.erp))
+            return format_html(
+                '<a href="{}" target="_blank" title="{} - nouvelle fenêtre">{}</a>',
+                obj.erp.get_absolute_url(),
+                escape(obj.erp),
+                escape(obj.erp),
+            )
         return ""
 
     get_erp.short_description = "ERP"

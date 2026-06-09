@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-10 00:47+0200\n"
-"PO-Revision-Date: 2026-06-08 20:32+0200\n"
+"POT-Creation-Date: 2026-06-10 01:26+0200\n"
+"PO-Revision-Date: 2026-06-10 01:26+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -546,15 +546,12 @@ msgstr "One NAF/APE code per line"
 msgid "Un code postal par ligne"
 msgstr "One postal code per line"
 
-#, python-brace-format
-msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
-msgstr "Please check your entry or <a href=\"{}\" target=\"_blank\">report an error</a>."
+msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\" title=\"Signaler une erreur - nouvelle fenêtre\">signaler une erreur</a>."
+msgstr "Please check your entry or <a href=\"{}\" target=\"_blank\" title=\"Report an error - new window\">report an error</a>."
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr "This address cannot be found in the {} zip code (but can be found in the {} zip code)."
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
 
@@ -565,7 +562,6 @@ msgstr "You must suggest an activity name for the facility"
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr "This establishment cannot be created because it has been reported as permanently closed. <a href='%(url_contact)s'>Contact the acceslibre team</a> if this is an error."
 
-#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr "The <b>{}</b> facility already exists in the database."
 
@@ -577,14 +573,10 @@ msgstr "This ERP cannot be located."
 
 msgid ""
 "Recherche sur le nom d'une administration publique, d'une entreprise, un\n"
-"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\">numéro SIRET</a>,\n"
+"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\" title=\"Numéro SIRET - nouvelle fenêtre\">numéro SIRET</a>,\n"
 "            l'adresse, l'activité ou le\n"
-"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\">code NAF</a>."
-msgstr ""
-"Search on the name of a public administration, a company, a\n"
-"<a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\">SIRET number</a>,\n"
-"address, activity or\n"
-"<a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\">NAF code</a>."
+"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\" title=\"Code NAF - nouvelle fenêtre\">code NAF</a>."
+msgstr "Search on the name of a public administration, a company, a <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\" title=\"SIRET number - new window\">SIRET number</a>, the address, activity or <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\" title=\"NAF code - new window\">NAF code</a>."
 
 msgid "Commune"
 msgstr "Municipality"
@@ -2932,23 +2924,23 @@ msgstr "Help us add photos on Acceslibre!"
 
 msgid ""
 "\n"
-"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"Voir le site panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
 "                    "
 msgstr ""
 "\n"
-"Thanks to <a class=\"fr-link fr-text--xl\" title=\"See the panoramax site - new window\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, a collaborative and free database of geotagged photos, we can add photos to Acceslibre. Just choose the right photo for each establishment!"
+"Thanks to <a class=\"fr-link fr-text--xl\" title=\"panoramax - new window\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, a collaborative and free database of geotagged photos, we can add photos to Acceslibre. Just choose the right photo for each establishment!"
 
 msgid "En savoir plus :"
 msgstr "Find out more:"
 
-msgid "Voir le tutoriel - nouvelle fenêtre"
-msgstr "View the tutorial - new window"
+msgid "tutoriel - nouvelle fenêtre"
+msgstr "tutorial - new window"
 
 msgid "Voir le tutoriel"
 msgstr "See the tutorial"
 
-msgid "Voir notre foire aux questions - nouvelle fenêtre"
-msgstr "See our frequently asked questions - new window"
+msgid "foire aux questions - nouvelle fenêtre"
+msgstr "frequently asked questions - new window"
 
 msgid "Voir notre foire aux questions"
 msgstr "See our Frequently Questions"
@@ -3072,10 +3064,8 @@ msgstr "Next page"
 msgid "Dernière page"
 msgstr "Last page"
 
-#, fuzzy
-#| msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
 msgid "Liste des raccourcis clavier pour l'utilisation de la photographie immersive 3D géolocalisée Panoramax"
-msgstr "List of shortcuts for the use of the interactive card"
+msgstr "List of keyboard shortcuts for using Panoramax geotagged immersive 3D photography"
 
 msgid "Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la carte"
 msgstr "Arrows (or 2/4/8/6 of the digital pavement): move in the image or on the map"
@@ -3160,19 +3150,15 @@ msgstr ""
 "Your email address has been successfully changed!\n"
 "You can <a href=\"%(url_login)s\">log in</a> with your new address."
 
-#, fuzzy
-#| msgid "Nouvelle fenêtre"
 msgid "nouvelle fenêtre"
-msgstr "New window"
+msgstr "new window"
 
 #, python-format
 msgid "Du %(start)s au %(end)s inclus"
 msgstr "From %(start)s to %(end)s included"
 
-#, fuzzy
-#| msgid "Documentation technique - nouvelle fenêtre"
 msgid "Détails du challenge - nouvelle fenêtre"
-msgstr "Technical documentation - new window"
+msgstr "Challenge details - new window"
 
 msgid "Détails du challenge"
 msgstr "Challenge details"
@@ -3475,10 +3461,8 @@ msgstr "Thank you for contributing to the growth of our project, the strength of
 msgid "Besoin d'aide ?"
 msgstr "Need assistance ?"
 
-#, fuzzy
-#| msgid "Voir le tutoriel sur les premières étapes de contribution."
 msgid "Voir le tutoriel sur les premières étapes de contribution. - nouvelle fenêtre"
-msgstr "Check out the tutorial for the first steps of a contribution."
+msgstr "See the tutorial on the first steps of contributing. - new window"
 
 msgid "Voir le tutoriel sur les premières étapes de contribution."
 msgstr "Check out the tutorial for the first steps of a contribution."
@@ -4133,10 +4117,8 @@ msgstr "General conditions of use"
 msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
 msgstr "Unless otherwise stated, all contents of this site are under"
 
-#, fuzzy
-#| msgid "France relance - nouvelle fenêtre"
 msgid "licence etalab-2.0 - nouvelle fenêtre"
-msgstr "France relance - new window"
+msgstr "etalab-2.0 license - new window"
 
 msgid "licence etalab-2.0"
 msgstr "etalab-2.0 license"
@@ -4165,8 +4147,8 @@ msgstr "Search for a facility"
 msgid "Sélectionner une langue"
 msgstr "Pick a language"
 
-msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
-msgstr "acceslibre.beta.gouv.fr (new window)"
+msgid "acceslibre - nouvelle fenêtre"
+msgstr "acceslibre - new window"
 
 msgid "Nos partenaires"
 msgstr "Our partners"
@@ -4993,10 +4975,8 @@ msgstr "Claim the establishment as manager"
 msgid "Signaler un problème ou une erreur"
 msgstr "Report a problem or a mistake"
 
-#, fuzzy
-#| msgid "Voir le tutoriel - nouvelle fenêtre"
 msgid "Administrer cette fiche - nouvelle fenêtre"
-msgstr "View the tutorial - new window"
+msgstr "Administer this form - new window"
 
 msgid "Administrer cette fiche"
 msgstr "Manage this record"
@@ -5046,10 +5026,8 @@ msgstr "Improve or modify this information"
 msgid "Modifier ces informations"
 msgstr "Update this information"
 
-#, fuzzy
-#| msgid "Schéma - nouvelle fenêtre"
 msgid "Itinéraire - nouvelle fenêtre"
-msgstr "Diagram - new window"
+msgstr "Directions - new window"
 
 msgid "Itinéraire"
 msgstr "Itinerary"
@@ -5073,7 +5051,7 @@ msgid "Il n'y a pas encore d'historique de modifications pour les données d'acc
 msgstr "There is no change history yet for the accessibility data for this facility."
 
 msgid "Photographie immersive 3D géolocalisée Panoramax. Une fois le focus placé ici, utilisez les flèches du clavier pour vous déplacer ; consultez la liste des raccourcis clavier pour les autres actions."
-msgstr ""
+msgstr "Panoramax geolocalized 3D immersive photography. Once the focus is here, use the keyboard arrows to move; see the list of keyboard shortcuts for other actions."
 
 msgid "Supprimer l'image"
 msgstr "Delete the image"
@@ -5219,6 +5197,12 @@ msgid ""
 msgstr ""
 "\n"
 "The photos do not allow you to see the establishment. Click “No photo is suitable”."
+
+msgid "Voir le tutoriel - nouvelle fenêtre"
+msgstr "View the tutorial - new window"
+
+msgid "Voir notre foire aux questions - nouvelle fenêtre"
+msgstr "See our frequently asked questions - new window"
 
 msgid "Adresse :"
 msgstr "Address:"
@@ -5592,14 +5576,17 @@ msgstr ""
 msgid "Double authentification"
 msgstr "Two-factor authentication"
 
+#~ msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
+#~ msgstr "acceslibre.beta.gouv.fr (new window)"
+
 #~ msgid "(ouverture dans une nouvelle fenêtre)"
-#~ msgstr "(opens in a new tab)"
+#~ msgstr "(opens in a new window)"
 
 #~ msgid "Voir le tutoriel - Nouvelle fenêtre"
-#~ msgstr "See the tutorial - New window"
+#~ msgstr "View the tutorial - New window"
 
 #~ msgid "Voir notre foire aux questions - Nouvelle fenêtre"
-#~ msgstr "See our Frequently Questions - New window"
+#~ msgstr "See our frequently asked questions - New window"
 
 #, fuzzy
 #~ msgid "Challenges | Acceslibre"

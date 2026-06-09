@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-10 00:47+0200\n"
+"POT-Creation-Date: 2026-06-10 01:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,15 +546,12 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
-#, python-brace-format
-msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
+msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\" title=\"Signaler une erreur - nouvelle fenêtre\">signaler une erreur</a>."
 msgstr ""
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
-#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
@@ -565,7 +562,6 @@ msgstr ""
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
-#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
@@ -577,9 +573,9 @@ msgstr ""
 
 msgid ""
 "Recherche sur le nom d'une administration publique, d'une entreprise, un\n"
-"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\">numéro SIRET</a>,\n"
+"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\" title=\"Numéro SIRET - nouvelle fenêtre\">numéro SIRET</a>,\n"
 "            l'adresse, l'activité ou le\n"
-"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\">code NAF</a>."
+"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\" title=\"Code NAF - nouvelle fenêtre\">code NAF</a>."
 msgstr ""
 
 msgid "Commune"
@@ -2914,20 +2910,20 @@ msgstr ""
 
 msgid ""
 "\n"
-"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"Voir le site panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
 "                    "
 msgstr ""
 
 msgid "En savoir plus :"
 msgstr ""
 
-msgid "Voir le tutoriel - nouvelle fenêtre"
+msgid "tutoriel - nouvelle fenêtre"
 msgstr ""
 
 msgid "Voir le tutoriel"
 msgstr ""
 
-msgid "Voir notre foire aux questions - nouvelle fenêtre"
+msgid "foire aux questions - nouvelle fenêtre"
 msgstr ""
 
 msgid "Voir notre foire aux questions"
@@ -4104,7 +4100,7 @@ msgstr ""
 msgid "Sélectionner une langue"
 msgstr ""
 
-msgid "acceslibre.beta.gouv.fr (nouvelle fenêtre)"
+msgid "acceslibre - nouvelle fenêtre"
 msgstr ""
 
 msgid "Nos partenaires"
@@ -5018,6 +5014,12 @@ msgid ""
 "\n"
 "            Les photos ne permettent pas de voir l'établissement. Cliquez sur \"Aucune photo ne convient\".\n"
 "            "
+msgstr ""
+
+msgid "Voir le tutoriel - nouvelle fenêtre"
+msgstr ""
+
+msgid "Voir notre foire aux questions - nouvelle fenêtre"
 msgstr ""
 
 msgid "Adresse :"

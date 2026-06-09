@@ -473,13 +473,16 @@ class ErpAdmin(
     unpublish.short_description = "Mettre hors ligne"
 
     def view_link(self, obj):
-        return mark_safe(f'<a target="_blank" href="{obj.get_absolute_url()}">Voir</a>')
+        return mark_safe(f'<a target="_blank" href="{obj.get_absolute_url()}" title="Voir - nouvelle fenêtre">Voir</a>')
 
     view_link.short_description = ""
 
     def view_search(self, obj):
         terms = quote(f"{obj.nom} {obj.voie} {obj.commune}")
-        return format_html('<a target="_blank" href="https://www.google.fr/search?source=hp&q={}">Rech.</a>', terms)
+        return format_html(
+            '<a target="_blank" href="https://www.google.fr/search?source=hp&q={} title="Recherche google - nouvelle fenêtre"">Rech.</a>',
+            terms,
+        )
 
     view_search.short_description = ""
 

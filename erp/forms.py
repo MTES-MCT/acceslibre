@@ -425,7 +425,9 @@ class BaseErpForm(forms.ModelForm):
         contact_bug_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return format_html(
             "{}. "
-            + translate('Veuillez vérifier votre saisie ou <a href="{}" target="_blank">signaler une erreur</a>.'),
+            + translate(
+                'Veuillez vérifier votre saisie ou <a href="{}" target="_blank" title="Signaler une erreur - nouvelle fenêtre">signaler une erreur</a>.'
+            ),
             message,
             contact_bug_url,
         )
@@ -666,11 +668,12 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
             if existing:
                 if existing.published:
+                    label = f"{activite} - {adresse}"
                     erp_display = format_html(
-                        '<a href="{}" target="_blank" class="fr-link">{} - {}</a>',
+                        '<a href="{}" target="_blank" class="fr-link" title="{} - nouvelle fenêtre">{}</a>',
                         existing.get_absolute_url(),
-                        activite,
-                        adresse,
+                        label,
+                        label,
                     )
                 else:
                     erp_display = format_html("{} - {}", activite, adresse)
@@ -733,9 +736,9 @@ class ProviderGlobalSearchForm(forms.Form):
         help_text=mark_safe(
             translate_lazy(
                 """Recherche sur le nom d'une administration publique, d'une entreprise, un
-            <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>,
+            <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank" title="Numéro SIRET - nouvelle fenêtre">numéro SIRET</a>,
             l'adresse, l\'activité ou le
-            <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
+            <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank" title="Code NAF - nouvelle fenêtre">code NAF</a>."""
             )
         ),
         required=False,
