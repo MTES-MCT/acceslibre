@@ -66,7 +66,7 @@ def test_communes(browser):
     browser.visit(reverse("communes"))
 
     assert browser.title.startswith("Communes")
-    assert len(browser.find_by_css("#home-communes-list .card")) == 1
+    assert len(browser.find_by_css("#home-communes-list .fr-card")) == 1
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
 
