@@ -1,3 +1,4 @@
 #!/bin/env bash
 
 python manage.py migrate --settings=core.settings_prod
+python manage.py loaddata faq.json --settings=core.settings_prod
