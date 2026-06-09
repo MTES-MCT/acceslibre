@@ -310,6 +310,7 @@ PARTENAIRES = {
         "url": "https://www.thefork.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "MICHELIN": {
         "logo": "img/partenaires/michelin.png",
@@ -430,6 +431,7 @@ PARTENAIRES = {
         "url": "https://musicinparis.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "en",
     },
     "LE_FOODING": {
         "logo": "img/partenaires/le_fooding.png",
@@ -438,6 +440,7 @@ PARTENAIRES = {
         "url": "https://lefooding.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "en",
     },
     "PASS_CULTURE": {
         "logo": "img/partenaires/pass_culture.png",
@@ -516,6 +519,7 @@ PARTENAIRES = {
         "url": "https://www.wegoto.eu/",
         "labels": [PARTNER_LABELS["SERVICE_DEDICATED_TO_PEOPLE_WITH_DISABILITIES"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "ACCESMETRIE": {
         "avatar": "accesmetrie_avatar.png",

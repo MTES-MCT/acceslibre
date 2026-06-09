@@ -165,7 +165,11 @@
                                         <span class="fr-icon-arrow-right-line fr-icon--lg"></span>
                                         {{ partenaire.name }}
                                     </h1>
-                                    {% include partenaire.template %}
+                                    {% if partenaire.lang %}
+                                        <div lang="{{ partenaire.lang }}">{% include partenaire.template %}</div>
+                                    {% else %}
+                                        {% include partenaire.template %}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -38,10 +38,8 @@
             <div class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                            <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_published_erps|intcomma }}</li>
-                            <li>{% translate "Lieux référencés" %}</li>
-                        </ul>
+                        <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_published_erps|intcomma }}</p>
+                        <p class="fr-mb-0">{% translate "Lieux référencés" %}</p>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -57,10 +55,8 @@
             <div class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                            <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_contributors|intcomma }}</li>
-                            <li>{% translate "Contributeurs" %}</li>
-                        </ul>
+                        <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_contributors|intcomma }}</p>
+                        <p class="fr-mb-0">{% translate "Contributeurs" %}</p>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -107,20 +103,16 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_unique_visitors|intcomma }}</li>
-                                <li>{% translate "Visiteurs uniques sur les 30 derniers jours" %}</li>
-                            </ul>
+                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_unique_visitors|intcomma }}</p>
+                            <p class="fr-mb-0">{% translate "Visiteurs uniques sur les 30 derniers jours" %}</p>
                         </div>
                     </div>
                 </div>
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ nb_widget_open|intcomma }}</li>
-                                <li>{% translate "Consultation sur des sites partenaires" %}</li>
-                            </ul>
+                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_widget_open|intcomma }}</p>
+                            <p class="fr-mb-0">{% translate "Consultation sur des sites partenaires" %}</p>
                         </div>
                     </div>
                 </div>
@@ -132,20 +124,16 @@
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ average_completion_rate|floatformat:2 }}%</li>
-                                <li>{% translate "Taux de remplissage moyen des fiches" %}</li>
-                            </ul>
+                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ average_completion_rate|floatformat:2 }}%</p>
+                            <p class="fr-mb-0">{% translate "Taux de remplissage moyen des fiches" %}</p>
                         </div>
                     </div>
                 </div>
                 <div class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <ul class="list-style-type--none fr-m-0 fr-pl-0">
-                                <li class="fr-tile__title fr-h1 fr-pl-0 fr-mb-0">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</li>
-                                <li>{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</li>
-                            </ul>
+                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</p>
+                            <p class="fr-mb-0">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
                         </div>
                     </div>
                 </div>

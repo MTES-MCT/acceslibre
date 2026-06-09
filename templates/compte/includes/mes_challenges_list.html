@@ -18,7 +18,8 @@
                             <li>
                                 <a href="{{ challenge_sub.challenge.get_absolute_url }}"
                                    class="fr-btn fr-btn--primary"
-                                   target="_blank">{% translate "Détails du challenge" %}</a>
+                                   target="_blank"
+                                   title="{% translate "Détails du challenge - nouvelle fenêtre" %}">{% translate "Détails du challenge" %}</a>
                             </li>
                             {% if ongoing_version %}
                                 <li>

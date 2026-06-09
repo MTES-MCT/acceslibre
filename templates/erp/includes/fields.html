@@ -12,7 +12,10 @@
                     :
                     {% for value in field.values %}
                         {% if value|startswith:"http" %}
-                            <a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ value|truncatechars_html:30 }}</a>
+                            <a href="{{ value }}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               title="{{ value }} - {% translate "nouvelle fenêtre" %}">{{ value|truncatechars_html:30 }}</a>
                             {% if not forloop.last %},{% endif %}
                         {% else %}
                             <strong>{{ value }}</strong>

@@ -36,7 +36,8 @@
                     <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}"
                        target="_blank"
                        class="fr-btn fr-btn--secondary text-center"
-                       rel="noopener noreferrer">{% translate "Administrer cette fiche" %}</a>
+                       rel="noopener noreferrer"
+                       title="{% translate "Administrer cette fiche - nouvelle fenêtre" %}">{% translate "Administrer cette fiche" %}</a>
                 </li>
             {% endif %}
         </ul>

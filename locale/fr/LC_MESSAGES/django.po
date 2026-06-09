@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-08 20:30+0200\n"
+"POT-Creation-Date: 2026-06-10 00:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,12 +546,15 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
+#, python-brace-format
 msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
@@ -562,6 +565,7 @@ msgstr ""
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
+#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
@@ -3046,7 +3050,7 @@ msgstr ""
 msgid "Dernière page"
 msgstr ""
 
-msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
+msgid "Liste des raccourcis clavier pour l'utilisation de la photographie immersive 3D géolocalisée Panoramax"
 msgstr ""
 
 msgid "Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la carte"
@@ -3126,8 +3130,14 @@ msgid ""
 "      "
 msgstr ""
 
+msgid "nouvelle fenêtre"
+msgstr ""
+
 #, python-format
 msgid "Du %(start)s au %(end)s inclus"
+msgstr ""
+
+msgid "Détails du challenge - nouvelle fenêtre"
 msgstr ""
 
 msgid "Détails du challenge"
@@ -3426,6 +3436,9 @@ msgid "Merci de contribuer à l’évolution de notre projet, la force du collab
 msgstr ""
 
 msgid "Besoin d'aide ?"
+msgstr ""
+
+msgid "Voir le tutoriel sur les premières étapes de contribution. - nouvelle fenêtre"
 msgstr ""
 
 msgid "Voir le tutoriel sur les premières étapes de contribution."
@@ -4019,9 +4032,6 @@ msgstr ""
 msgid "<b>acceslibre</b> a pour objectif de recenser l'accessibilité de tous les lieux recevant du public et de partager ces informations le plus largement possible."
 msgstr ""
 
-msgid "(ouverture dans une nouvelle fenêtre)"
-msgstr ""
-
 msgid "Nos investisseurs"
 msgstr ""
 
@@ -4062,6 +4072,9 @@ msgid "Conditions générales d’utilisation"
 msgstr ""
 
 msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
+msgstr ""
+
+msgid "licence etalab-2.0 - nouvelle fenêtre"
 msgstr ""
 
 msgid "licence etalab-2.0"
@@ -4790,6 +4803,9 @@ msgstr ""
 msgid "Signaler un problème ou une erreur"
 msgstr ""
 
+msgid "Administrer cette fiche - nouvelle fenêtre"
+msgstr ""
+
 msgid "Administrer cette fiche"
 msgstr ""
 
@@ -4838,7 +4854,7 @@ msgstr ""
 msgid "Modifier ces informations"
 msgstr ""
 
-msgid "Nouvelle fenêtre"
+msgid "Itinéraire - nouvelle fenêtre"
 msgstr ""
 
 msgid "Itinéraire"
@@ -4860,6 +4876,9 @@ msgid "Nouvelle valeur"
 msgstr ""
 
 msgid "Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement."
+msgstr ""
+
+msgid "Photographie immersive 3D géolocalisée Panoramax. Une fois le focus placé ici, utilisez les flèches du clavier pour vous déplacer ; consultez la liste des raccourcis clavier pour les autres actions."
 msgstr ""
 
 msgid "Supprimer l'image"
@@ -4999,12 +5018,6 @@ msgid ""
 "\n"
 "            Les photos ne permettent pas de voir l'établissement. Cliquez sur \"Aucune photo ne convient\".\n"
 "            "
-msgstr ""
-
-msgid "Voir le tutoriel - Nouvelle fenêtre"
-msgstr ""
-
-msgid "Voir notre foire aux questions - Nouvelle fenêtre"
 msgstr ""
 
 msgid "Adresse :"
