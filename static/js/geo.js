@@ -331,6 +331,17 @@ function updateNumberOfResults(data) {
   )
 }
 
+// Keep the "page X/Y" segment of the document title in sync with the JS
+// pagination. The server renders an initial title using its own page size, which
+// is inconsistent with the "Voir plus" loading (RESULTS_PER_PAGE per page) and
+// never updates as more results are loaded. We only rewrite the numeric fraction
+// that precedes the " | Rechercher un lieu | Acceslibre" suffix, preserving the
+// localized "Résultats pour <what> <where>" prefix exactly as rendered.
+function _updatePageTitle(page, count) {
+  const totalPages = Math.max(1, Math.ceil(count / RESULTS_PER_PAGE))
+  document.title = document.title.replace(/\d+\/\d+(?=\s*\|)/, `${page}/${totalPages}`)
+}
+
 function _updateExportForm(urlParams) {
   let form = document.getElementById('export-results')
   if (!form) {
@@ -455,6 +466,7 @@ function refreshData(map, page = 1, focusMode = null) {
 
       refreshList(jsonData, clearOldResults)
       updateNumberOfResults(jsonData)
+      _updatePageTitle(page, jsonData.count)
 
       dom.mountAll('.a4a-geo-link .locate-btn', ui.GeoLink)
 
