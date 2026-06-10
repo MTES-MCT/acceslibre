@@ -503,7 +503,7 @@ PARTENAIRES = {
     "MOBALIB": {
         "avatar": "mobalib_avatar.jpg",
         "logo": "img/partenaires/mobalib.png",
-        "name": "Mobalib",
+        "name": "Mobalib, l'expert du handicap",
         "short_description": translate_lazy("Mobalib, l'expert du handicap"),
         "template": "editorial/partenaires/mobalib.html",
         "url": "https://www.mobalib.com/",
@@ -513,7 +513,7 @@ PARTENAIRES = {
     "WEGOTO": {
         "avatar": "wegoto_avatar.png",
         "logo": "img/partenaires/wegoto.png",
-        "name": "Wegoto",
+        "name": "Wegoto, Move freely anywhere",
         "short_description": translate_lazy("Expert en données d'accessibilité"),
         "template": "editorial/partenaires/wegoto.html",
         "url": "https://www.wegoto.eu/",
@@ -534,7 +534,7 @@ PARTENAIRES = {
     "ONECOMPAGNON": {
         "avatar": "onecompagnon_avatar.jpg",
         "logo": "img/partenaires/one_campagnon.png",
-        "name": "One Compagnon",
+        "name": "One Compagnon, l'assistant accessible à tous",
         "short_description": translate_lazy("L'assistant accessible à tous"),
         "template": "editorial/partenaires/onecompagnon.html",
         "url": "https://www.onecompagnon.com",
