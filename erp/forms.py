@@ -742,6 +742,7 @@ class ProviderGlobalSearchForm(forms.Form):
             )
         ),
         required=False,
+        label=translate_lazy("Activité"),
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off", "id": "what-input"}),
     )
     where = forms.CharField(
