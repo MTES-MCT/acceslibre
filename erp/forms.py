@@ -510,10 +510,12 @@ class AdminErpForm(BaseErpForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(
         label=translate_lazy("Latitude"),
+        required=False,
         widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_latitude"}),
     )
     lon = forms.DecimalField(
         label=translate_lazy("Longitude"),
+        required=False,
         widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_longitude"}),
     )
     nouvelle_activite = forms.CharField(
@@ -736,7 +738,7 @@ class ProviderGlobalSearchForm(forms.Form):
     activity_slug = forms.CharField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
-    code = forms.CharField(required=True, widget=forms.HiddenInput)
+    code = forms.CharField(required=False, widget=forms.HiddenInput)
     postcode = forms.CharField(required=False, widget=forms.HiddenInput)
     what = forms.CharField(
         help_text=mark_safe(
