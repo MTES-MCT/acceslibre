@@ -742,13 +742,14 @@ class ProviderGlobalSearchForm(forms.Form):
             )
         ),
         required=False,
-        widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
+        widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off", "id": "what-input"}),
     )
     where = forms.CharField(
         label=translate_lazy("Commune"),
         required=False,
         widget=forms.TextInput(
             attrs={
+                "id": "where-input",
                 "autocomplete": "off",
                 "class": "autocomplete-input form-control",
             }
