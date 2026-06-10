@@ -32,14 +32,15 @@
 {% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Statistiques d'Acceslibre" %}</h1>
+
     <div class="sections-container">
         <h2 class="fr-h4 fr-mb-0">{% translate "Contributions" %}</h2>
-        <section class="tiles-section">
-            <div class="fr-tile fr-tile--horizontal">
+        <ul class="tiles-section fr-p-0">
+            <li class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_published_erps|intcomma }}</p>
-                        <p class="fr-mb-0">{% translate "Lieux référencés" %}</p>
+                        <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Lieux référencés" %}</p>
+                        <p class="fr-h1 fr-mb-1v">{{ nb_published_erps|intcomma }}</p>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -51,12 +52,12 @@
                              height="64" />
                     </div>
                 </div>
-            </div>
-            <div class="fr-tile fr-tile--horizontal">
+            </li>
+            <li class="fr-tile fr-tile--horizontal">
                 <div class="fr-tile__body">
                     <div class="fr-tile__content">
-                        <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_contributors|intcomma }}</p>
-                        <p class="fr-mb-0">{% translate "Contributeurs" %}</p>
+                        <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Contributeurs" %}</p>
+                        <p class="fr-h1 fr-mb-1v">{{ nb_contributors|intcomma }}</p>
                     </div>
                 </div>
                 <div class="fr-tile__header">
@@ -68,8 +69,8 @@
                              height="64" />
                     </div>
                 </div>
-            </div>
-        </section>
+            </li>
+        </ul>
         <section>
             <h2 class="fr-h4">{% translate "Nombre d'établissements référencés" %}</h2>
             <div class="fr-table fr-mb-0">
@@ -99,45 +100,45 @@
         </section>
         <section>
             <h2 class="fr-h4">{% translate "Consultation des données" %}</h2>
-            <div class="tiles-section">
-                <div class="fr-tile">
+            <ul class="tiles-section fr-p-0">
+                <li class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_unique_visitors|intcomma }}</p>
-                            <p class="fr-mb-0">{% translate "Visiteurs uniques sur les 30 derniers jours" %}</p>
+                            <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Visiteurs uniques sur les 30 derniers jours" %}</p>
+                            <p class="fr-h1 fr-mb-1v">{{ nb_unique_visitors|intcomma }}</p>
                         </div>
                     </div>
-                </div>
-                <div class="fr-tile">
+                </li>
+                <li class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ nb_widget_open|intcomma }}</p>
-                            <p class="fr-mb-0">{% translate "Consultation sur des sites partenaires" %}</p>
+                            <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Consultation sur des sites partenaires" %}</p>
+                            <p class="fr-h1 fr-mb-1v">{{ nb_widget_open|intcomma }}</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
         <section>
             <h2 class="fr-h4">{% translate "Qualité des données" %}</h2>
-            <div class="tiles-section">
-                <div class="fr-tile">
+            <ul class="tiles-section fr-p-0">
+                <li class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ average_completion_rate|floatformat:2 }}%</p>
-                            <p class="fr-mb-0">{% translate "Taux de remplissage moyen des fiches" %}</p>
+                            <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Taux de remplissage moyen des fiches" %}</p>
+                            <p class="fr-h1 fr-mb-1v">{{ average_completion_rate|floatformat:2 }}%</p>
                         </div>
                     </div>
-                </div>
-                <div class="fr-tile">
+                </li>
+                <li class="fr-tile">
                     <div class="fr-tile__body">
                         <div class="fr-tile__content">
-                            <p class="fr-tile__title fr-h1 fr-mb-1v">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</p>
-                            <p class="fr-mb-0">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
+                            <p class="fr-tile__title fr-text--light fr-text--md fr-mb-0">{% translate "Taux de fiches créées ou modifiées durant les 12 derniers mois" %}</p>
+                            <p class="fr-h1 fr-mb-1v">{{ last_12_months_created_or_updated_erps|floatformat:2 }}%</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </section>
         <section>
             <h2 class="fr-h4">{% translate "Remplissage des fiches" %}</h2>
