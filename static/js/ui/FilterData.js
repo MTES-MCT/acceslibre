@@ -43,9 +43,7 @@ function announceResults(root, activeFilters) {
   if (!status) return
 
   if (activeFilters.length === 0) {
-    status.textContent = gettext(
-      'Filtres réinitialisés. Toutes les informations d’accessibilité sont affichées.'
-    )
+    status.textContent = gettext('Filtres réinitialisés. Toutes les informations d’accessibilité sont affichées.')
     return
   }
 

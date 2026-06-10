@@ -42,8 +42,16 @@ function enableKeyboardOnFocus() {
   // Keys the viewer consumes for navigation; prevent them from also scrolling
   // the page while the viewer holds focus.
   const SCROLL_KEYS = [
-    'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
-    'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar',
+    'ArrowUp',
+    'ArrowDown',
+    'ArrowLeft',
+    'ArrowRight',
+    'PageUp',
+    'PageDown',
+    'Home',
+    'End',
+    ' ',
+    'Spacebar',
   ]
   document.querySelectorAll('pnx-photo-viewer, pnx-viewer').forEach((host) => {
     host.setAttribute('tabindex', '0')
