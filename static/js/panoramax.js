@@ -76,17 +76,53 @@ function enhancePanoramaxLegendA11y() {
     return
   }
 
-  const enhanceExternalLink = (link, label) => {
-    if (!link || link.dataset.a11yEnhanced) {
+  // Lit re-renders the legend on every picture change, overwriting the title and
+  // wiping any icon we appended. So enhancement must be idempotent and re-run
+  // after each render. We watch with observers and mask our own writes (disconnect
+  // while writing) to avoid a feedback loop, since setAttribute fires the observer
+  // even when the value is unchanged.
+  const rootObserver = new MutationObserver(() => enhance())
+  const pictureObserver = new MutationObserver(() => enhance())
+
+  const setExternalLink = (link, label, visibleText) => {
+    if (!link) {
       return
     }
-    link.setAttribute('aria-label', `${label} - ${gettext('nouvelle fenêtre')}`)
+
+    link.setAttribute('title', `${label} - ${gettext('nouvelle fenêtre')}`)
     link.setAttribute('rel', 'noopener')
-    const icon = document.createElement('span')
-    icon.setAttribute('aria-hidden', 'true')
-    icon.textContent = ' ↗'
-    link.appendChild(icon)
-    link.dataset.a11yEnhanced = 'true'
+
+    // Replace the on-screen text when it isn't self-explanatory (e.g. the photo
+    // link only shows the author name). The descriptive label stays in title.
+    if (visibleText && link.firstChild?.textContent !== visibleText) {
+      link.textContent = visibleText
+    }
+
+    // Append the new-window indicator once; Lit drops it on re-render so we
+    // re-add it whenever it is missing. The legend lives in a shadow root that
+    // can't reach the DSFR icon font, so we reproduce DSFR's external-link icon
+    // (remixicon external-link-line) as an inline SVG mask tinted to the link
+    // colour — same box-with-arrow as fr-link[target="_blank"].
+    if (!link.querySelector('[data-a11y-icon]')) {
+      const svg =
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>" +
+        "<path d='M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L18.585 5H13V3h8z'/></svg>"
+      const mask = `url("data:image/svg+xml,${encodeURIComponent(svg)}") no-repeat center / contain`
+      const icon = document.createElement('span')
+      icon.setAttribute('aria-hidden', 'true')
+      icon.setAttribute('data-a11y-icon', '')
+      icon.style.cssText = [
+        'display:inline-block',
+        'width:1em',
+        'height:1em',
+        'margin-left:0.25em',
+        'vertical-align:middle',
+        'background-color:currentColor',
+        `-webkit-mask:${mask}`,
+        `mask:${mask}`,
+      ].join(';')
+      link.appendChild(icon)
+    }
   }
 
   const enhance = () => {
@@ -95,26 +131,32 @@ function enhancePanoramaxLegendA11y() {
       return
     }
 
-    enhanceExternalLink(
-      root.querySelector('.presentation a[target="_blank"]'),
-      gettext('En savoir plus sur Panoramax')
-    )
+    rootObserver.disconnect()
+    pictureObserver.disconnect()
+
+    setExternalLink(root.querySelector('.presentation a[target="_blank"]'), gettext('Panoramax'))
 
     const pictureRoot = root.querySelector('pnx-picture-legend')?.shadowRoot
     if (pictureRoot) {
       pictureRoot.querySelectorAll('a[target="_blank"]').forEach((link) => {
         if (link.href.includes('/?pic=')) {
-          enhanceExternalLink(link, gettext('Voir le point de vue photo sur Panoramax'))
+          // Visible text becomes the author name; cache it on first pass so the
+          // descriptive title survives our own text replacement and re-renders.
+          const author = link.dataset.a11yAuthor || (link.dataset.a11yAuthor = link.textContent.trim())
+          setExternalLink(
+            link,
+            `${gettext('Voir le point de vue photo de')} ${author} ${gettext('sur Panoramax')}`,
+            gettext('Voir sur Panoramax')
+          )
         } else {
-          const licence = link.textContent.trim()
-          enhanceExternalLink(link, `${gettext('Voir la description complète de la licence')} ${licence}`)
+          const licence = link.textContent.replace('↗', '').trim()
+          setExternalLink(link, `${gettext('Description complète de la licence')} ${licence}`)
         }
       })
-      if (!pictureRoot._a11yObserved) {
-        pictureRoot._a11yObserved = true
-        new MutationObserver(enhance).observe(pictureRoot, { childList: true, subtree: true })
-      }
+      pictureObserver.observe(pictureRoot, { childList: true, subtree: true })
     }
+
+    rootObserver.observe(root, { childList: true, subtree: true })
   }
 
   const start = () => {
@@ -123,7 +165,6 @@ function enhancePanoramaxLegendA11y() {
       return
     }
     enhance()
-    new MutationObserver(enhance).observe(legend.shadowRoot, { childList: true, subtree: true })
   }
 
   start()

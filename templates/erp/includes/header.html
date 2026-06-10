@@ -33,7 +33,7 @@
                                   action="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
                                   target="_blank">
                                 {% csrf_token %}
-                                <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger le PDF" %}</button>
+                                <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger la fiche (PDF, environ 35 Ko)" %}</button>
                             </form>
                         </div>
                     {% endif %}
@@ -72,8 +72,7 @@
                                     <li id="btn-to-copy-wrapper">
                                         <button id="btn-to-copy"
                                                 data-url="{{ erp_absolute_uri }}"
-                                                title="{% translate "Copier le lien" %}"
-                                                class="fr-btn fr-icon-links-fill"></button>
+                                                class="fr-btn fr-icon-links-fill">{% translate "Copier le lien" %}</button>
                                         <div id="btn-to-copy-voice-over-text"
                                              class="align-self--center fr-mb-2w"
                                              role="status"></div>
@@ -100,7 +99,7 @@
                           action="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
                           target="_blank">
                         {% csrf_token %}
-                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger le PDF" %}</button>
+                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger la fiche (PDF, environ 35 Ko)" %}</button>
                     </form>
                 </div>
             {% endif %}
@@ -121,16 +120,18 @@
     <address class="fr-m-0 fr-col">
         <p class="fr-mb-1w word-break--all">
             <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
+            <span class="fr-sr-only">{% translate "Adresse" %}</span>
             <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
         </p>
         {% if erp.telephone %}
             <p class="fr-mb-1w">
-                <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
+                <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><span class="fr-sr-only">{% translate "Téléphone" %}</span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
             </p>
         {% endif %}
         {% if erp.contact_url %}
             <p class="fr-mb-1w word-break--all">
                 <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
+                <span class="fr-sr-only">{% translate "Formulaire de contact" %}</span>
                 <a class="fr-link fr-ml-n1v"
                    href="{{ erp.contact_url }}"
                    target="_blank"
@@ -141,6 +142,7 @@
         {% if erp.site_internet %}
             <div class="fr-mb-1w flex gap-1w">
                 <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
+                <span class="fr-sr-only">{% translate "Site internet" %}</span>
                 <span>
                     <a class="fr-link fr-ml-n1v"
                        href="{{ erp.site_internet }}"

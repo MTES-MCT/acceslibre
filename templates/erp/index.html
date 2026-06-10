@@ -46,7 +46,7 @@
     </li>
 {% endblock additional_skip_links %}
 {% block editorial_content %}
-    <main role="main" id="content" class="erp-details-container" tabindex="-1">
+    <div id="content" class="erp-details-container" tabindex="-1">
         {% switch "RPA" %}
     {% else %}
         <section>
@@ -84,8 +84,7 @@
                             <li id="btn-to-copy-wrapper">
                                 <button id="btn-to-copy"
                                         data-url="{{ erp_absolute_uri }}"
-                                        title="{% translate "Copier le lien" %}"
-                                        class="fr-btn fr-icon-links-fill"></button>
+                                        class="fr-btn fr-icon-links-fill">{% translate "Copier le lien" %}</button>
                                 <div id="btn-to-copy-voice-over-text"
                                      class="align-self--center fr-mb-2w"
                                      role="status"></div>
@@ -185,5 +184,5 @@
     <section>
         {% include "erp/includes/versions_block.html" %}
     </section>
-</main>
+</div>
 {% endblock editorial_content %}
