@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-10 16:15+0200\n"
+"POT-Creation-Date: 2026-06-10 17:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -553,6 +553,12 @@ msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code
 msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
+msgstr ""
+
+msgid "Latitude"
+msgstr ""
+
+msgid "Longitude"
 msgstr ""
 
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
@@ -3548,14 +3554,10 @@ msgstr ""
 msgid "Le déplacement ne peut dépasser 10 km par rapport à la position initiale du curseur."
 msgstr ""
 
+msgid "Position précise de l'établissement"
+msgstr ""
+
 msgid "Passer la carte interactive"
-msgstr ""
-
-#, python-brace-format
-msgid "Nouvelle position du curseur : latitude {lat}, longitude {lon}"
-msgstr ""
-
-msgid "Revenir à la carte interactive"
 msgstr ""
 
 msgid "À propos de vous"
@@ -5003,6 +5005,9 @@ msgid "Ajoutez un nouvel établissement"
 msgstr ""
 
 msgid "Informations sur l’accessibilité"
+msgstr ""
+
+msgid "Revenir à la carte interactive"
 msgstr ""
 
 msgid "Ajout d'une image"
