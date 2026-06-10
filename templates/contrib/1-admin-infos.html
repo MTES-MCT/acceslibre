@@ -302,12 +302,13 @@
                             </nav>
                         </div>
                     </div>
-                </fieldset>
-            </div>
+                </div>
+            </fieldset>
         </div>
-        {% if not existing_matches %}
-            {% include "contrib/includes/prevnext.html" %}
-        {% endif %}
-    </form>
+    </div>
+    {% if not existing_matches %}
+        {% include "contrib/includes/prevnext.html" %}
+    {% endif %}
+</form>
 </div>
 {% endblock contrib_content %}
