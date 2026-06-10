@@ -253,4 +253,10 @@
   border-top: 1px solid var(--border-default-grey);
 }
 
+.focus-outline--white {
+  &:focus-visible {
+    outline-color: #fff !important;
+  }
+}
+
 @include generate-gap-classes();
