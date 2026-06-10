@@ -24,6 +24,7 @@ function purifyRedirectionUrl(content) {
 
 async function FormContribDirtyChecker(root) {
   const dropdown = document.querySelector('#contrib-edit-cta')
+  const redirectBtn = document.querySelector('#contrib-edit-redirect-btn')
   const csrfToken = document.querySelector('input[type="hidden"][name="csrfmiddlewaretoken"]')?.value
 
   // URL used for subsequent call to update current step's values
@@ -39,6 +40,7 @@ async function FormContribDirtyChecker(root) {
   if (
     !root ||
     !dropdown ||
+    !redirectBtn ||
     !csrfToken ||
     !currentStepUrl ||
     !cancelBtn ||
@@ -86,8 +88,13 @@ async function FormContribDirtyChecker(root) {
   // Make it immutable as it will serve as a base for subsequent comparisons
   const originalInputsMap = Object.freeze(getMapInputs())
 
-  // Check if there were any changes whenever we select a step to go to
-  dropdown.addEventListener('input', async (e) => {
+  // Check if there were any changes whenever we validate the redirection to a step
+  redirectBtn.addEventListener('click', async () => {
+    const redirectionUrl = dropdown.value
+
+    // No step selected, nothing to do
+    if (!redirectionUrl) return
+
     const updatedInputsMap = getMapInputs()
 
     // Simple string comparison to check for diffs
@@ -96,11 +103,7 @@ async function FormContribDirtyChecker(root) {
     const hasDiffs = original !== updated
 
     if (!hasDiffs) {
-      const redirectionUrl = e.target.value
-
-      if (redirectionUrl) {
-        window.location.assign(new URL(purifyRedirectionUrl(redirectionUrl), window.location.origin))
-      }
+      window.location.assign(new URL(purifyRedirectionUrl(redirectionUrl), window.location.origin))
     } else {
       openModalBtn.click()
     }
