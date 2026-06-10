@@ -54,6 +54,7 @@ EXTRA_HISTORY_LABELS = {
     "updated_at": translate_lazy("Dernière modification"),
     "published": translate_lazy("Publié"),
     "user_type": translate_lazy("Profil de contributeur"),
+    "checked_up_to_date_at": translate_lazy("Dernière vérification des informations"),
 }
 
 
