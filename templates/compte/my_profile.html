@@ -17,7 +17,9 @@
     <div class="display--flex direction--column gap-5w">
         <section>
             <h2 class="fr-h4">{% translate "Mon profil" %}</h2>
-            <form action="{% url 'my_profile' %}" method="post" class="parent-toggle">
+            <form action="{% url 'my_profile' %}?#save-username"
+                  method="post"
+                  class="parent-toggle">
                 {% csrf_token %}
                 <div class="grid-row-3">
                     <span class="fr-col">{% translate "Mon nom d'utilisateur" %}</span>
@@ -46,7 +48,9 @@
                                     data-focus-to="#edit-username">{% translate "Annuler" %}</button>
                         </li>
                         <li>
-                            <button class="fr-btn toggle-close" type="submit">{% translate "Enregistrer mon nom d'utilisateur" %}</button>
+                            <button class="fr-btn toggle-close" type="submit" id="save-username">
+                                {% translate "Enregistrer mon nom d'utilisateur" %}
+                            </button>
                         </li>
                     </ul>
                 </div>

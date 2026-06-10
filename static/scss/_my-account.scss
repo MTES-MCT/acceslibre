@@ -3,14 +3,11 @@
 .account-container {
   display: flex;
   flex-direction: column;
+  min-height: 40vh;
+  margin: 16px 0;
 
   @media (min-width: breakpoints.$viewport-md) {
     flex-direction: row;
-  }
-
-  & > main {
-    min-height: 40vh;
-    margin: 16px 0;
   }
 
   &__lateral-menu-container {
