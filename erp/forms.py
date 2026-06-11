@@ -792,11 +792,9 @@ class ProviderGlobalSearchForm(forms.Form):
         if not what and not activite:
             self.add_error("what", translate("Vous devez préciser une activité ou un nom d'établissement."))
 
-        if (
-            cleaned_data.get("where")
-            or (cleaned_data.get("lat") and cleaned_data.get("lon"))
-            or cleaned_data.get("code")
-        ):
+        self.errors.pop("lat", None)
+        self.errors.pop("lon", None)
+        if (cleaned_data.get("lat") and cleaned_data.get("lon")) or cleaned_data.get("code"):
             return cleaned_data
         self.add_error("where", translate("Veuillez renseigner une adresse."))
         return cleaned_data
