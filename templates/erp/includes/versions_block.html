@@ -38,16 +38,12 @@
     <div class="fr-btns-group">
         {% if user_is_subscribed %}
             <a href="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
-               class="fr-btn fr-btn--secondary fr-btn--lg fr-my-2w"
-               title="{% translate "Recevoir des notifications par email lorsque cet établissement est mis à jour" %}">
+               class="fr-btn fr-btn--secondary fr-btn--lg fr-my-2w">
                 {% translate "Désabonnez vous des mises à jour" %}
             </a>
         {% else %}
             <a href="{% url 'subscribe_erp' erp_slug=erp.slug %}"
-               class="fr-btn fr-btn--secondary fr-btn--lg"
-               title="{% translate "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour" %}">
-                {% translate "Abonnez vous aux mises à jour" %}
-            </a>
+               class="fr-btn fr-btn--secondary fr-btn--lg">{% translate "Abonnez vous aux mises à jour" %}</a>
         {% endif %}
     </div>
 {% endif %}
