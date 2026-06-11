@@ -1,0 +1,175 @@
+{% extends "editorial/base.html" %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions" %} | {% translate "Acceslibre" %}
+{% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    {% translate "Schéma Pluriannuel d'Accessibilité Numérique - nouvelle fenêtre" as dinum_link_title %}
+    {% translate "Dashlord - nouvelle fenêtre" as dashlord_link_title %}
+    <div>
+        <h1 class="fr-mb-4w">{% translate "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions" %}</h1>
+        <section>
+            <h2 class="fr-my-4v">{% translate "1. Introduction" %}</h2>
+            <p class="fr-mb-0">{% translate "Ce document présente la politique d’accessibilité d'Acceslibre." %}</p>
+            <p class="fr-mb-0">
+                {% translate "Acceslibre est une plateforme collaborative, à la fois dédiée aux professionnels (gérants d'établissements, administration) et au grand public." %}
+            </p>
+            <p class="fr-mb-0">
+                {% blocktranslate trimmed %}
+                    Acceslibre fait partie du réseau des Startup d'Etat coordonnées par la direction du numérique, DINUM, qui met à disposition des moyens et outils pour les produits numériques du réseau beta.gouv.fr, et qui a son propre <a href="https://beta.gouv.fr/accessibilite/schema-pluriannuel#plan-2026"
+    target="_blank"
+    class="fr-link"
+    title="{{ dinum_link_title }}"
+    rel="noopener noreferrer">Schéma Pluriannuel d'Accessibilité Numérique</a>.
+                {% endblocktranslate %}
+            </p>
+        </section>
+        <section>
+            <h2 class="fr-my-4v">{% translate "2. Ressources humaines et techniques" %}</h2>
+            <p class="fr-mb-0">
+                {% translate "L'équipe est constituée de 6 personnes en 2026. Les personnes en charge de l'accessibilité numérique sont principalement les intrapreneuses du projet et les deux développeurs." %}
+            </p>
+            <p>
+                {% translate "Des experts de la DINUM peuvent être mobilisés pour conseiller mais également réaliser des audits RGAA pour les startups d'Etat." %}
+            </p>
+        </section>
+        <section>
+            <h2 class="fr-my-4v">{% translate "3. Politique d'accessibilité numérique" %}</h2>
+            <h3 class="fr-my-4v">{% translate "3.1 Objectifs généraux" %}</h3>
+            <p class="fr-mb-0">
+                {% translate "Acceslibre se fixe les objectifs suivants en matière d’accessibilité numérique :" %}
+            </p>
+            <ul class="fr-pl-4w">
+                <li>
+                    {% translate "Sensibiliser et former à l’accessibilité les membres de l'équipe impliqués dans la création et la gestion de produits et de contenus numériques ;" %}
+                </li>
+                <li>
+                    {% translate "Intégrer l’accessibilité numérique dès la conception des nouveaux services et fonctionnalités ;" %}
+                </li>
+                <li>{% translate "Atteindre et maintenir un niveau de conformité élevé au RGAA - si possible 100% ;" %}</li>
+                <li>
+                    {% translate "Mettre en place des tests utilisateurs réguliers dans un objectif d'amélioration continue de l'accessibilité du site ;" %}
+                </li>
+                <li>
+                    {% translate "Vérifier l'accessibilité numérique de sites partenaires et, pour les sites non conformes, les inciter à se rendre accessibles ;" %}
+                </li>
+                <li>
+                    {% translate "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, post LinkedIn..." %}
+                </li>
+            </ul>
+            <h3 class="fr-my-4v">{% translate "3.2 Respect des obligations légales déclaratives" %}</h3>
+            <p class="fr-mb-0">{% translate "Tout développement réalisé sur le site :" %}</p>
+            <ul class="fr-pl-4w">
+                <li>{% translate "respecte le DSFR ;" %}</li>
+                <li>
+                    {% translate "respecte le référentiel général d’amélioration de l’accessibilité (RGAA) dans sa version en vigueur." %}
+                </li>
+            </ul>
+            <p>{% translate "La déclaration d'accessibilité est vérifiée a minima une fois par an." %}</p>
+            <h3 class="fr-my-4v">{% translate "3.3 Conception / Développement" %}</h3>
+            <p class="fr-mb-0">
+                {% translate "Les principaux bénéficiaires du site Acceslibre sont les personnes en situation de handicap et leurs proches. Aussi, toutes les nouvelles fonctionnalités qui concernent l'usage sont conçues et testées au sein de groupe de travail avec les personnes concernées." %}
+            </p>
+            <p class="fr-mb-0">
+                {% translate "L'équipe de développement sollicite l'équipe d'appui de la DINUM si nécessaire pour concevoir ou développer certaines fonctionnalités." %}
+            </p>
+            <p class="fr-mb-0">
+                {% translate "Une clause concernant le respect du RGAA sera intégrée à toute mission externalisée." %}
+            </p>
+            <h3 class="fr-my-4v">{% translate "3.4 Contrôle" %}</h3>
+            <p class="fr-mb-0">
+                {% blocktranslate trimmed %}
+                    Des tests automatiques ou automatisés sont mis en place. Un suivi est possible via le <a href="https://dashlord.incubateur.net/"
+    class="fr-link"
+    title="{{ dashlord_link_title }}"
+    target="_blank"
+    rel="noopener noreferrer">Dashlord</a>.
+                {% endblocktranslate %}
+            </p>
+            <p class="fr-mb-0">
+                {% translate "Des tests manuels sont effectués lors de signalement ou de la mise en ligne de nouvelles fonctionnalités avec le logiciel VoiceOver." %}
+            </p>
+            <p>
+                {% translate "Il peut être fait appel à des personnes en situation de handicap pour tester certaines fonctionnalités." %}
+            </p>
+        </section>
+        <section>
+            <h2 class="fr-my-4v">{% translate "4. Actions réalisées en 2025" %}</h2>
+            <h3 class="fr-my-4v">{% translate "4.1 Refonte du site et audit" %}</h3>
+            <p class="fr-mb-0">{% translate "En 2025, les actions suivantes ont été mises en œuvre :" %}</p>
+            <ul class="fr-pl-4w">
+                <li>
+                    {% translate "Refonte globale du site ayant pour objectif :" %}
+                    <ul class="fr-pl-4w">
+                        <li>{% translate "l'amélioration de l'ergonomie et du design ;" %}</li>
+                        <li>{% translate "la mise en conformité totale au DSFR ;" %}</li>
+                        <li>{% translate "la mise en accessibilité totale en vue d'un audit." %}</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="fr-mb-0">
+                {% translate "Ce chantier sera essentiellement mené par une prestation externe d'UX/ design et le développeur de l'équipe plus spécifiquement en charge du front et de l'accessibilité." %}
+            </p>
+            <p class="fr-mb-0">{% translate "Audit RGAA par la DINUM." %}</p>
+            <p class="fr-mb-0">{% translate "Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026." %}</p>
+            <h3 class="fr-my-4v">{% translate "4.2 Conception, développement, contrôle" %}</h3>
+            <p class="fr-mb-0">
+                {% translate "Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolution du site notamment :" %}
+            </p>
+            <ul class="fr-pl-4w">
+                <li>{% translate "mise en place de filtres de recherche ;" %}</li>
+                <li>{% translate "évolutions du modèle de données." %}</li>
+            </ul>
+            <p>
+                {% translate "Partenariat avec la CFPSAA et l'association Valentin Haüy dans une démarche d'amélioration continue du site." %}
+            </p>
+        </section>
+        <section>
+            <h2 class="fr-my-4v">{% translate "5. Plan d'actions 2026" %}</h2>
+            <p class="fr-mb-0">{% translate "En 2026, les actions suivantes seront menées :" %}</p>
+            <ul class="fr-pl-4w fr-mb-4w">
+                <li>{% translate "Audit (audit, corrections des non conformités, contre-audit) ;" %}</li>
+                <li>{% translate "Mise à jour de la déclaration d’accessibilité ;" %}</li>
+                <li>
+                    {% translate "Renforcement de l’approche “Accessibilité dès la conception” en associant à toutes évolutions du site les usagers concernés ;" %}
+                </li>
+                <li>
+                    {% translate "Maintien du 100% accessible en veillant à ce que toutes les évolutions du site soient accessibles ;" %}
+                </li>
+                <li>
+                    {% translate "Mise en place de contrôle de l'accessibilité numérique lors du recettage d'évolutions du produit ;" %}
+                </li>
+                <li>
+                    {% translate "Maintien des compétences en matière d'accessibilité numérique des développeurs, en particulier, mise en place d'une formation spécifique en cas de changement de développeurs ;" %}
+                </li>
+                <li>
+                    {% translate "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, emailing, post LinkedIn... ;" %}
+                </li>
+                <li>
+                    {% translate "Au-delà du site Acceslibre, communication auprès de nos partenaires sur l'importance de rendre accessible leur site." %}
+                </li>
+            </ul>
+        </section>
+    </div>
+{% endblock editorial_content %}

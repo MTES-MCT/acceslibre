@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-11 18:21+0200\n"
+"POT-Creation-Date: 2026-06-12 01:44+0200\n"
 "PO-Revision-Date: 2026-06-11 17:35+0200\n"
 "Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -604,6 +604,7 @@ msgstr "One NAF/APE code per line"
 msgid "Un code postal par ligne"
 msgstr "One postal code per line"
 
+#, python-brace-format
 msgid ""
 "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\" "
 "title=\"Signaler une erreur - nouvelle fenêtre\">signaler une erreur</a>."
@@ -611,6 +612,7 @@ msgstr ""
 "Please check your entry or <a href=\"{}\" target=\"_blank\" title=\"Report "
 "an error - new window\">report an error</a>."
 
+#, python-brace-format
 msgid ""
 "Cette adresse n'est pas localisable au code postal {} (mais l'est au code "
 "{})"
@@ -618,6 +620,7 @@ msgstr ""
 "This address cannot be found in the {} zip code (but can be found in the {} "
 "zip code)."
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr "This address cannot be located at the INSEE code {}"
 
@@ -652,6 +655,7 @@ msgstr ""
 "permanently closed. <a href='%(url_contact)s'>Contact the acceslibre "
 "team</a> if this is an error."
 
+#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr "The <b>{}</b> facility already exists in the database."
 
@@ -5764,6 +5768,314 @@ msgstr "Join the community"
 
 msgid "Découvrir tous les partenaires"
 msgstr "Discover all partners"
+
+msgid ""
+"Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions"
+msgstr "Multi-year digital accessibility plan 2026-2028 and action plan"
+
+msgid "Schéma Pluriannuel d'Accessibilité Numérique - nouvelle fenêtre"
+msgstr "Multi-year Digital Accessibility Plan - new window"
+
+msgid "Dashlord - nouvelle fenêtre"
+msgstr "Dashlord - new window"
+
+msgid "1. Introduction"
+msgstr "1. Introduction"
+
+msgid "Ce document présente la politique d’accessibilité d'Acceslibre."
+msgstr "This document presents Acceslibre's accessibility policy."
+
+msgid ""
+"Acceslibre est une plateforme collaborative, à la fois dédiée aux "
+"professionnels (gérants d'établissements, administration) et au grand "
+"public."
+msgstr ""
+"Acceslibre is a collaborative platform, dedicated both to professionals "
+"(establishment managers, administration) and the general public."
+
+#, python-format
+msgid ""
+"Acceslibre fait partie du réseau des Startup d'Etat coordonnées par la "
+"direction du numérique, DINUM, qui met à disposition des moyens et outils "
+"pour les produits numériques du réseau beta.gouv.fr, et qui a son propre <a "
+"href=\"https://beta.gouv.fr/accessibilite/schema-pluriannuel#plan-2026\" "
+"target=\"_blank\" class=\"fr-link\" title=\"%(dinum_link_title)s\" "
+"rel=\"noopener noreferrer\">Schéma Pluriannuel d'Accessibilité "
+"Numérique</a>."
+msgstr ""
+"Acceslibre is part of the network of State Startups coordinated by the "
+"digital department, DINUM, which provides resources and tools for the "
+"digital products of the beta.gouv.fr network, and which has its own <a "
+"href=\"https://beta.gouv.fr/accessibilite/schema-pluriannuel#plan-2026\" "
+"target=\"_blank\" class=\"fr-link\" title=\"%(dinum_link_title)s\" "
+"rel=\"noopener noreferrer\">Multi-year Digital Accessibility Plan</a>."
+
+msgid "2. Ressources humaines et techniques"
+msgstr "2. Human and technical resources"
+
+msgid ""
+"L'équipe est constituée de 6 personnes en 2026. Les personnes en charge de "
+"l'accessibilité numérique sont principalement les intrapreneuses du projet "
+"et les deux développeurs."
+msgstr ""
+"The team is made up of 6 people in 2026. The people in charge of digital "
+"accessibility are mainly the project's intrapreneurs and the two developers."
+
+msgid ""
+"Des experts de la DINUM peuvent être mobilisés pour conseiller mais "
+"également réaliser des audits RGAA pour les startups d'Etat."
+msgstr ""
+"DINUM experts can be called upon to advise but also to carry out RGAA audits"
+" for State Startups."
+
+msgid "3. Politique d'accessibilité numérique"
+msgstr "3. Digital accessibility policy"
+
+msgid "3.1 Objectifs généraux"
+msgstr "3.1 General objectives"
+
+msgid ""
+"Acceslibre se fixe les objectifs suivants en matière d’accessibilité "
+"numérique :"
+msgstr ""
+"Acceslibre sets itself the following objectives regarding digital "
+"accessibility:"
+
+msgid ""
+"Sensibiliser et former à l’accessibilité les membres de l'équipe impliqués "
+"dans la création et la gestion de produits et de contenus numériques ;"
+msgstr ""
+"Raise awareness and train in accessibility the team members involved in the "
+"creation and management of digital products and content;"
+
+msgid ""
+"Intégrer l’accessibilité numérique dès la conception des nouveaux services "
+"et fonctionnalités ;"
+msgstr ""
+"Integrate digital accessibility from the design stage of new services and "
+"features;"
+
+#, python-format
+#| msgid ""
+#| "Atteindre et maintenir un niveau de conformité élevé au RGAA - si possible "
+#| "100 %% ;"
+msgid ""
+"Atteindre et maintenir un niveau de conformité élevé au RGAA - si possible "
+"100%% ;"
+msgstr ""
+"Reach and maintain a high level of RGAA compliance - if possible 100%% ;"
+
+msgid ""
+"Mettre en place des tests utilisateurs réguliers dans un objectif "
+"d'amélioration continue de l'accessibilité du site ;"
+msgstr ""
+"Set up regular user tests with the aim of continuously improving the site's "
+"accessibility;"
+
+msgid ""
+"Vérifier l'accessibilité numérique de sites partenaires et, pour les sites "
+"non conformes, les inciter à se rendre accessibles ;"
+msgstr ""
+"Check the digital accessibility of partner sites and, for non-compliant "
+"sites, encourage them to make themselves accessible;"
+
+msgid ""
+"Veiller à l'accessibilité des différentes communications : newsletter, "
+"scorecard, post LinkedIn..."
+msgstr ""
+"Ensure the accessibility of the various communications: newsletter, "
+"scorecard, LinkedIn post..."
+
+msgid "3.2 Respect des obligations légales déclaratives"
+msgstr "3.2 Compliance with legal reporting obligations"
+
+msgid "Tout développement réalisé sur le site :"
+msgstr "Any development carried out on the site:"
+
+msgid "respecte le DSFR ;"
+msgstr "complies with the DSFR;"
+
+msgid ""
+"respecte le référentiel général d’amélioration de l’accessibilité (RGAA) "
+"dans sa version en vigueur."
+msgstr ""
+"complies with the general accessibility improvement framework (RGAA) in its "
+"current version."
+
+msgid "La déclaration d'accessibilité est vérifiée a minima une fois par an."
+msgstr "The accessibility declaration is checked at least once a year."
+
+msgid "3.3 Conception / Développement"
+msgstr "3.3 Design / Development"
+
+msgid ""
+"Les principaux bénéficiaires du site Acceslibre sont les personnes en "
+"situation de handicap et leurs proches. Aussi, toutes les nouvelles "
+"fonctionnalités qui concernent l'usage sont conçues et testées au sein de "
+"groupe de travail avec les personnes concernées."
+msgstr ""
+"The main beneficiaries of the Acceslibre site are people with disabilities "
+"and their relatives. Therefore, all new features concerning usage are "
+"designed and tested within working groups with the people concerned."
+
+msgid ""
+"L'équipe de développement sollicite l'équipe d'appui de la DINUM si "
+"nécessaire pour concevoir ou développer certaines fonctionnalités."
+msgstr ""
+"The development team calls on DINUM's support team if necessary to design or"
+" develop certain features."
+
+msgid ""
+"Une clause concernant le respect du RGAA sera intégrée à toute mission "
+"externalisée."
+msgstr ""
+"A clause concerning RGAA compliance will be included in any outsourced "
+"assignment."
+
+msgid "3.4 Contrôle"
+msgstr "3.4 Control"
+
+#, python-format
+msgid ""
+"Des tests automatiques ou automatisés sont mis en place. Un suivi est "
+"possible via le <a href=\"https://dashlord.incubateur.net/\" class=\"fr-"
+"link\" title=\"%(dashlord_link_title)s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Dashlord</a>."
+msgstr ""
+"Automatic or automated tests are set up. Monitoring is possible via <a "
+"href=\"https://dashlord.incubateur.net/\" class=\"fr-link\" "
+"title=\"%(dashlord_link_title)s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Dashlord</a>."
+
+msgid ""
+"Des tests manuels sont effectués lors de signalement ou de la mise en ligne "
+"de nouvelles fonctionnalités avec le logiciel VoiceOver."
+msgstr ""
+"Manual tests are carried out when reporting issues or when putting new "
+"features online, using the VoiceOver software."
+
+msgid ""
+"Il peut être fait appel à des personnes en situation de handicap pour tester"
+" certaines fonctionnalités."
+msgstr "People with disabilities may be called upon to test certain features."
+
+msgid "4. Actions réalisées en 2025"
+msgstr "4. Actions carried out in 2025"
+
+msgid "4.1 Refonte du site et audit"
+msgstr "4.1 Site redesign and audit"
+
+msgid "En 2025, les actions suivantes ont été mises en œuvre :"
+msgstr "In 2025, the following actions were implemented:"
+
+msgid "Refonte globale du site ayant pour objectif :"
+msgstr "Complete redesign of the site aiming to:"
+
+msgid "l'amélioration de l'ergonomie et du design ;"
+msgstr "improve ergonomics and design;"
+
+msgid "la mise en conformité totale au DSFR ;"
+msgstr "achieve full DSFR compliance;"
+
+msgid "la mise en accessibilité totale en vue d'un audit."
+msgstr "achieve full accessibility in view of an audit."
+
+msgid ""
+"Ce chantier sera essentiellement mené par une prestation externe d'UX/ "
+"design et le développeur de l'équipe plus spécifiquement en charge du front "
+"et de l'accessibilité."
+msgstr ""
+"This project will be mainly carried out by an external UX/design service and"
+" the team developer more specifically in charge of the front end and "
+"accessibility."
+
+msgid "Audit RGAA par la DINUM."
+msgstr "RGAA audit by DINUM."
+
+msgid ""
+"Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026."
+msgstr "Given DINUM's workload, the audit was postponed to 2026."
+
+msgid "4.2 Conception, développement, contrôle"
+msgstr "4.2 Design, development, control"
+
+msgid ""
+"Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolution du "
+"site notamment :"
+msgstr ""
+"Several user workshops were held as part of the site's evolution, notably:"
+
+msgid "mise en place de filtres de recherche ;"
+msgstr "implementation of search filters;"
+
+msgid "évolutions du modèle de données."
+msgstr "changes to the data model."
+
+msgid ""
+"Partenariat avec la CFPSAA et l'association Valentin Haüy dans une démarche "
+"d'amélioration continue du site."
+msgstr ""
+"Partnership with the CFPSAA and the Valentin Haüy association in a "
+"continuous improvement approach to the site."
+
+msgid "5. Plan d'actions 2026"
+msgstr "5. Action plan 2026"
+
+msgid "En 2026, les actions suivantes seront menées :"
+msgstr "In 2026, the following actions will be carried out:"
+
+msgid "Audit (audit, corrections des non conformités, contre-audit) ;"
+msgstr "Audit (audit, correction of non-compliances, counter-audit);"
+
+msgid "Mise à jour de la déclaration d’accessibilité ;"
+msgstr "Update of the accessibility declaration;"
+
+msgid ""
+"Renforcement de l’approche “Accessibilité dès la conception” en associant à "
+"toutes évolutions du site les usagers concernés ;"
+msgstr ""
+"Strengthening the “Accessibility by design” approach by involving the users "
+"concerned in all changes to the site;"
+
+#, python-format
+#| msgid ""
+#| "Maintien du 100 %% accessible en veillant à ce que toutes les évolutions du "
+#| "site soient accessibles ;"
+msgid ""
+"Maintien du 100%% accessible en veillant à ce que toutes les évolutions du "
+"site soient accessibles ;"
+msgstr ""
+"Maintaining 100%% accessibility by ensuring that all changes to the site are"
+" accessible;"
+
+msgid ""
+"Mise en place de contrôle de l'accessibilité numérique lors du recettage "
+"d'évolutions du produit ;"
+msgstr ""
+"Setting up digital accessibility control during the acceptance testing of "
+"product changes;"
+
+msgid ""
+"Maintien des compétences en matière d'accessibilité numérique des "
+"développeurs, en particulier, mise en place d'une formation spécifique en "
+"cas de changement de développeurs ;"
+msgstr ""
+"Maintaining developers' digital accessibility skills, in particular, setting"
+" up specific training in the event of a change of developers;"
+
+msgid ""
+"Veiller à l'accessibilité des différentes communications : newsletter, "
+"scorecard, emailing, post LinkedIn... ;"
+msgstr ""
+"Ensure the accessibility of the various communications: newsletter, "
+"scorecard, emailing, LinkedIn post...;"
+
+msgid ""
+"Au-delà du site Acceslibre, communication auprès de nos partenaires sur "
+"l'importance de rendre accessible leur site."
+msgstr ""
+"Beyond the Acceslibre site, communicating to our partners the importance of "
+"making their site accessible."
 
 msgid "Revendication"
 msgstr "Claim"

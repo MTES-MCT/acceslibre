@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-11 18:21+0200\n"
+"POT-Creation-Date: 2026-06-12 01:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -549,12 +549,15 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
+#, python-brace-format
 msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\" title=\"Signaler une erreur - nouvelle fenêtre\">signaler une erreur</a>."
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
 msgstr ""
 
+#, python-brace-format
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
@@ -583,6 +586,7 @@ msgstr ""
 msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
+#, python-brace-format
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
 msgstr ""
 
@@ -4655,6 +4659,181 @@ msgid "Rejoindre la communauté"
 msgstr ""
 
 msgid "Découvrir tous les partenaires"
+msgstr ""
+
+msgid "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions"
+msgstr ""
+
+msgid "Schéma Pluriannuel d'Accessibilité Numérique - nouvelle fenêtre"
+msgstr ""
+
+msgid "Dashlord - nouvelle fenêtre"
+msgstr ""
+
+msgid "1. Introduction"
+msgstr ""
+
+msgid "Ce document présente la politique d’accessibilité d'Acceslibre."
+msgstr ""
+
+msgid "Acceslibre est une plateforme collaborative, à la fois dédiée aux professionnels (gérants d'établissements, administration) et au grand public."
+msgstr ""
+
+#, python-format
+msgid "Acceslibre fait partie du réseau des Startup d'Etat coordonnées par la direction du numérique, DINUM, qui met à disposition des moyens et outils pour les produits numériques du réseau beta.gouv.fr, et qui a son propre <a href=\"https://beta.gouv.fr/accessibilite/schema-pluriannuel#plan-2026\" target=\"_blank\" class=\"fr-link\" title=\"%(dinum_link_title)s\" rel=\"noopener noreferrer\">Schéma Pluriannuel d'Accessibilité Numérique</a>."
+msgstr ""
+
+msgid "2. Ressources humaines et techniques"
+msgstr ""
+
+msgid "L'équipe est constituée de 6 personnes en 2026. Les personnes en charge de l'accessibilité numérique sont principalement les intrapreneuses du projet et les deux développeurs."
+msgstr ""
+
+msgid "Des experts de la DINUM peuvent être mobilisés pour conseiller mais également réaliser des audits RGAA pour les startups d'Etat."
+msgstr ""
+
+msgid "3. Politique d'accessibilité numérique"
+msgstr ""
+
+msgid "3.1 Objectifs généraux"
+msgstr ""
+
+msgid "Acceslibre se fixe les objectifs suivants en matière d’accessibilité numérique :"
+msgstr ""
+
+msgid "Sensibiliser et former à l’accessibilité les membres de l'équipe impliqués dans la création et la gestion de produits et de contenus numériques ;"
+msgstr ""
+
+msgid "Intégrer l’accessibilité numérique dès la conception des nouveaux services et fonctionnalités ;"
+msgstr ""
+
+#, python-format
+msgid "Atteindre et maintenir un niveau de conformité élevé au RGAA - si possible 100%% ;"
+msgstr ""
+
+msgid "Mettre en place des tests utilisateurs réguliers dans un objectif d'amélioration continue de l'accessibilité du site ;"
+msgstr ""
+
+msgid "Vérifier l'accessibilité numérique de sites partenaires et, pour les sites non conformes, les inciter à se rendre accessibles ;"
+msgstr ""
+
+msgid "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, post LinkedIn..."
+msgstr ""
+
+msgid "3.2 Respect des obligations légales déclaratives"
+msgstr ""
+
+msgid "Tout développement réalisé sur le site :"
+msgstr ""
+
+msgid "respecte le DSFR ;"
+msgstr ""
+
+msgid "respecte le référentiel général d’amélioration de l’accessibilité (RGAA) dans sa version en vigueur."
+msgstr ""
+
+msgid "La déclaration d'accessibilité est vérifiée a minima une fois par an."
+msgstr ""
+
+msgid "3.3 Conception / Développement"
+msgstr ""
+
+msgid "Les principaux bénéficiaires du site Acceslibre sont les personnes en situation de handicap et leurs proches. Aussi, toutes les nouvelles fonctionnalités qui concernent l'usage sont conçues et testées au sein de groupe de travail avec les personnes concernées."
+msgstr ""
+
+msgid "L'équipe de développement sollicite l'équipe d'appui de la DINUM si nécessaire pour concevoir ou développer certaines fonctionnalités."
+msgstr ""
+
+msgid "Une clause concernant le respect du RGAA sera intégrée à toute mission externalisée."
+msgstr ""
+
+msgid "3.4 Contrôle"
+msgstr ""
+
+#, python-format
+msgid "Des tests automatiques ou automatisés sont mis en place. Un suivi est possible via le <a href=\"https://dashlord.incubateur.net/\" class=\"fr-link\" title=\"%(dashlord_link_title)s\" target=\"_blank\" rel=\"noopener noreferrer\">Dashlord</a>."
+msgstr ""
+
+msgid "Des tests manuels sont effectués lors de signalement ou de la mise en ligne de nouvelles fonctionnalités avec le logiciel VoiceOver."
+msgstr ""
+
+msgid "Il peut être fait appel à des personnes en situation de handicap pour tester certaines fonctionnalités."
+msgstr ""
+
+msgid "4. Actions réalisées en 2025"
+msgstr ""
+
+msgid "4.1 Refonte du site et audit"
+msgstr ""
+
+msgid "En 2025, les actions suivantes ont été mises en œuvre :"
+msgstr ""
+
+msgid "Refonte globale du site ayant pour objectif :"
+msgstr ""
+
+msgid "l'amélioration de l'ergonomie et du design ;"
+msgstr ""
+
+msgid "la mise en conformité totale au DSFR ;"
+msgstr ""
+
+msgid "la mise en accessibilité totale en vue d'un audit."
+msgstr ""
+
+msgid "Ce chantier sera essentiellement mené par une prestation externe d'UX/ design et le développeur de l'équipe plus spécifiquement en charge du front et de l'accessibilité."
+msgstr ""
+
+msgid "Audit RGAA par la DINUM."
+msgstr ""
+
+msgid "Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026."
+msgstr ""
+
+msgid "4.2 Conception, développement, contrôle"
+msgstr ""
+
+msgid "Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolution du site notamment :"
+msgstr ""
+
+msgid "mise en place de filtres de recherche ;"
+msgstr ""
+
+msgid "évolutions du modèle de données."
+msgstr ""
+
+msgid "Partenariat avec la CFPSAA et l'association Valentin Haüy dans une démarche d'amélioration continue du site."
+msgstr ""
+
+msgid "5. Plan d'actions 2026"
+msgstr ""
+
+msgid "En 2026, les actions suivantes seront menées :"
+msgstr ""
+
+msgid "Audit (audit, corrections des non conformités, contre-audit) ;"
+msgstr ""
+
+msgid "Mise à jour de la déclaration d’accessibilité ;"
+msgstr ""
+
+msgid "Renforcement de l’approche “Accessibilité dès la conception” en associant à toutes évolutions du site les usagers concernés ;"
+msgstr ""
+
+#, python-format
+msgid "Maintien du 100%% accessible en veillant à ce que toutes les évolutions du site soient accessibles ;"
+msgstr ""
+
+msgid "Mise en place de contrôle de l'accessibilité numérique lors du recettage d'évolutions du produit ;"
+msgstr ""
+
+msgid "Maintien des compétences en matière d'accessibilité numérique des développeurs, en particulier, mise en place d'une formation spécifique en cas de changement de développeurs ;"
+msgstr ""
+
+msgid "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, emailing, post LinkedIn... ;"
+msgstr ""
+
+msgid "Au-delà du site Acceslibre, communication auprès de nos partenaires sur l'importance de rendre accessible leur site."
 msgstr ""
 
 msgid "Revendication"

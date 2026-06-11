@@ -42,6 +42,11 @@ urlpatterns = [
         name="accessibilite",
     ),
     path(
+        "schema-pluriannuel-accessibilite-et-plan-action-2026-2028",
+        editorial_page("editorial/schema-pluriannuel.html"),
+        name="schema-pluriannuel",
+    ),
+    path(
         "partenaires",
         editorial_page(
             "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES, "page_type": "partners"}
