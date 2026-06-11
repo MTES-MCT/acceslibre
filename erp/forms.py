@@ -756,7 +756,7 @@ class ProviderGlobalSearchForm(forms.Form):
             )
         ),
         required=False,
-        label=translate_lazy("Activité"),
+        label=translate_lazy("Nom"),
         widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off", "id": "what-input"}),
     )
     where = forms.CharField(
@@ -798,6 +798,7 @@ class ProviderGlobalSearchForm(forms.Form):
         activite = cleaned_data.get("activite")
 
         if not what and not activite:
+            self.add_error("activite", translate("Vous devez préciser une activité ou un nom d'établissement."))
             self.add_error("what", translate("Vous devez préciser une activité ou un nom d'établissement."))
 
         self.errors.pop("lat", None)
