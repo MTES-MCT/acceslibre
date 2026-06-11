@@ -274,15 +274,21 @@
                         <fieldset class="fr-fieldset">
                             <legend class="fr-fieldset__legend">{% translate "Position précise de l'établissement" %}</legend>
                             <div class="fr-fieldset__element">
-                                <div class="fr-input-group">
-                                    <label class="fr-label" for="id_latitude">{% translate "Latitude" %}</label>
+                                <div class="fr-input-group {% if form.errors.lat %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_latitude">{% translate "Latitude *" %}</label>
                                     {{ form.lat }}
+                                    {% if form.errors.lat %}
+                                        <p class="fr-error-text" id="latitude-error-message">{{ form.errors.lat.0 }}</p>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="fr-fieldset__element">
-                                <div class="fr-input-group">
-                                    <label class="fr-label" for="id_longitude">{% translate "Longitude" %}</label>
+                                <div class="fr-input-group {% if form.errors.lon %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_longitude">{% translate "Longitude *" %}</label>
                                     {{ form.lon }}
+                                    {% if form.errors.lon %}
+                                        <p class="fr-error-text" id="longitude-error-message">{{ form.errors.lon.0 }}</p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </fieldset>

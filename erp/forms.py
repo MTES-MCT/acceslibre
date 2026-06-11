@@ -510,11 +510,19 @@ class AdminErpForm(BaseErpForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(
         label=translate_lazy("Latitude"),
-        widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_latitude"}),
+        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_latitude", "inPputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "latitude-error-message"}),
+        error_messages={
+            "required": translate_lazy("Latitude obligatoire"),
+            "invalid": translate_lazy("La latitude saisie ne respecte pas le format attendu."),
+        },
     )
     lon = forms.DecimalField(
         label=translate_lazy("Longitude"),
-        widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_longitude"}),
+        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_longitude",  "inputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "longitude-error-message"}),
+        error_messages={
+            "required": translate_lazy("Longitude obligatoire"),
+            "invalid": translate_lazy("La longitude saisie ne respecte pas le format attendu."),
+        },
     )
     nouvelle_activite = forms.CharField(
         required=False,
