@@ -143,14 +143,10 @@ function enhancePanoramaxLegendA11y() {
           // Visible text becomes the author name; cache it on first pass so the
           // descriptive title survives our own text replacement and re-renders.
           const author = link.dataset.a11yAuthor || (link.dataset.a11yAuthor = link.textContent.trim())
-          setExternalLink(
-            link,
-            `${gettext('Voir le point de vue photo de')} ${author} ${gettext('sur Panoramax')}`,
-            gettext('Voir sur Panoramax')
-          )
+          setExternalLink(link, 'Voir sur Panoramax', gettext('Voir sur Panoramax'))
         } else {
           const licence = link.textContent.replace('↗', '').trim()
-          setExternalLink(link, `${gettext('Description complète de la licence')} ${licence}`)
+          setExternalLink(link, licence)
         }
       })
       pictureObserver.observe(pictureRoot, { childList: true, subtree: true })

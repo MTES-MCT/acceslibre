@@ -11,8 +11,11 @@
     <div class="fr-grid-row fr-grid-row--center">
         <h1 class="fr-mb-4v text-center">{{ erp.nom }}</h1>
     </div>
-    <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
+    <div class="fr-grid-row fr-grid-row--center">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
+    </div>
+    <div class="fr-grid-row fr-grid-row--center fr-mb-2w fr-mb-md-4w">
+      <h2 class="text-center fr-mt-1w">{% translate "Informations générales" %}</h2>
     </div>
     <div class="fr-grid-row gap-2w {% switch "RPA" %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
         {% switch "RPA" %}
