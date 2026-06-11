@@ -510,12 +510,10 @@ class AdminErpForm(BaseErpForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(
         label=translate_lazy("Latitude"),
-        required=False,
         widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_latitude"}),
     )
     lon = forms.DecimalField(
         label=translate_lazy("Longitude"),
-        required=False,
         widget=forms.NumberInput(attrs={"class": "fr-input", "id": "id_longitude"}),
     )
     nouvelle_activite = forms.CharField(
