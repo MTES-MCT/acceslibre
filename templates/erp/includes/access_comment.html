@@ -1,14 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h2 class="fr-accordion__title" data-filter-title="true">
-    <button type="button"
-            class="fr-accordion__btn"
-            aria-expanded="true"
-            aria-controls="access_comment">{% translate "Commentaire" %}</button>
-</h2>
-<div id="access_comment" class="fr-collapse text--long-words">
-    <ul>
+<h3 class="fr-h5 fr-mb-1w" data-filter-title="true">{% translate "Commentaire" %}</h3>
+<div class="text--long-words">
+    <ul class="fr-pl-4w">
         <li>{{ access.commentaire|linebreaksbr }}</li>
     </ul>
 </div>

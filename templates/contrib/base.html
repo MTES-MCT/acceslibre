@@ -32,22 +32,19 @@
                          aria-live="polite">
                         <h3 id="contrib-edit-notification-title" class="fr-alert__title"></h3>
                         <p id="contrib-edit-notification-message"></p>
-                        {% if form.errors %}
-                            <ul>
-                                {% for field, errors in form.errors.items %}
-                                    {% for error in errors %}
-                                        <li>
-                                            <span class="fr-text--bold">{{ field }} :</span> {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
                         <button class="fr-btn--close fr-btn">{% translate "Masquer le message" %}</button>
                     </div>
                 {% endif %}
                 {% block contrib_step %}
                 {% endblock contrib_step %}
+                {% if form.errors %}
+                    <div class="fr-alert fr-alert--error fr-mb-2w bg--white"
+                         role="alert"
+                         tabindex="-1">
+                        <h3 class="fr-alert__title">{% translate "Le formulaire comporte des erreurs" %}</h3>
+                        {% include "contrib/includes/error-summary.html" %}
+                    </div>
+                {% endif %}
                 <p class="fr-mt-2v fr-text--lg fr-mb-1w">
                     {% block contrib_subtitle %}
                     {% endblock contrib_subtitle %}

@@ -248,4 +248,15 @@
   }
 }
 
+.hr-top {
+  padding-top: 24px;
+  border-top: 1px solid var(--border-default-grey);
+}
+
+.focus-outline--white {
+  &:focus-visible {
+    outline-color: #230189 !important;
+  }
+}
+
 @include generate-gap-classes();

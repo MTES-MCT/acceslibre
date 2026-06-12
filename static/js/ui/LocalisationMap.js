@@ -2,12 +2,12 @@ import geo from '../geo'
 
 function LocalisationMap(root) {
   const mapDomEl = root.querySelector('.a4a-localisation-map')
-  const hiddenLat = root.querySelector('input[type=hidden][name=lat]')
-  const hiddenLon = root.querySelector('input[type=hidden][name=lon]')
+  const inputLat = root.querySelector('input[name=lat]')
+  const inputLon = root.querySelector('input[name=lon]')
   const mapOptions = JSON.parse(root.querySelector('#map-options').textContent.trim())
   const map = geo.createMap(mapDomEl, { scrollWheelZoom: false, zoomControl: false, ...mapOptions })
-  const lat = parseFloat(hiddenLat.value)
-  const lon = parseFloat(hiddenLon.value)
+  const lat = parseFloat(inputLat.value)
+  const lon = parseFloat(inputLon.value)
 
   map.setView({ lat, lon }, 18)
 
@@ -19,10 +19,21 @@ function LocalisationMap(root) {
 
   const control = L.control.centerCross({ show: true, position: 'topright' })
   map.addControl(control)
+
+  const liveRegion = document.getElementById('map-position-live')
+
   map.on('move', function (event) {
     const coords = event.target.getCenter()
-    hiddenLat.value = coords.lat
-    hiddenLon.value = coords.lng
+    inputLat.value = coords.lat
+    inputLon.value = coords.lng
+  })
+
+  map.on('moveend', function (event) {
+    if (!liveRegion) return
+    const coords = event.target.getCenter()
+    liveRegion.textContent = liveRegion.dataset.labelTemplate
+      .replace('{lat}', coords.lat.toFixed(6))
+      .replace('{lon}', coords.lng.toFixed(6))
   })
 
   let numero = document.getElementById('id_numero')
@@ -37,6 +48,17 @@ function LocalisationMap(root) {
       geo.updateMap(query, map)
     })
   )
+
+  function updateMapFromCoords() {
+    const newLat = parseFloat(inputLat.value)
+    const newLon = parseFloat(inputLon.value)
+    if (!isNaN(newLat) && !isNaN(newLon)) {
+      map.setView({ lat: newLat, lon: newLon }, map.getZoom())
+    }
+  }
+
+  inputLat.addEventListener('change', updateMapFromCoords)
+  inputLon.addEventListener('change', updateMapFromCoords)
 }
 
 export default LocalisationMap

@@ -18,23 +18,15 @@ fileignoreconfig:
 - filename: templates/contrib/6-accueil.html
   checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
 - filename: templates/contrib/2-a-propos.html
-  checksum: 2e74d3c249a98b796420a0893474ab1d26bd17b51e64504fcd9c4669f79d04b3
+  checksum: cbe31d7c91de1aa0d540bc4f5a6af915d6af655886bb39a7b96a627f4c6a1258
 - filename: templates/contrib/0-start.html
   checksum: 48b03ff89169260f34f59c6ce3f07e219d13ebfb7c11ee3dbbf319ea70d4063f
 - filename: templates/contrib/0a-search_results.html
-  checksum: b0da6abb831f6b6bb31501322bec85df53a3e5ab0ba086546115582f514eac1d
+  checksum: adfbcc1ccc2a4ebe5d3fd668384c2b689a1c17b3219bb8eb04382974b084d2da
 - filename: templates/contrib/5-entree.html
   checksum: 1cc959485e4164c86f548e532fadfa8ea7c4cc55db6637b6ea822c87c5981acf
 - filename: templates/contrib/4-exterieur.html
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
-- filename: templates/registration/password_reset_complete.html
-  checksum: 3524f71f9090c4e3a8996fb73156732a69a28cab0544095451c2f3076991f80c
-- filename: templates/registration/password_reset_confirm.html
-  checksum: 72dca1c76f1a02712d8c3faa8c9d60f149e0093b2c30ab45a62360af0fa77cd9
-- filename: templates/registration/password_reset_done.html
-  checksum: 5dbcf869ea896e92c4ea66c628d19c5b977b6990dfe136d9909d5b9d98dfaa95
-- filename: templates/registration/password_reset_form.html
-  checksum: 67a51a996f615b77ecbdafd25f1e02a14c5fc2dad5c3de674bb6e49bc00f10fb
 - filename: templates/contrib/3-transport.html
   checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
 - filename: .circleci/config.yml
@@ -52,7 +44,7 @@ fileignoreconfig:
 - filename: erp/management/commands/export_XML_to_s3.py
   checksum: 4c01a1891864eae040978879ea04505f747c7d713a987b3f02d2dc8d69744224
 - filename: static/js/geo.js
-  checksum: 8f5a7d47caef0ab611e4bcda4cca5dad7d9a5903f25452ac7fe39899cbfa0351
+  checksum: dcc39d5ea623fc51731b6e3c03bd2b8956ce82708e2997470f7d58dc6fee5ca5
 - filename: erp/views.py
   checksum: 364eb07d9012d724ca628f680b8c4be693822e9df357caadd4cb77de32c165ad
 - filename: core/paginator.py
@@ -73,3 +65,23 @@ fileignoreconfig:
   checksum: ddff088f8d8ed31e807965c8c23560d4fbdd88b34bdd82f0886ab2924da50baf
 - filename: .github/workflows/codeql-analysis.yml
   checksum: 5c6a110dd47e53dbbda291025c4f4fc2779c26900414d68ef337c628a3797daa
+- filename: templates/compte/my_profile.html
+  checksum: a384ff4e2acf5d476531af3ffc8b95c55eb640ac14f1712b70d31bd313359ede
+- filename: templates/registration/password_reset_complete.html
+  checksum: e7f3391256f2e596f7d0a6d16d4aa531c7ce74a270e58afbeda6a184b7ece3b9
+- filename: templates/registration/password_reset_done.html
+  checksum: 8ddf6641efc334c0b4494d59888753be16e5e8d3bd64412a17c22f8ff9b2b032
+- filename: templates/registration/password_reset_confirm.html
+  checksum: dfe49939ad7a8ba4bbf7f9b48ce93e329dbb587fa5929e9bc144fa8ba0b9c7a8
+- filename: templates/registration/password_reset_form.html
+  checksum: 8f47c16ed545224b2be1e55ca0110f2ffca5163ee7b59eef2ab9691f89fc286a
+- filename: templates/registration/login.html
+  checksum: 2e49bdc6c60d9276a0c168dcfc6f7865002911d98e2d1840ce5a7aef58c0a563
+- filename: templates/contrib/includes/prevnext.html
+  checksum: 046087461bf29d07f6e8b7dae1f7b79fa5523d176c7b807490cfdaef04bbf72e
+- filename: templates/fields/boolradio.html
+  checksum: 5b54188185f88d286a59ba6e6746ead8c5defa765fc19aedf121c1980ead5504
+- filename: static/js/ui/SearchWhere.js
+  checksum: c4d847121eeb12749aa6464d3309db8581d912fe92501e7772894fe760f3918a
+- filename: contact/fixtures/faq.json
+  checksum: a8a8b9995ec75f221f3df26b98a26baadfe9e9ad31a4894da28031b8442ad631

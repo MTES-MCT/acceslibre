@@ -46,6 +46,9 @@ dom.ready(() => {
   dom.mountAll('.parent-toggle', ui.ContentToggle)
   dom.mountOne('.erps-search-container', ui.SearchMobile)
   dom.mountOne('#btn-to-copy-wrapper', ui.BtnToCopy)
+  dom.mountAll('*[data-focus-to]', ui.FocusTo)
+  dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
+  dom.mountAll('[data-notification]', ui.NotificationAlert)
 })
 
 ui.StoreFilters()
@@ -64,6 +67,11 @@ window.onload = function () {
     src.addEventListener('input', function () {
       dst.value = src.value.split('@')[0]
     })
+  }
+
+  let errorAlert = document.getElementById('login-error')
+  if (errorAlert) {
+    errorAlert.focus()
   }
 
   ui.listenToLabelEvents()

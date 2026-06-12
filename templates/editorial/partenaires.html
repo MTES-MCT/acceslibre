@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Nos partenaires" %}
+    {% translate "Nos partenaires" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block breadcrumb %}
     <div class="fr-container">
@@ -38,7 +38,7 @@
             </section>
         </header>
         <section>
-            <h2 class="fr-mb-2w">{% translate "Partenaires réutilisateurs " %}</h2>
+            <h2 class="fr-mb-2w">{% translate "Partenaires réutilisateurs" %}</h2>
             <div id="re-use-partners-content" class="text-expander">
                 <p class="fr-mb-1w">{% translate "Partenaires web affichant nos informations d'accessibilité." %}</p>
                 <div id="see-more-content-re-use" class="see-more-content">
@@ -52,34 +52,45 @@
                         {% translate "De nombreux partenaires se sont laissés convaincre et aujourd'hui, toute information ajoutée sur acceslibre est automatiquement affichée sur les sites de nos partenaires listées ci-dessous." %}
                     </p>
                 </div>
-                <button type="button"
-                        class="fr-link see-more-cta"
-                        aria-describedby="see-more-content-re-use"
-                        aria-controls="re-use-partners-content"></button>
             </div>
-            <ul class="partners-grid">
+            <div class="partners-grid">
                 {% for id, partenaire in partenaires.items %}
                     {% if 'RE_USE' in partenaire.roles %}
-                        <li>
-                            <div role="button"
-                                 tabindex="0"
-                                 class="fr-raw-link"
-                                 data-partner="{{ id }}"
-                                 aria-controls="dialog-partner-{{ id }}-RE_USE"
-                                 data-fr-opened="false"
-                                 aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
-                                {% for label in partenaire.labels %}
-                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
-                                {% endfor %}
-                                <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                        <div class="fr-card fr-enlarge-button fr-card--sm"
+                             data-partner="{{ id }}"
+                             aria-controls="dialog-partner-{{ id }}-RE_USE"
+                             data-fr-opened="false"
+                             aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
+                            <div class="fr-card__body">
+                                <div class="fr-card__content">
+                                    <h3 class="fr-card__title">
+                                        <button type="button" lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
+                                    </h3>
+                                    <div class="fr-card__start">
+                                        <ul class="fr-badges-group">
+                                            {% for label in partenaire.labels %}
+                                                <li>
+                                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </li>
+                            <div class="fr-card__header">
+                                <div class="fr-card__img fr-p-2w">
+                                    <img src="{% static partenaire.logo %}"
+                                         alt="{{ partenaire.name }}"
+                                         data-fr-js-ratio="true" />
+                                </div>
+                            </div>
+                        </div>
                     {% endif %}
                 {% endfor %}
-            </ul>
+            </div>
         </section>
         <section>
-            <h2 class="fr-mb-2w">{% translate "Partenaires collecteurs " %}</h2>
+            <h2 class="fr-mb-2w">{% translate "Partenaires collecteurs" %}</h2>
             <div id="collector-partners-content" class="text-expander">
                 <p class="fr-mb-1w">{% translate "Partenaires nous aidant à améliorer la qualité des données." %}</p>
                 <div id="see-more-content-collector"  class="see-more-content">
@@ -93,31 +104,42 @@
                         {% translate "Nos partenaires nous permettent également, grâce à leurs retours, de nous assurer que le site répond bien aux besoins des utilisateurs et de réaliser des améliorations pertinentes." %}
                     </p>
                 </div>
-                <button type="button"
-                        class="fr-link see-more-cta"
-                        aria-describedby="see-more-content-collector"
-                        aria-controls="collector-partners-content"></button>
             </div>
-            <ul class="partners-grid">
+            <div class="partners-grid">
                 {% for id, partenaire in partenaires.items %}
                     {% if 'COLLECTOR' in partenaire.roles %}
-                        <li>
-                            <div role="button"
-                                 tabindex="0"
-                                 class="fr-raw-link"
-                                 data-partner="{{ id }}"
-                                 aria-controls="dialog-partner-{{ id }}-COLLECTOR"
-                                 data-fr-opened="false"
-                                 aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
-                                {% for label in partenaire.labels %}
-                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
-                                {% endfor %}
-                                <img src="{% static partenaire.logo %}" alt="{{ partenaire.name }}" />
+                        <div class="fr-card fr-enlarge-button fr-card--sm"
+                             data-partner="{{ id }}"
+                             aria-controls="dialog-partner-{{ id }}-COLLECTOR"
+                             data-fr-opened="false"
+                             aria-label="{% translate "Afficher les détails pour le partenaire " %} {{ partenaire.name }}">
+                            <div class="fr-card__body">
+                                <div class="fr-card__content">
+                                    <h3 class="fr-card__title">
+                                        <button type="button" lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
+                                    </h3>
+                                    <div class="fr-card__start">
+                                        <ul class="fr-badges-group">
+                                            {% for label in partenaire.labels %}
+                                                <li>
+                                                    <p class="fr-badge fr-badge--sm fr-badge--purple-glycine fr-mb-1v">{{ label }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </li>
+                            <div class="fr-card__header">
+                                <div class="fr-card__img fr-p-2w">
+                                    <img src="{% static partenaire.logo %}"
+                                         alt="{{ partenaire.name }}"
+                                         data-fr-js-ratio="true" />
+                                </div>
+                            </div>
+                        </div>
                     {% endif %}
                 {% endfor %}
-            </ul>
+            </div>
         </section>
     </div>
     {% for id, partenaire in partenaires.items %}
@@ -143,7 +165,11 @@
                                         <span class="fr-icon-arrow-right-line fr-icon--lg"></span>
                                         {{ partenaire.name }}
                                     </h1>
-                                    {% include partenaire.template %}
+                                    {% if partenaire.lang %}
+                                        <div lang="{{ partenaire.lang }}">{% include partenaire.template %}</div>
+                                    {% else %}
+                                        {% include partenaire.template %}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

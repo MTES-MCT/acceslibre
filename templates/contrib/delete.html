@@ -1,7 +1,7 @@
 {% extends "editorial/base.html" %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Renseigner un établissement" %}
+    {% translate "Supprimer un établissement" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block robots %}
     noindex, nofollow
@@ -69,8 +69,7 @@
                 </div>
             </div>
         </div>
-        <form action=""
-              method="post"
+        <form method="post"
               class="display--flex direction--column gap-2w fr-mb-2w"
               novalidate>
             {% csrf_token %}

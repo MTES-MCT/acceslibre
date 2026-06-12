@@ -11,8 +11,11 @@
     <div class="fr-grid-row fr-grid-row--center">
         <h1 class="fr-mb-4v text-center">{{ erp.nom }}</h1>
     </div>
-    <div class="fr-grid-row fr-grid-row--center fr-mb-4w fr-mb-md-6w">
+    <div class="fr-grid-row fr-grid-row--center">
         <p class="fr-mb-2w fr-text--xl">{{ erp.activite.nom }}</p>
+    </div>
+    <div class="fr-grid-row fr-grid-row--center fr-mb-2w fr-mb-md-4w">
+      <h2 class="text-center fr-mt-1w">{% translate "Informations générales" %}</h2>
     </div>
     <div class="fr-grid-row gap-2w {% switch "RPA" %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
         {% switch "RPA" %}
@@ -33,7 +36,7 @@
                                   action="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
                                   target="_blank">
                                 {% csrf_token %}
-                                <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger le PDF" %}</button>
+                                <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger la fiche (PDF, environ 35 Ko)" %}</button>
                             </form>
                         </div>
                     {% endif %}
@@ -72,8 +75,7 @@
                                     <li id="btn-to-copy-wrapper">
                                         <button id="btn-to-copy"
                                                 data-url="{{ erp_absolute_uri }}"
-                                                title="{% translate "Copier le lien" %}"
-                                                class="fr-btn fr-icon-links-fill"></button>
+                                                class="fr-btn fr-icon-links-fill">{% translate "Copier le lien" %}</button>
                                         <div id="btn-to-copy-voice-over-text"
                                              class="align-self--center fr-mb-2w"
                                              role="status"></div>
@@ -100,7 +102,7 @@
                           action="{% url 'generate_erp_rpa_pdf' commune=erp.commune_slug activite_slug=erp.activite.slug erp_slug=erp.slug %}"
                           target="_blank">
                         {% csrf_token %}
-                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger le PDF" %}</button>
+                        <button type="submit" class="fr-btn fr-btn--secondary">{% translate "Télécharger la fiche (PDF, environ 35 Ko)" %}</button>
                     </form>
                 </div>
             {% endif %}
@@ -121,31 +123,34 @@
     <address class="fr-m-0 fr-col">
         <p class="fr-mb-1w word-break--all">
             <span class="fr-pr-1w fr-icon-map-pin-2-line " aria-hidden="true"></span>
+            <span class="fr-sr-only">{% translate "Adresse" %}</span>
             <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
         </p>
         {% if erp.telephone %}
             <p class="fr-mb-1w">
-                <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
+                <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><span class="fr-sr-only">{% translate "Téléphone" %}</span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
             </p>
         {% endif %}
         {% if erp.contact_url %}
             <p class="fr-mb-1w word-break--all">
                 <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
+                <span class="fr-sr-only">{% translate "Formulaire de contact" %}</span>
                 <a class="fr-link fr-ml-n1v"
                    href="{{ erp.contact_url }}"
                    target="_blank"
-                   title="{{ erp.contact_url }} - {% translate "Nouvelle fenêtre" %}"
+                   title="{{ erp.contact_url }} - {% translate "nouvelle fenêtre" %}"
                    rel="noopener noreferrer">{{ erp.contact_url }}</a>
             </p>
         {% endif %}
         {% if erp.site_internet %}
             <div class="fr-mb-1w flex gap-1w">
                 <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
+                <span class="fr-sr-only">{% translate "Site internet" %}</span>
                 <span>
                     <a class="fr-link fr-ml-n1v"
                        href="{{ erp.site_internet }}"
                        target="_blank"
-                       title="{{ erp.site_internet }}  - {% translate "Nouvelle fenêtre" %}"
+                       title="{{ erp.site_internet }} - {% translate "nouvelle fenêtre" %}"
                        rel="noopener noreferrer">{{ erp.site_internet }}</a>
                 </span>
             </div>
@@ -155,7 +160,7 @@
         <div class="fr-mb-2w">
             <a class="fr-link"
                href="https://www.google.com/maps/?q={{ erp.geom.y|comma_to_dot }},{{ erp.geom.x|comma_to_dot }}"
-               title="{% translate "Itinéraire" %} - {% translate "Nouvelle fenêtre" %}"
+               title="{% translate "Itinéraire - nouvelle fenêtre" %}"
                target="_blank">{% translate "Itinéraire" %}</a>
         </div>
     </div>

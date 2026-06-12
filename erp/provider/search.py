@@ -381,9 +381,10 @@ def filter_erp_by_location(queryset, **kwargs):
     if search_type == settings.IN_DEPARTMENT_SEARCH_TYPE:
         code = "20" if kwargs.get("code").lower() in ["2a", "2b"] else kwargs.get("code")
         return queryset.filter(code_postal__startswith=code)
-    if search_type in (settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER, "Autour de moi", translate("Autour de moi")):
+    if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_HOUSENUMBER:
         return queryset.nearest(location, max_radius_km=0.2)
-
+    if search_type in ("Autour de moi", translate("Autour de moi")):
+        return queryset.nearest(location)
     if search_type == settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_STREET and kwargs.get("street_name"):
         street_name = kwargs.get("street_name")
         return queryset.filter(code_postal=postcode, voie__icontains=street_name)

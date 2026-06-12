@@ -141,6 +141,7 @@ class TestErpApi:
                         "completion_rate": 17,
                         "adresse": "4 grand rue 34830 Jacou",
                         "activite": {"nom": "Boulangerie", "vector_icon": "building"},
+                        "commune": "Jacou",
                         "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
                     },
                 }

@@ -10,6 +10,7 @@
         {% else %}
             {% translate "Aucun résultat" %}
         {% endif %}
+        | {% translate "Rechercher un lieu" %} | {% translate "Acceslibre" %}
     {% endspaceless %}
 {% endblock page_title %}
 {% block top_fluid_content %}
@@ -64,16 +65,18 @@
                 <div class="main-search__list" id="erp-results-list">
                     <div class="position--sticky">
                         {% if not display_filters %}
-                            {# Used to fix headings structure (RGAA) when coming from annuaire page #}
                             <h1 class="fr-h4 fr-mb-1w">{% translate "Rechercher un lieu" %}</h1>
                         {% endif %}
-                        <h2 class="fr-h4 fr-mb-1w">{% translate "Établissements existants sur Acceslibre" %}</h2>
+                        <h2 id="results-heading" tabindex="-1" class="fr-h4 fr-mb-1w">
+                            {% translate "Établissements existants sur Acceslibre" %}
+                        </h2>
                         <p id="number-of-results" class="fr-mb-0 fr-text--xl" aria-live="polite">
                             {% translate "En cours de chargement..." %}
                         </p>
                     </div>
                     <section class="overflow-y-scroll">
                         <ul id="search-results"
+                            tabindex="-1"
                             class="p-0 gap-1w display--flex direction--column">
                         </ul>
                         <div class="fr-btns-group fr-m-0">
@@ -88,7 +91,25 @@
                  role="tabpanel"
                  aria-labelledby="tabpanel-2"
                  tabindex="0">
+                <div class="fr-skiplinks" data-target-id="back-to-map-btn">
+                    <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                        <ul class="fr-skiplinks__list">
+                            <li>
+                                <a class="fr-link" id="skip-map-btn" href="#back-to-map-btn">{% translate "Passer la carte interactive" %}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
                 <div class="main-search__map">{% include "common/map.html" with map_classes="a4a-search-map rounded" %}</div>
+                <div class="fr-skiplinks" data-target-id="skip-map-btn">
+                    <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                        <ul class="fr-skiplinks__list">
+                            <li>
+                                <a class="fr-link" id="back-to-map-btn" href="#skip-map-btn">{% translate "Revenir à la carte interactive" %}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

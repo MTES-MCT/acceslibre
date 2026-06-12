@@ -4,9 +4,9 @@
 {% load i18n %}
 {% block page_title %}
     {% if erp %}
-        {% translate "Modifier un établissement" %}
+        {% translate "Modifier un établissement" %} | {% translate "Acceslibre" %}
     {% else %}
-        {% translate "Ajouter un établissement" %}
+        {% translate "Ajouter un établissement" %} | {% translate "Acceslibre" %}
     {% endif %}
 {% endblock page_title %}
 {% block contrib_title %}
@@ -78,21 +78,13 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <form id="contrib-edit-form" action="" method="post" novalidate>
+        <form id="contrib-edit-form" method="post" novalidate>
             {% csrf_token %}
             {{ form.geom }}
             {{ form.source }}
             {{ form.source_id }}
             {{ form.asp_id }}
             {{ form.user_type }}
-            {% if form.non_field_errors %}
-                <div class="fr-alert fr-alert--warning fr-mb-4w bg--white" role="alert">
-                    <p>{% translate "Attention, des erreurs ont été rencontrées." %}</p>
-                    <ul>
-                        {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
             {% if data_error %}<div class="fr-alert fr-alert--error" role="alert">{{ data_error }}</div>{% endif %}
             {% if existing_matches or duplicated %}
                 {% if duplicated or existing_matches %}
@@ -278,13 +270,43 @@
                             </small>
                         </h4>
                     {% endif %}
-                    <div id="localisation-map" aria-hidden="true">
-                        <div class="a4a-localisation-map"></div>
-                        {{ form.lat }}
-                        {{ form.lon }}
-                        <script id="map-options" type="application/json">
-        {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-                        </script>
+                    <div id="localisation-map">
+                        <fieldset class="fr-fieldset">
+                            <legend class="fr-fieldset__legend">{% translate "Position précise de l'établissement" %}</legend>
+                            <div class="fr-fieldset__element">
+                                <div class="fr-input-group {% if form.errors.lat %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_latitude">{% translate "Latitude *" %}</label>
+                                    {{ form.lat }}
+                                    {% if form.errors.lat %}
+                                        <p class="fr-error-text" id="latitude-error-message">{{ form.errors.lat.0 }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="fr-fieldset__element">
+                                <div class="fr-input-group {% if form.errors.lon %}fr-input-group--error{% endif %}">
+                                    <label class="fr-label" for="id_longitude">{% translate "Longitude *" %}</label>
+                                    {{ form.lon }}
+                                    {% if form.errors.lon %}
+                                        <p class="fr-error-text" id="longitude-error-message">{{ form.errors.lon.0 }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div aria-hidden="true">
+                            <div class="a4a-localisation-map"></div>
+                            <script id="map-options" type="application/json">
+            {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
+                            </script>
+                        </div>
+                        <div class="fr-skiplinks" data-target-id="back-to-map-btn">
+                            <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                                <ul class="fr-skiplinks__list">
+                                    <li>
+                                        <a class="fr-link" id="skip-map-btn" href="#back-to-map-btn">{% translate "Passer la carte interactive" %}</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </fieldset>

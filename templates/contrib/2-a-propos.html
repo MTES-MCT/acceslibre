@@ -2,7 +2,7 @@
 {% load a4a %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "A propos de vous" %} - {% translate "acceslibre" %}
+    {% translate "À propos de vous" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block full_infos %}
 {% endblock full_infos %}
@@ -32,20 +32,16 @@
             {% if is_erp_owner or is_from_import_and_has_no_user %}
                 {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
             {% else %}
-                <fieldset disabled aria-describedby="user-type-readonly-notice">
-                    {% include "fields/boolradio.html" with field=form.user_type key="user_type" %}
-                </fieldset>
+                {% include "fields/boolradio.html" with field=form.user_type key="user_type" disabled=True describedby="user-type-readonly-notice" %}
                 <input type="hidden" name="user_type" value="{{ form.user_type.value }}" />
                 <p id="user-type-readonly-notice" class="fr-hint-text">
                     {% translate "Ce champ ne peut être modifié que par le contributeur principal de cet établissement." %}
                 </p>
             {% endif %}
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
+            <div class="contrib-inputs-section hr-top">
                 {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
             </div>
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
+            <div class="contrib-inputs-section hr-top">
                 {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
             </div>
         </div>

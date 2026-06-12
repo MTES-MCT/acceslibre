@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Qui sommes-nous ?" %}
+    {% translate "Qui sommes-nous ?" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block breadcrumb %}
     <div class="fr-container">
@@ -37,81 +37,75 @@
                 <a class="fr-btn fr-btn--lg" href="{% url 'contact_form' %}">{% translate "Nous contacter" %}</a>
             </div>
         </div>
-        <ul class="main-cards">
-            <li>
-                <section class="section-card">
-                    <div class="fr-card">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h2 class="fr-card__title">
-                                    {% blocktranslate %}
+        <div class="main-cards">
+            <section class="section-card">
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h2 class="fr-card__title">
+                                {% blocktranslate %}
                                     <span class="display--block">01</span>
                                     <span class="display--block">Notre constat :</span>
                                     Le manque d’information sur l’accessibilité des lieux
                                 {% endblocktranslate %}
-                                </h2>
-                                <div class="fr-card__desc">
-                                    <p>
-                                        {% blocktranslate %}
+                            </h2>
+                            <div class="fr-card__desc">
+                                <p>
+                                    {% blocktranslate %}
                                         Le manque d'information sur l'accessibilité est l'un des plus grands obstacles auxquels les personnes en situation de handicap sont confrontées.
                                         {% endblocktranslate %}
-                                    </p>
-                                    <p>
-                                        {% translate "12 millions de personnes sont dans cette situation, par conséquent, sortent moins que les autres et sont à l’écart." %}
-                                    </p>
-                                </div>
+                                </p>
+                                <p>
+                                    {% translate "12 millions de personnes sont dans cette situation, par conséquent, sortent moins que les autres et sont à l’écart." %}
+                                </p>
                             </div>
                         </div>
                     </div>
-                </section>
-            </li>
-            <li>
-                <section class="section-card">
-                    <div class="fr-card">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h2 class="fr-card__title">
-                                    {% blocktranslate %}
+                </div>
+            </section>
+            <section class="section-card">
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h2 class="fr-card__title">
+                                {% blocktranslate %}
                                     <span class="display--block">02</span>
                                     <span class="display--block">Notre solution :</span> Acceslibre, la plateforme collaborative de l'accessibilité
                                 {% endblocktranslate %}
-                                </h2>
-                                <div class="fr-card__desc">
-                                    <p>
-                                        {% translate "Acceslibre est la base de référence sur l'accessibilité des lieux recevant du public au niveau national, unique, publique et gratuite." %}
-                                    </p>
-                                    <p>
-                                        {% translate "Nous collectons, agrégeons et redistribuons des données enrichies pour que partout sur le web soient diffusées les informations d'accessibilité." %}
-                                    </p>
-                                </div>
+                            </h2>
+                            <div class="fr-card__desc">
+                                <p>
+                                    {% translate "Acceslibre est la base de référence sur l'accessibilité des lieux recevant du public au niveau national, unique, publique et gratuite." %}
+                                </p>
+                                <p>
+                                    {% translate "Nous collectons, agrégeons et redistribuons des données enrichies pour que partout sur le web soient diffusées les informations d'accessibilité." %}
+                                </p>
                             </div>
                         </div>
                     </div>
-                </section>
-            </li>
-            <li>
-                <section class="section-card">
-                    <div class="fr-card">
-                        <div class="fr-card__body">
-                            <div class="fr-card__content">
-                                <h2 class="fr-card__title">
-                                    {% blocktranslate %}
+                </div>
+            </section>
+            <section class="section-card">
+                <div class="fr-card">
+                    <div class="fr-card__body">
+                        <div class="fr-card__content">
+                            <h2 class="fr-card__title">
+                                {% blocktranslate %}
                                     <span class="display--block">03</span>
                                     <span class="display--block">Notre impact :</span> Contribuer à une société plus inclusive
                                 {% endblocktranslate %}
-                                </h2>
-                                <div class="fr-card__desc">
-                                    <p>
-                                        {% translate "Avec Acceslibre, nous facilitons le déplacement des personnes en situation de handicap et ainsi l'accès aux services." %}
-                                    </p>
-                                    <p>{% translate "Nous croyons à un monde plus ouvert où chacun a accès aux mêmes opportunités." %}</p>
-                                </div>
+                            </h2>
+                            <div class="fr-card__desc">
+                                <p>
+                                    {% translate "Avec Acceslibre, nous facilitons le déplacement des personnes en situation de handicap et ainsi l'accès aux services." %}
+                                </p>
+                                <p>{% translate "Nous croyons à un monde plus ouvert où chacun a accès aux mêmes opportunités." %}</p>
                             </div>
                         </div>
                     </div>
-                </section>
-            </li>
-        </ul>
+                </div>
+            </section>
+        </div>
         <div class="fr-grid-row direction--column gap-6w">
             <div class="fr-grid-row direction--column fr-grid-row--middle gap-6v">
                 <h2 class="fr-m-0 text--center">{% translate "Notre équipe" %}</h2>
@@ -143,28 +137,7 @@
                         <div class="fr-card__img">
                             <img class="fr-responsive-img"
                                  src="{% static 'img/equipe/sophie.png' %}"
-                                 alt="Sophie Tcheng" />
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="fr-card">
-                    <div class="fr-card__body">
-                        <div class="fr-card__content">
-                            <h3 class="fr-card__title">
-                                Julia <span class="display--block">Zucker</span>
-                            </h3>
-                            <p class="fr-card__desc">
-                                {% translate "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires." %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="fr-card__header">
-                        <div class="fr-card__img">
-                            <img class="fr-responsive-img"
-                                 src="{% static 'img/equipe/julia.png' %}"
-                                 alt="Julia Zucker" />
+                                 alt="" />
                         </div>
                     </div>
                 </div>
@@ -185,7 +158,7 @@
                         <div class="fr-card__img">
                             <img class="fr-responsive-img"
                                  src="{% static 'img/equipe/olivier.png' %}"
-                                 alt="Olivier Rousseau" />
+                                 alt="" />
                         </div>
                     </div>
                 </div>
@@ -206,7 +179,7 @@
                         <div class="fr-card__img">
                             <img class="fr-responsive-img"
                                  src="{% static 'img/equipe/yacine.webp' %}"
-                                 alt="Yacine Bruckler" />
+                                 alt="" />
                         </div>
                     </div>
                 </div>
@@ -227,7 +200,7 @@
                         <div class="fr-card__img">
                             <img class="fr-responsive-img"
                                  src="{% static 'img/equipe/ml.png' %}"
-                                 alt="Marie-Laure Vernay" />
+                                 alt="" />
                         </div>
                     </div>
                 </div>
@@ -248,7 +221,7 @@
                         <div class="fr-card__img">
                             <img class="fr-responsive-img"
                                  src="{% static 'img/equipe/patrick.png' %}"
-                                 alt="Patrick Nguyen" />
+                                 alt="" />
                         </div>
                     </div>
                 </div>
@@ -264,11 +237,11 @@
                 </p>
                 <div class="fr-callout">
                     <span class="fr-icon-quote-line" aria-hidden="true"></span>
-                    <h3 class="fr-callout__title fr-mt-2w">
+                    <blockquote class="fr-callout__title fr-mt-2w">
                         {% blocktranslate %}
                         « Un grand merci à tous les membres de la communauté Acceslibre ! Votre implication confirme chaque jour que le travail d’acceslibre a du sens ».
                         {% endblocktranslate %}
-                    </h3>
+                    </blockquote>
                     <p class="fr-callout__text text--bold">{% translate "L’équipe Acceslibre" %}</p>
                 </div>
                 <a class="fr-btn fr-btn--secondary text--center"

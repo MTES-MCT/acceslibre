@@ -49,6 +49,15 @@ ACTIVITY_GROUPS = {
 }
 
 
+EXTRA_HISTORY_LABELS = {
+    "geom": translate_lazy("Localisation"),
+    "updated_at": translate_lazy("Dernière modification"),
+    "published": translate_lazy("Publié"),
+    "user_type": translate_lazy("Profil de contributeur"),
+    "checked_up_to_date_at": translate_lazy("Dernière vérification des informations"),
+}
+
+
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     """
     param versions : Queryset de django_reversion.Version
@@ -67,7 +76,9 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
             diff = diffutils.dict_diff_keys(current_fields_dict, fields)
         final_diff = []
         for entry in diff:
-            entry["label"] = str(schema.get_label(entry["field"], entry["field"]))
+            entry["label"] = str(
+                schema.get_label(entry["field"], None) or EXTRA_HISTORY_LABELS.get(entry["field"], entry["field"])
+            )
             try:
                 entry["old"] = str(schema.get_human_readable_value(entry["field"], entry["old"]))
                 entry["new"] = str(schema.get_human_readable_value(entry["field"], entry["new"]))

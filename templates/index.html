@@ -5,7 +5,7 @@
 {% load cache %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block page_title %}
-    acceslibre, la plateforme collaborative de l'accessibilité
+    {% translate "Acceslibre, la plateforme collaborative de l'accessibilité" %}
 {% endblock page_title %}
 {% block top_fluid_content %}
     <section class="main-info-container">
@@ -22,10 +22,10 @@
                 </p>
                 <ul class="fr-btns-group fr-btns-group--equisized">
                     <li>
-                        <a class="fr-btn" href="{% url "search" %}">{% translate "Rechercher un établissement" %}</a>
+                        <a class="fr-btn focus-outline--white" href="{% url "search" %}">{% translate "Rechercher un établissement" %}</a>
                     </li>
                     <li>
-                        <a class="fr-btn fr-btn--secondary fr-mb-0"
+                        <a class="fr-btn fr-btn--secondary fr-mb-0 focus-outline--white"
                            href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
                     </li>
                 </ul>
@@ -35,13 +35,13 @@
     <section class="erps-preview-container">
         <div class="fr-container">
             <div class="erps-preview-container__content">
-                <h1>
+                <h2 class="fr-h1">
                     {% blocktranslate %}
                         Ajoutez vos adresses préférées
                         <span class="display--inline-block">et tous les nouveaux lieux que vous découvrez !</span>
                     {% endblocktranslate %}
-                </h1>
-                <h2 class="erps-preview-container__content-title">{{ erps_count|intcomma }}</h2>
+                </h2>
+                <span class="erps-preview-container__content-title">{{ erps_count|intcomma }}</span>
                 <p>{% translate "lieux enregistrés par nos contributeurs" %}</p>
                 <a class="fr-btn" href="{% url "contrib_start" %}">{% translate "Ajouter un établissement" %}</a>
             </div>
@@ -60,11 +60,11 @@
     </section>
     <section class="filters-preview-container">
         <div class="fr-container">
-            <h1 class="filters-preview-container__title">
+            <h2 class="filters-preview-container__title fr-h1">
                 {% blocktranslate %}
                     Vous êtes unique, <span class="display--block">vos besoins le sont forcément aussi !</span>
                 {% endblocktranslate %}
-            </h1>
+            </h2>
             <section class="filters-preview-container__preview">
                 <div class="filters-preview-container__image-container">
                     <img src="{% static "img/homepage/filters-preview.png" %}"
@@ -90,12 +90,12 @@
                     <img src="{% static "img/homepage/pin-3.png" %}" alt="" />
                 </div>
                 <div>
-                    <h1 class="community-container__title">
+                    <h2 class="community-container__title fr-h1">
                         {% blocktranslate %}
                             Rejoignez une communauté
                             <span class="display--block">de +10 000 contributeurs et utilisateurs</span>
                         {% endblocktranslate %}
-                    </h1>
+                    </h2>
                     <p>
                         {% blocktranslate %}
                             Profitez d’informations détaillées sur vos lieux préférés et contribuez
@@ -104,11 +104,11 @@
                     </p>
                     <ul class="fr-btns-group fr-btns-group--equisized">
                         <li>
-                            <a href="{% url 'django_registration_register' %}" class="fr-btn">{% translate "Rejoindre la communauté" %}</a>
+                            <a href="{% url 'django_registration_register' %}" class="fr-btn focus-outline--white">{% translate "Rejoindre la communauté" %}</a>
                         </li>
                         <li>
                             <a href="{% url 'challenges' %}"
-                               class="fr-btn fr-btn--secondary fr-mb-0">{% translate "Participer à un challenge" %}</a>
+                               class="fr-btn fr-btn--secondary fr-mb-0 focus-outline--white">{% translate "Participer à un challenge" %}</a>
                         </li>
                     </ul>
                 </div>
@@ -130,32 +130,25 @@
             </div>
             <div class="partners-container__images-container">
                 <a href="{{ partners.ALLOCINE.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.ALLOCINE.logo %}"
-                         alt="{% translate "Logo de allocine" %}">
+                    <img src="{% static partners.ALLOCINE.logo %}" alt="allocine">
                 </a>
                 <a href="{{ partners.AVH.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.AVH.logo %}"
-                         alt="{% translate "Logo de Association Valentin Haüy" %}">
+                    <img src="{% static partners.AVH.logo %}" alt="Association Valentin Haüy">
                 </a>
                 <a href="{{ partners.SORTIRAPARIS.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.SORTIRAPARIS.logo %}"
-                         alt="{% translate "Logo de sortir à paris" %}">
+                    <img src="{% static partners.SORTIRAPARIS.logo %}" alt="sortir à paris">
                 </a>
                 <a href="{{ partners.SOLOCAL.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.SOLOCAL.logo %}"
-                         alt="{% translate "Logo de solocal" %}">
+                    <img src="{% static partners.SOLOCAL.logo %}" alt="solocal">
                 </a>
                 <a href="{{ partners.WEGOTO.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.WEGOTO.logo %}"
-                         alt="{% translate "Logo de Wegoto" %}">
+                    <img src="{% static partners.WEGOTO.logo %}" alt="Wegoto">
                 </a>
                 <a href="{{ partners.LAPOSTE.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.LAPOSTE.logo %}"
-                         alt="{% translate "Logo de LaPoste" %}">
+                    <img src="{% static partners.LAPOSTE.logo %}" alt="LaPoste">
                 </a>
                 <a href="{{ partners.MUSIC_IN_PARIS.url }}" class="fr-link fr-raw-link">
-                    <img src="{% static partners.MUSIC_IN_PARIS.logo %}"
-                         alt="{% translate "Logo de Music in Paris" %}">
+                    <img src="{% static partners.MUSIC_IN_PARIS.logo %}" alt="Music in Paris">
                 </a>
             </div>
             <div>

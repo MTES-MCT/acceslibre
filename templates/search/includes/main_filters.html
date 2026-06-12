@@ -24,7 +24,7 @@
             <label for="where-input" class="text-start">{% translate "Adresse, département ou commune" %}</label>
             <input id="where-input"
                    class="autocomplete-input fr-input fr-mt-1w"
-                   type="search"
+                   type="text"
                    dir="ltr"
                    spellcheck="false"
                    autocomplete="off"
@@ -70,11 +70,9 @@
             <li>
                 <button id="fr-modal-disabilities-search-btn" type="submit" class="fr-btn">{% translate "Rechercher" %}</button>
             </li>
-            <li>
-                <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
-                    {% translate "Autoriser l'obtention de ma localisation géographique" %}
-                </button>
-            </li>
         </ul>
+        <button type="button" class="fr-sr-only get-geoloc-btn" tabindex="-1">
+            {% translate "Autoriser l'obtention de ma localisation géographique" %}
+        </button>
     </fieldset>
 </form>

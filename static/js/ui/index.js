@@ -22,6 +22,9 @@ import TextExpander from './TextExpander'
 import ContentToggle from './ContentToggle'
 import SearchMobile from './SearchMobile'
 import BtnToCopy from './BtnToCopy'
+import FocusTo from './FocusTo.js'
+import FocusOnLoad from './FocusOnLoad.js'
+import NotificationAlert from './NotificationAlert.js'
 
 export default {
   AsteriskField,
@@ -48,4 +51,7 @@ export default {
   ContentToggle,
   SearchMobile,
   BtnToCopy,
+  FocusTo,
+  FocusOnLoad,
+  NotificationAlert,
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-28 16:44+0200\n"
+"POT-Creation-Date: 2026-06-12 12:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -534,6 +534,9 @@ msgstr ""
 msgid "Activité"
 msgstr ""
 
+msgid "Vous devez sélectionner une activité dans la liste."
+msgstr ""
+
 msgid "Un mot-clé par ligne"
 msgstr ""
 
@@ -546,7 +549,7 @@ msgstr ""
 msgid "Un code postal par ligne"
 msgstr ""
 
-msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\">signaler une erreur</a>."
+msgid "Veuillez vérifier votre saisie ou <a href=\"{}\" target=\"_blank\" title=\"Signaler une erreur - nouvelle fenêtre\">signaler une erreur</a>."
 msgstr ""
 
 msgid "Cette adresse n'est pas localisable au code postal {} (mais l'est au code {})"
@@ -555,11 +558,29 @@ msgstr ""
 msgid "Cette adresse n'est pas localisable au code INSEE {}"
 msgstr ""
 
+msgid "Latitude"
+msgstr ""
+
+msgid "Latitude obligatoire"
+msgstr ""
+
+msgid "La latitude saisie ne respecte pas le format attendu."
+msgstr ""
+
+msgid "Longitude"
+msgstr ""
+
+msgid "Longitude obligatoire"
+msgstr ""
+
+msgid "La longitude saisie ne respecte pas le format attendu."
+msgstr ""
+
 msgid "Vous devez suggérer un nom d'activité pour l'établissement."
 msgstr ""
 
 #, python-format
-msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+msgid "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
 msgstr ""
 
 msgid "L'établissement <b>{}</b> existe déjà dans la base de données."
@@ -573,9 +594,12 @@ msgstr ""
 
 msgid ""
 "Recherche sur le nom d'une administration publique, d'une entreprise, un\n"
-"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\">numéro SIRET</a>,\n"
+"            <a href=\"https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135\" tabindex=\"-1\" target=\"_blank\" title=\"Numéro SIRET - nouvelle fenêtre\">numéro SIRET</a>,\n"
 "            l'adresse, l'activité ou le\n"
-"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\">code NAF</a>."
+"            <a href=\"https://www.insee.fr/fr/information/2406147\" tabindex=\"-1\" target=\"_blank\" title=\"Code NAF - nouvelle fenêtre\">code NAF</a>."
+msgstr ""
+
+msgid "Nom"
 msgstr ""
 
 msgid "Commune"
@@ -608,10 +632,19 @@ msgstr ""
 msgid "Je souhaite mettre en ligne cette fiche d'établissement immédiatement"
 msgstr ""
 
-msgid "Activités"
+msgid "Localisation"
 msgstr ""
 
-msgid "Nom"
+msgid "Publié"
+msgstr ""
+
+msgid "Profil de contributeur"
+msgstr ""
+
+msgid "Dernière vérification des informations"
+msgstr ""
+
+msgid "Activités"
 msgstr ""
 
 msgid "Nom de l'activité"
@@ -695,9 +728,6 @@ msgid "Population"
 msgstr ""
 
 msgid "Nombre d'habitants estimé"
-msgstr ""
-
-msgid "Localisation"
 msgstr ""
 
 msgid "Coordonnées géographiques du centre de la commune"
@@ -860,9 +890,6 @@ msgstr ""
 msgid "Contributeur"
 msgstr ""
 
-msgid "Profil de contributeur"
-msgstr ""
-
 msgid "Commune (relation)"
 msgstr ""
 
@@ -873,9 +900,6 @@ msgid "Nom de l'établissement ou de l'enseigne"
 msgstr ""
 
 msgid "Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées"
-msgstr ""
-
-msgid "Publié"
 msgstr ""
 
 msgid "Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement"
@@ -942,9 +966,6 @@ msgid "identifiant BAN"
 msgstr ""
 
 msgid "Identifiant de la BAN"
-msgstr ""
-
-msgid "Dernière vérification des informations"
 msgstr ""
 
 msgid "Dernière vérification de clôture"
@@ -2041,7 +2062,7 @@ msgstr ""
 msgid "Pas de possibilité d'aide humaine"
 msgstr ""
 
-msgid "Largeur de la porte ou de l'entrée"
+msgid "Largeur de la porte ou de l'entrée en cm"
 msgstr ""
 
 msgid "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
@@ -2059,7 +2080,7 @@ msgstr ""
 msgid "Entrée dédiée aux personnes en situation de handicap"
 msgstr ""
 
-msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
+msgid "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite (PMR)&nbsp;?"
 msgstr ""
 
 msgid "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
@@ -2750,6 +2771,9 @@ msgstr ""
 msgid "Accès restreint"
 msgstr ""
 
+msgid "Acceslibre"
+msgstr ""
+
 msgid "Accès non autorisé"
 msgstr ""
 
@@ -2767,6 +2791,9 @@ msgid ""
 "Vous pouvez tenter de revenir à <a href=\"%(url_home)s\">l'accueil</a>\n"
 "    ou de nous <a href=\"%(url_contact_bug)s\"> contacter spécifiquement à ce sujet</a> en prenant\n"
 "    soin de préciser l'adresse utilisée."
+msgstr ""
+
+msgid "Erreur"
 msgstr ""
 
 msgid "Oups... Le serveur a crashé"
@@ -2904,14 +2931,20 @@ msgstr ""
 
 msgid ""
 "\n"
-"                        Grâce à <a class=\"fr-link fr-text--xl\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
+"                        Grâce à <a class=\"fr-link fr-text--xl\" title=\"panoramax - nouvelle fenêtre\" href=\"https://panoramax.fr/\" target=\"_blank\">panoramax</a>, une base collaborative et libre de photos géolocalisées, nous pouvons ajouter des photos sur Acceslibre. Il suffit de choisir la bonne photo pour chaque établissement !\n"
 "                    "
 msgstr ""
 
 msgid "En savoir plus :"
 msgstr ""
 
+msgid "tutoriel - nouvelle fenêtre"
+msgstr ""
+
 msgid "Voir le tutoriel"
+msgstr ""
+
+msgid "foire aux questions - nouvelle fenêtre"
 msgstr ""
 
 msgid "Voir notre foire aux questions"
@@ -2922,6 +2955,9 @@ msgid "%(panoramax_photos_count)s photos ajoutées"
 msgstr ""
 
 msgid "Encore un effort pour atteindre les <span class=\"fr-text--bold\">10 000</span> !"
+msgstr ""
+
+msgid "Je commence à contribuer - nouvelle fenêtre"
 msgstr ""
 
 msgid "Je commence à contribuer"
@@ -2995,7 +3031,7 @@ msgstr ""
 msgid "Suivez-nous"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers notre page LinkedIn"
+msgid "Acceslibre sur LinkedIn - nouvelle fenêtre"
 msgstr ""
 
 msgid "LinkedIn"
@@ -3011,9 +3047,6 @@ msgid "Succès"
 msgstr ""
 
 msgid "Avertissement"
-msgstr ""
-
-msgid "Erreur"
 msgstr ""
 
 msgid "Fermer"
@@ -3034,7 +3067,7 @@ msgstr ""
 msgid "Dernière page"
 msgstr ""
 
-msgid "Liste des raccourcis pour l'utilisation de la carte intéractive"
+msgid "Liste des raccourcis clavier pour l'utilisation de la photographie immersive 3D géolocalisée Panoramax"
 msgstr ""
 
 msgid "Flèches (ou 2/4/8/6 du pavé numérique) : se déplacer dans l’image ou sur la carte"
@@ -3059,6 +3092,10 @@ msgid "Espace : lire ou mettre en pause la séquence en cours"
 msgstr ""
 
 msgid "Communes renseignées"
+msgstr ""
+
+#, python-format
+msgid "Voir les établissements de la commune de %(nom)s dans le département %(dep)s"
 msgstr ""
 
 msgid "Toutes les communes, par département"
@@ -3110,8 +3147,14 @@ msgid ""
 "      "
 msgstr ""
 
+msgid "nouvelle fenêtre"
+msgstr ""
+
 #, python-format
 msgid "Du %(start)s au %(end)s inclus"
+msgstr ""
+
+msgid "Détails du challenge - nouvelle fenêtre"
 msgstr ""
 
 msgid "Détails du challenge"
@@ -3232,19 +3275,19 @@ msgstr ""
 msgid "Mon profil"
 msgstr ""
 
-msgid "Mon identifiant"
+msgid "Mon nom d'utilisateur"
 msgstr ""
 
-msgid "Modifier mon identifiant"
+msgid "Modifier mon nom d'utilisateur"
 msgstr ""
 
-msgid "Nom d’utilisateur (obligatoire)"
+msgid "Nom d'utilisateur (obligatoire)"
 msgstr ""
 
 msgid "Annuler"
 msgstr ""
 
-msgid "Enregistrer mon identifiant"
+msgid "Enregistrer mon nom d'utilisateur"
 msgstr ""
 
 msgid "Mon adresse email"
@@ -3319,13 +3362,19 @@ msgstr ""
 msgid "Supprimer mon compte"
 msgstr ""
 
+msgid "Attention"
+msgstr ""
+
 msgid "Souhaitez vous confirmer la suppression de votre compte ?"
 msgstr ""
 
 msgid "Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site."
 msgstr ""
 
-msgid "Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible."
+msgid "Confirmer la suppression de mon compte utilisateur."
+msgstr ""
+
+msgid "J'ai bien compris que cette opération est irréversible."
 msgstr ""
 
 msgid "Confirmer la suppression"
@@ -3349,7 +3398,7 @@ msgstr ""
 msgid "Format attendu : adresse@herbergeur.com"
 msgstr ""
 
-msgid "Nom*"
+msgid "Prénom et nom*"
 msgstr ""
 
 msgid "Sujet de votre demande*"
@@ -3367,7 +3416,7 @@ msgstr ""
 msgid "Texte de description additionnel"
 msgstr ""
 
-msgid "Envoyer ma demande"
+msgid "Envoyer mon message"
 msgstr ""
 
 msgid "Une question ? Avez-vous parcouru notre page de questions fréquentes ?"
@@ -3406,6 +3455,9 @@ msgstr ""
 msgid "Besoin d'aide ?"
 msgstr ""
 
+msgid "Voir le tutoriel sur les premières étapes de contribution. - nouvelle fenêtre"
+msgstr ""
+
 msgid "Voir le tutoriel sur les premières étapes de contribution."
 msgstr ""
 
@@ -3422,9 +3474,6 @@ msgid "Des établissements correspondant à votre saisie sont déjà présents s
 msgstr ""
 
 msgid "Améliorez ces informations"
-msgstr ""
-
-msgid "Attention, des erreurs ont été rencontrées."
 msgstr ""
 
 msgid "Continuer ma saisie d'un nouvel établissement"
@@ -3520,10 +3569,19 @@ msgstr ""
 msgid "Le déplacement ne peut dépasser 10 km par rapport à la position initiale du curseur."
 msgstr ""
 
-msgid "A propos de vous"
+msgid "Position précise de l'établissement"
 msgstr ""
 
-msgid "acceslibre"
+msgid "Latitude *"
+msgstr ""
+
+msgid "Longitude *"
+msgstr ""
+
+msgid "Passer la carte interactive"
+msgstr ""
+
+msgid "À propos de vous"
 msgstr ""
 
 #, python-format
@@ -3581,6 +3639,9 @@ msgid "Voir l'établissement"
 msgstr ""
 
 msgid "Masquer le message"
+msgstr ""
+
+msgid "Le formulaire comporte des erreurs"
 msgstr ""
 
 #, python-format
@@ -3666,19 +3727,16 @@ msgstr ""
 msgid "Continuer"
 msgstr ""
 
-msgid "Renseigner un établissement"
+msgid "Supprimer un établissement"
 msgstr ""
 
 msgid "Mon compte"
 msgstr ""
 
-msgid "Supprimer un établissement"
-msgstr ""
-
-msgid "Attention"
-msgstr ""
-
 msgid "Vous vous apprêtez à supprimer l'établissement suivant"
+msgstr ""
+
+msgid "Attention, des erreurs ont été rencontrées."
 msgstr ""
 
 msgid "Supprimer l'établissement"
@@ -3753,7 +3811,13 @@ msgstr ""
 msgid "Ajouter un nouvel établissement"
 msgstr ""
 
-msgid "Étape"
+msgid "Aller directement à l’étape : "
+msgstr ""
+
+msgid "Sélectionnez une étape"
+msgstr ""
+
+msgid "Valider la redirection"
 msgstr ""
 
 msgid "Valider et publier"
@@ -3803,9 +3867,6 @@ msgstr ""
 
 #, python-format
 msgid "Passer à l’étape %(step)s"
-msgstr ""
-
-msgid "Continuez sur l'étape"
 msgstr ""
 
 msgid "Revenir à la fiche"
@@ -3954,6 +4015,146 @@ msgstr ""
 msgid "Déclaration d'accessibilité"
 msgstr ""
 
+msgid "Déclaration d’accessibilité"
+msgstr ""
+
+msgid "<strong>Le Ministère de l'Écologie et de la Transition Solidaire</strong> s’engage à rendre ses sites internet, intranet, extranet et ses progiciels accessibles (et ses applications mobiles et mobilier urbain numérique) conformément à l’article 47 de la loi n<sup>o</sup>&nbsp;2005-102 du 11&nbsp;février 2005."
+msgstr ""
+
+msgid "Cette déclaration d’accessibilité s’applique à <strong>https://acceslibre.beta.gouv.fr/</strong>."
+msgstr ""
+
+#, python-format
+msgid "La politique de mise en accessibilité numérique d'Acceslibre est décrite dans son <a class=\"fr-link\" href=\"%(schema_url)s\" target=\"_blank\" title=\"schéma pluriannuel 2026-2028 et plan d'actions - nouvelle fenêtre\">schéma pluriannuel 2026-2028 et plan d'actions</a>."
+msgstr ""
+
+msgid "État de conformité"
+msgstr ""
+
+msgid "<strong>Acceslibre <a class=\"fr-link\" target=\"_blank\" href=\"https://acceslibre.beta.gouv.fr/\" rel=\"noreferrer noopener\" title=\"https://acceslibre.beta.gouv.fr/ - nouvelle fenêtre\">https://acceslibre.beta.gouv.fr/</a></strong> est <strong>totalement conforme</strong> avec le référentiel général d’amélioration de l’accessibilité (RGAA)."
+msgstr ""
+
+msgid "Résultats des tests"
+msgstr ""
+
+#, python-format
+msgid "L’audit de conformité réalisé par <strong>la Brigade d'Intervention du Numérique (BIN) de la DINUM (Direction interministérielle du Numérique)</strong> révèle que <strong>100&nbsp;%%</strong> des critères du RGAA version 4.1.2 sont respectés."
+msgstr ""
+
+msgid "Contenus non accessibles"
+msgstr ""
+
+msgid "Contenus non soumis à l’obligation d’accessibilité"
+msgstr ""
+
+msgid "Certaines pages utilisent des cartes interactives pour afficher ou préciser la localisation d’un établissement."
+msgstr ""
+
+msgid "Ces cartes présentent des limites d’accessibilité, notamment pour les personnes qui naviguent au clavier ou avec un lecteur d’écran."
+msgstr ""
+
+msgid "Une alternative accessible est proposée : les informations essentielles peuvent être saisies ou consultées sous forme textuelle, notamment l’adresse, la latitude, la longitude et les précisions d’emplacement."
+msgstr ""
+
+msgid "Des liens d’évitement permettent également de contourner les cartes afin de limiter les difficultés de navigation."
+msgstr ""
+
+msgid "L’équipe Acceslibre reste à l’écoute des utilisateurs et utilisatrices rencontrant des difficultés et pourra fournir une alternative accessible si nécessaire. Un travail est en cours pour renforcer la qualité des alternatives aux cartes de localisation."
+msgstr ""
+
+msgid "Établissement de cette déclaration d’accessibilité"
+msgstr ""
+
+msgid "Cette déclaration a été établie le 12 juin 2026."
+msgstr ""
+
+msgid "Technologies utilisées pour la réalisation de l’audit"
+msgstr ""
+
+msgid "Environnement de test"
+msgstr ""
+
+msgid "Les vérifications de restitution de contenus ont été réalisées sur la base de la combinaison fournie par la base de référence du RGAA, avec les versions suivantes :"
+msgstr ""
+
+msgid "Sur Mobile iOS avec Safari et VoiceOver"
+msgstr ""
+
+msgid "Sur Ordinateur MacOS avec Safari et VoiceOver"
+msgstr ""
+
+msgid "Sur Ordinateur Windows avec Firefox et JAWS"
+msgstr ""
+
+msgid "Sur Ordinateur Windows avec Firefox et NVDA"
+msgstr ""
+
+msgid "Outils pour évaluer l’accessibilité"
+msgstr ""
+
+msgid "Inspecteur de composants"
+msgstr ""
+
+msgid "Assistant RGAA"
+msgstr ""
+
+msgid "Validateur HTML du W3C"
+msgstr ""
+
+msgid "Pages du site ayant fait l’objet de la vérification de conformité"
+msgstr ""
+
+msgid "Plan du site"
+msgstr ""
+
+msgid "Authentification"
+msgstr ""
+
+msgid "Rechercher un lieu"
+msgstr ""
+
+msgid "Mon profil et préférences"
+msgstr ""
+
+msgid "Ajouter / modifier un établissement"
+msgstr ""
+
+msgid "Fiche détaillée d'un ERP"
+msgstr ""
+
+msgid "Retour d’information et contact"
+msgstr ""
+
+msgid "Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter le responsable de Acceslibre - Contre audit - juin 2026 pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme."
+msgstr ""
+
+msgid "Contacter <strong>Le Ministère de l'Écologie et de la Transition Solidaire&nbsp;: contact@acceslibre.beta.gouv.fr</strong>"
+msgstr ""
+
+msgid "Voies de recours"
+msgstr ""
+
+msgid "Si vous constatez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité du site, que vous nous le signalez et que vous ne parvenez pas à obtenir une réponse de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits."
+msgstr ""
+
+msgid "Plusieurs moyens sont à votre disposition :"
+msgstr ""
+
+msgid "Écrire un message au Défenseur des droits - nouvelle fenêtre"
+msgstr ""
+
+msgid "Écrire un message au Défenseur des droits"
+msgstr ""
+
+msgid "Contacter le délégué du Défenseur des droits dans votre région - nouvelle fenêtre"
+msgstr ""
+
+msgid "Contacter le délégué du Défenseur des droits dans votre région"
+msgstr ""
+
+msgid "Envoyer un courrier par la poste (gratuit, ne pas mettre de timbre) à :"
+msgstr ""
+
 msgid "Accès rapide"
 msgstr ""
 
@@ -3975,7 +4176,13 @@ msgstr ""
 msgid "Données ouvertes"
 msgstr ""
 
+msgid "Schéma - nouvelle fenêtre"
+msgstr ""
+
 msgid "Schéma"
+msgstr ""
+
+msgid "Jeu de données - nouvelle fenêtre"
 msgstr ""
 
 msgid "Jeu de données"
@@ -3990,37 +4197,46 @@ msgstr ""
 msgid "<b>acceslibre</b> a pour objectif de recenser l'accessibilité de tous les lieux recevant du public et de partager ces informations le plus largement possible."
 msgstr ""
 
-msgid "(ouverture dans une nouvelle fenêtre)"
-msgstr ""
-
 msgid "Nos investisseurs"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers France relance"
+msgid "France relance - nouvelle fenêtre"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers Next generation european union"
+msgid "Next generation european union - nouvelle fenêtre"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers le Ministère de l'Aménagement du territoire et de la Décentralisation"
+msgid "Financé par l’Union européenne, NextGenerationEU"
 msgstr ""
 
-msgid "Ouvrir une nouvelle fenêtre vers la direction interministérielle du numérique"
+msgid "Ministères transition écologique aménagement du territoire transports ville et logement - nouvelle fenêtre"
 msgstr ""
 
-msgid "Plan du site"
+msgid "Direction interministérielle du numérique - nouvelle fenêtre"
 msgstr ""
 
-msgid "Accessibilité : partiellement conforme"
+msgid "Accessibilité : totalement conforme"
+msgstr ""
+
+msgid "Documentation technique - nouvelle fenêtre"
 msgstr ""
 
 msgid "Documentation technique"
 msgstr ""
 
+msgid "Code source - nouvelle fenêtre"
+msgstr ""
+
 msgid "Code source"
 msgstr ""
 
+msgid "Conditions générales d’utilisation"
+msgstr ""
+
 msgid "Sauf mention contraire, tous les contenus de ce site sont sous"
+msgstr ""
+
+msgid "licence etalab-2.0 - nouvelle fenêtre"
 msgstr ""
 
 msgid "licence etalab-2.0"
@@ -4035,19 +4251,76 @@ msgstr ""
 msgid "La plateforme collaborative de l’accessibilité"
 msgstr ""
 
-msgid "Mon profil et préférences"
-msgstr ""
-
 msgid "Fermer le menu de navigation"
 msgstr ""
 
 msgid "Menu principal"
 msgstr ""
 
-msgid "Rechercher un lieu"
+msgid "Sélectionner une langue"
 msgstr ""
 
-msgid "Sélectionner une langue"
+msgid "Éditeur de la Plateforme"
+msgstr ""
+
+msgid "La plateforme “Acceslibre” est éditée par :"
+msgstr ""
+
+msgid "Le Secrétariat général des ministères Écologie Énergie Climat"
+msgstr ""
+
+msgid "France"
+msgstr ""
+
+msgid "Téléphone :"
+msgstr ""
+
+msgid "Ouvrir une application pour appeler le 01 40 81 38 70"
+msgstr ""
+
+msgid "Directeur de la publication"
+msgstr ""
+
+msgid "Le directeur de la publication est M. Jean-Philippe Papillon sous-directeur de la direction numérique Usages Numériques et Innovation."
+msgstr ""
+
+msgid "Hébergeur de la Plateforme"
+msgstr ""
+
+msgid "Le site <a href=\"https://acceslibre.beta.gouv.fr/\" target=\"_blank\" title=\"acceslibre - nouvelle fenêtre\">acceslibre.beta.gouv.fr</a> est hébergé par la société Scalingo SAS, inscrite au RCS (Strasbourg B 808 665 483) et dont les serveurs se situent en France."
+msgstr ""
+
+msgid "Contact : <a target=\"_blank\" title=\"Scalingo contact - nouvelle fenêtre\" href=\"https://scalingo.com/fr/contact\">https://scalingo.com/fr/contact</a>"
+msgstr ""
+
+msgid "La plateforme est totalement conforme, nous tâchons de la rendre accessible à toutes et à tous."
+msgstr ""
+
+msgid "Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a target=\"_blank\" title=\"accessibilité numérique - nouvelle fenêtre\" href=\"https://accessibilite.numerique.gouv.fr/\">https://accessibilite.numerique.gouv.fr/</a>"
+msgstr ""
+
+msgid "Pour en savoir plus sur la politique d’accessibilité de la plateforme : <a target=\"_blank\" title=\"Acceslibre accessibilité - nouvelle fenêtre\" href=\"https://acceslibre.beta.gouv.fr/accessibilite\">https://acceslibre.beta.gouv.fr/accessibilite</a>"
+msgstr ""
+
+msgid "Signaler un dysfonctionnement"
+msgstr ""
+
+msgid "Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité de la plateforme, merci de nous en faire part : <a href=\"mailto:support@acceslibre.beta.gouv.fr\">support@acceslibre.beta.gouv.fr</a>"
+msgstr ""
+
+msgid "Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits."
+msgstr ""
+
+msgid "Contacter le support"
+msgstr ""
+
+msgid "Sécurité"
+msgstr ""
+
+msgid "La plateforme est protégée par un certificat électronique, matérialisé pour la grande majorité des navigateurs par un cadenas. Cette protection participe à la confidentialité des échanges."
+msgstr ""
+
+msgid "En aucun cas, les services associés à la Plateforme ne seront à l’origine d’envoi de courriels pour vous demander la saisie d’informations personnelles."
 msgstr ""
 
 msgid "Nos partenaires"
@@ -4059,7 +4332,7 @@ msgstr ""
 msgid "Devenir partenaire"
 msgstr ""
 
-msgid "Partenaires réutilisateurs "
+msgid "Partenaires réutilisateurs"
 msgstr ""
 
 msgid "Partenaires web affichant nos informations d'accessibilité."
@@ -4077,7 +4350,7 @@ msgstr ""
 msgid "Afficher les détails pour le partenaire "
 msgstr ""
 
-msgid "Partenaires collecteurs "
+msgid "Partenaires collecteurs"
 msgstr ""
 
 msgid "Partenaires nous aidant à améliorer la qualité des données."
@@ -4538,9 +4811,6 @@ msgstr ""
 msgid "Co-fondatrice d’AccesLibre, j’œuvre à le rendre plus utile et pratique pour les utilisateurs et partenaires."
 msgstr ""
 
-msgid "Co-fondatrice, j’accompagne les bizdev pour faire du site la base de données de référence pour utilisateurs et partenaires."
-msgstr ""
-
 msgid "Je développe les partenariats d’AccesLibre pour maximiser l’usage de nos données sur la toile."
 msgstr ""
 
@@ -4576,6 +4846,181 @@ msgid "Rejoindre la communauté"
 msgstr ""
 
 msgid "Découvrir tous les partenaires"
+msgstr ""
+
+msgid "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions"
+msgstr ""
+
+msgid "Schéma Pluriannuel d'Accessibilité Numérique - nouvelle fenêtre"
+msgstr ""
+
+msgid "tableau de bord - nouvelle fenêtre"
+msgstr ""
+
+msgid "1. Introduction"
+msgstr ""
+
+msgid "Ce document présente la politique d’accessibilité d'Acceslibre."
+msgstr ""
+
+msgid "Acceslibre est une plateforme collaborative, à la fois dédiée aux professionnels (gérants d'établissements, administration) et au grand public."
+msgstr ""
+
+#, python-format
+msgid "Acceslibre fait partie du réseau des Startup d'Etat coordonnées par la direction du numérique, DINUM, qui met à disposition des moyens et outils pour les produits numériques du réseau beta.gouv.fr, et qui a son propre <a href=\"https://beta.gouv.fr/accessibilite/schema-pluriannuel#plan-2026\" target=\"_blank\" class=\"fr-link\" title=\"%(dinum_link_title)s\" rel=\"noopener noreferrer\">Schéma Pluriannuel d'Accessibilité Numérique</a>."
+msgstr ""
+
+msgid "2. Ressources humaines et techniques"
+msgstr ""
+
+msgid "L'équipe est constituée de 6 personnes en 2026. Les personnes en charge de l'accessibilité numérique sont principalement les intrapreneuses du projet et les deux développeurs."
+msgstr ""
+
+msgid "Des experts de la DINUM peuvent être mobilisés pour conseiller mais également réaliser des audits RGAA pour les startups d'Etat."
+msgstr ""
+
+msgid "3. Politique d'accessibilité numérique"
+msgstr ""
+
+msgid "3.1 Objectifs généraux"
+msgstr ""
+
+msgid "Acceslibre se fixe les objectifs suivants en matière d’accessibilité numérique :"
+msgstr ""
+
+msgid "Sensibiliser et former à l’accessibilité les membres de l'équipe impliqués dans la création et la gestion de produits et de contenus numériques ;"
+msgstr ""
+
+msgid "Intégrer l’accessibilité numérique dès la conception des nouveaux services et fonctionnalités ;"
+msgstr ""
+
+#, python-format
+msgid "Atteindre et maintenir un niveau de conformité élevé au RGAA - si possible 100%% ;"
+msgstr ""
+
+msgid "Mettre en place des tests utilisateurs réguliers dans un objectif d'amélioration continue de l'accessibilité du site ;"
+msgstr ""
+
+msgid "Communiquer auprès des sites partenaires sur l'importance de rendre leur site web accessible ;"
+msgstr ""
+
+msgid "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, post LinkedIn..."
+msgstr ""
+
+msgid "3.2 Respect des obligations légales déclaratives"
+msgstr ""
+
+msgid "Tout développement réalisé sur le site :"
+msgstr ""
+
+msgid "respecte le DSFR ;"
+msgstr ""
+
+msgid "respecte le référentiel général d’amélioration de l’accessibilité (RGAA) dans sa version en vigueur."
+msgstr ""
+
+msgid "La déclaration d'accessibilité est vérifiée a minima une fois par an."
+msgstr ""
+
+msgid "3.3 Conception / Développement"
+msgstr ""
+
+msgid "Les principaux bénéficiaires du site Acceslibre sont les personnes en situation de handicap et leurs proches. Aussi, les nouvelles fonctionnalités qui concernent l'usage sont conçues avec les personnes concernées."
+msgstr ""
+
+msgid "L’équipe de développement sollicite l’équipe d’appui de la DINUM si nécessaire pour concevoir ou développer certaines fonctionnalités."
+msgstr ""
+
+msgid "Une clause concernant le respect du RGAA sera intégrée à toute mission externalisée."
+msgstr ""
+
+msgid "3.4 Contrôle"
+msgstr ""
+
+#, python-format
+msgid "Des tests automatiques ou automatisés sont mis en place. Un suivi est possible via le <a href=\"https://dashlord.incubateur.net/\" class=\"fr-link\" title=\"%(dashlord_link_title)s\" target=\"_blank\" rel=\"noopener noreferrer\">tableau de bord</a>."
+msgstr ""
+
+msgid "Des tests manuels sont effectués lors de signalement ou de la mise en ligne de nouvelles fonctionnalités avec le logiciel VoiceOver."
+msgstr ""
+
+msgid "Il peut être fait appel à des personnes en situation de handicap pour tester certaines fonctionnalités."
+msgstr ""
+
+msgid "4. Actions réalisées en 2025"
+msgstr ""
+
+msgid "4.1 Refonte du site et audit"
+msgstr ""
+
+msgid "En 2025, les actions suivantes ont été mises en œuvre :"
+msgstr ""
+
+msgid "Refonte globale du site ayant pour objectif :"
+msgstr ""
+
+msgid "l'amélioration de l'ergonomie et du design ;"
+msgstr ""
+
+msgid "la mise en conformité totale au DSFR ;"
+msgstr ""
+
+msgid "la mise en accessibilité totale en vue d'un audit."
+msgstr ""
+
+msgid "Ce chantier sera essentiellement mené par une prestation externe d’UX/ design et le développeur de l’équipe plus spécifiquement en charge du front et de l’accessibilité."
+msgstr ""
+
+msgid "Audit RGAA par la DINUM"
+msgstr ""
+
+msgid "Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026."
+msgstr ""
+
+msgid "4.2 Conception, développement, contrôle"
+msgstr ""
+
+msgid "Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolutions du site notamment :"
+msgstr ""
+
+msgid "mise en place de filtres de recherche ;"
+msgstr ""
+
+msgid "évolutions du modèle de données."
+msgstr ""
+
+msgid "Un partenariat avec la CFPSAA et l'association Valentin Haüy a été mis en place dans une démarche d'amélioration continue du site."
+msgstr ""
+
+msgid "5. Plan d'actions 2026"
+msgstr ""
+
+msgid "En 2026, les actions suivantes seront menées :"
+msgstr ""
+
+msgid "Audit (audit, corrections des non conformités, contre-audit) ;"
+msgstr ""
+
+msgid "Mise à jour de la déclaration d’accessibilité ;"
+msgstr ""
+
+msgid "Renforcement de l’approche “Accessibilité dès la conception” en associant à toutes évolutions du site les usagers concernés ;"
+msgstr ""
+
+#, python-format
+msgid "Maintien du 100%% accessible en veillant à ce que toutes les évolutions du site soient accessibles ;"
+msgstr ""
+
+msgid "Mise en place de contrôle de l'accessibilité numérique lors du recettage d'évolutions du produit ;"
+msgstr ""
+
+msgid "Maintien des compétences en matière d'accessibilité numérique des développeurs, en particulier, mise en place d'une formation spécifique en cas de changement de développeurs ;"
+msgstr ""
+
+msgid "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, emailing, post LinkedIn... ;"
+msgstr ""
+
+msgid "Au-delà du site Acceslibre, communication auprès de nos partenaires sur l'importance de rendre accessible leur site."
 msgstr ""
 
 msgid "Revendication"
@@ -4749,6 +5194,9 @@ msgstr ""
 msgid "Signaler un problème ou une erreur"
 msgstr ""
 
+msgid "Administrer cette fiche - nouvelle fenêtre"
+msgstr ""
+
 msgid "Administrer cette fiche"
 msgstr ""
 
@@ -4767,10 +5215,13 @@ msgstr ""
 msgid "Affichez uniquement les infos d'accessibilité qui vous concernent, en fonction de votre handicap"
 msgstr ""
 
+msgid "Informations générales"
+msgstr ""
+
 msgid "Niveau de complétude des informations de la fiche : "
 msgstr ""
 
-msgid "Télécharger le PDF"
+msgid "Télécharger la fiche (PDF, environ 35 Ko)"
 msgstr ""
 
 msgid "Partager sur les réseaux sociaux"
@@ -4797,7 +5248,13 @@ msgstr ""
 msgid "Modifier ces informations"
 msgstr ""
 
-msgid "Nouvelle fenêtre"
+msgid "Adresse"
+msgstr ""
+
+msgid "Formulaire de contact"
+msgstr ""
+
+msgid "Itinéraire - nouvelle fenêtre"
 msgstr ""
 
 msgid "Itinéraire"
@@ -4819,6 +5276,9 @@ msgid "Nouvelle valeur"
 msgstr ""
 
 msgid "Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement."
+msgstr ""
+
+msgid "Photographie immersive 3D géolocalisée Panoramax. Une fois le focus placé ici, utilisez les flèches du clavier pour vous déplacer ; consultez la liste des raccourcis clavier pour les autres actions."
 msgstr ""
 
 msgid "Supprimer l'image"
@@ -4873,13 +5333,7 @@ msgstr ""
 msgid "Voir l'historique"
 msgstr ""
 
-msgid "Recevoir des notifications par email lorsque cet établissement est mis à jour"
-msgstr ""
-
 msgid "Désabonnez vous des mises à jour"
-msgstr ""
-
-msgid "Ne plus recevoir de notification par email lorsque cet établissement est mis à jour"
 msgstr ""
 
 msgid "Abonnez vous aux mises à jour"
@@ -4934,13 +5388,13 @@ msgstr ""
 msgid "Ajoutez un nouvel établissement"
 msgstr ""
 
+msgid "Labels"
+msgstr ""
+
 msgid "Informations sur l’accessibilité"
 msgstr ""
 
-msgid "Passer la carte"
-msgstr ""
-
-msgid "Revenir à la carte"
+msgid "Revenir à la carte interactive"
 msgstr ""
 
 msgid "Ajout d'une image"
@@ -4966,10 +5420,10 @@ msgid ""
 "            "
 msgstr ""
 
-msgid "Voir le tutoriel - Nouvelle fenêtre"
+msgid "Voir le tutoriel - nouvelle fenêtre"
 msgstr ""
 
-msgid "Voir notre foire aux questions - Nouvelle fenêtre"
+msgid "Voir notre foire aux questions - nouvelle fenêtre"
 msgstr ""
 
 msgid "Adresse :"
@@ -4997,6 +5451,9 @@ msgid "Voir plus sur"
 msgstr ""
 
 msgid "requis"
+msgstr ""
+
+msgid "Acceslibre, la plateforme collaborative de l'accessibilité"
 msgstr ""
 
 msgid "L’accessibilité des lieux publics, selon votre handicap, à portée de clic."
@@ -5045,27 +5502,6 @@ msgid ""
 msgstr ""
 
 msgid "Participer à un challenge"
-msgstr ""
-
-msgid "Logo de allocine"
-msgstr ""
-
-msgid "Logo de Association Valentin Haüy"
-msgstr ""
-
-msgid "Logo de sortir à paris"
-msgstr ""
-
-msgid "Logo de solocal"
-msgstr ""
-
-msgid "Logo de Wegoto"
-msgstr ""
-
-msgid "Logo de LaPoste"
-msgstr ""
-
-msgid "Logo de Music in Paris"
 msgstr ""
 
 msgid "Voir les partenaires"

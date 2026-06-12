@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Contact" %}
+    {% translate "Contact" %} | {% translate "Acceslibre" %}
     {% if erp %}
         - {% translate "Signaler une malveillance pour l'établissement" %} "{{ erp.nom }}"
     {% endif %}
@@ -37,7 +37,7 @@
         <h1>{% translate "Contactez-nous" %}</h1>
         <p>{% translate "*Tous les champs sont obligatoires" %}</p>
         <div>
-            <form id="contact-form" action="." method="post" autocomplete>
+            <form id="contact-form" action="." method="post">
                 {% csrf_token %}
                 {% if form.non_field_errors %}
                     <div class="fr-alert fr-alert--error" role="alert">{{ form.non_field_errors }}</div>
@@ -55,7 +55,7 @@
                         <div class="fr-col-12 fr-col-lg align-self--end">
                             <div class="fr-input-group">
                                 <label for="{{ form.name.id_for_label }}" class="fr-label">
-                                    {% translate "Nom*" %}<span class="fr-hint-text"></span>
+                                    {% translate "Prénom et nom*" %}<span class="fr-hint-text"></span>
                                 </label>
                                 {{ form.name }}
                             </div>
@@ -98,13 +98,13 @@
                     {{ form.next }}
                     <div class="fr-checkbox-group">
                         <input type="checkbox"
-                               required="{{ form.robot.field.required }}"
+                               {% if form.robot.field.required %}required{% endif %}
                                id="{{ form.robot.id_for_label }}"
                                name="{{ form.robot.name }}" />
                         <label for="{{ form.robot.id_for_label }}" class="fr-label">{{ form.robot.label }}*</label>
                     </div>
                     <div class="align-self--end">
-                        <button type="submit" class="fr-btn">{% translate "Envoyer ma demande" %}</button>
+                        <button type="submit" class="fr-btn">{% translate "Envoyer mon message" %}</button>
                     </div>
                 </div>
             </form>

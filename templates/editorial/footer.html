@@ -29,11 +29,13 @@
                         </li>
                         <li>
                             <a class="fr-footer__top-link"
+                               title="{% translate "Schéma - nouvelle fenêtre" %}"
                                href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
                                target="_blank">{% translate "Schéma" %}</a>
                         </li>
                         <li>
                             <a class="fr-footer__top-link"
+                               title="{% translate "Jeu de données - nouvelle fenêtre" %}"
                                href="https://www.data.gouv.fr/fr/datasets/accessibilite-des-etablissements-recevant-du-public-erp-pour-les-personnes-en-situation-de-handicap/"
                                target="_blank">{% translate "Jeu de données" %}</a>
                         </li>
@@ -74,25 +76,25 @@
                 <ul class="fr-footer__content-list">
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link"
-                           title="www.ecologie.gouv.fr {% translate "(ouverture dans une nouvelle fenêtre)" %}"
+                           title="www.ecologie.gouv.fr - {% translate "nouvelle fenêtre" %}"
                            target="_blank"
                            href="https://www.ecologie.gouv.fr">www.ecologie.gouv.fr</a>
                     </li>
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link"
-                           title="cohesion-territoires.gouv.fr {% translate "(ouverture dans une nouvelle fenêtre)" %}"
+                           title="cohesion-territoires.gouv.fr - {% translate "nouvelle fenêtre" %}"
                            target="_blank"
                            href="https://www.cohesion-territoires.gouv.fr/">cohesion-territoires.gouv.fr</a>
                     </li>
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link"
-                           title="beta.gouv.fr {% translate "(ouverture dans une nouvelle fenêtre)" %}"
+                           title="beta.gouv.fr - {% translate "nouvelle fenêtre" %}"
                            target="_blank"
                            href="https://beta.gouv.fr">beta.gouv.fr</a>
                     </li>
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link"
-                           title="data.gouv.fr {% translate "(ouverture dans une nouvelle fenêtre)" %}"
+                           title="data.gouv.fr - {% translate "nouvelle fenêtre" %}"
                            target="_blank"
                            href="https://data.gouv.fr">data.gouv.fr</a>
                     </li>
@@ -107,7 +109,7 @@
                         <li>
                             <a class="fr-footer__partners-link"
                                href="https://www.economie.gouv.fr/plan-de-relance"
-                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers France relance" %}"
+                               title="{% translate "France relance - nouvelle fenêtre" %}"
                                target="_blank">
                                 <img class="fr-responsive-img"
                                      src="{% static 'img/investors/france_relance.png' %}"
@@ -117,27 +119,27 @@
                         <li>
                             <a class="fr-footer__partners-link"
                                href="https://next-generation-eu.europa.eu/index_en"
-                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers Next generation european union" %}"
+                               title="{% translate "Next generation european union - nouvelle fenêtre" %}"
                                target="_blank">
                                 <img class="fr-responsive-img"
                                      src="{% static 'img/investors/ue.png' %}"
-                                     alt="Next Generation European Union" />
+                                     alt="{% translate "Financé par l’Union européenne, NextGenerationEU" %}" />
                             </a>
                         </li>
                         <li>
                             <a class="fr-footer__partners-link"
-                               href="https://www.info.gouv.fr/ministere/ministere-de-lamenagement-du-territoire-et-de-la-decentralisation"
-                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers le Ministère de l'Aménagement du territoire et de la Décentralisation" %}"
+                               href="https://www.ecologie.gouv.fr/"
+                               title="{% translate "Ministères transition écologique aménagement du territoire transports ville et logement - nouvelle fenêtre" %}"
                                target="_blank">
                                 <img class="fr-responsive-img"
-                                     src="{% static 'img/investors/ministere.png' %}"
-                                     alt="Ministère de l'Aménagement du territoire et de la Décentralisation" />
+                                     src="{% static 'img/investors/ministere-ecologie.png' %}"
+                                     alt="Ministères transition écologique aménagement du territoire transports ville et logement" />
                             </a>
                         </li>
                         <li>
                             <a class="fr-footer__partners-link"
-                               href="https://www.numerique.gouv.fr/numerique-etat/"
-                               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers la direction interministérielle du numérique" %}"
+                               href="https://www.numerique.gouv.fr/"
+                               title="{% translate "Direction interministérielle du numérique - nouvelle fenêtre" %}"
                                target="_blank">
                                 <img class="fr-responsive-img"
                                      src="{% static 'img/investors/dinum.png' %}"
@@ -154,20 +156,23 @@
                     <a class="fr-footer__bottom-link" href="{% url 'html_sitemap' %}">{% translate "Plan du site" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'accessibilite' %}">{% translate "Accessibilité : partiellement conforme" %}</a>
+                    <a class="fr-footer__bottom-link" href="{% url 'accessibilite' %}">{% translate "Accessibilité : totalement conforme" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Schéma - nouvelle fenêtre" %}"
                        href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html"
                        target="_blank">{% translate "Schéma" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Documentation technique - nouvelle fenêtre" %}"
                        href="https://fabrique-numerique.gitbook.io/acceslibre-technique/"
                        target="_blank">{% translate "Documentation technique" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link"
+                       title="{% translate "Code source - nouvelle fenêtre" %}"
                        href="https://github.com/MTES-MCT/acceslibre"
                        target="_blank">{% translate "Code source" %}</a>
                 </li>
@@ -179,12 +184,12 @@
                        href="{% url 'politique-confidentialite' %}">{% translate "Politique de confidentialité" %}</a>
                 </li>
                 <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{% url 'cgu' %}">{% translate "CGU" %}</a>
+                    <a class="fr-footer__bottom-link" href="{% url 'cgu' %}">{% translate "Conditions générales d’utilisation" %}</a>
                 </li>
             </ul>
             <div class="fr-footer__bottom-copy">
                 <p>
-                    {% translate "Sauf mention contraire, tous les contenus de ce site sont sous" %} <a title="licence etalab-2.0 {% translate "(ouverture dans une nouvelle fenêtre)" %}"
+                    {% translate "Sauf mention contraire, tous les contenus de ce site sont sous" %} <a title="{% translate "licence etalab-2.0 - nouvelle fenêtre" %}"
     href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
     target="_blank">{% translate "licence etalab-2.0" %}</a>
                 </p>

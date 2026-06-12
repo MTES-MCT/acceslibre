@@ -32,5 +32,6 @@ class ActivityField(BaseActivityField, forms.ModelChoiceField):
             queryset=Activite.objects.order_by("position"),
             widget=self.get_widget(),
             to_field_name="nom",
+            error_messages={"invalid_choice": translate_lazy("Vous devez sélectionner une activité dans la liste.")},
             **kwargs,
         )

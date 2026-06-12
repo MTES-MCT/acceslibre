@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if form.errors %}
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>
+                    {% if field.id_for_label %}
+                        <a href="#{{ field.id_for_label }}"><span class="fr-text--bold">{{ field.label }} :</span> {{ error }}</a>
+                    {% else %}
+                        <span class="fr-text--bold">{{ field.label }} :</span> {{ error }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}<li>{{ error }}</li>{% endfor %}
+    </ul>
+{% endif %}

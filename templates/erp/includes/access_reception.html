@@ -1,15 +1,10 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h2 class="fr-accordion__title" data-filter-title="true">
-    <button type="button"
-            class="fr-accordion__btn"
-            aria-expanded="true"
-            aria-controls="access_reception">{% translate "Accueil et équipement" %}</button>
-</h2>
+<h3 class="fr-h5 fr-mb-1w" data-filter-title="true">{% translate "Accueil et équipement" %}</h3>
 {% spaceless %}
-    <div id="access_reception" class="fr-collapse">
-        <ul>
+    <div>
+        <ul class="fr-pl-4w">
             {% render_access_value "accueil_visibilite" access "all" %}
             {% if access.accueil_signaletique_interieure %}
                 <li class="data-filters">{{ "accueil_signaletique_interieure"|positive_text }}</li>

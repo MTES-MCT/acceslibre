@@ -31,4 +31,9 @@
   .rpa-block--warning {
     border: 2px solid var(--border-plain-warning);
   }
+
+  [data-filter-title] {
+    color: var(--text-action-high-blue-france);
+    padding: 12px 16px;
+  }
 }

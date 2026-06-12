@@ -2,7 +2,7 @@
 {% load a4a static %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Ajouter un établissement" %}
+    {% translate "Ajouter un établissement" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block contrib_title %}
     {% translate "Ajouter un établissement" %}
@@ -13,6 +13,7 @@
         <p class="fr-mb-1w fr-text--lg">{% translate "Besoin d'aide ?" %}</p>
         <a href="https://drive.google.com/file/d/1pWnJpTSKLPKlafYbVx49J4fIptMK0LuK/view?usp=sharing"
            class="fr-link fr-text--lg"
+           title="{% translate "Voir le tutoriel sur les premières étapes de contribution. - nouvelle fenêtre" %}"
            target="_blank">{% translate "Voir le tutoriel sur les premières étapes de contribution." %}</a>
     </section>
 {% endblock contrib_subtitle %}

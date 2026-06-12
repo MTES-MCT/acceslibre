@@ -425,7 +425,9 @@ class BaseErpForm(forms.ModelForm):
         contact_bug_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return format_html(
             "{}. "
-            + translate('Veuillez vérifier votre saisie ou <a href="{}" target="_blank">signaler une erreur</a>.'),
+            + translate(
+                'Veuillez vérifier votre saisie ou <a href="{}" target="_blank" title="Signaler une erreur - nouvelle fenêtre">signaler une erreur</a>.'
+            ),
             message,
             contact_bug_url,
         )
@@ -506,8 +508,22 @@ class AdminErpForm(BaseErpForm):
 
 
 class BasePublicErpInfosForm(BaseErpForm):
-    lat = forms.DecimalField(widget=forms.HiddenInput)
-    lon = forms.DecimalField(widget=forms.HiddenInput)
+    lat = forms.DecimalField(
+        label=translate_lazy("Latitude"),
+        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_latitude", "inPputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "latitude-error-message"}),
+        error_messages={
+            "required": translate_lazy("Latitude obligatoire"),
+            "invalid": translate_lazy("La latitude saisie ne respecte pas le format attendu."),
+        },
+    )
+    lon = forms.DecimalField(
+        label=translate_lazy("Longitude"),
+        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_longitude",  "inputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "longitude-error-message"}),
+        error_messages={
+            "required": translate_lazy("Longitude obligatoire"),
+            "invalid": translate_lazy("La longitude saisie ne respecte pas le format attendu."),
+        },
+    )
     nouvelle_activite = forms.CharField(
         required=False,
         label="",
@@ -656,7 +672,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 raise ValidationError(
                     mark_safe(
                         translate(
-                            "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe accèslibre</a> s'il s'agit d’une erreur."
+                            "Cet établissement ne peut être créé car il a été signalé comme définitivement fermé. <a href='%(url_contact)s'>Contactez l'équipe acceslibre</a> s'il s'agit d’une erreur."
                             % ({"url_contact": url_contact})
                         )
                     )
@@ -666,11 +682,12 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
             if existing:
                 if existing.published:
+                    label = f"{activite} - {adresse}"
                     erp_display = format_html(
-                        '<a href="{}" target="_blank" class="fr-link">{} - {}</a>',
+                        '<a href="{}" target="_blank" class="fr-link" title="{} - nouvelle fenêtre">{}</a>',
                         existing.get_absolute_url(),
-                        activite,
-                        adresse,
+                        label,
+                        label,
                     )
                 else:
                     erp_display = format_html("{} - {}", activite, adresse)
@@ -727,25 +744,27 @@ class ProviderGlobalSearchForm(forms.Form):
     activity_slug = forms.CharField(required=False)
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
-    code = forms.CharField(required=True, widget=forms.HiddenInput)
+    code = forms.CharField(required=False, widget=forms.HiddenInput)
     postcode = forms.CharField(required=False, widget=forms.HiddenInput)
     what = forms.CharField(
         help_text=mark_safe(
             translate_lazy(
                 """Recherche sur le nom d'une administration publique, d'une entreprise, un
-            <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>,
+            <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank" title="Numéro SIRET - nouvelle fenêtre">numéro SIRET</a>,
             l'adresse, l\'activité ou le
-            <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
+            <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank" title="Code NAF - nouvelle fenêtre">code NAF</a>."""
             )
         ),
         required=False,
-        widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}),
+        label=translate_lazy("Nom"),
+        widget=forms.TextInput(attrs={"placeholder": "ex. Mairie", "autocomplete": "off", "id": "what-input"}),
     )
     where = forms.CharField(
         label=translate_lazy("Commune"),
         required=False,
         widget=forms.TextInput(
             attrs={
+                "id": "where-input",
                 "autocomplete": "off",
                 "class": "autocomplete-input form-control",
             }
@@ -779,13 +798,12 @@ class ProviderGlobalSearchForm(forms.Form):
         activite = cleaned_data.get("activite")
 
         if not what and not activite:
+            self.add_error("activite", translate("Vous devez préciser une activité ou un nom d'établissement."))
             self.add_error("what", translate("Vous devez préciser une activité ou un nom d'établissement."))
 
-        if (
-            cleaned_data.get("where")
-            or (cleaned_data.get("lat") and cleaned_data.get("lon"))
-            or cleaned_data.get("code")
-        ):
+        self.errors.pop("lat", None)
+        self.errors.pop("lon", None)
+        if (cleaned_data.get("lat") and cleaned_data.get("lon")) or cleaned_data.get("code"):
             return cleaned_data
         self.add_error("where", translate("Veuillez renseigner une adresse."))
         return cleaned_data

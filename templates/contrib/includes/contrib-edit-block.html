@@ -2,22 +2,31 @@
 {% load i18n %}
 {% block contrib_step %}
     <div class="contrib-edit-container fr-p-4w fr-mb-4w">
-        {% include "contrib/includes/stepper.html" with step_name=step_name current_step=current_step total_steps="7" %}
+        <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--middle">
+            <div class="fr-col-12 fr-col-md">
+                {% include "contrib/includes/stepper.html" with step_name=step_name current_step=current_step total_steps="7" %}
+            </div>
+        </div>
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-md-6">
                 <div class="fr-select-group">
-                    <label class="fr-label" for="contrib-edit-cta">{% translate "Étape" %}</label>
+                    <label class="fr-label" for="contrib-edit-cta">{% translate "Aller directement à l’étape : " %}</label>
                     <select class="fr-select"
                             id="contrib-edit-cta"
                             data-current-url="{{ current_step_url }}">
+                        <option value="" selected>{% translate "Sélectionnez une étape" %}</option>
                         {% for option in contrib_steps_with_url %}
-                            <option value="{{ option.url }}"
-                                    {% if current_step_url == option.url %}selected{% endif %}>
-                                {{ forloop.counter }}.
-                                {{ option.step_name }}
-                            </option>
+                            {% if current_step_url != option.url %}
+                                <option value="{{ option.url }}">
+                                    {{ forloop.counter }}.
+                                    {{ option.step_name }}
+                                </option>
+                            {% endif %}
                         {% endfor %}
                     </select>
+                    <button id="contrib-edit-redirect-btn"
+                            type="button"
+                            class="fr-btn fr-btn--secondary fr-mt-1w">{% translate "Valider la redirection" %}</button>
                 </div>
             </div>
             <div class="fr-col-12 fr-col-md fr-grid-row fr-col--bottom fr-grid-row--right">

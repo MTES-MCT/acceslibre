@@ -19,6 +19,7 @@ function generateHTMLForResult(result) {
   const completion_rate = result.properties.completion_rate
   const sanitizedName = DOMPurify.sanitize(result.properties.nom, { ALLOWED_TAGS: [] })
   const sanitizedAddress = DOMPurify.sanitize(result.properties.adresse, { ALLOWED_TAGS: [] })
+  const sanitizedCommune = DOMPurify.sanitize(result.properties.commune ?? '', { ALLOWED_TAGS: [] })
 
   return DOMPurify.sanitize(
     `
@@ -26,30 +27,24 @@ function generateHTMLForResult(result) {
       <div class="fr-card fr-card--sm a4a-geo-link" data-erp-identifier="${result.properties.uuid}">
         <div class="fr-card__body">
             <div class="fr-card__content">
-                <h3 class="fr-card__title fr-h5">${sanitizedName}</h3>
+                <h3 class="fr-card__title fr-h5">${sanitizedName}<span class="fr-sr-only"> ${sanitizedCommune}</span></h3>
                 <div class="fr-card__desc">
                     <p class="fr-tag fr-mb-1w">${activity_name}</p>
                     <address class="fr-mb-0">${sanitizedAddress}</address>
                 </div>
-                <div class="fr-card__start">
-                    <ul class="fr-badges-group gap-1w align-self--center justify-content--end fr-mb-1v">
-                        <li>
-                            <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
-                            ${gettext('Remplissage')} ${completion_rate ?? '0'}%
-                            </p>
-                        </li>
-                    </ul>
+                <div class="fr-card__start align-self--end">
+                  <p class="fr-badge fr-badge--info fr-badge--no-icon fr-badge--sm fr-mb-0">
+                    ${gettext('Remplissage')} ${completion_rate ?? '0'}%
+                  </p>
                 </div>
             </div>
             <div class="fr-card__footer">
                 <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--sm">
                     <li>
-                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}</a>
-                        <span class="fr-sr-only">${gettext('Les détails de l’établissement')} ${sanitizedName}</span>
+                        <a href="${link}" class="fr-btn" rel="noopener">${gettext('Voir')}<span class="fr-sr-only"> ${gettext('les détails de l’établissement')} ${sanitizedName}</span></a>
                     </li>
                     <li>
-                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}</button>
-                        <span class="fr-sr-only">${gettext('Recentre la carte sur l’établissement')} ${sanitizedName}</span>
+                        <button class="fr-btn fr-btn--secondary locate-btn">${gettext('Localiser')}<span class="fr-sr-only">, ${gettext('recentre la carte sur l’établissement')} ${sanitizedName}</span></button>
                     </li>
                 </ul>
             </div>

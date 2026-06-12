@@ -69,7 +69,7 @@ function SearchWhere(root) {
       input.form.addEventListener('submit', dom.preventDefault)
       dom.addClass(input, 'disabled', 'loading')
     } else {
-      input.type = 'search'
+      input.type = 'text'
       input.form.removeEventListener('submit', dom.preventDefault)
       dom.removeClass(input, 'disabled', 'loading')
     }
@@ -107,42 +107,45 @@ function SearchWhere(root) {
     return []
   }
 
+  const submitOnEnter = input.dataset.submitOnEnter === 'true'
+
+  async function handleSelect(result) {
+    if (!result) {
+      return
+    }
+    if ((result.lat && result.lon) || result.code) {
+      setSearchData(result)
+    } else if (result.text.startsWith(AROUND_ME)) {
+      // Fetch the user's location into the hidden lat/lon fields, but do not search:
+      // the user triggers the search via the "Rechercher" button.
+      setGeoLoading(true)
+      if ((await api.hasPermission('geolocation')) !== 'granted') {
+        a11yGeolocBtn.focus()
+      }
+      const loc = await api.loadUserLocation({ retrieve: true })
+      setGeoLoading(false)
+      if (!loc) {
+        console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
+        setSearchData(null)
+        setSearchValue('')
+        input.focus()
+      } else {
+        loc.search_type = AROUND_ME
+        setSearchData(loc)
+        setSearchValue(`${AROUND_ME} ${loc.label}`)
+        input.form.querySelector('button[type=submit]').focus()
+      }
+    } else {
+      setSearchData(null)
+    }
+    activateSubmitBtn(null, true)
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
-    submitOnEnter: true, // see https://github.com/trevoreyre/autocomplete/issues/157
-
+    submitOnEnter,
     getResultValue: ({ text }) => text,
-
-    onSubmit: async (result) => {
-      if (!result) {
-        return
-      }
-      if ((result.lat && result.lon) || result.code) {
-        setSearchData(result)
-      } else if (result.text.startsWith(AROUND_ME)) {
-        if ((await api.hasPermission('geolocation')) !== 'granted') {
-          a11yGeolocBtn.focus()
-        }
-        setGeoLoading(true)
-        const loc = await api.loadUserLocation({ retrieve: true })
-        setGeoLoading(false)
-        if (!loc) {
-          console.warn('Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur')
-          setSearchData(null)
-          setSearchValue('')
-          input.focus()
-        } else {
-          loc.search_type = AROUND_ME
-          setSearchData(loc)
-          setSearchValue(`${AROUND_ME} ${loc.label}`)
-          input.form.querySelector('button[type=submit]').focus()
-        }
-      } else {
-        setSearchData(null)
-      }
-      activateSubmitBtn(null, (force = true))
-    },
-
+    onSubmit: handleSelect,
     renderResult: ({ text, context, icon }, props) => {
       const active = props['aria-selected'] ? 'active' : ''
       return `
@@ -164,7 +167,16 @@ function SearchWhere(root) {
   // Invalidate lat/lon on every key stroke in the search input, except when user tabs
   // out of the field or selects and entry by pressing the Enter key.
   autocomplete.input.addEventListener('keydown', (event) => {
-    var ignoredKeys = ['Tab', 'Enter', 'Shift', 'Control']
+    if (event.key === 'Enter') {
+      // The library's Enter handler only sets the input text and skips onSubmit when a
+      // suggestion is highlighted and submitOnEnter is false, leaving the hidden lat/lon/
+      // code empty. Replay the selection here so the coordinates get populated.
+      if (!submitOnEnter && autocomplete.core.selectedResult) {
+        handleSelect(autocomplete.core.selectedResult)
+      }
+      return
+    }
+    const ignoredKeys = ['Tab', 'Shift', 'Control']
     if (!ignoredKeys.includes(event.key)) {
       setSearchData(null)
     }

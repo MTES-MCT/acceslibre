@@ -16,6 +16,7 @@ function listenToFilterClicked(root) {
       titlesToToggle.forEach((element) => {
         element.classList.remove('hidden')
       })
+      announceResults(root, activeFilters)
       return
     }
 
@@ -32,19 +33,42 @@ function listenToFilterClicked(root) {
     })
 
     hideEmptyTitles(root)
+    announceResults(root, activeFilters)
   })
+}
+
+function announceResults(root, activeFilters) {
+  const status = document.getElementById('filter-status')
+
+  if (!status) return
+
+  if (activeFilters.length === 0) {
+    status.textContent = gettext('Filtres réinitialisés. Toutes les informations d’accessibilité sont affichées.')
+    return
+  }
+
+  const visibleCount = root.querySelectorAll('[data-filters]:not(.hidden)').length
+
+  status.textContent =
+    visibleCount === 0
+      ? gettext('Aucune information d’accessibilité ne correspond aux filtres sélectionnés.')
+      : `${visibleCount} ${ngettext(
+          'information d’accessibilité affichée',
+          'informations d’accessibilité affichées',
+          visibleCount
+        )}`
 }
 
 function hideEmptyTitles(root) {
   const titlesToToggle = root.querySelectorAll('[data-filter-title]')
 
-  titlesToToggle.forEach((accordion) => {
-    const hasContent = accordion.parentNode.querySelectorAll('.fr-collapse li:not(.hidden)')
+  titlesToToggle.forEach((section) => {
+    const hasContent = section.parentNode.querySelectorAll('li:not(.hidden)')
 
     if (hasContent.length === 0) {
-      accordion.parentNode.classList.add('hidden')
+      section.parentNode.classList.add('hidden')
     } else {
-      accordion.parentNode.classList.remove('hidden')
+      section.parentNode.classList.remove('hidden')
     }
   })
 }

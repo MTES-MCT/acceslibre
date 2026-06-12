@@ -51,20 +51,21 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
             <li>
                 <a class="fr-link"
                    href="https://drive.google.com/file/d/1JDpeP7lCQnVMlB1pPd__CwA5NqFJln-R/view?usp=sharing"
-                   title="{% translate "Voir le tutoriel - Nouvelle fenêtre" %}"
+                   title="{% translate "Voir le tutoriel - nouvelle fenêtre" %}"
                    target="_blank">{% translate "Voir le tutoriel" %}</a>
             </li>
             <li>
                 <a class="fr-link"
                    href="{% url "faq" %}"
                    target="_blank"
-                   title="{% translate "Voir notre foire aux questions - Nouvelle fenêtre" %}">{% translate "Voir notre foire aux questions" %}</a>
+                   title="{% translate "Voir notre foire aux questions - nouvelle fenêtre" %}">{% translate "Voir notre foire aux questions" %}</a>
             </li>
         </ul>
     </section>
     <h2 class="fr-my-2w">
         <a class="fr-link fr-h2"
            target="_blank"
+           title="{{ erp.nom }} - {% translate "nouvelle fenêtre" %}"
            href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
     </h2>
     <ul class="fr-p-0">
@@ -77,7 +78,7 @@ La photo sera instantanément ajoutée à la fiche acceslibre de l'établissemen
     </ul>
     <div class="panoramax-container">
         <div id="viewer-container">
-            <pnx-viewer id="panoramax-viewer" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
+            <pnx-viewer id="panoramax-viewer" tabindex="0" aria-label="{% translate "Photographie immersive 3D géolocalisée Panoramax. Une fois le focus placé ici, utilisez les flèches du clavier pour vous déplacer ; consultez la liste des raccourcis clavier pour les autres actions." %}" endpoint="https://api.panoramax.xyz/api/" widgets="false" url-parameters="false" picture="{{ image_id }}"></pnx-viewer>
         </div>
         {% include "common/panoramax-shortcuts-details.html" %}
     </div>

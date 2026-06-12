@@ -1,14 +1,9 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
-<h2 class="fr-accordion__title" data-filter-title="true">
-    <button type="button"
-            class="fr-accordion__btn"
-            aria-expanded="true"
-            aria-controls="registre_url">{% translate "Registre d'accessibilité et conformité" %}</button>
-</h2>
-<div id="registre_url" class="fr-collapse">
-    <ul>
+<h3 class="fr-h5 fr-mb-1w" data-filter-title="true">{% translate "Registre d'accessibilité et conformité" %}</h3>
+<div>
+    <ul class="fr-pl-4w">
         {% if access.registre_url %}
             <li data-filters="all">
                 {% translate "Registre disponible" %} : <a href="{{ access.registre_url }}">{{ access.registre_url }}</a>

@@ -1,7 +1,7 @@
 {% load a4a static %}
 {% load i18n %}
 <div id="contrib-stepper" class="fr-stepper">
-    <h2 class="fr-stepper__title">
+    <h2 class="fr-stepper__title" tabindex="-1" data-focus-on-load>
         {{ step_name }}
         <span class="fr-stepper__state">{% blocktranslate %}Étape {{ current_step }} sur {{ total_steps }}{% endblocktranslate %}</span>
     </h2>

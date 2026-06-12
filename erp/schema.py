@@ -293,6 +293,7 @@ PARTENAIRES = {
         "url": "https://www.economie.gouv.fr/plan-de-relance",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
         "roles": [PARTNER_ROLES["FUNDERS"]],
+        "lang": "fr",
     },
     "DESTINATION_POUR_TOUS": {
         "avatar": "destination_pour_tous.png",
@@ -302,6 +303,7 @@ PARTENAIRES = {
         "url": "https://www.entreprises.gouv.fr/",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "THE_FORK": {
         "logo": "img/partenaires/the_fork.png",
@@ -310,6 +312,7 @@ PARTENAIRES = {
         "url": "https://www.thefork.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "MICHELIN": {
         "logo": "img/partenaires/michelin.png",
@@ -318,14 +321,16 @@ PARTENAIRES = {
         "url": "https://guide.michelin.com/fr/fr",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "MAC_DONALD_S": {
         "logo": "img/partenaires/mcdo.png",
-        "name": "MC Donald's",
+        "name": "McDonald's",
         "template": "editorial/partenaires/mac_donald_s.html",
         "url": "https://www.mcdonalds.fr/",
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "PATHE": {
         "logo": "img/partenaires/pathe.png",
@@ -334,6 +339,7 @@ PARTENAIRES = {
         "url": "https://www.pathe.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "GROUPE_BERTRAND": {
         "logo": "img/partenaires/groupe_bertrand.png",
@@ -342,6 +348,7 @@ PARTENAIRES = {
         "url": "https://www.groupe-bertrand.com/",
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "EXPEDIA_GROUP": {
         "logo": "img/partenaires/expedia_group.png",
@@ -350,6 +357,7 @@ PARTENAIRES = {
         "url": "https://expediagroup.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "LE_PETIT_FUTE": {
         "logo": "img/partenaires/le_petit_fute.png",
@@ -358,6 +366,7 @@ PARTENAIRES = {
         "url": "https://www.petitfute.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "LE_PETIT_PAUME": {
         "logo": "img/partenaires/le_petit_paume.png",
@@ -366,14 +375,16 @@ PARTENAIRES = {
         "url": "https://www.petitpaume.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "NOUVELLE_AQUITAINE": {
         "logo": "img/partenaires/nouvelle_aquitaine.png",
-        "name": "Le CRT Nouvelle-Aquitaine",
+        "name": "Comité Régional du Tourisme de Nouvelle-Aquitaine",
         "template": "editorial/partenaires/nouvelle_aquitaine.html",
         "url": "https://www.crt-nouvelle-aquitaine.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "ADN_TOURISME": {
         "logo": "img/partenaires/adn_tourisme.png",
@@ -382,6 +393,7 @@ PARTENAIRES = {
         "url": "https://www.adn-tourisme.fr/",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "AGGLOMERATION_LORIENT": {
         "logo": "img/partenaires/agglomeration_lorient.png",
@@ -390,6 +402,7 @@ PARTENAIRES = {
         "url": "https://www.lorient-agglo.bzh/",
         "labels": [PARTNER_LABELS["COMMUNITY"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "OFFICE_DE_TOURISME_DIEPPE_NORMANDIE": {
         "logo": "img/partenaires/office_de_tourisme_dieppe_normandie.png",
@@ -398,6 +411,7 @@ PARTENAIRES = {
         "url": "https://www.dieppetourisme.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "OFFICE_DE_TOURISME_DE_AVRE_LUCE_NOYE": {
         "logo": "img/partenaires/office_de_tourisme_de_avre_luce_noye.png",
@@ -406,6 +420,7 @@ PARTENAIRES = {
         "url": "https://www.tourisme-avrelucenoye.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "PARIS_JE_T_AIME": {
         "logo": "img/partenaires/paris_je_t_aime.png",
@@ -414,14 +429,16 @@ PARTENAIRES = {
         "url": "https://parisjetaime.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "FEDERATION_DES_OFFICES_DE_TOURISME_DE_BRETAGNE": {
         "logo": "img/partenaires/federation_des_offices_de_tourisme_de_bretagne.png",
-        "name": "Fédération des Offices de tourisme de Bretagne",
+        "name": "Fédération des Offices de Tourisme de Bretagne",
         "template": "editorial/partenaires/federation_des_offices_de_tourisme_de_bretagne.html",
         "url": "https://otb.bzh/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "MUSIC_IN_PARIS": {
         "logo": "img/partenaires/music_in_paris.png",
@@ -430,6 +447,7 @@ PARTENAIRES = {
         "url": "https://musicinparis.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "en",
     },
     "LE_FOODING": {
         "logo": "img/partenaires/le_fooding.png",
@@ -438,6 +456,7 @@ PARTENAIRES = {
         "url": "https://lefooding.com/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "en",
     },
     "PASS_CULTURE": {
         "logo": "img/partenaires/pass_culture.png",
@@ -446,14 +465,16 @@ PARTENAIRES = {
         "url": "https://pass.culture.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "DIJOP": {
         "logo": "img/partenaires/dijop.png",
-        "name": "Pass Culture",
+        "name": "Délégation interministérielle aux Jeux Olympiques et Paralympiques",
         "template": "editorial/partenaires/dijop.html",
         "url": "https://www.info.gouv.fr/organisation/delegation-jeux-olympiques-paralympiques-paris-2024#:~:text=La%20D%C3%A9l%C3%A9gation%20interminist%C3%A9rielle%20aux%20Jeux,les%20actions%20des%20diff%C3%A9rents%20minist%C3%A8res",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "UMIH": {
         "logo": "img/partenaires/umih.png",
@@ -462,6 +483,7 @@ PARTENAIRES = {
         "url": "https://www.umih.fr/",
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "JE_VEUX_AIDER": {
         "logo": "img/partenaires/je_veux_aider.png",
@@ -470,6 +492,7 @@ PARTENAIRES = {
         "url": "https://www.jeveuxaider.gouv.fr/",
         "labels": [PARTNER_LABELS["ASSOCIATION"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "VILLE_DE_PARIS": {
         "logo": "img/partenaires/ville_de_paris.png",
@@ -478,14 +501,16 @@ PARTENAIRES = {
         "url": "https://www.paris.fr/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "TOURISME_HANDICAPS": {
         "logo": "img/partenaires/tourisme_handicaps.png",
-        "name": "Association tourisme & Handicaps",
+        "name": "Association Tourisme & Handicaps",
         "template": "editorial/partenaires/tourisme_handicaps.html",
         "url": "https://tourisme-handicaps.org/",
         "labels": [PARTNER_LABELS["ASSOCIATION"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "LUCIE": {
         "avatar": "lucie_avatar.png",
@@ -496,26 +521,29 @@ PARTENAIRES = {
         "url": "https://agence-lucie.com/",
         "labels": [PARTNER_LABELS["INSTITUTIONAL"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "MOBALIB": {
         "avatar": "mobalib_avatar.jpg",
         "logo": "img/partenaires/mobalib.png",
-        "name": "Mobalib",
+        "name": "Mobalib, l'expert du handicap",
         "short_description": translate_lazy("Mobalib, l'expert du handicap"),
         "template": "editorial/partenaires/mobalib.html",
         "url": "https://www.mobalib.com/",
         "labels": [PARTNER_LABELS["SERVICE_DEDICATED_TO_PEOPLE_WITH_DISABILITIES"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "WEGOTO": {
         "avatar": "wegoto_avatar.png",
         "logo": "img/partenaires/wegoto.png",
-        "name": "Wegoto",
+        "name": "Wegoto, Move freely anywhere",
         "short_description": translate_lazy("Expert en données d'accessibilité"),
         "template": "editorial/partenaires/wegoto.html",
         "url": "https://www.wegoto.eu/",
         "labels": [PARTNER_LABELS["SERVICE_DEDICATED_TO_PEOPLE_WITH_DISABILITIES"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "ACCESMETRIE": {
         "avatar": "accesmetrie_avatar.png",
@@ -526,16 +554,18 @@ PARTENAIRES = {
         "url": "http://www.accesmetrie.com",
         "labels": [PARTNER_LABELS["STUDY_OFFICE"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "ONECOMPAGNON": {
         "avatar": "onecompagnon_avatar.jpg",
         "logo": "img/partenaires/one_campagnon.png",
-        "name": "One Compagnon",
+        "name": "One Compagnon, l'assistant accessible à tous",
         "short_description": translate_lazy("L'assistant accessible à tous"),
         "template": "editorial/partenaires/onecompagnon.html",
         "url": "https://www.onecompagnon.com",
         "labels": [PARTNER_LABELS["SERVICE_DEDICATED_TO_PEOPLE_WITH_DISABILITIES"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "en",
     },
     "SORTIRAPARIS": {
         "avatar": "sortir-a-paris_avatar.png",
@@ -546,16 +576,18 @@ PARTENAIRES = {
         "url": "https://www.sortiraparis.com",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "NESTENN": {
         "avatar": "nestenn_avatar.png",
         "logo": "img/partenaires/nestenn.png",
-        "name": "Nestenn",
+        "name": "Nestenn, groupe d'agences immobilières",
         "short_description": translate_lazy("Groupe d'agences immobilières"),
         "template": "editorial/partenaires/nestenn.html",
         "url": "https://nestenn.com/groupe-immobilier-nestenn",
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "ANDRE_DE_CABO": {
         "avatar": "andre_cabo_avatar.jpg",
@@ -566,6 +598,7 @@ PARTENAIRES = {
         "url": "https://andredecabo.fr/",
         "labels": [PARTNER_LABELS["STUDY_OFFICE"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "CFPSAA": {
         "avatar": "cfpsaa_avatar.png",
@@ -579,6 +612,7 @@ PARTENAIRES = {
         "weight": 100,
         "labels": [PARTNER_LABELS["ASSOCIATION"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "AVH": {
         "avatar": "avh_avatar.png",
@@ -590,6 +624,7 @@ PARTENAIRES = {
         "weight": 100,
         "labels": [PARTNER_LABELS["ASSOCIATION"]],
         "roles": [PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "LAPOSTE": {
         "avatar": "laposte.png",
@@ -601,6 +636,7 @@ PARTENAIRES = {
         "weight": 100,
         "labels": [PARTNER_LABELS["ESTABLISHMENT_MANAGER"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "ALLOCINE": {
         "avatar": "allocine.png",
@@ -611,6 +647,7 @@ PARTENAIRES = {
         "url": "https://www.allocine.fr",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "CRT_NORMANDIE": {
         "avatar": "crt_normandie.png",
@@ -621,6 +658,7 @@ PARTENAIRES = {
         "url": "https://pronormandietourisme.fr/outils/la-base-de-donnees/",
         "labels": [PARTNER_LABELS["TOURISM_AND_LEISURE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
     "SOLOCAL": {
         "avatar": "solocal.png",
@@ -631,6 +669,7 @@ PARTENAIRES = {
         "url": "https://www.solocal.com",
         "labels": [PARTNER_LABELS["GENERAL_INFORMATION_SITE"]],
         "roles": [PARTNER_ROLES["RE_USE"]],
+        "lang": "fr",
     },
     "SERVICE_PUBLIC": {
         "avatar": "sp.png",
@@ -641,6 +680,7 @@ PARTENAIRES = {
         "url": "https://lannuaire.service-public.fr/",
         "labels": [PARTNER_LABELS["GENERAL_INFORMATION_SITE"]],
         "roles": [PARTNER_ROLES["RE_USE"], PARTNER_ROLES["COLLECTOR"]],
+        "lang": "fr",
     },
 }
 
@@ -1725,7 +1765,7 @@ FIELDS = {
         "type": "number",
         "nullable": True,
         "is_a11y": True,
-        "label": translate_lazy("Largeur de la porte ou de l'entrée"),
+        "label": translate_lazy("Largeur de la porte ou de l'entrée en cm"),
         "help_text": mark_safe(
             translate_lazy(
                 "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 centimètres&nbsp;; indiquer 90."
@@ -1750,7 +1790,7 @@ FIELDS = {
         "label": translate_lazy("Entrée dédiée aux personnes en situation de handicap"),
         "help_text": mark_safe(
             translate_lazy(
-                "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
+                "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite (PMR)&nbsp;?"
             )
         ),
         "help_text_ui": translate_lazy(
@@ -2481,7 +2521,7 @@ FIELDS = {
         "free_text": False,
         "conditional": "school",
         "root": True,
-        "excluded_from_completion_rate": True
+        "excluded_from_completion_rate": True,
     },
     "accueil_isoloir_accessibilite": {
         "type": "boolean",

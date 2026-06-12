@@ -2,7 +2,7 @@
 {% load a4a %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Commentaire et informations complémentaires" %}
+    {% translate "Commentaire et informations complémentaires" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block full_infos %}
 {% endblock full_infos %}
@@ -34,14 +34,12 @@
                     {% include "fields/checkbox.html" with field=form.labels inline=True %}
                 {% endif %}
                 {% if form.labels_autre %}
-                    <div class="contrib-inputs-section">
-                        <hr class="fr-hr" />
+                    <div class="contrib-inputs-section hr-top">
                         {% include "fields/textarea.html" with field=form.labels_autre extraid="field-labels_autre" %}
                     </div>
                 {% endif %}
                 {% if form.labels_familles_handicap %}
-                    <div class="contrib-inputs-section">
-                        <hr class="fr-hr" />
+                    <div class="contrib-inputs-section hr-top">
                         {% include "fields/checkbox.html" with field=form.labels_familles_handicap inline=True extraid="field-labels_familles_handicap" key="labels_familles_handicap" %}
                     </div>
                 {% endif %}
@@ -78,11 +76,9 @@
 
           if (checkedLabels.includes('autre') || checkedLabels.includes('other')) {
             fieldAutre.closest('.contrib-inputs-section').classList.remove('hidden')
-            otherInput.setAttribute('required', 'required')
           } else {
             fieldAutre.closest('.contrib-inputs-section').classList.add('hidden')
             otherInput.value = ''
-            otherInput.removeAttribute('required')
           }
 
           if (checkedLabels.includes('th')) {

@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load i18n %}
 {% block page_title %}
-    {% translate "Connexion" %}
+    {% translate "Connexion" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
 {% block robots %}
     noindex, nofollow
@@ -75,7 +75,10 @@
                 {% csrf_token %}
                 <div>
                     {% if form.non_field_errors %}
-                        <div class="fr-alert fr-alert--error fr-mb-2w" role="alert">
+                        <div id="login-error"
+                             class="fr-alert fr-alert--error fr-mb-2w"
+                             role="alert"
+                             tabindex="-1">
                             {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
                         </div>
                     {% endif %}
@@ -86,7 +89,8 @@
                         </div>
                         <div class="fr-col-12 fr-col-lg">
                             <div class="fr-input-group {% if form.errors.username %}fr-input-group--error{% endif %}">
-                                <label for={{ form.username.id_for_label }} class="fr-label">{% translate "Adresse e-mail*" %}
+                                <label for="{{ form.username.id_for_label }}" class="fr-label">
+                                    {% translate "Adresse e-mail*" %}
                                     <span class="fr-hint-text">{% translate "Format attendu : adresse@herbergeur.com" %}</span>
                                 </label>
                                 {{ form.username }}
@@ -97,8 +101,7 @@
                         </div>
                         <div class="fr-col-12 fr-col-lg">
                             <div class="fr-password">
-                                <label for={{ form.password.id_for_label }} class="fr-label">{% translate "Mot de passe*" %}
-                                </label>
+                                <label for="{{ form.password.id_for_label }}" class="fr-label">{% translate "Mot de passe*" %}</label>
                                 <div class="fr-input-wrap">{{ form.password }}</div>
                                 {% if form.errors.password %}
                                     <p id="password-desc-error" class="fr-error-text">{{ form.errors.password.0 }}</p>

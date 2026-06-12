@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 23:10+0200\n"
+"POT-Creation-Date: 2026-06-11 17:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "IGN - nouvelle fenêtre"
+msgstr "IGN - new window"
+
+msgid "Leaflet - nouvelle fenêtre"
+msgstr "Leaflet - new window"
 
 msgid "En cours de chargement ..."
 msgstr "Loading ..."
@@ -27,14 +33,26 @@ msgstr[1] "facilities"
 msgid "Localisez moi"
 msgstr "Locate me"
 
+msgid "mètres"
+msgstr "meters"
+
+msgid "pieds"
+msgstr "feet"
+
+msgid "Vous êtes à moins de {distance} {unit} de ce point"
+msgstr "You are within {distance} {unit} of this point"
+
+msgid "Vous semblez être en dehors des limites de la carte"
+msgstr "You appear to be outside the map bounds"
+
 msgid "Calques"
 msgstr "Layers"
 
 msgid "Zoom avant"
-msgstr "Zoom before"
+msgstr "Zoom in"
 
 msgid "Zoom arrière"
-msgstr "Rear zoom"
+msgstr "Zoom out"
 
 msgid "Remplissage"
 msgstr "Filling"
@@ -42,14 +60,25 @@ msgstr "Filling"
 msgid "Voir"
 msgstr "See"
 
-msgid "Les détails de l’établissement"
-msgstr "Details of the establishment"
+msgid "les détails de l’établissement"
+msgstr "details of the establishment"
 
 msgid "Localiser"
 msgstr "Locate"
 
-msgid "Recentre la carte sur l’établissement"
-msgstr "Refocus the map on the establishment"
+msgid "recentre la carte sur l’établissement"
+msgstr "refocus the map on the establishment"
+
+msgid "nouvelle fenêtre"
+msgstr "new window"
+
+msgid "Panoramax"
+msgstr "Panoramax"
+
+#, fuzzy
+#| msgid "En savoir plus sur Panoramax"
+msgid "Voir sur Panoramax"
+msgstr "See on Panoramax"
 
 msgid "requis"
 msgstr "required"
@@ -71,6 +100,20 @@ msgstr "No establishment could be found"
 
 msgid "Afficher plus d’établissements"
 msgstr "Show more establishments"
+
+msgid ""
+"Filtres réinitialisés. Toutes les informations d’accessibilité sont "
+"affichées."
+msgstr "Filters reset. All accessibility information is displayed."
+
+msgid ""
+"Aucune information d’accessibilité ne correspond aux filtres sélectionnés."
+msgstr "No accessibility information matches the selected filters."
+
+msgid "information d’accessibilité affichée"
+msgid_plural "informations d’accessibilité affichées"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Modification(s) echouée(s)"
 msgstr "Modification(s) failed"
@@ -106,3 +149,15 @@ msgstr "See more"
 
 msgid "Voir moins"
 msgstr "See less"
+
+#, fuzzy
+#~ msgid "Voir le point de vue photo de"
+#~ msgstr "See the photo point of view of"
+
+#, fuzzy
+#~ msgid "sur Panoramax"
+#~ msgstr "on Panoramax"
+
+#, fuzzy
+#~ msgid "Description complète de la licence"
+#~ msgstr "Full description of the license"
