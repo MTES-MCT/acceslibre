@@ -26,7 +26,7 @@
 {% endblock breadcrumb %}
 {% block editorial_content %}
     {% translate "Schéma Pluriannuel d'Accessibilité Numérique - nouvelle fenêtre" as dinum_link_title %}
-    {% translate "Dashlord - nouvelle fenêtre" as dashlord_link_title %}
+    {% translate "tableau de bord - nouvelle fenêtre" as dashlord_link_title %}
     <div>
         <h1 class="fr-mb-4w">{% translate "Schéma pluriannuel d’accessibilité numérique 2026-2028 et plan d'actions" %}</h1>
         <section>
@@ -72,7 +72,7 @@
                     {% translate "Mettre en place des tests utilisateurs réguliers dans un objectif d'amélioration continue de l'accessibilité du site ;" %}
                 </li>
                 <li>
-                    {% translate "Vérifier l'accessibilité numérique de sites partenaires et, pour les sites non conformes, les inciter à se rendre accessibles ;" %}
+                    {% translate "Communiquer auprès des sites partenaires sur l'importance de rendre leur site web accessible ;" %}
                 </li>
                 <li>
                     {% translate "Veiller à l'accessibilité des différentes communications : newsletter, scorecard, post LinkedIn..." %}
@@ -89,10 +89,10 @@
             <p>{% translate "La déclaration d'accessibilité est vérifiée a minima une fois par an." %}</p>
             <h3 class="fr-my-4v">{% translate "3.3 Conception / Développement" %}</h3>
             <p class="fr-mb-0">
-                {% translate "Les principaux bénéficiaires du site Acceslibre sont les personnes en situation de handicap et leurs proches. Aussi, toutes les nouvelles fonctionnalités qui concernent l'usage sont conçues et testées au sein de groupe de travail avec les personnes concernées." %}
+                {% translate "Les principaux bénéficiaires du site Acceslibre sont les personnes en situation de handicap et leurs proches. Aussi, les nouvelles fonctionnalités qui concernent l'usage sont conçues avec les personnes concernées." %}
             </p>
             <p class="fr-mb-0">
-                {% translate "L'équipe de développement sollicite l'équipe d'appui de la DINUM si nécessaire pour concevoir ou développer certaines fonctionnalités." %}
+                {% translate "L’équipe de développement sollicite l’équipe d’appui de la DINUM si nécessaire pour concevoir ou développer certaines fonctionnalités." %}
             </p>
             <p class="fr-mb-0">
                 {% translate "Une clause concernant le respect du RGAA sera intégrée à toute mission externalisée." %}
@@ -104,7 +104,7 @@
     class="fr-link"
     title="{{ dashlord_link_title }}"
     target="_blank"
-    rel="noopener noreferrer">Dashlord</a>.
+    rel="noopener noreferrer">tableau de bord</a>.
                 {% endblocktranslate %}
             </p>
             <p class="fr-mb-0">
@@ -129,21 +129,25 @@
                 </li>
             </ul>
             <p class="fr-mb-0">
-                {% translate "Ce chantier sera essentiellement mené par une prestation externe d'UX/ design et le développeur de l'équipe plus spécifiquement en charge du front et de l'accessibilité." %}
-            </p>
-            <p class="fr-mb-0">{% translate "Audit RGAA par la DINUM." %}</p>
-            <p class="fr-mb-0">{% translate "Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026." %}</p>
-            <h3 class="fr-my-4v">{% translate "4.2 Conception, développement, contrôle" %}</h3>
-            <p class="fr-mb-0">
-                {% translate "Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolution du site notamment :" %}
+                {% translate "Ce chantier sera essentiellement mené par une prestation externe d’UX/ design et le développeur de l’équipe plus spécifiquement en charge du front et de l’accessibilité." %}
             </p>
             <ul class="fr-pl-4w">
-                <li>{% translate "mise en place de filtres de recherche ;" %}</li>
-                <li>{% translate "évolutions du modèle de données." %}</li>
+                <li>{% translate "Audit RGAA par la DINUM" %}</li>
             </ul>
-            <p>
-                {% translate "Partenariat avec la CFPSAA et l'association Valentin Haüy dans une démarche d'amélioration continue du site." %}
-            </p>
+            <p class="fr-mb-0">{% translate "Compte tenu du plan de charge de la DINUM, l'audit a été reporté en 2026." %}</p>
+            <h3 class="fr-my-4v">{% translate "4.2 Conception, développement, contrôle" %}</h3>
+            <ul class="fr-pl-4w">
+                <li>
+                    {% translate "Plusieurs ateliers utilisateurs ont été menés dans le cadre d'évolutions du site notamment :" %}
+                    <ul class="fr-pl-4w">
+                        <li>{% translate "mise en place de filtres de recherche ;" %}</li>
+                        <li>{% translate "évolutions du modèle de données." %}</li>
+                    </ul>
+                </li>
+                <li>
+                    {% translate "Un partenariat avec la CFPSAA et l'association Valentin Haüy a été mis en place dans une démarche d'amélioration continue du site." %}
+                </li>
+            </ul>
         </section>
         <section>
             <h2 class="fr-my-4v">{% translate "5. Plan d'actions 2026" %}</h2>

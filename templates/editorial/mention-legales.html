@@ -26,77 +26,65 @@
 {% endblock breadcrumb %}
 {% block editorial_content %}
     <div>
-        <h1 class="fr-mb-3v">Mentions légales</h1>
-        <h2 class="fr-mb-4v fr-mt-6v">Éditeur de la Plateforme</h2>
-        <p class="fr-mb-2w">La plateforme “Acceslibre” est éditée par :</p>
+        <h1 class="fr-mb-3v">{% translate "Mentions légales" %}</h1>
+        <h2 class="fr-mb-4v fr-mt-6v">{% translate "Éditeur de la Plateforme" %}</h2>
+        <p class="fr-mb-2w">{% translate "La plateforme “Acceslibre” est éditée par :" %}</p>
         <address>
-            <span class="display--block">Le Secrétariat général des ministères Écologie Énergie Climat</span>
+            <span class="display--block">{% translate "Le Secrétariat général des ministères Écologie Énergie Climat" %}</span>
             <span class="display--block">Grande Arche Paroi Sud</span>
             <span class="display--block">1 Le Parvis</span>
             <span class="display--block">92000 Puteaux</span>
-            <span class="display--block">France</span>
+            <span class="display--block">{% translate "France" %}</span>
         </address>
         <p>
-            Téléphone :
-            <a aria-label="Ouvrir une application pour appeler le 01 40 81 38 70"
+            {% translate "Téléphone :" %}
+            <a aria-label="{% translate "Ouvrir une application pour appeler le 01 40 81 38 70" %}"
                href="tel:+33140813870">01 40 81 38 70</a>
         </p>
-        <h2 class="fr-mb-4v fr-mt-6v">Directeur de la publication</h2>
+        <h2 class="fr-mb-4v fr-mt-6v">{% translate "Directeur de la publication" %}</h2>
         <p>
-            Le directeur de la publication est M. Jean-Philippe Papillon sous-directeur de la direction numérique Usages
-            Numériques et Innovation.
+            {% translate "Le directeur de la publication est M. Jean-Philippe Papillon sous-directeur de la direction numérique Usages Numériques et Innovation." %}
         </p>
-        <h2 class="fr-mb-4v fr-mt-6v">Hébergeur de la Plateforme</h2>
+        <h2 class="fr-mb-4v fr-mt-6v">{% translate "Hébergeur de la Plateforme" %}</h2>
         <p>
-            Le site <a href="https://acceslibre.beta.gouv.fr/"
-    target="_blank"
-    title="{% translate "acceslibre - nouvelle fenêtre" %}">acceslibre.beta.gouv.fr</a> est hébergé par la société Scalingo SAS, inscrite au RCS (Strasbourg B 808
-            665 483) et dont les serveurs se situent en France.
+            {% blocktranslate %}Le site <a href="https://acceslibre.beta.gouv.fr/" target="_blank" title="acceslibre - nouvelle fenêtre">acceslibre.beta.gouv.fr</a> est hébergé par la société Scalingo SAS, inscrite au RCS (Strasbourg B 808 665 483) et dont les serveurs se situent en France.{% endblocktranslate %}
         </p>
         <address>
             <span class="display--block">15 avenue du Rhin</span>
             <span class="display--block">67100 Strasbourg</span>
-            <span class="display--block">France</span>
+            <span class="display--block">{% translate "France" %}</span>
         </address>
         <p class="fr-mb-0">
             <span>SIREN : 808665483</span>
         </p>
         <p>
-            Contact : <a target="_blank"
-    title="Scalingo contact - nouvelle fenêtre"
-    href="https://scalingo.com/fr/contact">https://scalingo.com/fr/contact</a>
+            {% blocktranslate %}Contact : <a target="_blank" title="Scalingo contact - nouvelle fenêtre" href="https://scalingo.com/fr/contact">https://scalingo.com/fr/contact</a>{% endblocktranslate %}
         </p>
-        <h2 class="fr-mb-4v fr-mt-6v">Accessibilité</h2>
-        <p>La plateforme est partiellement conforme, nous tâchons de la rendre accessible à toutes et à tous.</p>
-        <h3 class="fr-mb-4v fr-mt-6v">En savoir plus</h3>
+        <h2 class="fr-mb-4v fr-mt-6v">{% translate "Accessibilité" %}</h2>
         <p>
-            Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a target="_blank"
-    title="accessibilité numérique - nouvelle fenêtre"
-    href="https://accessibilite.numerique.gouv.fr/">https://accessibilite.numerique.gouv.fr/</a>
+            {% translate "La plateforme est totalement conforme, nous tâchons de la rendre accessible à toutes et à tous." %}
+        </p>
+        <h3 class="fr-mb-4v fr-mt-6v">{% translate "En savoir plus" %}</h3>
+        <p>
+            {% blocktranslate %}Pour en savoir plus sur la politique d’accessibilité numérique de l’État : <a target="_blank" title="accessibilité numérique - nouvelle fenêtre" href="https://accessibilite.numerique.gouv.fr/">https://accessibilite.numerique.gouv.fr/</a>{% endblocktranslate %}
         </p>
         <p>
-            Pour en savoir plus sur la politique d’accessibilité de la plateforme : <a target="_blank"
-    title="Acceslibre accessibilité - nouvelle fenêtre"
-    href="https://acceslibre.beta.gouv.fr/accessibilite">https://acceslibre.beta.gouv.fr/accessibilite</a>
+            {% blocktranslate %}Pour en savoir plus sur la politique d’accessibilité de la plateforme : <a target="_blank" title="Acceslibre accessibilité - nouvelle fenêtre" href="https://acceslibre.beta.gouv.fr/accessibilite">https://acceslibre.beta.gouv.fr/accessibilite</a>{% endblocktranslate %}
         </p>
-        <h3 class="fr-mb-4v fr-mt-6v">Signaler un dysfonctionnement</h3>
+        <h3 class="fr-mb-4v fr-mt-6v">{% translate "Signaler un dysfonctionnement" %}</h3>
         <p>
-            Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité de la
-            plateforme, merci de nous en faire part : <a href="mailto:support@acceslibre.beta.gouv.fr">support@acceslibre.beta.gouv.fr</a>
+            {% blocktranslate %}Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité de la plateforme, merci de nous en faire part : <a href="mailto:support@acceslibre.beta.gouv.fr">support@acceslibre.beta.gouv.fr</a>{% endblocktranslate %}
         </p>
         <p>
-            Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une
-            demande de saisine au Défenseur des droits.
+            {% translate "Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits." %}
         </p>
-        <a class="fr-btn fr-btn--lg fr-mb-2w" href="{% url 'faq' %}">Contacter le support</a>
-        <h2 class="fr-mb-4v fr-mt-6v">Sécurité</h2>
+        <a class="fr-btn fr-btn--lg fr-mb-2w" href="{% url 'faq' %}">{% translate "Contacter le support" %}</a>
+        <h2 class="fr-mb-4v fr-mt-6v">{% translate "Sécurité" %}</h2>
         <p>
-            La plateforme est protégée par un certificat électronique, matérialisé pour la grande majorité des navigateurs
-            par un cadenas. Cette protection participe à la confidentialité des échanges.
+            {% translate "La plateforme est protégée par un certificat électronique, matérialisé pour la grande majorité des navigateurs par un cadenas. Cette protection participe à la confidentialité des échanges." %}
         </p>
         <p>
-            En aucun cas, les services associés à la Plateforme ne seront à l’origine d’envoi de courriels pour vous demander
-            la saisie d’informations personnelles.
+            {% translate "En aucun cas, les services associés à la Plateforme ne seront à l’origine d’envoi de courriels pour vous demander la saisie d’informations personnelles." %}
         </p>
     </div>
 {% endblock editorial_content %}
