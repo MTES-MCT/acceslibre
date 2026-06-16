@@ -3,6 +3,7 @@ from django.conf import settings
 
 
 def translate(text: str, target_lang):
+    return text
     if target_lang not in settings.DEEPL_MAPPING:
         return None
 
