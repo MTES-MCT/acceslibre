@@ -10,7 +10,7 @@ from faker import Factory as FakerFactory
 
 from erp.models import ExternalSource
 
-faker = FakerFactory.create()
+faker = FakerFactory.create(locale="fr_FR")
 
 
 User = get_user_model()
