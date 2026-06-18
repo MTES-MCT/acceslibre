@@ -739,6 +739,11 @@ class Erp(models.Model):
             and self.rpa_exemption is not None
         )
 
+    def can_be_modified_by(self, user=None):
+        if self.rpa:
+            return user is not None and self.user == user
+        return True
+
     def get_activite_vector_icon(self):
         default = "building"
         if self.activite and self.activite.vector_icon:

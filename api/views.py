@@ -10,6 +10,7 @@ from rest_framework.schemas.openapi import AutoSchema
 from rest_framework_gis.pagination import GeoJsonPagination
 
 from api.filters import EquipmentFilter, ErpFilter, ZoneFilter
+from api.permissions import CanModifyErp
 from api.serializers import (
     AccessibiliteSerializer,
     ActiviteWithCountSerializer,
@@ -519,6 +520,7 @@ class ErpViewSet(
         "partial_update": ErpImportSerializer,
     }
 
+    permission_classes = [CanModifyErp]
     queryset = Erp.objects.select_related("activite", "accessibilite").order_by("nom")
     lookup_field = "slug"
     bbox_filter_field = "geom"
