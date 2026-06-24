@@ -601,11 +601,11 @@ def confirm_up_to_date(request, erp_slug):
 @login_required
 def claim(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+
     if not request.method == "POST":
         return redirect(erp.get_absolute_url())
 
-    # NOTE: this is a safety check to prevent claiming RPA ERPs, this if block can be removed once related ticket implemented
-    if getattr(erp, "rpa", False):
+    if not erp.can_be_modified_by(request.user):
         messages.add_message(
             request,
             messages.ERROR,
