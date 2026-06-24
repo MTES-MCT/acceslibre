@@ -173,6 +173,7 @@ def test_export_command(mocker, settings):
         "",
         "",
         "",
+        "False",
         "123456789",
     ]
 
@@ -182,7 +183,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 100, "New exported field or missing field in export"
+        assert len(header) == 101, "New exported field or missing field in export"
         assert erp_csv == expected
 
     assert os.path.isfile("acceslibre-with-web-url.csv")
@@ -190,7 +191,7 @@ def test_export_command(mocker, settings):
     with open("acceslibre-with-web-url.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
-        assert len(header) == 102, "New exported field or missing field in export"
+        assert len(header) == 103, "New exported field or missing field in export"
         assert erp_csv == expected + [
             "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
             '<div id="widget-a11y-container" '
