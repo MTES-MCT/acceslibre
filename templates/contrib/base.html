@@ -60,4 +60,7 @@
         {% block contrib_content %}
         {% endblock contrib_content %}
     </div>
+    {% if not erp.published and erp.was_created_by_business_owner %}
+        {% include "contrib/includes/rpa-confirm-modal.html" %}
+    {% endif %}
 {% endblock editorial_content %}
