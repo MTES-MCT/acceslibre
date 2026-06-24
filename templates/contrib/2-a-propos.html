@@ -44,6 +44,10 @@
             <div class="contrib-inputs-section hr-top">
                 {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
             </div>
+            <div class="contrib-inputs-section">
+                <hr class="fr-hr" />
+                {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
+            </div>
         </div>
     </div>
 {% endblock fields_content %}

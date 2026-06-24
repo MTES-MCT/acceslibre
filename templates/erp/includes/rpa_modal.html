@@ -1,0 +1,26 @@
+{% load i18n %}
+<div class="fr-mb-3w">
+    <h3 class="fr-h5">
+        <span class="fr-icon-edit-line" aria-hidden="true"></span>
+        {% translate "Registre public d'accessibilité" %}
+    </h3>
+    <p>
+        {% blocktranslate trimmed %}
+            Les informations sont déclarées dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation.
+        {% endblocktranslate %}
+    </p>
+    <p>{% translate "Pour être conforme au RPA, ma fiche doit :" %}</p>
+    <ul>
+        <li>
+            <strong>{% translate "avoir des informations complètes (taux de remplissage de 100%)" %}</strong>
+        </li>
+        <li>
+            <strong>{% translate "dater de moins d'un an." %}</strong>
+        </li>
+    </ul>
+    <p>
+        {% blocktranslate trimmed %}
+            Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction
+        {% endblocktranslate %}
+    </p>
+</div>

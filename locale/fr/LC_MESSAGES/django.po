@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 11:54+0200\n"
+"POT-Creation-Date: 2026-06-24 10:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Cet établissement est labellisé RPA et ne peut être modifié que par son gestionnaire."
+msgstr ""
 
 msgid "stationnement"
 msgstr ""
@@ -629,6 +632,12 @@ msgstr ""
 msgid "Conformité"
 msgstr ""
 
+msgid "L’établissement fait-il l’objet d’une dérogation aux règles d’accessibilité prévues à l’article R164-3 du code de la construction et de l’habitation ?"
+msgstr ""
+
+msgid "Vous n’avez pas répondu à une question dont la réponse est requise. Votre réponse est modifiable à tout instant."
+msgstr ""
+
 msgid "Je souhaite mettre en ligne cette fiche d'établissement immédiatement"
 msgstr ""
 
@@ -966,6 +975,9 @@ msgid "identifiant BAN"
 msgstr ""
 
 msgid "Identifiant de la BAN"
+msgstr ""
+
+msgid "Présence d'une dérogation"
 msgstr ""
 
 msgid "Dernière vérification de clôture"
@@ -2594,6 +2606,9 @@ msgstr ""
 msgid "L'image Panoramax a bien été supprimée."
 msgstr ""
 
+msgid "Cette fiche vaut RPA et ne peut pas être mise à jour, veuillez contacter le support."
+msgstr ""
+
 msgid "Merci de votre contribution."
 msgstr ""
 
@@ -3873,6 +3888,12 @@ msgid "Revenir à la fiche"
 msgstr ""
 
 msgid "Ajouter l'établissement"
+msgstr ""
+
+msgid "Registre public d'accessibilité"
+msgstr ""
+
+msgid "J'ai compris et je confirme"
 msgstr ""
 
 #, python-format
@@ -5313,6 +5334,22 @@ msgid "Déclaré par : "
 msgstr ""
 
 msgid "Mise à jour : "
+msgstr ""
+
+msgid "Les informations sont déclarées dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation."
+msgstr ""
+
+msgid "Pour être conforme au RPA, ma fiche doit :"
+msgstr ""
+
+#, python-format
+msgid "avoir des informations complètes (taux de remplissage de 100%%)"
+msgstr ""
+
+msgid "dater de moins d'un an."
+msgstr ""
+
+msgid "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction"
 msgstr ""
 
 msgid "Fiche créée"

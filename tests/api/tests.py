@@ -1,7 +1,7 @@
 import json
 import uuid
 from datetime import datetime, timedelta
-from unittest.mock import ANY
+from unittest.mock import ANY, PropertyMock
 
 import pytest
 from django.contrib.gis.geos import Point
@@ -577,6 +577,21 @@ class TestErpApi:
         assert response.status_code == 405
         erp.refresh_from_db()
         assert erp is not None, "should not be able to delete an ERP via API"
+
+    def test_post_patch_rpa(self, api_client, mocker):
+        erp = ErpFactory(with_accessibility=True)
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock(return_value=True))
+        assert erp.rpa is True
+
+        payload = {
+            "accessibilite": {
+                "transport_station_presence": False,
+                "transport_information": "",
+                "commentaire": "New comment",
+            }
+        }
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 403
 
     @pytest.mark.parametrize(
         "names, q, expected",

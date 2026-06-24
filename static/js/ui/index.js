@@ -18,6 +18,7 @@ import LoadFilters from './LoadFilters'
 import ContribPagination from './ContribPagination'
 import FormContribDirtyChecker from './FormContribDirtyChecker'
 import FormContribEditNotification from './FormContribEditNotification'
+import RpaConfirmModal from './RpaConfirmModal'
 import TextExpander from './TextExpander'
 import ContentToggle from './ContentToggle'
 import SearchMobile from './SearchMobile'
@@ -47,6 +48,7 @@ export default {
   SyncInputsWithElement,
   FormContribDirtyChecker,
   FormContribEditNotification,
+  RpaConfirmModal,
   TextExpander,
   ContentToggle,
   SearchMobile,

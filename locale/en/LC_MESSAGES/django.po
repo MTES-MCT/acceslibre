@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 11:55+0200\n"
-"PO-Revision-Date: 2026-06-17 11:55+0200\n"
+"POT-Creation-Date: 2026-06-24 14:13+0200\n"
+"PO-Revision-Date: 2026-06-24 14:13+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
+
+msgid "Cet établissement est labellisé RPA et ne peut être modifié que par son gestionnaire."
+msgstr "This establishment is RPA labeled and can only be modified by its manager."
 
 msgid "stationnement"
 msgstr "parking"
@@ -629,6 +632,12 @@ msgstr "Accessibility register"
 msgid "Conformité"
 msgstr "Compliance"
 
+msgid "L’établissement fait-il l’objet d’une dérogation aux règles d’accessibilité prévues à l’article R164-3 du code de la construction et de l’habitation ?"
+msgstr "Is the establishment subject to an exemption from the accessibility rules provided for in article R164-3 of the construction and housing code?"
+
+msgid "Vous n’avez pas répondu à une question dont la réponse est requise. Votre réponse est modifiable à tout instant."
+msgstr "You have not answered a question that is required to be answered. Your answer can be changed at any time."
+
 msgid "Je souhaite mettre en ligne cette fiche d'établissement immédiatement"
 msgstr "I would like to put this facility sheet online immediately"
 
@@ -967,6 +976,9 @@ msgstr "BAN identifier"
 
 msgid "Identifiant de la BAN"
 msgstr "BAN Identifier"
+
+msgid "Présence d'une dérogation"
+msgstr "Presence of an exemption"
 
 msgid "Dernière vérification de clôture"
 msgstr "Last closed check"
@@ -2594,6 +2606,9 @@ msgstr "The geographical area of ​​the establishment is not covered."
 msgid "L'image Panoramax a bien été supprimée."
 msgstr "The Panoramax image has been deleted."
 
+msgid "Cette fiche vaut RPA et ne peut pas être mise à jour, veuillez contacter le support."
+msgstr "This sheet is RPA and cannot be updated, please contact support."
+
 msgid "Merci de votre contribution."
 msgstr "Thank you for your contribution."
 
@@ -3907,6 +3922,12 @@ msgstr "Back to the record"
 
 msgid "Ajouter l'établissement"
 msgstr "Add the establishment"
+
+msgid "Registre public d'accessibilité"
+msgstr "Public Accessibility Registry"
+
+msgid "J'ai compris et je confirme"
+msgstr "I understood and I confirm"
 
 #, python-format
 msgid "Étape %(current_step)s sur %(total_steps)s"
@@ -5490,6 +5511,22 @@ msgstr "Reported by:"
 
 msgid "Mise à jour : "
 msgstr "Last updated at:"
+
+msgid "Les informations sont déclarées dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation."
+msgstr "The information is declared as part of the Public Accessibility Register (RPA) provided for in article R. 164-5 of the construction and housing code."
+
+msgid "Pour être conforme au RPA, ma fiche doit :"
+msgstr "To comply with the RPA, my form must:"
+
+#, python-format
+msgid "avoir des informations complètes (taux de remplissage de 100%%)"
+msgstr "have complete information (100%% filling rate)"
+
+msgid "dater de moins d'un an."
+msgstr "less than a year old."
+
+msgid "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction"
+msgstr "As a reminder, any false administrative declaration constitutes a criminal offense punishable by sanction."
 
 msgid "Fiche créée"
 msgstr "Created by"

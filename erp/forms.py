@@ -852,6 +852,21 @@ class PublicAProposForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=False,
     )
+    rpa_exemption = forms.ChoiceField(
+        label=translate_lazy(
+            "L’établissement fait-il l’objet d’une dérogation aux règles d’accessibilité prévues à "
+            "l’article R164-3 du code de la construction et de l’habitation ?"
+        ),
+        choices=schema.BOOLEAN_CHOICES,
+        widget=forms.RadioSelect(attrs={"class": "inline"}),
+        required=True,
+        error_messages={
+            "required": translate_lazy(
+                "Vous n’avez pas répondu à une question dont la réponse est requise. "
+                "Votre réponse est modifiable à tout instant."
+            )
+        },
+    )
 
 
 class PublicPublicationForm(forms.ModelForm):
@@ -870,6 +885,7 @@ class PublicPublicationForm(forms.ModelForm):
 
 FORM_FIELDS = {
     "user_type": {"label": PublicAProposForm.declared_fields["user_type"].label},
+    "rpa_exemption": {"label": PublicAProposForm.declared_fields["rpa_exemption"].label},
 }
 
 
