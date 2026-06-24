@@ -588,9 +588,18 @@ def widget_from_uuid(request, uuid):
     )
 
 
+@login_required
 def confirm_up_to_date(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, published=True)
     if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
+
+    if not erp.can_be_modified_by(request.user):
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate("Cette fiche vaut RPA et ne peut pas être mise à jour, veuillez contacter le support."),
+        )
         return redirect(erp.get_absolute_url())
 
     erp.confirm_up_to_date(request.user)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 09:30+0200\n"
+"POT-Creation-Date: 2026-06-24 10:04+0200\n"
 "PO-Revision-Date: 2026-06-12 12:37+0200\n"
 "Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3163,6 +3163,15 @@ msgstr "The geographical area of ​​the establishment is not covered."
 msgid "L'image Panoramax a bien été supprimée."
 msgstr "The Panoramax image has been deleted."
 
+#, fuzzy
+#| msgid ""
+#| "Cette fiche vaut RPA et ne peut pas être revendiquée, veuillez contacter le "
+#| "support."
+msgid ""
+"Cette fiche vaut RPA et ne peut pas être mise à jour, veuillez contacter le "
+"support."
+msgstr "This sheet is RPA and cannot be updated, please contact support."
+
 msgid "Merci de votre contribution."
 msgstr "Thank you for your contribution."
 
@@ -4603,6 +4612,12 @@ msgstr "Back to the record"
 
 msgid "Ajouter l'établissement"
 msgstr "Add the establishment"
+
+msgid "Registre public d'accessibilité"
+msgstr "Public Accessibility Registry"
+
+msgid "J'ai compris et je confirme"
+msgstr "I understood and I confirm"
 
 #, python-format
 msgid "Étape %(current_step)s sur %(total_steps)s"
@@ -6740,9 +6755,6 @@ msgstr "Reported by:"
 
 msgid "Mise à jour : "
 msgstr "Last updated at:"
-
-msgid "Registre public d'accessibilité"
-msgstr "Public Accessibility Registry"
 
 msgid ""
 "Les informations sont déclarées dans le cadre du Registre Public "
