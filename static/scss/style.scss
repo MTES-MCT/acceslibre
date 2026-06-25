@@ -840,3 +840,10 @@ ul.pagination {
 #btn_acceslibre_close::after {
   content: none;
 }
+
+.translate-field {
+  &__btn,
+  &__result {
+    display: none;
+  }
+}

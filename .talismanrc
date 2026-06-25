@@ -45,8 +45,6 @@ fileignoreconfig:
   checksum: 4c01a1891864eae040978879ea04505f747c7d713a987b3f02d2dc8d69744224
 - filename: static/js/geo.js
   checksum: dcc39d5ea623fc51731b6e3c03bd2b8956ce82708e2997470f7d58dc6fee5ca5
-- filename: erp/views.py
-  checksum: 364eb07d9012d724ca628f680b8c4be693822e9df357caadd4cb77de32c165ad
 - filename: core/paginator.py
   checksum: 91a88eb39bf3d1643b98a86bb9bb7e3ee50680826a89e38e6cfc40a764cc3d74
 - filename: stats/middleware.py
@@ -85,3 +83,9 @@ fileignoreconfig:
   checksum: c4d847121eeb12749aa6464d3309db8581d912fe92501e7772894fe760f3918a
 - filename: contact/fixtures/faq.json
   checksum: a8a8b9995ec75f221f3df26b98a26baadfe9e9ad31a4894da28031b8442ad631
+- filename: templates/erp/includes/access_parking.html
+  checksum: c2b1a05d5136a18077b1e19ff6304dc64d6e8fc38debf6415cc5f580f84f32df
+- filename: erp/views.py
+  checksum: 4a979b4a43a0779c1299ffd9d1608e9386b3cefd0749274f7473b952f23addab
+- filename: static/js/ui/TranslateField.js
+  checksum: a497e6e1c896bbdf274918d9db846da8ae120ee526852c549fdface9ac513420

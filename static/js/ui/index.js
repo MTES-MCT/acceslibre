@@ -26,6 +26,7 @@ import BtnToCopy from './BtnToCopy'
 import FocusTo from './FocusTo.js'
 import FocusOnLoad from './FocusOnLoad.js'
 import NotificationAlert from './NotificationAlert.js'
+import translateField from './TranslateField'
 
 export default {
   AsteriskField,
@@ -56,4 +57,5 @@ export default {
   FocusTo,
   FocusOnLoad,
   NotificationAlert,
+  translateField,
 }

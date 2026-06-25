@@ -4,7 +4,6 @@ from datetime import datetime, timedelta, timezone
 
 import reversion
 from autoslug import AutoSlugField
-from deepl import QuotaExceededException
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.gis.db import models
@@ -29,7 +28,6 @@ from compte.service import increment_nb_erp_administrator, increment_nb_erp_crea
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
-from erp.provider import deepl as deepl_provider
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
@@ -1024,20 +1022,6 @@ class Erp(models.Model):
                 )
         self.search_vector = search_vector
         super().save(*args, **kwargs)
-
-    def translate(self, target_lang: str):
-        if target_lang == settings.LANGUAGE_CODE or not self.has_accessibilite():
-            return self
-
-        access = self.accessibilite
-        fields_to_translate = schema.get_free_text_fields()
-        for field_to_translate in fields_to_translate:
-            if field_value := getattr(access, field_to_translate, None):
-                try:
-                    setattr(self.accessibilite, field_to_translate, deepl_provider.translate(field_value, target_lang))
-                except QuotaExceededException:
-                    return self  # We won't be able to translate anymore, keep it in french
-        return self
 
     @property
     def widget_code(self):
