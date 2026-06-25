@@ -13,6 +13,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from magic_profanity import ProfanityFilter
+from waffle import switch_is_active
 
 from compte.models import UserStats
 from erp import schema
@@ -858,7 +859,7 @@ class PublicAProposForm(forms.ModelForm):
             "l’article R164-3 du code de la construction et de l’habitation ?"
         ),
         choices=schema.BOOLEAN_CHOICES,
-        widget=forms.RadioSelect(attrs={"class": "inline"}),
+        widget=forms.RadioSelect(attrs={"class": "inline", "aria-describedby": "rpa_exemption-error"}),
         required=True,
         error_messages={
             "required": translate_lazy(
@@ -867,6 +868,11 @@ class PublicAProposForm(forms.ModelForm):
             )
         },
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not switch_is_active("RPA"):
+            self.fields.pop("rpa_exemption", None)
 
 
 class PublicPublicationForm(forms.ModelForm):
