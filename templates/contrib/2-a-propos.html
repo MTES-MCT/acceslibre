@@ -1,6 +1,7 @@
 {% extends "contrib/base_access_form.html" %}
 {% load a4a %}
 {% load i18n %}
+{% load waffle_tags %}
 {% block page_title %}
     {% translate "À propos de vous" %} | {% translate "Acceslibre" %}
 {% endblock page_title %}
@@ -44,10 +45,12 @@
             <div class="contrib-inputs-section hr-top">
                 {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
             </div>
+            {% switch "RPA" %}
             <div class="contrib-inputs-section">
                 <hr class="fr-hr" />
                 {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
             </div>
+            {% endswitch %}
         </div>
     </div>
 {% endblock fields_content %}
