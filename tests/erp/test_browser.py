@@ -7,6 +7,7 @@ import reversion
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.urls import reverse
+from waffle.testutils import override_switch
 
 from compte.models import UserStats
 from erp.models import Accessibilite, ActivitySuggestion, Erp
@@ -312,6 +313,7 @@ def test_erp_edit_can_be_contributed(client):
 
 
 @pytest.mark.django_db
+@override_switch("RPA", True)
 def test_ajout_erp(client):
     boulangerie = ActiviteFactory(nom="Boulangerie")
     ActiviteFactory(slug="autre")
