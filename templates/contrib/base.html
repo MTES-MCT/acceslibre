@@ -62,7 +62,7 @@
         {% endblock contrib_content %}
     </div>
     {% switch "RPA" %}
-        {% if not erp.published and erp.was_created_by_business_owner %}
+        {% if not erp.published and erp.was_created_by_business_owner or not erp.published and step == 2 %}
             {% include "contrib/includes/rpa-confirm-modal.html" %}
         {% endif %}
     {% endswitch %}

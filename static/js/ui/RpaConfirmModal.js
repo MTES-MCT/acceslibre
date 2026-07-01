@@ -77,16 +77,34 @@ export function ensureRpaConfirmed(onConfirmed) {
   discloseModal(modal)
 }
 
+function getSelectedUserType() {
+  const checked = document.querySelector('input[name="user_type"]:checked')
+  if (checked) return checked.value
+
+  const hidden = document.querySelector('input[type="hidden"][name="user_type"]')
+  return hidden ? hidden.value : null
+}
+
+function shouldDisplayModal() {
+  const modal = getModal()
+  const erpId = modal?.dataset?.erpId
+
+  if (!modal || !erpId || isRpaConfirmed(erpId)) return false
+
+  const hasUserType = document.querySelector('input[name="user_type"]')
+
+  if (hasUserType) return getSelectedUserType() === 'gestionnaire'
+
+  return true
+}
+
 // Gate a control's click behind the RPA notice, deferring `action` until the
-// user has confirmed (once per ERP).
+// user has confirmed (once per ERP, choice is stored in localstorage to not display the modal multiple times).
 function gateClick(el, action) {
   if (!el) return
 
   el.addEventListener('click', (event) => {
-    const erpId = getModal()?.dataset?.erpId
-
-    // Do nothing if already confirmed (or nothing to gate)
-    if (!erpId || isRpaConfirmed(erpId)) return
+    if (!shouldDisplayModal()) return
 
     event.preventDefault()
     ensureRpaConfirmed(action)
