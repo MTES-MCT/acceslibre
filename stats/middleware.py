@@ -30,10 +30,8 @@ class TrackStatsWidget:
 
         try:
             cache.incr(redis_key)
-            print("Incremented", redis_key)
         except ValueError:
             cache.set(redis_key, 1, timeout=None)
-            print("Initialized", redis_key)
 
     def __call__(self, request):
         response = self.get_response(request)
