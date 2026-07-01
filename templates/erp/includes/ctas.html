@@ -9,16 +9,16 @@
                     <a class="fr-btn text-center"
                        href="{% url 'contrib_edit_infos' erp_slug=erp.slug %}">{% translate "Améliorer ou modifier" %}</a>
                 </li>
+                <li>
+                    <form method="post"
+                          action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}">
+                        {% csrf_token %}
+                        <button class="fr-btn fr-btn--secondary text-center" type="submit">
+                            {% translate "Confirmer ces informations" %}
+                        </button>
+                    </form>
+                </li>
             {% endif %}
-            <li>
-                <form method="post"
-                      action="{% url 'confirm_up_to_date' erp_slug=erp.slug %}">
-                    {% csrf_token %}
-                    <button class="fr-btn fr-btn--secondary text-center" type="submit">
-                        {% translate "Confirmer ces informations" %}
-                    </button>
-                </form>
-            </li>
             {% if erp.user != request.user %}
                 <li>
                     <button data-fr-opened="false"
