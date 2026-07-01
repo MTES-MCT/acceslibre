@@ -735,7 +735,7 @@ class Erp(models.Model):
             self.user_type == self.USER_ROLE_GESTIONNAIRE
             and self.checked_up_to_date_at
             and self.checked_up_to_date_at >= a_year_ago
-            and self.accessibilite.completion_rate == 100
+            and (hasattr(self, "accessibilite") and self.accessibilite.completion_rate == 100)
             and self.rpa_exemption is not None
         )
 

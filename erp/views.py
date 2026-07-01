@@ -934,6 +934,9 @@ def contrib_edit_infos(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     initial = {
         "user_type": erp.user_type or Erp.USER_ROLE_PUBLIC,
         "rpa_exemption": erp.rpa_exemption,
@@ -1009,6 +1012,9 @@ def process_accessibilite_form(
         Erp.objects.select_related("accessibilite"),
         slug=erp_slug,
     )
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
 
     contrib_forms_list = get_contrib_forms_for_activity(erp.activite)
@@ -1082,6 +1088,9 @@ def process_accessibilite_form(
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     if erp.user_id == request.user.id:
         prev_route = "contrib_a_propos"
     else:
@@ -1194,6 +1203,8 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
 
     referer = "/"
     if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
@@ -1256,6 +1267,9 @@ def contrib_publication(request, erp_slug):
 @login_required
 def contrib_completion_rate(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     return render(
         request,
         template_name="contrib/9-completion.html",
