@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 14:13+0200\n"
-"PO-Revision-Date: 2026-06-24 14:13+0200\n"
+"POT-Creation-Date: 2026-07-02 00:32+0200\n"
+"PO-Revision-Date: 2026-07-02 00:31+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3683,6 +3683,16 @@ msgstr ""
 "record is now completed at:\n"
 "<span class=\"en-grid-row en-grid-row--center en-text--xl en-h1 en-mt-1v\">%(completion_rate)s%%</span>"
 
+#, python-format
+msgid "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, votre fiche doit être complétée à 100%%."
+msgstr "To comply with the regulatory obligation for a public accessibility register, your form must be 100% complete."
+
+msgid "Merci de bien vouloir compléter votre fiche."
+msgstr "Please complete your form."
+
+msgid "Compléter ma fiche"
+msgstr "Complete my file"
+
 msgid "Voir l'établissement"
 msgstr "View the establishment"
 
@@ -5237,6 +5247,9 @@ msgstr "You are now identified as the establishment manager."
 
 msgid "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement."
 msgstr "As a manager, you are automatically subscribed to your profile. You will be notified if another user modifies your establishment's information."
+
+msgid "Si votre fiche est conforme au registre public d’accessibilité (logo RPA : conforme en haut de fiche), vous seul pouvez effectuer des modification sur votre fiche."
+msgstr "If your file complies with the public accessibility register (RPA logo: compliant at the top of the file), only you can make changes to your file."
 
 msgid "Compléter les informations de l'établissement"
 msgstr "Complete the establishment information"
