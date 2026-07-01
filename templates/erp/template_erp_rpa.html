@@ -248,10 +248,10 @@
                 </div>
             </section>
             {% switch "RPA" %}
-            <section class="rpa-block {% if access.conformite %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
+            <section class="rpa-block {% if erp.rpa %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
                 <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
-                <div class="rpa-badge {% if access.conformite %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
-                    {% if access.conformite %}
+                <div class="rpa-badge {% if erp.rpa %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
+                    {% if erp.rpa %}
                         <div style="display: flex;">
                             <img src="{% static "icons/success-fill.svg" %}" alt="">
                             <span>{% translate "conforme" %}</span>
