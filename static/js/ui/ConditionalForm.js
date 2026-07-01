@@ -187,12 +187,6 @@ const rules = [
     targets: ['conformite'],
     indent: INDENTS_LEVEL.first,
   },
-  {
-    source: 'user_type',
-    values: ['gestionnaire'],
-    targets: ['conformite', 'rpa_exemption'],
-    indent: INDENTS_LEVEL.first,
-  },
 ]
 
 function getFieldInputs(root, field) {
