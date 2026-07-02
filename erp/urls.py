@@ -54,6 +54,11 @@ urlpatterns = [
         name="partenaires",
     ),
     path(
+        "registre-public-accessibilite",
+        editorial_page("editorial/registre-public-accessibilite.html"),
+        name="registre-public-accessibilite",
+    ),
+    path(
         "qui-sommes-nous",
         views.about_us,
         name="about-us",
