@@ -23,8 +23,21 @@
                     {{ "transport_station_presence"|positive_text }}
                     {% if access.transport_information %}
                         :
-                        <div class="a4a-comment-block">
-                            <p>{{ access.transport_information|linebreaksbr }}</p>
+                        <div class="{% if need_translation %}translate-field{% endif %}"
+                             data-api-key="{{ api_key|default:'' }}"
+                             data-pk="{{ access.pk }}"
+                             data-field="transport_information">
+                            <div class="a4a-comment-block">
+                                <p>{{ access.transport_information|linebreaksbr }}</p>
+                            </div>
+                            <button class="translate-field__btn"
+                                    aria-label="{% trans 'Traduire ce champ en anglais' %}">
+                                {% translate "Traduire" %}
+                            </button>
+                            <div class="translate-field__result"
+                                 aria-live="polite"
+                                 aria-atomic="true"
+                                 hidden></div>
                         </div>
                     {% endif %}
                 </li>
