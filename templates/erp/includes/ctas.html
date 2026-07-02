@@ -18,16 +18,16 @@
                         </button>
                     </form>
                 </li>
-            {% endif %}
-            {% if erp.user != request.user %}
-                <li>
-                    <button data-fr-opened="false"
-                            aria-controls="claim-modal"
-                            type="button"
-                            class="fr-btn fr-btn--secondary text-center">
-                        {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
-                    </button>
-                </li>
+                {% if erp.user != request.user %}
+                    <li>
+                        <button data-fr-opened="false"
+                                aria-controls="claim-modal"
+                                type="button"
+                                class="fr-btn fr-btn--secondary text-center">
+                            {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
+                        </button>
+                    </li>
+                {% endif %}
             {% endif %}
             <li>
                 <a class="fr-btn fr-btn--secondary text-center"
