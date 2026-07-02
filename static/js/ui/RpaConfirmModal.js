@@ -85,11 +85,17 @@ function getSelectedUserType() {
   return hidden ? hidden.value : null
 }
 
+function isRpaExemptionSelected() {
+  return !!document.querySelector('input[name="rpa_exemption"]:checked')
+}
+
 function shouldDisplayModal() {
   const modal = getModal()
   const erpId = modal?.dataset?.erpId
 
   if (!modal || !erpId || isRpaConfirmed(erpId)) return false
+
+  if (!isRpaExemptionSelected()) return false
 
   const hasUserType = document.querySelector('input[name="user_type"]')
 
