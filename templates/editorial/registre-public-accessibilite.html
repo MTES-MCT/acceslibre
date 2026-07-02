@@ -1,0 +1,268 @@
+{% extends "editorial/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load waffle_tags %}
+{% block page_title %}
+    {% translate "Registre public d’accessibilité (RPA)" %} | {% translate "Acceslibre" %}
+{% endblock page_title %}
+{% block breadcrumb %}
+    <div class="fr-container">
+        <nav role="navigation"
+             class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
+             aria-label="{% translate "Vous êtes ici :" %}">
+            <button class="fr-breadcrumb__button"
+                    aria-expanded="false"
+                    aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
+            <div class="fr-collapse" id="breadcrumb-navigation">
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Registre public d’accessibilité" %}</a>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+{% endblock breadcrumb %}
+{% block editorial_content %}
+    {% switch "RPA" %}
+    <div>
+        <h1>{% translate "Le registre public d’accessibilité (RPA) devient numérique" %}</h1>
+        <p>{% translate "À compter du X juillet 2026, le registre public d’accessibilité (RPA) évolue." %}</p>
+        <p>{% translate "Entièrement dématérialisé, il doit être conforme au modèle de données Acceslibre." %}</p>
+        <p>{% translate "Tous les gestionnaires d’établissements recevant du public sont concernés." %}</p>
+        <p>{% translate "Acceslibre permet d’établir son registre gratuitement et en quelques minutes." %}</p>
+        <div class="fr-callout fr-mb-4w">
+            <h2 class="fr-callout__title">{% translate "Ce qui change" %}</h2>
+            <p class="fr-callout__text">
+                {% blocktranslate %}Le RPA devient <strong>entièrement numérique</strong> et conforme au modèle de données <strong>Acceslibre</strong>.{% endblocktranslate %}
+                <br>
+                {% blocktranslate %}<strong>Échéance : fin janvier 2027.</strong>{% endblocktranslate %}
+            </p>
+            <a class="fr-btn" href="{% url 'contrib_start' %}">{% translate "Établir mon registre" %}</a>
+        </div>
+        <h2 class="fr-mt-4w">{% translate "Le RPA, à quoi ça sert ?" %}</h2>
+        <p>
+            {% translate "Le registre public d’accessibilité a été créé en 2016 afin d’informer les personnes handicapées, quel que soit leur handicap, des conditions d’accessibilité et prestations des établissements recevant du public." %}
+        </p>
+        <p>
+            {% translate "Il permet ainsi aux personnes en situation de handicap de préparer leur visite avant de se déplacer." %}
+        </p>
+        <h2 class="fr-mt-4w">{% translate "Qu’est-ce qui change ?" %}</h2>
+        <ul class="fr-pl-4w">
+            <li>{% translate "Le registre ne se tient plus sur papier : il est obligatoirement dématérialisé." %}</li>
+            <li>
+                {% translate "La description des informations d’accessibilité est standardisée : les établissements sont tous décrits de manière homogène, sur Acceslibre." %}
+            </li>
+        </ul>
+        <div class="fr-table fr-mt-4w">
+            <table>
+                <caption>{% translate "Contenu du registre public d’accessibilité selon la catégorie d’établissement" %}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">{% translate "ERP de 5ème catégorie" %}</th>
+                        <th scope="col">{% translate "ERP de 1ère à 4ème catégorie" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul class="fr-pl-4w">
+                                <li>{% translate "Fiche Acceslibre complète" %}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="fr-pl-4w">
+                                <li>{% translate "Fiche Acceslibre complète" %}</li>
+                                <li>{% translate "attestation d’accessibilité, justificatif de dérogation," %}</li>
+                                <li>{% translate "notice de maintenance des équipements," %}</li>
+                                <li>{% translate "attestations de formation du personnel." %}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2 class="fr-mt-4w">{% translate "Qui est concerné ?" %}</h2>
+        <p>
+            {% translate "Tous les établissements recevant du public (ERP), publics comme privés, quelle que soit leur activité et leur catégorie : commerces, restaurants, hôtels, cabinets médicaux, établissements culturels, sportifs, scolaires, administratifs…" %}
+        </p>
+        <p>
+            {% blocktranslate %}<strong>Si vous gérez un établissement recevant du public, vous êtes concerné.</strong>{% endblocktranslate %}
+        </p>
+        <h2 class="fr-mt-4w">{% translate "Comment se mettre en conformité ?" %}</h2>
+        <ol class="fr-pl-4w">
+            <li>
+                {% url "contrib_start" as contrib_url %}
+                {% blocktranslate %}<strong>Complétez ou créez votre établissement</strong> sur <a class="fr-link" href="{{ contrib_url }}">Acceslibre</a>.{% endblocktranslate %}
+            </li>
+            <li>
+                {% blocktranslate %}<strong>Saisissez ses informations d’accessibilité</strong> via le formulaire guidé : stationnement, entrée, accueil, prestations.{% endblocktranslate %}
+            </li>
+            <li>
+                {% blocktranslate %}<strong>Publiez votre fiche</strong> : ça y est ! Votre registre est conforme. Un certificat est automatiquement ajouté.{% endblocktranslate %}
+            </li>
+        </ol>
+        <h2 class="fr-mt-4w">{% translate "Quel est le calendrier ?" %}</h2>
+        <ul class="fr-pl-4w">
+            <li>
+                {% blocktranslate %}<strong>Début juillet 2026</strong> — entrée en vigueur.{% endblocktranslate %}
+            </li>
+            <li>
+                {% blocktranslate %}<strong>Fin janvier 2027</strong> — échéance de mise en conformité.{% endblocktranslate %}
+            </li>
+        </ul>
+        <h2 class="fr-mt-4w">{% translate "Quels sont les avantages pour moi ?" %}</h2>
+        <p>{% translate "Acceslibre c’est :" %}</p>
+        <ul class="fr-pl-4w">
+            <li>{% translate "un gain de visibilité de votre établissement sur internet" %}</li>
+            <li>{% translate "potentiellement plus de clientèle" %}</li>
+            <li>
+                {% translate "un gain de temps, avec une information automatiquement diffusée sur des sites partenaires (Allociné, solocal, etc.)" %}
+            </li>
+            <li>
+                {% translate "un enrichissement de votre propre site web : en un copier-coller, vous pouvez afficher les informations Acceslibre sur votre propre site." %}
+            </li>
+        </ul>
+        <h2 class="fr-mt-4w">{% translate "Questions fréquentes" %}</h2>
+        <div class="fr-accordions-group">
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-1">
+                        {% translate "Quels sont les critères pour avoir le certificat « RPA conforme » ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-1">
+                    <p>{% translate "Il y a 3 critères à respecter :" %}</p>
+                    <ul class="fr-pl-4w">
+                        <li>{% translate "Se déclarer en tant que gestionnaire de l’établissement ou agissant pour le gestionnaire." %}</li>
+                        <li>
+                            {% translate "Remplir toutes les informations demandées, la fiche doit être complète à 100 %. La question sur la présence d’une dérogation doit également être remplie (étape 2)." %}
+                        </li>
+                        <li>{% translate "La fiche doit avoir été mise à jour dans l’année." %}</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-2">{% translate "Mon RPA est-il modifiable ?" %}</button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-2">
+                    <p>{% translate "Vous pouvez corriger à tout moment les informations de votre registre." %}</p>
+                    <p>{% translate "Vous êtes la seule personne habilitée à modifier votre registre." %}</p>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-3">
+                        {% translate "Je ne sais plus si je bénéficie d’une demande de dérogation, que faire ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-3">
+                    <p>
+                        {% translate "Vous pouvez vous rapprocher de la Direction Départementale des Territoires pour obtenir cette information. De plus, vous pouvez à tout moment corriger les informations de votre registre." %}
+                    </p>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-4">
+                        {% translate "J’ai plusieurs établissements, que dois-je faire ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-4">
+                    <p>{% translate "Vous avez plusieurs possibilités :" %}</p>
+                    <ul class="fr-pl-4w">
+                        <li>{% translate "Vous pouvez remplir plusieurs fiches sur Acceslibre." %}</li>
+                        <li>
+                            {% blocktranslate %}Vous pouvez envoyer un jeu de données à l’équipe Acceslibre (<a class="fr-link" href="mailto:contact@acceslibre.beta.gouv.fr">contact@acceslibre.beta.gouv.fr</a>) qui importera les données.{% endblocktranslate %}
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-5">
+                        {% translate "Suis-je obligé de remplir ma fiche sur Acceslibre pour faire mon registre ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-5">
+                    <p>
+                        {% blocktranslate %}L’obligation réglementaire consiste à fournir ses données d’accessibilité sous un format standardisé conforme au <a class="fr-link" href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html" target="_blank" rel="noopener noreferrer" title="schéma d’accessibilité aux établissements recevant du public - nouvelle fenêtre">schéma d'accessibilité aux établissements recevant du public</a>. Il n’est donc pas obligatoire de remplir sa fiche sur Acceslibre. Acceslibre présente l’avantage de proposer une interface simple et pédagogique qui permet de remplir son obligation en quelques minutes.{% endblocktranslate %}
+                    </p>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-6">
+                        {% translate "Qui peut consulter mon registre ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-6">
+                    <p>{% translate "Tout le monde : il est public et consultable en ligne." %}</p>
+                </div>
+            </section>
+            <section class="fr-accordion">
+                <h3 class="fr-accordion__title">
+                    <button type="button"
+                            class="fr-accordion__btn"
+                            aria-expanded="false"
+                            aria-controls="accordion-rpa-7">
+                        {% translate "Est-ce que je peux être sanctionné si je ne fais pas mon registre ?" %}
+                    </button>
+                </h3>
+                <div class="fr-collapse" id="accordion-rpa-7">
+                    <p>
+                        {% translate "Le RPA est une pièce administrative à fournir aux commissions compétentes lors de l’ouverture d’un établissement ou lors d’une demande d’autorisation de travaux pour les ERP existants." %}
+                    </p>
+                </div>
+            </section>
+        </div>
+        <h2 class="fr-mt-4w">{% translate "Cadre réglementaire" %}</h2>
+        <ul class="fr-pl-4w fr-mb-4w">
+            <li>{% translate "Article L.164-1 et R.164-6 du Code de la construction et de l’habitation (CCH)" %}</li>
+            <li>{% translate "Arrêté du 19 avril 2017 modifié par l’arrêté du X juillet 2026" %}</li>
+            <li>
+                {% translate "Décret n° 2017-431 du 28 mars 2017 relatif au registre public d’accessibilité et modifiant diverses dispositions relatives à l’accessibilité aux personnes handicapées des établissements recevant du public et des installations ouvertes au public" %}
+            </li>
+        </ul>
+    </div>
+{% else %}
+    <div class="text-center">
+        <h2 class="display-4">{% translate "Page introuvable" %}</h2>
+        <div class="fr-my-4v">
+            <img class="w-50"
+                 src="{% static "img/undraw_page_not_found.svg" %}"
+                 aria-hidden="true"
+                 alt="{% translate "Page introuvable" %}">
+        </div>
+        {% url 'home' as url_home %}
+        {% url 'contact_topic' topic='bug' as url_contact_bug %}
+        <p>
+            {% blocktranslate %}Vous pouvez tenter de revenir à <a href="{{ url_home }}">l'accueil</a>
+    ou de nous <a href="{{ url_contact_bug }}"> contacter spécifiquement à ce sujet</a> en prenant
+    soin de préciser l'adresse utilisée.{% endblocktranslate %}
+        </p>
+    </div>
+{% endswitch %}
+{% endblock editorial_content %}
