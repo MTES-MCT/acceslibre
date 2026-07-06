@@ -39,18 +39,18 @@
                     {% translate "Ce champ ne peut être modifié que par le contributeur principal de cet établissement." %}
                 </p>
             {% endif %}
-            <div class="contrib-inputs-section hr-top">
-                {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
-            </div>
-            <div class="contrib-inputs-section hr-top">
-                {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
-            </div>
-            {% switch "RPA" %}
-            <div class="contrib-inputs-section">
-                <hr class="fr-hr" />
-                {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
-            </div>
-            {% endswitch %}
         </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
+        </div>
+        {% switch "RPA" %}
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
+        </div>
+    {% endswitch %}
+    <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+        <h3 class="fr-text--xl fr-text--bold fr-mb-1w">{% translate "Registre public d’accessibilité" %}</h3>
+        {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
     </div>
+</div>
 {% endblock fields_content %}
