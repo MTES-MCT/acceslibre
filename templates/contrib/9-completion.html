@@ -27,7 +27,7 @@
                 <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
             {% endblocktranslate %}
         </p>
-        {% if erp.user_type == "gestionnaire" and not erp.rpa %}
+        {% if erp.user_type == "gestionnaire" and not erp.rpa and erp.accessibilite.completion_rate < 100 %}
             <p>
                 {% translate "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, votre fiche doit être complétée à 100%." %}
             </p>
