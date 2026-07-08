@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 23:15+0200\n"
-"PO-Revision-Date: 2026-07-06 23:14+0200\n"
+"POT-Creation-Date: 2026-07-08 17:05+0200\n"
+"PO-Revision-Date: 2026-07-08 17:04+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -5439,11 +5439,18 @@ msgstr "The establishment has been assigned to you!"
 msgid "Vous êtes désormais identifié comme le gestionnaire de l'établissement."
 msgstr "You are now identified as the establishment manager."
 
-msgid "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement."
-msgstr "As a manager, you are automatically subscribed to your profile. You will be notified if another user modifies your establishment's information."
+msgid "En tant que gestionnaire, vous déclarez vos informations dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation."
+msgstr "As a manager, you declare your information as part of the Public Accessibility Register (RPA) provided for in article R. 164-5 of the construction and housing code."
 
-msgid "Si votre fiche est conforme au registre public d’accessibilité (logo RPA : conforme en haut de fiche), vous seul pouvez effectuer des modification sur votre fiche."
-msgstr "If your file complies with the public accessibility register (RPA logo: compliant at the top of the file), only you can make changes to your file."
+msgid "Pour être conforme au RPA, votre fiche doit :"
+msgstr "To comply with the RPA, your form must:"
+
+#, python-format
+msgid "avoir des informations complètes (taux de remplissage de 100%%)"
+msgstr "have complete information (100%% filling rate)"
+
+msgid "dater de moins d'un an."
+msgstr "less than a year old."
 
 msgid "Compléter les informations de l'établissement"
 msgstr "Complete the establishment information"
@@ -5610,14 +5617,14 @@ msgstr "Administer this form - new window"
 msgid "Administrer cette fiche"
 msgstr "Manage this record"
 
-msgid "Confirmez vous être le gestionnaire de cet établissement ?"
-msgstr "Do you confirm that you are the manager of this establishment?"
-
 msgid "Non, je ne suis pas le gestionnaire"
 msgstr "No, I'm not the manager"
 
 msgid "Oui, je suis le gestionnaire"
 msgstr "Yes, I am the manager"
+
+msgid "Confirmez vous être le gestionnaire de cet établissement ?"
+msgstr "Do you confirm that you are the manager of this establishment?"
 
 msgid "Filtrer par type de handicap :"
 msgstr "Filter by type of handicap:"
@@ -5724,13 +5731,6 @@ msgstr "The information is declared as part of the Public Accessibility Register
 
 msgid "Pour être conforme au RPA, ma fiche doit :"
 msgstr "To comply with the RPA, my form must:"
-
-#, python-format
-msgid "avoir des informations complètes (taux de remplissage de 100%%)"
-msgstr "have complete information (100%% filling rate)"
-
-msgid "dater de moins d'un an."
-msgstr "less than a year old."
 
 msgid "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction"
 msgstr "As a reminder, any false administrative declaration constitutes a criminal offense punishable by sanction."
@@ -6229,6 +6229,12 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement."
+#~ msgstr "As a manager, you are automatically subscribed to your profile. You will be notified if another user modifies your establishment's information."
+
+#~ msgid "Si votre fiche est conforme au registre public d’accessibilité (logo RPA : conforme en haut de fiche), vous seul pouvez effectuer des modification sur votre fiche."
+#~ msgstr "If your file complies with the public accessibility register (RPA logo: compliant at the top of the file), only you can make changes to your file."
 
 #~ msgid "Registre d'accessibilité"
 #~ msgstr "Accessibility Register"
