@@ -4,12 +4,12 @@ from .settings import *
 DEBUG = True
 
 SITE_HOST = "127.0.0.1"
-SITE_ROOT_URL = f"http://{SITE_HOST}:8000"
+SITE_ROOT_URL = f"http://{SITE_HOST}:7000"
 
 ALLOWED_HOSTS = [
     SITE_HOST,
     "127.0.0.1",
-    "127.0.0.1:8000",
+    "127.0.0.1:7000",
     "localhost",
 ]
 
