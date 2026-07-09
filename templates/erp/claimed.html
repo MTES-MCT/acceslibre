@@ -16,23 +16,49 @@
         <p class="fr-text--xl fr-text--bold">
             {% translate "Vous êtes désormais identifié comme le gestionnaire de l'établissement." %}
         </p>
-        <p>
-            {% translate "En tant que gestionnaire, vous déclarez vos informations dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation." %}
-        </p>
-        <p>{% translate "Pour être conforme au RPA, votre fiche doit :" %}</p>
-        <ul class="fr-pl-2w">
-            <li>{% translate "avoir des informations complètes (taux de remplissage de 100%)" %}</li>
-            <li>{% translate "dater de moins d'un an." %}</li>
-        </ul>
-        <p>Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction.</p>
-        <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
-            <li>
-                <a href="{% url "contrib_edit_infos" erp.slug %}" class="fr-btn">{% translate "Compléter les informations de l'établissement" %}</a>
-            </li>
-            <li>
-                <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
-            </li>
-        </ul>
+        {% if erp.user_type == "gestionnaire" and erp.accessibilite.completion_rate == 100 and erp.rpa_exemption is None %}
+            <p>
+                {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
+                Selon les informations que vous avez fournies, la fiche <span class="fr-text--bold">{{ name }}</span>
+                est maintenant complétée à :
+                <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
+            {% endblocktranslate %}
+            </p>
+            <p>
+                {% translate "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, vous devez répondre à la question sur la présence ou non d'une dérogation (étape 2)." %}
+            </p>
+            <p>{% translate "Merci de bien vouloir compléter votre fiche." %}</p>
+            <div class="fr-grid-row fr-grid-row--center">
+                <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
+                    <li>
+                        <a class="fr-btn" href="{% url 'contrib_a_propos' erp_slug=erp.slug %}">{% translate "Aller à l'étape 2" %}</a>
+                    </li>
+                    <li>
+                        <a class="fr-btn fr-btn--secondary" href="{{ erp.get_absolute_url }}">{% translate "Voir l'établissement" %}</a>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <p>
+                {% translate "En tant que gestionnaire, vous déclarez vos informations dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation." %}
+            </p>
+            <p>{% translate "Pour être conforme au RPA, votre fiche doit :" %}</p>
+            <ul class="fr-pl-4w">
+                <li>{% translate "avoir des informations complètes (taux de remplissage de 100%)" %}</li>
+                <li>{% translate "dater de moins d'un an." %}</li>
+            </ul>
+            <p>
+                {% translate "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction." %}
+            </p>
+            <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
+                <li>
+                    <a href="{% url "contrib_edit_infos" erp.slug %}" class="fr-btn">{% translate "Compléter les informations de l'établissement" %}</a>
+                </li>
+                <li>
+                    <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
+                </li>
+            </ul>
+        {% endif %}
     </div>
     <div class="fr-grid-row fr-grid-row--center fr-mt-2w">
         <img class="fr-responsive-img fr-responsive-img--32x9"
