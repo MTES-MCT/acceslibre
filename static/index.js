@@ -50,6 +50,7 @@ dom.ready(() => {
   dom.mountAll('*[data-focus-to]', ui.FocusTo)
   dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
   dom.mountAll('[data-notification]', ui.NotificationAlert)
+  dom.mountAll('.translate-field', ui.translateField)
 })
 
 ui.StoreFilters()

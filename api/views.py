@@ -1,3 +1,6 @@
+import contextlib
+
+from deepl import QuotaExceededException
 from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
@@ -19,8 +22,9 @@ from api.serializers import (
     WidgetSerializer,
 )
 from erp import schema
-from erp.imports.serializers import ErpImportSerializer
+from erp.imports.serializers import ErpImportSerializer, TranslateSerializer
 from erp.models import Accessibilite, Activite, Erp
+from erp.provider.deepl import translate as translator
 
 # Useful docs
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
@@ -219,6 +223,35 @@ class AccessibiliteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, vie
                     "help": schema.get_help_text(field),
                 }
         return Response(repr)
+
+    @action(detail=True, methods=["post"], url_path="translate", url_name="translate")
+    def translate(self, request, pk=None):
+        instance = self.get_object()
+
+        serializer = TranslateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        field = serializer.validated_data["field"]
+        target_lang = serializer.validated_data["target_lang"]
+
+        original = getattr(instance, field, None)
+
+        if not original:
+            return Response({"translated": None, "original": None})
+
+        translated = original
+        if target_lang != settings.LANGUAGE_CODE:
+            with contextlib.suppress(QuotaExceededException):
+                translated = translator(original, target_lang)
+
+        return Response(
+            {
+                "field": field,
+                "original": original,
+                "translated": translated,
+                "target_lang": target_lang,
+            }
+        )
 
 
 class ActivitePagination(PageNumberPagination):

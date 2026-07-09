@@ -464,10 +464,10 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if need_redirect:
         return redirect(erp.get_absolute_url())
 
-    # translate free texts if user is not displaying the page in french
+    need_translation = False
     current_language = get_language()
     if current_language != "fr":
-        erp.translate(current_language)
+        need_translation = True
 
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
 
@@ -540,6 +540,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "history": history,
             "erp_can_have_image": can_have_image,
             "erp_can_be_modified": erp.can_be_modified_by(request.user),
+            "need_translation": need_translation,
+            "api_key": _get_or_create_api_key(),
         },
     )
 
