@@ -20,7 +20,7 @@
     <div class="fr-grid-row gap-2w {% switch "RPA" %}fr-grid-row--start{% else %}fr-grid-row--middle{% endswitch %}">
         {% switch "RPA" %}
         {% if erp.accessibilite.completion_rate %}
-            <div class="fr-grid-row gap-2w fr-col-12 fr-col-md-8 direction--column">
+            <div class="fr-grid-row gap-2w fr-col-12 direction--column {% if erp.rpa %}fr-col-md-8{% endif %}">
                 <section class="fr-grid-row gap-2w align-items--center justify-content--space-between">
                     <p class="fr-mb-0">
                         {% translate "Niveau de complétude des informations de la fiche : " %}
@@ -93,7 +93,9 @@
                 </section>
             </div>
         {% endif %}
-        {% include "erp/includes/rpa_badge.html" %}
+        {% if erp.rpa %}
+            {% include "erp/includes/rpa_badge.html" %}
+        {% endif %}
     {% else %}
         <div>
             {% if erp.accessibilite.completion_rate %}
