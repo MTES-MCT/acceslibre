@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify'
+
 class TranslateField {
   constructor(el) {
     this.el = el
@@ -72,12 +74,12 @@ class TranslateField {
 
   showTranslation(text) {
     this.result.style.display = 'block'
+    const html = DOMPurify.sanitize(text.replace(/\n/g, '<br>'), { ALLOWED_TAGS: ['br'] })
     window.requestAnimationFrame(() => {
-      this.result.textContent = text
+      this.result.innerHTML = `\u201c${html}\u201d`
     })
     this.btn.style.display = 'none'
   }
-
   showError(message) {
     this.result.style.display = 'block'
     this.result.setAttribute('role', 'alert')
