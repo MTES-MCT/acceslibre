@@ -842,8 +842,13 @@ ul.pagination {
 }
 
 .translate-field {
-  &__btn,
-  &__result {
-    display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  &__btn {
+    display: block;
+    align-self: flex-start;
   }
 }
