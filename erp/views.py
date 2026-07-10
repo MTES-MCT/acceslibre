@@ -886,6 +886,7 @@ def contrib_edit_infos(request, erp_slug):
             erp = form.save(commit=False)
             activite = form.cleaned_data.get("activite")
             erp.activite = activite
+            erp.checked_up_to_date_at = datetime.datetime.now()
             erp.save(editor=request.user)
 
             if erp.has_miscellaneous_activity:

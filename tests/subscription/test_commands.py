@@ -7,6 +7,7 @@ from reversion.models import Version
 from erp.models import Erp
 from subscription.models import ErpSubscription
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from unittest import mock
 
 
 @pytest.fixture
@@ -164,6 +165,12 @@ def test_notification_erp(mocker, mock_geocode, client):
                                 },
                                 {"field": "numero", "old": "5", "new": "4", "label": "numero"},
                                 {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                                {
+                                    "field": "checked_up_to_date_at",
+                                    "label": "Dernière vérification des informations",
+                                    "new": mock.ANY,
+                                    "old": mock.ANY,
+                                },
                             ],
                         },
                     ],

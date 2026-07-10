@@ -974,6 +974,7 @@ def test_contribution_flow_administrative_data(client):
     CommuneFactory(nom="JACOU")
 
     erp = ErpFactory(nom="Aux bons croissants")
+    assert erp.checked_up_to_date_at is not None
 
     initial_nb_created = user.stats.nb_erp_created
     initial_nb_edited = user.stats.nb_erp_edited
@@ -1004,6 +1005,7 @@ def test_contribution_flow_administrative_data(client):
     )
 
     updated_erp = Erp.objects.get(slug=erp.slug)
+    assert updated_erp.checked_up_to_date_at > erp.checked_up_to_date_at
     assert response.context["form"].errors == {}
     assert updated_erp.nom == "Test contribution"
     assert updated_erp.user == erp.user  # original owner is preserved
@@ -1147,7 +1149,7 @@ def test_can_confirm_rpa_erp(client, mocker, erp_owner_type, checked_up_to_date_
         owner = user
 
     erp = ErpFactory(published=True, user=owner)
-    assert erp.checked_up_to_date_at is None
+    initial_date = erp.checked_up_to_date_at
 
     client.force_login(user)
 
@@ -1157,9 +1159,9 @@ def test_can_confirm_rpa_erp(client, mocker, erp_owner_type, checked_up_to_date_
 
     erp.refresh_from_db()
     if checked_up_to_date_is_none:
-        assert erp.checked_up_to_date_at is None
+        assert erp.checked_up_to_date_at == initial_date
     else:
-        assert erp.checked_up_to_date_at is not None
+        assert erp.checked_up_to_date_at > initial_date
 
 
 @pytest.mark.django_db
