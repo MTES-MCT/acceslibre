@@ -27,7 +27,11 @@ if SENTRY_DSN is not None:
 
     sentry_sdk.init(
         dsn=SENTRY_DSN,
-        integrations=[DjangoIntegration()],
+        integrations=[
+            DjangoIntegration(
+                cache_spans=True,
+            ),
+        ],
         traces_sampler=custom_traces_sample_rate,
         send_default_pii=True,
         environment="production-one-off" if IS_ONE_OFF_CONTAINER else "production",
