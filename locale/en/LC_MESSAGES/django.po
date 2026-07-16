@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 09:53+0200\n"
-"PO-Revision-Date: 2026-07-09 09:53+0200\n"
-"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2026-07-16 15:33+0200\n"
+"PO-Revision-Date: 2026-07-16 15:11+0200\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -122,6 +122,12 @@ msgstr "UserStats"
 
 msgid "UsersStats"
 msgstr "UsersStats"
+
+msgid "Clef d'API par utilisateur"
+msgstr "API key per user"
+
+msgid "Clefs d'API par utilisateur"
+msgstr "API keys per user"
 
 msgid "Je ne suis pas un robot"
 msgstr "I am not a robot"
@@ -3687,12 +3693,8 @@ msgstr ""
 "<span class=\"en-grid-row en-grid-row--center en-text--xl en-h1 en-mt-1v\">%(completion_rate)s%%</span>"
 
 #, python-format
-msgid ""
-"Pour être conforme à l’obligation réglementaire de registre public "
-"d’accessibilité, votre fiche doit être complétée à 100%%."
-msgstr ""
-"To comply with the regulatory obligation for a public accessibility "
-"register, your form must be 100%% complete."
+msgid "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, votre fiche doit être complétée à 100%%."
+msgstr "To comply with the regulatory obligation for a public accessibility register, your form must be 100%% complete."
 
 msgid "Merci de bien vouloir compléter votre fiche."
 msgstr "Please complete your form."
@@ -5196,13 +5198,8 @@ msgid "Se déclarer en tant que gestionnaire de l’établissement ou agissant p
 msgstr "Declare yourself as manager of the establishment or acting for the manager."
 
 #, python-format
-msgid ""
-"Remplir toutes les informations demandées, la fiche doit être complète à 100"
-" %%. La question sur la présence d’une dérogation doit également être "
-"remplie (étape 2)."
-msgstr ""
-"Fill in all the requested information, the form must be 100%% complete. The "
-"question on the presence of an exemption must also be completed (step 2)."
+msgid "Remplir toutes les informations demandées, la fiche doit être complète à 100 %%. La question sur la présence d’une dérogation doit également être remplie (étape 2)."
+msgstr "Fill in all the requested information, the form must be 100%% complete. The question on the presence of an exemption must also be completed (step 2)."
 
 msgid "La fiche doit avoir été mise à jour dans l’année."
 msgstr "The form must have been updated within the year."

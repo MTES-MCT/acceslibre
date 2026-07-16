@@ -55,8 +55,6 @@ fileignoreconfig:
   checksum: 3d899b94bc836e0f97b282d569ca27b513be6df54cf718e96a944a99b634444d
 - filename: .env.sample
   checksum: aa3f02c8f5d30f989986f9eafaca8bc57d99d09361b9fa9c2158638bcc263f15
-- filename: core/settings.py
-  checksum: c9a7604687c73a1344d6ec4d5979a521981fd11f0ae35cb6351787d824c1c55f
 - filename: erp/management/commands/import_apidae.py
   checksum: 0bf117b99f9b76db4824cfe5aec647f455eaeb4e57c96425b90e6c580302a972
 - filename: .github/workflows/lint.yml
@@ -93,3 +91,15 @@ fileignoreconfig:
   checksum: 253aa05b83f0695dec90299bb58538e736bbce3e0200385c63b6dbc3c5294a75
 - filename: erp/views.py
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
+- filename: core/settings.py
+  checksum: 71eaea69c5fe9f4379789ffb6893c8d8366d977b1571b48cbbc8144f62390890
+- filename: api/authentication.py
+  checksum: 3d3fdfaf5cb8f79e38238d2f75b6fef32c2658e6e71fd2752630bb0797c08279
+- filename: compte/admin.py
+  checksum: ce749d67704e2fbf4c6257c13a1c11fcdcb0e3d1c49568ae5b1fe4ac149a587a
+- filename: compte/migrations/0009_userapikey.py
+  checksum: 41df5a33bf852a149d6d54fabde1c55955f8290d50cdf7203b93d879a6278542
+- filename: compte/migrations/0010_auto_20260715_1512.py
+  checksum: d1a902acd238fb94e179d809d5ef3ac8c5c027a6a0581e61f8844a91f6aa8f93
+- filename: tests/api/tests.py
+  checksum: 37ddb4f8af1dadeaaaec408016119309fc8d59795f3a3a8de726ec19994f2124

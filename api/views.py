@@ -571,6 +571,18 @@ class ErpViewSet(
             return GeoJsonPagination
         return ErpPagination
 
+    def perform_create(self, serializer):
+        user = self.request.user if self.request.user.is_authenticated else None
+        serializer.save(user=user) if user else serializer.save()
+
+    def perform_update(self, serializer):
+        instance = serializer.instance
+        user = self.request.user if self.request.user.is_authenticated else None
+        if user and instance.user_id is None:
+            serializer.save(user=user.id)
+        else:
+            serializer.save()
+
     pagination_class = property(fget=get_pagination_class)
 
     @action(methods=["get"], detail=True, url_path="widget", url_name="widget")

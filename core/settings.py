@@ -173,6 +173,10 @@ CORS_ALLOW_HEADERS = (
 
 
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "api.authentication.UserAPIKeyAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_THROTTLE_CLASSES": [
@@ -183,9 +187,6 @@ REST_FRAMEWORK = {
         "anon": "3/second",
         "user": "3/second",
     },
-    "DEFAULT_PERMISSION_CLASSES": [
-        "api.permissions.IsAllowedForAction",
-    ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
         "api.renderers.GeoJSONRenderer",
