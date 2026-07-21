@@ -35,6 +35,66 @@
                 {% include "fields/boolradio.html" with field=form.accueil_signaletique_interieure inline=True key="accueil_signaletique_interieure" %}
             </div>
         {% endif %}
+        {% if form.accueil_physique %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_physique inline=True key="accueil_physique" %}
+            </div>
+        {% endif %}
+        {% if form.accueil_aire_de_jeux %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_aire_de_jeux inline=True key="accueil_aire_de_jeux" %}
+            </div>
+        {% endif %}
+        {% if form.accueil_tribunes %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_tribunes inline=True key="accueil_tribunes" %}
+                {% if form.accueil_tribunes_places %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/textarea.html" with field=form.accueil_tribunes_places key="accueil_tribunes_places" %}
+                    </div>
+                    {% if form.accueil_tribunes_localisation_places %}
+                        <div class="contrib-inputs-section hr-top">
+                            {% include "fields/boolradio.html" with field=form.accueil_tribunes_localisation_places inline=True key="accueil_tribunes_localisation_places" %}
+                        </div>
+                    {% endif %}
+                    {% if form.accueil_tribunes_places_avec_accompagnants %}
+                        <div class="contrib-inputs-section hr-top">
+                            {% include "fields/textarea.html" with field=form.accueil_tribunes_places_avec_accompagnants key="accueil_tribunes_places_avec_accompagnants" %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if form.accueil_vestiaires %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_vestiaires inline=True key="accueil_vestiaires" %}
+                {% if form.accueil_vestiaires_largeur_passage %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/boolradio.html" with field=form.accueil_vestiaires_largeur_passage inline=True key="accueil_vestiaires_largeur_passage" %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if form.accueil_douches_collectives %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_douches_collectives inline=True key="accueil_douches_collectives" %}
+                {% if form.accueil_douches_collectives_adaptees %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/boolradio.html" with field=form.accueil_douches_collectives_adaptees inline=True key="accueil_douches_collectives_adaptees" %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if form.accueil_douches_individuelles %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_douches_individuelles inline=True key="accueil_douches_individuelles" %}
+                {% if form.accueil_douches_individuelles_adaptees %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/boolradio.html" with field=form.accueil_douches_individuelles_adaptees inline=True key="accueil_douches_individuelles_adaptees" %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
         {% if form.accueil_isoloir_accessibilite %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_isoloir_accessibilite inline=True key="accueil_isoloir_accessibilite" %}
@@ -99,10 +159,50 @@
         {% endif %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
+            {% if form.sanitaires_urinoirs %}
+                <div class="contrib-inputs-section hr-top">
+                    {% include "fields/boolradio.html" with field=form.sanitaires_urinoirs inline=True key="sanitaires_urinoirs" %}
+                </div>
+            {% endif %}
             <div class="contrib-inputs-section hr-top">
                 {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True key="sanitaires_adaptes" %}
             </div>
+            {% if form.sanitaires_largeur_porte %}
+                <div class="contrib-inputs-section hr-top">
+                    {% include "fields/boolradio.html" with field=form.sanitaires_largeur_porte inline=True key="sanitaires_largeur_porte" %}
+                </div>
+            {% endif %}
+            {% if form.sanitaires_sens_transfert %}
+                <div class="contrib-inputs-section hr-top">
+                    {% include "fields/boolradio.html" with field=form.sanitaires_sens_transfert inline=True key="sanitaires_sens_transfert" %}
+                </div>
+            {% endif %}
         </div>
+        {% if form.accueil_casiers %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.accueil_casiers inline=True %}
+                {% if form.accueil_casiers_adaptes %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/boolradio.html" with field=form.accueil_casiers_adaptes inline=True key="accueil_casiers_adaptes" %}
+                    </div>
+                {% endif %}
+                {% if form.accueil_casiers_fermeture %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/checkbox.html" with field=form.accueil_casiers_fermeture inline=True key="accueil_casiers_fermeture" %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% if form.accueil_prestations_complementaires %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/checkbox.html" with field=form.accueil_prestations_complementaires inline=True %}
+            </div>
+        {% endif %}
+        {% if form.accueil_presence_espaces_specifiques %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/checkbox.html" with field=form.accueil_presence_espaces_specifiques inline=True %}
+            </div>
+        {% endif %}
         {% if form.accueil_ascenseur_etage %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
                 {% include "fields/boolradio.html" with field=form.accueil_ascenseur_etage key="accueil_ascenseur_etage" %}
