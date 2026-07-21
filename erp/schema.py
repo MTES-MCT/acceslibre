@@ -151,6 +151,106 @@ ACCUEIL_SOIGNANT_EXPERIENCE_CHOICES = [
     ),
 ]
 
+ACCUEIL_PHYSIQUE_INEXISTANT = "inexistant"
+ACCUEIL_PHYSIQUE_NON_FORME = "non_forme"
+ACCUEIL_PHYSIQUE_SENSIBILISE_OU_FORME = "sensibilise_ou_forme"
+ACCUEIL_PHYSIQUE_CHOICES = [
+    (ACCUEIL_PHYSIQUE_INEXISTANT, translate_lazy("Aucun personnel")),
+    (ACCUEIL_PHYSIQUE_NON_FORME, translate_lazy("Personnel non formé")),
+    (ACCUEIL_PHYSIQUE_SENSIBILISE_OU_FORME, translate_lazy("Personne sensibilisé ou formé")),
+    (None, UNKNOWN),
+]
+
+ACCUEIL_TRIBUNES_PLACES_AIRE_DE_JEUX = "niveau_aire_de_jeux"
+ACCUEIL_TRIBUNES_PLACES_REPARTIES_DIFFERENTS_NIVEAUX = "reparti_differents_niveaux"
+ACCUEIL_TRIBUNES_PLACES_CHOICES = [
+    (ACCUEIL_TRIBUNES_PLACES_AIRE_DE_JEUX, translate_lazy("Places situées au niveau de l'aire de jeux")),
+    (
+        ACCUEIL_TRIBUNES_PLACES_REPARTIES_DIFFERENTS_NIVEAUX,
+        translate_lazy("Places répartis différents niveaux des tribunes"),
+    ),
+    (None, UNKNOWN),
+]
+
+ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_ENTRE_90_ET_110 = "entre_90_et_110"
+ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_SUPERIEUR_A_110 = "superieur_a_110"
+ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_CHOICES = [
+    (ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_ENTRE_90_ET_110, translate_lazy("Entre 90 et 110 cm")),
+    (ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_SUPERIEUR_A_110, translate_lazy("Supérieure à 110 cm")),
+    (None, UNKNOWN),
+]
+
+SANITAIRES_LARGEUR_PORTE_ENTRE_80_et_90 = "entre_80_et_90"
+SANITAIRES_LARGEUR_PORTE_ENTRE_90_ET_110 = "entre_90_et_110"
+SANITAIRES_LARGEUR_PORTE_CHOICES = [
+    (SANITAIRES_LARGEUR_PORTE_ENTRE_80_et_90, translate_lazy("Entre 80 et 90 cm")),
+    (SANITAIRES_LARGEUR_PORTE_ENTRE_90_ET_110, translate_lazy("Entre 90 et 110 cm")),
+    (None, UNKNOWN),
+]
+
+SANITAIRES_SENS_TRANSFERT_GAUCHE = "gauche"
+SANITAIRES_SENS_TRANSFERT_DROITE = "droite"
+SANITAIRES_SENS_TRANSFERT_GAUCHE_ET_DROITE = "gauche_et_droite"
+SANITAIRES_SENS_TRANSFERT_CHOICES = [
+    (SANITAIRES_SENS_TRANSFERT_GAUCHE, translate_lazy("Gauche")),
+    (SANITAIRES_SENS_TRANSFERT_DROITE, translate_lazy("Droite")),
+    (SANITAIRES_SENS_TRANSFERT_GAUCHE_ET_DROITE, translate_lazy("Gauche et droite")),
+    (None, UNKNOWN),
+]
+
+ACCUEIL_SYSTEME_FERMETURE_SERRURE_AVEC_CLE = "serrure_avec_cle"
+ACCUEIL_SYSTEME_FERMETURE_ELECTRONIQUE_A_CODE = "serrure_electronique_a_code"
+ACCUEIL_SYSTEME_FERMETURE_MECANIQUE_A_CODE = "serrure_mecanique_a_code"
+ACCUEIL_SYSTEME_FERMETURE_VERROU_CADENAS = "verrou_cadenas"
+ACCUEIL_SYSTEME_FERMETURE_AUTRE = "autre"
+ACCUEIL_SYSTEME_FERMETURE_CHOICES = [
+    (ACCUEIL_SYSTEME_FERMETURE_SERRURE_AVEC_CLE, translate_lazy("Serrure avec clé")),
+    (ACCUEIL_SYSTEME_FERMETURE_ELECTRONIQUE_A_CODE, translate_lazy("Serrure électronique à code")),
+    (ACCUEIL_SYSTEME_FERMETURE_MECANIQUE_A_CODE, translate_lazy("Serrure mécanique à code")),
+    (ACCUEIL_SYSTEME_FERMETURE_VERROU_CADENAS, translate_lazy("Verrou pour cadenas personnel")),
+    (ACCUEIL_SYSTEME_FERMETURE_AUTRE, translate_lazy("Autre")),
+]
+
+ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SONORISATION = "sonorisation_arbitrage"
+ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SCORE_VISIBLE = "score_visible"
+ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_ESPACE_DEPOSE_EQUIPEMENTS = "prestation_espace_depose_equipements"
+ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES = "reservation_place_facile_d_acces"
+ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES = [
+    (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SONORISATION, translate_lazy("Sonorisation de l'arbitrage possible")),
+    (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SCORE_VISIBLE, translate_lazy("Score visible depuis les places assises")),
+    (
+        ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_ESPACE_DEPOSE_EQUIPEMENTS,
+        translate_lazy("Espace de dépose d'équipements (fauteuils, déambulateurs...)"),
+    ),
+    (
+        ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES,
+        translate_lazy("Réservation possible de places facile d'accès"),
+    ),
+]
+
+ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_DEPOSE_EQUIPEMENTS = "presence_espace_depose_equipements"
+ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_REPOS_SENSORIEL = "presence_espace_repos_sensoriel"
+ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHIENS_GUIDES = "presence_espace_chiens_guides"
+ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_SALLE_DE_CHANGE = "presence_espace_salle_de_change"
+ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHOICES = [
+    (
+        ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_DEPOSE_EQUIPEMENTS,
+        translate_lazy("Espace de dépose d'équipements (fauteuils, déambulateurs...)"),
+    ),
+    (
+        ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_REPOS_SENSORIEL,
+        translate_lazy("Espace de repos sensoriel (hyposensoriel, d'apaisement...)"),
+    ),
+    (
+        ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHIENS_GUIDES,
+        translate_lazy("Espace destiné aux chiens guides et d'assistance"),
+    ),
+    (
+        ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_SALLE_DE_CHANGE,
+        translate_lazy("Salle de change destinée aux personnes ayant des handicaps multiples ou complexes"),
+    ),
+]
+
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"
@@ -962,6 +1062,33 @@ FIELDS = {
         "warn_if": False,
         "free_text": False,
         "root": False,
+    },
+    "stationnement_zone_depose_pmr": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Aire de dépose PMR"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Existe-t-il une zone de dépose PMR pour les grands véhicules adaptés à proximité de l'entrée du gymnase ? (au moins 8m de longueur)"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence d'une zone de dépose PMR"),
+        "help_text_ui_v2": translate_lazy("Présence d'une zone de dépose PMR"),
+        "help_text_ui_neg": translate_lazy("Pas de zone de dépose PMR"),
+        "help_text_ui_neg_v2": translate_lazy("Pas de zone de dépose PMR"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices_images": (
+            ("/static/img/contrib/zone-depose-pmr.png"),
+            ("/static/img/contrib/no.png"),
+            ("/static/img/contrib/unknown.png"),
+        ),
+        "conditional": "sports_equipment",
+        "section": SECTION_TRANSPORT,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "root": True,
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
@@ -2688,6 +2815,320 @@ FIELDS = {
         "root": True,
         "excluded_from_completion_rate": True,
     },
+    "accueil_physique": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Accueil physique"),
+        "help_text": mark_safe(
+            translate_lazy("Y a-t-il du personnel présent pendant les heures d’ouverture de l'établissement ?")
+        ),
+        "help_text_ui": translate_lazy("Présence de personnel pendant les heures d'ouverture"),
+        "help_text_ui_neg": translate_lazy("Pas de personnel dans l'établisement"),
+        "choices": ACCUEIL_PHYSIQUE_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": None,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "root": True,
+    },
+    "accueil_aire_de_jeux": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Aire de jeux"),
+        "help_text": mark_safe(translate_lazy("L'aire de jeux est-elle accessible à une personne en fauteuil ?")),
+        "help_text_ui": translate_lazy("L'aire de jeux est accessible à une personne en fauteuil"),
+        "help_text_ui_neg": translate_lazy("L'aire de jeux n'est pas accessible à une personne en fauteuil"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "root": True,
+    },
+    "accueil_tribunes": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Tribunes"),
+        "help_text": mark_safe(translate_lazy("Les places destinées aux spectateurs ont-elles un dossier ?")),
+        "help_text_ui": translate_lazy("Places spectateurs avec dossier"),
+        "help_text_ui_neg": translate_lazy("Places spectateurs sans dossier"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "root": True,
+    },
+    "accueil_tribunes_places": {
+        "type": "number",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Places accessibles en tribunes"),
+        "help_text": mark_safe(
+            translate_lazy("Combien y a-t-il de places accessibles pour les personnes en fauteuil roulant ?")
+        ),
+        "help_text_ui": translate_lazy("Places accessibles pour les personnes en fauteuil roulant"),
+        "help_text_ui_neg": translate_lazy("Places accessibles pour les personnes en fauteuil roulant"),
+        "choices": None,
+        "unit": "place",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "free_text": False,
+        "should_display_label": False,
+        "conditional": "sports_equipment",
+        "min_value_to_display_children": 1,
+        "children": ["accueil_tribunes_localisation_places", "accueil_tribunes_places_avec_accompagnants"],
+        "root": True,
+    },
+    "accueil_tribunes_localisation_places": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Où sont elles localisées ?")),
+        "help_text_ui": translate_lazy("Localisation des places"),
+        "help_text_ui_neg": translate_lazy("Localisation des places"),
+        "choices": ACCUEIL_TRIBUNES_PLACES_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_tribunes_places_avec_accompagnants": {
+        "type": "number",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(
+            translate_lazy(
+                "Est-ce que des places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Places accompagnant à côté des places pour les personnes en fauteuil roulant"),
+        "help_text_ui_neg": translate_lazy(
+            "Pas de place accompagnant à côté des places pour les personnes en fauteuil roulant"
+        ),
+        "choices": None,
+        "unit": "place",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_vestiaires": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Vestiaires"),
+        "help_text": mark_safe(
+            translate_lazy(
+                "Les vestiaires sont-ils accessibles à une personne en fauteuil roulant (cheminement et porte) ?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Vestiaires accessibles"),
+        "help_text_ui_neg": translate_lazy(
+            "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "value_to_display_children": ["True"],
+        "children": ["accueil_vestiaires_largeur_passage"],
+        "root": True,
+    },
+    "accueil_vestiaires_largeur_passage": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Quelle est la largeur de passage pour se rendre dans les vestiaires ?")),
+        "help_text_ui": translate_lazy("Largeur du passage d'au moins 90 cm"),
+        "help_text_ui_neg": translate_lazy("Largeur inférieure à 90 cm"),
+        "choices": ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_CHOICES,
+        "unit": "centimètre",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_douches_collectives": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Douches collectives"),
+        "help_text": mark_safe(translate_lazy("Présence de douches collectives ?")),
+        "help_text_ui": translate_lazy("Présence de douches collectives"),
+        "help_text_ui_neg": translate_lazy("Pas de douches collectives"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "value_to_display_children": ["True"],
+        "children": ["accueil_douches_collectives_adaptees"],
+        "root": True,
+    },
+    "accueil_douches_collectives_adaptees": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(
+            translate_lazy(
+                "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence de douches collectives accessibles"),
+        "help_text_ui_neg": translate_lazy("Pas de douches collectives accessibles aux personnes en fauteuil roulant"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_douches_individuelles": {
+        "type": "boolean",
+        "label": translate_lazy("Douches individuelles"),
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Présence de cabines de douche individuelles ?")),
+        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
+        "help_text_ui_neg": translate_lazy(
+            "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "value_to_display_children": ["True"],
+        "children": ["accueil_douches_individuelles_adaptees"],
+        "root": True,
+    },
+    "accueil_douches_individuelles_adaptees": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(
+            translate_lazy(
+                "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
+            )
+        ),
+        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
+        "help_text_ui_neg": translate_lazy(
+            "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_casiers": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": translate_lazy("Casiers"),
+        "help_text": mark_safe(translate_lazy("Y a-t-il des casiers mis à disposition du public?")),
+        "help_text_ui": translate_lazy("Casiers à disposition du public"),
+        "help_text_ui_neg": translate_lazy("Pas de casiers à disposition du public"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "value_to_display_children": ["True"],
+        "children": ["accueil_casiers_adaptes", "accueil_casiers_fermeture"],
+        "root": True,
+    },
+    "accueil_casiers_adaptes": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(
+            translate_lazy(
+                "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+            )
+        ),
+        "help_text_ui": translate_lazy("Le contraste et le relief des casiers permettent une bonne lisibilité."),
+        "help_text_ui_neg": translate_lazy(
+            "Le contraste et le relief des casiers ne permettent pas une bonne lisibilité."
+        ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "accueil_casiers_fermeture": {
+        "type": "array",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Quel est leur système de fermeture ?")),
+        "help_text_ui": translate_lazy("Système de fermeture présent"),
+        "help_text_ui_neg": translate_lazy("Système de fermeture absent"),
+        "choices": ACCUEIL_SYSTEME_FERMETURE_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "warn_if": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "free_text": False,
+        "root": False,
+    },
+    "accueil_prestations_complementaires": {
+        "type": "array",
+        "nullable": True,
+        "is_a11y": True,
+        "label": mark_safe(translate_lazy("Prestations complémentaires")),
+        "help_text_ui": translate_lazy("Prestations complémentaires disponibles"),
+        "help_text_ui_neg": translate_lazy("Pas de prestations complémentaires"),
+        "choices": ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "warn_if": False,
+        "conditional": "sports_equipment",
+        "free_text": False,
+        "root": True,
+    },
+    "accueil_presence_espaces_specifiques": {
+        "type": "array",
+        "nullable": True,
+        "is_a11y": True,
+        "label": mark_safe(translate_lazy("Présence d'espaces spécifiques")),
+        "help_text_ui": translate_lazy("Présence d'espaces spécifiques"),
+        "help_text_ui_neg": translate_lazy("Pas d'espaces spécifiques à disposition"),
+        "choices": ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": False,
+        "warn_if": False,
+        "conditional": "sports_equipment",
+        "free_text": False,
+        "root": True,
+    },
     # Sanitaires
     "sanitaires_presence": {
         "type": "boolean",
@@ -2705,7 +3146,7 @@ FIELDS = {
         "free_text": False,
         "root": True,
         "value_to_display_children": ["True"],
-        "children": ["sanitaires_adaptes"],
+        "children": ["sanitaires_adaptes", "sanitaires_urinoirs"],
     },
     "sanitaires_adaptes": {
         "type": "boolean",
@@ -2726,6 +3167,56 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "free_text": False,
+        "value_to_display_children": ["True"],
+        "children": ["sanitaires_largeur_porte", "sanitaires_sens_transfert"],
+    },
+    "sanitaires_largeur_porte": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Quelle est la largeur de porte des toilettes ?")),
+        "help_text_ui": translate_lazy("Toilettes adaptées avec une largeur de passage entre"),
+        "help_text_ui_neg": translate_lazy("Toilettes adaptées avec une largeur de passage entre"),
+        "choices": SANITAIRES_LARGEUR_PORTE_CHOICES,
+        "unit": "centimètre",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "sanitaires_sens_transfert": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": mark_safe(translate_lazy("Quel est le sens du transfert ?")),
+        "help_text_ui": translate_lazy("Sens du transfert"),
+        "help_text_ui_neg": translate_lazy("Sens du transfert"),
+        "choices": SANITAIRES_SENS_TRANSFERT_CHOICES,
+        "unit": "centimètre",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
+    },
+    "sanitaires_urinoirs": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "help_text": translate_lazy("Est ce que les urinoirs sont positionnés à différentes hauteurs ?"),
+        "help_text_ui": translate_lazy("Urinoirs à différentes hauteurs"),
+        "help_text_ui_neg": translate_lazy("Les urinoirs sont tous à la même hauteur"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+        "free_text": False,
+        "conditional": "sports_equipment",
+        "should_display_label": False,
+        "root": False,
     },
     # Labels
     "labels": {

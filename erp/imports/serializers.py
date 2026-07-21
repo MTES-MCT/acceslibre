@@ -53,6 +53,7 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
     stationnement_pmr = NullBooleanField(required=False, allow_null=True)
     stationnement_ext_presence = NullBooleanField(required=False, allow_null=True)
     stationnement_ext_pmr = NullBooleanField(required=False, allow_null=True)
+    stationnement_zone_depose_pmr = NullBooleanField(required=False, allow_null=True)
     cheminement_ext_presence = NullBooleanField(required=False, allow_null=True)
     cheminement_ext_terrain_stable = NullBooleanField(required=False, allow_null=True)
     cheminement_ext_plain_pied = NullBooleanField(required=False, allow_null=True)
@@ -95,8 +96,18 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
     accueil_soignant = NullBooleanField(required=False, allow_null=True)
     accueil_salle_consultation_accessible = NullBooleanField(required=False, allow_null=True)
     accueil_consultation_domicile = NullBooleanField(required=False, allow_null=True)
+    accueil_aire_de_jeux = NullBooleanField(required=False, allow_null=True)
+    accueil_tribunes = NullBooleanField(required=False, allow_null=True)
+    accueil_vestiaires = NullBooleanField(required=False, allow_null=True)
+    accueil_douches_collectives = NullBooleanField(required=False, allow_null=True)
+    accueil_douches_collectives_adaptees = NullBooleanField(required=False, allow_null=True)
+    accueil_douches_individuelles = NullBooleanField(required=False, allow_null=True)
+    accueil_douches_individuelles_adaptees = NullBooleanField(required=False, allow_null=True)
+    accueil_casiers = NullBooleanField(required=False, allow_null=True)
+    accueil_casiers_adaptes = NullBooleanField(required=False, allow_null=True)
     sanitaires_presence = NullBooleanField(required=False, allow_null=True)
     sanitaires_adaptes = NullBooleanField(required=False, allow_null=True)
+    sanitaires_urinoirs = NullBooleanField(required=False, allow_null=True)
     conformite = NullBooleanField(required=False, allow_null=True)
 
     class Meta:
@@ -222,15 +233,22 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         return obj
 
+    @staticmethod
+    def _should_display_children(field_config, current_value):
+        min_value = field_config.get("min_value_to_display_children")
+        if min_value is not None:
+            return current_value is not None and current_value >= min_value
+
+        return str(current_value) in field_config.get("value_to_display_children", [])
+
     def _handle_children_reinit(self, accessibilite_instance, field_name):
         field_config = FIELDS.get(field_name)
         if not field_config or not field_config.get("children"):
             return
 
         current_value = getattr(accessibilite_instance, field_name)
-        trigger_values = field_config.get("value_to_display_children", [])
 
-        if str(current_value) not in trigger_values:
+        if not self._should_display_children(field_config, current_value):
             for child_name in field_config.get("children"):
                 field_obj = accessibilite_instance._meta.get_field(child_name)
                 default_value = field_obj.get_default()

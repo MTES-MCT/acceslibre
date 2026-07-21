@@ -44,6 +44,7 @@ ACTIVITY_GROUPS = {
     "LARGE_ESTABLISHMENTS": "Grands établissements",
     "POLLING_STATION": "Bureau de vote",
     "HEALTHCARE": "Santé",
+    "SPORTS_EQUIPMENT": "Équipements sportifs",
 }
 
 
@@ -1265,7 +1266,15 @@ class Accessibilite(models.Model):
             CheckConstraint(
                 name="%(app_label)s_%(class)s_sanitaires_presence_consistency",
                 condition=(Q(sanitaires_presence=True) & Q(sanitaires_presence__isnull=False))
-                | Q(sanitaires_adaptes=None),
+                | (Q(sanitaires_adaptes=None) & Q(sanitaires_urinoirs=None)),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_sanitaires_adaptes_consistency",
+                condition=(Q(sanitaires_adaptes=True) & Q(sanitaires_adaptes__isnull=False))
+                | (
+                    (Q(sanitaires_largeur_porte__isnull=True) | Q(sanitaires_largeur_porte=""))
+                    & (Q(sanitaires_sens_transfert__isnull=True) | Q(sanitaires_sens_transfert=""))
+                ),
             ),
             CheckConstraint(
                 name="%(app_label)s_%(class)s_labels_consistency",
@@ -1295,6 +1304,36 @@ class Accessibilite(models.Model):
                 condition=(
                     (Q(accueil_soignant=True) & Q(accueil_soignant__isnull=False))
                     | (Q(accueil_soignant_experience__isnull=True) | Q(accueil_soignant_experience=[]))
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_casiers_consistency",
+                condition=(
+                    (Q(accueil_casiers=True) & Q(accueil_casiers__isnull=False))
+                    | (
+                        Q(accueil_casiers_adaptes=None)
+                        & (Q(accueil_casiers_fermeture__isnull=True) | Q(accueil_casiers_fermeture=[]))
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_tribunes_places_consistency",
+                condition=(
+                    ~(Q(accueil_tribunes_places=0) | Q(accueil_tribunes_places__isnull=True))
+                    | (
+                        (
+                            Q(accueil_tribunes_localisation_places__isnull=True)
+                            | Q(accueil_tribunes_localisation_places="")
+                        )
+                        & Q(accueil_tribunes_places_avec_accompagnants__isnull=True)
+                    )
+                ),
+            ),
+            CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_vestiaires_consistency",
+                condition=(
+                    (Q(accueil_vestiaires=True) & Q(accueil_vestiaires__isnull=False))
+                    | (Q(accueil_vestiaires_largeur_passage__isnull=True) | Q(accueil_vestiaires_largeur_passage=""))
                 ),
             ),
         ]
@@ -1360,6 +1399,12 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.get_field_choices("stationnement_ext_pmr"),
         verbose_name=translate_lazy("Stationnements PMR à proximité de l'ERP"),
+    )
+    stationnement_zone_depose_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("stationnement_zone_depose_pmr"),
+        verbose_name=translate_lazy("Aire de dépose PMR"),
     )
 
     ###################################
@@ -1897,6 +1942,112 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name=translate_lazy("Prise en charge des patients"),
     )
+    accueil_physique = models.CharField(
+        max_length=25,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Accueil physique"),
+        choices=schema.ACCUEIL_PHYSIQUE_CHOICES,
+    )
+    accueil_aire_de_jeux = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_aire_de_jeux"),
+        verbose_name=translate_lazy("Accessibilité de l'aire de jeux à une personne en fauteuil"),
+    )
+    accueil_tribunes = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_tribunes"),
+        verbose_name=translate_lazy("Accessibilité des places des tribunes"),
+    )
+    accueil_tribunes_places = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Nombre de places accessibles pour les personnes en fauteuil roulant"),
+    )
+    accueil_tribunes_localisation_places = models.CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Localisation des places dans les tribunes"),
+        choices=schema.ACCUEIL_TRIBUNES_PLACES_CHOICES,
+    )
+    accueil_tribunes_places_avec_accompagnants = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Nombre de places pour les accompagnants dans les tribunes"),
+    )
+    accueil_vestiaires = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_vestiaires"),
+        verbose_name=translate_lazy("Accessibilité des vestiaires"),
+    )
+    accueil_vestiaires_largeur_passage = models.CharField(
+        max_length=40,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Largeur de passage pour se rendre dans les vestiaires"),
+        choices=schema.ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_CHOICES,
+    )
+    accueil_douches_collectives = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_douches_collectives"),
+        verbose_name=translate_lazy("Présence de douches collectives"),
+    )
+    accueil_douches_collectives_adaptees = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_douches_collectives_adaptees"),
+        verbose_name=translate_lazy("Accessibilité des douches collectives"),
+    )
+    accueil_douches_individuelles = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_douches_individuelles"),
+        verbose_name=translate_lazy("Présence de douches individuelles"),
+    )
+    accueil_douches_individuelles_adaptees = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_douches_individuelles_adaptees"),
+        verbose_name=translate_lazy("Accessibilité des douches individuelles"),
+    )
+    accueil_casiers = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_casiers"),
+        verbose_name=translate_lazy("Présence de casiers"),
+    )
+    accueil_casiers_adaptes = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_casiers_adaptes"),
+        verbose_name=translate_lazy("Casiers adaptés"),
+    )
+    accueil_casiers_fermeture = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.ACCUEIL_SYSTEME_FERMETURE_CHOICES),
+        default=list,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Système de fermeture des casiers"),
+    )
+    accueil_prestations_complementaires = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES),
+        verbose_name=translate_lazy("Prestations complémentaires"),
+        default=list,
+        null=True,
+        blank=True,
+    )
+    accueil_presence_espaces_specifiques = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHOICES),
+        verbose_name=translate_lazy("Présence d’espaces spécifiques"),
+        default=list,
+        null=True,
+        blank=True,
+    )
     ##############
     # Sanitaires #
     ##############
@@ -1906,14 +2057,32 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("sanitaires_presence"),
         verbose_name=translate_lazy("Sanitaires"),
     )
-
     sanitaires_adaptes = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("sanitaires_adaptes"),
         verbose_name=translate_lazy("Nombre de sanitaires adaptés"),
     )
-
+    sanitaires_largeur_porte = models.CharField(
+        max_length=40,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Largeur de porte des toilettes"),
+        choices=schema.SANITAIRES_LARGEUR_PORTE_CHOICES,
+    )
+    sanitaires_sens_transfert = models.CharField(
+        max_length=40,
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Sens du transfert"),
+        choices=schema.SANITAIRES_SENS_TRANSFERT_CHOICES,
+    )
+    sanitaires_urinoirs = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Hauteur des urinoirs"),
+        choices=schema.get_field_choices("sanitaires_urinoirs"),
+    )
     ##########
     # labels #
     ##########
@@ -2136,6 +2305,51 @@ class Accessibilite(models.Model):
         return [
             accueil_soignant_experience_text.get(soignant_experience)
             for soignant_experience in self.accueil_soignant_experience
+        ]
+
+    def get_accueil_tribunes_places_avec_accompagnants(self):
+        field = schema.FIELDS["accueil_tribunes_places_avec_accompagnants"]
+        if not self.accueil_tribunes_places_avec_accompagnants:
+            return str(field["help_text_ui_neg"])
+
+        return "{} : {}".format(field["help_text_ui"], self.accueil_tribunes_places_avec_accompagnants)
+
+    def get_sanitaires_largeur_porte(self):
+        text = schema.FIELDS["sanitaires_largeur_porte"]["help_text_ui"] + " " + self.sanitaires_largeur_porte
+        return text
+
+    def get_accueil_tribunes_places(self):
+        return "{} {}".format(self.accueil_tribunes_places, schema.FIELDS["accueil_tribunes_places"]["help_text_ui"])
+
+    def get_accueil_casiers_fermeture(self):
+        if not self.accueil_casiers_fermeture:
+            return
+        accueil_casiers_fermeture_text = {k: str(v) for k, v in schema.ACCUEIL_SYSTEME_FERMETURE_CHOICES}
+        return [
+            accueil_casiers_fermeture_text.get(casiers_fermeture)
+            for casiers_fermeture in self.accueil_casiers_fermeture
+        ]
+
+    def get_accueil_prestations_complementaires(self):
+        if not self.accueil_prestations_complementaires:
+            return
+        accueil_prestations_complementaires_text = {
+            k: str(v) for k, v in schema.ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES
+        }
+        return [
+            accueil_prestations_complementaires_text.get(prestations_complementaires)
+            for prestations_complementaires in self.accueil_prestations_complementaires
+        ]
+
+    def get_accueil_presence_espaces_specifiques(self):
+        if not self.accueil_presence_espaces_specifiques:
+            return
+        accueil_presence_espaces_specifiques_text = {
+            k: str(v) for k, v in schema.ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHOICES
+        }
+        return [
+            accueil_presence_espaces_specifiques_text.get(presence_espaces_specifiques)
+            for presence_espaces_specifiques in self.accueil_presence_espaces_specifiques
         ]
 
     def get_accueil_prise_en_charge_patients(self):

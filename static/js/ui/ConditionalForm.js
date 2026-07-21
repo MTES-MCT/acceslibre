@@ -1,8 +1,3 @@
-const INDENTS_LEVEL = {
-  first: 6,
-  second: 10,
-}
-
 const rules = [
   // Transport
   {
@@ -15,13 +10,11 @@ const rules = [
     source: 'stationnement_presence',
     values: ['True'],
     targets: ['stationnement_pmr'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'stationnement_ext_presence',
     values: ['True'],
     targets: ['stationnement_ext_pmr'],
-    indent: INDENTS_LEVEL.first,
   },
   // Presence d'un extérieur et cheminement
   {
@@ -36,7 +29,6 @@ const rules = [
       'cheminement_ext_retrecissement',
       'cheminement_ext_pente_presence',
     ],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'cheminement_ext_plain_pied',
@@ -49,38 +41,32 @@ const rules = [
       'cheminement_ext_rampe',
       'cheminement_ext_ascenseur',
     ],
-    indent: INDENTS_LEVEL.second,
   },
   {
     source: 'cheminement_ext_ascenseur',
     values: ['True'],
     targets: ['cheminement_ext_ascenseur_pmr'],
-    indent: INDENTS_LEVEL.second,
   },
   {
     source: 'cheminement_ext_pente_presence',
     values: ['True'],
     targets: ['cheminement_ext_pente_degre_difficulte', 'cheminement_ext_pente_longueur'],
-    indent: INDENTS_LEVEL.second,
   },
   // Entrée
   {
     source: 'entree_porte_presence',
     values: ['True'],
     targets: ['entree_porte_manoeuvre', 'entree_porte_type', 'entree_vitree'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'entree_vitree',
     values: ['True'],
     targets: ['entree_vitree_vitrophanie'],
-    indent: INDENTS_LEVEL.second,
   },
   {
     source: 'entree_dispositif_appel',
     values: ['True'],
     targets: ['entree_dispositif_appel_type'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'entree_plain_pied',
@@ -93,32 +79,27 @@ const rules = [
       'entree_marches_rampe',
       'entree_ascenseur',
     ],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'entree_ascenseur',
     values: ['True'],
     targets: ['entree_ascenseur_pmr'],
-    indent: INDENTS_LEVEL.second,
   },
   {
     source: 'entree_pmr',
     values: ['True'],
     targets: ['entree_pmr_informations'],
-    indent: INDENTS_LEVEL.first,
   },
   // Accueil
   {
     source: 'accueil_audiodescription_presence',
     values: ['True'],
     targets: ['accueil_audiodescription'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'accueil_equipements_malentendants_presence',
     values: ['True'],
     targets: ['accueil_equipements_malentendants'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'accueil_cheminement_plain_pied',
@@ -131,7 +112,6 @@ const rules = [
       'accueil_cheminement_rampe',
       'accueil_cheminement_ascenseur',
     ],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'accueil_cheminement_ascenseur',
@@ -142,20 +122,47 @@ const rules = [
     source: 'accueil_ascenseur_etage',
     values: ['True'],
     targets: ['accueil_ascenseur_etage_pmr'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'accueil_soignant',
     values: ['True'],
     targets: ['accueil_soignant_experience'],
-    indent: INDENTS_LEVEL.first,
+  },
+  {
+    source: 'accueil_tribunes_places',
+    minValue: 1,
+    targets: ['accueil_tribunes_localisation_places', 'accueil_tribunes_places_avec_accompagnants'],
+  },
+  {
+    source: 'accueil_vestiaires',
+    values: ['True'],
+    targets: ['accueil_vestiaires_largeur_passage'],
+  },
+  {
+    source: 'accueil_douches_collectives',
+    values: ['True'],
+    targets: ['accueil_douches_collectives_adaptees'],
+  },
+  {
+    source: 'accueil_douches_individuelles',
+    values: ['True'],
+    targets: ['accueil_douches_individuelles_adaptees'],
+  },
+  {
+    source: 'accueil_casiers',
+    values: ['True'],
+    targets: ['accueil_casiers_adaptes', 'accueil_casiers_fermeture'],
   },
   // Sanitaires
   {
     source: 'sanitaires_presence',
     values: ['True'],
-    targets: ['sanitaires_adaptes'],
-    indent: INDENTS_LEVEL.first,
+    targets: ['sanitaires_adaptes', 'sanitaires_urinoirs'],
+  },
+  {
+    source: 'sanitaires_adaptes',
+    values: ['True'],
+    targets: ['sanitaires_largeur_porte', 'sanitaires_sens_transfert'],
   },
   // Chambres accessibles
   {
@@ -168,7 +175,6 @@ const rules = [
       'accueil_chambre_sanitaires_barre_appui',
       'accueil_chambre_sanitaires_espace_usage',
     ],
-    indent: INDENTS_LEVEL.first,
   },
   // Labels
   // TODO
@@ -178,20 +184,17 @@ const rules = [
     source: 'user_type',
     values: ['gestionnaire', 'admin'],
     targets: ['registre_url'],
-    indent: INDENTS_LEVEL.first,
   },
   // b. afficher conformité si administration
   {
     source: 'user_type',
     values: ['admin'],
     targets: ['conformite'],
-    indent: INDENTS_LEVEL.first,
   },
   {
     source: 'user_type',
     values: ['gestionnaire'],
     targets: ['rpa_exemption'],
-    indent: INDENTS_LEVEL.first,
   },
 ]
 

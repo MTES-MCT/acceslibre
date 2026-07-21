@@ -16,7 +16,7 @@ fileignoreconfig:
 - filename: erp/export/static/schema.json
   checksum: 888e09b1fe8ead28a4561b05842cd852be1ca8a3b86264aa48469514f93cfdd2
 - filename: templates/contrib/6-accueil.html
-  checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
+  checksum: 8aaacce11ed6b610a2bd7556d5f42b5035747d994eb103ccdfe0fdec0ae1c708
 - filename: templates/contrib/2-a-propos.html
   checksum: 674d89a3766a1df233648b7de14a5116de651bfea5b4db7f4f9f05f95629a32a
 - filename: templates/contrib/0-start.html
@@ -28,7 +28,7 @@ fileignoreconfig:
 - filename: templates/contrib/4-exterieur.html
   checksum: 4e6911a34b51f640e0fb6a2dad359628daf63459f2b3d868ce0d80ce094f8538
 - filename: templates/contrib/3-transport.html
-  checksum: 31cb1838db8607f44c92e00e0841c18f7454943ea3a600d79f943fae2f967874
+  checksum: 68334d56087d71ffb7443ca8917ed32c553786a8b1c9852bec1adec03aa138fe
 - filename: .circleci/config.yml
   checksum: 9c50da347ce5a9602eb25d2c192597343c50e062f465c0e8ae6e4aed1034407e
 - filename: erp/imports/mapper/service_public.py
@@ -52,7 +52,13 @@ fileignoreconfig:
 - filename: erp/management/commands/flush_widget_stats.py
   checksum: 07f7fb0fbd7c587d43aad69f87e892107a6e80c8d5a5145d608905485a4f2011
 - filename: tests/stats/tests.py
-  checksum: 3d899b94bc836e0f97b282d569ca27b513be6df54cf718e96a944a99b634444d
+  checksum: 14316ca4cb3801fde82de4647e7c3df271a7c5b962e3526fa06e5d190caceb27
+- filename: tests/api/tests.py
+  checksum: 19cc87e6a7c33d056a2c85831e86af11ba1fff4935b9fc4b786faee0c88552c9
+- filename: tests/erp/test_tasks.py
+  checksum: 5af076ad122ca09cd7a76c75a11c3094c70d15fa928a827a3180c8c43177a9f5
+- filename: tests/erp/imports/test_serializers.py
+  checksum: ec01ecc27f54e45f02eae36db0369b353e069426f19eeac2025d776760f94fec
 - filename: .env.sample
   checksum: aa3f02c8f5d30f989986f9eafaca8bc57d99d09361b9fa9c2158638bcc263f15
 - filename: erp/management/commands/import_apidae.py
@@ -93,3 +99,9 @@ fileignoreconfig:
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
 - filename: core/settings.py
   checksum: 541b4298f5183e65805309ef55140f6b1da02f62a1fbf196fba3cc8d7c5dab58
+- filename: erp/models.py
+  checksum: 7399cf142d418045c6167e0ed5b83c3f61a9102015d994929e0584f288508e67
+- filename: erp/schema.py
+  checksum: 319eee5047b7058a601da24eb201f2ed8fd4ece23e9dc47a92f05f2e956e7ae2
+- filename: erp/migrations/0191_remove_accessibilite_erp_accessibilite_sanitaires_presence_consistency_and_more.py
+  checksum: 9549fe2888e7d35c031c145eca2235510545a0b69774201c1365f466ca42f649
