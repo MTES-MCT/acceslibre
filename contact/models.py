@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as translate_lazy
+from django_prose_editor.fields import ProseEditorField
 
 from erp.models import Erp
 
@@ -72,7 +73,18 @@ class FAQ(models.Model):
 
     section = models.CharField(max_length=50, default=SECTION_GENERAL, choices=SECTION_CHOICES)
     title = models.CharField(max_length=255, verbose_name=translate_lazy("Titre"))
-    description = models.TextField()
+    description = ProseEditorField(
+        extensions={
+            "Bold": True,
+            "Italic": True,
+            "BulletList": True,
+            "OrderedList": True,
+            "ListItem": True,
+            "Link": True,
+            "Heading": {"levels": [2, 3]},
+        },
+        sanitize=True,
+    )
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))

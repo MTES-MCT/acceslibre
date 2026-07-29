@@ -55,8 +55,6 @@ fileignoreconfig:
   checksum: 3d899b94bc836e0f97b282d569ca27b513be6df54cf718e96a944a99b634444d
 - filename: .env.sample
   checksum: aa3f02c8f5d30f989986f9eafaca8bc57d99d09361b9fa9c2158638bcc263f15
-- filename: core/settings.py
-  checksum: c9a7604687c73a1344d6ec4d5979a521981fd11f0ae35cb6351787d824c1c55f
 - filename: erp/management/commands/import_apidae.py
   checksum: 0bf117b99f9b76db4824cfe5aec647f455eaeb4e57c96425b90e6c580302a972
 - filename: .github/workflows/lint.yml
@@ -93,3 +91,5 @@ fileignoreconfig:
   checksum: 253aa05b83f0695dec90299bb58538e736bbce3e0200385c63b6dbc3c5294a75
 - filename: erp/views.py
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
+- filename: core/settings.py
+  checksum: 541b4298f5183e65805309ef55140f6b1da02f62a1fbf196fba3cc8d7c5dab58

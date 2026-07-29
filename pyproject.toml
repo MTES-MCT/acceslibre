@@ -60,11 +60,11 @@ dependencies = [
     "colorama",
     "boto3==1.35.99",
     "magic-profanity",
-    "django-summernote",
     "pre-commit>=4.5.1",
     "djangorestframework-xml>=2.0.0",
     "weasyprint>=69.0",
     "qrcode[pil]>=8.2",
+    "django-prose-editor[sanitize]>=0.26.0",
 ]
 
 [dependency-groups]
