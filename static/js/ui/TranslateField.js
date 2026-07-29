@@ -5,7 +5,6 @@ class TranslateField {
     this.el = el
     this.pk = el.dataset.accessPk
     this.field = el.dataset.field
-    this.apiKey = el.dataset.apiKey
 
     this.btn = this._createBtn()
     this.result = this._createResult()
@@ -41,7 +40,6 @@ class TranslateField {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Api-Key ${this.apiKey}`,
           'X-CSRFToken': csrfToken,
         },
         body: JSON.stringify({

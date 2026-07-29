@@ -173,19 +173,22 @@ CORS_ALLOW_HEADERS = (
 
 
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "api.authentication.UserAPIKeyAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_THROTTLE_CLASSES": [
-        "rest_framework.throttling.AnonRateThrottle",
+        "api.throttling.FrontendOriginThrottle",
         "rest_framework.throttling.UserRateThrottle",
+        "rest_framework.throttling.AnonRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "anon": "3/second",
-        "user": "3/second",
+        "frontend": "5000/hour",
+        "user": "10000/hour",
+        "anon": "20/hour",
     },
-    "DEFAULT_PERMISSION_CLASSES": [
-        "api.permissions.IsAllowedForAction",
-    ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
         "api.renderers.GeoJSONRenderer",
@@ -194,7 +197,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-INTERNAL_API_KEY_NAME = "acceslibre - internal uses only"
 
 ROOT_URLCONF = "core.urls"
 

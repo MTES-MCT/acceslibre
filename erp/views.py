@@ -1,7 +1,5 @@
 import datetime
 import json
-import secrets
-import string
 import urllib
 from decimal import Decimal
 from io import BytesIO
@@ -14,7 +12,6 @@ from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
-from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
@@ -232,18 +229,6 @@ def _search_commune_code_postal(qs, code_insee):
     )
 
 
-def _get_or_create_api_key():
-    api_key = cache.get(settings.INTERNAL_API_KEY_NAME)
-    if api_key:
-        return api_key
-
-    alphabet = string.ascii_letters + string.digits + string.punctuation
-
-    api_key = "".join(secrets.choice(alphabet) for i in range(32))
-    cache.set(settings.INTERNAL_API_KEY_NAME, api_key, timeout=1 * HOURS)
-    return api_key
-
-
 def search(request):
     filters = cleaned_search_params_as_dict(request.GET)
     queryset = build_queryset(filters, request.GET)
@@ -282,7 +267,6 @@ def search(request):
         "pager": pager,
         "pager_base_url": pager_base_url,
         "paginator": paginator,
-        "map_api_key": _get_or_create_api_key(),
         "dynamic_map": True,
         "equipments_shortcuts": get_equipments_shortcuts(),
         "equipments": get_equipments(),
@@ -389,7 +373,6 @@ def search_in_municipality(request, commune_slug):
 
     context = {
         **filters,
-        "map_api_key": _get_or_create_api_key(),
         "pager": pager,
         "pager_base_url": url.encode_qs(**filters),
         "paginator": paginator,
@@ -541,7 +524,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "erp_can_have_image": can_have_image,
             "erp_can_be_modified": erp.can_be_modified_by(request.user),
             "need_translation": need_translation,
-            "api_key": _get_or_create_api_key(),
         },
     )
 
@@ -747,7 +729,6 @@ def contrib_global_search(request):
             "next_step_title": schema.SECTION_TRANSPORT,
             "results": results[:pagination_size],
             "error": error,
-            "api_key": _get_or_create_api_key(),
             "query": {
                 "nom": request.GET.get("what"),
                 "commune": city,
