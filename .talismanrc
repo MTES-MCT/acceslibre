@@ -91,8 +91,6 @@ fileignoreconfig:
   checksum: 253aa05b83f0695dec90299bb58538e736bbce3e0200385c63b6dbc3c5294a75
 - filename: erp/views.py
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
-- filename: core/settings.py
-  checksum: 71eaea69c5fe9f4379789ffb6893c8d8366d977b1571b48cbbc8144f62390890
 - filename: api/authentication.py
   checksum: 3d3fdfaf5cb8f79e38238d2f75b6fef32c2658e6e71fd2752630bb0797c08279
 - filename: compte/admin.py
@@ -103,3 +101,9 @@ fileignoreconfig:
   checksum: d1a902acd238fb94e179d809d5ef3ac8c5c027a6a0581e61f8844a91f6aa8f93
 - filename: tests/api/tests.py
   checksum: 37ddb4f8af1dadeaaaec408016119309fc8d59795f3a3a8de726ec19994f2124
+- filename: core/settings.py
+  checksum: aef0ac9cf58af8afbac59a2bdbaef5425b85e18bf235ea90c1701c9fe3eda3f0
+- filename: api/throttling.py
+  checksum: d97a8420cfd750484e125234abddadc773e41830fcf76c5ecfbf943e8017cd52
+- filename: tests/api/test_permissions.py
+  checksum: 861dc1b82574ecf1de0629bddb553ac2bed11536506622e8a42ae479ac622238
