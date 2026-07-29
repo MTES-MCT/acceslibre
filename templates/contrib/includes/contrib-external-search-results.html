@@ -1,7 +1,6 @@
 {% load a4a %}
 {% load i18n %}
 <div class="fr-col-md-12"
-     data-api-key="{{ api_key|default:'' }}"
      data-api-url="{% url "erp-list" %}"
      data-commune="{{ commune_search }}">
     <h2 class="fr-mb-0 fr-h3">{% translate "Autres établissements connus à ajouter et compléter" %}</h2>

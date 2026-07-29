@@ -6,7 +6,6 @@
     <ul class="fr-pl-4w">
         <li>
             <div class="{% if need_translation %}translate-field{% endif %}"
-                 data-api-key="{{ api_key|default:'' }}"
                  data-access-pk="{{ access.pk }}"
                  data-field="commentaire">{{ access.commentaire|linebreaksbr }}</div>
         </li>

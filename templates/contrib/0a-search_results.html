@@ -21,7 +21,6 @@
 {% endblock navbar %}
 {% block contrib_content %}
     <div class="fr-col-md-12"
-         data-api-key="{{ api_key|default:'' }}"
          data-api-url="{% url "erp-list" %}"
          data-commune="{{ commune_search }}">{% include "contrib/includes/contrib-search-section.html" %}</div>
 {% endblock contrib_content %}

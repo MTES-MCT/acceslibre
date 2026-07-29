@@ -108,4 +108,8 @@ fileignoreconfig:
 - filename: tests/api/tests.py
   checksum: 37ddb4f8af1dadeaaaec408016119309fc8d59795f3a3a8de726ec19994f2124
 - filename: core/settings.py
-  checksum: 237e790ecd9629854e50eabb267c50c23355119a719c791c560738c1ea83ef42
+  checksum: aef0ac9cf58af8afbac59a2bdbaef5425b85e18bf235ea90c1701c9fe3eda3f0
+- filename: api/throttling.py
+  checksum: d97a8420cfd750484e125234abddadc773e41830fcf76c5ecfbf943e8017cd52
+- filename: tests/api/test_permissions.py
+  checksum: 861dc1b82574ecf1de0629bddb553ac2bed11536506622e8a42ae479ac622238
