@@ -1,7 +1,7 @@
 import json
 import uuid
 from datetime import datetime, timedelta
-from unittest.mock import ANY
+from unittest.mock import ANY, MagicMock, PropertyMock, patch
 
 import pytest
 from django.contrib.gis.geos import Point
@@ -578,6 +578,21 @@ class TestErpApi:
         erp.refresh_from_db()
         assert erp is not None, "should not be able to delete an ERP via API"
 
+    def test_post_patch_rpa(self, api_client, mocker):
+        erp = ErpFactory(with_accessibility=True)
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock(return_value=True))
+        assert erp.rpa is True
+
+        payload = {
+            "accessibilite": {
+                "transport_station_presence": False,
+                "transport_information": "",
+                "commentaire": "New comment",
+            }
+        }
+        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        assert response.status_code == 403
+
     @pytest.mark.parametrize(
         "names, q, expected",
         (
@@ -900,3 +915,78 @@ class TestWidgetApi:
             "updated_at": ANY,
             "sections": [],
         }
+
+
+@pytest.mark.usefixtures("api_client")
+@pytest.mark.django_db
+class TestAccessibiliteTranslateApi:
+    def test_translate_success(self, api_client, initial_erp):
+        mock_result = MagicMock()
+        mock_result.text = "The entrance is accessible via a removable ramp."
+
+        mock_translator = MagicMock()
+        mock_translator.translate_text.return_value = mock_result
+
+        with patch("erp.provider.deepl.Translator", return_value=mock_translator):
+            response = api_client.post(
+                reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
+                data={"field": "commentaire", "target_lang": "en"},
+                content_type="application/json",
+            )
+
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert content["field"] == "commentaire"
+        assert content["target_lang"] == "en"
+        assert content["original"] == initial_erp.accessibilite.commentaire
+        assert content["translated"] == "The entrance is accessible via a removable ramp."
+
+    def test_translate_empty_field(self, api_client, initial_erp):
+        initial_erp.accessibilite.commentaire = None
+        initial_erp.accessibilite.save()
+
+        mock_result = MagicMock()
+        mock_result.text = "The entrance is accessible via a removable ramp."
+
+        mock_translator = MagicMock()
+        mock_translator.translate_text.return_value = mock_result
+
+        with patch("erp.provider.deepl.Translator", return_value=mock_translator):
+            response = api_client.post(
+                reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
+                data={"field": "commentaire", "target_lang": "en"},
+                content_type="application/json",
+            )
+            mock_translator.assert_not_called()
+
+        assert response.status_code == 200
+        content = json.loads(response.content)
+        assert content["translated"] is None
+        assert content["original"] is None
+
+    def test_translate_invalid_field(self, api_client, initial_erp):
+        response = api_client.post(
+            reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
+            data={"field": "non_translatable_field", "target_lang": "en"},
+            content_type="application/json",
+        )
+
+        assert response.status_code == 400
+
+    def test_translate_unknown_accessibilite(self, api_client):
+        response = api_client.post(
+            reverse("accessibilite-translate", kwargs={"pk": 99999}),
+            data={"field": "commentaire", "target_lang": "en"},
+            content_type="application/json",
+        )
+
+        assert response.status_code == 404
+
+    def test_translate_missing_target_lang(self, api_client, initial_erp):
+        response = api_client.post(
+            reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
+            data={"field": "commentaire"},
+            content_type="application/json",
+        )
+
+        assert response.status_code == 400

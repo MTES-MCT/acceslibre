@@ -14,4 +14,4 @@ translate:
 
 .PHONY: runserver
 runserver:
-	uv run manage.py runserver  --settings=core.settings_dev
+	uv run manage.py runserver  --settings=core.settings_dev 7000

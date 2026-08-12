@@ -7,7 +7,7 @@ import reversion
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.urls import reverse
-from reversion.models import Version
+from waffle.testutils import override_switch
 
 from compte.models import UserStats
 from erp.models import Accessibilite, ActivitySuggestion, Erp
@@ -313,6 +313,7 @@ def test_erp_edit_can_be_contributed(client):
 
 
 @pytest.mark.django_db
+@override_switch("RPA", True)
 def test_ajout_erp(client):
     boulangerie = ActiviteFactory(nom="Boulangerie")
     ActiviteFactory(slug="autre")
@@ -367,12 +368,14 @@ def test_ajout_erp(client):
     # A propos
     response = client.post(
         reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
-        data={"conformite": True, "user_type": Erp.USER_ROLE_ADMIN},
+        data={"conformite": True, "user_type": Erp.USER_ROLE_ADMIN, "rpa_exemption": "True"},
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.conformite is True
     assert accessibilite.completion_rate == 0
+    erp.refresh_from_db()
+    assert erp.rpa_exemption is True
     assert_redirect(response, f"/contrib/transport/{erp.slug}/")
 
     # Transport
@@ -585,7 +588,7 @@ def test_ajout_erp(client):
 
     response = client.post(
         reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
-        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE},
+        data={"conformite": True, "user_type": Erp.USER_ROLE_GESTIONNAIRE, "rpa_exemption": "True"},
         follow=True,
     )
     user.stats.refresh_from_db()
@@ -971,6 +974,7 @@ def test_contribution_flow_administrative_data(client):
     CommuneFactory(nom="JACOU")
 
     erp = ErpFactory(nom="Aux bons croissants")
+    assert erp.checked_up_to_date_at is not None
 
     initial_nb_created = user.stats.nb_erp_created
     initial_nb_edited = user.stats.nb_erp_edited
@@ -1001,6 +1005,7 @@ def test_contribution_flow_administrative_data(client):
     )
 
     updated_erp = Erp.objects.get(slug=erp.slug)
+    assert updated_erp.checked_up_to_date_at > erp.checked_up_to_date_at
     assert response.context["form"].errors == {}
     assert updated_erp.nom == "Test contribution"
     assert updated_erp.user == erp.user  # original owner is preserved
@@ -1112,20 +1117,51 @@ def test_get_erp_by_uuid(client):
     assert response.status_code == 404, "should receive a 404 for a non published ERP"
 
 
-@pytest.mark.django_db
-def test_can_update_checked_up_to_date_at_from_erp(client):
-    erp = ErpFactory(published=True)
-    assert Version.objects.get_for_object(erp).count() == 0
+@pytest.fixture
+def logged_in_user(request):
+    return UserFactory(is_active=True, is_staff=False)
 
-    assert erp.checked_up_to_date_at is None
+
+@pytest.fixture
+def erp_owner(request):
+    if request.param == "other":
+        return UserFactory(is_active=True, is_staff=False)
+    elif request.param == "same":
+        return None
+    return None
+
+
+@pytest.mark.parametrize(
+    "erp_owner_type,checked_up_to_date_is_none",
+    [("none", True), ("other", True), ("same", False)],
+)
+@pytest.mark.django_db
+def test_can_confirm_rpa_erp(client, mocker, erp_owner_type, checked_up_to_date_is_none):
+    mocker.patch("erp.models.Erp.rpa", return_value=True)
+
+    user = UserFactory(is_active=True, is_staff=False)
+
+    if erp_owner_type == "none":
+        owner = None
+    elif erp_owner_type == "other":
+        owner = UserFactory(is_active=True, is_staff=False)
+    else:
+        owner = user
+
+    erp = ErpFactory(published=True, user=owner)
+    initial_date = erp.checked_up_to_date_at
+
+    client.force_login(user)
 
     response = client.post(reverse("confirm_up_to_date", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 302
     assert erp.slug in response.url
 
     erp.refresh_from_db()
-    assert erp.checked_up_to_date_at is not None
-    assert Version.objects.get_for_object(erp).count() == 1
+    if checked_up_to_date_is_none:
+        assert erp.checked_up_to_date_at == initial_date
+    else:
+        assert erp.checked_up_to_date_at > initial_date
 
 
 @pytest.mark.django_db

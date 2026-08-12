@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
+from django.db.models import F
+from datetime import timedelta
 
 from erp.models import Erp
 
@@ -14,7 +16,7 @@ class Command(BaseCommand):
         )
 
     def _delete_erps(self, user):
-        erps = Erp.objects.filter(user=user).exclude(checked_up_to_date_at__isnull=False)
+        erps = Erp.objects.filter(user=user).exclude(checked_up_to_date_at__gt=F("created_at") + timedelta(minutes=1))
         print(f"Found {erps.count()} erp for user {user}")
         deleted = 0
 

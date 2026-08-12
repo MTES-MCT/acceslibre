@@ -50,7 +50,7 @@ class Command(BaseCommand):
         try:
             data = response.json()
         except ValueError:
-            logger.error("Non JSON response: %s", response.text)
+            logger.error("Non JSON response")
             return
         return data
 
@@ -212,15 +212,6 @@ class Command(BaseCommand):
 
                 is_large_establishment = ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"] in [g.name for g in groups]
                 is_hosting = ACTIVITY_GROUPS["HOSTING"] in [g.name for g in groups]
-
-                if erp:
-                    print("Editing access of ", erp.nom, erp.get_absolute_uri())
-                else:
-                    print(
-                        "Creating ",
-                        data_detail["nom"]["libelleFr"],
-                        data_detail["localisation"]["adresse"]["codePostal"],
-                    )
 
                 data = self._get_mapped_access_info(access_info, is_large_establishment, is_hosting)
 

@@ -134,6 +134,7 @@ class EtalabMapper(BaseExportMapper):
     labels_familles_handicap: Optional[Set[Literal["auditif", "mental", "moteur", "visuel"]]]
     registre_url: str
     conformite: bool
+    rpa: bool
     rnb_id: str
     web_url: str
     widget_code: str
@@ -162,6 +163,7 @@ class EtalabMapper(BaseExportMapper):
             site_internet=erp.site_internet,
             longitude=map_coords(erp.geom, 0),
             latitude=map_coords(erp.geom, 1),
+            rpa=erp.rpa,
             transport_station_presence=erp.accessibilite.transport_station_presence,
             transport_bureau_de_vote_accessibilite=erp.accessibilite.transport_bureau_de_vote_accessibilite,
             stationnement_presence=erp.accessibilite.stationnement_presence,

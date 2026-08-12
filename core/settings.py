@@ -141,7 +141,7 @@ INSTALLED_APPS = [
     "waffle",
     "reversion",
     "maintenance_mode",
-    "django_summernote",
+    "django_prose_editor",
 ]
 
 

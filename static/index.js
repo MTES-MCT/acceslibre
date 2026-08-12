@@ -26,6 +26,7 @@ dom.ready(() => {
   dom.mountOne('.contrib-container', ui.ContribPagination)
   dom.mountOne('.contrib-container', ui.FormContribEditNotification)
   dom.mountOne('#contrib-edit-form', ui.FormContribDirtyChecker)
+  dom.mountOne('.contrib-container', ui.RpaConfirmModal)
   dom.mountOne('#localisation-map', ui.LocalisationMap)
   dom.mountOne('#map-height-toggle-link', ui.MapExpander)
   dom.mountOne('.a4a-conditional-form', ui.ConditionalForm)
@@ -49,6 +50,7 @@ dom.ready(() => {
   dom.mountAll('*[data-focus-to]', ui.FocusTo)
   dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
   dom.mountAll('[data-notification]', ui.NotificationAlert)
+  dom.mountAll('.translate-field', ui.translateField)
 })
 
 ui.StoreFilters()

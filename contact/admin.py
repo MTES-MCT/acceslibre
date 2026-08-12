@@ -1,7 +1,5 @@
 from django.contrib import admin
-from django.db import models
 from django.utils.html import escape, format_html
-from django_summernote.widgets import SummernoteWidget
 from import_export.admin import ExportMixin
 from modeltranslation.admin import TranslationAdmin
 
@@ -54,7 +52,4 @@ class MessageAdmin(ExportMixin, admin.ModelAdmin):
 
 
 @admin.register(FAQ)
-class FAQAdmin(TranslationAdmin):
-    formfield_overrides = {
-        models.TextField: {"widget": SummernoteWidget},
-    }
+class FAQAdmin(TranslationAdmin): ...

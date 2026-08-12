@@ -3,13 +3,15 @@
     <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
         {% if prev_route %}
             <li>
-                <a class="fr-btn fr-btn--secondary fr-btn--icon-left"
+                <a id="contrib-prev-btn"
+                   class="fr-btn fr-btn--secondary fr-btn--icon-left"
                    href="{{ prev_route }}">{% translate "Précédent" %}</a>
             </li>
         {% endif %}
         {% if next_step_title %}
             <li>
-                <input type="submit"
+                <input id="contrib-next-btn"
+                       type="submit"
                        class="fr-btn btn-primary"
                        name="contribute"
                        value="{% if step == 1 %}{% translate "Passer à l’étape suivante" %} {% else %}{% blocktranslate with step=step|add:"1"%}Passer à l’étape {{ step }}{% endblocktranslate %}{% endif %}">

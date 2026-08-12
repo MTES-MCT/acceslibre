@@ -17,7 +17,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -464,10 +464,10 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if need_redirect:
         return redirect(erp.get_absolute_url())
 
-    # translate free texts if user is not displaying the page in french
+    need_translation = False
     current_language = get_language()
     if current_language != "fr":
-        erp.translate(current_language)
+        need_translation = True
 
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
 
@@ -539,6 +539,9 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "timestamps": timestamps,
             "history": history,
             "erp_can_have_image": can_have_image,
+            "erp_can_be_modified": erp.can_be_modified_by(request.user),
+            "need_translation": need_translation,
+            "api_key": _get_or_create_api_key(),
         },
     )
 
@@ -587,9 +590,18 @@ def widget_from_uuid(request, uuid):
     )
 
 
+@login_required
 def confirm_up_to_date(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, published=True)
     if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
+
+    if not erp.can_be_modified_by(request.user):
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate("Cette fiche vaut RPA et ne peut pas être mise à jour, veuillez contacter le support."),
+        )
         return redirect(erp.get_absolute_url())
 
     erp.confirm_up_to_date(request.user)
@@ -600,11 +612,11 @@ def confirm_up_to_date(request, erp_slug):
 @login_required
 def claim(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+
     if not request.method == "POST":
         return redirect(erp.get_absolute_url())
 
-    # NOTE: this is a safety check to prevent claiming RPA ERPs, this if block can be removed once related ticket implemented
-    if getattr(erp, "rpa", False):
+    if not erp.can_be_modified_by(request.user):
         messages.add_message(
             request,
             messages.ERROR,
@@ -851,6 +863,9 @@ def contrib_admin_infos(request):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     initial = {"lat": Decimal(erp.geom.y), "lon": Decimal(erp.geom.x)}
     is_erp_owner = erp.user_id == request.user.id
     is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
@@ -871,6 +886,7 @@ def contrib_edit_infos(request, erp_slug):
             erp = form.save(commit=False)
             activite = form.cleaned_data.get("activite")
             erp.activite = activite
+            erp.checked_up_to_date_at = datetime.datetime.now()
             erp.save(editor=request.user)
 
             if erp.has_miscellaneous_activity:
@@ -921,7 +937,13 @@ def contrib_edit_infos(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    initial = {"user_type": erp.user_type or Erp.USER_ROLE_PUBLIC}
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
+    initial = {
+        "user_type": erp.user_type or Erp.USER_ROLE_PUBLIC,
+        "rpa_exemption": erp.rpa_exemption,
+    }
     is_erp_owner = erp.user_id == request.user.id
     is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
 
@@ -937,6 +959,10 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
+
+            rpa_exemption = form.cleaned_data.get("rpa_exemption")
+            if rpa_exemption in ("True", "False"):
+                erp.rpa_exemption = rpa_exemption == "True"
 
             erp.save(editor=request.user)
             messages.add_message(
@@ -989,6 +1015,9 @@ def process_accessibilite_form(
         Erp.objects.select_related("accessibilite"),
         slug=erp_slug,
     )
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
 
     contrib_forms_list = get_contrib_forms_for_activity(erp.activite)
@@ -1062,6 +1091,9 @@ def process_accessibilite_form(
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     if erp.user_id == request.user.id:
         prev_route = "contrib_a_propos"
     else:
@@ -1174,6 +1206,8 @@ def contrib_commentaire(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
 
     referer = "/"
     if url_has_allowed_host_and_scheme(request.META.get("HTTP_REFERER") or "", allowed_hosts=settings.ALLOWED_HOSTS):
@@ -1236,6 +1270,9 @@ def contrib_publication(request, erp_slug):
 @login_required
 def contrib_completion_rate(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     return render(
         request,
         template_name="contrib/9-completion.html",

@@ -7,6 +7,7 @@ from reversion.models import Version
 from erp.models import Accessibilite, Erp
 from django.db.utils import IntegrityError
 from reversion.errors import RevertError
+from datetime import timedelta
 
 
 class Command(BaseCommand):
@@ -46,7 +47,7 @@ class Command(BaseCommand):
             if last_entry.revision.user != user:
                 continue
 
-            if erp.checked_up_to_date_at and last_entry.revision.date_created < erp.checked_up_to_date_at:
+            if last_entry.revision.date_created < erp.checked_up_to_date_at - timedelta(minutes=1):
                 continue
 
             version_to_revert_to = None

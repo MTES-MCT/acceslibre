@@ -1,10 +1,9 @@
 import json
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 import reversion
 from autoslug import AutoSlugField
-from deepl import QuotaExceededException
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.gis.db import models
@@ -29,7 +28,6 @@ from compte.service import increment_nb_erp_administrator, increment_nb_erp_crea
 from core.lib import diff as diffutils
 from core.lib import geo
 from erp import managers, schema
-from erp.provider import deepl as deepl_provider
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
@@ -666,7 +664,13 @@ class Erp(models.Model):
         verbose_name=translate_lazy("identifiant BAN"),
         help_text=translate_lazy("Identifiant de la BAN"),
     )
-
+    rpa_exemption = models.BooleanField(
+        default=None,
+        verbose_name=translate_lazy("Présence d'une dérogation"),
+        help_text=translate_lazy("Présence d'une dérogation"),
+        null=True,
+        blank=True,
+    )
     # Metadata
     # Notes:
     # - DO NOT store Python datetimes or attempt to pass some; JSON doesn't
@@ -683,7 +687,7 @@ class Erp(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=translate_lazy("Dernière modification"))
     checked_up_to_date_at = models.DateTimeField(
-        null=True, blank=True, verbose_name=translate_lazy("Dernière vérification des informations")
+        auto_now_add=True, null=True, blank=True, verbose_name=translate_lazy("Dernière vérification des informations")
     )
     check_closed_at = models.DateTimeField(
         null=True, blank=True, verbose_name=translate_lazy("Dernière vérification de clôture")
@@ -721,6 +725,22 @@ class Erp(models.Model):
         self.__original_activite_id = self.activite_id
         self.__original_user_id = self.user_id
         self.__original_user_type = self.user_type
+
+    @property
+    def rpa(self):
+        a_year_ago = datetime.now(timezone.utc) - timedelta(days=365)
+        return bool(
+            self.user_type == self.USER_ROLE_GESTIONNAIRE
+            and self.checked_up_to_date_at
+            and self.checked_up_to_date_at >= a_year_ago
+            and (hasattr(self, "accessibilite") and self.accessibilite.completion_rate == 100)
+            and self.rpa_exemption is not None
+        )
+
+    def can_be_modified_by(self, user=None):
+        if self.rpa:
+            return user is not None and self.user == user
+        return True
 
     def get_activite_vector_icon(self):
         default = "building"
@@ -1002,20 +1022,6 @@ class Erp(models.Model):
                 )
         self.search_vector = search_vector
         super().save(*args, **kwargs)
-
-    def translate(self, target_lang: str):
-        if target_lang == settings.LANGUAGE_CODE or not self.has_accessibilite():
-            return self
-
-        access = self.accessibilite
-        fields_to_translate = schema.get_free_text_fields()
-        for field_to_translate in fields_to_translate:
-            if field_value := getattr(access, field_to_translate, None):
-                try:
-                    setattr(self.accessibilite, field_to_translate, deepl_provider.translate(field_value, target_lang))
-                except QuotaExceededException:
-                    return self  # We won't be able to translate anymore, keep it in french
-        return self
 
     @property
     def widget_code(self):

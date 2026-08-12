@@ -9,6 +9,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext as translate
+from django_prose_editor.fields import ProseEditorField
 
 from stats.queries import get_challenge_scores
 
@@ -20,9 +21,46 @@ class Challenge(models.Model):
         settings.AUTH_USER_MODEL, verbose_name=translate("Créateur"), on_delete=models.PROTECT
     )
     nom = models.CharField(max_length=255, help_text=translate("Nom du challenge"))
-    accroche = models.TextField(null=True, blank=True)
-    text_reserve = models.TextField(null=True, blank=True)
-    objectif = models.TextField(null=True, blank=True, verbose_name=translate("Règles du jeu"))
+    accroche = ProseEditorField(
+        extensions={
+            "Bold": True,
+            "Italic": True,
+            "BulletList": True,
+            "OrderedList": True,
+            "ListItem": True,
+            "Link": True,
+            "Heading": {"levels": [2, 3]},
+        },
+        sanitize=True,
+        blank=True,
+    )
+    text_reserve = ProseEditorField(
+        extensions={
+            "Bold": True,
+            "Italic": True,
+            "BulletList": True,
+            "OrderedList": True,
+            "ListItem": True,
+            "Link": True,
+            "Heading": {"levels": [2, 3]},
+        },
+        sanitize=True,
+        blank=True,
+    )
+    objectif = ProseEditorField(
+        extensions={
+            "Bold": True,
+            "Italic": True,
+            "BulletList": True,
+            "OrderedList": True,
+            "ListItem": True,
+            "Link": True,
+            "Heading": {"levels": [2, 3]},
+        },
+        sanitize=True,
+        blank=True,
+        verbose_name=translate("Règles du jeu"),
+    )
     slug = AutoSlugField(
         default="",
         unique=True,

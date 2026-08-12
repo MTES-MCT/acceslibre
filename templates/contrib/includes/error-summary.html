@@ -7,7 +7,7 @@
                     {% if field.id_for_label %}
                         <a href="#{{ field.id_for_label }}"><span class="fr-text--bold">{{ field.label }} :</span> {{ error }}</a>
                     {% else %}
-                        <span class="fr-text--bold">{{ field.label }} :</span> {{ error }}
+                        <a href="#{{ field.auto_id }}_0"><span class="fr-text--bold">{{ field.label }} :</span> {{ error }}</a>
                     {% endif %}
                 </li>
             {% endfor %}

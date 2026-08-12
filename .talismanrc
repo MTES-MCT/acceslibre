@@ -18,7 +18,7 @@ fileignoreconfig:
 - filename: templates/contrib/6-accueil.html
   checksum: 6a2b50478a202eb35bf49d50ff156110eeed68287d545626753b7343bd3e3074
 - filename: templates/contrib/2-a-propos.html
-  checksum: cbe31d7c91de1aa0d540bc4f5a6af915d6af655886bb39a7b96a627f4c6a1258
+  checksum: 674d89a3766a1df233648b7de14a5116de651bfea5b4db7f4f9f05f95629a32a
 - filename: templates/contrib/0-start.html
   checksum: 48b03ff89169260f34f59c6ce3f07e219d13ebfb7c11ee3dbbf319ea70d4063f
 - filename: templates/contrib/0a-search_results.html
@@ -45,8 +45,6 @@ fileignoreconfig:
   checksum: 4c01a1891864eae040978879ea04505f747c7d713a987b3f02d2dc8d69744224
 - filename: static/js/geo.js
   checksum: dcc39d5ea623fc51731b6e3c03bd2b8956ce82708e2997470f7d58dc6fee5ca5
-- filename: erp/views.py
-  checksum: 364eb07d9012d724ca628f680b8c4be693822e9df357caadd4cb77de32c165ad
 - filename: core/paginator.py
   checksum: 91a88eb39bf3d1643b98a86bb9bb7e3ee50680826a89e38e6cfc40a764cc3d74
 - filename: stats/middleware.py
@@ -57,8 +55,6 @@ fileignoreconfig:
   checksum: 3d899b94bc836e0f97b282d569ca27b513be6df54cf718e96a944a99b634444d
 - filename: .env.sample
   checksum: aa3f02c8f5d30f989986f9eafaca8bc57d99d09361b9fa9c2158638bcc263f15
-- filename: core/settings.py
-  checksum: c9a7604687c73a1344d6ec4d5979a521981fd11f0ae35cb6351787d824c1c55f
 - filename: erp/management/commands/import_apidae.py
   checksum: 0bf117b99f9b76db4824cfe5aec647f455eaeb4e57c96425b90e6c580302a972
 - filename: .github/workflows/lint.yml
@@ -85,3 +81,15 @@ fileignoreconfig:
   checksum: c4d847121eeb12749aa6464d3309db8581d912fe92501e7772894fe760f3918a
 - filename: contact/fixtures/faq.json
   checksum: a8a8b9995ec75f221f3df26b98a26baadfe9e9ad31a4894da28031b8442ad631
+- filename: templates/erp/includes/access_comment.html
+  checksum: 576568eccdd37832621c63314dcb04d9b6e488c0bd8d41c7e6d19ff9651da14e
+- filename: templates/erp/includes/access_entrance.html
+  checksum: 45d9db88255122a8b615593975827539938a66bd857efa0a4c67ccea08be57f3
+- filename: templates/erp/includes/access_parking.html
+  checksum: 91b2e04f98394999445291fb4ae3a5af4e83354d1f66b44120287f76a2a838d3
+- filename: static/js/ui/TranslateField.js
+  checksum: 253aa05b83f0695dec90299bb58538e736bbce3e0200385c63b6dbc3c5294a75
+- filename: erp/views.py
+  checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
+- filename: core/settings.py
+  checksum: 541b4298f5183e65805309ef55140f6b1da02f62a1fbf196fba3cc8d7c5dab58

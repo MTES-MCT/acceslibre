@@ -1,0 +1,36 @@
+{% load i18n %}
+{# Hidden opener so JS can disclose the modal via a DSFR-controlled button #}
+<button id="rpa-confirm-modal-open-btn"
+        class="fr-btn hidden"
+        type="button"
+        aria-controls="rpa-confirm-modal"
+        data-fr-opened="false"></button>
+<dialog id="rpa-confirm-modal"
+        class="fr-modal"
+        data-erp-id="{{ erp.pk }}"
+        aria-label="{% translate "Registre public d'accessibilité" %}"
+        aria-modal="true">
+    <div class="fr-container fr-container--fluid fr-container-md">
+        <div class="fr-grid-row fr-grid-row--center">
+            <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                <div class="fr-modal__body">
+                    <div class="fr-modal__header">
+                        <button class="fr-btn--close fr-btn"
+                                title="{% translate "Fermer la fenêtre modale" %}"
+                                aria-controls="rpa-confirm-modal">{% translate "Fermer" %}</button>
+                    </div>
+                    <div class="fr-modal__content">
+                        {% include "erp/includes/rpa_modal.html" %}
+                    </div>
+                    <div class="fr-modal__footer">
+                        <div class="fr-btns-group fr-btns-group--right fr-btns-group--inline-lg">
+                            <button id="rpa-confirm-modal-confirm-btn" class="fr-btn" type="button">
+                                {% translate "J'ai compris et je confirme" %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>

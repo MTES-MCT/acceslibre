@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-05 16:26+0200\n"
+"POT-Creation-Date: 2026-07-03 10:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Je représente la fonction publique"
 msgstr ""
 
-msgid "Adresse URL"
+msgid "Registre d'accessibilité"
 msgstr ""
 
 msgid "Conformité"
@@ -2519,7 +2519,7 @@ msgid "Informations supplémentaires concernant l'accessibilité du bâtiment ou
 msgstr ""
 
 #, python-brace-format
-msgid "La création d'une fiche complète dans Acceslibre permet de remplir l'obligation de <a href=\"{registre_url}\" target=\"_blank\" title=\"registre public d'acessibilité - nouvelle fenêtre\">registre public d'accessibilité</a>. Le cas échéant, adresse URL où je peux trouver d'autres pièces relatives aux registres d'accessibilité."
+msgid "Si l'établissement en dispose, adresse internet (URL) à laquelle le <a href=\"{registre_url}\" target=\"_blank\">registre d'accessibilité</a> de l'établissement est consultable."
 msgstr ""
 
 msgid "Adresse internet à laquelle le registre est consultable"
@@ -3608,9 +3608,6 @@ msgstr ""
 msgid "Ce champ ne peut être modifié que par le contributeur principal de cet établissement."
 msgstr ""
 
-msgid "Registre public d’accessibilité"
-msgstr ""
-
 msgid "Venir dans l'établissement"
 msgstr ""
 
@@ -4295,6 +4292,9 @@ msgid "Fermer le menu de navigation"
 msgstr ""
 
 msgid "Menu principal"
+msgstr ""
+
+msgid "Registre public d’accessibilité"
 msgstr ""
 
 msgid "Sélectionner une langue"
@@ -5263,32 +5263,13 @@ msgstr ""
 msgid "Vous êtes désormais identifié comme le gestionnaire de l'établissement."
 msgstr ""
 
-msgid "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, vous devez répondre à la question sur la présence ou non d'une dérogation (étape 2)."
+msgid "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement."
 msgstr ""
 
-msgid "Aller à l'étape 2"
-msgstr ""
-
-msgid "En tant que gestionnaire, vous déclarez vos informations dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation."
-msgstr ""
-
-msgid "Pour être conforme au RPA, votre fiche doit :"
-msgstr ""
-
-#, python-format
-msgid "avoir des informations complètes (taux de remplissage de 100%%)"
-msgstr ""
-
-msgid "dater de moins d'un an."
-msgstr ""
-
-msgid "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction."
+msgid "Si votre fiche est conforme au registre public d’accessibilité (logo RPA : conforme en haut de fiche), vous seul pouvez effectuer des modification sur votre fiche."
 msgstr ""
 
 msgid "Compléter les informations de l'établissement"
-msgstr ""
-
-msgid "En tant que gestionnaire, vous êtes automatiquement abonné à votre fiche. Vous serez ainsi averti si un autre utilisateur modifie les informations de votre établissement."
 msgstr ""
 
 msgid "Hébergement"
@@ -5453,13 +5434,13 @@ msgstr ""
 msgid "Administrer cette fiche"
 msgstr ""
 
+msgid "Confirmez vous être le gestionnaire de cet établissement ?"
+msgstr ""
+
 msgid "Non, je ne suis pas le gestionnaire"
 msgstr ""
 
 msgid "Oui, je suis le gestionnaire"
-msgstr ""
-
-msgid "Confirmez vous être le gestionnaire de cet établissement ?"
 msgstr ""
 
 msgid "Filtrer par type de handicap :"
@@ -5566,6 +5547,13 @@ msgid "Les informations sont déclarées dans le cadre du Registre Public d'Acce
 msgstr ""
 
 msgid "Pour être conforme au RPA, ma fiche doit :"
+msgstr ""
+
+#, python-format
+msgid "avoir des informations complètes (taux de remplissage de 100%%)"
+msgstr ""
+
+msgid "dater de moins d'un an."
 msgstr ""
 
 msgid "Pour rappel, toute fausse déclaration administrative constitue une infraction pénale passible de sanction"

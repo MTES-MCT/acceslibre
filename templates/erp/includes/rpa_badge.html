@@ -1,10 +1,10 @@
 {% load a4a %}
 {% load i18n %}
-<div class="fr-col fr-p-2w {% if access.conformite %}rpa-block--success{% else %}rpa-block--warning{% endif %}">
+<div class="fr-col fr-p-2w {% if erp.rpa %}rpa-block--success{% else %}rpa-block--warning{% endif %}">
     <section>
         {% translate "Registre Public d'Accessibilité (RPA) :" %}
-        <div class="fr-badge {% if access.conformite %} fr-badge--success {% else %} fr-badge--warning {% endif %} fr-mb-2w fr-mt-1v">
-            {% if access.conformite %}
+        <div class="fr-badge {% if erp.rpa %} fr-badge--success {% else %} fr-badge--warning {% endif %} fr-mb-2w fr-mt-1v">
+            {% if erp.rpa %}
                 {% translate "conforme" %}
             {% else %}
                 {% translate "non conforme" %}

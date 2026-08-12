@@ -312,6 +312,7 @@ class ErpAdmin(
                     "user_type",
                     "published",
                     "permanently_closed",
+                    "rpa_exemption",
                 ]
             },
         ),

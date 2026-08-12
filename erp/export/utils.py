@@ -30,6 +30,8 @@ def map_erps_to_json_schema(
 
 
 def map_value_from_schema(schema_enum, data):
+    if data in ("", None):
+        return None
     return schema_enum[[y[0] for y in schema_enum].index(data)][0]
 
 

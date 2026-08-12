@@ -10,6 +10,7 @@ from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
 from erp.models import Erp
+from datetime import datetime
 
 
 class Command(BaseCommand):
@@ -79,6 +80,7 @@ class Command(BaseCommand):
         print_success("\t * Importation de l'ERP")
         try:
             with reversion.create_revision():
+                erp.checked_up_to_date_at = datetime.now()
                 new_erp = erp.save()
                 print_success(f"\t    -> {new_erp.get_absolute_uri()}")
                 reversion.set_comment("Created via import")

@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytest
 from django.contrib.contenttypes.models import ContentType
 from django.core.management import call_command
@@ -22,7 +24,9 @@ def test_will_delete_users_erp():
 
 @pytest.mark.django_db
 def test_will_not_delete_users_erp_with_confirmation_date():
-    erp = ErpFactory(with_accessibility=True, checked_up_to_date_at=timezone.now())
+    erp = ErpFactory(with_accessibility=True)
+    erp.checked_up_to_date_at = timezone.now() + timedelta(hours=1)
+    erp.save()
     assert Erp.objects.count() == 1
 
     call_command("delete_users_erps", erp.user, write=True)

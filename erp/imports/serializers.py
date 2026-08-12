@@ -5,6 +5,7 @@ from django.forms.models import model_to_dict
 from rest_framework import serializers
 
 from api.serializers import ExternalSourceSerializer
+from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp, ExternalSource
 from erp.provider import geocoder, sirene
@@ -371,3 +372,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
         for source_data in sources_data:
             ExternalSource.objects.filter(erp=erp, source=source_data["source"]).delete()
             ExternalSource.objects.create(erp_id=erp.pk, **source_data)
+
+
+class TranslateSerializer(serializers.Serializer):
+    field = serializers.ChoiceField(choices=schema.get_free_text_fields())
+    target_lang = serializers.CharField(max_length=5)

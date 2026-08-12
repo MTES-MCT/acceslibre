@@ -6,7 +6,7 @@ requires-python = "==3.14.*"
 
 dependencies = [
     "coreapi",
-    "Django==6.0.5",
+    "Django==6.0.7",
     "django-admin-autocomplete-filter",
     "django-admin-list-filter-dropdown",
     "django-autoslug",
@@ -16,7 +16,7 @@ dependencies = [
     "django-import-export",
     "django-logentry-admin",
     "django-registration",
-    "django-reversion==6.2.0",
+    "django-reversion==6.3.0",
     "djangorestframework",
     "djangorestframework-gis",
     "django-waffle",
@@ -60,11 +60,11 @@ dependencies = [
     "colorama",
     "boto3==1.35.99",
     "magic-profanity",
-    "django-summernote",
     "pre-commit>=4.5.1",
     "djangorestframework-xml>=2.0.0",
-    "weasyprint>=68.1",
+    "weasyprint>=69.0",
     "qrcode[pil]>=8.2",
+    "django-prose-editor[sanitize]>=0.26.0",
 ]
 
 [dependency-groups]
@@ -75,7 +75,7 @@ dev = [
     "pytest-mock",
     "splinter[django]",
     "pytest-circleci-parallelized",
-    "django-debug-toolbar==6.3.0",
+    "django-debug-toolbar==7.0.0",
     "pytest-xdist",
     "django-rosetta",
     "djlint",
@@ -89,7 +89,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=83.0.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.uv]

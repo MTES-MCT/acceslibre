@@ -13,6 +13,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from magic_profanity import ProfanityFilter
+from waffle import switch_is_active
 
 from compte.models import UserStats
 from erp import schema
@@ -510,7 +511,16 @@ class AdminErpForm(BaseErpForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(
         label=translate_lazy("Latitude"),
-        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_latitude", "inPputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "latitude-error-message"}),
+        widget=forms.TextInput(
+            attrs={
+                "class": "fr-input",
+                "id": "id_latitude",
+                "inputmode": "decimal",
+                "autocomplete": "off",
+                "pattern": "-?[0-9]+([.,][0-9]+)?",
+                "aria-describedby": "latitude-error-message",
+            }
+        ),
         error_messages={
             "required": translate_lazy("Latitude obligatoire"),
             "invalid": translate_lazy("La latitude saisie ne respecte pas le format attendu."),
@@ -518,7 +528,16 @@ class BasePublicErpInfosForm(BaseErpForm):
     )
     lon = forms.DecimalField(
         label=translate_lazy("Longitude"),
-        widget=forms.TextInput(attrs={"class": "fr-input", "id": "id_longitude",  "inputmode": "decimal", "autocomplete": "off", "pattern": "-?[0-9]+([.,][0-9]+)?", "aria-describedby": "longitude-error-message"}),
+        widget=forms.TextInput(
+            attrs={
+                "class": "fr-input",
+                "id": "id_longitude",
+                "inputmode": "decimal",
+                "autocomplete": "off",
+                "pattern": "-?[0-9]+([.,][0-9]+)?",
+                "aria-describedby": "longitude-error-message",
+            }
+        ),
         error_messages={
             "required": translate_lazy("Longitude obligatoire"),
             "invalid": translate_lazy("La longitude saisie ne respecte pas le format attendu."),
@@ -840,7 +859,7 @@ class PublicAProposForm(forms.ModelForm):
     )
 
     registre_url = forms.URLField(
-        label=translate_lazy("Registre d'accessibilité"),
+        label=translate_lazy("Adresse URL"),
         help_text=schema.get_help_text("registre_url"),
         widget=forms.TextInput(attrs={"type": "url", "autocomplete": "off"}),
         required=False,
@@ -852,6 +871,37 @@ class PublicAProposForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=False,
     )
+    rpa_exemption = forms.ChoiceField(
+        label=translate_lazy(
+            "L’établissement fait-il l’objet d’une dérogation aux règles d’accessibilité prévues à "
+            "l’article R164-3 du code de la construction et de l’habitation ?"
+        ),
+        choices=schema.BOOLEAN_CHOICES,
+        widget=forms.RadioSelect(attrs={"class": "inline", "aria-describedby": "rpa_exemption-error"}),
+        required=False,
+        error_messages={
+            "required": translate_lazy(
+                "Vous n’avez pas répondu à une question dont la réponse est requise. "
+                "Votre réponse est modifiable à tout instant."
+            )
+        },
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not switch_is_active("RPA"):
+            self.fields.pop("rpa_exemption", None)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if "rpa_exemption" in self.fields:
+            is_manager = cleaned_data.get("user_type") == Erp.USER_ROLE_GESTIONNAIRE
+            if is_manager and not cleaned_data.get("rpa_exemption"):
+                self.add_error(
+                    "rpa_exemption",
+                    self.fields["rpa_exemption"].error_messages["required"],
+                )
+        return cleaned_data
 
 
 class PublicPublicationForm(forms.ModelForm):
@@ -870,6 +920,7 @@ class PublicPublicationForm(forms.ModelForm):
 
 FORM_FIELDS = {
     "user_type": {"label": PublicAProposForm.declared_fields["user_type"].label},
+    "rpa_exemption": {"label": PublicAProposForm.declared_fields["rpa_exemption"].label},
 }
 
 

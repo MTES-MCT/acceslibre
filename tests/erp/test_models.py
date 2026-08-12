@@ -1,4 +1,5 @@
 from contextlib import nullcontext as does_not_raise
+from datetime import datetime, timedelta, timezone
 
 import pytest
 import reversion
@@ -1309,6 +1310,20 @@ class TestErp:
         erp = ErpFactory(commune_ext=commune)
         assert "2b-calenzana" in erp.get_absolute_url()
 
+    def test_rpa(self):
+        erp = ErpFactory(
+            user_type=Erp.USER_ROLE_GESTIONNAIRE,
+            checked_up_to_date_at=datetime.now(timezone.utc),
+            rpa_exemption=True,
+            with_accessibility=True,
+        )
+        assert erp.rpa is False
+
+        erp.accessibilite.completion_rate = 100
+        erp.accessibilite.save()
+
+        assert erp.rpa is True
+
 
 @pytest.mark.django_db
 class TestActivitySuggestion:
@@ -1486,3 +1501,100 @@ def test_get_outside_steps_direction_text():
     access.cheminement_ext_nombre_marches = 0
     access.save()
     assert access.get_outside_steps_direction_text() == "montantes"
+
+
+@pytest.mark.django_db
+class TestRpaProperty:
+    def make_instance(
+        self,
+        user_type=None,
+        checked_up_to_date_at=None,
+        completion_rate=100,
+        rpa_exemption=True,
+    ):
+        obj = ErpFactory(with_accessibility=True)
+        obj.user_type = user_type or Erp.USER_ROLE_GESTIONNAIRE
+        obj.checked_up_to_date_at = checked_up_to_date_at
+        obj.accessibilite.completion_rate = completion_rate
+        obj.rpa_exemption = rpa_exemption
+
+        return obj
+
+    def test_rpa_true_when_all_conditions_met(self):
+        recent_date = datetime.now(timezone.utc) - timedelta(days=100)
+        obj = self.make_instance(checked_up_to_date_at=recent_date)
+        assert obj.rpa is True
+
+    def test_rpa_false_when_wrong_user_type(self):
+        recent_date = datetime.now(timezone.utc) - timedelta(days=100)
+        obj = self.make_instance(user_type=Erp.USER_ROLE_ADMIN, checked_up_to_date_at=recent_date)
+        assert obj.rpa is False
+
+    def test_rpa_false_when_checked_up_to_date_at_is_none(self):
+        obj = self.make_instance(checked_up_to_date_at=None)
+        assert obj.rpa is False
+
+    def test_rpa_false_when_checked_up_to_date_at_older_than_one_year(self):
+        old_date = datetime.now(timezone.utc) - timedelta(days=366)
+        obj = self.make_instance(checked_up_to_date_at=old_date)
+        assert obj.rpa is False
+
+    def test_rpa_false_when_completion_rate_not_100(self):
+        recent_date = datetime.now(timezone.utc) - timedelta(days=100)
+        obj = self.make_instance(checked_up_to_date_at=recent_date, completion_rate=99)
+        assert obj.rpa is False
+
+    def test_rpa_false_when_rpa_exemption_is_none(self):
+        recent_date = datetime.now(timezone.utc) - timedelta(days=100)
+        obj = self.make_instance(checked_up_to_date_at=recent_date, rpa_exemption=None)
+        assert obj.rpa is False
+
+    def test_rpa_false_when_checked_up_to_date_at_just_over_one_year(self):
+        just_over = datetime.now(timezone.utc) - timedelta(days=365, seconds=1)
+        obj = self.make_instance(checked_up_to_date_at=just_over)
+        assert obj.rpa is False
+
+
+@pytest.mark.django_db
+class TestCanBeModifiedByProperty:
+    def make_erp_rpa(self):
+        erp_rpa = ErpFactory(with_accessibility=True)
+        erp_rpa.accessibilite.completion_rate = 100
+        erp_rpa.rpa_exemption = True
+        erp_rpa.checked_up_to_date_at = datetime.now(timezone.utc)
+        erp_rpa.user_type = Erp.USER_ROLE_GESTIONNAIRE
+        erp_rpa.user = UserFactory()
+        erp_rpa.save()
+        assert erp_rpa.rpa is True
+        return erp_rpa
+
+    def make_erp_non_rpa(self):
+        erp_non_rpa = ErpFactory(with_accessibility=False)
+        erp_non_rpa.checked_up_to_date_at = datetime.now(timezone.utc) - timedelta(days=370)
+        erp_non_rpa.user_type = Erp.USER_ROLE_PUBLIC
+        erp_non_rpa.user = UserFactory()
+        erp_non_rpa.save()
+        assert erp_non_rpa.rpa is False
+        return erp_non_rpa
+
+    def test_no_user_rpa_false_returns_true(self):
+        erp_non_rpa = self.make_erp_non_rpa()
+        assert erp_non_rpa.can_be_modified_by() is True
+
+    def test_no_user_rpa_true_returns_false(self):
+        erp_rpa = self.make_erp_rpa()
+        assert erp_rpa.can_be_modified_by() is False
+
+    def test_with_user_rpa_true_same_user_returns_true(self):
+        erp_rpa = self.make_erp_rpa()
+        assert erp_rpa.can_be_modified_by(erp_rpa.user) is True
+
+    def test_with_user_rpa_true_different_user_returns_none(self):
+        other = UserFactory()
+        erp_rpa = self.make_erp_rpa()
+        assert erp_rpa.can_be_modified_by(other) is False
+
+    def test_with_user_rpa_false_returns_none(self):
+        user = UserFactory()
+        erp_non_rpa = self.make_erp_non_rpa()
+        assert erp_non_rpa.can_be_modified_by(user) is True

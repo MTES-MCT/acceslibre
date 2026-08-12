@@ -44,8 +44,14 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% if field.errors %}
+                    <div class="fr-messages-group"
+                         id="{{ field.name }}-error"
+                         aria-live="polite">
+                        {% for error in field.errors %}<p class="fr-message fr-message--error" role="alert">{{ error }}</p>{% endfor %}
+                    </div>
+                {% endif %}
             </fieldset>
-            {% for error in field.errors %}<div class="form-text text-danger" role="alert">{{ error }}</div>{% endfor %}
         </div>
     </div>
 {% endif %}

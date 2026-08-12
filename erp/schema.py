@@ -1,5 +1,6 @@
 from django.apps import apps
 from django.utils.safestring import mark_safe
+from django.utils.text import format_lazy
 from django.utils.translation import gettext_lazy as translate_lazy
 
 from core.lib import text
@@ -269,7 +270,7 @@ ESCALIER_SENS = [
     (None, UNKNOWN),
 ]
 
-REGISTRE_INFO_URL = "https://www.ecologie.gouv.fr/politiques-publiques/laccessibilite-etablissements-recevant-du-public-erp#le-registre-public-daccessibilite-6"
+REGISTRE_INFO_URL = "/registre-public-accessibilite"
 
 PARTNER_LABELS = {
     "TOURISM_AND_LEISURE": translate_lazy("Tourisme & loisirs"),
@@ -2815,10 +2816,11 @@ FIELDS = {
         "is_a11y": False,
         "label": translate_lazy("Registre"),
         "help_text": mark_safe(
-            translate_lazy(
-                'Si l\'établissement en dispose, adresse internet (URL) à laquelle le <a href="{registre_url}" target="_blank">registre d\'accessibilité</a> de l\'établissement est consultable.'.format(
-                    registre_url=REGISTRE_INFO_URL
-                )
+            format_lazy(
+                translate_lazy(
+                    "La création d'une fiche complète dans Acceslibre permet de remplir l'obligation de <a href=\"{registre_url}\" target=\"_blank\" title=\"registre public d'acessibilité - nouvelle fenêtre\">registre public d'accessibilité</a>. Le cas échéant, adresse URL où je peux trouver d'autres pièces relatives aux registres d'accessibilité."
+                ),
+                registre_url=REGISTRE_INFO_URL,
             )
         ),
         "help_text_ui": translate_lazy("Adresse internet à laquelle le registre est consultable"),
@@ -2827,7 +2829,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is None,
         "free_text": False,
-        "example": f"{REGISTRE_INFO_URL}",
+        "example": "http://acceslibre.beta.gouv.fr/registre-public-accessibilite",
     },
     # Conformité
     "conformite": {

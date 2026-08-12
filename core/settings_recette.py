@@ -15,7 +15,11 @@ if SENTRY_DSN is not None:
 
     sentry_sdk.init(
         dsn=SENTRY_DSN,
-        integrations=[DjangoIntegration()],
+        integrations=[
+            DjangoIntegration(
+                cache_spans=True,
+            ),
+        ],
         traces_sample_rate=0.1,
         send_default_pii=True,
         environment="one-off-recette" if IS_ONE_OFF_CONTAINER else "recette",
