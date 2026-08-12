@@ -22,6 +22,7 @@ def test_init(mapper):
     assert mapper({}).process() == (None, [], None)
 
 
+@pytest.mark.usefixtures("service_public_valid")
 def test_save_non_existing_erp(mapper, service_public_valid):  # noqa
     CommuneFactory(nom="Fontaine-le-Port")
     ActiviteFactory(nom="Mairie", slug="mairie")
@@ -60,15 +61,17 @@ def test_update_existing_erp(mapper, service_public_valid):  # noqa
     ActiviteFactory(nom="Mairie", slug="mairie")
 
     existing_erp = ErpFactory(
-        source=ExternalSource.SOURCE_SERVICE_PUBLIC, source_id="00007e4d-264c-43a0-b0b7-7f3b7dd995ab"
+        source=ExternalSource.SOURCE_SERVICE_PUBLIC,
+        source_id="00007e4d-264c-43a0-b0b7-7f3b7dd995ab",
     )
-    AccessibiliteFactory(erp=existing_erp, entree_plain_pied=True, entree_aide_humaine=False)
+    AccessibiliteFactory(erp=existing_erp, entree_aide_humaine=False, transport_station_presence=False)
     erp, sources, _ = mapper(service_public_valid, today=datetime(2021, 1, 1)).process()
 
     assert erp.pk == existing_erp.pk
-    assert erp.accessibilite.entree_plain_pied is False
-    assert erp.accessibilite.entree_marches_rampe == "amovible"
-    assert erp.accessibilite.entree_aide_humaine is True
+    assert erp.accessibilite.entree_plain_pied is False, "should insert SP info"
+    assert erp.accessibilite.entree_marches_rampe == "amovible", "should insert SP info"
+    assert erp.accessibilite.entree_aide_humaine is False, "should not override existing info"
+    assert erp.accessibilite.transport_station_presence is False, "should keep extra info"
 
     assert len(sources) == 1
     assert sources[0].source == ExternalSource.SOURCE_SERVICE_PUBLIC

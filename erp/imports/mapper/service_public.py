@@ -315,7 +315,7 @@ class ServicePublicMapper:
                 data["accessibilite"]["entree_marches_rampe"] = "amovible"
                 data["accessibilite"]["entree_aide_humaine"] = True
 
-        serializer = ErpImportSerializer(instance=erp, data=data)
+        serializer = ErpImportSerializer(instance=erp, data=data, context={"enrich_only": True})
         try:
             serializer.is_valid(raise_exception=True)
         except Exception as e:
