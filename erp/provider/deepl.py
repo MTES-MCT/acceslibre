@@ -8,7 +8,6 @@ deepl.http_client.max_network_retries = 0
 
 
 def translate(text: str, target_lang):
-    return text
     if target_lang not in settings.DEEPL_MAPPING:
         return None
 
