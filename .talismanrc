@@ -92,4 +92,10 @@ fileignoreconfig:
 - filename: erp/views.py
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
 - filename: core/settings.py
-  checksum: 541b4298f5183e65805309ef55140f6b1da02f62a1fbf196fba3cc8d7c5dab58
+  checksum: 5b877f0366b6999d9200abdd9d1dfef8b4ab2d52dfab15f38fdaf9e108444c3f
+- filename: erp/export/s3.py
+  checksum: 539ee1e4bf3f743d0e0d6c3702172983cded46e2e8f56ad08d7f70e8c55933aa
+- filename: erp/management/commands/export_to_datagouv.py
+  checksum: 09ae1a05fb36a0fadf305ca8056da7ec858d5e748c11aab83789ebab6fc04cd8
+- filename: tests/erp/test_export.py
+  checksum: 6440b8f6fb2589c50ef89a10edd748aa3cf4fa013dedfc5a0fe8f36b385517f6
