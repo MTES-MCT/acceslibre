@@ -36,33 +36,35 @@
                     <a href="."
                        id="tabpanel-all-erps"
                        class="fr-tabs__tab"
-                       tabindex="0"
+                       tabindex="{% if not filter_published and not filter_filled %}0{% else %}-1{% endif %}"
                        role="tab"
                        aria-controls="tabpanel-all-erps-controls"
-                       {% if not filter_published and not filter_filled %}aria-selected="true"{% endif %}>{% translate "Tous" %}
-                    ({{ erp_total_count }})</a>
+                       {% if not filter_published and not filter_filled %}aria-selected="true"{% endif %}>
+                        {% translate "Tous" %} ({{ erp_total_count }})
+                    </a>
                 </li>
                 <li role="presentation">
                     <a href="./?published=1"
                        id="tabpanel-published-erps"
-                       tabindex="0"
                        role="tab"
                        aria-controls="tabpanel-published-erps-controls"
                        class="fr-tabs__tab {% if erp_published_count == 0 %}disabled{% endif %}"
+                       tabindex="{% if erp_published_count == 0 %}-1{% elif filter_published == '1' %}0{% else %}-1{% endif %}"
                        {% if filter_published == '1' %}aria-selected="true"{% endif %}
-                       {% if erp_published_count == 0 %}tabindex="-1" aria-disabled="true"{% endif %}>
+                       {% if erp_published_count == 0 %}aria-disabled="true"{% endif %}>
                         {% translate "Publiés" %} ({{ erp_published_count }})
                     </a>
                 </li>
                 <li role="presentation">
                     <a id="tabpanel-unpublished-erps"
-                       tabindex="0"
                        href="./?published=0"
                        class="fr-tabs__tab"
                        role="tab"
                        aria-controls="tabpanel-unpublished-erps-controls"
+                       tabindex="{% if filter_published == '0' %}0{% else %}-1{% endif %}"
                        {% if filter_published == '0' %}aria-selected="true"{% endif %}>
-                    {% translate "Non-publiés" %} ({{ erp_non_published_count }})</a>
+                        {% translate "Non-publiés" %} ({{ erp_non_published_count }})
+                    </a>
                 </li>
             </ul>
             <div id="tabpanel-all-erps-controls"
