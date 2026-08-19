@@ -1,2 +1,7 @@
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  lmdb: false
+  msgpackr-extract: false
 publicHoistPattern:
   - '@photo-sphere-viewer/*'
