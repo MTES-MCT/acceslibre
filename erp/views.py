@@ -1046,9 +1046,10 @@ def process_accessibilite_form(
         accessibilite.erp = erp
         accessibilite.save()
 
+        accessibilite.erp.checked_up_to_date_at = datetime.datetime.now()
         if accessibilite.erp.user is None:
             accessibilite.erp.user = request.user
-            accessibilite.erp.save()
+        accessibilite.erp.save()
 
         combined_form.save_m2m()
 
