@@ -1,3 +1,5 @@
+from unittest import mock
+
 import pytest
 from django.core.management import call_command
 from django.test import Client, override_settings
@@ -7,7 +9,6 @@ from reversion.models import Version
 from erp.models import Erp
 from subscription.models import ErpSubscription
 from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
-from unittest import mock
 
 
 @pytest.fixture
@@ -222,6 +223,18 @@ def test_notification_accessibilite(client, mocker):
                     "get_absolute_url": "/app/34-jacou/a/boulangerie/erp/niko-erp/",
                     "changes_by_others": [
                         {
+                            "comment": "",
+                            "diff": [
+                                {
+                                    "field": "checked_up_to_date_at",
+                                    "label": "Dernière vérification des informations",
+                                    "new": mock.ANY,
+                                    "old": mock.ANY,
+                                },
+                            ],
+                            "user": "sophie",
+                        },
+                        {
                             "user": "sophie",
                             "comment": "",
                             "diff": [
@@ -245,7 +258,7 @@ def test_notification_accessibilite(client, mocker):
                                 },
                                 {"field": "sanitaires_presence", "old": "Oui", "new": "Non", "label": "Toilettes"},
                             ],
-                        }
+                        },
                     ],
                     "url_unsubscribe": "/subscription/unsubscribe/erp/niko-erp/",
                 },
