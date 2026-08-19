@@ -5,6 +5,8 @@ from django.utils.translation import gettext as translate
 from rest_framework import permissions
 from rest_framework_api_key.models import APIKey
 
+from compte.models import UserAPIKey
+
 SAFE_METHODS = ("GET", "HEAD", "OPTIONS")
 
 
@@ -25,6 +27,9 @@ class IsAllowedForAction(permissions.BasePermission):
                 # Internal api key is allowed to perform only view/list actions, not write operations (create, update, ...)
                 return True
             return False
+
+        if hasattr(request, "auth") and isinstance(request.auth, UserAPIKey):
+            return True
 
         try:
             with sentry_sdk.start_span(description="Check signature of API KEY"):

@@ -4,18 +4,196 @@ from datetime import datetime, timedelta
 from unittest.mock import ANY, MagicMock, PropertyMock, patch
 
 import pytest
+from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import Point
 from django.urls import reverse
 from rest_framework.test import APIClient
+from rest_framework_api_key.models import APIKey
 
+from api.authentication import UserAPIKeyAuthentication
+from compte.models import UserAPIKey
 from erp import schema
 from erp.models import Accessibilite, Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
+
+User = get_user_model()
 
 
 @pytest.fixture
 def api_client():
     return APIClient()
+
+
+@pytest.mark.django_db
+class TestUserAPIKeyAuthenticationOnRpaErp:
+    def _rpa_erp(self, mocker, user=None):
+        erp = ErpFactory(with_accessibility=True, user=user)
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock(return_value=True))
+        return erp
+
+    def test_create_user_api_key_is_assigned_on_erp(self, api_client):
+        owner = User.objects.create_user(username="creator")
+        _, key = UserAPIKey.objects.create_key(name="creator-key", user=owner)
+
+        ActiviteFactory(nom="Mairie")
+        CommuneFactory(nom="Montreuil", code_postaux=["93100"], code_insee="93048", departement="93")
+
+        payload = {
+            "activite": "Mairie",
+            "nom": "Mairie de Montreuil",
+            "numero": "101",
+            "voie": "rue Francis de Pressencé",
+            "commune": "Montreuil",
+            "code_insee": "93048",
+            "code_postal": "93100",
+            "accessibilite": {"entree_porte_presence": True},
+        }
+
+        response = api_client.post(
+            reverse("erp-list"),
+            data=payload,
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 201, response.json()
+
+        erp = Erp.objects.get(nom="Mairie de Montreuil")
+        assert erp.user == owner
+
+    def test_user_api_key_is_assigned_on_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="owner")
+        erp = ErpFactory(with_accessibility=True, user=None)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+        erp.refresh_from_db()
+        assert erp.user == owner
+
+    def test_user_api_key_owner_can_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+    def test_user_api_key_stranger_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner2")
+        stranger = User.objects.create_user(username="stranger")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="stranger-key", user=stranger)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_no_key_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner3")
+        erp = self._rpa_erp(mocker, user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+        )
+        assert response.status_code == 403
+
+    def test_legacy_api_key_does_not_grant_ownership_on_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner4")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = APIKey.objects.create_key(name="legacy-key")
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_legacy_api_key_still_works_for_non_rpa_erp(self, api_client):
+        erp = ErpFactory(with_accessibility=True)
+        _, key = APIKey.objects.create_key(name="legacy-key-nominal")
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "still works"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+    def test_anonymous_still_open_on_non_rpa_erp(self, api_client):
+        erp = ErpFactory(with_accessibility=True)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "still works too"}},
+            format="json",
+        )
+        assert response.status_code == 200
+
+    def test_invalid_key_falls_through_gracefully(self, api_client):
+        response = api_client.get(
+            reverse("erp-list"),
+            headers={"Authorization": "Api-Key totally-invalid-key"},
+        )
+        assert response.status_code == 200
+
+    def test_malformed_authorization_header_does_not_crash(self, api_client):
+        response = api_client.get(
+            reverse("erp-list"),
+            headers={"Authorization": "not-even-two-parts"},
+        )
+        assert response.status_code == 200
+
+
+@pytest.mark.django_db
+class TestUserAPIKeyAuthenticationUnit:
+    def test_no_header_returns_none(self, rf):
+        request = rf.get("/")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
+
+    def test_valid_key_returns_user_and_key_instance(self, rf):
+        user = User.objects.create_user(username="alice")
+        _, key = UserAPIKey.objects.create_key(name="alice-key", user=user)
+        request = rf.get("/", HTTP_AUTHORIZATION=f"Api-Key {key}")
+
+        result = UserAPIKeyAuthentication().authenticate(request)
+
+        assert result is not None
+        auth_user, auth_key = result
+        assert auth_user == user
+        assert auth_key.user == user
+
+    def test_unknown_key_returns_none(self, rf):
+        request = rf.get("/", HTTP_AUTHORIZATION="Api-Key nonexistent-key")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
+
+    def test_revoked_key_returns_none(self, rf):
+        user = User.objects.create_user(username="bob")
+        api_key_obj, key = UserAPIKey.objects.create_key(name="bob-key", user=user)
+        api_key_obj.revoked = True
+        api_key_obj.save()
+
+        request = rf.get("/", HTTP_AUTHORIZATION=f"Api-Key {key}")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
 
 
 @pytest.fixture

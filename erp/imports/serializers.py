@@ -325,6 +325,10 @@ class ErpImportSerializer(serializers.ModelSerializer):
         enrich_only = self.context.get("enrich_only") or False
         raw_data = self.initial_data
 
+        if "user" in validated_data:
+            instance.user_id = validated_data["user"]
+            instance.save(update_fields=["user_id"])
+
         # if we are updating an ERP, only accessibility, asp_id and import_email are editable
         if validated_data.get("import_email"):
             instance.import_email = validated_data["import_email"]
