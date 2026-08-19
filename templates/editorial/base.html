@@ -24,18 +24,7 @@
     <main role="main"
           id="content"
           tabindex="-1"
-          {% if page_type == 'contrib-form' %}class="contrib-container"{% endif %}
-          {% if page_type == 'claim' %}class="contrib-claim-container"{% endif %}
-          {% if page_type == 'contact-form' %}class="contact-container"{% endif %}
-          {% if page_type == 'login-form' %}class="login-container"{% endif %}
-          {% if page_type == 'about-us' %}class="about-us-container"{% endif %}
-          {% if page_type == 'partners' %}class="partners-container"{% endif %}
-          {% if page_type == 'my-profile' %}class="my-profile-container"{% endif %}
-          {% if page_type == 'erps-search' %}class="erps-search-container"{% endif %}
-          {% if page_type == 'challenges' %}class="challenges-container"{% endif %}
-          {% if page_type == 'challenge' %}class="challenge-container"{% endif %}
-          {% if page_type == 'home' %}class="home-container"{% endif %}
-          {% if page_type == 'stats' %}class="stats-container"{% endif %}>
+          class="{% if page_type == 'contrib-form' %}contrib-container {% elif page_type == 'claim' %}contrib-claim-container {% elif page_type == 'contact-form' %}contact-container {% elif page_type == 'login-form' %}login-container {% elif page_type == 'about-us' %}about-us-container {% elif page_type == 'partners' %}partners-container {% elif page_type == 'my-profile' %}my-profile-container {% elif page_type == 'erps-search' %}erps-search-container {% elif page_type == 'challenges' %}challenges-container {% elif page_type == 'challenge' %}challenge-container {% elif page_type == 'home' %}home-container {% elif page_type == 'stats' %}stats-container {% endif %}">
         {% block breadcrumb %}
         {% endblock breadcrumb %}
         {% block top_fluid_content %}
