@@ -91,11 +91,25 @@ fileignoreconfig:
   checksum: 253aa05b83f0695dec90299bb58538e736bbce3e0200385c63b6dbc3c5294a75
 - filename: erp/views.py
   checksum: 40161683c6d36b3a1d5bb3c0b05594fa48ada9dd88ecc379294fa10f64743eb2
-- filename: core/settings.py
-  checksum: 5b877f0366b6999d9200abdd9d1dfef8b4ab2d52dfab15f38fdaf9e108444c3f
 - filename: erp/export/s3.py
   checksum: 539ee1e4bf3f743d0e0d6c3702172983cded46e2e8f56ad08d7f70e8c55933aa
 - filename: erp/management/commands/export_to_datagouv.py
   checksum: 09ae1a05fb36a0fadf305ca8056da7ec858d5e748c11aab83789ebab6fc04cd8
 - filename: tests/erp/test_export.py
   checksum: 6440b8f6fb2589c50ef89a10edd748aa3cf4fa013dedfc5a0fe8f36b385517f6
+- filename: api/authentication.py
+  checksum: 3d3fdfaf5cb8f79e38238d2f75b6fef32c2658e6e71fd2752630bb0797c08279
+- filename: compte/admin.py
+  checksum: ce749d67704e2fbf4c6257c13a1c11fcdcb0e3d1c49568ae5b1fe4ac149a587a
+- filename: compte/migrations/0009_userapikey.py
+  checksum: 41df5a33bf852a149d6d54fabde1c55955f8290d50cdf7203b93d879a6278542
+- filename: compte/migrations/0010_auto_20260715_1512.py
+  checksum: d1a902acd238fb94e179d809d5ef3ac8c5c027a6a0581e61f8844a91f6aa8f93
+- filename: tests/api/tests.py
+  checksum: 37ddb4f8af1dadeaaaec408016119309fc8d59795f3a3a8de726ec19994f2124
+- filename: core/settings.py
+  checksum: aef0ac9cf58af8afbac59a2bdbaef5425b85e18bf235ea90c1701c9fe3eda3f0
+- filename: api/throttling.py
+  checksum: d97a8420cfd750484e125234abddadc773e41830fcf76c5ecfbf943e8017cd52
+- filename: tests/api/test_permissions.py
+  checksum: 861dc1b82574ecf1de0629bddb553ac2bed11536506622e8a42ae479ac622238

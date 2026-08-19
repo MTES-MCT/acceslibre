@@ -7,7 +7,6 @@
      data-lon="{{ lon|default:'' }}"
      data-refresh-api-url="{% url "erp-list" %}"
      data-should-refresh="{{ dynamic_map|default:'False' }}"
-     data-api-key="{{ map_api_key|default:'' }}"
      data-erp-identifier="{{ erp.uuid }}"
      data-should-refresh-on-map-load="{{ should_refresh_map_on_load|default:'True' }}"
      {% if where and search_type %}data-sort-type="{{ search_type }}" data-where="{{ where_keyword }}"{% endif %}

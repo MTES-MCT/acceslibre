@@ -4,7 +4,7 @@ from deepl import QuotaExceededException
 from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
-from rest_framework import mixins, viewsets
+from rest_framework import mixins, permissions, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
@@ -208,6 +208,7 @@ class AccessibiliteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, vie
     pagination_class = AccessibilitePagination
     filter_backends = [AccessibiliteFilterBackend]
     schema = AccessibiliteSchema()
+    permission_classes = [permissions.AllowAny]
 
     @action(detail=False, methods=["get"])
     def help(self, request, pk=None):
@@ -303,6 +304,7 @@ class ActiviteViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets
     pagination_class = ActivitePagination
     filter_backends = [ActiviteFilterBackend]
     schema = ActiviteSchema()
+    permission_classes = [permissions.AllowAny]
 
 
 class ErpPagination(PageNumberPagination):
@@ -570,6 +572,18 @@ class ErpViewSet(
         if self.request and self.request.headers.get("Accept") == "application/geo+json":
             return GeoJsonPagination
         return ErpPagination
+
+    def perform_create(self, serializer):
+        user = self.request.user if self.request.user.is_authenticated else None
+        serializer.save(user=user) if user else serializer.save()
+
+    def perform_update(self, serializer):
+        instance = serializer.instance
+        user = self.request.user if self.request.user.is_authenticated else None
+        if user and instance.user_id is None:
+            serializer.save(user=user.id)
+        else:
+            serializer.save()
 
     pagination_class = property(fget=get_pagination_class)
 
