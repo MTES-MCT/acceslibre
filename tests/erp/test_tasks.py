@@ -1,7 +1,36 @@
 from pytest import mark
 
+from erp.models import ACTIVITY_GROUPS
 from erp.tasks import compute_access_completion_rate
 from tests.factories import AccessibiliteFactory, ActiviteFactory, ActivitiesGroupFactory, ErpFactory
+
+# Roots of the "sports_equipment" conditional, always exposed for that activity group
+SPORTS_EQUIPMENT_ROOT_FIELDS = (
+    "stationnement_zone_depose_pmr",
+    "accueil_physique",
+    "accueil_aire_de_jeux",
+    "accueil_tribunes",
+    "accueil_tribunes_places",
+    "accueil_vestiaires",
+    "accueil_douches_collectives",
+    "accueil_douches_individuelles",
+    "accueil_casiers",
+    "accueil_prestations_complementaires",
+    "accueil_presence_espaces_specifiques",
+)
+# Only exposed once their parent is filled in with a value triggering the children
+SPORTS_EQUIPMENT_CHILD_FIELDS = (
+    "accueil_tribunes_localisation_places",
+    "accueil_tribunes_places_avec_accompagnants",
+    "accueil_vestiaires_largeur_passage",
+    "accueil_douches_collectives_adaptees",
+    "accueil_douches_individuelles_adaptees",
+    "accueil_casiers_adaptes",
+    "accueil_casiers_fermeture",
+    "sanitaires_urinoirs",
+    "sanitaires_largeur_porte",
+    "sanitaires_sens_transfert",
+)
 
 
 @mark.django_db
@@ -132,6 +161,153 @@ def test_compute_completion_rate_healthcare():
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
     assert access.completion_rate == 15
+
+
+def _sports_equipment_access(**kwargs):
+    activity = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+    return AccessibiliteFactory(erp=ErpFactory(activite=activity), **kwargs)
+
+
+@mark.django_db
+def test_compute_completion_rate_sports_equipment_without_children():
+    access = _sports_equipment_access()
+
+    exposed_fields = access.get_exposed_fields()
+    for field in SPORTS_EQUIPMENT_ROOT_FIELDS:
+        assert field in exposed_fields, f"{field} should be exposed for sports equipments"
+    # no parent is filled in yet, so no child is exposed
+    for field in SPORTS_EQUIPMENT_CHILD_FIELDS:
+        assert field not in exposed_fields, f"{field} should not be exposed without its parent"
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    assert access.completion_rate == 0
+
+    # fill in every root, keeping all parents falsy so that no child gets exposed
+    access.stationnement_zone_depose_pmr = True
+    access.accueil_physique = "inexistant"
+    access.accueil_aire_de_jeux = False
+    access.accueil_tribunes = False
+    access.accueil_tribunes_places = 0
+    access.accueil_vestiaires = False
+    access.accueil_douches_collectives = False
+    access.accueil_douches_individuelles = False
+    access.accueil_casiers = False
+    access.accueil_prestations_complementaires = ["score_visible"]
+    access.accueil_presence_espaces_specifiques = ["presence_espace_chiens_guides"]
+    access.sanitaires_presence = False
+    access.save()
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+
+    exposed_fields = access.get_exposed_fields()
+    assert set(SPORTS_EQUIPMENT_ROOT_FIELDS).issubset(exposed_fields)
+    assert not set(SPORTS_EQUIPMENT_CHILD_FIELDS) & exposed_fields
+    assert access.completion_rate == 41
+
+
+@mark.django_db
+def test_compute_completion_rate_sports_equipment_with_children():
+    access = _sports_equipment_access(
+        accueil_tribunes=False,
+        accueil_vestiaires=False,
+        accueil_douches_collectives=False,
+        accueil_douches_individuelles=False,
+        accueil_casiers=False,
+        sanitaires_presence=False,
+    )
+
+    # each child is exposed only once its own parent displays it
+    exposed_fields = access.get_exposed_fields()
+
+    for field in SPORTS_EQUIPMENT_CHILD_FIELDS:
+        assert field not in exposed_fields, f"{field} should not be exposed while its parent is False"
+
+    access.accueil_tribunes = True
+    access.accueil_vestiaires = True
+    access.accueil_douches_collectives = True
+    access.accueil_douches_individuelles = True
+    access.accueil_casiers = True
+    access.sanitaires_presence = True
+    access.save()
+
+    exposed_fields = access.get_exposed_fields()
+
+    # direct children of the truthy roots
+    assert "accueil_vestiaires_largeur_passage" in exposed_fields
+    assert "accueil_douches_collectives_adaptees" in exposed_fields
+    assert "accueil_douches_individuelles_adaptees" in exposed_fields
+    assert "accueil_casiers_adaptes" in exposed_fields
+    assert "accueil_casiers_fermeture" in exposed_fields
+    assert "sanitaires_urinoirs" in exposed_fields
+
+    # children of "sanitaires_adaptes", which is not truthy yet
+    assert "sanitaires_largeur_porte" not in exposed_fields
+    assert "sanitaires_sens_transfert" not in exposed_fields
+
+    # nested children of "accueil_tribunes_places", not exposed below its min value
+    assert "accueil_tribunes_localisation_places" not in exposed_fields
+    assert "accueil_tribunes_places_avec_accompagnants" not in exposed_fields
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    assert access.completion_rate == 16
+
+    access.sanitaires_adaptes = True
+    access.save()
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    exposed_fields = access.get_exposed_fields()
+
+    assert "sanitaires_largeur_porte" in exposed_fields
+    assert "sanitaires_sens_transfert" in exposed_fields
+    assert access.completion_rate == 18
+
+    access.accueil_tribunes_places = 4
+    access.save()
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    exposed_fields = access.get_exposed_fields()
+
+    assert "accueil_tribunes_localisation_places" in exposed_fields
+    assert "accueil_tribunes_places_avec_accompagnants" in exposed_fields
+    assert access.completion_rate == 20
+
+    # fill in every remaining sports equipment field
+    access.stationnement_zone_depose_pmr = True
+    access.accueil_physique = "sensibilise_ou_forme"
+    access.accueil_aire_de_jeux = True
+    access.accueil_prestations_complementaires = ["score_visible"]
+    access.accueil_presence_espaces_specifiques = ["presence_espace_chiens_guides"]
+    access.accueil_tribunes_localisation_places = "niveau_aire_de_jeux"
+    access.accueil_tribunes_places_avec_accompagnants = 2
+    access.accueil_vestiaires_largeur_passage = "superieur_a_110"
+    access.accueil_douches_collectives_adaptees = True
+    access.accueil_douches_individuelles_adaptees = False
+    access.accueil_casiers_adaptes = True
+    access.accueil_casiers_fermeture = ["serrure_avec_cle"]
+    access.sanitaires_urinoirs = True
+    access.sanitaires_largeur_porte = "entre_90_et_110"
+    access.sanitaires_sens_transfert = "gauche_et_droite"
+    access.save()
+
+    compute_access_completion_rate(access.pk)
+
+    access.refresh_from_db()
+    exposed_fields = access.get_exposed_fields()
+
+    assert set(SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS).issubset(exposed_fields)
+
+    filled_in = access.get_filled_in_fields()
+
+    for field in SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS:
+        assert field in filled_in, f"{field} should count as filled in"
+
+    assert access.completion_rate == 57
 
 
 @mark.django_db

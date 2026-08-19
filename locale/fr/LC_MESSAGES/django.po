@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-16 15:11+0200\n"
+"POT-Creation-Date: 2026-08-19 15:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1041,6 +1041,9 @@ msgstr ""
 msgid "Stationnements PMR à proximité de l'ERP"
 msgstr ""
 
+msgid "Aire de dépose PMR"
+msgstr ""
+
 msgid "Espace extérieur"
 msgstr ""
 
@@ -1218,10 +1221,70 @@ msgstr ""
 msgid "Prise en charge des patients"
 msgstr ""
 
+msgid "Accueil physique"
+msgstr ""
+
+msgid "Accessibilité de l'aire de jeux à une personne en fauteuil"
+msgstr ""
+
+msgid "Accessibilité des places des tribunes"
+msgstr ""
+
+msgid "Nombre de places accessibles pour les personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Localisation des places dans les tribunes"
+msgstr ""
+
+msgid "Nombre de places pour les accompagnants dans les tribunes"
+msgstr ""
+
+msgid "Accessibilité des vestiaires"
+msgstr ""
+
+msgid "Largeur de passage pour se rendre dans les vestiaires"
+msgstr ""
+
+msgid "Présence de douches collectives"
+msgstr ""
+
+msgid "Accessibilité des douches collectives"
+msgstr ""
+
+msgid "Présence de douches individuelles"
+msgstr ""
+
+msgid "Accessibilité des douches individuelles"
+msgstr ""
+
+msgid "Présence de casiers"
+msgstr ""
+
+msgid "Casiers adaptés"
+msgstr ""
+
+msgid "Système de fermeture des casiers"
+msgstr ""
+
+msgid "Prestations complémentaires"
+msgstr ""
+
+msgid "Présence d’espaces spécifiques"
+msgstr ""
+
 msgid "Sanitaires"
 msgstr ""
 
 msgid "Nombre de sanitaires adaptés"
+msgstr ""
+
+msgid "Largeur de porte des toilettes"
+msgstr ""
+
+msgid "Sens du transfert"
+msgstr ""
+
+msgid "Hauteur des urinoirs"
 msgstr ""
 
 msgid "Marques ou labels"
@@ -1467,6 +1530,72 @@ msgstr ""
 msgid "Cognitif (trouble du spectre de l'autisme, TDAH...)"
 msgstr ""
 
+msgid "Aucun personnel"
+msgstr ""
+
+msgid "Personnel non formé"
+msgstr ""
+
+msgid "Personne sensibilisé ou formé"
+msgstr ""
+
+msgid "Places situées au niveau de l'aire de jeux"
+msgstr ""
+
+msgid "Places répartis différents niveaux des tribunes"
+msgstr ""
+
+msgid "Entre 90 et 110 cm"
+msgstr ""
+
+msgid "Supérieure à 110 cm"
+msgstr ""
+
+msgid "Entre 80 et 90 cm"
+msgstr ""
+
+msgid "Gauche"
+msgstr ""
+
+msgid "Droite"
+msgstr ""
+
+msgid "Gauche et droite"
+msgstr ""
+
+msgid "Serrure avec clé"
+msgstr ""
+
+msgid "Serrure électronique à code"
+msgstr ""
+
+msgid "Serrure mécanique à code"
+msgstr ""
+
+msgid "Verrou pour cadenas personnel"
+msgstr ""
+
+msgid "Sonorisation de l'arbitrage possible"
+msgstr ""
+
+msgid "Score visible depuis les places assises"
+msgstr ""
+
+msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
+msgstr ""
+
+msgid "Réservation possible de places facile d'accès"
+msgstr ""
+
+msgid "Espace de repos sensoriel (hyposensoriel, d'apaisement...)"
+msgstr ""
+
+msgid "Espace destiné aux chiens guides et d'assistance"
+msgstr ""
+
+msgid "Salle de change destinée aux personnes ayant des handicaps multiples ou complexes"
+msgstr ""
+
 msgid "Handicap auditif"
 msgstr ""
 
@@ -1510,9 +1639,6 @@ msgid "entre 0,5 et 2 mètres"
 msgstr ""
 
 msgid "supérieure 2 mètres"
-msgstr ""
-
-msgid "Aucun personnel"
 msgstr ""
 
 msgid "Personnels sensibilisés ou formés"
@@ -1745,6 +1871,15 @@ msgid "Places de parking à proximité comprenant des places adaptées et réser
 msgstr ""
 
 msgid "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement"
+msgstr ""
+
+msgid "Existe-t-il une zone de dépose PMR pour les grands véhicules adaptés à proximité de l'entrée du gymnase ? (au moins 8m de longueur)"
+msgstr ""
+
+msgid "Présence d'une zone de dépose PMR"
+msgstr ""
+
+msgid "Pas de zone de dépose PMR"
 msgstr ""
 
 msgid "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
@@ -2473,6 +2608,162 @@ msgstr ""
 msgid "L'établissement n'offre pas de prestations complémentaires pour la prise en charge des patients en situation de handicap"
 msgstr ""
 
+msgid "Y a-t-il du personnel présent pendant les heures d’ouverture de l'établissement ?"
+msgstr ""
+
+msgid "Présence de personnel pendant les heures d'ouverture"
+msgstr ""
+
+msgid "Pas de personnel dans l'établisement"
+msgstr ""
+
+msgid "Aire de jeux"
+msgstr ""
+
+msgid "L'aire de jeux est-elle accessible à une personne en fauteuil ?"
+msgstr ""
+
+msgid "L'aire de jeux est accessible à une personne en fauteuil"
+msgstr ""
+
+msgid "L'aire de jeux n'est pas accessible à une personne en fauteuil"
+msgstr ""
+
+msgid "Tribunes"
+msgstr ""
+
+msgid "Les places destinées aux spectateurs ont-elles un dossier ?"
+msgstr ""
+
+msgid "Places spectateurs avec dossier"
+msgstr ""
+
+msgid "Places spectateurs sans dossier"
+msgstr ""
+
+msgid "Places accessibles en tribunes"
+msgstr ""
+
+msgid "Combien y a-t-il de places accessibles pour les personnes en fauteuil roulant ?"
+msgstr ""
+
+msgid "Places accessibles pour les personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Où sont elles localisées ?"
+msgstr ""
+
+msgid "Localisation des places"
+msgstr ""
+
+msgid "Est-ce que des places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
+msgstr ""
+
+msgid "Places accompagnant à côté des places pour les personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Pas de place accompagnant à côté des places pour les personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Vestiaires"
+msgstr ""
+
+msgid "Les vestiaires sont-ils accessibles à une personne en fauteuil roulant (cheminement et porte) ?"
+msgstr ""
+
+msgid "Vestiaires accessibles"
+msgstr ""
+
+msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
+msgstr ""
+
+msgid "Quelle est la largeur de passage pour se rendre dans les vestiaires ?"
+msgstr ""
+
+msgid "Largeur du passage d'au moins 90 cm"
+msgstr ""
+
+msgid "Largeur inférieure à 90 cm"
+msgstr ""
+
+msgid "Douches collectives"
+msgstr ""
+
+msgid "Présence de douches collectives ?"
+msgstr ""
+
+msgid "Pas de douches collectives"
+msgstr ""
+
+msgid "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
+msgstr ""
+
+msgid "Présence de douches collectives accessibles"
+msgstr ""
+
+msgid "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Douches individuelles"
+msgstr ""
+
+msgid "Présence de cabines de douche individuelles ?"
+msgstr ""
+
+msgid "Présence de cabines de douche individuelles accessibles"
+msgstr ""
+
+msgid "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
+msgstr ""
+
+msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
+msgstr ""
+
+msgid "Casiers"
+msgstr ""
+
+msgid "Y a-t-il des casiers mis à disposition du public?"
+msgstr ""
+
+msgid "Casiers à disposition du public"
+msgstr ""
+
+msgid "Pas de casiers à disposition du public"
+msgstr ""
+
+msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+msgstr ""
+
+msgid "Le contraste et le relief des casiers permettent une bonne lisibilité."
+msgstr ""
+
+msgid "Le contraste et le relief des casiers ne permettent pas une bonne lisibilité."
+msgstr ""
+
+msgid "Quel est leur système de fermeture ?"
+msgstr ""
+
+msgid "Système de fermeture présent"
+msgstr ""
+
+msgid "Système de fermeture absent"
+msgstr ""
+
+msgid "Prestations complémentaires disponibles"
+msgstr ""
+
+msgid "Pas de prestations complémentaires"
+msgstr ""
+
+msgid "Présence d'espaces spécifiques"
+msgstr ""
+
+msgid "Pas d'espaces spécifiques à disposition"
+msgstr ""
+
 msgid "Toilettes"
 msgstr ""
 
@@ -2495,6 +2786,24 @@ msgid "Des sanitaires adaptés sont mis à disposition dans l'établissement"
 msgstr ""
 
 msgid "Aucun sanitaire adapté mis à disposition dans l'établissement"
+msgstr ""
+
+msgid "Quelle est la largeur de porte des toilettes ?"
+msgstr ""
+
+msgid "Toilettes adaptées avec une largeur de passage entre"
+msgstr ""
+
+msgid "Quel est le sens du transfert ?"
+msgstr ""
+
+msgid "Est ce que les urinoirs sont positionnés à différentes hauteurs ?"
+msgstr ""
+
+msgid "Urinoirs à différentes hauteurs"
+msgstr ""
+
+msgid "Les urinoirs sont tous à la même hauteur"
 msgstr ""
 
 msgid "Si l'établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
@@ -2682,9 +2991,6 @@ msgstr ""
 msgid ""
 "\n"
 " Aide humaine possible"
-msgstr ""
-
-msgid "Personnel non formé"
 msgstr ""
 
 msgid "Personnel sensibilisé / formé"

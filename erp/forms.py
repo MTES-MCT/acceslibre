@@ -316,6 +316,115 @@ class ContribAccessibiliteHealthcareForm(ContribAccessibiliteForm):
         return self.cleaned_data["accueil_soignant_experience"]
 
 
+class ContribAccessibiliteSportsEquipmentForm(ContribAccessibiliteForm):
+    accueil_casiers_fermeture = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.ACCUEIL_SYSTEME_FERMETURE_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_casiers_fermeture"),
+        help_text=schema.get_help_text("accueil_casiers_fermeture"),
+    )
+
+    accueil_prestations_complementaires = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_prestations_complementaires"),
+        help_text=schema.get_help_text("accueil_prestations_complementaires"),
+    )
+
+    accueil_presence_espaces_specifiques = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.ACCUEIL_PRESENCE_ESPACES_SPECIFIQUES_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_presence_espaces_specifiques"),
+        help_text=schema.get_help_text("accueil_presence_espaces_specifiques"),
+    )
+
+    fields_to_remove = (
+        "accueil_personnels",  # Root
+        "accueil_audiodescription_presence",  # Root
+        "accueil_audiodescription",  # Child
+        "accueil_ascenseur_etage",  # Root
+        "accueil_ascenseur_etage_pmr",  # Child
+        "labels",  # Root
+        "labels_familles_handicap",  # Root
+        "labels_autre",  # Root
+    )
+
+    large_establishments_fields_to_keep = ["accueil_signaletique_interieure", "cheminement_ext_signaletique_exterieure"]
+    conditionals_to_add = get_conditional_fields_in(["sports_equipment"]) + large_establishments_fields_to_keep
+    conditionals_to_remove = get_conditional_fields_not_in(["sports_equipment"])
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels(include_conditional=["sports_equipment", "large_establishments"])
+        help_texts = schema.get_help_texts(include_conditional=["sports_equipment", "large_establishments"])
+        required = schema.get_required_fields()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        allowed_fields = set(schema.get_help_texts(include_conditional=["sports_equipment"]).keys()) | set(
+            self.large_establishments_fields_to_keep
+        )
+        for field in copy(self.fields):
+            if field not in allowed_fields:
+                self.fields.pop(field, None)
+
+    def clean_accueil_casiers_adaptes(self):
+        if self.cleaned_data.get("accueil_casiers") is not True:
+            return None
+        return self.cleaned_data["accueil_casiers_adaptes"]
+
+    def clean_accueil_casiers_fermeture(self):
+        if self.cleaned_data.get("accueil_casiers") is not True:
+            return None
+        return self.cleaned_data["accueil_casiers_fermeture"]
+
+    def clean_accueil_tribunes_localisation_places(self):
+        if (self.cleaned_data.get("accueil_tribunes_places") or 0) < 1:
+            return None
+        return self.cleaned_data["accueil_tribunes_localisation_places"]
+
+    def clean_accueil_tribunes_places_avec_accompagnants(self):
+        if (self.cleaned_data.get("accueil_tribunes_places") or 0) < 1:
+            return None
+        return self.cleaned_data["accueil_tribunes_places_avec_accompagnants"]
+
+    def clean_accueil_vestiaires_largeur_passage(self):
+        if self.cleaned_data.get("accueil_vestiaires") is not True:
+            return None
+        return self.cleaned_data["accueil_vestiaires_largeur_passage"]
+
+    def clean_accueil_douches_collectives_adaptees(self):
+        if self.cleaned_data.get("accueil_douches_collectives") is not True:
+            return None
+        return self.cleaned_data["accueil_douches_collectives_adaptees"]
+
+    def clean_accueil_douches_individuelles_adaptees(self):
+        if self.cleaned_data.get("accueil_douches_individuelles") is not True:
+            return None
+        return self.cleaned_data["accueil_douches_individuelles_adaptees"]
+
+    def clean_sanitaires_urinoirs(self):
+        if self.cleaned_data.get("sanitaires_presence") is not True:
+            return None
+        return self.cleaned_data["sanitaires_urinoirs"]
+
+    def clean_sanitaires_largeur_porte(self):
+        if self.cleaned_data.get("sanitaires_adaptes") is not True:
+            return None
+        return self.cleaned_data["sanitaires_largeur_porte"]
+
+    def clean_sanitaires_sens_transfert(self):
+        if self.cleaned_data.get("sanitaires_adaptes") is not True:
+            return None
+        return self.cleaned_data["sanitaires_sens_transfert"]
+
+
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
@@ -942,6 +1051,7 @@ def get_contrib_forms_for_activity(activity: Activite):
         ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"]: ContribAccessibiliteLargeEstablishmentsForm,
         ACTIVITY_GROUPS["POLLING_STATION"]: ContribAccessibilitePollingStationForm,
         ACTIVITY_GROUPS["HEALTHCARE"]: ContribAccessibiliteHealthcareForm,
+        ACTIVITY_GROUPS["SPORTS_EQUIPMENT"]: ContribAccessibiliteSportsEquipmentForm,
     }
 
     groups = activity.groups.all()

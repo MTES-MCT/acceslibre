@@ -51,5 +51,8 @@
                 {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr key="stationnement_ext_pmr" inline=True %}
             </div>
         </div>
+        <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+            {% include "fields/boolradio.html" with field=form.stationnement_zone_depose_pmr key="stationnement_zone_depose_pmr" inline=True %}
+        </div>
     </div>
 {% endblock fields_content %}

@@ -303,6 +303,72 @@ class TestErpApi:
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
 
+    def test_list_sports_equipment(self, api_client):
+        gymnase = ActiviteFactory(nom="Gymnase")
+        ErpFactory(
+            nom="Gymnase Jean Moulin",
+            activite=gymnase,
+            accessibilite__stationnement_zone_depose_pmr=True,
+            accessibilite__accueil_physique="non_forme",
+            accessibilite__accueil_tribunes=True,
+            accessibilite__accueil_tribunes_places=3,
+            accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
+            accessibilite__accueil_tribunes_places_avec_accompagnants=1,
+            accessibilite__accueil_vestiaires=True,
+            accessibilite__accueil_vestiaires_largeur_passage="superieur_a_110",
+            accessibilite__accueil_casiers=True,
+            accessibilite__accueil_casiers_adaptes=False,
+            accessibilite__accueil_casiers_fermeture=["serrure_avec_cle", "autre"],
+            accessibilite__accueil_prestations_complementaires=["score_visible"],
+            accessibilite__accueil_presence_espaces_specifiques=["presence_espace_chiens_guides"],
+            accessibilite__sanitaires_presence=True,
+            accessibilite__sanitaires_adaptes=True,
+            accessibilite__sanitaires_largeur_porte="entre_90_et_110",
+            accessibilite__sanitaires_sens_transfert="gauche_et_droite",
+            accessibilite__sanitaires_urinoirs=True,
+        )
+
+        response = api_client.get(reverse("erp-list") + "?clean=true")
+        access = response.json()["results"][0]["accessibilite"]
+        assert access["transport"]["stationnement_zone_depose_pmr"] is True
+        assert access["accueil"]["accueil_physique"] == "non_forme"
+        assert access["accueil"]["accueil_vestiaires_largeur_passage"] == "superieur_a_110"
+        assert access["accueil"]["sanitaires_largeur_porte"] == "entre_90_et_110"
+        assert access["accueil"]["sanitaires_sens_transfert"] == "gauche_et_droite"
+        assert access["accueil"]["accueil_tribunes"] is True
+        assert access["accueil"]["accueil_tribunes_places"] == 3
+        assert access["accueil"]["accueil_tribunes_localisation_places"] == "niveau_aire_de_jeux"
+        assert access["accueil"]["accueil_tribunes_places_avec_accompagnants"] == 1
+        assert access["accueil"]["accueil_vestiaires"] is True
+        assert access["accueil"]["accueil_casiers"] is True
+        assert access["accueil"]["accueil_casiers_adaptes"] is False
+        assert access["accueil"]["accueil_casiers_fermeture"] == ["serrure_avec_cle", "autre"]
+        assert access["accueil"]["accueil_prestations_complementaires"] == ["score_visible"]
+        assert access["accueil"]["accueil_presence_espaces_specifiques"] == ["presence_espace_chiens_guides"]
+        assert access["accueil"]["sanitaires_urinoirs"] is True
+
+        response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
+        datas = response.json()["results"][0]["accessibilite"]["datas"]
+        assert datas["transport"]["stationnement_zone_depose_pmr"] == "Présence d'une zone de dépose PMR"
+        assert (
+            datas["accueil"]["accueil_physique"]
+            == "Présence de personnel pendant les heures d'ouverture : Personnel non formé"
+        )
+        assert datas["accueil"]["accueil_tribunes"] == "Places spectateurs avec dossier"
+        assert (
+            datas["accueil"]["accueil_tribunes_places"]
+            == "Places accessibles pour les personnes en fauteuil roulant : 3"
+        )
+        assert (
+            datas["accueil"]["accueil_tribunes_localisation_places"]
+            == "Localisation des places : Places situées au niveau de l'aire de jeux"
+        )
+        assert datas["accueil"]["accueil_tribunes_places_avec_accompagnants"] == (
+            "Places accompagnant à côté des places pour les personnes en fauteuil roulant : 1"
+        )
+        assert datas["accueil"]["accueil_casiers_fermeture"] == "Système de fermeture présent : Serrure avec clé, Autre"
+        assert datas["accueil"]["sanitaires_urinoirs"] == "Urinoirs à différentes hauteurs"
+
     def test_list_geojson(self, api_client, initial_erp):
         geojson_expected_for_erp = {
             "type": "FeatureCollection",
@@ -504,6 +570,7 @@ class TestErpApi:
                     "stationnement_pmr": None,
                     "stationnement_ext_presence": None,
                     "stationnement_ext_pmr": None,
+                    "stationnement_zone_depose_pmr": None,
                     "transport_bureau_de_vote_accessibilite": None,
                 },
                 "cheminement_ext": {
@@ -576,6 +643,8 @@ class TestErpApi:
                     "accueil_equipements_malentendants": [],
                     "sanitaires_presence": True,
                     "sanitaires_adaptes": False,
+                    "sanitaires_largeur_porte": None,
+                    "sanitaires_sens_transfert": None,
                     "accueil_ascenseur_etage": None,
                     "accueil_ascenseur_etage_pmr": None,
                     "accueil_classes_accessibilite": None,
@@ -587,6 +656,24 @@ class TestErpApi:
                     "accueil_salle_consultation_accessible": None,
                     "accueil_consultation_domicile": None,
                     "accueil_prise_en_charge_patients": [],
+                    "accueil_physique": None,
+                    "accueil_aire_de_jeux": None,
+                    "accueil_tribunes": None,
+                    "accueil_tribunes_places": None,
+                    "accueil_tribunes_localisation_places": None,
+                    "accueil_tribunes_places_avec_accompagnants": None,
+                    "accueil_vestiaires": None,
+                    "accueil_vestiaires_largeur_passage": None,
+                    "accueil_douches_collectives": None,
+                    "accueil_douches_collectives_adaptees": None,
+                    "accueil_douches_individuelles": None,
+                    "accueil_douches_individuelles_adaptees": None,
+                    "accueil_casiers": None,
+                    "accueil_casiers_adaptes": None,
+                    "accueil_casiers_fermeture": [],
+                    "accueil_prestations_complementaires": [],
+                    "accueil_presence_espaces_specifiques": [],
+                    "sanitaires_urinoirs": None,
                 },
                 "registre": {"registre_url": None},
                 "conformite": {"conformite": None},
@@ -836,6 +923,7 @@ class TestAccessibiliteApi:
                         "stationnement_pmr": None,
                         "stationnement_ext_presence": None,
                         "stationnement_ext_pmr": None,
+                        "stationnement_zone_depose_pmr": None,
                     },
                     "cheminement_ext": {
                         "cheminement_ext_presence": None,
@@ -907,6 +995,8 @@ class TestAccessibiliteApi:
                         "accueil_equipements_malentendants": [],
                         "sanitaires_presence": True,
                         "sanitaires_adaptes": False,
+                        "sanitaires_largeur_porte": None,
+                        "sanitaires_sens_transfert": None,
                         "accueil_ascenseur_etage": None,
                         "accueil_ascenseur_etage_pmr": None,
                         "accueil_classes_accessibilite": None,
@@ -918,6 +1008,24 @@ class TestAccessibiliteApi:
                         "accueil_salle_consultation_accessible": None,
                         "accueil_consultation_domicile": None,
                         "accueil_prise_en_charge_patients": [],
+                        "accueil_physique": None,
+                        "accueil_aire_de_jeux": None,
+                        "accueil_tribunes": None,
+                        "accueil_tribunes_places": None,
+                        "accueil_tribunes_localisation_places": None,
+                        "accueil_tribunes_places_avec_accompagnants": None,
+                        "accueil_vestiaires": None,
+                        "accueil_vestiaires_largeur_passage": None,
+                        "accueil_douches_collectives": None,
+                        "accueil_douches_collectives_adaptees": None,
+                        "accueil_douches_individuelles": None,
+                        "accueil_douches_individuelles_adaptees": None,
+                        "accueil_casiers": None,
+                        "accueil_casiers_adaptes": None,
+                        "accueil_casiers_fermeture": [],
+                        "accueil_prestations_complementaires": [],
+                        "accueil_presence_espaces_specifiques": [],
+                        "sanitaires_urinoirs": None,
                     },
                     "registre": {"registre_url": None},
                     "conformite": {"conformite": None},
