@@ -19,6 +19,7 @@ from freezegun import freeze_time
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
+from erp.export.s3 import DATAGOUV_EXPORT_PREFIX, select_datagouv_files_to_delete
 from erp.export.tasks import generate_csv_file
 from erp.models import Erp, ExternalSource
 from tests.factories import ActiviteFactory, ErpFactory, ExternalSourceFactory
@@ -393,6 +394,11 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
     )
 
 
+def _first_of_month(dt):
+    """Return the first moment of the month containing dt."""
+    return dt.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+
 @patch("boto3.client")
 @freeze_time(CURRENT_TIME)
 def test_clean_s3_export_bucket(mock_boto_client):
@@ -420,3 +426,163 @@ def test_clean_s3_export_bucket(mock_boto_client):
     assert {"Key": "file1.csv"} in files_to_delete
     assert {"Key": "file2.csv"} in files_to_delete
     assert {"Key": "file3.csv"} not in files_to_delete
+
+
+@patch("boto3.client")
+@freeze_time(CURRENT_TIME)
+def test_clean_s3_export_bucket_keeps_xml_8_days(mock_boto_client):
+    """XML files should only be deleted after 8 days, not 25 hours like other files."""
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": "export.xml", "LastModified": CURRENT_TIME - timedelta(days=9)},
+            {"Key": "export2.xml", "LastModified": CURRENT_TIME - timedelta(days=7)},
+        ]
+    }
+
+    call_command("clean_S3_export_bucket")
+
+    delete_call = mock_s3.delete_objects.call_args[1]
+    files_to_delete = delete_call["Delete"]["Objects"]
+
+    assert files_to_delete == [{"Key": "export.xml"}]
+
+
+@patch("boto3.client")
+@freeze_time(CURRENT_TIME)
+def test_clean_s3_export_bucket_datagouv_prefix_recent_files_kept(mock_boto_client):
+    """Datagouv files younger than 30 days should never be deleted."""
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}acceslibre_1.csv", "LastModified": CURRENT_TIME - timedelta(days=1)},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}acceslibre_29.csv", "LastModified": CURRENT_TIME - timedelta(days=29)},
+        ]
+    }
+
+    call_command("clean_S3_export_bucket")
+
+    mock_s3.delete_objects.assert_not_called()
+
+
+@patch("boto3.client")
+@freeze_time(CURRENT_TIME)
+def test_clean_s3_export_bucket_datagouv_prefix_old_files_kept_one_per_month(mock_boto_client):
+    """
+    Beyond 30 days, only one file per month should be kept (the oldest one of that
+    month), the rest must be deleted.
+    """
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    # Base date guaranteed to be >30 days before CURRENT_TIME, regardless of its actual value
+    month_1 = _first_of_month(CURRENT_TIME - timedelta(days=200))
+    jan_early = month_1 + timedelta(days=2)
+    jan_mid = month_1 + timedelta(days=14)
+    jan_late = month_1 + timedelta(days=27)  # safe: every month has at least 28 days
+
+    month_2 = _first_of_month(month_1 + timedelta(days=32))  # guarantees a different month
+    feb = month_2 + timedelta(days=4)
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_early.csv", "LastModified": jan_early},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_mid.csv", "LastModified": jan_mid},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_late.csv", "LastModified": jan_late},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}feb.csv", "LastModified": feb},
+        ]
+    }
+
+    call_command("clean_S3_export_bucket")
+
+    delete_call = mock_s3.delete_objects.call_args[1]
+    files_to_delete = delete_call["Delete"]["Objects"]
+
+    # Only the oldest file of each month is kept: jan_early and feb
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_mid.csv"} in files_to_delete
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_late.csv"} in files_to_delete
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}jan_early.csv"} not in files_to_delete
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}feb.csv"} not in files_to_delete
+    assert len(files_to_delete) == 2
+
+
+@patch("boto3.client")
+@freeze_time(CURRENT_TIME)
+def test_clean_s3_export_bucket_mixed_prefixes(mock_boto_client):
+    """Ensure the 3 retention policies (25h, 8d for xml, 30d+1/month for datagouv) coexist without interference."""
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+
+    # Only file in its "month" -> kept
+    old_datagouv = CURRENT_TIME - timedelta(days=200)
+
+    mock_s3.list_objects_v2.return_value = {
+        "Contents": [
+            {"Key": "search_export.csv", "LastModified": CURRENT_TIME - timedelta(hours=26)},
+            {"Key": "datatourisme.xml", "LastModified": CURRENT_TIME - timedelta(days=9)},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}recent.csv", "LastModified": CURRENT_TIME - timedelta(days=2)},
+            {"Key": f"{DATAGOUV_EXPORT_PREFIX}old.csv", "LastModified": old_datagouv},
+        ]
+    }
+
+    call_command("clean_S3_export_bucket")
+
+    delete_call = mock_s3.delete_objects.call_args[1]
+    files_to_delete = delete_call["Delete"]["Objects"]
+
+    assert {"Key": "search_export.csv"} in files_to_delete
+    assert {"Key": "datatourisme.xml"} in files_to_delete
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}recent.csv"} not in files_to_delete
+    assert {"Key": f"{DATAGOUV_EXPORT_PREFIX}old.csv"} not in files_to_delete
+    assert len(files_to_delete) == 2
+
+
+def test_select_datagouv_files_to_delete_empty():
+    """No objects, nothing to delete."""
+    assert select_datagouv_files_to_delete([], CURRENT_TIME) == []
+
+
+def test_select_datagouv_files_to_delete_all_recent():
+    """All objects younger than 30 days should be kept."""
+    objects = [
+        {"Key": "a.csv", "LastModified": CURRENT_TIME - timedelta(days=1)},
+        {"Key": "b.csv", "LastModified": CURRENT_TIME - timedelta(days=29)},
+    ]
+    assert select_datagouv_files_to_delete(objects, CURRENT_TIME) == []
+
+
+def test_select_datagouv_files_to_delete_boundary_exactly_30_days():
+    """
+    A file exactly 30 days old must NOT be considered 'old' yet (the comparison
+    must use strict < and not <=).
+    """
+    objects = [
+        {"Key": "boundary.csv", "LastModified": CURRENT_TIME - timedelta(days=30)},
+    ]
+    assert select_datagouv_files_to_delete(objects, CURRENT_TIME) == []
+
+
+def test_select_datagouv_files_to_delete_keeps_oldest_per_month():
+    """Among old files sharing the same month, only the oldest one is kept."""
+    # Anchor to the start of a month guaranteed to be >30 days before CURRENT_TIME,
+    # then offset within that same month so d1/d2/d3 never cross a month boundary.
+    month_start = _first_of_month(CURRENT_TIME - timedelta(days=200))
+    d1 = month_start + timedelta(days=1)
+    d2 = d1 + timedelta(days=10)
+    d3 = d1 + timedelta(days=20)  # safe: every month has at least 28 days
+
+    objects = [
+        {"Key": "middle.csv", "LastModified": d2},
+        {"Key": "first.csv", "LastModified": d1},
+        {"Key": "last.csv", "LastModified": d3},
+    ]
+
+    result = select_datagouv_files_to_delete(objects, CURRENT_TIME)
+    result_keys = {o["Key"] for o in result}
+
+    assert "first.csv" not in result_keys
+    assert result_keys == {"middle.csv", "last.csv"}
