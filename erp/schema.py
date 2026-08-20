@@ -2934,9 +2934,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("Vestiaires accessibles"),
-        "help_text_ui_neg": translate_lazy(
-            "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
-        ),
+        "help_text_ui_neg": translate_lazy("Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -2952,7 +2950,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Quelle est la largeur de passage pour se rendre dans les vestiaires ?")),
-        "help_text_ui": translate_lazy("Largeur du passage d'au moins 90 cm"),
+        "help_text_ui": translate_lazy("Largeur du passage"),
         "help_text_ui_neg": translate_lazy("Largeur inférieure à 90 cm"),
         "choices": ACCUEIL_VESTIAIRES_LARGEUR_PASSAGE_CHOICES,
         "unit": "centimètre",
@@ -3007,9 +3005,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Présence de cabines de douche individuelles ?")),
-        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
+        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles"),
         "help_text_ui_neg": translate_lazy(
-            "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
+            "Pas de cabine de douche individuelles"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -3070,9 +3068,9 @@ FIELDS = {
                 "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
             )
         ),
-        "help_text_ui": translate_lazy("Le contraste et le relief des casiers permettent une bonne lisibilité."),
+        "help_text_ui": translate_lazy("Le contraste et le relief des casiers permettent une bonne visibilité"),
         "help_text_ui_neg": translate_lazy(
-            "Le contraste et le relief des casiers ne permettent pas une bonne lisibilité."
+            "Le contraste et le relief des casiers ne permettent pas une bonne visibilité."
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -3088,7 +3086,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Quel est leur système de fermeture ?")),
-        "help_text_ui": translate_lazy("Système de fermeture présent"),
+        "help_text_ui": translate_lazy("Système de fermeture"),
         "help_text_ui_neg": translate_lazy("Système de fermeture absent"),
         "choices": ACCUEIL_SYSTEME_FERMETURE_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -3175,8 +3173,8 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Quelle est la largeur de porte des toilettes ?")),
-        "help_text_ui": translate_lazy("Toilettes adaptées avec une largeur de passage entre"),
-        "help_text_ui_neg": translate_lazy("Toilettes adaptées avec une largeur de passage entre"),
+        "help_text_ui": translate_lazy("Toilettes adaptées avec une largeur de passage"),
+        "help_text_ui_neg": translate_lazy("Toilettes adaptées avec une largeur de passage"),
         "choices": SANITAIRES_LARGEUR_PORTE_CHOICES,
         "unit": "centimètre",
         "section": SECTION_ACCUEIL,

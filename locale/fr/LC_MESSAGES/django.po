@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-19 15:37+0200\n"
+"POT-Creation-Date: 2026-08-20 14:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1319,6 +1319,39 @@ msgstr[1] ""
 
 msgid "descendante"
 msgid_plural "descendantes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Présence de personnel non formé pendant les heures d'ouverture"
+msgstr ""
+
+msgid "Présence de personnel formé pendant les heures d'ouverture"
+msgstr ""
+
+msgid "Transfert dans les toilettes à gauche"
+msgstr ""
+
+msgid "Transfert dans les toilettes à droite"
+msgstr ""
+
+msgid "Transfert dans les toilettes dans les 2 sens"
+msgstr ""
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant répartie sur différents niveaux des tribunes"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant réparties sur différents niveaux des tribunes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -2674,13 +2707,13 @@ msgstr ""
 msgid "Vestiaires accessibles"
 msgstr ""
 
-msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
+msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
 msgid "Quelle est la largeur de passage pour se rendre dans les vestiaires ?"
 msgstr ""
 
-msgid "Largeur du passage d'au moins 90 cm"
+msgid "Largeur du passage"
 msgstr ""
 
 msgid "Largeur inférieure à 90 cm"
@@ -2710,13 +2743,16 @@ msgstr ""
 msgid "Présence de cabines de douche individuelles ?"
 msgstr ""
 
-msgid "Présence de cabines de douche individuelles accessibles"
+msgid "Présence de cabines de douche individuelles"
 msgstr ""
 
-msgid "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
+msgid "Pas de cabine de douche individuelles"
 msgstr ""
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
+msgstr ""
+
+msgid "Présence de cabines de douche individuelles accessibles"
 msgstr ""
 
 msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
@@ -2737,16 +2773,16 @@ msgstr ""
 msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
 msgstr ""
 
-msgid "Le contraste et le relief des casiers permettent une bonne lisibilité."
+msgid "Le contraste et le relief des casiers permettent une bonne visibilité"
 msgstr ""
 
-msgid "Le contraste et le relief des casiers ne permettent pas une bonne lisibilité."
+msgid "Le contraste et le relief des casiers ne permettent pas une bonne visibilité."
 msgstr ""
 
 msgid "Quel est leur système de fermeture ?"
 msgstr ""
 
-msgid "Système de fermeture présent"
+msgid "Système de fermeture"
 msgstr ""
 
 msgid "Système de fermeture absent"
@@ -2791,7 +2827,7 @@ msgstr ""
 msgid "Quelle est la largeur de porte des toilettes ?"
 msgstr ""
 
-msgid "Toilettes adaptées avec une largeur de passage entre"
+msgid "Toilettes adaptées avec une largeur de passage"
 msgstr ""
 
 msgid "Quel est le sens du transfert ?"

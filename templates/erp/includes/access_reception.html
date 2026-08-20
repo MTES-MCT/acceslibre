@@ -108,14 +108,96 @@
             {% elif access.accueil_equipements_malentendants_presence is False %}
                 <li data-filters="hearing">{{ "accueil_equipements_malentendants_presence"|negative_text }}</li>
             {% endif %}
+            {% if access.accueil_physique %}<li data-filters="all">{{ access.get_accueil_physique }}</li>{% endif %}
+            {% if access.accueil_aire_de_jeux %}
+                <li data-filters="walking">{{ "accueil_aire_de_jeux"|positive_text }}</li>
+            {% elif access.accueil_aire_de_jeux is False %}
+                <li data-filters="walking">{{ "accueil_aire_de_jeux"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_tribunes %}
+                <li data-filters="walking">{{ "accueil_tribunes"|positive_text }}</li>
+            {% elif access.accueil_tribunes is False %}
+                <li data-filters="walking">{{ "accueil_tribunes"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_tribunes_places %}
+                <li data-filters="walking">{{ access.get_accueil_tribunes_places }}</li>
+                <li data-filters="walking">{{ access.get_accueil_tribunes_places_avec_accompagnants }}</li>
+            {% endif %}
+            {% if access.accueil_vestiaires %}
+                <li data-filters="walking">{{ "accueil_vestiaires"|positive_text }}</li>
+                {% if access.accueil_vestiaires_largeur_passage %}
+                    <li data-filters="walking">
+                        {{ "accueil_vestiaires_largeur_passage"|positive_text }} {{ access.get_accueil_vestiaires_largeur_passage_display|lower }}
+                    </li>
+                {% endif %}
+            {% elif access.accueil_vestiaires is False %}
+                <li data-filters="walking">{{ "accueil_vestiaires"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_douches_collectives %}
+                {% if access.accueil_douches_collectives_adaptees %}
+                    <li data-filters="walking">{{ "accueil_douches_collectives_adaptees"|positive_text }}</li>
+                {% elif access.accueil_douches_collectives_adaptees is False %}
+                    <li data-filters="walking">{{ "accueil_douches_collectives_adaptees"|negative_text }}</li>
+                {% else %}
+                    <li data-filters="walking">{{ "accueil_douches_collectives"|positive_text }}</li>
+                {% endif %}
+            {% elif access.accueil_douches_collectives is False %}
+                <li data-filters="walking">{{ "accueil_douches_collectives"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_douches_individuelles %}
+                {% if access.accueil_douches_individuelles_adaptees %}
+                    <li data-filters="walking">{{ "accueil_douches_individuelles_adaptees"|positive_text }}</li>
+                {% elif access.accueil_douches_individuelles_adaptees is False %}
+                    <li data-filters="walking">{{ "accueil_douches_individuelles_adaptees"|negative_text }}</li>
+                {% else %}
+                    <li data-filters="walking">{{ "accueil_douches_individuelles"|positive_text }}</li>
+                {% endif %}
+            {% elif access.accueil_douches_individuelles is False %}
+                <li data-filters="walking">{{ "accueil_douches_individuelles"|negative_text }}</li>
+            {% endif %}
             {% if access.sanitaires_presence %}
                 {% if access.sanitaires_adaptes %}
-                    <li data-filters="all">{% translate "Toilettes adaptées" %}</li>
+                    {% if access.sanitaires_largeur_porte %}
+                        <li data-filters="walking">{{ access.get_sanitaires_largeur_porte }}</li>
+                    {% endif %}
+                    {% if access.sanitaires_sens_transfert %}
+                        <li data-filters="walking">{{ access.get_sanitaires_sens_transfert }}</li>
+                    {% endif %}
                 {% else %}
                     <li data-filters="all">{% translate "Toilettes classiques" %}</li>
                 {% endif %}
+                {% if access.sanitaires_urinoirs %}
+                    <li data-filters="all">{{ "sanitaires_urinoirs"|positive_text }}</li>
+                {% elif access.sanitaires_urinoirs is False %}
+                    <li data-filters="all">{{ "sanitaires_urinoirs"|negative_text }}</li>
+                {% endif %}
             {% elif access.sanitaires_presence is False %}
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_casiers %}
+                <li data-filters="all">{{ "accueil_casiers"|positive_text }}</li>
+                {% if access.accueil_casiers_adaptes %}
+                    <li data-filters="visual">{{ "accueil_casiers_adaptes"|positive_text }}</li>
+                {% elif access.accueil_casiers_adaptes is False %}
+                    <li data-filters="visual">{{ "accueil_casiers_adaptes"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_casiers_fermeture %}
+                    <li data-filters="all">
+                        {{ "accueil_casiers_fermeture"|positive_text }} : {{ access.get_accueil_casiers_fermeture|join:", "|lower }}
+                    </li>
+                {% endif %}
+            {% elif access.accueil_casiers is False %}
+                <li data-filters="all">{{ "accueil_casiers"|negative_text }}</li>
+            {% endif %}
+            {% if access.accueil_prestations_complementaires %}
+                <li data-filters="all">
+                    {{ "accueil_prestations_complementaires"|positive_text }} : {{ access.get_accueil_prestations_complementaires|join:", "|lower }}
+                </li>
+            {% endif %}
+            {% if access.accueil_presence_espaces_specifiques %}
+                <li data-filters="all">
+                    {{ "accueil_presence_espaces_specifiques"|positive_text }} : {{ access.get_accueil_presence_espaces_specifiques|join:", "|lower }}
+                </li>
             {% endif %}
             {% if should_display_large_establishments_accessibility_details %}
                 {% if access.accueil_ascenseur_etage and access.accueil_ascenseur_etage_pmr is None %}

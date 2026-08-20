@@ -26,9 +26,6 @@
     noindex, nofollow
 {% endblock robots %}
 {% block fields_content %}
-    <pre>
-    {{ form.cheminement_ext_signaletique_exterieure.label }}
-    </pre>
     <div class="contrib-inputs-section-wrapper">
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
             {% include "fields/boolradio.html" with field=form.cheminement_ext_presence inline=True key="cheminement_ext_presence" %}

@@ -366,7 +366,7 @@ class TestErpApi:
         assert datas["accueil"]["accueil_tribunes_places_avec_accompagnants"] == (
             "Places accompagnant à côté des places pour les personnes en fauteuil roulant : 1"
         )
-        assert datas["accueil"]["accueil_casiers_fermeture"] == "Système de fermeture présent : Serrure avec clé, Autre"
+        assert datas["accueil"]["accueil_casiers_fermeture"] == "Système de fermeture : Serrure avec clé, Autre"
         assert datas["accueil"]["sanitaires_urinoirs"] == "Urinoirs à différentes hauteurs"
 
     def test_list_geojson(self, api_client, initial_erp):
