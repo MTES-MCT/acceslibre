@@ -5,7 +5,7 @@ from frictionless import Field, Schema
 from frictionless.fields import ArrayField, BooleanField
 
 from erp.export.mappers import EtalabMapper
-from erp.schema import FIELDS, get_bdd_values
+from erp.schema import FIELDS, get_bdd_values, get_conditional_fields
 
 TRUE_VALUES = [
     "true",
@@ -44,10 +44,12 @@ def generate_schema(
     descriptor["path"] = repository + "schema.json"
     descriptor["resources"][0]["path"] = repository + "exemple-valide.csv"
 
+    conditional_fields = set(get_conditional_fields())
+
     field_types = []
     for field_name in EtalabMapper.headers():
         f = FIELDS.get(field_name)
-        if not f:
+        if not f or field_name in conditional_fields:
             continue
 
         # cast to str to avoid working with proxy (due to lazy translations)
