@@ -2307,6 +2307,22 @@ class Accessibilite(models.Model):
             for soignant_experience in self.accueil_soignant_experience
         ]
 
+    def get_accueil_physique(self):
+        if self.accueil_physique == schema.ACCUEIL_PHYSIQUE_INEXISTANT:
+            return str(schema.FIELDS["accueil_physique"]["help_text_ui_neg"])
+        if self.accueil_physique == schema.ACCUEIL_PHYSIQUE_NON_FORME:
+            return translate("Présence de personnel non formé pendant les heures d'ouverture")
+        if self.accueil_physique == schema.ACCUEIL_PHYSIQUE_SENSIBILISE_OU_FORME:
+            return translate("Présence de personnel formé pendant les heures d'ouverture")
+
+    def get_sanitaires_sens_transfert(self):
+        if self.sanitaires_sens_transfert == schema.SANITAIRES_SENS_TRANSFERT_GAUCHE:
+            return translate("Transfert dans les toilettes à gauche")
+        if self.sanitaires_sens_transfert == schema.SANITAIRES_SENS_TRANSFERT_DROITE:
+            return translate("Transfert dans les toilettes à droite")
+        if self.sanitaires_sens_transfert == schema.SANITAIRES_SENS_TRANSFERT_GAUCHE_ET_DROITE:
+            return translate("Transfert dans les toilettes dans les 2 sens")
+
     def get_accueil_tribunes_places_avec_accompagnants(self):
         field = schema.FIELDS["accueil_tribunes_places_avec_accompagnants"]
         if not self.accueil_tribunes_places_avec_accompagnants:
@@ -2315,11 +2331,35 @@ class Accessibilite(models.Model):
         return "{} : {}".format(field["help_text_ui"], self.accueil_tribunes_places_avec_accompagnants)
 
     def get_sanitaires_largeur_porte(self):
-        text = schema.FIELDS["sanitaires_largeur_porte"]["help_text_ui"] + " " + self.sanitaires_largeur_porte
-        return text
+        return "{} {}".format(
+            schema.FIELDS["sanitaires_largeur_porte"]["help_text_ui"],
+            self.get_sanitaires_largeur_porte_display().lower(),
+        )
 
     def get_accueil_tribunes_places(self):
-        return "{} {}".format(self.accueil_tribunes_places, schema.FIELDS["accueil_tribunes_places"]["help_text_ui"])
+        if not self.accueil_tribunes_places:
+            return
+
+        nb_places = self.accueil_tribunes_places
+        if self.accueil_tribunes_localisation_places == schema.ACCUEIL_TRIBUNES_PLACES_AIRE_DE_JEUX:
+            text = ngettext(
+                "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux",
+                "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux",
+                nb_places,
+            )
+        elif self.accueil_tribunes_localisation_places == schema.ACCUEIL_TRIBUNES_PLACES_REPARTIES_DIFFERENTS_NIVEAUX:
+            text = ngettext(
+                "%(nb_places)s place accessible pour les personnes en fauteuil roulant répartie sur différents niveaux des tribunes",
+                "%(nb_places)s places accessibles pour les personnes en fauteuil roulant réparties sur différents niveaux des tribunes",
+                nb_places,
+            )
+        else:
+            text = ngettext(
+                "%(nb_places)s place accessible pour les personnes en fauteuil roulant",
+                "%(nb_places)s places accessibles pour les personnes en fauteuil roulant",
+                nb_places,
+            )
+        return text % {"nb_places": nb_places}
 
     def get_accueil_casiers_fermeture(self):
         if not self.accueil_casiers_fermeture:

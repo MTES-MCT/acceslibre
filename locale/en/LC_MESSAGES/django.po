@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-19 15:38+0200\n"
+"POT-Creation-Date: 2026-08-20 14:25+0200\n"
 "PO-Revision-Date: 2026-08-19 15:38+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1321,6 +1321,39 @@ msgid "descendante"
 msgid_plural "descendantes"
 msgstr[0] "descending"
 msgstr[1] "descending"
+
+msgid "Présence de personnel non formé pendant les heures d'ouverture"
+msgstr "Presence of untrained staff during opening hours"
+
+msgid "Présence de personnel formé pendant les heures d'ouverture"
+msgstr "Presence of trained staff during opening hours"
+
+msgid "Transfert dans les toilettes à gauche"
+msgstr "Left-hand transfer in the toilets"
+
+msgid "Transfert dans les toilettes à droite"
+msgstr "Right-hand transfer in the toilets"
+
+msgid "Transfert dans les toilettes dans les 2 sens"
+msgstr "Transfer in the toilets from both sides"
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux"
+msgstr[0] "%(nb_places)s accessible place for people in wheelchairs located at the playground level"
+msgstr[1] "%(nb_places)s accessible places for people in wheelchairs located at the playground level"
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant répartie sur différents niveaux des tribunes"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant réparties sur différents niveaux des tribunes"
+msgstr[0] "%(nb_places)s accessible place for people in wheelchairs distributed at different levels of the stands"
+msgstr[1] "%(nb_places)s accessible places for people in wheelchairs distributed at different levels of the stands"
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
+msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
+msgstr[0] "%(nb_places)s accessible place for people in wheelchairs"
+msgstr[1] "%(nb_places)s accessible places for people in wheelchairs"
 
 msgid "Douche"
 msgstr "Shower"
@@ -2674,14 +2707,14 @@ msgstr "Are the changing rooms accessible to a person in a wheelchair (pathway a
 msgid "Vestiaires accessibles"
 msgstr "Accessible changing rooms"
 
-msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
-msgstr "The changing rooms are not accessible to people in wheelchairs through a passageway with a width between 90 and 110 cm/greater than 110 cm"
+msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant"
+msgstr "The changing rooms are not accessible to people in wheelchairs"
 
 msgid "Quelle est la largeur de passage pour se rendre dans les vestiaires ?"
 msgstr "What is the passage width to get to the changing rooms?"
 
-msgid "Largeur du passage d'au moins 90 cm"
-msgstr "Passage width of at least 90 cm"
+msgid "Largeur du passage"
+msgstr "Passage width"
 
 msgid "Largeur inférieure à 90 cm"
 msgstr "Width less than 90 cm"
@@ -2710,14 +2743,17 @@ msgstr "Individual showers"
 msgid "Présence de cabines de douche individuelles ?"
 msgstr "Presence of individual shower cabins?"
 
-msgid "Présence de cabines de douche individuelles accessibles"
-msgstr "Presence of accessible individual shower cubicles"
+msgid "Présence de cabines de douche individuelles"
+msgstr "Presence of individual shower cubicles"
 
-msgid "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
-msgstr "No individual shower cubicles accessible to wheelchair users"
+msgid "Pas de cabine de douche individuelles"
+msgstr "No individual shower cubicles"
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
 msgstr "Are there accessible shower cubicles? (Rotation space, diameter of 1m50, usage space, space behind the door.)"
+
+msgid "Présence de cabines de douche individuelles accessibles"
+msgstr "Presence of accessible individual shower cubicles"
 
 msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
 msgstr "No individual shower cubicles accessible to wheelchair users"
@@ -2737,17 +2773,17 @@ msgstr "No lockers available to the public"
 msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
 msgstr "Do the contrast and/or relief of the lockers and their numbering allow good readability for a visually impaired person?"
 
-msgid "Le contraste et le relief des casiers permettent une bonne lisibilité."
-msgstr "The contrast and relief of the compartments allow good readability."
+msgid "Le contraste et le relief des casiers permettent une bonne visibilité"
+msgstr "The contrast and relief of the compartments allow good visibility"
 
-msgid "Le contraste et le relief des casiers ne permettent pas une bonne lisibilité."
-msgstr "The contrast and relief of the compartments do not allow good readability."
+msgid "Le contraste et le relief des casiers ne permettent pas une bonne visibilité."
+msgstr "The contrast and relief of the compartments do not allow good visibility."
 
 msgid "Quel est leur système de fermeture ?"
 msgstr "What is their closing system?"
 
-msgid "Système de fermeture présent"
-msgstr "Closing system present"
+msgid "Système de fermeture"
+msgstr "Closure system"
 
 msgid "Système de fermeture absent"
 msgstr "Closure system missing"
@@ -2791,8 +2827,8 @@ msgstr "No adapted sanitary facilities available in the facility"
 msgid "Quelle est la largeur de porte des toilettes ?"
 msgstr "What is the width of the toilet door?"
 
-msgid "Toilettes adaptées avec une largeur de passage entre"
-msgstr "Adapted toilets with a passage width between"
+msgid "Toilettes adaptées avec une largeur de passage"
+msgstr "Adapted toilets with a passage width"
 
 msgid "Quel est le sens du transfert ?"
 msgstr "What is the meaning of the transfer?"
@@ -6553,3 +6589,12 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
+#~ msgstr "The changing rooms are not accessible to people in wheelchairs through a passageway with a width between 90 and 110 cm/greater than 110 cm"
+
+#~ msgid "Système de fermeture présent"
+#~ msgstr "Closing system present"
+
+#~ msgid "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil roulant"
+#~ msgstr "No individual shower cubicles accessible to wheelchair users"
