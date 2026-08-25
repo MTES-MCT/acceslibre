@@ -1046,7 +1046,12 @@ def process_accessibilite_form(
         prev_route = None
 
     should_display_group_labels = not ActivitiesGroup.objects.filter(
-        name__in=[ACTIVITY_GROUPS["SCHOOL"], ACTIVITY_GROUPS["POLLING_STATION"], ACTIVITY_GROUPS["HEALTHCARE"]],
+        name__in=[
+            ACTIVITY_GROUPS["SCHOOL"],
+            ACTIVITY_GROUPS["POLLING_STATION"],
+            ACTIVITY_GROUPS["HEALTHCARE"],
+            ACTIVITY_GROUPS["SPORTS_EQUIPMENT"],
+        ],
         activities=erp.activite,
     ).exists()
 

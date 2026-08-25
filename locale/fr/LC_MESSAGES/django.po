@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-20 14:25+0200\n"
+"POT-Creation-Date: 2026-08-26 00:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1338,6 +1338,16 @@ msgid "Transfert dans les toilettes dans les 2 sens"
 msgstr ""
 
 #, python-format
+msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
+msgstr ""
+
+msgid "Présence de douches collectives non accessibles"
+msgstr ""
+
+msgid "Présence de cabines de douches individuelles non accessibles"
+msgstr ""
+
+#, python-format
 msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux"
 msgstr[0] ""
@@ -1575,7 +1585,7 @@ msgstr ""
 msgid "Places situées au niveau de l'aire de jeux"
 msgstr ""
 
-msgid "Places répartis différents niveaux des tribunes"
+msgid "Places réparties sur différents niveaux des tribunes"
 msgstr ""
 
 msgid "Entre 90 et 110 cm"
@@ -1614,10 +1624,10 @@ msgstr ""
 msgid "Score visible depuis les places assises"
 msgstr ""
 
-msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
+msgid "Réservation possible de places facile d'accès"
 msgstr ""
 
-msgid "Réservation possible de places facile d'accès"
+msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
 msgstr ""
 
 msgid "Espace de repos sensoriel (hyposensoriel, d'apaisement...)"
@@ -2746,7 +2756,7 @@ msgstr ""
 msgid "Présence de cabines de douche individuelles"
 msgstr ""
 
-msgid "Pas de cabine de douche individuelles"
+msgid "Pas de cabine de douche individuelle"
 msgstr ""
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"

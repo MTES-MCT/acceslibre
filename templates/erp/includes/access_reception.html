@@ -123,40 +123,16 @@
                 <li data-filters="walking">{{ access.get_accueil_tribunes_places }}</li>
                 <li data-filters="walking">{{ access.get_accueil_tribunes_places_avec_accompagnants }}</li>
             {% endif %}
-            {% if access.accueil_vestiaires %}
-                <li data-filters="walking">{{ "accueil_vestiaires"|positive_text }}</li>
-                {% if access.accueil_vestiaires_largeur_passage %}
-                    <li data-filters="walking">
-                        {{ "accueil_vestiaires_largeur_passage"|positive_text }} {{ access.get_accueil_vestiaires_largeur_passage_display|lower }}
-                    </li>
-                {% endif %}
-            {% elif access.accueil_vestiaires is False %}
-                <li data-filters="walking">{{ "accueil_vestiaires"|negative_text }}</li>
+            {% if access.get_accueil_vestiaires %}<li data-filters="walking">{{ access.get_accueil_vestiaires }}</li>{% endif %}
+            {% if access.get_accueil_douches_collectives %}
+                <li data-filters="walking">{{ access.get_accueil_douches_collectives }}</li>
             {% endif %}
-            {% if access.accueil_douches_collectives %}
-                {% if access.accueil_douches_collectives_adaptees %}
-                    <li data-filters="walking">{{ "accueil_douches_collectives_adaptees"|positive_text }}</li>
-                {% elif access.accueil_douches_collectives_adaptees is False %}
-                    <li data-filters="walking">{{ "accueil_douches_collectives_adaptees"|negative_text }}</li>
-                {% else %}
-                    <li data-filters="walking">{{ "accueil_douches_collectives"|positive_text }}</li>
-                {% endif %}
-            {% elif access.accueil_douches_collectives is False %}
-                <li data-filters="walking">{{ "accueil_douches_collectives"|negative_text }}</li>
-            {% endif %}
-            {% if access.accueil_douches_individuelles %}
-                {% if access.accueil_douches_individuelles_adaptees %}
-                    <li data-filters="walking">{{ "accueil_douches_individuelles_adaptees"|positive_text }}</li>
-                {% elif access.accueil_douches_individuelles_adaptees is False %}
-                    <li data-filters="walking">{{ "accueil_douches_individuelles_adaptees"|negative_text }}</li>
-                {% else %}
-                    <li data-filters="walking">{{ "accueil_douches_individuelles"|positive_text }}</li>
-                {% endif %}
-            {% elif access.accueil_douches_individuelles is False %}
-                <li data-filters="walking">{{ "accueil_douches_individuelles"|negative_text }}</li>
+            {% if access.get_accueil_douches_individuelles %}
+                <li data-filters="walking">{{ access.get_accueil_douches_individuelles }}</li>
             {% endif %}
             {% if access.sanitaires_presence %}
                 {% if access.sanitaires_adaptes %}
+                    <li data-filters="all">{% translate "Toilettes adaptées" %}</li>
                     {% if access.sanitaires_largeur_porte %}
                         <li data-filters="walking">{{ access.get_sanitaires_largeur_porte }}</li>
                     {% endif %}

@@ -364,3 +364,46 @@ def test_compute_completion_rate_large_establishments():
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
     assert access.completion_rate == 17
+
+
+def _fill_in_exposed_fields(access):
+    """Fill in every exposed field, looping as filling a parent exposes new children."""
+    from erp.schema import FIELDS
+
+    values = {"boolean": True, "number": 1}
+    while True:
+        missing = [field for field in access.get_exposed_fields() if getattr(access, field) in (None, [], "")]
+        if not missing:
+            return
+        for field in missing:
+            schema = FIELDS[field]
+            choices = [key for key, _ in schema.get("choices") or [] if key is not None]
+            if schema["type"] == "array":
+                setattr(access, field, choices[:1])
+            elif choices:
+                setattr(access, field, choices[0])
+            else:
+                setattr(access, field, values[schema["type"]])
+        access.save()
+
+
+@mark.django_db
+def test_compute_completion_rate_sports_equipment_in_large_establishments():
+    activity = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"])
+    access = AccessibiliteFactory(erp=ErpFactory(activite=activity))
+
+    exposed_fields = access.get_exposed_fields()
+    # removed by the sports equipment form, hence never displayed in the contribution path, even though
+    # the large establishments form lists them in its conditional fields to add
+    assert "accueil_ascenseur_etage" not in exposed_fields
+    assert "accueil_ascenseur_etage_pmr" not in exposed_fields
+    # kept by the sports equipment form, so still exposed
+    assert "accueil_signaletique_interieure" in exposed_fields
+
+    _fill_in_exposed_fields(access)
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    assert access.completion_rate == 100

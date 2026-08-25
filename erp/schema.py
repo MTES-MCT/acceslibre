@@ -167,7 +167,7 @@ ACCUEIL_TRIBUNES_PLACES_CHOICES = [
     (ACCUEIL_TRIBUNES_PLACES_AIRE_DE_JEUX, translate_lazy("Places situées au niveau de l'aire de jeux")),
     (
         ACCUEIL_TRIBUNES_PLACES_REPARTIES_DIFFERENTS_NIVEAUX,
-        translate_lazy("Places répartis différents niveaux des tribunes"),
+        translate_lazy("Places réparties sur différents niveaux des tribunes"),
     ),
     (None, UNKNOWN),
 ]
@@ -218,10 +218,6 @@ ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES = "reservatio
 ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES = [
     (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SONORISATION, translate_lazy("Sonorisation de l'arbitrage possible")),
     (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SCORE_VISIBLE, translate_lazy("Score visible depuis les places assises")),
-    (
-        ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_ESPACE_DEPOSE_EQUIPEMENTS,
-        translate_lazy("Espace de dépose d'équipements (fauteuils, déambulateurs...)"),
-    ),
     (
         ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES,
         translate_lazy("Réservation possible de places facile d'accès"),
@@ -2905,7 +2901,7 @@ FIELDS = {
         "type": "number",
         "nullable": True,
         "is_a11y": True,
-        "help_text": mark_safe(
+        "label": mark_safe(
             translate_lazy(
                 "Est-ce que des places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
             )
@@ -3006,9 +3002,7 @@ FIELDS = {
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Présence de cabines de douche individuelles ?")),
         "help_text_ui": translate_lazy("Présence de cabines de douche individuelles"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de cabine de douche individuelles"
-        ),
+        "help_text_ui_neg": translate_lazy("Pas de cabine de douche individuelle"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,

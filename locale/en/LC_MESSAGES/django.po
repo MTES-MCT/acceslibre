@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-20 14:25+0200\n"
+"POT-Creation-Date: 2026-08-26 00:14+0200\n"
 "PO-Revision-Date: 2026-08-19 15:38+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1338,6 +1338,16 @@ msgid "Transfert dans les toilettes dans les 2 sens"
 msgstr "Transfer in the toilets from both sides"
 
 #, python-format
+msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
+msgstr "Changing rooms accessible through a passage %(largeur)s wide"
+
+msgid "Présence de douches collectives non accessibles"
+msgstr "Presence of collective showers which are not accessible"
+
+msgid "Présence de cabines de douches individuelles non accessibles"
+msgstr "Presence of individual shower cubicles which are not accessible"
+
+#, python-format
 msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux"
 msgstr[0] "%(nb_places)s accessible place for people in wheelchairs located at the playground level"
@@ -1575,7 +1585,9 @@ msgstr "Person made aware or trained"
 msgid "Places situées au niveau de l'aire de jeux"
 msgstr "Places located at the playground level"
 
-msgid "Places répartis différents niveaux des tribunes"
+#, fuzzy
+#| msgid "Places répartis différents niveaux des tribunes"
+msgid "Places réparties sur différents niveaux des tribunes"
 msgstr "Seats distributed at different levels of the stands"
 
 msgid "Entre 90 et 110 cm"
@@ -1614,11 +1626,11 @@ msgstr "Sound system for arbitration possible"
 msgid "Score visible depuis les places assises"
 msgstr "Score visible from the seats"
 
-msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
-msgstr "Equipment storage area (armchairs, walkers, etc.)"
-
 msgid "Réservation possible de places facile d'accès"
 msgstr "Possible reservation of easy-access places"
+
+msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
+msgstr "Equipment storage area (armchairs, walkers, etc.)"
 
 msgid "Espace de repos sensoriel (hyposensoriel, d'apaisement...)"
 msgstr "Sensory rest space (hyposensory, calming, etc.)"
@@ -2746,7 +2758,9 @@ msgstr "Presence of individual shower cabins?"
 msgid "Présence de cabines de douche individuelles"
 msgstr "Presence of individual shower cubicles"
 
-msgid "Pas de cabine de douche individuelles"
+#, fuzzy
+#| msgid "Pas de cabine de douche individuelles"
+msgid "Pas de cabine de douche individuelle"
 msgstr "No individual shower cubicles"
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
