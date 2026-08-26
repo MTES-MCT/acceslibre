@@ -152,7 +152,11 @@
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
             {% if access.accueil_casiers %}
-                <li data-filters="all">{{ access.get_accueil_casiers }}</li>
+                {% if access.accueil_casiers_adaptes is None %}
+                    <li data-filters="all">{{ access.get_accueil_casiers }}</li>
+                {% else %}
+                    <li data-filters="visual">{{ access.get_accueil_casiers }}</li>
+                {% endif %}
                 {% if access.accueil_casiers_fermeture %}
                     <li data-filters="all">
                         {{ "accueil_casiers_fermeture"|positive_text }} : {{ access.get_accueil_casiers_fermeture|join:", "|lower }}

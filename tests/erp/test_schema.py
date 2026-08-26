@@ -45,6 +45,12 @@ def test_get_labels():
     assert isinstance(result, dict)
 
 
+def test_all_fields_have_a_label():
+    fields_without_label = [field for field, definition in schema.FIELDS.items() if not definition.get("label")]
+
+    assert fields_without_label == [], "a missing label falls back to the raw field name in the ERP history"
+
+
 def test_get_label():
     result = schema.get_label("cheminement_ext_rampe")
     assert result == "Rampe"
