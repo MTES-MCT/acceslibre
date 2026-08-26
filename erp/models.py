@@ -2418,8 +2418,9 @@ class Accessibilite(models.Model):
             return
         accueil_casiers_fermeture_text = {k: str(v) for k, v in schema.ACCUEIL_SYSTEME_FERMETURE_CHOICES}
         return [
-            accueil_casiers_fermeture_text.get(casiers_fermeture)
+            accueil_casiers_fermeture_text[casiers_fermeture]
             for casiers_fermeture in self.accueil_casiers_fermeture
+            if casiers_fermeture in accueil_casiers_fermeture_text
         ]
 
     def get_accueil_prestations_complementaires(self):
@@ -2429,8 +2430,9 @@ class Accessibilite(models.Model):
             k: str(v) for k, v in schema.ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES
         }
         return [
-            accueil_prestations_complementaires_text.get(prestations_complementaires)
+            accueil_prestations_complementaires_text[prestations_complementaires]
             for prestations_complementaires in self.accueil_prestations_complementaires
+            if prestations_complementaires in accueil_prestations_complementaires_text
         ]
 
     def get_accueil_presence_espaces_specifiques(self):

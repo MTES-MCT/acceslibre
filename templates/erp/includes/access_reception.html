@@ -166,9 +166,13 @@
                 <li data-filters="all">{{ "accueil_casiers"|negative_text }}</li>
             {% endif %}
             {% if access.accueil_prestations_complementaires %}
-                <li data-filters="all">
-                    {{ "accueil_prestations_complementaires"|positive_text }} : {{ access.get_accueil_prestations_complementaires|join:", "|lower }}
-                </li>
+                {% if access.get_accueil_prestations_complementaires %}
+                    <li data-filters="all">
+                        {{ "accueil_prestations_complementaires"|positive_text }} : {{ access.get_accueil_prestations_complementaires|join:", "|lower }}
+                    </li>
+                {% else %}
+                    <li data-filters="all">{{ "accueil_prestations_complementaires"|negative_text }}</li>
+                {% endif %}
             {% endif %}
             {% if access.accueil_presence_espaces_specifiques %}
                 <li data-filters="all">
