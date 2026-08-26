@@ -3103,7 +3103,7 @@ FIELDS = {
         "is_a11y": True,
         "label": mark_safe(translate_lazy("Prestations complémentaires")),
         "help_text_ui": translate_lazy("Prestations complémentaires disponibles"),
-        "help_text_ui_neg": translate_lazy("Pas de prestations complémentaires"),
+        "help_text_ui_neg": translate_lazy("Pas de prestations complémentaires disponibles"),
         "choices": ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
