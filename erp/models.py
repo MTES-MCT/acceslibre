@@ -1995,25 +1995,25 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives"),
-        verbose_name=translate_lazy("Présence de douches collectives"),
+        verbose_name=translate_lazy("Présence de cabines de douches collectives"),
     )
     accueil_douches_collectives_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives_adaptees"),
-        verbose_name=translate_lazy("Accessibilité des douches collectives"),
+        verbose_name=translate_lazy("Présence de cabines de douches collectives accessibles"),
     )
     accueil_douches_individuelles = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles"),
-        verbose_name=translate_lazy("Présence de douches individuelles"),
+        verbose_name=translate_lazy("Présence de cabines de douches individuelles"),
     )
     accueil_douches_individuelles_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles_adaptees"),
-        verbose_name=translate_lazy("Accessibilité des douches individuelles"),
+        verbose_name=translate_lazy("Présence de cabines de douches individuelles accessibles"),
     )
     accueil_casiers = models.BooleanField(
         null=True,
@@ -2330,6 +2330,42 @@ class Accessibilite(models.Model):
 
         return "{} : {}".format(field["help_text_ui"], self.accueil_tribunes_places_avec_accompagnants)
 
+    def get_accueil_vestiaires(self):
+        if self.accueil_vestiaires is False:
+            return str(schema.FIELDS["accueil_vestiaires"]["help_text_ui_neg"])
+        if not self.accueil_vestiaires:
+            return None
+        if not self.accueil_vestiaires_largeur_passage:
+            return str(schema.FIELDS["accueil_vestiaires"]["help_text_ui"])
+
+        return translate("Vestiaires accessibles par un passage d'une largeur %(largeur)s") % {
+            "largeur": self.get_accueil_vestiaires_largeur_passage_display().lower()
+        }
+
+    def get_accueil_douches_collectives(self):
+        if self.accueil_douches_collectives is False:
+            return str(schema.FIELDS["accueil_douches_collectives"]["help_text_ui_neg"])
+        if not self.accueil_douches_collectives:
+            return None
+        if self.accueil_douches_collectives_adaptees is True:
+            return str(schema.FIELDS["accueil_douches_collectives_adaptees"]["help_text_ui"])
+        if self.accueil_douches_collectives_adaptees is False:
+            return translate("Présence de cabines de douches collectives non accessibles")
+
+        return str(schema.FIELDS["accueil_douches_collectives"]["help_text_ui"])
+
+    def get_accueil_douches_individuelles(self):
+        if self.accueil_douches_individuelles is False:
+            return str(schema.FIELDS["accueil_douches_individuelles"]["help_text_ui_neg"])
+        if not self.accueil_douches_individuelles:
+            return None
+        if self.accueil_douches_individuelles_adaptees is True:
+            return str(schema.FIELDS["accueil_douches_individuelles_adaptees"]["help_text_ui"])
+        if self.accueil_douches_individuelles_adaptees is False:
+            return translate("Présence de cabines de douches individuelles non accessibles")
+
+        return str(schema.FIELDS["accueil_douches_individuelles"]["help_text_ui"])
+
     def get_sanitaires_largeur_porte(self):
         return "{} {}".format(
             schema.FIELDS["sanitaires_largeur_porte"]["help_text_ui"],
@@ -2360,6 +2396,22 @@ class Accessibilite(models.Model):
                 nb_places,
             )
         return text % {"nb_places": nb_places}
+
+    def get_accueil_casiers(self):
+        if self.accueil_casiers is False:
+            return str(schema.FIELDS["accueil_casiers"]["help_text_ui_neg"])
+        if not self.accueil_casiers:
+            return None
+        if self.accueil_casiers_adaptes is True:
+            return translate(
+                "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)"
+            )
+        if self.accueil_casiers_adaptes is False:
+            return translate(
+                "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes"
+            )
+
+        return str(schema.FIELDS["accueil_casiers"]["help_text_ui"])
 
     def get_accueil_casiers_fermeture(self):
         if not self.accueil_casiers_fermeture:
@@ -2459,7 +2511,7 @@ class Accessibilite(models.Model):
             field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_add", set())
         }
 
-        form_fields = set(form_fields).difference(fields_to_remove | conditionals_to_remove) | conditionals_to_add
+        form_fields = (set(form_fields).difference(conditionals_to_remove) | conditionals_to_add) - fields_to_remove
 
         exposed = set()
 

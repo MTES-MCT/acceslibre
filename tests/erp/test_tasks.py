@@ -15,6 +15,9 @@ SPORTS_EQUIPMENT_ROOT_FIELDS = (
     "accueil_douches_collectives",
     "accueil_douches_individuelles",
     "accueil_casiers",
+)
+# Non root fields without any parent exposing them, hence never part of the completion rate
+SPORTS_EQUIPMENT_ORPHAN_FIELDS = (
     "accueil_prestations_complementaires",
     "accueil_presence_espaces_specifiques",
 )
@@ -179,6 +182,8 @@ def test_compute_completion_rate_sports_equipment_without_children():
     # no parent is filled in yet, so no child is exposed
     for field in SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field not in exposed_fields, f"{field} should not be exposed without its parent"
+    for field in SPORTS_EQUIPMENT_ORPHAN_FIELDS:
+        assert field not in exposed_fields, f"{field} is not a root field and should never be exposed"
 
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
@@ -205,7 +210,9 @@ def test_compute_completion_rate_sports_equipment_without_children():
     exposed_fields = access.get_exposed_fields()
     assert set(SPORTS_EQUIPMENT_ROOT_FIELDS).issubset(exposed_fields)
     assert not set(SPORTS_EQUIPMENT_CHILD_FIELDS) & exposed_fields
-    assert access.completion_rate == 41
+    # filling in the orphan fields does not change the completion rate
+    assert not set(SPORTS_EQUIPMENT_ORPHAN_FIELDS) & exposed_fields
+    assert access.completion_rate == 37
 
 
 @mark.django_db
@@ -253,7 +260,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 16
+    assert access.completion_rate == 17
 
     access.sanitaires_adaptes = True
     access.save()
@@ -264,7 +271,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "sanitaires_largeur_porte" in exposed_fields
     assert "sanitaires_sens_transfert" in exposed_fields
-    assert access.completion_rate == 18
+    assert access.completion_rate == 19
 
     access.accueil_tribunes_places = 4
     access.save()
@@ -275,7 +282,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "accueil_tribunes_localisation_places" in exposed_fields
     assert "accueil_tribunes_places_avec_accompagnants" in exposed_fields
-    assert access.completion_rate == 20
+    assert access.completion_rate == 21
 
     # fill in every remaining sports equipment field
     access.stationnement_zone_depose_pmr = True
@@ -301,13 +308,14 @@ def test_compute_completion_rate_sports_equipment_with_children():
     exposed_fields = access.get_exposed_fields()
 
     assert set(SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS).issubset(exposed_fields)
+    assert not set(SPORTS_EQUIPMENT_ORPHAN_FIELDS) & exposed_fields
 
     filled_in = access.get_filled_in_fields()
 
     for field in SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field in filled_in, f"{field} should count as filled in"
 
-    assert access.completion_rate == 57
+    assert access.completion_rate == 55
 
 
 @mark.django_db
@@ -364,3 +372,46 @@ def test_compute_completion_rate_large_establishments():
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
     assert access.completion_rate == 17
+
+
+def _fill_in_exposed_fields(access):
+    """Fill in every exposed field, looping as filling a parent exposes new children."""
+    from erp.schema import FIELDS
+
+    values = {"boolean": True, "number": 1}
+    while True:
+        missing = [field for field in access.get_exposed_fields() if getattr(access, field) in (None, [], "")]
+        if not missing:
+            return
+        for field in missing:
+            schema = FIELDS[field]
+            choices = [key for key, _ in schema.get("choices") or [] if key is not None]
+            if schema["type"] == "array":
+                setattr(access, field, choices[:1])
+            elif choices:
+                setattr(access, field, choices[0])
+            else:
+                setattr(access, field, values[schema["type"]])
+        access.save()
+
+
+@mark.django_db
+def test_compute_completion_rate_sports_equipment_in_large_establishments():
+    activity = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["LARGE_ESTABLISHMENTS"])
+    access = AccessibiliteFactory(erp=ErpFactory(activite=activity))
+
+    exposed_fields = access.get_exposed_fields()
+    # removed by the sports equipment form, hence never displayed in the contribution path, even though
+    # the large establishments form lists them in its conditional fields to add
+    assert "accueil_ascenseur_etage" not in exposed_fields
+    assert "accueil_ascenseur_etage_pmr" not in exposed_fields
+    # kept by the sports equipment form, so still exposed
+    assert "accueil_signaletique_interieure" in exposed_fields
+
+    _fill_in_exposed_fields(access)
+
+    compute_access_completion_rate(access.pk)
+    access.refresh_from_db()
+    assert access.completion_rate == 100

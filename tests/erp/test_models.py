@@ -1598,3 +1598,135 @@ class TestCanBeModifiedByProperty:
         user = UserFactory()
         erp_non_rpa = self.make_erp_non_rpa()
         assert erp_non_rpa.can_be_modified_by(user) is True
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "attrs, expected",
+    (
+        pytest.param(
+            {"accueil_vestiaires": True, "accueil_vestiaires_largeur_passage": "entre_90_et_110"},
+            "Vestiaires accessibles par un passage d'une largeur entre 90 et 110 cm",
+            id="largeur_entre_90_et_110",
+        ),
+        pytest.param(
+            {"accueil_vestiaires": True, "accueil_vestiaires_largeur_passage": "superieur_a_110"},
+            "Vestiaires accessibles par un passage d'une largeur supérieure à 110 cm",
+            id="largeur_superieure_a_110",
+        ),
+        pytest.param(
+            {"accueil_vestiaires": True, "accueil_vestiaires_largeur_passage": None},
+            "Vestiaires accessibles",
+            id="largeur_inconnue",
+        ),
+        pytest.param(
+            {"accueil_vestiaires": False},
+            "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant",
+            id="vestiaires_non_accessibles",
+        ),
+        pytest.param({"accueil_vestiaires": None}, None, id="vestiaires_inconnus"),
+    ),
+)
+def test_get_accueil_vestiaires(attrs, expected):
+    access = AccessibiliteFactory(**attrs)
+
+    assert access.get_accueil_vestiaires() == expected
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "attrs, expected",
+    (
+        pytest.param(
+            {"accueil_casiers": True, "accueil_casiers_adaptes": True},
+            "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)",
+            id="casiers_adaptes",
+        ),
+        pytest.param(
+            {"accueil_casiers": True, "accueil_casiers_adaptes": False},
+            "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes",
+            id="casiers_non_adaptes",
+        ),
+        pytest.param(
+            {"accueil_casiers": True, "accueil_casiers_adaptes": None},
+            "Casiers à disposition du public",
+            id="casiers_accessibilite_inconnue",
+        ),
+        pytest.param(
+            {"accueil_casiers": False},
+            "Pas de casiers à disposition du public",
+            id="casiers_absents",
+        ),
+        pytest.param({"accueil_casiers": None}, None, id="casiers_inconnus"),
+    ),
+)
+def test_get_accueil_casiers(attrs, expected):
+    access = AccessibiliteFactory(**attrs)
+
+    assert access.get_accueil_casiers() == expected
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "attrs, expected",
+    (
+        pytest.param(
+            {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": True},
+            "Présence de cabines de douches collectives accessibles",
+            id="collectives_adaptees",
+        ),
+        pytest.param(
+            {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": False},
+            "Présence de cabines de douches collectives non accessibles",
+            id="collectives_non_adaptees",
+        ),
+        pytest.param(
+            {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": None},
+            "Présence de cabines de douches collectives",
+            id="collectives_accessibilite_inconnue",
+        ),
+        pytest.param(
+            {"accueil_douches_collectives": False},
+            "Pas de cabines de douches collectives",
+            id="collectives_absentes",
+        ),
+        pytest.param({"accueil_douches_collectives": None}, None, id="collectives_inconnues"),
+    ),
+)
+def test_get_accueil_douches_collectives(attrs, expected):
+    access = AccessibiliteFactory(**attrs)
+
+    assert access.get_accueil_douches_collectives() == expected
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "attrs, expected",
+    (
+        pytest.param(
+            {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": True},
+            "Présence de cabines de douches individuelles accessibles",
+            id="individuelles_adaptees",
+        ),
+        pytest.param(
+            {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": False},
+            "Présence de cabines de douches individuelles non accessibles",
+            id="individuelles_non_adaptees",
+        ),
+        pytest.param(
+            {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": None},
+            "Présence de cabines de douches individuelles",
+            id="individuelles_accessibilite_inconnue",
+        ),
+        pytest.param(
+            {"accueil_douches_individuelles": False},
+            "Pas de cabines de douches individuelles",
+            id="individuelles_absentes",
+        ),
+        pytest.param({"accueil_douches_individuelles": None}, None, id="individuelles_inconnues"),
+    ),
+)
+def test_get_accueil_douches_individuelles(attrs, expected):
+    access = AccessibiliteFactory(**attrs)
+
+    assert access.get_accueil_douches_individuelles() == expected

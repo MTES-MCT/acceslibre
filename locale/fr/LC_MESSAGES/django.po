@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-20 14:25+0200\n"
+"POT-Creation-Date: 2026-08-26 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1245,16 +1245,16 @@ msgstr ""
 msgid "Largeur de passage pour se rendre dans les vestiaires"
 msgstr ""
 
-msgid "Présence de douches collectives"
+msgid "Présence de cabines de douches collectives"
 msgstr ""
 
-msgid "Accessibilité des douches collectives"
+msgid "Présence de cabines de douches collectives accessibles"
 msgstr ""
 
-msgid "Présence de douches individuelles"
+msgid "Présence de cabines de douches individuelles"
 msgstr ""
 
-msgid "Accessibilité des douches individuelles"
+msgid "Présence de cabines de douches individuelles accessibles"
 msgstr ""
 
 msgid "Présence de casiers"
@@ -1338,6 +1338,16 @@ msgid "Transfert dans les toilettes dans les 2 sens"
 msgstr ""
 
 #, python-format
+msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
+msgstr ""
+
+msgid "Présence de cabines de douches collectives non accessibles"
+msgstr ""
+
+msgid "Présence de cabines de douches individuelles non accessibles"
+msgstr ""
+
+#, python-format
 msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant située au niveau de l'aire de jeux"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant situées au niveau de l'aire de jeux"
 msgstr[0] ""
@@ -1354,6 +1364,12 @@ msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)"
+msgstr ""
+
+msgid "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes"
+msgstr ""
 
 msgid "Douche"
 msgstr ""
@@ -1575,7 +1591,7 @@ msgstr ""
 msgid "Places situées au niveau de l'aire de jeux"
 msgstr ""
 
-msgid "Places répartis différents niveaux des tribunes"
+msgid "Places réparties sur différents niveaux des tribunes"
 msgstr ""
 
 msgid "Entre 90 et 110 cm"
@@ -1614,10 +1630,10 @@ msgstr ""
 msgid "Score visible depuis les places assises"
 msgstr ""
 
-msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
+msgid "Réservation possible de places facile d'accès"
 msgstr ""
 
-msgid "Réservation possible de places facile d'accès"
+msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
 msgstr ""
 
 msgid "Espace de repos sensoriel (hyposensoriel, d'apaisement...)"
@@ -2683,6 +2699,9 @@ msgstr ""
 msgid "Places accessibles pour les personnes en fauteuil roulant"
 msgstr ""
 
+msgid "Localisation des places en tribunes"
+msgstr ""
+
 msgid "Où sont elles localisées ?"
 msgstr ""
 
@@ -2710,6 +2729,9 @@ msgstr ""
 msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
+msgid "Largeur du passage vers les vestiaires"
+msgstr ""
+
 msgid "Quelle est la largeur de passage pour se rendre dans les vestiaires ?"
 msgstr ""
 
@@ -2722,19 +2744,16 @@ msgstr ""
 msgid "Douches collectives"
 msgstr ""
 
-msgid "Présence de douches collectives ?"
+msgid "Présence de cabines de douches collectives ?"
 msgstr ""
 
-msgid "Pas de douches collectives"
+msgid "Pas de cabines de douches collectives"
+msgstr ""
+
+msgid "Douches collectives accessibles"
 msgstr ""
 
 msgid "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
-msgstr ""
-
-msgid "Présence de douches collectives accessibles"
-msgstr ""
-
-msgid "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
 msgid "Douches individuelles"
@@ -2743,19 +2762,13 @@ msgstr ""
 msgid "Présence de cabines de douche individuelles ?"
 msgstr ""
 
-msgid "Présence de cabines de douche individuelles"
+msgid "Pas de cabines de douches individuelles"
 msgstr ""
 
-msgid "Pas de cabine de douche individuelles"
+msgid "Douches individuelles accessibles"
 msgstr ""
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
-msgstr ""
-
-msgid "Présence de cabines de douche individuelles accessibles"
-msgstr ""
-
-msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
 msgid "Casiers"
@@ -2770,7 +2783,10 @@ msgstr ""
 msgid "Pas de casiers à disposition du public"
 msgstr ""
 
-msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+msgid "Casiers repérables par les personnes malvoyantes"
+msgstr ""
+
+msgid "Les casiers sont ils facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief) ?"
 msgstr ""
 
 msgid "Le contraste et le relief des casiers permettent une bonne visibilité"
@@ -2830,13 +2846,16 @@ msgstr ""
 msgid "Toilettes adaptées avec une largeur de passage"
 msgstr ""
 
+msgid "Sens du transfert dans les toilettes"
+msgstr ""
+
 msgid "Quel est le sens du transfert ?"
 msgstr ""
 
-msgid "Est ce que les urinoirs sont positionnés à différentes hauteurs ?"
+msgid "Urinoirs à différentes hauteurs"
 msgstr ""
 
-msgid "Urinoirs à différentes hauteurs"
+msgid "Est ce que les urinoirs sont positionnés à différentes hauteurs ?"
 msgstr ""
 
 msgid "Les urinoirs sont tous à la même hauteur"

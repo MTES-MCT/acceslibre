@@ -167,7 +167,7 @@ ACCUEIL_TRIBUNES_PLACES_CHOICES = [
     (ACCUEIL_TRIBUNES_PLACES_AIRE_DE_JEUX, translate_lazy("Places situées au niveau de l'aire de jeux")),
     (
         ACCUEIL_TRIBUNES_PLACES_REPARTIES_DIFFERENTS_NIVEAUX,
-        translate_lazy("Places répartis différents niveaux des tribunes"),
+        translate_lazy("Places réparties sur différents niveaux des tribunes"),
     ),
     (None, UNKNOWN),
 ]
@@ -218,10 +218,6 @@ ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES = "reservatio
 ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_CHOICES = [
     (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SONORISATION, translate_lazy("Sonorisation de l'arbitrage possible")),
     (ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_SCORE_VISIBLE, translate_lazy("Score visible depuis les places assises")),
-    (
-        ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_ESPACE_DEPOSE_EQUIPEMENTS,
-        translate_lazy("Espace de dépose d'équipements (fauteuils, déambulateurs...)"),
-    ),
     (
         ACCUEIL_PRESTATIONS_COMPLEMENTAIRES_RESERVATION_PLACE_FACILE_ACCES,
         translate_lazy("Réservation possible de places facile d'accès"),
@@ -2890,6 +2886,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Localisation des places en tribunes"),
         "help_text": mark_safe(translate_lazy("Où sont elles localisées ?")),
         "help_text_ui": translate_lazy("Localisation des places"),
         "help_text_ui_neg": translate_lazy("Localisation des places"),
@@ -2905,7 +2902,7 @@ FIELDS = {
         "type": "number",
         "nullable": True,
         "is_a11y": True,
-        "help_text": mark_safe(
+        "label": mark_safe(
             translate_lazy(
                 "Est-ce que des places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
             )
@@ -2949,6 +2946,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Largeur du passage vers les vestiaires"),
         "help_text": mark_safe(translate_lazy("Quelle est la largeur de passage pour se rendre dans les vestiaires ?")),
         "help_text_ui": translate_lazy("Largeur du passage"),
         "help_text_ui_neg": translate_lazy("Largeur inférieure à 90 cm"),
@@ -2966,9 +2964,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": translate_lazy("Douches collectives"),
-        "help_text": mark_safe(translate_lazy("Présence de douches collectives ?")),
-        "help_text_ui": translate_lazy("Présence de douches collectives"),
-        "help_text_ui_neg": translate_lazy("Pas de douches collectives"),
+        "help_text": mark_safe(translate_lazy("Présence de cabines de douches collectives ?")),
+        "help_text_ui": translate_lazy("Présence de cabines de douches collectives"),
+        "help_text_ui_neg": translate_lazy("Pas de cabines de douches collectives"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -2983,13 +2981,14 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Douches collectives accessibles"),
         "help_text": mark_safe(
             translate_lazy(
                 "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
             )
         ),
-        "help_text_ui": translate_lazy("Présence de douches collectives accessibles"),
-        "help_text_ui_neg": translate_lazy("Pas de douches collectives accessibles aux personnes en fauteuil roulant"),
+        "help_text_ui": translate_lazy("Présence de cabines de douches collectives accessibles"),
+        "help_text_ui_neg": translate_lazy("Présence de cabines de douches collectives non accessibles"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -3005,10 +3004,8 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Présence de cabines de douche individuelles ?")),
-        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles"),
-        "help_text_ui_neg": translate_lazy(
-            "Pas de cabine de douche individuelles"
-        ),
+        "help_text_ui": translate_lazy("Présence de cabines de douches individuelles"),
+        "help_text_ui_neg": translate_lazy("Pas de cabines de douches individuelles"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -3023,14 +3020,15 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Douches individuelles accessibles"),
         "help_text": mark_safe(
             translate_lazy(
                 "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
             )
         ),
-        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
+        "help_text_ui": translate_lazy("Présence de cabines de douches individuelles accessibles"),
         "help_text_ui_neg": translate_lazy(
-            "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
+            "Présence de cabines de douches individuelles non accessibles"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -3063,9 +3061,10 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Casiers repérables par les personnes malvoyantes"),
         "help_text": mark_safe(
             translate_lazy(
-                "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+                "Les casiers sont ils facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief) ?"
             )
         ),
         "help_text_ui": translate_lazy("Le contraste et le relief des casiers permettent une bonne visibilité"),
@@ -3085,6 +3084,7 @@ FIELDS = {
         "type": "array",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Système de fermeture des casiers"),
         "help_text": mark_safe(translate_lazy("Quel est leur système de fermeture ?")),
         "help_text_ui": translate_lazy("Système de fermeture"),
         "help_text_ui_neg": translate_lazy("Système de fermeture absent"),
@@ -3110,7 +3110,7 @@ FIELDS = {
         "warn_if": False,
         "conditional": "sports_equipment",
         "free_text": False,
-        "root": True,
+        "root": False,
     },
     "accueil_presence_espaces_specifiques": {
         "type": "array",
@@ -3125,7 +3125,7 @@ FIELDS = {
         "warn_if": False,
         "conditional": "sports_equipment",
         "free_text": False,
-        "root": True,
+        "root": False,
     },
     # Sanitaires
     "sanitaires_presence": {
@@ -3172,6 +3172,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Largeur de porte des toilettes"),
         "help_text": mark_safe(translate_lazy("Quelle est la largeur de porte des toilettes ?")),
         "help_text_ui": translate_lazy("Toilettes adaptées avec une largeur de passage"),
         "help_text_ui_neg": translate_lazy("Toilettes adaptées avec une largeur de passage"),
@@ -3188,6 +3189,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Sens du transfert dans les toilettes"),
         "help_text": mark_safe(translate_lazy("Quel est le sens du transfert ?")),
         "help_text_ui": translate_lazy("Sens du transfert"),
         "help_text_ui_neg": translate_lazy("Sens du transfert"),
@@ -3204,6 +3206,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
+        "label": translate_lazy("Urinoirs à différentes hauteurs"),
         "help_text": translate_lazy("Est ce que les urinoirs sont positionnés à différentes hauteurs ?"),
         "help_text_ui": translate_lazy("Urinoirs à différentes hauteurs"),
         "help_text_ui_neg": translate_lazy("Les urinoirs sont tous à la même hauteur"),
