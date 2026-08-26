@@ -72,7 +72,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
                 null=True,
-                verbose_name="Présence de douches collectives",
+                verbose_name="Présence de cabines de douches collectives",
             ),
         ),
         migrations.AddField(
@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
                 null=True,
-                verbose_name="Accessibilité des douches collectives",
+                verbose_name="Présence de cabines de douches collectives accessibles",
             ),
         ),
         migrations.AddField(
@@ -92,7 +92,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
                 null=True,
-                verbose_name="Présence de douches individuelles",
+                verbose_name="Présence de cabines douches individuelles",
             ),
         ),
         migrations.AddField(
@@ -102,7 +102,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
                 null=True,
-                verbose_name="Accessibilité des douches individuelles",
+                verbose_name="Présence de cabines de douches individuelles accessibles",
             ),
         ),
         migrations.AddField(

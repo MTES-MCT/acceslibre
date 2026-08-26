@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 00:14+0200\n"
+"POT-Creation-Date: 2026-08-26 16:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1245,16 +1245,16 @@ msgstr ""
 msgid "Largeur de passage pour se rendre dans les vestiaires"
 msgstr ""
 
-msgid "Présence de douches collectives"
+msgid "Présence de cabines de douches collectives"
 msgstr ""
 
-msgid "Accessibilité des douches collectives"
+msgid "Présence de cabines de douches collectives accessibles"
 msgstr ""
 
-msgid "Présence de douches individuelles"
+msgid "Présence de cabines de douches individuelles"
 msgstr ""
 
-msgid "Accessibilité des douches individuelles"
+msgid "Présence de cabines de douches individuelles accessibles"
 msgstr ""
 
 msgid "Présence de casiers"
@@ -1341,7 +1341,7 @@ msgstr ""
 msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
 msgstr ""
 
-msgid "Présence de douches collectives non accessibles"
+msgid "Présence de cabines de douches collectives non accessibles"
 msgstr ""
 
 msgid "Présence de cabines de douches individuelles non accessibles"
@@ -1364,6 +1364,12 @@ msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)"
+msgstr ""
+
+msgid "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes"
+msgstr ""
 
 msgid "Douche"
 msgstr ""
@@ -2732,19 +2738,13 @@ msgstr ""
 msgid "Douches collectives"
 msgstr ""
 
-msgid "Présence de douches collectives ?"
+msgid "Présence de cabines de douches collectives ?"
 msgstr ""
 
-msgid "Pas de douches collectives"
+msgid "Pas de cabines de douches collectives"
 msgstr ""
 
 msgid "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
-msgstr ""
-
-msgid "Présence de douches collectives accessibles"
-msgstr ""
-
-msgid "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
 msgid "Douches individuelles"
@@ -2753,19 +2753,10 @@ msgstr ""
 msgid "Présence de cabines de douche individuelles ?"
 msgstr ""
 
-msgid "Présence de cabines de douche individuelles"
-msgstr ""
-
-msgid "Pas de cabine de douche individuelle"
+msgid "Pas de cabines de douches individuelle"
 msgstr ""
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
-msgstr ""
-
-msgid "Présence de cabines de douche individuelles accessibles"
-msgstr ""
-
-msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
 msgstr ""
 
 msgid "Casiers"
@@ -2780,7 +2771,7 @@ msgstr ""
 msgid "Pas de casiers à disposition du public"
 msgstr ""
 
-msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+msgid "Les casiers sont ils facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief) ?"
 msgstr ""
 
 msgid "Le contraste et le relief des casiers permettent une bonne visibilité"

@@ -1639,22 +1639,22 @@ def test_get_accueil_vestiaires(attrs, expected):
     (
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": True},
-            "Présence de douches collectives accessibles",
+            "Présence de cabines de douches collectives accessibles",
             id="collectives_adaptees",
         ),
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": False},
-            "Présence de douches collectives non accessibles",
+            "Présence de cabines de douches collectives non accessibles",
             id="collectives_non_adaptees",
         ),
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": None},
-            "Présence de douches collectives",
+            "Présence de cabines de douches collectives accessibles",
             id="collectives_accessibilite_inconnue",
         ),
         pytest.param(
             {"accueil_douches_collectives": False},
-            "Pas de douches collectives",
+            "Présence de cabines de douches collectives non accessibles",
             id="collectives_absentes",
         ),
         pytest.param({"accueil_douches_collectives": None}, None, id="collectives_inconnues"),
@@ -1672,7 +1672,7 @@ def test_get_accueil_douches_collectives(attrs, expected):
     (
         pytest.param(
             {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": True},
-            "Présence de cabines de douche individuelles accessibles",
+            "Présence de cabines de douches individuelles accessibles",
             id="individuelles_adaptees",
         ),
         pytest.param(

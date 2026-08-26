@@ -1995,25 +1995,25 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives"),
-        verbose_name=translate_lazy("Présence de douches collectives"),
+        verbose_name=translate_lazy("Présence de cabines de douches collectives"),
     )
     accueil_douches_collectives_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives_adaptees"),
-        verbose_name=translate_lazy("Accessibilité des douches collectives"),
+        verbose_name=translate_lazy("Présence de cabines de douches collectives accessibles"),
     )
     accueil_douches_individuelles = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles"),
-        verbose_name=translate_lazy("Présence de douches individuelles"),
+        verbose_name=translate_lazy("Présence de cabines de douches individuelles"),
     )
     accueil_douches_individuelles_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles_adaptees"),
-        verbose_name=translate_lazy("Accessibilité des douches individuelles"),
+        verbose_name=translate_lazy("Présence de cabines de douches individuelles accessibles"),
     )
     accueil_casiers = models.BooleanField(
         null=True,
@@ -2350,7 +2350,7 @@ class Accessibilite(models.Model):
         if self.accueil_douches_collectives_adaptees is True:
             return str(schema.FIELDS["accueil_douches_collectives_adaptees"]["help_text_ui"])
         if self.accueil_douches_collectives_adaptees is False:
-            return translate("Présence de douches collectives non accessibles")
+            return translate("Présence de cabines de douches collectives non accessibles")
 
         return str(schema.FIELDS["accueil_douches_collectives"]["help_text_ui"])
 
@@ -2396,6 +2396,22 @@ class Accessibilite(models.Model):
                 nb_places,
             )
         return text % {"nb_places": nb_places}
+
+    def get_accueil_casiers(self):
+        if self.accueil_casiers is False:
+            return str(schema.FIELDS["accueil_casiers"]["help_text_ui_neg"])
+        if not self.accueil_casiers:
+            return None
+        if self.accueil_casiers_adaptes is True:
+            return translate(
+                "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)"
+            )
+        if self.accueil_casiers_adaptes is False:
+            return translate(
+                "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes"
+            )
+
+        return str(schema.FIELDS["accueil_casiers"]["help_text_ui"])
 
     def get_accueil_casiers_fermeture(self):
         if not self.accueil_casiers_fermeture:

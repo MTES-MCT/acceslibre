@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 00:14+0200\n"
-"PO-Revision-Date: 2026-08-19 15:38+0200\n"
+"POT-Creation-Date: 2026-08-26 16:42+0200\n"
+"PO-Revision-Date: 2026-08-26 16:42+0200\n"
 "Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1245,17 +1245,17 @@ msgstr "Accessibility of changing rooms"
 msgid "Largeur de passage pour se rendre dans les vestiaires"
 msgstr "Passage width to get to the changing rooms"
 
-msgid "Présence de douches collectives"
+msgid "Présence de cabines de douches collectives"
 msgstr "Presence of collective showers"
 
-msgid "Accessibilité des douches collectives"
-msgstr "Accessibility of collective showers"
+msgid "Présence de cabines de douches collectives accessibles"
+msgstr "Presence of accessible collective showers"
 
-msgid "Présence de douches individuelles"
-msgstr "Presence of individual showers"
+msgid "Présence de cabines de douches individuelles"
+msgstr "Presence of individual shower cubicles"
 
-msgid "Accessibilité des douches individuelles"
-msgstr "Accessibility of individual showers"
+msgid "Présence de cabines de douches individuelles accessibles"
+msgstr "Presence of accessible individual shower cubicles"
 
 msgid "Présence de casiers"
 msgstr "Presence of lockers"
@@ -1341,7 +1341,7 @@ msgstr "Transfer in the toilets from both sides"
 msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
 msgstr "Changing rooms accessible through a passage %(largeur)s wide"
 
-msgid "Présence de douches collectives non accessibles"
+msgid "Présence de cabines de douches collectives non accessibles"
 msgstr "Presence of collective showers which are not accessible"
 
 msgid "Présence de cabines de douches individuelles non accessibles"
@@ -1364,6 +1364,12 @@ msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
 msgid_plural "%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
 msgstr[0] "%(nb_places)s accessible place for people in wheelchairs"
 msgstr[1] "%(nb_places)s accessible places for people in wheelchairs"
+
+msgid "Casiers à disposition du public facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief)"
+msgstr ""
+
+msgid "Casiers à disposition du public non conçus pour être facilement repérables par les personnes malvoyantes"
+msgstr ""
 
 msgid "Douche"
 msgstr "Shower"
@@ -1585,8 +1591,6 @@ msgstr "Person made aware or trained"
 msgid "Places situées au niveau de l'aire de jeux"
 msgstr "Places located at the playground level"
 
-#, fuzzy
-#| msgid "Places répartis différents niveaux des tribunes"
 msgid "Places réparties sur différents niveaux des tribunes"
 msgstr "Seats distributed at different levels of the stands"
 
@@ -2734,20 +2738,14 @@ msgstr "Width less than 90 cm"
 msgid "Douches collectives"
 msgstr "Collective showers"
 
-msgid "Présence de douches collectives ?"
+msgid "Présence de cabines de douches collectives ?"
 msgstr "Presence of collective showers?"
 
-msgid "Pas de douches collectives"
+msgid "Pas de cabines de douches collectives"
 msgstr "No collective showers"
 
 msgid "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
 msgstr "Are the showers accessible for a person in a wheelchair? (level access, minimum width of 90cm, turning space)"
-
-msgid "Présence de douches collectives accessibles"
-msgstr "Presence of accessible collective showers"
-
-msgid "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
-msgstr "No collective showers accessible to people in wheelchairs"
 
 msgid "Douches individuelles"
 msgstr "Individual showers"
@@ -2755,22 +2753,11 @@ msgstr "Individual showers"
 msgid "Présence de cabines de douche individuelles ?"
 msgstr "Presence of individual shower cabins?"
 
-msgid "Présence de cabines de douche individuelles"
-msgstr "Presence of individual shower cubicles"
-
-#, fuzzy
-#| msgid "Pas de cabine de douche individuelles"
-msgid "Pas de cabine de douche individuelle"
+msgid "Pas de cabines de douches individuelle"
 msgstr "No individual shower cubicles"
 
 msgid "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
 msgstr "Are there accessible shower cubicles? (Rotation space, diameter of 1m50, usage space, space behind the door.)"
-
-msgid "Présence de cabines de douche individuelles accessibles"
-msgstr "Presence of accessible individual shower cubicles"
-
-msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
-msgstr "No individual shower cubicles accessible to wheelchair users"
 
 msgid "Casiers"
 msgstr "Lockers"
@@ -2784,8 +2771,8 @@ msgstr "Lockers available to the public"
 msgid "Pas de casiers à disposition du public"
 msgstr "No lockers available to the public"
 
-msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
-msgstr "Do the contrast and/or relief of the lockers and their numbering allow good readability for a visually impaired person?"
+msgid "Les casiers sont ils facilement repérables par les personnes malvoyantes (contraste visuel, repères tactiles en relief) ?"
+msgstr ""
 
 msgid "Le contraste et le relief des casiers permettent une bonne visibilité"
 msgstr "The contrast and relief of the compartments allow good visibility"
@@ -6603,6 +6590,24 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid "Accessibilité des douches collectives"
+#~ msgstr "Accessibility of collective showers"
+
+#~ msgid "Présence de douches individuelles"
+#~ msgstr "Presence of individual showers"
+
+#~ msgid "Accessibilité des douches individuelles"
+#~ msgstr "Accessibility of individual showers"
+
+#~ msgid "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
+#~ msgstr "No collective showers accessible to people in wheelchairs"
+
+#~ msgid "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil roulant"
+#~ msgstr "No individual shower cubicles accessible to wheelchair users"
+
+#~ msgid "Le contraste et/ou le relief des casiers et de leur numérotation permettent-ils une bonne lisibilité pour une personne malvoyante ?"
+#~ msgstr "Do the contrast and/or relief of the lockers and their numbering allow good readability for a visually impaired person?"
 
 #~ msgid "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
 #~ msgstr "The changing rooms are not accessible to people in wheelchairs through a passageway with a width between 90 and 110 cm/greater than 110 cm"

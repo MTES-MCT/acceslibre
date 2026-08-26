@@ -132,9 +132,10 @@
             {% endif %}
             {% if access.sanitaires_presence %}
                 {% if access.sanitaires_adaptes %}
-                    <li data-filters="all">{% translate "Toilettes adaptées" %}</li>
                     {% if access.sanitaires_largeur_porte %}
                         <li data-filters="walking">{{ access.get_sanitaires_largeur_porte }}</li>
+                    {% else %}
+                        <li data-filters="walking">{% translate "Toilettes adaptées" %}</li>
                     {% endif %}
                     {% if access.sanitaires_sens_transfert %}
                         <li data-filters="walking">{{ access.get_sanitaires_sens_transfert }}</li>
@@ -151,12 +152,7 @@
                 <li data-filters="all">{{ "sanitaires_presence"|negative_text }}</li>
             {% endif %}
             {% if access.accueil_casiers %}
-                <li data-filters="all">{{ "accueil_casiers"|positive_text }}</li>
-                {% if access.accueil_casiers_adaptes %}
-                    <li data-filters="visual">{{ "accueil_casiers_adaptes"|positive_text }}</li>
-                {% elif access.accueil_casiers_adaptes is False %}
-                    <li data-filters="visual">{{ "accueil_casiers_adaptes"|negative_text }}</li>
-                {% endif %}
+                <li data-filters="all">{{ access.get_accueil_casiers }}</li>
                 {% if access.accueil_casiers_fermeture %}
                     <li data-filters="all">
                         {{ "accueil_casiers_fermeture"|positive_text }} : {{ access.get_accueil_casiers_fermeture|join:", "|lower }}

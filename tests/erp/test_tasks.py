@@ -15,6 +15,9 @@ SPORTS_EQUIPMENT_ROOT_FIELDS = (
     "accueil_douches_collectives",
     "accueil_douches_individuelles",
     "accueil_casiers",
+)
+# Non root fields without any parent exposing them, hence never part of the completion rate
+SPORTS_EQUIPMENT_ORPHAN_FIELDS = (
     "accueil_prestations_complementaires",
     "accueil_presence_espaces_specifiques",
 )
@@ -179,6 +182,8 @@ def test_compute_completion_rate_sports_equipment_without_children():
     # no parent is filled in yet, so no child is exposed
     for field in SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field not in exposed_fields, f"{field} should not be exposed without its parent"
+    for field in SPORTS_EQUIPMENT_ORPHAN_FIELDS:
+        assert field not in exposed_fields, f"{field} is not a root field and should never be exposed"
 
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
@@ -205,7 +210,9 @@ def test_compute_completion_rate_sports_equipment_without_children():
     exposed_fields = access.get_exposed_fields()
     assert set(SPORTS_EQUIPMENT_ROOT_FIELDS).issubset(exposed_fields)
     assert not set(SPORTS_EQUIPMENT_CHILD_FIELDS) & exposed_fields
-    assert access.completion_rate == 41
+    # filling in the orphan fields does not change the completion rate
+    assert not set(SPORTS_EQUIPMENT_ORPHAN_FIELDS) & exposed_fields
+    assert access.completion_rate == 37
 
 
 @mark.django_db
@@ -253,7 +260,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     compute_access_completion_rate(access.pk)
     access.refresh_from_db()
-    assert access.completion_rate == 16
+    assert access.completion_rate == 17
 
     access.sanitaires_adaptes = True
     access.save()
@@ -264,7 +271,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "sanitaires_largeur_porte" in exposed_fields
     assert "sanitaires_sens_transfert" in exposed_fields
-    assert access.completion_rate == 18
+    assert access.completion_rate == 19
 
     access.accueil_tribunes_places = 4
     access.save()
@@ -275,7 +282,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "accueil_tribunes_localisation_places" in exposed_fields
     assert "accueil_tribunes_places_avec_accompagnants" in exposed_fields
-    assert access.completion_rate == 20
+    assert access.completion_rate == 21
 
     # fill in every remaining sports equipment field
     access.stationnement_zone_depose_pmr = True
@@ -301,13 +308,14 @@ def test_compute_completion_rate_sports_equipment_with_children():
     exposed_fields = access.get_exposed_fields()
 
     assert set(SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS).issubset(exposed_fields)
+    assert not set(SPORTS_EQUIPMENT_ORPHAN_FIELDS) & exposed_fields
 
     filled_in = access.get_filled_in_fields()
 
     for field in SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field in filled_in, f"{field} should count as filled in"
 
-    assert access.completion_rate == 57
+    assert access.completion_rate == 55
 
 
 @mark.django_db
