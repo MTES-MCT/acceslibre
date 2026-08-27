@@ -2964,9 +2964,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": translate_lazy("Douches collectives"),
-        "help_text": mark_safe(translate_lazy("Présence de cabines de douches collectives ?")),
-        "help_text_ui": translate_lazy("Présence de cabines de douches collectives"),
-        "help_text_ui_neg": translate_lazy("Pas de cabines de douches collectives"),
+        "help_text": mark_safe(translate_lazy("Présence de cabines de douche collectives ?")),
+        "help_text_ui": translate_lazy("Présence de cabines de douche collectives"),
+        "help_text_ui_neg": translate_lazy("Pas de cabines de douche collectives"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -2987,8 +2987,8 @@ FIELDS = {
                 "Les douches sont-elles accessibles pour une personne en fauteuil roulant ? (accès de plain pied, largeur minimale de 90cm, espace de giration)"
             )
         ),
-        "help_text_ui": translate_lazy("Présence de cabines de douches collectives accessibles"),
-        "help_text_ui_neg": translate_lazy("Présence de cabines de douches collectives non accessibles"),
+        "help_text_ui": translate_lazy("Présence de cabines de douche collectives accessibles"),
+        "help_text_ui_neg": translate_lazy("Présence de cabines de douche collectives non accessibles"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -3004,8 +3004,8 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "help_text": mark_safe(translate_lazy("Présence de cabines de douche individuelles ?")),
-        "help_text_ui": translate_lazy("Présence de cabines de douches individuelles"),
-        "help_text_ui_neg": translate_lazy("Pas de cabines de douches individuelles"),
+        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles"),
+        "help_text_ui_neg": translate_lazy("Pas de cabines de douche individuelles"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -3023,12 +3023,12 @@ FIELDS = {
         "label": translate_lazy("Douches individuelles accessibles"),
         "help_text": mark_safe(
             translate_lazy(
-                "Est-ce qu'il y a des cabines de douches accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
+                "Est-ce qu'il y a des cabines de douche accessibles ? (Espace de giration, diamètre de 1m50, espace d'usage, espace derrière la porte.)"
             )
         ),
-        "help_text_ui": translate_lazy("Présence de cabines de douches individuelles accessibles"),
+        "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
         "help_text_ui_neg": translate_lazy(
-            "Présence de cabines de douches individuelles non accessibles"
+            "Présence de cabines de douche individuelles non accessibles"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,

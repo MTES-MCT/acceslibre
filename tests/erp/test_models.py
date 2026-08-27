@@ -1672,22 +1672,22 @@ def test_get_accueil_casiers(attrs, expected):
     (
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": True},
-            "Présence de cabines de douches collectives accessibles",
+            "Présence de cabines de douche collectives accessibles",
             id="collectives_adaptees",
         ),
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": False},
-            "Présence de cabines de douches collectives non accessibles",
+            "Présence de cabines de douche collectives non accessibles",
             id="collectives_non_adaptees",
         ),
         pytest.param(
             {"accueil_douches_collectives": True, "accueil_douches_collectives_adaptees": None},
-            "Présence de cabines de douches collectives",
+            "Présence de cabines de douche collectives",
             id="collectives_accessibilite_inconnue",
         ),
         pytest.param(
             {"accueil_douches_collectives": False},
-            "Pas de cabines de douches collectives",
+            "Pas de cabines de douche collectives",
             id="collectives_absentes",
         ),
         pytest.param({"accueil_douches_collectives": None}, None, id="collectives_inconnues"),
@@ -1705,22 +1705,22 @@ def test_get_accueil_douches_collectives(attrs, expected):
     (
         pytest.param(
             {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": True},
-            "Présence de cabines de douches individuelles accessibles",
+            "Présence de cabines de douche individuelles accessibles",
             id="individuelles_adaptees",
         ),
         pytest.param(
             {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": False},
-            "Présence de cabines de douches individuelles non accessibles",
+            "Présence de cabines de douche individuelles non accessibles",
             id="individuelles_non_adaptees",
         ),
         pytest.param(
             {"accueil_douches_individuelles": True, "accueil_douches_individuelles_adaptees": None},
-            "Présence de cabines de douches individuelles",
+            "Présence de cabines de douche individuelles",
             id="individuelles_accessibilite_inconnue",
         ),
         pytest.param(
             {"accueil_douches_individuelles": False},
-            "Pas de cabines de douches individuelles",
+            "Pas de cabines de douche individuelles",
             id="individuelles_absentes",
         ),
         pytest.param({"accueil_douches_individuelles": None}, None, id="individuelles_inconnues"),

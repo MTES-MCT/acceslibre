@@ -1995,25 +1995,25 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives"),
-        verbose_name=translate_lazy("Présence de cabines de douches collectives"),
+        verbose_name=translate_lazy("Présence de cabines de douche collectives"),
     )
     accueil_douches_collectives_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_collectives_adaptees"),
-        verbose_name=translate_lazy("Présence de cabines de douches collectives accessibles"),
+        verbose_name=translate_lazy("Présence de cabines de douche collectives accessibles"),
     )
     accueil_douches_individuelles = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles"),
-        verbose_name=translate_lazy("Présence de cabines de douches individuelles"),
+        verbose_name=translate_lazy("Présence de cabines de douche individuelles"),
     )
     accueil_douches_individuelles_adaptees = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.get_field_choices("accueil_douches_individuelles_adaptees"),
-        verbose_name=translate_lazy("Présence de cabines de douches individuelles accessibles"),
+        verbose_name=translate_lazy("Présence de cabines de douche individuelles accessibles"),
     )
     accueil_casiers = models.BooleanField(
         null=True,
@@ -2350,7 +2350,7 @@ class Accessibilite(models.Model):
         if self.accueil_douches_collectives_adaptees is True:
             return str(schema.FIELDS["accueil_douches_collectives_adaptees"]["help_text_ui"])
         if self.accueil_douches_collectives_adaptees is False:
-            return translate("Présence de cabines de douches collectives non accessibles")
+            return translate("Présence de cabines de douche collectives non accessibles")
 
         return str(schema.FIELDS["accueil_douches_collectives"]["help_text_ui"])
 
@@ -2362,7 +2362,7 @@ class Accessibilite(models.Model):
         if self.accueil_douches_individuelles_adaptees is True:
             return str(schema.FIELDS["accueil_douches_individuelles_adaptees"]["help_text_ui"])
         if self.accueil_douches_individuelles_adaptees is False:
-            return translate("Présence de cabines de douches individuelles non accessibles")
+            return translate("Présence de cabines de douche individuelles non accessibles")
 
         return str(schema.FIELDS["accueil_douches_individuelles"]["help_text_ui"])
 
