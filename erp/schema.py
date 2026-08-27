@@ -2904,7 +2904,7 @@ FIELDS = {
         "is_a11y": True,
         "label": mark_safe(
             translate_lazy(
-                "Est-ce que des places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
+                "Combien de places pour les accompagnants sont proposées à côté des places pour les personnes en fauteuil roulant ?"
             )
         ),
         "help_text_ui": translate_lazy("Places accompagnant à côté des places pour les personnes en fauteuil roulant"),
