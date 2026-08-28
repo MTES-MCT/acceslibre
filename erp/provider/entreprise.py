@@ -1,6 +1,7 @@
 import logging
 
 import requests
+from waffle import switch_is_active
 
 from core.lib import text
 from erp.models import Commune, ExternalSource
@@ -93,6 +94,8 @@ def process_response(json_value, terms, code_insee):
 
 
 def search(terms, code_insee, activities):
+    if switch_is_active("ENTREPRISE_API_DISABLED"):
+        return []
     try:
         terms = clean_search_terms(terms)
         payload = {
@@ -122,4 +125,5 @@ def search(terms, code_insee, activities):
         logger.error(f"entreprise api timeout : {BASE_URL_ENTERPRISE_API}/full_text/{terms}")
         return []
     except requests.exceptions.RequestException as err:
-        raise RuntimeError(f"entreprise api error: {err}")
+        logger.error("entreprise api error", err)
+        return []
