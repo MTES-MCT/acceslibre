@@ -1,7 +1,9 @@
 from django.apps import apps
-from django.utils.safestring import mark_safe
-from django.utils.text import format_lazy
+from django.utils.functional import lazy
+from django.utils.safestring import SafeString, mark_safe
+from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
+from waffle import switch_is_active
 
 from core.lib import text
 
@@ -366,7 +368,23 @@ ESCALIER_SENS = [
     (None, UNKNOWN),
 ]
 
-REGISTRE_INFO_URL = "/registre-public-accessibilite"
+REGISTRE_URL_RPA_ON = "/registre-public-accessibilite"
+REGISTRE_URL_RPA_OFF = "https://www.ecologie.gouv.fr/politiques-publiques/laccessibilite-etablissements-recevant-du-public-erp#le-registre-public-daccessibilite-6"
+
+
+def _registre_url_help_text():
+    if switch_is_active("RPA"):
+        return mark_safe(
+            translate(
+                'La création d’une fiche complète sur Acceslibre permet de remplir l’obligation de <a href="{registre_url}" target="_blank" title="registre public d’accessibilité - nouvelle fenêtre">registre public d’accessibilité</a>. Si vous avez d’autres pièces relatives au registre, indiquez ici l’URL de lien vers ces documents.'
+            ).format(registre_url=REGISTRE_URL_RPA_ON)
+        )
+    return mark_safe(
+        translate(
+            'Si l\'établissement en dispose, adresse internet (URL) à laquelle le <a href="{registre_url}" target="_blank">registre d\'accessibilité</a> de l\'établissement est consultable.'
+        ).format(registre_url=REGISTRE_URL_RPA_OFF)
+    )
+
 
 PARTNER_LABELS = {
     "TOURISM_AND_LEISURE": translate_lazy("Tourisme & loisirs"),
@@ -3027,9 +3045,7 @@ FIELDS = {
             )
         ),
         "help_text_ui": translate_lazy("Présence de cabines de douche individuelles accessibles"),
-        "help_text_ui_neg": translate_lazy(
-            "Présence de cabines de douche individuelles non accessibles"
-        ),
+        "help_text_ui_neg": translate_lazy("Présence de cabines de douche individuelles non accessibles"),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -3307,14 +3323,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": False,
         "label": translate_lazy("Registre"),
-        "help_text": mark_safe(
-            format_lazy(
-                translate_lazy(
-                    "La création d'une fiche complète dans Acceslibre permet de remplir l'obligation de <a href=\"{registre_url}\" target=\"_blank\" title=\"registre public d'acessibilité - nouvelle fenêtre\">registre public d'accessibilité</a>. Le cas échéant, adresse URL où je peux trouver d'autres pièces relatives aux registres d'accessibilité."
-                ),
-                registre_url=REGISTRE_INFO_URL,
-            )
-        ),
+        "help_text": lazy(_registre_url_help_text, SafeString)(),
         "help_text_ui": translate_lazy("Adresse internet à laquelle le registre est consultable"),
         "help_text_ui_neg": translate_lazy("Adresse internet à laquelle le registre est consultable"),
         "section": SECTION_REGISTRE,

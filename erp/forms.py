@@ -970,7 +970,9 @@ class PublicAProposForm(forms.ModelForm):
     registre_url = forms.URLField(
         label=translate_lazy("Adresse URL"),
         help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(attrs={"type": "url", "autocomplete": "off"}),
+        widget=forms.TextInput(
+            attrs={"type": "url", "autocomplete": "off", "placeholder": "www.acceslibre.beta.gouv.fr"}
+        ),
         required=False,
     )
     conformite = forms.ChoiceField(
