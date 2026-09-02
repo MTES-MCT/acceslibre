@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-27 14:10+0200\n"
+"POT-Creation-Date: 2026-09-02 11:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1720,6 +1720,14 @@ msgstr ""
 msgid "Amovible"
 msgstr ""
 
+#, python-brace-format
+msgid "La création d’une fiche complète sur Acceslibre permet de remplir l’obligation de <a href=\"{registre_url}\" target=\"_blank\" title=\"registre public d’accessibilité - nouvelle fenêtre\">registre public d’accessibilité</a>. Si vous avez d’autres pièces relatives au registre, indiquez ici l’URL de lien vers ces documents."
+msgstr ""
+
+#, python-brace-format
+msgid "Si l'établissement en dispose, adresse internet (URL) à laquelle le <a href=\"{registre_url}\" target=\"_blank\">registre d'accessibilité</a> de l'établissement est consultable."
+msgstr ""
+
 msgid "Tourisme & loisirs"
 msgstr ""
 
@@ -2888,10 +2896,6 @@ msgstr ""
 msgid "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées"
 msgstr ""
 
-#, python-brace-format
-msgid "La création d'une fiche complète dans Acceslibre permet de remplir l'obligation de <a href=\"{registre_url}\" target=\"_blank\" title=\"registre public d'acessibilité - nouvelle fenêtre\">registre public d'accessibilité</a>. Le cas échéant, adresse URL où je peux trouver d'autres pièces relatives aux registres d'accessibilité."
-msgstr ""
-
 msgid "Adresse internet à laquelle le registre est consultable"
 msgstr ""
 
@@ -3973,6 +3977,9 @@ msgid ""
 msgstr ""
 
 msgid "Ce champ ne peut être modifié que par le contributeur principal de cet établissement."
+msgstr ""
+
+msgid "Compléments d’informations sur mon registre public d’accessibilité (optionnel)"
 msgstr ""
 
 msgid "Registre public d’accessibilité"
