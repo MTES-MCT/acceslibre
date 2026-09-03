@@ -15,4 +15,17 @@
         <p class="fr-mb-0">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
     {% endif %}
     <p class="fr-mb-0">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+    {% if erp.rpa_exemption is not None %}
+        <p class="fr-mb-0 fr-mt-1w">
+            {% if erp.rpa_exemption %}
+                {% blocktranslate trimmed %}
+                    Cet établissement fait l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                {% endblocktranslate %}
+            {% else %}
+                {% blocktranslate trimmed %}
+                    Cet établissement ne fait pas l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                {% endblocktranslate %}
+            {% endif %}
+        </p>
+    {% endif %}
 </div>

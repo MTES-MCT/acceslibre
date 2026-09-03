@@ -188,6 +188,12 @@
             border-color: #B34000;
           }
 
+          .rpa-block__exemption {
+            font-size: 12px;
+            margin-bottom: 0;
+            margin-top: 8px;
+          }
+
         .rpa-badge {
             display: inline-flex;
             text-transform: uppercase;
@@ -267,6 +273,19 @@
                     <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
                 {% endif %}
                 <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+                {% if erp.rpa_exemption is not None %}
+                    <p class="rpa-block__exemption">
+                        {% if erp.rpa_exemption %}
+                            {% blocktranslate trimmed %}
+                                Cet établissement fait l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                            {% endblocktranslate %}
+                        {% else %}
+                            {% blocktranslate trimmed %}
+                                Cet établissement ne fait pas l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                            {% endblocktranslate %}
+                        {% endif %}
+                    </p>
+                {% endif %}
             </section>
         {% endswitch %}
     </header>
