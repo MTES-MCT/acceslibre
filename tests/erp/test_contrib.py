@@ -1,3 +1,5 @@
+import re
+
 import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
@@ -6,7 +8,15 @@ from django.test import Client
 from django.urls import reverse
 from reversion.models import Version
 
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from erp.models import ACTIVITY_GROUPS
+from tests.factories import (
+    AccessibiliteFactory,
+    ActiviteFactory,
+    ActivitiesGroupFactory,
+    CommuneFactory,
+    ErpFactory,
+    UserFactory,
+)
 
 AKEI_SIRET = "88076068100010"
 
@@ -194,3 +204,35 @@ def test_submitting_contrib_edit_info_form_with_info_does_trigger_save(django_ap
     messages = list(response.context["messages"])
     assert len(messages) == 1
     assert messages[0].level == SUCCESS
+
+
+EMPTY_SECTION_RE = re.compile(r'<div class="contrib-inputs-section[^"]*">\s*</div>')
+
+
+@pytest.mark.django_db
+def test_contrib_transport_has_no_empty_section_for_non_sport_activity(client, user):
+    activite = ActiviteFactory(nom="Boulangerie")
+    erp = AccessibiliteFactory(erp__user=user, erp__activite=activite).erp
+    client.force_login(user)
+
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
+
+    assert response.status_code == 200
+    html = response.content.decode()
+    assert "stationnement_zone_depose_pmr" not in html
+    assert EMPTY_SECTION_RE.search(html) is None
+
+
+@pytest.mark.django_db
+def test_contrib_transport_displays_zone_depose_pmr_for_sport_activity(client, user):
+    activite = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activite], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+    erp = AccessibiliteFactory(erp__user=user, erp__activite=activite).erp
+    client.force_login(user)
+
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
+
+    assert response.status_code == 200
+    html = response.content.decode()
+    assert "stationnement_zone_depose_pmr" in html
+    assert EMPTY_SECTION_RE.search(html) is None
