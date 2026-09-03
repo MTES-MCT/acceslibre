@@ -34,7 +34,6 @@ async function FormContribDirtyChecker(root) {
   const cancelBtn = document.querySelector('button#contrib-edit-modal-cancel-btn')
   const saveBtn = document.querySelector('button#contrib-edit-modal-save-btn')
   const closeBtn = document.querySelector('button[aria-controls="contrib-edit-modal-controls"]')
-  const validateBtn = document.querySelector('input#contrib-edit-modal-validate-btn')
   const publishBtn = document.querySelector('input#contrib-edit-publish-btn')
 
   if (
@@ -48,8 +47,7 @@ async function FormContribDirtyChecker(root) {
     !modal ||
     !openModalBtn ||
     !closeBtn ||
-    !publishBtn ||
-    !validateBtn
+    !publishBtn
   ) {
     return
   }
@@ -183,10 +181,6 @@ async function FormContribDirtyChecker(root) {
 
   cancelBtn.addEventListener('click', () => {
     closeBtn.click()
-  })
-
-  validateBtn.addEventListener('click', () => {
-    publishBtn.click()
   })
 }
 
