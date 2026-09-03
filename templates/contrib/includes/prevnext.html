@@ -21,7 +21,7 @@
             <li>
                 <input id="contrib-edit-publish-btn"
                        type="submit"
-                       class="{% if next_step_title %}fr-btn fr-btn--secondary {% else %}fr-btn btn-primary{% endif %}"
+                       class="{% if next_step_title %}fr-btn fr-btn--secondary {% else %}fr-btn btn-primary{% endif %}{% if step == 2 %} fr-hidden{% endif %}"
                        name="publier"
                        value='{% translate "Valider et publier" %}'>
             </li>

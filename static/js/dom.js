@@ -9,6 +9,10 @@ function findAll(sel) {
 }
 
 function mountOne(selector, fn) {
+  if (typeof fn !== 'function') {
+    console.error(`mountOne: no component for "${selector}"`)
+    return
+  }
   const node = document.querySelector(selector)
   if (node) {
     fn(node)
@@ -16,6 +20,10 @@ function mountOne(selector, fn) {
 }
 
 function mountAll(selector, fn) {
+  if (typeof fn !== 'function') {
+    console.error(`mountAll: no component for "${selector}"`)
+    return
+  }
   findAll(selector).forEach(fn)
 }
 

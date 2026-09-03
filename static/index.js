@@ -19,7 +19,6 @@ import cloneFilter from './js/ui/CloneFilter'
 import Autocomplete from './js/ui/AutocompleteActivity'
 import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 import StoreFilters from './js/ui/StoreFilters'
-import BackButton from './js/ui/BackButton'
 
 // Initializations
 dom.ready(() => {
