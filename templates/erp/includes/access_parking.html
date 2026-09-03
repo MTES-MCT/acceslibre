@@ -24,7 +24,6 @@
                     {% if access.transport_information %}
                         :
                         <div class="{% if need_translation %}translate-field{% endif %}"
-                             data-api-key="{{ api_key|default:'' }}"
                              data-access-pk="{{ access.pk }}"
                              data-field="transport_information">
                             <div class="a4a-comment-block">
@@ -53,6 +52,11 @@
                 {% endif %}
             {% elif access.stationnement_ext_presence is False %}
                 <li data-filters="all">{{ "stationnement_ext_presence"|negative_text }}</li>
+            {% endif %}
+            {% if access.stationnement_zone_depose_pmr %}
+                <li data-filters="walking">{{ "stationnement_zone_depose_pmr"|positive_text }}</li>
+            {% elif access.stationnement_zone_depose_pmr is False %}
+                <li data-filters="walking">{{ "stationnement_zone_depose_pmr"|negative_text }}</li>
             {% endif %}
         </ul>
     </div>

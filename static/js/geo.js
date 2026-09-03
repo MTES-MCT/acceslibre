@@ -392,7 +392,6 @@ function _getDataPromiseFromAPI(map, page) {
     timeout: 10000,
     headers: {
       Accept: 'application/geo+json',
-      Authorization: 'Api-Key ' + _getApiKey(),
     },
   })
 }
@@ -403,10 +402,6 @@ function _getRoot() {
 
 function _getRefreshApiUrl() {
   return _getRoot().dataset.refreshApiUrl
-}
-
-function _getApiKey() {
-  return _getRoot().dataset.apiKey
 }
 
 function _getSortType() {

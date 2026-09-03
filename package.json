@@ -4,10 +4,10 @@
   "description": "Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
-    "node": "22.14.0",
-    "pnpm": "10.33.2"
+    "node": "24.13.0",
+    "pnpm": "11.22.0"
   },
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@11.22.0",
   "@parcel/transformer-css": {
     "errorRecovery": true
   },
@@ -34,19 +34,19 @@
     "@sentry/browser": "10.53.1",
     "@sentry/tracing": "7.120.4",
     "@trevoreyre/autocomplete-js": "3.0.3",
-    "dompurify": "3.4.13",
+    "dompurify": "3.4.14",
     "leaflet": "1.9.4",
     "leaflet-center-cross": "0.0.8",
     "leaflet-gesture-handling": "1.2.2",
     "leaflet.locatecontrol": "0.88.0",
     "leaflet.markercluster": "1.5.3",
     "parcel": "2.16.1",
-    "pnpm": "^11.18.0",
+    "pnpm": "^11.22.0",
     "process": "0.11.10",
     "remixicon": "4.9.1"
   },
   "devDependencies": {
-    "eslint": "10.8.0",
+    "eslint": "10.8.1",
     "prettier": "3.9.6"
   }
 }

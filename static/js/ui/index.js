@@ -1,4 +1,5 @@
 import AsteriskField from './AsteriskField'
+import BackButton from './BackButton.js'
 import ConditionalForm from './ConditionalForm.js'
 import GeoLink from './GeoLink.js'
 import GetGeolocBtn from './GetGeolocBtn'
@@ -30,6 +31,7 @@ import translateField from './TranslateField'
 
 export default {
   AsteriskField,
+  BackButton,
   ConditionalForm,
   GeoLink,
   GetGeolocBtn,

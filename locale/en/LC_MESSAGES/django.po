@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-05 16:26+0200\n"
-"PO-Revision-Date: 2026-07-09 09:53+0200\n"
+"POT-Creation-Date: 2026-09-03 12:27+0200\n"
+"PO-Revision-Date: 2026-09-02 11:14+0200\n"
 "Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -136,6 +136,12 @@ msgstr "UserStats"
 
 msgid "UsersStats"
 msgstr "UsersStats"
+
+msgid "Clef d'API par utilisateur"
+msgstr "API key per user"
+
+msgid "Clefs d'API par utilisateur"
+msgstr "API keys per user"
 
 msgid "Je ne suis pas un robot"
 msgstr "I am not a robot"
@@ -1145,6 +1151,9 @@ msgstr "Parking next to the ERP"
 msgid "Stationnements PMR à proximité de l'ERP"
 msgstr "PRM parking next to the ERP"
 
+msgid "Aire de dépose PMR"
+msgstr "PMR drop-off area"
+
 msgid "Espace extérieur"
 msgstr "Outdoor space"
 
@@ -1322,11 +1331,71 @@ msgstr "Home consultations"
 msgid "Prise en charge des patients"
 msgstr "Patient care"
 
+msgid "Accueil physique"
+msgstr "Physical reception"
+
+msgid "Accessibilité de l'aire de jeux à une personne en fauteuil"
+msgstr "Accessibility of the playground to a person in a wheelchair"
+
+msgid "Accessibilité des places des tribunes"
+msgstr "Accessibility of grandstand seats"
+
+msgid "Nombre de places accessibles pour les personnes en fauteuil roulant"
+msgstr "Number of accessible places for people in wheelchairs"
+
+msgid "Localisation des places dans les tribunes"
+msgstr "Location of seats in the stands"
+
+msgid "Nombre de places pour les accompagnants dans les tribunes"
+msgstr "Number of places for accompanying persons in the stands"
+
+msgid "Accessibilité des vestiaires"
+msgstr "Accessibility of changing rooms"
+
+msgid "Largeur de passage pour se rendre dans les vestiaires"
+msgstr "Passage width to get to the changing rooms"
+
+msgid "Présence de cabines de douche collectives"
+msgstr "Presence of collective shower cabins"
+
+msgid "Présence de cabines de douche collectives accessibles"
+msgstr "Presence of accessible collective shower cabins"
+
+msgid "Présence de cabines de douche individuelles"
+msgstr "Presence of individual shower cabins"
+
+msgid "Présence de cabines de douche individuelles accessibles"
+msgstr "Presence of accessible individual shower cubicles"
+
+msgid "Présence de casiers"
+msgstr "Presence of lockers"
+
+msgid "Casiers adaptés"
+msgstr "Adapted lockers"
+
+msgid "Système de fermeture des casiers"
+msgstr "Locker closing system"
+
+msgid "Prestations complémentaires"
+msgstr "Additional services"
+
+msgid "Présence d’espaces spécifiques"
+msgstr "Presence of specific spaces"
+
 msgid "Sanitaires"
 msgstr "Sanitary facilities"
 
 msgid "Nombre de sanitaires adaptés"
 msgstr "Number of adapted toilets"
+
+msgid "Largeur de porte des toilettes"
+msgstr "Toilet door width"
+
+msgid "Sens du transfert"
+msgstr "Direction of transfer"
+
+msgid "Hauteur des urinoirs"
+msgstr "Urinal height"
 
 msgid "Marques ou labels"
 msgstr "Brands or labels"
@@ -1362,6 +1431,80 @@ msgid "descendante"
 msgid_plural "descendantes"
 msgstr[0] "descending"
 msgstr[1] "descending"
+
+msgid "Présence de personnel non formé pendant les heures d'ouverture"
+msgstr "Presence of untrained staff during opening hours"
+
+msgid "Présence de personnel formé pendant les heures d'ouverture"
+msgstr "Presence of trained staff during opening hours"
+
+msgid "Transfert dans les toilettes à gauche"
+msgstr "Left-hand transfer in the toilets"
+
+msgid "Transfert dans les toilettes à droite"
+msgstr "Right-hand transfer in the toilets"
+
+msgid "Transfert dans les toilettes dans les 2 sens"
+msgstr "Transfer in the toilets from both sides"
+
+#, python-format
+msgid "Vestiaires accessibles par un passage d'une largeur %(largeur)s"
+msgstr "Changing rooms accessible through a passage %(largeur)s wide"
+
+msgid "Présence de cabines de douche collectives non accessibles"
+msgstr "Presence of non-accessible collective shower cubicles"
+
+msgid "Présence de cabines de douche individuelles non accessibles"
+msgstr "Presence of non-accessible individual shower cubicles"
+
+#, python-format
+msgid ""
+"%(nb_places)s place accessible pour les personnes en fauteuil roulant située"
+" au niveau de l'aire de jeux"
+msgid_plural ""
+"%(nb_places)s places accessibles pour les personnes en fauteuil roulant "
+"situées au niveau de l'aire de jeux"
+msgstr[0] ""
+"%(nb_places)s accessible place for people in wheelchairs located at the "
+"playground level"
+msgstr[1] ""
+"%(nb_places)s accessible places for people in wheelchairs located at the "
+"playground level"
+
+#, python-format
+msgid ""
+"%(nb_places)s place accessible pour les personnes en fauteuil roulant "
+"répartie sur différents niveaux des tribunes"
+msgid_plural ""
+"%(nb_places)s places accessibles pour les personnes en fauteuil roulant "
+"réparties sur différents niveaux des tribunes"
+msgstr[0] ""
+"%(nb_places)s accessible place for people in wheelchairs distributed at "
+"different levels of the stands"
+msgstr[1] ""
+"%(nb_places)s accessible places for people in wheelchairs distributed at "
+"different levels of the stands"
+
+#, python-format
+msgid "%(nb_places)s place accessible pour les personnes en fauteuil roulant"
+msgid_plural ""
+"%(nb_places)s places accessibles pour les personnes en fauteuil roulant"
+msgstr[0] "%(nb_places)s accessible place for people in wheelchairs"
+msgstr[1] "%(nb_places)s accessible places for people in wheelchairs"
+
+msgid ""
+"Casiers à disposition du public facilement repérables par les personnes "
+"malvoyantes (contraste visuel, repères tactiles en relief)"
+msgstr ""
+"Publicly available lockers that are easily recognizable by visually impaired"
+" people (visual contrast, raised tactile markers)"
+
+msgid ""
+"Casiers à disposition du public non conçus pour être facilement repérables "
+"par les personnes malvoyantes"
+msgstr ""
+"Publicly available lockers not designed to be easily recognizable by "
+"visually impaired people"
 
 msgid "Douche"
 msgstr "Shower"
@@ -1580,6 +1723,74 @@ msgstr "Psychological (psychosis, bipolar disorder)"
 msgid "Cognitif (trouble du spectre de l'autisme, TDAH...)"
 msgstr "Cognitive (autism spectrum disorder, ADHD, etc.)"
 
+msgid "Aucun personnel"
+msgstr "No staff"
+
+msgid "Personnel non formé"
+msgstr "Untrained staff"
+
+msgid "Personne sensibilisé ou formé"
+msgstr "Person made aware or trained"
+
+msgid "Places situées au niveau de l'aire de jeux"
+msgstr "Places located at the playground level"
+
+msgid "Places réparties sur différents niveaux des tribunes"
+msgstr "Seats distributed at different levels of the stands"
+
+msgid "Entre 90 et 110 cm"
+msgstr "Between 90 and 110 cm"
+
+msgid "Supérieure à 110 cm"
+msgstr "Greater than 110 cm"
+
+msgid "Entre 80 et 90 cm"
+msgstr "Between 80 and 90 cm"
+
+msgid "Gauche"
+msgstr "Left"
+
+msgid "Droite"
+msgstr "RIGHT"
+
+msgid "Gauche et droite"
+msgstr "Left and right"
+
+msgid "Serrure avec clé"
+msgstr "Lock with key"
+
+msgid "Serrure électronique à code"
+msgstr "Electronic code lock"
+
+msgid "Serrure mécanique à code"
+msgstr "Mechanical code lock"
+
+msgid "Verrou pour cadenas personnel"
+msgstr "Lock for personal padlock"
+
+msgid "Sonorisation de l'arbitrage possible"
+msgstr "Sound system for arbitration possible"
+
+msgid "Score visible depuis les places assises"
+msgstr "Score visible from the seats"
+
+msgid "Réservation possible de places facile d'accès"
+msgstr "Possible reservation of easy-access places"
+
+msgid "Espace de dépose d'équipements (fauteuils, déambulateurs...)"
+msgstr "Equipment storage area (armchairs, walkers, etc.)"
+
+msgid "Espace de repos sensoriel (hyposensoriel, d'apaisement...)"
+msgstr "Sensory rest space (hyposensory, calming, etc.)"
+
+msgid "Espace destiné aux chiens guides et d'assistance"
+msgstr "Space for guide and assistance dogs"
+
+msgid ""
+"Salle de change destinée aux personnes ayant des handicaps multiples ou "
+"complexes"
+msgstr "Changing room for people with multiple or complex disabilities"
+
 msgid "Handicap auditif"
 msgstr "Hearing disability"
 
@@ -1625,9 +1836,6 @@ msgstr "between 0.5 and 2 meters"
 msgid "supérieure 2 mètres"
 msgstr "wider than 2 meters"
 
-msgid "Aucun personnel"
-msgstr "No staff"
-
 msgid "Personnels sensibilisés ou formés"
 msgstr "Staff sensitized or trained"
 
@@ -1665,6 +1873,30 @@ msgstr "Stationary"
 
 msgid "Amovible"
 msgstr "Removable"
+
+#, python-brace-format
+msgid ""
+"La création d’une fiche complète sur Acceslibre permet de remplir "
+"l’obligation de <a href=\"{registre_url}\" target=\"_blank\" "
+"title=\"registre public d’accessibilité - nouvelle fenêtre\">registre public"
+" d’accessibilité</a>. Si vous avez d’autres pièces relatives au registre, "
+"indiquez ici l’URL de lien vers ces documents."
+msgstr ""
+"The creation of a complete file on Acceslibre allows you to fulfill the "
+"obligation of <a href=\"{registre_url}\" target=\"_blank\" title=\"public "
+"accessibility register - new window\">public accessibility register</a>. If "
+"you have other documents relating to the register, indicate here the link "
+"URL to these documents."
+
+#, python-brace-format
+msgid ""
+"Si l'établissement en dispose, adresse internet (URL) à laquelle le <a "
+"href=\"{registre_url}\" target=\"_blank\">registre d'accessibilité</a> de "
+"l'établissement est consultable."
+msgstr ""
+"If the establishment has one, internet address (URL) at which the <a "
+"href=\"{registre_url}\" target=\"_blank\">accessibility register</a> of the "
+"establishment can be consulted."
 
 msgid "Tourisme & loisirs"
 msgstr "Tourism & Leisure"
@@ -1927,6 +2159,19 @@ msgid ""
 "Pas de place de stationnement disponible adaptée à moins de 200 mètres de "
 "l'établissement"
 msgstr "No suitable parking space available within 200 meters of the facility"
+
+msgid ""
+"Existe-t-il une zone de dépose PMR pour les grands véhicules adaptés à "
+"proximité de l'entrée du gymnase ? (au moins 8m de longueur)"
+msgstr ""
+"Is there a PRM drop-off area for large adapted vehicles near the gym "
+"entrance? (at least 8m in length)"
+
+msgid "Présence d'une zone de dépose PMR"
+msgstr "Presence of a PMR drop-off zone"
+
+msgid "Pas de zone de dépose PMR"
+msgstr "No PMR drop-off zone"
 
 msgid ""
 "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du "
@@ -2987,6 +3232,196 @@ msgstr ""
 "The establishment does not offer additional services for the care of "
 "patients with disabilities"
 
+msgid ""
+"Y a-t-il du personnel présent pendant les heures d’ouverture de "
+"l'établissement ?"
+msgstr "Is there staff present during the establishment's opening hours?"
+
+msgid "Présence de personnel pendant les heures d'ouverture"
+msgstr "Presence of staff during opening hours"
+
+msgid "Pas de personnel dans l'établisement"
+msgstr "No staff in the establishment"
+
+msgid "Aire de jeux"
+msgstr "Playground"
+
+msgid "L'aire de jeux est-elle accessible à une personne en fauteuil ?"
+msgstr "Is the playground accessible to a person in a wheelchair?"
+
+msgid "L'aire de jeux est accessible à une personne en fauteuil"
+msgstr "The playground is accessible to a person in a wheelchair"
+
+msgid "L'aire de jeux n'est pas accessible à une personne en fauteuil"
+msgstr "The playground is not accessible to a person in a wheelchair"
+
+msgid "Tribunes"
+msgstr "Grandstands"
+
+msgid "Les places destinées aux spectateurs ont-elles un dossier ?"
+msgstr "Do the seats intended for spectators have a backrest?"
+
+msgid "Places spectateurs avec dossier"
+msgstr "Spectator seats with backrest"
+
+msgid "Places spectateurs sans dossier"
+msgstr "Spectator seats without backrest"
+
+msgid "Places accessibles en tribunes"
+msgstr "Accessible seats in the stands"
+
+msgid ""
+"Combien y a-t-il de places accessibles pour les personnes en fauteuil "
+"roulant ?"
+msgstr "How many places are there accessible for people in wheelchairs?"
+
+msgid "Places accessibles pour les personnes en fauteuil roulant"
+msgstr "Accessible places for people in wheelchairs"
+
+msgid "Localisation des places en tribunes"
+msgstr "Location of stands in stands"
+
+msgid "Où sont elles localisées ?"
+msgstr "Where are they located?"
+
+msgid "Localisation des places"
+msgstr "Location of places"
+
+msgid ""
+"Combien de places pour les accompagnants sont proposées à côté des places "
+"pour les personnes en fauteuil roulant ?"
+msgstr ""
+"How many places for companions are offered alongside places for people in "
+"wheelchairs?"
+
+msgid ""
+"Places accompagnant à côté des places pour les personnes en fauteuil roulant"
+msgstr "Accompanying places next to places for people in wheelchairs"
+
+msgid ""
+"Pas de place accompagnant à côté des places pour les personnes en fauteuil "
+"roulant"
+msgstr "No accompanying place next to places for people in wheelchairs"
+
+msgid "Vestiaires"
+msgstr "Changing rooms"
+
+msgid ""
+"Les vestiaires sont-ils accessibles à une personne en fauteuil roulant "
+"(cheminement et porte) ?"
+msgstr ""
+"Are the changing rooms accessible to a person in a wheelchair (pathway and "
+"door)?"
+
+msgid "Vestiaires accessibles"
+msgstr "Accessible changing rooms"
+
+msgid ""
+"Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant"
+msgstr "The changing rooms are not accessible to people in wheelchairs"
+
+msgid "Largeur du passage vers les vestiaires"
+msgstr "Width of passage to changing rooms"
+
+msgid "Quelle est la largeur de passage pour se rendre dans les vestiaires ?"
+msgstr "What is the passage width to get to the changing rooms?"
+
+msgid "Largeur du passage"
+msgstr "Passage width"
+
+msgid "Largeur inférieure à 90 cm"
+msgstr "Width less than 90 cm"
+
+msgid "Douches collectives"
+msgstr "Collective showers"
+
+msgid "Présence de cabines de douche collectives ?"
+msgstr "Presence of collective shower cabins?"
+
+msgid "Pas de cabines de douche collectives"
+msgstr "No collective shower cabins"
+
+msgid "Douches collectives accessibles"
+msgstr "Accessible collective showers"
+
+msgid ""
+"Les douches sont-elles accessibles pour une personne en fauteuil roulant ? "
+"(accès de plain pied, largeur minimale de 90cm, espace de giration)"
+msgstr ""
+"Are the showers accessible for a person in a wheelchair? (level access, "
+"minimum width of 90cm, turning space)"
+
+msgid "Douches individuelles"
+msgstr "Individual showers"
+
+msgid "Présence de cabines de douche individuelles ?"
+msgstr "Presence of individual shower cabins?"
+
+msgid "Pas de cabines de douche individuelles"
+msgstr "No individual shower cabins"
+
+msgid "Douches individuelles accessibles"
+msgstr "Individual showers"
+
+msgid ""
+"Est-ce qu'il y a des cabines de douche accessibles ? (Espace de giration, "
+"diamètre de 1m50, espace d'usage, espace derrière la porte.)"
+msgstr ""
+"Are there accessible shower stalls? (Rotation space, diameter of 1m50, usage"
+" space, space behind the door.)"
+
+msgid "Casiers"
+msgstr "Lockers"
+
+msgid "Y a-t-il des casiers mis à disposition du public?"
+msgstr "Are there lockers available to the public?"
+
+msgid "Casiers à disposition du public"
+msgstr "Lockers available to the public"
+
+msgid "Pas de casiers à disposition du public"
+msgstr "No lockers available to the public"
+
+msgid "Casiers repérables par les personnes malvoyantes"
+msgstr "Lockers visible to visually impaired people"
+
+msgid ""
+"Les casiers sont ils facilement repérables par les personnes malvoyantes "
+"(contraste visuel, repères tactiles en relief) ?"
+msgstr ""
+"Are the lockers easily identifiable by visually impaired people (visual "
+"contrast, raised tactile markers)?"
+
+msgid "Le contraste et le relief des casiers permettent une bonne visibilité"
+msgstr "The contrast and relief of the compartments allow good visibility"
+
+msgid ""
+"Le contraste et le relief des casiers ne permettent pas une bonne "
+"visibilité."
+msgstr ""
+"The contrast and relief of the compartments do not allow good visibility."
+
+msgid "Quel est leur système de fermeture ?"
+msgstr "What is their closing system?"
+
+msgid "Système de fermeture"
+msgstr "Closure system"
+
+msgid "Système de fermeture absent"
+msgstr "Closure system missing"
+
+msgid "Prestations complémentaires disponibles"
+msgstr "Additional services available"
+
+msgid "Pas de prestations complémentaires disponibles"
+msgstr "No additional services available"
+
+msgid "Présence d'espaces spécifiques"
+msgstr "Presence of specific spaces"
+
+msgid "Pas d'espaces spécifiques à disposition"
+msgstr "No specific spaces available"
+
 msgid "Toilettes"
 msgstr "Toilets"
 
@@ -3010,6 +3445,27 @@ msgstr "Adapted sanitary facilities are available in the facility"
 
 msgid "Aucun sanitaire adapté mis à disposition dans l'établissement"
 msgstr "No adapted sanitary facilities available in the facility"
+
+msgid "Quelle est la largeur de porte des toilettes ?"
+msgstr "What is the width of the toilet door?"
+
+msgid "Toilettes adaptées avec une largeur de passage"
+msgstr "Adapted toilets with a passage width"
+
+msgid "Sens du transfert dans les toilettes"
+msgstr "Direction of transfer in the toilet"
+
+msgid "Quel est le sens du transfert ?"
+msgstr "What is the meaning of the transfer?"
+
+msgid "Urinoirs à différentes hauteurs"
+msgstr "Urinals at different heights"
+
+msgid "Est ce que les urinoirs sont positionnés à différentes hauteurs ?"
+msgstr "Are the urinals positioned at different heights?"
+
+msgid "Les urinoirs sont tous à la même hauteur"
+msgstr "The urinals are all at the same height"
 
 msgid ""
 "Si l'établissement est entré dans une démarche volontaire de labellisation "
@@ -3051,20 +3507,6 @@ msgid ""
 msgstr ""
 "Additional information about the accessibility of the building or specific "
 "services offered"
-
-#, python-brace-format
-msgid ""
-"La création d'une fiche complète dans Acceslibre permet de remplir "
-"l'obligation de <a href=\"{registre_url}\" target=\"_blank\" "
-"title=\"registre public d'acessibilité - nouvelle fenêtre\">registre public "
-"d'accessibilité</a>. Le cas échéant, adresse URL où je peux trouver d'autres"
-" pièces relatives aux registres d'accessibilité."
-msgstr ""
-"The creation of a complete file in Acceslibre allows you to fulfill the "
-"obligation of <a href=\"{registre_url}\" target=\"_blank\" title=\"public "
-"accessibility register - new window\">public accessibility register</a>. If "
-"applicable, URL address where I can find other documents relating to "
-"accessibility records."
 
 msgid "Adresse internet à laquelle le registre est consultable"
 msgstr "Internet address where the register can be consulted"
@@ -3246,9 +3688,6 @@ msgid ""
 msgstr ""
 "\n"
 "Human help possible"
-
-msgid "Personnel non formé"
-msgstr "Untrained staff"
 
 msgid "Personnel sensibilisé / formé"
 msgstr "Awared / trained staff"
@@ -4304,6 +4743,11 @@ msgstr ""
 "This field can only be modified by the main contributor of this "
 "establishment."
 
+msgid ""
+"Compléments d’informations sur mon registre public d’accessibilité "
+"(optionnel)"
+msgstr "Additional information on my public accessibility register (optional)"
+
 msgid "Registre public d’accessibilité"
 msgstr "Public Accessibility Registry"
 
@@ -4567,9 +5011,6 @@ msgstr "Select a step"
 msgid "Valider la redirection"
 msgstr "Validate the redirection"
 
-msgid "Valider et publier"
-msgstr "Validate and publish"
-
 msgid "Fermer la fenêtre modale"
 msgstr "Close the modal window"
 
@@ -4624,6 +5065,9 @@ msgstr "Go to the next step"
 #, python-format
 msgid "Passer à l’étape %(step)s"
 msgstr "Go to step %(step)s"
+
+msgid "Valider et publier"
+msgstr "Validate and publish"
 
 msgid "Revenir à la fiche"
 msgstr "Back to the record"
@@ -6892,6 +7336,21 @@ msgstr "Accessibility and Compliance Register"
 msgid "Registre disponible"
 msgstr "Register available"
 
+msgid ""
+"Cet établissement fait l’objet d’une dérogation aux règles d’accessibilité "
+"prévue à l’article R.164-3 du code de la construction et de l’habitation."
+msgstr ""
+"This establishment is subject to an exemption from the accessibility rules "
+"provided for in article R.164-3 of the construction and housing code."
+
+msgid ""
+"Cet établissement ne fait pas l’objet d’une dérogation aux règles "
+"d’accessibilité prévue à l’article R.164-3 du code de la construction et de "
+"l’habitation."
+msgstr ""
+"This establishment is not subject to an exemption from the accessibility "
+"rules provided for in article R.164-3 of the construction and housing code."
+
 msgid "Chemin vers l'entrée"
 msgstr "Path to entrance"
 
@@ -7702,3 +8161,43 @@ msgstr ""
 
 msgid "Double authentification"
 msgstr "Two-factor authentication"
+
+#~ msgid "Accessibilité des douches collectives"
+#~ msgstr "Accessibility of collective showers"
+
+#~ msgid "Présence de douches individuelles"
+#~ msgstr "Presence of individual showers"
+
+#~ msgid "Accessibilité des douches individuelles"
+#~ msgstr "Accessibility of individual showers"
+
+#~ msgid ""
+#~ "Pas de douches collectives accessibles aux personnes en fauteuil roulant"
+#~ msgstr "No collective showers accessible to people in wheelchairs"
+
+#~ msgid ""
+#~ "Pas de cabines de douche individuelles accessibles aux personnes en fauteuil"
+#~ " roulant"
+#~ msgstr "No individual shower cubicles accessible to wheelchair users"
+
+#~ msgid ""
+#~ "Le contraste et/ou le relief des casiers et de leur numérotation permettent-"
+#~ "ils une bonne lisibilité pour une personne malvoyante ?"
+#~ msgstr ""
+#~ "Do the contrast and/or relief of the lockers and their numbering allow good "
+#~ "readability for a visually impaired person?"
+
+#~ msgid ""
+#~ "Les vestiaires ne sont pas accessibles aux personnes en fauteuil roulant par"
+#~ " un passage d'une largeur entre 90 et 110 cm/ supérieure à 110 cm"
+#~ msgstr ""
+#~ "The changing rooms are not accessible to people in wheelchairs through a "
+#~ "passageway with a width between 90 and 110 cm/greater than 110 cm"
+
+#~ msgid "Système de fermeture présent"
+#~ msgstr "Closing system present"
+
+#~ msgid ""
+#~ "Pas de cabine de douche individuelles accessibles aux personnes en fauteuil "
+#~ "roulant"
+#~ msgstr "No individual shower cubicles accessible to wheelchair users"

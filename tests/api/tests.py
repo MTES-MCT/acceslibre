@@ -4,18 +4,196 @@ from datetime import datetime, timedelta
 from unittest.mock import ANY, MagicMock, PropertyMock, patch
 
 import pytest
+from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import Point
 from django.urls import reverse
 from rest_framework.test import APIClient
+from rest_framework_api_key.models import APIKey
 
+from api.authentication import UserAPIKeyAuthentication
+from compte.models import UserAPIKey
 from erp import schema
 from erp.models import Accessibilite, Erp, ExternalSource
 from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
+
+User = get_user_model()
 
 
 @pytest.fixture
 def api_client():
     return APIClient()
+
+
+@pytest.mark.django_db
+class TestUserAPIKeyAuthenticationOnRpaErp:
+    def _rpa_erp(self, mocker, user=None):
+        erp = ErpFactory(with_accessibility=True, user=user)
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock(return_value=True))
+        return erp
+
+    def test_create_user_api_key_is_assigned_on_erp(self, api_client):
+        owner = User.objects.create_user(username="creator")
+        _, key = UserAPIKey.objects.create_key(name="creator-key", user=owner)
+
+        ActiviteFactory(nom="Mairie")
+        CommuneFactory(nom="Montreuil", code_postaux=["93100"], code_insee="93048", departement="93")
+
+        payload = {
+            "activite": "Mairie",
+            "nom": "Mairie de Montreuil",
+            "numero": "101",
+            "voie": "rue Francis de Pressencé",
+            "commune": "Montreuil",
+            "code_insee": "93048",
+            "code_postal": "93100",
+            "accessibilite": {"entree_porte_presence": True},
+        }
+
+        response = api_client.post(
+            reverse("erp-list"),
+            data=payload,
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 201, response.json()
+
+        erp = Erp.objects.get(nom="Mairie de Montreuil")
+        assert erp.user == owner
+
+    def test_user_api_key_is_assigned_on_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="owner")
+        erp = ErpFactory(with_accessibility=True, user=None)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+        erp.refresh_from_db()
+        assert erp.user == owner
+
+    def test_user_api_key_owner_can_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+    def test_user_api_key_stranger_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner2")
+        stranger = User.objects.create_user(username="stranger")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="stranger-key", user=stranger)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_no_key_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner3")
+        erp = self._rpa_erp(mocker, user=owner)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+        )
+        assert response.status_code == 403
+
+    def test_legacy_api_key_does_not_grant_ownership_on_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner4")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = APIKey.objects.create_key(name="legacy-key")
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "nope"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_legacy_api_key_still_works_for_non_rpa_erp(self, api_client):
+        erp = ErpFactory(with_accessibility=True)
+        _, key = APIKey.objects.create_key(name="legacy-key-nominal")
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "still works"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 200
+
+    def test_anonymous_still_open_on_non_rpa_erp(self, api_client):
+        erp = ErpFactory(with_accessibility=True)
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "still works too"}},
+            format="json",
+        )
+        assert response.status_code == 200
+
+    def test_invalid_key_falls_through_gracefully(self, api_client):
+        response = api_client.get(
+            reverse("erp-list"),
+            headers={"Authorization": "Api-Key totally-invalid-key"},
+        )
+        assert response.status_code == 200
+
+    def test_malformed_authorization_header_does_not_crash(self, api_client):
+        response = api_client.get(
+            reverse("erp-list"),
+            headers={"Authorization": "not-even-two-parts"},
+        )
+        assert response.status_code == 200
+
+
+@pytest.mark.django_db
+class TestUserAPIKeyAuthenticationUnit:
+    def test_no_header_returns_none(self, rf):
+        request = rf.get("/")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
+
+    def test_valid_key_returns_user_and_key_instance(self, rf):
+        user = User.objects.create_user(username="alice")
+        _, key = UserAPIKey.objects.create_key(name="alice-key", user=user)
+        request = rf.get("/", HTTP_AUTHORIZATION=f"Api-Key {key}")
+
+        result = UserAPIKeyAuthentication().authenticate(request)
+
+        assert result is not None
+        auth_user, auth_key = result
+        assert auth_user == user
+        assert auth_key.user == user
+
+    def test_unknown_key_returns_none(self, rf):
+        request = rf.get("/", HTTP_AUTHORIZATION="Api-Key nonexistent-key")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
+
+    def test_revoked_key_returns_none(self, rf):
+        user = User.objects.create_user(username="bob")
+        api_key_obj, key = UserAPIKey.objects.create_key(name="bob-key", user=user)
+        api_key_obj.revoked = True
+        api_key_obj.save()
+
+        request = rf.get("/", HTTP_AUTHORIZATION=f"Api-Key {key}")
+        assert UserAPIKeyAuthentication().authenticate(request) is None
 
 
 @pytest.fixture
@@ -124,6 +302,72 @@ class TestErpApi:
             == "Aucun sanitaire adapté mis à disposition dans l'établissement"
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
+
+    def test_list_sports_equipment(self, api_client):
+        gymnase = ActiviteFactory(nom="Gymnase")
+        ErpFactory(
+            nom="Gymnase Jean Moulin",
+            activite=gymnase,
+            accessibilite__stationnement_zone_depose_pmr=True,
+            accessibilite__accueil_physique="non_forme",
+            accessibilite__accueil_tribunes=True,
+            accessibilite__accueil_tribunes_places=3,
+            accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
+            accessibilite__accueil_tribunes_places_avec_accompagnants=1,
+            accessibilite__accueil_vestiaires=True,
+            accessibilite__accueil_vestiaires_largeur_passage="superieur_a_110",
+            accessibilite__accueil_casiers=True,
+            accessibilite__accueil_casiers_adaptes=False,
+            accessibilite__accueil_casiers_fermeture=["serrure_avec_cle", "autre"],
+            accessibilite__accueil_prestations_complementaires=["score_visible"],
+            accessibilite__accueil_presence_espaces_specifiques=["presence_espace_chiens_guides"],
+            accessibilite__sanitaires_presence=True,
+            accessibilite__sanitaires_adaptes=True,
+            accessibilite__sanitaires_largeur_porte="entre_90_et_110",
+            accessibilite__sanitaires_sens_transfert="gauche_et_droite",
+            accessibilite__sanitaires_urinoirs=True,
+        )
+
+        response = api_client.get(reverse("erp-list") + "?clean=true")
+        access = response.json()["results"][0]["accessibilite"]
+        assert access["transport"]["stationnement_zone_depose_pmr"] is True
+        assert access["accueil"]["accueil_physique"] == "non_forme"
+        assert access["accueil"]["accueil_vestiaires_largeur_passage"] == "superieur_a_110"
+        assert access["accueil"]["sanitaires_largeur_porte"] == "entre_90_et_110"
+        assert access["accueil"]["sanitaires_sens_transfert"] == "gauche_et_droite"
+        assert access["accueil"]["accueil_tribunes"] is True
+        assert access["accueil"]["accueil_tribunes_places"] == 3
+        assert access["accueil"]["accueil_tribunes_localisation_places"] == "niveau_aire_de_jeux"
+        assert access["accueil"]["accueil_tribunes_places_avec_accompagnants"] == 1
+        assert access["accueil"]["accueil_vestiaires"] is True
+        assert access["accueil"]["accueil_casiers"] is True
+        assert access["accueil"]["accueil_casiers_adaptes"] is False
+        assert access["accueil"]["accueil_casiers_fermeture"] == ["serrure_avec_cle", "autre"]
+        assert access["accueil"]["accueil_prestations_complementaires"] == ["score_visible"]
+        assert access["accueil"]["accueil_presence_espaces_specifiques"] == ["presence_espace_chiens_guides"]
+        assert access["accueil"]["sanitaires_urinoirs"] is True
+
+        response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
+        datas = response.json()["results"][0]["accessibilite"]["datas"]
+        assert datas["transport"]["stationnement_zone_depose_pmr"] == "Présence d'une zone de dépose PMR"
+        assert (
+            datas["accueil"]["accueil_physique"]
+            == "Présence de personnel pendant les heures d'ouverture : Personnel non formé"
+        )
+        assert datas["accueil"]["accueil_tribunes"] == "Places spectateurs avec dossier"
+        assert (
+            datas["accueil"]["accueil_tribunes_places"]
+            == "Places accessibles pour les personnes en fauteuil roulant : 3"
+        )
+        assert (
+            datas["accueil"]["accueil_tribunes_localisation_places"]
+            == "Localisation des places : Places situées au niveau de l'aire de jeux"
+        )
+        assert datas["accueil"]["accueil_tribunes_places_avec_accompagnants"] == (
+            "Places accompagnant à côté des places pour les personnes en fauteuil roulant : 1"
+        )
+        assert datas["accueil"]["accueil_casiers_fermeture"] == "Système de fermeture : Serrure avec clé, Autre"
+        assert datas["accueil"]["sanitaires_urinoirs"] == "Urinoirs à différentes hauteurs"
 
     def test_list_geojson(self, api_client, initial_erp):
         geojson_expected_for_erp = {
@@ -326,6 +570,7 @@ class TestErpApi:
                     "stationnement_pmr": None,
                     "stationnement_ext_presence": None,
                     "stationnement_ext_pmr": None,
+                    "stationnement_zone_depose_pmr": None,
                     "transport_bureau_de_vote_accessibilite": None,
                 },
                 "cheminement_ext": {
@@ -398,6 +643,8 @@ class TestErpApi:
                     "accueil_equipements_malentendants": [],
                     "sanitaires_presence": True,
                     "sanitaires_adaptes": False,
+                    "sanitaires_largeur_porte": None,
+                    "sanitaires_sens_transfert": None,
                     "accueil_ascenseur_etage": None,
                     "accueil_ascenseur_etage_pmr": None,
                     "accueil_classes_accessibilite": None,
@@ -409,6 +656,24 @@ class TestErpApi:
                     "accueil_salle_consultation_accessible": None,
                     "accueil_consultation_domicile": None,
                     "accueil_prise_en_charge_patients": [],
+                    "accueil_physique": None,
+                    "accueil_aire_de_jeux": None,
+                    "accueil_tribunes": None,
+                    "accueil_tribunes_places": None,
+                    "accueil_tribunes_localisation_places": None,
+                    "accueil_tribunes_places_avec_accompagnants": None,
+                    "accueil_vestiaires": None,
+                    "accueil_vestiaires_largeur_passage": None,
+                    "accueil_douches_collectives": None,
+                    "accueil_douches_collectives_adaptees": None,
+                    "accueil_douches_individuelles": None,
+                    "accueil_douches_individuelles_adaptees": None,
+                    "accueil_casiers": None,
+                    "accueil_casiers_adaptes": None,
+                    "accueil_casiers_fermeture": [],
+                    "accueil_prestations_complementaires": [],
+                    "accueil_presence_espaces_specifiques": [],
+                    "sanitaires_urinoirs": None,
                 },
                 "registre": {"registre_url": None},
                 "conformite": {"conformite": None},
@@ -658,6 +923,7 @@ class TestAccessibiliteApi:
                         "stationnement_pmr": None,
                         "stationnement_ext_presence": None,
                         "stationnement_ext_pmr": None,
+                        "stationnement_zone_depose_pmr": None,
                     },
                     "cheminement_ext": {
                         "cheminement_ext_presence": None,
@@ -729,6 +995,8 @@ class TestAccessibiliteApi:
                         "accueil_equipements_malentendants": [],
                         "sanitaires_presence": True,
                         "sanitaires_adaptes": False,
+                        "sanitaires_largeur_porte": None,
+                        "sanitaires_sens_transfert": None,
                         "accueil_ascenseur_etage": None,
                         "accueil_ascenseur_etage_pmr": None,
                         "accueil_classes_accessibilite": None,
@@ -740,6 +1008,24 @@ class TestAccessibiliteApi:
                         "accueil_salle_consultation_accessible": None,
                         "accueil_consultation_domicile": None,
                         "accueil_prise_en_charge_patients": [],
+                        "accueil_physique": None,
+                        "accueil_aire_de_jeux": None,
+                        "accueil_tribunes": None,
+                        "accueil_tribunes_places": None,
+                        "accueil_tribunes_localisation_places": None,
+                        "accueil_tribunes_places_avec_accompagnants": None,
+                        "accueil_vestiaires": None,
+                        "accueil_vestiaires_largeur_passage": None,
+                        "accueil_douches_collectives": None,
+                        "accueil_douches_collectives_adaptees": None,
+                        "accueil_douches_individuelles": None,
+                        "accueil_douches_individuelles_adaptees": None,
+                        "accueil_casiers": None,
+                        "accueil_casiers_adaptes": None,
+                        "accueil_casiers_fermeture": [],
+                        "accueil_prestations_complementaires": [],
+                        "accueil_presence_espaces_specifiques": [],
+                        "sanitaires_urinoirs": None,
                     },
                     "registre": {"registre_url": None},
                     "conformite": {"conformite": None},

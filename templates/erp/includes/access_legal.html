@@ -1,6 +1,7 @@
 {% load a4a %}
 {% load static %}
 {% load i18n %}
+{% load waffle_tags %}
 <h3 class="fr-h5 fr-mb-1w" data-filter-title="true">{% translate "Registre d'accessibilité et conformité" %}</h3>
 <div>
     <ul class="fr-pl-4w">
@@ -10,5 +11,20 @@
             </li>
         {% endif %}
         {% if access.conformite %}<li data-filters="all">{{ "conformite"|positive_text }}</li>{% endif %}
+        {% switch "RPA" %}
+            {% if erp.rpa_exemption is not None %}
+                <li data-filters="all">
+                    {% if erp.rpa_exemption %}
+                        {% blocktranslate trimmed %}
+                            Cet établissement fait l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                        {% endblocktranslate %}
+                    {% else %}
+                        {% blocktranslate trimmed %}
+                            Cet établissement ne fait pas l’objet d’une dérogation aux règles d’accessibilité prévue à l’article R.164-3 du code de la construction et de l’habitation.
+                        {% endblocktranslate %}
+                    {% endif %}
+                </li>
+            {% endif %}
+        {% endswitch %}
     </ul>
 </div>

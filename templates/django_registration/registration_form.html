@@ -39,11 +39,13 @@
                         <p class="fr-text--md">{% translate "Publication" %}</p>
                     </div>
                     <div>
-                        <a href="javascript:history.back()"
-                           class="fr-btn fr-text--heavy"
-                           title="{% translate "Retour à la fiche" %}">
-                            <i class="icon-arrow-left"></i>&nbsp;{% translate "Retour" %}
-                        </a>
+                        <button type="button"
+                                class="fr-btn fr-text--heavy"
+                                data-js="back-button"
+                                data-fallback-url="{% url 'home' %}"
+                                title="{% translate "Retour à la fiche" %}">
+                            <i class="icon-arrow-left" aria-hidden="true"></i>&nbsp;{% translate "Retour" %}
+                        </button>
                     </div>
                 </div>
             </div>

@@ -51,6 +51,7 @@ dom.ready(() => {
   dom.mountOne('[data-focus-on-load]', ui.FocusOnLoad)
   dom.mountAll('[data-notification]', ui.NotificationAlert)
   dom.mountAll('.translate-field', ui.translateField)
+  dom.mountAll('*[data-js="back-button"]', ui.BackButton)
 })
 
 ui.StoreFilters()

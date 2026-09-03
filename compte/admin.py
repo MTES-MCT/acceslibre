@@ -2,8 +2,10 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from import_export.admin import ExportMixin
+from rest_framework_api_key.admin import APIKeyModelAdmin
+from rest_framework_api_key.models import APIKey
 
-from compte.models import UserPreferences, UserStats
+from compte.models import UserAPIKey, UserPreferences, UserStats
 from compte.resources import UserAdminResource
 
 
@@ -82,6 +84,21 @@ class UserPreferencesAdmin(admin.ModelAdmin):
         "notify_on_unpublished_erps",
     )
     search_fields = ("user__email",)
+
+
+admin.site.unregister(APIKey)
+
+
+@admin.register(APIKey)
+class LegacyAPIKeyAdmin(APIKeyModelAdmin):
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(UserAPIKey)
+class UserAPIKeyAdmin(APIKeyModelAdmin):
+    list_display = [*APIKeyModelAdmin.list_display, "user"]
+    search_fields = [*APIKeyModelAdmin.search_fields, "user__username", "user__email"]
 
 
 # Replace the default UserAdmin with our custom one
