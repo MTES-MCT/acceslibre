@@ -71,9 +71,6 @@ REAL_USER_NOTIFICATION = False
 # number of days to send a ping notification after an erp is created but not published
 UNPUBLISHED_ERP_NOTIF_DAYS = 7
 
-# Mattermost hook
-MATTERMOST_HOOK = env("MATTERMOST_HOOK", default=None)
-
 # Sentry integration
 SENTRY_DSN = env("SENTRY_DSN", default=None)
 
