@@ -718,9 +718,9 @@ PARTENAIRES = {
     "CFPSAA": {
         "avatar": "cfpsaa_avatar.png",
         "logo": "img/partenaires/cfpsaa.png",
-        "name": "Confédération Française pour la Promotion Sociale des Aveugles et Amblyopes",
+        "name": "Collectif Français du Handicap Visuel",
         "short_description": translate_lazy(
-            "Confédération regroupant une vingtaine des principales associations de déficients visuels"
+            "Collectif regroupant une vingtaine des principales associations de déficients visuels"
         ),
         "template": "editorial/partenaires/cfpsaa.html",
         "url": "https://www.cfpsaa.fr/",
