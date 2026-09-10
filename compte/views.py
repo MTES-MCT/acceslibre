@@ -9,6 +9,7 @@ from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import ActivationView, RegistrationView
 from django.utils import timezone
@@ -88,6 +89,10 @@ class CustomActivationView(ActivationView):
         next = self.request.GET.get("next", "")
         if not next and self.extra_context and "next" in self.extra_context:
             next = self.extra_context.get("next", "")
+        if not url_has_allowed_host_and_scheme(
+            url=next, allowed_hosts={self.request.get_host()}, require_https=self.request.is_secure()
+        ):
+            next = ""
         if next:
             login(self.request, user, backend="django.contrib.auth.backends.ModelBackend")
             return next
