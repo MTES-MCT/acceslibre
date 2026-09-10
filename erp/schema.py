@@ -718,9 +718,9 @@ PARTENAIRES = {
     "CFPSAA": {
         "avatar": "cfpsaa_avatar.png",
         "logo": "img/partenaires/cfpsaa.png",
-        "name": "Confédération Française pour la Promotion Sociale des Aveugles et Amblyopes",
+        "name": "Collectif Français du Handicap Visuel",
         "short_description": translate_lazy(
-            "Confédération regroupant une vingtaine des principales associations de déficients visuels"
+            "Collectif regroupant une vingtaine des principales associations de déficients visuels"
         ),
         "template": "editorial/partenaires/cfpsaa.html",
         "url": "https://www.cfpsaa.fr/",
@@ -2205,7 +2205,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": translate_lazy("Rétrécissement du chemin"),
-        "should_display_label": False,
+        "should_display_label": True,
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"

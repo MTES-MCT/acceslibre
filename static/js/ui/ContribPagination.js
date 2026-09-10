@@ -10,17 +10,15 @@ async function ContribPagination(root) {
 
   if (!root || !resultsContainer || formNotValid) return
 
-  const apiKey = root.querySelector('[data-api-key]')?.dataset?.apiKey
   const apiUrl = root.querySelector('[data-api-url]')?.dataset?.apiUrl
 
-  if (!apiKey || !apiUrl) return
+  if (!apiUrl) return
 
   const params = getParams({ root, currentPage: 1, paginationSize: PAGINATION_SIZE })
 
   // Initial first fetch of ERP internal results on page load
   const { results, totalCount, status } = await getInternalResults({
     apiUrl,
-    apiKey,
     params,
   })
 
@@ -71,7 +69,7 @@ async function ContribPagination(root) {
     const params = getParams({ root, currentPage, paginationSize: PAGINATION_SIZE })
 
     try {
-      const { results, status } = await getInternalResults({ apiKey, apiUrl, params })
+      const { results, status } = await getInternalResults({ apiUrl, params })
 
       // If there are results, continue filling in the list of ERP cards
       if (results?.length > 0) {
@@ -148,12 +146,11 @@ function getParams({ root, currentPage, paginationSize }) {
   return paramsForApiCall
 }
 
-async function getInternalResults({ apiKey, apiUrl, params }) {
+async function getInternalResults({ apiUrl, params }) {
   const request = await fetch(`${apiUrl}?${params.toString()}`, {
     timeout: 10000,
     headers: {
       Accept: 'application/geo+json',
-      Authorization: `Api-Key ${apiKey}`,
     },
   })
 
