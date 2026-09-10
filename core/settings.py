@@ -2,6 +2,7 @@ import os
 
 import environ
 from corsheaders.defaults import default_headers
+from csp.constants import NONCE, SELF
 from django.contrib.messages import constants as message_constants
 from django.utils.translation import gettext_lazy as trans
 
@@ -40,19 +41,37 @@ DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-CSP_DEFAULT_SRC = (
-    "'self'",
-    "data:",  # used for Leaflet CenterCross plugin.
-    "*.mapbox.com",
-    "*.gouv.fr",
-    "*.incubateur.net",
-    "acceslibre.matomo.cloud",
-    "*.tile.openstreetmap.org",
-    "*.acceslibre.info",
-)
 
-CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
-
+CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/api", "/admin", "/summernote"],
+    "DIRECTIVES": {
+        "default-src": [
+            SELF,
+            "data:",
+            "*.mapbox.com",
+            "*.gouv.fr",
+            "*.incubateur.net",
+            "acceslibre.matomo.cloud",
+            "*.tile.openstreetmap.org",
+            "*.acceslibre.info",
+        ],
+        "script-src": [
+            SELF,
+            NONCE,
+            "acceslibre.matomo.cloud",
+            "stats.beta.gouv.fr",
+        ],
+        "img-src": [
+            SELF,
+            "data:",  # Leaflet CenterCross plugin
+            "*.mapbox.com",
+            "*.tile.openstreetmap.org",
+            "*.acceslibre.info",
+            "data.geopf.fr",
+            "*.cartocdn.com",
+        ],
+    },
+}
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 
@@ -101,8 +120,6 @@ MESSAGE_TAGS = {
 }
 
 
-# Application definition
-
 INSTALLED_APPS = [
     "admin_auto_filters",
     "django_extensions",
@@ -139,6 +156,7 @@ INSTALLED_APPS = [
     "reversion",
     "maintenance_mode",
     "django_prose_editor",
+    "csp",
 ]
 
 
