@@ -466,6 +466,15 @@ PANORAMAX_OPENED_CITIES = [
     "Pau",
     "Anglet",
     "Orléans",
+    "Bordeaux",
+    "Angoulême",
+    "Lons-le-Saunier",
+    "Besançon",
+    "Rennes",
+    "Brest",
+    "Avignon",
+    "Montpellier",
+    "Orthez",
 ]
 
 APIDAE_HOST = env("APIDAE_HOST", default="")
