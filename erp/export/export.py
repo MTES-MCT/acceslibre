@@ -12,10 +12,23 @@ from api.serializers import ErpXMLSerializer
 from erp.export.utils import BaseExportMapper, map_erps_to_json_schema
 from erp.models import Erp
 
+_CSV_INJECTION_CHARS = ("=", "+", "-", "@", "\t", "\r")
+
 
 def factory(data):
     # Lists in CSV are rendered like "[""value""]", but standard csv module gives '["value"]'
     return dict([(x[0], json.dumps(x[1])) if isinstance(x[1], list) else x for x in data])
+
+
+def _sanitize_csv_value(value):
+    """Neutralize values that would be interpreted as formulas by Excel, LibreOffice, Google Sheets."""
+    if isinstance(value, str) and value.startswith(_CSV_INJECTION_CHARS):
+        return "'" + value
+    return value
+
+
+def _sanitize_csv_row(data: dict) -> dict:
+    return {key: _sanitize_csv_value(value) for key, value in data.items()}
 
 
 def _write_csv(csv_writer, erps: List[Erp], model: Type[BaseExportMapper], logger=None):
@@ -27,6 +40,7 @@ def _write_csv(csv_writer, erps: List[Erp], model: Type[BaseExportMapper], logge
         if logger:
             logger(f"\t * Ajout de l'ERP {erp_data.name}")
         data = asdict(erp_data, dict_factory=factory)
+        data = _sanitize_csv_row(data)
         csv_writer.writerow(data)
 
 
