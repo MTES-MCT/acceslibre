@@ -76,6 +76,41 @@ class TestUserAPIKeyAuthenticationOnRpaErp:
         erp.refresh_from_db()
         assert erp.user == owner
 
+    def test_user_api_key_revoked_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        api_key_obj, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+        api_key_obj.revoked = True
+        api_key_obj.save()
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_uesr_api_key_expired_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        api_key_obj, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+        api_key_obj.revoked = False
+        api_key_obj.expiry_date = datetime.now() - timedelta(days=1)
+        api_key_obj.save()
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
     def test_user_api_key_owner_can_modify_rpa_erp(self, api_client, mocker):
         owner = User.objects.create_user(username="rpa_owner")
         erp = self._rpa_erp(mocker, user=owner)
