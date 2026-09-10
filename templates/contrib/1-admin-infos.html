@@ -294,9 +294,7 @@
                         </fieldset>
                         <div aria-hidden="true">
                             <div class="a4a-localisation-map"></div>
-                            <script id="map-options" type="application/json">
-            {% if map_options %}{{ map_options | safe }}{% else %}null{% endif %}
-                            </script>
+                            {{ map_options|json_script:"map-options" }}
                         </div>
                         <div class="fr-skiplinks" data-target-id="back-to-map-btn">
                             <nav role="navigation" aria-label="Accès rapide" class="fr-container">
