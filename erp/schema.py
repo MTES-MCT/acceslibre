@@ -2205,7 +2205,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": translate_lazy("Rétrécissement du chemin"),
-        "should_display_label": False,
+        "should_display_label": True,
         "help_text": mark_safe(
             translate_lazy(
                 "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"

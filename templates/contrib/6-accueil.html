@@ -117,9 +117,7 @@
                 <div class="contrib-inputs-section hr-top">
                     {% include "fields/textarea.html" with field=form.accueil_cheminement_nombre_marches key="accueil_cheminement_nombre_marches" %}
                 </div>
-                <div class="contrib-inputs-section hr-top">
-                    {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True key="accueil_retrecissement" %}
-                </div>
+
                 <div class="contrib-inputs-section">
                     {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True key="accueil_cheminement_sens_marches" %}
                 </div>
@@ -131,6 +129,9 @@
                 </div>
                 <div class="contrib-inputs-section">
                     {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True key="accueil_cheminement_rampe" %}
+                </div>
+                <div class="contrib-inputs-section hr-top">
+                    {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True key="accueil_retrecissement" %}
                 </div>
             </div>
         {% endif %}
