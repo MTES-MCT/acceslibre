@@ -181,11 +181,13 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
-CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = (
     *default_headers,
     "X-OriginUrl",
 )
+CORS_ALLOWED_ORIGINS = [
+    SITE_ROOT_URL,
+]
 
 
 REST_FRAMEWORK = {
