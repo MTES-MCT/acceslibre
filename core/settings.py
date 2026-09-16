@@ -193,10 +193,9 @@ CORS_ALLOW_HEADERS = (
     *default_headers,
     "X-OriginUrl",
 )
-CORS_ALLOWED_ORIGINS = [
-    SITE_ROOT_URL,
-]
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_URLS_REGEX = r"^/uuid/[0-9a-f-]{36}/widget/$"
+CORS_ALLOW_CREDENTIALS = False
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [

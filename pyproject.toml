@@ -66,6 +66,7 @@ dependencies = [
     "qrcode[pil]>=8.2",
     "django-prose-editor[sanitize]>=0.26.0",
     "django-ratelimit>=4.1.0",
+    "django-ipware>=7.0.1",
 ]
 
 [dependency-groups]

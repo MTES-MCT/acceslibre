@@ -117,8 +117,6 @@ fileignoreconfig:
   checksum: e50deb8e91224e72089952bd5809d0f5b435f9e33a5b08d4414bdae55551f4ec
 - filename: erp/export/export.py
   checksum: 9a1f01b891f728e0c71e4e1e87c504bbbdba38a9ecb4337f218092c3dc51c572
-- filename: compte/views.py
-  checksum: f518144a8b0202b77a72e85a07b37259e224821e712d0b075bd90c8e829c0bf1
 - filename: templates/swagger-ui.html
   checksum: 26a4ddffaf416947211bb8ce612f295ad8d96ab48a15a99d645cf20ea3b22cf4
 - filename: api/permissions.py
@@ -126,4 +124,8 @@ fileignoreconfig:
 - filename: conftest.py
   checksum: 10bc7be4feaf3a4169189f84fcf3c38286173c0c37649bc94f8d9cddb7181e90
 - filename: core/settings.py
-  checksum: 2269b5de926c478ae19f1c08985cfeb70361559c9c249ab4c7aabe87c8c32097
+  checksum: 956ffe4c651b9fb7029ff8cbb94b87578ce6e4c1d05237b5ea84fc5c6566f959
+- filename: core/utils.py
+  checksum: 011910072d39087796d2f4c17a4646c44bf1833ea753f425f783019b0b6dbdb4
+- filename: compte/views.py
+  checksum: 3247e13c149abcb3b1d6a3dc51acd24919f6787d19f73afc1c549715de382dcf
