@@ -7,10 +7,12 @@ from rest_framework_api_key.models import APIKey
 
 from compte.models import UserAPIKey
 from tests.factories import UserFactory
+from api.permissions import IsAllowedForAction
 
 
 @pytest.mark.django_db
 class TestPermissions:
+    perm = IsAllowedForAction()
     factory = APIRequestFactory()
 
     def _request_with_auth(self, header=None, auth=None):

@@ -5,7 +5,9 @@ import pytest
 from django.contrib.gis.geos import Point
 from django.db import connection
 from pytest_factoryboy import register
+from rest_framework.test import APIClient
 
+from compte.models import UserAPIKey
 from erp.models import Activite, ActivitiesGroup
 from erp.provider import geocoder
 from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
@@ -471,6 +473,15 @@ def activite(db):
         activity, created = Activite.objects.get_or_create(nom=name)
         if created and name in ("Hôtel", "Hôtel restaurant", "Chambres d'hôtes, gîte, pension"):
             group.activities.add(activity.pk)
+
+
+@pytest.fixture
+def api_client_authenticated():
+    user = UserFactory()
+    _, key = UserAPIKey.objects.create_key(name="user-key", user=user)
+    api_client = APIClient()
+    api_client.credentials(HTTP_AUTHORIZATION=f"Api-Key {key}")
+    return api_client
 
 
 register(ErpFactory)
