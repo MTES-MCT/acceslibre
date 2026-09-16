@@ -3,8 +3,10 @@ from itertools import groupby
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django_ratelimit.decorators import ratelimit
 
 from core.mailer import BrevoMailer
+from core.utils import real_ip_key
 from erp.models import Erp
 
 from .forms import ContactForm
@@ -30,6 +32,7 @@ def send_receipt(message):
     )
 
 
+@ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True)
 def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     topic = topic if topic in dict(Message.TOPICS) else Message.TOPIC_CONTACT
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None

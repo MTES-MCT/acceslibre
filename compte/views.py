@@ -21,6 +21,7 @@ from compte.forms import CustomAuthenticationForm, CustomPasswordResetForm
 from compte.models import UserPreferences
 from compte.tasks import sync_user_attributes
 from core.mailer import BrevoMailer
+from core.utils import real_ip_key
 from erp import versioning
 from erp.models import Erp
 from stats.models import ChallengePlayer
@@ -407,7 +408,7 @@ class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
 
 
-@method_decorator(ratelimit(key="ip", rate="5/m", method="POST", block=True), name="post")
+@method_decorator(ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True), name="post")
 @method_decorator(ratelimit(key="post:username", rate="5/m", method="POST", block=True), name="post")
 class CustomLoginView(LoginView):
     form_class = CustomAuthenticationForm
