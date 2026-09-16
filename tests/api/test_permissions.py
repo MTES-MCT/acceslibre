@@ -1,5 +1,4 @@
 import datetime
-
 from unittest.mock import MagicMock
 
 import pytest
@@ -7,13 +6,11 @@ from rest_framework.test import APIRequestFactory
 from rest_framework_api_key.models import APIKey
 
 from compte.models import UserAPIKey
-from api.permissions import IsAllowedForAction
 from tests.factories import UserFactory
 
 
 @pytest.mark.django_db
 class TestPermissions:
-    perm = IsAllowedForAction()
     factory = APIRequestFactory()
 
     def _request_with_auth(self, header=None, auth=None):
