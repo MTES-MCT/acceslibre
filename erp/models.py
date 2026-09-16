@@ -1,4 +1,3 @@
-import json
 import uuid
 from datetime import datetime, timedelta, timezone
 
@@ -342,16 +341,14 @@ class Commune(models.Model):
             return 13
         return 14
 
-    def toTemplateJson(self):
-        return json.dumps(
-            {
-                "nom": self.nom,
-                "slug": self.slug,
-                "center": geo.lonlat_to_latlon(self.geom.coords),
-                "contour": geo.lonlat_to_latlon(self.contour.coords) if self.contour else None,
-                "zoom": self.get_zoom(),
-            }
-        )
+    def to_map_data(self):
+        return {
+            "nom": self.nom,
+            "slug": self.slug,
+            "center": geo.lonlat_to_latlon(self.geom.coords),
+            "contour": geo.lonlat_to_latlon(self.contour.coords) if self.contour else None,
+            "zoom": self.get_zoom(),
+        }
 
 
 class ExternalSource(models.Model):
