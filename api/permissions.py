@@ -12,6 +12,7 @@ class IsAllowedForAction(permissions.BasePermission):
     message = "For internal uses only."
 
     def has_permission(self, request, view):
+
         auth = request.META.get("HTTP_AUTHORIZATION")
         if not auth:
             return False

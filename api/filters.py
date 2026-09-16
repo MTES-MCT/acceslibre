@@ -51,6 +51,12 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
         with_drafts = request.query_params.get("with_drafts", "false")
         if with_drafts != "true":
             queryset = queryset.published()
+        else:
+            # List only "public" drafts, or drafts of the current user
+            if request.user.is_authenticated:
+                queryset = queryset.filter(Q(published=True) | Q(user__isnull=True) | Q(user=request.user))
+            else:
+                queryset = queryset.filter(Q(published=True) | Q(user__isnull=True))
 
         commune = request.query_params.get("commune", None)
         if commune is not None:
