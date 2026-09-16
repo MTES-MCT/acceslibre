@@ -34,6 +34,11 @@ class ContactForm(forms.ModelForm):
         label=translate_lazy("Je ne suis pas un robot"),
         required=True,
     )
+    organisation = forms.CharField(
+        label=translate_lazy("Organisation"),
+        required=False,
+        widget=forms.TextInput(attrs={"autocomplete": "off", "tabindex": "-1", "aria-hidden": "true"}),
+    )
 
     def __init__(self, *args, **kwargs):
         request = kwargs.pop("request")
@@ -57,3 +62,6 @@ class ContactForm(forms.ModelForm):
         if not robot:
             raise ValidationError(translate_lazy("Cochez cette case pour soumettre le formulaire."))
         return robot
+
+    def filled_by_bot(self):
+        return bool(self.data.get(self.add_prefix("organisation")))

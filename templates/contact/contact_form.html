@@ -96,6 +96,10 @@
                     </div>
                     {{ form.user }}
                     {{ form.next }}
+                    <div class="contact-form-organisation" aria-hidden="true">
+                        <label for="{{ form.organisation.id_for_label }}" class="fr-label">{{ form.organisation.label }}</label>
+                        {{ form.organisation }}
+                    </div>
                     <div class="fr-checkbox-group">
                         <input type="checkbox"
                                {% if form.robot.field.required %}required{% endif %}
