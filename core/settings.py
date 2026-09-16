@@ -194,7 +194,7 @@ CORS_ALLOW_HEADERS = (
     "X-OriginUrl",
 )
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_URLS_REGEX = r"^/uuid/[0-9a-f-]{36}/widget/$"
+CORS_URLS_REGEX = r"^/uuid/[^/]+/widget/$"
 CORS_ALLOW_CREDENTIALS = False
 
 REST_FRAMEWORK = {
