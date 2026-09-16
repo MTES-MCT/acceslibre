@@ -22,6 +22,7 @@ if SENTRY_DSN is not None:
         ],
         traces_sample_rate=0.1,
         send_default_pii=True,
+        before_send=keep_only_username,
         environment="one-off-recette" if IS_ONE_OFF_CONTAINER else "recette",
     )
 

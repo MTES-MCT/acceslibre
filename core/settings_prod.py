@@ -22,6 +22,14 @@ ALLOWED_HOSTS = [
     "www.acceslibre.info",
 ]
 
+
+def keep_only_username(event, hint):
+    user = event.get("user")
+    if user:
+        event["user"] = {"username": user.get("username")}
+    return event
+
+
 if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -33,7 +41,8 @@ if SENTRY_DSN is not None:
             ),
         ],
         traces_sampler=custom_traces_sample_rate,
-        send_default_pii=True,
+        before_send=keep_only_username,
+        send_default_pii=False,
         environment="production-one-off" if IS_ONE_OFF_CONTAINER else "production",
     )
 
