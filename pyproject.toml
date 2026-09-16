@@ -65,6 +65,7 @@ dependencies = [
     "weasyprint>=69.0",
     "qrcode[pil]>=8.2",
     "django-prose-editor[sanitize]>=0.26.0",
+    "django-ratelimit>=4.1.0",
 ]
 
 [dependency-groups]
