@@ -23,13 +23,6 @@ ALLOWED_HOSTS = [
 ]
 
 
-def keep_only_username(event, hint):
-    user = event.get("user")
-    if user:
-        event["user"] = {"username": user.get("username")}
-    return event
-
-
 if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
 

@@ -11,6 +11,14 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
+
+def keep_only_username(event, hint):
+    user = event.get("user")
+    if user:
+        event["user"] = {"username": user.get("username")}
+    return event
+
+
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
