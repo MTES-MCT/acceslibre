@@ -319,18 +319,20 @@ def export(request):
 
 @login_required
 def panoramax_add(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     if request.method == "POST":
         image_id = request.POST.get("image_id")
         xyz_raw = request.POST.get("xyz")
 
-        erp = get_object_or_404(Erp, slug=erp_slug)
         if erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).exists():
             erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
         erp.sources.create(source=ExternalSource.SOURCE_PANORAMAX, source_id=f"{image_id}|{xyz_raw}")
         messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été ajoutée."))
         return redirect(erp.get_absolute_url())
 
-    erp = get_object_or_404(Erp, slug=erp_slug)
     image_id = panoramax_provider.get_image_id(erp.geom.y, erp.geom.x)
     if not image_id:
         messages.add_message(
