@@ -10,6 +10,7 @@ import reversion
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -402,12 +403,11 @@ class EditorialView(TemplateView):
         return context
 
 
-@login_required
+@staff_member_required
 def erp_remove_source_panoramax(request, erp_slug):
-    if request.user.is_staff is True:
-        erp = get_object_or_404(Erp, slug=erp_slug)
-        erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
-        messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
+    messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
     return redirect(reverse("commune_erp", kwargs={"erp_slug": erp_slug, "commune": erp.commune}))
 
 
