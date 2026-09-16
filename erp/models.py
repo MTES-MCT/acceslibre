@@ -739,9 +739,11 @@ class Erp(models.Model):
         )
 
     def can_be_modified_by(self, user=None):
-        if self.rpa:
-            return user is not None and self.user == user
-        return True
+        if not self.rpa:
+            return True
+        if user is None or not user.is_authenticated:
+            return False
+        return self.user_id == user.pk
 
     def get_activite_vector_icon(self):
         default = "building"
