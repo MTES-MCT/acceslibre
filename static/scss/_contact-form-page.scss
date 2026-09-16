@@ -1,5 +1,13 @@
 @use 'breakpoints';
 
+.contact-form-organisation {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-container {
   @media (min-width: breakpoints.$viewport-xl) {
     position: relative;

@@ -3,6 +3,7 @@ from itertools import groupby
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.utils.translation import gettext as translate
 from django_ratelimit.decorators import ratelimit
 
 from core.mailer import BrevoMailer
@@ -32,6 +33,17 @@ def send_receipt(message):
     )
 
 
+def redirect_after_send(request, erp):
+    if erp:
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            translate("Votre message a été envoyé."),
+        )
+        return redirect(erp.get_absolute_url())
+    return redirect(reverse("contact_form_sent"))
+
+
 @ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True)
 def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     topic = topic if topic in dict(Message.TOPICS) else Message.TOPIC_CONTACT
@@ -40,6 +52,9 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     if request.method == "POST":
         form = ContactForm(request.POST, request=request, initial=initial)
         if form.is_valid():
+            if form.filled_by_bot():
+                return redirect_after_send(request, erp)
+
             message = form.save()
             context = {
                 "message": {
@@ -64,14 +79,7 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
             message.sent_ok = sent_ok
             message.save()
             send_receipt(message)
-            if erp:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    "Votre message a été envoyé.",
-                )
-                return redirect(erp.get_absolute_url())
-            return redirect(reverse("contact_form_sent"))
+            return redirect_after_send(request, erp)
     else:
         form = ContactForm(request=request, initial=initial)
     return render(

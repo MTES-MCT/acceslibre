@@ -85,6 +85,28 @@ def test_contact_antispam(client):
 
 
 @pytest.mark.django_db
+def test_contact_decoy_field_silently_discards_bot_submission(mocker, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
+    response = client.post(
+        reverse("contact_form"),
+        {
+            "topic": "signalement",
+            "name": TEST_NAME,
+            "email": TEST_EMAIL,
+            "body": TEST_BODY,
+            "robot": "on",
+            "organisation": "https://spam.tld",
+        },
+    )
+
+    assert response.status_code == 302
+    assert response.url == reverse("contact_form_sent")
+    assert mock_mail.call_count == 0
+    assert 0 == Message.objects.count()
+
+
+@pytest.mark.django_db
 def test_contact_authenticated(mocker, client):
     user = UserFactory(email="niko@niko.tld", username="niko")
     erp = ErpFactory(user=user)
