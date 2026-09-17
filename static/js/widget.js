@@ -16,13 +16,28 @@
   var itemsProcessed = 0
   var trackedPageView = false
 
+  const DEFAULT_BASE_URL = 'https://acceslibre.beta.gouv.fr'
+
+  // Must be read synchronously, while the script is executing: document.currentScript
+  // is null once we are inside a callback.
+  const _scriptOrigin = (function () {
+    const script = document.currentScript
+    if (!script || !script.src) {
+      return ''
+    }
+    try {
+      return new URL(script.src, document.baseURI).origin
+    } catch (e) {
+      return ''
+    }
+  })()
+
   function _getBaseURL() {
     const baseURLElement = document.querySelector('[data-baseurl]')
-    var baseURL = ''
-    if (baseURLElement) {
-      baseURL = baseURLElement.getAttribute('data-baseurl')
-    }
-    return baseURL
+    const declaredBaseURL = baseURLElement ? baseURLElement.getAttribute('data-baseurl') : ''
+    // In controlled mode there is no container, hence no data-baseurl: fall back on the
+    // origin serving widget.js, which is the acceslibre instance of the current env.
+    return declaredBaseURL || _scriptOrigin || DEFAULT_BASE_URL
   }
 
   function closeModal(dialog, trigger) {
@@ -196,7 +211,7 @@
     })()
   }
   function openAccessibilityModal(uuid, callback = null) {
-    fetch('https://acceslibre.beta.gouv.fr/uuid/' + uuid + '/widget/', {
+    fetch(_getBaseURL() + '/uuid/' + uuid + '/widget/', {
       method: 'GET',
       headers: { 'X-OriginUrl': window.location },
     })
