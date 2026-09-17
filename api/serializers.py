@@ -7,6 +7,8 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp, ExternalSource
 from erp.widget_utils import (
+    get_accueil_ascenseur_etage,
+    get_accueil_classes,
     get_audiodescription_labels,
     get_deaf_equipment_labels,
     get_entrance_label,
@@ -16,8 +18,6 @@ from erp.widget_utils import (
     get_sound_beacon_label,
     get_staff_label,
     get_wc_label,
-    get_accueil_ascenseur_etage,
-    get_accueil_classes,
 )
 
 # Useful docs:
@@ -210,6 +210,8 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
         fields = ("uuid", "nom", "adresse", "commune", "geom", "activite", "web_url", "completion_rate")
 
     def get_completion_rate(self, obj):
+        if not hasattr(obj, "accessibilite"):
+            return None
         return obj.accessibilite.completion_rate
 
     def get_web_url(self, obj):

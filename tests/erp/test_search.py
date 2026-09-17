@@ -451,3 +451,13 @@ def test_search_in_municipality_with_identical_names(client):
     assert response.context["where"] == "Saint-Pierre (974)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "ERP en Outre Mer"
+
+
+@pytest.mark.django_db
+def test_search_map_points_at_the_frontend_endpoint(client):
+    """The map must not go back to /api/erps/, which requires an API key."""
+    response = client.get(reverse("search") + "?where=France entière")
+
+    html = response.content.decode()
+    assert f'data-refresh-api-url="{reverse("front_erp_list")}"' in html
+    assert reverse("erp-list") not in html
