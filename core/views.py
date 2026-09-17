@@ -12,6 +12,9 @@ def robots_txt(request):
         "User-agent: *",
         "Disallow: /compte/*",
         "Disallow: /app/*/a/*/erp/*/rpa-pdf",
+        # Same-origin endpoints for our own JS, discoverable through data- attributes.
+        "Disallow: /recherche/erps/",
+        "Disallow: /traduire/",
         "",
         f"Sitemap: {settings.SITE_ROOT_URL}/sitemap.xml",
     ]

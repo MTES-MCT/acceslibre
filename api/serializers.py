@@ -210,6 +210,10 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
         fields = ("uuid", "nom", "adresse", "commune", "geom", "activite", "web_url", "completion_rate")
 
     def get_completion_rate(self, obj):
+        # An Erp can be published without any Accessibilite row, in which case the
+        # reverse one-to-one raises instead of returning None.
+        if not hasattr(obj, "accessibilite"):
+            return None
         return obj.accessibilite.completion_rate
 
     def get_web_url(self, obj):

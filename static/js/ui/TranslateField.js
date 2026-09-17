@@ -3,8 +3,12 @@ import DOMPurify from 'dompurify'
 class TranslateField {
   constructor(el) {
     this.el = el
-    this.pk = el.dataset.accessPk
+    // Rendered by the access_* includes; the endpoint is same-origin and not part
+    // of the public API, so it is injected rather than hardcoded here.
+    this.url = el.dataset.translateUrl
     this.field = el.dataset.field
+
+    if (!this.url) return
 
     this.btn = this._createBtn()
     this.result = this._createResult()
@@ -36,7 +40,7 @@ class TranslateField {
     const csrfToken = document.querySelector('input[type="hidden"][name="csrfmiddlewaretoken"]')?.value
 
     try {
-      const response = await fetch(`/api/accessibilite/${this.pk}/translate/`, {
+      const response = await fetch(this.url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

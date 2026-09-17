@@ -197,6 +197,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_URLS_REGEX = r"^/uuid/[^/]+/widget/$"
 CORS_ALLOW_CREDENTIALS = False
 
+# Per-IP rate limits for the same-origin endpoints our own JS calls
+# (see api/frontend_views.py). Resolved per request, so they can be retuned
+# through the environment without a code change.
+FRONT_ERPS_RATE = env.str("FRONT_ERPS_RATE", default="120/m")
+FRONT_TRANSLATE_RATE = env.str("FRONT_TRANSLATE_RATE", default="10/m")
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "api.authentication.UserAPIKeyAuthentication",
@@ -205,12 +211,10 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_THROTTLE_CLASSES": [
-        "api.throttling.FrontendOriginThrottle",
         "rest_framework.throttling.UserRateThrottle",
         "rest_framework.throttling.AnonRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "frontend": "5000/hour",
         "user": "10000/hour",
         "anon": "20/hour",
     },
