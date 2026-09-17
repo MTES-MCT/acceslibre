@@ -108,7 +108,7 @@
                     {% if access.entree_pmr_informations %}
                         :
                         <div class="{% if need_translation %}translate-field{% endif %}"
-                             {% if need_translation %}data-translate-url="{% url "front_accessibilite_translate" access.pk %}"{% endif %}
+                             {% if need_translation %}data-translate-url="{% url "front_accessibility_translate" access.pk %}"{% endif %}
                              data-field="entree_pmr_informations">
                             <div class="a4a-comment-block">
                                 <p>{{ access.entree_pmr_informations|linebreaksbr }}</p>

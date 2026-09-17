@@ -523,8 +523,6 @@ class ErpViewSet(
     }
 
     permission_classes = [IsAllowedForAction, CanModifyErp]
-    # commune_ext is walked by Erp.commune_slug -> get_absolute_uri(), which the
-    # serializers call for every result.
     queryset = Erp.objects.select_related("activite", "accessibilite", "commune_ext").order_by("nom")
     lookup_field = "slug"
     bbox_filter_field = "geom"

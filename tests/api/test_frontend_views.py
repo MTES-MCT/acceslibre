@@ -210,7 +210,7 @@ class TestFrontendErpList:
     def test_api_key_is_not_required(self, client, jacou_erp):
         assert client.get(reverse("front_erp_list"), HTTP_ACCEPT=GEOJSON).status_code == 200
 
-    @override_settings(FRONT_ERPS_RATE="2/m", RATELIMIT_ENABLE=True)
+    @override_settings(FRONT_SEARCH_ERPS_RATE="2/m", RATELIMIT_ENABLE=True)
     def test_rate_limited_by_ip(self, client, jacou_erp, clear_ratelimit_cache):
         url = reverse("front_erp_list")
 
@@ -233,7 +233,7 @@ class TestFrontendTranslate:
         return ErpFactory(with_accessibility=True, accessibilite__commentaire="foo")
 
     def _url(self, erp):
-        return reverse("front_accessibilite_translate", kwargs={"pk": erp.accessibilite.pk})
+        return reverse("front_accessibility_translate", kwargs={"pk": erp.accessibilite.pk})
 
     def _post(self, client, erp, payload, **extra):
         return client.post(self._url(erp), data=json.dumps(payload), content_type="application/json", **extra)
@@ -285,7 +285,7 @@ class TestFrontendTranslate:
 
     def test_translate_unknown_accessibilite(self, client):
         response = client.post(
-            reverse("front_accessibilite_translate", kwargs={"pk": 99999}),
+            reverse("front_accessibility_translate", kwargs={"pk": 99999}),
             data=json.dumps({"field": "commentaire", "target_lang": "en"}),
             content_type="application/json",
         )

@@ -43,11 +43,7 @@ from erp.imports.serializers import TranslateSerializer
 from erp.models import Accessibilite, Erp
 from erp.provider.deepl import translate as translator
 
-#: Query parameters our own JS actually sends (static/js/geo.js and
-#: static/js/ui/ContribPagination.js). Anything else is dropped before the filter
-#: backends see it: it keeps this endpoint a *search* surface rather than a bulk
-#: extraction one, and it keeps `with_drafts`, `created_or_updated_in_last_days`,
-#: `source` and `asp_id_not_null` exclusively on the authenticated `/api/erps/`.
+#: Query parameters our own JS actually sends
 FRONTEND_QUERY_PARAMS = frozenset(
     {"q", "zone", "page", "page_size", "sortType", "where", "equipments", "code_insee", "activite"}
 )
@@ -58,9 +54,7 @@ _RATE_PERIODS = {"s": 1, "m": 60, "h": 3600, "d": 86400}
 
 
 def _erps_rate(group, request):
-    # Resolved per request so the limit can be retuned through settings (and
-    # overridden in tests) without touching the decorator.
-    return settings.FRONT_ERPS_RATE
+    return settings.FRONT_SEARCH_ERPS_RATE
 
 
 def _translate_rate(group, request):
@@ -91,10 +85,8 @@ def reject_cross_site(request):
 
 
 class FrontendGeoJsonPagination(GeoJsonPagination):
-    # GeoJsonPagination defines neither, so without these `?page_size=` is honoured
-    # with no upper bound at all.
     page_size = 20
-    max_page_size = 100  # the frontend never asks for more than 20
+    max_page_size = 100
 
 
 @method_decorator(
@@ -110,7 +102,7 @@ class FrontendErpListView(ListAPIView):
 
     authentication_classes = [SessionAuthentication]
     permission_classes = [AllowAny]
-    throttle_classes = []  # per-IP limiting is django-ratelimit's job here
+    throttle_classes = []
     renderer_classes = [GeoJSONRenderer, JSONRenderer]
     serializer_class = ErpGeoSerializer
     pagination_class = FrontendGeoJsonPagination
@@ -119,8 +111,6 @@ class FrontendErpListView(ListAPIView):
     schema = None  # not part of the documented public API
 
     def get_queryset(self):
-        # commune_ext is needed by Erp.commune_slug -> get_absolute_uri(), which the
-        # serializer calls for every feature.
         return Erp.objects.published().select_related("activite", "accessibilite", "commune_ext")
 
     def initial(self, request, *args, **kwargs):
@@ -129,7 +119,7 @@ class FrontendErpListView(ListAPIView):
 
         if getattr(request, "limited", False):
             raise Throttled(
-                wait=retry_after(settings.FRONT_ERPS_RATE),
+                wait=retry_after(settings.FRONT_SEARCH_ERPS_RATE),
                 detail=translate_("Trop de requêtes, merci de réessayer dans un instant."),
             )
 
@@ -146,7 +136,7 @@ class FrontendErpListView(ListAPIView):
 
 @require_POST
 @ratelimit(key=real_ip_key, rate=_translate_rate, method="POST", block=False)
-def translate_accessibilite_field(request, pk):
+def translate_accessibility_field(request, pk):
     """Called by TranslateField.js on establishment pages viewed in a non-French locale.
 
     Plain Django view on purpose: `CsrfViewMiddleware` then applies to every caller,

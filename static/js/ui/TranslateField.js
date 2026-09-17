@@ -3,8 +3,6 @@ import DOMPurify from 'dompurify'
 class TranslateField {
   constructor(el) {
     this.el = el
-    // Rendered by the access_* includes; the endpoint is same-origin and not part
-    // of the public API, so it is injected rather than hardcoded here.
     this.url = el.dataset.translateUrl
     this.field = el.dataset.field
 
