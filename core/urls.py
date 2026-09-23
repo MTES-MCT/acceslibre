@@ -51,6 +51,9 @@ urlpatterns = [
         "librairie",
         RedirectView.as_view(url="https://startupdetat.typeform.com/to/XjPdaMBE", permanent=True),
     ),
+    # Must come before erp.urls: `recherche/<str:commune_slug>/` would shadow
+    # `recherche/erps/` otherwise.
+    path("", include("api.frontend_urls")),
     path("", include("erp.urls")),
     path("annuaire/", include("annuaire.urls")),
     path("api/", include("api.urls")),

@@ -33,6 +33,11 @@ class ZoneFilter(InBBoxFilter):
 
 
 class ErpFilter(OrderingFilter, BaseFilterBackend):
+    #: When False, `?with_drafts=true` is ignored and only published establishments are ever
+    #: returned. The documented API keeps the draft affordance, the frontend-facing surface
+    #: (see `api.frontend_views`) does not.
+    allow_drafts = True
+
     # Work around DRF issue #6886 by always adding the primary key as last order field.
     # See https://github.com/encode/django-rest-framework/issues/6886
     def get_ordering(self, request, queryset, view):
@@ -48,8 +53,8 @@ class ErpFilter(OrderingFilter, BaseFilterBackend):
         ordered = False
         use_distinct = False
 
-        with_drafts = request.query_params.get("with_drafts", "false")
-        if with_drafts != "true":
+        with_drafts = self.allow_drafts and request.query_params.get("with_drafts", "false") == "true"
+        if not with_drafts:
             queryset = queryset.published()
         else:
             # List only "public" drafts, or drafts of the current user
@@ -166,3 +171,10 @@ class EquipmentFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, *args, **kwargs):
         equipments = request.query_params.getlist("equipments")
         return filter_erps_by_equipments(queryset, equipments)
+
+
+class PublishedErpFilter(ErpFilter):
+    """`ErpFilter` for acceslibre's own frontend: drafts are never exposed, whatever
+    `?with_drafts=` says."""
+
+    allow_drafts = False
