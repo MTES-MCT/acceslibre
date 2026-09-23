@@ -52,6 +52,7 @@
                                     <li>
                                         <a title="{% translate "Partager sur Facebook - nouvelle fenêtre" %}"
                                            href="{{ social_links.facebook }}"
+                                           data-track-event="share,facebook,{{ erp.slug }}"
                                            target="_blank"
                                            rel="noopener external"
                                            class="fr-btn--facebook fr-btn fr-icon-facebook-circle-fill">Facebook</a>
@@ -61,6 +62,7 @@
                                     <li>
                                         <a title="{% translate "Partager sur X - nouvelle fenêtre" %}"
                                            href="{{ social_links.x }}"
+                                           data-track-event="share,x,{{ erp.slug }}"
                                            target="_blank"
                                            rel="noopener external"
                                            class="fr-btn--twitter-x fr-btn fr-icon-twitter-x-fill">{% translate "X (anciennement Twitter)" %}</a>
@@ -70,6 +72,7 @@
                                     <li>
                                         <a title="{% translate "Partager sur LinkedIn - nouvelle fenêtre" %}"
                                            href="{{ social_links.linkedin }}"
+                                           data-track-event="share,linkedin,{{ erp.slug }}"
                                            target="_blank"
                                            rel="noopener external"
                                            class="fr-btn--linkedin fr-btn fr-icon-linkedin-box-fill">Linkedin</a>
@@ -79,6 +82,7 @@
                                     <li id="btn-to-copy-wrapper">
                                         <button id="btn-to-copy"
                                                 data-url="{{ erp_absolute_uri }}"
+                                                data-track-event="share,copy_link,{{ erp.slug }}"
                                                 class="fr-btn fr-icon-links-fill">
                                             {% translate "Copier le lien" %}
                                         </button>
