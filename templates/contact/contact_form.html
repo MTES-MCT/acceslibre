@@ -42,6 +42,18 @@
                 {% if form.non_field_errors %}
                     <div class="fr-alert fr-alert--error" role="alert">{{ form.non_field_errors }}</div>
                 {% endif %}
+                {% url "contact_topic" "api_key" as api_key_contact_url %}
+                {% if api_key_requires_login %}
+                    <div class="fr-alert fr-alert--info fr-mb-3w">
+                        <p>
+                            {% translate "Pour demander une clef API, vous devez être connecté." %}
+                            <a class="fr-link" href="{% url "login" %}?next={{ api_key_contact_url|urlencode }}">{% translate "Se connecter" %}</a>
+                            {% translate "ou" %}
+                            <a class="fr-link"
+                               href="{% url "django_registration_register" %}?next={{ api_key_contact_url|urlencode }}">{% translate "créer un compte" %}</a>
+                        </p>
+                    </div>
+                {% endif %}
                 <div class="display--flex direction--column gap-4w fr-mb-2w">
                     <div class="display--flex gap-3w flex--wrap">
                         <div class="fr-col-12 fr-col-lg">
@@ -62,16 +74,32 @@
                         </div>
                     </div>
                     <div>
-                        <div class="fr-select-group fr-col-lg-7">
+                        <div class="fr-select-group fr-col-lg-7{% if form.topic.errors %} fr-select-group--error{% endif %}">
                             <label class="fr-label" for="{{ form.topic.id_for_label }}">{% translate "Sujet de votre demande*" %}</label>
-                            <select class="fr-select"
+                            <select class="fr-select{% if form.topic.errors %} fr-select--error{% endif %}"
                                     id="{{ form.topic.id_for_label }}"
-                                    name="{{ form.topic.name }}">
+                                    name="{{ form.topic.name }}"
+                                    {% if not request.user.is_authenticated %}aria-describedby="topic-api-key-hint"{% endif %}>
                                 {% for value, name in form.fields.topic.choices %}
-                                    <option value="{{ value }}"
-                                            {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
+                                    {% if value == "api_key" and not request.user.is_authenticated %}
+                                        <option value="{{ value }}" disabled>
+                                            {{ name }} ({% translate "connexion requise" %})
+                                        </option>
+                                    {% else %}
+                                        <option value="{{ value }}"
+                                                {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
+                            {% if not request.user.is_authenticated %}
+                                <p id="topic-api-key-hint" class="fr-hint-text fr-mt-1w">
+                                    {% translate "Pour demander une clef API," %}
+                                    <a href="{% url "login" %}?next={{ api_key_contact_url|urlencode }}">{% translate "connectez-vous" %}</a>
+                                    {% translate "ou" %}
+                                    <a href="{% url "django_registration_register" %}?next={{ api_key_contact_url|urlencode }}">{% translate "créez un compte" %}</a>.
+                                </p>
+                            {% endif %}
+                            {% for error in form.topic.errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
                         </div>
                     </div>
                     {{ form.erp }}

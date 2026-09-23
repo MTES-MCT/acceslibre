@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 17:40+0200\n"
+"POT-Creation-Date: 2026-09-23 09:53+0200\n"
 "PO-Revision-Date: 2026-09-16 17:11+0200\n"
 "Last-Translator: <patrick.nguyen@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,6 +148,9 @@ msgstr "I am not a robot"
 
 msgid "Organisation"
 msgstr "Organisation"
+
+msgid "Vous devez être connecté pour demander une clef API."
+msgstr "You must be logged in to request an API key."
 
 msgid "Cochez cette case pour soumettre le formulaire."
 msgstr "Check this box to submit the form."
@@ -4515,6 +4518,18 @@ msgstr "Contact us"
 msgid "*Tous les champs sont obligatoires"
 msgstr "*Required fields"
 
+msgid "Pour demander une clef API, vous devez être connecté."
+msgstr "To request an API key, you must be logged in."
+
+msgid "Se connecter"
+msgstr "Sign in"
+
+msgid "ou"
+msgstr "or"
+
+msgid "créer un compte"
+msgstr "create an account"
+
 msgid "Adresse e-mail*"
 msgstr "Email address*"
 
@@ -4526,6 +4541,18 @@ msgstr "First and last name*"
 
 msgid "Sujet de votre demande*"
 msgstr "Subject*"
+
+msgid "connexion requise"
+msgstr "login required"
+
+msgid "Pour demander une clef API,"
+msgstr "To request an API key,"
+
+msgid "connectez-vous"
+msgstr "log in"
+
+msgid "créez un compte"
+msgstr "create an account"
 
 msgid "Établissement :"
 msgstr "Facility:"
@@ -5104,9 +5131,6 @@ msgid ""
 "Votre compte est désormais actif.<br>Vous pouvez dès à présent vous "
 "connecter."
 msgstr "Your account is now active. <br> You can now sign in."
-
-msgid "Se connecter"
-msgstr "Sign in"
 
 msgid "L'activation de votre compte a échouée"
 msgstr "Your account activation failed"
@@ -7923,9 +7947,6 @@ msgstr "The change of your password has been taken into account."
 
 msgid "Identifiez-vous"
 msgstr "Sign in"
-
-msgid "ou"
-msgstr "or"
 
 msgid "retournez à l'accueil"
 msgstr "back to home"
