@@ -47,6 +47,9 @@ def redirect_after_send(request, erp):
 @ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True)
 def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     topic = topic if topic in dict(Message.TOPICS) else Message.TOPIC_CONTACT
+    api_key_requires_login = topic == Message.TOPIC_API_KEY and not request.user.is_authenticated
+    if api_key_requires_login:
+        topic = Message.TOPIC_CONTACT
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None
     initial = {"topic": topic or Message.TOPIC_CONTACT, "erp": erp}
     if request.method == "POST":
@@ -85,7 +88,12 @@ def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
     return render(
         request,
         "contact/contact_form.html",
-        context={"form": form, "erp": erp, "page_type": "contact-form"},
+        context={
+            "form": form,
+            "erp": erp,
+            "page_type": "contact-form",
+            "api_key_requires_login": api_key_requires_login,
+        },
     )
 
 
