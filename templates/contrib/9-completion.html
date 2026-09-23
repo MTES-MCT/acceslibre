@@ -19,17 +19,16 @@
             {% translate "Fiche d’établissement créée avec succès !" %}
         {% endif %}
     </h1>
+    {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate asvar completion_message trimmed %}
+        Selon les informations que vous avez fournies, la fiche <span class="fr-text--bold">{{ name }}</span>
+        est maintenant complétée à :
+        <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
+    {% endblocktranslate %}
     <div class="contrib-completion-container fr-p-3w">
-        <p class="fr-text--xl fr-text--bold">{% translate "Merci pour votre contribution" %}</p>
-        <p>
-            {% blocktranslate with name=erp.nom completion_rate=erp.accessibilite.completion_rate %}
-                Selon les informations que vous avez fournies, la fiche <span class="fr-text--bold">{{ name }}</span>
-                est maintenant complétée à :
-                <span class="fr-grid-row fr-grid-row--center fr-text--xl fr-h1 fr-mt-1v">{{ completion_rate }}%</span>
-            {% endblocktranslate %}
-        </p>
+        <p class="fr-text--xl fr-text--bold fr-mb-1w">{% translate "Merci pour votre contribution" %}</p>
         {% switch "RPA" %}
             {% if erp.user_type == "gestionnaire" and not erp.rpa and erp.accessibilite.completion_rate < 100 %}
+                <p>{{ completion_message }}</p>
                 <p>
                     {% translate "Pour être conforme à l’obligation réglementaire de registre public d’accessibilité, votre fiche doit être complétée à 100%." %}
                 </p>
@@ -46,6 +45,7 @@
                     </ul>
                 </div>
             {% else %}
+                <p>{% translate "Félicitations ! Votre fiche établissement est bien conforme au RPA." %}</p>
                 <div class="fr-grid-row fr-grid-row--center">
                     <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
                         <li>
@@ -58,6 +58,7 @@
                 </div>
             {% endif %}
         {% else %}
+            <p>{{ completion_message }}</p>
             <div class="fr-grid-row fr-grid-row--center">
                 <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-sm">
                     <li>
