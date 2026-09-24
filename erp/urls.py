@@ -122,6 +122,8 @@ urlpatterns = [
         name="confirm_up_to_date",
     ),
     path("app/<str:erp_slug>/claim/", views.claim, name="claim"),
+    path("app/<str:erp_slug>/transfer/", views.transfer_erp, name="transfer_erp"),
+    path("transfer/<uuid:token>/", views.transfer_erp_response, name="transfer_erp_response"),
     path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
     path(
         "uuid/<str:uuid>/widget/", views.widget_from_uuid, name="widget_erp_uuid"

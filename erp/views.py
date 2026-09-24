@@ -42,12 +42,18 @@ from erp.models import (
     Commune,
     Departement,
     Erp,
+    ErpTransferRequest,
     ExternalSource,
 )
 from erp.provider import acceslibre
 from erp.provider import panoramax as panoramax_provider
 from erp.provider import search as provider_search
 from erp.provider.search import get_equipments, get_equipments_shortcuts
+from erp.transfer_requests import (
+    perform_transfer,
+    refuse_transfer,
+    send_transfer_request_to_old_owner,
+)
 from erp.utils import build_queryset, clean_address, cleaned_search_params_as_dict, get_contrib_steps_with_url
 from stats import queries
 from stats.models import Challenge, ChallengePlayer
@@ -637,6 +643,92 @@ def claim(request, erp_slug):
     )
 
     return render(request, "erp/claimed.html", context={"erp": erp, "page_type": "claim"})
+
+
+@login_required
+def transfer_erp(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+
+    if not request.method == "POST":
+        return redirect(erp.get_absolute_url())
+
+    if not erp.rpa:
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate(
+                "Seules les fiches conformes au registre public d'accessibilité peuvent changer de gestionnaire."
+            ),
+        )
+        return redirect(erp.get_absolute_url())
+
+    if erp.user is None or request.user == erp.user:
+        messages.add_message(
+            request,
+            messages.WARNING,
+            translate("Vous êtes déjà le gestionnaire de cette fiche."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    if ErpTransferRequest.objects.filter(erp=erp, status=ErpTransferRequest.STATUS_PENDING).exists():
+        messages.add_message(
+            request,
+            messages.WARNING,
+            translate("Une demande de changement de gestionnaire est déjà en cours pour cette fiche."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    transfer_request = ErpTransferRequest.objects.create(
+        erp=erp,
+        previous_manager=erp.user,
+        new_manager=request.user,
+    )
+    send_transfer_request_to_old_owner(transfer_request)
+
+    return render(
+        request,
+        "erp/transfer_requested.html",
+        context={"erp": erp, "transfer_request": transfer_request, "page_type": "claim"},
+    )
+
+
+def transfer_erp_response(request, token):
+    transfer_request = get_object_or_404(ErpTransferRequest, token=token)
+    erp = transfer_request.erp
+
+    action = request.POST.get("action") or request.GET.get("action")
+
+    if action in ("accept", "refuse"):
+        already_processed = transfer_request.status != ErpTransferRequest.STATUS_PENDING
+        if not already_processed:
+            if action == "accept":
+                perform_transfer(transfer_request)
+            else:
+                refuse_transfer(transfer_request)
+        return render(
+            request,
+            "erp/transfer_response.html",
+            context={
+                "erp": erp,
+                "transfer_request": transfer_request,
+                "transfer_done": True,
+                "accepted": transfer_request.status == ErpTransferRequest.STATUS_ACCEPTED,
+                "already_processed": already_processed,
+                "page_type": "claim",
+            },
+        )
+
+    return render(
+        request,
+        "erp/transfer_response.html",
+        context={
+            "erp": erp,
+            "transfer_request": transfer_request,
+            "transfer_done": False,
+            "already_processed": transfer_request.status != ErpTransferRequest.STATUS_PENDING,
+            "page_type": "claim",
+        },
+    )
 
 
 @login_required
