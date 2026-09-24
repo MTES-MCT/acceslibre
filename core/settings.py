@@ -69,6 +69,10 @@ CONTENT_SECURITY_POLICY = {
             "acceslibre.matomo.cloud",
             "stats.beta.gouv.fr",
         ],
+        "style-src": [
+            SELF,
+            NONCE,
+        ],
         "img-src": [
             SELF,
             "data:",  # Leaflet CenterCross plugin

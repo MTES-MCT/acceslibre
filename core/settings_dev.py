@@ -1,10 +1,13 @@
 # flake8: noqa
+from urllib.parse import urlparse
+
 from .settings import *
 
 DEBUG = True
 
-SITE_HOST = "127.0.0.1"
-SITE_ROOT_URL = f"http://{SITE_HOST}:7000"
+SITE_ROOT_URL = os.environ.get("SITE_ROOT_URL", "http://127.0.0.1:8000")
+SITE_HOST = urlparse(SITE_ROOT_URL).hostname
+CORS_ALLOWED_ORIGINS = [SITE_ROOT_URL]
 
 ALLOWED_HOSTS = [
     SITE_HOST,
@@ -87,3 +90,10 @@ BREVO_CONTACT_LIST_IDS = {
 
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_STORE_EAGER_RESULT = True
+
+PARCEL_HMR_PORT = 34471
+CONTENT_SECURITY_POLICY["DIRECTIVES"]["connect-src"] = [
+    *CONTENT_SECURITY_POLICY["DIRECTIVES"]["default-src"],
+    f"ws://127.0.0.1:{PARCEL_HMR_PORT}",
+    f"ws://localhost:{PARCEL_HMR_PORT}",
+]
