@@ -16,7 +16,6 @@ DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 APP_NAME = os.environ.get("APP", "access4all")
 ALLOWED_HOSTS = [
-    "localhost",
     SITE_HOST,
     f"{APP_NAME}.osc-fr1.scalingo.io",
     "www.acceslibre.info",
@@ -44,10 +43,11 @@ if SENTRY_DSN is not None:
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 
 # https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_SECONDS = 31536000
 
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 457,

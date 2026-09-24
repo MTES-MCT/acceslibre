@@ -236,7 +236,7 @@ def change_email(request, activation_token):
 
     user, failure = service.validate_from_token(activation_token)
     if failure:
-        render(
+        return render(
             request,
             "compte/email_change_activation_failed.html",
             context={"activation_error": failure},
@@ -404,6 +404,7 @@ def set_api_key(request):
     return redirect("apidocs")
 
 
+@method_decorator(ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True), name="post")
 class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
 

@@ -37,8 +37,13 @@
                             </div>
                         </div>
                         <div class="fr-card__footer align-self--end">
-                            <a class="fr-btn fr-btn--sm fr-btn--secondary"
-                               href="{% url 'unsubscribe_erp' erp_slug=subscription.erp.slug %}?redir=account">{% translate "Se désabonner" %}</a>
+                            <form method="post"
+                                  action="{% url 'unsubscribe_erp' erp_slug=subscription.erp.slug %}"
+                                  class="fr-mb-0">
+                                {% csrf_token %}
+                                <input type="hidden" name="redir" value="account" />
+                                <button type="submit" class="fr-btn fr-btn--sm fr-btn--secondary">{% translate "Se désabonner" %}</button>
+                            </form>
                         </div>
                     </div>
                 </div>

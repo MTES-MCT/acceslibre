@@ -37,13 +37,23 @@
 {% if user.is_authenticated %}
     <div class="fr-btns-group">
         {% if user_is_subscribed %}
-            <a href="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
-               class="fr-btn fr-btn--secondary fr-btn--lg fr-my-2w">
-                {% translate "Désabonnez vous des mises à jour" %}
-            </a>
+            <form method="post"
+                  action="{% url 'unsubscribe_erp' erp_slug=erp.slug %}"
+                  class="fr-mb-0">
+                {% csrf_token %}
+                <button type="submit" class="fr-btn fr-btn--secondary fr-btn--lg fr-my-2w">
+                    {% translate "Désabonnez vous des mises à jour" %}
+                </button>
+            </form>
         {% else %}
-            <a href="{% url 'subscribe_erp' erp_slug=erp.slug %}"
-               class="fr-btn fr-btn--secondary fr-btn--lg">{% translate "Abonnez vous aux mises à jour" %}</a>
+            <form method="post"
+                  action="{% url 'subscribe_erp' erp_slug=erp.slug %}"
+                  class="fr-mb-0">
+                {% csrf_token %}
+                <button type="submit" class="fr-btn fr-btn--secondary fr-btn--lg">
+                    {% translate "Abonnez vous aux mises à jour" %}
+                </button>
+            </form>
         {% endif %}
     </div>
 {% endif %}

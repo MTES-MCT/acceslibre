@@ -22,6 +22,7 @@ INTERNAL_IPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+INSTALLED_APPS.append("django_extensions")
 INSTALLED_APPS.append("rosetta")
 INSTALLED_APPS.append("django_deep_translator")
 

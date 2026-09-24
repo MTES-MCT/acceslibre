@@ -27,8 +27,11 @@ class IsAllowedForAction(permissions.BasePermission):
 
         try:
             with sentry_sdk.start_span(description="Check signature of API KEY"):
-                APIKey.objects.get_from_key(key)
+                api_key = APIKey.objects.get_from_key(key)
         except APIKey.DoesNotExist:
+            return False
+
+        if api_key.has_expired:
             return False
 
         return True

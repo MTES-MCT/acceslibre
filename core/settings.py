@@ -158,7 +158,6 @@ MESSAGE_TAGS = {
 
 INSTALLED_APPS = [
     "admin_auto_filters",
-    "django_extensions",
     "import_export",
     "django_admin_listfilter_dropdown",
     "compte.apps.CompteConfig",
@@ -315,10 +314,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
         "OPTIONS": {
             "min_length": 12,
         },
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
