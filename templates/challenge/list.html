@@ -31,6 +31,16 @@
         <div class="fr-col-12">
             <div class="fr-col-12 top-section">
                 <h1 class="fr-mb-0">{% translate "Challenges" %}</h1>
+                {% if challenges_en_cours %}
+                    <section class="row justify-content-start fr-mt-4v">
+                        <div class="col-12">
+                            <h2>
+                                <strong>{% translate "Challenges en cours" %}</strong>
+                            </h2>
+                            {% include "common/challenge_list.html" with challenges=challenges_en_cours %}
+                        </div>
+                    </section>
+                {% endif %}
                 <section>
                     <h2>{% translate "Challenge photos Acceslibre" %}</h2>
                     <p class="fr-text--bold fr-text--xl">{% translate "Aidez-nous à ajouter des photos sur Acceslibre !" %}</p>
@@ -129,16 +139,6 @@
                 </section>
             {% endif %}
             {# todo: check for later for v2 #}
-            {#            {% if challenges_en_cours %}#}
-            {#                <section class="row justify-content-start fr-mt-4v">#}
-            {#                    <div class="col-12">#}
-            {#                        <h2>#}
-            {#                            <strong>{% translate "Challenges en cours" %}</strong>#}
-            {#                        </h2>#}
-            {#                        {% include "common/challenge_list.html" with challenges=challenges_en_cours %}#}
-            {#                    </div>#}
-            {#                </section>#}
-            {#            {% endif %}#}
             {#            {% if challenges_termines %}#}
             {#                <section class="row justify-content-start fr-mt-4v">#}
             {#                    <div class="col-12">#}

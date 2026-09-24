@@ -39,4 +39,7 @@ dump.rdb
 
 core/maintenance_mode_state.txt
 
+# Translation tool backups (django-rosetta .original)
+*.po.original
+
 erp/management/commands/local_*.py
