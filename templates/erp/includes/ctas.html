@@ -20,14 +20,25 @@
                 </li>
             {% endif %}
             {% if erp.user != request.user %}
-                <li>
-                    <button data-fr-opened="false"
-                            aria-controls="claim-modal"
-                            type="button"
-                            class="fr-btn fr-btn--secondary text-center">
-                        {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
-                    </button>
-                </li>
+                {% if erp.rpa %}
+                    <li>
+                        <button data-fr-opened="false"
+                                aria-controls="transfer-modal"
+                                type="button"
+                                class="fr-btn fr-btn--secondary text-center">
+                            {% translate "Changement de propriétaire" %}
+                        </button>
+                    </li>
+                {% else %}
+                    <li>
+                        <button data-fr-opened="false"
+                                aria-controls="claim-modal"
+                                type="button"
+                                class="fr-btn fr-btn--secondary text-center">
+                            {% translate "Revendiquer l'établissement en tant que gestionnaire" %}
+                        </button>
+                    </li>
+                {% endif %}
             {% endif %}
             <li>
                 <a class="fr-btn fr-btn--secondary text-center"
@@ -44,7 +55,7 @@
             {% endif %}
         </ul>
     </div>
-    {% if erp.user != request.user %}
+    {% if erp.user != request.user and not erp.rpa %}
         <dialog id="claim-modal"
                 class="fr-modal"
                 aria-labelledby="modal-title"
@@ -63,6 +74,43 @@
                                     <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
                                         <li>
                                             <button aria-controls="claim-modal"
+                                                    title="{% translate "Annuler" %}"
+                                                    type="button"
+                                                    class="fr-btn fr-btn--secondary fr-mb-md-0">
+                                                {% translate "Non, je ne suis pas le gestionnaire" %}
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="fr-btn text-center fr-mb-md-0" type="submit">{% translate "Oui, je suis le gestionnaire" %}</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    {% endif %}
+    {% if erp.user != request.user and erp.rpa %}
+        <dialog id="transfer-modal"
+                class="fr-modal"
+                aria-labelledby="transfer-modal-title"
+                aria-modal="true">
+            <div class="fr-container fr-container--fluid fr-container-md">
+                <div class="fr-grid-row fr-grid-row--center">
+                    <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
+                        <div class="fr-modal__body">
+                            <div class="fr-modal__header"></div>
+                            <div class="fr-modal__content">
+                                {% include "erp/includes/erp_details_transfer_modal.html" %}
+                                <form method="post"
+                                      action="{% url 'transfer_erp' erp_slug=erp.slug %}"
+                                      class="text-right">
+                                    {% csrf_token %}
+                                    <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center">
+                                        <li>
+                                            <button aria-controls="transfer-modal"
                                                     title="{% translate "Annuler" %}"
                                                     type="button"
                                                     class="fr-btn fr-btn--secondary fr-mb-md-0">

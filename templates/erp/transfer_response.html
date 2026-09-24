@@ -1,0 +1,59 @@
+{% extends "contrib/base_access_form.html" %}
+{% load static %}
+{% load a4a %}
+{% load i18n %}
+{% block page_title %}
+    {% translate "Changement de propriétaire" %} | {% translate "Acceslibre" %}
+{% endblock page_title %}
+{% block robots %}
+    noindex, nofollow
+{% endblock robots %}
+{% block full_infos %}
+{% endblock full_infos %}
+{% block fields_content %}
+    <h1>{% translate "Changement de propriétaire" %}</h1>
+    <div class="contrib-completion-container fr-p-3w">
+        {% if already_processed %}
+            <p class="fr-text--xl fr-text--bold">{% translate "Cette demande a déjà été traitée." %}</p>
+            <p>{% translate "Le transfert de cette fiche a déjà été accepté, refusé ou est arrivé à expiration." %}</p>
+        {% elif transfer_done %}
+            {% if accepted %}
+                <p class="fr-text--xl fr-text--bold">{% translate "Vous avez accepté le transfert de la fiche." %}</p>
+                <p>
+                    {% blocktranslate with nom=erp.nom new_manager=transfer_request.new_manager.username %}
+                        {{ nom }} est désormais attribuée à <span class="fr-text--bold">{{ new_manager }}</span>. Un email de confirmation vient d'être envoyé à l'ancien et au nouveau gestionnaire.
+                    {% endblocktranslate %}
+                </p>
+            {% else %}
+                <p class="fr-text--xl fr-text--bold">{% translate "Vous avez refusé le transfert de la fiche." %}</p>
+                <p>{% translate "Le demandeur a été prévenu. Vous restez le gestionnaire de cette fiche." %}</p>
+            {% endif %}
+        {% else %}
+            <p class="fr-text--xl fr-text--bold">
+                {% blocktranslate with nom=erp.nom new_manager=transfer_request.new_manager.username %}
+                    Une demande de changement de propriétaire a été faite pour <span class="fr-text--bold">{{ nom }}</span> par {{ new_manager }}.
+                {% endblocktranslate %}
+            </p>
+            <p>
+                {% translate "Souhaitez-vous accepter ou refuser le transfert de la fiche ? Sans réponse sous 2 semaines, la fiche sera transférée automatiquement." %}
+            </p>
+            <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center fr-mt-3w">
+                <li>
+                    <button name="action"
+                            value="refuse"
+                            class="fr-btn fr-btn--secondary text-center">
+                        {% translate "Non, je refuse le transfert" %}
+                    </button>
+                </li>
+                <li>
+                    <button name="action" value="accept" class="fr-btn text-center">{% translate "Oui, j'accepte le transfert" %}</button>
+                </li>
+            </ul>
+        {% endif %}
+        <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center fr-mt-2w">
+            <li>
+                <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Voir l'établissement" %}</a>
+            </li>
+        </ul>
+    </div>
+{% endblock fields_content %}
