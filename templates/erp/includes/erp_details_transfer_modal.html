@@ -1,0 +1,13 @@
+{% load i18n %}
+<div class="fr-mb-3w">
+    <h3 class="fr-h5">
+        <span class="fr-icon-refresh-line" aria-hidden="true"></span>
+        {% translate "Changement de propriétaire" %}
+    </h3>
+    <p>{% translate "Êtes-vous bien le gestionnaire de cet établissement ?" %}</p>
+    <p>
+        {% blocktranslate trimmed %}
+            Si vous confirmez, nous enverrons un email au gestionnaire actuel, qui disposera de 2 semaines pour accepter ou refuser la demande.
+        {% endblocktranslate %}
+    </p>
+</div>
