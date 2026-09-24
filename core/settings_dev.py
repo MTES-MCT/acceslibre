@@ -83,6 +83,13 @@ BREVO_TEMPLATE_IDS = {
     "password_reset": 29,
     "export-results": 33,
     "erp_imported_brevo_matching": 36,
+    # TODO: replace with the real Brevo template IDs of the dev environment
+    "demande_transfer_ancien_gestionnaire": 37,
+    "demande_transfer_relance": 38,
+    "transfer_ok_nouveau_gestionnaire": 39,
+    "transfer_ok_ancien_gestionnaire": 40,
+    "transfer_ok_expiration_ancien_gestionnaire": 41,
+    "transfer_ko_nouveau_gestionnaire": 42,
 }
 BREVO_CONTACT_LIST_IDS = {
     "tally-respondents": 11,

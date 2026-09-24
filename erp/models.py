@@ -2579,3 +2579,65 @@ class Departement(models.Model):
 
     def __str__(self):
         return translate("Département {code}").format(code=self.code)
+
+
+class ErpTransferRequest(models.Model):
+    STATUS_PENDING = "pending"
+    STATUS_ACCEPTED = "accepted"
+    STATUS_REFUSED = "refused"
+    STATUS_EXPIRED = "expired"
+    STATUS_CHOICES = (
+        (STATUS_PENDING, translate_lazy("En attente")),
+        (STATUS_ACCEPTED, translate_lazy("Accepté")),
+        (STATUS_REFUSED, translate_lazy("Refusé")),
+        (STATUS_EXPIRED, translate_lazy("Expiré")),
+    )
+
+    erp = models.ForeignKey(
+        Erp,
+        verbose_name=translate_lazy("Établissement"),
+        on_delete=models.CASCADE,
+        related_name="transfer_requests",
+    )
+    previous_manager = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=translate_lazy("Gestionnaire actuel"),
+        related_name="+",
+        on_delete=models.CASCADE,
+    )
+    new_manager = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=translate_lazy("Nouveau gestionnaire"),
+        related_name="+",
+        on_delete=models.CASCADE,
+    )
+    status = models.CharField(
+        max_length=32,
+        choices=STATUS_CHOICES,
+        default=STATUS_PENDING,
+        verbose_name=translate_lazy("Statut"),
+    )
+    token = models.CharField(
+        max_length=64,
+        default=uuid.uuid4,
+        unique=True,
+        verbose_name=translate_lazy("Jeton"),
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=translate_lazy("Date de la demande"))
+    responded_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Date de réponse"),
+    )
+    reminder_sent_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=translate_lazy("Date de la relance"),
+    )
+
+    class Meta:
+        verbose_name = translate_lazy("Demande de changement de gestionnaire")
+        verbose_name_plural = translate_lazy("Demandes de changement de gestionnaire")
+
+    def __str__(self):
+        return f"Transfert de {self.erp} : {self.previous_manager} -> {self.new_manager} ({self.status})"
