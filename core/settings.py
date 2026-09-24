@@ -50,18 +50,37 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
+CSP_DEFAULT_SOURCES = [
+    SELF,
+    "data:",
+    "*.mapbox.com",
+    "*.gouv.fr",
+    "*.incubateur.net",
+    "acceslibre.matomo.cloud",
+    "*.tile.openstreetmap.org",
+    "*.acceslibre.info",
+]
+CSP_PANORAMAX_SOURCES = [
+    "api.panoramax.xyz",
+    "panoramax.ign.fr",
+    "panoramax.openstreetmap.fr",
+    "presets.panoramax.fr",
+    "api.iconify.design",
+    "raw.githubusercontent.com",
+    "nominatim.openstreetmap.org",
+]
 CONTENT_SECURITY_POLICY = {
     "EXCLUDE_URL_PREFIXES": ["/api", "/admin", "/summernote"],
     "DIRECTIVES": {
-        "default-src": [
+        "default-src": CSP_DEFAULT_SOURCES,
+        "connect-src": [
+            *CSP_DEFAULT_SOURCES,
+            *CSP_PANORAMAX_SOURCES,
+            "data.geopf.fr",
+        ],
+        "worker-src": [
             SELF,
-            "data:",
-            "*.mapbox.com",
-            "*.gouv.fr",
-            "*.incubateur.net",
-            "acceslibre.matomo.cloud",
-            "*.tile.openstreetmap.org",
-            "*.acceslibre.info",
+            "blob:",  # MapLibre web workers used by the Panoramax viewer
         ],
         "script-src": [
             SELF,
@@ -73,6 +92,9 @@ CONTENT_SECURITY_POLICY = {
             SELF,
             NONCE,
         ],
+        "style-src-attr": [
+            "'unsafe-inline'",  # Panoramax web-viewer templates rely on style attributes
+        ],
         "img-src": [
             SELF,
             "data:",  # Leaflet CenterCross plugin
@@ -81,6 +103,8 @@ CONTENT_SECURITY_POLICY = {
             "*.acceslibre.info",
             "data.geopf.fr",
             "*.cartocdn.com",
+            "blob:",
+            *CSP_PANORAMAX_SOURCES,
         ],
     },
 }
