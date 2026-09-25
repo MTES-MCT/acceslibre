@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, reverse
 from django.utils.translation import gettext as translate
@@ -26,6 +27,8 @@ class ContributionStepMixin(LoginRequiredMixin, FormView):
 
     def dispatch(self, request, *args, **kwargs):
         self.erp = get_object_or_404(Erp, slug=kwargs.get("erp_slug"))
+        if not self.erp.can_be_modified_by(request.user):
+            raise PermissionDenied
         self.step = kwargs.get("step_number")
         return super().dispatch(request, *args, **kwargs)
 

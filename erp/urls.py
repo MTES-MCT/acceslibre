@@ -1,7 +1,11 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
+from django_ratelimit.decorators import ratelimit
 
+from core.utils import real_ip_key
 from erp import schema, views
+
+ADMIN_PASSWORD_RESET_RATE_LIMIT = ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True)
 
 handler403 = views.handler403
 handler404 = views.handler404
@@ -194,7 +198,7 @@ urlpatterns = [
     ############################################################################
     path(
         "admin/password_reset/",
-        auth_views.PasswordResetView.as_view(),
+        ADMIN_PASSWORD_RESET_RATE_LIMIT(auth_views.PasswordResetView.as_view()),
         name="admin_password_reset",
     ),
     path(
@@ -204,7 +208,7 @@ urlpatterns = [
     ),
     path(
         "reset/<uidb64>/<token>/",
-        auth_views.PasswordResetConfirmView.as_view(),
+        ADMIN_PASSWORD_RESET_RATE_LIMIT(auth_views.PasswordResetConfirmView.as_view()),
         name="admin_password_reset_confirm",
     ),
     path(

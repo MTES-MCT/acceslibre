@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, reverse
+from django.views.decorators.http import require_POST
 
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -8,10 +9,11 @@ from subscription.models import ErpSubscription
 
 def _message_and_redirect(request, erp, message):
     messages.add_message(request, messages.SUCCESS, message)
-    return redirect(reverse("mes_abonnements") if request.GET.get("redir") == "account" else erp.get_absolute_url())
+    return redirect(reverse("mes_abonnements") if request.POST.get("redir") == "account" else erp.get_absolute_url())
 
 
 @login_required
+@require_POST
 def subscribe_erp(request, erp_slug):
     erp = get_object_or_404(Erp.objects, slug=erp_slug)
     ErpSubscription.subscribe(erp, request.user)
@@ -23,6 +25,7 @@ def subscribe_erp(request, erp_slug):
 
 
 @login_required
+@require_POST
 def unsubscribe_erp(request, erp_slug):
     erp = get_object_or_404(Erp.objects, slug=erp_slug)
     ErpSubscription.unsubscribe(erp, request.user)

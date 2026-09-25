@@ -18,6 +18,9 @@ INTERNAL_IPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# django_extensions is required by the `validate_templates` command used in CI
+INSTALLED_APPS.append("django_extensions")
+
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",

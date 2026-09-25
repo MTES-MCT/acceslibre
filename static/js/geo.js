@@ -273,7 +273,7 @@ function _displayCustomMenu(root, { latlng, target: map }) {
       <p><b>Choisissez une adresse :</b></p>
       <ul class="a4a-map-reverse-results">
         ${adresses.map(({ data, label }) => {
-          return `<li><a href="/contrib/admin-infos/?data=${data}">${label}</a></li>`
+          return `<li><a href="/contrib/admin-infos/?data=${data}">${DOMPurify.sanitize(label, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] })}</a></li>`
         })}
       </ul>`
   })
