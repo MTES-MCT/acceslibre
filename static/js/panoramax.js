@@ -1,3 +1,4 @@
+import './fontawesomeConfig'
 import '@panoramax/web-viewer'
 
 document.addEventListener('DOMContentLoaded', () => {

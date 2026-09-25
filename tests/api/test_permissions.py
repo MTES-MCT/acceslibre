@@ -1,5 +1,4 @@
 import datetime
-
 from unittest.mock import MagicMock
 
 import pytest
@@ -7,8 +6,8 @@ from rest_framework.test import APIRequestFactory
 from rest_framework_api_key.models import APIKey
 
 from compte.models import UserAPIKey
-from api.permissions import IsAllowedForAction
 from tests.factories import UserFactory
+from api.permissions import IsAllowedForAction
 
 
 @pytest.mark.django_db

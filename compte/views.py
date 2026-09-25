@@ -9,16 +9,19 @@ from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
+from django.utils import timezone
+from django.utils.decorators import method_decorator
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.generic import TemplateView
+from django_ratelimit.decorators import ratelimit
 from django_registration.backends.activation.views import ActivationView, RegistrationView
-from django.utils import timezone
 
 from compte import forms, service
 from compte.forms import CustomAuthenticationForm, CustomPasswordResetForm
 from compte.models import UserPreferences
 from compte.tasks import sync_user_attributes
 from core.mailer import BrevoMailer
+from core.utils import real_ip_key
 from erp import versioning
 from erp.models import Erp
 from stats.models import ChallengePlayer
@@ -405,6 +408,8 @@ class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
 
 
+@method_decorator(ratelimit(key=real_ip_key, rate="5/m", method="POST", block=True), name="post")
+@method_decorator(ratelimit(key="post:username", rate="5/m", method="POST", block=True), name="post")
 class CustomLoginView(LoginView):
     form_class = CustomAuthenticationForm
 

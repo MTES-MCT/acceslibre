@@ -22,17 +22,12 @@ if SENTRY_DSN is not None:
         ],
         traces_sample_rate=0.1,
         send_default_pii=True,
+        before_send=keep_only_username,
         environment="one-off-recette" if IS_ONE_OFF_CONTAINER else "recette",
     )
 
 # FIXME: removed because of a nasty bug with dist static assets
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
-
-# https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_SECONDS = 3600
 
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 27,

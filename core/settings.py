@@ -2,6 +2,7 @@ import os
 
 import environ
 from corsheaders.defaults import default_headers
+from csp.constants import NONCE, SELF
 from django.contrib.messages import constants as message_constants
 from django.utils.translation import gettext_lazy as trans
 
@@ -9,6 +10,14 @@ env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
 )
+
+
+def keep_only_username(event, hint):
+    user = event.get("user")
+    if user:
+        event["user"] = {"username": user.get("username")}
+    return event
+
 
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,19 +49,65 @@ DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-CSP_DEFAULT_SRC = (
-    "'self'",
-    "data:",  # used for Leaflet CenterCross plugin.
+
+CSP_DEFAULT_SOURCES = [
+    SELF,
+    "data:",
     "*.mapbox.com",
     "*.gouv.fr",
     "*.incubateur.net",
     "acceslibre.matomo.cloud",
     "*.tile.openstreetmap.org",
     "*.acceslibre.info",
-)
-
-CSP_EXCLUDE_URL_PREFIXES = ("/api", "/admin", "/summernote")  # these routes use scripts from remote cdns
-
+]
+CSP_PANORAMAX_SOURCES = [
+    "api.panoramax.xyz",
+    "panoramax.ign.fr",
+    "panoramax.openstreetmap.fr",
+    "presets.panoramax.fr",
+    "api.iconify.design",
+    "raw.githubusercontent.com",
+    "nominatim.openstreetmap.org",
+]
+CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/api", "/admin", "/summernote"],
+    "DIRECTIVES": {
+        "default-src": CSP_DEFAULT_SOURCES,
+        "connect-src": [
+            *CSP_DEFAULT_SOURCES,
+            *CSP_PANORAMAX_SOURCES,
+            "data.geopf.fr",
+        ],
+        "worker-src": [
+            SELF,
+            "blob:",  # MapLibre web workers used by the Panoramax viewer
+        ],
+        "script-src": [
+            SELF,
+            NONCE,
+            "acceslibre.matomo.cloud",
+            "stats.beta.gouv.fr",
+        ],
+        "style-src": [
+            SELF,
+            NONCE,
+        ],
+        "style-src-attr": [
+            "'unsafe-inline'",  # Panoramax web-viewer templates rely on style attributes
+        ],
+        "img-src": [
+            SELF,
+            "data:",  # Leaflet CenterCross plugin
+            "*.mapbox.com",
+            "*.tile.openstreetmap.org",
+            "*.acceslibre.info",
+            "data.geopf.fr",
+            "*.cartocdn.com",
+            "blob:",
+            *CSP_PANORAMAX_SOURCES,
+        ],
+    },
+}
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 
@@ -70,9 +125,6 @@ MAPBOX_TOKEN = "pk.eyJ1IjoiYWNjZXNsaWJyZSIsImEiOiJjbGVyN2p0cW8wNzBoM3duMThhaGY4c
 REAL_USER_NOTIFICATION = False
 # number of days to send a ping notification after an erp is created but not published
 UNPUBLISHED_ERP_NOTIF_DAYS = 7
-
-# Mattermost hook
-MATTERMOST_HOOK = env("MATTERMOST_HOOK", default=None)
 
 # Sentry integration
 SENTRY_DSN = env("SENTRY_DSN", default=None)
@@ -103,8 +155,6 @@ MESSAGE_TAGS = {
     message_constants.ERROR: "danger",
 }
 
-
-# Application definition
 
 INSTALLED_APPS = [
     "admin_auto_filters",
@@ -142,6 +192,7 @@ INSTALLED_APPS = [
     "reversion",
     "maintenance_mode",
     "django_prose_editor",
+    "csp",
 ]
 
 
@@ -154,6 +205,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "core.middleware.SentryUserContextMiddleware",
     "django_otp.middleware.OTPMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -165,12 +217,17 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
-CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = (
     *default_headers,
     "X-OriginUrl",
 )
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_URLS_REGEX = r"^/uuid/[^/]+/widget/$"
+CORS_ALLOW_CREDENTIALS = False
 
+# Per-IP rate limits for the same-origin endpoints our own JS calls
+FRONT_SEARCH_ERPS_RATE = env.str("FRONT_SEARCH_ERPS_RATE", default="120/m")
+FRONT_TRANSLATE_RATE = env.str("FRONT_TRANSLATE_RATE", default="10/m")
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -180,12 +237,10 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_THROTTLE_CLASSES": [
-        "api.throttling.FrontendOriginThrottle",
         "rest_framework.throttling.UserRateThrottle",
         "rest_framework.throttling.AnonRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "frontend": "5000/hour",
         "user": "10000/hour",
         "anon": "20/hour",
     },
@@ -469,6 +524,15 @@ PANORAMAX_OPENED_CITIES = [
     "Pau",
     "Anglet",
     "Orléans",
+    "Bordeaux",
+    "Angoulême",
+    "Lons-le-Saunier",
+    "Besançon",
+    "Rennes",
+    "Brest",
+    "Avignon",
+    "Montpellier",
+    "Orthez",
 ]
 
 APIDAE_HOST = env("APIDAE_HOST", default="")

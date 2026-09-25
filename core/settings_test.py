@@ -28,6 +28,11 @@ CACHES = {
 REST_FRAMEWORK["DEFAULT_PERMISSION_CLASSES"] = []
 REST_FRAMEWORK["DEFAULT_THROTTLE_CLASSES"] = []
 
+# The locmem cache above is shared across the whole session and never cleared
+# between tests, so a leftover rate-limit bucket would fail an unrelated test.
+# Tests that assert the limit re-enable it with override_settings.
+RATELIMIT_ENABLE = False
+
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
 TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context_processors.debug")
@@ -37,6 +42,8 @@ SESSION_COOKIE_SECURE = False
 
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_STORE_EAGER_RESULT = True
+CELERY_BROKER_URL = "memory://"
+CELERY_RESULT_BACKEND = "cache+memory://"
 
 BREVO_TEMPLATE_IDS = {}
 BREVO_CONTACT_LIST_IDS = {}

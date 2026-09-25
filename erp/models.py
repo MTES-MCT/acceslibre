@@ -1,4 +1,3 @@
-import json
 import uuid
 from datetime import datetime, timedelta, timezone
 
@@ -342,16 +341,14 @@ class Commune(models.Model):
             return 13
         return 14
 
-    def toTemplateJson(self):
-        return json.dumps(
-            {
-                "nom": self.nom,
-                "slug": self.slug,
-                "center": geo.lonlat_to_latlon(self.geom.coords),
-                "contour": geo.lonlat_to_latlon(self.contour.coords) if self.contour else None,
-                "zoom": self.get_zoom(),
-            }
-        )
+    def to_map_data(self):
+        return {
+            "nom": self.nom,
+            "slug": self.slug,
+            "center": geo.lonlat_to_latlon(self.geom.coords),
+            "contour": geo.lonlat_to_latlon(self.contour.coords) if self.contour else None,
+            "zoom": self.get_zoom(),
+        }
 
 
 class ExternalSource(models.Model):
@@ -739,9 +736,11 @@ class Erp(models.Model):
         )
 
     def can_be_modified_by(self, user=None):
-        if self.rpa:
-            return user is not None and self.user == user
-        return True
+        if not self.rpa:
+            return True
+        if user is None or not user.is_authenticated:
+            return False
+        return self.user_id == user.pk
 
     def get_activite_vector_icon(self):
         default = "building"

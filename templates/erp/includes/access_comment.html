@@ -6,7 +6,7 @@
     <ul class="fr-pl-4w">
         <li>
             <div class="{% if need_translation %}translate-field{% endif %}"
-                 data-access-pk="{{ access.pk }}"
+                 {% if need_translation %}data-translate-url="{% url "front_accessibility_translate" access.pk %}"{% endif %}
                  data-field="commentaire">{{ access.commentaire|linebreaksbr }}</div>
         </li>
     </ul>

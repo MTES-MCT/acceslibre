@@ -10,6 +10,7 @@ import reversion
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -78,18 +79,26 @@ def handler500(request):
 
 
 def make_geojson(erp_qs):
-    return serializers.SpecialErpSerializer().serialize(
-        erp_qs,
-        geometry_field="geom",
-        use_natural_foreign_keys=True,
-        fields=[
-            "uuid",
-            "nom",
-            "activite__nom",
-            "activite__vector_icon",
-            "adresse",
-            "absolute_url",
-        ],
+    """Returns a geojson mapping, to be rendered in templates through the `json_script` filter.
+
+    A mapping is returned rather than a serialized string: `json_script` is the only rendering
+    path that escapes `<`, `>` and `&`, without which an establishment name could break out of
+    the surrounding `<script>` block.
+    """
+    return json.loads(
+        serializers.SpecialErpSerializer().serialize(
+            erp_qs,
+            geometry_field="geom",
+            use_natural_foreign_keys=True,
+            fields=[
+                "uuid",
+                "nom",
+                "activite__nom",
+                "activite__vector_icon",
+                "adresse",
+                "absolute_url",
+            ],
+        )
     )
 
 
@@ -278,12 +287,10 @@ def search(request):
         "should_refresh_map_on_load": search_type != settings.IN_DEPARTMENT_SEARCH_TYPE,
         "page_type": "erps-search",
         "display_filters": True,
-        "map_options": json.dumps(
-            {
-                "zoomControl": False,
-                "zoomPosition": "topright",
-            }
-        ),
+        "map_options": {
+            "zoomControl": False,
+            "zoomPosition": "topright",
+        },
     }
     return render(request, "search/results.html", context=context)
 
@@ -312,18 +319,20 @@ def export(request):
 
 @login_required
 def panoramax_add(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    if not erp.can_be_modified_by(request.user):
+        return HttpResponseForbidden()
+
     if request.method == "POST":
         image_id = request.POST.get("image_id")
         xyz_raw = request.POST.get("xyz")
 
-        erp = get_object_or_404(Erp, slug=erp_slug)
         if erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).exists():
             erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
         erp.sources.create(source=ExternalSource.SOURCE_PANORAMAX, source_id=f"{image_id}|{xyz_raw}")
         messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été ajoutée."))
         return redirect(erp.get_absolute_url())
 
-    erp = get_object_or_404(Erp, slug=erp_slug)
     image_id = panoramax_provider.get_image_id(erp.geom.y, erp.geom.x)
     if not image_id:
         messages.add_message(
@@ -378,18 +387,16 @@ def search_in_municipality(request, commune_slug):
         "paginator": paginator,
         "where": str(municipality),
         "commune": municipality,
-        "commune_json": municipality.toTemplateJson(),
+        "commune_json": municipality.to_map_data(),
         "display_filters": False,
         "geojson_list": make_geojson(pager),
         "search_type": settings.ADRESSE_DATA_GOUV_SEARCH_TYPE_CITY,
         "municipality": municipality.nom,
         "page_type": "erps-search",
-        "map_options": json.dumps(
-            {
-                "zoomControl": False,
-                "zoomPosition": "topright",
-            }
-        ),
+        "map_options": {
+            "zoomControl": False,
+            "zoomPosition": "topright",
+        },
     }
     return render(request, "search/results.html", context=context)
 
@@ -402,12 +409,11 @@ class EditorialView(TemplateView):
         return context
 
 
-@login_required
+@staff_member_required
 def erp_remove_source_panoramax(request, erp_slug):
-    if request.user.is_staff is True:
-        erp = get_object_or_404(Erp, slug=erp_slug)
-        erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
-        messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    erp.sources.filter(source=ExternalSource.SOURCE_PANORAMAX).delete()
+    messages.add_message(request, messages.SUCCESS, translate("L'image Panoramax a bien été supprimée."))
     return redirect(reverse("commune_erp", kwargs={"erp_slug": erp_slug, "commune": erp.commune}))
 
 
@@ -490,7 +496,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         context={
             "activite": erp.activite,
             "commune": erp.commune_ext,
-            "commune_json": erp.commune_ext.toTemplateJson() if erp.commune_ext else None,
+            "commune_json": erp.commune_ext.to_map_data() if erp.commune_ext else None,
             "erp": erp,
             "geojson_list": make_geojson([erp]),
             "access": erp.accessibilite,
@@ -507,14 +513,12 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
                 "facebook": f"https://www.facebook.com/sharer.php?u={absolute_uri}",
             },
             "erp_absolute_uri": absolute_uri,
-            "map_options": json.dumps(
-                {
-                    "scrollWheelZoom": False,
-                    "dragging": False,
-                    "zoomControl": False,
-                    "gestureHandling": True,
-                }
-            ),
+            "map_options": {
+                "scrollWheelZoom": False,
+                "dragging": False,
+                "zoomControl": False,
+                "gestureHandling": True,
+            },
             "previous_url": referer,
             "image_id": erp_image_id,
             "xyz": erp_xyz,
@@ -829,12 +833,10 @@ def contrib_admin_infos(request):
             "suggested_activity": suggested_activity,
             "other_activity": Activite.objects.only("id").get(slug=Activite.SLUG_MISCELLANEOUS),
             "duplicated": duplicated,
-            "map_options": json.dumps(
-                {
-                    # Makes sure the movements on the map are made on purpose
-                    "gestureHandling": True,
-                }
-            ),
+            "map_options": {
+                # Makes sure the movements on the map are made on purpose
+                "gestureHandling": True,
+            },
             "page_type": "contrib-form",
         },
     )
@@ -903,12 +905,10 @@ def contrib_edit_infos(request, erp_slug):
             "suggested_activity": None,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             # Zoom in/out is not permitted in edit mode as it would result into a position change of the cross
-            "map_options": json.dumps(
-                {
-                    "scrollWheelZoom": False,
-                    "gestureHandling": True,
-                }
-            ),
+            "map_options": {
+                "scrollWheelZoom": False,
+                "gestureHandling": True,
+            },
             "page_type": "contrib-form",
         },
     )

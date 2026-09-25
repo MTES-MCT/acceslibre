@@ -44,7 +44,7 @@ fileignoreconfig:
 - filename: erp/management/commands/export_XML_to_s3.py
   checksum: 4c01a1891864eae040978879ea04505f747c7d713a987b3f02d2dc8d69744224
 - filename: static/js/geo.js
-  checksum: dcc39d5ea623fc51731b6e3c03bd2b8956ce82708e2997470f7d58dc6fee5ca5
+  checksum: b7607673afb798d83d391f2db933b9254ab4c26b989f7ad15bcf3cebf08a3a7c
 - filename: core/paginator.py
   checksum: 91a88eb39bf3d1643b98a86bb9bb7e3ee50680826a89e38e6cfc40a764cc3d74
 - filename: stats/middleware.py
@@ -105,10 +105,6 @@ fileignoreconfig:
   checksum: 41df5a33bf852a149d6d54fabde1c55955f8290d50cdf7203b93d879a6278542
 - filename: compte/migrations/0010_auto_20260715_1512.py
   checksum: d1a902acd238fb94e179d809d5ef3ac8c5c027a6a0581e61f8844a91f6aa8f93
-- filename: tests/api/tests.py
-  checksum: 37ddb4f8af1dadeaaaec408016119309fc8d59795f3a3a8de726ec19994f2124
-- filename: core/settings.py
-  checksum: aef0ac9cf58af8afbac59a2bdbaef5425b85e18bf235ea90c1701c9fe3eda3f0
 - filename: api/throttling.py
   checksum: d97a8420cfd750484e125234abddadc773e41830fcf76c5ecfbf943e8017cd52
 - filename: tests/api/test_permissions.py
@@ -117,3 +113,25 @@ fileignoreconfig:
   checksum: 270c82826dd4c617aac147d9d84fcc00f241a1f8965cfbbec27131bc10c5022d
 - filename: tests/erp/test_models.py
   checksum: 8aecdf4c0322b54bf5e2015c5ef1582f9a2cbf0a8144e8d4d6c01396c9140ca4
+- filename: tests/api/tests.py
+  checksum: 4ee762e6dbca9dc6e1ef59fc76b34e7b9f3f1518879264bc16ca1560da487280
+- filename: erp/export/export.py
+  checksum: 9a1f01b891f728e0c71e4e1e87c504bbbdba38a9ecb4337f218092c3dc51c572
+- filename: templates/swagger-ui.html
+  checksum: 26a4ddffaf416947211bb8ce612f295ad8d96ab48a15a99d645cf20ea3b22cf4
+- filename: api/permissions.py
+  checksum: 8e634b70674a96644919e9a5126a2eb5cdbbab4888afb1482b3d2fc54a54bf17
+- filename: conftest.py
+  checksum: 10bc7be4feaf3a4169189f84fcf3c38286173c0c37649bc94f8d9cddb7181e90
+- filename: core/utils.py
+  checksum: 011910072d39087796d2f4c17a4646c44bf1833ea753f425f783019b0b6dbdb4
+- filename: compte/views.py
+  checksum: 3247e13c149abcb3b1d6a3dc51acd24919f6787d19f73afc1c549715de382dcf
+- filename: contact/views.py
+  checksum: 86f7c1e43c38e1cdfb07cd857febcc29f73bad0b43a967e5b4f1c97a5d6b597a
+- filename: api/frontend_views.py
+  checksum: 3fae7116845132010085229fce88b81ab6c3606bbd1defb38e9303b4891b5f7b
+- filename: tests/api/test_frontend_views.py
+  checksum: e7199d262a932765fe2d12004e068020eb20c3f36c8af853ce4280efcedbdc79
+- filename: core/settings.py
+  checksum: 99e9285db18faa3c7ed6a29ab738c916ca88bed43dd753e1d8346ed58e121519

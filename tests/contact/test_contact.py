@@ -85,6 +85,28 @@ def test_contact_antispam(client):
 
 
 @pytest.mark.django_db
+def test_contact_decoy_field_silently_discards_bot_submission(mocker, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
+    response = client.post(
+        reverse("contact_form"),
+        {
+            "topic": "signalement",
+            "name": TEST_NAME,
+            "email": TEST_EMAIL,
+            "body": TEST_BODY,
+            "robot": "on",
+            "organisation": "https://spam.tld",
+        },
+    )
+
+    assert response.status_code == 302
+    assert response.url == reverse("contact_form_sent")
+    assert mock_mail.call_count == 0
+    assert 0 == Message.objects.count()
+
+
+@pytest.mark.django_db
 def test_contact_authenticated(mocker, client):
     user = UserFactory(email="niko@niko.tld", username="niko")
     erp = ErpFactory(user=user)
@@ -197,3 +219,70 @@ def test_contact_topic(mocker, client):
         ).count()
         == 1
     )
+
+
+@pytest.mark.django_db
+def test_contact_api_key_topic_rejected_for_anonymous(mocker, client):
+    mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+
+    response = client.post(
+        reverse("contact_topic", kwargs={"topic": "api_key"}),
+        {
+            "name": TEST_NAME,
+            "email": TEST_EMAIL,
+            "topic": "api_key",
+            "body": TEST_BODY,
+            "robot": "on",
+        },
+    )
+
+    assert response.status_code == 200
+    assert "topic" in response.context["form"].errors
+    assert mock_mail.call_count == 0
+    assert 0 == Message.objects.count()
+
+
+@pytest.mark.django_db
+def test_contact_api_key_topic_accepted_for_authenticated(mocker, client):
+    user = UserFactory()
+    mocker.patch("core.mailer.BrevoMailer.send_email", return_value=True)
+    client.force_login(user)
+
+    response = client.post(
+        reverse("contact_topic", kwargs={"topic": "api_key"}),
+        {
+            "name": TEST_NAME,
+            "email": TEST_EMAIL,
+            "topic": "api_key",
+            "body": TEST_BODY,
+            "robot": "on",
+        },
+    )
+
+    assert response.status_code == 302
+    assert Message.objects.filter(topic="api_key").count() == 1
+
+
+@pytest.mark.django_db
+def test_contact_api_key_topic_page_for_anonymous(client):
+    response = client.get(reverse("contact_topic", kwargs={"topic": "api_key"}))
+
+    assert response.status_code == 200
+    assert response.context["api_key_requires_login"] is True
+    assert response.context["form"].initial["topic"] == Message.TOPIC_CONTACT
+
+    content = response.content.decode()
+
+    assert 'value="api_key" disabled' in content
+    assert "fr-alert--info" in content
+
+
+@pytest.mark.django_db
+def test_contact_api_key_topic_page_for_authenticated(client):
+    client.force_login(UserFactory())
+
+    response = client.get(reverse("contact_topic", kwargs={"topic": "api_key"}))
+
+    assert response.context["api_key_requires_login"] is False
+    assert response.context["form"].initial["topic"] == Message.TOPIC_API_KEY
+    assert 'value="api_key" disabled' not in response.content.decode()

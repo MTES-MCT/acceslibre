@@ -21,4 +21,7 @@ class UserAPIKeyAuthentication(BaseAuthentication):
         except UserAPIKey.DoesNotExist:
             return None
 
+        if api_key.has_expired or not api_key.user.is_active:
+            return None
+
         return (api_key.user, api_key)

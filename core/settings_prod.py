@@ -22,6 +22,7 @@ ALLOWED_HOSTS = [
     "www.acceslibre.info",
 ]
 
+
 if SENTRY_DSN is not None:
     from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -33,7 +34,8 @@ if SENTRY_DSN is not None:
             ),
         ],
         traces_sampler=custom_traces_sample_rate,
-        send_default_pii=True,
+        before_send=keep_only_username,
+        send_default_pii=False,
         environment="production-one-off" if IS_ONE_OFF_CONTAINER else "production",
     )
 
@@ -45,6 +47,7 @@ STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 3600
 
 BREVO_TEMPLATE_IDS = {
     "draft_deleted": 457,

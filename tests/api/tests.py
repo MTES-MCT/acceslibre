@@ -1,7 +1,7 @@
 import json
 import uuid
 from datetime import datetime, timedelta
-from unittest.mock import ANY, MagicMock, PropertyMock, patch
+from unittest.mock import ANY, PropertyMock
 
 import pytest
 from django.contrib.auth import get_user_model
@@ -14,7 +14,7 @@ from api.authentication import UserAPIKeyAuthentication
 from compte.models import UserAPIKey
 from erp import schema
 from erp.models import Accessibilite, Erp, ExternalSource
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
 
 User = get_user_model()
 
@@ -75,6 +75,41 @@ class TestUserAPIKeyAuthenticationOnRpaErp:
 
         erp.refresh_from_db()
         assert erp.user == owner
+
+    def test_user_api_key_revoked_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        api_key_obj, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+        api_key_obj.revoked = True
+        api_key_obj.save()
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
+
+    def test_uesr_api_key_expired_cannot_modify_rpa_erp(self, api_client, mocker):
+        owner = User.objects.create_user(username="rpa_owner")
+        erp = self._rpa_erp(mocker, user=owner)
+        _, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+
+        api_key_obj, key = UserAPIKey.objects.create_key(name="owner-key", user=owner)
+        api_key_obj.revoked = False
+        api_key_obj.expiry_date = datetime.now() - timedelta(days=1)
+        api_key_obj.save()
+
+        response = api_client.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}),
+            data={"accessibilite": {"commentaire": "updated via api key"}},
+            format="json",
+            headers={"Authorization": f"Api-Key {key}"},
+        )
+        assert response.status_code == 403
 
     def test_user_api_key_owner_can_modify_rpa_erp(self, api_client, mocker):
         owner = User.objects.create_user(username="rpa_owner")
@@ -139,30 +174,6 @@ class TestUserAPIKeyAuthenticationOnRpaErp:
         )
         assert response.status_code == 200
 
-    def test_anonymous_still_open_on_non_rpa_erp(self, api_client):
-        erp = ErpFactory(with_accessibility=True)
-
-        response = api_client.patch(
-            reverse("erp-detail", kwargs={"slug": erp.slug}),
-            data={"accessibilite": {"commentaire": "still works too"}},
-            format="json",
-        )
-        assert response.status_code == 200
-
-    def test_invalid_key_falls_through_gracefully(self, api_client):
-        response = api_client.get(
-            reverse("erp-list"),
-            headers={"Authorization": "Api-Key totally-invalid-key"},
-        )
-        assert response.status_code == 200
-
-    def test_malformed_authorization_header_does_not_crash(self, api_client):
-        response = api_client.get(
-            reverse("erp-list"),
-            headers={"Authorization": "not-even-two-parts"},
-        )
-        assert response.status_code == 200
-
 
 @pytest.mark.django_db
 class TestUserAPIKeyAuthenticationUnit:
@@ -220,7 +231,7 @@ def initial_erp():
     )
 
 
-@pytest.mark.usefixtures("api_client")
+@pytest.mark.usefixtures("api_client_authenticated")
 class TestApi:
     @pytest.mark.django_db
     @pytest.mark.parametrize(
@@ -236,17 +247,17 @@ class TestApi:
             (reverse("erp-list"), 200),
         ],
     )
-    def test_api_urls_ok(self, api_client, url, status_code):
-        response = api_client.get(url)
+    def test_api_urls_ok(self, api_client_authenticated, url, status_code):
+        response = api_client_authenticated.get(url)
 
         assert response.status_code == status_code
 
 
-@pytest.mark.usefixtures("api_client")
+@pytest.mark.usefixtures("api_client_authenticated")
 @pytest.mark.django_db
 class TestErpApi:
-    def test_list(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list"))
+    def test_list(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list"))
 
         content = json.loads(response.content)
         assert content["count"] == 1
@@ -262,7 +273,7 @@ class TestErpApi:
         assert erp_json["accessibilite"]["transport"]["transport_station_presence"] is None
 
         # same request with clean
-        response = api_client.get(reverse("erp-list") + "?clean=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?clean=true")
         content = json.loads(response.content)
         assert content["count"] == 1
         assert content["page_size"] == 20
@@ -274,7 +285,7 @@ class TestErpApi:
         assert erp_json["accessibilite"]["accueil"]["sanitaires_adaptes"] is False
 
         # same request with readable
-        response = api_client.get(reverse("erp-list") + "?readable=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?readable=true")
         content = json.loads(response.content)
         erp_json = content["results"][0]
         assert erp_json["accessibilite"]["datas"]["accueil"]["accueil_visibilite"] is None
@@ -289,7 +300,7 @@ class TestErpApi:
         assert erp_json["accessibilite"]["datas"]["transport"]["transport_station_presence"] is None
 
         # same request with readable & clean
-        response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?readable=true&clean=true")
         content = json.loads(response.content)
         erp_json = content["results"][0]
         assert "accueil_visibilite" not in erp_json["accessibilite"]["datas"]["accueil"]
@@ -303,7 +314,7 @@ class TestErpApi:
         )
         assert "transport" not in erp_json["accessibilite"]["datas"]
 
-    def test_list_sports_equipment(self, api_client):
+    def test_list_sports_equipment(self, api_client_authenticated):
         gymnase = ActiviteFactory(nom="Gymnase")
         ErpFactory(
             nom="Gymnase Jean Moulin",
@@ -328,7 +339,7 @@ class TestErpApi:
             accessibilite__sanitaires_urinoirs=True,
         )
 
-        response = api_client.get(reverse("erp-list") + "?clean=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?clean=true")
         access = response.json()["results"][0]["accessibilite"]
         assert access["transport"]["stationnement_zone_depose_pmr"] is True
         assert access["accueil"]["accueil_physique"] == "non_forme"
@@ -347,7 +358,7 @@ class TestErpApi:
         assert access["accueil"]["accueil_presence_espaces_specifiques"] == ["presence_espace_chiens_guides"]
         assert access["accueil"]["sanitaires_urinoirs"] is True
 
-        response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?readable=true&clean=true")
         datas = response.json()["results"][0]["accessibilite"]["datas"]
         assert datas["transport"]["stationnement_zone_depose_pmr"] == "Présence d'une zone de dépose PMR"
         assert (
@@ -369,7 +380,7 @@ class TestErpApi:
         assert datas["accueil"]["accueil_casiers_fermeture"] == "Système de fermeture : Serrure avec clé, Autre"
         assert datas["accueil"]["sanitaires_urinoirs"] == "Urinoirs à différentes hauteurs"
 
-    def test_list_geojson(self, api_client, initial_erp):
+    def test_list_geojson(self, api_client_authenticated, initial_erp):
         geojson_expected_for_erp = {
             "type": "FeatureCollection",
             "count": 1,
@@ -399,145 +410,147 @@ class TestErpApi:
             "features": [],
         }
 
-        response = api_client.get(
+        response = api_client_authenticated.get(
             reverse("erp-list") + "?zone=3.897168,43.653841,3.929097,43.676100",
             headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_erp
         # bbox without results
-        response = api_client.get(reverse("erp-list") + "?zone=4,44,5,45", headers={"Accept": "application/geo+json"})
+        response = api_client_authenticated.get(
+            reverse("erp-list") + "?zone=4,44,5,45", headers={"Accept": "application/geo+json"}
+        )
         assert response.json() == geojson_expected_for_no_results
 
         # combination of bbox + filter
-        response = api_client.get(
+        response = api_client_authenticated.get(
             reverse("erp-list") + "?zone=3.897168,43.653841,3.929097,43.676100&code_postal=34830",
             headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_erp
 
-        response = api_client.get(
+        response = api_client_authenticated.get(
             reverse("erp-list") + "?zone=3.897168,43.653841,3.929097,43.676100&code_postal=26000",
             headers={"Accept": "application/geo+json"},
         )
         assert response.json() == geojson_expected_for_no_results
 
-    def test_list_xml(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list") + "?format=xml")
+    def test_list_xml(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list") + "?format=xml")
         assert response.status_code == 200
         assert response["Content-Type"] == "application/xml; charset=utf-8"
         content = response.content.decode("utf-8")
         assert "<erp>" in content
 
-    def test_list_can_show_drafts(self, api_client, initial_erp):
-        ErpFactory(published=False)
+    def test_list_can_show_drafts(self, api_client_authenticated, initial_erp):
+        ErpFactory(published=False, user=None)
 
-        response = api_client.get(reverse("erp-list"))
+        response = api_client_authenticated.get(reverse("erp-list"))
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-        response = api_client.get(reverse("erp-list") + "?with_drafts=false")
+        response = api_client_authenticated.get(reverse("erp-list") + "?with_drafts=false")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-        response = api_client.get(reverse("erp-list") + "?with_drafts=true")
+        response = api_client_authenticated.get(reverse("erp-list") + "?with_drafts=true")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert len([erp for erp in content["results"] if erp["published"] is False]) == 1
 
-    def test_list_with_ordering_municipality(self, api_client):
+    def test_list_with_ordering_municipality(self, api_client_authenticated):
         ErpFactory(commune="Foo")
         ErpFactory(commune="Bar")
 
-        response = api_client.get(reverse("erp-list") + "?sortType=municipality&where=Foo")
+        response = api_client_authenticated.get(reverse("erp-list") + "?sortType=municipality&where=Foo")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert content["results"][0]["commune"] == "Foo"
         assert content["results"][1]["commune"] == "Bar"
 
-    def test_list_with_ordering_municipality_with_empty_query(self, api_client):
+    def test_list_with_ordering_municipality_with_empty_query(self, api_client_authenticated):
         ErpFactory(commune="Bar")
         ErpFactory(commune="Foo")
 
-        response = api_client.get(reverse("erp-list") + "?sortType=municipality&where=Foo&q=")
+        response = api_client_authenticated.get(reverse("erp-list") + "?sortType=municipality&where=Foo&q=")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert content["results"][0]["commune"] == "Foo"
         assert content["results"][1]["commune"] == "Bar"
 
-    def test_list_with_ordering_departement(self, api_client):
+    def test_list_with_ordering_departement(self, api_client_authenticated):
         ErpFactory(code_postal=62000)
         ErpFactory(code_postal=59000)
 
-        response = api_client.get(reverse("erp-list") + "?sortType=departement&where=59")
+        response = api_client_authenticated.get(reverse("erp-list") + "?sortType=departement&where=59")
         assert response.status_code == 200
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert content["results"][0]["code_postal"] == "59000"
         assert content["results"][1]["code_postal"] == "62000"
 
-    def test_list_page_size(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list") + "?page_size=25")
+    def test_list_page_size(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list") + "?page_size=25")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
         assert content["page_size"] == 25
 
-    def test_list_qs(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list") + "?q=croissants")
+    def test_list_qs(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list") + "?q=croissants")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-        response = api_client.get(reverse("erp-list") + "?q=nexiste_pas")
+        response = api_client_authenticated.get(reverse("erp-list") + "?q=nexiste_pas")
         content = json.loads(response.content)
         assert len(content["results"]) == 0
 
-    def test_list_postal_code(self, api_client, initial_erp):
+    def test_list_postal_code(self, api_client_authenticated, initial_erp):
         erp2 = initial_erp
         erp2.pk = None
         erp2.uuid = uuid.uuid4()
         erp2.save()
-        response = api_client.get(reverse("erp-list") + "?code_postal=34830")
+        response = api_client_authenticated.get(reverse("erp-list") + "?code_postal=34830")
         content = json.loads(response.content)
         assert len(content["results"]) == 2
         assert all([e["code_postal"] == "34830" for e in content["results"]])
 
         erp2.code_postal = 75010
         erp2.save()
-        response = api_client.get(reverse("erp-list") + "?code_postal=34830")
+        response = api_client_authenticated.get(reverse("erp-list") + "?code_postal=34830")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
         assert all([e["code_postal"] == "34830" for e in content["results"]])
 
-    def test_list_asp_id(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list") + "?asp_id_not_null=true")
+    def test_list_asp_id(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list") + "?asp_id_not_null=true")
         content = json.loads(response.content)
         assert len(content["results"]) == 0
 
-        response = api_client.get(reverse("erp-list") + "?asp_id_not_null=false")
+        response = api_client_authenticated.get(reverse("erp-list") + "?asp_id_not_null=false")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-    def test_list_filters(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-list") + "?source=public")
+    def test_list_filters(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-list") + "?source=public")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-        response = api_client.get(reverse("erp-list") + "?source=rnb")
+        response = api_client_authenticated.get(reverse("erp-list") + "?source=rnb")
         content = json.loads(response.content)
         assert len(content["results"]) == 0
 
         ExternalSource.objects.create(source=ExternalSource.SOURCE_RNB, source_id="abc", erp=initial_erp)
 
-        response = api_client.get(reverse("erp-list") + "?source=rnb")
+        response = api_client_authenticated.get(reverse("erp-list") + "?source=rnb")
         content = json.loads(response.content)
         assert len(content["results"]) == 1
 
-    def test_detail(self, api_client, initial_erp):
-        response = api_client.get(reverse("erp-detail", kwargs={"slug": initial_erp.slug}))
+    def test_detail(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("erp-detail", kwargs={"slug": initial_erp.slug}))
         assert response.json() == {
             "url": "http://testserver/api/erps/aux-bons-croissants/",
             "web_url": "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
@@ -690,7 +703,7 @@ class TestErpApi:
             "sources": [],
         }
 
-    def test_post_patch(self, api_client, activite):
+    def test_post_patch(self, api_client_authenticated, activite):
         CommuneFactory(nom="Montreuil", code_postaux=["93100"], code_insee="93048", departement="93")
         assert not Erp.objects.filter(nom="Mairie de Montreuil").first()
         payload = {
@@ -776,7 +789,7 @@ class TestErpApi:
             ],
         }
 
-        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        response = api_client_authenticated.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 201, response.json()
         erp_json = response.json()
         assert "slug" in erp_json
@@ -791,13 +804,13 @@ class TestErpApi:
         )
         assert erp.sources.filter(source=ExternalSource.SOURCE_API).first().source_id == "456"
 
-        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        response = api_client_authenticated.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
         reason = response.json()["asp_id"][0]
         assert "Un objet Établissement avec ce champ ASP ID existe déjà."
 
         payload.pop("asp_id")
-        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        response = api_client_authenticated.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400, response.json()
         reason = response.json()["non_field_errors"][0]
         assert "Potentiel doublon" in reason, "Should raise for duplicated ERP"
@@ -805,11 +818,13 @@ class TestErpApi:
         assert str(erp.id) in reason
 
         payload["activite"] = "Activité inconnue"
-        response = api_client.post(reverse("erp-list"), data=payload, format="json")
+        response = api_client_authenticated.post(reverse("erp-list"), data=payload, format="json")
         assert response.status_code == 400
         assert response.json() == {"activite": ["L'objet avec nom=Activité inconnue n'existe pas."]}
 
-        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data={}, format="json")
+        response = api_client_authenticated.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data={}, format="json"
+        )
         assert response.status_code == 400, "invalid payload should raise a 400 error"
 
         payload = {
@@ -819,31 +834,39 @@ class TestErpApi:
                 "commentaire": "New comment",
             }
         }
-        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        response = api_client_authenticated.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json"
+        )
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should change access info"
         assert erp.accessibilite.commentaire == "New comment"
 
         payload = {"accessibilite": {"commentaire": "Updated comment"}}
-        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        response = api_client_authenticated.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json"
+        )
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should have kept access info"
         assert erp.accessibilite.commentaire == "Updated comment"
 
         payload = {"accessibilite": {"transport_station_presence": None}}
-        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        response = api_client_authenticated.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json"
+        )
         assert response.status_code == 200, response.json()
         erp.accessibilite.refresh_from_db()
         assert erp.accessibilite.transport_station_presence is False, "Should not be able to empty things"
 
-        response = api_client.delete(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        response = api_client_authenticated.delete(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json"
+        )
         assert response.status_code == 405
         erp.refresh_from_db()
         assert erp is not None, "should not be able to delete an ERP via API"
 
-    def test_post_patch_rpa(self, api_client, mocker):
+    def test_post_patch_rpa(self, api_client_authenticated, mocker):
         erp = ErpFactory(with_accessibility=True)
         mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock(return_value=True))
         assert erp.rpa is True
@@ -855,7 +878,9 @@ class TestErpApi:
                 "commentaire": "New comment",
             }
         }
-        response = api_client.patch(reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json")
+        response = api_client_authenticated.patch(
+            reverse("erp-detail", kwargs={"slug": erp.slug}), data=payload, format="json"
+        )
         assert response.status_code == 403
 
     @pytest.mark.parametrize(
@@ -874,14 +899,14 @@ class TestErpApi:
         ),
     )
     @pytest.mark.django_db
-    def test_search_name_ranking(self, api_client, names, q, expected):
+    def test_search_name_ranking(self, api_client_authenticated, names, q, expected):
         activity = ActiviteFactory(nom="Culture", mots_cles=["culture", "musée", "exposition"])
         for name in names:
             ErpFactory(nom=name, activite=activity)
 
         unrelated_erp = ErpFactory(nom="nothing related")
 
-        response = api_client.get(f"{reverse('erp-list')}?q={q}")
+        response = api_client_authenticated.get(f"{reverse('erp-list')}?q={q}")
 
         assert response.status_code == 200
         response_names = [erp["nom"] for erp in response.json()["results"]]
@@ -889,11 +914,11 @@ class TestErpApi:
         assert unrelated_erp.nom not in response_names
 
 
-@pytest.mark.usefixtures("api_client")
+@pytest.mark.usefixtures("api_client_authenticated")
 @pytest.mark.django_db
 class TestActiviteApi:
-    def test_get(self, api_client, initial_erp):
-        response = api_client.get(reverse("activite-list"))
+    def test_get(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("activite-list"))
         assert response.json() == {
             "count": 1,
             "next": None,
@@ -902,11 +927,11 @@ class TestActiviteApi:
         }
 
 
-@pytest.mark.usefixtures("api_client")
+@pytest.mark.usefixtures("api_client_authenticated")
 @pytest.mark.django_db
 class TestAccessibiliteApi:
-    def test_get(self, api_client, initial_erp):
-        response = api_client.get(reverse("accessibilite-list"))
+    def test_get(self, api_client_authenticated, initial_erp):
+        response = api_client_authenticated.get(reverse("accessibilite-list"))
         assert response.json() == {
             "count": 1,
             "next": None,
@@ -1041,8 +1066,8 @@ class TestAccessibiliteApi:
 
 
 @pytest.mark.django_db
-@pytest.mark.usefixtures("api_client")
-def test_list_can_filter_on_date(api_client):
+@pytest.mark.usefixtures("api_client_authenticated")
+def test_list_can_filter_on_date(api_client_authenticated):
     date = datetime.now() - timedelta(days=10)
 
     erp = ErpFactory(published=True)
@@ -1050,19 +1075,19 @@ def test_list_can_filter_on_date(api_client):
     AccessibiliteFactory(erp=erp, created_at=date, updated_at=date)
     Accessibilite.objects.update(created_at=date, updated_at=date)
 
-    response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=2")
+    response = api_client_authenticated.get(reverse("erp-list") + "?created_or_updated_in_last_days=2")
     assert response.status_code == 200
     assert len(response.json()["results"]) == 0
 
-    response = api_client.get(reverse("erp-list") + "?created_or_updated_in_last_days=15")
+    response = api_client_authenticated.get(reverse("erp-list") + "?created_or_updated_in_last_days=15")
     assert response.status_code == 200
     assert len(response.json()["results"]) == 1
 
 
-@pytest.mark.usefixtures("api_client")
+@pytest.mark.usefixtures("api_client_authenticated")
 class TestWidgetApi:
     @pytest.mark.django_db
-    def test_nominal_case(self, api_client):
+    def test_nominal_case(self, api_client_authenticated):
         access_infos = {
             "stationnement_presence": True,
             "stationnement_pmr": True,
@@ -1088,7 +1113,7 @@ class TestWidgetApi:
         erp = ErpFactory(published=True)
         AccessibiliteFactory(erp=erp, **access_infos)
 
-        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
+        response = api_client_authenticated.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
         assert response.status_code == 200
 
         expected = {
@@ -1155,7 +1180,7 @@ class TestWidgetApi:
         assert response.json() == expected
 
     @pytest.mark.django_db
-    def test_low_completion_case(self, api_client):
+    def test_low_completion_case(self, api_client_authenticated):
         access_infos = {
             "entree_plain_pied": False,
             "entree_marches_rampe": "fixe",
@@ -1165,7 +1190,7 @@ class TestWidgetApi:
         erp = ErpFactory(published=True)
         AccessibiliteFactory(erp=erp, **access_infos)
 
-        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
+        response = api_client_authenticated.get(reverse("erp-widget", kwargs={"slug": erp.slug}))
         assert response.status_code == 200
 
         expected = {
@@ -1184,16 +1209,16 @@ class TestWidgetApi:
         assert response.json() == expected
 
     @pytest.mark.django_db
-    def test_not_found_case(self, api_client):
-        response = api_client.get(reverse("erp-widget", kwargs={"slug": "unknown-slug"}))
+    def test_not_found_case(self, api_client_authenticated):
+        response = api_client_authenticated.get(reverse("erp-widget", kwargs={"slug": "unknown-slug"}))
         assert response.status_code == 404
 
     @pytest.mark.django_db
-    def test_asp_id(self, api_client):
+    def test_asp_id(self, api_client_authenticated):
         erp = ErpFactory(published=True, asp_id="123456789")
         AccessibiliteFactory(erp=erp)
 
-        response = api_client.get(reverse("erp-widget", kwargs={"slug": erp.asp_id}))
+        response = api_client_authenticated.get(reverse("erp-widget", kwargs={"slug": erp.asp_id}))
         assert response.status_code == 200
         assert response.json() == {
             "slug": erp.slug,
@@ -1203,76 +1228,19 @@ class TestWidgetApi:
         }
 
 
-@pytest.mark.usefixtures("api_client")
 @pytest.mark.django_db
-class TestAccessibiliteTranslateApi:
-    def test_translate_success(self, api_client, initial_erp):
-        mock_result = MagicMock()
-        mock_result.text = "The entrance is accessible via a removable ramp."
+class TestApiIsClosed:
+    """The frontend now goes through api.frontend_views, so nothing in the suite
+    would otherwise notice if /api/erps/ reopened."""
 
-        mock_translator = MagicMock()
-        mock_translator.translate_text.return_value = mock_result
+    def test_erps_list_requires_an_api_key(self, api_client):
+        response = api_client.get(reverse("erp-list"))
 
-        with patch("erp.provider.deepl.Translator", return_value=mock_translator):
-            response = api_client.post(
-                reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
-                data={"field": "commentaire", "target_lang": "en"},
-                content_type="application/json",
-            )
+        assert response.status_code == 403
 
-        assert response.status_code == 200
-        content = json.loads(response.content)
-        assert content["field"] == "commentaire"
-        assert content["target_lang"] == "en"
-        assert content["original"] == initial_erp.accessibilite.commentaire
-        assert content["translated"] == "The entrance is accessible via a removable ramp."
+    def test_erps_list_rejects_a_session_without_a_key(self, api_client):
+        api_client.force_login(UserFactory())
 
-    def test_translate_empty_field(self, api_client, initial_erp):
-        initial_erp.accessibilite.commentaire = None
-        initial_erp.accessibilite.save()
+        response = api_client.get(reverse("erp-list"))
 
-        mock_result = MagicMock()
-        mock_result.text = "The entrance is accessible via a removable ramp."
-
-        mock_translator = MagicMock()
-        mock_translator.translate_text.return_value = mock_result
-
-        with patch("erp.provider.deepl.Translator", return_value=mock_translator):
-            response = api_client.post(
-                reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
-                data={"field": "commentaire", "target_lang": "en"},
-                content_type="application/json",
-            )
-            mock_translator.assert_not_called()
-
-        assert response.status_code == 200
-        content = json.loads(response.content)
-        assert content["translated"] is None
-        assert content["original"] is None
-
-    def test_translate_invalid_field(self, api_client, initial_erp):
-        response = api_client.post(
-            reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
-            data={"field": "non_translatable_field", "target_lang": "en"},
-            content_type="application/json",
-        )
-
-        assert response.status_code == 400
-
-    def test_translate_unknown_accessibilite(self, api_client):
-        response = api_client.post(
-            reverse("accessibilite-translate", kwargs={"pk": 99999}),
-            data={"field": "commentaire", "target_lang": "en"},
-            content_type="application/json",
-        )
-
-        assert response.status_code == 404
-
-    def test_translate_missing_target_lang(self, api_client, initial_erp):
-        response = api_client.post(
-            reverse("accessibilite-translate", kwargs={"pk": initial_erp.accessibilite.pk}),
-            data={"field": "commentaire"},
-            content_type="application/json",
-        )
-
-        assert response.status_code == 400
+        assert response.status_code == 403

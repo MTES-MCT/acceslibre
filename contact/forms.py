@@ -34,12 +34,18 @@ class ContactForm(forms.ModelForm):
         label=translate_lazy("Je ne suis pas un robot"),
         required=True,
     )
+    organisation = forms.CharField(
+        label=translate_lazy("Organisation"),
+        required=False,
+        widget=forms.TextInput(attrs={"autocomplete": "off", "tabindex": "-1", "aria-hidden": "true"}),
+    )
 
     def __init__(self, *args, **kwargs):
         request = kwargs.pop("request")
         initial = kwargs.get("initial") or {}
 
         user = request.user
+        self.user = user
         if user.is_authenticated:
             initial["name"] = f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
             initial["email"] = user.email
@@ -52,8 +58,17 @@ class ContactForm(forms.ModelForm):
         if user.is_authenticated:
             self.fields["robot"].widget = self.fields["robot"].hidden_widget()
 
+    def clean_topic(self):
+        topic = self.cleaned_data.get("topic")
+        if topic == Message.TOPIC_API_KEY and not self.user.is_authenticated:
+            raise ValidationError(translate_lazy("Vous devez être connecté pour demander une clef API."))
+        return topic
+
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
         if not robot:
             raise ValidationError(translate_lazy("Cochez cette case pour soumettre le formulaire."))
         return robot
+
+    def filled_by_bot(self):
+        return bool(self.data.get(self.add_prefix("organisation")))
