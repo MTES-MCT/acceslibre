@@ -869,15 +869,15 @@ wheels = [
 
 [[package]]
 name = "django-modeltranslation"
-version = "0.20.4"
+version = "0.20.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/da/8b/f32f82c02bcd3ee9ed73309112eab6c1d296eec74ba9dd01cddbc0ce2b72/django_modeltranslation-0.20.4.tar.gz", hash = "sha256:105676e3afcb08dd51ae5e97ac61c74dd51cff9e0e0d2cd333cd16dd93e24315", size = 82189, upload-time = "2026-09-03T05:18:35.582Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a9/b7/049969e77ff4825836c78312b3b82bd58f94162ffe20bc46500f98391731/django_modeltranslation-0.20.6.tar.gz", hash = "sha256:29eb584f017206a0bea5e2a44ae5da514ad6ebf1e43536ff7fed7df67b795b0c", size = 82542, upload-time = "2026-09-07T12:03:24.651Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7d/47/b8d17290de816930d4ebe83c18bba700010e652ac77fa6a110af95b058e2/django_modeltranslation-0.20.4-py3-none-any.whl", hash = "sha256:76871815982a136d722bf25407673d41c58e8421a904bfa87fd8fa4cadbdb510", size = 98826, upload-time = "2026-09-03T05:18:34.067Z" },
+    { url = "https://files.pythonhosted.org/packages/ab/55/dfd72b735f50bb633409326311598d9a5bc861ee81ae3d137844ab903add/django_modeltranslation-0.20.6-py3-none-any.whl", hash = "sha256:913658af75510a4f71573441f267b5831a6034c524f917f337adc666a60fe724", size = 99206, upload-time = "2026-09-07T12:03:23.238Z" },
 ]
 
 [[package]]
