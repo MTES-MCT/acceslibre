@@ -140,6 +140,8 @@ NB_PROFANITIES_IGNORED = 1
 
 DEBUG = False
 
+REQUIRE_2FA = True
+
 # Static files
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "staticfiles"))
 STATIC_URL = "/static/"
