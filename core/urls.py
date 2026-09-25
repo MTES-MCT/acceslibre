@@ -1,10 +1,11 @@
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth import REDIRECT_FIELD_NAME
+from django.contrib.admin import AdminSite
+from django.contrib.auth import REDIRECT_FIELD_NAME, login
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.sitemaps import views as sitemap_views
 from django.http import HttpResponseRedirect
-from django.shortcuts import resolve_url
+from django.shortcuts import redirect, resolve_url
 from django.urls import include, path, reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.cache import cache_page
@@ -12,6 +13,7 @@ from django.views.generic import RedirectView
 from django.views.i18n import JavaScriptCatalog
 from two_factor.admin import AdminSiteOTPRequired, AdminSiteOTPRequiredMixin
 from two_factor.urls import urlpatterns as tf_urls
+from two_factor.views import LoginView as TwoFactorLoginView
 
 from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
@@ -27,10 +29,15 @@ from core.views import html_sitemap, robots_txt
 
 
 class CustomAdminSiteOTPRequired(AdminSiteOTPRequired):
+    def has_permission(self, request):
+        if not settings.REQUIRE_2FA:
+            return AdminSite.has_permission(self, request)
+        return super().has_permission(request)
+
     def login(self, request, extra_context=None):
         redirect_to = request.POST.get(REDIRECT_FIELD_NAME, request.GET.get(REDIRECT_FIELD_NAME))
         if request.method == "GET" and super(AdminSiteOTPRequiredMixin, self).has_permission(request):
-            if request.user.is_verified():
+            if not settings.REQUIRE_2FA or request.user.is_verified():
                 index_path = reverse("admin:index", current_app=self.name)
             else:
                 index_path = reverse("two_factor:setup", current_app=self.name)
@@ -40,6 +47,46 @@ class CustomAdminSiteOTPRequired(AdminSiteOTPRequired):
             redirect_to = resolve_url(settings.LOGIN_REDIRECT_URL)
 
         return redirect_to_login(redirect_to, login_url=settings.ADMIN_LOGIN_URL)
+
+
+class CustomTwoFactorLoginView(TwoFactorLoginView):
+    """
+    Two-factor login wizard that skips the OTP token step entirely when
+    REQUIRE_2FA is disabled (used on local dev environments).
+    """
+
+    def has_token_step(self):
+        if not settings.REQUIRE_2FA:
+            return False
+        return super().has_token_step()
+
+    def has_backup_step(self):
+        if not settings.REQUIRE_2FA:
+            return False
+        return super().has_backup_step()
+
+    def done(self, form_list, **kwargs):
+        if not settings.REQUIRE_2FA:
+            login(self.request, self.get_user())
+            return redirect(self.get_success_url())
+        return super().done(form_list, **kwargs)
+
+    # The parent class stores the original method objects in condition_dict, so
+    # we must re-bind it here for our overrides to be taken into account.
+    condition_dict = {
+        TwoFactorLoginView.TOKEN_STEP: has_token_step,
+        TwoFactorLoginView.BACKUP_STEP: has_backup_step,
+    }
+
+
+# Replace the default two-factor login view so that it honours REQUIRE_2FA.
+tf_urlpatterns = []
+for tf_pattern in tf_urls[0]:
+    if getattr(tf_pattern, "name", None) == "login":
+        tf_urlpatterns.append(path("account/login/", CustomTwoFactorLoginView.as_view(), name="login"))
+    else:
+        tf_urlpatterns.append(tf_pattern)
+tf_urls = (tf_urlpatterns, "two_factor")
 
 
 admin.site.__class__ = CustomAdminSiteOTPRequired
