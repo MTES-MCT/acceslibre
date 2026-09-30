@@ -16,7 +16,7 @@ services:
       - redis
   database:
     container_name: access4all_postgresql
-    image: postgis/postgis:16-master
+    image: postgis/postgis:17-master
     platform: linux/amd64
     environment:
       POSTGRES_DB: access4all
