@@ -236,3 +236,18 @@ def test_contrib_transport_displays_zone_depose_pmr_for_sport_activity(client, u
     html = response.content.decode()
     assert "stationnement_zone_depose_pmr" in html
     assert EMPTY_SECTION_RE.search(html) is None
+
+
+@pytest.mark.django_db
+def test_contrib_a_propos_saves_user_type_on_imported_erp_without_user(client, user):
+    erp = ErpFactory(user=None, user_type="system", published=True)
+
+    response = client.post(
+        reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
+        data={"user_type": "gestionnaire", "rpa_exemption": "False"},
+    )
+
+    assert response.status_code == 302
+    erp.refresh_from_db()
+    assert erp.user == user
+    assert erp.user_type == "gestionnaire"

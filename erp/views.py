@@ -949,8 +949,8 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = None
         form = forms.PublicAProposForm(request.POST, instance=accessibilite, initial=initial)
         if form.is_valid():
-            if erp.user_id == request.user.pk:
-                erp.user_type = form.data["user_type"]
+            if is_erp_owner or is_from_import_and_has_no_user:
+                erp.user_type = form.cleaned_data["user_type"]
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
