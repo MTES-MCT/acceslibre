@@ -70,6 +70,39 @@ class TestValidator:
 
     @pytest.mark.usefixtures("activite")
     @pytest.mark.usefixtures("neufchateau")
+    def test_with_OK_tally_file(self):
+        cm = Command()
+        call_command(
+            cm,
+            file="data/tests/generic_test_tally.csv",
+            skip_brevo_list_update=True,
+        )
+
+        assert cm.results["in_error"]["count"] == 0, cm.results["in_error"]["msgs"]
+        assert cm.results["imported"]["count"] == 1, cm.results["in_error"]["msgs"]
+        # a tally import creates both a tally source and an outscraper one (place_id column is empty)
+        sources = Erp.objects.last().sources
+        assert sources.count() == 2
+        assert sources.get(source="tally").source_id == ""
+        assert sources.get(source="outscraper").source_id == ""
+
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
+    def test_with_OK_file_without_source_nor_place_id(self):
+        # the generic test file declares neither a source nor a place_id column
+        cm = Command()
+        call_command(
+            cm,
+            file="data/tests/generic_test_ok.csv",
+            skip_brevo_list_update=True,
+        )
+
+        assert cm.results["in_error"]["count"] == 0, cm.results["in_error"]["msgs"]
+        assert cm.results["imported"]["count"] == 1, cm.results["in_error"]["msgs"]
+        assert Erp.objects.last().sources.count() == 0
+
+    @pytest.mark.usefixtures("activite")
+    @pytest.mark.usefixtures("neufchateau")
     def test_duplicate_and_permanently_closed_with_OK_file(self):
         cm = Command()
         call_command(
