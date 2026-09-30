@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <style nonce="{{ request.GET.nonce }}">
 /*
 Minimal content of DSFR to apply style on widget
@@ -346,7 +347,7 @@ font-weight: 700 !important;
     }
 }
 </style>
-<div class="js-document" data-fr-theme="dark">
+<div class="js-document" data-fr-theme="dark" lang="{{ LANGUAGE_CODE }}">
     <div id="dialog"
          role="dialog"
          aria-labelledby="dialog-title"
@@ -359,7 +360,7 @@ font-weight: 700 !important;
                 <div class="fr-modal__body">
                     <div class="fr-modal__header text-right">
                         <button id="btn_acceslibre_close"
-                                aria-label="Fermer"
+                                aria-label="{% translate "Fermer" %}"
                                 data-bs-dismiss="{{ ref_uuid }}"
                                 class="fr-btn btn_acceslibre_close"
                                 title="{% translate "Fermer la fenêtre" %}"

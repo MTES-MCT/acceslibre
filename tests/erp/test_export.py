@@ -197,7 +197,7 @@ def test_export_command(mocker, settings):
             "http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
             '<div id="widget-a11y-container" '
             f'data-pk="{erp.uuid}" '
-            'data-baseurl="http://testserver"></div>\n'
+            'data-baseurl="http://testserver" data-lang="fr"></div>\n'
             '<a href="#" aria-haspopup="dialog" '
             f'data-erp-pk="{erp.uuid}" aria-controls="dialog" '
             'data-owner="acceslibre">Accessibilité</a>\n'
