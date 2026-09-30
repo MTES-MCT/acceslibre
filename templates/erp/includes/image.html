@@ -6,7 +6,7 @@
     <pnx-widget-legend slot="bottom-right" light="" focus="pic" picture="{{ image_id }}"></pnx-widget-legend>
     </pnx-photo-viewer>
     {# if else statements because we do not need a list when there is only a single button (RGAA) #}
-    {% if request.user.is_staff %}
+    {% if request.user.is_staff and erp_can_be_modified %}
         <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--center fr-mt-2w">
             <li>
                 <a href="{% url 'panoramax_remove' erp_slug=erp.slug %}"
@@ -16,13 +16,18 @@
                 <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Changer la photo" %}</a>
             </li>
         </ul>
-    {% else %}
+    {% elif request.user.is_staff %}
+        <div class="fr-grid-row fr-grid-row--center fr-my-2w">
+            <a href="{% url 'panoramax_remove' erp_slug=erp.slug %}"
+               class="fr-btn fr-btn--secondary">{% translate "Supprimer l'image" %}</a>
+        </div>
+    {% elif erp_can_be_modified %}
         <div class="fr-grid-row fr-grid-row--center fr-my-2w">
             <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Changer la photo" %}</a>
         </div>
     {% endif %}
     <hr class="fr-hr fr-mt-0" />
-{% elif erp_can_have_image %}
+{% elif erp_can_have_image and erp_can_be_modified %}
     <section class="panoramax-add-photo-section">
         <span class="fr-icon-image-add-line"  aria-hidden="true"></span>
         <a href="{% url 'panoramax_add' erp_slug=erp.slug %}"
