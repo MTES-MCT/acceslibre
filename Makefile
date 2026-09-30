@@ -15,3 +15,7 @@ translate:
 .PHONY: runserver
 runserver:
 	uv run manage.py runserver  --settings=core.settings_dev 7000
+
+.PHONY: test
+test:
+	uv run pytest -s -vv tests/
