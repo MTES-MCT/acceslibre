@@ -21,6 +21,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.safestring import mark_safe
+from django.utils import translation
 from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
@@ -538,6 +539,19 @@ def from_uuid(request, uuid):
 
 
 def widget_from_uuid(request, uuid):
+    # The widget is fetched cross-origin, so the language cookie is never sent: let the host site
+    # force the language through `?lang=`, otherwise fall back on the visitor's Accept-Language.
+    lang = request.GET.get("lang")
+    if lang not in dict(settings.LANGUAGES):
+        return _widget_from_uuid(request, uuid)
+
+    with translation.override(lang):
+        response = _widget_from_uuid(request, uuid)
+    response.headers["Content-Language"] = lang
+    return response
+
+
+def _widget_from_uuid(request, uuid):
     def _render_404():
         return render(
             request, "erp/widget/404.html", context={"ref_uuid": uuid, "base_url": f"{settings.SITE_ROOT_URL}"}

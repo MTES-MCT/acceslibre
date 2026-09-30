@@ -40,6 +40,18 @@
     return declaredBaseURL || _scriptOrigin || DEFAULT_BASE_URL
   }
 
+  function _getWidgetURL(uuid, params) {
+    const url = new URL(_getBaseURL() + '/uuid/' + uuid + '/widget/', document.baseURI)
+
+    Object.keys(params).forEach(function (key) {
+      if (params[key]) {
+        url.searchParams.set(key, params[key])
+      }
+    })
+
+    return url.toString()
+  }
+
   function closeModal(dialog, trigger) {
     dialog.setAttribute('aria-hidden', true)
 
@@ -210,8 +222,8 @@
       g.onload = setupAnalytics
     })()
   }
-  function openAccessibilityModal(uuid, callback = null) {
-    fetch(_getBaseURL() + '/uuid/' + uuid + '/widget/', {
+  function openAccessibilityModal(uuid, callback = null, lang = null) {
+    fetch(_getWidgetURL(uuid, { lang: lang }), {
       method: 'GET',
       headers: { 'X-OriginUrl': window.location },
     })
@@ -261,7 +273,7 @@
   document.querySelectorAll('[data-pk]').forEach(function (container) {
     const nonce = document.getElementById('demo-widget')?.nonce
     var erpPK = container.getAttribute('data-pk')
-    fetch(_getBaseURL() + '/uuid/' + erpPK + '/widget/?nonce=' + encodeURIComponent(nonce), {
+    fetch(_getWidgetURL(erpPK, { nonce: nonce, lang: container.getAttribute('data-lang') }), {
       method: 'GET',
       headers: { 'X-OriginUrl': window.location },
     })

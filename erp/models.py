@@ -17,6 +17,7 @@ from django.urls import reverse
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
+from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
 from django.utils.translation import ngettext
@@ -1027,7 +1028,10 @@ class Erp(models.Model):
     def widget_code(self):
         # NOTE: if the widget code is edited it should be also reflected in metabase
         url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
-        return f"""<div id="widget-a11y-container" data-pk="{self.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>
+        lang = get_language()
+        if lang not in dict(settings.LANGUAGES):
+            lang = settings.LANGUAGE_CODE
+        return f"""<div id="widget-a11y-container" data-pk="{self.uuid}" data-baseurl="{settings.SITE_ROOT_URL}" data-lang="{lang}"></div>
 <a href="#" aria-haspopup="dialog" data-erp-pk="{self.uuid}" aria-controls="dialog" data-owner="acceslibre">{translate("Accessibilité")}</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>"""
 
