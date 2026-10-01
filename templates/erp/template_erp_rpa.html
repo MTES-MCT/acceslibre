@@ -184,10 +184,6 @@
             border-color: #18753C;
           }
 
-          .rpa-block--warning {
-            border-color: #B34000;
-          }
-
         .rpa-badge {
             display: inline-flex;
             text-transform: uppercase;
@@ -216,12 +212,6 @@
 
         }
 
-        .rpa-badge--warning {
-            color: #B34000;
-            background-color: #FFE9E6;
-            width: 130px;
-        }
-
         .icon-container img[src$=".svg"] {
             width: 12px;
             height: 12px;
@@ -248,26 +238,21 @@
                 </div>
             </section>
             {% switch "RPA" %}
-            <section class="rpa-block {% if erp.rpa %} rpa-block--success {% else %} rpa-block--warning {% endif %}">
-                <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
-                <div class="rpa-badge {% if erp.rpa %} rpa-badge--success {% else %} rpa-badge--warning {% endif %}">
-                    {% if erp.rpa %}
+            {% if erp.rpa %}
+                <section class="rpa-block rpa-block--success">
+                    <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
+                    <div class="rpa-badge rpa-badge--success">
                         <div style="display: flex;">
                             <img src="{% static "icons/success-fill.svg" %}" alt="">
                             <span>{% translate "conforme" %}</span>
                         </div>
-                    {% else %}
-                        <div style="display: flex;">
-                            <img src="{% static "icons/warning-fill.svg" %}" alt="">
-                            <span>{% translate "non conforme" %}</span>
-                        </div>
+                    </div>
+                    {% if timestamps.created_by %}
+                        <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
                     {% endif %}
-                </div>
-                {% if timestamps.created_by %}
-                    <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
-                {% endif %}
-                <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
-            </section>
+                    <p class="fr-text--bold">{% translate "Mise à jour : " %}{{ timestamps.updated_at|date:"j/m/Y" }}</p>
+                </section>
+            {% endif %}
         {% endswitch %}
     </header>
     <section id="erp-main-info">

@@ -3,6 +3,7 @@ import json
 import urllib
 from decimal import Decimal
 from io import BytesIO
+from pathlib import Path
 from uuid import UUID
 
 import qrcode
@@ -13,20 +14,23 @@ from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.staticfiles import finders
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils import translation
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.safestring import mark_safe
-from django.utils import translation
 from django.utils.translation import get_language
 from django.utils.translation import gettext as translate
 from django.views.generic import TemplateView
 from reversion.views import create_revision
 from weasyprint import HTML
+from weasyprint.urls import URLFetcher
 
 from api.views import WidgetSerializer
 from core.lib import geo, url
@@ -1513,6 +1517,24 @@ def contrib_documentation(request):
     )
 
 
+def _find_static_file_path(static_name):
+    if found_path := finders.find(static_name):
+        return found_path
+    if staticfiles_storage.exists(static_name):
+        return staticfiles_storage.path(static_name)
+    return None
+
+
+class LocalStaticURLFetcher(URLFetcher):
+    def fetch(self, url, headers=None):
+        static_root_url = f"{settings.SITE_ROOT_URL}{settings.STATIC_URL}"
+        if url.startswith(static_root_url):
+            static_name = urllib.parse.unquote(url[len(static_root_url) :].split("?")[0])
+            if static_file_path := _find_static_file_path(static_name):
+                return super().fetch(Path(static_file_path).as_uri(), headers)
+        return super().fetch(url, headers)
+
+
 def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     base_qs = (
         Erp.objects.select_related(
@@ -1573,6 +1595,6 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     response["Content-Disposition"] = 'inline; filename="rpa.pdf"'
     response["X-Robots-Tag"] = "noindex, nofollow"
 
-    HTML(string=html_string, base_url=settings.SITE_ROOT_URL).write_pdf(response)
+    HTML(string=html_string, base_url=settings.SITE_ROOT_URL, url_fetcher=LocalStaticURLFetcher()).write_pdf(response)
 
     return response
