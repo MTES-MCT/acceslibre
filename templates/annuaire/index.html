@@ -72,6 +72,19 @@
                                 <a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a>
                                 ({{ commune.erp_access_count }} {% blocktranslate count counter=commune.erp_access_count %}établissement{% plural %}établissements{% endblocktranslate %})
                             </p>
+                            {% if commune.arrondissements %}
+                                <ul>
+                                    {% for arrondissement in commune.arrondissements %}
+                                        <li>
+                                            <p class="fr-mb-1v">
+                                                {{ arrondissement.code_postaux|join:", " }} -
+                                                <a href="{{ arrondissement.get_absolute_url }}">{{ arrondissement.nom }}</a>
+                                                ({{ arrondissement.erp_access_count }} {% blocktranslate count counter=arrondissement.erp_access_count %}établissement{% plural %}établissements{% endblocktranslate %})
+                                            </p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 </ul>
