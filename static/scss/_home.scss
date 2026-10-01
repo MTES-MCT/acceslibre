@@ -1,8 +1,10 @@
 @use 'breakpoints';
 
 .home-container {
+  --background-blue: var(--blue-cumulus-925-125-active);
+
   .main-info-container {
-    background-color: #8ba7f8;
+    background-color: var(--background-blue);
     padding: 128px 0;
 
     .fr-container {
@@ -166,7 +168,7 @@
   }
 
   .community-container {
-    background-color: #8ba7f8;
+    background-color: var(--background-blue);
     text-align: center;
     padding: 56px 0;
     overflow: hidden;
