@@ -142,14 +142,20 @@ class BaseMapper:
         dest_fields["code_postal"] = self.handle_5digits_code(record.get("code_postal") or record.get("postal_code"))
         dest_fields["import_email"] = record.get("email") or record.get("import_email")
         dest_fields["activite"] = dest_fields.get("activite") or kwargs.get("activite", None)
+
+        # NOTE a record may declare both a source (eg. tally) and a place_id (eg. outscraper): in that case
+        # both external sources are created
+        sources = []
         if "source" in record:
+            source_id = record.get("source_id") or ""
             dest_fields["source"] = record["source"]
-            dest_fields["sources"] = [{"source": record["source"], "source_id": None}]
-            if record.get("source_id"):
-                dest_fields["source_id"] = record["source_id"]
-                dest_fields["sources"][0]["source_id"] = record["source_id"]
+            sources.append({"source": record["source"], "source_id": source_id})
+            if source_id:
+                dest_fields["source_id"] = source_id
         if "place_id" in record:
-            dest_fields["sources"] = [{"source": ExternalSource.SOURCE_OUTSCRAPER, "source_id": record["place_id"]}]
+            sources.append({"source": ExternalSource.SOURCE_OUTSCRAPER, "source_id": record["place_id"]})
+        if sources:
+            dest_fields["sources"] = sources
         return dest_fields
 
     def get_a11y_fields(self, record):
