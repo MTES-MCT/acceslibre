@@ -156,7 +156,10 @@ class Challenge(models.Model):
             team_pk: team_name for team_pk, team_name in self.inscriptions.all().values_list("team__pk", "team__name")
         }
 
-        for nb_days_diff in range(1, (self.end_date - self.start_date).days + 2):
+        # Windows cover every day of the challenge, day 0 included. The replace is deliberately
+        # unchanged: the keys already stored in `classement` have to keep matching.
+        nb_days = (self.end_date.date() - self.start_date.date()).days + 1
+        for nb_days_diff in range(nb_days):
             from_date = (self.start_date + timedelta(days=nb_days_diff)).replace(hour=0, minute=0, second=0)
             to_date = from_date + timedelta(days=1)
 
@@ -166,7 +169,9 @@ class Challenge(models.Model):
             if to_date > timezone.now():
                 continue
 
-            scores_per_user_id, scores_per_team_id = get_challenge_scores(self, from_date, to_date, player_ids)
+            scores_per_user_id, scores_per_team_id = get_challenge_scores(
+                self, max(from_date, self.start_date), min(to_date, self.end_date), player_ids
+            )
 
             self.classement[f"{from_date}"] = [
                 {"user_id": user_id, "nb_access_info_changed": max(score, 0)}
