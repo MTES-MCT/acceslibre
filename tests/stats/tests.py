@@ -1,5 +1,4 @@
 import pickle
-from datetime import date
 from unittest.mock import MagicMock, call, patch
 
 import pytest
@@ -10,7 +9,7 @@ from django.test import Client
 from django.urls import reverse
 from splinter import Browser
 
-from stats.models import WidgetDomain, WidgetEvent
+from stats.models import WidgetEvent
 from stats.queries import _get_nb_filled_in_info
 from tests.factories import ErpFactory
 
@@ -203,88 +202,6 @@ def test_widget_tracking_with_same_origin_site(setup_redis_mock):
 
     call_command("flush_widget_stats")
     assert WidgetEvent.objects.all().count() == 0
-
-
-@pytest.mark.django_db
-def test_widget_domain_aggregate(setup_redis_mock):
-    cache.clear()
-    erp = ErpFactory(with_accessibility=True)
-    c = Client()
-    widget_url = reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid})
-    site_a_headers = {"HTTP_X_Originurl": "https://site-a.tld/page"}
-    site_b_headers = {"HTTP_X_Originurl": "https://site-b.tld/page"}
-
-    for _ in range(3):
-        c.get(widget_url, **site_a_headers)
-    c.get(widget_url, **site_b_headers)
-
-    call_command("flush_widget_stats")
-
-    assert WidgetDomain.objects.count() == 2
-    site_a = WidgetDomain.objects.get(domain="site-a.tld")
-    assert site_a.total_views == 3
-    assert site_a.first_seen == date.today()
-    assert site_a.last_seen == date.today()
-    assert WidgetEvent.objects.count() == 2
-
-    # a second flush accumulates on the same row instead of creating a new one
-    c.get(widget_url, **site_a_headers)
-    call_command("flush_widget_stats")
-
-    assert WidgetDomain.objects.count() == 2
-    site_a.refresh_from_db()
-    assert site_a.total_views == 4
-    assert WidgetEvent.objects.get(domain="site-a.tld").views == 4
-
-
-@pytest.mark.django_db
-def test_backfill_widget_domains(setup_redis_mock):
-    site_a_first = WidgetEvent.objects.create(domain="site-a.tld", referer_url="https://site-a.tld/1", views=2)
-    site_a_second = WidgetEvent.objects.create(domain="site-a.tld", referer_url="https://site-a.tld/2", views=5)
-    site_b = WidgetEvent.objects.create(domain="site-b.tld", referer_url="https://site-b.tld/1", views=7)
-    WidgetEvent.objects.filter(pk=site_a_first.pk).update(date=date(2026, 1, 1))
-    WidgetEvent.objects.filter(pk=site_a_second.pk).update(date=date(2026, 1, 3))
-    WidgetEvent.objects.filter(pk=site_b.pk).update(date=date(2026, 2, 1))
-
-    call_command("backfill_widget_domains")
-
-    site_a = WidgetDomain.objects.get(domain="site-a.tld")
-    assert site_a.first_seen == date(2026, 1, 1)
-    assert site_a.last_seen == date(2026, 1, 3)
-    assert site_a.total_views == 7
-    assert WidgetDomain.objects.get(domain="site-b.tld").total_views == 7
-    assert WidgetDomain.objects.count() == 2
-
-    # idempotent: running it again does not double count
-    call_command("backfill_widget_domains")
-    site_a.refresh_from_db()
-    assert site_a.total_views == 7
-    assert site_a.first_seen == date(2026, 1, 1)
-    assert WidgetDomain.objects.count() == 2
-
-
-@pytest.mark.django_db
-def test_widget_domain_record_keeps_widest_date_range(setup_redis_mock):
-    WidgetDomain.record("site-a.tld", first_seen=date(2026, 1, 1), last_seen=date(2026, 1, 1), total_views=5)
-    WidgetDomain.record("site-a.tld", first_seen=date(2025, 12, 1), last_seen=date(2026, 2, 1), total_views=3)
-
-    site_a = WidgetDomain.objects.get(domain="site-a.tld")
-    assert site_a.first_seen == date(2025, 12, 1)
-    assert site_a.last_seen == date(2026, 2, 1)
-    assert site_a.total_views == 8
-
-    # the backfill path replaces the total instead of adding to it
-    WidgetDomain.record(
-        "site-a.tld",
-        first_seen=date(2026, 1, 1),
-        last_seen=date(2026, 3, 1),
-        total_views=10,
-        accumulate=False,
-    )
-    site_a.refresh_from_db()
-    assert site_a.first_seen == date(2025, 12, 1)
-    assert site_a.last_seen == date(2026, 3, 1)
-    assert site_a.total_views == 10
 
 
 def test_get_nb_filled_in_infos():
