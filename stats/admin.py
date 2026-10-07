@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from stats.models import Challenge, ChallengePlayer, ChallengeTeam, WidgetEvent
+from stats.models import Challenge, ChallengePlayer, ChallengeTeam, WidgetDomain, WidgetEvent
 
 
 @admin.register(Challenge)
@@ -32,4 +32,13 @@ admin.site.register(ChallengeTeam)
 @admin.register(WidgetEvent)
 class WidgetEventAdmin(admin.ModelAdmin):
     list_display = ("domain", "referer_url", "views")
-    search_fields = ("urlpath",)
+    search_fields = ("domain",)
+
+
+@admin.register(WidgetDomain)
+class WidgetDomainAdmin(admin.ModelAdmin):
+    # Derived data, maintained by flush_widget_stats and backfill_widget_domains.
+    list_display = ("domain", "first_seen", "last_seen", "total_views")
+    ordering = ("-last_seen", "domain")
+    search_fields = ("domain",)
+    readonly_fields = ("domain", "first_seen", "last_seen", "total_views")

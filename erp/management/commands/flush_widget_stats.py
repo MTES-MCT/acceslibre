@@ -1,9 +1,11 @@
+from datetime import date
+
 import redis
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, models
 
-from stats.models import WidgetEvent
+from stats.models import WidgetDomain, WidgetEvent
 
 
 class Command(BaseCommand):
@@ -27,6 +29,7 @@ class Command(BaseCommand):
         pattern = "*stats_widget:*"
 
         keys_found = 0
+        views_per_domain = {}
         if verbose:
             self.stdout.write(f"Scanning Redis with pattern: {pattern}")
 
@@ -52,6 +55,7 @@ class Command(BaseCommand):
 
                 # maxsplit=2 is crucial because referer_url contains colons (http://...)
                 date_str, domain, referer = raw_data.split(":", 2)
+                event_date = date.fromisoformat(date_str)
 
                 updated = WidgetEvent.objects.filter(date=date_str, domain=domain, referer_url=referer).update(
                     views=models.F("views") + count
@@ -72,6 +76,13 @@ class Command(BaseCommand):
                             views=models.F("views") + count
                         )
 
+                entry = views_per_domain.setdefault(
+                    domain, {"first_seen": event_date, "last_seen": event_date, "views": 0}
+                )
+                entry["first_seen"] = min(entry["first_seen"], event_date)
+                entry["last_seen"] = max(entry["last_seen"], event_date)
+                entry["views"] += count
+
                 keys_found += 1
                 if verbose:
                     self.stdout.write(self.style.SUCCESS(f"Flushed {count} views for {domain}"))
@@ -79,5 +90,14 @@ class Command(BaseCommand):
             except (IndexError, ValueError) as e:
                 self.stdout.write(self.style.WARNING(f"Skipping malformed key {key_str}: {e}"))
                 continue
+
+        for domain, entry in views_per_domain.items():
+            WidgetDomain.record(
+                domain,
+                first_seen=entry["first_seen"],
+                last_seen=entry["last_seen"],
+                total_views=entry["views"],
+                accumulate=True,
+            )
 
         self.stdout.write(self.style.SUCCESS(f"Successfully flushed {keys_found} entries to DB"))
