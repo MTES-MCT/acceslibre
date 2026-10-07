@@ -1,6 +1,6 @@
 import uuid
 from collections import defaultdict
-from datetime import timedelta
+from datetime import date, timedelta
 
 from autoslug import AutoSlugField
 from django.conf import settings
@@ -246,3 +246,46 @@ class WidgetEvent(models.Model):
         indexes = [
             models.Index(fields=["date", "domain"], name="idx_widgetevent_date_domain"),
         ]
+
+
+class WidgetDomainMonth(models.Model):
+    """Monthly aggregate of WidgetEvent: one row per domain and month of observation."""
+
+    domain = models.URLField(help_text=translate("Domaine du site réutilisateur"))
+    month = models.DateField(
+        verbose_name=translate("Mois"),
+        help_text=translate("Premier jour du mois d'observation"),
+    )
+    total_views = models.BigIntegerField(default=0, verbose_name=translate("Vues cumulées"))
+
+    class Meta:
+        ordering = ("-month", "domain")
+        verbose_name = translate("Domaine du widget (mois)")
+        verbose_name_plural = translate("Domaines du widget (mois)")
+        constraints = [
+            models.UniqueConstraint(fields=["domain", "month"], name="unique_widget_domain_month"),
+        ]
+
+    def __str__(self):
+        return f"{self.domain} ({self.month:%Y-%m})"
+
+    @classmethod
+    def record(cls, domain, month, total_views, accumulate=True):
+        """Create or update the monthly aggregate row of a domain.
+
+        month is normalized to the first day of its month (accepts date or datetime).
+        With accumulate=True, total_views is a delta added to the current total (runtime flush).
+        With accumulate=False, total_views is the authoritative total (backfill from WidgetEvent).
+        """
+        first_day = date(month.year, month.month, 1)
+        widget_month, created = cls.objects.get_or_create(
+            domain=domain,
+            month=first_day,
+            defaults={"total_views": total_views},
+        )
+        if created:
+            return widget_month
+
+        widget_month.total_views = widget_month.total_views + total_views if accumulate else total_views
+        widget_month.save(update_fields=["total_views"])
+        return widget_month
