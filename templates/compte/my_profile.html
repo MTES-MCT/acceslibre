@@ -35,7 +35,7 @@
                             {% translate "Nom d'utilisateur (obligatoire)" %}
                         </label>
                         {{ form_login.username }}
-                        {% if submitted_form == 'username-change' and form_login.errors %}
+                        {% if submitted_form == "username-change" and form_login.errors %}
                             {% for error in form_login.username.errors %}
                                 <p id="username-desc-error" class="fr-error-text">{{ error }}</p>
                             {% endfor %}
@@ -98,7 +98,8 @@
                                     data-focus-to="#edit-email">{% translate "Annuler" %}</button>
                         </li>
                         <li>
-                            <button class="fr-btn" type="submit">{% translate "Enregistrer mon adresse email" %}</button>
+                            <button class="fr-btn"
+                                    type="submit">{% translate "Enregistrer mon adresse email" %}</button>
                         </li>
                     </ul>
                 </div>
@@ -110,7 +111,7 @@
                 {% csrf_token %}
                 <div class="grid-row-2">
                     <span>{% translate "Mot de passe" %}</span>
-                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open  {% if submitted_form == 'password-change' and form_password_change.errors %}fr-hidden{% else %}{% endif %}"
+                    <button class="fr-btn fr-btn--sm fr-btn--secondary toggle-open {% if submitted_form == 'password-change' and form_password_change.errors %}fr-hidden{% else %}{% endif %}"
                             type="button"
                             data-focus-to="input[name=old_password]"
                             id="edit-password">{% translate "Modifier mon mot de passe" %}</button>
@@ -138,12 +139,13 @@
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-1-show"
                                        type="checkbox">
-                                <label class="fr-password__checkbox fr-label" for="password-1-show">{% translate "Afficher" %}</label>
+                                <label class="fr-password__checkbox fr-label"
+                                       for="password-1-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
                     </div>
                     <!-- New password field -->
-                    <div class="fr-input-group  {% if submitted_form == 'password-change' and form_password_change.new_password1.errors %}fr-input-group--error{% else %}{% endif %}">
+                    <div class="fr-input-group {% if submitted_form == 'password-change' and form_password_change.new_password1.errors %}fr-input-group--error{% else %}{% endif %}">
                         <div class="fr-password" id="password-2">
                             <label class="fr-label"
                                    for="{{ form_password_change.new_password1.id_for_label }}">
@@ -163,7 +165,8 @@
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-2-show"
                                        type="checkbox">
-                                <label class="fr-password__checkbox fr-label" for="password-2-show">{% translate "Afficher" %}</label>
+                                <label class="fr-password__checkbox fr-label"
+                                       for="password-2-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
                     </div>
@@ -186,7 +189,8 @@
                                 <input aria-label="{% translate "Afficher le mot de passe" %}"
                                        id="password-3-show"
                                        type="checkbox">
-                                <label class="fr-password__checkbox fr-label" for="password-3-show">{% translate "Afficher" %}</label>
+                                <label class="fr-password__checkbox fr-label"
+                                       for="password-3-show">{% translate "Afficher" %}</label>
                             </div>
                         </div>
                         {% for error in form_password_change.non_field_errors %}<p class="fr-error-text">{{ error }}</p>{% endfor %}
@@ -299,7 +303,8 @@
                                     data-focus-to="#delete-account">{% translate "Annuler" %}</button>
                         </li>
                         <li>
-                            <button class="fr-btn toggle-close" type="submit">{% translate "Confirmer la suppression" %}</button>
+                            <button class="fr-btn toggle-close"
+                                    type="submit">{% translate "Confirmer la suppression" %}</button>
                         </li>
                     </ul>
                 </div>

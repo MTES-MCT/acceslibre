@@ -10,7 +10,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -139,16 +140,16 @@
             {#                    </div>#}
             {#                </section>#}
             {#            {% endif %}#}
-            {#            {% if challenges_a_venir %}#}
-            {#                <section class="row justify-content-start fr-mt-4v">#}
-            {#                    <div class="col-12">#}
-            {#                        <h2">#}
-            {#                            <strong>{% translate "Prochains challenges" %}</strong>#}
-            {#                        </h2>#}
-            {#                        {% include "common/challenge_list.html" with challenges=challenges_a_venir %}#}
-            {#                    </div>#}
-            {#                </section>#}
-            {#            {% endif %}#}
-        </div>
-    </div>
+        {#            {% if challenges_a_venir %}#}
+        {#                <section class="row justify-content-start fr-mt-4v">#}
+        {#                    <div class="col-12">#}
+        {#                        <h2">#}
+        {#                            <strong>{% translate "Prochains challenges" %}</strong>#}
+        {#                        </h2>#}
+        {#                        {% include "common/challenge_list.html" with challenges=challenges_a_venir %}#}
+        {#                    </div>#}
+        {#                </section>#}
+        {#            {% endif %}#}
+</div>
+</div>
 {% endblock editorial_content %}

@@ -8,7 +8,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -68,7 +69,8 @@
     <section class="leaderboard">
         <div>
             {% if today < start_date %}
-                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
+                <div class="fr-alert fr-alert--info"
+                     role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
             {% elif today > stop_date %}
                 <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours est terminé" %}</div>
             {% elif not top_contribs %}

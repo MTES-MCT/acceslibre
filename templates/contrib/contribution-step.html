@@ -21,7 +21,9 @@
         {% for field in form %}
             {% if form.easy_skip_for_screen_readers %}
                 <div class="fr-sr-only sr-only-focusable">
-                    <button id="unsure-and-submit" data-answer-to-pick="{{ unsure_answer }}">
+                    <button type="submit"
+                            id="unsure-and-submit"
+                            data-answer-to-pick="{{ unsure_answer }}">
                         {{ field.label }} - {% translate "Je ne suis par sûr et continuer" %}
                     </button>
                 </div>
@@ -39,7 +41,7 @@
         <div class="fr-btns-group">
             <a class="fr-link fr-icon-arrow-left-line fr-link--icon-left"
                href="{{ previous_url }}#content">{% translate "Précédent" %}</a>
-            <button class="fr-btn">{% translate "Continuer" %}</button>
+            <button type="submit" class="fr-btn">{% translate "Continuer" %}</button>
         </div>
     </form>
 {% endblock editorial_content %}

@@ -16,7 +16,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -47,7 +48,8 @@
                     <div class="fr-alert fr-alert--info fr-mb-3w">
                         <p>
                             {% translate "Pour demander une clef API, vous devez être connecté." %}
-                            <a class="fr-link" href="{% url "login" %}?next={{ api_key_contact_url|urlencode }}">{% translate "Se connecter" %}</a>
+                            <a class="fr-link"
+                               href="{% url "login" %}?next={{ api_key_contact_url|urlencode }}">{% translate "Se connecter" %}</a>
                             {% translate "ou" %}
                             <a class="fr-link"
                                href="{% url "django_registration_register" %}?next={{ api_key_contact_url|urlencode }}">{% translate "créer un compte" %}</a>
@@ -75,16 +77,16 @@
                     </div>
                     <div>
                         <div class="fr-select-group fr-col-lg-7{% if form.topic.errors %} fr-select-group--error{% endif %}">
-                            <label class="fr-label" for="{{ form.topic.id_for_label }}">{% translate "Sujet de votre demande*" %}</label>
+                            <label class="fr-label"
+                                   for="{{ form.topic.id_for_label }}">{% translate "Sujet de votre demande*" %}</label>
                             <select class="fr-select{% if form.topic.errors %} fr-select--error{% endif %}"
                                     id="{{ form.topic.id_for_label }}"
                                     name="{{ form.topic.name }}"
                                     {% if not request.user.is_authenticated %}aria-describedby="topic-api-key-hint"{% endif %}>
                                 {% for value, name in form.fields.topic.choices %}
                                     {% if value == "api_key" and not request.user.is_authenticated %}
-                                        <option value="{{ value }}" disabled>
-                                            {{ name }} ({% translate "connexion requise" %})
-                                        </option>
+                                        <option value="{{ value }}"
+                                                disabled>{{ name }} ({% translate "connexion requise" %})</option>
                                     {% else %}
                                         <option value="{{ value }}"
                                                 {% if form.topic.value == value %}selected{% endif %}>{{ name }}</option>
@@ -109,7 +111,8 @@
                                 <span>{% translate "Établissement :" %} {{ erp.nom }} ({{ erp.commune_ext.nom }})</span>
                             </p>
                             <p class="fr-mb-1w">
-                                <span><a class="fr-link" href="{{ erp.get_absolute_url }}">{% translate "Retour à la fiche" %}</a></span>
+                                <span><a class="fr-link"
+   href="{{ erp.get_absolute_url }}">{% translate "Retour à la fiche" %}</a></span>
                             </p>
                         </div>
                     {% endif %}
@@ -125,7 +128,8 @@
                     {{ form.user }}
                     {{ form.next }}
                     <div class="contact-form-organisation" aria-hidden="true">
-                        <label for="{{ form.organisation.id_for_label }}" class="fr-label">{{ form.organisation.label }}</label>
+                        <label for="{{ form.organisation.id_for_label }}"
+                               class="fr-label">{{ form.organisation.label }}</label>
                         {{ form.organisation }}
                     </div>
                     <div class="fr-checkbox-group">

@@ -10,7 +10,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -34,7 +35,8 @@
                 {% translate "Découvrez nos partenaires engagés pour rendre les infrastructures, services et outils numériques plus accessibles." %}
             </p>
             <section class="fr-grid-row fr-grid-row--center gap-2w">
-                <a href="{% url "contact_topic" topic="contact" %}" class="fr-btn">{% translate "Devenir partenaire" %}</a>
+                <a href="{% url "contact_topic" topic="contact" %}"
+                   class="fr-btn">{% translate "Devenir partenaire" %}</a>
             </section>
         </header>
         <section>
@@ -55,7 +57,7 @@
             </div>
             <div class="partners-grid">
                 {% for id, partenaire in partenaires.items %}
-                    {% if 'RE_USE' in partenaire.roles %}
+                    {% if "RE_USE" in partenaire.roles %}
                         <div class="fr-card fr-enlarge-button fr-card--sm"
                              data-partner="{{ id }}"
                              aria-controls="dialog-partner-{{ id }}-RE_USE"
@@ -64,7 +66,8 @@
                             <div class="fr-card__body">
                                 <div class="fr-card__content">
                                     <h3 class="fr-card__title">
-                                        <button type="button" lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
+                                        <button type="button"
+                                                lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
                                     </h3>
                                     <div class="fr-card__start">
                                         <ul class="fr-badges-group">
@@ -107,7 +110,7 @@
             </div>
             <div class="partners-grid">
                 {% for id, partenaire in partenaires.items %}
-                    {% if 'COLLECTOR' in partenaire.roles %}
+                    {% if "COLLECTOR" in partenaire.roles %}
                         <div class="fr-card fr-enlarge-button fr-card--sm"
                              data-partner="{{ id }}"
                              aria-controls="dialog-partner-{{ id }}-COLLECTOR"
@@ -116,7 +119,8 @@
                             <div class="fr-card__body">
                                 <div class="fr-card__content">
                                     <h3 class="fr-card__title">
-                                        <button type="button" lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
+                                        <button type="button"
+                                                lang="{{ partenaire.lang }}">{{ partenaire.name }}</button>
                                     </h3>
                                     <div class="fr-card__start">
                                         <ul class="fr-badges-group">
@@ -154,7 +158,8 @@
                         <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
                             <div class="fr-modal__body">
                                 <div class="fr-modal__header">
-                                    <button class="fr-btn--close fr-btn"
+                                    <button type="button"
+                                            class="fr-btn--close fr-btn"
                                             title="{% translate "Fermer la fenêtre modale" %}"
                                             aria-controls="dialog-partner-{{ id }}-{{ role }}">
                                         {% translate "Fermer" %}

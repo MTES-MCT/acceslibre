@@ -15,9 +15,7 @@
               {{ start }} au {{ end }} inclus
               {% endblocktranslate %}
                                 </p>
-                                <p>
-                                    {% if challenge.accroche %}{{ challenge.accroche|safe|truncatewords_html:30 }}{% endif %}
-                                </p>
+                                <p>{% if challenge.accroche %}{{ challenge.accroche|safe|truncatewords_html:30 }}{% endif %}</p>
                             </div>
                             <div class="row"></div>
                         </div>

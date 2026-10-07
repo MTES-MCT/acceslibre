@@ -11,7 +11,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -23,7 +24,8 @@
                         <a class="fr-breadcrumb__link" href="{% url "my_profile" %}">{% translate "Mon compte" %}</a>
                     </li>
                     <li>
-                        <a class="fr-breadcrumb__link" href="{% url "mes_erps" %}">{% translate "Mes établissements" %}</a>
+                        <a class="fr-breadcrumb__link"
+                           href="{% url "mes_erps" %}">{% translate "Mes établissements" %}</a>
                     </li>
                     <li>
                         <a class="fr-breadcrumb__link" aria-current="page">{% translate "Établissement" %}</a>
@@ -86,7 +88,7 @@
                 {{ form.confirm }}
                 <label class="fr-label" for="{{ form.confirm.id_for_label }}">{{ form.confirm.label }}</label>
             </div>
-            <button class="fr-btn">{% translate "Supprimer l'établissement" %}</button>
+            <button type="submit" class="fr-btn">{% translate "Supprimer l'établissement" %}</button>
         </form>
     </div>
 {% endblock editorial_content %}

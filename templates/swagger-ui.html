@@ -9,7 +9,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -26,9 +27,7 @@
     </div>
 {% endblock breadcrumb %}
 {% block stylesheet_extras %}
-    <link rel="stylesheet"
-          type="text/css"
-          href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
+    <link rel="stylesheet" href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
     <style>
   .swagger-ui .wrapper {
     padding: 0;

@@ -11,7 +11,6 @@
         {% translate "Tous acceslibre" %}
         <br>
         <small class="text-muted">{% blocktranslate with start=start_date|date:"d F Y" end=stop_date|date:"d F Y" %}Du {{ start }} au {{ end }}.{% endblocktranslate %}</small>
-        <br>
     </h2>
     <section class="row justify-content-center fr-mt-4v">
         <h3 class="fr-h1">
@@ -31,7 +30,8 @@
     <section class="row justify-content-center fr-mt-4v">
         <div>
             {% if today < start_date %}
-                <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
+                <div class="fr-alert fr-alert--info"
+                     role="status">{% translate "Le concours n'a pas encore démarré" %}</div>
             {% elif today > stop_date %}
                 <div class="fr-alert fr-alert--info" role="status">{% translate "Le concours est terminé" %}</div>
             {% elif not top_contribs %}
