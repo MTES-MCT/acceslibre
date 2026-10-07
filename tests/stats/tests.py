@@ -1,4 +1,5 @@
 import pickle
+from datetime import date, datetime
 from unittest.mock import MagicMock, call, patch
 
 import pytest
@@ -9,7 +10,7 @@ from django.test import Client
 from django.urls import reverse
 from splinter import Browser
 
-from stats.models import WidgetEvent
+from stats.models import WidgetDomainMonth, WidgetEvent
 from stats.queries import _get_nb_filled_in_info
 from tests.factories import ErpFactory
 
@@ -41,6 +42,7 @@ def setup_redis_mock():
                 for key in stored_keys:
                     raw_val = cache._cache.get(key)
                     if raw_val is None:
+                        cache._expire_info.pop(key, None)
                         results.append(None)
                         continue
 
@@ -56,8 +58,11 @@ def setup_redis_mock():
                     # Return bytes-string to simulate redis-py behavior for int(val)
                     results.append(str(val).encode())
 
-                    if key in cache._cache:
-                        del cache._cache[key]
+                    # Simulate the redis DEL: the expiry entry must go away too, otherwise
+                    # LocMemCache.incr() sees a non expired key and raises KeyError instead
+                    # of the ValueError the middleware expects.
+                    cache._cache.pop(key, None)
+                    cache._expire_info.pop(key, None)
 
                 return [results[0] if results else None, True]
 
@@ -202,6 +207,78 @@ def test_widget_tracking_with_same_origin_site(setup_redis_mock):
 
     call_command("flush_widget_stats")
     assert WidgetEvent.objects.all().count() == 0
+
+
+@pytest.mark.django_db
+def test_widget_domain_month_aggregate(setup_redis_mock):
+    cache.clear()
+    erp = ErpFactory(with_accessibility=True)
+    c = Client()
+    widget_url = reverse("widget_erp_uuid", kwargs={"uuid": erp.uuid})
+    site_a_headers = {"HTTP_X_Originurl": "https://site-a.tld/page"}
+    site_b_headers = {"HTTP_X_Originurl": "https://site-b.tld/page"}
+
+    for _ in range(3):
+        c.get(widget_url, **site_a_headers)
+    c.get(widget_url, **site_b_headers)
+
+    call_command("flush_widget_stats")
+
+    this_month = date.today().replace(day=1)
+    assert WidgetDomainMonth.objects.count() == 2
+    site_a = WidgetDomainMonth.objects.get(domain="site-a.tld", month=this_month)
+    assert site_a.total_views == 3
+    assert WidgetEvent.objects.count() == 2
+
+    # a second flush accumulates on the same monthly row instead of creating a new one
+    c.get(widget_url, **site_a_headers)
+    call_command("flush_widget_stats")
+
+    assert WidgetDomainMonth.objects.count() == 2
+    site_a.refresh_from_db()
+    assert site_a.total_views == 4
+    assert WidgetEvent.objects.get(domain="site-a.tld").views == 4
+
+
+@pytest.mark.django_db
+def test_backfill_widget_domain_months(setup_redis_mock):
+    site_a_january = WidgetEvent.objects.create(domain="site-a.tld", referer_url="https://site-a.tld/1", views=2)
+    site_a_january_bis = WidgetEvent.objects.create(domain="site-a.tld", referer_url="https://site-a.tld/2", views=5)
+    site_a_february = WidgetEvent.objects.create(domain="site-a.tld", referer_url="https://site-a.tld/3", views=7)
+    site_b = WidgetEvent.objects.create(domain="site-b.tld", referer_url="https://site-b.tld/1", views=7)
+    WidgetEvent.objects.filter(pk=site_a_january.pk).update(date=date(2026, 1, 1))
+    WidgetEvent.objects.filter(pk=site_a_january_bis.pk).update(date=date(2026, 1, 3))
+    WidgetEvent.objects.filter(pk=site_a_february.pk).update(date=date(2026, 2, 1))
+    WidgetEvent.objects.filter(pk=site_b.pk).update(date=date(2026, 2, 1))
+
+    call_command("backfill_widget_domains")
+
+    assert WidgetDomainMonth.objects.get(domain="site-a.tld", month=date(2026, 1, 1)).total_views == 7
+    assert WidgetDomainMonth.objects.get(domain="site-a.tld", month=date(2026, 2, 1)).total_views == 7
+    assert WidgetDomainMonth.objects.get(domain="site-b.tld", month=date(2026, 2, 1)).total_views == 7
+    assert WidgetDomainMonth.objects.count() == 3
+
+    # idempotent: running it again does not double count
+    call_command("backfill_widget_domains")
+    assert WidgetDomainMonth.objects.get(domain="site-a.tld", month=date(2026, 1, 1)).total_views == 7
+    assert WidgetDomainMonth.objects.count() == 3
+
+
+@pytest.mark.django_db
+def test_widget_domain_month_record_normalizes_month(setup_redis_mock):
+    # any day of the month, even a datetime as returned by TruncMonth, lands on the first day
+    WidgetDomainMonth.record("site-a.tld", month=date(2026, 1, 15), total_views=5)
+    WidgetDomainMonth.record("site-a.tld", month=datetime(2026, 1, 20, 12, 0), total_views=3)
+
+    site_a = WidgetDomainMonth.objects.get(domain="site-a.tld")
+    assert site_a.month == date(2026, 1, 1)
+    assert site_a.total_views == 8
+
+    # the backfill path replaces the total instead of adding to it
+    WidgetDomainMonth.record("site-a.tld", month=date(2026, 1, 1), total_views=10, accumulate=False)
+    site_a.refresh_from_db()
+    assert site_a.total_views == 10
+    assert WidgetDomainMonth.objects.count() == 1
 
 
 def test_get_nb_filled_in_infos():
