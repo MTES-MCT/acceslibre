@@ -24,7 +24,8 @@
             <p>{% translate "As-tu quelques minutes pour apporter des informations complémentaires ?" %}</p>
             <div class="fr-btns-group--inline">
                 <a href="{% url "contrib_transport" erp.slug %}" class="fr-btn">{% translate "Oui, je continue" %}</a>
-                <a href="{{ erp.get_absolute_url }}"  class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
+                <a href="{{ erp.get_absolute_url }}"
+                   class="fr-btn fr-btn--secondary">{% translate "Non, plus tard" %}</a>
             </div>
         </span>
     {% else %}
@@ -35,7 +36,8 @@
             <p>
                 {% translate "Nous n'avons pas pu créer la fiche car tu as saisi trop peu d'informations. Ne te décourage pas." %}
             </p>
-            <a href="{% url "contribution-step" erp.slug 0 %}" class="fr-btn">{% translate "Recommencez la saisie" %}</a>
+            <a href="{% url "contribution-step" erp.slug 0 %}"
+               class="fr-btn">{% translate "Recommencez la saisie" %}</a>
         </span>
     {% endif %}
 {% endblock editorial_content %}

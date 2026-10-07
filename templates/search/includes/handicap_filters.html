@@ -19,7 +19,8 @@
                 {% for group in equipments_by_group %}
                     <section class="fr-accordion">
                         <h3 class="fr-accordion__title">
-                            <button class="fr-accordion__btn"
+                            <button type="button"
+                                    class="fr-accordion__btn"
                                     aria-expanded="false"
                                     aria-controls="accordion-{{ group.grouper | kebab_case }}">
                                 {{ group.grouper }}
@@ -42,7 +43,9 @@
                             id="remove-all-filters">{% translate "Supprimer tous les filtres" %}</button>
                 </li>
                 <li>
-                    <button type="button" id="submit-filters-search" class="fr-btn">{% translate "Rechercher" %}</button>
+                    <button type="button"
+                            id="submit-filters-search"
+                            class="fr-btn">{% translate "Rechercher" %}</button>
                 </li>
             </ul>
         </div>

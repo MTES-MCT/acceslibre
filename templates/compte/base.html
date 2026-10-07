@@ -8,7 +8,8 @@
                 <nav role="navigation"
                      class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
                      aria-label="{% translate "Vous êtes ici :" %}">
-                    <button class="fr-breadcrumb__button"
+                    <button type="button"
+                            class="fr-breadcrumb__button"
                             aria-expanded="false"
                             aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
                     <div class="fr-collapse" id="breadcrumb-navigation">
@@ -24,7 +25,8 @@
             </div>
             <nav class="fr-sidemenu" aria-labelledby="fr-sidemenu-title">
                 <div class="fr-sidemenu__inner">
-                    <button class="fr-sidemenu__btn"
+                    <button type="button"
+                            class="fr-sidemenu__btn"
                             hidden
                             aria-controls="fr-sidemenu-wrapper"
                             aria-expanded="false">{% translate "Profil et préférences" %}</button>
@@ -57,7 +59,8 @@
                             </li>
                             {% if request.user.is_staff %}
                                 <li class="fr-sidemenu__item">
-                                    <a class="fr-sidemenu__link" href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
+                                    <a class="fr-sidemenu__link"
+                                       href="{% url 'admin:index' %}">{% translate "Admin" %}</a>
                                 </li>
                             {% endif %}
                         </ul>

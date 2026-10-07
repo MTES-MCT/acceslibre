@@ -10,7 +10,8 @@
         <div class="fr-grid-row fr-grid-row--gutters">
             <div class="fr-col-12 fr-col-md-6">
                 <div class="fr-select-group">
-                    <label class="fr-label" for="contrib-edit-cta">{% translate "Aller directement à l’étape : " %}</label>
+                    <label class="fr-label"
+                           for="contrib-edit-cta">{% translate "Aller directement à l’étape : " %}</label>
                     <select class="fr-select"
                             id="contrib-edit-cta"
                             data-current-url="{{ current_step_url }}">
@@ -30,11 +31,11 @@
                 </div>
             </div>
             <div class="fr-col-12 fr-col-md fr-grid-row fr-col--bottom fr-grid-row--right">
-                <button id="contrib-edit-open-btn"
+                <button type="button"
+                        id="contrib-edit-open-btn"
                         class="fr-btn hidden"
                         aria-controls="contrib-edit-modal-controls"
                         data-fr-opened="false"></button>
-
             </div>
         </div>
     </div>

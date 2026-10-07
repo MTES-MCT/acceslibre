@@ -44,19 +44,19 @@
             {% include "fields/boolradio.html" with field=form.conformite inline=True key="conformite" %}
         </div>
         {% switch "RPA" %}
+            <div class="contrib-inputs-section fr-py-3w fr-px-4w">
+                {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
+            </div>
+        {% endswitch %}
         <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-            {% include "fields/boolradio.html" with field=form.rpa_exemption inline=True key="rpa_exemption" %}
+            <h3 class="fr-text--xl fr-text--bold fr-mb-1w">
+                {% switch "RPA" %}
+                    {% translate "Compléments d’informations sur mon registre public d’accessibilité (optionnel)" %}
+                {% else %}
+                    {% translate "Registre public d’accessibilité" %}
+                {% endswitch %}
+            </h3>
+            {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
         </div>
-    {% endswitch %}
-    <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-        <h3 class="fr-text--xl fr-text--bold fr-mb-1w">
-            {% switch "RPA" %}
-                {% translate "Compléments d’informations sur mon registre public d’accessibilité (optionnel)" %}
-            {% else %}
-                {% translate "Registre public d’accessibilité" %}
-            {% endswitch %}
-        </h3>
-        {% include "fields/textarea.html" with field=form.registre_url key="registre_url" %}
     </div>
-</div>
 {% endblock fields_content %}
