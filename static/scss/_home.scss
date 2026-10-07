@@ -1,10 +1,10 @@
 @use 'breakpoints';
 
 .home-container {
-  --background-blue: var(--blue-cumulus-925-125-active);
+  --background: var(--blue-france-925-125);
 
   .main-info-container {
-    background-color: var(--background-blue);
+    background-color: var(--background);
     padding: 128px 0;
 
     .fr-container {
@@ -53,7 +53,7 @@
   }
 
   .erps-preview-container {
-    background-color: var(--beige-gris-galet-925-125);
+    background-color: var(--yellow-moutarde-925-125);
     padding-top: 56px;
     overflow: hidden;
 
@@ -168,7 +168,7 @@
   }
 
   .community-container {
-    background-color: var(--background-blue);
+    background-color: var(--background);
     text-align: center;
     padding: 56px 0;
     overflow: hidden;
