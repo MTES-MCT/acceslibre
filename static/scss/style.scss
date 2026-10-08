@@ -4,8 +4,6 @@
 
 // App specific styles
 @use 'loader';
-@use 'contribution';
-@use 'half-circle-progress-bar';
 @use 'leaflet';
 
 // Override _reboot.scss from scss, otherwise the lateral menu from dsfr doesn't work on mobile
