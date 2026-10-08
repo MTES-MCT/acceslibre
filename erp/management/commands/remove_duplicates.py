@@ -29,7 +29,7 @@ class Command(BaseCommand):
             Erp.objects.exclude(pk=erp.pk)
             .filter(nom__unaccent__lower__in=(erp.nom.lower(), erp.nom.lower().replace("-", " ")))
             .filter(commune=erp.commune, published=True)
-            .select_related("accessibilite")
+            .select_related("activite", "accessibilite")
             .exclude(accessibilite__isnull=True)
         )
 
@@ -86,11 +86,16 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.should_write = options["write"]
-        queryset = Erp.objects.filter(Q(published=True) | Q(permanently_closed=True)).order_by("created_at")
+        queryset = (
+            Erp.objects.filter(Q(published=True) | Q(permanently_closed=True))
+            .select_related("activite", "accessibilite")
+            .order_by("created_at")
+        )
         for erp in queryset.iterator():
-            try:
-                erp.refresh_from_db()
-            except Erp.DoesNotExist:
+            # refresh_from_db() would wipe the select_related caches; a plain
+            # existence check keeps them while still skipping rows deleted
+            # earlier in this same run (the iterator may buffer them).
+            if not Erp.objects.filter(pk=erp.pk).exists():
                 continue
 
             duplicates = self._get_duplicates(erp)

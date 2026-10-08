@@ -113,8 +113,6 @@ fileignoreconfig:
   checksum: 270c82826dd4c617aac147d9d84fcc00f241a1f8965cfbbec27131bc10c5022d
 - filename: tests/erp/test_models.py
   checksum: 8aecdf4c0322b54bf5e2015c5ef1582f9a2cbf0a8144e8d4d6c01396c9140ca4
-- filename: tests/api/tests.py
-  checksum: 4ee762e6dbca9dc6e1ef59fc76b34e7b9f3f1518879264bc16ca1560da487280
 - filename: erp/export/export.py
   checksum: 9a1f01b891f728e0c71e4e1e87c504bbbdba38a9ecb4337f218092c3dc51c572
 - filename: templates/swagger-ui.html
@@ -141,3 +139,5 @@ fileignoreconfig:
   checksum: 7664539abe12b180ed38b701099e2838db7ab28349197e7cbc1926199e8b74b4
 - filename: annuaire/views.py
   checksum: d41d2feae904e1522bd0b0139b745290208afbd621b27c478790fbaa9d932389
+- filename: tests/api/tests.py
+  checksum: 5528d299b7fdee411e2e621f9d19c4572c78a1cc003265344daeac305c267744
