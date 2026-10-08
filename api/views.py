@@ -523,7 +523,11 @@ class ErpViewSet(
     }
 
     permission_classes = [IsAllowedForAction, CanModifyErp]
-    queryset = Erp.objects.select_related("activite", "accessibilite", "commune_ext").order_by("nom")
+    queryset = (
+        Erp.objects.select_related("activite", "accessibilite", "commune_ext")
+        .prefetch_related("sources")
+        .order_by("nom")
+    )
     lookup_field = "slug"
     bbox_filter_field = "geom"
     filter_backends = (ZoneFilter, EquipmentFilter, ErpFilter)

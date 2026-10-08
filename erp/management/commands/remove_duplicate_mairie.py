@@ -36,7 +36,7 @@ class Command(BaseCommand):
             if distance_diff <= 500:
                 duplicates.append(potential_duplicate.pk)
 
-        return Erp.objects.filter(pk__in=duplicates)
+        return Erp.objects.filter(pk__in=duplicates).select_related("accessibilite")
 
     def _delete_duplicates(self, duplicates):
         self.to_delete += len(duplicates)
@@ -74,9 +74,10 @@ class Command(BaseCommand):
         )
 
         for erp in queryset.iterator():
-            try:
-                erp.refresh_from_db()
-            except Erp.DoesNotExist:
+            # refresh_from_db() would wipe the select_related caches; a plain
+            # existence check keeps them while still skipping rows deleted
+            # earlier in this same run (the iterator may buffer them).
+            if not Erp.objects.filter(pk=erp.pk).exists():
                 continue
 
             duplicates = self._get_duplicates(erp)

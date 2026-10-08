@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime, timedelta, timezone
+from functools import cached_property
 
 import reversion
 from autoslug import AutoSlugField
@@ -1042,7 +1043,7 @@ class Erp(models.Model):
     def shares_same_accessibility_data_with(self, other_erps):
         if not self.has_accessibilite():
             return False
-        if not all([e.has_accessibilite for e in other_erps]):
+        if not all([e.has_accessibilite() for e in other_erps]):
             return False
 
         return all([self.accessibilite == e.accessibilite for e in other_erps])
@@ -1063,13 +1064,17 @@ class Erp(models.Model):
     def was_created_by_administration(self):
         return self.user_type == self.USER_ROLE_ADMIN
 
-    @property
+    @cached_property
     def is_cultural_place(self):
-        return self.activite.groups.filter(name="Lieux culturels").exists()
+        if not self.activite_id:
+            return False
+        return any(group.name == "Lieux culturels" for group in self.activite.groups.all())
 
-    @property
+    @cached_property
     def is_accommodation(self):
-        return self.activite.groups.filter(name="Hébergement").exists()
+        if not self.activite_id:
+            return False
+        return any(group.name == "Hébergement" for group in self.activite.groups.all())
 
     def merge_accessibility_with(self, erp, fields=None):
         access_destination = self.accessibilite

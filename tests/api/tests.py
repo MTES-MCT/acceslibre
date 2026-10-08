@@ -6,6 +6,8 @@ from unittest.mock import ANY, PropertyMock
 import pytest
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import Point
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework_api_key.models import APIKey
@@ -14,7 +16,14 @@ from api.authentication import UserAPIKeyAuthentication
 from compte.models import UserAPIKey
 from erp import schema
 from erp.models import Accessibilite, Erp, ExternalSource
-from tests.factories import AccessibiliteFactory, ActiviteFactory, CommuneFactory, ErpFactory, UserFactory
+from tests.factories import (
+    AccessibiliteFactory,
+    ActiviteFactory,
+    CommuneFactory,
+    ErpFactory,
+    ExternalSourceFactory,
+    UserFactory,
+)
 
 User = get_user_model()
 
@@ -1244,3 +1253,24 @@ class TestApiIsClosed:
         response = api_client.get(reverse("erp-list"))
 
         assert response.status_code == 403
+
+
+@pytest.mark.django_db
+def test_erps_list_queries_sources_once_for_the_whole_page(api_client):
+    _, key = UserAPIKey.objects.create_key(name="list-key", user=User.objects.create_user(username="list-key-owner"))
+    for i in range(3):
+        ExternalSourceFactory(
+            erp=ErpFactory(nom=f"ERP pour sources {i}", published=True, with_accessibility=True),
+            source=ExternalSource.SOURCE_RNB,
+            source_id=f"rnb-{i}",
+        )
+
+    with CaptureQueriesContext(connection) as ctx:
+        response = api_client.get(reverse("erp-list"), headers={"Authorization": f"Api-Key {key}"})
+
+    assert response.status_code == 200, response.json()
+    assert response.json()["count"] == 3
+
+    source_table = ExternalSource._meta.db_table
+    source_queries = [q["sql"] for q in ctx.captured_queries if source_table in q["sql"]]
+    assert len(source_queries) == 1, f"expected a single prefetch query on {source_table}, got {len(source_queries)}"

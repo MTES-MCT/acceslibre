@@ -145,6 +145,7 @@ class EtalabMapper(BaseExportMapper):
 
     @staticmethod
     def map_from(erp) -> "EtalabMapper":
+        rnb_sources = [source for source in erp.sources.all() if source.source == ExternalSource.SOURCE_RNB]
         return EtalabMapper(
             id=str(erp.uuid),
             name=erp.nom,
@@ -158,7 +159,7 @@ class EtalabMapper(BaseExportMapper):
             activite=erp.activite.nom if erp.activite else "",
             web_url=erp.get_absolute_uri(),
             widget_code=erp.widget_code,
-            rnb_id=getattr(erp.sources.filter(source=ExternalSource.SOURCE_RNB).first(), "source_id", None),
+            rnb_id=rnb_sources[0].source_id if rnb_sources else None,
             contact_url=erp.contact_url,
             site_internet=erp.site_internet,
             longitude=map_coords(erp.geom, 0),
