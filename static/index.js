@@ -17,7 +17,6 @@ import geo from './js/geo'
 import ui from './js/ui'
 import cloneFilter from './js/ui/CloneFilter'
 import Autocomplete from './js/ui/AutocompleteActivity'
-import PickAnswerAndSubmit from './js/ui/PickAnswerAndSubmit'
 import StoreFilters from './js/ui/StoreFilters'
 
 // Initializations
@@ -36,12 +35,10 @@ dom.ready(() => {
   dom.mountAll('.get-geoloc-btn', ui.GetGeolocBtn)
   dom.mountOne('#export-results-btn', ui.ExportResultsBtn)
   dom.mountOne('#erp-address', ui.SyncInputsWithElement)
-  dom.mountAll('.half-progress', ui.ProgressBar)
   dom.mountAll('.a4a-label-tag', ui.LabelTag)
   dom.mountAll('.a4a-clone-filter', cloneFilter.cloneFilter)
   dom.mountOne('#clone-filter-submit', cloneFilter.cloneFilterSubmit)
   dom.mountOne('#no_activity', ui.NewActivity)
-  dom.mountOne('#unsure-and-submit', ui.PickAnswerAndSubmit)
   dom.mountOne('#filter-controller', ui.filterData)
   dom.mountAll('.text-expander', ui.TextExpander)
   dom.mountAll('.parent-toggle', ui.ContentToggle)
