@@ -6,7 +6,7 @@ from rest_framework_api_key.admin import APIKeyModelAdmin
 from rest_framework_api_key.models import APIKey
 
 from compte.models import UserAPIKey, UserPreferences, UserStats
-from compte.resources import UserAdminResource
+from compte.resources import UserAdminResource, UserAPIKeyResource
 
 
 class UserStatsInline(admin.StackedInline):
@@ -96,9 +96,13 @@ class LegacyAPIKeyAdmin(APIKeyModelAdmin):
 
 
 @admin.register(UserAPIKey)
-class UserAPIKeyAdmin(APIKeyModelAdmin):
+class UserAPIKeyAdmin(ExportMixin, APIKeyModelAdmin):
+    resource_class = UserAPIKeyResource
     list_display = [*APIKeyModelAdmin.list_display, "user"]
-    search_fields = [*APIKeyModelAdmin.search_fields, "user__username", "user__email"]
+    list_select_related = ("user",)
+    search_fields = [*APIKeyModelAdmin.search_fields, "user__username", "user__email", "description"]
+    autocomplete_fields = ["user"]
+    fields = ("user", "name", "description", "prefix", "revoked", "expiry_date")
 
 
 # Replace the default UserAdmin with our custom one

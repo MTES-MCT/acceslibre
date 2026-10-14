@@ -4,7 +4,7 @@ services:
     platform: linux/amd64
     build: .
     ports:
-      - '8000:7000'
+      - '7001:7000'
     env_file:
       - .env
     volumes:
@@ -23,7 +23,7 @@ services:
       POSTGRES_USER: access4all
       POSTGRES_PASSWORD: access4all
     ports:
-      - 5432:5432
+      - 5532:5432
     restart: unless-stopped
     volumes:
       - ./data_psql:/data_psql

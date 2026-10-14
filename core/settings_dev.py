@@ -5,17 +5,12 @@ from .settings import *
 
 DEBUG = True
 
-SITE_ROOT_URL = os.environ.get("SITE_ROOT_URL", "http://127.0.0.1:8000")
+SITE_ROOT_URL = os.environ.get("SITE_ROOT_URL", "http://localhost:7001")
 SITE_HOST = urlparse(SITE_ROOT_URL).hostname
 CORS_ALLOWED_ORIGINS = [SITE_ROOT_URL]
 REQUIRE_2FA = False
 
-ALLOWED_HOSTS = [
-    SITE_HOST,
-    "127.0.0.1",
-    "127.0.0.1:7000",
-    "localhost",
-]
+ALLOWED_HOSTS = [SITE_HOST, "127.0.0.1", "localhost", "localhost:7001"]
 
 INTERNAL_IPS = [
     "127.0.0.1",

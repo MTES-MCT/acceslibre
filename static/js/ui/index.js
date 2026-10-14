@@ -11,8 +11,6 @@ import SearchWhere from './SearchWhere'
 import LabelTag from './LabelTag'
 import NewActivity from './NewActivity'
 import listenToLabelEvents from './GroupLabelTag'
-import ProgressBar from './ProgressBar'
-import PickAnswerAndSubmit from './PickAnswerAndSubmit'
 import filterData from './FilterData'
 import StoreFilters from './StoreFilters'
 import LoadFilters from './LoadFilters'
@@ -42,8 +40,6 @@ export default {
   LabelTag,
   NewActivity,
   listenToLabelEvents,
-  ProgressBar,
-  PickAnswerAndSubmit,
   filterData,
   StoreFilters,
   LoadFilters,
