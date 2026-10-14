@@ -4,10 +4,12 @@ from datetime import datetime, timedelta, timezone
 import pytest
 import reversion
 from django.core.exceptions import ValidationError
+from django.db import connection
 from django.db.utils import IntegrityError
+from django.test.utils import CaptureQueriesContext
 
 from erp.exceptions import MergeException
-from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp
+from erp.models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Erp
 from tests.factories import (
     AccessibiliteFactory,
     ActiviteFactory,
@@ -1730,3 +1732,48 @@ def test_get_accueil_douches_individuelles(attrs, expected):
     access = AccessibiliteFactory(**attrs)
 
     assert access.get_accueil_douches_individuelles() == expected
+
+
+@pytest.mark.django_db
+class TestActivityGroupConditions:
+    def _erp_in_group(self, group_name=None):
+        activite = ActiviteFactory(nom="Musée")
+        if group_name is not None:
+            ActivitiesGroupFactory(name=group_name, activities=[activite])
+        return ErpFactory(nom="Musée du coin", with_accessibility=True, activite=activite)
+
+    def test_is_cultural_place(self):
+        erp = self._erp_in_group("Lieux culturels")
+
+        assert erp.is_cultural_place is True
+        assert erp.is_accommodation is False
+
+    def test_is_accommodation(self):
+        erp = self._erp_in_group("Hébergement")
+
+        assert erp.is_accommodation is True
+        assert erp.is_cultural_place is False
+
+    def test_is_cultural_place_without_matching_group(self):
+        erp = self._erp_in_group("Boulangerie")
+
+        assert erp.is_cultural_place is False
+        assert erp.is_accommodation is False
+
+    def test_is_cultural_place_without_activite(self):
+        erp = ErpFactory(nom="Sans activité", with_accessibility=True, activite=None)
+
+        assert erp.is_cultural_place is False
+        assert erp.is_accommodation is False
+
+    def test_groups_are_fetched_once_per_instance(self):
+        erp = self._erp_in_group("Lieux culturels")
+        through_table = ActivitiesGroup._meta.get_field("activities").remote_field.through._meta.db_table
+
+        with CaptureQueriesContext(connection) as first_eval:
+            assert erp.is_cultural_place is True
+        assert len([q for q in first_eval.captured_queries if through_table in q["sql"]]) == 1
+
+        with CaptureQueriesContext(connection) as second_eval:
+            assert erp.is_cultural_place is True
+        assert len([q for q in second_eval.captured_queries if through_table in q["sql"]]) == 0
