@@ -25,7 +25,7 @@ env_vars: &shared_env_vars
 executors:
   for_tests:
     docker:
-      - image: cimg/python:3.14.3-node
+      - image: cimg/python:3.14.8-node
         environment:
           <<: *shared_env_vars
       - image: cimg/postgres:17.7-postgis
@@ -37,7 +37,7 @@ executors:
 
   for_checks:
     docker:
-      - image: cimg/python:3.14.3-node
+      - image: cimg/python:3.14.8-node
         environment:
           <<: *shared_env_vars
 jobs:
