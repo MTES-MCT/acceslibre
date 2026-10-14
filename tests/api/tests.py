@@ -1236,6 +1236,29 @@ class TestWidgetApi:
             "sections": [],
         }
 
+    @pytest.mark.django_db
+    def test_openapi_schema(self, api_client_authenticated):
+        response = api_client_authenticated.get(reverse("openapi-schema"), {"format": "openapi-json"})
+        assert response.status_code == 200
+
+        openapi = response.json()
+        response_schema = openapi["paths"]["/api/erps/{slug}/widget/"]["get"]["responses"]["200"]["content"][
+            "application/json"
+        ]["schema"]
+        assert response_schema == {"$ref": "#/components/schemas/Widget"}
+
+        widget_schema = openapi["components"]["schemas"]["Widget"]
+        assert set(widget_schema["properties"]) == {"slug", "created_at", "updated_at", "sections"}
+
+        sections_schema = widget_schema["properties"]["sections"]
+        assert sections_schema["type"] == "array"
+        assert sections_schema["items"]["type"] == "object"
+        assert sections_schema["items"]["properties"] == {
+            "title": {"type": "string"},
+            "labels": {"type": "array", "items": {"type": "string"}},
+            "icon": {"type": "string"},
+        }
+
 
 @pytest.mark.django_db
 class TestApiIsClosed:

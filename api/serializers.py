@@ -218,6 +218,12 @@ class ErpGeoSerializer(GeoFeatureModelSerializer):
         return obj.get_absolute_uri()
 
 
+class WidgetSectionSerializer(serializers.Serializer):
+    title = serializers.CharField()
+    labels = serializers.ListField(child=serializers.CharField())
+    icon = serializers.CharField()
+
+
 class WidgetSerializer(serializers.Serializer):
     slug = serializers.CharField()
     created_at = serializers.DateTimeField()
