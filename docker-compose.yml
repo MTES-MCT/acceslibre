@@ -35,18 +35,11 @@ services:
     #         limits:
     #           cpus: 0.05
     #           memory: 8G
-  adminer:
-    image: adminer
-    depends_on:
-      - database
-    ports:
-      - 8080:8080
-    restart: unless-stopped
   redis:
-    image: redis:7.0.7-alpine
+    image: redis:8-alpine
     restart: always
     ports:
-      - '6379:6379'
+      - '6380:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass access4allpwd
     volumes:
       - redis:/data
