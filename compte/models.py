@@ -74,6 +74,12 @@ class UserAPIKey(AbstractAPIKey):
         on_delete=models.CASCADE,
         related_name="api_keys",
     )
+    description = models.TextField(
+        blank=True,
+        default="",
+        verbose_name=translate_lazy("Description"),
+        help_text=translate_lazy("Besoin exprimé par l'utilisateur lors de la demande de clef d'API."),
+    )
 
     class Meta(AbstractAPIKey.Meta):
         verbose_name = translate_lazy("Clef d'API par utilisateur")
