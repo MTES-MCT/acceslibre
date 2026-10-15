@@ -261,6 +261,18 @@ class TestApi:
 
         assert response.status_code == status_code
 
+    @pytest.mark.django_db
+    def test_apidocs_ignores_config_from_query_string(self, client):
+        response = client.get(reverse("apidocs") + "?configUrl=https://evil.example/config.json")
+
+        content = response.content.decode()
+        assert response.status_code == 200
+        assert "evil.example" not in content
+        # Swagger-UI 3.x always merges config from the query string (configUrl, url, ...)
+        assert "swagger-ui-dist@3" not in content
+        assert "queryConfigEnabled: false" in content
+        assert 'integrity="sha384-' in content
+
 
 @pytest.mark.usefixtures("api_client_authenticated")
 @pytest.mark.django_db

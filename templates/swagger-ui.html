@@ -27,7 +27,10 @@
     </div>
 {% endblock breadcrumb %}
 {% block stylesheet_extras %}
-    <link rel="stylesheet" href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/swagger-ui-dist@5.33.1/swagger-ui.css"
+          integrity="sha384-Ov4/wv3j2bmct8cDc5X4ngJZohVPzEmc6uDPH8WeljUxO5vtoykvMEfbu9Vh6RaW"
+          crossorigin="anonymous" />
     <style>
   .swagger-ui .wrapper {
     padding: 0;
@@ -74,14 +77,19 @@
         </p>
     {% endif %}
     <div id="swagger-ui"></div>
-    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@5.33.1/swagger-ui-bundle.js"
+            integrity="sha384-ZPehFMQommnnuaZ4rpxgkgTT2DKFVp4hZC/7pLit+9Lek9T1YGSo23eHFbvNkXkw"
+            crossorigin="anonymous"></script>
     <script>
   const ui = SwaggerUIBundle({
     url: "{% url schema_url %}",
     dom_id: "#swagger-ui",
+    // Never read config (configUrl, url, ...) from the query string: it allows loading
+    // an attacker-controlled config/spec, leading to prototype pollution and XSS.
+    queryConfigEnabled: false,
+    configUrl: null,
     presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIBundle.SwaggerUIStandalonePreset
+      SwaggerUIBundle.presets.apis
     ],
     layout: "BaseLayout",
     display: {
