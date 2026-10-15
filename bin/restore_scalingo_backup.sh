@@ -39,6 +39,14 @@ compose() {
     docker compose --project-directory "$ROOT_DIR" -f "$ROOT_DIR/docker-compose.yml" "$@"
 }
 
+# The dump must live in ./data_psql: it is bind-mounted on /data_psql in the
+# database container. Docker may have created (and own) that directory as root.
+if ! mkdir -p "$HOST_DUMP_DIR" 2>/dev/null || [ ! -w "$HOST_DUMP_DIR" ]; then
+    echo "Répertoire $HOST_DUMP_DIR absent ou non inscriptible." >&2
+    echo "Corriger les permissions : sudo chown -R \"$(id -un)\" \"$HOST_DUMP_DIR\"" >&2
+    exit 1
+fi
+
 WORK_DIR="$(mktemp -d "$HOST_DUMP_DIR/restore.XXXXXX")"
 cleanup() {
     if [ "${KEEP_DUMP:-0}" != "1" ]; then
