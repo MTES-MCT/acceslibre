@@ -271,7 +271,11 @@ class TestApi:
         # Swagger-UI 3.x always merges config from the query string (configUrl, url, ...)
         assert "swagger-ui-dist@3" not in content
         assert "queryConfigEnabled: false" in content
-        assert 'integrity="sha384-' in content
+        # Swagger-UI assets are self-hosted (version tracked in package.json),
+        # no external CDN reference.
+        assert "unpkg.com" not in content
+        assert "/static/dist/swagger.js" in content
+        assert "/static/dist/swagger.css" in content
 
 
 @pytest.mark.usefixtures("api_client_authenticated")
