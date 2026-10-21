@@ -56,9 +56,11 @@ jobs:
           keys:
             - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
       - run:
-          name: Install uv
+          name: Install pip and uv
           command: |
-            python -m pip install --user uv
+            # pip bundles its own CA bundle: it must be >= 26.2.2 (eSign root CA removal)
+            python -m pip install --upgrade "pip>=26.2.2"
+            python -m pip install --user "uv>=0.13.4"
       - run:
           name: Install Python dependencies
           command: |
@@ -128,9 +130,11 @@ jobs:
           keys:
             - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
       - run:
-          name: Install uv
+          name: Install pip and uv
           command: |
-            python -m pip install --user uv
+            # pip bundles its own CA bundle: it must be >= 26.2.2 (eSign root CA removal)
+            python -m pip install --upgrade "pip>=26.2.2"
+            python -m pip install --user "uv>=0.13.4"
       - run:
           name: Install Python dependencies
           command: |

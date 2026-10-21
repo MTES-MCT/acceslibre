@@ -1,8 +1,10 @@
 FROM python:3.14.8-slim
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+# Pinned uv version: the eSign root CA removal requires uv >= 0.13.4
+COPY --from=ghcr.io/astral-sh/uv:0.13.4 /uv /uvx /bin/
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        ca-certificates \
         gdal-bin \
         libgdal-dev \
         build-essential \
@@ -11,6 +13,15 @@ RUN apt-get update && \
         gettext \
         libpango-1.0-0 libpangoft2-1.0-0 libgobject-2.0-0 \
     && rm -rf /var/lib/apt/lists/*
+
+# Fetch the latest system CA certificates (eMudhra / eSign root CA removal)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends --only-upgrade ca-certificates && \
+    update-ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# pip bundles its own CA bundle: it must be >= 26.2.2 (eSign root CA removal)
+RUN python -m pip install --no-cache-dir --upgrade "pip>=26.2.2"
 
 RUN useradd -ms /bin/bash acceslibre
 USER acceslibre
