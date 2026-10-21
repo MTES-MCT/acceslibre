@@ -45,11 +45,11 @@ class Command(BaseCommand):
             created_at__lte=threshold,
         )
         for transfer_request in pending:
-            perform_transfer(transfer_request, expired=True)
-            logger.info(
-                f"[CRON] Ownership transfer by expiry for erp {transfer_request.erp.nom}, "
-                f"request #{transfer_request.pk}"
-            )
+            if perform_transfer(transfer_request, expired=True):
+                logger.info(
+                    f"[CRON] Ownership transfer by expiry for erp {transfer_request.erp.nom}, "
+                    f"request #{transfer_request.pk}"
+                )
 
     def send_reminders(self, now):
         threshold = now - timedelta(days=TRANSFER_REMINDER_DAYS)
@@ -59,7 +59,9 @@ class Command(BaseCommand):
             created_at__lte=threshold,
         )
         for transfer_request in pending:
-            send_transfer_reminder_to_old_owner(transfer_request)
+            if not send_transfer_reminder_to_old_owner(transfer_request):
+                logger.warning(f"[CRON] Could not send reminder for request #{transfer_request.pk}")
+                continue
             transfer_request.reminder_sent_at = now
             transfer_request.save(update_fields=["reminder_sent_at"])
             logger.info(f"[CRON] Reminder sent for request #{transfer_request.pk} on erp {transfer_request.erp.nom}")

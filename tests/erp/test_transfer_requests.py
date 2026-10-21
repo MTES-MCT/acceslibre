@@ -3,10 +3,11 @@ from unittest.mock import ANY, PropertyMock
 
 import pytest
 from django.core.management import call_command
+from django.db import IntegrityError, transaction
 from django.urls import reverse
 from django.utils import timezone
 
-from erp.models import Erp, ErpTransferRequest
+from erp.models import Accessibilite, Erp, ErpTransferRequest
 from erp.transfer_requests import (
     TEMPLATE_TRANSFER_EXPIRY_OLD_OWNER,
     TEMPLATE_TRANSFER_REFUSED_NEW_OWNER,
@@ -23,6 +24,19 @@ from tests.factories import ErpFactory, UserFactory
 
 def make_rpa_erp(old_owner=None):
     return ErpFactory(user=old_owner or UserFactory(), checked_up_to_date_at=timezone.now())
+
+
+def make_real_rpa_erp(old_owner=None):
+    erp = ErpFactory(user=old_owner or UserFactory(), with_accessibility=True)
+    erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
+    erp.rpa_exemption = True
+    erp.checked_up_to_date_at = timezone.now()
+    erp.save()
+    # completion_rate is recomputed by a post_save signal, so it has to be forced with a queryset update
+    Accessibilite.objects.filter(pk=erp.accessibilite.pk).update(completion_rate=100)
+    erp.accessibilite.refresh_from_db()
+    assert erp.rpa is True, f"erp {erp.pk} should be RPA"
+    return erp
 
 
 def make_transfer_request(erp=None, new_owner=None, old_owner=None, **kwargs):
@@ -60,6 +74,14 @@ class TestTransferHelpers:
         assert "/contact/" in context["url_contact"]
         assert context["previous_manager_username"] == transfer_request.previous_manager.username
         assert context["new_manager_username"] == transfer_request.new_manager.username
+        # Brevo templates use uppercase params (e.g. {{ params.USERNAME }})
+        assert context["USERNAME"] == transfer_request.previous_manager.username
+        assert context["NEW_USERNAME"] == transfer_request.new_manager.username
+        assert context["ERP_URL"] == context["url_erp"]
+        assert context["URL_ACCEPT"] == context["url_accept"]
+        assert context["URL_REFUSE"] == context["url_refuse"]
+        assert context["URL_RESPONSE"] == context["url_response"]
+        assert context["ERP_NAME"] == transfer_request.erp.nom
 
     def test_perform_transfer(self, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
@@ -88,6 +110,48 @@ class TestTransferHelpers:
             to_list=[transfer_request.previous_manager.email],
             template=TEMPLATE_TRANSFER_SUCCESS_OLD_OWNER,
             context=ANY,
+        )
+
+    def test_perform_transfer_with_stale_instances_processes_once(self, mocker):
+        mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
+        transfer_request = make_transfer_request()
+        stale_request = ErpTransferRequest.objects.get(pk=transfer_request.pk)
+
+        assert perform_transfer(transfer_request) is True
+        assert perform_transfer(stale_request) is False
+
+        transfer_request.refresh_from_db()
+        assert transfer_request.status == ErpTransferRequest.STATUS_ACCEPTED
+        assert mock_mail.call_count == 2
+
+    def test_perform_transfer_keeps_real_rpa_status(self, mocker):
+        mocker.patch("core.mailer.BrevoMailer.send_email")
+        erp = make_real_rpa_erp()
+        transfer_request = make_transfer_request(erp=erp, old_owner=erp.user)
+
+        assert perform_transfer(transfer_request) is True
+
+        erp.refresh_from_db()
+        assert erp.user == transfer_request.new_manager
+        assert erp.rpa is True
+
+    def test_only_one_pending_request_per_erp(self):
+        transfer_request = make_transfer_request()
+
+        with pytest.raises(IntegrityError):
+            with transaction.atomic():
+                ErpTransferRequest.objects.create(
+                    erp=transfer_request.erp,
+                    previous_manager=transfer_request.previous_manager,
+                    new_manager=UserFactory(),
+                )
+
+        transfer_request.status = ErpTransferRequest.STATUS_REFUSED
+        transfer_request.save(update_fields=["status"])
+        ErpTransferRequest.objects.create(
+            erp=transfer_request.erp,
+            previous_manager=transfer_request.previous_manager,
+            new_manager=UserFactory(),
         )
 
     def test_perform_transfer_expired_uses_expiration_template(self, mocker):
@@ -162,6 +226,31 @@ class TestTransferErpView:
             context=ANY,
         )
 
+    def test_transfer_erp_email_failure_deletes_request(self, client, mocker):
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock, return_value=True)
+        mocker.patch("core.mailer.BrevoMailer.send_email", return_value=False)
+        new_owner = UserFactory()
+        old_owner = UserFactory()
+        erp = make_rpa_erp(old_owner=old_owner)
+        client.force_login(new_owner)
+
+        response = client.post(reverse("transfer_erp", kwargs={"erp_slug": erp.slug}))
+
+        assert response.status_code == 302
+        assert not ErpTransferRequest.objects.filter(erp=erp).exists()
+
+    def test_transfer_erp_without_current_manager_redirects(self, client, mocker):
+        mocker.patch("erp.models.Erp.rpa", new_callable=PropertyMock, return_value=True)
+        erp = make_rpa_erp(old_owner=UserFactory())
+        erp.user = None
+        erp.save(update_fields=["user"])
+        client.force_login(UserFactory())
+
+        response = client.post(reverse("transfer_erp", kwargs={"erp_slug": erp.slug}))
+
+        assert response.status_code == 302
+        assert not ErpTransferRequest.objects.filter(erp=erp).exists()
+
     def test_transfer_erp_non_rpa_redirects_with_error(self, client):
         erp = make_rpa_erp()
         client.force_login(UserFactory())
@@ -230,9 +319,10 @@ class TestTransferErpResponseView:
         assert erp.checked_up_to_date_at == initial_date
         assert mock_mail.call_count == 2
 
-    def test_accept_via_get_link(self, client, mocker):
+    def test_accept_via_get_link_does_not_transfer(self, client, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
         transfer_request = make_transfer_request()
+        erp = transfer_request.erp
 
         response = client.get(
             f"{reverse('transfer_erp_response', kwargs={'token': transfer_request.token})}?action=accept"
@@ -240,8 +330,23 @@ class TestTransferErpResponseView:
 
         assert response.status_code == 200
         transfer_request.refresh_from_db()
-        assert transfer_request.status == ErpTransferRequest.STATUS_ACCEPTED
-        assert mock_mail.call_count == 2
+        erp.refresh_from_db()
+        assert transfer_request.status == ErpTransferRequest.STATUS_PENDING
+        assert erp.user == transfer_request.previous_manager
+        assert not mock_mail.called
+
+    def test_refuse_via_get_link_does_not_refuse(self, client, mocker):
+        mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
+        transfer_request = make_transfer_request()
+
+        response = client.get(
+            f"{reverse('transfer_erp_response', kwargs={'token': transfer_request.token})}?action=refuse"
+        )
+
+        assert response.status_code == 200
+        transfer_request.refresh_from_db()
+        assert transfer_request.status == ErpTransferRequest.STATUS_PENDING
+        assert not mock_mail.called
 
     def test_refuse_via_post(self, client, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
@@ -296,11 +401,12 @@ class TestTransferErpResponseView:
 
 @pytest.mark.django_db
 class TestProcessErpTransferRequestsCommand:
-    def test_sends_reminder_after_one_week(self, mocker):
+    def test_sends_reminder_after_one_week_only_once(self, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
         transfer_request = make_transfer_request(created_at=timezone.now() - timedelta(days=8))
 
         call_command("process_erp_transfer_requests", now=(timezone.now() + timedelta(minutes=1)).isoformat())
+        call_command("process_erp_transfer_requests", now=(timezone.now() + timedelta(minutes=2)).isoformat())
 
         transfer_request.refresh_from_db()
         assert transfer_request.status == ErpTransferRequest.STATUS_PENDING
@@ -310,6 +416,19 @@ class TestProcessErpTransferRequestsCommand:
             template=TEMPLATE_TRANSFER_REMINDER,
             context=ANY,
         )
+
+    def test_reminder_not_marked_sent_on_email_failure(self, mocker):
+        mocker.patch(
+            "erp.management.commands.process_erp_transfer_requests.send_transfer_reminder_to_old_owner",
+            return_value=False,
+        )
+        transfer_request = make_transfer_request(created_at=timezone.now() - timedelta(days=8))
+
+        call_command("process_erp_transfer_requests", now=(timezone.now() + timedelta(minutes=1)).isoformat())
+
+        transfer_request.refresh_from_db()
+        assert transfer_request.status == ErpTransferRequest.STATUS_PENDING
+        assert transfer_request.reminder_sent_at is None
 
     def test_expires_after_two_weeks(self, mocker):
         mock_mail = mocker.patch("core.mailer.BrevoMailer.send_email")
@@ -348,3 +467,9 @@ class TestProcessErpTransferRequestsCommand:
         assert transfer_request.status == ErpTransferRequest.STATUS_PENDING
         assert transfer_request.reminder_sent_at is None
         assert not mock_mail.called
+
+
+def test_transfer_request_status_is_readonly_in_admin():
+    from erp.admin import ErpTransferRequestAdmin
+
+    assert "status" in ErpTransferRequestAdmin.readonly_fields

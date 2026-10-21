@@ -17,6 +17,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.paginator import Paginator
+from django.db import IntegrityError, transaction
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -680,7 +681,15 @@ def transfer_erp(request, erp_slug):
         )
         return redirect(erp.get_absolute_url())
 
-    if erp.user is None or request.user == erp.user:
+    if erp.user is None:
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate("Cette fiche n'a pas de gestionnaire actuel, veuillez contacter le support."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    if request.user == erp.user:
         messages.add_message(
             request,
             messages.WARNING,
@@ -696,12 +705,31 @@ def transfer_erp(request, erp_slug):
         )
         return redirect(erp.get_absolute_url())
 
-    transfer_request = ErpTransferRequest.objects.create(
-        erp=erp,
-        previous_manager=erp.user,
-        new_manager=request.user,
-    )
-    send_transfer_request_to_old_owner(transfer_request)
+    try:
+        with transaction.atomic():
+            transfer_request = ErpTransferRequest.objects.create(
+                erp=erp,
+                previous_manager=erp.user,
+                new_manager=request.user,
+            )
+    except IntegrityError:
+        if not ErpTransferRequest.objects.filter(erp=erp, status=ErpTransferRequest.STATUS_PENDING).exists():
+            raise
+        messages.add_message(
+            request,
+            messages.WARNING,
+            translate("Une demande de changement de gestionnaire est déjà en cours pour cette fiche."),
+        )
+        return redirect(erp.get_absolute_url())
+
+    if not send_transfer_request_to_old_owner(transfer_request):
+        transfer_request.delete()
+        messages.add_message(
+            request,
+            messages.ERROR,
+            translate("L'email n'a pas pu être envoyé au gestionnaire actuel, veuillez réessayer."),
+        )
+        return redirect(erp.get_absolute_url())
 
     return render(
         request,
@@ -714,9 +742,9 @@ def transfer_erp_response(request, token):
     transfer_request = get_object_or_404(ErpTransferRequest, token=token)
     erp = transfer_request.erp
 
-    action = request.POST.get("action") or request.GET.get("action")
+    action = request.POST.get("action")
 
-    if action in ("accept", "refuse"):
+    if request.method == "POST" and action in ("accept", "refuse"):
         already_processed = transfer_request.status != ErpTransferRequest.STATUS_PENDING
         if not already_processed:
             if action == "accept":
