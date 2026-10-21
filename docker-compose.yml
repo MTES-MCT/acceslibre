@@ -3,8 +3,14 @@ services:
   app:
     platform: linux/amd64
     build: .
+    # Interactive debugging support (ipdb/pdb): allocate a TTY and keep stdin
+    # open so that `docker attach` gives a live, raw terminal to the process.
+    tty: true
+    stdin_open: true
+    environment:
+      TERM: xterm-256color
     ports:
-      - '8000:7000'
+      - '7001:7000'
     env_file:
       - .env
     volumes:
@@ -23,7 +29,7 @@ services:
       POSTGRES_USER: access4all
       POSTGRES_PASSWORD: access4all
     ports:
-      - 5432:5432
+      - 5532:5432
     restart: unless-stopped
     volumes:
       - ./data_psql:/data_psql
@@ -35,18 +41,11 @@ services:
     #         limits:
     #           cpus: 0.05
     #           memory: 8G
-  adminer:
-    image: adminer
-    depends_on:
-      - database
-    ports:
-      - 8080:8080
-    restart: unless-stopped
   redis:
-    image: redis:7.0.7-alpine
+    image: redis:8-alpine
     restart: always
     ports:
-      - '6379:6379'
+      - '6380:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass access4allpwd
     volumes:
       - redis:/data

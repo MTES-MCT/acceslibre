@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li role="presentation">
-                    <a href="./?published=1"
+                    <a href="{% url 'mes_erps' %}?published=1"
                        id="tabpanel-published-erps"
                        role="tab"
                        aria-controls="tabpanel-published-erps-controls"
@@ -57,7 +57,7 @@
                 </li>
                 <li role="presentation">
                     <a id="tabpanel-unpublished-erps"
-                       href="./?published=0"
+                       href="{% url 'mes_erps' %}?published=0"
                        class="fr-tabs__tab"
                        role="tab"
                        aria-controls="tabpanel-unpublished-erps-controls"

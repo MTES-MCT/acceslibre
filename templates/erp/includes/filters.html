@@ -11,10 +11,23 @@
 {% translate "Difficulté à entendre" as deaf_text %}
 {% translate "Difficulté à comprendre" as understand_text %}
 <ul class="fr-tags-group fr-mb-2w fr-mb-md-2w">
-    <li>{% include "search/includes/tag_with_label.html" with slug="visual" input_name="erp_filter" eventType="filterClicked" name=visual_text icon="diff-vision" %}</li>
-    <li>{% include "search/includes/tag_with_label.html" with slug="walking" input_name="erp_filter" eventType="filterClicked" name=walking_text icon="diff-walking" %}</li>
-    <li>{% include "search/includes/tag_with_label.html" with slug="walking" input_name="erp_filter" eventType="filterClicked" name=wheelchair_text icon="wheelchair" %}</li>
-    <li>{% include "search/includes/tag_with_label.html" with slug="hearing" input_name="erp_filter" eventType="filterClicked" name=deaf_text icon="deaf" %}</li>
-    <li>{% include "search/includes/tag_with_label.html" with slug="understand" input_name="erp_filter" eventType="filterClicked" name=understand_text icon="diff-understand" %}</li>
+    <li>
+        {% include "search/includes/tag_with_label.html" with slug="visual" input_name="erp_filter" eventType="filterClicked" name=visual_text icon="diff-vision" %}
+    </li>
+    <li>
+        {% include "search/includes/tag_with_label.html" with slug="walking" input_name="erp_filter" eventType="filterClicked" name=walking_text icon="diff-walking" %}
+    </li>
+    <li>
+        {% include "search/includes/tag_with_label.html" with slug="walking" input_name="erp_filter" eventType="filterClicked" name=wheelchair_text icon="wheelchair" %}
+    </li>
+    <li>
+        {% include "search/includes/tag_with_label.html" with slug="hearing" input_name="erp_filter" eventType="filterClicked" name=deaf_text icon="deaf" %}
+    </li>
+    <li>
+        {% include "search/includes/tag_with_label.html" with slug="understand" input_name="erp_filter" eventType="filterClicked" name=understand_text icon="diff-understand" %}
+    </li>
 </ul>
-<div id="filter-status" class="fr-sr-only" role="status" aria-live="polite"></div>
+<div id="filter-status"
+     class="fr-sr-only"
+     role="status"
+     aria-live="polite"></div>

@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from import_export import resources
 from import_export.fields import Field
 
-from compte.models import UserStats
+from compte.models import UserAPIKey, UserStats
 
 
 class UserAdminResource(resources.ModelResource):
@@ -50,3 +50,27 @@ class UserAdminResource(resources.ModelResource):
             return user.stats.nb_erp_attributed
         except UserStats.DoesNotExist:
             return "N/A"
+
+
+class UserAPIKeyResource(resources.ModelResource):
+    # Only export non-sensitive data: never `id` (contains the hashed key) nor `hashed_key`.
+    username = Field(column_name="Utilisateur")
+
+    class Meta:
+        model = UserAPIKey
+        fields = (
+            "name",
+            "prefix",
+            "username",
+            "description",
+            "created",
+            "expiry_date",
+            "revoked",
+        )
+        export_order = fields
+
+    def get_queryset(self):
+        return super().get_queryset().select_related("user")
+
+    def dehydrate_username(self, obj):
+        return obj.user.username if obj.user_id else ""

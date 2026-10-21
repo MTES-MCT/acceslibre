@@ -44,7 +44,7 @@
             role="tablist"
             aria-label="{% translate "Onglet d'établissements" %}">
             <li role="presentation">
-                <a href="./?ongoing=1"
+                <a href="{% url 'mes_challenges' %}?ongoing=1"
                    id="tabpanel-panel-ongoing-challenges"
                    class="fr-tabs__tab"
                    tabindex="0"
@@ -54,7 +54,7 @@
                 ({{ total_ongoing_challenges }})</a>
             </li>
             <li role="presentation">
-                <a href="./?ongoing=0"
+                <a href="{% url 'mes_challenges' %}?ongoing=0"
                    id="tabpanel-ended-challenges"
                    tabindex="0"
                    role="tab"

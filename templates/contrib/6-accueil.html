@@ -117,7 +117,6 @@
                 <div class="contrib-inputs-section hr-top">
                     {% include "fields/textarea.html" with field=form.accueil_cheminement_nombre_marches key="accueil_cheminement_nombre_marches" %}
                 </div>
-
                 <div class="contrib-inputs-section">
                     {% include "fields/boolradio.html" with field=form.accueil_cheminement_sens_marches inline=True key="accueil_cheminement_sens_marches" %}
                 </div>
@@ -141,7 +140,7 @@
             </div>
         {% endif %}
         {% if form.accueil_audiodescription_presence %}
-            <div class="contrib-inputs-section fr-px-4w fr-py-3w ">
+            <div class="contrib-inputs-section fr-px-4w fr-py-3w">
                 {% include "fields/boolradio.html" with field=form.accueil_audiodescription_presence inline=True key="accueil_audiodescription_presence" %}
                 {% if form.accueil_audiodescription %}
                     <div class="contrib-inputs-section hr-top">

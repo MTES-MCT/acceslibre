@@ -96,3 +96,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.uv]
 package = false
+
+[tool.djlint]
+profile = "django"
+indent = 4
+custom_blocks = "switch,flag,sample"
+ignore = "H006,H021,H019"

@@ -4,9 +4,8 @@
      data-pk="{{ erp.uuid }}"
      data-baseurl="{{ root_url }}"></div>
 <script src="{{ url_widget_js }}"
-        nonce="{{request.csp_nonce }}"
-        id="demo-widget"
-        type="text/javascript"></script>
+        nonce="{{ request.csp_nonce }}"
+        id="demo-widget"></script>
 <div class="widget-card fr-p-4w fr-grid-row gap-4w">
     <div class="fr-col-12 fr-col-md">
         <img class="fr-responsive-img"

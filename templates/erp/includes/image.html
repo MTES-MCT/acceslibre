@@ -13,7 +13,8 @@
                    class="fr-btn fr-btn--secondary">{% translate "Supprimer l'image" %}</a>
             </li>
             <li>
-                <a href="{% url 'panoramax_add' erp_slug=erp.slug %}" class="fr-btn">{% translate "Changer la photo" %}</a>
+                <a href="{% url 'panoramax_add' erp_slug=erp.slug %}"
+                   class="fr-btn">{% translate "Changer la photo" %}</a>
             </li>
         </ul>
     {% elif request.user.is_staff %}

@@ -25,7 +25,7 @@ env_vars: &shared_env_vars
 executors:
   for_tests:
     docker:
-      - image: cimg/python:3.14.3-node
+      - image: cimg/python:3.14.8-node
         environment:
           <<: *shared_env_vars
       - image: cimg/postgres:17.7-postgis
@@ -37,7 +37,7 @@ executors:
 
   for_checks:
     docker:
-      - image: cimg/python:3.14.3-node
+      - image: cimg/python:3.14.8-node
         environment:
           <<: *shared_env_vars
 jobs:
@@ -56,9 +56,11 @@ jobs:
           keys:
             - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
       - run:
-          name: Install uv
+          name: Install pip and uv
           command: |
-            python -m pip install --user uv
+            # pip bundles its own CA bundle: it must be >= 26.2.2 (eSign root CA removal)
+            python -m pip install --upgrade "pip>=26.2.2"
+            python -m pip install --user "uv>=0.13.4"
       - run:
           name: Install Python dependencies
           command: |
@@ -128,9 +130,11 @@ jobs:
           keys:
             - uv-{{ .Branch }}-{{ checksum "uv.lock" }}
       - run:
-          name: Install uv
+          name: Install pip and uv
           command: |
-            python -m pip install --user uv
+            # pip bundles its own CA bundle: it must be >= 26.2.2 (eSign root CA removal)
+            python -m pip install --upgrade "pip>=26.2.2"
+            python -m pip install --user "uv>=0.13.4"
       - run:
           name: Install Python dependencies
           command: |

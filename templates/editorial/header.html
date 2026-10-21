@@ -20,7 +20,8 @@
                                  alt="">
                         </div>
                         <div class="fr-header__navbar">
-                            <button class="fr-btn--menu fr-btn"
+                            <button type="button"
+                                    class="fr-btn--menu fr-btn"
                                     data-fr-opened="false"
                                     aria-controls="menu-modal-controls"
                                     aria-haspopup="menu"
@@ -70,7 +71,8 @@
          id="menu-modal-controls"
          aria-labelledby="menu-controls-label">
         <div class="fr-container">
-            <button class="fr-btn--close fr-btn"
+            <button type="button"
+                    class="fr-btn--close fr-btn"
                     aria-controls="menu-modal-controls"
                     aria-label="{% translate "Fermer le menu de navigation" %}">{% translate "Fermer" %}</button>
             <div class="fr-header__menu-links"></div>
@@ -80,44 +82,55 @@
                 <ul class="fr-nav__list">
                     <li class="fr-nav__item">
                         <a class="fr-nav__link" href="{% url 'home' %}" target="_self">
-                            <span class="fr-pr-1w fr-icon-home-4-line" aria-hidden="true"></span>{% translate "Accueil" %}</a>
+                            <span class="fr-pr-1w fr-icon-home-4-line"
+                                  aria-hidden="true"></span>{% translate "Accueil" %}</a>
                     </li>
                     <li class="fr-nav__item">
                         <div class="fr-nav__item-spacer">
                             <span aria-hidden="true"></span>
                         </div>
-                        <a href="{% url 'search' %}" class="fr-nav__link" target="_self">{% translate "Rechercher un lieu" %}</a>
+                        <a href="{% url 'search' %}"
+                           class="fr-nav__link"
+                           target="_self">{% translate "Rechercher un lieu" %}</a>
                     </li>
                     {% switch "RPA" %}
+                        <li class="fr-nav__item">
+                            <div class="fr-nav__item-spacer">
+                                <span aria-hidden="true"></span>
+                            </div>
+                            <a href="{% url 'registre-public-accessibilite' %}"
+                               class="fr-nav__link"
+                               target="_self">{% translate "Registre public d’accessibilité" %}</a>
+                        </li>
+                    {% endswitch %}
                     <li class="fr-nav__item">
                         <div class="fr-nav__item-spacer">
                             <span aria-hidden="true"></span>
                         </div>
-                        <a href="{% url 'registre-public-accessibilite' %}"
+                        <a href="{% url 'about-us' %}"
                            class="fr-nav__link"
-                           target="_self">{% translate "Registre public d’accessibilité" %}</a>
+                           target="_self">{% translate "Qui sommes-nous ?" %}</a>
                     </li>
-                {% endswitch %}
-                <li class="fr-nav__item">
-                    <div class="fr-nav__item-spacer">
-                        <span aria-hidden="true"></span>
-                    </div>
-                    <a href="{% url 'about-us' %}" class="fr-nav__link" target="_self">{% translate "Qui sommes-nous ?" %}</a>
-                </li>
-                <li class="fr-mav__item">
-                    <a href="{% url 'partenaires' %}" class="fr-nav__link" target="_self">{% translate "Partenaires" %}</a>
-                </li>
-                <li class="fr-mav__item">
-                    <a href="{% url 'faq' %}" class="fr-nav__link" target="_self">{% translate "Une question ?" %}</a>
-                </li>
-                <li class="fr-mav__item">
-                    <div class="fr-nav__item-spacer">
-                        <span aria-hidden="true"></span>
-                    </div>
-                    <a href="{% url 'challenges' %}" class="fr-nav__link" target="_self">{% translate "Challenges" %}</a>
-                </li>
-            </ul>
-        </nav>
+                    <li class="fr-mav__item">
+                        <a href="{% url 'partenaires' %}"
+                           class="fr-nav__link"
+                           target="_self">{% translate "Partenaires" %}</a>
+                    </li>
+                    <li class="fr-mav__item">
+                        <a href="{% url 'faq' %}"
+                           class="fr-nav__link"
+                           target="_self">{% translate "Une question ?" %}</a>
+                    </li>
+                    <li class="fr-mav__item">
+                        <div class="fr-nav__item-spacer">
+                            <span aria-hidden="true"></span>
+                        </div>
+                        <a href="{% url 'challenges' %}"
+                           class="fr-nav__link"
+                           target="_self">{% translate "Challenges" %}</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-</div>
 </header>

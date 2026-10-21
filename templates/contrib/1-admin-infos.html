@@ -111,7 +111,8 @@
                                     <label class="fr-label" for="id_nom">{% translate "Nom *" %}</label>
                                     {{ form.nom }}
                                     {% if form.errors.nom %}
-                                        <p class="fr-error-text" id="nom-error-message">{% translate "Nom obligatoire" %}</p>
+                                        <p class="fr-error-text"
+                                           id="nom-error-message">{% translate "Nom obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                                 {# Activity section #}
@@ -124,7 +125,8 @@
                                         </label>
                                         {{ form.activite }}
                                         {% if form.errors.activite %}
-                                            <p class="fr-error-text" id="activite-error-message">{% translate "Activité obligatoire" %}</p>
+                                            <p class="fr-error-text"
+                                               id="activite-error-message">{% translate "Activité obligatoire" %}</p>
                                         {% endif %}
                                         <ul class="list-group">
                                         </ul>
@@ -142,7 +144,8 @@
                                         <span class="fr-hint-text">{% translate "Veuillez remplir ce champ si le champ lieu-dit est vide" %}</span>
                                     </label>
                                     {{ form.voie }}
-                                    {% if form.errors.voie %}<p class="fr-error-text" id="voie-error-message">{{ form.errors.voie.0 }}</p>{% endif %}
+                                    {% if form.errors.voie %}<p class="fr-error-text"
+   id="voie-error-message">{{ form.errors.voie.0 }}</p>{% endif %}
                                 </div>
                             </div>
                             <div class="fr-grid-row fr-px-2w fr-mb-2w fr-mb-2w {% if form.errors.lieu_dit %}align-items--center{% else %}align-items--end{% endif %}">
@@ -150,7 +153,8 @@
                                     <label class="fr-label" for="id_code_postal">{% translate "Code postal *" %}</label>
                                     {{ form.code_postal }}
                                     {% if form.errors.code_postal %}
-                                        <p class="fr-error-text" id="code-postal-error-message">{% translate "Code postal obligatoire" %}</p>
+                                        <p class="fr-error-text"
+                                           id="code-postal-error-message">{% translate "Code postal obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                                 <div class="fr-col-12 fr-col-md-6 fr-input-group fr-input-group {% if form.errors.lieu_dit %}fr-input-group--error{% endif %}">
@@ -160,7 +164,8 @@
                                     </label>
                                     {{ form.lieu_dit }}
                                     {% if form.errors.lieu_dit %}
-                                        <p class="fr-error-text" id="lieu-dit-error-message">{{ form.errors.lieu_dit.0 }}</p>
+                                        <p class="fr-error-text"
+                                           id="lieu-dit-error-message">{{ form.errors.lieu_dit.0 }}</p>
                                     {% endif %}
                                 </div>
                             </div>
@@ -169,7 +174,8 @@
                                     <label class="fr-label" for="id_commune">{% translate "Commune *" %}</label>
                                     {{ form.commune }}
                                     {% if form.errors.commune %}
-                                        <p class="fr-error-text" id="commune-error-message">{% translate "Commune obligatoire" %}</p>
+                                        <p class="fr-error-text"
+                                           id="commune-error-message">{% translate "Commune obligatoire" %}</p>
                                     {% endif %}
                                 </div>
                             </div>
@@ -265,54 +271,60 @@
                                         {% elif external_erp %}
                                             {{ external_erp.adresse }}
                                         {% endif %}
-                                    </span>
-                                </em>
-                            </small>
-                        </h4>
-                    {% endif %}
-                    <div id="localisation-map">
-                        <fieldset class="fr-fieldset">
-                            <legend class="fr-fieldset__legend">{% translate "Position précise de l'établissement" %}</legend>
-                            <div class="fr-fieldset__element">
-                                <div class="fr-input-group {% if form.errors.lat %}fr-input-group--error{% endif %}">
-                                    <label class="fr-label" for="id_latitude">{% translate "Latitude *" %}</label>
-                                    {{ form.lat }}
-                                    {% if form.errors.lat %}
-                                        <p class="fr-error-text" id="latitude-error-message">{{ form.errors.lat.0 }}</p>
-                                    {% endif %}
+                                        </span>
+                                        </em>
+                                    </small>
+                                </h4>
+                            {% endif %}
+                            <div id="localisation-map">
+                                <fieldset class="fr-fieldset">
+                                    <legend class="fr-fieldset__legend">{% translate "Position précise de l'établissement" %}</legend>
+                                    <div class="fr-fieldset__element">
+                                        <div class="fr-input-group {% if form.errors.lat %}fr-input-group--error{% endif %}">
+                                            <label class="fr-label"
+                                                   for="id_latitude">{% translate "Latitude *" %}</label>
+                                            {{ form.lat }}
+                                            {% if form.errors.lat %}
+                                                <p class="fr-error-text"
+                                                   id="latitude-error-message">{{ form.errors.lat.0 }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="fr-fieldset__element">
+                                        <div class="fr-input-group {% if form.errors.lon %}fr-input-group--error{% endif %}">
+                                            <label class="fr-label"
+                                                   for="id_longitude">{% translate "Longitude *" %}</label>
+                                            {{ form.lon }}
+                                            {% if form.errors.lon %}
+                                                <p class="fr-error-text"
+                                                   id="longitude-error-message">{{ form.errors.lon.0 }}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div aria-hidden="true">
+                                    <div class="a4a-localisation-map"></div>
+                                    {{ map_options|json_script:"map-options" }}
+                                </div>
+                                <div class="fr-skiplinks" data-target-id="back-to-map-btn">
+                                    <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+                                        <ul class="fr-skiplinks__list">
+                                            <li>
+                                                <a class="fr-link"
+                                                   id="skip-map-btn"
+                                                   href="#back-to-map-btn">{% translate "Passer la carte interactive" %}</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
-                            <div class="fr-fieldset__element">
-                                <div class="fr-input-group {% if form.errors.lon %}fr-input-group--error{% endif %}">
-                                    <label class="fr-label" for="id_longitude">{% translate "Longitude *" %}</label>
-                                    {{ form.lon }}
-                                    {% if form.errors.lon %}
-                                        <p class="fr-error-text" id="longitude-error-message">{{ form.errors.lon.0 }}</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </fieldset>
-                        <div aria-hidden="true">
-                            <div class="a4a-localisation-map"></div>
-                            {{ map_options|json_script:"map-options" }}
                         </div>
-                        <div class="fr-skiplinks" data-target-id="back-to-map-btn">
-                            <nav role="navigation" aria-label="Accès rapide" class="fr-container">
-                                <ul class="fr-skiplinks__list">
-                                    <li>
-                                        <a class="fr-link" id="skip-map-btn" href="#back-to-map-btn">{% translate "Passer la carte interactive" %}</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                    </fieldset>
                 </div>
-            </fieldset>
-        </div>
+            </div>
+            {% if not existing_matches %}
+                {% include "contrib/includes/prevnext.html" %}
+            {% endif %}
+        </form>
     </div>
-    {% if not existing_matches %}
-        {% include "contrib/includes/prevnext.html" %}
-    {% endif %}
-</form>
-</div>
 {% endblock contrib_content %}

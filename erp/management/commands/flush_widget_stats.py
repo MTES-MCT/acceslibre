@@ -1,9 +1,11 @@
+from datetime import date
+
 import redis
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, models
 
-from stats.models import WidgetEvent
+from stats.models import WidgetDomainMonth, WidgetEvent
 
 
 class Command(BaseCommand):
@@ -27,6 +29,7 @@ class Command(BaseCommand):
         pattern = "*stats_widget:*"
 
         keys_found = 0
+        views_per_month = {}
         if verbose:
             self.stdout.write(f"Scanning Redis with pattern: {pattern}")
 
@@ -52,6 +55,7 @@ class Command(BaseCommand):
 
                 # maxsplit=2 is crucial because referer_url contains colons (http://...)
                 date_str, domain, referer = raw_data.split(":", 2)
+                event_date = date.fromisoformat(date_str)
 
                 updated = WidgetEvent.objects.filter(date=date_str, domain=domain, referer_url=referer).update(
                     views=models.F("views") + count
@@ -72,6 +76,10 @@ class Command(BaseCommand):
                             views=models.F("views") + count
                         )
 
+                month = date(event_date.year, event_date.month, 1)
+                bucket = (domain, month)
+                views_per_month[bucket] = views_per_month.get(bucket, 0) + count
+
                 keys_found += 1
                 if verbose:
                     self.stdout.write(self.style.SUCCESS(f"Flushed {count} views for {domain}"))
@@ -79,5 +87,13 @@ class Command(BaseCommand):
             except (IndexError, ValueError) as e:
                 self.stdout.write(self.style.WARNING(f"Skipping malformed key {key_str}: {e}"))
                 continue
+
+        for (domain, month), views in views_per_month.items():
+            WidgetDomainMonth.record(
+                domain,
+                month=month,
+                total_views=views,
+                accumulate=True,
+            )
 
         self.stdout.write(self.style.SUCCESS(f"Successfully flushed {keys_found} entries to DB"))

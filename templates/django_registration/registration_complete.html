@@ -12,7 +12,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -29,7 +30,7 @@
     </div>
 {% endblock breadcrumb %}
 {% block top_fluid_content %}
-    {% if 'contrib/publication/' in request.GET.next %}
+    {% if "contrib/publication/" in request.GET.next %}
         <div class="fr-follow fr-p-3v bg-alt-blue-france-975">
             <div class="fr-container">
                 <div class="fr-follow__newsletter">
@@ -56,7 +57,7 @@
     <div class="fr-alert fr-alert--info fr-mb-4w" role="alert">
         <p>
             {% blocktranslate %}Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte{% endblocktranslate %}
-            {% if 'contrib/publication/' in request.GET.next %}
+            {% if "contrib/publication/" in request.GET.next %}
                 {% translate "et de publier la fiche" %}
             {% endif %}
         </p>

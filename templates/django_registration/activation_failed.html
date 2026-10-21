@@ -12,7 +12,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -37,7 +38,8 @@
                 {% url 'contact_topic' topic='connection' as url_contact_connection %}
                 {% if activation_error.code == "already_activated" %}
                     {% translate "Votre compte a déjà été activé." %}
-                    {% translate "Vous pouvez donc" %} <a class="fr-link" href="{% url 'login' %}?next={{ request.GET.next }}">{% translate "vous authentifier" %}</a>.
+                    {% translate "Vous pouvez donc" %} <a class="fr-link"
+    href="{% url 'login' %}?next={{ request.GET.next }}">{% translate "vous authentifier" %}</a>.
                 {% elif activation_error.code == "bad_username" %}
                     {% blocktranslate %}
       Nous n'avons pu retrouver le compte associé à cette demande d'activation.

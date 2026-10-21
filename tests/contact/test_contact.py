@@ -1,3 +1,4 @@
+import re
 from unittest.mock import ANY
 
 import pytest
@@ -273,7 +274,7 @@ def test_contact_api_key_topic_page_for_anonymous(client):
 
     content = response.content.decode()
 
-    assert 'value="api_key" disabled' in content
+    assert re.search(r'value="api_key"\s+disabled', content)
     assert "fr-alert--info" in content
 
 

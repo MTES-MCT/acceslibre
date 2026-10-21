@@ -16,6 +16,7 @@ from api.serializers import (
     ActiviteWithCountSerializer,
     ErpGeoSerializer,
     ErpSerializer,
+    WidgetSectionSerializer,
     WidgetSerializer,
 )
 from erp import schema
@@ -482,6 +483,12 @@ class ErpSchema(A4aAutoSchema):
         },
     }
 
+    def map_field(self, field):
+        # SerializerMethodField is documented as a string by default, describe the widget sections explicitly
+        if isinstance(field.parent, WidgetSerializer) and field.field_name == "sections":
+            return {"type": "array", "items": self.map_serializer(WidgetSectionSerializer())}
+        return super().map_field(field)
+
 
 class ErpViewSet(
     mixins.CreateModelMixin,
@@ -520,10 +527,15 @@ class ErpViewSet(
         "list": ErpSerializer,
         "create": ErpImportSerializer,
         "partial_update": ErpImportSerializer,
+        "get_widget": WidgetSerializer,
     }
 
     permission_classes = [IsAllowedForAction, CanModifyErp]
-    queryset = Erp.objects.select_related("activite", "accessibilite", "commune_ext").order_by("nom")
+    queryset = (
+        Erp.objects.select_related("activite", "accessibilite", "commune_ext")
+        .prefetch_related("sources")
+        .order_by("nom")
+    )
     lookup_field = "slug"
     bbox_filter_field = "geom"
     filter_backends = (ZoneFilter, EquipmentFilter, ErpFilter)

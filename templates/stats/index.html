@@ -14,7 +14,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -32,7 +33,6 @@
 {% endblock breadcrumb %}
 {% block editorial_content %}
     <h1>{% translate "Statistiques d'Acceslibre" %}</h1>
-
     <div class="sections-container">
         <h2 class="fr-h4 fr-mb-0">{% translate "Contributions" %}</h2>
         <ul class="tiles-section fr-p-0">

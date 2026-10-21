@@ -8,7 +8,8 @@
         <nav role="navigation"
              class="fr-breadcrumb fr-mt-3w fr-mt-md-2w"
              aria-label="{% translate "Vous êtes ici :" %}">
-            <button class="fr-breadcrumb__button"
+            <button type="button"
+                    class="fr-breadcrumb__button"
                     aria-expanded="false"
                     aria-controls="breadcrumb-navigation">{% translate "Voir le fil d'Ariane" %}</button>
             <div class="fr-collapse" id="breadcrumb-navigation">
@@ -17,7 +18,8 @@
                         <a class="fr-breadcrumb__link" href="{% url "home" %}">{% translate "Accueil" %}</a>
                     </li>
                     <li>
-                        <a class="fr-breadcrumb__link" aria-current="page">{% translate "Déclaration d'accessibilité" %}</a>
+                        <a class="fr-breadcrumb__link"
+                           aria-current="page">{% translate "Déclaration d'accessibilité" %}</a>
                     </li>
                 </ol>
             </div>
@@ -102,27 +104,25 @@
             <li>{% translate "Validateur HTML du W3C" %}</li>
             <li>WAVE</li>
         </ul>
-
         <h3 class="fr-mt-2w">{% translate "Pages du site ayant fait l’objet de la vérification de conformité" %}</h3>
         <ul class="fr-pl-4w">
-          <li>{% translate "Accueil" %}</li>
-          <li>{% translate "Contact" %}</li>
-          <li>{% translate "Mentions légales" %}</li>
-          <li>{% translate "Accessibilité" %}</li>
-          <li>{% translate "Plan du site" %}</li>
-          <li>{% translate "Authentification" %}</li>
-          <li>{% translate "Rechercher un lieu" %}</li>
-          <li>{% translate "Qui sommes-nous ?" %}</li>
-          <li>{% translate "Partenaires" %}</li>
-          <li>{% translate "Questions fréquentes" %}</li>
-          <li>{% translate "Challenges" %}</li>
-          <li>{% translate "Mon profil et préférences" %}</li>
-          <li>{% translate "Ajouter / modifier un établissement" %}</li>
-          <li>{% translate "Fiche détaillée d'un ERP" %}</li>
-          <li>{% translate "Statistiques" %}</li>
-          <li>{% translate "Communes et territoires pilotes" %}</li>
+            <li>{% translate "Accueil" %}</li>
+            <li>{% translate "Contact" %}</li>
+            <li>{% translate "Mentions légales" %}</li>
+            <li>{% translate "Accessibilité" %}</li>
+            <li>{% translate "Plan du site" %}</li>
+            <li>{% translate "Authentification" %}</li>
+            <li>{% translate "Rechercher un lieu" %}</li>
+            <li>{% translate "Qui sommes-nous ?" %}</li>
+            <li>{% translate "Partenaires" %}</li>
+            <li>{% translate "Questions fréquentes" %}</li>
+            <li>{% translate "Challenges" %}</li>
+            <li>{% translate "Mon profil et préférences" %}</li>
+            <li>{% translate "Ajouter / modifier un établissement" %}</li>
+            <li>{% translate "Fiche détaillée d'un ERP" %}</li>
+            <li>{% translate "Statistiques" %}</li>
+            <li>{% translate "Communes et territoires pilotes" %}</li>
         </ul>
-
         <h2 class="fr-mt-2w">{% translate "Retour d’information et contact" %}</h2>
         <p>
             {% translate "Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter le responsable de Acceslibre - Contre audit - juin 2026 pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme." %}

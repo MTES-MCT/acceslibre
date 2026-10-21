@@ -15,13 +15,12 @@
             <div class="fr-col-12 fr-col-md-10 fr-col-lg-8">
                 <div class="fr-modal__body">
                     <div class="fr-modal__header">
-                        <button class="fr-btn--close fr-btn"
+                        <button type="button"
+                                class="fr-btn--close fr-btn"
                                 title="{% translate "Fermer la fenêtre modale" %}"
                                 aria-controls="rpa-confirm-modal">{% translate "Fermer" %}</button>
                     </div>
-                    <div class="fr-modal__content">
-                        {% include "erp/includes/rpa_modal.html" %}
-                    </div>
+                    <div class="fr-modal__content">{% include "erp/includes/rpa_modal.html" %}</div>
                     <div class="fr-modal__footer">
                         <div class="fr-btns-group fr-btns-group--right fr-btns-group--inline-lg">
                             <button id="rpa-confirm-modal-confirm-btn" class="fr-btn" type="button">
