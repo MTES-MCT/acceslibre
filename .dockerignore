@@ -1,11 +1,18 @@
+# Database dumps and local data (these were bloating every image build)
+**/*.pgsql
+**/*.sql
+**/*.dump
+**/*.sql.gz
+data_psql/
+
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
 
 # C extensions
-*.so
+**/*.so
 
 # Distribution / packaging
 .Python
@@ -17,7 +24,7 @@ eggs/
 sdist/
 develop-eggs/
 .installed.cfg
-*.egg-info/
+**/*.egg-info/
 .venv/
 
 # Pyinstaller
@@ -26,20 +33,28 @@ build/
 *.spec
 
 # Django specific
-*.log
-*.sqlite3
+**/*.log
+**/*.sqlite3
 media/
 static/
+
+# Tooling caches and coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+node_modules/
 
 # IDE files
 .idea/
 .vscode/
 
 # Editor files
-*.swp
-*.swo
-*~
-.DS_Store
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
 
 # Version control
 .git/
