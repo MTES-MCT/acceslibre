@@ -19,7 +19,7 @@
                     </form>
                 </li>
             {% endif %}
-            {% if erp.user != request.user %}
+            {% if request.user.is_authenticated and erp.user != request.user %}
                 {% if erp.rpa %}
                     <li>
                         <button data-fr-opened="false"
@@ -55,7 +55,7 @@
             {% endif %}
         </ul>
     </div>
-    {% if erp.user != request.user and not erp.rpa %}
+    {% if request.user.is_authenticated and erp.user != request.user and not erp.rpa %}
         <dialog id="claim-modal"
                 class="fr-modal"
                 aria-labelledby="modal-title"
@@ -93,7 +93,7 @@
             </div>
         </dialog>
     {% endif %}
-    {% if erp.user != request.user and erp.rpa %}
+    {% if request.user.is_authenticated and erp.user != request.user and erp.rpa %}
         <dialog id="transfer-modal"
                 class="fr-modal"
                 aria-labelledby="transfer-modal-title"
@@ -115,11 +115,12 @@
                                                     title="{% translate "Annuler" %}"
                                                     type="button"
                                                     class="fr-btn fr-btn--secondary fr-mb-md-0">
-                                                {% translate "Non, je ne suis pas le gestionnaire" %}
+                                                {% translate "Non, annuler" %}
                                             </button>
                                         </li>
                                         <li>
-                                            <button class="fr-btn text-center fr-mb-md-0" type="submit">{% translate "Oui, je suis le gestionnaire" %}</button>
+                                            <button class="fr-btn text-center fr-mb-md-0"
+                                                    type="submit">{% translate "Oui, je souhaite devenir gestionnaire" %}</button>
                                         </li>
                                     </ul>
                                 </form>

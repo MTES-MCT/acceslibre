@@ -516,7 +516,9 @@ class ErpTransferRequestAdmin(admin.ModelAdmin):
     list_filter = ("status", "created_at")
     search_fields = ("erp__nom", "previous_manager__email", "new_manager__email")
     autocomplete_fields = ("erp", "previous_manager", "new_manager")
-    readonly_fields = ("token",)
+    list_select_related = ("erp", "previous_manager", "new_manager")
+    readonly_fields = ("token", "status", "created_at", "responded_at", "reminder_sent_at")
+    ordering = ("-created_at",)
     date_hierarchy = "created_at"
 
 

@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ("erp", "0191_remove_accessibilite_erp_accessibilite_sanitaires_presence_consistency_and_more"),
+        ("erp", "0192_accueil_tribunes_presence"),
     ]
 
     operations = [
@@ -82,5 +82,13 @@ class Migration(migrations.Migration):
                 "verbose_name": "Demande de changement de gestionnaire",
                 "verbose_name_plural": "Demandes de changement de gestionnaire",
             },
+        ),
+        migrations.AddConstraint(
+            model_name="erptransferrequest",
+            constraint=models.UniqueConstraint(
+                condition=models.Q(status="pending"),
+                fields=("erp",),
+                name="unique_pending_transfer_request_per_erp",
+            ),
         ),
     ]

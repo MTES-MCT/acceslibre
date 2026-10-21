@@ -7,7 +7,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.urls import reverse
 
 from erp.models import Accessibilite, Erp, ExternalSource
-from tests.factories import AccessibiliteFactory, ErpFactory, ExternalSourceFactory, UserFactory
+from tests.factories import AccessibiliteFactory, ActiviteFactory, ErpFactory, ExternalSourceFactory, UserFactory
 
 REMOVE_LABEL = "Supprimer l'image"
 CHANGE_LABEL = "Changer la photo"
@@ -208,6 +208,9 @@ def test_contrib_edit_infos_rpa_not_owner_denied(client, mocker):
 @pytest.mark.django_db
 def test_contrib_edit_infos_rpa_owner_allowed(client, mocker):
     mocker.patch("erp.models.Erp.rpa", return_value=True)
+    # The view renders a form referencing the "Autre" activity, which is not seeded by the
+    # data migrations in test mode (see the `run_python` wrapper of the squashed migration).
+    ActiviteFactory(slug="autre")
     owner = UserFactory()
     erp = AccessibiliteFactory(erp__user=owner, entree_porte_presence=True).erp
     client.force_login(owner)
