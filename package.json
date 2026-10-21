@@ -14,8 +14,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf static/dist/",
-    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js",
-    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js"
+    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js static/swagger.js",
+    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js static/swagger.js"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,8 @@
     "parcel": "2.16.1",
     "pnpm": "^12.10.1",
     "process": "0.11.10",
-    "remixicon": "4.9.1"
+    "remixicon": "4.9.1",
+    "swagger-ui-dist": "5.33.1"
   },
   "devDependencies": {
     "eslint": "10.12.0",
