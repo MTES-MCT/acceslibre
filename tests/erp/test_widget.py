@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from django.utils import translation
 
+from erp.models import Accessibilite
+from erp.widget_utils import get_salle_consultation_label, get_soignant_label
 from tests.factories import AccessibiliteFactory
 
 
@@ -59,3 +61,47 @@ def test_widget_code_falls_back_on_default_language():
 
     with translation.override(None):
         assert 'data-lang="fr"' in access.erp.widget_code
+
+
+@pytest.mark.parametrize(
+    "accueil_soignant, accueil_soignant_experience, expected_label",
+    (
+        (None, [], ""),
+        (False, [], "Soignant non sensibilisé au handicap"),
+        (True, [], "Soignant sensibilisé au handicap"),
+        (True, None, "Soignant sensibilisé au handicap"),
+        (True, ["auditif"], "Soignant sensibilisé au handicap : auditif"),
+        (True, ["cognitif", "visuel", "auditif"], "Soignant sensibilisé au handicap : auditif, visuel, cognitif"),
+    ),
+)
+def test_get_soignant_label(accueil_soignant, accueil_soignant_experience, expected_label):
+    access = Accessibilite(
+        accueil_soignant=accueil_soignant, accueil_soignant_experience=accueil_soignant_experience
+    )
+
+    with translation.override("fr"):
+        assert get_soignant_label(access) == expected_label
+
+
+@pytest.mark.parametrize(
+    "accueil_salle_consultation_accessible, accueil_consultation_domicile, expected_label",
+    (
+        (None, None, ""),
+        (None, True, ""),
+        (True, None, "Salle de consultation accessible aux fauteuils roulants"),
+        (True, False, "Salle de consultation accessible aux fauteuils roulants"),
+        (False, None, "Salle de consultation non accessible"),
+        (False, False, "Salle de consultation non accessible"),
+        (False, True, "Salle de consultation non accessible. Consultations à domicile possibles."),
+    ),
+)
+def test_get_salle_consultation_label(
+    accueil_salle_consultation_accessible, accueil_consultation_domicile, expected_label
+):
+    access = Accessibilite(
+        accueil_salle_consultation_accessible=accueil_salle_consultation_accessible,
+        accueil_consultation_domicile=accueil_consultation_domicile,
+    )
+
+    with translation.override("fr"):
+        assert get_salle_consultation_label(access) == expected_label

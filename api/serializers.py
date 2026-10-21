@@ -15,6 +15,8 @@ from erp.widget_utils import (
     get_outside_path_label,
     get_parking_label,
     get_room_accessible_label,
+    get_salle_consultation_label,
+    get_soignant_label,
     get_sound_beacon_label,
     get_staff_label,
     get_wc_label,
@@ -282,6 +284,16 @@ class WidgetSerializer(serializers.Serializer):
                 "title": translate("accessibilité salle de classe"),
                 "labels": [get_accueil_classes(access)],
                 "icon": f"{settings.SITE_ROOT_URL}/static/img/accessibilite_salle_de_classe.png",
+            },
+            {
+                "title": translate("soignant"),
+                "labels": [get_soignant_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/soignant-widget.png",
+            },
+            {
+                "title": translate("salle de consultation"),
+                "labels": [get_salle_consultation_label(access)],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/symbole-sante-widget.png",
             },
         ]
 
