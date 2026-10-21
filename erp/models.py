@@ -2646,6 +2646,13 @@ class ErpTransferRequest(models.Model):
     class Meta:
         verbose_name = translate_lazy("Demande de changement de gestionnaire")
         verbose_name_plural = translate_lazy("Demandes de changement de gestionnaire")
+        constraints = [
+            UniqueConstraint(
+                fields=["erp"],
+                condition=Q(status="pending"),
+                name="unique_pending_transfer_request_per_erp",
+            ),
+        ]
 
     def __str__(self):
         return f"Transfert de {self.erp} : {self.previous_manager} -> {self.new_manager} ({self.status})"
