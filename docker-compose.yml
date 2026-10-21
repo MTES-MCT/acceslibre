@@ -3,6 +3,12 @@ services:
   app:
     platform: linux/amd64
     build: .
+    # Interactive debugging support (ipdb/pdb): allocate a TTY and keep stdin
+    # open so that `docker attach` gives a live, raw terminal to the process.
+    tty: true
+    stdin_open: true
+    environment:
+      TERM: xterm-256color
     ports:
       - '7001:7000'
     env_file:
