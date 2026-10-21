@@ -64,6 +64,12 @@ BREVO_TEMPLATE_IDS = {
     "password_reset": 463,
     "export-results": 498,
     "erp_imported_brevo_matching": 652,
+    "demande_transfer_ancien_gestionnaire": 817,
+    "demande_transfer_relance": 815,
+    "transfer_ok_nouveau_gestionnaire": 813,
+    "transfer_ok_ancien_gestionnaire": 812,
+    "transfer_ok_expiration_ancien_gestionnaire": 816,
+    "transfer_ko_nouveau_gestionnaire": 814,
 }
 BREVO_CONTACT_LIST_IDS = {
     "tally-respondents": 262,
