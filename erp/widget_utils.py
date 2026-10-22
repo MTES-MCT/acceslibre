@@ -162,3 +162,38 @@ def get_accueil_ascenseur_etage(access):
     if access.accueil_ascenseur_etage is True:
         return translate("Étages desservis par un ascenseur")
     return None
+
+
+def get_soignant_label(access):
+    if access.accueil_soignant is False:
+        return translate("Soignant non sensibilisé au handicap")
+    if access.accueil_soignant is not True:
+        return ""
+
+    short_label_by_experience = {
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_AUDITIF: translate("auditif"),
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_VISUEL: translate("visuel"),
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_MOTEUR: translate("moteur"),
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_MENTAL: translate("mental"),
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_PSYCHIQUE: translate("psychique"),
+        schema.ACCUEIL_SOIGNANT_EXPERIENCE_COGNITIF: translate("cognitif"),
+    }
+    experiences = [
+        short_label
+        for experience, short_label in short_label_by_experience.items()
+        if experience in (access.accueil_soignant_experience or [])
+    ]
+    if not experiences:
+        return translate("Soignant sensibilisé au handicap")
+
+    return translate("Soignant sensibilisé au handicap : %s") % ", ".join(experiences)
+
+
+def get_salle_consultation_label(access):
+    if access.accueil_salle_consultation_accessible is True:
+        return translate("Salle de consultation accessible aux fauteuils roulants")
+    if access.accueil_salle_consultation_accessible is False:
+        if access.accueil_consultation_domicile is True:
+            return translate("Salle de consultation non accessible. Consultations à domicile possibles.")
+        return translate("Salle de consultation non accessible")
+    return ""
