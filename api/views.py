@@ -12,6 +12,7 @@ from rest_framework_gis.pagination import GeoJsonPagination
 from api.filters import EquipmentFilter, ErpFilter, ZoneFilter
 from api.permissions import CanModifyErp, IsAllowedForAction
 from api.serializers import (
+    AccessibiliteSchemaSerializer,
     AccessibiliteSerializer,
     ActiviteWithCountSerializer,
     ErpGeoSerializer,
@@ -144,6 +145,14 @@ class A4aAutoSchema(AutoSchema):
 
     see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
     """
+
+    def map_serializer(self, serializer):
+        # AccessibiliteSerializer groups the model fields by section at serialization time
+        # (see its `to_representation`), which the class alone does not describe. Its dedicated
+        # schema serializer is used to document the real payload.
+        if isinstance(serializer, AccessibiliteSerializer):
+            serializer = AccessibiliteSchemaSerializer()
+        return super().map_serializer(serializer)
 
     def get_operation(self, path, method):
         op = super().get_operation(path, method)
