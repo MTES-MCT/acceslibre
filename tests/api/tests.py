@@ -1275,6 +1275,30 @@ class TestWidgetApi:
             "icon": {"type": "string"},
         }
 
+    @pytest.mark.django_db
+    def test_openapi_accessibilite_schema_is_grouped_by_section(self, api_client_authenticated):
+        """The accessibility payload is grouped by section, the schema must describe that shape."""
+        response = api_client_authenticated.get(reverse("openapi-schema"), {"format": "openapi-json"})
+        assert response.status_code == 200
+
+        openapi = response.json()
+        properties = openapi["components"]["schemas"]["Accessibilite"]["properties"]
+        expected_sections = set(schema.get_api_fieldsets())
+
+        assert set(properties) == {"url", "erp"} | expected_sections
+        # the model fields are not exposed flat anymore
+        assert "transport_station_presence" not in properties
+        for section_id in expected_sections:
+            section = properties[section_id]
+            assert section["type"] == "object"
+            assert set(section["properties"]) == set(schema.get_api_fieldsets()[section_id]["fields"])
+        assert properties["transport"]["properties"]["transport_station_presence"]["type"] == "boolean"
+        assert properties["accueil"]["properties"]["accueil_audiodescription"]["type"] == "array"
+
+        # the nested accessibility of an ERP is described the same way
+        erp_properties = openapi["components"]["schemas"]["Erp"]["properties"]
+        assert set(erp_properties["accessibilite"]["properties"]) == set(properties)
+
 
 @pytest.mark.django_db
 class TestApiIsClosed:
