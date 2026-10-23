@@ -114,14 +114,18 @@
             {% elif access.accueil_aire_de_jeux is False %}
                 <li data-filters="walking">{{ "accueil_aire_de_jeux"|negative_text }}</li>
             {% endif %}
-            {% if access.accueil_tribunes %}
-                <li data-filters="walking">{{ "accueil_tribunes"|positive_text }}</li>
-            {% elif access.accueil_tribunes is False %}
-                <li data-filters="walking">{{ "accueil_tribunes"|negative_text }}</li>
-            {% endif %}
-            {% if access.accueil_tribunes_places %}
-                <li data-filters="walking">{{ access.get_accueil_tribunes_places }}</li>
-                <li data-filters="walking">{{ access.get_accueil_tribunes_places_avec_accompagnants }}</li>
+            {% if access.accueil_tribunes_presence %}
+                {% if access.accueil_tribunes %}
+                    <li data-filters="walking">{{ "accueil_tribunes"|positive_text }}</li>
+                {% elif access.accueil_tribunes is False %}
+                    <li data-filters="walking">{{ "accueil_tribunes"|negative_text }}</li>
+                {% endif %}
+                {% if access.accueil_tribunes_places %}
+                    <li data-filters="walking">{{ access.get_accueil_tribunes_places }}</li>
+                    <li data-filters="walking">{{ access.get_accueil_tribunes_places_avec_accompagnants }}</li>
+                {% endif %}
+            {% elif access.accueil_tribunes_presence is False %}
+                <li data-filters="walking">{{ "accueil_tribunes_presence"|negative_text }}</li>
             {% endif %}
             {% if access.get_accueil_vestiaires %}<li data-filters="walking">{{ access.get_accueil_vestiaires }}</li>{% endif %}
             {% if access.get_accueil_douches_collectives %}

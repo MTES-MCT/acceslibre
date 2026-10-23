@@ -97,6 +97,7 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
     accueil_salle_consultation_accessible = NullBooleanField(required=False, allow_null=True)
     accueil_consultation_domicile = NullBooleanField(required=False, allow_null=True)
     accueil_aire_de_jeux = NullBooleanField(required=False, allow_null=True)
+    accueil_tribunes_presence = NullBooleanField(required=False, allow_null=True)
     accueil_tribunes = NullBooleanField(required=False, allow_null=True)
     accueil_vestiaires = NullBooleanField(required=False, allow_null=True)
     accueil_douches_collectives = NullBooleanField(required=False, allow_null=True)
@@ -113,6 +114,16 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Accessibilite
         fields = "__all__"
+
+    def validate(self, attrs):
+        # NOTE: backward compatibility, "accueil_tribunes_presence" has been added after its children,
+        #       payloads sending a child without it imply that the establishment has some tribunes.
+        if "accueil_tribunes_presence" not in attrs and any(
+            attrs.get(child) is not None for child in FIELDS["accueil_tribunes_presence"]["children"]
+        ):
+            attrs["accueil_tribunes_presence"] = True
+
+        return super().validate(attrs)
 
 
 class ErpImportSerializer(serializers.ModelSerializer):

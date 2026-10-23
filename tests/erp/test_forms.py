@@ -47,6 +47,31 @@ def test_ContribAccessibiliteHealthcareForm_keeps_soignant_experience_when_soign
     assert form.clean_accueil_soignant_experience() == experiences
 
 
+@pytest.mark.parametrize("presence", (False, None))
+def test_ContribAccessibiliteSportsEquipmentForm_clears_tribunes_when_no_tribunes(presence):
+    form = forms.ContribAccessibiliteSportsEquipmentForm()
+    form.cleaned_data = {
+        "accueil_tribunes_presence": presence,
+        "accueil_tribunes": True,
+        "accueil_tribunes_places": 3,
+    }
+
+    assert form.clean_accueil_tribunes() is None
+    assert form.clean_accueil_tribunes_places() is None
+
+
+def test_ContribAccessibiliteSportsEquipmentForm_keeps_tribunes_when_tribunes():
+    form = forms.ContribAccessibiliteSportsEquipmentForm()
+    form.cleaned_data = {
+        "accueil_tribunes_presence": True,
+        "accueil_tribunes": False,
+        "accueil_tribunes_places": 3,
+    }
+
+    assert form.clean_accueil_tribunes() is False
+    assert form.clean_accueil_tribunes_places() == 3
+
+
 @pytest.mark.django_db
 def test_ProviderGlobalSearchForm():
     commune = CommuneFactory(nom="Jacou", code_insee="34120", departement="34")
