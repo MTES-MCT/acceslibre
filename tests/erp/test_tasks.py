@@ -9,8 +9,7 @@ SPORTS_EQUIPMENT_ROOT_FIELDS = (
     "stationnement_zone_depose_pmr",
     "accueil_physique",
     "accueil_aire_de_jeux",
-    "accueil_tribunes",
-    "accueil_tribunes_places",
+    "accueil_tribunes_presence",
     "accueil_vestiaires",
     "accueil_douches_collectives",
     "accueil_douches_individuelles",
@@ -23,6 +22,8 @@ SPORTS_EQUIPMENT_ORPHAN_FIELDS = (
 )
 # Only exposed once their parent is filled in with a value triggering the children
 SPORTS_EQUIPMENT_CHILD_FIELDS = (
+    "accueil_tribunes",
+    "accueil_tribunes_places",
     "accueil_tribunes_localisation_places",
     "accueil_tribunes_places_avec_accompagnants",
     "accueil_vestiaires_largeur_passage",
@@ -193,8 +194,7 @@ def test_compute_completion_rate_sports_equipment_without_children():
     access.stationnement_zone_depose_pmr = True
     access.accueil_physique = "inexistant"
     access.accueil_aire_de_jeux = False
-    access.accueil_tribunes = False
-    access.accueil_tribunes_places = 0
+    access.accueil_tribunes_presence = False
     access.accueil_vestiaires = False
     access.accueil_douches_collectives = False
     access.accueil_douches_individuelles = False
@@ -212,13 +212,13 @@ def test_compute_completion_rate_sports_equipment_without_children():
     assert not set(SPORTS_EQUIPMENT_CHILD_FIELDS) & exposed_fields
     # filling in the orphan fields does not change the completion rate
     assert not set(SPORTS_EQUIPMENT_ORPHAN_FIELDS) & exposed_fields
-    assert access.completion_rate == 37
+    assert access.completion_rate == 34
 
 
 @mark.django_db
 def test_compute_completion_rate_sports_equipment_with_children():
     access = _sports_equipment_access(
-        accueil_tribunes=False,
+        accueil_tribunes_presence=False,
         accueil_vestiaires=False,
         accueil_douches_collectives=False,
         accueil_douches_individuelles=False,
@@ -232,7 +232,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
     for field in SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field not in exposed_fields, f"{field} should not be exposed while its parent is False"
 
-    access.accueil_tribunes = True
+    access.accueil_tribunes_presence = True
     access.accueil_vestiaires = True
     access.accueil_douches_collectives = True
     access.accueil_douches_individuelles = True
@@ -243,6 +243,8 @@ def test_compute_completion_rate_sports_equipment_with_children():
     exposed_fields = access.get_exposed_fields()
 
     # direct children of the truthy roots
+    assert "accueil_tribunes" in exposed_fields
+    assert "accueil_tribunes_places" in exposed_fields
     assert "accueil_vestiaires_largeur_passage" in exposed_fields
     assert "accueil_douches_collectives_adaptees" in exposed_fields
     assert "accueil_douches_individuelles_adaptees" in exposed_fields
@@ -271,7 +273,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "sanitaires_largeur_porte" in exposed_fields
     assert "sanitaires_sens_transfert" in exposed_fields
-    assert access.completion_rate == 19
+    assert access.completion_rate == 18
 
     access.accueil_tribunes_places = 4
     access.save()
@@ -282,12 +284,13 @@ def test_compute_completion_rate_sports_equipment_with_children():
 
     assert "accueil_tribunes_localisation_places" in exposed_fields
     assert "accueil_tribunes_places_avec_accompagnants" in exposed_fields
-    assert access.completion_rate == 21
+    assert access.completion_rate == 20
 
     # fill in every remaining sports equipment field
     access.stationnement_zone_depose_pmr = True
     access.accueil_physique = "sensibilise_ou_forme"
     access.accueil_aire_de_jeux = True
+    access.accueil_tribunes = True
     access.accueil_prestations_complementaires = ["score_visible"]
     access.accueil_presence_espaces_specifiques = ["presence_espace_chiens_guides"]
     access.accueil_tribunes_localisation_places = "niveau_aire_de_jeux"
@@ -315,7 +318,7 @@ def test_compute_completion_rate_sports_equipment_with_children():
     for field in SPORTS_EQUIPMENT_ROOT_FIELDS + SPORTS_EQUIPMENT_CHILD_FIELDS:
         assert field in filled_in, f"{field} should count as filled in"
 
-    assert access.completion_rate == 55
+    assert access.completion_rate == 56
 
 
 @mark.django_db

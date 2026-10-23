@@ -346,6 +346,7 @@ class TestErpApi:
             activite=gymnase,
             accessibilite__stationnement_zone_depose_pmr=True,
             accessibilite__accueil_physique="non_forme",
+            accessibilite__accueil_tribunes_presence=True,
             accessibilite__accueil_tribunes=True,
             accessibilite__accueil_tribunes_places=3,
             accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
@@ -371,6 +372,7 @@ class TestErpApi:
         assert access["accueil"]["accueil_vestiaires_largeur_passage"] == "superieur_a_110"
         assert access["accueil"]["sanitaires_largeur_porte"] == "entre_90_et_110"
         assert access["accueil"]["sanitaires_sens_transfert"] == "gauche_et_droite"
+        assert access["accueil"]["accueil_tribunes_presence"] is True
         assert access["accueil"]["accueil_tribunes"] is True
         assert access["accueil"]["accueil_tribunes_places"] == 3
         assert access["accueil"]["accueil_tribunes_localisation_places"] == "niveau_aire_de_jeux"
@@ -390,6 +392,7 @@ class TestErpApi:
             datas["accueil"]["accueil_physique"]
             == "Présence de personnel pendant les heures d'ouverture : Personnel non formé"
         )
+        assert datas["accueil"]["accueil_tribunes_presence"] == "Présence de tribunes"
         assert datas["accueil"]["accueil_tribunes"] == "Places spectateurs avec dossier"
         assert (
             datas["accueil"]["accueil_tribunes_places"]
@@ -696,6 +699,7 @@ class TestErpApi:
                     "accueil_prise_en_charge_patients": [],
                     "accueil_physique": None,
                     "accueil_aire_de_jeux": None,
+                    "accueil_tribunes_presence": None,
                     "accueil_tribunes": None,
                     "accueil_tribunes_places": None,
                     "accueil_tribunes_localisation_places": None,
@@ -1060,6 +1064,7 @@ class TestAccessibiliteApi:
                         "accueil_prise_en_charge_patients": [],
                         "accueil_physique": None,
                         "accueil_aire_de_jeux": None,
+                        "accueil_tribunes_presence": None,
                         "accueil_tribunes": None,
                         "accueil_tribunes_places": None,
                         "accueil_tribunes_localisation_places": None,
