@@ -129,6 +129,11 @@ const rules = [
     targets: ['accueil_soignant_experience'],
   },
   {
+    source: 'accueil_tribunes_presence',
+    values: ['True'],
+    targets: ['accueil_tribunes', 'accueil_tribunes_places'],
+  },
+  {
     source: 'accueil_tribunes_places',
     minValue: 1,
     targets: ['accueil_tribunes_localisation_places', 'accueil_tribunes_places_avec_accompagnants'],

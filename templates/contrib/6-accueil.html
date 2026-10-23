@@ -45,9 +45,14 @@
                 {% include "fields/boolradio.html" with field=form.accueil_aire_de_jeux inline=True key="accueil_aire_de_jeux" %}
             </div>
         {% endif %}
-        {% if form.accueil_tribunes %}
+        {% if form.accueil_tribunes_presence %}
             <div class="contrib-inputs-section fr-py-3w fr-px-4w">
-                {% include "fields/boolradio.html" with field=form.accueil_tribunes inline=True key="accueil_tribunes" %}
+                {% include "fields/boolradio.html" with field=form.accueil_tribunes_presence inline=True key="accueil_tribunes_presence" %}
+                {% if form.accueil_tribunes %}
+                    <div class="contrib-inputs-section hr-top">
+                        {% include "fields/boolradio.html" with field=form.accueil_tribunes inline=True key="accueil_tribunes" %}
+                    </div>
+                {% endif %}
                 {% if form.accueil_tribunes_places %}
                     <div class="contrib-inputs-section hr-top">
                         {% include "fields/textarea.html" with field=form.accueil_tribunes_places key="accueil_tribunes_places" %}

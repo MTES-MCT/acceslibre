@@ -251,3 +251,56 @@ def test_contrib_a_propos_saves_user_type_on_imported_erp_without_user(client, u
     erp.refresh_from_db()
     assert erp.user == user
     assert erp.user_type == "gestionnaire"
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "tribunes_presence,expected",
+    (
+        (
+            True,
+            {
+                "accueil_tribunes": True,
+                "accueil_tribunes_places": 3,
+                "accueil_tribunes_localisation_places": "niveau_aire_de_jeux",
+                "accueil_tribunes_places_avec_accompagnants": 2,
+            },
+        ),
+        (
+            False,
+            {
+                "accueil_tribunes": None,
+                "accueil_tribunes_places": None,
+                "accueil_tribunes_localisation_places": None,
+                "accueil_tribunes_places_avec_accompagnants": None,
+            },
+        ),
+    ),
+)
+def test_contrib_accueil_tribunes_children_depend_on_tribunes_presence(client, user, tribunes_presence, expected):
+    activite = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activite], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+    erp = AccessibiliteFactory(erp__user=user, erp__activite=activite).erp
+    client.force_login(user)
+
+    response = client.get(reverse("contrib_accueil", kwargs={"erp_slug": erp.slug}))
+
+    assert response.status_code == 200
+    assert "field-accueil_tribunes_presence" in response.content.decode()
+
+    client.post(
+        reverse("contrib_accueil", kwargs={"erp_slug": erp.slug}),
+        data={
+            "accueil_visibilite": True,
+            "accueil_tribunes_presence": tribunes_presence,
+            "accueil_tribunes": True,
+            "accueil_tribunes_places": 3,
+            "accueil_tribunes_localisation_places": "niveau_aire_de_jeux",
+            "accueil_tribunes_places_avec_accompagnants": 2,
+        },
+    )
+
+    erp.accessibilite.refresh_from_db()
+    assert erp.accessibilite.accueil_tribunes_presence is tribunes_presence
+    for field, value in expected.items():
+        assert getattr(erp.accessibilite, field) == value, field
