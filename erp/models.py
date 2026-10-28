@@ -1325,6 +1325,13 @@ class Accessibilite(models.Model):
                 ),
             ),
             CheckConstraint(
+                name="%(app_label)s_%(class)s_accueil_tribunes_presence_consistency",
+                condition=(
+                    (Q(accueil_tribunes_presence=True) & Q(accueil_tribunes_presence__isnull=False))
+                    | (Q(accueil_tribunes__isnull=True) & Q(accueil_tribunes_places__isnull=True))
+                ),
+            ),
+            CheckConstraint(
                 name="%(app_label)s_%(class)s_accueil_tribunes_places_consistency",
                 condition=(
                     ~(Q(accueil_tribunes_places=0) | Q(accueil_tribunes_places__isnull=True))
@@ -1962,6 +1969,12 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.get_field_choices("accueil_aire_de_jeux"),
         verbose_name=translate_lazy("Accessibilité de l'aire de jeux à une personne en fauteuil"),
+    )
+    accueil_tribunes_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_tribunes_presence"),
+        verbose_name=translate_lazy("Présence de tribunes"),
     )
     accueil_tribunes = models.BooleanField(
         null=True,

@@ -21,6 +21,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 INSTALLED_APPS.append("django_extensions")
 INSTALLED_APPS.append("rosetta")
 INSTALLED_APPS.append("django_deep_translator")
+PO_TRANSLATOR_SERVICE = "erp.provider.deepl.DeeplPoTranslatorService"
 
 if USE_DEBUG_TOOLBAR:
     INSTALLED_APPS.append("debug_toolbar")

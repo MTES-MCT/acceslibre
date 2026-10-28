@@ -67,6 +67,7 @@ from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
                     "stationnement_zone_depose_pmr": "oui",
                     "accueil_physique": "sensibilise_ou_forme",
                     "accueil_aire_de_jeux": "non",
+                    "accueil_tribunes_presence": "oui",
                     "accueil_tribunes": 1,
                     "accueil_tribunes_places": 3,
                     "accueil_tribunes_localisation_places": "niveau_aire_de_jeux",
@@ -110,6 +111,20 @@ from tests.factories import ActiviteFactory, CommuneFactory, ErpFactory
             False,
             None,
             id="sports_equipment_inconsistent_sanitaires",
+        ),
+        pytest.param(
+            # accueil_tribunes_presence is not True, so its children must stay empty
+            {"accessibilite": {"accueil_tribunes_presence": False, "accueil_tribunes_places": 3}},
+            False,
+            None,
+            id="sports_equipment_inconsistent_tribunes",
+        ),
+        pytest.param(
+            # legacy payload, unaware of accueil_tribunes_presence
+            {"accessibilite": {"accueil_tribunes": True, "accueil_tribunes_places": 3}},
+            True,
+            None,
+            id="sports_equipment_legacy_tribunes",
         ),
     ),
 )
@@ -258,6 +273,7 @@ def test_erp_import_serializer_sports_equipment(mocker):
                 "stationnement_zone_depose_pmr": "oui",
                 "accueil_physique": "non_forme",
                 "accueil_aire_de_jeux": "non",
+                "accueil_tribunes_presence": "vrai",
                 "accueil_tribunes": "vrai",
                 "accueil_tribunes_places": 3,
                 "accueil_tribunes_localisation_places": "reparti_differents_niveaux",
@@ -288,6 +304,7 @@ def test_erp_import_serializer_sports_equipment(mocker):
     assert access.stationnement_zone_depose_pmr is True
     assert access.accueil_physique == "non_forme"
     assert access.accueil_aire_de_jeux is False
+    assert access.accueil_tribunes_presence is True
     assert access.accueil_tribunes is True
     assert access.accueil_tribunes_places == 3
     assert access.accueil_tribunes_localisation_places == "reparti_differents_niveaux"
@@ -312,6 +329,7 @@ def test_erp_import_serializer_sports_equipment(mocker):
 @pytest.mark.django_db
 def test_erp_update_serializer_sports_equipment_inconsistencies():
     erp = ErpFactory(
+        accessibilite__accueil_tribunes_presence=True,
         accessibilite__accueil_tribunes=True,
         accessibilite__accueil_tribunes_places=4,
         accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
@@ -367,6 +385,7 @@ def test_erp_update_serializer_sports_equipment_inconsistencies():
 @pytest.mark.django_db
 def test_erp_update_serializer_keeps_children_above_min_value():
     erp = ErpFactory(
+        accessibilite__accueil_tribunes_presence=True,
         accessibilite__accueil_tribunes=True,
         accessibilite__accueil_tribunes_places=4,
         accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
@@ -386,6 +405,56 @@ def test_erp_update_serializer_keeps_children_above_min_value():
     assert access.accueil_tribunes_places == 8
     assert access.accueil_tribunes_localisation_places == "niveau_aire_de_jeux", "children must be kept above min value"
     assert access.accueil_tribunes_places_avec_accompagnants == 2, "children must be kept above min value"
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize(
+    "accessibilite,expected_presence",
+    (
+        ({"accueil_tribunes": False}, True),
+        ({"accueil_tribunes_places": 0}, True),
+        ({"accueil_tribunes_presence": False}, False),
+        ({"accueil_vestiaires": True}, None),
+    ),
+)
+def test_erp_update_serializer_infers_tribunes_presence_for_legacy_payloads(accessibilite, expected_presence):
+    erp = ErpFactory(accessibilite__accueil_tribunes_presence=None)
+
+    serializer = ErpImportSerializer(instance=erp, data={"accessibilite": accessibilite}, partial=True)
+    assert serializer.is_valid(), serializer.errors
+    serializer.save()
+
+    erp.refresh_from_db()
+    assert erp.accessibilite.accueil_tribunes_presence is expected_presence
+    for field, value in accessibilite.items():
+        assert getattr(erp.accessibilite, field) == value, field
+
+
+@pytest.mark.django_db
+def test_erp_update_serializer_reinit_tribunes_when_no_tribunes():
+    erp = ErpFactory(
+        accessibilite__accueil_tribunes_presence=True,
+        accessibilite__accueil_tribunes=True,
+        accessibilite__accueil_tribunes_places=4,
+        accessibilite__accueil_tribunes_localisation_places="niveau_aire_de_jeux",
+        accessibilite__accueil_tribunes_places_avec_accompagnants=2,
+    )
+
+    serializer = ErpImportSerializer(
+        instance=erp,
+        data={"accessibilite": {"accueil_tribunes_presence": False}},
+        partial=True,
+    )
+    assert serializer.is_valid(), serializer.errors
+    serializer.save()
+
+    erp.refresh_from_db()
+    access = erp.accessibilite
+    assert access.accueil_tribunes_presence is False
+    assert access.accueil_tribunes is None, "should have reinit child"
+    assert access.accueil_tribunes_places is None, "should have reinit child"
+    assert access.accueil_tribunes_localisation_places is None, "should have reinit child of child"
+    assert access.accueil_tribunes_places_avec_accompagnants is None, "should have reinit child of child"
 
 
 @pytest.mark.django_db

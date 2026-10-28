@@ -384,6 +384,16 @@ class ContribAccessibiliteSportsEquipmentForm(ContribAccessibiliteForm):
             return None
         return self.cleaned_data["accueil_casiers_fermeture"]
 
+    def clean_accueil_tribunes(self):
+        if self.cleaned_data.get("accueil_tribunes_presence") is not True:
+            return None
+        return self.cleaned_data["accueil_tribunes"]
+
+    def clean_accueil_tribunes_places(self):
+        if self.cleaned_data.get("accueil_tribunes_presence") is not True:
+            return None
+        return self.cleaned_data["accueil_tribunes_places"]
+
     def clean_accueil_tribunes_localisation_places(self):
         if (self.cleaned_data.get("accueil_tribunes_places") or 0) < 1:
             return None
