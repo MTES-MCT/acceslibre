@@ -11,11 +11,15 @@
   "@parcel/transformer-css": {
     "errorRecovery": true
   },
+  "alias": {
+    "url": false
+  },
   "private": true,
   "scripts": {
     "clean": "rm -rf static/dist/",
-    "start": "parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js static/swagger.js",
-    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js static/swagger.js"
+    "copy:maplibre-worker": "mkdir -p static/dist/js && cp node_modules/@panoramax/web-viewer/build/cjs/maplibre-gl-*.mjs static/dist/js/",
+    "start": "npm run copy:maplibre-worker && parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js",
+    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js && npm run copy:maplibre-worker"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,7 @@
   "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
   "dependencies": {
     "@gouvfr/dsfr": "1.15.4",
-    "@panoramax/web-viewer": "4.4.0",
+    "@panoramax/web-viewer": "5.3.1",
     "@parcel/transformer-sass": "2.16.1",
     "@sentry/browser": "11.8.0",
     "@sentry/tracing": "7.120.4",
