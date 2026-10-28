@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@gouvfr/dsfr':
-        specifier: 1.15.3
-        version: 1.15.3
+        specifier: 1.15.4
+        version: 1.15.4
       '@panoramax/web-viewer':
         specifier: 4.4.0
         version: 4.4.0
@@ -127,8 +127,8 @@ packages:
     resolution: {integrity: sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA==}
     engines: {node: '>=6'}
 
-  '@gouvfr/dsfr@1.15.3':
-    resolution: {integrity: sha512-R9AALZc1LfZjtytWZMOaUIOHWTkllBZ/sZlsL8TpKZVgF3qUKXt/uNYh+L1D1Fh4p92ZqWxbtNcebsigBZe5pQ==}
+  '@gouvfr/dsfr@1.15.4':
+    resolution: {integrity: sha512-Yu+4TuR7wBI7bBuPMNH4fstwmMweve+lJhopLkPZJ7i4pygjEtzfq4zaniibH5QNd+xjTWb/fEJiqe8nmYqcxg==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
 
   '@humanfs/core@0.19.2':
@@ -1630,7 +1630,7 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 6.7.2
 
-  '@gouvfr/dsfr@1.15.3': {}
+  '@gouvfr/dsfr@1.15.4': {}
 
   '@humanfs/core@0.19.2':
     dependencies:
