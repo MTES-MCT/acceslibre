@@ -102,6 +102,56 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         return repr
 
 
+def accessibilite_schema_field(field_id):
+    """Schema-only field matching the value returned by the accessibility serializer."""
+    field_type = schema.get_type(field_id)
+    help_text = schema.get_label(field_id)
+    if field_type == "boolean":
+        return serializers.BooleanField(allow_null=True, read_only=True, help_text=help_text)
+    if field_type == "number":
+        return serializers.IntegerField(allow_null=True, read_only=True, help_text=help_text)
+    if field_type == "array":
+        return serializers.ListField(
+            child=serializers.CharField(allow_blank=True),
+            allow_null=True,
+            read_only=True,
+            help_text=help_text,
+        )
+    return serializers.CharField(allow_blank=True, allow_null=True, read_only=True, help_text=help_text)
+
+
+class AccessibiliteSectionSchemaSerializer(serializers.Serializer):
+    """Describes one accessibility section, ie. the fields grouped under the same section key."""
+
+    def __init__(self, *args, section_id=None, **kwargs):
+        self.section_id = section_id
+        super().__init__(*args, **kwargs)
+
+    def get_fields(self):
+        fieldsets = schema.get_api_fieldsets()
+        return {field_id: accessibilite_schema_field(field_id) for field_id in fieldsets[self.section_id]["fields"]}
+
+
+class AccessibiliteSchemaSerializer(serializers.Serializer):
+    """Describes the accessibility payload of an ERP, ie. the model fields grouped by section.
+
+    The runtime serialization is done by `AccessibiliteSerializer`, which groups the fields by
+    section in `to_representation`; this class only exists to document that shape in the OpenAPI
+    schema (see `api.views.A4aAutoSchema.map_serializer`).
+    """
+
+    url = serializers.CharField(read_only=True)
+    erp = serializers.CharField(read_only=True)
+
+    def get_fields(self):
+        fields = super().get_fields()
+        for section_id, section in schema.get_api_fieldsets().items():
+            fields[section_id] = AccessibiliteSectionSchemaSerializer(
+                section_id=section_id, read_only=True, help_text=section["label"]
+            )
+        return fields
+
+
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Activite
@@ -137,7 +187,16 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
     web_url = serializers.SerializerMethodField()
-    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
+    accessibilite = AccessibiliteSerializer(
+        many=False,
+        read_only=True,
+        help_text=(
+            "Accessibility data, grouped by section (`transport`, `cheminement_ext`, `entree`, "
+            "`accueil`, `registre`, `conformite`, `commentaire`); see `/api/accessibilite/help/` "
+            "for the meaning of each field. With `?readable=true`, the fields are returned under "
+            "`datas` with human readable values."
+        ),
+    )
     sources = ExternalSourceSerializer(many=True, required=False, default=[])
 
     class Meta:
