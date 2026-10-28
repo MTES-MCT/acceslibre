@@ -1,7 +1,6 @@
 from copy import copy
 
 from django import forms
-from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
@@ -12,13 +11,13 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as translate
 from django.utils.translation import gettext_lazy as translate_lazy
-from magic_profanity import ProfanityFilter
 from waffle import switch_is_active
 
 from compte.models import UserStats
 from erp import schema
 from erp.imports.utils import get_address_query_to_geocode
 from erp.models import ACTIVITY_GROUPS, Accessibilite, Activite, Commune, Erp
+from erp.profanity import contains_profanity, get_profanity_filter
 from erp.provider import departements, geocoder
 
 from .fields import ActivityField
@@ -117,15 +116,14 @@ class ContribAccessibiliteForm(forms.ModelForm):
         return self.cleaned_data["accueil_audiodescription"]
 
     def clean_profanity(self):
-        profanity_filter = ProfanityFilter()
-        profanity_filter.load_words_from_file(settings.FRENCH_PROFANITY_WORDLIST)
+        profanity_filter = get_profanity_filter()
 
         for free_text in schema.get_free_text_fields():
             field_value = getattr(self.instance, free_text, None)
             if not field_value:
                 continue
 
-            if profanity_filter.has_profanity(field_value):
+            if contains_profanity(field_value, profanity_filter):
                 old_value = Accessibilite.objects.filter(pk=self.instance.pk).values_list(free_text, flat=True).first()
                 setattr(self.instance, free_text, old_value)
 
