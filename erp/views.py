@@ -945,6 +945,11 @@ def contrib_a_propos(request, erp_slug):
     }
     is_erp_owner = erp.user_id == request.user.id
     is_from_import_and_has_no_user = erp.user_id is None and erp.user_type == "system"
+    # The ERP had no user when the contribution started: either it still has none, or the
+    # user was just assigned by a previous step's save while the profile has not been declared yet.
+    is_taking_over_unowned_erp = is_from_import_and_has_no_user or (
+        is_erp_owner and erp.user_type == Erp.USER_ROLE_SYSTEM
+    )
 
     if request.method == "POST":
         if erp.has_accessibilite():
@@ -988,6 +993,7 @@ def contrib_a_propos(request, erp_slug):
             "form": form,
             "is_erp_owner": is_erp_owner,
             "is_from_import_and_has_no_user": is_from_import_and_has_no_user,
+            "is_taking_over_unowned_erp": is_taking_over_unowned_erp,
             "publier_route": reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
             "page_type": "contrib-form",
         },
