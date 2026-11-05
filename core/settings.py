@@ -63,6 +63,7 @@ CSP_DEFAULT_SOURCES = [
 CSP_PANORAMAX_SOURCES = [
     "api.panoramax.xyz",
     "panoramax.ign.fr",
+    "panoramax-storage-public-fast.s3.gra.perf.cloud.ovh.net",  # panoramax.ign.fr 302-redirects pictures here
     "panoramax.openstreetmap.fr",
     "presets.panoramax.fr",
     "api.iconify.design",
