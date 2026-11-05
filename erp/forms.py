@@ -1074,6 +1074,25 @@ def get_contrib_forms_for_activity(activity: Activite):
     return forms
 
 
+def get_contrib_fields_for_activity(activity):
+    """Accessibility fields offered by the contribution form of this activity.
+
+    The contribution form combines several sub-forms, one per activity group, and
+    each sub-form removes some fields. The returned set is the union of their fields,
+    minus the fields they remove.
+    """
+    form_classes = get_contrib_forms_for_activity(activity)
+    form_fields = {field for form_class in form_classes for field in form_class.base_fields if field in schema.FIELDS}
+    fields_to_remove = {field for form_class in form_classes for field in getattr(form_class, "fields_to_remove", ())}
+    conditionals_to_remove = {
+        field for form_class in form_classes for field in getattr(form_class, "conditionals_to_remove", ())
+    }
+    conditionals_to_add = {
+        field for form_class in form_classes for field in getattr(form_class, "conditionals_to_add", ())
+    }
+    return ((form_fields - conditionals_to_remove) | conditionals_to_add) - fields_to_remove
+
+
 class CombinedAccessibiliteForm(forms.Form):
     def __init__(self, forms_list, form_fields, *args, **kwargs):
         self.form_classes = forms_list

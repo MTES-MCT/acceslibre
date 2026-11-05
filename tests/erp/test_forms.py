@@ -136,3 +136,58 @@ def test_school_form_keeps_whitelisted_large_establishments_fields():
     for field in forms.ContribAccessibiliteSchoolsForm.large_establishments_fields_to_keep:
         assert field in form.fields
         assert form.fields[field].label == schema.get_label(field)
+
+
+@pytest.mark.django_db
+def test_get_contrib_fields_for_activity_without_group():
+    activity = ActiviteFactory(slug="librairie", nom="Librairie")
+
+    fields = forms.get_contrib_fields_for_activity(activity)
+
+    assert "entree_porte_presence" in fields
+    assert "labels" in fields
+    assert "accueil_soignant" not in fields
+    assert "accueil_tribunes_presence" not in fields
+
+
+@pytest.mark.django_db
+def test_get_contrib_fields_for_activity_healthcare():
+    activity = ActiviteFactory(slug="cabinet-medical", nom="Cabinet médical")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["HEALTHCARE"])
+
+    fields = forms.get_contrib_fields_for_activity(activity)
+
+    assert "accueil_soignant" in fields
+    assert "accueil_soignant_experience" in fields
+    assert "labels" not in fields
+    assert "accueil_tribunes_presence" not in fields
+
+
+@pytest.mark.django_db
+def test_get_contrib_fields_for_activity_school_keeps_whitelisted_fields():
+    activity = ActiviteFactory(slug="ecole", nom="École")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["SCHOOL"])
+
+    fields = forms.get_contrib_fields_for_activity(activity)
+
+    assert "accueil_ascenseur_etage" in fields
+    assert "accueil_ascenseur_etage_pmr" in fields
+    assert "accueil_signaletique_interieure" not in fields
+    assert "cheminement_ext_signaletique_exterieure" not in fields
+    assert "labels" not in fields
+
+
+@pytest.mark.django_db
+def test_get_contrib_fields_for_activity_sports():
+    activity = ActiviteFactory(slug="gymnase", nom="Gymnase")
+    ActivitiesGroupFactory(activities=[activity], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+
+    fields = forms.get_contrib_fields_for_activity(activity)
+
+    assert "accueil_tribunes_presence" in fields
+    assert "accueil_tribunes" in fields
+    assert "accueil_signaletique_interieure" in fields
+    assert "cheminement_ext_signaletique_exterieure" in fields
+    assert "accueil_ascenseur_etage" not in fields
+    assert "accueil_personnels" not in fields
+    assert "labels" not in fields

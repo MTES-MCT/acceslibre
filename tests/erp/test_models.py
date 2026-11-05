@@ -9,7 +9,7 @@ from django.db.utils import IntegrityError
 from django.test.utils import CaptureQueriesContext
 
 from erp.exceptions import MergeException
-from erp.models import Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Erp
+from erp.models import ACTIVITY_GROUPS, Accessibilite, Activite, ActivitiesGroup, ActivitySuggestion, Erp
 from tests.factories import (
     AccessibiliteFactory,
     ActiviteFactory,
@@ -1301,6 +1301,34 @@ class TestErp:
 
         erp.refresh_from_db()
         assert erp.published is False, "ERP should have been unpublished as it is flagged permanently closed"
+
+    def test_save_clears_accessibility_fields_absent_from_new_activity_form(self):
+        school = ActiviteFactory(slug="ecole-test", nom="École test")
+        ActivitiesGroupFactory(activities=[school], name=ACTIVITY_GROUPS["SCHOOL"])
+        sports = ActiviteFactory(slug="gymnase-test", nom="Gymnase test")
+        ActivitiesGroupFactory(activities=[sports], name=ACTIVITY_GROUPS["SPORTS_EQUIPMENT"])
+
+        erp = ErpFactory(
+            activite=school,
+            accessibilite__accueil_classes_accessibilite="partielle",
+            accessibilite__labels=["mobalib"],
+            accessibilite__accueil_tribunes_presence=True,
+            accessibilite__accueil_tribunes=True,
+            accessibilite__entree_porte_presence=True,
+            accessibilite__entree_reperage=True,
+        )
+
+        erp = Erp.objects.get(pk=erp.pk)
+        erp.activite = sports
+        erp.save()
+
+        access = Accessibilite.objects.get(erp=erp)
+        assert access.accueil_classes_accessibilite is None
+        assert access.labels is None
+        assert access.accueil_tribunes_presence is True
+        assert access.accueil_tribunes is True
+        assert access.entree_porte_presence is True
+        assert access.entree_reperage is True
 
     @pytest.mark.django_db
     def test_get_absolute_url(self):

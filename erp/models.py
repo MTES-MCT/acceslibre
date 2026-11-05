@@ -977,26 +977,8 @@ class Erp(models.Model):
             and self.activite_id != self.__original_activite_id
             and self.has_accessibilite()
         ):
-            # We wipe conditional questions' answer only if the new activity is in a distinct activity group.
-            # We could have stored an ___original_group_activity_id but it would have create overload on each __init__
-            # by fetching a joined attribute.
-            group_activity_has_changed = False
-            try:
-                original_activite = Activite.objects.get(pk=self.__original_activite_id)
-            except Activite.DoesNotExist:
-                pass
-
-            if not (original_groups := original_activite.groups.all()):
-                group_activity_has_changed = True
-            else:
-                group_activity_has_changed = self.activite_id not in [
-                    a.pk for g in original_groups.all() for a in g.activities.all()
-                ]
-
-            if group_activity_has_changed:
-                accessibility = self.accessibilite
-                for field in schema.get_conditional_fields():
-                    setattr(accessibility, field, None)
+            accessibility = self.accessibilite
+            if accessibility.clear_fields_not_in_contribution(self.activite):
                 accessibility.save()
 
         search_vector = SearchVector(
@@ -2512,29 +2494,10 @@ class Accessibilite(models.Model):
         return results
 
     def get_exposed_fields(self):
-        from erp.forms import get_contrib_forms_for_activity
+        from erp.forms import get_contrib_fields_for_activity
         from erp.schema import FIELDS
 
-        forms_for_activity = get_contrib_forms_for_activity(self.erp.activite)
-
-        form_fields = {field for form_class in forms_for_activity for field in form_class.base_fields.keys()}
-
-        # Arbitrary fields to remove such as "label" for schools
-        fields_to_remove = {
-            field for form_class in forms_for_activity for field in getattr(form_class, "fields_to_remove", set())
-        }
-
-        # Conditionals fields that are removed due to certain activities
-        conditionals_to_remove = {
-            field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_remove", set())
-        }
-
-        # Conditionals to keep that are from the combined form
-        conditionals_to_add = {
-            field for form_class in forms_for_activity for field in getattr(form_class, "conditionals_to_add", set())
-        }
-
-        form_fields = (set(form_fields).difference(conditionals_to_remove) | conditionals_to_add) - fields_to_remove
+        form_fields = get_contrib_fields_for_activity(self.erp.activite)
 
         exposed = set()
 
@@ -2575,6 +2538,23 @@ class Accessibilite(models.Model):
             expose_field(field)
 
         return exposed
+
+    def clear_fields_not_in_contribution(self, activity):
+        """Clear the fields the contribution form does not offer for this activity.
+
+        Returns the names of the fields that were cleared.
+        """
+        from erp.forms import get_contrib_fields_for_activity
+
+        contrib_fields = get_contrib_fields_for_activity(activity)
+        cleared_fields = []
+        for field_name in schema.FIELDS:
+            if field_name in contrib_fields or not hasattr(self, field_name):
+                continue
+            if getattr(self, field_name) is not None:
+                setattr(self, field_name, None)
+                cleared_fields.append(field_name)
+        return cleared_fields
 
     def get_nb_exposed_fields(self):
         return len(self.get_exposed_fields())
