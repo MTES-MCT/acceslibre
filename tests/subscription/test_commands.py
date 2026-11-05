@@ -147,7 +147,7 @@ def test_notification_erp(mocker, mock_geocode, client):
                             "diff": [
                                 {
                                     "field": "site_internet",
-                                    "label": "site_internet",
+                                    "label": "Site internet",
                                     "new": "https://bing.com",
                                     "old": "http://google.com/",
                                 },
@@ -157,15 +157,15 @@ def test_notification_erp(mocker, mock_geocode, client):
                             "user": "sophie",
                             "comment": "",
                             "diff": [
-                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "nom"},
+                                {"field": "nom", "old": "niko erp", "new": "sophie erp", "label": "Nom"},
                                 {
                                     "field": "geom",
                                     "old": "43.6570, 2.6754",
                                     "new": "45.0000, 5.0000",
                                     "label": "Localisation",
                                 },
-                                {"field": "numero", "old": "5", "new": "4", "label": "numero"},
-                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "commune"},
+                                {"field": "numero", "old": "5", "new": "4", "label": "Numéro"},
+                                {"field": "commune", "old": "JACOU", "new": "Jacou", "label": "Commune"},
                                 {
                                     "field": "checked_up_to_date_at",
                                     "label": "Dernière vérification des informations",

@@ -906,6 +906,29 @@ def test_history_metadata_not_versioned():
 
 
 @pytest.mark.django_db
+def test_history_never_exposes_import_email(client):
+    contributor = UserFactory()
+    with reversion.create_revision():
+        erp = ErpFactory(user=contributor, with_accessibility=True, published=True)
+        reversion.set_user(contributor)
+
+    # import_email is set outside of any revision (brevo matching, import API)...
+    erp.import_email = "gerant@exemple.fr"
+    erp.save()
+
+    # ...so the next revision made by someone else would carry the change in its diff
+    erp.confirm_up_to_date(UserFactory())
+
+    history = erp.get_history()
+    assert len(history) == 1
+    assert "import_email" not in [entry["field"] for entry in history[0]["diff"]]
+
+    response = client.get(erp.get_absolute_url())
+    assert response.status_code == 200
+    assert "gerant@exemple.fr" not in response.content.decode()
+
+
+@pytest.mark.django_db
 def test_history_human_readable_diff():
     user = UserFactory()
     with reversion.create_revision():
@@ -962,6 +985,31 @@ def test_history_human_readable_diff():
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
     assert str(get_entry("labels", a11y_diff)["old"]) == "Inconnu"
     assert str(get_entry("labels", a11y_diff)["new"]) == "Destination pour Tous, Tourisme & Handicap"
+
+
+@pytest.mark.django_db
+def test_history_labels_fallback_to_model_verbose_name():
+    user = UserFactory()
+    other_user = UserFactory()
+    with reversion.create_revision():
+        erp = ErpFactory(user=user, activite=ActiviteFactory(nom="Boulangerie"), telephone="0102030405")
+        Accessibilite.objects.create(erp=erp)
+        reversion.set_user(user)
+
+    with reversion.create_revision():
+        erp.user = other_user
+        erp.activite = ActiviteFactory(nom="Pâtisserie")
+        erp.telephone = "0607080910"
+        erp.save()
+        reversion.set_user(user)
+
+    labels = {entry["field"]: entry["label"] for entry in erp.get_history()[0]["diff"]}
+
+    assert labels == {
+        "user_id": "Contributeur",
+        "activite_id": "Activité",
+        "telephone": "Téléphone",
+    }
 
 
 @pytest.mark.django_db
