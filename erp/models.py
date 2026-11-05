@@ -58,13 +58,15 @@ EXTRA_HISTORY_LABELS = {
 }
 
 
-def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
+def _get_history(versions, model, exclude_fields=None, exclude_changes_from=None):
     """
     param versions : Queryset de django_reversion.Version
+    param model : modèle versionné, utilisé pour retrouver le verbose_name des champs absents du schéma
 
     return history : Liste de dict.
     """
     exclude_fields = exclude_fields if exclude_fields is not None else ()
+    verbose_names = {field.attname: field.verbose_name for field in model._meta.concrete_fields}
     history = []
     current_fields_dict = {}
     for version in versions:
@@ -77,7 +79,9 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
         final_diff = []
         for entry in diff:
             entry["label"] = str(
-                schema.get_label(entry["field"], None) or EXTRA_HISTORY_LABELS.get(entry["field"], entry["field"])
+                schema.get_label(entry["field"], None)
+                or EXTRA_HISTORY_LABELS.get(entry["field"])
+                or verbose_names.get(entry["field"], entry["field"])
             )
             try:
                 entry["old"] = str(schema.get_human_readable_value(entry["field"], entry["old"]))
@@ -759,6 +763,7 @@ class Erp(models.Model):
         "Combines erp and related accessibilite histories."
         erp_history = _get_history(
             self.get_versions(),
+            Erp,
             exclude_fields=(
                 "uuid",
                 "source",
@@ -766,6 +771,7 @@ class Erp(models.Model):
                 "search_vector",
                 "updated_at",
                 "created_at",
+                "import_email",
             ),
             exclude_changes_from=exclude_changes_from,
         )
@@ -2174,7 +2180,7 @@ class Accessibilite(models.Model):
         self.__versions = None
 
     def get_history(self, exclude_changes_from=None):
-        return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
+        return _get_history(self.get_versions(), Accessibilite, exclude_changes_from=exclude_changes_from)
 
     def get_versions(self):
         if self.__versions is not None:
