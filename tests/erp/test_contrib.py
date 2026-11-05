@@ -7,6 +7,7 @@ from django.contrib.messages.constants import SUCCESS
 from django.test import Client
 from django.urls import reverse
 from reversion.models import Version
+from waffle.testutils import override_switch
 
 from erp.models import ACTIVITY_GROUPS
 from tests.factories import (
@@ -251,6 +252,33 @@ def test_contrib_a_propos_saves_user_type_on_imported_erp_without_user(client, u
     erp.refresh_from_db()
     assert erp.user == user
     assert erp.user_type == "gestionnaire"
+
+
+@pytest.mark.django_db
+@override_switch("RPA", True)
+@pytest.mark.parametrize(
+    "erp_owner,user_type,published,expected",
+    (
+        # Published ERP without user: contributor takes it over
+        (None, "system", True, True),
+        # Published ERP whose user was just assigned at step 1, profile not declared yet
+        ("current", "system", True, True),
+        # Published ERP already owned by the contributor with a declared profile
+        ("current", "gestionnaire", True, False),
+        # Published ERP owned by someone else
+        ("other", "gestionnaire", True, False),
+        # ERP creation flow (not published yet)
+        ("current", "public", False, True),
+    ),
+)
+def test_contrib_a_propos_displays_rpa_confirm_modal(client, user, erp_owner, user_type, published, expected):
+    owner = {"current": user, "other": UserFactory(), None: None}[erp_owner]
+    erp = ErpFactory(user=owner, user_type=user_type, published=published)
+
+    response = client.get(reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}))
+
+    assert response.status_code == 200
+    assert ('id="rpa-confirm-modal"' in response.content.decode()) is expected
 
 
 @pytest.mark.django_db
