@@ -76,7 +76,6 @@ dev = [
     "pre-commit",
     "pytest-mock",
     "splinter[django]",
-    "pytest-circleci-parallelized",
     "django-debug-toolbar==8.0.0",
     "pytest-xdist",
     "django-rosetta",

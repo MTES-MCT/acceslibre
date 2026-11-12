@@ -88,7 +88,6 @@ dev = [
     { name = "ipdb" },
     { name = "legacy-cgi" },
     { name = "pre-commit" },
-    { name = "pytest-circleci-parallelized" },
     { name = "pytest-factoryboy" },
     { name = "pytest-mock" },
     { name = "pytest-socket" },
@@ -175,7 +174,6 @@ dev = [
     { name = "ipdb" },
     { name = "legacy-cgi" },
     { name = "pre-commit" },
-    { name = "pytest-circleci-parallelized" },
     { name = "pytest-factoryboy" },
     { name = "pytest-mock" },
     { name = "pytest-socket" },
@@ -2178,15 +2176,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/79/42/bb4641652e58dedea
 wheels = [
     { url = "https://files.pythonhosted.org/packages/51/39/1f5d8c8877a0fa327db959c19341d4be61660de1ab6b7391f9eb805bcd67/pytest-9.2.0-py3-none-any.whl", hash = "sha256:07acdcf88ec174f907dc01af70bf52d49b014bbab03faeeade31c96b18c2e588", size = 411776, upload-time = "2026-10-27T21:30:19.131Z" },
 ]
-
-[[package]]
-name = "pytest-circleci-parallelized"
-version = "0.1.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "pytest" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1b/b3/596beb8d2f697d181caa16eb8c316c140842816d9861afa6d9e6acedaa47/pytest-circleci-parallelized-0.1.0.tar.gz", hash = "sha256:7d5923a78d61272bb665fafa3708044b38a946c767ee8ef342ce087289edff92", size = 3802, upload-time = "2022-10-20T20:19:11.258Z" }
 
 [[package]]
 name = "pytest-django"

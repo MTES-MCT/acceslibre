@@ -12,6 +12,8 @@ from erp.models import Activite, ActivitiesGroup
 from erp.provider import geocoder
 from tests.factories import AccessibiliteFactory, ErpFactory, UserFactory
 
+pytest_plugins = ["tests.circleci_parallelized"]
+
 
 @pytest.fixture(scope="session")
 def django_db_setup(django_db_setup, django_db_blocker):
