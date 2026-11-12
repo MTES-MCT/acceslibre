@@ -4,10 +4,10 @@
   "description": "Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "engines": {
-    "node": "24.22.1",
-    "pnpm": "11.22.0"
+    "node": "24.22.3",
+    "pnpm": "12.18.0"
   },
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@12.18.0",
   "@parcel/transformer-css": {
     "errorRecovery": true
   },
@@ -18,8 +18,8 @@
   "scripts": {
     "clean": "rm -rf static/dist/",
     "copy:maplibre-worker": "mkdir -p static/dist/js && cp node_modules/@panoramax/web-viewer/build/cjs/maplibre-gl-*.mjs static/dist/js/",
-    "start": "npm run copy:maplibre-worker && parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js",
-    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js && npm run copy:maplibre-worker"
+    "start": "pnpm run copy:maplibre-worker && parcel --hmr-port 34471 --dist-dir static/dist --public-url /static/dist static/index.js static/styles.js static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js",
+    "build:prod": "parcel build static/index.js static/styles.js --dist-dir static/dist --public-url /static/dist static/js/panoramax.js static/js/panoramaxPhoto.js static/swagger.js && pnpm run copy:maplibre-worker"
   },
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
     "leaflet.locatecontrol": "0.88.0",
     "leaflet.markercluster": "1.5.3",
     "parcel": "2.16.1",
-    "pnpm": "^12.15.0",
+    "pnpm": "^12.18.0",
     "process": "0.11.10",
     "remixicon": "4.9.1",
     "swagger-ui-dist": "5.34.0"
