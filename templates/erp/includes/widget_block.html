@@ -6,22 +6,25 @@
 <script src="{{ url_widget_js }}"
         nonce="{{ request.csp_nonce }}"
         id="demo-widget"></script>
-<div class="widget-card fr-p-4w fr-grid-row gap-4w">
+<h2 class="text-center fr-mb-2w">{% translate "Partager des informations sur votre site web" %}</h2>
+<div class="widget-card fr-p-4w fr-grid-row fr-grid-row--middle gap-4w">
+    <div class="fr-col-12 fr-col-md">
+        <p class="fr-text--lg">
+            {% translate "En tant que gérant, vous pouvez partager les informations de votre établissement sur votre site web." %}
+        </p>
+        <p class="fr-text--lg">{% translate "Pour cela, ajoutez simplement le bouton widget acceslibre." %}</p>
+        <div class="fr-grid-row fr-grid-row--center">
+            <button type="button"
+                    data-fr-opened="false"
+                    class="fr-btn"
+                    aria-controls="widgetmodal">{% translate "Comment faire ?" %}</button>
+        </div>
+    </div>
     <div class="fr-col-12 fr-col-md">
         <img class="fr-responsive-img"
              alt=""
              height="200px"
              src="{% static 'img/widget-acceslibre.webp' %}">
-    </div>
-    <div class="fr-col-12 fr-col-md">
-        <h2>{% translate "Vous êtes le gérant de l’établissement, partagez ces informations sur votre site" %}</h2>
-        <p>{% translate "En un copier-coller, affichez les informations principales de votre établissement." %}</p>
-        <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb">
-            <button type="button"
-                    data-fr-opened="false"
-                    class="fr-btn fr-btn--secondary"
-                    aria-controls="widgetmodal">{% translate "Comment faire ?" %}</button>
-        </div>
     </div>
     <dialog id="widgetmodal"
             class="fr-modal"
