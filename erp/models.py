@@ -385,6 +385,7 @@ class ExternalSource(models.Model):
     SOURCE_LAPOSTE = "laposte"
     SOURCE_RNB = "rnb"
     SOURCE_AUTO_ECOLE = "auto-ecole"
+    SOURCE_DOCTOLIB = "doctolib"
     SOURCE_ANNUAIRE_SANTE = "annuaire-sante"
     SOURCE_PANORAMAX = "panoramax"
     SOURCE_APIDAE = "apidae"
@@ -416,6 +417,7 @@ class ExternalSource(models.Model):
         (SOURCE_LAPOSTE, translate_lazy("La Poste")),
         (SOURCE_RNB, translate_lazy("Référentiel National des Bâtiments")),
         (SOURCE_AUTO_ECOLE, translate_lazy("Auto-école")),
+        (SOURCE_DOCTOLIB, translate_lazy("Doctolib")),
         (SOURCE_ANNUAIRE_SANTE, translate_lazy("Annuaire Santé")),
         (SOURCE_PANORAMAX, translate_lazy("Panoramax")),
         (SOURCE_APIDAE, translate_lazy("Apidae")),
