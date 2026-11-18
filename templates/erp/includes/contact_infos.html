@@ -1,0 +1,47 @@
+{% load a4a %}
+{% load i18n %}
+<address class="fr-m-0">
+    <p class="fr-mb-1w word-break--all">
+        <span class="fr-pr-1w fr-icon-map-pin-2-line" aria-hidden="true"></span>
+        <span class="fr-sr-only">{% translate "Adresse" %}</span>
+        <span class="fr-ml-n1-5v">{{ erp.adresse }}</span>
+    </p>
+    {% if erp.site_internet %}
+        <div class="fr-mb-1w flex gap-1w overflow--hidden">
+            <span class="fr-pr-1w fr-icon-global-line" aria-hidden="true"></span>
+            <span class="fr-sr-only">{% translate "Site internet" %}</span>
+            <span>
+                <a class="fr-link fr-ml-n1v"
+                   href="{{ erp.site_internet }}"
+                   target="_blank"
+                   title="{{ erp.site_internet }} - {% translate "nouvelle fenêtre" %}"
+                   rel="noopener noreferrer">{{ erp.site_internet }}</a>
+            </span>
+        </div>
+    {% endif %}
+    {% if erp.telephone %}
+        <p class="fr-mb-1w">
+            <span class="fr-pr-1w fr-icon-phone-line" aria-hidden="true"></span><span class="fr-sr-only">{% translate "Téléphone" %}</span><a class="fr-link" href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
+        </p>
+    {% endif %}
+    {% if erp.contact_url %}
+        <p class="fr-mb-1w word-break--all">
+            <span class="fr-pr-1w fr-icon-mail-line" aria-hidden="true"></span>
+            <span class="fr-sr-only">{% translate "Formulaire de contact" %}</span>
+            <a class="fr-link fr-ml-n1v"
+               href="{{ erp.contact_url }}"
+               target="_blank"
+               title="{{ erp.contact_url }} - {% translate "nouvelle fenêtre" %}"
+               rel="noopener noreferrer">{{ erp.contact_url }}</a>
+        </p>
+    {% endif %}
+</address>
+{% if erp.geom.x and erp.geom.y %}
+    <p class="fr-mb-1w">
+        <span class="fr-pr-1w fr-icon-road-map-line" aria-hidden="true"></span>
+        <a class="fr-link fr-ml-n1v"
+           href="https://www.google.com/maps/?q={{ erp.geom.y|comma_to_dot }},{{ erp.geom.x|comma_to_dot }}"
+           title="{% translate "Itinéraire - nouvelle fenêtre" %}"
+           target="_blank">{% translate "Itinéraire" %}</a>
+    </p>
+{% endif %}
