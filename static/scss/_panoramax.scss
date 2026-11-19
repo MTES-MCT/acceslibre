@@ -47,3 +47,10 @@ pnx-photo-viewer .psv-virtual-tour-arrows .psv-virtual-tour-link {
 pnx-photo-viewer {
   overflow: hidden !important;
 }
+
+// Touch-only devices have no keyboard to use these shortcuts with.
+@media (hover: none) and (pointer: coarse) {
+  .panoramax-shortcuts {
+    display: none;
+  }
+}
