@@ -139,16 +139,25 @@
         .main-title {
             color: #000091;
             text-align: center;
+            margin-bottom: 8px;
         }
 
         #erp-main-info {
             text-align: center;
             margin: 8px 0 0 0;
+
+            h1 {
+                margin-bottom: 8px;
+            }
         }
 
         .remove-section-if-empty {
           section:has(ul:empty) {
             display: none;
+          }
+
+          h3 {
+            margin: 12px 0 0px 0;
           }
         }
 
@@ -288,7 +297,7 @@
                 <p>{{ qr_code_svg|safe }}</p>
             </div>
         </section>
-        <h2 class="main-title">{% translate "Informations sur l'accessibilité aux personnes handicapées" %}</h2>
+        <h2 class="main-title">{% translate "Informations sur l'accessibilité" %}</h2>
         <section class="remove-section-if-empty">
             <section>
                 {% include "erp/includes/access_parking.html" %}
