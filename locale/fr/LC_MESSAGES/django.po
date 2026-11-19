@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 10:03+0100\n"
+"POT-Creation-Date: 2026-11-19 10:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1112,6 +1112,45 @@ msgstr ""
 
 #, python-brace-format
 msgid "Département {code}"
+msgstr ""
+
+msgid "En attente"
+msgstr ""
+
+msgid "Accepté"
+msgstr ""
+
+msgid "Refusé"
+msgstr ""
+
+msgid "Expiré"
+msgstr ""
+
+msgid "Gestionnaire actuel"
+msgstr ""
+
+msgid "Nouveau gestionnaire"
+msgstr ""
+
+msgid "Statut"
+msgstr ""
+
+msgid "Jeton"
+msgstr ""
+
+msgid "Date de la demande"
+msgstr ""
+
+msgid "Date de réponse"
+msgstr ""
+
+msgid "Date de la relance"
+msgstr ""
+
+msgid "Demande de changement de gestionnaire"
+msgstr ""
+
+msgid "Demandes de changement de gestionnaire"
 msgstr ""
 
 msgid "Accès"
@@ -2713,6 +2752,10 @@ msgstr ""
 msgid "En savoir plus sur"
 msgstr ""
 
+#, python-brace-format
+msgid "Changement de gestionnaire : {old} -> {new}"
+msgstr ""
+
 msgid "France entière"
 msgstr ""
 
@@ -2771,6 +2814,18 @@ msgid "Cette fiche vaut RPA et ne peut pas être revendiquée, veuillez contacte
 msgstr ""
 
 msgid "Vous êtes déjà le gestionnaire de cette fiche."
+msgstr ""
+
+msgid "Seules les fiches conformes au registre public d'accessibilité peuvent changer de gestionnaire."
+msgstr ""
+
+msgid "Cette fiche n'a pas de gestionnaire actuel, veuillez contacter le support."
+msgstr ""
+
+msgid "Une demande de changement de gestionnaire est déjà en cours pour cette fiche."
+msgstr ""
+
+msgid "L'email n'a pas pu être envoyé au gestionnaire actuel, veuillez réessayer."
 msgstr ""
 
 msgid "L'établissement a été supprimé."
@@ -5632,6 +5687,9 @@ msgstr ""
 msgid "Confirmer ces informations"
 msgstr ""
 
+msgid "Changement de propriétaire"
+msgstr ""
+
 msgid "Revendiquer l'établissement en tant que gestionnaire"
 msgstr ""
 
@@ -5650,7 +5708,19 @@ msgstr ""
 msgid "Oui, je suis le gestionnaire"
 msgstr ""
 
+msgid "Non, annuler"
+msgstr ""
+
+msgid "Oui, je souhaite devenir gestionnaire"
+msgstr ""
+
 msgid "Confirmez vous être le gestionnaire de cet établissement ?"
+msgstr ""
+
+msgid "Souhaitez-vous devenir gestionnaire de cet établissement ?"
+msgstr ""
+
+msgid "Si vous confirmez, nous enverrons un email au gestionnaire actuel, qui disposera de 2 semaines pour accepter ou refuser la demande."
 msgstr ""
 
 msgid "Filtrer par type de handicap :"
@@ -5877,6 +5947,57 @@ msgid "Aucune photo ne convient"
 msgstr ""
 
 msgid "Informations sur l'accessibilité"
+msgstr ""
+
+msgid "Demande envoyée au gestionnaire actuel"
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"                Nous avons envoyé un email au gestionnaire actuel de la fiche <span class=\"fr-text--bold\">%(nom)s</span>.\n"
+"            "
+msgstr ""
+
+msgid "L'actuel gestionnaire a 2 semaines pour répondre. S'il ne répond pas, la fiche vous sera attribuée automatiquement."
+msgstr ""
+
+msgid "Cette demande a déjà été traitée."
+msgstr ""
+
+msgid "Le transfert de cette fiche a déjà été accepté, refusé ou est arrivé à expiration."
+msgstr ""
+
+msgid "Vous avez accepté le transfert de la fiche."
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"                        %(nom)s est désormais attribuée à <span class=\"fr-text--bold\">%(new_manager)s</span>. Un email de confirmation vient d'être envoyé à l'ancien et au nouveau gestionnaire.\n"
+"                    "
+msgstr ""
+
+msgid "Vous avez refusé le transfert de la fiche."
+msgstr ""
+
+msgid "Le demandeur a été prévenu. Vous restez le gestionnaire de cette fiche."
+msgstr ""
+
+#, python-format
+msgid ""
+"\n"
+"                    Une demande de changement de propriétaire a été faite pour <span class=\"fr-text--bold\">%(nom)s</span> par %(new_manager)s.\n"
+"                "
+msgstr ""
+
+msgid "Souhaitez-vous accepter ou refuser le transfert de la fiche ? Sans réponse sous 2 semaines, la fiche sera transférée automatiquement."
+msgstr ""
+
+msgid "Non, je refuse le transfert"
+msgstr ""
+
+msgid "Oui, j'accepte le transfert"
 msgstr ""
 
 msgid "Ajouter cet établissement"

@@ -114,6 +114,7 @@ class Command(BaseCommand):
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
             schedule.every().thursday.at("14:30").do(call_command, "notify_weekly_unpublished_erps")
             schedule.every().day.at("12:30").do(call_command, "notify_daily_draft")
+            schedule.every().day.at("00:20").do(call_command, "process_erp_transfer_requests")
 
         schedule.every().minutes.do(self._acquisition)
 

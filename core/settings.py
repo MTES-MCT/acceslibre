@@ -369,6 +369,9 @@ SCRAPFLY_IO_API_KEY = env("SCRAPFLY_IO_API_KEY", default=None)
 BREVO_API_KEY = env("BREVO_API_KEY")
 BREVO_API_HOST = env("BREVO_API_HOST", default="https://api.brevo.com/v3")
 
+TRANSFER_EXPIRATION_MINUTES = env.int("TRANSFER_EXPIRATION_MINUTES", default=14 * 24 * 60)
+TRANSFER_REMINDER_MINUTES = env.int("TRANSFER_REMINDER_MINUTES", default=7 * 24 * 60)
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False

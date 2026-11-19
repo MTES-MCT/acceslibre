@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 10:03+0100\n"
-"PO-Revision-Date: 2026-11-18 16:46+0100\n"
-"Last-Translator:   <patrick.nguyen@beta.gouv.fr>\n"
+"POT-Creation-Date: 2026-11-19 11:21+0100\n"
+"PO-Revision-Date: 2026-11-19 11:20+0100\n"
+"Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -1113,6 +1113,45 @@ msgstr "Department outline"
 #, python-brace-format
 msgid "Département {code}"
 msgstr "Department {code}"
+
+msgid "En attente"
+msgstr "Pending"
+
+msgid "Accepté"
+msgstr "Accepted"
+
+msgid "Refusé"
+msgstr "Rejected"
+
+msgid "Expiré"
+msgstr "Expired"
+
+msgid "Gestionnaire actuel"
+msgstr "Current owner"
+
+msgid "Nouveau gestionnaire"
+msgstr "New owner"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Jeton"
+msgstr "Token"
+
+msgid "Date de la demande"
+msgstr "Date of application"
+
+msgid "Date de réponse"
+msgstr "Date of reply"
+
+msgid "Date de la relance"
+msgstr "Date of the follow-up"
+
+msgid "Demande de changement de gestionnaire"
+msgstr "Request to change owner"
+
+msgid "Demandes de changement de gestionnaire"
+msgstr "Requests to change owner"
 
 msgid "Accès"
 msgstr "Access"
@@ -2713,6 +2752,10 @@ msgstr "meters"
 msgid "En savoir plus sur"
 msgstr "Learn more on"
 
+#, python-brace-format
+msgid "Changement de gestionnaire : {old} -> {new}"
+msgstr "Change of manager: {old} -> {new}"
+
 msgid "France entière"
 msgstr "Whole France"
 
@@ -2772,6 +2815,18 @@ msgstr "This sheet is worth RPA and cannot be reclaimed, please contact support.
 
 msgid "Vous êtes déjà le gestionnaire de cette fiche."
 msgstr "You are already the manager of this establishment."
+
+msgid "Seules les fiches conformes au registre public d'accessibilité peuvent changer de gestionnaire."
+msgstr "Only records that comply with the public accessibility register may change administrator."
+
+msgid "Cette fiche n'a pas de gestionnaire actuel, veuillez contacter le support."
+msgstr "This page does not currently have an administrator; please contact support."
+
+msgid "Une demande de changement de gestionnaire est déjà en cours pour cette fiche."
+msgstr "A request to change the manager for this record is already underway."
+
+msgid "L'email n'a pas pu être envoyé au gestionnaire actuel, veuillez réessayer."
+msgstr "The email could not be sent to the current manager; please try again."
 
 msgid "L'établissement a été supprimé."
 msgstr "The facility has been deleted."
@@ -5805,6 +5860,9 @@ msgstr "Improve or modify"
 msgid "Confirmer ces informations"
 msgstr "Confirm this information"
 
+msgid "Changement de propriétaire"
+msgstr "Change of ownership"
+
 msgid "Revendiquer l'établissement en tant que gestionnaire"
 msgstr "Claim the establishment as manager"
 
@@ -5823,8 +5881,20 @@ msgstr "No, I'm not the manager"
 msgid "Oui, je suis le gestionnaire"
 msgstr "Yes, I am the manager"
 
+msgid "Non, annuler"
+msgstr "No, cancel"
+
+msgid "Oui, je souhaite devenir gestionnaire"
+msgstr "Yes, I would like to become an owner"
+
 msgid "Confirmez vous être le gestionnaire de cet établissement ?"
 msgstr "Do you confirm that you are the manager of this establishment?"
+
+msgid "Souhaitez-vous devenir gestionnaire de cet établissement ?"
+msgstr "Would you like to become the owner of this establishment?"
+
+msgid "Si vous confirmez, nous enverrons un email au gestionnaire actuel, qui disposera de 2 semaines pour accepter ou refuser la demande."
+msgstr "If you confirm, we will send an email to the current manager, who will have two weeks to accept or decline the request."
 
 msgid "Filtrer par type de handicap :"
 msgstr "Filter by type of handicap:"
@@ -6057,6 +6127,66 @@ msgstr "No photo is suitable"
 
 msgid "Informations sur l'accessibilité"
 msgstr "Accessibility information"
+
+msgid "Demande envoyée au gestionnaire actuel"
+msgstr "Request sent to the current owner"
+
+#, python-format
+msgid ""
+"\n"
+"                Nous avons envoyé un email au gestionnaire actuel de la fiche <span class=\"fr-text--bold\">%(nom)s</span>.\n"
+"            "
+msgstr ""
+"\n"
+"                We have sent an email to the current manager of the profile <span class=\"fr-text--bold\">%(nom)s</span>.\n"
+" "
+
+msgid "L'actuel gestionnaire a 2 semaines pour répondre. S'il ne répond pas, la fiche vous sera attribuée automatiquement."
+msgstr "The current manager has two weeks to reply. If they do not reply, the file will be assigned to you automatically."
+
+msgid "Cette demande a déjà été traitée."
+msgstr "This request has already been dealt with."
+
+msgid "Le transfert de cette fiche a déjà été accepté, refusé ou est arrivé à expiration."
+msgstr "The transfer of this record has already been approved, rejected or has expired."
+
+msgid "Vous avez accepté le transfert de la fiche."
+msgstr "You have accepted the transfer of the record."
+
+#, python-format
+msgid ""
+"\n"
+"                        %(nom)s est désormais attribuée à <span class=\"fr-text--bold\">%(new_manager)s</span>. Un email de confirmation vient d'être envoyé à l'ancien et au nouveau gestionnaire.\n"
+"                    "
+msgstr ""
+"\n"
+"                        %(nom)s has now been assigned to <span class=\"fr-text--bold\">%(new_manager)s</span>. A confirmation email has just been sent to the former and new managers.\n"
+" "
+
+msgid "Vous avez refusé le transfert de la fiche."
+msgstr "You have refused to transfer the record."
+
+msgid "Le demandeur a été prévenu. Vous restez le gestionnaire de cette fiche."
+msgstr "The applicant has been notified. You remain the owner of this record."
+
+#, python-format
+msgid ""
+"\n"
+"                    Une demande de changement de propriétaire a été faite pour <span class=\"fr-text--bold\">%(nom)s</span> par %(new_manager)s.\n"
+"                "
+msgstr ""
+"\n"
+"                    A request to change the owner has been made for <span class=\"fr-text--bold\">%(nom)s</span> by %(new_manager)s.\n"
+" "
+
+msgid "Souhaitez-vous accepter ou refuser le transfert de la fiche ? Sans réponse sous 2 semaines, la fiche sera transférée automatiquement."
+msgstr "Would you like to accept or decline the transfer of the record? If we do not receive a reply within two weeks, the record will be transferred automatically."
+
+msgid "Non, je refuse le transfert"
+msgstr "No, I refuse the transfer"
+
+msgid "Oui, j'accepte le transfert"
+msgstr "Yes, I accept the transfer"
 
 msgid "Ajouter cet établissement"
 msgstr "Add this facility"
