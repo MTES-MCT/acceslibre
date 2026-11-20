@@ -1810,14 +1810,14 @@ wheels = [
 
 [[package]]
 name = "outscraper"
-version = "6.0.4"
+version = "6.0.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d6/48/9cb071a2051cd24152f05c2a52173c9a304c2e3fa277d958960e52203173/outscraper-6.0.4.tar.gz", hash = "sha256:e1f131c92a9b78fe3f18bd5d89def02373794a093aca4c9b7e259e6f6c5b37b8", size = 27937, upload-time = "2026-06-11T06:56:18.704Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b3/2a/86eb5dfa69d4cc456987f3e0f741522dbcae90fb305316ad72583bb80b9c/outscraper-6.0.5.tar.gz", hash = "sha256:fe6ce000ccdff07e18a6c8d2a78a15f91c596ab5eee4242ab83aaad371f5b05d", size = 28050, upload-time = "2026-09-24T10:58:49.92Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1c/40/1194b98e5aad35c52670d76de5b6abe6371f8174792c5a26e2c97f9f96e8/outscraper-6.0.4-py3-none-any.whl", hash = "sha256:88f332d98424021f646ff4a632037310fde4b9af75543e7942d309b8e5a41281", size = 23907, upload-time = "2026-06-11T06:56:17.527Z" },
+    { url = "https://files.pythonhosted.org/packages/ce/67/67261a95c79f02ae7e877713a9d43037db9c75fdf9340a7334c2dab40190/outscraper-6.0.5-py3-none-any.whl", hash = "sha256:5248b5b20d3f69161408180cdcb727600c62b34cd5585dd4fb1f261c2fb196c0", size = 23992, upload-time = "2026-09-24T10:58:48.769Z" },
 ]
 
 [[package]]
