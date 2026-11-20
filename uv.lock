@@ -123,7 +123,7 @@ requires-dist = [
     { name = "django-prose-editor", extras = ["sanitize"], specifier = ">=0.26.0" },
     { name = "django-ratelimit", specifier = ">=4.1.0" },
     { name = "django-registration" },
-    { name = "django-reversion", specifier = "==6.3.0" },
+    { name = "django-reversion", specifier = "==6.5.2" },
     { name = "django-two-factor-auth" },
     { name = "django-waffle" },
     { name = "djangorestframework" },
@@ -948,14 +948,14 @@ wheels = [
 
 [[package]]
 name = "django-reversion"
-version = "6.3.0"
+version = "6.5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/88/93/0240c12e07f882e11bc4028b6d5570ff6305ac6237843853b9238895be3a/django_reversion-6.3.0.tar.gz", hash = "sha256:0aa54eb334694f522fd234743978c614d45aa785edc70a6177267cdaaf06f967", size = 79028, upload-time = "2026-06-12T19:55:46.603Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/a6/b24a987fb1ff3004205dd9adcc90e94370242c3284aaad29f5736bdbf90a/django_reversion-6.5.2.tar.gz", hash = "sha256:100fa722e9bf9cb68865b678f90e5415166c3798d839e10f8fced636bf63c09d", size = 83199, upload-time = "2026-11-12T14:30:31.448Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/98/ec/2e79165dee4c0d3a52024e5b471b571452191cfe30524e1d7f20eeea7003/django_reversion-6.3.0-py3-none-any.whl", hash = "sha256:6abf59fc70e0d5efd68e03d478c20b994ca72d4ec89e8fed99533e6b87acc8d1", size = 89660, upload-time = "2026-06-12T19:55:45.381Z" },
+    { url = "https://files.pythonhosted.org/packages/01/a4/a121b28a45ba3ff85f1b4d1b7858fa41329e460637fbe942f358ca79e30f/django_reversion-6.5.2-py3-none-any.whl", hash = "sha256:34a18f45f9a735bb9f33bb5494773e69df11ff797e6b13c379dfdf529437cc8e", size = 93063, upload-time = "2026-11-12T14:30:30.339Z" },
 ]
 
 [[package]]
