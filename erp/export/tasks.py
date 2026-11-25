@@ -18,8 +18,10 @@ def generate_csv_file(query_params, user_email, username):
     decoded_params = QueryDict(query_params)
 
     filters = cleaned_search_params_as_dict(decoded_params)
-    queryset = build_queryset(filters, decoded_params, with_zone=True).select_related(
-        "user", "accessibilite", "activite"
+    queryset = (
+        build_queryset(filters, decoded_params, with_zone=True)
+        .select_related("user", "accessibilite", "activite")
+        .prefetch_related("sources")
     )
 
     csv_buffer = io.StringIO()

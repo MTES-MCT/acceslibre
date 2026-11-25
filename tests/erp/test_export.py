@@ -14,6 +14,8 @@ from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import management
 from django.core.management import call_command
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from freezegun import freeze_time
 
 from erp.export.export import export_schema_to_csv
@@ -392,6 +394,29 @@ def test_generate_csv_export(mock_boto_client, mock_send_email):
         template="export-results",
         context={"file_url": "https://mock-s3-url.com/download.csv", "username": "User Name"},
     )
+
+
+@pytest.mark.django_db
+@patch("core.mailer.BrevoMailer.send_email")
+@patch("boto3.client")
+def test_generate_csv_export_prefetches_sources_once(mock_boto_client, mock_send_email):
+    mock_s3 = MagicMock()
+    mock_boto_client.return_value = mock_s3
+    mock_s3.generate_presigned_url.return_value = "https://mock-s3-url.com/download.csv"
+
+    for i in range(3):
+        ExternalSourceFactory(
+            erp=ErpFactory(nom=f"Mairie sources {i}", with_accessibility=True),
+            source=ExternalSource.SOURCE_RNB,
+            source_id=f"rnb-{i}",
+        )
+
+    with CaptureQueriesContext(connection) as ctx:
+        generate_csv_file(query_params="what=Mairie", user_email="user@example.com", username="User Name")
+
+    source_table = ExternalSource._meta.db_table
+    source_queries = [q["sql"] for q in ctx.captured_queries if source_table in q["sql"]]
+    assert len(source_queries) == 1, f"expected a single prefetch query on {source_table}, got {len(source_queries)}"
 
 
 def _first_of_month(dt):
