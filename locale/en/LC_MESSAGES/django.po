@@ -56,6 +56,9 @@ msgstr "caregiver"
 msgid "salle de consultation"
 msgstr "Accessibility of the consultation room"
 
+msgid "équipements sportifs"
+msgstr "sports equipment"
+
 msgid "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
 msgstr "Only letters, numbers and the characters \".\", \"-\" and \"_\" (spaces are not allowed)"
 
@@ -2965,6 +2968,48 @@ msgstr "The consultation room is not wheelchair accessible. Home visits are avai
 
 msgid "Salle de consultation non accessible"
 msgstr "The consultation room is not accessible."
+
+msgid "Aire de jeux accessible"
+msgstr "Accessible playground"
+
+msgid "Aire de jeux non accessible"
+msgstr "Playground not accessible"
+
+msgid "Pas de tribune"
+msgstr "No stands"
+
+msgid "Tribunes non accessibles aux personnes en fauteuil roulant"
+msgstr "Stands not accessible to wheelchair users"
+
+#, python-format
+msgid "%(count)d place accessible aux personnes en fauteuils"
+msgid_plural "%(count)d places accessibles aux personnes en fauteuils"
+msgstr[0] "%(count)d seat accessible to wheelchair users"
+msgstr[1] "%(count)d seats accessible to wheelchair users"
+
+#, python-format
+msgid "%(count)d place accessible aux personnes en fauteuils sans place accompagnant"
+msgid_plural "%(count)d places accessibles aux personnes en fauteuils sans place accompagnant"
+msgstr[0] "%(count)d seat accessible to wheelchair users without companion seat"
+msgstr[1] "%(count)d seats accessible to wheelchair users without companion seat"
+
+#, python-format
+msgid "%(count)d place accessible avec 1 place accompagnant"
+msgid_plural "%(count)d places accessibles avec 1 place accompagnant"
+msgstr[0] "%(count)d accessible seat with 1 companion seat"
+msgstr[1] "%(count)d accessible seats with 1 companion seat"
+
+#, python-format
+msgid "%(count)d place accessible avec places accompagnants"
+msgid_plural "%(count)d places accessibles avec places accompagnants"
+msgstr[0] "%(count)d accessible seat with companion seats"
+msgstr[1] "%(count)d accessible seats with companion seats"
+
+msgid "Vestiaires non accessibles"
+msgstr "Changing rooms not accessible"
+
+msgid "Douches non accessibles"
+msgstr "Showers not accessible"
 
 msgid "Créateur"
 msgstr "Creator"
