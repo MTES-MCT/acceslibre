@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 11:21+0100\n"
+"POT-Creation-Date: 2026-11-25 16:17+0100\n"
 "PO-Revision-Date: 2026-11-19 11:20+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -6124,6 +6124,10 @@ msgstr "Choose this photo"
 
 msgid "Aucune photo ne convient"
 msgstr "No photo is suitable"
+
+#, python-format
+msgid "QR code vers la fiche de l’établissement sur acceslibre : %(url)s"
+msgstr "QR code linking to the establishment page on acceslibre: %(url)s"
 
 msgid "Informations sur l'accessibilité"
 msgstr "Accessibility information"

@@ -2,11 +2,12 @@
 {% load a4a %}
 {% load static %}
 {% load waffle_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
-<html lang="{{ request.LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta name="description"
-              content="{% block page_description %}Fiche RPA de l'etablissement{% endblock page_description %}">
+              content="{% block page_description %}Fiche RPA de l'établissement{% endblock page_description %}">
         <meta name="keywords"
               content="accessibilité,handicap,accessible,accessibles,fauteuil roulant,handicapé(s),rpa">
         <title>{{ erp.nom }}</title>
@@ -16,11 +17,9 @@
             margin: 1cm;
         }
 
-        @media print {
-            a {
-               text-decoration: none;
-                color: inherit;
-            }
+        a {
+            color: #000091;
+            text-decoration: underline;
         }
 
         @font-face {
@@ -151,6 +150,11 @@
             }
         }
 
+        .erp-activity {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         .remove-section-if-empty {
           section:has(ul:empty) {
             display: none;
@@ -162,11 +166,13 @@
         }
 
         .icon-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             width: 550px;
-            gap: 4px;
+        }
+
+        .icon-container img {
+            width: 12px;
+            height: 12px;
+            vertical-align: -1px;
         }
 
         .header-logo-container {
@@ -193,37 +199,27 @@
             border-color: #18753C;
           }
 
+        .rpa-badge-container {
+            margin: 4px 0px 8px 0;
+            line-height: 1.5rem;
+        }
+
         .rpa-badge {
-            display: inline-flex;
             text-transform: uppercase;
             color: var(--text-default-grey);
             background-color: var(--background-contrast-grey);
             border-radius: .25rem;
-            padding: 0 .5rem;
+            padding: 4px .5rem 4px calc(.5rem + 16px);
             font-weight: 700;
-            line-height: 1.5rem;
-            align-items: center;
-            justify-content: center;
-            margin:4px 0px 8px 0;
-            gap: 0;
-        }
-
-        .rpa-badge img {
-            width: 12px;
-            height: 12px;
-            margin-right: 4px;
+            background-repeat: no-repeat;
+            background-position: .5rem center;
+            background-size: 12px 12px;
         }
 
         .rpa-badge--success {
             color: #18753C;
             background-color: #B8FEC9;
-            width: 84px;
-
-        }
-
-        .icon-container img[src$=".svg"] {
-            width: 12px;
-            height: 12px;
+            background-image: url("{% static "icons/success-fill.svg" %}");
         }
 
         .address-section {
@@ -250,12 +246,9 @@
                 {% if erp.rpa %}
                     <section class="rpa-block rpa-block--success">
                         <p>{% translate "Registre Public d'Accessibilité (RPA) :" %}</p>
-                        <div class="rpa-badge rpa-badge--success">
-                            <div style="display: flex;">
-                                <img src="{% static "icons/success-fill.svg" %}" alt="">
-                                <span>{% translate "conforme" %}</span>
-                            </div>
-                        </div>
+                        <p class="rpa-badge-container">
+                            <span class="rpa-badge rpa-badge--success">{% translate "conforme" %}</span>
+                        </p>
                         {% if timestamps.created_by %}
                             <p class="fr-text--bold">{% translate "Déclaré par : " %}{{ timestamps.created_by }}</p>
                         {% endif %}
@@ -266,35 +259,43 @@
         </header>
         <section id="erp-main-info">
             <h1>{{ erp.nom }}</h1>
-            <h2>{{ erp.activite }}</h2>
+            {% if erp.activite %}<p class="erp-activity">{{ erp.activite }}</p>{% endif %}
         </section>
         <section class="address-section">
             <address>
                 <p class="icon-container">
-                    <img src="{% static "icons/map-pin.svg" %}" alt="">
+                    <img src="{% static "icons/map-pin.svg" %}"
+                         alt="{% translate "Adresse" %}">
                     <span>{{ erp.adresse }}</span>
                 </p>
                 {% if erp.telephone %}
                     <p class="icon-container">
-                        <img src="{% static "icons/phone-line.svg" %}" alt="">
-                        <span>{{ erp.telephone|format_phone }}</span>
+                        <img src="{% static "icons/phone-line.svg" %}"
+                             alt="{% translate "Téléphone" %}">
+                        <a href="tel:{{ erp.telephone|cut:" " }}"
+                           title="{% translate "Téléphone" %} : {{ erp.telephone|format_phone }}">{{ erp.telephone|format_phone }}</a>
                     </p>
                 {% endif %}
                 {% if erp.contact_url %}
                     <p class="icon-container">
-                        <img src="{% static "icons/mail-line.svg" %}" alt="">
-                        <span>{{ erp.contact_url }}</span>
+                        <img src="{% static "icons/mail-line.svg" %}"
+                             alt="{% translate "Formulaire de contact" %}">
+                        <a href="{{ erp.contact_url }}"
+                           title="{% translate "Formulaire de contact" %} : {{ erp.contact_url }}">{{ erp.contact_url }}</a>
                     </p>
                 {% endif %}
                 {% if erp.site_internet %}
                     <p class="icon-container">
-                        <img src="{% static "icons/global-line.svg" %}" alt="">
-                        <span>{{ erp.site_internet }}</span>
+                        <img src="{% static "icons/global-line.svg" %}"
+                             alt="{% translate "Site internet" %}">
+                        <a href="{{ erp.site_internet }}"
+                           title="{% translate "Site internet" %} : {{ erp.site_internet }}">{{ erp.site_internet }}</a>
                     </p>
                 {% endif %}
             </address>
             <div class="qr-container">
-                <p>{{ qr_code_svg|safe }}</p>
+                <img src="{{ qr_code_data_uri }}"
+                     alt="{% blocktranslate trimmed with url=qr_code_url %}QR code vers la fiche de l’établissement sur acceslibre : {{ url }}{% endblocktranslate %}">
             </div>
         </section>
         <h2 class="main-title">{% translate "Informations sur l'accessibilité" %}</h2>
@@ -311,21 +312,21 @@
             <section>
                 {% include "erp/includes/access_reception.html" %}
             </section>
-            <section>
-                {% if erp.is_accommodation %}
+            {% if erp.is_accommodation %}
+                <section>
                     {% include "erp/includes/access_accommodation.html" %}
-                {% endif %}
-            </section>
-            <section>
-                {% if access.registre_url or access.conformite or erp.rpa_exemption is not None %}
+                </section>
+            {% endif %}
+            {% if access.registre_url or access.conformite or erp.rpa_exemption is not None %}
+                <section>
                     {% include "erp/includes/access_legal.html" %}
-                {% endif %}
-            </section>
-            <section>
-                {% if access.commentaire %}
+                </section>
+            {% endif %}
+            {% if access.commentaire %}
+                <section>
                     {% include "erp/includes/access_comment.html" %}
-                {% endif %}
-            </section>
+                </section>
+            {% endif %}
         </section>
     </body>
 </html>
