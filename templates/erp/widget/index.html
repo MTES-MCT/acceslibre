@@ -1,5 +1,4 @@
 {% extends "erp/widget/base.html" %}
-{% load static %}
 {% load i18n %}
 {% block modal_content %}
     <div class="fr-modal__content">
@@ -30,13 +29,9 @@
                href="{{ erp.get_absolute_uri }}"
                rel="noopener"
                target="_blank"
-               aria-label="{% translate "Ouvrir une nouvelle fenêtre vers le site internet Acceslibre" %}"
+               title="{% translate "Voir toutes les informations d’accessibilité sur acceslibre.beta.gouv.fr" %} - {% translate "nouvelle fenêtre" %}"
                class="fr-text--md btn_acceslibre">
-                {% translate "Voir plus sur" %}
-                <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}"
-                     alt=""
-                     width="140"
-                     height="50">
+                {% translate "Voir toutes les informations d’accessibilité sur acceslibre.beta.gouv.fr" %}
             </a>
         </p>
     </div>

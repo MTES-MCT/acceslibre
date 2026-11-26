@@ -27,11 +27,21 @@ def test_get_widget(client, django_assert_max_num_queries):
 @pytest.mark.parametrize(
     "params, headers, expected_lang, expected_text",
     (
-        ({}, {}, "fr", "Voir plus sur"),
-        ({}, {"HTTP_ACCEPT_LANGUAGE": "en"}, "en", "See more on"),
-        ({"lang": "en"}, {}, "en", "See more on"),
-        ({"lang": "fr"}, {"HTTP_ACCEPT_LANGUAGE": "en"}, "fr", "Voir plus sur"),
-        ({"lang": "xx"}, {"HTTP_ACCEPT_LANGUAGE": "en"}, "en", "See more on"),
+        ({}, {}, "fr", "Voir toutes les informations d’accessibilité sur acceslibre.beta.gouv.fr"),
+        ({}, {"HTTP_ACCEPT_LANGUAGE": "en"}, "en", "See all accessibility information on acceslibre.beta.gouv.fr"),
+        ({"lang": "en"}, {}, "en", "See all accessibility information on acceslibre.beta.gouv.fr"),
+        (
+            {"lang": "fr"},
+            {"HTTP_ACCEPT_LANGUAGE": "en"},
+            "fr",
+            "Voir toutes les informations d’accessibilité sur acceslibre.beta.gouv.fr",
+        ),
+        (
+            {"lang": "xx"},
+            {"HTTP_ACCEPT_LANGUAGE": "en"},
+            "en",
+            "See all accessibility information on acceslibre.beta.gouv.fr",
+        ),
     ),
 )
 def test_get_widget_language(client, params, headers, expected_lang, expected_text):
@@ -168,20 +178,26 @@ def test_get_vestiaires_label(accueil_vestiaires, expected_label):
 
 
 @pytest.mark.parametrize(
-    "individuelles_adaptees, collectives_adaptees, expected_label",
+    "individuelles_adaptees, collectives, collectives_adaptees, expected_label",
     (
-        (None, None, ""),
-        (None, True, ""),
-        (True, None, "Douches individuelles accessibles"),
-        (True, False, "Douches individuelles accessibles"),
-        (False, None, ""),
-        (False, False, "Douches non accessibles"),
-        (False, True, "Douches collectives accessibles"),
+        (True, None, None, "Douches individuelles accessibles"),
+        (True, True, False, "Douches individuelles accessibles"),
+        (False, None, None, ""),
+        (False, False, None, "Douches non accessibles"),
+        (False, True, None, ""),
+        (False, True, False, "Douches non accessibles"),
+        (False, True, True, "Douches collectives accessibles"),
+        (None, None, None, ""),
+        (None, False, None, ""),
+        (None, True, None, ""),
+        (None, True, False, "Douches non accessibles"),
+        (None, True, True, "Douches collectives accessibles"),
     ),
 )
-def test_get_douches_label(individuelles_adaptees, collectives_adaptees, expected_label):
+def test_get_douches_label(individuelles_adaptees, collectives, collectives_adaptees, expected_label):
     access = Accessibilite(
         accueil_douches_individuelles_adaptees=individuelles_adaptees,
+        accueil_douches_collectives=collectives,
         accueil_douches_collectives_adaptees=collectives_adaptees,
     )
 

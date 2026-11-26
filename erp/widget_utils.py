@@ -254,13 +254,16 @@ def get_vestiaires_label(access):
 
 
 def get_douches_label(access):
-    if access.accueil_douches_individuelles_adaptees is True:
+    individuelles_adaptees = access.accueil_douches_individuelles_adaptees
+    if individuelles_adaptees is True:
         return translate("Douches individuelles accessibles")
-    if access.accueil_douches_individuelles_adaptees is not False:
-        return ""
 
+    # Individual showers not accessible or unknown: fall back on collective showers.
     if access.accueil_douches_collectives_adaptees is True:
         return translate("Douches collectives accessibles")
     if access.accueil_douches_collectives_adaptees is False:
+        return translate("Douches non accessibles")
+    # No collective showers is only conclusive when individual showers are known not to be accessible.
+    if access.accueil_douches_collectives is False and individuelles_adaptees is False:
         return translate("Douches non accessibles")
     return ""
