@@ -197,3 +197,70 @@ def get_salle_consultation_label(access):
             return translate("Salle de consultation non accessible. Consultations à domicile possibles.")
         return translate("Salle de consultation non accessible")
     return ""
+
+
+def get_aire_de_jeux_label(access):
+    if access.accueil_aire_de_jeux is True:
+        return translate("Aire de jeux accessible")
+    if access.accueil_aire_de_jeux is False:
+        return translate("Aire de jeux non accessible")
+    return ""
+
+
+def get_tribunes_label(access):
+    if access.accueil_tribunes_presence is False:
+        return translate("Pas de tribune")
+    if access.accueil_tribunes_presence is not True or access.accueil_tribunes_places is None:
+        return ""
+
+    nb_places = access.accueil_tribunes_places
+    if nb_places == 0:
+        return translate("Tribunes non accessibles aux personnes en fauteuil roulant")
+
+    nb_accompagnants = access.accueil_tribunes_places_avec_accompagnants
+    if nb_accompagnants is None:
+        text = ngettext(
+            "%(count)d place accessible aux personnes en fauteuils",
+            "%(count)d places accessibles aux personnes en fauteuils",
+            nb_places,
+        )
+    elif nb_accompagnants == 0:
+        text = ngettext(
+            "%(count)d place accessible aux personnes en fauteuils sans place accompagnant",
+            "%(count)d places accessibles aux personnes en fauteuils sans place accompagnant",
+            nb_places,
+        )
+    elif nb_accompagnants == 1:
+        text = ngettext(
+            "%(count)d place accessible avec 1 place accompagnant",
+            "%(count)d places accessibles avec 1 place accompagnant",
+            nb_places,
+        )
+    else:
+        text = ngettext(
+            "%(count)d place accessible avec places accompagnants",
+            "%(count)d places accessibles avec places accompagnants",
+            nb_places,
+        )
+    return text % {"count": nb_places}
+
+
+def get_vestiaires_label(access):
+    if access.accueil_vestiaires is True:
+        return translate("Vestiaires accessibles")
+    if access.accueil_vestiaires is False:
+        return translate("Vestiaires non accessibles")
+    return ""
+
+
+def get_douches_label(access):
+    if access.accueil_douches_individuelles_adaptees is True:
+        return translate("Douches individuelles accessibles")
+    if access.accueil_douches_individuelles_adaptees is not False:
+        return ""
+
+    if access.accueil_douches_collectives_adaptees is True:
+        return translate("Douches collectives accessibles")
+    if access.accueil_douches_collectives_adaptees is False:
+        return translate("Douches non accessibles")
+    return ""

@@ -9,8 +9,10 @@ from erp.models import Accessibilite, Activite, Erp, ExternalSource
 from erp.widget_utils import (
     get_accueil_ascenseur_etage,
     get_accueil_classes,
+    get_aire_de_jeux_label,
     get_audiodescription_labels,
     get_deaf_equipment_labels,
+    get_douches_label,
     get_entrance_label,
     get_outside_path_label,
     get_parking_label,
@@ -19,6 +21,8 @@ from erp.widget_utils import (
     get_soignant_label,
     get_sound_beacon_label,
     get_staff_label,
+    get_tribunes_label,
+    get_vestiaires_label,
     get_wc_label,
 )
 
@@ -353,6 +357,16 @@ class WidgetSerializer(serializers.Serializer):
                 "title": translate("salle de consultation"),
                 "labels": [get_salle_consultation_label(access)],
                 "icon": f"{settings.SITE_ROOT_URL}/static/img/symbole-sante-widget.png",
+            },
+            {
+                "title": translate("équipements sportifs"),
+                "labels": [
+                    get_aire_de_jeux_label(access),
+                    get_tribunes_label(access),
+                    get_vestiaires_label(access),
+                    get_douches_label(access),
+                ],
+                "icon": f"{settings.SITE_ROOT_URL}/static/img/equipements-sportifs-widget.png",
             },
         ]
 

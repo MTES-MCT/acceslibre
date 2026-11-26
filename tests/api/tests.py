@@ -1138,6 +1138,15 @@ class TestWidgetApi:
             "accueil_ascenseur_etage": True,
             "accueil_ascenseur_etage_pmr": None,
             "accueil_classes_accessibilite": schema.ACCUEIL_CLASSES_TOUTES_ACCESSIBLES,
+            "accueil_aire_de_jeux": False,
+            "accueil_tribunes_presence": True,
+            "accueil_tribunes_places": 2,
+            "accueil_tribunes_places_avec_accompagnants": 1,
+            "accueil_vestiaires": True,
+            "accueil_douches_individuelles": True,
+            "accueil_douches_individuelles_adaptees": False,
+            "accueil_douches_collectives": True,
+            "accueil_douches_collectives_adaptees": True,
         }
 
         erp = ErpFactory(published=True)
@@ -1203,6 +1212,16 @@ class TestWidgetApi:
                     "title": "accessibilité salle de classe",
                     "labels": ["Toutes les salles de classes sont accessibles"],
                     "icon": "http://testserver/static/img/accessibilite_salle_de_classe.png",
+                },
+                {
+                    "title": "équipements sportifs",
+                    "labels": [
+                        "Aire de jeux non accessible",
+                        "2 places accessibles avec 1 place accompagnant",
+                        "Vestiaires accessibles",
+                        "Douches collectives accessibles",
+                    ],
+                    "icon": "http://testserver/static/img/equipements-sportifs-widget.png",
                 },
             ],
         }
