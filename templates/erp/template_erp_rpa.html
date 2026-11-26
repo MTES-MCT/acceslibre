@@ -117,6 +117,24 @@
             padding-left: 12px;
         }
 
+        /* Don't use native bullets: WeasyPrint then tags nested lists as siblings of their parent list item in the PDF, instead of children (read by screen readers) */
+        li {
+            list-style: none;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            right: 100%;
+            padding-right: .3em;
+        }
+
+        ul ul li::before {
+            content: "◦";
+            padding-right: .36em;
+        }
+
         header {
             position: relative;
             display: flex;

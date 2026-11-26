@@ -180,15 +180,18 @@ def test_get_vestiaires_label(accueil_vestiaires, expected_label):
 @pytest.mark.parametrize(
     "individuelles_adaptees, collectives, collectives_adaptees, expected_label",
     (
-        (None, None, None, ""),
-        (None, True, True, ""),
         (True, None, None, "Douches individuelles accessibles"),
         (True, True, False, "Douches individuelles accessibles"),
         (False, None, None, ""),
-        (False, True, None, ""),
         (False, False, None, "Douches non accessibles"),
+        (False, True, None, ""),
         (False, True, False, "Douches non accessibles"),
         (False, True, True, "Douches collectives accessibles"),
+        (None, None, None, ""),
+        (None, False, None, ""),
+        (None, True, None, ""),
+        (None, True, False, "Douches non accessibles"),
+        (None, True, True, "Douches collectives accessibles"),
     ),
 )
 def test_get_douches_label(individuelles_adaptees, collectives, collectives_adaptees, expected_label):
