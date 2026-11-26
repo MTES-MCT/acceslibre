@@ -142,7 +142,7 @@ function SearchWhere(root) {
   }
 
   const autocomplete = new Autocomplete(root, {
-    debounceTime: 100,
+    debounceTime: 500,
     submitOnEnter,
     getResultValue: ({ text }) => text,
     onSubmit: handleSelect,
