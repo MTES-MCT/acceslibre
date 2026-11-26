@@ -261,6 +261,6 @@ def get_douches_label(access):
 
     if access.accueil_douches_collectives_adaptees is True:
         return translate("Douches collectives accessibles")
-    if access.accueil_douches_collectives_adaptees is False:
+    if access.accueil_douches_collectives_adaptees is False or access.accueil_douches_collectives is False:
         return translate("Douches non accessibles")
     return ""
