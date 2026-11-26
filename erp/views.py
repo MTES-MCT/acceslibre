@@ -1,3 +1,4 @@
+import base64
 import datetime
 import json
 import urllib
@@ -6,6 +7,7 @@ from io import BytesIO
 from pathlib import Path
 from uuid import UUID
 
+import pydyf
 import qrcode
 import reversion
 from django.conf import settings
@@ -1661,6 +1663,14 @@ class LocalStaticURLFetcher(URLFetcher):
         return super().fetch(url, headers)
 
 
+def _describe_pdf_links(document, pdf):
+    """Use the title of HTML links as description of the PDF links (read by screen readers), instead of the raw URL."""
+    for page in document.pages:
+        for *_, box in page.links:
+            if box.link_annotation is not None and (title := box.element.get("title")):
+                box.link_annotation["Contents"] = pydyf.String(title)
+
+
 def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     base_qs = (
         Erp.objects.select_related(
@@ -1695,7 +1705,7 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     stream = BytesIO()
 
     qr.save(stream)
-    qr_svg = stream.getvalue().decode("utf-8")
+    qr_code_data_uri = f"data:image/svg+xml;base64,{base64.b64encode(stream.getvalue()).decode('ascii')}"
     timestamps = erp.get_global_timestamps()
 
     groups = erp.activite.groups.all() if erp.activite else []
@@ -1709,7 +1719,7 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
         {
             "erp": erp,
             "access": erp.accessibilite,
-            "qr_code_svg": qr_svg,
+            "qr_code_data_uri": qr_code_data_uri,
             "qr_code_url": qr_code_url,
             "timestamps": timestamps,
             "should_display_education_accessibility_details": should_display_education_accessibility_details,
@@ -1721,6 +1731,8 @@ def generate_erp_rpa_pdf(request, commune, activite_slug, erp_slug):
     response["Content-Disposition"] = 'inline; filename="rpa.pdf"'
     response["X-Robots-Tag"] = "noindex, nofollow"
 
-    HTML(string=html_string, base_url=settings.SITE_ROOT_URL, url_fetcher=LocalStaticURLFetcher()).write_pdf(response)
+    HTML(string=html_string, base_url=settings.SITE_ROOT_URL, url_fetcher=LocalStaticURLFetcher()).write_pdf(
+        response, pdf_variant="pdf/ua-1", finisher=_describe_pdf_links
+    )
 
     return response

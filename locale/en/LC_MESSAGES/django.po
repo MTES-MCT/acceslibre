@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 11:21+0100\n"
+"POT-Creation-Date: 2026-11-25 16:17+0100\n"
 "PO-Revision-Date: 2026-11-19 11:20+0100\n"
 "Last-Translator:   <marielaure.vernay@beta.gouv.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,7 +405,7 @@ msgid "Icône"
 msgstr "Icon"
 
 msgid "Chemin de l'icône "
-msgstr "Icon path"
+msgstr "Icon path "
 
 msgid "Icône vectorielle"
 msgstr "Vector icon"
@@ -1105,7 +1105,7 @@ msgid "Douche"
 msgstr "Shower"
 
 msgid " et "
-msgstr "And"
+msgstr " and "
 
 msgid "Contour du département"
 msgstr "Department outline"
@@ -4124,7 +4124,7 @@ msgid "résultat"
 msgstr "result"
 
 msgid "Résultats trouvés pour "
-msgstr "Results found for"
+msgstr "Results found for "
 
 msgid "Étape 1 : vérifiez si l'établissement est déjà enregistré dans notre base"
 msgstr "Step 1: Check if the establishment already exists in our database"
@@ -5903,7 +5903,7 @@ msgid "Affichez uniquement les infos d'accessibilité qui vous concernent, en fo
 msgstr "Display only accessibility information that concerns you, depending on your handicap"
 
 msgid "Niveau de complétude des informations de la fiche : "
-msgstr "Level of completeness of information in the sheet:"
+msgstr "Level of completeness of information in the sheet: "
 
 msgid "Télécharger la fiche (PDF, environ 35 Ko)"
 msgstr "Download the sheet (PDF, approximately 35 KB)"
@@ -5952,10 +5952,10 @@ msgid "non conforme"
 msgstr "non-compliant"
 
 msgid "Déclaré par : "
-msgstr "Reported by:"
+msgstr "Reported by: "
 
 msgid "Mise à jour : "
-msgstr "Last updated at:"
+msgstr "Last updated at: "
 
 msgid "Les informations sont déclarées dans le cadre du Registre Public d'Accessibilité (RPA) prévu à l'article R. 164-5 du code de la construction et de l'habitation."
 msgstr "The information is declared as part of the Public Accessibility Register (RPA) provided for in article R. 164-5 of the construction and housing code."
@@ -5967,10 +5967,10 @@ msgid "Pour rappel, toute fausse déclaration administrative constitue une infra
 msgstr "As a reminder, any false administrative declaration constitutes a criminal offense punishable by sanction."
 
 msgid "Fiche créée"
-msgstr "Created by"
+msgstr "Created"
 
 msgid " par "
-msgstr "by"
+msgstr " by "
 
 msgid "en tant que gestionnaire"
 msgstr "as a manager"
@@ -6124,6 +6124,10 @@ msgstr "Choose this photo"
 
 msgid "Aucune photo ne convient"
 msgstr "No photo is suitable"
+
+#, python-format
+msgid "QR code vers la fiche de l’établissement sur acceslibre : %(url)s"
+msgstr "QR code linking to the establishment page on acceslibre: %(url)s"
 
 msgid "Informations sur l'accessibilité"
 msgstr "Accessibility information"
