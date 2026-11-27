@@ -227,8 +227,8 @@ importers:
         specifier: 4.9.1
         version: 4.9.1
       swagger-ui-dist:
-        specifier: 5.34.1
-        version: 5.34.1
+        specifier: 5.35.1
+        version: 5.35.1
     devDependencies:
       eslint:
         specifier: 10.14.0
@@ -1662,8 +1662,8 @@ packages:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
 
-  swagger-ui-dist@5.34.1:
-    resolution: {integrity: sha512-VSr8fXfI93obYaQicLJbLUKGRxDojj/SfRJDDLCioGTUBj4BK/Nj4eE9jCeCAnJxVLi7iS+08PbiZLyrQKBkJQ==}
+  swagger-ui-dist@5.35.1:
+    resolution: {integrity: sha512-XPBzLiPyIvwg2KYyNZIxOVS77pD0SNMbiSIwvpPXbU5bC/F4zvXxGraK3Hpyxug1b89fH5T29gSsW6rBxMmPyg==}
 
   term-size@2.2.1:
     resolution: {integrity: sha512-wK0Ri4fOGjv/XPy8SBHZChl8CM7uMc5VML7SqiQ0zG7+J5Vr+RMQDoHa2CNT6KHUnTGIXH34UDMkPzAUyapBZg==}
@@ -3340,7 +3340,7 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  swagger-ui-dist@5.34.1:
+  swagger-ui-dist@5.35.1:
     dependencies:
       '@scarf/scarf': 1.4.0
 
